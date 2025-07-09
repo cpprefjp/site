@@ -28,10 +28,10 @@ int value() const noexcept;
 
 int main()
 {
-  std::error_condition ec(static_cast<int>(std::errc::invalid_argument),
-                          std::generic_category());
+  std::error_condition econd(static_cast<int>(std::errc::invalid_argument),
+                             std::generic_category());
 
-  std::cout << ec.value() << std::endl;
+  std::cout << econd.value() << std::endl;
 }
 ```
 * value()[color ff0000]

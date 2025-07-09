@@ -44,55 +44,55 @@ int main()
   // デフォルトコンストラクタ
   std::cout << "default ctor" << std::endl;
   {
-    std::error_condition ec;
+    std::error_condition econd;
 
-    if (ec) {
+    if (econd) {
       std::cout << "error" << std::endl;
     }
     else {
       std::cout << "success" << std::endl;
     }
 
-    std::cout << ec.value() << std::endl;
-    std::cout << ec.category().name() << std::endl;
+    std::cout << econd.value() << std::endl;
+    std::cout << econd.category().name() << std::endl;
   }
 
   // エラー値とエラーカテゴリを受け取って構築
   std::cout << std::endl << "value & category ctor" << std::endl;
   {
-    std::error_condition ec(static_cast<int>(std::errc::invalid_argument),
-                            std::generic_category());
+    std::error_condition econd(static_cast<int>(std::errc::invalid_argument),
+                               std::generic_category());
 
-    if (ec) {
+    if (econd) {
       std::cout << "error" << std::endl;
     }
     else {
       std::cout << "success" << std::endl;
     }
 
-    std::cout << ec.value() << std::endl;
-    std::cout << ec.category().name() << std::endl;
+    std::cout << econd.value() << std::endl;
+    std::cout << econd.category().name() << std::endl;
   }
 
   // is_error_condition_enumが特殊化された型のエラー値を受け取って構築
   std::cout << std::endl << "ErrorConditionEnum ctor" << std::endl;
   {
-    std::error_condition ec(std::errc::invalid_argument);
+    std::error_condition econd(std::errc::invalid_argument);
 
-    if (ec) {
+    if (econd) {
       std::cout << "error" << std::endl;
     }
     else {
       std::cout << "success" << std::endl;
     }
 
-    std::cout << ec.value() << std::endl;
-    std::cout << ec.category().name() << std::endl;
+    std::cout << econd.value() << std::endl;
+    std::cout << econd.category().name() << std::endl;
   }
 }
 ```
-* ec.value()[link value.md]
-* ec.category()[link category.md]
+* econd.value()[link value.md]
+* econd.category()[link category.md]
 * name()[link /reference/system_error/error_category/name.md]
 * std::errc::invalid_argument[link /reference/system_error/errc.md]
 * std::generic_category()[link /reference/system_error/generic_category.md]

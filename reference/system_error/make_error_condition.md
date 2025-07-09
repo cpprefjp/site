@@ -32,19 +32,20 @@ namespace std {
 
 int main()
 {
-  std::error_condition ec = std::make_error_condition(std::errc::invalid_argument);
+  std::error_condition econd = std::make_error_condition(std::errc::invalid_argument);
 
-  std::cout << "category : " << ec.category().name() << std::endl;
-  std::cout << "value : " << ec.value() << std::endl;
-  std::cout << "message : " << ec.message() << std::endl;
+  std::cout << "category : " << econd.category().name() << std::endl;
+  std::cout << "value : " << econd.value() << std::endl;
+  std::cout << "message : " << econd.message() << std::endl;
 }
 ```
 * std::make_error_condition[color ff0000]
 * std::error_condition[link error_code.md]
 * std::errc::invalid_argument[link errc.md]
-* ec.category()[link error_condition/category.md]
+* econd.category()[link error_condition/category.md]
 * name()[link error_category/name.md]
-* ec.value()[link error_condition/value.md]
+* econd.value()[link error_condition/value.md]
+* econd.message()[link error_condition/message.md]
 
 ### 出力
 ```

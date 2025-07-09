@@ -32,27 +32,27 @@ void clear() noexcept;
 
 int main()
 {
-  std::error_condition ec(static_cast<int>(std::errc::invalid_argument),
-                          std::generic_category());
+  std::error_condition econd(static_cast<int>(std::errc::invalid_argument),
+                             std::generic_category());
 
-  ec.clear();
+  econd.clear();
 
-  if (ec) {
+  if (econd) {
     std::cout << "error" << std::endl;
   }
   else {
     std::cout << "success" << std::endl;
   }
 
-  std::cout << ec.value() << std::endl;
-  std::cout << ec.category().name() << std::endl;
+  std::cout << econd.value() << std::endl;
+  std::cout << econd.category().name() << std::endl;
 }
 ```
 * clear()[color ff0000]
 * std::errc::invalid_argument[link /reference/system_error/errc.md]
 * std::generic_category()[link /reference/system_error/generic_category.md]
-* ec.value()[link value.md]
-* ec.category()[link category.md]
+* econd.value()[link value.md]
+* econd.category()[link category.md]
 * name()[link /reference/system_error/error_category/name.md]
 
 ### 出力

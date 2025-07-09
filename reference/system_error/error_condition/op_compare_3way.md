@@ -47,12 +47,12 @@ return lhs.value() <=> rhs.value();
 
 int main()
 {
-  std::error_condition ec1 = std::make_error_condition(std::errc::invalid_argument);
-  std::error_condition ec2 = std::make_error_condition(std::errc::invalid_argument);
-  std::error_condition ec3 = std::make_error_condition(std::errc::permission_denied);
+  std::error_condition econd1 = std::make_error_condition(std::errc::invalid_argument);
+  std::error_condition econd2 = std::make_error_condition(std::errc::invalid_argument);
+  std::error_condition econd3 = std::make_error_condition(std::errc::permission_denied);
 
-  assert((ec1 <=> ec2) == 0);
-  assert((ec1 <=> ec3) != 0);
+  assert((econd1 <=> econd2) == 0);
+  assert((econd1 <=> econd3) != 0);
 }
 ```
 * std::make_error_condition[link /reference/system_error/make_error_condition.md]

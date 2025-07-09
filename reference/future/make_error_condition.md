@@ -32,19 +32,20 @@ namespace std {
 
 int main()
 {
-  std::error_condition ec = std::make_error_condition(std::future_errc::broken_promise);
+  std::error_condition econd = std::make_error_condition(std::future_errc::broken_promise);
 
-  std::cout << "category : " << ec.category().name() << std::endl;
-  std::cout << "value : " << ec.value() << std::endl;
-  std::cout << "message : " << ec.message() << std::endl;
+  std::cout << "category : " << econd.category().name() << std::endl;
+  std::cout << "value : " << econd.value() << std::endl;
+  std::cout << "message : " << econd.message() << std::endl;
 }
 ```
 * std::make_error_condition[color ff0000]
 * std::error_condition[link /reference/system_error/error_condition.md]
 * std::future_errc::broken_promise[link future_errc.md]
-* ec.category()[link /reference/system_error/error_condition/category.md]
+* econd.category()[link /reference/system_error/error_condition/category.md]
 * name()[link /reference/system_error/error_category/name.md]
-* ec.value()[link /reference/system_error/error_condition/value.md]
+* econd.value()[link /reference/system_error/error_condition/value.md]
+* econd.message()[link /reference/system_error/error_condition/message.md]
 
 ### 出力例
 ```

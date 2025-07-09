@@ -29,10 +29,10 @@ const error_category& category() const noexcept;
 
 int main()
 {
-  std::error_condition ec(static_cast<int>(std::errc::invalid_argument),
-                          std::generic_category());
+  std::error_condition econd(static_cast<int>(std::errc::invalid_argument),
+                             std::generic_category());
 
-  const std::error_category& cat = ec.category();
+  const std::error_category& cat = econd.category();
   std::cout << cat.name() << std::endl;
 }
 ```
