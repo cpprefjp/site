@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;thread&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;jthread&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;4ed457fa38e25439a8a12bf961faaf9f2131b19c&#34;, &#34;source&#34;: &#34;#include &lt;thread&gt;\n#include &lt;iostream&gt;\n#include &lt;windows.h&gt;\n\nvoid func() {\n  std::cout &lt;&lt; \&#34;func\&#34; &lt;&lt; std::endl;\n}\n\nint main() {\n  std::jthread t{func};\n  SetThreadPriority(t.native_handle(), THREAD_PRIORITY_IDLE);\n  t.join();\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;thread&#34;, &#34;jthread&#34;, &#34;native_handle&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;thread&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;jthread&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;3aaa010c3101f43e58fdb9b7f113cc1b6d20d03c&#34;, &#34;source&#34;: &#34;#include &lt;thread&gt;\n#include &lt;iostream&gt;\n#include &lt;windows.h&gt;\n\nvoid func() {\n  std::cout &lt;&lt; \&#34;func\&#34; &lt;&lt; std::endl;\n}\n\nint main() {\n  std::jthread jt{func};\n  SetThreadPriority(jt.native_handle(), THREAD_PRIORITY_IDLE);\n  jt.join();\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;thread&#34;, &#34;jthread&#34;, &#34;native_handle&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-02-27T06:55:09">
-        2025年02月27日 06時55分09秒
+      <span itemprop="datePublished" content="2025-07-09T08:52:14">
+        2025年07月09日 08時52分14秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -242,7 +242,7 @@
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p>実装依存のスレッドハンドル</p>
 <h2>例</h2>
-<p><div class="yata" id="4ed457fa38e25439a8a12bf961faaf9f2131b19c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="3aaa010c3101f43e58fdb9b7f113cc1b6d20d03c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;windows.h&gt;</span><span class="cp"></span>
 
@@ -251,9 +251,9 @@
 <span class="p">}</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n"><a href="../jthread.html">std::jthread</a></span> <span class="n">t</span><span class="p">{</span><span class="n">func</span><span class="p">};</span>
-  <span class="n">SetThreadPriority</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n"><span style="color:#ff0000">native_handle()</span></span><span class="p">,</span> <span class="n">THREAD_PRIORITY_IDLE</span><span class="p">);</span>
-  <span class="n"><a href="../thread/join.html">t.join()</a></span><span class="p">;</span>
+  <span class="n"><a href="../jthread.html">std::jthread</a></span> <span class="n">jt</span><span class="p">{</span><span class="n">func</span><span class="p">};</span>
+  <span class="n">SetThreadPriority</span><span class="p">(</span><span class="n">jt</span><span class="p">.</span><span class="n"><span style="color:#ff0000">native_handle()</span></span><span class="p">,</span> <span class="n">THREAD_PRIORITY_IDLE</span><span class="p">);</span>
+  <span class="n">jt</span><span class="p">.</span><span class="n">join</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>

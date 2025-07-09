@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;rcu&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;44ec01f5bf6d45258a16e39ade46ef4c91a4d04c&#34;, &#34;source&#34;: &#34;#include &lt;atomic&gt;\n#include &lt;mutex&gt;\n#include &lt;thread&gt;\n#include &lt;rcu&gt;\n\nstruct Data {\n  int m1, m2;\n};\n\n// \u5171\u6709\u30c7\u30fc\u30bf\u3092\u6307\u3059\u30dd\u30a4\u30f3\u30bf\nstd::atomic&lt;Data*&gt; data;\n\nvoid reader()\n{\n  std::scoped_lock slk{std::rcu_default_domain()};\n  // \u5171\u6709\u30c7\u30fc\u30bf\u3092\u8aad\u307f\u53d6\u308a(Read)\n  Data *p = data;\n\n  std::println(\&#34;{} {}\&#34;, p-&gt;m1, p-&gt;m2);\n}\n\nvoid updater()\n{\n  Data *newdata = new Data{1, 2};\n  // \u65b0\u3057\u3044\u30c7\u30fc\u30bf\u3067\u5171\u6709\u30c7\u30fc\u30bf\u3092\u66f4\u65b0(Update)\n  Data *old_data = data.exchange(newdata);\n\n  // \u53e4\u3044\u30c7\u30fc\u30bf\u3092\u8aad\u307f\u53d6\u308a\u4e2d\u306e\u30b9\u30ec\u30c3\u30c9\u304c\u306a\u304f\u306a\u3063\u305f\u30bf\u30a4\u30df\u30f3\u30b0\u3067\n  // \u30c7\u30fc\u30bf\u9818\u57df\u306e\u56de\u53ce(\u30e1\u30e2\u30ea\u89e3\u653e)\u3092\u884c\u3046\u3088\u3046\u30b9\u30b1\u30b8\u30e5\u30fc\u30ea\u30f3\u30b0\u3059\u308b\n  std::rcu_retire(old_data);\n}\n\nint main()\n{\n  // \u5171\u6709\u30c7\u30fc\u30bf\u521d\u671f\u5316\n  Data *newdata = new Data{0, 0};\n  data.store(newdata);\n\n  // \u5171\u6709\u30c7\u30fc\u30bf\u3078\u4e26\u884c\u30a2\u30af\u30bb\u30b9\n  std::jthread th{[] {\n    for (int i = 0; i &lt; 3; i++) {\n      reader();\n    }\n  }};\n  updater();\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;rcu&#34;, &#34;rcu_retire&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;rcu&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;df95124c624140650a59a32280881c9a55137e21&#34;, &#34;source&#34;: &#34;#include &lt;atomic&gt;\n#include &lt;mutex&gt;\n#include &lt;thread&gt;\n#include &lt;rcu&gt;\n\nstruct Data {\n  int m1, m2;\n};\n\n// \u5171\u6709\u30c7\u30fc\u30bf\u3092\u6307\u3059\u30dd\u30a4\u30f3\u30bf\nstd::atomic&lt;Data*&gt; data;\n\nvoid reader()\n{\n  std::scoped_lock slk{std::rcu_default_domain()};\n  // \u5171\u6709\u30c7\u30fc\u30bf\u3092\u8aad\u307f\u53d6\u308a(Read)\n  Data *p = data;\n\n  std::println(\&#34;{} {}\&#34;, p-&gt;m1, p-&gt;m2);\n}\n\nvoid updater()\n{\n  Data *newdata = new Data{1, 2};\n  // \u65b0\u3057\u3044\u30c7\u30fc\u30bf\u3067\u5171\u6709\u30c7\u30fc\u30bf\u3092\u66f4\u65b0(Update)\n  Data *old_data = data.exchange(newdata);\n\n  // \u53e4\u3044\u30c7\u30fc\u30bf\u3092\u8aad\u307f\u53d6\u308a\u4e2d\u306e\u30b9\u30ec\u30c3\u30c9\u304c\u306a\u304f\u306a\u3063\u305f\u30bf\u30a4\u30df\u30f3\u30b0\u3067\n  // \u30c7\u30fc\u30bf\u9818\u57df\u306e\u56de\u53ce(\u30e1\u30e2\u30ea\u89e3\u653e)\u3092\u884c\u3046\u3088\u3046\u30b9\u30b1\u30b8\u30e5\u30fc\u30ea\u30f3\u30b0\u3059\u308b\n  std::rcu_retire(old_data);\n}\n\nint main()\n{\n  // \u5171\u6709\u30c7\u30fc\u30bf\u521d\u671f\u5316\n  Data *newdata = new Data{0, 0};\n  data.store(newdata);\n\n  // \u5171\u6709\u30c7\u30fc\u30bf\u3078\u4e26\u884c\u30a2\u30af\u30bb\u30b9\n  std::jthread jt{[] {\n    for (int i = 0; i &lt; 3; i++) {\n      reader();\n    }\n  }};\n  updater();\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;rcu&#34;, &#34;rcu_retire&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-05-01T15:51:26">
-        2025年05月01日 15時51分26秒
+      <span itemprop="datePublished" content="2025-07-09T08:52:14">
+        2025年07月09日 08時52分14秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">yoh</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -245,7 +245,7 @@
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p><code><a href="../new/bad_alloc.html">bad_alloc</a></code>、または<code>d1</code>初期化中に送出された<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>。</p>
 <h2>例</h2>
-<p><div class="yata" id="44ec01f5bf6d45258a16e39ade46ef4c91a4d04c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../atomic.html">&lt;atomic&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="df95124c624140650a59a32280881c9a55137e21"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../atomic.html">&lt;atomic&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../mutex.html">&lt;mutex&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../rcu.html">&lt;rcu&gt;</a></span><span class="cp"></span>
@@ -284,7 +284,7 @@
   <span class="n">data</span><span class="p">.</span><span class="n"><a href="../atomic/atomic/store.html">store</a></span><span class="p">(</span><span class="n">newdata</span><span class="p">);</span>
 
   <span class="c1">// 共有データへ並行アクセス</span>
-  <span class="n"><a href="../thread/jthread.html">std::jthread</a></span> <span class="n">th</span><span class="p">{[]</span> <span class="p">{</span>
+  <span class="n"><a href="../thread/jthread.html">std::jthread</a></span> <span class="n">jt</span><span class="p">{[]</span> <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
       <span class="n">reader</span><span class="p">();</span>
     <span class="p">}</span>

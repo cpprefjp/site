@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;thread&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;jthread&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;9196042325837a61bce163b20022983b9b870cbc&#34;, &#34;source&#34;: &#34;#include &lt;thread&gt;\n#include &lt;cassert&gt;\n\nint main()\n{\n  std::jthread t1([]{ /*...*/ });\n  std::jthread t2;\n  assert(t1.joinable() &amp;&amp; !t2.joinable());\n\n  // t1\u304b\u3089t2\u3078\u30e0\u30fc\u30d6\u4ee3\u5165\n  t2 = std::move(t1);\n  assert(!t1.joinable() &amp;&amp; t2.joinable());\n\n  t2.join();\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;thread&#34;, &#34;jthread&#34;, &#34;op_assign&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;thread&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;jthread&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;3ed414914446e1e95d0b355ef49b6b2dd40da8d2&#34;, &#34;source&#34;: &#34;#include &lt;thread&gt;\n#include &lt;cassert&gt;\n\nint main()\n{\n  std::jthread jt1([]{ /*...*/ });\n  std::jthread jt2;\n  assert(jt1.joinable() &amp;&amp; !jt2.joinable());\n\n  // jt1\u304b\u3089jt2\u3078\u30e0\u30fc\u30d6\u4ee3\u5165\n  jt2 = std::move(jt1);\n  assert(!jt1.joinable() &amp;&amp; jt2.joinable());\n\n  jt2.join();\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;thread&#34;, &#34;jthread&#34;, &#34;op_assign&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2024-06-11T13:45:38">
-        2024年06月11日 13時45分38秒
+      <span itemprop="datePublished" content="2025-07-09T08:52:14">
+        2025年07月09日 08時52分14秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -249,20 +249,20 @@
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p><code>*this</code>を返す。</p>
 <h2>例</h2>
-<p><div class="yata" id="9196042325837a61bce163b20022983b9b870cbc"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="3ed414914446e1e95d0b355ef49b6b2dd40da8d2"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../jthread.html">std::jthread</a></span> <span class="n">t1</span><span class="p">([]{</span> <span class="cm">/*...*/</span> <span class="p">});</span>
-  <span class="n"><a href="../jthread.html">std::jthread</a></span> <span class="n">t2</span><span class="p">;</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n"><a href="joinable.html">joinable()</a></span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">t2</span><span class="p">.</span><span class="n"><a href="joinable.html">joinable()</a></span><span class="p">);</span>
+  <span class="n"><a href="../jthread.html">std::jthread</a></span> <span class="n">jt1</span><span class="p">([]{</span> <span class="cm">/*...*/</span> <span class="p">});</span>
+  <span class="n"><a href="../jthread.html">std::jthread</a></span> <span class="n">jt2</span><span class="p">;</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">jt1</span><span class="p">.</span><span class="n"><a href="joinable.html">joinable()</a></span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">jt2</span><span class="p">.</span><span class="n"><a href="joinable.html">joinable()</a></span><span class="p">);</span>
 
-  <span class="c1">// t1からt2へムーブ代入</span>
-  <span class="n"><span style="color:#ff0000">t2 = std::move(t1);</span></span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">t1</span><span class="p">.</span><span class="n"><a href="joinable.html">joinable()</a></span> <span class="o">&amp;&amp;</span> <span class="n">t2</span><span class="p">.</span><span class="n"><a href="joinable.html">joinable()</a></span><span class="p">);</span>
+  <span class="c1">// jt1からjt2へムーブ代入</span>
+  <span class="n"><span style="color:#ff0000">jt2 = std::move(jt1);</span></span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">jt1</span><span class="p">.</span><span class="n"><a href="joinable.html">joinable()</a></span> <span class="o">&amp;&amp;</span> <span class="n">jt2</span><span class="p">.</span><span class="n"><a href="joinable.html">joinable()</a></span><span class="p">);</span>
 
-  <span class="n"><a href="../thread/join.html">t2.join()</a></span><span class="p">;</span>
+  <span class="n">jt2</span><span class="p">.</span><span class="n">join</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>

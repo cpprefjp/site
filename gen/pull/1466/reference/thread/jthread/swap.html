@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;thread&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;jthread&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;0881625a5c40c9e0d8ad69370c483176a3ecfcfd&#34;, &#34;source&#34;: &#34;#include &lt;thread&gt;\n\nint main()\n{\n  std::jthread t1([]{ /*...*/ });\n  std::jthread t2;\n\n  t1.swap(t2);\n\n  t2.join();\n\n  return 0;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;thread&#34;, &#34;jthread&#34;, &#34;swap&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;thread&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;jthread&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;cddd4c6bd68d05cf4344efa7f236069a5c10d516&#34;, &#34;source&#34;: &#34;#include &lt;thread&gt;\n\nint main()\n{\n  std::jthread jt1([]{ /*...*/ });\n  std::jthread jt2;\n\n  jt1.swap(jt2);\n\n  jt2.join();\n\n  return 0;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;thread&#34;, &#34;jthread&#34;, &#34;swap&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2024-06-11T13:45:38">
-        2024年06月11日 13時45分38秒
+      <span itemprop="datePublished" content="2025-07-09T08:52:14">
+        2025年07月09日 08時52分14秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -235,16 +235,16 @@
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p>送出しない。</p>
 <h2>例</h2>
-<p><div class="yata" id="0881625a5c40c9e0d8ad69370c483176a3ecfcfd"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="cddd4c6bd68d05cf4344efa7f236069a5c10d516"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../jthread.html">std::jthread</a></span> <span class="n">t1</span><span class="p">([]{</span> <span class="cm">/*...*/</span> <span class="p">});</span>
-  <span class="n"><a href="../jthread.html">std::jthread</a></span> <span class="n">t2</span><span class="p">;</span>
+  <span class="n"><a href="../jthread.html">std::jthread</a></span> <span class="n">jt1</span><span class="p">([]{</span> <span class="cm">/*...*/</span> <span class="p">});</span>
+  <span class="n"><a href="../jthread.html">std::jthread</a></span> <span class="n">jt2</span><span class="p">;</span>
 
-  <span class="n">t1</span><span class="p">.</span><span class="n"><span style="color:#ff0000">swap</span></span><span class="p">(</span><span class="n">t2</span><span class="p">);</span>
+  <span class="n">jt1</span><span class="p">.</span><span class="n"><span style="color:#ff0000">swap</span></span><span class="p">(</span><span class="n">jt2</span><span class="p">);</span>
 
-  <span class="n"><a href="../thread/join.html">t2.join()</a></span><span class="p">;</span>
+  <span class="n">jt2</span><span class="p">.</span><span class="n"><a href="join.html">join</a></span><span class="p">();</span>
 
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>

@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;thread&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;jthread&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;e424b1242ab45abfe26fc8a30cd4108d7c7ba07e&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;thread&gt;\n\nint main()\n{\n  std::jthread t {\n    [](std::stop_token stoken) {\n      while (!stoken.stop_requested()) {\n        // \u505c\u6b62\u8981\u6c42\u304c\u304f\u308b\u307e\u3067\u51e6\u7406\u3092\u7d99\u7d9a\u3059\u308b\u2026\n      }\n      std::cout &lt;&lt; \&#34;exit t1 thread\&#34; &lt;&lt; std::endl;\n    }\n  };\n\n  // \u505c\u6b62\u8981\u6c42\u3092\u4f5c\u6210\u3059\u308b\n  t.request_stop();\n  t.join();\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;thread&#34;, &#34;jthread&#34;, &#34;request_stop&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;thread&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;jthread&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;7c8921dee61718ae79590e9af7eedb169dbee085&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;thread&gt;\n\nint main()\n{\n  std::jthread jt {\n    [](std::stop_token stoken) {\n      while (!stoken.stop_requested()) {\n        // \u505c\u6b62\u8981\u6c42\u304c\u304f\u308b\u307e\u3067\u51e6\u7406\u3092\u7d99\u7d9a\u3059\u308b\u2026\n      }\n      std::cout &lt;&lt; \&#34;exit jt thread\&#34; &lt;&lt; std::endl;\n    }\n  };\n\n  // \u505c\u6b62\u8981\u6c42\u3092\u4f5c\u6210\u3059\u308b\n  jt.request_stop();\n  jt.join();\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;thread&#34;, &#34;jthread&#34;, &#34;request_stop&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:33:39">
-        2025年07月08日 15時33分39秒
+      <span itemprop="datePublished" content="2025-07-09T08:52:14">
+        2025年07月09日 08時52分14秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -239,28 +239,28 @@
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p>送出しない。</p>
 <h2>例</h2>
-<p><div class="yata" id="e424b1242ab45abfe26fc8a30cd4108d7c7ba07e"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="7c8921dee61718ae79590e9af7eedb169dbee085"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../jthread.html">std::jthread</a></span> <span class="n">t</span> <span class="p">{</span>
+  <span class="n"><a href="../jthread.html">std::jthread</a></span> <span class="n">jt</span> <span class="p">{</span>
     <span class="p">[](</span><span class="n"><a href="../../stop_token/stop_token.html">std::stop_token</a></span> <span class="n">stoken</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">stoken</span><span class="p">.</span><span class="n"><a href="../../stop_token/stop_token/stop_requested.html">stop_requested()</a></span><span class="p">)</span> <span class="p">{</span>
         <span class="c1">// 停止要求がくるまで処理を継続する…</span>
       <span class="p">}</span>
-      <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"exit t1 thread"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+      <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"exit jt thread"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
     <span class="p">}</span>
   <span class="p">};</span>
 
   <span class="c1">// 停止要求を作成する</span>
-  <span class="n">t</span><span class="p">.</span><span class="n"><span style="color:#ff0000">request_stop()</span></span><span class="p">;</span>
-  <span class="n"><a href="../thread/join.html">t.join()</a></span><span class="p">;</span>
+  <span class="n">jt</span><span class="p">.</span><span class="n"><span style="color:#ff0000">request_stop()</span></span><span class="p">;</span>
+  <span class="n"><a href="join.html">jt.join()</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 <h3>出力</h3>
-<p><pre><code>exit t1 thread
+<p><pre><code>exit jt thread
 </code></pre></p>
 <h2>バージョン</h2>
 <h3>言語</h3>
