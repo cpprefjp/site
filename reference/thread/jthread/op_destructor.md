@@ -51,13 +51,13 @@ int main()
   {
     // 関数の第1引数がstd::stop_token型である場合、
     // スレッドに中断リクエストを送れるようになる
-    std::jthread t1 {f1, 1'000'000};
+    std::jthread jt1 {f1, 1'000'000};
     std::this_thread::sleep_for(std::chrono::milliseconds{3});
 
     // スレッド実行する関数がstd::stop_tokenを受け取らない場合、
     // 中断リクエストを使用せず、
     // デストラクタで自動的にjoinするスレッドオブジェクトとして使用する
-    std::jthread t2 {
+    std::jthread jt2 {
       [] { f2(1'000'000); }
     };
   } // jthreadのデストラクタでは、中断要求を発行し、スレッドの終了を待機する

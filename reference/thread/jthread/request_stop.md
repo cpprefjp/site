@@ -36,27 +36,28 @@ return ssource.request_stop();
 
 int main()
 {
-  std::jthread t {
+  std::jthread jt {
     [](std::stop_token stoken) {
       while (!stoken.stop_requested()) {
         // 停止要求がくるまで処理を継続する…
       }
-      std::cout << "exit t1 thread" << std::endl;
+      std::cout << "exit jt thread" << std::endl;
     }
   };
 
   // 停止要求を作成する
-  t.request_stop();
-  t.join();
+  jt.request_stop();
+  jt.join();
 }
 ```
 * request_stop()[color ff0000]
 * std::stop_token[link /reference/stop_token/stop_token.md]
 * stop_requested()[link /reference/stop_token/stop_token/stop_requested.md]
+* jt.join()[link join.md]
 
 ### 出力
 ```
-exit t1 thread
+exit jt thread
 ```
 
 ## バージョン

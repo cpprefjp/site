@@ -39,18 +39,18 @@ jthread& operator=(jthread&& x) noexcept;    // (2) C++20
 
 int main()
 {
-  std::jthread t1([]{ /*...*/ });
-  std::jthread t2;
-  assert(t1.joinable() && !t2.joinable());
+  std::jthread jt1([]{ /*...*/ });
+  std::jthread jt2;
+  assert(jt1.joinable() && !jt2.joinable());
 
-  // t1からt2へムーブ代入
-  t2 = std::move(t1);
-  assert(!t1.joinable() && t2.joinable());
+  // jt1からjt2へムーブ代入
+  jt2 = std::move(jt1);
+  assert(!jt1.joinable() && jt2.joinable());
 
-  t2.join();
+  jt2.join();
 }
 ```
-* t2 = std::move(t1);[color ff0000]
+* jt2 = std::move(jt1);[color ff0000]
 * joinable()[link joinable.md]
 
 ### 出力

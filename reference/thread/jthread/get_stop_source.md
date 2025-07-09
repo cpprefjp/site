@@ -31,16 +31,16 @@ stop_source get_stop_source() noexcept; // (1) C++26
 
 int main()
 {
-  std::jthread t1 {
+  std::jthread jt1 {
     [](std::stop_token stoken) {
       while (!stoken.stop_requested()) {}
-      std::cout << "exit t1 thread" << std::endl;
+      std::cout << "exit jt1 thread" << std::endl;
     }
   };
 
-  // 別スレッドを立てて、そのスレッドからt1スレッドに停止要求を発行する
-  std::jthread t2 {
-    [ssource = t1.get_stop_source()]() {
+  // 別スレッドを立てて、そのスレッドからjt1スレッドに停止要求を発行する
+  std::jthread jt2 {
+    [ssource = jt1.get_stop_source()]() {
       ssource.request_stop();
     }
   };
@@ -53,7 +53,7 @@ int main()
 
 ### 出力
 ```
-exit t1 thread
+exit jt1 thread
 ```
 
 ## バージョン

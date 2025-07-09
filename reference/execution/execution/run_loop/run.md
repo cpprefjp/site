@@ -75,7 +75,7 @@ int main()
   ex::run_loop loop;
   std::println("starting");
 
-  std::jthread th([&]{
+  std::jthread jt([&]{
     // 2) 別スレッドからfinishを呼び出し
     std::println("finishing");
     loop.finish();

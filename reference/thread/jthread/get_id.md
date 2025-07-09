@@ -32,14 +32,14 @@ id get_id() const noexcept;               // (1) C++26
 
 int main()
 {
-  std::jthread t1;
-  assert( t1.get_id() == std::jthread::id{} );
+  std::jthread jt1;
+  assert( jt1.get_id() == std::jthread::id{} );
 
-  std::jthread t2{ []{ /*...*/ } };
-  assert( t2.get_id() != std::jthread::id{} );
+  std::jthread jt2{ []{ /*...*/ } };
+  assert( jt2.get_id() != std::jthread::id{} );
 
-  std::cout << t1.get_id() << std::endl;
-  std::cout << t2.get_id() << std::endl;
+  std::cout << jt1.get_id() << std::endl;
+  std::cout << jt2.get_id() << std::endl;
 }
 ```
 * get_id()[color ff0000]

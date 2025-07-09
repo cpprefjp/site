@@ -50,11 +50,11 @@ std::future<int> start_async(int x, int y)
   auto ftr = task.get_future();
 
   // 新しいスレッド作成後にdetach操作
-  std::jthread t(std::move(task));
-  t.detach();
+  std::jthread jt(std::move(task));
+  jt.detach();
 
   return ftr;
-  // 変数tにはスレッドが紐付いていないため破棄可能
+  // 変数jtにはスレッドが紐付いていないため破棄可能
 }
 
 int main()

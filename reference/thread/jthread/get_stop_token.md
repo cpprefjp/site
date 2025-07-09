@@ -38,17 +38,17 @@ return ssource.get_token();
 
 int main()
 {
-  std::jthread t {
+  std::jthread jt {
     [](std::stop_token stoken) {
       while (!stoken.stop_requested()) {}
       std::cout << "exit thread" << std::endl;
     }
   };
 
-  t.request_stop();
+  jt.request_stop();
 
   // 停止要求が正しく発行されたか調べる
-  assert(t.get_stop_token().stop_requested());
+  assert(jt.get_stop_token().stop_requested());
 }
 ```
 * get_stop_token()[color ff0000]
@@ -58,7 +58,7 @@ int main()
 
 ### 出力
 ```
-exit t thread
+exit thread
 ```
 
 ## バージョン
