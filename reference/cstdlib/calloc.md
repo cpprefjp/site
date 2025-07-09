@@ -25,7 +25,6 @@ namespace std {
 ## 備考
 
 - `calloc`・`malloc`・`realloc` によって複数個の異なる領域が確保された場合、それらの連続性や順序は保証されない。
-
 - メモリリークを避けるため、この関数で確保したメモリは、`free`などを使い、メモリ解放するべきである。
 
 ## 例
@@ -67,4 +66,4 @@ p2[3] == 0
 
 ## 参照
 
--[7.20.3 Memory management functions]("https://www.dii.uchile.cl/~daespino/files/Iso_C_1999_definition.pdf")
+- [7.20.3 Memory management functions](https://www.dii.uchile.cl/~daespino/files/Iso_C_1999_definition.pdf) [PDF]
