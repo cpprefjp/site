@@ -41,7 +41,7 @@ public:
     }
 };
 
-int main(void) {
+int main() {
     dummy_buf buf{};
     std::cout << *buf.eback() << std::endl;  // 先頭のポインタにアクセス
 }

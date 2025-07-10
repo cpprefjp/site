@@ -41,7 +41,7 @@ public:
     }
 };
 
-int main(void) {
+int main() {
     char space[10] = {};
     {
         dummy_buf buf{space, space};  // 空の領域を指定

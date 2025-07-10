@@ -44,7 +44,7 @@ public:
     }
 };
 
-int main(void) {
+int main() {
     char space[10] = {};
     dummy_buf buf{space, space + 5};
     std::cout << buf.xsputn("ABC", 3) << std::endl;  // 3文字全て書き込む

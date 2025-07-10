@@ -48,7 +48,7 @@ protected:
     }
 };
 
-int main(void) {
+int main() {
     char space[10] = {};
     dummy_buf buf{space, space + 2};
     std::cout << buf.sputc('A') << std::endl;  // 'A'を書き込む

@@ -40,7 +40,7 @@ public:
     }
 };
 
-int main(void) {
+int main() {
     dummy_buf buf{};
     std::cout << buf.in_avail() << std::endl;
     std::cout << char(buf.snextc()) << std::endl;  // 1文字目の’A'を捨て、次の’B'を読み取る

@@ -51,7 +51,7 @@ public:
     }
 };
 
-int main(void) {
+int main() {
     dummy_buf buf1{};
     dummy_buf buf2{};
     std::cout << char(buf1.sbumpc()) << std::endl;

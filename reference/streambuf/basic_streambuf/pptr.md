@@ -40,7 +40,7 @@ public:
     }
 };
 
-int main(void) {
+int main() {
     char space[10] = {};
     dummy_buf buf{space, space + 10};
     std::cout << buf.pptr() - space << std::endl;  // pptr()の位置を確認

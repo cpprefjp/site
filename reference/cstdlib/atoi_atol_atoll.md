@@ -38,7 +38,7 @@ namespace std {
 #include <cstdio>
 #include <cstdlib>
  
-int main(void)
+int main()
 {
   printf("%i\n", atoi(" -123junk"));
   printf("%i\n", atoi(" +321dust"));

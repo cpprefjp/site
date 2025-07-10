@@ -40,7 +40,7 @@ cppref より引用。
 #include <iostream>
 #include <cstdlib>
 
-int main(void)
+int main()
 {
   int *p1 = malloc(4*sizeof(int));  // 4個のint型配列の目盛りを確保
   int *p2 = malloc(sizeof(int[4])); // 上と同じ。

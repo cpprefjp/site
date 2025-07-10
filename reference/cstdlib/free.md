@@ -23,7 +23,7 @@ namespace std {
 
 ## 実装例
 ```cpp example
-int main(void)
+int main()
 {
   int *p1 = malloc(10*sizeof *p1);
   free(p1); // p1のメモリを解放

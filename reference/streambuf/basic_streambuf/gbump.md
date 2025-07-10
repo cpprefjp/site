@@ -41,7 +41,7 @@ public:
     }
 };
 
-int main(void) {
+int main() {
     dummy_buf buf{};
     buf.gbump(2);  // 現在位置を2つ進める
     std::cout << char(buf.sgetc()) << std::endl;

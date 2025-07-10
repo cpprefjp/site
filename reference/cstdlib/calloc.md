@@ -33,7 +33,7 @@ namespace std {
 #include <cstdio>
 #include <cstdlib>
 
-int main(void)
+int main()
 {
   int* p1 = calloc(4, sizeof(int));    // 4個のint配列のポインタを確保、0に初期化
   int* p2 = calloc(1, sizeof(int[4])); // 上と同じ

@@ -43,7 +43,7 @@ protected:
     }
 };
 
-int main(void) {
+int main() {
     dummy_buf buf;
     buf.pubsync();  // pubsync()を介してsync()を呼ぶ
 }
