@@ -20,7 +20,7 @@ namespace std {
 
 書式は[`std::format()`](/reference/format/format.md)関数のページを参照。
 
-この関数は、[`std::printf()`](/reference/cstdio/printf.md.nolink)関数ライクな書式指定で引数を文字列化して出力する。
+この関数は、[`std::printf()`](/reference/cstdio/printf.md)関数ライクな書式指定で引数を文字列化して出力する。
 
 - (1) : 指定した[`ostream`](basic_ostream.md)に、書式指定で出力する
 
