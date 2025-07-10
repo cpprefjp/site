@@ -23,6 +23,8 @@ namespace std {
 
 ## 実装例
 ```cpp example
+#include <cstdlib>
+
 int main()
 {
   int *p1 = std::malloc(10*sizeof *p1);

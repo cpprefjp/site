@@ -37,7 +37,7 @@ namespace std {
 cppref より引用。
 
 ```cpp example
-#include <iostream>
+#include <cstdio>
 #include <cstdlib>
 
 int main()
