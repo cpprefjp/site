@@ -33,7 +33,7 @@ int fetch_add_idx(std::atomic_ref<int> base, size_t i, int value) {
   return std::atomic_ref{*(p+i)}.fetch_add(value);
 }
 ```
-* fetch_add[link fetch_add.md
+* fetch_add[link fetch_add.md]
 
 #### 必要なときにのみアトミックアクセスする
 以下の例では、複数のスレッドが並行にメモリにアクセスし、カウンタをインクリメントすることでアクセス終了を知らせている。最後のスレッドはメモリにアクセスする余分な処理を実行する必要があるが、並行にメモリにアクセスするほかのスレッドがないため、これらのアクセスはアトミックである必要がない：
