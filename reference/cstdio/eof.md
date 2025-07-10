@@ -14,6 +14,7 @@
 ## 例
 ```cpp example
 #include <cstdio>
+
 int main() {
   int c;
   while ((c = std::getchar()) != EOF) {
