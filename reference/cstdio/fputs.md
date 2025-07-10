@@ -1,4 +1,4 @@
-# fputs.md
+# fputs
 * cstdio[meta header]
 * std[meta namespace]
 * function[meta id-type]
