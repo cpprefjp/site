@@ -10,7 +10,7 @@ int getchar();
 ## 概要
 標準入力から1文字入力する。
 
-[`getc`][/reference/cstdio/getc.md]とは違い、関数として定義することが定められているため、引数は一度しか評価されないことが保証されている。
+[`getc`](/reference/cstdio/getc.md)とは違い、関数として定義することが定められているため、引数は一度しか評価されないことが保証されている。
 
 また、[`getc`](/reference/cstdio/getc.md)([`stdin`](/reference/cstdio/stdin.md))と等価である。
 
