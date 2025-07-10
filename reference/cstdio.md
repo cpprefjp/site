@@ -75,7 +75,7 @@
 | [`scanf`](/reference/cstdio/scanf.md)   | 書式を指定して標準入力から入力する | |
 | [`vprintf`](/reference/cstdio/vprintf.md.nolink) | 可変引数リスト`va_list`を使用し、書式を指定して標準出力に出力する | |
 | [`vscanf`](/reference/cstdio/vscanf.md.nolink)  | 可変引数リスト`va_list`を使用し、書式を指定して標準入力から入力する | |
-| [`getc`](/reference/cstdio/getc.md.nolink)    | ストリームから1文字入力する | |
+| [`getc`](/reference/cstdio/getc.md)    | ストリームから1文字入力する | |
 | [`getchar`](/reference/cstdio/getchar.md.nolink) | 標準入力から1文字入力する | |
 | [`putc`](/reference/cstdio/putc.md.nolink)    | ストリームに1文字出力する | |
 | [`putchar`](/reference/cstdio/putchar.md.nolink) | 標準出力に1文字出力する | |

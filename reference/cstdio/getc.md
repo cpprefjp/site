@@ -1,21 +1,19 @@
-# fgetc
+# getc
 * cstdio[meta header]
 * std[meta namespace]
 * function[meta id-type]
 
 ```cpp
-namespace std {
-  int fgetc( FILE* stream );
-}
+int getc(FILE* stream);
 ```
 
 ## 概要
-指定されたファイルストリームから1文字入力する。
+ストリームから一文字読み取る。
 
-[`getc`][/reference/cstdio/getc.md]とは違い、関数として定義することが定められているため、引数は一度しか評価されないことが保証されている。
+関数でもマクロでも定義してよいため、引数が一度しか評価されない保証はない。
 
 ## 戻り値
-入力された文字を返す。
+読み取る文字があればその文字を、なければ[`EOF`](/reference/cstdio/eof.md)を返す。
 
 ## 例
 ```cpp example
@@ -23,12 +21,12 @@ namespace std {
 
 int main() {
   int c;
-  while ((c = fgetc(stdin)) != EOF) {
+  while ((c = getc(stdin)) != EOF) {
     putc(c, stdout);
   }
 }
 ```
-* fgetc[color ff0000]
+* getc[color ff0000]
 * putc[link /reference/cstdio/putc.md.nolink]
 
 ### 入力
