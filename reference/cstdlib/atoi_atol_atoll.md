@@ -40,13 +40,13 @@ namespace std {
  
 int main()
 {
-  printf("%i\n", atoi(" -123junk"));
-  printf("%i\n", atoi(" +321dust"));
-  printf("%i\n", atoi("0"));
-  printf("%i\n", atoi("0042")); // 先頭の0を含む10進数として変換
-  printf("%i\n", atoi("0x2A")); // 0のみを変換、"x2A"は破棄される
-  printf("%i\n", atoi("junk")); // 変換不可
-  printf("%i\n", atoi("2147483648")); //intの範囲外
+  std::printf("%i\n", std::atoi(" -123junk"));
+  std::printf("%i\n", std::atoi(" +321dust"));
+  std::printf("%i\n", std::atoi("0"));
+  std::printf("%i\n", std::atoi("0042")); // 先頭の0を含む10進数として変換
+  std::printf("%i\n", std::atoi("0x2A")); // 0のみを変換、"x2A"は破棄される
+  std::printf("%i\n", std::atoi("junk")); // 変換不可
+  std::printf("%i\n", std::atoi("2147483648")); //intの範囲外
 }
 ```
 

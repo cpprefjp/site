@@ -4,7 +4,9 @@
 * function[meta id-type]
 
 ```cpp
-int ungetc(int c, FILE *stream);
+namespace std {
+  int ungetc(int c, FILE *stream);
+}
 ```
 
 ## 概要
@@ -24,14 +26,14 @@ int ungetc(int c, FILE *stream);
 #include <cstdio>
 
 int main() {
-  putchar(getchar());
-  ungetc('A', stdin);
-  putchar(getchar());
+  std::putchar(std::getchar());
+  std::ungetc('A', stdin);
+  std::putchar(std::getchar());
 }
 ```
-* ungetc[color ff0000]
-* getchar[link /reference/cstdio/getchar.md]
-* putchar[link /reference/cstdio/putchar.md]
+* std::ungetc[color ff0000]
+* std::getchar[link /reference/cstdio/getchar.md]
+* std::putchar[link /reference/cstdio/putchar.md]
 
 ### 入力
 ```

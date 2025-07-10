@@ -20,7 +20,7 @@ namespace std {
 #include <cstdio>
 
 int main() {
-  fputs("Hello, World!\n", stdout);
+  std::fputs("Hello, World!\n", stdout);
   return 0;
 }
 ```

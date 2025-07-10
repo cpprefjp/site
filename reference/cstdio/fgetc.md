@@ -23,13 +23,13 @@ namespace std {
 
 int main() {
   int c;
-  while ((c = fgetc(stdin)) != EOF) {
-    putc(c, stdout);
+  while ((c = std::fgetc(stdin)) != EOF) {
+    std::putc(c, stdout);
   }
 }
 ```
-* fgetc[color ff0000]
-* putc[link /reference/cstdio/putc.md]
+* std::fgetc[color ff0000]
+* std::putc[link /reference/cstdio/putc.md]
 
 ### 入力
 ```

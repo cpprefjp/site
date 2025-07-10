@@ -24,10 +24,10 @@ namespace std {
 #include <cstdio>
 
 int main() {
-  fputc('a', stdout);
+  std::fputc('a', stdout);
 }
 ```
-* fputc[color ff0000]
+* std::fputc[color ff0000]
 * stdout[link /reference/cstdio/stdout.md]
 
 ### 出力

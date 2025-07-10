@@ -4,7 +4,9 @@
 * function[meta id-type]
 
 ```cpp
-int getc(FILE* stream);
+namespace std {
+  int getc(FILE* stream);
+}
 ```
 
 ## 概要
@@ -21,13 +23,13 @@ int getc(FILE* stream);
 
 int main() {
   int c;
-  while ((c = getc(stdin)) != EOF) {
-    putc(c, stdout);
+  while ((c = std::getc(stdin)) != EOF) {
+    std::putc(c, stdout);
   }
 }
 ```
-* getc[color ff0000]
-* putc[link /reference/cstdio/putc.md]
+* std::getc[color ff0000]
+* std::putc[link /reference/cstdio/putc.md]
 
 ### 入力
 ```

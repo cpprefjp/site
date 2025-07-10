@@ -28,13 +28,13 @@ namespace std {
 #include <cstdio>
 
 int main() {
-  FILE *fp = fopen("test.txt", "w");
-  fclose(fp);
+  std::FILE *fp = std::fopen("test.txt", "w");
+  std::fclose(fp);
 }
 ```
-* fclose[color ff0000]
-* fopen[link /reference/cstdio/fopen.md]
-* FILE[link /reference/cstdio/file.md]
+* std::fclose[color ff0000]
+* std::fopen[link /reference/cstdio/fopen.md]
+* std::FILE[link /reference/cstdio/file.md]
 
 ## 処理系
 - [Clang](/implementation.md#clang): ??

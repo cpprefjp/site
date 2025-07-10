@@ -4,7 +4,9 @@
 * function[meta id-type]
 
 ```cpp
-int puts(const char* str);
+namespace std {
+  int puts(const char* str);
+}
 ```
 
 ## 概要
@@ -20,10 +22,10 @@ int puts(const char* str);
 #include <cstdio>
 
 int main() {
-  puts("Hello, World!");
+  std::puts("Hello, World!");
 }
 ```
-* puts[color ff0000]
+* std::puts[color ff0000]
 
 ### 出力
 ```

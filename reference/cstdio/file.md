@@ -4,7 +4,9 @@
 * class[meta id-type]
 
 ```cpp
-typedef /* unspecified */ FILE;
+namespace std {
+  typedef /* unspecified */ FILE;
+}
 ```
 
 ## 概要
