@@ -30,7 +30,7 @@ int main() {
 }
 ```
 * fgets[color ff0000]
-* puts[link /reference/cstdio/puts.md.nolink]
+* puts[link /reference/cstdio/puts.md]
 
 ### 入力
 ```
