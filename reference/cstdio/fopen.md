@@ -36,7 +36,7 @@ int main() {
 * fopen[color ff0000]
 * fclose[link /reference/cstdio/fclose.md]
 * FILE[link /reference/cstdio/file.md]
-* printf[link /reference/cstdio/printf.md.nolink]
+* printf[link /reference/cstdio/printf.md]
 
 ## 処理系
 - [Clang](/implementation.md#clang): ??

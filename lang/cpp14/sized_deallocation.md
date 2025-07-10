@@ -84,7 +84,7 @@ int main()
   delete[] (new A[5]);
 }
 ```
-* std::printf[link /reference/cstdio/printf.md.nolink]
+* std::printf[link /reference/cstdio/printf.md]
 * std::malloc[link /reference/cstdlib/malloc.md]
 
 
