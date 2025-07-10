@@ -5,7 +5,7 @@
 
 ```cpp
 namespace std {
-  int scanf(const char * restrict format, ...);
+  int scanf(const char * format, ...);
 }
 ```
 

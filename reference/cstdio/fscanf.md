@@ -5,7 +5,7 @@
 
 ```cpp
 namespace std {
-  int fscanf( FILE* restrict stream, const char* restrict format, ... );
+  int fscanf( FILE* stream, const char* format, ... );
 }
 ```
 

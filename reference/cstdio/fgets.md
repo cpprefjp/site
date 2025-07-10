@@ -5,7 +5,7 @@
 
 ```cpp
 namespace std {
-  char* fgets( char* restrict str, int count, FILE* restrict stream );
+  char* fgets( char* str, int count, FILE* stream );
 }
 ```
 
