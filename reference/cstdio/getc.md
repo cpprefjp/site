@@ -27,7 +27,7 @@ int main() {
 }
 ```
 * getc[color ff0000]
-* putc[link /reference/cstdio/putc.md.nolink]
+* putc[link /reference/cstdio/putc.md]
 
 ### 入力
 ```
