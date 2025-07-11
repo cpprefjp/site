@@ -53,3 +53,7 @@ total 16
 | 名前                           | 説明                                                   |
 |--------------------------------|--------------------------------------------------------|
 | [`flush`](../ostream/flush.md) | バッファをフラッシュする                               |
+
+### 参照
+
+- [POSIX(IEEE Std 1003.1-2024); wait, waitpid](https://pubs.opengroup.org/onlinepubs/9799919799.2024edition/functions/waitpid.html)
