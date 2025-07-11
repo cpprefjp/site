@@ -79,9 +79,9 @@ int main()
 ```
 * std::minmax_element[color ff0000]
 * *i.first[link /reference/utility/pair/first.md]
-* *i.second[link /reference/utility/pair/second.md.nolink]
+* *i.second[link /reference/utility/pair/second.md]
 * *j.first[link /reference/utility/pair/first.md]
-* *j.second[link /reference/utility/pair/second.md.nolink]
+* *j.second[link /reference/utility/pair/second.md]
 ### 出力
 ```
 ```

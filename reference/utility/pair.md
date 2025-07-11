@@ -23,7 +23,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`first`](pair/first.md)  | 1つめの要素 | |
-| [`second`](pair/second.md.nolink) | 2つめの要素 | |
+| [`second`](pair/second.md) | 2つめの要素 | |
 
 
 ## メンバ関数
