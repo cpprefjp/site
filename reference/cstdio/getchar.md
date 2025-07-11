@@ -28,7 +28,7 @@ int main() {
 }
 ```
 * getchar[color ff0000]
-* putchar[link /reference/cstdio/putchar.md.nolink]
+* putchar[link /reference/cstdio/putchar.md]
 * EOF[link /reference/cstdio/eof.md]
 
 ### 入力

@@ -78,7 +78,7 @@
 | [`getc`](/reference/cstdio/getc.md)    | ストリームから1文字入力する | |
 | [`getchar`](/reference/cstdio/getchar.md) | 標準入力から1文字入力する | |
 | [`putc`](/reference/cstdio/putc.md)    | ストリームに1文字出力する | |
-| [`putchar`](/reference/cstdio/putchar.md.nolink) | 標準出力に1文字出力する | |
+| [`putchar`](/reference/cstdio/putchar.md) | 標準出力に1文字出力する | |
 | [`puts`](/reference/cstdio/puts.md)    | 標準出力に文字列を出力する | |
 | [`ungetc`](/reference/cstdio/ungetc.md.nolink)  | 入力ストリームに1文字戻す | |
 
