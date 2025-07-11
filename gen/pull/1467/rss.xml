@@ -2,14 +2,45 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-07-11T12:18:11.993807</updated>
-  <id>b95f38dc-b5e1-4c54-b602-a90960b771fd</id>
+  <updated>2025-07-11T17:54:05.640950</updated>
+  <id>f89d5f46-d38c-47bc-b6d8-67e8d52ad62d</id>
 
+  
+    <entry>
+      <title>fputs -- feat(reference/cstdio/fputs): 出力例を追加</title>
+      <link href="https://cpprefjp.github.io/reference/cstdio/fputs.html"/>
+      <id>561be1bee9a0c34286b70338514ce4eb1399e731:reference/cstdio/fputs.md</id>
+      <updated>2025-07-12T02:16:22+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/fputs.md b/reference/cstdio/fputs.md
+index e00160f22..c00edfd84 100644
+--- a/reference/cstdio/fputs.md
++++ b/reference/cstdio/fputs.md
+@@ -24,6 +24,12 @@ int main() {
+   return 0;
+ }
+ ```
++* std::fputs[color ff0000]
++
++### 出力
++```
++Hello, World!
++```
+ 
+ ## 処理系
+ - [Clang](/implementation.md#clang): ??
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>fprintf -- fix(reference/cstdio/printf): 出力の修正</title>
       <link href="https://cpprefjp.github.io/reference/cstdio/printf.html"/>
-      <id>ac726016da05c3c3c7c164f73684c3aea9242a2a:reference/cstdio/printf.md</id>
+      <id>62d8393dcdd0ed11b7c7cbb76206bd56a2f54abe:reference/cstdio/printf.md</id>
       <updated>2025-07-11T20:54:50+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/printf.md b/reference/cstdio/printf.md
@@ -35,7 +66,7 @@ index 5a7153fa3..4542dc2ea 100644
     <entry>
       <title>malloc -- fix(reference/cstdlib/malloc): タイポ修正</title>
       <link href="https://cpprefjp.github.io/reference/cstdlib/malloc.html"/>
-      <id>b6ed840a376307709f63889e382387a934ff8494:reference/cstdlib/malloc.md</id>
+      <id>5ccd04f39d30be21907e8c43556ff9a028e95cea:reference/cstdlib/malloc.md</id>
       <updated>2025-07-10T15:32:13+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/malloc.md b/reference/cstdlib/malloc.md
@@ -62,7 +93,7 @@ index 16559c0fb..613a8f11e 100644
     <entry>
       <title>address -- fix(reference/atomic/atomic_ref/address): 壊れたコード修飾の修正</title>
       <link href="https://cpprefjp.github.io/reference/atomic/atomic_ref/address.html"/>
-      <id>9ffa3bcb7c20abe4de4c3be8e542e56be91e87c1:reference/atomic/atomic_ref/address.md</id>
+      <id>f66abcba766f52d578511a76cc5349b4fd47b056:reference/atomic/atomic_ref/address.md</id>
       <updated>2025-07-10T15:20:30+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/atomic/atomic_ref/address.md b/reference/atomic/atomic_ref/address.md
@@ -89,7 +120,7 @@ index 11afa684b..dad2c19b6 100644
     <entry>
       <title>fgetc -- fix(reference/cstdio): 壊れたリンクの修正</title>
       <link href="https://cpprefjp.github.io/reference/cstdio/fgetc.html"/>
-      <id>5c40eb5440d8b973dfa1b9167942f2c1025ea079:reference/cstdio/fgetc.md</id>
+      <id>ff932ef6e0003fa96ae8d608088e7a576837b6f3:reference/cstdio/fgetc.md</id>
       <updated>2025-07-10T13:53:17+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/fgetc.md b/reference/cstdio/fgetc.md
@@ -116,7 +147,7 @@ index ab874b65f..5a3db2532 100644
     <entry>
       <title>fputc -- fix(reference/cstdio): 壊れたリンクの修正</title>
       <link href="https://cpprefjp.github.io/reference/cstdio/fputc.html"/>
-      <id>5c40eb5440d8b973dfa1b9167942f2c1025ea079:reference/cstdio/fputc.md</id>
+      <id>ff932ef6e0003fa96ae8d608088e7a576837b6f3:reference/cstdio/fputc.md</id>
       <updated>2025-07-10T13:53:17+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/fputc.md b/reference/cstdio/fputc.md
@@ -132,112 +163,6 @@ index e8d38e7fd..87dc7436a 100644
  
  ## 戻り値
  出力された文字を返す。
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Koichi Murase</name>
-        <email>myoga.murase@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>getchar -- style(reference/cstdlib): コーディングスタイルの統一</title>
-      <link href="https://cpprefjp.github.io/reference/cstdio/getchar.html"/>
-      <id>7462c83921d8cb42a4aa80d8c5e1a2698252bd40:reference/cstdio/getchar.md</id>
-      <updated>2025-07-10T10:57:11+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/getchar.md b/reference/cstdio/getchar.md
-index 025379e4a..96437eb4a 100644
---- a/reference/cstdio/getchar.md
-+++ b/reference/cstdio/getchar.md
-@@ -22,6 +22,7 @@ namespace std {
- ## 例
- ```cpp example
- #include &amp;lt;cstdio&amp;gt;
-+
- int main() {
-   int c;
-   while ((c = std::getchar()) != EOF) {
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Koichi Murase</name>
-        <email>myoga.murase@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>free -- style(reference/cstdlib): コーディングスタイルの統一</title>
-      <link href="https://cpprefjp.github.io/reference/cstdlib/free.html"/>
-      <id>7462c83921d8cb42a4aa80d8c5e1a2698252bd40:reference/cstdlib/free.md</id>
-      <updated>2025-07-10T10:57:11+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/free.md b/reference/cstdlib/free.md
-index 57c64a7e8..b69cfbc96 100644
---- a/reference/cstdlib/free.md
-+++ b/reference/cstdlib/free.md
-@@ -27,12 +27,12 @@ namespace std {
- 
- int main()
- {
--  int *p1 = std::malloc(10*sizeof *p1);
-+  int *p1 = std::malloc(10 * sizeof *p1);
-   std::free(p1); // p1のメモリを解放
- 
-   int *p2 = std::calloc(10, sizeof *p2);
--  int *p3 = std::realloc(p2, 1000*sizeof *p3);
--  if(p3) 
-+  int *p3 = std::realloc(p2, 1000 * sizeof *p3);
-+  if (p3) 
-     std::free(p3); // realloc により新しい領域が確保された場合、それを解放
-   else
-     std::free(p2); // realloc が失敗した場合は元の領域を解放
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Koichi Murase</name>
-        <email>myoga.murase@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>malloc -- style(reference/cstdlib): コーディングスタイルの統一</title>
-      <link href="https://cpprefjp.github.io/reference/cstdlib/malloc.html"/>
-      <id>7462c83921d8cb42a4aa80d8c5e1a2698252bd40:reference/cstdlib/malloc.md</id>
-      <updated>2025-07-10T10:57:11+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/malloc.md b/reference/cstdlib/malloc.md
-index 5594c7f46..16559c0fb 100644
---- a/reference/cstdlib/malloc.md
-+++ b/reference/cstdlib/malloc.md
-@@ -42,18 +42,18 @@ cppref より引用。
- 
- int main()
- {
--  int *p1 = std::malloc(4*sizeof(int));  // 4個のint型配列の目盛りを確保
--  int *p2 = std::malloc(sizeof(int[4])); // 上と同じ。
--  int *p3 = std::malloc(4*sizeof *p3);   // 上と同じ。
--
--  if(p1) {
--    for(int n=0; n&amp;lt;4; ++n)
--      p1[n] = n*n;
--    for(int n=0; n&amp;lt;4; ++n)
-+  int *p1 = std::malloc(4 * sizeof(int)); // 4個のint型配列の目盛りを確保
-+  int *p2 = std::malloc(sizeof(int[4]));  // 上と同じ。
-+  int *p3 = std::malloc(4 * sizeof *p3);  // 上と同じ。
-+
-+  if (p1) {
-+    for (int n = 0; n &amp;lt; 4; ++n)
-+      p1[n] = n * n;
-+    for (int n = 0; n &amp;lt; 4; ++n)
-       std::printf(&amp;#34;p1[%d] == %d\n&amp;#34;, n, p1[n]);
-   }
- 
--  std::free(p1);//メモリを解放
-+  std::free(p1); // メモリを解放
-   std::free(p2);
-   std::free(p3);
- }
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>

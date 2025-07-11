@@ -20,7 +20,7 @@
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
-  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cstdio,std,macro
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cstdio,macro
 ">
         <meta name="title" content="EOF - cpprefjp C++日本語リファレンス" />
         <meta itemprop="name" content="EOF - cpprefjp C++日本語リファレンス" />
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cstdio&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;macro&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;b1725083e31838f9da454f5b2e08abd67d2f36ce&#34;, &#34;source&#34;: &#34;#include &lt;cstdio&gt;\nint main() {\n  int c;\n  while ((c = std::getchar()) != EOF) {\n    std::putchar(c);\n  }\n  if (c == EOF)\n    std::puts(\&#34;REACHED END\&#34;);\n}\n\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cstdio&#34;, &#34;eof&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cstdio&#34;], &#34;id-type&#34;: [&#34;macro&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;af57ed0561ac91af71492fda477247941693093b&#34;, &#34;source&#34;: &#34;#include &lt;cstdio&gt;\n\nint main() {\n  int c;\n  while ((c = std::getchar()) != EOF) {\n    std::putchar(c);\n  }\n  if (c == EOF)\n    std::puts(\&#34;REACHED END\&#34;);\n}\n\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cstdio&#34;, &#34;eof&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-10T01:16:39">
-        2025年07月10日 01時16分39秒
+      <span itemprop="datePublished" content="2025-07-10T01:57:11">
+        2025年07月10日 01時57分11秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -212,7 +212,7 @@
     <div class="row">
       <div class="col-sm-12 content-body">
         
-  <div class="identifier-type">macro</div><div class="header">&lt;cstdio&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">EOF</span></h1>
+  <div class="identifier-type">macro</div><div class="header">&lt;cstdio&gt;</div><h1 itemprop="name"><span class="token">EOF</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="cp">#define EOF </span><span class="cm">/* implementation defined */</span><span class="cp"></span>
 </code></pre></div>
 </p>
@@ -220,7 +220,8 @@
 <p>ファイルの終端であることを表すマクロ。</p>
 <p>型は<code>int</code>であり、負であることが保証されている。</p>
 <h2>例</h2>
-<p><div class="yata" id="b1725083e31838f9da454f5b2e08abd67d2f36ce"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cstdio.html">&lt;cstdio&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="af57ed0561ac91af71492fda477247941693093b"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cstdio.html">&lt;cstdio&gt;</a></span><span class="cp"></span>
+
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
   <span class="kt">int</span> <span class="n">c</span><span class="p">;</span>
   <span class="k">while</span> <span class="p">((</span><span class="n">c</span> <span class="o">=</span> <span class="n"><a href="getchar.html">std::getchar</a></span><span class="p">())</span> <span class="o">!=</span> <span class="n"><span style="color:#ff0000">EOF</span></span><span class="p">)</span> <span class="p">{</span>
