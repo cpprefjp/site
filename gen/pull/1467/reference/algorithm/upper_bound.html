@@ -1,0 +1,476 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>upper_bound - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,algorithm,std,function template
+">
+        <meta name="title" content="upper_bound - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="upper_bound - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="upper_bound - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/algorithm/upper_bound.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="イテレータ範囲`[first, last)`のうち、指定された要素より大きい値が現れる最初の位置のイテレータを取得する" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="upper_bound - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/algorithm/upper_bound.html" />
+        <meta name="twitter:description" content="イテレータ範囲`[first, last)`のうち、指定された要素より大きい値が現れる最初の位置のイテレータを取得する" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;algorithm&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function template&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;d8983c4ba7e9cb2f91edb752edaeb7d0bf156837&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;algorithm&gt;\n\nstruct X {\n  int key;    // \u30d7\u30e9\u30a4\u30de\u30ea\u30ad\u30fc\n  int value;  // \u88dc\u52a9\u7684\u306a\u5024\n\n  bool operator&lt;(const X&amp; rhs) const {\n    // \u578bX\u306f\u30d7\u30e9\u30a4\u30de\u30ea\u30ad\u30fc\u3067\u306e\u307f\u9806\u5e8f\u4ed8\u3051\u3055\u308c\u308b\u3002\n    return key &lt; rhs.key;\n  }\n};\n\nvoid push_stable(std::vector&lt;X&gt;&amp; queue, X elem)\n{\n  // \u633f\u5165\u5bfe\u8c61\u306e\u5024 elem \u3088\u308a\u3082\u5927\u304d\u3044\u8981\u7d20\u306e\u4f4d\u7f6e\u3001\u3059\u306a\u308f\u3061\n  // elem \u3068\u540c\u5024\u306a\u8981\u7d20\u30b0\u30eb\u30fc\u30d7\u306e\u6b21\u306e\u4f4d\u7f6e\u3092\u691c\u7d22\u3059\u308b\u3002\n  auto it = std::upper_bound(queue.begin(), queue.end(), elem);\n  queue.insert(it, elem);\n}\n\n\nint main()\n{\n  // \u3053\u306e\u95a2\u6570\u5358\u4f53\u3068\u3057\u3066\u306e\u4f7f\u3044\u65b9\n  {\n    // upper_bound \u3067 3 \u3088\u308a\u5927\u304d\u3044\u8981\u7d20\u306e\u4f4d\u7f6e\u3092\u691c\u7d22\u3059\u308b\u5834\u5408\u3001\n    // 3 \u4ee5\u4e0b\u306e\u7269\u3068 3 \u3088\u308a\u5927\u304d\u3044\u7269\u304c\u305d\u306e\u9806\u306b\u4e26\u3093\u3067\u3044\u308c\u3070\u3001\n    // \u5fc5\u305a\u3057\u3082\u30bd\u30fc\u30c8\u3055\u308c\u3066\u3044\u308b\u5fc5\u8981\u306f\u306a\u3044\u3002\n    std::vector&lt;int&gt; v = {3, 1, 4, 6, 5};\n\n    // 3\u3088\u308a\u5927\u304d\u3044\u8981\u7d20\u3092\u4e8c\u5206\u63a2\u7d22\u3067\u691c\u7d22\n    decltype(v)::iterator it = std::upper_bound(v.begin(), v.end(), 3);\n    std::cout &lt;&lt; *it &lt;&lt; std::endl;\n  }\n\n  // \u5fdc\u7528\u4f8b\uff1a\u5b89\u5b9a\u9806\u5e8f\u30fb\u512a\u5148\u9806\u4f4d\u4ed8\u304d\u30ad\u30e5\u30fc\u306e\u5b9f\u88c5\n  {\n    std::vector&lt;X&gt; queue;\n    push_stable(queue, {100, 1});\n    push_stable(queue, {200, 1});\n    push_stable(queue, {300, 1});\n    push_stable(queue, {300, 2});\n    push_stable(queue, {200, 2});\n    push_stable(queue, {100, 2});\n\n    // \u30d7\u30e9\u30a4\u30de\u30ea\u30ad\u30fc key \u306f\u540c\u5024\u3060\u304c\u7570\u306a\u308b\u5024 value \u3092\u6301\u3064\u8981\u7d20\u9593\u3067\u306f\n    // \u30ad\u30e5\u30fc queue \u3078\u306e\u8981\u7d20\u633f\u5165\u9806\u5e8f\u304c\u7dad\u6301\u3055\u308c\u3066\u3044\u308b\u3002\n    // \uff08std::priority_queue \u30af\u30e9\u30b9\u3067\u306f\u633f\u5165\u9806\u5e8f\u306f\u4fdd\u6301\u3055\u308c\u306a\u3044\u3002\uff09\n    for (const auto&amp; e: queue) {\n      std::cout &lt;&lt; e.key &lt;&lt; &#39;:&#39; &lt;&lt; e.value &lt;&lt; &#39; &#39;;\n    }\n    std::cout &lt;&lt; std::endl;\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;07b6de58008c2b2a3ace2dd842fc32ab9b0157fc&#34;, &#34;source&#34;: &#34;#include &lt;algorithm&gt;\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\n\nstruct Point {\n  int x;\n  int y;\n\n  bool operator==(const Point&amp; other) const = default;\n  auto operator&lt;=&gt;(const Point&amp; other) const = default;\n};\n\nint main() {\n  std::vector&lt;Point&gt; v = {\n    {1, 2},\n    {3, 4},\n    {3, 4},\n    {5, 6},\n  };\n\n  // \u5024{3, 4}\u304c\u898b\u3064\u304b\u308b\u7bc4\u56f2\u3092\u53d6\u5f97\n  auto first = std::lower_bound(v.begin(), v.end(), {3, 4});\n  auto last = std::upper_bound(v.begin(), v.end(), {3, 4});\n\n  if (first != v.end() &amp;&amp; last != v.end()) {\n    while (first != last) {\n      std::cout &lt;&lt; first-&gt;x &lt;&lt; \&#34;,\&#34; &lt;&lt; first-&gt;y &lt;&lt; std::endl;\n      ++first;\n    }\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;algorithm&#34;, &#34;upper_bound&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/algorithm.html" itemprop="url">
+              
+                <span itemprop="name">algorithm</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">upper_bound</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-05-27T05:43:21">
+        2025年05月27日 05時43分21秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/algorithm/upper_bound.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/algorithm/upper_bound.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function template</div><div class="header">&lt;algorithm&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">upper_bound</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">ForwardIterator</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <span class="n">ForwardIterator</span>
+    <span class="n">upper_bound</span><span class="p">(</span><span class="n">ForwardIterator</span> <span class="n">first</span><span class="p">,</span>
+                <span class="n">ForwardIterator</span> <span class="n">last</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">);</span>       <span class="c1">// (1) C++03</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">ForwardIterator</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="n">ForwardIterator</span>
+    <span class="n">upper_bound</span><span class="p">(</span><span class="n">ForwardIterator</span> <span class="n">first</span><span class="p">,</span>
+                <span class="n">ForwardIterator</span> <span class="n">last</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">);</span>       <span class="c1">// (1) C++20</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">ForwardIterator</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">T</span> <span class="o">=</span> <span class="k">typename</span> <span class="n"><a href="../iterator/iterator_traits.html">iterator_traits</a></span><span class="o">&lt;</span><span class="n">ForwardIterator</span><span class="o">&gt;::</span><span class="n">value_type</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="n">ForwardIterator</span>
+    <span class="n">upper_bound</span><span class="p">(</span><span class="n">ForwardIterator</span> <span class="n">first</span><span class="p">,</span>
+                <span class="n">ForwardIterator</span> <span class="n">last</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">);</span>       <span class="c1">// (1) C++26</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">ForwardIterator</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">T</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Compare</span><span class="o">&gt;</span>
+  <span class="n">ForwardIterator</span>
+    <span class="n">upper_bound</span><span class="p">(</span><span class="n">ForwardIterator</span> <span class="n">first</span><span class="p">,</span>
+                <span class="n">ForwardIterator</span> <span class="n">last</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">,</span>
+                <span class="n">Compare</span> <span class="n">comp</span><span class="p">);</span>         <span class="c1">// (2) C++03</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">ForwardIterator</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">T</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Compare</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="n">ForwardIterator</span>
+    <span class="n">upper_bound</span><span class="p">(</span><span class="n">ForwardIterator</span> <span class="n">first</span><span class="p">,</span>
+                <span class="n">ForwardIterator</span> <span class="n">last</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">,</span>
+                <span class="n">Compare</span> <span class="n">comp</span><span class="p">);</span>         <span class="c1">// (2) C++20</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">ForwardIterator</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">T</span> <span class="o">=</span> <span class="k">typename</span> <span class="n"><a href="../iterator/iterator_traits.html">iterator_traits</a></span><span class="o">&lt;</span><span class="n">ForwardIterator</span><span class="o">&gt;::</span><span class="n">value_type</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Compare</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="n">ForwardIterator</span>
+    <span class="n">upper_bound</span><span class="p">(</span><span class="n">ForwardIterator</span> <span class="n">first</span><span class="p">,</span>
+                <span class="n">ForwardIterator</span> <span class="n">last</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">,</span>
+                <span class="n">Compare</span> <span class="n">comp</span><span class="p">);</span>         <span class="c1">// (2) C++26</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a><code>[first, last)</code>のうち、指定された要素より大きい値が現れる最初の位置のイテレータを取得する</p>
+<h2>要件</h2>
+<ul>
+<li>C++03 まで<ul>
+<li><code>first</code>、<code>last</code> は前方向イテレータの要件を満たすこと。</li>
+<li><code>comp</code> は 2 引数の関数オブジェクトで、結果の型は <code>bool</code> 型に変換可能であること。また、引数に非 <code>const</code> の関数を適用しないこと。</li>
+<li><code>T</code> は <code>LessThanComparable</code> であること。</li>
+<li><code>operator&lt;</code> または <code>comp</code> は「<a href="../algorithm.html#strict-weak-ordering">狭義の弱順序</a>」であること。</li>
+<li><a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a> <code>[first, last)</code> は <code>operator&lt;</code> または <code>comp</code> を基準として昇順に並んでいること。</li>
+</ul>
+</li>
+<li>C++11 から<ul>
+<li><code>first</code>、<code>last</code> は前方向イテレータの要件を満たすこと。</li>
+<li><code>comp</code> は 2 引数の関数オブジェクトで、結果の型は <code>bool</code> 型に変換可能であること。また、引数に非 <code>const</code> の関数を適用しないこと。</li>
+<li><a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a><code>[first,last)</code> の要素 <code>e</code> は <code>!(value &lt; e)</code> または <code>!comp(value, e)</code> によって<a href="../algorithm.html#sequence-is-partitioned">区分化</a>されていること。<br />
+    つまり、<code>!(value &lt; e)</code> または <code>!comp(value, e)</code> が <code>true</code> となる全ての要素 <code>e</code> は、<code>false</code> となる全ての要素よりも左側（<code>first</code> に近い方）になければならない。</li>
+</ul>
+</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p><code>[first, last]</code> 内のイテレータ <code>i</code> のうち、以下の条件を満たす、最も右側（<code>first</code> から遠い方）のもの。</p>
+<ul>
+<li><code>[first, i)</code> 内の全てのイテレータ <code>j</code> が <code>!(value &lt; *j)</code> または <code>comp(value, *j) == false</code> である。</li>
+</ul>
+<p>（つまり、<code>value</code> より大きい要素のうち最初のものを指すイテレータ。<code>value</code> より大きい要素が無ければ <code>last</code>）</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></h2>
+<p>最大で log2(<code>last - first</code>) + O(1) 回の比較を行う</p>
+<h2>備考</h2>
+<ul>
+<li>本関数は、本質的に C++11 で追加された <code><a href="partition_point.html">partition_point</a></code> と等価である。<br />
+    具体的には、<code><a href="partition_point.html">partition_point</a>(first, last, [value](const T&amp; e) { return !bool(value &lt; e); })</code>、あるいは、<code><a href="partition_point.html">partition_point</a>(first, last, [value, comp](const T&amp; e) { return !bool(comp(value, e)); })</code> とすることで等価の結果が得られる。</li>
+<li>本関数の要件は、上記の通り C++03 までの方が C++11 よりも厳しい。<br />
+    しかし、本アルゴリズムの特性上、処理系が C++03 までにしか準拠していない場合でも、昇順に並んでいなくても正常に動作する可能性は高いものと思われる。</li>
+<li>(1), (2) :<ul>
+<li>C++26 : 引数として波カッコ初期化<code>{}</code>を受け付ける
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>
+<span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">upper_bound</span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span> <span class="p">{</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">});</span>
+</code></pre></div>
+</li>
+</ul>
+</li>
+</ul>
+<h2>例</h2>
+<h3>基本的な使い方</h3>
+<p><div class="yata" id="d8983c4ba7e9cb2f91edb752edaeb7d0bf156837"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">key</span><span class="p">;</span>    <span class="c1">// プライマリキー</span>
+  <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>  <span class="c1">// 補助的な値</span>
+
+  <span class="kt">bool</span> <span class="k">operator</span><span class="o">&lt;</span><span class="p">(</span><span class="k">const</span> <span class="n">X</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="c1">// 型Xはプライマリキーでのみ順序付けされる。</span>
+    <span class="k">return</span> <span class="n">key</span> <span class="o">&lt;</span> <span class="n">rhs</span><span class="p">.</span><span class="n">key</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">void</span> <span class="nf">push_stable</span><span class="p">(</span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">X</span><span class="o">&gt;&amp;</span> <span class="n">queue</span><span class="p">,</span> <span class="n">X</span> <span class="n">elem</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// 挿入対象の値 elem よりも大きい要素の位置、すなわち</span>
+  <span class="c1">// elem と同値な要素グループの次の位置を検索する。</span>
+  <span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::upper_bound</span></span><span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">queue</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">elem</span><span class="p">);</span>
+  <span class="n">queue</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">it</span><span class="p">,</span> <span class="n">elem</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// この関数単体としての使い方</span>
+  <span class="p">{</span>
+    <span class="c1">// upper_bound で 3 より大きい要素の位置を検索する場合、</span>
+    <span class="c1">// 3 以下の物と 3 より大きい物がその順に並んでいれば、</span>
+    <span class="c1">// 必ずしもソートされている必要はない。</span>
+    <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+
+    <span class="c1">// 3より大きい要素を二分探索で検索</span>
+    <span class="k">decltype</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">::</span><span class="n">iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::upper_bound</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 応用例：安定順序・優先順位付きキューの実装</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">X</span><span class="o">&gt;</span> <span class="n">queue</span><span class="p">;</span>
+    <span class="n">push_stable</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="p">{</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">});</span>
+    <span class="n">push_stable</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="p">{</span><span class="mi">200</span><span class="p">,</span> <span class="mi">1</span><span class="p">});</span>
+    <span class="n">push_stable</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="p">{</span><span class="mi">300</span><span class="p">,</span> <span class="mi">1</span><span class="p">});</span>
+    <span class="n">push_stable</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="p">{</span><span class="mi">300</span><span class="p">,</span> <span class="mi">2</span><span class="p">});</span>
+    <span class="n">push_stable</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="p">{</span><span class="mi">200</span><span class="p">,</span> <span class="mi">2</span><span class="p">});</span>
+    <span class="n">push_stable</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="p">{</span><span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">});</span>
+
+    <span class="c1">// プライマリキー key は同値だが異なる値 value を持つ要素間では</span>
+    <span class="c1">// キュー queue への要素挿入順序が維持されている。</span>
+    <span class="c1">// （std::priority_queue クラスでは挿入順序は保持されない。）</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="nl">e</span><span class="p">:</span> <span class="n">queue</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">e</span><span class="p">.</span><span class="n">key</span> <span class="o">&lt;&lt;</span> <span class="sc">':'</span> <span class="o">&lt;&lt;</span> <span class="n">e</span><span class="p">.</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="sc">' '</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>4
+100:1 100:2 200:1 200:2 300:1 300:2
+</code></pre></p>
+<h3>波カッコ初期化を入力として使用する (C++26)</h3>
+<p><div class="yata" id="07b6de58008c2b2a3ace2dd842fc32ab9b0157fc"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">Point</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">y</span><span class="p">;</span>
+
+  <span class="kt">bool</span> <span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span> <span class="n">Point</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+  <span class="k">auto</span> <span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">Point</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">Point</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">},</span>
+    <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">},</span>
+    <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">},</span>
+    <span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">},</span>
+  <span class="p">};</span>
+
+  <span class="c1">// 値{3, 4}が見つかる範囲を取得</span>
+  <span class="k">auto</span> <span class="n">first</span> <span class="o">=</span> <span class="n"><a href="lower_bound.html">std::lower_bound</a></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">});</span>
+  <span class="k">auto</span> <span class="n">last</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::upper_bound</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">});</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">first</span> <span class="o">!=</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span> <span class="o">&amp;&amp;</span> <span class="n">last</span> <span class="o">!=</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">first</span> <span class="o">!=</span> <span class="n">last</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">first</span><span class="o">-&gt;</span><span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s">","</span> <span class="o">&lt;&lt;</span> <span class="n">first</span><span class="o">-&gt;</span><span class="n">y</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+      <span class="o">++</span><span class="n">first</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>3,4
+3,4
+</code></pre></p>
+<h2>実装例</h2>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">ForwardIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Compare</span><span class="o">&gt;</span>
+<span class="n">ForwardIterator</span>
+<span class="n">upper_bound</span><span class="p">(</span><span class="n">ForwardIterator</span> <span class="n">first</span><span class="p">,</span> <span class="n">ForwardIterator</span> <span class="n">last</span><span class="p">,</span> <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">,</span> <span class="n">Compare</span> <span class="n">comp</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">using</span> <span class="n">diff</span> <span class="o">=</span> <span class="k">typename</span> <span class="n"><a href="../iterator/iterator_traits.html">std::iterator_traits</a></span><span class="o">&lt;</span><span class="n">ForwardIterator</span><span class="o">&gt;::</span><span class="n">difference_type</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">diff</span> <span class="n">len</span> <span class="o">=</span> <span class="n"><a href="../iterator/distance.html">std::distance</a></span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">);</span> <span class="n">len</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">;</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="n">diff</span> <span class="n">half</span> <span class="o">=</span> <span class="n">len</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="n">ForwardIterator</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">first</span><span class="p">;</span>
+    <span class="n"><a href="../iterator/advance.html">std::advance</a></span><span class="p">(</span><span class="n">mid</span><span class="p">,</span> <span class="n">half</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="kt">bool</span><span class="p">(</span><span class="n">comp</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="o">*</span><span class="n">mid</span><span class="p">)))</span> <span class="p">{</span>
+      <span class="n">len</span> <span class="o">-=</span> <span class="n">half</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="n">first</span> <span class="o">=</span> <span class="o">++</span><span class="n">mid</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="n">len</span> <span class="o">=</span> <span class="n">half</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">first</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// operator&lt; 用の関数オブジェクト</span>
+<span class="k">struct</span> <span class="n">less_inner</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
+  <span class="kt">bool</span> <span class="k">operator</span><span class="p">()(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">lhs</span><span class="p">,</span> <span class="k">const</span> <span class="n">U</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="kt">bool</span><span class="p">(</span><span class="n">lhs</span> <span class="o">&lt;</span> <span class="n">rhs</span><span class="p">);</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">ForwardIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">ForwardIterator</span>
+<span class="n">upper_bound</span><span class="p">(</span><span class="n">ForwardIterator</span> <span class="n">first</span><span class="p">,</span> <span class="n">ForwardIterator</span> <span class="n">last</span><span class="p">,</span> <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">upper_bound</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">less_inner</span><span class="p">());</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#384" target="_blank">LWG Issue 384. <code>equal_range</code> has unimplementable runtime complexity</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2150" target="_blank">LWG Issue 2150. Unclear specification of <code>find_end</code></a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html" target="_blank">P0202R3 Add Constexpr Modifiers to Functions in <code>&lt;algorithm&gt;</code> and <code>&lt;utility&gt;</code> Headers</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2248r8.html" target="_blank">P2248R8 Enabling list-initialization for algorithms</a><ul>
+<li>C++26で波カッコ初期化 (リスト初期化) に対応した</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

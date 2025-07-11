@@ -1,0 +1,428 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>float32_t - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,stdfloat,std,type-alias,cpp23
+">
+        <meta name="title" content="float32_t - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="float32_t - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="float32_t - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/stdfloat/float32_t.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="32ビット単精度の浮動小数点数型。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="float32_t - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/stdfloat/float32_t.html" />
+        <meta name="twitter:description" content="32ビット単精度の浮動小数点数型。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;stdfloat&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;type-alias&#34;], &#34;cpp&#34;: [&#34;cpp23&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;0e8b2d939eb09099dad570ea15617d7cac2c9c8c&#34;, &#34;source&#34;: &#34;#include &lt;stdfloat&gt;\n#include &lt;type_traits&gt;\n\nint main() {\n  float f32 = 1.0;\n  std::float16_t f16{2.0};\n  std::bfloat16_t b16{3.0};\n  std::float32_t f32b{4.0};\n\n  auto r1 = f32 + f16; // OK : f16\u306f`float`\u306b\u5909\u63db\u3055\u308c\u3001\u7d50\u679c\u306e\u578b\u306f`float`\u3068\u306a\u308b\n  auto r2 = f32 + b16; // OK : b16\u306f`float`\u306b\u5909\u63db\u3055\u308c\u3001\u7d50\u679c\u306e\u578b\u306f`float`\u3068\u306a\u308b\n  //auto r3 = f16 + b16; // \u30a8\u30e9\u30fc\uff01\u3069\u3061\u3089\u306e\u578b\u3082\u7b97\u8853\u5909\u63db\u3067\u3082\u3046\u4e00\u65b9\u306e\u578b\u306b\u5909\u63db\u3067\u304d\u306a\u3044\n  auto r4 = f32 + f32b;  // OK : f32\u306f\u3088\u308a\u5927\u304d\u3044\u30b5\u30d6\u9806\u4f4d\u3092\u3082\u3064`std::float32_t`\u306b\u5909\u63db\u3055\u308c\u308b\n  static_assert(std::is_same_v&lt;decltype(r4), std::float32_t&gt;);\n}\n&#34;}, {&#34;id&#34;: &#34;c054fb1b9475197ff4ecd872b5b45c1647463568&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;stdfloat&gt;\n#include &lt;cmath&gt;\n\nint main() {\n  std::float16_t a = 1.0f16;\n  auto b = 2.0f32; // b\u306e\u578b\u306fstd::float32_t\n\n  // a\u306f\u3088\u308a\u5927\u304d\u3044\u7cbe\u5ea6\u306e\u578bfloat32_t\u306b\u5909\u63db\u3055\u308c\u308b\n  auto c = a + b; // c\u306e\u578b\u306fstd::float32_t\n\n  // \u7cbe\u5ea6\u3092\u843d\u3068\u3059\u7e2e\u5c0f\u5909\u63db\u306f\u660e\u793a\u7684\u578b\u5909\u63db\u3067\u884c\u3046\u3002\n  // \u62e1\u5f35\u6d6e\u52d5\u5c0f\u6570\u70b9\u6570\u578b\u306f\u6570\u5b66\u95a2\u6570\u306b\u3082\u6e21\u3059\u3053\u3068\u304c\u3067\u304d\u3001\n  // \u6a19\u6e96\u6d6e\u52d5\u5c0f\u6570\u70b9\u6570\u578b\u3078\u306e\u6697\u9ed9\u5909\u63db\u3082\u3067\u304d\u308b\n  double d = std::log(static_cast&lt;std::float16_t&gt;(c));\n\n  // \u540c\u3058\u7cbe\u5ea6\u306e\u6d6e\u52d5\u5c0f\u6570\u70b9\u6570\u578b\u3068\u306e\u9593\u3067\u3001\u7cbe\u5ea6\u3092\u843d\u3068\u3055\u305a\u5909\u63db\u3067\u304d\u3001\n  // cout\u3067\u3082\u62e1\u5f35\u6d6e\u52d5\u5c0f\u6570\u70b9\u6570\u306e\u307e\u307e\u51fa\u529b\u3067\u304d\u308b\n  std::cout &lt;&lt; static_cast&lt;std::float64_t&gt;(d) &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;stdfloat&#34;, &#34;float32_t&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/stdfloat.html" itemprop="url">
+              
+                <span itemprop="name">stdfloat</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">float32_t</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-12-04T05:32:39">
+        2024年12月04日 05時32分39秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">onihusube</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/stdfloat/float32_t.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/stdfloat/float32_t.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">type-alias</div><div class="header">&lt;stdfloat&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">float32_t</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+<span class="cp">#if defined(__STDCPP_FLOAT32_T__)</span>
+  <span class="k">using</span> <span class="n">float32_t</span> <span class="o">=</span> <span class="n"><i>implementation-defined</i></span><span class="p">;</span>
+<span class="cp">#endif</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>32ビット単精度の浮動小数点数型。</p>
+<h3>内部表現</h3>
+<p>この型は、ISO/IEC/IEEE 60559 (IEEE 754) 浮動小数点数規格のbinary32フォーマットをもつ。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>符号ビット数</th>
+<th>指数ビット数</th>
+<th>仮数ビット数</th>
+<th>最大指数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>8</td>
+<td>23</td>
+<td>127</td>
+</tr>
+</tbody>
+</table>
+<h3>リテラル</h3>
+<p>値にサフィックスとして<code>f32</code>もしくは<code>F32</code>を指定することで、<code>std::float32_t</code>のリテラルとすることができる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="">std::float32_t</a></span> <span class="n">a</span> <span class="o">=</span> <span class="mf">1.0f</span><span class="mi">32</span><span class="p">;</span>
+<span class="n"><a href="">std::float32_t</a></span> <span class="n">b</span> <span class="o">=</span> <span class="mf">2.0F</span><span class="mi">32</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<h3>事前定義マクロ</h3>
+<ul>
+<li>この型は、事前定義マクロ<code>__STDCPP_FLOAT32_T__</code>が定義されない場合、定義されない<ul>
+<li>ISO/IEC/IEEE 60559 (IEEE 754) のbinary32フォーマットが実装される環境でこのマクロは定義される</li>
+</ul>
+</li>
+</ul>
+<h3>順位</h3>
+<p>浮動小数点数の変換で使用される順位 (rank) は、以下のように定義される：</p>
+<ul>
+<li><code>long double</code> &gt; <code>double</code> &gt; <code>float</code>のように、<code>long double</code>が最も高い順位をもつ</li>
+<li>同じ値集合をもつ2つの<a class="cpprefjp-defined-word" data-desc="&lt;stdfloat&gt;で定義される内部表現の規定された浮動小数点数型" href="../stdfloat.html">拡張浮動小数点数型</a>は、同じ順位をもつ</li>
+<li>1つの<a class="cpprefjp-defined-word" data-desc="拡張浮動小数点数型の対義語としてfloat / double / long doubleを指す用語">標準浮動小数点数型</a>だけと同じ値集合をもつ<a class="cpprefjp-defined-word" data-desc="&lt;stdfloat&gt;で定義される内部表現の規定された浮動小数点数型" href="../stdfloat.html">拡張浮動小数点数型</a>は、その型と同じ順位をもつ</li>
+<li>2つ以上の<a class="cpprefjp-defined-word" data-desc="拡張浮動小数点数型の対義語としてfloat / double / long doubleを指す用語">標準浮動小数点数型</a>と同じ値集合をもつ<a class="cpprefjp-defined-word" data-desc="&lt;stdfloat&gt;で定義される内部表現の規定された浮動小数点数型" href="../stdfloat.html">拡張浮動小数点数型</a>は、<code>double</code>と同じ順位をもつ</li>
+</ul>
+<p>注意として、浮動小数点数型<code>T1</code>の値集合が浮動小数点数型<code>T2</code>の値集合の部分集合でも上位集合でもない場合、浮動小数点数型<code>T1</code>と<code>T2</code>の変換順位は定義されない。これは、一方の型が他方より大きな範囲と低い精度の両方を持つ場合に起こり得る。例えば、<code>std::float16_t</code>と<code>std::bfloat16_t</code>の間には変換順位が付かず、相互に暗黙変換できない。</p>
+<p>順位が同じ浮動小数点数型は、サブ順位 (subrank) で順序付けられる。拡張浮動小数点数は、<a class="cpprefjp-defined-word" data-desc="拡張浮動小数点数型の対義語としてfloat / double / long doubleを指す用語">標準浮動小数点数型</a>よりも大きなサブ順位をもつ。</p>
+<h3>昇格と変換</h3>
+<p>C言語の名残と後方互換性のために、<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>での<code>float</code>から<code>double</code>への変換は昇格と見なされるが、ほかの浮動小数点数型では昇格はない。</p>
+<p>2つの浮動小数点型の少なくとも一方が拡張浮動小数点型である場合、変換先の型が変換元の型より大きいか等しい場合にのみ、2つの浮動小数点型間の変換が暗黙的に行われる。いかなる暗黙の変換も損失なく、値を正確に保持する。潜在的に損失のある変換はすべて明示的でなければならない。</p>
+<p>小さい精度への変換は、<code>()</code>と<code>{}</code>による直接初期化、もしくは明示的なキャストのみ許可される。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="n"><a href="float16_t.html">std::float16_t</a></span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">g</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n"><a href="float16_t.html">std::float16_t</a></span> <span class="n">a</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span> <span class="c1">// エラー！小さい精度への暗黙変換はできない</span>
+  <span class="n"><a href="float16_t.html">std::float16_t</a></span> <span class="n">b</span><span class="p">(</span><span class="mf">2.0</span><span class="p">);</span>  <span class="c1">// OK : 直接初期化</span>
+  <span class="n"><a href="float16_t.html">std::float16_t</a></span> <span class="n">c</span><span class="p">{</span><span class="mf">3.0</span><span class="p">};</span>  <span class="c1">// OK : 直接初期化</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="mf">4.0</span><span class="p">;</span>                <span class="c1">// エラー！小さい精度への暗黙変換はできない</span>
+  <span class="n">f</span><span class="p">(</span><span class="mf">5.0</span><span class="p">);</span>                 <span class="c1">// エラー！小さい精度への暗黙変換はできない</span>
+  <span class="n">f</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="float16_t.html">std::float16_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="mf">5.0</span><span class="p">));</span> <span class="c1">// OK : 明示的なキャスト</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h3>通常の算術変換</h3>
+<p>算術演算での型変換は、以下のような規則で行われる。</p>
+<ul>
+<li>どちらかのオペランドが浮動小数点数型である場合、<ul>
+<li>両方のオペランドが同じ型であれば、型変換は行われない</li>
+<li>そうでなく、オペランドの一方が浮動小数点数型でなければ、浮動小数点数型のオペランドの型に変換される</li>
+<li>そうでなく、オペランドの浮動小数点数型の変換順位が等しくない場合、小さい方の順位をもつ浮動小数点数型は、もう一方の浮動小数点数型に変換される<ul>
+<li><code>float + double</code>は<code>double</code>に、<code>std::float16_t + float</code>は<code>float</code>に変換される</li>
+</ul>
+</li>
+<li>そうでなく、変換順位が等しい場合、サブ順位で比較が行われ、より大きいサブ順位をもつ浮動小数点数型に変換される<ul>
+<li><code>float + std::float32_t</code>は<code>std::float32_t</code>に変換される</li>
+</ul>
+</li>
+<li>そうでなければ、式は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる<ul>
+<li><code>std::float16_t + std::bfloat16_t</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><div class="yata" id="0e8b2d939eb09099dad570ea15617d7cac2c9c8c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../stdfloat.html">&lt;stdfloat&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">float</span> <span class="n">f32</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+  <span class="n"><a href="float16_t.html">std::float16_t</a></span> <span class="n">f16</span><span class="p">{</span><span class="mf">2.0</span><span class="p">};</span>
+  <span class="n"><a href="bfloat16_t.html">std::bfloat16_t</a></span> <span class="n">b16</span><span class="p">{</span><span class="mf">3.0</span><span class="p">};</span>
+  <span class="n"><a href="">std::float32_t</a></span> <span class="n">f32b</span><span class="p">{</span><span class="mf">4.0</span><span class="p">};</span>
+
+  <span class="k">auto</span> <span class="n">r1</span> <span class="o">=</span> <span class="n">f32</span> <span class="o">+</span> <span class="n">f16</span><span class="p">;</span> <span class="c1">// OK : f16は`float`に変換され、結果の型は`float`となる</span>
+  <span class="k">auto</span> <span class="n">r2</span> <span class="o">=</span> <span class="n">f32</span> <span class="o">+</span> <span class="n">b16</span><span class="p">;</span> <span class="c1">// OK : b16は`float`に変換され、結果の型は`float`となる</span>
+  <span class="c1">//auto r3 = f16 + b16; // エラー！どちらの型も算術変換でもう一方の型に変換できない</span>
+  <span class="k">auto</span> <span class="n">r4</span> <span class="o">=</span> <span class="n">f32</span> <span class="o">+</span> <span class="n">f32b</span><span class="p">;</span>  <span class="c1">// OK : f32はより大きいサブ順位をもつ`<a href="">std::float32_t</a>`に変換される</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">r4</span><span class="p">),</span> <span class="n"><a href="">std::float32_t</a></span><span class="o">&gt;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3><a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a></h3>
+<ul>
+<li>浮動小数点数型の変換をともなう<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>は、値を維持する変換が優先され、同じ変換順位をもつ他の浮動小数点数型への変換が優先して行われる<ul>
+<li>値を維持する変換が曖昧な場合、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる<ul>
+<li>「ひとつ上の順位をもつ浮動小数点数型に変換する」のような規則ではないため、ひとつ以上上の順位をもつ浮動小数点数型の候補が複数あると曖昧になる</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../stdfloat.html">&lt;stdfloat&gt;</a></span><span class="cp"></span>
+
+<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="n"><a href="">std::float32_t</a></span><span class="p">)</span> <span class="p">{}</span>
+<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="n"><a href="float64_t.html">std::float64_t</a></span><span class="p">)</span> <span class="p">{}</span>
+<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="kt">long</span> <span class="kt">long</span><span class="p">)</span> <span class="p">{}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">float</span> <span class="n">x</span><span class="p">;</span>
+  <span class="n"><a href="float16_t.html">std::float16_t</a></span> <span class="n">y</span><span class="p">;</span>
+  <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="c1">// f(<a href="">std::float32_t</a>)が呼び出される。</span>
+        <span class="c1">// floatと<a href="">std::float32_t</a>が同じ変換順位をもつ</span>
+  <span class="c1">//f(y); // エラー！曖昧。変換順位が等しいオーバーロードが見つからない</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>備考</h2>
+<ul>
+<li>この型は、C23で定義されるオプションキーワード<code>_Float32</code>の別名として定義されることになるだろう<ul>
+<li>この型は、<code>_Float32</code>と相互運用できるよう実装されることが望ましい</li>
+</ul>
+</li>
+<li>この型が定義される環境はISO/IEC/IEEE 60559 (IEEE 754) 準拠であるため、同じ変換順位をもつ浮動小数点数型 (<code>float</code>と<code>std::float32_t</code>のような) は同じ内部表現をもつ</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="c054fb1b9475197ff4ecd872b5b45c1647463568"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../stdfloat.html">&lt;stdfloat&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../cmath.html">&lt;cmath&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n"><a href="float16_t.html">std::float16_t</a></span> <span class="n">a</span> <span class="o">=</span> <span class="mf">1.0f</span><span class="mi">16</span><span class="p">;</span>
+  <span class="k">auto</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">2.0f</span><span class="mi">32</span><span class="p">;</span> <span class="c1">// bの型は<a href="">std::float32_t</a></span>
+
+  <span class="c1">// aはより大きい精度の型float32_tに変換される</span>
+  <span class="k">auto</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span> <span class="c1">// cの型は<a href="">std::float32_t</a></span>
+
+  <span class="c1">// 精度を落とす縮小変換は明示的型変換で行う。</span>
+  <span class="c1">// 拡張浮動小数点数型は数学関数にも渡すことができ、</span>
+  <span class="c1">// 標準浮動小数点数型への暗黙変換もできる</span>
+  <span class="kt">double</span> <span class="n">d</span> <span class="o">=</span> <span class="n"><a href="../cmath/log.html">std::log</a></span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="float16_t.html">std::float16_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">c</span><span class="p">));</span>
+
+  <span class="c1">// 同じ精度の浮動小数点数型との間で、精度を落とさず変換でき、</span>
+  <span class="c1">// coutでも拡張浮動小数点数のまま出力できる</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="float64_t.html">std::float64_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>1.09863
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++23</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 13.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="float16_t.html">std::float16_t</a></code></li>
+<li><code><a href="float64_t.html">std::float64_t</a></code></li>
+<li><code><a href="float128_t.html">std::float128_t</a></code></li>
+<li><code><a href="bfloat16_t.html">std::bfloat16_t</a></code></li>
+<li><code><a href="../limits/numeric_limits/is_iec559.html">std::numeric_limits&lt;T&gt;::is_iec559</a></code></li>
+<li><code><a href="../ostream/basic_ostream/op_ostream.html">std::basic_ostream::operator&lt;&lt;</a></code></li>
+<li><code><a href="../istream/basic_istream/op_istream.html">std::basic_istream::operator&gt;&gt;</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html" target="_blank">P1467R9 Extended floating-point types and standard names</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

@@ -1,0 +1,375 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>時間間隔を表す型 - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,chrono,std::chrono,type-alias,cpp11
+">
+        <meta name="title" content="時間間隔を表す型 - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="時間間隔を表す型 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="時間間隔を表す型 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/chrono/duration_aliases.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="さまざまな日付・時間単位の時間間隔を表現する[`duration`](duration.md)型の別名。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="時間間隔を表す型 - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/chrono/duration_aliases.html" />
+        <meta name="twitter:description" content="さまざまな日付・時間単位の時間間隔を表現する[`duration`](duration.md)型の別名。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;chrono&#34;], &#34;namespace&#34;: [&#34;std::chrono&#34;], &#34;id-type&#34;: [&#34;type-alias&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;275dc52ec6a4578bdf550aab0eb0dbc3aa5b8978&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;chrono&gt;\n\nnamespace chrono = std::chrono;\n\nint main()\n{\n  chrono::seconds s1{30};\n  chrono::seconds s2{20};\n\n  // \u79d2\u540c\u58eb\u306e\u6f14\u7b97\n  // 30\u79d2 + 20\u79d2 = 50\u79d2\n  chrono::seconds result = s1 + s2;\n  std::cout &lt;&lt; result.count() &lt;&lt; std::endl;\n\n  // \u79d2\u304b\u3089\u30df\u30ea\u79d2\u306b\u5909\u63db\n  // 50\u79d2 = 50000\u30df\u30ea\u79d2\n  chrono::milliseconds ms = result;\n  std::cout &lt;&lt; ms.count() &lt;&lt; std::endl;\n\n  // \u79d2\u304b\u3089\u5206\u306b\u5909\u63db\n  // 65\u79d2\u306f1\u52065\u79d2\u3060\u304c\u3001\u6574\u6570\u8868\u73fe\u306e\u5206\u306b\u5909\u63db\u3059\u308b\u969b\u306b5\u79d2\u304c\u5207\u308a\u6368\u3066\u3089\u308c\u308b\u305f\u3081\u3001\n  // 1\u5206\u3068\u306a\u308b\u3002\n  // \u5207\u308a\u6368\u3066\u304c\u767a\u751f\u3059\u308b\u5834\u5408\u306b\u306f\u3001duration_cast()\u95a2\u6570\u3092\u4f7f\u7528\u3059\u308b\u3002\n  chrono::seconds s3{65};\n  chrono::minutes m = chrono::duration_cast&lt;chrono::minutes&gt;(s3);\n  std::cout &lt;&lt; m.count() &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;34f0bdfcfe66e6cd3eb2c51938a4992a1ec9ff19&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;chrono&gt;\n\nusing namespace std::chrono;\n\nint main()\n{\n  // \u5e74\u304b\u3089\u6708\u3078\u306e\u5909\u63db\u3002duration_cast\u306f\u4e0d\u8981\n  months m1 = years{3};\n  assert(m1.count() == 36);\n\n  // \u6708\u304b\u3089\u5e74\u3078\u306e\u5909\u63db\u3002duration_cast\u304c\u5fc5\u8981\n  months m2{37};\n  auto y2 = duration_cast&lt;years&gt;(m2);\n  assert(y2.count() == 3);\n\n  // \u5e74\u304b\u3089\u65e5\u3078\u306e\u5909\u63db\u3002\n  // 400\u5e74\u306e\u5e73\u5747\u7684\u306a\u65e5\u6570\u3068\u3057\u3066\u5e74\u304c\u5b9a\u7fa9\u3055\u308c\u308b\u305f\u3081\u3001\u65e5\u306b\u5909\u63db\u3059\u308b\u969b\u306b\u7aef\u6570\u304c\u767a\u751f\u3059\u308b\u3002\n  // \u305d\u306e\u305f\u3081\u3001duration_cast\u304c\u5fc5\u8981\n  days d3 = duration_cast&lt;days&gt;(years{1});\n  assert(d3.count() == 365);\n\n  // \u65e5\u304b\u3089\u5e74\u3078\u306e\u5909\u63db\u3002\u7aef\u6570\u304c\u767a\u751f\u3059\u308b\u305f\u3081\u3001duration_cast\u304c\u5fc5\u8981\n  auto y4 = duration_cast&lt;years&gt;(days{366});\n  assert(y4.count() == 1);\n\n  // \u9031\u304b\u3089\u6708\u3078\u306e\u5909\u63db\u3002\u7aef\u6570\u304c\u767a\u751f\u3059\u308b\u305f\u3081\u3001duration_cast\u304c\u5fc5\u8981\n  auto w5 = duration_cast&lt;weeks&gt;(months{1});\n  assert(w5.count() == 4);\n\n  // \u5e74\u304b\u3089\u9031\u3078\u306e\u5909\u63db\u3002duration_cast\u304c\u5fc5\u8981\n  auto w6 = duration_cast&lt;weeks&gt;(years{1});\n  assert(w6.count() == 52);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;chrono&#34;, &#34;duration_aliases&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/chrono.html" itemprop="url">
+              
+                <span itemprop="name">chrono</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">時間間隔を表す型</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-06-25T13:48:21">
+        2025年06月25日 13時48分21秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">suomesta</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/chrono/duration_aliases.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/chrono/duration_aliases.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">type-alias</div><div class="header">&lt;chrono&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::chrono">std::chrono::</span><span class="token">時間間隔を表す型</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+<span class="k">namespace</span> <span class="n">chrono</span> <span class="p">{</span>
+  <span class="k">using</span> <span class="n"><a href="">nanoseconds</a></span>  <span class="o">=</span> <span class="n"><a href="duration.html">duration</a></span><span class="o">&lt;</span><span class="err">少なくても</span><span class="mi">64</span><span class="err">ビットを持つ符号付き整数型</span><span class="p">,</span> <span class="n"><a href="../ratio/si_prefix.html">nano</a></span><span class="o">&gt;</span><span class="p">;</span>        <span class="c1">// (1) C++11</span>
+  <span class="k">using</span> <span class="n"><a href="">microseconds</a></span> <span class="o">=</span> <span class="n"><a href="duration.html">duration</a></span><span class="o">&lt;</span><span class="err">少なくても</span><span class="mi">55</span><span class="err">ビットを持つ符号付き整数型</span><span class="p">,</span> <span class="n"><a href="../ratio/si_prefix.html">micro</a></span><span class="o">&gt;</span><span class="p">;</span>       <span class="c1">// (2) C++11</span>
+  <span class="k">using</span> <span class="n"><a href="">milliseconds</a></span> <span class="o">=</span> <span class="n"><a href="duration.html">duration</a></span><span class="o">&lt;</span><span class="err">少なくても</span><span class="mi">45</span><span class="err">ビットを持つ符号付き整数型</span><span class="p">,</span> <span class="n"><a href="../ratio/si_prefix.html">milli</a></span><span class="o">&gt;</span><span class="p">;</span>       <span class="c1">// (3) C++11</span>
+  <span class="k">using</span> <span class="n"><a href="">seconds</a></span>      <span class="o">=</span> <span class="n"><a href="duration.html">duration</a></span><span class="o">&lt;</span><span class="err">少なくても</span><span class="mi">35</span><span class="err">ビットを持つ符号付き整数型</span><span class="o">&gt;</span><span class="p">;</span>              <span class="c1">// (4) C++11</span>
+  <span class="k">using</span> <span class="n"><a href="">minutes</a></span>      <span class="o">=</span> <span class="n"><a href="duration.html">duration</a></span><span class="o">&lt;</span><span class="err">少なくても</span><span class="mi">29</span><span class="err">ビットを持つ符号付き整数型</span><span class="p">,</span> <span class="n"><a href="../ratio.html">ratio</a></span><span class="o">&lt;</span><span class="mi">60</span><span class="o">&gt;&gt;</span><span class="p">;</span>   <span class="c1">// (5) C++11</span>
+  <span class="k">using</span> <span class="n"><a href="">hours</a></span>        <span class="o">=</span> <span class="n"><a href="duration.html">duration</a></span><span class="o">&lt;</span><span class="err">少なくても</span><span class="mi">23</span><span class="err">ビットを持つ符号付き整数型</span><span class="p">,</span> <span class="n"><a href="../ratio.html">ratio</a></span><span class="o">&lt;</span><span class="mi">3600</span><span class="o">&gt;&gt;</span><span class="p">;</span> <span class="c1">// (6) C++11</span>
+
+  <span class="k">using</span> <span class="n"><a href="">days</a></span>         <span class="o">=</span> <span class="n"><a href="duration.html">duration</a></span><span class="o">&lt;</span><span class="err">少なくても</span><span class="mi">25</span><span class="err">ビットを持つ符号付き整数型</span><span class="p">,</span>
+                                <span class="n"><a href="../ratio/ratio_multiply.html">ratio_multiply</a></span><span class="o">&lt;</span><span class="n"><a href="../ratio.html">ratio</a></span><span class="o">&lt;</span><span class="mi">24</span><span class="o">&gt;</span><span class="p">,</span> <span class="n"><a href="">hours</a></span><span class="o">::</span><span class="n">period</span><span class="o">&gt;&gt;</span><span class="p">;</span>            <span class="c1">// (7) C++20</span>
+  <span class="k">using</span> <span class="n"><a href="">weeks</a></span>        <span class="o">=</span> <span class="n"><a href="duration.html">duration</a></span><span class="o">&lt;</span><span class="err">少なくても</span><span class="mi">22</span><span class="err">ビットを持つ符号付き整数型</span><span class="p">,</span>
+                                <span class="n"><a href="../ratio/ratio_multiply.html">ratio_multiply</a></span><span class="o">&lt;</span><span class="n"><a href="../ratio.html">ratio</a></span><span class="o">&lt;</span><span class="mi">7</span><span class="o">&gt;</span><span class="p">,</span> <span class="n"><a href="">days</a></span><span class="o">::</span><span class="n">period</span><span class="o">&gt;&gt;</span><span class="p">;</span>              <span class="c1">// (8) C++20</span>
+  <span class="k">using</span> <span class="n"><a href="">years</a></span>        <span class="o">=</span> <span class="n"><a href="duration.html">duration</a></span><span class="o">&lt;</span><span class="err">少なくても</span><span class="mi">17</span><span class="err">ビットを持つ符号付き整数型</span><span class="p">,</span>
+                                <span class="n"><a href="../ratio/ratio_multiply.html">ratio_multiply</a></span><span class="o">&lt;</span><span class="n"><a href="../ratio.html">ratio</a></span><span class="o">&lt;</span><span class="mi">146097</span><span class="p">,</span> <span class="mi">400</span><span class="o">&gt;</span><span class="p">,</span> <span class="n"><a href="">days</a></span><span class="o">::</span><span class="n">period</span><span class="o">&gt;&gt;</span><span class="p">;</span>    <span class="c1">// (9) C++20</span>
+  <span class="k">using</span> <span class="n"><a href="">months</a></span>       <span class="o">=</span> <span class="n"><a href="duration.html">duration</a></span><span class="o">&lt;</span><span class="err">少なくても</span><span class="mi">20</span><span class="err">ビットを持つ符号付き整数型</span><span class="p">,</span>
+                                <span class="n"><a href="../ratio/ratio_divide.html">ratio_divide</a></span><span class="o">&lt;</span><span class="n"><a href="">years</a></span><span class="o">::</span><span class="n">period</span><span class="p">,</span> <span class="n"><a href="../ratio.html">ratio</a></span><span class="o">&lt;</span><span class="mi">12</span><span class="o">&gt;&gt;&gt;</span><span class="p">;</span>              <span class="c1">// (10) C++20</span>
+<span class="p">}}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>さまざまな日付・時間単位の時間間隔を表現する<code><a href="duration.html">duration</a></code>型の別名。</p>
+<ul>
+<li>(1) : ナノ秒単位で時間間隔を表現する<code><a href="duration.html">duration</a></code>型の別名</li>
+<li>(2) : マイクロ秒単位で時間間隔を表現する<code><a href="duration.html">duration</a></code>型の別名</li>
+<li>(3) : ミリ秒単位で時間間隔を表現する<code><a href="duration.html">duration</a></code>型の別名</li>
+<li>(4) : 秒単位で時間間隔を表現する<code><a href="duration.html">duration</a></code>型の別名</li>
+<li>(5) : 分単位で時間間隔を表現する<code><a href="duration.html">duration</a></code>型の別名</li>
+<li>(6) : 時単位で時間間隔を表現する<code><a href="duration.html">duration</a></code>型の別名</li>
+<li>(7) : 日単位で時間間隔を表現する<code><a href="duration.html">duration</a></code>型の別名</li>
+<li>(8) : 週単位で時間間隔を表現する<code><a href="duration.html">duration</a></code>型の別名</li>
+<li>(9) : 年単位で時間間隔を表現する<code><a href="duration.html">duration</a></code>型の別名</li>
+<li>(10) : 月単位で時間間隔を表現する<code><a href="duration.html">duration</a></code>型の別名</li>
+</ul>
+<h2>備考</h2>
+<ul>
+<li>単位ごとの値を保持する型として「最低でもNビットを持つ符号付き整数型」という定義がされるが、これは標準ライブラリがサポートするすべての時間単位で±292年を最小範囲として表現できることを意図している<ul>
+<li>ナノ秒として64ビット符号付き整数を使用した場合、±292年の範囲を扱える</li>
+<li>時としての規定は23ビット以上だが、23ビットの場合に表現できる範囲は±478年となり、1ビットを減らして22ビットにすると表現範囲は±239年となる。22ビットでは目標の±292を下回ってしまう</li>
+</ul>
+</li>
+<li>1ヶ月を表す<code>duration</code>は年を12で割った値となるため、月は年よりあとに定義される</li>
+<li>年は、400年に97回だけうるう年があるため、400年分の日数146097を400で割った平均的な年の日数として定義される</li>
+</ul>
+<h2>例</h2>
+<h3>単位変換を含む基本的な使い方 (C++11)</h3>
+<p><div class="yata" id="275dc52ec6a4578bdf550aab0eb0dbc3aa5b8978"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
+
+<span class="k">namespace</span> <span class="n">chrono</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="">chrono::seconds</a></span> <span class="n">s1</span><span class="p">{</span><span class="mi">30</span><span class="p">};</span>
+  <span class="n"><a href="">chrono::seconds</a></span> <span class="n">s2</span><span class="p">{</span><span class="mi">20</span><span class="p">};</span>
+
+  <span class="c1">// 秒同士の演算</span>
+  <span class="c1">// 30秒 + 20秒 = 50秒</span>
+  <span class="n"><a href="">chrono::seconds</a></span> <span class="n">result</span> <span class="o">=</span> <span class="n">s1</span> <span class="o">+</span> <span class="n">s2</span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">result</span><span class="p">.</span><span class="n"><a href="duration/count.html">count()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// 秒からミリ秒に変換</span>
+  <span class="c1">// 50秒 = 50000ミリ秒</span>
+  <span class="n"><a href="">chrono::milliseconds</a></span> <span class="n">ms</span> <span class="o">=</span> <span class="n">result</span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">ms</span><span class="p">.</span><span class="n"><a href="duration/count.html">count()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// 秒から分に変換</span>
+  <span class="c1">// 65秒は1分5秒だが、整数表現の分に変換する際に5秒が切り捨てられるため、</span>
+  <span class="c1">// 1分となる。</span>
+  <span class="c1">// 切り捨てが発生する場合には、<a href="duration_cast.html">duration_cast</a>()関数を使用する。</span>
+  <span class="n"><a href="">chrono::seconds</a></span> <span class="n">s3</span><span class="p">{</span><span class="mi">65</span><span class="p">};</span>
+  <span class="n"><a href="">chrono::minutes</a></span> <span class="n">m</span> <span class="o">=</span> <span class="n"><a href="duration_cast.html">chrono::duration_cast</a></span><span class="o">&lt;</span><span class="n"><a href="">chrono::minutes</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">s3</span><span class="p">);</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">m</span><span class="p">.</span><span class="n"><a href="duration/count.html">count()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>50
+50000
+1
+</code></pre></p>
+<h3>日付単位の変換 (C++20)</h3>
+<p><div class="yata" id="34f0bdfcfe66e6cd3eb2c51938a4992a1ec9ff19"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// 年から月への変換。<a href="duration_cast.html">duration_cast</a>は不要</span>
+  <span class="n"><a href="">months</a></span> <span class="n">m1</span> <span class="o">=</span> <span class="n"><a href="">years</a></span><span class="p">{</span><span class="mi">3</span><span class="p">};</span>
+  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">m1</span><span class="p">.</span><span class="n"><a href="duration/count.html">count()</a></span> <span class="o">==</span> <span class="mi">36</span><span class="p">);</span>
+
+  <span class="c1">// 月から年への変換。<a href="duration_cast.html">duration_cast</a>が必要</span>
+  <span class="n"><a href="">months</a></span> <span class="n">m2</span><span class="p">{</span><span class="mi">37</span><span class="p">};</span>
+  <span class="k">auto</span> <span class="n">y2</span> <span class="o">=</span> <span class="n"><a href="duration_cast.html">duration_cast</a></span><span class="o">&lt;</span><span class="n"><a href="">years</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">m2</span><span class="p">);</span>
+  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">y2</span><span class="p">.</span><span class="n"><a href="duration/count.html">count()</a></span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+
+  <span class="c1">// 年から日への変換。</span>
+  <span class="c1">// 400年の平均的な日数として年が定義されるため、日に変換する際に端数が発生する。</span>
+  <span class="c1">// そのため、<a href="duration_cast.html">duration_cast</a>が必要</span>
+  <span class="n"><a href="">days</a></span> <span class="n">d3</span> <span class="o">=</span> <span class="n"><a href="duration_cast.html">duration_cast</a></span><span class="o">&lt;</span><span class="n"><a href="">days</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="">years</a></span><span class="p">{</span><span class="mi">1</span><span class="p">});</span>
+  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">d3</span><span class="p">.</span><span class="n"><a href="duration/count.html">count()</a></span> <span class="o">==</span> <span class="mi">365</span><span class="p">);</span>
+
+  <span class="c1">// 日から年への変換。端数が発生するため、<a href="duration_cast.html">duration_cast</a>が必要</span>
+  <span class="k">auto</span> <span class="n">y4</span> <span class="o">=</span> <span class="n"><a href="duration_cast.html">duration_cast</a></span><span class="o">&lt;</span><span class="n"><a href="">years</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="">days</a></span><span class="p">{</span><span class="mi">366</span><span class="p">});</span>
+  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">y4</span><span class="p">.</span><span class="n"><a href="duration/count.html">count()</a></span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+
+  <span class="c1">// 週から月への変換。端数が発生するため、<a href="duration_cast.html">duration_cast</a>が必要</span>
+  <span class="k">auto</span> <span class="n">w5</span> <span class="o">=</span> <span class="n"><a href="duration_cast.html">duration_cast</a></span><span class="o">&lt;</span><span class="n"><a href="">weeks</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="">months</a></span><span class="p">{</span><span class="mi">1</span><span class="p">});</span>
+  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">w5</span><span class="p">.</span><span class="n"><a href="duration/count.html">count()</a></span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
+
+  <span class="c1">// 年から週への変換。<a href="duration_cast.html">duration_cast</a>が必要</span>
+  <span class="k">auto</span> <span class="n">w6</span> <span class="o">=</span> <span class="n"><a href="duration_cast.html">duration_cast</a></span><span class="o">&lt;</span><span class="n"><a href="">weeks</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="">years</a></span><span class="p">{</span><span class="mi">1</span><span class="p">});</span>
+  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">w6</span><span class="p">.</span><span class="n"><a href="duration/count.html">count()</a></span> <span class="o">==</span> <span class="mi">52</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code></code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 3.2 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 4.6.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2012 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2013 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2015 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="../thread/this_thread/sleep_for.html">sleep_for</a></code></li>
+<li><code><a href="../thread/this_thread/sleep_until.html">sleep_until</a></code></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

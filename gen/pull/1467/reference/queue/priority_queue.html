@@ -1,0 +1,520 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>priority_queue - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,queue,std,class template
+">
+        <meta name="title" content="priority_queue - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="priority_queue - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="priority_queue - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/queue/priority_queue.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`priority_queue`はコンテナアダプタであり、優先順位付きキューを実現する目的で設計されている。要素を`push()`で追加し、取り出す際に`top()`を呼び出すことで、`Compare`述語によって優先順に要素が取り出される。デフォルトでは降順に処理される。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="priority_queue - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/queue/priority_queue.html" />
+        <meta name="twitter:description" content="`priority_queue`はコンテナアダプタであり、優先順位付きキューを実現する目的で設計されている。要素を`push()`で追加し、取り出す際に`top()`を呼び出すことで、`Compare`述語によって優先順に要素が取り出される。デフォルトでは降順に処理される。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;queue&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;3b561615ae76ad4dc20baa1e26305b6d2f9cc7d9&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;queue&gt;\n\nint main()\n{\n  // int\u3092\u8981\u7d20\u306b\u6301\u3064\u512a\u5148\u9806\u4f4d\u4ed8\u304d\u30ad\u30e5\u30fc\u3002\n  // \u964d\u9806\u306b\u51e6\u7406\u3059\u308b\n  std::priority_queue&lt;int&gt; que;\n\n  // \u30c7\u30fc\u30bf\u3092\u8ffd\u52a0\u3059\u308b\n  que.push(3);\n  que.push(1);\n  que.push(4);\n\n  // \u51e6\u7406\u9806\u306b\u51fa\u529b\u3059\u308b\n  while (!que.empty()) {\n    std::cout &lt;&lt; que.top() &lt;&lt; std::endl;\n    que.pop();\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;a1dc92359cac650ac6f1c4679020c870f653061f&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;queue&gt;\n\nint main()\n{\n  // \u6607\u9806\u306b\u51e6\u7406\u3059\u308b\n  {\n    std::priority_queue&lt;\n      int,                // \u8981\u7d20\u306e\u578b\u306fint\n      std::vector&lt;int&gt;,   // \u5185\u90e8\u30b3\u30f3\u30c6\u30ca\u306fstd::vector (\u30c7\u30d5\u30a9\u30eb\u30c8\u306e\u307e\u307e)\n      std::greater&lt;int&gt;   // \u6607\u9806 (\u30c7\u30d5\u30a9\u30eb\u30c8\u306fstd::less&lt;T&gt;)\n    &gt; que;\n\n    que.push(3);\n    que.push(1);\n    que.push(4);\n\n    while (!que.empty()) {\n      std::cout &lt;&lt; que.top() &lt;&lt; std::endl;\n      que.pop();\n    }\n  }\n  std::cout &lt;&lt; std::endl;\n\n  // \u51e6\u7406\u9806\u3092\u8868\u3059\u6bd4\u8f03\u95a2\u6570\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u306b\u30e9\u30e0\u30c0\u5f0f\u3092\u4f7f\u7528\u3059\u308b\n  {\n    auto compare = [](int a, int b) {\n      return a &lt; b;\n    };\n\n    std::priority_queue&lt;\n      int,\n      std::vector&lt;int&gt;,\n      decltype(compare) // \u6bd4\u8f03\u95a2\u6570\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3092\u6307\u5b9a\n    &gt; que {compare};\n\n    que.push(3);\n    que.push(1);\n    que.push(4);\n\n    while (!que.empty()) {\n      std::cout &lt;&lt; que.top() &lt;&lt; std::endl;\n      que.pop();\n    }\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;queue&#34;, &#34;priority_queue&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/queue.html" itemprop="url">
+              
+                <span itemprop="name">queue</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">priority_queue</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-08-04T15:46:25">
+        2024年08月04日 15時46分25秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">suomesta</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/queue/priority_queue.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/queue/priority_queue.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;queue&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">priority_queue</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Container</span> <span class="o">=</span> <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Compare</span> <span class="o">=</span> <span class="n"><a href="../functional/less.html">less</a></span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">Container</span><span class="o">::</span><span class="n">value_type</span><span class="o">&gt;&gt;</span>
+  <span class="k">class</span> <span class="nc">priority_queue</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>priority_queue</code>は<a class="cpprefjp-defined-word" data-desc="コンテナをラップしたクラス。一部のコンテナインタフェースをもたない場合がある">コンテナアダプタ</a>であり、優先順位付きキューを実現する目的で設計されている。要素を<code>push()</code>で追加し、取り出す際に<code>top()</code>を呼び出すことで、<code>Compare</code><a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>によって優先順に要素が取り出される。デフォルトでは降順に処理される。</p>
+<p><code>priority_queue</code>は、所定のメンバ関数を持つコンテナのオブジェクトを内部実装として用いており、標準のコンテナ、もしくは独自に実装したコンテナを指定することができる。</p>
+<p>このコンテナに必要な要件は、ランダムアクセスイテレータを持ち、かつ以下のメンバ関数を持つことである。</p>
+<ul>
+<li><code>front()</code></li>
+<li><code>push_back()</code></li>
+<li><code>pop_back()</code></li>
+<li><code>emplace_back()</code> (C++11)</li>
+</ul>
+<p>この要件を満たすものとしては<code><a href="../vector.html">vector</a></code>と<code><a href="../deque/deque.html">deque</a></code>があり、デフォルトでは<code><a href="../vector.html">vector</a></code>が使用される。</p>
+<p><code>priority_queue</code>は3つのテンプレート引数を持つ。</p>
+<p>各テンプレートパラメータの意味は以下の通りである。</p>
+<ul>
+<li><code>T</code>: 要素の型</li>
+<li><code>Container</code>: 内部実装のコンテナクラス</li>
+<li><code>Compare</code>: 優先順に並べ替えるための比較用<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>型。デフォルトでは降順比較の<code><a href="../functional/less.html">less</a></code>が使用される。</li>
+</ul>
+<p>以下のリファレンス中では、テンプレート引数として同じ名前を用いる。</p>
+<h2>メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="priority_queue/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td></td>
+</tr>
+<tr>
+<td><code>~priority_queue() = default</code></td>
+<td>デストラクタ</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operator=(const priority_queue&amp;) = default</code><br /> <code>operator=(priority_queue&amp;&amp;) = default</code></td>
+<td>代入演算子</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="priority_queue/empty.html">empty</a></code></td>
+<td>要素が空かどうかを判定する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="priority_queue/size.html">size</a></code></td>
+<td>要素数を取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="priority_queue/top.html">top</a></code></td>
+<td>次の要素にアクセスする</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="priority_queue/push.html">push</a></code></td>
+<td>要素を追加する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="priority_queue/push_range.html">push_range</a></code></td>
+<td>Rangeの要素を追加する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="priority_queue/emplace.html">emplace</a></code></td>
+<td>直接構築で要素を追加する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="priority_queue/pop.html">pop</a></code></td>
+<td>次の要素を削除する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="priority_queue/swap.html">swap</a></code></td>
+<td>他のpriority_queueオブジェクトと値を入れ替える</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>protectedメンバ変数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>変数名</th>
+<th>型</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>c</code></td>
+<td><code>Container</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>comp</code></td>
+<td><code>Compare</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>value_type</code></td>
+<td><code>Container::value_type</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>reference</code></td>
+<td><code>Container::reference</code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>const_reference</code></td>
+<td><code>Container::const_reference</code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>size_type</code></td>
+<td><code>Container::size_type</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>container_type</code></td>
+<td><code>Container</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>非メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="priority_queue/swap_free.html">swap</a></code></td>
+<td>2つの<code>priority_queue</code>オブジェクトを入れ替える</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>推論補助</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="priority_queue/op_deduction_guide.html">(deduction_guide)</a></code></td>
+<td>クラステンプレートの推論補助</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<h3>基本的な使い方</h3>
+<p><div class="yata" id="3b561615ae76ad4dc20baa1e26305b6d2f9cc7d9"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../queue.html">&lt;queue&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// intを要素に持つ優先順位付きキュー。</span>
+  <span class="c1">// 降順に処理する</span>
+  <span class="n"><span style="color:#ff0000">std::priority_queue</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">que</span><span class="p">;</span>
+
+  <span class="c1">// データを追加する</span>
+  <span class="n"><a href="priority_queue/push.html">que.push</a></span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+  <span class="n"><a href="priority_queue/push.html">que.push</a></span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="n"><a href="priority_queue/push.html">que.push</a></span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+
+  <span class="c1">// 処理順に出力する</span>
+  <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n"><a href="priority_queue/empty.html">que.empty()</a></span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="priority_queue/top.html">que.top()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="n"><a href="priority_queue/pop.html">que.pop()</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>4
+3
+1
+</code></pre></p>
+<h3>処理順をカスタマイズする (C++11)</h3>
+<p><div class="yata" id="a1dc92359cac650ac6f1c4679020c870f653061f"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../queue.html">&lt;queue&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// 昇順に処理する</span>
+  <span class="p">{</span>
+    <span class="n"><span style="color:#ff0000">std::priority_queue</span></span><span class="o">&lt;</span>
+      <span class="kt">int</span><span class="p">,</span>                <span class="c1">// 要素の型はint</span>
+      <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span>   <span class="c1">// 内部コンテナは<a href="../vector/vector.html">std::vector</a> (デフォルトのまま)</span>
+      <span class="n"><a href="../functional/greater.html">std::greater</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span>   <span class="c1">// 昇順 (デフォルトは<a href="../functional/less.html">std::less</a>&lt;T&gt;)</span>
+    <span class="o">&gt;</span> <span class="n">que</span><span class="p">;</span>
+
+    <span class="n"><a href="priority_queue/push.html">que.push</a></span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+    <span class="n"><a href="priority_queue/push.html">que.push</a></span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="n"><a href="priority_queue/push.html">que.push</a></span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n"><a href="priority_queue/empty.html">que.empty()</a></span><span class="p">)</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="priority_queue/top.html">que.top()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+      <span class="n"><a href="priority_queue/pop.html">que.pop()</a></span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// 処理順を表す比較関数オブジェクトにラムダ式を使用する</span>
+  <span class="p">{</span>
+    <span class="k">auto</span> <span class="n">compare</span> <span class="o">=</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">;</span>
+    <span class="p">};</span>
+
+    <span class="n"><span style="color:#ff0000">std::priority_queue</span></span><span class="o">&lt;</span>
+      <span class="kt">int</span><span class="p">,</span>
+      <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span>
+      <span class="k">decltype</span><span class="p">(</span><span class="n">compare</span><span class="p">)</span> <span class="c1">// 比較関数オブジェクトを指定</span>
+    <span class="o">&gt;</span> <span class="n">que</span> <span class="p">{</span><span class="n">compare</span><span class="p">};</span>
+
+    <span class="n"><a href="priority_queue/push.html">que.push</a></span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+    <span class="n"><a href="priority_queue/push.html">que.push</a></span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="n"><a href="priority_queue/push.html">que.push</a></span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n"><a href="priority_queue/empty.html">que.empty()</a></span><span class="p">)</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="priority_queue/top.html">que.top()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+      <span class="n"><a href="priority_queue/pop.html">que.pop()</a></span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>1
+3
+4
+
+4
+3
+1
+</code></pre></p>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="../algorithm/push_heap.html">std::push_heap</a></code></li>
+<li><code><a href="../algorithm/pop_heap.html">std::pop_heap</a></code></li>
+<li><code><a href="../algorithm/make_heap.html">std::make_heap</a></code></li>
+<li><code><a href="../algorithm/sort_heap.html">std::sort_heap</a></code></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

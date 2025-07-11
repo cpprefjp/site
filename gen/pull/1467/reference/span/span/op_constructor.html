@@ -1,0 +1,603 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>span::コンストラクタ - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,span,std,span,function,cpp20
+">
+        <meta name="title" content="span::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="span::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="span::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/span/span/op_constructor.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`span`オブジェクトを構築する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="span::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/span/span/op_constructor.html" />
+        <meta name="twitter:description" content="`span`オブジェクトを構築する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;span&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;span&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;3e7974f36e36096d6ef9a62836cff436b207522c&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;span&gt;\n#include &lt;vector&gt;\n#include &lt;array&gt;\n#include &lt;string&gt;\n\nint main()\n{\n  std::vector&lt;int&gt; v = {1, 2, 3, 4, 5};\n\n  // (1) \u30c7\u30d5\u30a9\u30eb\u30c8\u30b3\u30f3\u30b9\u30c8\u30e9\u30af\u30bf\n  {\n    // \u9577\u30550\u306e\u53c2\u7167\u7bc4\u56f2\u3092\u3082\u3064span\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\n    std::span&lt;int, 0&gt; s1;\n    assert(s1.empty());\n\n    // \u52d5\u7684\u306a\u8981\u7d20\u6570\u3092\u3082\u3064span\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\n    std::span&lt;int&gt; s2;\n    assert(s2.empty());\n\n    // \u4ee5\u4e0b\u306f\u30b3\u30f3\u30d1\u30a4\u30eb\u30a8\u30e9\u30fc\u306b\u306a\u308b\u3002\n    // \u9577\u30551\u4ee5\u4e0a\u306espan\u306f\u3001\u53c2\u7167\u7bc4\u56f2\u3092\u8a2d\u5b9a\u3057\u306a\u3051\u308c\u3070\u306a\u3089\u306a\u3044\n    // std::span&lt;int, 1&gt; s3{};\n  }\n\n  // (2) \u30a4\u30c6\u30ec\u30fc\u30bf\u3068\u8981\u7d20\u6570\u306e\u7d44\u3092\u6307\u5b9a\n  {\n    // v\u306e\u5148\u982d3\u8981\u7d20\u3092\u53c2\u7167\u3059\u308b\u3002\n    std::span&lt;int&gt; s{v.begin(), 3};\n    assert(s.size() == 3);\n    assert(s[0] == 1);\n    assert(s[1] == 2);\n    assert(s[2] == 3);\n  }\n\n  // (3) \u7bc4\u56f2\u3092\u6307\u5b9a\n  {\n    std::span&lt;int&gt; s{v.begin(), v.begin() + 3};\n    assert(s.size() == 3);\n    assert(s[0] == 1);\n    assert(s[1] == 2);\n    assert(s[2] == 3);\n  }\n\n  // (4) \u7d44\u307f\u8fbc\u307f\u914d\u5217\u3078\u306e\u53c2\u7167\u3092\u6307\u5b9a\n  {\n    int ar[] = {1, 2, 3, 4, 5};\n    std::span&lt;int&gt; s{ar};\n    assert(s.size() == 5);\n    assert(s.data() == ar); // \u5143\u306e\u914d\u5217\u3092\u30b3\u30d4\u30fc\u305b\u305a\u3001\u53c2\u7167\u3057\u3066\u3044\u308b\n  }\n\n  // (5) std::array\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3078\u306e\u53c2\u7167\u3092\u6307\u5b9a\n  {\n    std::array ar = {1, 2, 3, 4, 5};\n    std::span&lt;int&gt; s{ar};\n    assert(s.size() == ar.size());\n    assert(s.data() == ar.data());\n  }\n\n  // (6) const std::array\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3078\u306e\u53c2\u7167\u3092\u6307\u5b9a\n  {\n    std::array ar = {1, 2, 3, 4, 5};\n    const auto&amp; car = ar;\n    std::span&lt;const int&gt; s{car};\n\n    assert(s.size() == car.size());\n    assert(s.data() == car.data());\n  }\n\n  // (7) \u30e1\u30e2\u30ea\u306e\u9023\u7d9a\u6027\u3092\u3082\u3064\u30a4\u30c6\u30ec\u30fc\u30bf\u3092\u3082\u3064\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u306e\u8981\u7d20\u5168\u4f53\u3092\u53c2\u7167\u3055\u305b\u308b\n  {\n    std::span&lt;int&gt; s1{v};\n    assert(s1.size() == v.size());\n    assert(s1.data() == v.data());\n\n    // std::string_view\u306e\u4ee3\u308f\u308a\n    std::string str = \&#34;Hello\&#34;;\n    std::span&lt;char&gt; s2{str};\n    assert(s2.size() == str.size());\n    assert(s2.data() == str.data());\n  }\n\n  // (8) \u30b3\u30d4\u30fc\u30b3\u30f3\u30b9\u30c8\u30e9\u30af\u30bf\n  {\n    std::span&lt;int&gt; s1{v};\n    std::span&lt;int&gt; s2 = s1;\n\n    // \u30b3\u30d4\u30fc\u5143\u3068\u30b3\u30d4\u30fc\u5148\u304c\u540c\u3058\u7bc4\u56f2\u3092\u53c2\u7167\u3059\u308b\n    assert(s1.data() == v.data());\n    assert(s2.data() == v.data());\n  }\n\n  // (9) \u5909\u63db\u30b3\u30f3\u30b9\u30c8\u30e9\u30af\u30bf\n  {\n    int ar[] = {1, 2, 3};\n\n    std::span&lt;int, 3&gt; s1{ar};\n    std::span&lt;int&gt; s2 = s1;\n    std::span&lt;int&gt; s3 = s2.first(2);\n    std::span&lt;const int&gt; s4 = s3;\n\n    assert(s4.size() == 2);\n    assert(s4.data() == ar);\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;c0270b6725baea02308c9bf7e1d713a4dfc414df&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;span&gt;\n#include &lt;vector&gt;\n\nvoid print_list(std::span&lt;const int&gt; s) {\n  bool first = true;\n  for (const int&amp; x : s) {\n    if (first) {\n      first = false;\n    }\n    else {\n      std::cout &lt;&lt; &#39;,&#39;;\n    }\n    std::cout &lt;&lt; x;\n  }\n  std::cout &lt;&lt; std::endl;\n}\n\nint main()\n{\n  std::vector&lt;int&gt; v = {1, 2, 3, 4, 5};\n  print_list(v);\n\n  print_list({{3, 1, 4}}); // C++20\u304b\u3089OK\n  print_list({3, 1, 4});   // C++26\u304b\u3089OK\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;span&#34;, &#34;span&#34;, &#34;op_constructor&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/span.html" itemprop="url">
+              
+                <span itemprop="name">span</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/span/span.html" itemprop="url">
+              
+                <span itemprop="name">span</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">コンストラクタ</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-07-16T09:43:27">
+        2024年07月16日 09時43分27秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">raclamusi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/span/span/op_constructor.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/span/span/op_constructor.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;span&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class span">span::</span><span class="token">コンストラクタ</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="nf">span</span><span class="p">()</span> <span class="k">noexcept</span><span class="p">;</span>                                     <span class="c1">// (1) C++20</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">It</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="k">explicit</span><span class="p">(</span><span class="n">extent</span> <span class="o">!=</span> <span class="n"><a href="../dynamic_extent.html">dynamic_extent</a></span><span class="p">)</span>
+  <span class="n">span</span><span class="p">(</span><span class="n">It</span> <span class="n">first</span><span class="p">,</span> <span class="n">size_type</span> <span class="n">count</span><span class="p">);</span>                             <span class="c1">// (2) C++20</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">It</span><span class="p">,</span> <span class="k">class</span> <span class="nc">End</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="k">explicit</span><span class="p">(</span><span class="n">extent</span> <span class="o">!=</span> <span class="n"><a href="../dynamic_extent.html">dynamic_extent</a></span><span class="p">)</span>
+  <span class="n">span</span><span class="p">(</span><span class="n">It</span> <span class="n">first</span><span class="p">,</span> <span class="n">End</span> <span class="n">last</span><span class="p">);</span>                                    <span class="c1">// (3) C++20</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../../cstddef/size_t.html">size_t</a></span> <span class="n">N</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="n">span</span><span class="p">(</span>
+  <span class="n"><a href="../../type_traits/type_identity.html">type_identity_t</a></span><span class="o">&lt;</span><span class="n">element_type</span><span class="o">&gt;</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">arr</span><span class="p">)[</span><span class="n">N</span><span class="p">])</span> <span class="k">noexcept</span><span class="p">;</span>           <span class="c1">// (4) C++20</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n"><a href="../../cstddef/size_t.html">size_t</a></span> <span class="n">N</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="n">span</span><span class="p">(</span><span class="n"><a href="../../array/array.html">array</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">N</span><span class="o">&gt;&amp;</span> <span class="n">arr</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>                     <span class="c1">// (5) C++20</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n"><a href="../../cstddef/size_t.html">size_t</a></span> <span class="n">N</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="n">span</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../../array/array.html">array</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">N</span><span class="o">&gt;&amp;</span> <span class="n">arr</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>               <span class="c1">// (6) C++20</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">R</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="k">explicit</span><span class="p">(</span><span class="n">extent</span> <span class="o">!=</span> <span class="n"><a href="../dynamic_extent.html">dynamic_extent</a></span><span class="p">)</span>
+  <span class="n">span</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">);</span>                                                 <span class="c1">// (7) C++20</span>
+
+<span class="k">constexpr</span> <span class="nf">span</span><span class="p">(</span><span class="k">const</span> <span class="n">span</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="k">noexcept</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>          <span class="c1">// (8) C++20</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">OtherElementType</span><span class="p">,</span> <span class="n"><a href="../../cstddef/size_t.html">size_t</a></span> <span class="n">OtherExtent</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="k">explicit</span><span class="p">(</span><span class="n">extent</span> <span class="o">!=</span> <span class="n"><a href="../dynamic_extent.html">dynamic_extent</a></span> <span class="o">&amp;&amp;</span> <span class="n">OtherExtent</span> <span class="o">==</span> <span class="n"><a href="../dynamic_extent.html">dynamic_extent</a></span><span class="p">)</span>
+  <span class="n">span</span><span class="p">(</span><span class="k">const</span> <span class="n">span</span><span class="o">&lt;</span><span class="n">OtherElementType</span><span class="p">,</span> <span class="n">OtherExtent</span><span class="o">&gt;&amp;</span> <span class="n">s</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (9) C++20</span>
+
+<span class="k">constexpr</span> <span class="nf">explicit</span><span class="p">(</span><span class="n">extent</span> <span class="o">!=</span> <span class="n"><a href="../dynamic_extent.html">dynamic_extent</a></span><span class="p">)</span>
+  <span class="n">span</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">std::initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">);</span>                  <span class="c1">// (10) C++26</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>span</code>オブジェクトを構築する。</p>
+<ul>
+<li>(1) : デフォルトコンストラクタ。空の<code>span</code>オブジェクトを構築する</li>
+<li>(2) : 参照範囲として先頭要素を指すイテレータと、そこからの要素数を指定して、それらの要素を参照する<code>span</code>オブジェクトを構築する</li>
+<li>(3) : 参照範囲として先頭要素を指すイテレータと、末尾要素の次を指すイテレータを指定して、それらの要素を参照する<code>span</code>オブジェクトを構築する</li>
+<li>(4) : 指定された組み込み配列の全体を参照する<code>span</code>オブジェクトを構築する</li>
+<li>(5) : 指定された非<code>const</code>左辺値参照の<code><a href="../../array/array.html">std::array</a></code>の全体を参照する<code>span</code>オブジェクトを構築する</li>
+<li>(6) : 指定された<code>const</code>左辺値参照の<code><a href="../../array/array.html">std::array</a></code>の全体を参照する<code>span</code>オブジェクトを構築する</li>
+<li>(7) : 指定された、メモリ連続性をもつイテレータを持つオブジェクトの要素全体を参照する<code>span</code>オブジェクトを構築する</li>
+<li>(8) : コピーコンストラクタ。<code>other</code>と同じ範囲を参照する<code>span</code>オブジェクトを構築する</li>
+<li>(9) : テンプレートパラメータの異なる<code>span</code>オブジェクトを変換する。以下のような変換ができる：<ul>
+<li>静的な要素数をもつ<code>span</code>から動的な要素数をもつ<code>span</code>への変換。</li>
+<li>動的な要素数をもつ<code>span</code>同士の変換</li>
+<li><code>span&lt;T&gt;</code>から<code>span&lt;const T&gt;</code>への変換</li>
+<li>バイト数が同じ暗黙の型変換が可能な要素型をもつ<code>span</code>同士の変換</li>
+</ul>
+</li>
+<li>(10) : 初期化子リストから<code>span</code>オブジェクトを構築する</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
+<ul>
+<li>(1) :<ul>
+<li><code>Extent == <a href="../dynamic_extent.html">dynamic_extent</a> || Extent == 0</code>が<code>true</code>であること<ul>
+<li>値<code>-1</code>はオーバーフローによって正の最大値になるので<code>false</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>(2) :<ul>
+<li>型 <code>U</code> を <code><a href="../../type_traits/remove_reference.html">std::remove_reference_t</a>&lt;<a href="../../iterator/iter_reference_t.html">std::iter_reference_t</a>&lt;It&gt;&gt;</code>とするとき<ul>
+<li>型 <code>It</code> はコンセプト <code><a href="../../iterator/contiguous_iterator.html">std::contiguous_iterator</a></code> を満たしていること</li>
+<li><code><a href="../../type_traits/is_convertible.html">std::is_convertible_v</a>&lt;U(*)[], element_type(*)[]&gt;</code> が <code>true</code> であること。(この制約の意図は、イテレータ参照型から <code>element_type</code> への修飾の変換のみを許可すること)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>(3) :<ul>
+<li>型 <code>U</code> を <code><a href="../../type_traits/remove_reference.html">std::remove_reference_t</a>&lt;<a href="../../iterator/iter_reference_t.html">std::iter_reference_t</a>&lt;It&gt;&gt;</code>とするとき<ul>
+<li>型 <code>It</code> はコンセプト <code><a href="../../iterator/contiguous_iterator.html">std::contiguous_iterator</a></code> を満たしていること</li>
+<li><code><a href="../../type_traits/is_convertible.html">std::is_convertible_v</a>&lt;U(*)[], element_type(*)[]&gt;</code> が <code>true</code> であること。(この制約の意図は、イテレータ参照型から <code>element_type</code> への修飾の変換のみを許可すること)</li>
+<li>型 <code>End</code> はコンセプト <code><a href="../../iterator/sized_sentinel_for.html">std::sized_sentinel_for&lt;It&gt;</a></code> を満たしていること</li>
+<li><code><a href="../../type_traits/is_convertible.html">std::is_convertible_v</a>&lt;End, size_t&gt;</code> が <code>false</code>であること</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>(4), (5), (6) :<ul>
+<li><code>extent == <a href="../dynamic_extent.html">dynamic_extent</a> || N == extent</code>が<code>true</code>であること</li>
+<li><code><a href="../../type_traits/remove_pointer.html">remove_pointer_t</a>&lt;decltype(<a href="../../iterator/data.html">data</a>(arr)))&gt;</code>を型<code>U</code>であるとして、<ul>
+<li><code><a href="../../type_traits/is_convertible.html">is_convertible_v</a>&lt;U(*)[], element_type(*)[]&gt;</code>が<code>true</code>であること (この制約の意図は、配列の要素型から<code>element_type</code>へ、修飾の変換のみを許可すること)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>(7) :<ul>
+<li>型 <code>U</code> を <code><a href="../../type_traits/remove_reference.html">std::remove_reference_t</a>&lt;<a href="../../iterator/iter_reference_t.html">std::iter_reference_t</a>&lt;R&gt;&gt;</code>とするとき<ul>
+<li>型 <code>R</code> はコンセプト <code>std::ranges::contiguous_range</code> 及び <code>std::ranges::sized_range</code> を満たしていること</li>
+<li>型 <code>R</code> がコンセプト <code><a href="../../ranges/borrowed_range.html">std::ranges::borrowed_range</a></code> を満たすか、<code>std::is_const_v&lt;element_type&gt;</code> が<code>true</code>であること</li>
+<li><code>std::remove_cvref_t&lt;R&gt;</code>が<code>std::span</code>の特殊化ではないこと</li>
+<li><code>std::remove_cvref_t&lt;R&gt;</code>が<code>std::array</code>の特殊化ではないこと</li>
+<li><code>std::is_array_v&lt;std::remove_cvref_t&lt;R&gt;&gt;</code> が <code>false</code> であること</li>
+<li><code>std::is_convertible_v&lt;U(*)[], element_type(*)[]&gt;</code> が <code>true</code> であること。(この制約の意図は、イテレータ参照型から <code>element_type</code> への修飾変換のみを許可すること)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>(9) :<ul>
+<li><code>extent == <a href="../dynamic_extent.html">dynamic_extent</a> || OtherExtent == <a href="../dynamic_extent.html">dynamic_extent</a> || extent == OtherExtent</code>が<code>true</code>であること (受け取り側が<code><a href="../dynamic_extent.html">dynamic_extent</a></code>を持っていれば任意の<code>Extent</code>から変換できる)</li>
+<li><code>OtherElementType(*)[]</code>型が<code>ElementType(*)[]</code>型に変換可能であること</li>
+</ul>
+</li>
+<li>(10) :<ul>
+<li><code><a href="../../type_traits/is_const.html">is_const_v</a>&lt;element_type&gt;</code>が<code>true</code>であること<ul>
+<li>(<code>std::span&lt;const T&gt;</code>に対してのみ使用できる)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a></h2>
+<ul>
+<li>(2) :<ul>
+<li><code>[first, first + count)</code>が妥当な<a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a>であること</li>
+<li>型 <code>It</code> はコンセプト <code><a href="../../iterator/contiguous_iterator.html">std::contiguous_iterator</a></code> のモデルであること</li>
+<li>メンバ定数<code>extent</code>が<code><a href="../dynamic_extent.html">dynamic_extent</a></code>と等値ではない場合、<code>count</code>と<code>extent</code>が等値であること</li>
+</ul>
+</li>
+<li>(3) :<ul>
+<li><code>[first, last)</code>が妥当な<a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a>であること</li>
+<li>メンバ定数<code>extent</code>が<code><a href="../dynamic_extent.html">dynamic_extent</a></code>と等値ではない場合、<code>last - first</code>と<code>extent</code>が等値であること</li>
+<li>型 <code>It</code> はコンセプト <code><a href="../../iterator/contiguous_iterator.html">std::contiguous_iterator</a></code> のモデルであること</li>
+<li>型 <code>End</code> はコンセプト <code><a href="../../iterator/sized_sentinel_for.html">std::sized_sentinel_for</a>&lt;It&gt;</code> のモデルであること</li>
+</ul>
+</li>
+<li>(7) :<ul>
+<li><code>extent</code>が<code><a href="../dynamic_extent.html">dynamic_extent</a></code>と等値でない場合、<code>extent</code>は<code><a href="../../ranges/size.html">ranges::size</a>(r)</code>と等値になる</li>
+<li>型 <code>R</code> はコンセプト <code>std::ranges::contiguous_range</code> 及び <code>std::ranges::sized_range</code> のモデルであること</li>
+<li><code><a href="../../type_traits/is_const.html">std::is_const_v</a>&lt;element_type&gt;</code> が <code>false</code>であるとき、型 <code>R</code> はコンセプト <code><a href="../../ranges/borrowed_range.html">std::ranges::borrowed_range</a></code> のモデルであること</li>
+</ul>
+</li>
+<li>(9) :<ul>
+<li><code>extent</code>が<code><a href="../dynamic_extent.html">dynamic_extent</a></code>と等値でない場合、<code>extent</code>は<code><a href="size.html">s.size()</a></code>と等値になる</li>
+</ul>
+</li>
+<li>(10) :<ul>
+<li><code>extent</code>が<code><a href="../dynamic_extent.html">dynamic_extent</a></code>と等値でない場合、<code>extent</code>は<code><a href="../../initializer_list/initializer_list/size.html">il.size()</a></code>と等値になる</li>
+</ul>
+</li>
+</ul>
+<h2>効果</h2>
+<ul>
+<li>(2) : <a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a><code>[first, first + count)</code>を参照する<code>span</code>オブジェクトを構築する</li>
+<li>(3) : <a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a><code>[first, last)</code>を参照する<code>span</code>オブジェクトを構築する</li>
+<li>(4), (5), (6) : 範囲<code>[<a href="../../iterator/data.html">data</a>(arr), <a href="../../iterator/data.html">data</a>(arr) + N)</code>を参照する<code>span</code>オブジェクトを構築する</li>
+<li>(7) : 範囲<code>[std::ranges::data(r), std::ranges::data(r) + std::ranges::size(r))</code>を参照する<code>span</code>オブジェクトを構築する</li>
+<li>(9) : 範囲<code>[s.<a href="data.html">data()</a>, s.<a href="data.html">data()</a> + s.<a href="size.html">size()</a>)</code>を参照する<code>span</code>オブジェクトを構築する</li>
+<li>(10) : 範囲<code>[il.<a href="../../initializer_list/initializer_list/begin.html">begin()</a>, il.<a href="../../initializer_list/initializer_list/begin.html">begin()</a> + il.<a href="../../initializer_list/initializer_list/size.html">size()</a>)</code>を参照する<code>span</code>オブジェクトを構築する</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a></h2>
+<ul>
+<li>(1) : <code><a href="size.html">size()</a> == 0 &amp;&amp; <a href="data.html">data()</a> == nullptr</code>が<code>true</code>であること</li>
+<li>(4), (5), (6) : <code><a href="size.html">size()</a> == N &amp;&amp; <a href="data.html">data()</a> == <a href="../../iterator/data.html">data</a>(arr)</code>が<code>true</code>であること</li>
+<li>(8) : <code><a href="size.html">size()</a> == <a href="../../iterator/size.html">size</a>(cont) &amp;&amp; <a href="data.html">data()</a> == <a href="../../iterator/data.html">data</a>(cont)</code>が<code>true</code>であること</li>
+<li>(9) : <code><a href="size.html">size()</a> == s.<a href="size.html">size()</a> &amp;&amp; <a href="data.html">data()</a> == s.<a href="data.html">data()</a></code>が<code>true</code>であること</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
+<ul>
+<li>(1), (2), (4), (5), (6) : 投げない</li>
+<li>(3) : <code>last - first</code>がなんらかの<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する可能性がある</li>
+<li>(7) : コンテナ型によっては、<code>std::ranges::data(r)</code>と<code>std::ranges::size(r)</code>の呼び出しがなんらかの<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する可能性がある</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></h2>
+<ul>
+<li>(1)-(10) : 定数時間</li>
+</ul>
+<h2>この機能が必要になった背景・経緯</h2>
+<ul>
+<li>(10) :<ul>
+<li><code><a href="../../string_view/basic_string_view.html">std::string_view</a></code>が文字列リテラル (たとえば<code>"abc"</code>) をとれるのと同様に、<code>std::span</code>クラスも<code><a href="../../initializer_list/initializer_list.html">std::initializer_list</a></code>をとれるようにした</li>
+</ul>
+</li>
+</ul>
+<h2>備考</h2>
+<ul>
+<li>(10) : <code>std::span&lt;const int&gt; v = {1, 2, 3};</code> のような使い方は初期化子リストの寿命が尽きてしまうので注意。関数のパラメータを<code>span</code>として受け取るような使い方が想定される</li>
+</ul>
+<h2>例</h2>
+<h3>基本的な使い方 (C++20)</h3>
+<p><div class="yata" id="3e7974f36e36096d6ef9a62836cff436b207522c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../span.html">&lt;span&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../array.html">&lt;array&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+
+  <span class="c1">// (1) デフォルトコンストラクタ</span>
+  <span class="p">{</span>
+    <span class="c1">// 長さ0の参照範囲をもつspanオブジェクト</span>
+    <span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;</span> <span class="n">s1</span><span class="p">;</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="empty.html">s1.empty()</a></span><span class="p">);</span>
+
+    <span class="c1">// 動的な要素数をもつspanオブジェクト</span>
+    <span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s2</span><span class="p">;</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="empty.html">s2.empty()</a></span><span class="p">);</span>
+
+    <span class="c1">// 以下はコンパイルエラーになる。</span>
+    <span class="c1">// 長さ1以上のspanは、参照範囲を設定しなければならない</span>
+    <span class="c1">// <a href="../span.html">std::span</a>&lt;int, 1&gt; s3{};</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (2) イテレータと要素数の組を指定</span>
+  <span class="p">{</span>
+    <span class="c1">// vの先頭3要素を参照する。</span>
+    <span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">{</span><span class="n"><a href="../../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="size.html">s.size()</a></span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (3) 範囲を指定</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">{</span><span class="n"><a href="../../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../../vector/vector/begin.html">v.begin()</a></span> <span class="o">+</span> <span class="mi">3</span><span class="p">};</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="size.html">s.size()</a></span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (4) 組み込み配列への参照を指定</span>
+  <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">ar</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+    <span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">{</span><span class="n">ar</span><span class="p">};</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="size.html">s.size()</a></span> <span class="o">==</span> <span class="mi">5</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="data.html">s.data()</a></span> <span class="o">==</span> <span class="n">ar</span><span class="p">);</span> <span class="c1">// 元の配列をコピーせず、参照している</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (5) <a href="../../array/array.html">std::array</a>オブジェクトへの参照を指定</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../../array/array.html">std::array</a></span> <span class="n">ar</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+    <span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">{</span><span class="n">ar</span><span class="p">};</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="size.html">s.size()</a></span> <span class="o">==</span> <span class="n"><a href="../../array/array/size.html">ar.size()</a></span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="data.html">s.data()</a></span> <span class="o">==</span> <span class="n"><a href="../../array/array/data.html">ar.data()</a></span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (6) const <a href="../../array/array.html">std::array</a>オブジェクトへの参照を指定</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../../array/array.html">std::array</a></span> <span class="n">ar</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+    <span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">car</span> <span class="o">=</span> <span class="n">ar</span><span class="p">;</span>
+    <span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">{</span><span class="n">car</span><span class="p">};</span>
+
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="size.html">s.size()</a></span> <span class="o">==</span> <span class="n"><a href="../../array/array/size.html">car.size()</a></span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="data.html">s.data()</a></span> <span class="o">==</span> <span class="n"><a href="../../array/array/data.html">car.data()</a></span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (7) メモリの連続性をもつイテレータをもつオブジェクトの要素全体を参照させる</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s1</span><span class="p">{</span><span class="n">v</span><span class="p">};</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="size.html">s1.size()</a></span> <span class="o">==</span> <span class="n"><a href="../../vector/vector/size.html">v.size()</a></span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="data.html">s1.data()</a></span> <span class="o">==</span> <span class="n"><a href="../../vector/vector/data.html">v.data()</a></span><span class="p">);</span>
+
+    <span class="c1">// <a href="../../string_view/basic_string_view.html">std::string_view</a>の代わり</span>
+    <span class="n"><a href="../../string/basic_string.html">std::string</a></span> <span class="n">str</span> <span class="o">=</span> <span class="s">"Hello"</span><span class="p">;</span>
+    <span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="n">s2</span><span class="p">{</span><span class="n">str</span><span class="p">};</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="size.html">s2.size()</a></span> <span class="o">==</span> <span class="n"><a href="../../string/basic_string/size.html">str.size()</a></span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="data.html">s2.data()</a></span> <span class="o">==</span> <span class="n"><a href="../../string/basic_string/data.html">str.data()</a></span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (8) コピーコンストラクタ</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s1</span><span class="p">{</span><span class="n">v</span><span class="p">};</span>
+    <span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s2</span> <span class="o">=</span> <span class="n">s1</span><span class="p">;</span>
+
+    <span class="c1">// コピー元とコピー先が同じ範囲を参照する</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="data.html">s1.data()</a></span> <span class="o">==</span> <span class="n"><a href="../../vector/vector/data.html">v.data()</a></span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="data.html">s2.data()</a></span> <span class="o">==</span> <span class="n"><a href="../../vector/vector/data.html">v.data()</a></span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (9) 変換コンストラクタ</span>
+  <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">ar</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+
+    <span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">3</span><span class="o">&gt;</span> <span class="n">s1</span><span class="p">{</span><span class="n">ar</span><span class="p">};</span>
+    <span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s2</span> <span class="o">=</span> <span class="n">s1</span><span class="p">;</span>
+    <span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s3</span> <span class="o">=</span> <span class="n"><a href="first.html">s2.first</a></span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+    <span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">s4</span> <span class="o">=</span> <span class="n">s3</span><span class="p">;</span>
+
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="size.html">s4.size()</a></span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="data.html">s4.data()</a></span> <span class="o">==</span> <span class="n">ar</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code></code></pre></p>
+<h3>初期化子リストからspanを構築する (C++26)</h3>
+<p><div class="yata" id="c0270b6725baea02308c9bf7e1d713a4dfc414df"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../span.html">&lt;span&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+
+<span class="kt">void</span> <span class="nf">print_list</span><span class="p">(</span><span class="n"><a href="../span.html">std::span</a></span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">bool</span> <span class="n">first</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="nl">x</span> <span class="p">:</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">first</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">first</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="sc">','</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+  <span class="n">print_list</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+
+  <span class="n">print_list</span><span class="p">({{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">}});</span> <span class="c1">// C++20からOK</span>
+  <span class="n">print_list</span><span class="p">({</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">});</span>   <span class="c1">// C++26からOK</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>1,2,3,4,5
+3,1,4
+3,1,4
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++20</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: (10.0.0 現在、実装は P1394R4 以前の不完全なものである) <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: 10.0.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://wg21.cmeerw.net/lwg/issue3100" target="_blank">LWG Issue 3100. Unnecessary and confusing "empty span" wording</a></li>
+<li><a href="https://wg21.cmeerw.net/lwg/issue3101" target="_blank">LWG Issue 3101. <code>span</code>'s Container constructors need another constraint</a></li>
+<li><a href="https://cplusplus.github.io/LWG/issue3198" target="_blank">LWG Issue 3198. Bad constraint on <code>std::span::span()</code></a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1872r0.pdf" target="_blank">P1872R0 <code>span</code> should have <code>size_type</code>, not <code>index_type</code></a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1394r4.pdf" target="_blank">P1394R4 Range constructor for <code>std::span</code></a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1976r2.html" target="_blank">P1976R2 Fixed-size <code>span</code> construction from dynamic range</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html" target="_blank">P2117R0 C++ Standard Library Issues Resolved Directly In Prague</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2447r6.html" target="_blank">P2447R6 <code>std::span</code> over an initializer list</a><ul>
+<li>C++26から初期化子リストをとるコンストラクタが追加された</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

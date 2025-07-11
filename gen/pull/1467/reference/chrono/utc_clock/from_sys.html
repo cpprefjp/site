@@ -1,0 +1,302 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>utc_clock::from_sys - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,chrono,std::chrono,utc_clock,function,cpp20
+">
+        <meta name="title" content="utc_clock::from_sys - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="utc_clock::from_sys - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="utc_clock::from_sys - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/chrono/utc_clock/from_sys.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="システム時間からUTC時間に変換する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="utc_clock::from_sys - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/chrono/utc_clock/from_sys.html" />
+        <meta name="twitter:description" content="システム時間からUTC時間に変換する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;chrono&#34;], &#34;namespace&#34;: [&#34;std::chrono&#34;], &#34;class&#34;: [&#34;utc_clock&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;e8338f3ebb8d12a01ec2c39dd51f2f83493b4e0d&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;chrono&gt;\n\nusing namespace std::chrono;\n\nint main()\n{\n  // \u3053\u3053\u3067\u306f\u65e5\u4ed8 (sys_days) \u304b\u3089\u65e5\u4ed8 (\u65e5\u5358\u4f4d\u306eutc_time) \u306b\u5909\u63db\u3057\u3066\u3044\u308b\u304c\u3001\n  // \u65e5\u6642 (sys_seconds) \u3092\u6e21\u305b\u3070\u65e5\u6642 (utc_seconds) \u304c\u8fd4\u308b\u3002\n  // system_clock::time_point\u3092\u6e21\u305b\u3070\u3001\u305d\u308c\u3068\u540c\u3058\u6642\u9593\u5358\u4f4d\u306eutc_clock\u306etime_point\u304c\u8fd4\u308b\n  auto t = sys_days{July/1/2015};\n  auto u = utc_clock::from_sys(t); // \u65e5\u5358\u4f4d\u306eUTC\u6642\u9593\u304c\u8fd4\u308b\n\n  auto leap_seconds = duration_cast&lt;seconds&gt;(u.time_since_epoch() - t.time_since_epoch());\n\n  std::cout &lt;&lt; t &lt;&lt; std::endl;\n  std::cout &lt;&lt; u &lt;&lt; std::endl;\n  std::cout &lt;&lt; leap_seconds &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;chrono&#34;, &#34;utc_clock&#34;, &#34;from_sys&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/chrono.html" itemprop="url">
+              
+                <span itemprop="name">chrono</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/chrono/utc_clock.html" itemprop="url">
+              
+                <span itemprop="name">utc_clock</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">from_sys</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-06-11T13:45:38">
+        2024年06月11日 13時45分38秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/chrono/utc_clock/from_sys.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/chrono/utc_clock/from_sys.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;chrono&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::chrono">std::chrono::</span><span class="class" title="class utc_clock">utc_clock::</span><span class="token">from_sys</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Duration</span><span class="o">&gt;</span>
+<span class="k">static</span> <span class="n"><a href="../utc_time.html">utc_time</a></span><span class="o">&lt;</span><span class="n"><a href="../common_type.html">common_type_t</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="p">,</span> <span class="n"><a href="../duration_aliases.html">seconds</a></span><span class="o">&gt;&gt;</span>
+  <span class="n">from_sys</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../sys_time.html">sys_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;&amp;</span> <span class="n">t</span><span class="p">);</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>システム時間からUTC時間に変換する。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p><code>u.<a href="../time_point/time_since_epoch.html">time_since_epoch()</a> - t.<a href="../time_point/time_since_epoch.html">time_since_epoch()</a></code>が1970年1月1日からの挿入されたうるう秒の合計と等しくなるような<code><a href="../utc_time.html">utc_time</a></code>型オブジェクト<code>u</code>を返す。<code>t</code>がうるう秒が挿入されたちょうどその日付だえる場合、この変換ではうるう秒が挿入されたものとしてカウントされる。</p>
+<h2>例</h2>
+<p><div class="yata" id="e8338f3ebb8d12a01ec2c39dd51f2f83493b4e0d"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// ここでは日付 (<a href="../sys_time.html">sys_days</a>) から日付 (日単位の<a href="../utc_time.html">utc_time</a>) に変換しているが、</span>
+  <span class="c1">// 日時 (<a href="../sys_time.html">sys_seconds</a>) を渡せば日時 (<a href="../utc_time.html">utc_seconds</a>) が返る。</span>
+  <span class="c1">// <a href="../system_clock.html">system_clock</a>::time_pointを渡せば、それと同じ時間単位のutc_clockのtime_pointが返る</span>
+  <span class="k">auto</span> <span class="n">t</span> <span class="o">=</span> <span class="n"><a href="../sys_time.html">sys_days</a></span><span class="p">{</span><span class="n"><a href="../month_constants.html">July</a></span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="mi">2015</span><span class="p">};</span>
+  <span class="k">auto</span> <span class="n">u</span> <span class="o">=</span> <span class="n">utc_clock</span><span class="o">::</span><span class="n"><span style="color:#ff0000">from_sys</span></span><span class="p">(</span><span class="n">t</span><span class="p">);</span> <span class="c1">// 日単位のUTC時間が返る</span>
+
+  <span class="k">auto</span> <span class="n">leap_seconds</span> <span class="o">=</span> <span class="n"><a href="../duration_cast.html">duration_cast</a></span><span class="o">&lt;</span><span class="n"><a href="../duration_aliases.html">seconds</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">u</span><span class="p">.</span><span class="n"><a href="../time_point/time_since_epoch.html">time_since_epoch()</a></span> <span class="o">-</span> <span class="n">t</span><span class="p">.</span><span class="n"><a href="../time_point/time_since_epoch.html">time_since_epoch()</a></span><span class="p">);</span>
+
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">t</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">u</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">leap_seconds</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>2015-01-01
+2015-01-01 00:00:00 UTC
+26
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++20</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: 9.0 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: 9.2 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: 2019 Update 3 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3359" target="_blank">LWG Issue 3359. <code>&lt;chrono&gt;</code> leap second support should allow for negative leap seconds</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

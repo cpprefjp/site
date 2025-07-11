@@ -1,0 +1,282 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>ディレクトリ構造 - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,
+">
+        <meta name="title" content="ディレクトリ構造 - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="ディレクトリ構造 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="ディレクトリ構造 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/start_editing/directory_structure.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="ディレクトリ構造 lang  cpp{version}.mdの形式で、各C++バージョンの言語機能ページを作る future.mdは、将来のC++で検討されている言語機能を記載するところである。導入予定だった機能が再検討になった場合などに使用する archive.mdは、廃案になったC++機能だが解説として残す価値のあるものがある場合に、記載するところである  reference / module" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="ディレクトリ構造 - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/start_editing/directory_structure.html" />
+        <meta name="twitter:description" content="ディレクトリ構造 lang  cpp{version}.mdの形式で、各C++バージョンの言語機能ページを作る future.mdは、将来のC++で検討されている言語機能を記載するところである。導入予定だった機能が再検討になった場合などに使用する archive.mdは、廃案になったC++機能だが解説として残す価値のあるものがある場合に、記載するところである  reference / module" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;start_editing&#34;, &#34;directory_structure&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../start_editing.html" itemprop="url">
+              
+                <span itemprop="name">はじめてのコントリビュート</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">ディレクトリ構造</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-07-16T09:43:27">
+        2024年07月16日 09時43分27秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">raclamusi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/start_editing/directory_structure.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/start_editing/directory_structure.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">ディレクトリ構造</span></h1>
+<div itemprop="articleBody"><h2>lang</h2>
+<ul>
+<li>cpp{version}.mdの形式で、各C++バージョンの言語機能ページを作る</li>
+<li>future.mdは、将来のC++で検討されている言語機能を記載するところである。導入予定だった機能が再検討になった場合などに使用する</li>
+<li>archive.mdは、廃案になったC++機能だが解説として残す価値のあるものがある場合に、記載するところである</li>
+</ul>
+<h2>reference / module</h2>
+<ul>
+<li>reference階層は、ヘッダベースのライブラリリファレンスで、その階層直下にはヘッダページを置く</li>
+<li>module階層は、モジュールベースのライブラリリファレンスで、その階層直下にはモジュールページを置く</li>
+</ul>
+<p>reference階層とmodule階層は上記以外は同じであるため、以下、共通のルールを書きます。</p>
+<h3>ヘッダ・モジュール階層</h3>
+<ul>
+<li>ヘッダ・モジュール階層以下に、それに所属している機能のページを置く</li>
+<li>どのヘッダ・モジュールにも属さない機能の場合は、以下のように対応する<ul>
+<li>全体で使用する説明専用の機能は、仮のヘッダ<code>&lt;exposition-only&gt;</code>に属するものとして記載する</li>
+</ul>
+</li>
+</ul>
+<h3>クラス階層</h3>
+<ul>
+<li>クラスに属するメンバ関数と型は、クラス階層の下に置く</li>
+<li><a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を意図している関数、そのクラス向けに特殊化した機能も、クラス階層の下に置き、機能の列挙としてもクラスページで行う<ul>
+<li><a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を意図している関数の例は以下：<ul>
+<li>非メンバ関数の演算子</li>
+<li><code>std::get()</code></li>
+<li><code>std::begin()</code>/<code>std::end()</code>/<code>std::data()</code>/<code>std::size()</code>およびそれに類するもの</li>
+<li><code>std::swap()</code></li>
+<li><code>std::erase()</code>/<code>std::erase_if()</code></li>
+<li><code>floor()</code>/<code>ceil()</code>/<code>round()</code> (chrono)</li>
+</ul>
+</li>
+<li>特殊な例として、<code><a href="../reference/expected/expected.html">std::expected</a></code>では<a href="../reference/expected/expected.void.html">部分特殊化</a>のためにクラス階層を分離している。これは各メンバ説明の差分が大きいためである</li>
+</ul>
+</li>
+<li>演算子<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>は、<code>operator&lt;&lt;</code> (出力ストリームへの出力) と <code>std::operator&gt;&gt;</code> (入力ストリームからの入力) を除き、左辺のクラスに属するものとする<ul>
+<li>特殊な例として、<code><a href="../reference/system_error/error_code.html">std::error_code</a></code>と<code><a href="../reference/system_error/error_condition.html">std::error_condition</a></code>の比較演算子は、クラス階層ではなくヘッダ階層としている。これは所属関係がむずかしいためである</li>
+</ul>
+</li>
+</ul>
+<h3>コンセプト階層</h3>
+<ul>
+<li>コンセプトによって<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>・特殊化されている場合は、コンセプトの階層を作って、その下に置く。機能の列挙としてはヘッダページで行う</li>
+</ul>
+<h3>名前空間階層</h3>
+<ul>
+<li>名前空間の階層は基本的に導入しない。<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>は以下：<ul>
+<li><code><a href="../reference/thread/this_thread.html">std::this_thread</a></code><ul>
+<li>名前空間に特殊な意味をもたせている</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

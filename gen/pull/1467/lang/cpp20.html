@@ -1,0 +1,897 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>C++20 - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,
+">
+        <meta name="title" content="C++20 - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="C++20 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="C++20 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp20.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="C++20とは、2020年中に改訂され、ISO/IEC 14882:2020で標準規格化されたC++バージョンの通称である。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="C++20 - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp20.html" />
+        <meta name="twitter:description" content="C++20とは、2020年中に改訂され、ISO/IEC 14882:2020で標準規格化されたC++バージョンの通称である。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp20&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">C++20</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-06-25T13:48:21">
+        2025年06月25日 13時48分21秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">suomesta</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp20.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp20.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">C++20</span></h1>
+<div itemprop="articleBody"><h2>概要</h2>
+<p>C++20とは、2020年中に改訂され、ISO/IEC 14882:2020で標準規格化されたC++バージョンの通称である。</p>
+<p>このバージョンは、策定中はC++2aと呼ばれることがあった。「202a年にリリースされる」という伏せ字として「a」が使われているが、3年周期に次のバージョンが策定されることが決まっているため、伏せ字になっている年数がずれることはない。</p>
+<h2>言語機能</h2>
+<h3>クラス</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp20/consistent_comparison.html"><code>&lt;=&gt;</code>/<code>==</code>による比較演算子の自動定義</a></td>
+<td>三方比較演算子によって比較演算子の自動生成を行うようにする</td>
+</tr>
+<tr>
+<td><a href="cpp20/default_member_initializers_for_bit_fields.html">ビットフィールドのメンバ変数初期化</a></td>
+<td>ビットフィールドメンバ変数のデフォルト値を設定する構文を追加する</td>
+</tr>
+<tr>
+<td><a href="cpp20/explicit_bool.html">関数を条件付きで<code>explicit</code>にする構文を追加</a></td>
+<td><code>explicit(true)</code>のように<code>explicit</code>に真理値パラメータを指定できるようにする</td>
+</tr>
+<tr>
+<td><a href="cpp20/fixing_const_qualified_pointers_to_members.html"><code>const</code>修飾されたメンバポインタの制限を修正</a></td>
+<td><code>.*</code>演算子での左辺値の<code>const</code>メンバ関数呼び出しを許可する</td>
+</tr>
+<tr>
+<td><a href="cpp20/resolving_const_mismatch_with_defaulted_copy_constructor.html">デフォルトのコピーコンストラクタと非<code>const</code>なコンストラクタが衝突する問題を修正</a></td>
+<td>非<code>const</code>なオブジェクトをとるコンストラクタを定義すると、そのクラスをラップしたクラスのコピーコンストラクタが<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../implementation-compliance.html#dfn-ill-formed">不適格</a>になってしまう問題を修正</td>
+</tr>
+<tr>
+<td><a href="cpp20/access_checking_on_specializations.html">特殊化のアクセスチェック</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="cpp20/language_support_for_empty_objects.html">空オブジェクトに対する最適化を支援する属性<code>[[no_unique_address]]</code></a></td>
+<td><code>[[no_unique_address]]</code>属性を導入し、空の型のオブジェクトをほかのオブジェクトと共有する最適化を許可する</td>
+</tr>
+<tr>
+<td><a href="cpp20/allow_structured_bindings_to_accessible_members.html">friend指定された関数内から構造化束縛を使用して非公開メンバ変数にアクセスすることを許可</a></td>
+<td>構造化束縛の仕様として公開メンバ変数のみを取り出せるようになっていたが、friend指定された関数からは非公開メンバ変数にもアクセスできるようにする</td>
+</tr>
+<tr>
+<td><a href="cpp20/relaxing_the_structured_bindings_customization_point_finding_rules.html">構造化束縛がカスタマイゼーションポイントを見つけるルールを緩和</a></td>
+<td>非テンプレートの<code>get()</code>メンバ関数が見つかった場合は、非メンバ関数の<code>get()</code>を探しにいく</td>
+</tr>
+<tr>
+<td><a href="cpp20/checking_for_abstract_class_types.html">抽象型のチェック</a></td>
+<td>関数の宣言段階では、パラメータおよび<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型が抽象型かどうかをチェックしないようにする</td>
+</tr>
+<tr>
+<td><a href="cpp20/efficient_sized_delete_for_variable_sized_classes.html">可変長データを扱うクラスの効率的な<code>delete</code></a></td>
+<td>クラスの<code>delete</code>演算子が呼び出される前にデストラクタが呼ばれないようにするオプションを追加</td>
+</tr>
+<tr>
+<td><a href="cpp20/conditionally_trivial_special_member_functions.html">条件付きで特殊メンバ関数をトリビアルに定義するように</a></td>
+<td>制約によってトリビアルな特殊メンバ関数と非トリビアルな特殊メンバ関数を<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>できるようにする</td>
+</tr>
+<tr>
+<td><a href="cpp20/implicit_creation_of_objects_for_low-level_object_manipulation.html">未初期化領域への暗黙的なオブジェクト構築</a></td>
+<td>未初期化領域の利用時に自動的にトリビアルな型のオブジェクトを構築する</td>
+</tr>
+</tbody>
+</table>
+<h3>列挙型</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp20/using_enum.html">スコープ付き列挙型のusing宣言</a></td>
+<td><code>using enum EnumType;</code>もしくは<code>using EnumType::enumerator</code>とすることで、列挙値のスコープ指定を省略できるようにする</td>
+</tr>
+</tbody>
+</table>
+<h3>変数</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp20/designated_initialization.html">指示付き初期化</a></td>
+<td>波カッコによる集成体初期化でメンバ名を指定して初期化できるようにする</td>
+</tr>
+<tr>
+<td><a href="cpp20/extending_structured_bindings_to_be_more_like_variable_declarations.html">構造化束縛を拡張して通常の変数宣言のように使用できるようにする</a></td>
+<td>記憶域指定子として<code>static</code>と<code>thread_local</code>の指定を許可</td>
+</tr>
+<tr>
+<td><a href="cpp20/allow_initializing_aggregates_from_a_parenthesized_list_of_values.html">丸カッコの値リストからの集成体初期化を許可</a></td>
+<td><code>T x{1, 2, 3};</code>と同様に<code>T x(1, 2, 3);</code>でも集成体初期化できるようにする</td>
+</tr>
+<tr>
+<td><a href="cpp20/array_size_deduction_in_new-expressions.html"><code>new</code>式での配列要素数の推論</a></td>
+<td><code>double* p = new double[]{1,2,3};</code>を許可</td>
+</tr>
+<tr>
+<td><a href="cpp20/permit_conversions_to_arrays_of_unknown_bound.html">要素数不明の配列への変換を許可</a></td>
+<td>要素数が判明している配列から、要素数が不明の配列への変換を許可</td>
+</tr>
+<tr>
+<td><a href="cpp20/converting_from_pointer_to_bool_should_be_considered_narrowing.html">ポインタから<code>bool</code>への変換を縮小変換とする</a></td>
+<td>ポインタから<code>bool</code>値への変換を縮小変換と規定することで、意図しない変換を防止する</td>
+</tr>
+</tbody>
+</table>
+<h3>整数</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp20/signed_integers_are_twos_complement.html">符号付き整数型が2の補数表現であることを規定</a></td>
+<td>符号付き整数型のビット表現を2の補数に規定する</td>
+</tr>
+</tbody>
+</table>
+<h3>文字列</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp20/char8_t.html">UTF-8エンコーディングされた文字の型として<code>char8_t</code>を追加</a></td>
+<td>UTF-8エンコードされた文字かどうかで<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>・特殊化をできるようにする</td>
+</tr>
+<tr>
+<td><a href="cpp20/make_char16t_char32t_string_literals_be_utf16_32.html"><code>char16_t</code>と<code>char32_t</code>の文字・文字列リテラルを、文字コードUTF-16/32に規定</a></td>
+<td><code>__STDC_UTF_16__</code>、<code>__STDC_UTF_32__</code>の定義に関係なく、<code>char16_t</code>、<code>char32_t</code>のリテラルをUTF-16/32文字コードに規定する</td>
+</tr>
+</tbody>
+</table>
+<h3>関数</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp20/nodiscard_should_have_a_reason.html"><code>[[nodiscard]]</code>属性に理由となる文字列を付加できるようにする</a></td>
+<td>関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を無視してはならない理由を関数宣言に持たせ、警告メッセージに役立てる</td>
+</tr>
+<tr>
+<td><a href="cpp20/nodiscard_for_constructors.html"><code>[[nodiscard]]</code>をコンストラクタのオーバーロードごとに付加できるようにする</a></td>
+<td>リソース確保するコンストラクタにのみ<code>[[nodisacrd]]</code>を付加できるようにする</td>
+</tr>
+</tbody>
+</table>
+<h3>制御構文</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp20/range-based_for_statements_with_initializer.html">初期化式をともなう範囲for文</a></td>
+<td>範囲for文スコープで使用する変数の初期化のための構文を追加</td>
+</tr>
+<tr>
+<td><a href="cpp20/relaxing_the_range_for_loop_customization_point_finding_rules.html">範囲for文がカスタマイゼーションポイントを見つけるルールを緩和</a></td>
+<td><code>begin()</code>/<code>end()</code>メンバ関数のどちらかが見つからなかった場合に非メンバ関数の<code>begin()</code>/<code>end()</code>を探しにいく</td>
+</tr>
+<tr>
+<td><a href="cpp20/likely_and_unlikely_attributes.html">確率が高い分岐と低い分岐を伝える属性 <code>[[likely]]</code>, <code>[[unlikely]]</code></a></td>
+<td>条件分岐の最適化ヒントを与える属性</td>
+</tr>
+</tbody>
+</table>
+<h3>テンプレート</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp20/concepts.html">コンセプト</a></td>
+<td>テンプレートパラメータに対する制約を行う</td>
+</tr>
+<tr>
+<td><a href="cpp20/function_templates_with_auto_parameters.html">autoパラメータによる関数テンプレートの簡易定義</a></td>
+<td>ジェネリックラムダと同様、関数パラメータの型を<code>auto</code>にすることで簡易的に関数テンプレートを定義できるようにする</td>
+</tr>
+<tr>
+<td><a href="cpp20/down_with_typename.html">型の文脈で<code>typename</code>の省略を許可</a></td>
+<td>型しか現れない文脈では、依存名を解決するための<code>typename</code>キーワードを省略できるようにする</td>
+</tr>
+<tr>
+<td><a href="cpp20/class_types_in_non-type_template_parameters.html">非型テンプレートパラメータとしてクラス型を許可する</a></td>
+<td>定数式として使用できる型を広く非型テンプレートパラメータとして使用できるようにする</td>
+</tr>
+<tr>
+<td><a href="cpp20/adl_and_function_templates_that_are_not_visible.html">関数テンプレートに明示的に型指定した場合にADLで見つからない問題を修正</a></td>
+<td>名前空間内の関数テンプレートをテンプレート引数指定かつ非修飾・<a class="cpprefjp-defined-word" data-desc="実引数依存の名前探索 (Argument Dependent Lookup)。引数の型が所属する名前空間の関数を探索する言語機能">ADL</a>で正しく呼び出せるよう修正</td>
+</tr>
+<tr>
+<td><a href="cpp20/class_template_argument_deduction_for_aggregates.html">集成体クラステンプレートのテンプレート引数推論</a></td>
+<td>クラステンプレートのテンプレート引数推論はコンストラクタ引数から推論されるが、集成体初期化からも推論できるようにする</td>
+</tr>
+<tr>
+<td><a href="cpp20/class_template_argument_deduction_for_alias_templates.html">エイリアステンプレート経由でのクラステンプレートのテンプレート引数推論</a></td>
+<td>エイリアステンプレートからクラステンプレートのテンプレート引数を推論できるようにする</td>
+</tr>
+</tbody>
+</table>
+<h3>定数式</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp20/less_eager_instantiation_of_constexpr_functions.html">評価されない文脈での定数式評価によって特殊メンバ関数がインスタンス化されることを規定</a></td>
+<td><code>sizeof</code>や<code>decltype</code>などの評価されない文脈において定数式評価を行った場合に、ムーブコンストラクタのような特殊メンバ関数が定義されることを規定</td>
+</tr>
+<tr>
+<td><a href="cpp20/allow_virtual_function_calls_in_constant_expressions.html">定数式からの仮想関数の呼び出しを許可</a></td>
+<td>仮想関数に<code>constexpr</code>を付けられない制限を解除</td>
+</tr>
+<tr>
+<td><a href="cpp20/allowing_dynamic_cast_polymorphic_typeid_in_constant_expressions.html">定数式での<code>dynamic_cast</code>、多態的な<code>typeid</code>を許可</a></td>
+<td>定数式での動的多態を許可</td>
+</tr>
+<tr>
+<td><a href="cpp20/try-catch_blocks_in_constexpr_functions.html">constexpr関数内でのtry-catchブロックを許可</a></td>
+<td>constexpr関数内で<code>try-catch</code>ブロックを書けるようにする</td>
+</tr>
+<tr>
+<td><a href="cpp20/immediate_functions.html">常に定数式評価する<code>consteval</code></a></td>
+<td><code>consteval</code>キーワードを追加し、常に定数式評価されるよう指定できるようにする</td>
+</tr>
+<tr>
+<td><a href="cpp20/changing_the_active_member_of_a_union_inside_constexpr.html">定数式内での共用体のアクティブメンバの変更を許可</a></td>
+<td>共用体メンバの書き換えを定数式内で行えるようにする</td>
+</tr>
+<tr>
+<td><a href="cpp20/permitting_trivial_default_initialization_in_constexpr_contexts.html">constexpr関数内でのトリビアルなデフォルト初期化を許可</a></td>
+<td>constexpr関数内での<a class="cpprefjp-defined-word" data-desc="`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト初期化</a>を許可し、未初期化値を読むことのみ禁止する</td>
+</tr>
+<tr>
+<td><a href="cpp20/enabling_constexpr_intrinsics_by_permitting_unevaluated_inline-assembly_in_constexpr_functions.html">constexpr関数内で未評価のインラインアセンブリを許可することによる組み込み関数のconstexpr有効化</a></td>
+<td>コンパイル時に評価されない場合にconstexpr関数にasm定義を含めることを許可</td>
+</tr>
+<tr>
+<td><a href="cpp20/constinit.html">コンパイル時初期化を強制する<code>constinit</code>キーワードを追加</a></td>
+<td>初期化のみコンパイル時におわらせたい場合に使用する</td>
+</tr>
+<tr>
+<td><a href="cpp20/more_constexpr_containers.html">可変サイズをもつコンテナの<code>constexpr</code>化</a></td>
+<td><code>constexpr</code>記憶域をもつメモリアロケータの存在を考慮することで、可変サイズをもつコンテナをコンパイル時に使用できるようにする</td>
+</tr>
+</tbody>
+</table>
+<h3>ラムダ式</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp20/familiar_template_syntax_for_generic_lambdas.html">ジェネリックラムダのテンプレート構文</a></td>
+<td>ジェネリックラムダでテンプレートパラメータを定義できるようにする</td>
+</tr>
+<tr>
+<td><a href="cpp20/allow_lambda_capture_equal_this.html">ラムダ式のキャプチャとして<code>[=, this]</code>を許可する</a></td>
+<td>デフォルトコピーキャプチャと<code>this</code>ポインタのコピーキャプチャを両方指定できるようにする</td>
+</tr>
+<tr>
+<td><a href="cpp20/simplifying_implicit_lambda_capture.html">暗黙のラムダキャプチャを簡略化</a></td>
+<td>ラムダ式のキャプチャに関する仕様整理</td>
+</tr>
+<tr>
+<td><a href="cpp20/default_constructible_and_assignable_stateless_lambdas.html">状態を持たないラムダ式を、デフォルト構築可能、代入可能とする</a></td>
+<td>キャプチャしていないラムダ式を<a class="cpprefjp-defined-word" data-desc="デフォルト初期化。`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト構築</a>・代入可能にする</td>
+</tr>
+<tr>
+<td><a href="cpp20/wording_for_lambdas_in_unevaluated_contexts.html">評価されない文脈でのラムダ式</a></td>
+<td>評価されない文脈でもラムダ式を書くことができるようにする</td>
+</tr>
+<tr>
+<td><a href="cpp20/allow_pack_expansion_in_lambda_init_capture.html">ラムダ式の初期化キャプチャでのパック展開を許可</a></td>
+<td><code>[...args = std::move(args)]</code>のようなキャプチャを許可</td>
+</tr>
+<tr>
+<td><a href="cpp20/reference_capture_of_structured_bindings.html">構造化束縛した変数の参照キャプチャを許可</a></td>
+<td>構造化束縛をした変数は特殊な扱いのためラムダ式で参照キャプチャできない規定となっていたがこれを許可する</td>
+</tr>
+</tbody>
+</table>
+<h3>名前空間</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp20/nested_inline_mamespaces.html">入れ子名前空間定義でのインライン名前空間</a></td>
+<td><code>namespace ns1::inline ns2::ns3 {}</code>のように、入れ子名前空間を定義する式にインライン名前空間の指定を含められるようにする</td>
+</tr>
+</tbody>
+</table>
+<h3>モジュール化</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp20/modules.html">モジュール</a></td>
+<td>ヘッダファイル・ソースファイル、インクルードに変わる仕組みとしてモジュールを導入する</td>
+</tr>
+</tbody>
+</table>
+<h3>並行・並列処理</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp20/coroutines.html">コルーチン</a></td>
+<td>関数実行を中断・再開する仕組みとしてコルーチンを導入する</td>
+</tr>
+</tbody>
+</table>
+<h3>プリプロセッサ</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp20/va_opt.html">可変引数が空でない場合のトークン置換</a></td>
+<td>プリプロセッサの置換で可変引数が空の場合に余計なカンマが付いてしまう問題に対処</td>
+</tr>
+</tbody>
+</table>
+<h3>機能の非推奨化</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp20/deprecating_volatile.html">ほとんどの<code>volatile</code>を非推奨化</a></td>
+<td><code>volatile</code>の有用な機能のみを残し、効果が疑わしい、または壊れている機能を非推奨化する</td>
+</tr>
+<tr>
+<td><a href="cpp20/deprecate_pod.html">PODを非推奨化</a></td>
+<td>PODという用語を非推奨化する</td>
+</tr>
+<tr>
+<td><a href="cpp20/deprecate_implicit_capture_of_this_via_defcopy.html"><code>[=]</code>による<code>this</code>の暗黙のキャプチャを非推奨化</a></td>
+<td>コピーのデフォルトキャプチャでは、<code>this</code>ポインタのキャプチャを非推奨化する</td>
+</tr>
+<tr>
+<td><a href="cpp20/deprecate_uses_of_the_comma_operator_in_subscripting_expressions.html">添字演算子内でのカンマ演算子の使用を非推奨化</a></td>
+<td><code>ar[i, j]</code>を非推奨化。<code>ar[(i, j)]</code>はOK</td>
+</tr>
+<tr>
+<td><a href="cpp20/deprecate_arithmetic_conversion_on_enumerations.html">列挙値から算術型への暗黙変換を非推奨化</a></td>
+<td>列挙値への算術演算で算術型に暗黙変換される仕様を非推奨とする</td>
+</tr>
+<tr>
+<td><a href="cpp20/deprecate_array_comparisons.html">組み込み配列の比較を非推奨化</a></td>
+<td>組み込み配列同士の比較演算を非推奨とする</td>
+</tr>
+</tbody>
+</table>
+<h3>機能の削除</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp20/remove_deprecated_nothrow_exception_specification.html"><code>throw()</code>による例外送出しない指定を削除</a></td>
+<td>代わりに<code>noexcept</code>を使用すること</td>
+</tr>
+<tr>
+<td><a href="cpp20/prohibit_aggregates_with_user-declared_constructors.html">ユーザー宣言したコンストラクタを持つクラスの集成体初期化を禁止</a></td>
+<td>コンストラクタが<code>delete</code>／<code>default</code>宣言されているクラスを、集成体初期化によってコンストラクタ呼び出しを回避して構築できてしまっていた技法を禁止</td>
+</tr>
+</tbody>
+</table>
+<h3>小さな変更</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp20/predefined_macros.html">更新された定義済みマクロ</a></td>
+<td>標準規格で定義されたマクロの更新</td>
+</tr>
+<tr>
+<td><a href="cpp20/update_the_reference_to_the_unicode_standard.html">Unicode標準への参照を更新</a></td>
+<td>標準C++からISO/IEC 10646への参照を更新する</td>
+</tr>
+<tr>
+<td><a href="cpp20/reserving_attribute_namespaces_for_future_use.html">属性の名前空間を予約</a></td>
+<td>将来の使用のために属性の名前空間を予約</td>
+</tr>
+</tbody>
+</table>
+<h2>ライブラリ更新の概要</h2>
+<h3>新ライブラリ</h3>
+<ul>
+<li>バージョン情報ライブラリとして<code><a href="../reference/version.html">&lt;version&gt;</a></code>を追加。ここでは、実装依存の情報 (バージョンやリリース日付など) が標準ライブラリの実装によって定義される</li>
+<li><code><a href="../reference/chrono.html">&lt;chrono&gt;</a></code>ライブラリに、カレンダーとタイムゾーンの機能を拡張</li>
+<li>任意のシーケンスの部分シーケンスを参照するライブラリとして<code><a href="../reference/span.html">&lt;span&gt;</a></code>を追加</li>
+<li>文字列フォーマットライブラリとして<code><a href="../reference/format.html">&lt;format&gt;</a></code>を追加</li>
+<li>出力ストリームを同期するライブラリとして<code><a href="../reference/syncstream.html">&lt;syncstream&gt;</a></code>を追加</li>
+<li>三方比較ライブラリとして<code><a href="../reference/compare.html">&lt;compare&gt;</a></code>を追加</li>
+<li>数値ライブラリとして<code><a href="../reference/numbers.html">&lt;numbers&gt;</a></code>を追加。数学定数が定義される</li>
+<li>ビット操作ライブラリとして<code><a href="../reference/bit.html">&lt;bit&gt;</a></code>を追加<ul>
+<li>Strict Aliasing規則に抵触しないビットレベルの再解釈キャストである<code><a href="../reference/bit/bit_cast.html">std::bit_cast()</a></code>関数を追加</li>
+<li>1ビットだけ立っている値をもっているかを判定する<code><a href="../reference/bit/has_single_bit.html">std::has_single_bit()</a></code>関数を追加</li>
+<li>整数値を2の累乗値に切り上げる<code><a href="../reference/bit/bit_ceil.html">std::bit_ceil()</a></code>関数、整数値を2の累乗値に切り下げる<code><a href="../reference/bit/bit_floor.html">std::bit_floor()</a></code>関数を追加</li>
+<li>値を表現するために必要なビット幅を求める<code><a href="../reference/bit/bit_width.html">std::bit_width()</a></code>関数を追加</li>
+<li>循環ビットシフトを行う<code><a href="../reference/bit/rotl.html">std::rotl()</a></code>と<code><a href="../reference/bit/rotr.html">std::rotr()</a></code>を追加</li>
+<li>連続した0もしくは1のビットを数える<code><a href="../reference/bit/countl_zero.html">std::countl_zero()</a></code>、<code><a href="../reference/bit/countl_one.html">std::countl_one()</a></code>、<code><a href="../reference/bit/countr_zero.html">std::countr_zero()</a></code>、<code><a href="../reference/bit/countr_one.html">std::countr_one()</a></code>、および立っているビットを数える<code><a href="../reference/bit/popcount.html">std::popcount()</a></code>を追加</li>
+<li>エンディアンを表す列挙型として<code><a href="../reference/bit/endian.html">std::endian</a></code>を追加</li>
+</ul>
+</li>
+<li>型制約のための要件ライブラリとして<code><a href="../reference/concepts.html">&lt;concepts&gt;</a></code>を追加</li>
+<li>言語機能であるコルーチンを制御するライブラリとして<code><a href="../reference/coroutine.html">&lt;coroutine&gt;</a></code>を追加</li>
+<li>スレッドの実行を停止させるメカニズムとして<code><a href="../reference/stop_token.html">&lt;stop_token&gt;</a></code>を追加し、停止に対応したスレッドクラスとして<code><a href="../reference/thread.html">&lt;thread&gt;</a></code>に<code><a href="../reference/thread/jthread.html">std::jthread</a></code>クラスを追加</li>
+<li>軽量な同期プリミティブであるセマフォのライブラリとして<code><a href="../reference/semaphore.html">&lt;semaphore&gt;</a></code>を追加</li>
+<li>スレッド調整メカニズムとして、ラッチライブラリの<code><a href="../reference/latch.html">&lt;latch&gt;</a></code>、バリアライブラリの<code><a href="../reference/barrier.html">&lt;barrier&gt;</a></code>を追加</li>
+<li>イテレータの組ではなく、コンテナや配列、部分的なコンテナなどを扱う範囲ライブラリとして<code><a href="../reference/ranges.html">&lt;ranges&gt;</a></code>を追加<ul>
+<li>既存のイテレータの組を扱うアルゴリズムは、<code>std::ranges</code>名前空間に範囲版アルゴリズムが追加される</li>
+</ul>
+</li>
+<li>ソースコードの位置を取得するライブラリとして<code><a href="../reference/source_location.html">&lt;source_location&gt;</a></code>を追加</li>
+</ul>
+<h3>取り決め</h3>
+<ul>
+<li><code>std</code>名前空間以下の関数テンプレートをユーザーが特殊化することを禁止する (参照 : <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0551r3.pdf" target="_blank">P0551R3</a>)</li>
+</ul>
+<h3>コンテナ</h3>
+<ul>
+<li>連想コンテナに、要素がコンテナに含まれているかを判定する<code>contains()</code>メンバ関数を追加</li>
+<li>順序付き連想コンテナと同様に、非順序連想コンテナの検索処理で、一時オブジェクトが生成されるコストを抑える拡張を追加。キー等値比較を行う関数オブジェクトとハッシュ計算を行う関数オブジェクトの両方に<code>is_transparent</code>が定義されていれば、透過的な検索が使用できる。<code><a href="../reference/functional/hash.html">std::hash</a></code>クラスのページを参照</li>
+<li>各コンテナの非メンバ関数として、要素を削除する<code>std::erase()</code>関数と<code>std::erase_if()</code>関数を追加</li>
+<li><code><a href="../reference/forward_list/forward_list.html">std::forward_list</a></code>と<code><a href="../reference/list/list.html">std::list</a></code>のメンバ関数<code>remove()</code>、<code>remove_if()</code>、<code>unique()</code>の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型を、<code>void</code>から<code>Container::size_type</code>に変更</li>
+<li><code><a href="../reference/array/array.html">std::array</a></code>クラスの比較演算子、<code><a href="../reference/array/array/fill.html">fill()</a></code>メンバ関数、<code><a href="../reference/array/array/swap.html">swap()</a></code>メンバ関数、<code><a href="../reference/array/array/swap_free.html">swap()</a></code>非メンバ関数に<code>constexpr</code>を追加。このクラスのメンバ関数はすべて<code>constexpr</code>に対応した</li>
+<li>組み込み配列を<code><a href="../reference/array/array.html">std::array</a></code>に変換する関数として<code><a href="../reference/array/to_array.html">std::to_array()</a></code>を追加</li>
+<li><code><a href="../reference/iterator.html">&lt;iterator&gt;</a></code>に、符号付き整数としてコンテナの要素数を取得する<code><a href="../reference/iterator/ssize.html">std::ssize()</a></code>関数を追加</li>
+<li><code><a href="../reference/memory/allocator.html">std::allocator</a></code>、および<code><a href="../reference/vector/vector.html">std::vector</a></code>と<code><a href="../reference/string/basic_string.html">std::basic_string</a></code>を<code>constexpr</code>対応</li>
+</ul>
+<h3>アルゴリズム</h3>
+<ul>
+<li><code><a href="../reference/algorithm.html">&lt;algorithm&gt;</a></code>の多くの関数に<code>constexpr</code>を追加</li>
+<li><code><a href="../reference/algorithm.html">&lt;algorithm&gt;</a></code>に、要素位置をシフトする<code><a href="../reference/algorithm/shift_left.html">std::shift_left()</a></code>、<code><a href="../reference/algorithm/shift_right.html">std::shift_right()</a></code>を追加</li>
+<li><code><a href="../reference/algorithm.html">&lt;algorithm&gt;</a></code>に三方比較による辞書順比較アルゴリズム<code><a href="../reference/algorithm/lexicographical_compare_three_way.html">std::lexicographical_compare_three_way()</a></code>を追加</li>
+<li>数値とポインタの中点を求める関数として、<code><a href="../reference/numeric.html">&lt;numeric&gt;</a></code>に<code><a href="../reference/numeric/midpoint.html">std::midpoint()</a></code>関数を追加</li>
+<li>浮動小数点数を線形補間する関数として、<code><a href="../reference/cmath.html">&lt;cmath&gt;</a></code>に<code><a href="../reference/cmath/lerp.html">std::lerp()</a></code>関数を追加</li>
+<li><code><a href="../reference/numeric.html">&lt;numeric&gt;</a></code>の数値計算アルゴリズムをムーブに対応</li>
+<li><code><a href="../reference/numeric.html">&lt;numeric&gt;</a></code>の数値計算アルゴリズムに<code>constexpr</code>を追加</li>
+</ul>
+<h3>イテレータ</h3>
+<ul>
+<li><code><a href="../reference/iterator/back_insert_iterator.html">std::back_insert_iterator</a></code>クラス、<code><a href="../reference/iterator/front_insert_iterator.html">std::front_insert_iterator</a></code>クラス、<code><a href="../reference/iterator/insert_iterator.html">std::insert_iterator</a></code>クラスのコンストラクタ、代入演算子、間接参照演算子、インクリメント演算子、および<code><a href="../reference/iterator/back_inserter.html">std::back_inserter()</a></code>、<code><a href="../reference/iterator/front_inserter.html">std::front_inserter()</a></code>、<code><a href="../reference/iterator/inserter.html">std::inserter()</a></code>に<code>constexpr</code>を追加。これらのクラスのメンバ関数はすべて<code>constexpr</code>に対応した</li>
+</ul>
+<h3>関数オブジェクト</h3>
+<ul>
+<li><code><a href="../reference/functional/reference_wrapper.html">std::reference_wrapper</a></code>クラス、<code><a href="../reference/functional/ref.html">std::ref()</a></code>関数、<code><a href="../reference/functional/cref.html">std::cref()</a></code>関数のテンプレートパラメータ<code>T</code>型に<a class="cpprefjp-defined-word" data-desc="型のサイズを決定できない、完全には定義されていない型。例えば先行宣言のみのクラス型、要素数不明の配列型、`void`など。クラス定義内部ではそのクラス自身は不完全型">不完全型</a>を指定することを許可</li>
+<li>メンバ関数の部分適用を簡単にするために、プレースホルダーの指定なく引数を先頭から順に束縛する<code><a href="../reference/functional/bind_front.html">std::bind_front()</a></code>関数を追加</li>
+<li><code><a href="../reference/functional/invoke.html">std::invoke()</a></code>、<code><a href="../reference/functional/reference_wrapper.html">std::reference_wrapper</a></code>の各操作、<code><a href="../reference/functional/not_fn.html">std::not_fn()</a></code>、<code><a href="../reference/functional/bind.html">std::bind()</a></code>、<code><a href="../reference/functional/mem_fn.html">std::mem_fn()</a></code>を<code>constexpr</code>対応</li>
+<li>コンセプトの導入にともない、<code><a href="../reference/functional.html">&lt;functional&gt;</a></code>に、受け取った値をそのまま返す関数オブジェクト<code><a href="../reference/functional/identity.html">std::identity</a></code>を追加</li>
+</ul>
+<h3>文字列</h3>
+<ul>
+<li><code><a href="../reference/string/basic_string.html">std::basic_string</a></code>クラスと<code><a href="../reference/string_view/basic_string_view.html">std::basic_string_view</a></code>クラスに、先頭の部分文字列を判定する<code>starts_with()</code>メンバ関数、末尾の部分文字列を判定する<code>ends_with()</code>メンバ関数を追加</li>
+<li><code><a href="../reference/string/basic_string.html">std::basic_string</a>::<a href="../reference/string/basic_string/reserve.html">reserve()</a></code>メンバ関数の、メモリの縮小機能を削除し、伸長のみとする。</li>
+<li><code><a href="../reference/string/char_traits.html">std::char_traits</a></code>クラスの<code><a href="../reference/string/char_traits/move.html">move()</a></code>、<code><a href="../reference/string/char_traits/copy.html">copy()</a></code>、<code><a href="../reference/string/char_traits/assign.html">assign()</a></code>静的メンバ関数に<code>constexpr</code>を追加</li>
+</ul>
+<h3>並行・並列処理</h3>
+<ul>
+<li><code><a href="../reference/atomic/atomic.html">std::atomic</a></code>クラスと<code><a href="../reference/atomic/atomic_flag.html">std::atomic_flag</a></code>クラスのデフォルトコンストラクタが、<a class="cpprefjp-defined-word" data-desc="`T x{};`構文での初期化。組み込み型の場合はゼロ相当の値で、クラス型の場合はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的に値初期化される">値初期化</a>するよう動作変更。これまではC言語との互換性のために未初期化となっていた</li>
+<li><code><a href="../reference/memory.html">&lt;memory&gt;</a></code>に、<code><a href="../reference/memory/atomic.html">std::atomic</a></code>クラスの<code><a href="../reference/memory/shared_ptr.html">std::shared_ptr</a></code>と<code><a href="../reference/memory/weak_ptr.html">std::weak_ptr</a></code>に対する特殊化を追加</li>
+<li><code><a href="../reference/atomic/atomic.html">std::atomic</a></code>クラスの浮動小数点数型に対する特殊化を追加</li>
+<li>アトミッククラスに対するブロッキング同期の機能として<code><a href="../reference/atomic/atomic/wait.html">wait()</a></code>、<code><a href="../reference/atomic/atomic/notify_one.html">notify_one()</a></code>、<code><a href="../reference/atomic/atomic/notify_all.html">notify_all()</a></code>を追加</li>
+<li>ロックフリーであることが保証されたアトミック整数型の別名として<code><a href="../reference/atomic/atomic.html">atomic_signed_lock_free</a></code>と<code><a href="../reference/atomic/atomic.html">atomic_unsigned_lock_free</a></code>を追加</li>
+<li><code><a href="../reference/atomic/memory_order.html">std::memory_order</a></code>の列挙子にスコープをもたせた</li>
+<li><code><a href="../reference/atomic/atomic_flag.html">std::atomic_flag</a></code>クラスに、<code>bool</code>値を読み込むメンバ関数<code><a href="../reference/atomic/atomic_flag/test.html">test()</a></code>を追加</li>
+<li>非アトミックなオブジェクトにアトミック操作を適用するためのクラス<code><a href="../reference/atomic/atomic_ref.html">std::atomic_ref</a></code>を追加</li>
+<li>ベクトル化の実行ポリシーとして、<code><a href="../reference/execution.html">&lt;execution&gt;</a></code>に<code><a href="../reference/execution/execution/execution_policy.html">std::execution::unsequenced_policy</a></code>型と<code><a href="../reference/execution/execution/execution_policy.html">std::execution::unseq</a></code>タグを追加</li>
+</ul>
+<h3>入出力</h3>
+<ul>
+<li>同期ストリームの追加にともなって、<code><a href="../reference/ostream.html">&lt;ostream&gt;</a></code>に、同期ストリーム関係の出力マニピュレータを追加</li>
+<li><code><a href="../reference/istream/basic_istream/op_istream_free.html">operator&gt;&gt;</a>(basic_istream&amp;, CharT*)</code>を<code>operator&gt;&gt;(basic_istream&amp;, CharT (&amp;)[N])</code>に修正</li>
+<li><code><a href="../reference/ostream/basic_ostream/op_ostream_free.html">operator&lt;&lt;</a></code>に、<code>wchar_t</code> (<code>char</code>版のみ)、<code>char8_t</code>、<code>char16_t</code>、<code>char32_t</code>のdelete宣言を追加</li>
+<li><code><a href="../reference/iterator/istream_iterator.html">std::istream_iterator</a></code>について、要件の書き方を整理し、振る舞いをより明確化</li>
+<li><code>std::basic_stringbuf</code>、<code>std::basic_istringstream</code>、<code>std::basic_ostringstream</code>クラスに、アロケータを伝播させるためのインタフェースを追加</li>
+</ul>
+<h3>スマートポインタ</h3>
+<ul>
+<li><code><a href="../reference/memory/make_shared.html">std::make_shared()</a></code>と<code><a href="../reference/memory/allocate_shared.html">std::allocate_shared()</a></code>を配列に対応</li>
+<li>スマートポインタを<a class="cpprefjp-defined-word" data-desc="`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト初期化</a>で構築するヘルパ関数として、<code><a href="../reference/memory/make_unique_for_overwrite.html">std::make_unique_for_overwrite()</a></code>、<code><a href="../reference/memory/make_shared_for_overwrite.html">std::make_shared_for_overwrite()</a></code>、<code><a href="../reference/memory/allocate_shared_for_overwrite.html">std::allocate_shared_for_overwrite()</a></code>を追加</li>
+<li>ポインタを生ポインタに変換する<code><a href="../reference/memory/to_address.html">std::to_address()</a></code>を追加</li>
+<li><code><a href="../reference/memory/pointer_traits.html">std::pointer_traits</a>::<a href="../reference/memory/pointer_traits/pointer_to.html">pointer_to()</a></code>関数に<code>constexpr</code>を追加</li>
+</ul>
+<h3>メモリ</h3>
+<ul>
+<li><code><a href="../reference/memory.html">&lt;memory&gt;</a></code>に、Nバイトアライメントされたポインタであることをコンパイラに伝える<code><a href="../reference/memory/assume_aligned.html">std::assume_aligned()</a></code>関数を追加</li>
+<li><code><a href="../reference/memory.html">&lt;memory&gt;</a></code>に、uses allocator構築をサポートするユーティリティ関数として、<code><a href="../reference/memory/uses_allocator_construction_args.html">std::uses_allocator_construction_args()</a></code>、<code><a href="../reference/memory/make_obj_using_allocator.html">std::make_obj_using_allocator()</a></code>、<code><a href="../reference/memory/uninitialized_construct_using_allocator.html">std::uninitialized_construct_using_allocator()</a></code>を追加</li>
+<li><code><a href="../reference/memory_resource/polymorphic_allocator.html">std::pmr::polymorphic_allocator</a></code>に、以下の変更を追加：<ul>
+<li>クラステンプレートのデフォルトテンプレート引数を<code><a href="../reference/cstddef/byte.html">std::byte</a></code>型とした</li>
+<li><code>void*</code>のバイト列をメモリ確保する<code><a href="../reference/memory_resource/polymorphic_allocator/allocate_bytes.html">allocate_bytes()</a></code>、解放する<code><a href="../reference/memory_resource/polymorphic_allocator/deallocate_bytes.html">deallocate_bytes()</a></code>メンバ関数を追加</li>
+<li>指定した型のメモリを確保する<code><a href="../reference/memory_resource/polymorphic_allocator/allocate_object.html">allocate_object()</a></code>、解放する<code><a href="../reference/memory_resource/polymorphic_allocator/deallocate_object.html">deallocate_object()</a></code>を追加</li>
+<li>指定した型のメモリ確保と構築をする<code><a href="../reference/memory_resource/polymorphic_allocator/new_object.html">new_object()</a></code>、破棄と解放をする<code><a href="../reference/memory_resource/polymorphic_allocator/delete_object.html">delete_object()</a></code>を追加</li>
+</ul>
+</li>
+</ul>
+<h3>ユーティリティ</h3>
+<ul>
+<li><code><a href="../reference/utility.html">&lt;utility&gt;</a></code>に、符号付き整数と符号なし整数の安全な比較関数として、以下を追加：<ul>
+<li><code><a href="../reference/utility/cmp_equal.html">std::cmp_equal()</a></code></li>
+<li><code><a href="../reference/utility/cmp_not_equal.html">std::cmp_not_equal()</a></code></li>
+<li><code><a href="../reference/utility/cmp_less.html">std::cmp_less()</a></code></li>
+<li><code><a href="../reference/utility/cmp_less_equal.html">std::cmp_less_equal()</a></code></li>
+<li><code><a href="../reference/utility/cmp_greater.html">std::cmp_greater()</a></code></li>
+<li><code><a href="../reference/utility/cmp_greater_equal.html">std::cmp_greater_equal()</a></code></li>
+<li><code><a href="../reference/utility/in_range.html">std::in_range()</a></code></li>
+</ul>
+</li>
+<li><code><a href="../reference/utility/swap.html">std::swap()</a></code>関数に<code>constexpr</code>を追加</li>
+<li><code><a href="../reference/utility/exchange.html">std::exchange()</a></code>関数に<code>constexpr</code>を追加</li>
+<li><code><a href="../reference/complex/complex.html">std::complex</a></code>クラスを<code>constexpr</code>に対応</li>
+<li><code><a href="../reference/utility/pair.html">std::pair</a></code>クラスの<a href="../reference/utility/pair/op_constructor.html">コンストラクタ</a>、<a href="../reference/utility/pair/op_assign.html">代入演算子</a>、<code><a href="../reference/utility/pair/swap.html">swap()</a></code>メンバ関数、<code><a href="../reference/utility/pair/swap_free.html">swap()</a></code>非メンバ関数に<code>constexpr</code>を追加。このクラスのメンバ関数はすべて<code>constexpr</code>に対応した</li>
+<li><code><a href="../reference/tuple/tuple.html">std::tuple</a></code>クラスの<a href="../reference/tuple/tuple/op_constructor.html">コンストラクタ</a>、<a href="../reference/tuple/tuple/op_assign.html">代入演算子</a>、<code><a href="../reference/tuple/tuple/swap.html">swap()</a></code>メンバ関数、<code><a href="../reference/tuple/tuple/swap_free.html">swap()</a></code>非メンバ関数に<code>constexpr</code>を追加。このクラスのメンバ関数はすべて<code>constexpr</code>に対応した</li>
+</ul>
+<h3>ファイルシステム</h3>
+<ul>
+<li><code><a href="../reference/filesystem/create_directory.html">std::filesystem::create_directory()</a></code>と<code><a href="../reference/filesystem/create_directories.html">std::filesystem::create_directories()</a></code>の仕様が直感的ではなく、すでにディレクトリが存在している場合にエラーとなっていた。C++20ではその状況ではエラーにならないようにする (エラーではなく<code>false</code>が返る)</li>
+</ul>
+<h3>型特性</h3>
+<ul>
+<li><code><a href="../reference/type_traits.html">&lt;type_traits&gt;</a></code>に、constexpr関数が定数式評価されたかを判定する特殊な関数<code><a href="../reference/type_traits/is_constant_evaluated.html">std::is_constant_evaluated()</a></code>を追加</li>
+<li><code><a href="../reference/type_traits.html">&lt;type_traits&gt;</a></code>に、型の<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>と参照を除去する型特性クラスとして<code><a href="../reference/type_traits/remove_cvref.html">std::remove_cvref</a></code>を追加</li>
+<li><code><a href="../reference/type_traits.html">&lt;type_traits&gt;</a></code>に、受け取った型をそのまま返す<code><a href="../reference/type_traits/type_identity.html">std::type_identity</a></code>を追加</li>
+<li><code><a href="../reference/type_traits.html">&lt;type_traits&gt;</a></code>に、<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出せずに暗黙の型変換が可能かを判定する<code><a href="../reference/type_traits/is_nothrow_convertible.html">std::is_nothrow_convertible</a></code>を追加</li>
+<li><code><a href="../reference/type_traits.html">&lt;type_traits&gt;</a></code>に、要素数が判明している配列型かを判定する<code><a href="../reference/type_traits/is_bounded_array.html">std::is_bounded_array</a></code>、要素数が不明な配列型かを判定する<code><a href="../reference/type_traits/is_unbounded_array.html">std::is_unbounded_array</a></code>を追加</li>
+<li><code><a href="../reference/type_traits.html">&lt;type_traits&gt;</a></code>に、レイアウト互換性、ポインタ相互交換可能性を判定する以下の型特性を追加：<ul>
+<li>2つの型にレイアウト互換があるかを判定する<code><a href="../reference/type_traits/is_layout_compatible.html">std::is_layout_compatible</a></code></li>
+<li>2つのメンバポインタが互換な共通位置にあるかを判定する<code><a href="../reference/type_traits/is_corresponding_member.html">std::is_corresponding_member()</a></code></li>
+<li>基底クラスと派生クラスの間でポインタ相互交換可能かを判定する<code><a href="../reference/type_traits/is_pointer_interconvertible_base_of.html">std::is_pointer_interconvertible_base_of</a></code></li>
+<li>メンバポインタとクラスの間でポインタ相互交換可能かを判定する<code><a href="../reference/type_traits/is_pointer_interconvertible_with_class.html">is_pointer_interconvertible_with_class()</a></code></li>
+</ul>
+</li>
+<li><code><a href="../reference/type_traits.html">&lt;type_traits&gt;</a></code>に、<code><a href="../reference/functional/reference_wrapper.html">std::reference_wrapper</a>&lt;T&gt;</code>型を<code>T&amp;</code>型に展開する<code><a href="../reference/type_traits/unwrap_reference.html">std::unwrap_reference</a></code>型特性、<code><a href="../reference/type_traits/decay.html">std::decay</a></code> + <code><a href="../reference/functional/reference_wrapper.html">std::reference_wrapper</a>&lt;T&gt;</code>型の展開をする<code><a href="../reference/type_traits/unwrap_ref_decay.html">std::unwrap_ref_decay</a></code>型特性を追加</li>
+</ul>
+<h3>機能の非推奨化</h3>
+<ul>
+<li>一貫比較機能によって比較演算子の定義が容易になったため、不要になった演算子の簡潔定義機能である<code><a href="../reference/utility/rel_ops.html">std::rel_ops</a></code>を非推奨化</li>
+<li><code><a href="../reference/string/basic_string.html">std::basic_string</a>::<a href="../reference/string/basic_string/reserve.html">reserve()</a></code>メンバ関数が、メモリの縮小をしなくなったため、デフォルト引数<code>0</code>を非推奨化</li>
+<li><code><a href="../reference/atomic/atomic.html">std::atomic</a></code>クラスと<code><a href="../reference/atomic/atomic_flag.html">std::atomic_flag</a></code>クラスのデフォルトコンストラクタが<a class="cpprefjp-defined-word" data-desc="`T x{};`構文での初期化。組み込み型の場合はゼロ相当の値で、クラス型の場合はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的に値初期化される">値初期化</a>するようになったため、不要になった以下のアトミックオブジェクトの初期化機能を非推奨化：<ul>
+<li><code><a href="../reference/atomic/atomic_init.html">std::atomic_init()</a></code>関数</li>
+<li><code><a href="../reference/atomic/atomic_var_init.html">ATOMIC_VAR_INIT</a></code>マクロ</li>
+<li><code><a href="../reference/atomic/atomic_flag_init.html">ATOMIC_FLAG_INIT</a></code>マクロ</li>
+</ul>
+</li>
+<li><code><a href="../reference/memory/shared_ptr.html">std::shared_ptr</a></code>の<a href="../reference/memory/atomic.html"><code>std::atomic</code>特殊化</a>追加にともない、<code><a href="../reference/memory/shared_ptr.html">std::shared_ptr</a></code>に対する以下のアトミック操作を非推奨化：<ul>
+<li><code><a href="../reference/memory/shared_ptr/atomic_is_lock_free.html">std::atomic_is_lock_free</a></code></li>
+<li><code><a href="../reference/memory/shared_ptr/atomic_load.html">std::atomic_load</a></code></li>
+<li><code><a href="../reference/memory/shared_ptr/atomic_load_explicit.html">std::atomic_load_explicit</a></code></li>
+<li><code><a href="../reference/memory/shared_ptr/atomic_store.html">std::atomic_store</a></code></li>
+<li><code><a href="../reference/memory/shared_ptr/atomic_store_explicit.html">std::atomic_store_explicit</a></code></li>
+<li><code><a href="../reference/memory/shared_ptr/atomic_exchange.html">std::atomic_exchange</a></code></li>
+<li><code><a href="../reference/memory/shared_ptr/atomic_exchange_explicit.html">std::atomic_exchange_explicit</a></code></li>
+<li><code><a href="../reference/memory/shared_ptr/atomic_compare_exchange_weak.html">std::atomic_compare_exchange_weak</a></code></li>
+<li><code><a href="../reference/memory/shared_ptr/atomic_compare_exchange_strong.html">std::atomic_compare_exchange_strong</a></code></li>
+<li><code><a href="../reference/memory/shared_ptr/atomic_compare_exchange_weak_explicit.html">std::atomic_compare_exchange_weak_explicit</a></code></li>
+<li><code><a href="../reference/memory/shared_ptr/atomic_compare_exchange_strong_explicit.html">std::atomic_compare_exchange_strong_explicit</a></code></li>
+</ul>
+</li>
+</ul>
+<h3>機能の削除</h3>
+<ul>
+<li>C++11で<code><a href="../reference/memory/allocator_traits.html">allocator_traits</a></code>クラスが導入されたことでC++17から非推奨化されていた、<code><a href="../reference/memory/allocator.html">allocator</a></code>の以下のメンバを削除。なお、<code>size_type</code>型と<code>difference_type</code>型の非推奨は取り消された。<ul>
+<li><code>pointer</code>型</li>
+<li><code>const_pointer</code>型</li>
+<li><code>reference</code>型</li>
+<li><code>const_reference</code>型</li>
+<li><code>rebind</code>型</li>
+<li><code><a href="../reference/memory/allocator/address.html">address()</a></code>メンバ関数</li>
+<li><code><a href="../reference/memory/allocator/allocate.html">allocate()</a></code>メンバ関数の<code>hint</code>パラメータ</li>
+<li><code><a href="../reference/memory/allocator/max_size.html">max_size()</a></code>メンバ関数</li>
+<li><code><a href="../reference/memory/allocator/construct.html">construct()</a></code>メンバ関数</li>
+<li><code><a href="../reference/memory/allocator/destroy.html">destroy()</a></code>メンバ関数</li>
+</ul>
+</li>
+<li>C++11で<code><a href="../reference/memory/allocator_traits.html">allocator_traits</a></code>クラスが導入されたことでC++17から非推奨化されていた、要素型を再束縛するための<code>allocator&lt;void&gt;</code>特殊化を削除</li>
+<li>C++17で非推奨化されていた、<code>constexpr</code>で扱える型の分類である<code><a href="../reference/type_traits/is_literal_type.html">is_literal_type</a></code>型特性を削除</li>
+<li>C++17で非推奨化されていた、一時的なメモリ確保のための<code><a href="../reference/memory/get_temporary_buffer.html">std::get_temporary_buffer()</a></code>関数と<code><a href="../reference/memory/return_temporary_buffer.html">std::return_temporary_buffer()</a></code>関数を削除</li>
+<li>C++17で非推奨化されていた<code><a href="../reference/memory/raw_storage_iterator.html">raw_storage_iterator</a></code>クラスを削除</li>
+<li><code><a href="../reference/functional/not_fn.html">not_fn()</a></code>の追加にともない、C++17から非推奨化されていた以下の機能を削除：<ul>
+<li><code><a href="../reference/functional/negators.html">not1()</a></code>関数</li>
+<li><code><a href="../reference/functional/negators.html">not2()</a></code>関数</li>
+<li><code><a href="../reference/functional/negators.html">unary_negate</a></code>クラス</li>
+<li><code><a href="../reference/functional/negators.html">binary_negate</a></code>クラス</li>
+<li>標準関数オブジェクトの<code>result_type</code>、<code>argument_type</code>、<code>first_argument_type</code>、<code>second_argument_type</code>型</li>
+</ul>
+</li>
+<li>C++17から非推奨化されていた<code><a href="../reference/memory/shared_ptr.html">shared_ptr</a>::<a href="../reference/memory/shared_ptr/unique.html">unique()</a></code>を削除</li>
+<li><code><a href="../reference/type_traits/invoke_result.html">invoke_result</a></code>の追加にともない、C++17から非推奨化されていた<code><a href="../reference/type_traits/result_of.html">result_of</a></code>を削除</li>
+<li>C++17での<code><a href="../reference/exception/uncaught_exceptions.html">uncaught_exceptions()</a></code>の追加にともない、非推奨化していた<code><a href="../reference/exception/uncaught_exception.html">uncaught_exception()</a></code>を削除</li>
+<li>C++17で非推奨化されていたC互換ライブラリ<code>&lt;ccomplex&gt;</code>, <code>&lt;cstdalign&gt;</code>, <code>&lt;cstdbool&gt;</code>, <code>&lt;ctgmath&gt;</code>を削除。また、C++ではなにも定義されないC互換ライブラリ<code>&lt;ciso646&gt;</code>を削除</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2131r0.html" target="_blank">P2131R0 Changes between C++17 and C++20 DIS</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

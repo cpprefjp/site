@@ -1,0 +1,358 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>範囲for文のイテレータ型が一致しないことを許可 [P0184R0] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp17
+">
+        <meta name="title" content="範囲for文のイテレータ型が一致しないことを許可 [P0184R0] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="範囲for文のイテレータ型が一致しないことを許可 [P0184R0] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="範囲for文のイテレータ型が一致しないことを許可 [P0184R0] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp17/generalizing_the_range-based_for_loop.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="範囲for文のイテレータ型が一致しないことを許可 [P0184R0] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp17/generalizing_the_range-based_for_loop.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;6393460020f93d0d8afdac83912f3e64aecb75c4&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;string&gt;\n\n// delimiter \u3084\u7d42\u7aef\u306b\u5230\u9054\u3057\u305f\u304b\u3069\u3046\u304b\u5224\u5b9a\u3059\u308b\u8ff0\u8a9e\ntemplate&lt;char delimiter&gt;\nstruct EndOfDelimitedString\n{\n  bool operator()(std::string::iterator it)\n  {\n    return *it != delimiter &amp;&amp; *it != &#39;\\0&#39;;\n  }\n};\n\ntemplate&lt;char delimiter&gt;\nstruct DelimitedString\n{\n  std::string str;\n\n  // DelimitedString::begin \u3068 DelimitedString::end \u306e\u578b\u306f\u7570\u306a\u308b\n  std::string::iterator begin() { return str.begin(); }\n  EndOfDelimitedString&lt;delimiter&gt; end() const { return EndOfDelimitedString&lt;delimiter&gt;(); }\n};\n\ntemplate&lt;char delimiter&gt;\nbool operator!=(std::string::iterator it, EndOfDelimitedString&lt;delimiter&gt; e)\n{\n  return e(it);\n}\n\nint main()\n{\n  std::string str{\&#34;ABCDE, abcde|12345\&#34;};\n\n  for (auto c : str)\n    std::cout &lt;&lt; c;\n  std::cout &lt;&lt; &#39;\\n&#39;;\n\n  for (auto c : DelimitedString&lt;&#39;,&#39;&gt;{str})\n    std::cout &lt;&lt; c;\n  std::cout &lt;&lt; &#39;\\n&#39;;\n\n  for (auto c : DelimitedString&lt;&#39;|&#39;&gt;{str})\n    std::cout &lt;&lt; c;\n  std::cout &lt;&lt; &#39;\\n&#39;;\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp17&#34;, &#34;generalizing_the_range-based_for_loop&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp17.html" itemprop="url">
+              
+                <span itemprop="name">C++17</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">範囲for文のイテレータ型が一致しないことを許可 [P0184R0]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-07-10T07:47:57">
+        2024年07月10日 07時47分57秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp17/generalizing_the_range-based_for_loop.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp17/generalizing_the_range-based_for_loop.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">範囲for文のイテレータ型が一致しないことを許可 [P0184R0]</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++17に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p><a href="../cpp11/range_based_for.html">範囲 for 文は C++11 で導入された</a> が、
+<code>begin</code> と <code>end</code> の型が同じでなければならなかった。
+C++17 でこの制限が緩和された。</p>
+<h2>仕様</h2>
+<p><div class="codehilite"><pre><span></span><code><span class="k">for</span> <span class="p">(</span> <span class="nl"><i>for-range-declaration</i></span> <span class="p">:</span> <span class="n"><i>for-range-initializer</i></span> <span class="p">)</span> <span class="n"><i>statement</i></span>
+</code></pre></div>
+</p>
+<p>は以下のように展開される:</p>
+<p><div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="k">auto</span> <span class="o">&amp;&amp;</span> <span class="n">__range</span> <span class="o">=</span> <span class="n"><i>for-range-initializer</i></span><span class="p">;</span>
+  <span class="k">auto</span> <span class="n">__begin</span> <span class="o">=</span> <span class="n">begin</span><span class="o">-</span><span class="n">expr</span><span class="p">;</span>
+  <span class="k">auto</span> <span class="n">__end</span> <span class="o">=</span> <span class="n">end</span><span class="o">-</span><span class="n">expr</span><span class="p">;</span>     <span class="c1">// __begin と __end は異なる型でもよい</span>
+  <span class="k">for</span> <span class="p">(</span> <span class="p">;</span> <span class="n">__begin</span> <span class="o">!=</span> <span class="n">__end</span><span class="p">;</span> <span class="o">++</span><span class="n">__begin</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="n"><i>for-range-declaration</i></span> <span class="o">=</span> <span class="o">*</span><span class="n">__begin</span><span class="p">;</span>
+    <span class="n"><i>statement</i></span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h3>参考</h3>
+<p><a href="../cpp11/range_based_for.html">C++11</a> では以下のように展開されていた:</p>
+<p><div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="k">auto</span> <span class="o">&amp;&amp;</span> <span class="n">__range</span> <span class="o">=</span> <span class="n"><i>for-range-initializer</i></span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span> <span class="k">auto</span> <span class="n">__begin</span> <span class="o">=</span> <span class="n">begin</span><span class="o">-</span><span class="n">expr</span><span class="p">,</span> <span class="n">__end</span> <span class="o">=</span> <span class="n">end</span><span class="o">-</span><span class="n">expr</span><span class="p">;</span> <span class="c1">// __begin と __end は同じ型でなければならない</span>
+        <span class="n">__begin</span> <span class="o">!=</span> <span class="n">__end</span><span class="p">;</span>
+        <span class="o">++</span><span class="n">__begin</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="n"><i>for-range-declaration</i></span> <span class="o">=</span> <span class="o">*</span><span class="n">__begin</span><span class="p">;</span>
+    <span class="n"><i>statement</i></span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>例</h2>
+<p><div class="yata" id="6393460020f93d0d8afdac83912f3e64aecb75c4"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// delimiter や終端に到達したかどうか判定する述語</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="kt">char</span> <span class="n">delimiter</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">EndOfDelimitedString</span>
+<span class="p">{</span>
+  <span class="kt">bool</span> <span class="k">operator</span><span class="p">()(</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">::</span><span class="n">iterator</span> <span class="n">it</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="o">*</span><span class="n">it</span> <span class="o">!=</span> <span class="n">delimiter</span> <span class="o">&amp;&amp;</span> <span class="o">*</span><span class="n">it</span> <span class="o">!=</span> <span class="sc">'\0'</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="kt">char</span> <span class="n">delimiter</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">DelimitedString</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">str</span><span class="p">;</span>
+
+  <span class="c1">// DelimitedString::begin と DelimitedString::end の型は異なる</span>
+  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">::</span><span class="n">iterator</span> <span class="n">begin</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">str</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="p">}</span>
+  <span class="n">EndOfDelimitedString</span><span class="o">&lt;</span><span class="n">delimiter</span><span class="o">&gt;</span> <span class="n">end</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">EndOfDelimitedString</span><span class="o">&lt;</span><span class="n">delimiter</span><span class="o">&gt;</span><span class="p">();</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="kt">char</span> <span class="n">delimiter</span><span class="o">&gt;</span>
+<span class="kt">bool</span> <span class="k">operator</span><span class="o">!=</span><span class="p">(</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">::</span><span class="n">iterator</span> <span class="n">it</span><span class="p">,</span> <span class="n">EndOfDelimitedString</span><span class="o">&lt;</span><span class="n">delimiter</span><span class="o">&gt;</span> <span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="n">e</span><span class="p">(</span><span class="n">it</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">str</span><span class="p">{</span><span class="s">"ABCDE, abcde|12345"</span><span class="p">};</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">c</span> <span class="p">:</span> <span class="n">str</span><span class="p">)</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">c</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">c</span> <span class="p">:</span> <span class="n">DelimitedString</span><span class="o">&lt;</span><span class="sc">','</span><span class="o">&gt;</span><span class="p">{</span><span class="n">str</span><span class="p">})</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">c</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">c</span> <span class="p">:</span> <span class="n">DelimitedString</span><span class="o">&lt;</span><span class="sc">'|'</span><span class="o">&gt;</span><span class="p">{</span><span class="n">str</span><span class="p">})</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">c</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>ABCDE, abcde|12345
+ABCDE
+ABCDE, abcde
+</code></pre></p>
+<h3>備考</h3>
+<p>GCC 4.9.3 でコンパイルすると <code>begin</code> と <code>end</code> の型が異なるため<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる:</p>
+<p><pre><code>for.cpp: In function ‘int main()’:
+for.cpp:38:41: error: inconsistent begin/end types in <a href="../../reference/ranges/range.html">range</a>-based ‘for’ statement: ‘<a href="../../reference/string/basic_string.html">std::basic_string</a>&lt;char&gt;::iterator {aka __gnu_cxx::__normal_iterator&lt;char*, <a href="../../reference/string/basic_string.html">std::basic_string</a>&lt;char&gt; &gt;}’ and ‘EndOfDelimitedString&lt;','&gt;’
+   for (auto c : DelimitedString&lt;','&gt;{str})
+                                         ^
+for.cpp:38:41: error: conversion from ‘EndOfDelimitedString&lt;','&gt;’ to non-scalar type ‘<a href="../../reference/string/basic_string.html">std::basic_string</a>&lt;char&gt;::iterator {aka __gnu_cxx::__normal_iterator&lt;char*, <a href="../../reference/string/basic_string.html">std::basic_string</a>&lt;char&gt; &gt;}’ requested
+for.cpp:42:41: error: inconsistent begin/end types in <a href="../../reference/ranges/range.html">range</a>-based ‘for’ statement: ‘<a href="../../reference/string/basic_string.html">std::basic_string</a>&lt;char&gt;::iterator {aka __gnu_cxx::__normal_iterator&lt;char*, <a href="../../reference/string/basic_string.html">std::basic_string</a>&lt;char&gt; &gt;}’ and ‘EndOfDelimitedString&lt;'|'&gt;’
+   for (auto c : DelimitedString&lt;'|'&gt;{str})
+                                         ^
+for.cpp:42:41: error: conversion from ‘EndOfDelimitedString&lt;'|'&gt;’ to non-scalar type ‘<a href="../../reference/string/basic_string.html">std::basic_string</a>&lt;char&gt;::iterator {aka __gnu_cxx::__normal_iterator&lt;char*, <a href="../../reference/string/basic_string.html">std::basic_string</a>&lt;char&gt; &gt;}’ requested
+</code></pre></p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>Range TS (technical specification) では <code>Sentinel</code> (番兵) 等の範囲の終端を表すコンセプトが提案されているが、
+型が <code>begin</code> イテレータと異なるため範囲 for 文で使用できなかった
+(<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4128.html#an-iterables-end-may-have-a-different-type-than-its-begin" target="_blank">N4128R1 §3.3.5</a>)。</p>
+<p><code>end</code> イテレータはインクリメント、デクリメント、間接参照されることがなく、この制限には実用的な意味がないため、緩和された。</p>
+<h2>検討されたほかの選択肢</h2>
+<p><a href="http://boost.org/libs/foreach" target="_blank">Boost.Foreach</a> のようなマクロは避けるべきだとされた。</p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><a href="../cpp11/range_based_for.html">C++11 範囲 for 文</a></li>
+<li><a href="../cpp20/relaxing_the_range_for_loop_customization_point_finding_rules.html">C++20 範囲for文がカスタマイゼーションポイントを見つけるルールを緩和</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0184r0.html" target="_blank">P0184R0 Generalizing the Range-Based For Loop</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4128.html" target="_blank">N4128 Ranges for the Standard Library, Revision 1</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

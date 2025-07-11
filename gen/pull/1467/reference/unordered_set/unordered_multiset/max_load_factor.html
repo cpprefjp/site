@@ -1,0 +1,459 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>unordered_multiset::max_load_factor - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,unordered_set,std,unordered_multiset,function,cpp11
+">
+        <meta name="title" content="unordered_multiset::max_load_factor - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="unordered_multiset::max_load_factor - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="unordered_multiset::max_load_factor - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/max_load_factor.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="- (1) : 負荷率（バケットあたりの要素数の平均）の最大値を取得する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="unordered_multiset::max_load_factor - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/max_load_factor.html" />
+        <meta name="twitter:description" content="- (1) : 負荷率（バケットあたりの要素数の平均）の最大値を取得する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;unordered_set&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;unordered_multiset&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;c12cabd3484b56beb700181bc072c7d150e4f745&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;unordered_set&gt;\n\ntemplate&lt;class C&gt;\nvoid print(const C&amp; c)\n{\n  std::cout &lt;&lt; \&#34;size is \&#34; &lt;&lt; c.size() &lt;&lt;\n    \&#34;, bucket_count is \&#34; &lt;&lt; c.bucket_count() &lt;&lt;\n    \&#34;, load_factor is \&#34; &lt;&lt; c.load_factor() &lt;&lt;\n    \&#34;, bucket_count * max_load_factor is \&#34; &lt;&lt; static_cast&lt;float&gt;(c.bucket_count()) * c.max_load_factor() &lt;&lt; &#39;\\n&#39; &lt;&lt; std::endl;\n}\n\nint main()\n{\n  std::unordered_multiset&lt;int&gt; ums(12);\n\n  std::cout &lt;&lt; \&#34;max_load_factor is \&#34; &lt;&lt; ums.max_load_factor() &lt;&lt; \&#34;\\n\\n\&#34;; // (1) \u306e\u5f62\u5f0f\u3002max_load_factor \u306e\u30c7\u30d5\u30a9\u30eb\u30c8\u306f 1.0f\u3002\n  print(ums);\n\n  ums.max_load_factor(2.0f); // (2) \u306e\u5f62\u5f0f\u3002max_load_factor \u3092 2.0f \u306b\u8a2d\u5b9a\u3002\n\n  float z = ums.max_load_factor(); // (1) \u306e\u5f62\u5f0f\u3002\u4e0a\u8a18\u3067\u8a2d\u5b9a\u3057\u305f\u5024\u3002\n  std::cout &lt;&lt; \&#34;max_load_factor is \&#34; &lt;&lt; z &lt;&lt; \&#34;\\n\\n\&#34;;\n  print(ums);\n\n  decltype(ums)::size_type b = ums.bucket_count();\n  float limit = static_cast&lt;float&gt;(b) * z;\n\n  // max_load_factor \u3092\u8d85\u3048\u308b\u3061\u3087\u3063\u3068\u524d\u307e\u3067\u8981\u7d20\u3092\u8ffd\u52a0\u3002\n  decltype(ums)::size_type i = 1;\n  for (; i &lt; limit; ++i) {\n    ums.emplace(i);\n  }\n\n  // max_load_factor \u3092\u8d85\u3048\u3066 bucket_count \u304c\u5909\u308f\u308b\u307e\u3067\u3001\u72b6\u614b\u3092\u51fa\u529b\u3057\u3064\u3064\u8981\u7d20\u3092\u8ffd\u52a0\u3002\n  for (; ums.bucket_count() == b; ++i) {\n    print(ums);\n    ums.emplace(i);\n  }\n\n  // bucket_count \u304c\u5909\u308f\u3063\u305f\u76f4\u5f8c\u306e\u72b6\u614b\u3092\u51fa\u529b\u3002\n  print(ums);\n\n  ums.max_load_factor(ums.load_factor() / 2.0f); // (2) \u306e\u5f62\u5f0f\u3002max_load_factor \u3092\u73fe\u5728\u306e\u5024\u306e 1/2 \u3092\u5f15\u6570\u306b\u3057\u3066\u547c\u3073\u51fa\u3057\u3002\n\n  z = ums.max_load_factor(); // (1) \u306e\u5f62\u5f0f\u3002\u4e0a\u8a18\u3067\u8a2d\u5b9a\u3057\u305f\u5024\u3002\n  std::cout &lt;&lt; \&#34;max_load_factor is \&#34; &lt;&lt; z &lt;&lt; \&#34;\\n\\n\&#34;;\n\n  // \u6700\u7d42\u7684\u306a\u72b6\u614b\u3092\u51fa\u529b\u3002\n  print(ums);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;unordered_set&#34;, &#34;unordered_multiset&#34;, &#34;max_load_factor&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/unordered_set.html" itemprop="url">
+              
+                <span itemprop="name">unordered_set</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/unordered_set/unordered_multiset.html" itemprop="url">
+              
+                <span itemprop="name">unordered_multiset</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">max_load_factor</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-06-11T13:45:38">
+        2024年06月11日 13時45分38秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/unordered_set/unordered_multiset/max_load_factor.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/unordered_set/unordered_multiset/max_load_factor.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;unordered_set&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class unordered_multiset">unordered_multiset::</span><span class="token">max_load_factor</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">float</span> <span class="nf">max_load_factor</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (1)</span>
+<span class="kt">void</span> <span class="nf">max_load_factor</span><span class="p">(</span><span class="kt">float</span> <span class="n">z</span><span class="p">);</span>          <span class="c1">// (2)</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<ul>
+<li>(1) : 負荷率（バケットあたりの要素数の平均）の最大値を取得する。</li>
+<li>(2) : 負荷率（バケットあたりの要素数の平均）の最大値を設定する。</li>
+</ul>
+<h2>要件</h2>
+<p><code>z</code> は正の数であること。</p>
+<h2>効果</h2>
+<ul>
+<li>(1) : なし。</li>
+<li>(2) : 引数 <code>z</code> を「ヒント」として、負荷率（バケットあたりの要素数の平均）の最大値を変更する「かもしれない」。</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<ul>
+<li>(1) : 負荷率（バケットあたりの要素数の平均）の最大値</li>
+<li>(2) : なし</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
+<p>投げない。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></h2>
+<p>定数。</p>
+<h2>備考</h2>
+<ul>
+<li>
+<p><code>max_load_factor</code> はその名前の通り、<code><a href="load_factor.html">load_factor</a></code> の最大値（上限）を定義する。<br />従って、<code><a href="insert.html">insert</a></code>、<code><a href="emplace.html">emplace</a></code>、<code><a href="emplace_hint.html">emplace_hint</a></code> で要素が追加された際、および、<code><a href="op_assign.html">operator=</a></code> による <code><a href="../../initializer_list/initializer_list.html">initializer_list</a></code> からの代入で要素数が増加した際には、<code><a href="load_factor.html">load_factor</a></code> が <code>max_load_factor</code> 以下になるように、必要に応じてバケット数が調整される。<br />なお、<code>min_load_factor</code> のようなものはないので、<code><a href="erase.html">erase</a></code> で要素が削除された際にも、バケット数の調整は行われない。<br />（標準では、<code><a href="erase.html">erase</a></code> が呼び出された際に、削除された要素を指すイテレータ、および、参照以外は無効にならないと規定されているため、調整できないと思われる）</p>
+</li>
+<li>
+<p>(2) の形式では、効果にもある通り引数 <code>z</code> は「ヒント」であり、設定も変更される「かもしれない」となっているため、確定的な事は何も無いが、少なくとも <code><a href="load_factor.html">load_factor</a>() &lt;= z</code> が満たされていれば <code>z</code> に従って設定されると考えてよいと思われる。<br />一方、<code><a href="load_factor.html">load_factor</a>() &gt; z</code> の場合、単純に無視するか <code><a href="load_factor.html">load_factor</a>()</code> に設定するのが適切と思われるが、<code>z</code> をそのまま設定する実装もある。<br />なお、<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a>が定数であることからわかるように、いずれの場合でもリハッシュ（バケット数の調整）は行われない（はずだが、<code><a href="load_factor.html">load_factor</a>() &gt; z</code> の場合に <code><a href="load_factor.html">load_factor</a>() &lt;= z</code> を満たすようにリハッシュされる実装も多い）。</p>
+</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="c12cabd3484b56beb700181bc072c7d150e4f745"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../unordered_set.html">&lt;unordered_set&gt;</a></span><span class="cp"></span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">C</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">print</span><span class="p">(</span><span class="k">const</span> <span class="n">C</span><span class="o">&amp;</span> <span class="n">c</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"size is "</span> <span class="o">&lt;&lt;</span> <span class="n">c</span><span class="p">.</span><span class="n"><a href="size.html">size()</a></span> <span class="o">&lt;&lt;</span>
+    <span class="s">", bucket_count is "</span> <span class="o">&lt;&lt;</span> <span class="n">c</span><span class="p">.</span><span class="n"><a href="bucket_count.html">bucket_count()</a></span> <span class="o">&lt;&lt;</span>
+    <span class="s">", load_factor is "</span> <span class="o">&lt;&lt;</span> <span class="n">c</span><span class="p">.</span><span class="n"><a href="load_factor.html">load_factor()</a></span> <span class="o">&lt;&lt;</span>
+    <span class="s">", bucket_count * <span style="color:#ff0000">max_load_factor</span> is "</span> <span class="o">&lt;&lt;</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="n"><a href="bucket_count.html">bucket_count()</a></span><span class="p">)</span> <span class="o">*</span> <span class="n">c</span><span class="p">.</span><span class="n"><span style="color:#ff0000">max_load_factor</span></span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">unordered_multiset</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">ums</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span>
+
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"<span style="color:#ff0000">max_load_factor</span> is "</span> <span class="o">&lt;&lt;</span> <span class="n">ums</span><span class="p">.</span><span class="n"><span style="color:#ff0000">max_load_factor</span></span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n\n</span><span class="s">"</span><span class="p">;</span> <span class="c1">// (1) の形式。<span style="color:#ff0000">max_load_factor</span> のデフォルトは 1.0f。</span>
+  <span class="n">print</span><span class="p">(</span><span class="n">ums</span><span class="p">);</span>
+
+  <span class="n">ums</span><span class="p">.</span><span class="n"><span style="color:#ff0000">max_load_factor</span></span><span class="p">(</span><span class="mf">2.0f</span><span class="p">);</span> <span class="c1">// (2) の形式。<span style="color:#ff0000">max_load_factor</span> を 2.0f に設定。</span>
+
+  <span class="kt">float</span> <span class="n">z</span> <span class="o">=</span> <span class="n">ums</span><span class="p">.</span><span class="n"><span style="color:#ff0000">max_load_factor</span></span><span class="p">();</span> <span class="c1">// (1) の形式。上記で設定した値。</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"<span style="color:#ff0000">max_load_factor</span> is "</span> <span class="o">&lt;&lt;</span> <span class="n">z</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n\n</span><span class="s">"</span><span class="p">;</span>
+  <span class="n">print</span><span class="p">(</span><span class="n">ums</span><span class="p">);</span>
+
+  <span class="k">decltype</span><span class="p">(</span><span class="n">ums</span><span class="p">)</span><span class="o">::</span><span class="n">size_type</span> <span class="n">b</span> <span class="o">=</span> <span class="n">ums</span><span class="p">.</span><span class="n"><a href="bucket_count.html">bucket_count()</a></span><span class="p">;</span>
+  <span class="kt">float</span> <span class="n">limit</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="n">z</span><span class="p">;</span>
+
+  <span class="c1">// <span style="color:#ff0000">max_load_factor</span> を超えるちょっと前まで要素を追加。</span>
+  <span class="k">decltype</span><span class="p">(</span><span class="n">ums</span><span class="p">)</span><span class="o">::</span><span class="n">size_type</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">limit</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="emplace.html">ums.emplace</a></span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// <span style="color:#ff0000">max_load_factor</span> を超えて bucket_count が変わるまで、状態を出力しつつ要素を追加。</span>
+  <span class="k">for</span> <span class="p">(;</span> <span class="n">ums</span><span class="p">.</span><span class="n"><a href="bucket_count.html">bucket_count()</a></span> <span class="o">==</span> <span class="n">b</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">print</span><span class="p">(</span><span class="n">ums</span><span class="p">);</span>
+    <span class="n"><a href="emplace.html">ums.emplace</a></span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// bucket_count が変わった直後の状態を出力。</span>
+  <span class="n">print</span><span class="p">(</span><span class="n">ums</span><span class="p">);</span>
+
+  <span class="n">ums</span><span class="p">.</span><span class="n"><span style="color:#ff0000">max_load_factor</span></span><span class="p">(</span><span class="n">ums</span><span class="p">.</span><span class="n"><a href="load_factor.html">load_factor()</a></span> <span class="o">/</span> <span class="mf">2.0f</span><span class="p">);</span> <span class="c1">// (2) の形式。<span style="color:#ff0000">max_load_factor</span> を現在の値の 1/2 を引数にして呼び出し。</span>
+
+  <span class="n">z</span> <span class="o">=</span> <span class="n">ums</span><span class="p">.</span><span class="n"><span style="color:#ff0000">max_load_factor</span></span><span class="p">();</span> <span class="c1">// (1) の形式。上記で設定した値。</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"<span style="color:#ff0000">max_load_factor</span> is "</span> <span class="o">&lt;&lt;</span> <span class="n">z</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n\n</span><span class="s">"</span><span class="p">;</span>
+
+  <span class="c1">// 最終的な状態を出力。</span>
+  <span class="n">print</span><span class="p">(</span><span class="n">ums</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p>libstdc++ の出力例（4.7.2 現在）</p>
+<ul>
+<li>
+<p><code><a href="load_factor.html">load_factor</a>() &gt; z</code> の場合に、<code>max_load_factor()</code> に <code>z</code> を設定して <code><a href="load_factor.html">load_factor</a>() &lt; max_load_factor()</code> となるようにリハッシュされている。</p>
+</li>
+<li>
+<p><code><a href="size.html">size</a>() = 0</code> の場合にバケット数が減っている。</p>
+</li>
+<li>
+<p><code><a href="emplace.html">emplace</a>()</code> では、<code><a href="load_factor.html">load_factor</a>()</code> が <code>max_load_factor()</code> に達する前にバケット数が増加している。</p>
+</li>
+</ul>
+<p><pre><code>max_load_factor is 1
+
+size is 0, bucket_count is 29, load_factor is 0, bucket_count * max_load_factor is 29
+
+max_load_factor is 2
+
+size is 0, bucket_count is 2, load_factor is 0, bucket_count * max_load_factor is 4
+
+size is 3, bucket_count is 2, load_factor is 1.5, bucket_count * max_load_factor is 4
+
+size is 4, bucket_count is 7, load_factor is 0.571429, bucket_count * max_load_factor is 14
+
+max_load_factor is 0.285714
+
+size is 4, bucket_count is 29, load_factor is 0.137931, bucket_count * max_load_factor is 8.28572
+
+</code></pre></p>
+<p>libc++ の出力例（2012/12/19 現在）</p>
+<ul>
+<li>
+<p><code><a href="load_factor.html">load_factor</a>() &gt; z</code> の場合に、<code>max_load_factor()</code> に <code><a href="load_factor.html">load_factor</a>()</code> の値を設定してリハッシュはされていない。</p>
+</li>
+<li>
+<p><code><a href="size.html">size</a>() = 0</code> の場合にもバケット数は減っていない。</p>
+</li>
+<li>
+<p><code><a href="emplace.html">emplace</a>()</code> では、<code><a href="load_factor.html">load_factor</a>()</code> が <code>max_load_factor()</code> を超えた際にバケット数が増加している。</p>
+</li>
+</ul>
+<p><pre><code>max_load_factor is 1
+
+size is 0, bucket_count is 13, load_factor is 0, bucket_count * max_load_factor is 13
+
+max_load_factor is 2
+
+size is 0, bucket_count is 13, load_factor is 0, bucket_count * max_load_factor is 26
+
+size is 25, bucket_count is 13, load_factor is 1.92308, bucket_count * max_load_factor is 26
+
+size is 26, bucket_count is 13, load_factor is 2, bucket_count * max_load_factor is 26
+
+size is 27, bucket_count is 29, load_factor is 0.931035, bucket_count * max_load_factor is 58
+
+max_load_factor is 0.931035
+
+size is 27, bucket_count is 29, load_factor is 0.931035, bucket_count * max_load_factor is 27
+
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: 3.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: 4.7.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#icc">ICC</a>: ?</li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ?</li>
+</ul>
+<h2>関連項目</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="op_assign.html">operator=</a></code></td>
+<td>代入演算子</td>
+</tr>
+<tr>
+<td><code><a href="emplace.html">emplace</a></code></td>
+<td>コンテナ内への要素の直接構築</td>
+</tr>
+<tr>
+<td><code><a href="emplace_hint.html">emplace_hint</a></code></td>
+<td>挿入位置のヒントを使用したコンテナ内への要素の直接構築</td>
+</tr>
+<tr>
+<td><code><a href="insert.html">insert</a></code></td>
+<td>要素の追加</td>
+</tr>
+<tr>
+<td><code><a href="size.html">size</a></code></td>
+<td>要素数の取得</td>
+</tr>
+<tr>
+<td><code><a href="bucket_count.html">bucket_count</a></code></td>
+<td>バケット数の取得</td>
+</tr>
+<tr>
+<td><code><a href="load_factor.html">load_factor</a></code></td>
+<td>現在の負荷率（バケットあたりの要素数の平均）を取得</td>
+</tr>
+<tr>
+<td><code><a href="rehash.html">rehash</a></code></td>
+<td>最小バケット数指定によるバケット数の調整</td>
+</tr>
+<tr>
+<td><code><a href="reserve.html">reserve</a></code></td>
+<td>最小要素数指定によるバケット数の調整</td>
+</tr>
+</tbody>
+</table></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

@@ -1,0 +1,346 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>basic_string::resize_and_overwrite - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,string,std,basic_string,function template,cpp23
+">
+        <meta name="title" content="basic_string::resize_and_overwrite - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="basic_string::resize_and_overwrite - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="basic_string::resize_and_overwrite - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/string/basic_string/resize_and_overwrite.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="任意の初期化を伴って、文字列の長さを変更する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="basic_string::resize_and_overwrite - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/string/basic_string/resize_and_overwrite.html" />
+        <meta name="twitter:description" content="任意の初期化を伴って、文字列の長さを変更する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;string&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;basic_string&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;cpp&#34;: [&#34;cpp23&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;2d8417869970402a0fba5afe900044fad706d21a&#34;, &#34;source&#34;: &#34;#include &lt;cstring&gt;\n#include &lt;iostream&gt;\n#include &lt;string&gt;\n#include &lt;string_view&gt;\n\nconstexpr std::string_view sentence[9] = {\n    \&#34;The\&#34;, \&#34;quick\&#34;, \&#34;brown\&#34;, \&#34;fox\&#34;, \&#34;jumps\&#34;,\n    \&#34;over\&#34;, \&#34;the\&#34;, \&#34;lazy\&#34;, \&#34;dog\&#34;\n};\nconstexpr size_t BUF_SIZE = 256;\n\nint main() {\n    // reserve()\u3092\u7528\u3044\u308b\u4f8b\u3002memcpy()\u3088\u308a\u3082\u51e6\u7406\u306e\u91cd\u3044append()\u304c\u30eb\u30fc\u30d7\u5185\u3067\u547c\u3070\u308c\u308b\n    {\n        std::string s;\n\n        s.reserve(BUF_SIZE); // Good: \u9818\u57df\u78ba\u4fdd\u306e\u307f\n        for (auto word : sentence) {\n            s.append(word); // Not good: \u30eb\u30fc\u30d7\u306e\u56de\u6570\u3060\u3051\u30c7\u30fc\u30bf\u30b5\u30a4\u30ba\u5909\u66f4\u51e6\u7406\u304c\u884c\u308f\u308c\u308b\n        }\n\n        std::cout &lt;&lt; s.size() &lt;&lt; \&#34;: \&#34; &lt;&lt; s &lt;&lt; std::endl;\n    }\n\n    // resize()\u3092\u7528\u3044\u308b\u4f8b\u3002resize()\u547c\u3073\u51fa\u3057\u6642\u306b\uff08\u3053\u3053\u3067\u306f\u4e0d\u8981\u306a\uff09\u30bc\u30ed\u521d\u671f\u5316\u304c\u884c\u308f\u308c\u308b\n    {\n        std::string s;\n\n        int pos = s.size();\n        s.resize(BUF_SIZE); // Not good: \u30bc\u30ed\u521d\u671f\u5316\u304c\u884c\u308f\u308c\u308b\n        for (auto word : sentence) {\n            memcpy(s.data() + pos, word.data(), word.size()); // Good: \u30c7\u30fc\u30bf\u30b3\u30d4\u30fc\u306e\u307f\n            pos += word.size();\n        }\n        s.resize(pos);\n\n        std::cout &lt;&lt; s.size() &lt;&lt; \&#34;: \&#34; &lt;&lt; s &lt;&lt; std::endl;\n    }\n\n    // resize_and_overwrite()\u3092\u7528\u3044\u308b\u4f8b\u3002\u9818\u57df\u78ba\u4fdd\u6642\u306e\u30bc\u30ed\u521d\u671f\u5316\u304c\u306a\u304f\u3001\u30eb\u30fc\u30d7\u5185\u3067\u306fmemcpy()\u547c\u3076\n    {\n        std::string s;\n\n        s.resize_and_overwrite(BUF_SIZE, [ini_pos = s.size()](char* buf, size_t buf_size) { // Good: \u30bc\u30ed\u521d\u671f\u5316\u306f\u884c\u308f\u308c\u306a\u3044\n            int pos = ini_pos;\n            for (auto word : sentence) {\n                memcpy(buf + pos, word.data(), word.size()); // Good: \u30c7\u30fc\u30bf\u30b3\u30d4\u30fc\u306e\u307f\n                pos += word.size();\n            }\n            return pos; // \u30b5\u30a4\u30ba\u3092\u8fd4\u3059\n        });\n\n        std::cout &lt;&lt; s.size() &lt;&lt; \&#34;: \&#34; &lt;&lt; s &lt;&lt; std::endl;\n    }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;string&#34;, &#34;basic_string&#34;, &#34;resize_and_overwrite&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/string.html" itemprop="url">
+              
+                <span itemprop="name">string</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/string/basic_string.html" itemprop="url">
+              
+                <span itemprop="name">basic_string</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">resize_and_overwrite</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-08-25T03:50:25">
+        2024年08月25日 03時50分25秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">suomesta</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/string/basic_string/resize_and_overwrite.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/string/basic_string/resize_and_overwrite.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function template</div><div class="header">&lt;string&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class basic_string">basic_string::</span><span class="token">resize_and_overwrite</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Operation</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="kt">void</span> <span class="n">resize_and_overwrite</span><span class="p">(</span><span class="n">size_type</span> <span class="n">n</span><span class="p">,</span> <span class="n">Operation</span> <span class="n">op</span><span class="p">);</span> <span class="c1">// C++23</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>任意の初期化を伴って、文字列の長さを変更する。</p>
+<p>本関数は、<code>string</code> にいくつかの文字列をまとめて追加・代入する際に、パフォーマンスを向上させる目的で追加された。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Mandates。満たさなければプログラムが不適格となる要件。この要件は、オーバーロード解決によって選択された関数内での`static_assert`の定数条件式や、関数に対するdelete宣言などで表現できる">適格要件</a></h2>
+<p><code>Operation</code>型の値 <code>op</code> は、下記を満たす呼び出し可能な型であること。</p>
+<ul>
+<li>式<code>std::move(op)(data(), n)</code> が有効（第1引数 <code>data()</code> は <code>charT*</code>型、第2引数 <code>n</code> は <code>size_type</code>型）。</li>
+<li><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型は <code>integer-like</code> を満たす。</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a></h2>
+<ul>
+<li>呼び出された <code>op</code> が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げないこと。</li>
+<li><code>op</code> の呼び出しで、第1引数・第2引数ともに変更されないこと。</li>
+<li><code>r = std::move(op)(data(), n)</code> とすると、<code>0 &lt;= r &amp;&amp; r &lt;= n</code> であること。</li>
+<li><code>[data(), data() + r)</code> の範囲に未初期化の要素がないこと。</li>
+</ul>
+<h2>効果</h2>
+<ol>
+<li>関数実行前に <code>[<a href="data.html">data()</a>,<a href="data.html">data()</a>+ n)</code> が有効範囲でないなら、領域の確保が行われる（<code><a href="reserve.html">reserve(n)</a></code> 相当）。新たな領域は初期化されないことに注意。</li>
+<li><code>std::move(op)(data(), n)</code> が呼ばれる。<code>op</code> 内では、<code>[<a href="data.html">data()</a>,<a href="data.html">data()</a>+ n)</code> の範囲に対して任意の初期化を行う。</li>
+<li><code>op</code> の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を <code>r</code> とすると、サイズを <code>r</code> に変更する。</li>
+</ol>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p>なし</p>
+<h2>例</h2>
+<p><div class="yata" id="2d8417869970402a0fba5afe900044fad706d21a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cstring.html">&lt;cstring&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../string_view.html">&lt;string_view&gt;</a></span><span class="cp"></span>
+
+<span class="k">constexpr</span> <span class="n"><a href="../../string_view/basic_string_view.html">std::string_view</a></span> <span class="n">sentence</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"The"</span><span class="p">,</span> <span class="s">"quick"</span><span class="p">,</span> <span class="s">"brown"</span><span class="p">,</span> <span class="s">"fox"</span><span class="p">,</span> <span class="s">"jumps"</span><span class="p">,</span>
+    <span class="s">"over"</span><span class="p">,</span> <span class="s">"the"</span><span class="p">,</span> <span class="s">"lazy"</span><span class="p">,</span> <span class="s">"dog"</span>
+<span class="p">};</span>
+<span class="k">constexpr</span> <span class="kt">size_t</span> <span class="n">BUF_SIZE</span> <span class="o">=</span> <span class="mi">256</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// <a href="reserve.html">reserve</a>()を用いる例。memcpy()よりも処理の重いappend()がループ内で呼ばれる</span>
+    <span class="p">{</span>
+        <span class="n"><a href="../basic_string.html">std::string</a></span> <span class="n">s</span><span class="p">;</span>
+
+        <span class="n">s</span><span class="p">.</span><span class="n"><a href="reserve.html">reserve</a></span><span class="p">(</span><span class="n">BUF_SIZE</span><span class="p">);</span> <span class="c1">// Good: 領域確保のみ</span>
+        <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">word</span> <span class="p">:</span> <span class="n">sentence</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">s</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">);</span> <span class="c1">// Not good: ループの回数だけデータサイズ変更処理が行われる</span>
+        <span class="p">}</span>
+
+        <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">": "</span> <span class="o">&lt;&lt;</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// <a href="resize.html">resize</a>()を用いる例。<a href="resize.html">resize</a>()呼び出し時に（ここでは不要な）ゼロ初期化が行われる</span>
+    <span class="p">{</span>
+        <span class="n"><a href="../basic_string.html">std::string</a></span> <span class="n">s</span><span class="p">;</span>
+
+        <span class="kt">int</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+        <span class="n">s</span><span class="p">.</span><span class="n"><a href="resize.html">resize</a></span><span class="p">(</span><span class="n">BUF_SIZE</span><span class="p">);</span> <span class="c1">// Not good: ゼロ初期化が行われる</span>
+        <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">word</span> <span class="p">:</span> <span class="n">sentence</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">memcpy</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">data</span><span class="p">()</span> <span class="o">+</span> <span class="n">pos</span><span class="p">,</span> <span class="n">word</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span> <span class="n">word</span><span class="p">.</span><span class="n">size</span><span class="p">());</span> <span class="c1">// Good: データコピーのみ</span>
+            <span class="n">pos</span> <span class="o">+=</span> <span class="n">word</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="n">s</span><span class="p">.</span><span class="n"><a href="resize.html">resize</a></span><span class="p">(</span><span class="n">pos</span><span class="p">);</span>
+
+        <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">": "</span> <span class="o">&lt;&lt;</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// <span style="color:#ff0000">resize_and_overwrite</span>()を用いる例。領域確保時のゼロ初期化がなく、ループ内ではmemcpy()呼ぶ</span>
+    <span class="p">{</span>
+        <span class="n"><a href="../basic_string.html">std::string</a></span> <span class="n">s</span><span class="p">;</span>
+
+        <span class="n">s</span><span class="p">.</span><span class="n"><span style="color:#ff0000">resize_and_overwrite</span></span><span class="p">(</span><span class="n">BUF_SIZE</span><span class="p">,</span> <span class="p">[</span><span class="n">ini_pos</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">()](</span><span class="kt">char</span><span class="o">*</span> <span class="n">buf</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">buf_size</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// Good: ゼロ初期化は行われない</span>
+            <span class="kt">int</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">ini_pos</span><span class="p">;</span>
+            <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">word</span> <span class="p">:</span> <span class="n">sentence</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">memcpy</span><span class="p">(</span><span class="n">buf</span> <span class="o">+</span> <span class="n">pos</span><span class="p">,</span> <span class="n">word</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span> <span class="n">word</span><span class="p">.</span><span class="n">size</span><span class="p">());</span> <span class="c1">// Good: データコピーのみ</span>
+                <span class="n">pos</span> <span class="o">+=</span> <span class="n">word</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">pos</span><span class="p">;</span> <span class="c1">// サイズを返す</span>
+        <span class="p">});</span>
+
+        <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">": "</span> <span class="o">&lt;&lt;</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>35: Thequickbrownfoxjumpsoverthelazydog
+35: Thequickbrownfoxjumpsoverthelazydog
+35: Thequickbrownfoxjumpsoverthelazydog
+</code></pre></p>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1072r10.html" target="_blank">P1072R10 basic_string::resize_and_overwrite</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

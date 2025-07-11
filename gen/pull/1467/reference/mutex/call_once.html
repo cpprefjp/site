@@ -1,0 +1,312 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>call_once - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,mutex,std,function template,cpp11
+">
+        <meta name="title" content="call_once - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="call_once - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="call_once - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/mutex/call_once.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="指定された関数を一度だけ呼び出す。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="call_once - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/mutex/call_once.html" />
+        <meta name="twitter:description" content="指定された関数を一度だけ呼び出す。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;mutex&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;d034f2a49639011b1dc51d989bbcd72c2f2e93d9&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;thread&gt;\n#include &lt;mutex&gt;\n\nstd::once_flag once;\n\nvoid init()\n{\n  // \u521d\u671f\u5316\u3092\u884c\u3046...\n  std::cout &lt;&lt; \&#34;initialize\&#34; &lt;&lt; std::endl;\n}\n\nvoid thread_proc()\n{\n  std::call_once(once, init);\n}\n\nint main()\n{\n  std::thread t1(thread_proc);\n  std::thread t2(thread_proc);\n  std::thread t3(thread_proc);\n\n  t1.join();\n  t2.join();\n  t3.join();\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;mutex&#34;, &#34;call_once&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/mutex.html" itemprop="url">
+              
+                <span itemprop="name">mutex</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">call_once</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-06-11T13:45:38">
+        2024年06月11日 13時45分38秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/mutex/call_once.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/mutex/call_once.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function template</div><div class="header">&lt;mutex&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">call_once</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Callable</span><span class="p">,</span> <span class="k">class</span> <span class="err">...</span><span class="nc">Args</span><span class="o">&gt;</span>
+  <span class="kt">void</span> <span class="n">call_once</span><span class="p">(</span><span class="n"><a href="once_flag.html">once_flag</a></span><span class="o">&amp;</span> <span class="n">flag</span><span class="p">,</span> <span class="n">Callable</span> <span class="n">func</span><span class="p">,</span> <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>指定された関数を一度だけ呼び出す。</p>
+<p>この関数は主に、複数スレッド間で共通使用するデータの初期化処理などで使用する。</p>
+<h2>効果</h2>
+<p>パラメータ<code>flag</code>が初期状態であれば、<code>func</code>関数オブジェクトに<code>args...</code>を適用して呼び出し、そうでなければ<code>func</code>関数オブジェクトを呼び出さない。</p>
+<p><code>func</code>関数オブジェクトの呼び出しが<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する場合、その<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>は<code>call_once()</code>関数の呼び出し元に伝達され、パラメータ<code>flag</code>は初期状態のままとなる。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p>なし</p>
+<h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
+<ul>
+<li>システムのAPIで何らかのエラーが発生した場合、<code><a href="../system_error/system_error.html">system_error</a></code><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が送出される。</li>
+<li><code>func</code>関数オブジェクトの呼び出しによって送出される、あらゆる<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が送出される可能性がある。</li>
+</ul>
+<h2>備考</h2>
+<p><code>func</code>関数オブジェクトの呼び出しが<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出した場合、同じパラメータ<code>flag</code>を指定した次の<code>call_once</code>にて関数オブジェクトが呼び出される。また、同じパラメータ<code>flag</code>を指定した複数<code>call_once()</code>において、指定された各関数オブジェクトの呼び出しは同時に行われない。（全順序が保証される）</p>
+<h2>例</h2>
+<p><div class="yata" id="d034f2a49639011b1dc51d989bbcd72c2f2e93d9"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../mutex.html">&lt;mutex&gt;</a></span><span class="cp"></span>
+
+<span class="n"><a href="once_flag.html">std::once_flag</a></span> <span class="n">once</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">init</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// 初期化を行う...</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"initialize"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">thread_proc</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><span style="color:#ff0000">std::call_once</span></span><span class="p">(</span><span class="n">once</span><span class="p">,</span> <span class="n">init</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../thread/thread.html">std::thread</a></span> <span class="n">t1</span><span class="p">(</span><span class="n">thread_proc</span><span class="p">);</span>
+  <span class="n"><a href="../thread/thread.html">std::thread</a></span> <span class="n">t2</span><span class="p">(</span><span class="n">thread_proc</span><span class="p">);</span>
+  <span class="n"><a href="../thread/thread.html">std::thread</a></span> <span class="n">t3</span><span class="p">(</span><span class="n">thread_proc</span><span class="p">);</span>
+
+  <span class="n"><a href="../thread/thread/join.html">t1.join()</a></span><span class="p">;</span>
+  <span class="n"><a href="../thread/thread/join.html">t2.join()</a></span><span class="p">;</span>
+  <span class="n"><a href="../thread/thread/join.html">t3.join()</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>initialize
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 4.7.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2012 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2013 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2015 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2080" target="_blank">LWG Issue 2080. Specify when <code>once_flag</code> becomes invalid</a><ul>
+<li>C++11では、<code>once_flag</code>が無効(invalid)な場合に<code>system_error</code>が送出される仕様になっていた。実際には、<code>once_flag</code>が無効になる状況はないため、C++14でこの<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>仕様が削除された。</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

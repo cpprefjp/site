@@ -1,0 +1,680 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>linalg - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,linalg,cpp26
+">
+        <meta name="title" content="linalg - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="linalg - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="linalg - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/linalg.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="&amp;lt;linalg&amp;gt;linalg(C++26) &amp;lt;linalg&amp;gt;ヘッダでは、線形代数(linear algebra)に関する基礎的な演算アルゴリズムを提供する。 ベクトルや行列の成分にアクセスするアルゴリズムは、多次元配列ビュー std::mdspan を通してその要素にアクセスする。 本ヘッダが提供するエンティティは、すべて名前空間std::linalgに属する。 1次元デー" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="linalg - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/linalg.html" />
+        <meta name="twitter:description" content="&amp;lt;linalg&amp;gt;linalg(C++26) &amp;lt;linalg&amp;gt;ヘッダでは、線形代数(linear algebra)に関する基礎的な演算アルゴリズムを提供する。 ベクトルや行列の成分にアクセスするアルゴリズムは、多次元配列ビュー std::mdspan を通してその要素にアクセスする。 本ヘッダが提供するエンティティは、すべて名前空間std::linalgに属する。 1次元デー" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;linalg&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;linalg&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">linalg</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-01-18T12:57:43">
+        2025年01月18日 12時57分43秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">onihusube</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/linalg.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/linalg.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="header">&lt;linalg&gt;</div><h1 itemprop="name"><span class="token">linalg</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p><code>&lt;linalg&gt;</code>ヘッダでは、線形代数(linear algebra)に関する基礎的な演算アルゴリズムを提供する。
+ベクトルや行列の成分にアクセスするアルゴリズムは、多次元配列ビュー<a href="mdspan/mdspan.html"> <code>std::mdspan</code> </a>を通してその要素にアクセスする。
+本ヘッダが提供するエンティティは、すべて名前空間<code>std::linalg</code>に属する。</p>
+<p>1次元データであるベクトル(vector)や2次元データである行列(matrix)に対して、線形代数分野のデファクトスタンダードとされる BLAS(Basic Linear Algebra Subprograms) 互換のアルゴリズム群、いくつかの LAPACK(Linear Algebra PACKage) 互換のアルゴリズムが提供される。
+BLAS互換アルゴリズムは、演算対象データの次元数や計算オーダーに応じて3段階に区分される。</p>
+<ul>
+<li>Level 1 BLAS : ベクトルーベクトルの演算</li>
+<li>Level 2 BLAS : 行列ーベクトルの演算</li>
+<li>Level 3 BLAS : 行列ー行列の演算</li>
+</ul>
+<p>例えば、2個の一般行列の積を求める<code>std::linalg::matrix_product</code>はLevel 3 BLASルーチン<code>xGEMM</code>に対応する。
+（実際のBLASルーチン名は、浮動小数点数型の単精度<code>S</code>／倍精度<code>D</code>とそれぞれの複素数版<code>C</code>,<code>Z</code>として、プレフィックス<code>x</code>部は文字4種類のいずれか。）</p>
+<p>また、<code>std::mdspan</code>と組み合わせて利用する拡張機能が提供される。</p>
+<h2>共通要件</h2>
+<p><code>&lt;linalg&gt;</code>ヘッダが提供する演算アルゴリズムは、スカラ値およびベクトル／行列の要素型として線形代数値型(linear algebra value types)を取り扱う。</p>
+<p>線形代数値型はBLASが取り扱う<code>float</code>, <code>double</code>, <code><a href="complex/complex.html">std::complex</a>&lt;float&gt;</code>, <code><a href="complex/complex.html">std::complex</a>&lt;double&gt;</code>をはじめ、<code><a href="concepts/semiregular.html">semiregular</a></code>のモデルであれば良い。
+また、線形代数値型の<a class="cpprefjp-defined-word" data-desc="`T x{};`構文での初期化。組み込み型の場合はゼロ相当の値で、クラス型の場合はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的に値初期化される">値初期化</a>は加法元（算術型であれば値<code>0</code>）であること。</p>
+<p><a class="cpprefjp-defined-word" data-desc="標準ライブラリの型を除く、ユーザー（プログラマ）によって定義された型のこと">プログラム定義型</a>を利用する場合、演算アルゴリズムはカスタマイゼーションポイントとして<code>abs</code>, <code>real</code>, <code>imag</code>, <code>conj</code>を非修飾名で呼び出す。</p>
+<h2><code>std::mdspan</code>向け機能拡張</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="linalg/layout_blas_packed.html">layout_blas_packed</a></code></td>
+<td>行列要素のBLAS互換パックレイアウトに対応する<a href="mdspan/LayoutMappingPolicy.html">レイアウトマッピングポリシー</a> (class template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/scaled_accessor.html">scaled_accessor</a></code></td>
+<td><code>scaled</code>関数用の<a href="mdspan/AccessorPolicy.html">アクセサポリシー</a> (class template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/scaled.html">scaled</a></code></td>
+<td>要素値をスカラー倍した読み取り専用<code>std::mdspan</code>を作る (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/conjugated_accessor.html">conjugated_accessor</a></code></td>
+<td><code>conjugated</code>関数用の<a href="mdspan/AccessorPolicy.html">アクセサポリシー</a> (class template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/conjugated.html">conjugated</a></code></td>
+<td>読み取り専用の複素共役ビュー<code>std::mdspan</code>を作る (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/layout_transpose.html">layout_transpose</a></code></td>
+<td><code>transposed</code>関数用の<a href="mdspan/LayoutMappingPolicy.html">レイアウトマッピングポリシー</a> (class template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/transposed.html">transposed</a></code></td>
+<td>2次元<code>std::mdspan</code>の行列転置ビューを作る (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/conjugate_transposed.html">conjugate_transposed</a></code></td>
+<td>読み取り専用の複素共役転置ビュー<code>std::mdspan</code>を作る (function template)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>BLASの要件</h2>
+<p>BLAS 1, 2, 3のアルゴリズムでテンプレートパラメータが特に制約されていない場合、テンプレートパラメータの名前によって以下の制約を満たすとする。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>制約</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ExecutionPolicy</code></td>
+<td><code>is_execution_policy&lt;ExecutionPolicy&gt;::value == true</code></td>
+</tr>
+<tr>
+<td><code>Real</code></td>
+<td><code>complex&lt;Real&gt;</code>が規定できる型</td>
+</tr>
+<tr>
+<td><code>Triangle</code></td>
+<td><code>upper_triangle_t</code>または<code>lower_triangle_t</code></td>
+</tr>
+<tr>
+<td><code>DiagonalStorage</code></td>
+<td><code>implicit_unit_diagonal_t</code>または<code>explicit_diagonal_t</code></td>
+</tr>
+</tbody>
+</table>
+<h2>BLAS 1アルゴリズム</h2>
+<p><code>std::mpspan</code>をパラメータに持つ、この節の全てのアルゴリズムの<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a>は渡された<code>std::mdspan</code>の<code>extents</code>の積の最大値、つまりベクトルや行列の要素数の最大値に線形である。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="linalg/setup_givens_rotation_result.html">setup_givens_rotation_result</a></code></td>
+<td><code>setup_givens_rotation</code>の結果型 (class template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/setup_givens_rotation.html">setup_givens_rotation</a></code></td>
+<td>xLARTG: ギブンス回転をセットアップする (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/apply_givens_rotation.html">apply_givens_rotation</a></code></td>
+<td>xROT: ベクトルにギブンス回転を適用する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/swap_elements.html">swap_elements</a></code></td>
+<td>xSWAP: 2つのベクトル／行列の要素を交換する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/scale.html">scale</a></code></td>
+<td>xSCAL: ベクトル／行列の要素にスカラ値を乗算する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/copy.html">copy</a></code></td>
+<td>xCOPY: ベクトル／行列の要素をコピーする (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/add.html">add</a></code></td>
+<td>xAXPY: 2つのベクトル／行列の要素を加算する (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/dot.html">dot</a></code></td>
+<td>xDOT, xDOTU: 2つのベクトルのドット積を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/dotc.html">dotc</a></code></td>
+<td>xDOTC: 2つのベクトルの複素共役ドット積を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/sum_of_squares_result.html">sum_of_squares_result</a></code></td>
+<td><code>vector_sum_of_squares</code>の結果型 (class template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/vector_sum_of_squares.html">vector_sum_of_squares</a></code></td>
+<td>xLASSQ: ベクトル要素の平方和を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/vector_two_norm.html">vector_two_norm</a></code></td>
+<td>xNRM2: ベクトルのユークリッドノルム(Euclidean norm)を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/vector_abs_sum.html">vector_abs_sum</a></code></td>
+<td>xASUM: ベクトル要素の絶対値和を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/vector_idx_abs_max.html">vector_idx_abs_max</a></code></td>
+<td>xIAMAX: ベクトル要素のうち最大絶対値インデクスを返す (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/matrix_frob_norm.html">matrix_frob_norm</a></code></td>
+<td>行列のフロベニウスノルム(Frobenius norm)を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/matrix_one_norm.html">matrix_one_norm</a></code></td>
+<td>行列の1ノルム(One norm)を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/matrix_inf_norm.html">matrix_inf_norm</a></code></td>
+<td>行列の無限大ノルム(Infinity norm)を求める (function template)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>BLAS 2アルゴリズム</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="linalg/matrix_vector_product.html">matrix_vector_product</a></code></td>
+<td>xGEMV: 一般行列とベクトルの積を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/symmetric_matrix_vector_product.html">symmetric_matrix_vector_product</a></code></td>
+<td>xSYMV: 対称行列とベクトルの積を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/hermitian_matrix_vector_product.html">hermitian_matrix_vector_product</a></code></td>
+<td>xHEMV: エルミート行列とベクトルの積を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/triangular_matrix_vector_product.html">triangular_matrix_vector_product</a></code></td>
+<td>xTRMV: 三角行列とベクトルの積を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/triangular_matrix_vector_solve.html">triangular_matrix_vector_solve</a></code></td>
+<td>xTRSV: 三角行列を係数とする行列方程式を解く (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/matrix_rank_1_update.html">matrix_rank_1_update</a></code></td>
+<td>xGER, xGERU: 行列のRank-1更新 (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/matrix_rank_1_update_c.html">matrix_rank_1_update_c</a></code></td>
+<td>xGERC: 複素行列のRank-1更新 (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/symmetric_matrix_rank_1_update.html">symmetric_matrix_rank_1_update</a></code></td>
+<td>xSYR: 対称行列のRank-1更新 (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/hermitian_matrix_rank_1_update.html">hermitian_matrix_rank_1_update</a></code></td>
+<td>xHER: エルミート行列のRank-1更新 (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/symmetric_matrix_rank_2_update.html">symmetric_matrix_rank_2_update</a></code></td>
+<td>xSYR2: 対称行列のRank-2更新 (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/hermitian_matrix_rank_2_update.html">hermitian_matrix_rank_2_update</a></code></td>
+<td>xHER2: エルミート行列のRank-2更新 (function template)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>BLAS 3アルゴリズム</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="linalg/matrix_product.html">matrix_product</a></code></td>
+<td>xGEMM: 2つの一般行列の積を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/symmetric_matrix_product.html">symmetric_matrix_product</a></code></td>
+<td>xSYMM: 対称行列と行列の積を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/hermitian_matrix_product.html">hermitian_matrix_product</a></code></td>
+<td>xHEMM: エルミート行列と行列の積を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/triangular_matrix_product.html">triangular_matrix_product</a></code></td>
+<td>xTRMM: 三角行列と行列の積を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/triangular_matrix_left_product.html">triangular_matrix_left_product</a></code></td>
+<td>xTRMM: In-placeに三角行列と行列の積を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/triangular_matrix_right_product.html">triangular_matrix_right_product</a></code></td>
+<td>xTRMM: In-placeに三角行列と行列の積を求める (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/symmetric_matrix_rank_k_update.html">symmetric_matrix_rank_k_update</a></code></td>
+<td>xSYRK: 対称行列のRank-k更新 (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/hermitian_matrix_rank_k_update.html">hermitian_matrix_rank_k_update</a></code></td>
+<td>xHERK: エルミート行列のRank-k更新 (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/symmetric_matrix_rank_2k_update.html">symmetric_matrix_rank_2k_update</a></code></td>
+<td>xSYR2K: 対称行列のRank-2k更新 (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/hermitian_matrix_rank_2k_update.html">hermitian_matrix_rank_2k_update</a></code></td>
+<td>xHER2K: エルミート行列のRank-2k更新 (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/triangular_matrix_matrix_left_solve.html">triangular_matrix_matrix_left_solve</a></code></td>
+<td>xTRSM: 三角行列の連立一次方程式を解く (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/triangular_matrix_matrix_right_solve.html">triangular_matrix_matrix_right_solve</a></code></td>
+<td>xTRSM: 三角行列の連立一次方程式を解く (function template)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>タグ</h2>
+<p><code>&lt;linalg&gt;</code>ヘッダでは、行列の格納順序や三角行列の上下をタグを使って表現している。</p>
+<h3>格納順序</h3>
+<p>行列の格納順序を表すタグ。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="linalg/column_major_t.html">column_major_t</a></code></td>
+<td>列優先(column-major)を表すタグ型</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/column_major_t.html">column_major</a></code></td>
+<td>列優先(column-major)を表すタグ値</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/row_major_t.html">row_major_t</a></code></td>
+<td>行優先(row-major)を表すタグ型</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/row_major_t.html">row_major</a></code></td>
+<td>行優先(row-major)を表すタグ値</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h3>三角行列</h3>
+<p>上三角行列か下三角行列かを表すタグ。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="linalg/upper_triangle_t.html">upper_triangle_t</a></code></td>
+<td>上三角行列を表すタグ型</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/upper_triangle_t.html">upper_triangle</a></code></td>
+<td>上三角行列を表すタグ値</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/lower_triangle_t.html">lower_triangle_t</a></code></td>
+<td>下三角行列を表すタグ型</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/lower_triangle_t.html">lower_triangle</a></code></td>
+<td>下三角行列を表すタグ値</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h3>対角成分</h3>
+<p>行列の全ての対角成分を暗黙に乗法における単位元とみなすかどうかを表すタグ。みなした場合、行列の対角成分にはアクセスせず、値が乗法における単位元であるとして計算する。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="linalg/implicit_unit_diagonal_t.html">implicit_unit_diagonal_t</a></code></td>
+<td>全ての対角成分を暗黙に乗法における単位元とみなすタグ型</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/implicit_unit_diagonal_t.html">implicit_unit_diagonal</a></code></td>
+<td>全ての対角成分を暗黙に乗法における単位元とみなすタグ値</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/explicit_diagonal_t.html">explicit_diagonal_t</a></code></td>
+<td>全ての対角成分にアクセスするタグ型</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="linalg/explicit_diagonal_t.html">explicit_diagonal</a></code></td>
+<td>全ての対角成分にアクセスするタグ値</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++26</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="mdspan.html">&lt;mdspan&gt;</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1673r13.html" target="_blank">P1673R13 A free function linear algebra interface based on the BLAS</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1674r2.html" target="_blank">P1674R2: Evolving a Standard C++ Linear Algebra Library from the BLAS</a></li>
+<li><a href="https://github.com/CppCon/CppCon2023/blob/main/Presentations/stdlinalg_linear_algebra_coming_to_standard_cpp.pdf" target="_blank">std::linalg: Linear Algebra Coming to Standard C++</a>, CppCon 2023</li>
+<li><a href="https://www.netlib.org/blas/" target="_blank">BLAS (Basic Linear Algebra Subprograms)</a></li>
+<li><a href="https://eel.is/c++draft/complex.numbers" target="_blank">Numerics library</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

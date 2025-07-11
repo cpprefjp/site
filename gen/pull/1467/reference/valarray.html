@@ -1,0 +1,321 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>valarray - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,valarray
+">
+        <meta name="title" content="valarray - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="valarray - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="valarray - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/valarray.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="&amp;lt;valarray&amp;gt;valarray &amp;lt;valarray&amp;gt;ヘッダは、数値計算に特化した配列クラスである valarray と、基礎的な数学的処理を行うための関数オーバーロードを定義したライブラリである。 このヘッダで定義される任意の valarray&amp;lt;T&amp;gt; 型を返す関数は（メンバ関数、非メンバ関数とも）、式テンプレートでの実装を可能とするため valarray&amp;" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="valarray - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/valarray.html" />
+        <meta name="twitter:description" content="&amp;lt;valarray&amp;gt;valarray &amp;lt;valarray&amp;gt;ヘッダは、数値計算に特化した配列クラスである valarray と、基礎的な数学的処理を行うための関数オーバーロードを定義したライブラリである。 このヘッダで定義される任意の valarray&amp;lt;T&amp;gt; 型を返す関数は（メンバ関数、非メンバ関数とも）、式テンプレートでの実装を可能とするため valarray&amp;" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;valarray&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;valarray&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">valarray</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2019-04-24T03:50:01">
+        2019年04月24日 03時50分01秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Mitsuru Kariya</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/valarray.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/valarray.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="header">&lt;valarray&gt;</div><h1 itemprop="name"><span class="token">valarray</span></h1>
+<div itemprop="articleBody"><p><code>&lt;valarray&gt;</code>ヘッダは、数値計算に特化した配列クラスである <code><a href="valarray/valarray.html">valarray</a></code> と、基礎的な数学的処理を行うための関数<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を定義したライブラリである。</p>
+<p>このヘッダで定義される任意の <code><a href="valarray/valarray.html">valarray</a>&lt;T&gt;</code> 型を返す関数は（メンバ関数、非メンバ関数とも）、式テンプレートでの実装を可能とするため <code><a href="valarray/valarray.html">valarray</a>&lt;T&gt;</code> 型以外の代理の型を返すことが規格で許可されている。
+このような代理の型には、<code><a href="valarray/valarray.html">valarray</a></code> の全ての <code>const</code> メンバ関数が提供される。
+また、このような代理の型を提供する処理系では、以下のような関数も提供される。</p>
+<ul>
+<li>本ヘッダで提供される、<code>const <a href="valarray/valarray.html">valarray</a>&lt;T&gt;&amp;</code> を 1 つだけ引数に持つ全ての関数は、提供される代理の型も引数として受け付ける。<br />
+    （ただし、<code><a href="valarray/valarray/begin_free.html">begin</a></code> と <code><a href="valarray/valarray/end_free.html">end</a></code> を除く）</li>
+<li>本ヘッダで提供される、<code>const <a href="valarray/valarray.html">valarray</a>&lt;T&gt;&amp;</code> を 2 つ引数に持つ全ての関数は、当該代理の型と <code><a href="valarray/valarray.html">valarray</a>&lt;T&gt;</code> の任意の組み合わせも引数として受け付ける。</li>
+</ul>
+<p>これらを踏まえ、本リファレンスではこれらの代理の型が使用されうる箇所は <em><code>ValOrProxy</code></em> として表記している。<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型に <em><code>ValOrProxy</code></em> と表記している箇所は、<code><a href="valarray/valarray.html">valarray</a>&lt;T&gt;</code> か代理の型のいずれかであることを、引数型に <em><code>ValOrProxy</code></em> と表記している箇所は、<code><a href="valarray/valarray.html">valarray</a>&lt;T&gt;</code> と代理の型のいずれでも受け取ることが可能であることを表している。</p>
+<p>このヘッダでは、以下の標準ヘッダをインクルードする：</p>
+<ul>
+<li><code><a href="initializer_list.html">&lt;initializer_list&gt;</a></code> (C++11)</li>
+</ul>
+<h2>配列クラス</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>クラス</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="valarray/valarray.html">valarray</a></code></td>
+<td>数値演算に特化した配列クラス</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>スライス指示</h2>
+<p>以下は、<code>valarray</code>クラスの配列から条件一致した要素を抽出するための、ヘルパークラスである。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>クラス</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="valarray/slice.html">slice</a></code></td>
+<td>スライス指示用のヘルパークラス</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="valarray/gslice.html">gslice</a></code></td>
+<td><code><a href="valarray/slice.html">slice</a></code>をより一般化したスライス指示用のヘルパークラス</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>スライス結果の配列クラス</h2>
+<p>以下は、<code><a href="valarray/valarray.html">valarray</a></code>クラスの<code><a href="valarray/valarray/op_at.html">operator[]</a></code>メンバ関数によって返される、スライス結果の配列クラスである。これらのクラスは、配列のコピーは保持せず、元となる<code><a href="valarray/valarray.html">valarray</a></code>オブジェクトの要素を参照する。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>クラス</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="valarray/slice_array.html">slice_array</a></code></td>
+<td><code><a href="valarray/valarray.html">valarray</a></code>から<code><a href="valarray/slice.html">slice</a></code>によって要素抽出した結果となる配列クラス</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="valarray/gslice_array.html">gslice_array</a></code></td>
+<td><code><a href="valarray/valarray.html">valarray</a></code>から<code><a href="valarray/gslice.html">gslice</a></code>によって要素抽出した結果となる配列クラス</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="valarray/mask_array.html">mask_array</a></code></td>
+<td><code><a href="valarray/valarray.html">valarray</a></code>から<code><a href="valarray/valarray.html">valarray&lt;bool&gt;</a></code>を指定して要素抽出した結果となる配列クラス</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="valarray/indirect_array.html">indirect_array</a></code></td>
+<td><code><a href="valarray/valarray.html">valarray</a></code>から<code><a href="valarray/valarray.html">valarray&lt;size_t&gt;</a></code>を指定して要素抽出した結果となる配列クラス</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2930.html" target="_blank">N2930 Range-Based For Loop Wording (Without Concepts)</a><br />
+<code><a href="valarray/valarray.html">valarray</a></code> に <code><a href="valarray/valarray/begin_free.html">begin</a></code> と <code><a href="valarray/valarray/end_free.html">end</a></code> が追加された提案</li>
+<li><a href="https://wg21.cmeerw.net/lwg/issue2058" target="_blank">LWG Issue 2058. valarray and begin/end</a><br />
+<code><a href="valarray/valarray.html">valarray</a></code> の代理の型に <code><a href="valarray/valarray/begin_free.html">begin</a></code> と <code><a href="valarray/valarray/end_free.html">end</a></code> は適用できないとした経緯</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
