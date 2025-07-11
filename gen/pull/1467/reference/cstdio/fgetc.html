@@ -220,7 +220,7 @@
 </p>
 <h2>概要</h2>
 <p>指定されたファイルストリームから1文字入力する。</p>
-<p><code><span href="https://cpprefjp.github.io/reference/cstdio/getc.md.nolink">getc</span></code>とは違い、関数として定義することが定められているため、引数は一度しか評価されないことが保証されている。</p>
+<p><code><a href="getc.html">getc</a></code>とは違い、関数として定義することが定められているため、引数は一度しか評価されないことが保証されている。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p>入力された文字を返す。</p>
 <h2>例</h2>
@@ -229,7 +229,7 @@
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
   <span class="kt">int</span> <span class="n">c</span><span class="p">;</span>
   <span class="k">while</span> <span class="p">((</span><span class="n">c</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::fgetc</span></span><span class="p">(</span><span class="n">stdin</span><span class="p">))</span> <span class="o">!=</span> <span class="n">EOF</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><span href="https://cpprefjp.github.io/reference/cstdio/putc.md.nolink">std::putc</span></span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">stdout</span><span class="p">);</span>
+    <span class="n"><a href="putc.html">std::putc</a></span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">stdout</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>

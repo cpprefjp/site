@@ -230,7 +230,7 @@
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
   <span class="n"><a href="file.html">std::FILE</a></span> <span class="o">*</span><span class="n">fp</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::fopen</span></span><span class="p">(</span><span class="s">"test.txt"</span><span class="p">,</span> <span class="s">"w"</span><span class="p">);</span>
   <span class="k">if</span> <span class="p">(</span><span class="n">fp</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><span href="https://cpprefjp.github.io/reference/cstdio/printf.md.nolink">std::printf</span></span><span class="p">(</span><span class="s">"ファイルを開けませんでした</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+    <span class="n"><a href="printf.html">std::printf</a></span><span class="p">(</span><span class="s">"ファイルを開けませんでした</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
   <span class="p">}</span>
   <span class="n"><a href="fclose.html">std::fclose</a></span><span class="p">(</span><span class="n">fp</span><span class="p">);</span>

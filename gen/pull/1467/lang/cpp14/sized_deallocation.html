@@ -257,18 +257,18 @@
 
 <span class="kt">void</span><span class="o">*</span> <span class="k">operator</span> <span class="k">new</span><span class="p">[](</span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="n">size</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n"><span href="https://cpprefjp.github.io/reference/cstdio/printf.md.nolink">std::printf</span></span><span class="p">(</span><span class="s">"new size:%zu</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
+  <span class="n"><a href="../../reference/cstdio/printf.html">std::printf</a></span><span class="p">(</span><span class="s">"new size:%zu</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
   <span class="k">return</span> <span class="nf"><a href="../../reference/cstdlib/malloc.html">std::malloc</a></span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="kt">void</span> <span class="k">operator</span> <span class="k">delete</span><span class="p">[](</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span> <span class="k">noexcept</span>
 <span class="p">{</span>
-  <span class="n"><span href="https://cpprefjp.github.io/reference/cstdio/printf.md.nolink">std::printf</span></span><span class="p">(</span><span class="s">"delete</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="n"><a href="../../reference/cstdio/printf.html">std::printf</a></span><span class="p">(</span><span class="s">"delete</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="kt">void</span> <span class="k">operator</span> <span class="k">delete</span><span class="p">[](</span><span class="kt">void</span><span class="o">*</span><span class="p">,</span> <span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="n">t</span><span class="p">)</span> <span class="k">noexcept</span>
 <span class="p">{</span>
-  <span class="n"><span href="https://cpprefjp.github.io/reference/cstdio/printf.md.nolink">std::printf</span></span><span class="p">(</span><span class="s">"delete with two arguments, %zu</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span>
+  <span class="n"><a href="../../reference/cstdio/printf.html">std::printf</a></span><span class="p">(</span><span class="s">"delete with two arguments, %zu</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="k">struct</span> <span class="n">A</span> <span class="p">{</span>

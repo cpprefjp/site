@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:33:39">
-        2025年07月08日 15時33分39秒
+      <span itemprop="datePublished" content="2025-07-11T02:59:14">
+        2025年07月11日 02時59分14秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">rotarymars</span>
       </span>
       が更新
     </small></p>
@@ -322,8 +322,8 @@
 <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Range1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Range2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Pair</span><span class="o">&gt;</span>
 <span class="kt">void</span> <span class="n">print_mismatch_value</span><span class="p">(</span><span class="k">const</span> <span class="n">Range1</span><span class="o">&amp;</span> <span class="n">r1</span><span class="p">,</span> <span class="k">const</span> <span class="n">Range2</span><span class="o">&amp;</span> <span class="n">r2</span><span class="p">,</span> <span class="k">const</span> <span class="n">Pair</span><span class="o">&amp;</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
   <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"mismatch index: "</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../iterator/distance.html">std::distance</a></span><span class="p">(</span><span class="n"><a href="../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">r1</span><span class="p">),</span> <span class="n">p</span><span class="p">.</span><span class="n">first</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"mismatch value: ("</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">r1</span><span class="p">)</span> <span class="o">==</span> <span class="n">p</span><span class="p">.</span><span class="n">first</span>  <span class="o">?</span> <span class="s">"end"</span> <span class="o">:</span> <span class="n"><a href="../string/to_string.html">std::to_string</a></span><span class="p">(</span><span class="n"><span href="https://cpprefjp.github.io/reference/utility/pair/first.md.nolink">*p.first</span></span><span class="p">))</span> <span class="o">&lt;&lt;</span> <span class="s">","</span>
-                                   <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">r2</span><span class="p">)</span> <span class="o">==</span> <span class="n">p</span><span class="p">.</span><span class="n">second</span> <span class="o">?</span> <span class="s">"end"</span> <span class="o">:</span> <span class="n"><a href="../string/to_string.html">std::to_string</a></span><span class="p">(</span><span class="n"><span href="https://cpprefjp.github.io/reference/utility/pair/second.md.nolink">*p.second</span></span><span class="p">))</span> <span class="o">&lt;&lt;</span> <span class="s">")"</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"mismatch value: ("</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">r1</span><span class="p">)</span> <span class="o">==</span> <span class="n">p</span><span class="p">.</span><span class="n">first</span>  <span class="o">?</span> <span class="s">"end"</span> <span class="o">:</span> <span class="n"><a href="../string/to_string.html">std::to_string</a></span><span class="p">(</span><span class="n"><a href="../utility/pair/first.html">*p.first</a></span><span class="p">))</span> <span class="o">&lt;&lt;</span> <span class="s">","</span>
+                                   <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">r2</span><span class="p">)</span> <span class="o">==</span> <span class="n">p</span><span class="p">.</span><span class="n">second</span> <span class="o">?</span> <span class="s">"end"</span> <span class="o">:</span> <span class="n"><a href="../string/to_string.html">std::to_string</a></span><span class="p">(</span><span class="n"><a href="../utility/pair/second.html">*p.second</a></span><span class="p">))</span> <span class="o">&lt;&lt;</span> <span class="s">")"</span>
             <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 

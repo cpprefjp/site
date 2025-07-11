@@ -234,10 +234,10 @@
 <h2>例</h2>
 <p><div class="yata" id="aa32f5ca5c003f8f89916cf2dd5148d7ce59f136"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/cstdio.html">&lt;cstdio&gt;</a></span><span class="cp"></span>
 
-<span class="c1">// 可変個のパラメータを受け取り、<span href="https://cpprefjp.github.io/reference/cstdio/printf.md.nolink">std::printf</span>()関数の引数として転送する</span>
+<span class="c1">// 可変個のパラメータを受け取り、<a href="../../reference/cstdio/printf.html">std::printf</a>()関数の引数として転送する</span>
 <span class="c1">// 第1パラメータは必須。</span>
 <span class="c1">// 第1パラメータのうしろにカンマがあるので、第2パラメータも必須。</span>
-<span class="cp"># define DEBUG_LOG(fmt, ...) <span href="https://cpprefjp.github.io/reference/cstdio/printf.md.nolink">std::printf</span>(fmt, __VA_ARGS__)</span>
+<span class="cp"># define DEBUG_LOG(fmt, ...) <a href="../../reference/cstdio/printf.html">std::printf</a>(fmt, __VA_ARGS__)</span>
 
 <span class="c1">// 受け取ったパラメータを展開する</span>
 <span class="c1">// 0個以上の、任意の個数のパラメータを受け取れる</span>
@@ -245,12 +245,12 @@
 
 <span class="kt">void</span> <span class="nf">f1</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">,</span> <span class="kt">int</span> <span class="n">c</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n"><span href="https://cpprefjp.github.io/reference/cstdio/printf.md.nolink">std::printf</span></span><span class="p">(</span><span class="s">"f1 : %d %d %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
+  <span class="n"><a href="../../reference/cstdio/printf.html">std::printf</a></span><span class="p">(</span><span class="s">"f1 : %d %d %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="kt">void</span> <span class="nf">f2</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><span href="https://cpprefjp.github.io/reference/cstdio/printf.md.nolink">std::printf</span></span><span class="p">(</span><span class="s">"f2</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="n"><a href="../../reference/cstdio/printf.html">std::printf</a></span><span class="p">(</span><span class="s">"f2</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>

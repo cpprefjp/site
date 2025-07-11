@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:33:39">
-        2025年07月08日 15時33分39秒
+      <span itemprop="datePublished" content="2025-07-11T02:59:14">
+        2025年07月11日 02時59分14秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">rotarymars</span>
       </span>
       が更新
     </small></p>
@@ -284,16 +284,16 @@
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
   <span class="n"><a href="../utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">result1</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::minmax</span></span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><span href="https://cpprefjp.github.io/reference/utility/pair/first.md.nolink">result1.first</span></span> <span class="o">==</span> <span class="mi">2</span> <span class="o">&amp;&amp;</span> <span class="n"><span href="https://cpprefjp.github.io/reference/utility/pair/second.md.nolink">result1.second</span></span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../utility/pair/first.html">result1.first</a></span> <span class="o">==</span> <span class="mi">2</span> <span class="o">&amp;&amp;</span> <span class="n"><a href="../utility/pair/second.html">result1.second</a></span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
 
   <span class="n"><a href="../utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">result2</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::minmax</span></span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n"><a href="../functional/greater.html">std::greater</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">());</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><span href="https://cpprefjp.github.io/reference/utility/pair/first.md.nolink">result2.first</span></span> <span class="o">==</span> <span class="mi">3</span> <span class="o">&amp;&amp;</span> <span class="n"><span href="https://cpprefjp.github.io/reference/utility/pair/second.md.nolink">result2.second</span></span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
+  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../utility/pair/first.html">result2.first</a></span> <span class="o">==</span> <span class="mi">3</span> <span class="o">&amp;&amp;</span> <span class="n"><a href="../utility/pair/second.html">result2.second</a></span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
 
   <span class="n"><a href="../utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">result3</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::minmax</span></span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">});</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><span href="https://cpprefjp.github.io/reference/utility/pair/first.md.nolink">result3.first</span></span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n"><span href="https://cpprefjp.github.io/reference/utility/pair/second.md.nolink">result3.second</span></span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../utility/pair/first.html">result3.first</a></span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n"><a href="../utility/pair/second.html">result3.second</a></span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
 
   <span class="n"><a href="../utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">result4</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::minmax</span></span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="n"><a href="../functional/greater.html">std::greater</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">());</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><span href="https://cpprefjp.github.io/reference/utility/pair/first.md.nolink">result4.first</span></span> <span class="o">==</span> <span class="mi">3</span> <span class="o">&amp;&amp;</span> <span class="n"><span href="https://cpprefjp.github.io/reference/utility/pair/second.md.nolink">result4.second</span></span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../utility/pair/first.html">result4.first</a></span> <span class="o">==</span> <span class="mi">3</span> <span class="o">&amp;&amp;</span> <span class="n"><a href="../utility/pair/second.html">result4.second</a></span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>

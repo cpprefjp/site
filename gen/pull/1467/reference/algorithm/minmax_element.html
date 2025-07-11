@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:33:39">
-        2025年07月08日 15時33分39秒
+      <span itemprop="datePublished" content="2025-07-11T02:59:14">
+        2025年07月11日 02時59分14秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">rotarymars</span>
       </span>
       が更新
     </small></p>
@@ -266,14 +266,14 @@
   <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
 
   <span class="k">auto</span> <span class="n">i</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::minmax_element</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">);</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><span href="https://cpprefjp.github.io/reference/utility/pair/first.md.nolink">*i.first</span></span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><span href="https://cpprefjp.github.io/reference/utility/pair/second.md.nolink">*i.second</span></span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
+  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../utility/pair/first.html">*i.first</a></span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../utility/pair/second.html">*i.second</a></span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
 
   <span class="k">auto</span> <span class="n">j</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::minmax_element</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
                                 <span class="k">return</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">;</span>
                               <span class="p">});</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><span href="https://cpprefjp.github.io/reference/utility/pair/first.md.nolink">*j.first</span></span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><span href="https://cpprefjp.github.io/reference/utility/pair/second.md.nolink">*j.second</span></span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../utility/pair/first.html">*j.first</a></span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
+  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../utility/pair/second.html">*j.second</a></span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>

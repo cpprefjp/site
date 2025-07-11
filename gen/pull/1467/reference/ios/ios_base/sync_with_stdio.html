@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-05T03:56:39">
-        2025年07月05日 03時56分39秒
+      <span itemprop="datePublished" content="2025-07-11T02:43:43">
+        2025年07月11日 02時43分43秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -241,7 +241,7 @@
 <ul>
 <li>文字 <code>c</code> のストリームへの出力 <code><a href="../../cstdio/fputc.html">fputc</a>(f, c);</code> は <code>str.<a href="../basic_ios/rdbuf.html">rdbuf</a>()-&gt;<a href="../../streambuf/basic_streambuf/sputc.html">sputc</a>(c);</code> と等価であり、</li>
 <li>文字 <code>c</code> のストリームからの入力 <code>c = <a href="../../cstdio/fgetc.html">fgetc</a>(f);</code> は <code>c = str.<a href="../basic_ios/rdbuf.html">rdbuf</a>()-&gt;<a href="../../streambuf/basic_streambuf/sbumpc.html">sbumpc</a>();</code> と等価であり、</li>
-<li>文字 <code>c</code> のストリームへの戻し <code><span href="https://cpprefjp.github.io/reference/cstdio/ungetc.md.nolink">ungetc</span>(c, f)</code> は <code>str.<a href="../basic_ios/rdbuf.html">rdbuf</a>()-&gt;<a href="../../streambuf/basic_streambuf/sputbackc.html">sputbackc</a>(c);</code> と等価である。</li>
+<li>文字 <code>c</code> のストリームへの戻し <code><a href="../../cstdio/ungetc.html">ungetc</a>(c, f)</code> は <code>str.<a href="../basic_ios/rdbuf.html">rdbuf</a>()-&gt;<a href="../../streambuf/basic_streambuf/sputbackc.html">sputbackc</a>(c);</code> と等価である。</li>
 </ul>
 <h2>例</h2>
 <p><div class="yata" id="aafe8e32dd11af331a455eb5f2c61a17e28a1ad1"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
@@ -251,9 +251,9 @@
 <span class="p">{</span>
   <span class="n"><a href="../ios_base.html">std::ios_base</a></span><span class="o">::</span><span class="n"><span style="color:#ff0000">sync_with_stdio</span></span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
   <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="sc">'1'</span><span class="p">;</span>
-  <span class="n"><span href="https://cpprefjp.github.io/reference/cstdio/putchar.md.nolink">std::putchar</span></span><span class="p">(</span><span class="sc">'2'</span><span class="p">);</span>
+  <span class="n"><a href="../../cstdio/putchar.html">std::putchar</a></span><span class="p">(</span><span class="sc">'2'</span><span class="p">);</span>
   <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="sc">'3'</span><span class="p">;</span>
-  <span class="n"><span href="https://cpprefjp.github.io/reference/cstdio/putchar.md.nolink">std::putchar</span></span><span class="p">(</span><span class="sc">'4'</span><span class="p">);</span>
+  <span class="n"><a href="../../cstdio/putchar.html">std::putchar</a></span><span class="p">(</span><span class="sc">'4'</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
