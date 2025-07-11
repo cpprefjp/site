@@ -24,6 +24,12 @@ int main() {
   return 0;
 }
 ```
+* std::fputs[color ff0000]
+
+### 出力
+```
+Hello, World!
+```
 
 ## 処理系
 - [Clang](/implementation.md#clang): ??
