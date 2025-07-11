@@ -1,6 +1,5 @@
 # stderr
 * cstdio[meta header]
-* std[meta namespace]
 * macro[meta id-type]
 
 ```cpp
