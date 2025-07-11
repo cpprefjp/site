@@ -1,5 +1,5 @@
 # second
-* pair[meta header]
+* utility[meta header]
 * std[meta namespace]
 * pair[meta class]
 * variable[meta id-type]
