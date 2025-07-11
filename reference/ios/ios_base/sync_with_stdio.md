@@ -27,7 +27,7 @@ static bool sync_with_stdio(bool sync = true);
 
 - 文字 `c` のストリームへの出力 [`fputc`](../../cstdio/fputc.md)`(f, c);` は `str.`[`rdbuf`](../basic_ios/rdbuf.md)`()->`[`sputc`](../../streambuf/basic_streambuf/sputc.md)`(c);` と等価であり、
 - 文字 `c` のストリームからの入力 `c =` [`fgetc`](../../cstdio/fgetc.md)`(f);` は `c = str.`[`rdbuf`](../basic_ios/rdbuf.md)`()->`[`sbumpc`](../../streambuf/basic_streambuf/sbumpc.md)`();` と等価であり、
-- 文字 `c` のストリームへの戻し [`ungetc`](../../cstdio/ungetc.md.nolink)`(c, f)` は `str.`[`rdbuf`](../basic_ios/rdbuf.md)`()->`[`sputbackc`](../../streambuf/basic_streambuf/sputbackc.md)`(c);` と等価である。
+- 文字 `c` のストリームへの戻し [`ungetc`](../../cstdio/ungetc.md)`(c, f)` は `str.`[`rdbuf`](../basic_ios/rdbuf.md)`()->`[`sputbackc`](../../streambuf/basic_streambuf/sputbackc.md)`(c);` と等価である。
 
 
 ## 例
