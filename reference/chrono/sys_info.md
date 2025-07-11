@@ -89,4 +89,3 @@ JST
 - [Clang](/implementation.md#clang): 9.0 [mark noimpl]
 - [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
-

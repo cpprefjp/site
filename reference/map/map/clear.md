@@ -68,6 +68,3 @@ int main()
 | [`map::erase`](erase.md) | 要素を削除する |
 | [`map::size`](size.md) | 要素数を取得する |
 | [`map::empty`](empty.md) | コンテナが空であるかどうかを調べる |
-
-
-

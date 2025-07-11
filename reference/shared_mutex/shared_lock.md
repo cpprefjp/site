@@ -113,5 +113,3 @@ int main()
 - [`shared_timed_mutex`](shared_timed_mutex.md) : 共有ミューテックスクラス
 - [`lock_guard`](/reference/mutex/lock_guard.md) : 排他ロックを自動的に手放す
 - [`unique_lock`](/reference/mutex/unique_lock.md) : 排他ロックを自動的に手放す
-
-

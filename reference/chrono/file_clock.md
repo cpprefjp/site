@@ -105,4 +105,3 @@ int main()
 ## 参照
 - [`file_clock` breaks ABI for C++17 implementations](https://wg21.cmeerw.net/lwg/issue3145)
     - `file_clock`は当初、独立したクラスとして定義することを予定していたが、C++17のファイルシステムライブラリで定義される[`file_time_type`](/reference/filesystem/file_time_type.md)のABI互換性を破壊してしまうことがわかったため、実装定義されるクロックの別名として`file_clock`が定義されることになった
-

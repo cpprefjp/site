@@ -261,4 +261,3 @@ libstdc++ には 4.8.2 現在、(6), (7), (8)の形式はない。
 - [LWG 2210. Missing allocator-extended constructor for allocator-aware containers](http://cplusplus.github.io/LWG/lwg-defects.html#2210)  
     (10), (11), (12), (13), (14), (15) を追加するきっかけとなったレポート  
     なお、Discussion の例はアロケータの型が誤っているので注意
-

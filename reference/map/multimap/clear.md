@@ -69,6 +69,3 @@ int main()
 | [`multimap::erase`](erase.md) | 要素を削除する |
 | [`multimap::size`](size.md) | 要素数を取得する |
 | [`multimap::empty`](empty.md) | コンテナが空であるかどうかを調べる |
-
-
-

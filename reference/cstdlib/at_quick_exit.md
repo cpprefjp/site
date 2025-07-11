@@ -69,4 +69,3 @@ on exit
 
 ## 参照
 - [N2440 Abandoning a Process](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2440.htm)
-

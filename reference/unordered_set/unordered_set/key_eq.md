@@ -72,4 +72,3 @@ eq(1, 1) = true
 |----------------------------------------------------|----------------------------------------------|
 | [`equal_to`](/reference/functional/equal_to.md)    | 等値比較演算関数オブジェクト(class template) |
 | [`hash_function`](hash_function.md)              | ハッシュ関数オブジェクトの取得 |
-

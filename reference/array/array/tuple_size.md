@@ -60,4 +60,3 @@ int main()
 
 ## 参照
 - [LWG Issue 2313. `tuple_size` should always derive from `integral_constant<size_t, N>`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2313)
-

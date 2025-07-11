@@ -69,4 +69,3 @@ int main()
 
 ## 参照
 - [P2548R6 copyable_function](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2548r6.pdf)
-

@@ -631,4 +631,3 @@
 | [commit boostjp/site, cb4363b] | boostjp/fixm:1 | C++11で追加されたスマートポインタへのリンクを追加 |
 | [commit boostjp/site, f75e7b5] | boostjp/fixm:1 | `std::thread`へのリンクを追加 |
 | [commit boostjp/site, cd17af6] | boostjp/fixm:1 | `<type_traits>`へのリンクを追加 |
-

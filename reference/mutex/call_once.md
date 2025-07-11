@@ -90,4 +90,3 @@ initialize
 ## 参照
 - [LWG Issue 2080. Specify when `once_flag` becomes invalid](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2080)
     - C++11では、`once_flag`が無効(invalid)な場合に`system_error`が送出される仕様になっていた。実際には、`once_flag`が無効になる状況はないため、C++14でこの例外仕様が削除された。
-

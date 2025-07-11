@@ -90,4 +90,3 @@ unordered_set& operator=(initializer_list<value_type> il); // (3)
     - (3)の経緯となる提案文書
 - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
     - `noexcept` 追加の経緯となる提案文書
-

@@ -110,4 +110,3 @@ private:
 
 ## 参照
 - [P2893R3 Variadic friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2893r3.html)
-

@@ -101,5 +101,3 @@
 | `wctomb` | ワイド文字を、マルチバイト文字に変換する (function) | |
 | `mbstowcs` | マルチバイト文字列を、ワイド文字列に変換する (function) | |
 | `wcstombs` | ワイド文字列を、マルチバイト文字列に変換する (function) | |
-
-

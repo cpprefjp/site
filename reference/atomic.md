@@ -137,4 +137,3 @@
 - [N2047 An Atomic Operations Library for C++](http://www.open-std.org/JTC1/SC22/WG21/docs/papers/2006/n2047.html)
 - [N2427 C++ Atomic Types and Operations](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2427.html)
 - [Boost Atomic Library](http://www.boost.org/doc/libs/release/libs/atomic/)
-

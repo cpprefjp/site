@@ -58,5 +58,3 @@ int main()
 | [`pop_front`](pop_front.md) | 先頭要素を削除する |
 | [`push_back`](push_back.md) | 末尾に要素を追加する |
 | [`erase`](erase.md)         | 指定した要素を削除する |
-
-

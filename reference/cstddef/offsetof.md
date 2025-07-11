@@ -51,5 +51,3 @@ offsetof(mystruct,singlechar) is 0
 offsetof(mystruct,arraymember) is 1
 offsetof(mystruct,anotherchar) is 11
 ```
-
-

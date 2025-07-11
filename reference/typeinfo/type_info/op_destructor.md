@@ -21,4 +21,3 @@ virtual ~type_info();
 ```
 
 ## 参照
-

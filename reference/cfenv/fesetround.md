@@ -104,4 +104,3 @@ upward
 ## 関連項目
 - [`rint`](/reference/cmath/rint.md)
 - [`nearbyint`](/reference/cmath/nearbyint.md)
-

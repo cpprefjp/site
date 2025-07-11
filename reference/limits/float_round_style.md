@@ -24,5 +24,3 @@ namespace std {
 | `round_to_nearest`          | 最も近い表現可能な値に丸められる |
 | `round_toward_infinity`     | 正の無限表現に向かって丸められる |
 | `round_toward_neg_infinity` | 負の無限表現に向かって丸められる |
-
-

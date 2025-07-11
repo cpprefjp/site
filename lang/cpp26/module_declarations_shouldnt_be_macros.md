@@ -37,4 +37,3 @@ export module VERSION; // コンパイルエラー！
 
 ## 参照
 - [P3034R1 Module Declarations Shouldn’t be Macros](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3034r1.html)
-

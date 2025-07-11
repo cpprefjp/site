@@ -136,4 +136,3 @@ int main()
 - [Pseudo-random number sampling - Wikipedia](https://en.wikipedia.org/wiki/Pseudo-random_number_sampling)
 - [Alias Method - Wikipedia](https://en.wikipedia.org/wiki/Alias_method)
 - [一般の離散分布の従う乱数の発生させる方法 - arupaka-_-arupakaの日記](http://d.hatena.ne.jp/arupaka-_-arupaka/20100508/1273319666)
-

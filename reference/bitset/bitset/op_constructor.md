@@ -163,4 +163,3 @@ int main()
 - [P2417R2 A more constexpr bitset](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2417r2.pdf)
 - [P2697R1 Interfacing `bitset` with `string_view`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2697r1.pdf)
     - C++26から`string_view`を受け取るコンストラクタが追加された
-

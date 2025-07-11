@@ -56,4 +56,3 @@ int main()
 - [GCC](/implementation.md#gcc): 5.1.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
-

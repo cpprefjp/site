@@ -54,4 +54,3 @@ int main()
 - [Clang](/implementation.md#clang): ??
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
-

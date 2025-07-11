@@ -61,4 +61,3 @@ int main()
 
 ## 参照
 - [N3658 Compile-time integer sequences](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3658.html)
-

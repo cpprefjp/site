@@ -56,4 +56,3 @@ struct X {
 
 ## 参照
 - [P2748R5 Disallow Binding a Returned Glvalue to a Temporary](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2748r5.html)
-

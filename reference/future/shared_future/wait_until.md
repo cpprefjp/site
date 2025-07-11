@@ -99,5 +99,3 @@ int main()
 
 ## 参照
 - [LWG Issue 2185. Missing throws clause for `future`/`shared_future::wait_for`/`wait_until`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2185)
-
-

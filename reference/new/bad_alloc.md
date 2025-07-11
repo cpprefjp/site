@@ -42,4 +42,3 @@ int main()
 }
 ```
 * std::bad_alloc[color ff0000]
-

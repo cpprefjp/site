@@ -51,4 +51,3 @@ int main() {
 - [Clang](/implementation.md#clang): 12.0 [mark verified]
 - [GCC](/implementation.md#gcc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
-

@@ -119,4 +119,3 @@ int main()
 ### 参考
 - [F分布 - Wikipedia](https://ja.wikipedia.org/wiki/F%E5%88%86%E5%B8%83)
 - [第９回　カイ二乗分布とＦ分布](http://www.ipc.shimane-u.ac.jp/food/kobayasi/biometry9_2011.html)
-

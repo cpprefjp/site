@@ -101,4 +101,3 @@ stride: 10 3
 
 ## 参照
 - [LWG Issue 543. `valarray` `slice` default constructor](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#543)
-

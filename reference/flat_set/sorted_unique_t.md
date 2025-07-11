@@ -61,4 +61,3 @@ int main()
 
 ## 関連項目
 - [`std::flat_set`](flat_set.md)
-

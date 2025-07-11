@@ -221,4 +221,3 @@ S2 is not totally ordered with int
 - [P1754R1 Rename concepts to standard_case for C++20, while we still can](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1754r1.pdf)
 - [LWG Issue 3329. `totally_ordered_with` both directly and indirectly requires `common_reference_with`](https://wg21.cmeerw.net/lwg/issue3329)
 - [LWG Issue 3331. Define `totally_ordered/_with` in terms of `partially-ordered-with`](https://wg21.cmeerw.net/lwg/issue3331)
-  

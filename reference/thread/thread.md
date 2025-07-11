@@ -106,5 +106,3 @@ int main()
 	- 2012はメモリリークするバグあり [link](http://stackoverflow.com/questions/14238670/is-this-a-big-bug-of-microsofts-implementation-of-stdthread)
 
 ## 参照
-
-

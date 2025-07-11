@@ -53,5 +53,3 @@ int main()
 | [`front`](front.md)         | 先頭要素への参照を取得する |
 | [`push_back`](push_back.md) | 末尾に要素を追加する |
 | [`pop_back`](pop_back.md)   | 末尾要素を削除する |
-
-

@@ -85,4 +85,3 @@ what:Promise already satisfied
 
 ## 参照
 - [P0517r0 Make future_error Constructible](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0517r0.html)
-

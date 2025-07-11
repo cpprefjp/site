@@ -74,5 +74,3 @@ int main()
 
 ## 参照
 - [LWG Issue 2122. `merge()` stability for lists versus forward lists](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2122)
-
-

@@ -86,4 +86,3 @@ int main()
 
 ## 参照
 - [What is the best way to form custom std::chrono::durations and std::ratios? - StackOverflow](http://stackoverflow.com/questions/27880393/what-is-the-best-way-to-form-custom-stdchronodurations-and-stdratios)
-

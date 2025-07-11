@@ -107,4 +107,3 @@ rscript random_stats.R
 ## 参考
 * [とりあえずプロットする方法](http://cse.naro.affrc.go.jp/takezawa/r-tips/r/48.html)
 * [ヒストグラムをプロットする方法](http://cse.naro.affrc.go.jp/takezawa/r-tips/r/61.html)
-

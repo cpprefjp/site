@@ -201,4 +201,3 @@ FizzBuzz
 - [P2325R3 Views should not be required to be default constructible](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2325r3.html) (本提案文書はC++20に遡って適用されている)
 - [P2367R0 Remove misuses of list-initialization from Clause 24](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2367r0.html) (本提案文書はC++20に遡って適用されている)
 - [LWG Issue 4001. `iota_view` should provide `empty`](https://cplusplus.github.io/LWG/issue4001)
-

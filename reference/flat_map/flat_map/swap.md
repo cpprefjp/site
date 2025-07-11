@@ -79,4 +79,3 @@ fm2 : {[10,a], [20,b], [30,c]}
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
-

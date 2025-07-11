@@ -47,4 +47,3 @@ int main()
 ### 処理系
 - [GCC](/implementation.md#gcc): 4.5.1 [mark verified], 4.6.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
-

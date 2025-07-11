@@ -47,5 +47,3 @@ int main()
 ```
 Aborted
 ```
-
-

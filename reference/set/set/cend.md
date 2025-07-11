@@ -60,4 +60,3 @@ int main()
 | [`cbegin`](cbegin.md) | 先頭を指す読み取り専用イテレータを取得する |
 | [`rbegin`](rbegin.md) | 末尾を指す逆イテレータを取得する |
 | [`rend`](rend.md)     | 先頭の前を指す逆イテレータを取得する |
-

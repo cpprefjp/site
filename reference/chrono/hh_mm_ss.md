@@ -118,4 +118,3 @@ int main()
 - [Clang](/implementation.md#clang): 10.0 (出力ストリームなし) [mark verified]
 - [GCC](/implementation.md#gcc): 11.1 (出力ストリームなし) [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
-

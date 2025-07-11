@@ -141,4 +141,3 @@ b
 ## 参照
 - [P1673R13 A free function linear algebra interface based on the BLAS](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1673r13.html)
 - [`LAPACK: cswap`](https://netlib.org/lapack/explore-html/d7/d51/group__swap_ga1e8d1bbcbd0307e7a3839d0bd10e4118.html#ga1e8d1bbcbd0307e7a3839d0bd10e4118)
-

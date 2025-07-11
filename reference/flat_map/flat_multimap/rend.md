@@ -70,4 +70,3 @@ int main()
 | [`flat_multimap::rbegin`](rbegin.md)   | 末尾を指す逆イテレータを取得する |
 | [`flat_multimap::crbegin`](crbegin.md) | 末尾を指す逆constイテレータを取得する |
 | [`flat_multimap::crend`](crend.md)     | 先頭の前を指す逆constイテレータを取得する |
-

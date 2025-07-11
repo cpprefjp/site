@@ -124,4 +124,3 @@ int main()
 
 ### 参考
 - [ガンマ分布 - Wikipedia](https://ja.wikipedia.org/wiki/ガンマ分布)
-

@@ -66,4 +66,3 @@ int main()
 
 ## 関連項目
 - [`std::flat_map`](flat_map.md)
-

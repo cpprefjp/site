@@ -90,5 +90,3 @@ int main()
 valarray%=valarray : {0,1,0}
 valarray%=int : {0,1,0}
 ```
-
-

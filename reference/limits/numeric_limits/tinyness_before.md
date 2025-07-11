@@ -38,5 +38,3 @@ int main()
 float : false
 double : false
 ```
-
-

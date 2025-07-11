@@ -94,5 +94,3 @@ void swap(stack& s) noexcept(noexcept(swap(c, s.c)))
 
 
 ## 参照
-
-

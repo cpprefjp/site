@@ -63,4 +63,3 @@ int main()
 
 ## 参照
 - [N2478 A Proposal to Add `typedef default_random_engine` to C++0X](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2478.pdf)
-

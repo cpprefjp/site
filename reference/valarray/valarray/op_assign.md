@@ -148,5 +148,3 @@ va8 : {1,3,5}
     - (3)の経緯となる提案文書
 - [LWG Issue 2071. `std::valarray` move-assignment](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2071)
     - C++11でムーブ代入の計算量を「定数時間」であると記載していたが、実際には全要素のデストラクタを呼び出すために「線形時間」が正しかった。C++14で文面を修正。
-
-

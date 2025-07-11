@@ -87,6 +87,3 @@
 | [`messages_base`](locale/messages_base.md) | メッセージ取得のための基底クラス(class) | |
 | [`messages`](locale/messages.md) | メッセージカタログから対応する翻訳メッセージの取得(class template) | |
 | [`messages_byname`](locale/messages_byname.md) | 名前による翻訳メッセージの取得(class template) | |
-
-
-

@@ -67,4 +67,3 @@ GCC 4.7、およびVisual C++ 10.0の`array`に対する`tuple_element`の特殊
 
 
 ## 参照
-

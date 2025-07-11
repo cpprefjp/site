@@ -63,5 +63,3 @@ template<class charT> charT toupper(charT c, const locale& loc)
 ```
 
 ## 参照
-
-

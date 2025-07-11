@@ -59,4 +59,3 @@ Popping out elements... 4 3 2 1 0
 ```cpp
 void pop() { c.pop_back(); }
 ```
-

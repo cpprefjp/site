@@ -176,4 +176,3 @@ int main ()
     - C++14から、(2)と(4)の仕様の書き方が、`unordered_map::insert()`のものと統一された。
 - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
     - (7), (8)経緯となる提案文書
-

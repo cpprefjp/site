@@ -66,4 +66,3 @@ int main()
 | [`if`](op_if.md) | `complex<float>`のリテラル  |
 
 - [N3779 User-dened Literals for std::complex part 2 of UDL for Standard Library Types (version 5)](https://isocpp.org/files/papers/N3779.pdf)
-

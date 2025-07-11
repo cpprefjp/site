@@ -30,4 +30,3 @@ template<class R>
 
 ## 参考
 - [filter_viewがconst-iterableではない理由](https://zenn.dev/onihusube/scraps/40a95c8f769414)
-

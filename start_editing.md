@@ -380,4 +380,3 @@ CIスクリプト、site_generator、kunaiなど。
 
 - [2023年](start_editing/contribution_stats_2023.md)
 - [2024年](start_editing/contribution_stats_2024.md)
-

@@ -290,5 +290,3 @@ slice + multiply : {1,4,3,8,5,12}
 
 ## 参照
 - [インテルの valarray の使用](https://www.xlsoft.com/jp/products/intel/compilers/ccw/12/ug/cref_cls/common/cppref_valarray_use.htm)
-
-

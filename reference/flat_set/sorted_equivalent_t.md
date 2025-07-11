@@ -61,4 +61,3 @@ int main()
 
 ## 関連項目
 - [`std::flat_multiset`](flat_multiset.md)
-

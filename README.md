@@ -33,4 +33,3 @@ Python 3系をインストールした状態で、以下を実行する：
 pip3 install requests
 python3 .github/workflows/script/link_check.py --check-inner-link
 ```
-

@@ -64,5 +64,3 @@ const_reference top() const { return c.back(); }
 |---------------------|------------|
 | [`push`](push.md) | 要素の追加 |
 | [`pop`](pop.md)   | 要素の削除 |
-
-

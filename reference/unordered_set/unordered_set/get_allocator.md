@@ -116,4 +116,3 @@ libstdc++ の `unordered_set` では、アロケータの `select_on_container_c
 | [`swap`](swap_free.md)                                    | 内容の交換（非メンバ関数） |
 | [`allocator`](/reference/memory/allocator.md)               | デフォルトのアロケータ     |
 | [`allocator_traits`](/reference/memory/allocator_traits.md) | アロケータのトレイツ       |
-

@@ -98,4 +98,3 @@ int main()
 
 ## 参照
 - [N1933 Improvements to TR1's Facility for Random Number Generation](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1933.pdf)
-

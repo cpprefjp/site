@@ -51,4 +51,3 @@ int main()
 ## 参照
 - [LWG Issue 2092. Vague Wording for `condition_variable_any`]
     - C++11では`resource_unavailable_try_again`エラーの理由が「native handleの計算ができなかった」というものだった。しかし、このクラスはnative handleを持っていることがpublicインタフェースになっていないため、C++14で「制限により、非メモリリソースの初期化ができなかった」という表現に修正。
-

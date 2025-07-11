@@ -87,4 +87,3 @@
 
 ## 関連項目
 - [`<cmath>`](/reference/cmath.md)
-

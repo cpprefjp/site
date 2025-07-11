@@ -77,4 +77,3 @@ namespace regex_constants {
 ## 参照
 - [LWG Issue 2053. Errors in regex bitmask types](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2053)
     - 定数定義に不要な`static`が付いていたため、C++14で削除
-

@@ -78,4 +78,3 @@ int main()
 ## 参照
 - [LWG Issue 2132. `std::function` ambiguity](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2132)
     - C++14から、(4)でシグニチャが合わない関数オブジェクトが渡された場合に、SFINAEされるようになった。
-

@@ -66,5 +66,3 @@ message : Broken promise
 
 
 ## 参照
-
-

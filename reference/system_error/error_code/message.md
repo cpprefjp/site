@@ -51,5 +51,3 @@ Invalid argument
 - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified]
 
 ## 参照
-
-

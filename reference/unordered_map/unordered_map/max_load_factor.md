@@ -139,4 +139,3 @@ new load_factor: 1.125
 | [`size`](size.md) | 要素数の取得 |
 | [`bucket_count`](bucket_count.md) | バケット数の取得 |
 | [`clear`](clear.md) | 全要素の削除 |
-

@@ -183,4 +183,3 @@ size is 27, bucket_count is 29, load_factor is 0.931035, bucket_count * max_load
 | [`load_factor`](load_factor.md)     | 現在の負荷率（バケットあたりの要素数の平均）を取得 |
 | [`rehash`](rehash.md)               | 最小バケット数指定によるバケット数の調整 |
 | [`reserve`](reserve.md)             | 最小要素数指定によるバケット数の調整 |
-

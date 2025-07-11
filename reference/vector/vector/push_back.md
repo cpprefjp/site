@@ -96,4 +96,3 @@ world
         - `deque`の[`emplace_back()`](/reference/deque/deque/emplace_back.md)と[`emplace_front()`](/reference/deque/deque/emplace_front.md) (C++14から)
         - `deque`の両端へ単一要素を挿入する[`insert()`](/reference/deque/deque/insert.md)と[`emplace()`](/reference/deque/deque/emplace.md) (C++14)
 - [P1004R2 Making `std::vector` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1004r2.pdf)
-

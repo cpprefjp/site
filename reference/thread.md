@@ -30,4 +30,3 @@
 - [The cpp-threads Archives](https://www.decadent.org.uk/pipermail/cpp-threads/)
     - C++11の策定時に、C++標準の言語とライブラリに並行プログラミングの提案を行うため使用されていたメーリングリストのアーカイブです。
 - [P2051R0 C++ Standard Library Issues to be moved in Prague](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2051r0.html)
-

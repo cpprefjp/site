@@ -138,4 +138,3 @@ int main()
 
 ## 関連項目
 - [`shared_lock`](/reference/shared_mutex/shared_lock.md) : 共有ミューテックスを自動的に手放す
-

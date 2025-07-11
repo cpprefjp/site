@@ -153,4 +153,3 @@ Size of c2: 7
 - [LWG 2210. Missing allocator-extended constructor for allocator-aware containers](http://cplusplus.github.io/LWG/lwg-defects.html#2210)  
     (5), (11) を追加するきっかけとなったレポート  
     なお、Discussion の例はアロケータの型が誤っているので注意
-

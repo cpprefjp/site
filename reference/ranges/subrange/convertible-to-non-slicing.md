@@ -40,4 +40,3 @@ namespace std::ranges {
 ## 参照
 - [LWG 3282 `subrange` converting constructor should disallow derived to base conversions](https://cplusplus.github.io/LWG/issue3282)
 - [LWG 3470 `convertible-to-non-slicing` seems to reject valid case](https://cplusplus.github.io/LWG/issue3470)
-

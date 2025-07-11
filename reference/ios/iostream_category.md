@@ -68,4 +68,3 @@ iostream stream error
 
 ## 参照
 - [LWG Issue 2087. iostream_category() and noexcept](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2087)
-

@@ -229,4 +229,3 @@ C++11では、参照するC言語の規格がC89からC99に変更となり、C9
 
 ## 参照
 - [C++11 Overview - Standard C++](https://isocpp.org/wiki/faq/cpp11)
-

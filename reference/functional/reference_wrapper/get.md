@@ -57,5 +57,3 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 参照
-
-

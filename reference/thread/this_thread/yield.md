@@ -80,4 +80,3 @@ result=42
 
 ## 参照
 - [thread::yield()の実装 - Faith and Brave - C++で遊ぼう](http://d.hatena.ne.jp/faith_and_brave/20120618/1340000626)
-

@@ -179,5 +179,3 @@ value=42
 
 ## 参照
 - [P3325R5 A Utility for Creating Execution Environments](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3325r5.html)
-
-

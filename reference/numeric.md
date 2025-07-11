@@ -69,4 +69,3 @@
 ## 関連項目
 - [`<algorithm>`](/reference/algorithm.md)
     - より汎用的なアルゴリズム
-

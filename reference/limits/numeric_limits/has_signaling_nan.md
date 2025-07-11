@@ -42,5 +42,3 @@ int : false
 float : true
 double : true
 ```
-
-

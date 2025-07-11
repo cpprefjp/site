@@ -60,5 +60,3 @@ int main()
 | [`count`](count.md) | 指定したキーにマッチする要素の数を返す |
 | [`lower_bound`](lower_bound.md) | 与えられた値より小さく無い最初の要素へのイテレータを返す |
 | [`upper_bound`](upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを返す |
-
-
