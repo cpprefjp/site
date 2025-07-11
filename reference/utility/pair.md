@@ -22,8 +22,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `T1 first`  | 1つめの要素 | |
-| `T2 second` | 2つめの要素 | |
+| [`first`](pair/first.md)  | 1つめの要素 | |
+| [`second`](pair/second.md.nolink) | 2つめの要素 | |
 
 
 ## メンバ関数

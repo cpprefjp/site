@@ -70,7 +70,7 @@ int main()
 }
 ```
 * std::min_element[color ff0000]
-* v2_min_element->first[link /reference/utility/pair/first.md.nolink]
+* v2_min_element->first[link /reference/utility/pair/first.md]
 * v2_min_element->second[link /reference/utility/pair/second.md.nolink]
 
 ### 出力

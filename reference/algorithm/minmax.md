@@ -95,13 +95,13 @@ int main()
 ```
 * std::minmax[color ff0000]
 * std::greater[link /reference/functional/greater.md]
-* result1.first[link /reference/utility/pair/first.md.nolink]
+* result1.first[link /reference/utility/pair/first.md]
 * result1.second[link /reference/utility/pair/second.md.nolink]
-* result2.first[link /reference/utility/pair/first.md.nolink]
+* result2.first[link /reference/utility/pair/first.md]
 * result2.second[link /reference/utility/pair/second.md.nolink]
-* result3.first[link /reference/utility/pair/first.md.nolink]
+* result3.first[link /reference/utility/pair/first.md]
 * result3.second[link /reference/utility/pair/second.md.nolink]
-* result4.first[link /reference/utility/pair/first.md.nolink]
+* result4.first[link /reference/utility/pair/first.md]
 * result4.second[link /reference/utility/pair/second.md.nolink]
 ### 出力
 ```

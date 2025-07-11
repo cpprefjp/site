@@ -146,7 +146,7 @@ int main() {
 ```
 * std::mismatch[color ff0000]
 * std::to_string[link /reference/string/to_string.md]
-* *p.first[link /reference/utility/pair/first.md.nolink]
+* *p.first[link /reference/utility/pair/first.md]
 * *p.second[link /reference/utility/pair/second.md.nolink]
 
 ### 出力
