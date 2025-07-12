@@ -54,7 +54,7 @@
 | [`fgets`](/reference/cstdio/fgets.md)    | ファイルからN文字入力する | |
 | [`fputc`](/reference/cstdio/fputc.md)    | ファイルに1文字出力する | |
 | [`fputs`](/reference/cstdio/fputs.md)    | ファイルにN文字出力する | |
-| [`fread`](/reference/cstdio/fread.md.nolink)    | ファイルからN文字読み込む | |
+| [`fread`](/reference/cstdio/fread.md)    | ファイルからN文字読み込む | |
 | [`fwrite`](/reference/cstdio/fwrite.md.nolink)   | ファイルにN文字書き込む | |
 | [`fgetpos`](/reference/cstdio/fgetpos.md.nolink)  | ファイルの現在位置を取得する | |
 | [`fseek`](/reference/cstdio/fseek.md.nolink)    | ファイルの現在位置を移動する | |
