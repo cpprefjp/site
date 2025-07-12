@@ -24,19 +24,19 @@ namespace std {
 #include <cstdio>
 
 int main() {
-  FILE *fp = fopen("test.txt", "w");
+  std::FILE *fp = std::fopen("test.txt", "w");
   if (fp == NULL) {
-    printf("ファイルを開けませんでした\n");
+    std::printf("ファイルを開けませんでした\n");
     return 1;
   }
-  fclose(fp);
+  std::fclose(fp);
   return 0;
 }
 ```
-* fopen[color ff0000]
-* fclose[link /reference/cstdio/fclose.md]
-* FILE[link /reference/cstdio/file.md]
-* printf[link /reference/cstdio/printf.md]
+* std::fopen[color ff0000]
+* std::fclose[link /reference/cstdio/fclose.md]
+* std::FILE[link /reference/cstdio/file.md]
+* std::printf[link /reference/cstdio/printf.md]
 
 ## 処理系
 - [Clang](/implementation.md#clang): ??

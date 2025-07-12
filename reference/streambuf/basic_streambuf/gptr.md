@@ -41,7 +41,7 @@ public:
     }
 };
 
-int main(void) {
+int main() {
     dummy_buf buf{};
     std::cout << *buf.gptr() << std::endl;  // 現在位置のポインタにアクセス
     buf.snextc();  // 現在位置を1つ進める

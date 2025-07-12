@@ -12,7 +12,7 @@ namespace std {
 ## 概要
 指定されたファイルストリームから1文字入力する。
 
-[`getc`][/reference/cstdio/getc.md]とは違い、関数として定義することが定められているため、引数は一度しか評価されないことが保証されている。
+[`getc`](/reference/cstdio/getc.md)とは違い、関数として定義することが定められているため、引数は一度しか評価されないことが保証されている。
 
 ## 戻り値
 入力された文字を返す。
@@ -23,13 +23,13 @@ namespace std {
 
 int main() {
   int c;
-  while ((c = fgetc(stdin)) != EOF) {
-    putc(c, stdout);
+  while ((c = std::fgetc(stdin)) != EOF) {
+    std::putc(c, stdout);
   }
 }
 ```
-* fgetc[color ff0000]
-* putc[link /reference/cstdio/putc.md]
+* std::fgetc[color ff0000]
+* std::putc[link /reference/cstdio/putc.md]
 
 ### 入力
 ```

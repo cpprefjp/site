@@ -39,7 +39,7 @@ public:
     }
 };
 
-int main(void) {
+int main() {
     dummy_buf buf{};
     std::cout << buf.in_avail() << std::endl;
 }

@@ -14,20 +14,21 @@
 ## 例
 ```cpp example
 #include <cstdio>
+
 int main() {
   int c;
-  while ((c = getchar()) != EOF) {
-    putchar(c);
+  while ((c = std::getchar()) != EOF) {
+    std::putchar(c);
   }
   if (c == EOF)
-    puts("REACHED END");
+    std::puts("REACHED END");
 }
 
 ```
 * EOF[color ff0000]
-* getchar[link /reference/cstdio/getchar.md]
-* putchar[link /reference/cstdio/putchar.md]
-* puts[link /reference/cstdio/puts.md]
+* std::getchar[link /reference/cstdio/getchar.md]
+* std::putchar[link /reference/cstdio/putchar.md]
+* std::puts[link /reference/cstdio/puts.md]
 
 ### 入力
 ```

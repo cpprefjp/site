@@ -46,7 +46,7 @@ public:
     }
 };
 
-int main(void) {
+int main() {
     dummy_buf buf{};
     std::cout << buf.in_avail() << std::endl;  // 残2文字
     buf.sbumpc();  //　1文字進める

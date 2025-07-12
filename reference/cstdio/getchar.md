@@ -4,7 +4,9 @@
 * function[meta id-type]
 
 ```cpp
-int getchar();
+namespace std {
+  int getchar();
+}
 ```
 
 ## 概要
@@ -20,15 +22,16 @@ int getchar();
 ## 例
 ```cpp example
 #include <cstdio>
+
 int main() {
   int c;
-  while ((c = getchar()) != EOF) {
-    putchar(c);
+  while ((c = std::getchar()) != EOF) {
+    std::putchar(c);
   }
 }
 ```
-* getchar[color ff0000]
-* putchar[link /reference/cstdio/putchar.md]
+* std::getchar[color ff0000]
+* std::putchar[link /reference/cstdio/putchar.md]
 * EOF[link /reference/cstdio/eof.md]
 
 ### 入力

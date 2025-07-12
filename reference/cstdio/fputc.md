@@ -12,7 +12,7 @@ namespace std {
 ## 概要
 指定されたファイルストリームに1文字出力する。
 
-[`putc`][/reference/cstdio/putc.md]とは違い、関数として定義することが定められているため、引数は一度しか評価されないことが保証されている。
+[`putc`](/reference/cstdio/putc.md)とは違い、関数として定義することが定められているため、引数は一度しか評価されないことが保証されている。
 
 ## 戻り値
 出力された文字を返す。
@@ -24,10 +24,10 @@ namespace std {
 #include <cstdio>
 
 int main() {
-  fputc('a', stdout);
+  std::fputc('a', stdout);
 }
 ```
-* fputc[color ff0000]
+* std::fputc[color ff0000]
 * stdout[link /reference/cstdio/stdout.md]
 
 ### 出力

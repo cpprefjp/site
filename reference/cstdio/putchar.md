@@ -4,7 +4,9 @@
 * function[meta id-type]
 
 ```cpp
-int putchar(int c);
+namespace std {
+  int putchar(int c);
+}
 ```
 
 ## 概要
@@ -20,15 +22,15 @@ int putchar(int c);
 #include <cstdio>
 
 int main() {
-  putchar('H');
-  putchar('e');
-  putchar('l');
-  putchar('l');
-  putchar('o');
-  putchar('\n');
+  std::putchar('H');
+  std::putchar('e');
+  std::putchar('l');
+  std::putchar('l');
+  std::putchar('o');
+  std::putchar('\n');
 }
 ```
-* putchar[color ff0000]
+* std::putchar[color ff0000]
 
 ### 出力
 ```

@@ -51,7 +51,7 @@ protected:
     }
 };
 
-int main(void) {
+int main() {
     dummy_buf buf{};
     std::cout << buf.sbumpc() << std::endl;  // 1文字目の’A'を読み取る
     std::cout << buf.sbumpc() << std::endl;  // 2文字目の’B'を読み取る

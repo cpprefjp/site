@@ -38,7 +38,7 @@ public:
     }
 };
 
-int main(void) {
+int main() {
     dummy_buf buf{};
     std::cout << char(buf.sgetc()) << std::endl;  // 現在位置の文字を読み取る
 }

@@ -1,4 +1,4 @@
-# fputs.md
+# fputs
 * cstdio[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -20,9 +20,15 @@ namespace std {
 #include <cstdio>
 
 int main() {
-  fputs("Hello, World!\n", stdout);
+  std::fputs("Hello, World!\n", stdout);
   return 0;
 }
+```
+* std::fputs[color ff0000]
+
+### 出力
+```
+Hello, World!
 ```
 
 ## 処理系

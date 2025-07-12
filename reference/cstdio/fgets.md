@@ -25,12 +25,12 @@ namespace std {
 
 int main() {
   char str[10];
-  fgets(str, sizeof(str), stdin);
-  puts(str);
+  std::fgets(str, sizeof(str), stdin);
+  std::puts(str);
 }
 ```
-* fgets[color ff0000]
-* puts[link /reference/cstdio/puts.md]
+* std::fgets[color ff0000]
+* std::puts[link /reference/cstdio/puts.md]
 
 ### 入力
 ```

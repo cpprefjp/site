@@ -41,7 +41,7 @@ public:
     }
 };
 
-int main(void) {
+int main() {
     dummy_buf buf{};
     std::cout << *(buf.egptr() - 10) << std::endl;  // 末尾から逆算して先頭のポインタにアクセス
 }

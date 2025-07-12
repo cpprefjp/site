@@ -49,7 +49,7 @@ protected:
     }
 };
 
-int main(void) {
+int main() {
     dummy_buf buf{};
     std::cout << buf.sgetc() << std::endl;  // 1文字目の’A'を読み取る
     buf.sbumpc();  // 1文字進める

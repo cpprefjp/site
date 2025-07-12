@@ -23,17 +23,19 @@ namespace std {
 
 ## 実装例
 ```cpp example
-int main(void)
-{
-  int *p1 = malloc(10*sizeof *p1);
-  free(p1); // p1のメモリを解放
+#include <cstdlib>
 
-  int *p2 = calloc(10, sizeof *p2);
-  int *p3 = realloc(p2, 1000*sizeof *p3);
-  if(p3) 
-    free(p3); // realloc により新しい領域が確保された場合、それを解放
+int main()
+{
+  int *p1 = std::malloc(10 * sizeof *p1);
+  std::free(p1); // p1のメモリを解放
+
+  int *p2 = std::calloc(10, sizeof *p2);
+  int *p3 = std::realloc(p2, 1000 * sizeof *p3);
+  if (p3) 
+    std::free(p3); // realloc により新しい領域が確保された場合、それを解放
   else
-    free(p2); // realloc が失敗した場合は元の領域を解放
+    std::free(p2); // realloc が失敗した場合は元の領域を解放
 }
 ```
 ### 出力

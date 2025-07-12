@@ -38,7 +38,7 @@ public:
     }
 };
 
-int main(void) {
+int main() {
     dummy_buf buf{};
     std::cout << buf.in_avail() << std::endl;
     std::cout << char(buf.sbumpc()) << std::endl;  // 1文字目の’A'を読み取り、現在位置を1つ進める

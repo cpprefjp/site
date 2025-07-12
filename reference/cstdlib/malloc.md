@@ -37,25 +37,25 @@ namespace std {
 cppref より引用。
 
 ```cpp example
-#include <iostream>
+#include <cstdio>
 #include <cstdlib>
 
-int main(void)
+int main()
 {
-  int *p1 = malloc(4*sizeof(int));  // 4個のint型配列の目盛りを確保
-  int *p2 = malloc(sizeof(int[4])); // 上と同じ。
-  int *p3 = malloc(4*sizeof *p3);   // 上と同じ。
+  int *p1 = std::malloc(4 * sizeof(int)); // 4個のint型配列のメモリ領域を確保
+  int *p2 = std::malloc(sizeof(int[4]));  // 上と同じ。
+  int *p3 = std::malloc(4 * sizeof *p3);  // 上と同じ。
 
-  if(p1) {
-    for(int n=0; n<4; ++n)
-      p1[n] = n*n;
-    for(int n=0; n<4; ++n)
-      printf("p1[%d] == %d\n", n, p1[n]);
+  if (p1) {
+    for (int n = 0; n < 4; ++n)
+      p1[n] = n * n;
+    for (int n = 0; n < 4; ++n)
+      std::printf("p1[%d] == %d\n", n, p1[n]);
   }
 
-  free(p1);//メモリを解放
-  free(p2);
-  free(p3);
+  std::free(p1); // メモリを解放
+  std::free(p2);
+  std::free(p3);
 }
 ```
 

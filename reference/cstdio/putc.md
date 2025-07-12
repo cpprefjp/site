@@ -4,7 +4,9 @@
 * function[meta id-type]
 
 ```cpp
-int putc(int c, FILE* stream);
+namespace std {
+  int putc(int c, FILE* stream);
+}
 ```
 
 ## 概要
@@ -18,15 +20,15 @@ int putc(int c, FILE* stream);
 #include <cstdio>
 
 int main() {
-  putc('H', stdout);
-  putc('e', stdout);
-  putc('l', stdout);
-  putc('l', stdout);
-  putc('o', stdout);
-  putc('\n', stdout);
+  std::putc('H', stdout);
+  std::putc('e', stdout);
+  std::putc('l', stdout);
+  std::putc('l', stdout);
+  std::putc('o', stdout);
+  std::putc('\n', stdout);
 }
 ```
-* putc[color ff0000]
+* std::putc[color ff0000]
 * stdout[link /reference/cstdio/stdout.md]
 
 ### 出力

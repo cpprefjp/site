@@ -42,7 +42,7 @@ public:
     }
 };
 
-int main(void) {
+int main() {
     dummy_buf buf{};
     buf.sbumpc();  // 現在位置を1つ進める
 

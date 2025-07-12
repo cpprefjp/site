@@ -36,7 +36,7 @@ public:
     }
 };
 
-int main(void) {
+int main() {
     char space[10] = {};
     dummy_buf buf{space, space + 10};
     buf.sputc('A');  // 3文字書き込む

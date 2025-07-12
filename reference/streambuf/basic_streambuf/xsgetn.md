@@ -45,7 +45,7 @@ public:
     }
 };
 
-int main(void) {
+int main() {
     dummy_buf buf{};
 
     char dump1[4] = {};
