@@ -56,7 +56,7 @@ constexpr explicit(!is_convertible_v<OtherExtents, extents_type>)
 #include <linalg>
 namespace linalg = std::linalg;
 
-using LayoutPacked = linalg::layout_blas_packed<linalg::lower_triangle_t, linalg::column_major_t>
+using LayoutPacked = linalg::layout_blas_packed<linalg::lower_triangle_t, linalg::column_major_t>;
 using Ext3x3 = std::extents<size_t, 3, 3>;
 using ExtNxN = std::dextents<size_t, 2>;
 
