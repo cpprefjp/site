@@ -1,0 +1,395 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>piecewise_linear_distribution::コンストラクタ - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,random,std,piecewise_linear_distribution,function,cpp11
+">
+        <meta name="title" content="piecewise_linear_distribution::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="piecewise_linear_distribution::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="piecewise_linear_distribution::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/random/piecewise_linear_distribution/op_constructor.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="- (1) : デフォルトコンストラクタ。区間数列を`{0.0, 1.0}`、重み数列を`{1.0, 1.0}`として構築し、`[0.0, 1.0)`の一様分布とする。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="piecewise_linear_distribution::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/random/piecewise_linear_distribution/op_constructor.html" />
+        <meta name="twitter:description" content="- (1) : デフォルトコンストラクタ。区間数列を`{0.0, 1.0}`、重み数列を`{1.0, 1.0}`として構築し、`[0.0, 1.0)`の一様分布とする。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;random&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;piecewise_linear_distribution&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;19bbb9440cfd7a922d0004b795e5154c9fcee0e3&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;random&gt;\n#include &lt;array&gt;\n\ndouble always_one(double)\n  { return 1.0; }\n\nint main()\n{\n  std::random_device seed_gen;\n  std::default_random_engine engine(seed_gen());\n\n  // (1)\n  {\n    std::piecewise_linear_distribution&lt;&gt; dist;\n\n    double result = dist(engine);\n    std::cout &lt;&lt; \&#34;default constructor : \&#34; &lt;&lt; result &lt;&lt; std::endl;\n  }\n\n  // (2)\n  {\n    std::array&lt;double, 3&gt; intervals = {0.0, 0.5, 1.0}; // \u533a\u9593\u6570\u5217\n    std::array&lt;double, 3&gt; densities = {0.0, 0.5, 0.0}; // \u91cd\u307f\u6570\u5217\n\n    std::piecewise_linear_distribution&lt;&gt; dist(\n      intervals.begin(),\n      intervals.end(),\n      densities.begin()\n    );\n\n    double result = dist(engine);\n    std::cout &lt;&lt; \&#34;iterator range constructor : \&#34; &lt;&lt; result &lt;&lt; std::endl;\n  }\n\n  // (3)\n  {\n    std::piecewise_linear_distribution&lt;&gt; dist(\n      {0.0, 1.0},\n      always_one\n    );\n\n    double result = dist(engine);\n    std::cout &lt;&lt; \&#34;initializer list constructor : \&#34; &lt;&lt; result &lt;&lt; std::endl;\n  }\n\n  // (4)\n  {\n    std::piecewise_linear_distribution&lt;&gt; dist(\n      10,\n      0.0,\n      1.0,\n      always_one\n    );\n\n    double result = dist(engine);\n    std::cout &lt;&lt; \&#34;min-max constructor : \&#34; &lt;&lt; result &lt;&lt; std::endl;\n  }\n\n  // (5)\n  {\n    using dist_type = std::piecewise_linear_distribution&lt;&gt;;\n\n    std::array&lt;double, 3&gt; intervals = {0.0, 0.5, 1.0}; // \u533a\u9593\u6570\u5217\n    std::array&lt;double, 3&gt; densities = {0.0, 0.5, 0.0}; // \u91cd\u307f\u6570\u5217\n\n    dist_type::param_type param(intervals.begin(), intervals.end(), densities.begin());\n    dist_type dist(param);\n\n    double result = dist(engine);\n    std::cout &lt;&lt; \&#34;parameter constructor : \&#34; &lt;&lt; result &lt;&lt; std::endl;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;random&#34;, &#34;piecewise_linear_distribution&#34;, &#34;op_constructor&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/random.html" itemprop="url">
+              
+                <span itemprop="name">random</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/random/piecewise_linear_distribution.html" itemprop="url">
+              
+                <span itemprop="name">piecewise_linear_distribution</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">コンストラクタ</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-06-11T13:45:38">
+        2024年06月11日 13時45分38秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/random/piecewise_linear_distribution/op_constructor.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/random/piecewise_linear_distribution/op_constructor.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;random&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class piecewise_linear_distribution">piecewise_linear_distribution::</span><span class="token">コンストラクタ</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">piecewise_linear_distribution</span><span class="p">();</span>                                <span class="c1">// (1)</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIteratorB</span><span class="p">,</span> <span class="k">class</span> <span class="nc">InputIteratorW</span><span class="o">&gt;</span>
+<span class="n">piecewise_linear_distribution</span><span class="p">(</span><span class="n">InputIteratorB</span> <span class="n">firstB</span><span class="p">,</span>
+                              <span class="n">InputIteratorB</span> <span class="n">lastB</span><span class="p">,</span>
+                              <span class="n">InputIteratorW</span> <span class="n">firstW</span><span class="p">);</span>           <span class="c1">// (2)</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">UnaryOperation</span><span class="o">&gt;</span>
+<span class="n">piecewise_linear_distribution</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">std::initializer_list</a></span><span class="o">&lt;</span><span class="n">RealType</span><span class="o">&gt;</span> <span class="n">bl</span><span class="p">,</span>
+                              <span class="n">UnaryOperation</span> <span class="n">fw</span><span class="p">);</span>               <span class="c1">// (3)</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">UnaryOperation</span><span class="o">&gt;</span>
+<span class="n">piecewise_linear_distribution</span><span class="p">(</span><span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span> <span class="n">nw</span><span class="p">,</span>
+                              <span class="n">RealType</span> <span class="n">xmin</span><span class="p">,</span>
+                              <span class="n">RealType</span> <span class="n">xmax</span><span class="p">,</span>
+                              <span class="n">UnaryOperation</span> <span class="n">fw</span><span class="p">);</span>               <span class="c1">// (4)</span>
+
+<span class="k">explicit</span> <span class="nf">piecewise_linear_distribution</span><span class="p">(</span><span class="k">const</span> <span class="n">param_type</span><span class="o">&amp;</span> <span class="n">parm</span><span class="p">);</span> <span class="c1">// (5)</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<ul>
+<li>(1) : デフォルトコンストラクタ。区間数列を<code>{0.0, 1.0}</code>、重み数列を<code>{1.0, 1.0}</code>として構築し、<code>[0.0, 1.0)</code>の一様分布とする。</li>
+<li>(2) : 区間数列の範囲<code>[firstB, lastB)</code>および重み数列の範囲の先頭<code>firstW</code>を受け取るコンストラクタ。これら数列によって、区間ごとの値を、線形に変化する確率によって生成する分布オブジェクトを構築する。<ul>
+<li>範囲<code>[firstB, lastB)</code>の要素数が<code>1</code>以下の場合、区間数列を<code>{0.0, 1.0}</code>、重み数列を<code>{1.0, 1.0}</code>として構築し、<code>[0.0, 1.0)</code>の一様分布とする。</li>
+</ul>
+</li>
+<li>(3) : 区間数列<code>bl</code>および重み付けを計算する関数オブジェクト<code>fw</code>を受け取るコンストラクタ。<ul>
+<li>重み付け数列は、<code>[bl.begin(), bl.end())</code>の各要素<code>b</code>に対し、式<code>fw(b)</code>で返された重みから構築する。</li>
+</ul>
+</li>
+<li>(4) : 区間値の範囲を受け取るコンストラクタ。<ul>
+<li><code>nw</code>は区間列の要素数、<code>xmin</code>は区間の最小値、<code>xmax</code>は区間の最大値、<code>fw</code>は区間列それぞれのインデックスに対する重み値を求めるための単項関数オブジェクトである。<code>UnaryOperation</code>関数オブジェクトは、<code>double</code>型に変換可能な区間値を受け取り、その区間に対する確率値を返す。</li>
+<li>以下の公式で確率列を構築する。δの値を<code>0 &lt; δ = (xmax−xmin)/n</code>として、<code>k番目の確率 = fw(xmin + k)</code>。</li>
+<li><code>nw</code>が1以下だった場合、区間数列を<code>{0.0, 1.0}</code>、重み数列を<code>{1.0, 1.0}</code>として構築し、<code>[0.0, 1.0)</code>の一様分布とする。</li>
+</ul>
+</li>
+<li>(5) : パラメータオブジェクトを受け取るコンストラクタ。<code>param_type</code>は、このクラスの(5)以外のコンストラクタと同じ<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を持ち、それらのコンストラクタのパラメータを保持している。このコンストラクタでは、<code>param</code>オブジェクトが持っているパラメータを、このクラスのコンストラクタに転送する。</li>
+</ul>
+<h2>要件</h2>
+<ul>
+<li>(2) : <code>InputIteratorB</code>と<code>InputIteratorW</code>の要素型が、<code>double</code>型に変換可能であること</li>
+<li>(3) : <code>UnaryOperation</code>関数オブジェクトは、<code>double</code>に変換可能な型を返すこと</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></h2>
+<ul>
+<li>(3), (4) : <code>fw</code>関数オブジェクトの呼び出し回数が、要素数<code>n</code>を超えないものとする</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="19bbb9440cfd7a922d0004b795e5154c9fcee0e3"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../random.html">&lt;random&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../array.html">&lt;array&gt;</a></span><span class="cp"></span>
+
+<span class="kt">double</span> <span class="nf">always_one</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+  <span class="p">{</span> <span class="k">return</span> <span class="mf">1.0</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../random_device.html">std::random_device</a></span> <span class="n">seed_gen</span><span class="p">;</span>
+  <span class="n"><a href="../default_random_engine.html">std::default_random_engine</a></span> <span class="n">engine</span><span class="p">(</span><span class="n"><a href="../random_device/op_call.html">seed_gen()</a></span><span class="p">);</span>
+
+  <span class="c1">// (1)</span>
+  <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">piecewise_linear_distribution</span><span class="o">&lt;&gt;</span> <span class="n">dist</span><span class="p">;</span>
+
+    <span class="kt">double</span> <span class="n">result</span> <span class="o">=</span> <span class="n">dist</span><span class="p">(</span><span class="n">engine</span><span class="p">);</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"default constructor : "</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (2)</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../../array/array.html">std::array</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span> <span class="mi">3</span><span class="o">&gt;</span> <span class="n">intervals</span> <span class="o">=</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">};</span> <span class="c1">// 区間数列</span>
+    <span class="n"><a href="../../array/array.html">std::array</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span> <span class="mi">3</span><span class="o">&gt;</span> <span class="n">densities</span> <span class="o">=</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">};</span> <span class="c1">// 重み数列</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">piecewise_linear_distribution</span><span class="o">&lt;&gt;</span> <span class="n">dist</span><span class="p">(</span>
+      <span class="n"><a href="../../array/array/begin.html">intervals.begin()</a></span><span class="p">,</span>
+      <span class="n"><a href="../../array/array/end.html">intervals.end()</a></span><span class="p">,</span>
+      <span class="n"><a href="../../array/array/begin.html">densities.begin()</a></span>
+    <span class="p">);</span>
+
+    <span class="kt">double</span> <span class="n">result</span> <span class="o">=</span> <span class="n">dist</span><span class="p">(</span><span class="n">engine</span><span class="p">);</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"iterator <a href="../../ranges/range.html">range</a> constructor : "</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (3)</span>
+  <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">piecewise_linear_distribution</span><span class="o">&lt;&gt;</span> <span class="n">dist</span><span class="p">(</span>
+      <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">},</span>
+      <span class="n">always_one</span>
+    <span class="p">);</span>
+
+    <span class="kt">double</span> <span class="n">result</span> <span class="o">=</span> <span class="n">dist</span><span class="p">(</span><span class="n">engine</span><span class="p">);</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"initializer list constructor : "</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (4)</span>
+  <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">piecewise_linear_distribution</span><span class="o">&lt;&gt;</span> <span class="n">dist</span><span class="p">(</span>
+      <span class="mi">10</span><span class="p">,</span>
+      <span class="mf">0.0</span><span class="p">,</span>
+      <span class="mf">1.0</span><span class="p">,</span>
+      <span class="n">always_one</span>
+    <span class="p">);</span>
+
+    <span class="kt">double</span> <span class="n">result</span> <span class="o">=</span> <span class="n">dist</span><span class="p">(</span><span class="n">engine</span><span class="p">);</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"min-max constructor : "</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (5)</span>
+  <span class="p">{</span>
+    <span class="k">using</span> <span class="n">dist_type</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">piecewise_linear_distribution</span><span class="o">&lt;&gt;</span><span class="p">;</span>
+
+    <span class="n"><a href="../../array/array.html">std::array</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span> <span class="mi">3</span><span class="o">&gt;</span> <span class="n">intervals</span> <span class="o">=</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">};</span> <span class="c1">// 区間数列</span>
+    <span class="n"><a href="../../array/array.html">std::array</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span> <span class="mi">3</span><span class="o">&gt;</span> <span class="n">densities</span> <span class="o">=</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">};</span> <span class="c1">// 重み数列</span>
+
+    <span class="n">dist_type</span><span class="o">::</span><span class="n">param_type</span> <span class="n">param</span><span class="p">(</span><span class="n"><a href="../../array/array/begin.html">intervals.begin()</a></span><span class="p">,</span> <span class="n"><a href="../../array/array/end.html">intervals.end()</a></span><span class="p">,</span> <span class="n"><a href="../../array/array/begin.html">densities.begin()</a></span><span class="p">);</span>
+    <span class="n">dist_type</span> <span class="n">dist</span><span class="p">(</span><span class="n">param</span><span class="p">);</span>
+
+    <span class="kt">double</span> <span class="n">result</span> <span class="o">=</span> <span class="n">dist</span><span class="p">(</span><span class="n">engine</span><span class="p">);</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"parameter constructor : "</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力例</h3>
+<p><pre><code>default constructor : 0.724384
+iterator <a href="../../ranges/range.html">range</a> constructor : 0.157439
+initializer list constructor : 0.174376
+min-max constructor : 0.411983
+parameter constructor : 0.260002
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: 4.7.2 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>参照</h2></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

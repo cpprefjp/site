@@ -1,0 +1,419 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>numeric - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,numeric
+">
+        <meta name="title" content="numeric - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="numeric - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="numeric - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/numeric.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="&amp;lt;numeric&amp;gt;numeric &amp;lt;numeric&amp;gt; ヘッダでは、数値のシーケンスや数値の処理に特化したアルゴリズムを定義する。 集計    名前 説明 対応バージョン     accumulate 範囲を集計する    reduce 範囲を集計する C++17   transform_reduce 範囲の要素を変換しながら集計する C++17    内積    名前 説明" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="numeric - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/numeric.html" />
+        <meta name="twitter:description" content="&amp;lt;numeric&amp;gt;numeric &amp;lt;numeric&amp;gt; ヘッダでは、数値のシーケンスや数値の処理に特化したアルゴリズムを定義する。 集計    名前 説明 対応バージョン     accumulate 範囲を集計する    reduce 範囲を集計する C++17   transform_reduce 範囲の要素を変換しながら集計する C++17    内積    名前 説明" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;numeric&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;numeric&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">numeric</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-02-20T14:16:21">
+        2024年02月20日 14時16分21秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yoh</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/numeric.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/numeric.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="header">&lt;numeric&gt;</div><h1 itemprop="name"><span class="token">numeric</span></h1>
+<div itemprop="articleBody"><p><code>&lt;numeric&gt;</code> ヘッダでは、数値のシーケンスや数値の処理に特化したアルゴリズムを定義する。</p>
+<h2>集計</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="numeric/accumulate.html">accumulate</a></code></td>
+<td>範囲を集計する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="numeric/reduce.html">reduce</a></code></td>
+<td>範囲を集計する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="numeric/transform_reduce.html">transform_reduce</a></code></td>
+<td>範囲の要素を変換しながら集計する</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h2>内積</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="numeric/inner_product.html">inner_product</a></code></td>
+<td>2つのシーケンスの内積を計算する</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>部分和</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="numeric/partial_sum.html">partial_sum</a></code></td>
+<td>範囲の部分和を計算する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="numeric/inclusive_scan.html">inclusive_scan</a></code></td>
+<td>範囲の部分和を計算する (i番目の部分和にi番目の要素を含む)</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="numeric/exclusive_scan.html">exclusive_scan</a></code></td>
+<td>範囲の部分和を計算する (i番目の部分和にi番目の要素を含めない)</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="numeric/transform_inclusive_scan.html">transform_inclusive_scan</a></code></td>
+<td>範囲の要素を変換しながら部分和を計算する (i番目の部分和にi番目の要素を含む)</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="numeric/transform_exclusive_scan.html">transform_exclusive_scan</a></code></td>
+<td>範囲の要素を変換しながら部分和を計算する (i番目の部分和にi番目の要素を含めない)</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h2>数列</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="numeric/adjacent_difference.html">adjacent_difference</a></code></td>
+<td>隣接する要素間の差を計算する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="numeric/iota.html">iota</a></code></td>
+<td>指定された値から始まる整数列を生成する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="numeric/ranges_iota.html">ranges::iota</a></code></td>
+<td>指定された値から始まる整数列を生成する</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2>最大公約数と最小公倍数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="numeric/gcd.html">gcd</a></code></td>
+<td>最大公約数を求める</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="numeric/lcm.html">lcm</a></code></td>
+<td>最小公倍数を求める</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h2>中点</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="numeric/midpoint.html">midpoint</a></code></td>
+<td>数値とポインタの中点を求める</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>飽和演算</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="numeric/add_sat.html">add_sat</a></code></td>
+<td>飽和加算<code>x + y</code></td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="numeric/sub_sat.html">sub_sat</a></code></td>
+<td>飽和減算<code>x - y</code></td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="numeric/mul_sat.html">mul_sat</a></code></td>
+<td>飽和乗算<code>x * y</code></td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="numeric/div_sat.html">div_sat</a></code></td>
+<td>飽和除算<code>x / y</code></td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="numeric/saturate_cast.html">saturate_cast</a></code></td>
+<td>飽和演算あり型キャスト</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="algorithm.html">&lt;algorithm&gt;</a></code><ul>
+<li>より汎用的なアルゴリズム</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

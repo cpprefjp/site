@@ -1,0 +1,935 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>C++26 - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,
+">
+        <meta name="title" content="C++26 - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="C++26 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="C++26 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp26.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="C++26とは、2026年中に改訂される予定の、C++バージョンの通称である。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="C++26 - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp26.html" />
+        <meta name="twitter:description" content="C++26とは、2026年中に改訂される予定の、C++バージョンの通称である。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp26&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">C++26</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-06-25T13:48:21">
+        2025年06月25日 13時48分21秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">suomesta</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp26.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp26.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">C++26</span></h1>
+<div itemprop="articleBody"><h2>概要</h2>
+<p>C++26とは、2026年中に改訂される予定の、C++バージョンの通称である。</p>
+<p>このバージョンは、策定中のためC++2cと呼ばれることがある。「(2020年代の3つ目のバージョンが) 202c年にリリースされる」という伏せ字として「c」が使われているが、3年周期に次のバージョンが策定されることが決まっているため、伏せ字になっている年数がずれることはない。</p>
+<h2>言語機能</h2>
+<h3>変数</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp26/static_storage_for_braced_initializers.html"><code>std::initializer_list</code>の配列を静的記憶域に配置する</a></td>
+<td><code>std::vector v = {1, 2, 3};</code>のような初期化で初期化子リストを静的記憶域に配置することで無駄なコピーをなくす</td>
+</tr>
+<tr>
+<td><a href="cpp26/nice_placeholder_with_no_name.html">宣言のみで使用しない変数の名前として<code>_</code>をサポート</a></td>
+<td>変数名<code>_</code>は暗黙で<code>[[maybe_unused]]</code>が指定される</td>
+</tr>
+<tr>
+<td><a href="cpp26/deleting_a_pointer_to_an_incomplete_type_should_be_ill-formed.html">不完全型へのポインタに対する<code>delete</code>を不適格とする</a></td>
+<td><a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こす操作をコンパイルエラーとする</td>
+</tr>
+<tr>
+<td><a href="cpp26/disallow_binding_a_returned_glvalue_to_a_temporary.html">返却された左辺値から暗黙変換された一時オブジェクトが参照に束縛されることを禁止する</a></td>
+<td>寿命切れの変数によって引き起こされるバグを防止する</td>
+</tr>
+<tr>
+<td><a href="cpp26/clarifying_rules_for_brace_elision_in_aggregate_initialization.html">要素数不明の配列を集成体初期化する規則を明確化</a></td>
+<td>配列要素の集成体初期化で<code>{}</code>が省略された場合の矛盾していた規定を修正</td>
+</tr>
+<tr>
+<td><a href="cpp26/erroneous_behavior_for_uninitialized_reads.html">未初期化変数の読み取りをエラー性動作とする</a></td>
+<td>初期化されていない自動変数の読み取りの安全性を規定する</td>
+</tr>
+<tr>
+<td><a href="cpp26/structured_bindings_can_introduce_a_pack.html">構造化束縛でパックを導入できるようにする</a></td>
+<td>タプルを分解する際に複数の変数をパックとして宣言できるようにする。<code>auto [a, ...xs] = f();</code></td>
+</tr>
+</tbody>
+</table>
+<h3>文字列</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp26/making_non-encodable_string_literals_ill-formed.html">文字列リテラルの文字エンコーディング失敗を不適格とする</a></td>
+<td>文字列リテラルのエンコーディング時に文字表現が失われる場合にコンパイルエラーにする</td>
+</tr>
+<tr>
+<td><span href="https://cpprefjp.github.io/lang/cpp26/unevaluated_strings.md.nolink">コンパイル時にのみ使用される文字列の扱いを明確化</span></td>
+<td><code>static_assert</code>や<code>[[deprecated]]</code>などで使用されるコンパイル時の文字列について、文字コードの指定を禁止し、実行時エンコーディングが行われないことを規定</td>
+</tr>
+</tbody>
+</table>
+<h3>分岐・ループ</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp26/structured_binding_declaration_as_a_condition.html">条件式での構造化束縛の使用を許可</a></td>
+<td>式全体を<code>bool</code>値に変換できる場合に条件式で構造化束縛を使用できることとする</td>
+</tr>
+<tr>
+<td><a href="cpp26/trivial_infinite_loops_are_not_undefined_behavior.html">空の無限ループは未定義動作ではないと規定</a></td>
+<td>並行プログラムの進行保証などを考慮して空の無限ループを<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>ではないものとする</td>
+</tr>
+</tbody>
+</table>
+<h3>関数</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp26/delete_reason.html">関数宣言を削除する理由を指定できるようにする</a></td>
+<td><code>f() = delete("reason");</code></td>
+</tr>
+<tr>
+<td><a href="cpp26/contracts.html">契約プログラミングをサポートする</a></td>
+<td>関数の<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a>、<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a>、不変条件を記述できるようにする</td>
+</tr>
+</tbody>
+</table>
+<h3>クラス</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span href="https://cpprefjp.github.io/lang/cpp26/trivial_unions.md.nolink">共用体をトリビアルに未初期化できるようにする</span></td>
+<td><code>constexpr</code>での<code>union U { T storage[N]; };</code>を許可し、未初期化にできるようにする</td>
+</tr>
+<tr>
+<td><span href="https://cpprefjp.github.io/lang/cpp26/trivial_relocatability.md.nolink">トリビアルな再配置</span></td>
+<td>ムーブ構築と破棄のためにビット単位のコピーとデストラクタ評価が必要になる型のオブジェクトを再配置するメカニズムを導入する</td>
+</tr>
+</tbody>
+</table>
+<h3>属性</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp26/on_the_ignorability_of_standard_attributes.html">属性の無視性を見直し</a></td>
+<td>構文として<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../implementation-compliance.html#dfn-well-formed">適格</a>な属性のみを無視できるようにし、そうでない属性の使用を<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../implementation-compliance.html#dfn-ill-formed">不適格</a>とする</td>
+</tr>
+<tr>
+<td><a href="cpp26/attributes_for_structured_bindings.html">構造化束縛への属性を許可</a></td>
+<td><code>auto [a, b [[maybe_unused]], c] = f();</code>のように構造化束縛の要素に対して属性を付加できるようにする</td>
+</tr>
+</tbody>
+</table>
+<h3>テンプレート</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp26/pack_indexing.html">パラメータパックへのインデックスアクセスを許可</a></td>
+<td>可変引数テンプレートのパラメータパックに添字アクセスできるようにする</td>
+</tr>
+<tr>
+<td><span href="https://cpprefjp.github.io/lang/cpp26/ordering_of_constraints_involving_fold_expressions.md.nolink">制約式内での畳み込み式の順序付け</span></td>
+<td>畳み込み式では全体ではなく個別の制約を原子制約式として扱う</td>
+</tr>
+<tr>
+<td><a href="cpp26/variadic_friends.html">可変引数テンプレートで<code>friend</code>宣言をできるようにする</a></td>
+<td>クラステンプレートの可変引数テンプレートでまとめて<code>friend</code>宣言できるようにする</td>
+</tr>
+<tr>
+<td><span href="https://cpprefjp.github.io/lang/cpp26/concept_and_variable-template_template-parameters.md.nolink">コンセプトと変数テンプレートにテンプレートテンプレートパラメータのサポートを追加</span></td>
+<td>テンプレート引数をあとで指定するテンプレートテンプレートパラメータを、コンセプトと変数テンプレートでも使用できるようにする</td>
+</tr>
+</tbody>
+</table>
+<h3>定数式</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp26/constexpr_cast_from_voidptr.html">定数式での<code>void*</code>からポインタ型へのキャストを許可</a></td>
+<td>型消去のために<code>void*</code>からポインタ型へのキャストを許可する</td>
+</tr>
+<tr>
+<td><a href="cpp26/user-generated_static_assert_messages.html"><code>static_assert</code>の診断メッセージにユーザーが生成した文字列の指定を許可</a></td>
+<td><code>constexpr</code>な<code>S.size()</code>と<code>S.data()</code>メンバ関数をもつオブジェクトをコンパイル時文字列として指定できるようにする</td>
+</tr>
+<tr>
+<td><a href="cpp26/constexpr_placement_new.html"><code>constexpr</code>配置<code>new</code></a></td>
+<td>定数式の文脈での配置<code>new</code>を許可</td>
+</tr>
+<tr>
+<td><a href="cpp26/constexpr_structured_bindings_and_references_to_constexpr_variables.html"><code>constexpr</code>構造化束縛の許可と、<code>constexpr</code>参照の制限緩和</a></td>
+<td>定数式に対する構造化束縛を許可し、関連して<code>constexpr</code>参照の制限を緩和して自動変数も参照できるようにする</td>
+</tr>
+<tr>
+<td><a href="cpp26/allowing_exception_throwing_in_constant-evaluation.html">定数評価での例外送出を許可</a></td>
+<td>定数式の文脈での<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>の送出と捕捉を許可</td>
+</tr>
+</tbody>
+</table>
+<h3>プリプロセッサ</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp26/embed.html">ファイルを読み込む<code>#embed</code>命令を追加</a></td>
+<td>バイナリファイルをインクルードするメカニズム。<code>#include</code>とちがって読み出しサイズなどの柔軟な指定ができる</td>
+</tr>
+</tbody>
+</table>
+<h3>ソースコード</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp26/add_atsign_dollar_graveaccent_to_the_basic_character_set.html">基本文字集合に@、$、`を追加</a></td>
+<td>C言語との互換性のためにこれらの文字を基本文字集合に追加</td>
+</tr>
+</tbody>
+</table>
+<h3>モジュール</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp26/module_declarations_shouldnt_be_macros.html">モジュール宣言でのモジュール名のマクロ展開を禁止する</a></td>
+<td><code>export module MACRO_NAME;</code>を禁止</td>
+</tr>
+</tbody>
+</table>
+<h3>機能の非推奨化</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp26/the_oxford_variadic_comma.html">先行するカンマのない省略記号を非推奨化</a></td>
+<td><code>void f(int, ...);</code>はOK。<code>void f(int...);</code>は非推奨</td>
+</tr>
+</tbody>
+</table>
+<h3>機能の削除</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp26/remove_deprecated_array_comparisons.html">非推奨だった組み込み配列の比較を削除</a></td>
+<td>C++20で非推奨となっていた配列比較を削除</td>
+</tr>
+<tr>
+<td><a href="cpp26/remove_deprecated_arithmetic_conversion_on_enumerations.html">非推奨となっていた列挙型の算術変換を削除</a></td>
+<td>C++20から非推奨となっていた列挙値への算術演算で算術型に暗黙変換される仕様を削除</td>
+</tr>
+</tbody>
+</table>
+<h2>ライブラリ更新の概要</h2>
+<h3>新ライブラリ</h3>
+<ul>
+<li>文字列エンコーディングを識別するライブラリとして、<code><span href="https://cpprefjp.github.io/reference/text_encoding.md.nolink">&lt;text_encoding&gt;</span></code>を追加</li>
+<li>要素のメモリ位置が安定するシーケンスコンテナのライブラリとして<code><span href="https://cpprefjp.github.io/reference/hive.md.nolink">&lt;hive&gt;</span></code>を追加</li>
+<li>並行処理におけるデータの参照・更新を行うRCU (Read Copy Update) のライブラリとして、<code><a href="../reference/rcu.html">&lt;rcu&gt;</a></code>を追加</li>
+<li>並行処理において参照中のデータが更新されないよう保護するハザードポインタのライブラリとして、<code><span href="https://cpprefjp.github.io/reference/hazard_pointer.md.nolink">&lt;hazard_pointer&gt;</span></code>を追加</li>
+<li>データ並列ライブラリとして、<code><span href="https://cpprefjp.github.io/reference/simd.md.nolink">&lt;simd&gt;</span></code>を追加</li>
+<li>デバッグサポートのライブラリとして<code><a href="../reference/debugging.html">&lt;debugging&gt;</a></code>を追加</li>
+<li>線形代数ライブラリとして<code><a href="../reference/linalg.html">&lt;linalg&gt;</a></code>を追加</li>
+<li>コンパイル時に容量を固定する可変長配列クラスのライブラリとして<code><span href="https://cpprefjp.github.io/reference/inplace_vector.md.nolink">&lt;inplace_vector&gt;</span></code>を追加</li>
+<li>C23の互換ライブラリとして、ビット操作ライブラリ<code><span href="https://cpprefjp.github.io/reference/stdbit.h.md.nolink">&lt;stdbit.h&gt;</span></code>と、検査付き整数演算ライブラリ<code><span href="https://cpprefjp.github.io/reference/stdckdint.h.md.nolink">&lt;stdckdint.h&gt;</span></code>を追加。<code>&lt;cstd…&gt;</code>形式のライブラリは追加されない</li>
+</ul>
+<h3>全体</h3>
+<ul>
+<li>標準ライブラリに付加された、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を無視した際に警告を出力する<a href="cpp17/nodiscard.html"><code>[[nodiscard]]</code>属性</a>を削除</li>
+</ul>
+<h3>コンテナ</h3>
+<ul>
+<li><code><a href="../reference/mdspan/mdspan.html">std::mdspan</a></code>から部分ビューを取り出す<code><a href="../reference/mdspan/submdspan.html">std::submdspan()</a></code>を追加</li>
+<li><code><a href="../reference/mdspan/mdspan.html">std::mdspan</a></code>に対する<code><a href="../reference/mdspan/extents.html">std::dextents</a></code>指定の冗長さを解決する<code><a href="../reference/mdspan/extents.html">std::dims</a></code>を追加</li>
+<li><code><a href="../reference/mdspan/mdspan.html">std::mdspan</a></code>のレイアウトとして、<code><a href="../reference/mdspan/layout_left_padded.html">std::layout_left_padded</a></code>と<code><a href="../reference/mdspan/layout_right_padded.html">std::layout_right_padded</a></code>を追加</li>
+<li><code><a href="../reference/mdspan.html">&lt;mdspan&gt;</a></code>に、要素アクセスにアライメント保証を与える<code><a href="../reference/mdspan/aligned_accessor.html">std::aligned_accessor</a></code>を追加</li>
+<li><code><a href="../reference/span/span.html">std::span</a></code>に、以下を追加<ul>
+<li><code><a href="../reference/initializer_list/initializer_list.html">std::initializer_list</a></code>をとるコンストラクタ</li>
+<li>インデックスアクセスのための<code><a href="../reference/span/span/at.html">at()</a></code>メンバ関数</li>
+</ul>
+</li>
+<li>連想コンテナの以下のメンバ関数に、一時オブジェクトが生成されるコストを抑える拡張を追加<ul>
+<li><code><a href="../reference/map/map.html">std::map</a></code><ul>
+<li><code><a href="../reference/map/map/op_at.html">operator[]</a></code></li>
+<li><code><a href="../reference/map/map/at.html">at()</a></code></li>
+<li><code><a href="../reference/map/map/try_emplace.html">try_emplace()</a></code></li>
+<li><code><a href="../reference/map/map/insert_or_assign.html">insert_or_assign()</a></code></li>
+</ul>
+</li>
+<li><code><a href="../reference/set/set.html">std::set</a></code><ul>
+<li><code><a href="../reference/set/set/insert.html">insert()</a></code></li>
+</ul>
+</li>
+<li><code><a href="../reference/unordered_map/unordered_map.html">std::unordered_map</a></code><ul>
+<li><code><a href="../reference/unordered_map/unordered_map/op_at.html">operator[]</a></code></li>
+<li><code><a href="../reference/unordered_map/unordered_map/at.html">at()</a></code></li>
+<li><code><a href="../reference/unordered_map/unordered_map/try_emplace.html">try_emplace()</a></code></li>
+<li><code><a href="../reference/unordered_map/unordered_map/insert_or_assign.html">insert_or_assign()</a></code></li>
+<li><code><a href="../reference/unordered_map/unordered_map/bucket.html">bucket()</a></code></li>
+</ul>
+</li>
+<li><code><a href="../reference/unordered_map/unordered_multimap.html">std::unordered_multimap</a></code><ul>
+<li><code><a href="../reference/unordered_map/unordered_multimap/bucket.html">bucket()</a></code></li>
+</ul>
+</li>
+<li><code><a href="../reference/unordered_set/unordered_set.html">std::unordered_set</a></code><ul>
+<li><code><a href="../reference/unordered_set/unordered_set/insert.html">insert()</a></code></li>
+<li><code><a href="../reference/unordered_set/unordered_set/bucket.html">bucket()</a></code></li>
+</ul>
+</li>
+<li><code><a href="../reference/unordered_set/unordered_multiset.html">std::unordered_multiset</a></code><ul>
+<li><code><a href="../reference/unordered_set/unordered_multiset/bucket.html">bucket()</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code><a href="../reference/span/span.html">std::span</a></code>と<code><a href="../reference/mdspan/mdspan.html">std::mdspan</a></code>の推論補助を改善</li>
+<li><code><a href="../reference/ranges/concat_view.html">std::views::concat</a></code>を追加</li>
+<li><code><span href="https://cpprefjp.github.io/reference/ranges/cache_latest.md.nolink">std::views::cache_latest</span></code>を追加</li>
+<li><code><a href="../reference/ranges/to_input_view.html">std::views::to_input</a></code>を追加。これはパフォーマンス向上のために、Rangeを入力Rangeかつ非<code><a href="../reference/ranges/common_range.html">common_range</a></code> (イテレータと番兵の型を別する) に変換する</li>
+<li>Range関係の、償却定数時間での要素追加を行う機能を追加<ul>
+<li>各viewクラスに<code>reserve_hint()</code>メンバ関数を追加</li>
+<li><code><span href="https://cpprefjp.github.io/reference/ranges/reserve_hint.md.nolink">std::ranges::reserve_hint()</span></code>関数を追加</li>
+<li><code><span href="https://cpprefjp.github.io/reference/ranges/approximately_sized_range.md.nolink">std::ranges::approximately_sized_range</span></code>コンセプトを追加</li>
+</ul>
+</li>
+<li>連続イテレータのコンセプト<code><a href="../reference/iterator/contiguous_iterator.html">contiguous_iterator</a></code>に、ポインタに変換できることを要件として追加</li>
+<li>以下のコンテナを<code>constexpr</code>に対応<ul>
+<li><code><a href="../reference/deque/deque.html">std::deque</a></code></li>
+<li><code><a href="../reference/forward_list/forward_list.html">std::forward_list</a></code></li>
+<li><code><a href="../reference/list/list.html">std::list</a></code></li>
+<li><code><a href="../reference/map/map.html">std::map</a></code> (ただし<code><a href="../reference/node_handle/node_handle.html">node_handle</a>::<a href="../reference/node_handle/node_handle/key.html">key()</a></code>を使用すると<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>)</li>
+<li><code><a href="../reference/map/multimap.html">std::multimap</a></code> (ただし<code><a href="../reference/node_handle/node_handle.html">node_handle</a>::<a href="../reference/node_handle/node_handle/key.html">key()</a></code>を使用すると<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>)</li>
+<li><code><a href="../reference/set/set.html">std::set</a></code></li>
+<li><code><a href="../reference/set/multiset.html">std::multiset</a></code></li>
+<li><code><a href="../reference/unordered_map/unordered_map.html">std::unordered_map</a></code> (ハッシュ関数のカスタム化が必要) (ただし<code><a href="../reference/node_handle/node_handle.html">node_handle</a>::<a href="../reference/node_handle/node_handle/key.html">key()</a></code>を使用すると<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>)</li>
+<li><code><a href="../reference/unordered_map/unordered_multimap.html">std::unordered_multimap</a></code> (ハッシュ関数のカスタム化が必要) (ただし<code><a href="../reference/node_handle/node_handle.html">node_handle</a>::<a href="../reference/node_handle/node_handle/key.html">key()</a></code>を使用すると<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>)</li>
+<li><code><a href="../reference/unordered_set/unordered_set.html">std::unordered_set</a></code> (ハッシュ関数のカスタム化が必要)</li>
+<li><code><a href="../reference/unordered_set/unordered_multiset.html">std::unordered_multiset</a></code> (ハッシュ関数のカスタム化が必要)</li>
+<li><code><a href="../reference/flat_map/flat_map.html">std::flat_map</a></code></li>
+<li><code><a href="../reference/flat_map/flat_multimap.html">std::flat_multimap</a></code></li>
+<li><code><a href="../reference/flat_set/flat_set.html">std::flat_set</a></code></li>
+<li><code><a href="../reference/flat_set/flat_multiset.html">std::flat_multiset</a></code></li>
+<li><code><a href="../reference/queue/queue.html">std::queue</a></code></li>
+<li><code><a href="../reference/queue/priority_queue.html">std::priority_queue</a></code></li>
+<li><code><a href="../reference/stack/stack.html">std::stack</a></code></li>
+</ul>
+</li>
+</ul>
+<h3>アルゴリズム</h3>
+<ul>
+<li><code><a href="../reference/algorithm.html">&lt;algorithm&gt;</a></code>の以下のアルゴリズムを<code>constexpr</code>に対応<ul>
+<li><code><a href="../reference/algorithm/stable_sort.html">std::stable_sort()</a></code> / <code><a href="../reference/algorithm/ranges_stable_sort.html">std::ranges::stable_sort()</a></code></li>
+<li><code><a href="../reference/algorithm/stable_partition.html">std::stable_partition()</a></code> / <code><a href="../reference/algorithm/ranges_stable_partition.html">std::ranges::stable_partition()</a></code></li>
+<li><code><a href="../reference/algorithm/inplace_merge.html">std::inplace_merge()</a></code> / <code><a href="../reference/algorithm/ranges_inplace_merge.html">std::ranges::inplace_merge()</a></code></li>
+</ul>
+</li>
+<li><code><a href="../reference/memory.html">&lt;memory&gt;</a></code>の以下のアルゴリズムを<code>constexpr</code>に対応<ul>
+<li><code><a href="../reference/memory/uninitialized_default_construct.html">std::uninitialized_default_construct()</a></code> / <code><a href="../reference/memory/ranges_uninitialized_default_construct.html">std::ranges::uninitialized_default_construct()</a></code></li>
+<li><code><a href="../reference/memory/uninitialized_default_construct_n.html">std::uninitialized_default_construct_n()</a></code> / <code><a href="../reference/memory/ranges_uninitialized_default_construct_n.html">std::ranges::uninitialized_default_construct_n()</a></code></li>
+<li><code><a href="../reference/memory/uninitialized_value_construct.html">std::uninitialized_value_construct()</a></code> / <code><a href="../reference/memory/ranges_uninitialized_value_construct.html">std::ranges::uninitialized_value_construct()</a></code></li>
+<li><code><a href="../reference/memory/uninitialized_value_construct_n.html">std::uninitialized_value_construct_n()</a></code> / <code><a href="../reference/memory/ranges_uninitialized_value_construct_n.html">std::ranges::uninitialized_value_construct_n()</a></code></li>
+<li><code><a href="../reference/memory/uninitialized_copy.html">std::uninitialized_copy()</a></code> / <code><a href="../reference/memory/ranges_uninitialized_copy.html">std::ranges::uninitialized_copy()</a></code></li>
+<li><code><a href="../reference/memory/uninitialized_copy_n.html">std::uninitialized_copy_n()</a></code> / <code><a href="../reference/memory/ranges_uninitialized_copy_n.html">std::ranges::uninitialized_copy_n()</a></code></li>
+<li><code><a href="../reference/memory/uninitialized_move.html">std::uninitialized_move()</a></code> / <code><a href="../reference/memory/ranges_uninitialized_move.html">std::ranges::uninitialized_move()</a></code></li>
+<li><code><a href="../reference/memory/uninitialized_move_n.html">std::uninitialized_move_n()</a></code> / <code><a href="../reference/memory/ranges_uninitialized_move_n.html">std::ranges::uninitialized_move_n()</a></code></li>
+<li><code><a href="../reference/memory/uninitialized_fill.html">std::uninitialized_fill()</a></code> / <code><a href="../reference/memory/ranges_uninitialized_fill.html">std::ranges::uninitialized_fill()</a></code></li>
+<li><code><a href="../reference/memory/uninitialized_fill_n.html">std::uninitialized_fill_n()</a></code> / <code><a href="../reference/memory/ranges_uninitialized_fill_n.html">std::ranges::uninitialized_fill_n()</a></code></li>
+</ul>
+</li>
+<li>Rangeアルゴリズムが<a class="cpprefjp-defined-word" data-desc="型のサイズを決定できる型。不完全型ではない型">完全型</a>を要求しないようにするため、<code><a href="../reference/iterator/projected.html">std::projected</a></code>の制約を緩和</li>
+<li>以下のアルゴリズムに、値を波カッコ初期化で渡せるよう制約を追加<ul>
+<li><code>std::erase()</code><ul>
+<li><code><a href="../reference/string/basic_string.html">std::basic_string</a></code>版<code><a href="../reference/string/basic_string/erase_free.html">std::erase()</a></code></li>
+<li><code><a href="../reference/deque/deque.html">std::deque</a></code>版<code><a href="../reference/deque/deque/erase_free.html">std::erase()</a></code></li>
+<li><code><a href="../reference/forward_list/forward_list.html">std::forward_list</a></code>版<code><a href="../reference/forward_list/forward_list/erase_free.html">std::erase()</a></code></li>
+<li><code><a href="../reference/list/list.html">std::list</a></code>版<code><a href="../reference/list/list/erase_free.html">std::erase()</a></code></li>
+<li><code><a href="../reference/vector/vector.html">std::vector</a></code>版<code><a href="../reference/vector/vector/erase_free.html">std::erase()</a></code></li>
+</ul>
+</li>
+<li><code><a href="../reference/algorithm/find.html">std::find()</a></code>と<code><a href="../reference/algorithm/ranges_find.html">std::ranges::find()</a></code></li>
+<li><code><a href="../reference/algorithm/ranges_find_last.html">std::ranges::find_last()</a></code></li>
+<li><code><a href="../reference/algorithm/count.html">std::count()</a></code>と<code><a href="../reference/algorithm/ranges_count.html">std::ranges::count()</a></code></li>
+<li><code><a href="../reference/algorithm/search_n.html">std::search_n()</a></code>と<code><a href="../reference/algorithm/ranges_search_n.html">std::ranges::search_n()</a></code></li>
+<li><code><a href="../reference/algorithm/replace.html">std::replace()</a></code>と<code><a href="../reference/algorithm/replace.html">std::ranges::replace()</a></code></li>
+<li><code><a href="../reference/algorithm/replace_if.html">std::replace_if()</a></code>と<code><a href="../reference/algorithm/replace_if.html">std::ranges::replace_if()</a></code></li>
+<li><code><a href="../reference/algorithm/replace_copy.html">std::ranges::replace_copy()</a></code></li>
+<li><code><a href="../reference/algorithm/replace_copy_if.html">std::replace_copy_if()</a></code>と<code><a href="../reference/algorithm/replace_copy_if.html">std::ranges::replace_copy_if()</a></code></li>
+<li><code><a href="../reference/algorithm/fill.html">std::fill()</a></code>と<code><a href="../reference/algorithm/ranges_fill.html">std::ranges::fill()</a></code></li>
+<li><code><a href="../reference/algorithm/fill_n.html">std::fill_n()</a></code>と<code><a href="../reference/algorithm/ranges_fill_n.html">std::ranges::fill_n()</a></code></li>
+<li><code><a href="../reference/algorithm/remove.html">std::remove()</a></code>と<code><a href="../reference/algorithm/ranges_remove.html">std::ranges::remove()</a></code></li>
+<li><code><a href="../reference/algorithm/remove_copy.html">std::remove_copy()</a></code>と<code><a href="../reference/algorithm/ranges_remove_copy.html">std::ranges::remove_copy()</a></code></li>
+<li><code><a href="../reference/algorithm/lower_bound.html">std::lower_bound()</a></code>と<code><a href="../reference/algorithm/ranges_lower_bound.html">std::ranges::lower_bound()</a></code></li>
+<li><code><a href="../reference/algorithm/upper_bound.html">std::upper_bound()</a></code>と<code><a href="../reference/algorithm/ranges_upper_bound.html">std::ranges::upper_bound()</a></code></li>
+<li><code><a href="../reference/algorithm/equal_range.html">std::equal_range()</a></code>と<code><a href="../reference/algorithm/ranges_equal_range.html">std::ranges::equal_range()</a></code></li>
+<li><code><a href="../reference/algorithm/binary_search.html">std::binary_search()</a></code>と<code><a href="../reference/algorithm/ranges_binary_search.html">std::ranges::binary_search()</a></code></li>
+<li><code><a href="../reference/algorithm/ranges_fold_left.html">std::ranges::fold_left()</a></code></li>
+<li><code><a href="../reference/algorithm/ranges_fold_right.html">std::ranges::fold_right()</a></code></li>
+<li><code><a href="../reference/algorithm/ranges_contains.html">std::ranges::contains()</a></code></li>
+</ul>
+</li>
+</ul>
+<h3>関数オブジェクト</h3>
+<ul>
+<li>所有権を保持しない<code><a href="../reference/functional/function.html">std::function</a></code>として、<code><a href="../reference/functional.html">&lt;functional&gt;</a></code>に<code><a href="../reference/functional/function_ref.html">std::function_ref</a></code>クラスを追加</li>
+<li><code><a href="../reference/functional/move_only_function.html">std::move_only_function</a></code>のコピー可能版として、<code><a href="../reference/functional.html">&lt;functional&gt;</a></code>に<code><a href="../reference/functional/copyable_function.html">std::copyable_function</a></code>クラスを追加</li>
+<li><code><a href="../reference/functional/bind_front.html">std::bind_front()</a></code>と<code><a href="../reference/functional/bind_back.html">std::bind_back()</a></code>に、非型テンプレート引数として関数を指定する<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を追加<ul>
+<li>関連して、非型テンプレート引数の関数オブジェクトを反転させられるよう、<code><a href="../reference/functional/not_fn.html">not_fn()</a></code>に非型テンプレート引数版の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を追加</li>
+</ul>
+</li>
+<li><code><a href="../reference/functional/reference_wrapper.html">std::reference_wrapper</a></code>に、比較演算子<code><a href="../reference/functional/reference_wrapper/op_equal.html">==</a></code>と<code><a href="../reference/functional/reference_wrapper/op_compare_3way.html">&lt;=&gt;</a></code>を追加</li>
+</ul>
+<h3>文字列</h3>
+<ul>
+<li><code><a href="../reference/charconv.html">&lt;charconv&gt;</a></code>の変換結果<code><a href="../reference/charconv/to_chars_result.html">std::to_chars_result</a></code>と<code><a href="../reference/charconv/from_chars_result.html">std::from_chars_result</a></code>に、変換が正しく完了したかを判定する<code>operator bool</code>を追加</li>
+<li><code><a href="../reference/string/to_string.html">std::to_string()</a></code>の仕様が<code>std::sprintf()</code>で説明されていたが、<code><a href="../reference/format/format.html">std::format()</a></code>で定義するよう仕様を変更</li>
+<li><code><a href="../reference/sstream/basic_istringstream.html">std::basic_istringstream</a></code>および<code><a href="../reference/sstream/basic_ostringstream.html">std::basic_ostringstream</a></code>のコンストラクタおよび<code>str()</code>メンバ関数に、<code><a href="../reference/string_view/basic_string_view.html">std::basic_string_view</a></code>を受け取る<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を追加</li>
+<li><code><a href="../reference/format/format.html">std::format()</a></code>に、以下の改善を導入<ul>
+<li>ポインタ出力のサポートを追加</li>
+<li>幅と精度を動的に指定した場合でも型の検証がコンパイル時に行われるよう仕様を見直し</li>
+<li>コンパイル時の書式文字列だけでなく、実行時の書式文字列を渡せるよう仕様修正</li>
+</ul>
+</li>
+<li><code><a href="../reference/string/basic_string.html">std::basic_string</a></code>と<code><a href="../reference/string_view/basic_string_view.html">std::basic_string_view</a></code>を<code><a href="../reference/string/basic_string.html">std::basic_string</a></code>として連結させる<code>operator+</code>を追加</li>
+</ul>
+<h3>ファイル</h3>
+<ul>
+<li>ファイルのネイティブハンドルを取得できるよう、<code><a href="../reference/fstream/basic_filebuf.html">std::basic_filebuf</a></code>、<code><a href="../reference/fstream/basic_ifstream.html">std::basic_ifstream</a></code>、<code><a href="../reference/fstream/basic_ofstream.html">std::basic_ofstream</a></code>、<code><a href="../reference/fstream/basic_fstream.html">std::basic_fstream</a></code>クラスに、以下のメンバを追加<ul>
+<li><code>native_handle_type</code>型</li>
+<li><code>native_handle()</code></li>
+</ul>
+</li>
+<li><code><a href="../reference/filesystem/path.html">std::filesystem::path</a></code>に、文字列フォーマットのサポートを追加</li>
+</ul>
+<h3>入出力</h3>
+<ul>
+<li><code><a href="../reference/print/print.html">std::print()</a></code>と<code><a href="../reference/print/println.html">std::println()</a></code>に、ロックを取得せず高速に書き出す最適化を許可</li>
+<li><code><a href="../reference/print/println.html">std::println()</a></code>に、改行のみを出力する<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を追加</li>
+<li><code><a href="../reference/print/print.html">std::print()</a></code>と<code><a href="../reference/print/println.html">std::println()</a></code>をより高速にできる最適化が可能か判定する<code><a href="../reference/format/enable_nonlocking_formatter_optimization.html">std::enable_nonlocking_formatter_optimization</a></code>を追加</li>
+</ul>
+<h3>並行・並列・非同期処理</h3>
+<ul>
+<li><code><a href="../reference/execution.html">&lt;execution&gt;</a></code>に汎用的な非同期実行を管理するフレームワークを追加</li>
+<li><code><a href="../reference/atomic/atomic.html">std::atomic</a></code>オブジェクトに対する2つの値の最大値・最小値を取得する関数として、メンバ関数<code><a href="../reference/atomic/atomic/fetch_max.html">fetch_max()</a></code>と<code><a href="../reference/atomic/atomic/fetch_min.html">fetch_min()</a></code>、非メンバ関数として<code><a href="../reference/atomic/atomic_fetch_max.html">std::atomic_fetch_max</a></code>、<code><a href="../reference/atomic/atomic_fetch_max_explicit.html">std::atomic_fetch_max_explicit</a></code>、<code><a href="../reference/atomic/atomic_fetch_min.html">std::atomic_fetch_min</a></code>、<code><a href="../reference/atomic/atomic_fetch_min_explicit.html">std::atomic_fetch_min_explicit</a></code>を追加</li>
+<li><code><a href="../reference/atomic/atomic_ref.html">std::atomic_ref</a></code>クラスに、参照するオブジェクトのアドレスを取得する<code><a href="../reference/atomic/atomic_ref/address.html">address()</a></code>メンバ関数を追加</li>
+<li><code><a href="../reference/atomic/atomic.html">std::atomic</a></code>クラスのテンプレートパラメータとして<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>された型を禁止</li>
+<li><code><a href="../reference/atomic/atomic_ref.html">std::atomic_ref</a></code>クラスのテンプレートパラメータとして、<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>された型を受け取れるようにした (内部で<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>が外される)</li>
+<li><code><a href="../reference/atomic.html">&lt;atomic&gt;</a></code>ライブラリのアトミック操作を<code>constexpr</code>対応</li>
+</ul>
+<h3>スマートポインタ・メモリ関連</h3>
+<ul>
+<li>動的確保したオブジェクトに値の意味論をもたせてディープコピーさせるユーティリティクラスとして、<code><a href="../reference/memory.html">&lt;memory&gt;</a></code>に<code><span href="https://cpprefjp.github.io/reference/memory/indirect.md.nolink">std::indirect</span></code>クラスと<code><span href="https://cpprefjp.github.io/reference/memory/polymorphic.md.nolink">std::polymorphic</span></code>クラスを追加</li>
+<li><code><a href="../reference/memory/weak_ptr.html">std::weak_ptr</a></code>を非順序連想コンテナのキーとして使用できるよう、<code><a href="../reference/memory.html">&lt;memory&gt;</a></code>に所有権ベースのハッシュ値を取得する関数オブジェクト<code><span href="https://cpprefjp.github.io/reference/memory/owner_hash.md.nolink">std::owner_hash</span></code>、および所有権ベースの等値比較を行う関数オブジェクト<code><span href="https://cpprefjp.github.io/reference/memory/owner_equal.md.nolink">std::owner_equal</span></code>を追加<ul>
+<li>関連して、<code><a href="../reference/memory/shared_ptr.html">std::shared_ptr</a></code>クラスと<code><a href="../reference/memory/weak_ptr.html">std::weak_ptr</a></code>クラスのメンバ関数として、<code>owner_hash()</code>と<code>owner_equal()</code>を追加</li>
+</ul>
+</li>
+</ul>
+<h3>日付・時間</h3>
+<ul>
+<li><code><a href="../reference/chrono.html">&lt;chrono&gt;</a></code>の以下のクラスに、ハッシュ値サポートとして<code><a href="../reference/functional/hash.html">std::hash</a></code>の特殊化を追加<ul>
+<li><code><a href="../reference/chrono/duration.html">std::chrono::duration</a></code></li>
+<li><code><a href="../reference/chrono/time_point.html">std::chrono::time_point</a></code></li>
+<li><code><a href="../reference/chrono/day.html">std::chrono::day</a></code></li>
+<li><code><a href="../reference/chrono/month.html">std::chrono::month</a></code></li>
+<li><code><a href="../reference/chrono/year.html">std::chrono::year</a></code></li>
+<li><code><a href="../reference/chrono/weekday.html">std::chrono::weekday</a></code></li>
+<li><code><a href="../reference/chrono/weekday_indexed.html">std::chrono::weekday_indexed</a></code></li>
+<li><code><a href="../reference/chrono/weekday_last.html">std::chrono::weekday_last</a></code></li>
+<li><code><a href="../reference/chrono/month_day.html">std::chrono::month_day</a></code></li>
+<li><code><a href="../reference/chrono/month_day_last.html">std::chrono::month_day_last</a></code></li>
+<li><code><a href="../reference/chrono/month_weekday.html">std::chrono::month_weekday</a></code></li>
+<li><code><a href="../reference/chrono/month_weekday_last.html">std::chrono::month_weekday_last</a></code></li>
+<li><code><a href="../reference/chrono/year_month.html">std::chrono::year_month</a></code></li>
+<li><code><a href="../reference/chrono/year_month_day.html">std::chrono::year_month_day</a></code></li>
+<li><code><a href="../reference/chrono/year_month_day_last.html">std::chrono::year_month_day_last</a></code></li>
+<li><code><a href="../reference/chrono/year_month_weekday.html">std::chrono::year_month_weekday</a></code></li>
+<li><code><a href="../reference/chrono/year_month_weekday_last.html">std::chrono::year_month_weekday_last</a></code></li>
+<li><code><a href="../reference/chrono/zoned_time.html">std::chrono::zoned_time</a></code></li>
+<li><code><a href="../reference/chrono/leap_second.html">std::chrono::leap_second</a></code></li>
+</ul>
+</li>
+</ul>
+<h3>数値</h3>
+<ul>
+<li><code><a href="../reference/numeric.html">&lt;numeric&gt;</a></code>に、飽和演算 (Saturation Arithmetic) として、型の表現可能な範囲で演算を行う以下の関数を追加<ul>
+<li><code><a href="../reference/numeric/add_sat.html">std::add_sat()</a></code></li>
+<li><code><a href="../reference/numeric/sub_sat.html">std::sub_sat()</a></code></li>
+<li><code><a href="../reference/numeric/mul_sat.html">std::mul_sat()</a></code></li>
+<li><code><a href="../reference/numeric/div_sat.html">std::div_sat()</a></code></li>
+<li><code><a href="../reference/numeric/saturate_cast.html">std::saturate_cast()</a></code></li>
+</ul>
+</li>
+<li><code><a href="../reference/cmath.html">&lt;cmath&gt;</a></code>の以下の関数を、<code>constexpr</code>に対応 (特殊関数と、グローバルの丸めモードに依存する丸め関数以外の全て)<ul>
+<li><code><a href="../reference/cmath/cos.html">std::cos()</a></code></li>
+<li><code><a href="../reference/cmath/sin.html">std::sin()</a></code></li>
+<li><code><a href="../reference/cmath/tan.html">std::tan()</a></code></li>
+<li><code><a href="../reference/cmath/cosh.html">std::cosh()</a></code></li>
+<li><code><a href="../reference/cmath/sinh.html">std::sinh()</a></code></li>
+<li><code><a href="../reference/cmath/tanh.html">std::tanh()</a></code></li>
+<li><code><a href="../reference/cmath/acos.html">std::acos()</a></code></li>
+<li><code><a href="../reference/cmath/asin.html">std::asin()</a></code></li>
+<li><code><a href="../reference/cmath/atan.html">std::atan()</a></code></li>
+<li><code><a href="../reference/cmath/atan2.html">std::atan2()</a></code></li>
+<li><code><a href="../reference/cmath/acosh.html">std::acosh()</a></code></li>
+<li><code><a href="../reference/cmath/asinh.html">std::asinh()</a></code></li>
+<li><code><a href="../reference/cmath/atanh.html">std::atanh()</a></code></li>
+<li><code><a href="../reference/cmath/exp.html">std::exp()</a></code></li>
+<li><code><a href="../reference/cmath/exp2.html">std::exp2()</a></code></li>
+<li><code><a href="../reference/cmath/expm1.html">std::expm1()</a></code></li>
+<li><code><a href="../reference/cmath/log.html">std::log()</a></code></li>
+<li><code><a href="../reference/cmath/log10.html">std::log10()</a></code></li>
+<li><code><a href="../reference/cmath/log1p.html">std::log1p()</a></code></li>
+<li><code><a href="../reference/cmath/log2.html">std::log2()</a></code></li>
+<li><code><a href="../reference/cmath/pow.html">std::pow()</a></code></li>
+<li><code><a href="../reference/cmath/sqrt.html">std::sqrt()</a></code></li>
+<li><code><a href="../reference/cmath/cbrt.html">std::cbrt()</a></code></li>
+<li><code><a href="../reference/cmath/hypot.html">std::hypot()</a></code></li>
+<li><code><a href="../reference/cmath/erf.html">std::erf()</a></code></li>
+<li><code><a href="../reference/cmath/erfc.html">std::erfc()</a></code></li>
+<li><code><a href="../reference/cmath/lgamma.html">std::lgamma()</a></code></li>
+<li><code><a href="../reference/cmath/tgamma.html">std::tgamma()</a></code></li>
+</ul>
+</li>
+<li><code><a href="../reference/complex.html">&lt;complex&gt;</a></code>の以下の関数を、<code>constexpr</code>に対応 (すべて)<ul>
+<li><code><a href="../reference/complex/complex/abs.html">std::abs()</a></code></li>
+<li><code><a href="../reference/complex/complex/arg.html">std::arg()</a></code></li>
+<li><code><a href="../reference/complex/complex/proj.html">std::proj()</a></code></li>
+<li><code><a href="../reference/complex/complex/polar.html">std::polar()</a></code></li>
+<li><code><a href="../reference/complex/complex/cos.html">std::cos()</a></code></li>
+<li><code><a href="../reference/complex/complex/sin.html">std::sin()</a></code></li>
+<li><code><a href="../reference/complex/complex/tan.html">std::tan()</a></code></li>
+<li><code><a href="../reference/complex/complex/cosh.html">std::cosh()</a></code></li>
+<li><code><a href="../reference/complex/complex/sinh.html">std::sinh()</a></code></li>
+<li><code><a href="../reference/complex/complex/tanh.html">std::tanh()</a></code></li>
+<li><code><a href="../reference/complex/complex/acos.html">std::acos()</a></code></li>
+<li><code><a href="../reference/complex/complex/asin.html">std::asin()</a></code></li>
+<li><code><a href="../reference/complex/complex/atan.html">std::atan()</a></code></li>
+<li><code><a href="../reference/complex/complex/acosh.html">std::acosh()</a></code></li>
+<li><code><a href="../reference/complex/complex/asinh.html">std::asinh()</a></code></li>
+<li><code><a href="../reference/complex/complex/atanh.html">std::atanh()</a></code></li>
+<li><code><a href="../reference/complex/complex/exp.html">std::exp()</a></code></li>
+<li><code><a href="../reference/complex/complex/log.html">std::log()</a></code></li>
+<li><code><a href="../reference/complex/complex/log10.html">std::log10()</a></code></li>
+<li><code><a href="../reference/complex/complex/pow.html">std::pow()</a></code></li>
+<li><code><a href="../reference/complex/complex/sqrt.html">std::sqrt()</a></code></li>
+<li><code><a href="../reference/complex/complex/norm.html">std::norm()</a></code> (算術型<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>)</li>
+<li><code><a href="../reference/complex/complex/conj.html">std::conj()</a></code> (算術型<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>)</li>
+<li><code><a href="../reference/complex/complex/imag_free.html">std::imag()</a></code> (算術型<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>)</li>
+<li><code><a href="../reference/complex/complex/real_free.html">std::real()</a></code> (算術型<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>)</li>
+</ul>
+</li>
+<li><code><a href="../reference/complex/complex.html">std::complex</a></code>を構造化束縛や、将来のパターンマッチで使用できるようタプルインタフェースの特殊化を追加</li>
+<li><code><a href="../reference/random.html">&lt;random&gt;</a></code>の範囲<code>[0, 1)</code>の乱数を生成する<code><a href="../reference/random/generate_canonical.html">std::generate_canonical()</a></code>を、望ましい統計的性質を保証するようアルゴリズムと制約を変更</li>
+<li><code><a href="../reference/random.html">&lt;random&gt;</a></code>に、乱数列を生成する<code><a href="../reference/random/generate_random.html">std::ranges::generate_random()</a></code>関数を追加</li>
+<li><code><a href="../reference/random.html">&lt;random&gt;</a></code>に、乱数生成器は並列シミュレーションに効果的なカウンターベースのPhilox乱数生成器として、<code><a href="../reference/random/philox_engine.html">std::philox_engine</a></code>クラス、およびその別名である<code><a href="../reference/random/philox4x32.html">std::philox4x32</a></code>と<code><a href="../reference/random/philox4x64.html">std::philox4x64</a></code>を追加</li>
+</ul>
+<h3>ユーティリティ</h3>
+<ul>
+<li><code><a href="../reference/variant/variant.html">std::variant</a></code>クラスに、メンバ関数版の<code><span href="https://cpprefjp.github.io/reference/variant/variant/visit.md.nolink">visit()</span></code>を追加</li>
+<li><code>std::monostate</code>を<code><a href="../reference/variant.html">&lt;variant&gt;</a></code>から<code><a href="../reference/utility.html">&lt;utility&gt;</a></code>に移動</li>
+<li><code><a href="../reference/optional/optional.html">std::optional</a></code>クラスに、0もしくは1要素のRangeとして扱えるようにするための拡張として、イテレータインタフェースを追加<ul>
+<li><code>iterator</code>型</li>
+<li><code>const_iterator</code>型</li>
+<li><code><span href="https://cpprefjp.github.io/reference/optional/optional/begin.md.nolink">begin()</span></code>メンバ関数</li>
+<li><code><span href="https://cpprefjp.github.io/reference/optional/optional/end.md.nolink">end()</span></code>メンバ関数</li>
+</ul>
+</li>
+<li><code><a href="../reference/tuple/ignore.html">std::ignore</a></code>をファーストクラス・オブジェクトとして型を詳細に定義</li>
+<li><code><a href="../reference/bitset/bitset.html">std::bitset</a></code>に、<code><a href="../reference/string_view/basic_string_view.html">std::basic_string_view</a></code>を受け取るコンストラクタを追加</li>
+<li><code><a href="../reference/ratio.html">&lt;ratio&gt;</a></code>に、新たなSI接頭辞として、以下を追加<ul>
+<li><code><a href="../reference/ratio/si_prefix.html">ronna</a></code> (10<sup>27</sup>)</li>
+<li><code><a href="../reference/ratio/si_prefix.html">ronto</a></code> (10<sup>−27</sup>)</li>
+<li><code><a href="../reference/ratio/si_prefix.html">quetta</a></code> (10<sup>30</sup>)</li>
+<li><code><a href="../reference/ratio/si_prefix.html">quecto</a></code> (10<sup>−30</sup>)</li>
+</ul>
+</li>
+<li>定数式での<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出が許可されることにともない、以下を<code>constexpr</code>化<ul>
+<li><code><a href="../reference/exception.html">&lt;exception&gt;</a></code>ヘッダの以下の機能<ul>
+<li><code><a href="../reference/exception/exception.html">std::exception</a></code>クラスの全メンバ関数</li>
+<li><code><a href="../reference/exception/nested_exception.html">std::nested_exception</a></code>クラスの全メンバ関数</li>
+<li><code><a href="../reference/exception/bad_exception.html">std::bad_exception</a></code>クラスの<code>what()</code>メンバ関数</li>
+<li><code><a href="../reference/exception/uncaught_exceptions.html">std::uncaught_exceptions()</a></code>関数</li>
+<li><code><a href="../reference/exception/current_exception.html">std::current_exception()</a></code>関数</li>
+<li><code><a href="../reference/exception/rethrow_exception.html">std::rethrow_exception()</a></code>関数</li>
+<li><code><a href="../reference/exception/make_exception_ptr.html">std::make_exception_ptr()</a></code>関数</li>
+<li><code><a href="../reference/exception/throw_with_nested.html">std::throw_with_nested()</a></code>関数</li>
+<li><code><a href="../reference/exception/rethrow_if_nested.html">std::rethrow_if_nested()</a></code>関数</li>
+</ul>
+</li>
+<li><code><a href="../reference/new.html">&lt;new&gt;</a></code>ヘッダの以下の機能<ul>
+<li><code><a href="../reference/new/bad_alloc.html">std::bad_alloc</a></code>クラスの<code>what()</code>メンバ関数</li>
+<li><code><a href="../reference/new/bad_array_new_length.html">std::bad_array_new_length</a></code>クラスの<code>what()</code>メンバ関数</li>
+</ul>
+</li>
+<li><code><a href="../reference/typeinfo.html">&lt;typeinfo&gt;</a></code>ヘッダの以下の機能<ul>
+<li><code><a href="../reference/typeinfo/bad_cast.html">std::bad_cast</a></code>クラスの<code>what()</code>メンバ関数</li>
+<li><code><a href="../reference/typeinfo/bad_typeid.html">std::bad_typeid</a></code>クラスの<code>what()</code>メンバ関数</li>
+</ul>
+</li>
+<li><code><a href="../reference/stdexcept.html">&lt;stdexcept&gt;</a></code>ヘッダの以下の機能<ul>
+<li><code><a href="../reference/stdexcept.html">std::domain_error</a></code></li>
+<li><code><a href="../reference/stdexcept.html">std::invalid_argument</a></code></li>
+<li><code><a href="../reference/stdexcept.html">std::length_error</a></code></li>
+<li><code><a href="../reference/stdexcept.html">std::logic_error</a></code></li>
+<li><code><a href="../reference/stdexcept.html">std::out_of_range</a></code></li>
+<li><code><a href="../reference/stdexcept.html">std::runtime_error</a></code></li>
+<li><code><a href="../reference/stdexcept.html">std::range_error</a></code></li>
+<li><code><a href="../reference/stdexcept.html">std::overflow_error</a></code></li>
+<li><code><a href="../reference/stdexcept.html">std::underflow_error</a></code></li>
+</ul>
+</li>
+<li><code><a href="../reference/expected.html">&lt;expected&gt;</a></code>ヘッダの以下の機能<ul>
+<li><code><a href="../reference/expected/bad_expected_access.html">std::bad_expected_access</a></code></li>
+</ul>
+</li>
+<li><code><a href="../reference/optional.html">&lt;optional&gt;</a></code>ヘッダの以下の機能<ul>
+<li><code><a href="../reference/optional/bad_optional_access.html">std::bad_optional_access</a></code></li>
+</ul>
+</li>
+<li><code><a href="../reference/variant.html">&lt;variant&gt;</a></code>ヘッダの以下の機能<ul>
+<li><code><a href="../reference/variant/bad_variant_access.html">std::bad_variant_access</a></code></li>
+</ul>
+</li>
+<li><code><a href="../reference/format.html">&lt;format&gt;</a></code>ヘッダの以下の機能<ul>
+<li><code><a href="../reference/format/format_error.html">std::format_error</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code><a href="../reference/memory.html">&lt;memory&gt;</a></code>に、ポインタのアライメントを判定する<code><a href="../reference/memory/is_sufficiently_aligned.html">std::is_sufficiently_aligned()</a></code>関数を追加。</li>
+<li><code><a href="../reference/utility.html">&lt;utility&gt;</a></code>に、タイムトラベル最適化を抑止するための観測可能ポイントとして<code><span href="https://cpprefjp.github.io/reference/utility/observable.md.nolink">std::observable()</span></code>を追加</li>
+</ul>
+<h3>デバッグ</h3>
+<ul>
+<li><code><a href="../reference/cassert/assert.html">assert</a></code>マクロの引数としてカンマを含む式を指定できるよう、可変引数化</li>
+</ul>
+<h3>型特性</h3>
+<ul>
+<li><code><a href="../reference/type_traits.html">&lt;type_traits&gt;</a></code>に、共用体の指定されたメンバがアクティブかを定数式で判定するための関数として<code><a href="../reference/type_traits/is_within_lifetime.html">std::is_within_lifetime()</a></code>を追加</li>
+<li><code><a href="../reference/type_traits.html">&lt;type_traits&gt;</a></code>に、仮想継承の関係を判定する<code><a href="../reference/type_traits/is_virtual_base_of.html">std::is_virtual_base_of</a></code>を追加</li>
+</ul>
+<h3>制約</h3>
+<ul>
+<li>間接実行に関連する制約から、共通参照の要件を削除<ul>
+<li><code><a href="../reference/iterator/indirectly_unary_invocable.html">std::indirectly_unary_invocable</a></code></li>
+<li><code><a href="../reference/iterator/indirectly_unary_invocable.html">std::indirectly_regular_unary_invocable</a></code></li>
+<li><code><a href="../reference/iterator/indirect_unary_predicate.html">std::indirect_unary_predicate</a></code></li>
+<li><code><a href="../reference/iterator/indirect_binary_predicate.html">std::indirect_binary_predicate</a></code></li>
+<li><code><a href="../reference/iterator/indirect_equivalence_relation.html">std::indirect_equivalence_relation</a></code></li>
+<li><code><a href="../reference/iterator/indirect_strict_weak_order.html">std::indirect_strict_weak_order</a></code></li>
+</ul>
+</li>
+</ul>
+<h3>機能の非推奨化</h3>
+<ul>
+<li><code><a href="../reference/type_traits.html">&lt;type_traits&gt;</a></code>の<code><a href="../reference/type_traits/is_trivial.html">std::is_trivial</a></code>を非推奨化<ul>
+<li>これは<code><a href="../reference/type_traits/is_trivially_copyable.html">std::is_trivially_copyable</a></code>と<code><a href="../reference/type_traits/is_trivially_default_constructible.html">std::is_trivially_default_constructible</a></code>の2つが合わさったものであるが、それらは異なる状況で必要になるものであった</li>
+</ul>
+</li>
+<li><code><a href="../reference/atomic/memory_order.html">std::memory_order::consume</a></code>と、それに関連して<code><a href="../reference/atomic/kill_dependency.html">std::kill_dependency()</a></code>を非推奨化し、<code><a href="cpp11/attributes.html">[[carries_dependency]]</a></code>属性を削除</li>
+</ul>
+<h3>非推奨の取り消し</h3>
+<ul>
+<li><code><a href="../reference/memory_resource/polymorphic_allocator.html">std::polymorphic_allocator</a>::<a href="../reference/memory_resource/polymorphic_allocator/destroy.html">destroy()</a></code>の非推奨を取り消し</li>
+</ul>
+<h3>機能の削除</h3>
+<ul>
+<li>C++98から非推奨となっていた<code>&lt;strstream&gt;</code>ライブラリを削除</li>
+<li>C++17から非推奨となっていたUnicode変換ライブラリ<code><a href="../reference/codecvt.html">&lt;codecvt&gt;</a></code>と、<code><a href="../reference/locale/wstring_convert.html">std::wstring_convert</a></code>クラス、<code><a href="../reference/locale/wbuffer_convert.html">std::wbuffer_convert</a></code>クラスを削除</li>
+<li>C++20から非推奨となっていた、<code><a href="../reference/string/basic_string.html">std::basic_string</a>::<a href="../reference/string/basic_string/reserve.html">reserve()</a></code>のパラメータなしの<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を削除</li>
+<li>C++20から非推奨となっていた<code><a href="../reference/memory/shared_ptr.html">std::shared_ptr</a></code>に対する、以下の古いアトミック操作関数の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を削除<ul>
+<li><code><a href="../reference/memory/shared_ptr/atomic_is_lock_free.html">std::atomic_is_lock_free</a></code></li>
+<li><code><a href="../reference/memory/shared_ptr/atomic_load.html">std::atomic_load</a></code></li>
+<li><code><a href="../reference/memory/shared_ptr/atomic_load_explicit.html">std::atomic_load_explicit</a></code></li>
+<li><code><a href="../reference/memory/shared_ptr/atomic_store.html">std::atomic_store</a></code></li>
+<li><code><a href="../reference/memory/shared_ptr/atomic_store_explicit.html">std::atomic_store_explicit</a></code></li>
+<li><code><a href="../reference/memory/shared_ptr/atomic_exchange.html">std::atomic_exchange</a></code></li>
+<li><code><a href="../reference/memory/shared_ptr/atomic_exchange_explicit.html">std::atomic_exchange_explicit</a></code></li>
+<li><code><a href="../reference/memory/shared_ptr/atomic_compare_exchange_weak.html">std::atomic_compare_exchange_weak</a></code></li>
+<li><code><a href="../reference/memory/shared_ptr/atomic_compare_exchange_strong.html">std::atomic_compare_exchange_strong</a></code></li>
+<li><code><a href="../reference/memory/shared_ptr/atomic_compare_exchange_weak_explicit.html">std::atomic_compare_exchange_weak_explicit</a></code></li>
+<li><code><a href="../reference/memory/shared_ptr/atomic_compare_exchange_strong_explicit.html">std::atomic_compare_exchange_strong_explicit</a></code></li>
+</ul>
+</li>
+<li>C++23から非推奨となっていた、<code><a href="../reference/memory/allocator.html">std::allocator</a></code>のメンバ型<code>is_always_equal</code>を削除</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

@@ -1,0 +1,778 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>cstdint - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cstdint,cpp11
+">
+        <meta name="title" content="cstdint - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="cstdint - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="cstdint - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/cstdint.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="&amp;lt;cstdint&amp;gt;cstdint(C++11) &amp;lt;cstdint&amp;gt;ヘッダでは、ビット数が規定された整数型の別名、およびマクロを提供する。これらの機能は、std名前空間に属することを除いてC言語の標準ライブラリ&amp;lt;stdint.h&amp;gt;ヘッダと同じである。 本ヘッダはフリースタンディング環境でも提供される。 符号付き整数型    型 説明 対応バージョン     int" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="cstdint - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/cstdint.html" />
+        <meta name="twitter:description" content="&amp;lt;cstdint&amp;gt;cstdint(C++11) &amp;lt;cstdint&amp;gt;ヘッダでは、ビット数が規定された整数型の別名、およびマクロを提供する。これらの機能は、std名前空間に属することを除いてC言語の標準ライブラリ&amp;lt;stdint.h&amp;gt;ヘッダと同じである。 本ヘッダはフリースタンディング環境でも提供される。 符号付き整数型    型 説明 対応バージョン     int" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cstdint&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cstdint&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">cstdint</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2022-10-29T08:57:02">
+        2022年10月29日 08時57分02秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yoh</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/cstdint.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/cstdint.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="header">&lt;cstdint&gt;</div><h1 itemprop="name"><span class="token">cstdint</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><code>&lt;cstdint&gt;</code>ヘッダでは、ビット数が規定された整数型の別名、およびマクロを提供する。これらの機能は、<code>std</code>名前空間に属することを除いてC言語の標準ライブラリ<code>&lt;stdint.h&gt;</code>ヘッダと同じである。</p>
+<p>本ヘッダはフリースタンディング環境でも提供される。</p>
+<h2>符号付き整数型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>型</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="cstdint/int8_t.html">int8_t</a></code></td>
+<td>8ビット幅の符号付き整数(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int16_t.html">int16_t</a></code></td>
+<td>16ビット幅の符号付き整数(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int32_t.html">int32_t</a></code></td>
+<td>32ビット幅の符号付き整数(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int64_t.html">int64_t</a></code></td>
+<td>64ビット幅の符号付き整数(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int_fast8_t.html">int_fast8_t</a></code></td>
+<td>少なくても8ビット幅を持ち、演算が高速な符号付き整数</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int_fast16_t.html">int_fast16_t</a></code></td>
+<td>少なくても16ビット幅を持ち、演算が高速な符号付き整数</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int_fast32_t.html">int_fast32_t</a></code></td>
+<td>少なくても32ビット幅を持ち、演算が高速な符号付き整数</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int_fast64_t.html">int_fast64_t</a></code></td>
+<td>少なくても64ビット幅を持ち、演算が高速な符号付き整数</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int_least8_t.html">int_least8_t</a></code></td>
+<td>少なくても8ビット幅を持つ、最小の符号付き整数</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int_least16_t.html">int_least16_t</a></code></td>
+<td>少なくても16ビット幅を持つ、最小の符号付き整数</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int_least32_t.html">int_least32_t</a></code></td>
+<td>少なくても32ビット幅を持つ、最小の符号付き整数</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int_least64_t.html">int_least64_t</a></code></td>
+<td>少なくても64ビット幅を持つ、最小の符号付き整数</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/intmax_t.html">intmax_t</a></code></td>
+<td>最も大きい符号付き整数型</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/intptr_t.html">intptr_t</a></code></td>
+<td>ポインタサイズの符号付き整数型(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>符号なし整数型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>型</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="cstdint/uint8_t.html">uint8_t</a></code></td>
+<td>8ビット幅の符号なし整数(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uint16_t.html">uint16_t</a></code></td>
+<td>16ビット幅の符号なし整数(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uint32_t.html">uint32_t</a></code></td>
+<td>32ビット幅の符号なし整数(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uint64_t.html">uint64_t</a></code></td>
+<td>64ビット幅の符号なし整数(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uint_fast8_t.html">uint_fast8_t</a></code></td>
+<td>少なくても8ビット幅を持ち、演算が高速な符号なし整数</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uint_fast16_t.html">uint_fast16_t</a></code></td>
+<td>少なくても16ビット幅を持ち、演算が高速な符号なし整数</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uint_fast32_t.html">uint_fast32_t</a></code></td>
+<td>少なくても32ビット幅を持ち、演算が高速な符号なし整数</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uint_fast64_t.html">uint_fast64_t</a></code></td>
+<td>少なくても64ビット幅を持ち、演算が高速な符号なし整数</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uint_least8_t.html">uint_least8_t</a></code></td>
+<td>少なくても8ビット幅を持つ、最小の符号なし整数</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uint_least16_t.html">uint_least16_t</a></code></td>
+<td>少なくても16ビット幅を持つ、最小の符号なし整数</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uint_least32_t.html">uint_least32_t</a></code></td>
+<td>少なくても32ビット幅を持つ、最小の符号なし整数</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uint_least64_t.html">uint_least64_t</a></code></td>
+<td>少なくても64ビット幅を持つ、最小の符号なし整数</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uintmax_t.html">uintmax_t</a></code></td>
+<td>最も大きい符号なし整数型</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uintptr_t.html">uintptr_t</a></code></td>
+<td>ポインタサイズの符号なし整数型(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<p>以下のマクロは、整数型の限界値を表す。</p>
+<h2>符号付き整数型用の限界値マクロ</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>マクロ</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="cstdint/int8_min.html">INT8_MIN</a></code></td>
+<td><code>int8_t</code>の最小値(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int8_max.html">INT8_MAX</a></code></td>
+<td><code>int8_t</code>の最大値(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int16_min.html">INT16_MIN</a></code></td>
+<td><code>int16_t</code>の最小値(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int16_max.html">INT16_MAX</a></code></td>
+<td><code>int16_t</code>の最大値(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int32_min.html">INT32_MIN</a></code></td>
+<td><code>int32_t</code>の最小値(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int32_max.html">INT32_MAX</a></code></td>
+<td><code>int32_t</code>の最大値(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int64_min.html">INT64_MIN</a></code></td>
+<td><code>int64_t</code>の最小値(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int64_max.html">INT64_MAX</a></code></td>
+<td><code>int64_t</code>の最大値(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int_fast8_min.html">INT_FAST8_MIN</a></code></td>
+<td><code>int_fast8_t</code>の最小値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int_fast8_max.html">INT_FAST8_MAX</a></code></td>
+<td><code>int_fast8_t</code>の最大値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int_fast16_min.html">INT_FAST16_MIN</a></code></td>
+<td><code>int_fast16_t</code>の最小値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int_fast16_max.html">INT_FAST16_MAX</a></code></td>
+<td><code>int_fast16_t</code>の最大値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int_fast32_min.html">INT_FAST32_MIN</a></code></td>
+<td><code>int_fast32_t</code>の最小値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int_fast32_max.html">INT_FAST32_MAX</a></code></td>
+<td><code>int_fast32_t</code>の最大値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int_fast64_min.html">INT_FAST64_MIN</a></code></td>
+<td><code>int_fast64_t</code>の最小値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int_fast64_max.html">INT_FAST64_MAX</a></code></td>
+<td><code>int_fast64_t</code>の最大値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int_least8_min.html">INT_LEAST8_MIN</a></code></td>
+<td><code>int_least8_t</code>の最小値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int_least8_max.html">INT_LEAST8_MAX</a></code></td>
+<td><code>int_least8_t</code>の最大値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int_least16_min.html">INT_LEAST16_MIN</a></code></td>
+<td><code>int_least16_t</code>の最小値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int_least16_max.html">INT_LEAST16_MAX</a></code></td>
+<td><code>int_least16_t</code>の最大値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int_least32_min.html">INT_LEAST32_MIN</a></code></td>
+<td><code>int_least32_t</code>の最小値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int_least32_max.html">INT_LEAST32_MAX</a></code></td>
+<td><code>int_least32_t</code>の最大値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int_least64_min.html">INT_LEAST64_MIN</a></code></td>
+<td><code>int_least64_t</code>の最小値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/int_least64_max.html">INT_LEAST64_MAX</a></code></td>
+<td><code>int_least64_t</code>の最大値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/intmax_min.html">INTMAX_MIN</a></code></td>
+<td><code>intmax_t</code>の最小値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/intmax_max.html">INTMAX_MAX</a></code></td>
+<td><code>intmax_t</code>の最大値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/intptr_min.html">INTPTR_MIN</a></code></td>
+<td><code>intptr_t</code>の最小値(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/intptr_max.html">INTPTR_MAX</a></code></td>
+<td><code>intptr_t</code>の最大値(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/ptrdiff_min.html">PTRDIFF_MIN</a></code></td>
+<td><code><a href="cstddef/ptrdiff_t.html">ptrdiff_t</a></code>の最小値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/ptrdiff_max.html">PTRDIFF_MAX</a></code></td>
+<td><code><a href="cstddef/ptrdiff_t.html">ptrdiff_t</a></code>の最大値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/sig_atomic_min.html">SIG_ATOMIC_MIN</a></code></td>
+<td><code>sig_atomic_t</code>の最小値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/sig_atomic_max.html">SIG_ATOMIC_MAX</a></code></td>
+<td><code>sig_atomic_t</code>の最大値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/wchar_min.html">WCHAR_MIN</a></code></td>
+<td><code>wchar_t</code>の最小値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/wchar_max.html">WCHAR_MAX</a></code></td>
+<td><code>wchar_t</code>の最大値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/wint_min.html">WINT_MIN</a></code></td>
+<td><code>wint_t</code>の最小値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/wint_max.html">WINT_MAX</a></code></td>
+<td><code>wint_t</code>の最大値</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>符号なし整数型用の限界値マクロ</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>マクロ</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="cstdint/uint8_max.html">UINT8_MAX</a></code></td>
+<td><code>uint8_t</code>の最大値(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uint16_max.html">UINT16_MAX</a></code></td>
+<td><code>uint16_t</code>の最大値(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uint32_max.html">UINT32_MAX</a></code></td>
+<td><code>uint32_t</code>の最大値(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uint64_max.html">UINT64_MAX</a></code></td>
+<td><code>uint64_t</code>の最大値(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uint_fast8_max.html">UINT_FAST8_MAX</a></code></td>
+<td><code>uint_fast8_t</code>の最大値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uint_fast16_max.html">UINT_FAST16_MAX</a></code></td>
+<td><code>uint_fast16_t</code>の最大値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uint_fast32_max.html">UINT_FAST32_MAX</a></code></td>
+<td><code>uint_fast32_t</code>の最大値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uint_fast64_max.html">UINT_FAST64_MAX</a></code></td>
+<td><code>uint_fast64_t</code>の最大値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uint_least8_max.html">UINT_LEAST8_MAX</a></code></td>
+<td><code>uint_least8_t</code>の最大値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uint_least16_max.html">UINT_LEAST16_MAX</a></code></td>
+<td><code>uint_least16_t</code>の最大値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uint_least32_max.html">UINT_LEAST32_MAX</a></code></td>
+<td><code>uint_least32_t</code>の最大値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uint_least64_max.html">UINT_LEAST64_MAX</a></code></td>
+<td><code>uint_least64_t</code>の最大値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uintmax_max.html">UINTMAX_MAX</a></code></td>
+<td><code>uintmax_t</code>の最大値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/uintptr_max.html">UINTPTR_MAX</a></code></td>
+<td><code>uintptr_t</code>の最大値(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cstdint/size_max.html">SIZE_MAX</a></code></td>
+<td><code><a href="cstddef/size_t.html">size_t</a></code>の最大値</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>符号付き整数型用の定数値マクロ</h2>
+<p>以下のマクロは、各整数型の定数値を表す関数マクロである。<br />
+例：) <code>int8_t x = INT8_C(1);</code>  </p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>マクロ</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>INT8_C(n)</code></td>
+<td>8ビット幅を持つ、符号付き整数型の定数値(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>INT16_C(n)</code></td>
+<td>16ビット幅を持つ、符号付き整数型の定数値(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>INT32_C(n)</code></td>
+<td>32ビット幅を持つ、符号付き整数型の定数値(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>INT64_C(n)</code></td>
+<td>64ビット幅を持つ、符号付き整数型の定数値(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>INTMAX_C(n)</code></td>
+<td>最も大きい符号付き整数型の定数値</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>符号なし整数型用の定数値マクロ</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>マクロ</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>UINT8_C(n)</code></td>
+<td>8ビット幅を持つ、符号なし整数型の定数値(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>UINT16_C(n)</code></td>
+<td>16ビット幅を持つ、符号なし整数型の定数値(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>UINT32_C(n)</code></td>
+<td>32ビット幅を持つ、符号なし整数型の定数値(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>UINT64_C(n)</code></td>
+<td>64ビット幅を持つ、符号なし整数型の定数値(実装するかどうかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>UINTMAX_C(n)</code></td>
+<td>最も大きい符号なし整数型の定数値</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>備考</h2>
+<h3><a id="stdc-macros"></a><code>__STDC_LIMIT_MACROS</code>, <code>__STDC_CONSTANT_MACROS</code> マクロについて</h3>
+<p>C99 の 7.18.3 <code>&lt;stdint.h&gt;</code> についての脚注で、同ヘッダを C++ でコンパイルする場合に限界値マクロ、定数値マクロを得るためにはこれらのマクロを事前に定義する必要があるものとされていた。</p>
+<blockquote>
+<p>Footnote 219, 220: C++ implementations should define these macros only when <code>__STDC_LIMIT_MACROS</code> is defined before <code>&lt;stdint.h&gt;</code> is included.</p>
+<p>Footnote 222: C++ implementations should define these macros only when <code>__STDC_CONSTANT_MACROS</code> is defined before <code>&lt;stdint.h&gt;</code> is included.</p>
+</blockquote>
+<p>しかしその後の C 規格改定でこの脚注は削除され、 C11 では触れられていない。 C++11 は（ C++14 も） C99 を参照規格としているが、 <a href="https://github.com/cplusplus/draft/blob/0b7593f0e716910bab7c1511533b2f9b5a886de1/source/support.tex#L1263" target="_blank">18.4.1 [cstdint.syn] p2</a> に注釈として、これらのマクロは採用されていないことが明記されている。</p>
+<blockquote>
+<p>The macros defined by <code>&lt;cstdint&gt;</code> are provided unconditionally. In particular, the symbols <code>__STDC_LIMIT_MACROS</code> and
+<code>__STDC_CONSTANT_MACROS</code> (mentioned in footnotes 219, 220, and 222 in
+the C standard) play no role in C++.</p>
+</blockquote>
+<p>おそらく上記 C99 の脚注のため、 C++ 処理系によってはヘッダ <code>&lt;stdint.h&gt;</code> および <code>&lt;cstdint&gt;</code> での限界値マクロ、定数値マクロの提供にこれらマクロの定義が必要となっているかもしれない。（特に C++03 対応の処理系が拡張として C99 由来のこれらヘッダを提供していた場合など。）</p>
+<ul>
+<li>glibc に対するバグ報告（修正は 2013/05/21 ）
+  <a href="https://sourceware.org/bugzilla/show_bug.cgi?id=15366" target="_blank">Bug 15366 – Per C11 and C++11, <code>&lt;stdint.h&gt;</code> should not look at <code>__STDC_LIMIT_MACROS</code> or <code>__STDC_CONSTANT_MACROS</code></a></li>
+<li><a href="https://stackoverflow.com/questions/986426/what-do-stdc-limit-macros-and-stdc-constant-macros-mean" target="_blank">What do __STDC_LIMIT_MACROS and __STDC_CONSTANT_MACROS mean? - Stack Overflow</a></li>
+</ul>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1568.htm" target="_blank">N1568 Proposed additions to TR-1 to improve compatibility with C99</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1835.pdf" target="_blank">N1835 <code>&lt;stdint.h&gt;</code> for C++</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

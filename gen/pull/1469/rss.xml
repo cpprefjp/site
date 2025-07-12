@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2025-07-12T11:23:09.326604</updated>
+  <id>97b0304f-a4c5-4f58-93ec-6bb78653e0f6</id>
+
+  
+    <entry>
+      <title>resetiosflags -- 自動リンクがつくようにスペースを挿入</title>
+      <link href="https://cpprefjp.github.io/reference/iomanip/resetiosflags.html"/>
+      <id>95459a75fcd9d29defe75a8dca70373cacd6bb3d:reference/iomanip/resetiosflags.md</id>
+      <updated>2025-07-12T16:53:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iomanip/resetiosflags.md b/reference/iomanip/resetiosflags.md
+index b7c733638..6f002d690 100644
+--- a/reference/iomanip/resetiosflags.md
++++ b/reference/iomanip/resetiosflags.md
+@@ -30,8 +30,8 @@ void f(std::ios_base&amp;amp; str, std::ios_base::fmtflags mask) {
+ 
+ ## 例
+ ```cpp example
+-#include&amp;lt;iostream&amp;gt;
+-#include&amp;lt;iomanip&amp;gt;
++#include &amp;lt;iostream&amp;gt;
++#include &amp;lt;iomanip&amp;gt;
+ 
+ int main()
+ {
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>setiosflags -- 自動リンクがつくようにスペースを挿入</title>
+      <link href="https://cpprefjp.github.io/reference/iomanip/setiosflags.html"/>
+      <id>95459a75fcd9d29defe75a8dca70373cacd6bb3d:reference/iomanip/setiosflags.md</id>
+      <updated>2025-07-12T16:53:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iomanip/setiosflags.md b/reference/iomanip/setiosflags.md
+index c7706ba64..b5de2269d 100644
+--- a/reference/iomanip/setiosflags.md
++++ b/reference/iomanip/setiosflags.md
+@@ -30,8 +30,8 @@ void f(std::ios_base&amp;amp; str, std::ios_base::fmtflags mask) {
+ 
+ ## 例
+ ```cpp example
+-#include&amp;lt;iostream&amp;gt;
+-#include&amp;lt;iomanip&amp;gt;
++#include &amp;lt;iostream&amp;gt;
++#include &amp;lt;iomanip&amp;gt;
+ 
+ int main()
+ {
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>ラムダ式 [N2927] -- コード中の非ASCII文字を修正</title>
+      <link href="https://cpprefjp.github.io/lang/cpp11/lambda_expressions.html"/>
+      <id>2d1d210df45fcd1a0028431b7aead8bffe7cb1e5:lang/cpp11/lambda_expressions.md</id>
+      <updated>2025-07-12T16:05:25+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp11/lambda_expressions.md b/lang/cpp11/lambda_expressions.md
+index 75d47d422..96261524a 100644
+--- a/lang/cpp11/lambda_expressions.md
++++ b/lang/cpp11/lambda_expressions.md
+@@ -497,7 +497,7 @@ void f()
+ ```cpp
+ double array[] = { 1.0, 2.1, 3.3, 4.4 };
+ double sum = 0; int factor = 2;
+-for_each(array, array + 4, &amp;lt;&amp;gt;(double d ; &amp;amp;sum, factor) ( sum += factor ∗ d ));
++for_each(array, array + 4, &amp;lt;&amp;gt;(double d ; &amp;amp;sum, factor) ( sum += factor * d ));
+ ```
+ 
+ 参照キャプチャする場合は、変数名の先頭に`&amp;amp;`を付け、コピーキャプチャする場合は変数名のみを指定する。
+@@ -507,7 +507,7 @@ for_each(array, array + 4, &amp;lt;&amp;gt;(double d ; &amp;amp;sum, factor) ( sum += factor ∗ d ));
+ ```cpp
+ double array[] = { 1.0, 2.1, 3.3, 4.4 };
+ double sum = 0; int factor = 2;
+-for_each(array, array + 4, &amp;lt;&amp;amp;&amp;gt;(double d) ( sum += factor ∗ d ));
++for_each(array, array + 4, &amp;lt;&amp;amp;&amp;gt;(double d) ( sum += factor * d ));
+ ```
+ 
+ ここでは、関数の本体に丸カッコを使用している。これは、関数の本体がひとつの式だけで成り立つ場合に使用する。2つ以上の式や文がある場合は、波カッコを使用する。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>型の文脈でtypenameの省略を許可 [P0634R3] -- コード中の非ASCII文字を修正</title>
+      <link href="https://cpprefjp.github.io/lang/cpp20/down_with_typename.html"/>
+      <id>2d1d210df45fcd1a0028431b7aead8bffe7cb1e5:lang/cpp20/down_with_typename.md</id>
+      <updated>2025-07-12T16:05:25+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp20/down_with_typename.md b/lang/cpp20/down_with_typename.md
+index 25c042ec8..05c90b933 100644
+--- a/lang/cpp20/down_with_typename.md
++++ b/lang/cpp20/down_with_typename.md
+@@ -43,7 +43,7 @@ template&amp;lt;class T&amp;gt; struct S {
+   T::R f(T::P p) {               // OK, メンバ宣言、およびメンバ宣言における仮引数宣言
+     return static_cast&amp;lt;T::R&amp;gt;(p); // OK, static_castの型名
+   }
+-  auto g() -&amp;gt; S&amp;lt;T*&amp;gt;::Ptr;        // OK, 後置戻り値型
++  auto g() -&amp;gt; S&amp;lt;T*&amp;gt;::Ptr;        // OK, 後置戻り値型
+ };
+ 
+ template&amp;lt;typename T&amp;gt; void f() {
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>printf -- タイトルを修正</title>
+      <link href="https://cpprefjp.github.io/reference/cstdio/printf.html"/>
+      <id>aa2056f533ac1997fc167f2e72471c2cb9e9d7dc:reference/cstdio/printf.md</id>
+      <updated>2025-07-12T14:51:22+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/printf.md b/reference/cstdio/printf.md
+index 4542dc2ea..d0c2418e0 100644
+--- a/reference/cstdio/printf.md
++++ b/reference/cstdio/printf.md
+@@ -1,4 +1,4 @@
+-# fprintf
++# printf
+ * cstdio[meta header]
+ * std[meta namespace]
+ * function[meta id-type]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>scanf -- タイトルを修正</title>
+      <link href="https://cpprefjp.github.io/reference/cstdio/scanf.html"/>
+      <id>aa2056f533ac1997fc167f2e72471c2cb9e9d7dc:reference/cstdio/scanf.md</id>
+      <updated>2025-07-12T14:51:22+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/scanf.md b/reference/cstdio/scanf.md
+index 0a3df69e3..e0203fba7 100644
+--- a/reference/cstdio/scanf.md
++++ b/reference/cstdio/scanf.md
+@@ -1,4 +1,4 @@
+-# fscanf
++# scanf
+ * cstdio[meta header]
+ * std[meta namespace]
+ * function[meta id-type]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>
