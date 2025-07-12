@@ -1,0 +1,1077 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>リファレンス - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,
+">
+        <meta name="title" content="リファレンス - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="リファレンス - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="リファレンス - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="リファレンス 目次  言語サポートライブラリ コンセプトライブラリ 診断ライブラリ 汎用的なユーティリティライブラリ 文字列ライブラリ ローカライズライブラリ コンテナライブラリ イテレータライブラリ レンジライブラリ アルゴリズムライブラリ 数値ライブラリ デバッグライブラリ 入出力ライブラリ 正規表現ライブラリ アトミック操作ライブラリ スレッドサポートライブラリ C言語互換ライブラリ 説明専" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="リファレンス - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference.html" />
+        <meta name="twitter:description" content="リファレンス 目次  言語サポートライブラリ コンセプトライブラリ 診断ライブラリ 汎用的なユーティリティライブラリ 文字列ライブラリ ローカライズライブラリ コンテナライブラリ イテレータライブラリ レンジライブラリ アルゴリズムライブラリ 数値ライブラリ デバッグライブラリ 入出力ライブラリ 正規表現ライブラリ アトミック操作ライブラリ スレッドサポートライブラリ C言語互換ライブラリ 説明専" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="./static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="./static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="./static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="./manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="./static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="./static/css/root.css"> -->
+
+        
+  
+
+
+<link href="./static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="./static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="./static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="./static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="./static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="./static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="./index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="./index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">リファレンス</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-04-25T03:45:01">
+        2025年04月25日 03時45分01秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">rotarymars</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">リファレンス</span></h1>
+<div itemprop="articleBody"><h2>目次</h2>
+<ul>
+<li><a href="#language-support">言語サポートライブラリ</a></li>
+<li><a href="#concepts">コンセプトライブラリ</a></li>
+<li><a href="#diagnostics">診断ライブラリ</a></li>
+<li><a href="#general-utils">汎用的なユーティリティライブラリ</a></li>
+<li><a href="#strings">文字列ライブラリ</a></li>
+<li><a href="#localization">ローカライズライブラリ</a></li>
+<li><a href="#container">コンテナライブラリ</a></li>
+<li><a href="#iterator">イテレータライブラリ</a></li>
+<li><a href="#ranges">レンジライブラリ</a></li>
+<li><a href="#algorithm">アルゴリズムライブラリ</a></li>
+<li><a href="#numerics">数値ライブラリ</a></li>
+<li><a href="#debug">デバッグライブラリ</a></li>
+<li><a href="#io">入出力ライブラリ</a></li>
+<li><a href="#regular-expressions">正規表現ライブラリ</a></li>
+<li><a href="#atomic-operations">アトミック操作ライブラリ</a></li>
+<li><a href="#thread-support">スレッドサポートライブラリ</a></li>
+<li><a href="#clib-facilities">C言語互換ライブラリ</a></li>
+<li><a href="#exposition-only">説明専用ライブラリ</a></li>
+</ul>
+<hr />
+<h2><a href="#language-support-library" id="language-support">言語サポートライブラリ</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>ヘッダ</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="reference/limits.html">&lt;limits&gt;</a></code></td>
+<td>実装プロパティ</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="reference/version.html">&lt;version&gt;</a></code></td>
+<td>実装依存のバージョン情報</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="reference/stdfloat.html">&lt;stdfloat&gt;</a></code></td>
+<td><a class="cpprefjp-defined-word" data-desc="&lt;stdfloat&gt;で定義される内部表現の規定された浮動小数点数型" href="reference/stdfloat.html">拡張浮動小数点数型</a></td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="reference/new.html">&lt;new&gt;</a></code></td>
+<td>動的メモリ管理</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="reference/typeinfo.html">&lt;typeinfo&gt;</a></code></td>
+<td>型情報</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="reference/source_location.html">&lt;source_location&gt;</a></code></td>
+<td>ソースコード上の位置</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="reference/exception.html">&lt;exception&gt;</a></code></td>
+<td><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>ハンドリング</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="reference/initializer_list.html">&lt;initializer_list&gt;</a></code></td>
+<td>初期化子リスト</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="reference/compare.html">&lt;compare&gt;</a></code></td>
+<td>比較演算</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="reference/coroutine.html">&lt;coroutine&gt;</a></code></td>
+<td>コルーチン</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#concepts" id="concepts">コンセプトライブラリ</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>ヘッダ</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="reference/concepts.html">&lt;concepts&gt;</a></code></td>
+<td>言語関係のコンセプト</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#diagnostics" id="diagnostics">診断ライブラリ</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>ヘッダ</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="reference/stdexcept.html">&lt;stdexcept&gt;</a></code></td>
+<td><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>クラス</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="reference/system_error.html">&lt;system_error&gt;</a></code></td>
+<td>システムエラーサポート</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#general-utils" id="general-utils">汎用的なユーティリティライブラリ</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>ヘッダ</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="reference/utility.html">&lt;utility&gt;</a></code></td>
+<td>ユーティリティコンポーネント</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="reference/bitset.html">&lt;bitset&gt;</a></code></td>
+<td>ビットの固定サイズシーケンス</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="reference/ratio.html">&lt;ratio&gt;</a></code></td>
+<td>コンパイル時有理数</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="reference/tuple.html">&lt;tuple&gt;</a></code></td>
+<td>タプル</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="reference/optional.html">&lt;optional&gt;</a></code></td>
+<td>任意で値を持たせられるオブジェクト</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="reference/variant.html">&lt;variant&gt;</a></code></td>
+<td>候補の型を切り替えながら保持できる記憶域型</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="reference/any.html">&lt;any&gt;</a></code></td>
+<td>あらゆる型の値を保持できる記憶域型</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="reference/expected.html">&lt;expected&gt;</a></code></td>
+<td>正常値かエラー値のどちらかを持たせられるオブジェクト</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="reference/type_traits.html">&lt;type_traits&gt;</a></code></td>
+<td>型特性</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="reference/functional.html">&lt;functional&gt;</a></code></td>
+<td>関数オブジェクト</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="reference/memory.html">&lt;memory&gt;</a></code></td>
+<td>メモリ</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="reference/scoped_allocator.html">&lt;scoped_allocator&gt;</a></code></td>
+<td>スコープ付きアロケータ</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="reference/memory_resource.html">&lt;memory_resource&gt;</a></code></td>
+<td>多相アロケータ</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="reference/chrono.html">&lt;chrono&gt;</a></code></td>
+<td>時間ユーティリティ</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="reference/typeindex.html">&lt;typeindex&gt;</a></code></td>
+<td>型のインデックス</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="reference/execution.html">&lt;execution&gt;</a></code></td>
+<td>実行ポリシー、実行制御ライブラリ(C++26)</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="reference/charconv.html">&lt;charconv&gt;</a></code></td>
+<td>高速な文字列 ⇔ 数値変換</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="reference/format.html">&lt;format&gt;</a></code></td>
+<td>文字列フォーマット</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="reference/stacktrace.html">&lt;stacktrace&gt;</a></code></td>
+<td>スタックトレース</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#strings" id="strings">文字列ライブラリ</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>ヘッダ</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="reference/string.html">&lt;string&gt;</a></code></td>
+<td>文字列クラスと、文字特性</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="reference/string_view.html">&lt;string_view&gt;</a></code></td>
+<td>所有権を持たず文字列を参照する文字列クラス</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#localization" id="localization">ローカライズライブラリ</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>ヘッダ</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="reference/locale.html">&lt;locale&gt;</a></code></td>
+<td>ロケール</td>
+<td></td>
+</tr>
+<tr>
+<td><code><span href="https://cpprefjp.github.io/reference/text_encoding.md.nolink">&lt;text_encoding&gt;</span></code></td>
+<td>文字列エンコーディングの識別</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="reference/codecvt.html">&lt;codecvt&gt;</a></code></td>
+<td>コード変換ファセット</td>
+<td>C++11<br /> C++17から非推奨<br /> C++26で削除</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#container" id="container">コンテナライブラリ</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>ヘッダ</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="reference/array.html">&lt;array&gt;</a></code></td>
+<td>配列</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="reference/deque.html">&lt;deque&gt;</a></code></td>
+<td>両端キュー</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="reference/forward_list.html">&lt;forward_list&gt;</a></code></td>
+<td>単方向リスト</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="reference/list.html">&lt;list&gt;</a></code></td>
+<td>双方向リスト</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="reference/queue.html">&lt;queue&gt;</a></code></td>
+<td>FIFOキュー</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="reference/stack.html">&lt;stack&gt;</a></code></td>
+<td>LIFOスタック</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="reference/vector.html">&lt;vector&gt;</a></code></td>
+<td>可変長配列</td>
+<td></td>
+</tr>
+<tr>
+<td><code><span href="https://cpprefjp.github.io/reference/inplace_vector.md.nolink">&lt;inplace_vector&gt;</span></code></td>
+<td>容量固定の可変長配列</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="reference/map.html">&lt;map&gt;</a></code></td>
+<td>順序付き連想配列</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="reference/set.html">&lt;set&gt;</a></code></td>
+<td>順序付き集合</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="reference/flat_map.html">&lt;flat_map&gt;</a></code></td>
+<td>ソート済みキーによる順序付き連想配列</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="reference/flat_set.html">&lt;flat_set&gt;</a></code></td>
+<td>ソート済みキーによる順序付き集合</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="reference/unordered_map.html">&lt;unordered_map&gt;</a></code></td>
+<td>非順序連想配列</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="reference/unordered_set.html">&lt;unordered_set&gt;</a></code></td>
+<td>非順序集合</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="reference/span.html">&lt;span&gt;</a></code></td>
+<td>部分シーケンスの参照</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="reference/mdspan.html">&lt;mdspan&gt;</a></code></td>
+<td>多次元配列ビュー</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#iterator" id="iterator">イテレータライブラリ</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>ヘッダ</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="reference/iterator.html">&lt;iterator&gt;</a></code></td>
+<td>イテレータの定義</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#ranges" id="ranges">レンジライブラリ</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>ヘッダ</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="reference/ranges.html">&lt;ranges&gt;</a></code></td>
+<td>レンジアルゴリズム</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="reference/generator.html">&lt;generator&gt;</a></code></td>
+<td>コルーチンによるレンジ生成</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#algorithm" id="algorithm">アルゴリズムライブラリ</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>ヘッダ</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="reference/algorithm.html">&lt;algorithm&gt;</a></code></td>
+<td>アルゴリズム</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#numerics" id="numerics">数値ライブラリ</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>ヘッダ</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="reference/complex.html">&lt;complex&gt;</a></code></td>
+<td>複素数</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="reference/bit.html">&lt;bit&gt;</a></code></td>
+<td>ビット操作</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="reference/random.html">&lt;random&gt;</a></code></td>
+<td>乱数生成</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="reference/valarray.html">&lt;valarray&gt;</a></code></td>
+<td>数値の配列</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="reference/numeric.html">&lt;numeric&gt;</a></code></td>
+<td>一般的な数値操作</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="reference/numbers.html">&lt;numbers&gt;</a></code></td>
+<td>数値</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="reference/linalg.html">&lt;linalg&gt;</a></code></td>
+<td>線形代数</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#debug" id="debug">デバッグライブラリ</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>ヘッダ</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="reference/debugging.html">&lt;debugging&gt;</a></code></td>
+<td>デバッグサポート</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="reference/contracts.html">&lt;contracts&gt;</a></code></td>
+<td>契約プログラミング</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#io" id="io">入出力ライブラリ</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>ヘッダ</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;iosfwd&gt;</code></td>
+<td>先行宣言</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="reference/iostream.html">&lt;iostream&gt;</a></code></td>
+<td>標準<code>iostream</code>オブジェクト</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="reference/ios.html">&lt;ios&gt;</a></code></td>
+<td><code>iostream</code>基底クラス</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="reference/streambuf.html">&lt;streambuf&gt;</a></code></td>
+<td>ストリームバッファ</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="reference/istream.html">&lt;istream&gt;</a></code></td>
+<td>入力ストリーム</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="reference/ostream.html">&lt;ostream&gt;</a></code></td>
+<td>出力ストリーム</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="reference/iomanip.html">&lt;iomanip&gt;</a></code></td>
+<td>フォーマットとマニピュレータ</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="reference/sstream.html">&lt;sstream&gt;</a></code></td>
+<td>文字列ストリーム</td>
+<td></td>
+</tr>
+<tr>
+<td><code>&lt;strstream&gt;</code></td>
+<td>古い文字列ストリーム</td>
+<td>C++98から非推奨<br /> C++26で削除</td>
+</tr>
+<tr>
+<td><code><a href="reference/fstream.html">&lt;fstream&gt;</a></code></td>
+<td>ファイルストリーム</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="reference/filesystem.html">&lt;filesystem&gt;</a></code></td>
+<td>ファイルシステム</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="reference/syncstream.html">&lt;syncstream&gt;</a></code></td>
+<td>同期化出力ストリームラッパー</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><span href="https://cpprefjp.github.io/reference/spanstream.md.nolink">&lt;spanstream&gt;</span></code></td>
+<td>メモリバッファの所有権をもたないストリーム</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="reference/print.html">&lt;print&gt;</a></code></td>
+<td>書式指定による出力</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#regular-expressions" id="regular-expressions">正規表現ライブラリ</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>ヘッダ</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="reference/regex.html">&lt;regex&gt;</a></code></td>
+<td>正規表現</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#atomic-operations" id="atomic-operations">アトミック操作ライブラリ</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>ヘッダ</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="reference/atomic.html">&lt;atomic&gt;</a></code></td>
+<td>アトミックアクセスのためのコンポーネント</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="reference/stdatomic.h.html">&lt;stdatomic.h&gt;</a></code></td>
+<td>アトミック操作のC互換ライブラリ</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#thread-support" id="thread-support">スレッドサポートライブラリ</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>ヘッダ</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="reference/stop_token.html">&lt;stop_token&gt;</a></code></td>
+<td>停止状態</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="reference/thread.html">&lt;thread&gt;</a></code></td>
+<td>スレッド</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="reference/mutex.html">&lt;mutex&gt;</a></code></td>
+<td>ミューテックス</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="reference/shared_mutex.html">&lt;shared_mutex&gt;</a></code></td>
+<td>共有ミューテックス</td>
+<td>C++14</td>
+</tr>
+<tr>
+<td><code><a href="reference/condition_variable.html">&lt;condition_variable&gt;</a></code></td>
+<td>条件変数</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="reference/semaphore.html">&lt;semaphore&gt;</a></code></td>
+<td>セマフォ</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="reference/latch.html">&lt;latch&gt;</a></code></td>
+<td>ラッチ同期</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="reference/barrier.html">&lt;barrier&gt;</a></code></td>
+<td>バリア同期</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="reference/future.html">&lt;future&gt;</a></code></td>
+<td>Future</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="reference/rcu.html">&lt;rcu&gt;</a></code></td>
+<td>データの参照・更新</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><span href="https://cpprefjp.github.io/reference/hazard_pointer.md.nolink">&lt;hazard_pointer&gt;</span></code></td>
+<td>ハザードポインタ</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><span href="https://cpprefjp.github.io/reference/simd.md.nolink">&lt;simd&gt;</span></code></td>
+<td>データ並列</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#clib-facilities" id="clib-facilities">C言語互換ライブラリ</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>ヘッダ</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="reference/cassert.html">&lt;cassert&gt;</a></code></td>
+<td>アサート</td>
+<td></td>
+</tr>
+<tr>
+<td><code>&lt;ccomplex&gt;</code></td>
+<td>複素数</td>
+<td>C++11 (C99)<br /> C++17で非推奨<br /> C++20で削除</td>
+</tr>
+<tr>
+<td><code><a href="reference/cctype.html">&lt;cctype&gt;</a></code></td>
+<td>文字種別の判定と変換</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="reference/cerrno.html">&lt;cerrno&gt;</a></code></td>
+<td>エラー番号</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="reference/cfenv.html">&lt;cfenv&gt;</a></code></td>
+<td>浮動小数点環境へのアクセス</td>
+<td>C++11 (C99)</td>
+</tr>
+<tr>
+<td><code><a href="reference/cfloat.html">&lt;cfloat&gt;</a></code></td>
+<td>浮動小数点数の定数</td>
+<td></td>
+</tr>
+<tr>
+<td><code>&lt;cinttypes&gt;</code></td>
+<td>固定精度整数のための書式指定マクロ</td>
+<td>C++11 (C99)</td>
+</tr>
+<tr>
+<td><code>&lt;ciso646&gt;</code></td>
+<td><code>&amp;&amp;</code>に対する別名<code>and</code>のような、各種演算子に対するマクロを定義する。<br /> ただしC++ではこれらの別名はキーワードとして定義されるため、このヘッダでは何も定義されない。</td>
+<td>C++20で削除</td>
+</tr>
+<tr>
+<td><code><a href="reference/climits.html">&lt;climits&gt;</a></code></td>
+<td>整数型の最小値、最大値を表すマクロ</td>
+<td></td>
+</tr>
+<tr>
+<td><code>&lt;clocale&gt;</code></td>
+<td>ロケール</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="reference/cmath.html">&lt;cmath&gt;</a></code></td>
+<td>数学関数</td>
+<td></td>
+</tr>
+<tr>
+<td><code>&lt;csetjmp&gt;</code></td>
+<td>ジャンプ処理</td>
+<td></td>
+</tr>
+<tr>
+<td><code>&lt;csignal&gt;</code></td>
+<td>シグナル</td>
+<td></td>
+</tr>
+<tr>
+<td><code>&lt;cstdalign&gt;</code></td>
+<td>アライメント操作のマクロ</td>
+<td>C++17で非推奨<br /> C++20で削除</td>
+</tr>
+<tr>
+<td><code>&lt;cstdarg&gt;</code></td>
+<td>可変引数操作</td>
+<td></td>
+</tr>
+<tr>
+<td><code><span href="https://cpprefjp.github.io/reference/stdbit.h.md.nolink">&lt;stdbit.h&gt;</span></code></td>
+<td>ビット操作</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><span href="https://cpprefjp.github.io/reference/stdckdint.h.md.nolink">&lt;stdckdint.h&gt;</span></code></td>
+<td>検査付き整数演算</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>&lt;cstdbool&gt;</code></td>
+<td>真理値型の定義</td>
+<td>C++11 (C99)<br /> C++17で非推奨<br /> C++20で削除</td>
+</tr>
+<tr>
+<td><code><a href="reference/cstddef.html">&lt;cstddef&gt;</a></code></td>
+<td>基本的な型、値、マクロの定義</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="reference/cstdint.html">&lt;cstdint&gt;</a></code></td>
+<td>大きさが規定されている整数型</td>
+<td>C++11 (C99)</td>
+</tr>
+<tr>
+<td><code><a href="reference/cstdio.html">&lt;cstdio&gt;</a></code></td>
+<td>入出力</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="reference/cstdlib.html">&lt;cstdlib&gt;</a></code></td>
+<td>ユーティリティ関数</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="reference/cstring.html">&lt;cstring&gt;</a></code></td>
+<td>文字列操作</td>
+<td></td>
+</tr>
+<tr>
+<td><code>&lt;ctgmath&gt;</code></td>
+<td>ジェネリックな数学関数</td>
+<td>C++11 (C99)<br /> C++17で非推奨<br /> C++20で削除</td>
+</tr>
+<tr>
+<td><code><a href="reference/ctime.html">&lt;ctime&gt;</a></code></td>
+<td>日付・時間</td>
+<td></td>
+</tr>
+<tr>
+<td><code>&lt;cuchar&gt;</code></td>
+<td>ユニコード文字型</td>
+<td>C++11 (C11)</td>
+</tr>
+<tr>
+<td><code>&lt;cwchar&gt;</code></td>
+<td>ワイド文字型</td>
+<td></td>
+</tr>
+<tr>
+<td><code>&lt;cwctype&gt;</code></td>
+<td>ワイド文字の種別と判定</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#exposition-only" id="exposition-only">説明専用ライブラリ</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>ヘッダ</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="reference/exposition-only.html">exposition-only</a></code></td>
+<td>説明のためのものを集めたページ (実際のライブラリではない)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2867r2.html" target="_blank">P2867R2 Remove Deprecated <code>strstream</code>s From C++26</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

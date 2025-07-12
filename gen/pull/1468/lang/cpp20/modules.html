@@ -1,0 +1,659 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>モジュール [P1103R3] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp20
+">
+        <meta name="title" content="モジュール [P1103R3] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="モジュール [P1103R3] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="モジュール [P1103R3] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp20/modules.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="C++20では、ヘッダーファイル・ソースファイルに代わる新たなファイル分割の仕組みとしてモジュールが導入された。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="モジュール [P1103R3] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp20/modules.html" />
+        <meta name="twitter:description" content="C++20では、ヘッダーファイル・ソースファイルに代わる新たなファイル分割の仕組みとしてモジュールが導入された。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp20&#34;, &#34;modules&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp20.html" itemprop="url">
+              
+                <span itemprop="name">C++20</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">モジュール [P1103R3]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-04-07T08:21:00">
+        2025年04月07日 08時21分00秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp20/modules.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp20/modules.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">モジュール [P1103R3]</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++20に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>C++20では、ヘッダーファイル・ソースファイルに代わる新たなファイル分割の仕組みとしてモジュールが導入された。</p>
+<p>モジュールは翻訳単位の先頭でモジュール宣言を行うことにより宣言する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">export</span> <span class="n">module</span> <span class="n">mylib</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<p>モジュールの中では、関数や型などの宣言に <code>export</code> キーワードを付けて宣言をエクスポートできる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">export</span> <span class="n">module</span> <span class="n">mylib</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="n">mylib</span> <span class="p">{</span>
+  <span class="k">export</span> <span class="k">struct</span> <span class="n">myfunc_result_t</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+  <span class="p">};</span>
+  <span class="k">export</span> <span class="n">myfunc_result_t</span> <span class="nf">myfunc</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/*...*/</span> <span class="p">};</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<p>モジュールを利用するには、インポート宣言を行う。これにより、インポートしたモジュールがエクスポートしている宣言が見えるようになる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n">import</span> <span class="n">mylib</span><span class="p">;</span>
+<span class="c1">// iostreamなど、一部のヘッダーはインポート(≠インクルード)可能</span>
+<span class="n">import</span> <span class="n"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// これらの型や関数の宣言はこの翻訳単位には無いが、</span>
+  <span class="c1">// mylibでエクスポートしているので、使用することができる。</span>
+  <span class="n">mylib</span><span class="o">::</span><span class="n">myfunc_result_t</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">mylib</span><span class="o">::</span><span class="n">myfunc</span><span class="p">();</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">ret</span><span class="p">.</span><span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>モジュールは単一の翻訳単位で構成することも、複数の翻訳単位で構成することもできる。</p>
+<p>標準ライブラリは、C++23でモジュール化された。詳しくは<a href="../../module.html">モジュール(ライブラリ)</a>を参照。</p>
+<p>C++20でも、C++ライブラリのヘッダーファイルはモジュールのように扱うことができ、モジュール機能の恩恵を受けられる(ヘッダーユニット)。</p>
+<h2>仕様</h2>
+<h3>翻訳単位の分類</h3>
+<p>C++20では翻訳単位がその役割によって細かく分類される。</p>
+<p>まず、モジュールを構成する翻訳単位(モジュールユニット)とそれ以外(従来の翻訳単位すべて)の区別がある。</p>
+<p>モジュールユニットはさらにインターフェースと実装に分けられる。</p>
+<ul>
+<li>モジュールインターフェースユニット<br />
+    従来のヘッダーファイルに相当する翻訳単位(<code>#include</code>のようにソースファイルに展開されることはなく、単独で翻訳単位になる)。外部(別のモジュール)に公開したい宣言や定義を書く。</li>
+<li>モジュール実装ユニット<br />
+    従来のソースファイルに相当する翻訳単位。公開しない宣言や定義を書く。</li>
+</ul>
+<p>また、それぞれにモジュール本体とパーティションという区別がある。</p>
+<p>パーティションは、モジュールを構成するファイルをさらに分割するために使うもので、内部的には別モジュールのように見えるが、外部からは見えないファイルである。</p>
+<p>まとめると、以下のようになる。</p>
+<ul>
+<li>翻訳単位<ul>
+<li>モジュールユニット<ul>
+<li>モジュールインターフェースユニット<ul>
+<li>プライマリーモジュールインターフェース</li>
+<li>モジュールインターフェースパーティション</li>
+</ul>
+</li>
+<li>モジュール実装ユニット<ul>
+<li>モジュール本体の実装ユニット(特別な名称無し)</li>
+<li>モジュール実装パーティション</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>モジュールユニット以外(特別な名称無し)</li>
+</ul>
+</li>
+</ul>
+<h3>モジュール宣言</h3>
+<p>モジュール宣言の構文は以下のようになる：</p>
+<p><pre><code>export(opt) module モジュール名 :パーティション名(opt) 属性(opt);
+</code></pre></p>
+<ul>
+<li>モジュール宣言は翻訳単位あたり1回だけ、原則として翻訳単位の先頭に記述する。モジュール宣言を含む翻訳単位をモジュールユニットという。</li>
+<li><code>export</code>がある場合はモジュールインターフェースユニット、ない場合はモジュール実装ユニットになる。</li>
+<li>パーティション名がある場合はそれぞれモジュールインターフェースパーティション、モジュール実装パーティションになる。</li>
+</ul>
+<p>どのモジュールも、必ずただ1つのプライマリーモジュールインターフェースユニットを持たなければならない。
+それ以外のモジュールユニットの個数は任意である。ただし、パーティション名はモジュール内で重複してはならない。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">export</span> <span class="n">module</span> <span class="n">foo</span><span class="p">;</span>                <span class="c1">// fooのモジュールインターフェースユニット</span>
+<span class="n">module</span> <span class="n">foo</span><span class="p">;</span>                       <span class="c1">// fooのモジュール実装ユニット</span>
+<span class="n">module</span> <span class="n">foo</span><span class="p">.</span><span class="n">bar</span><span class="p">;</span>                   <span class="c1">// foo.barのモジュール実装ユニット</span>
+<span class="k">export</span> <span class="n">module</span> <span class="n">bar</span> <span class="p">[[</span><span class="n">deprecated</span><span class="p">]];</span> <span class="c1">// 属性</span>
+<span class="k">export</span> <span class="n">module</span> <span class="nl">lib</span><span class="p">:</span><span class="n">part</span><span class="p">;</span> <span class="c1">// libモジュールのモジュールインターフェースパーティションpart</span>
+<span class="n">module</span> <span class="nl">lib</span><span class="p">:</span><span class="n">internal</span><span class="p">;</span> <span class="c1">// libモジュールのモジュール実装パーティションinternal</span>
+</code></pre></div>
+</p>
+<p>次のモジュールAは4つの翻訳単位からなる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1103r3.pdf" target="_blank">P1103R3</a>より引用</span>
+<span class="c1">// 翻訳単位1 プライマリーモジュールインターフェースユニット</span>
+<span class="k">export</span> <span class="n">module</span> <span class="n">A</span><span class="p">;</span>
+<span class="k">export</span> <span class="nl">import</span> <span class="p">:</span><span class="n">Foo</span><span class="p">;</span>
+<span class="k">export</span> <span class="kt">int</span> <span class="nf">baz</span><span class="p">();</span>
+
+<span class="c1">// 翻訳単位2 モジュールインターフェースパーティション</span>
+<span class="k">export</span> <span class="n">module</span> <span class="nl">A</span><span class="p">:</span><span class="n">Foo</span><span class="p">;</span>
+<span class="nl">import</span> <span class="p">:</span><span class="n">Internals</span><span class="p">;</span>
+<span class="k">export</span> <span class="kt">int</span> <span class="nf">foo</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">bar</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> <span class="p">}</span>
+
+<span class="c1">// 翻訳単位3 モジュール実装パーティション</span>
+<span class="n">module</span> <span class="nl">A</span><span class="p">:</span><span class="n">Internals</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">bar</span><span class="p">();</span>
+
+<span class="c1">// 翻訳単位4 モジュール実装ユニット</span>
+<span class="n">module</span> <span class="n">A</span><span class="p">;</span>
+<span class="nl">import</span> <span class="p">:</span><span class="n">Internals</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">bar</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">baz</span><span class="p">()</span> <span class="o">-</span> <span class="mi">10</span><span class="p">;</span> <span class="p">}</span>
+<span class="kt">int</span> <span class="nf">baz</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">30</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div>
+</p>
+<p>モジュール宣言は1行で書く必要があり、プリプロセッサで生成してはならない。これは、<code>#if</code>などによる切り替え、<code>#include</code>、<code>#define</code>による置換などによるものを含む。後述のグローバルモジュールフラグメントを記述する場合を除き、モジュール宣言の前にトークンがあってはならない。</p>
+<h4>モジュール名の詳細</h4>
+<p>モジュール名は、識別子または識別子をドットで繋いだもの(例えば、<code>foo</code>や<code>std.core</code>)である。</p>
+<ul>
+<li><code>std</code>と<code>std</code>から始まるあらゆるモジュール名及び予約語を含むモジュール名は、今後の規格や処理系のために予約されているので、<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>のモジュール名として使うことはできない。</li>
+<li>モジュールの名前は、モジュールに属する型、関数などの名前とは無関係である。</li>
+<li>処理系の中には、モジュールユニットのファイル名とモジュール名が揃っていることを期待するものがある(そうでない場合は追加のコマンドラインオプションが必要になる)。</li>
+</ul>
+<p>モジュール名にはドットを使いたいが、一方で識別子にはドットが使えない。このような矛盾があるため、モジュール名にドットを使うとトークンが分割される。
+そのため、識別子の規則は分割されたそれぞれのトークンに適用される。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n">module</span> <span class="n">foo</span> <span class="p">.</span> <span class="n">bar</span><span class="p">;</span>              <span class="c1">// OK. 'foo.bar'と等しい</span>
+<span class="n">module</span> <span class="n">foo</span> <span class="p">.</span> <span class="cm">/*comment*/</span> <span class="n">bar</span><span class="p">;</span>  <span class="c1">// OK. 'foo.bar'と等しい</span>
+<span class="n">module</span> <span class="n">foo</span> <span class="p">.</span> <span class="p">.</span> <span class="n">bar</span><span class="p">;</span>            <span class="c1">// NG. ドットの間に識別子がない</span>
+<span class="n">module</span> <span class="n">_Foo</span><span class="p">.</span><span class="n">bar</span>                <span class="c1">// NG. 識別子'_Foo'は予約されている</span>
+<span class="n">module</span> <span class="n">foo__bar</span>                <span class="c1">// NG. 識別子'foo__bar'は予約されている</span>
+<span class="n">module</span> <span class="n">foo</span><span class="p">.</span><span class="n">__bar</span><span class="p">.</span><span class="n">baz</span>           <span class="c1">// NG. 識別子'__bar'は予約されている</span>
+<span class="n">module</span> <span class="n">foo</span><span class="p">.</span><span class="n">version</span><span class="mf">.0</span>           <span class="c1">// NG. 識別子の1文字目は数字にできない</span>
+</code></pre></div>
+</p>
+<h4>プライベートモジュールフラグメント</h4>
+<p>プライベートモジュールフラグメントは、1ファイルでモジュールを定義しつつインターフェースと実装を分離するための機能である。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">export</span> <span class="n">module</span> <span class="n">foo</span><span class="p">;</span>
+<span class="c1">// モジュールのインターフェース</span>
+<span class="nl">module</span> <span class="p">:</span><span class="k">private</span><span class="p">;</span>
+<span class="c1">// プライベートモジュールフラグメント</span>
+</code></pre></div>
+</p>
+<p>プライベートモジュールフラグメントを記述する場合、そのモジュールは翻訳単位(必然的にモジュールインターフェースユニット)を1つしか持つことができない。</p>
+<h4>グローバルモジュール</h4>
+<p>C++20では、名前のあるモジュールに属していない宣言はグローバルモジュールに属している。</p>
+<p>グローバルモジュールの性質は以下の通り。</p>
+<ul>
+<li>名前を持たず、インポートすることはできない。</li>
+<li>宣言をエクスポートすることはできない。</li>
+<li>モジュールインターフェースユニットを持つことはできない。</li>
+</ul>
+<p>グローバルモジュールとは、要するに従来通りの、モジュールではないコードのことである。C++20では、<code>main</code>関数はグローバルモジュールに属していなければならない。</p>
+<h4>グローバルモジュールフラグメント</h4>
+<p>モジュール宣言の前にグローバルモジュールの実装を書ける。これをグローバルモジュールフラグメントという。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n">module</span><span class="p">;</span>             <span class="c1">// グローバルモジュールフラグメントの宣言</span>
+
+<span class="cp">#include</span> <span class="cpf">"lib.h"</span><span class="cp"></span>
+
+<span class="k">export</span> <span class="n">module</span> <span class="n">foo</span><span class="p">;</span>  <span class="c1">// モジュールの宣言(この上の行までがグローバルモジュールフラグメント)</span>
+</code></pre></div>
+</p>
+<ul>
+<li>グローバルモジュールフラグメント内の宣言や定義は、後続のモジュールではなくグローバルモジュールに属する。</li>
+<li>グローバルモジュールフラグメントにはプリプロセッサディレクティブ以外を書くことはできない。</li>
+<li>グローバルモジュールフラグメント内の宣言は、後続のモジュールに属する宣言から参照されていない場合は、<strong>破棄</strong>(discard)される。</li>
+<li>グローバルモジュールフラグメントの宣言は1行で書く必要があり、プリプロセッサで生成してはならない。これは、<code>#if</code>などによる切り替え、<code>#include</code>、<code>#define</code>による置換などによるものを含む。グローバルモジュールフラグメントの前にトークンがあってはならない。</li>
+</ul>
+<h3>エクスポート</h3>
+<p>宣言の前に<code>export</code>キーワードを付加することでその宣言をエクスポートできる。</p>
+<p>エクスポート宣言はモジュールインターフェースユニット内の名前空間スコープで行える。ただし、以下の場所では不可。</p>
+<ul>
+<li>グローバルモジュールフラグメントの中</li>
+<li>プライベートモジュールフラグメントの中</li>
+<li>無名名前空間の中</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="k">export</span> <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>                      <span class="c1">// 変数のエクスポート</span>
+<span class="k">export</span> <span class="k">class</span> <span class="nc">x</span><span class="p">{</span> <span class="cm">/*...*/</span> <span class="p">};</span>         <span class="c1">// クラスのエクスポート</span>
+<span class="k">export</span> <span class="k">namespace</span> <span class="n">x</span> <span class="p">{</span> <span class="cm">/*...*/</span> <span class="p">}</span>     <span class="c1">// 名前空間のエクスポート</span>
+<span class="k">export</span> <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="n">foobar</span><span class="p">();</span> <span class="c1">// 関数テンプレートのエクスポート</span>
+</code></pre></div>
+</p>
+<p>エクスポートできるのは新たな名前を導入する宣言のみである。ただし、その名前は内部リンケージを持ってはいけない。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1103r3.pdf" target="_blank">P1103R3</a>より引用</span>
+<span class="k">export</span> <span class="n">module</span> <span class="n">M</span><span class="p">;</span>
+<span class="k">export</span> <span class="k">namespace</span> <span class="p">{}</span>       <span class="c1">// エラー: 新たな名前を宣言していない</span>
+<span class="k">export</span> <span class="k">namespace</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">a1</span><span class="p">;</span>                 <span class="c1">// エラー: 内部リンケージを持つ名前はエクスポートできない</span>
+<span class="p">}</span>
+<span class="k">namespace</span> <span class="p">{</span>
+  <span class="k">export</span> <span class="kt">int</span> <span class="n">a2</span><span class="p">;</span>          <span class="c1">// エラー: 内部リンケージを持つ名前はエクスポートできない</span>
+<span class="p">}</span>
+<span class="k">export</span> <span class="k">namespace</span> <span class="n">N</span> <span class="p">{</span>      <span class="c1">// OK</span>
+  <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>                  <span class="c1">// OK: エクスポートされる</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>  <span class="c1">// エラー: 新たな名前を宣言していない</span>
+<span class="p">}</span>
+<span class="k">export</span> <span class="k">static</span> <span class="kt">int</span> <span class="n">b</span><span class="p">;</span>      <span class="c1">// エラー: 明示的にstaticで宣言されている名前はエクスポートできない</span>
+<span class="k">export</span> <span class="kt">int</span> <span class="nf">f</span><span class="p">();</span>           <span class="c1">// OK</span>
+<span class="k">export</span> <span class="k">namespace</span> <span class="n">N</span> <span class="p">{</span> <span class="p">}</span>    <span class="c1">// OK</span>
+<span class="k">export</span> <span class="k">using</span> <span class="k">namespace</span> <span class="n">N</span><span class="p">;</span> <span class="c1">// エラー: 新たな名前を宣言していない</span>
+</code></pre></div>
+</p>
+<p>また、波カッコに<code>export</code>をつけることで、その中の宣言をまとめてエクスポートできる。</p>
+<ul>
+<li>この波カッコはスコープを作らない</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="k">export</span> <span class="p">{</span>
+  <span class="k">struct</span> <span class="n">Foo</span> <span class="p">{</span> <span class="cm">/*...*/</span> <span class="p">};</span>                           <span class="c1">// エクスポートされる</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_trivially_copyable_v</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">&gt;</span><span class="p">);</span> <span class="c1">// エラー: 新たな名前を宣言していない</span>
+  <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>                              <span class="c1">// エラー: 新たな名前を宣言していない</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>まとめると、次のような宣言はエクスポートされる。</p>
+<ul>
+<li>明示的にexport宣言されている宣言</li>
+<li>明示的にexport宣言されている名前空間の定義の中にある宣言</li>
+<li>エクスポートされる宣言を含む名前空間の定義</li>
+<li><code>export</code>ブロックの中にある宣言</li>
+</ul>
+<p>宣言は再宣言できるが、再宣言によってエクスポートの有無が変わることはない。すなわち、</p>
+<ul>
+<li>エクスポートされている宣言の再宣言は、暗黙的にエクスポートされる。</li>
+<li>エクスポートされていない宣言の再宣言をエクスポートすることはできない。</li>
+</ul>
+<p>エクスポートされる宣言が導入する名前は、そのモジュールからエクスポートされる。</p>
+<h4>モジュールリンケージ</h4>
+<p>C++20では、新たにモジュールリンケージが追加された。</p>
+<ul>
+<li>エクスポートしている名前は外部リンケージを持つ。</li>
+<li>名前のあるモジュールに属していてエクスポートしていない名前は、モジュールリンケージを持つ。</li>
+<li>モジュールリンケージを持つ名前は、同一モジュール内で参照できる。</li>
+</ul>
+<h3>インポート</h3>
+<p>インポート宣言は次のようになる：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">export</span><span class="p">(</span><span class="n">opt</span><span class="p">)</span> <span class="n">import</span> <span class="n">lib</span><span class="p">;</span> <span class="c1">// libのインポート</span>
+</code></pre></div>
+</p>
+<p>インポート宣言は、モジュールのインターフェースユニットをインポートする。</p>
+<ul>
+<li>モジュール本体の実装ユニットはプライマリーモジュールインターフェースユニットを暗黙的にインポートする。ソースファイルと同名のヘッダーファイルをインクルードすることは多いが、これを自動化したものである。</li>
+</ul>
+<p>インポートされた翻訳単位でエクスポートされている名前は、インポート宣言を記述した翻訳単位において<strong>可視</strong>(visible)となる。
+名前が可視であるとき、かつそのときに限り、名前は名前探索の候補となる。</p>
+<p>マクロや<code>using namespace</code>はエクスポートできないので、インポートによって取り込まれることはない。
+ヘッダーファイル中での <code>using namespace</code> はしばしば避けられるが、モジュールでは問題なく使うことができる。</p>
+<p>モジュールユニットの中では、インポート宣言はモジュールユニットの本体(グローバルモジュールフラグメントではない部分)の先頭で行わなければならない。</p>
+<p>インポート宣言は1行で書く必要があり、<code>import</code>キーワードや<code>export</code>キーワードをプリプロセッサで生成してはならない。また、モジュールユニット内では<code>#include</code>の結果としてインポート宣言を生成してはならない。</p>
+<h4>再エクスポート</h4>
+<p>インポート宣言に<code>export</code>キーワードを付けることで、モジュールを再エクスポートできる。</p>
+<p>モジュールをインポートすると、そのモジュールが再エクスポートしているモジュールも同時にインポートする。再エクスポートは、モジュールインターフェースでしかできない。</p>
+<h4>パーティションのインポート</h4>
+<p>パーティションは内部的には別のモジュールのように振る舞うので、パーティション内の宣言などを利用するにはインポートが必要である。</p>
+<p>パーティションは主となるモジュールが異なる場合はインポートできないので、間違いのないように、インポート宣言にはモジュールパーティション名だけを書く。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">export</span> <span class="n">module</span> <span class="n">datetime</span><span class="p">;</span>
+<span class="k">export</span> <span class="nl">import</span> <span class="p">:</span><span class="n">date</span><span class="p">;</span> <span class="c1">// インターフェースパーティション date をインポート</span>
+<span class="k">export</span> <span class="nl">import</span> <span class="p">:</span><span class="n">time</span><span class="p">;</span> <span class="c1">// インターフェースパーティション time をインポート</span>
+</code></pre></div>
+</p>
+<p>モジュールインターフェースパーティションはモジュールインターフェースを分割するものなので、内部の宣言を外へ公開しなければ意味がない。そのため、モジュールインターフェースパーティションのインポート宣言は必ず再エクスポートしなければならない。</p>
+<ul>
+<li>パーティション内の宣言はエクスポートしていなくても見える</li>
+<li>ただし、再エクスポートされるのはパーティションがエクスポートしている宣言のみ</li>
+</ul>
+<h4>インターフェース依存</h4>
+<p>翻訳単位がモジュールユニットUに<strong>インターフェース依存</strong>(interface dependency)を持つとは、次のことをいう：</p>
+<ul>
+<li>Uをインポートするモジュールインポート宣言か、Uを暗黙的にインポートするモジュール宣言を含む</li>
+<li>または、Uにインターフェース依存を持つモジュールユニットに対してインターフェース依存を持つ(推移律)</li>
+</ul>
+<p>翻訳単位は、自分自身に対してインターフェース依存を持ってはならない(インターフェース依存関係は循環しない)。</p>
+<h4>到達可能性</h4>
+<p>C++20では、翻訳単位と宣言に対して到達可能という用語を使うようになった。</p>
+<p>翻訳単位Uがプログラムの点Pから<strong>必然的に到達可能</strong>(necessarily reachable) とは、次のことをいう：</p>
+<ul>
+<li>Uがモジュールインターフェースユニットであり、点Pを含む翻訳単位が点Pに先立ってUにインターフェース依存を持っている</li>
+<li>または、点Pを含む翻訳単位が点Pに先立ってUをインポートしている</li>
+</ul>
+<p>点Pから<strong>到達可能</strong>(reachable)な翻訳単位とは、次のものをいう：</p>
+<ul>
+<li>点Pから必然的に到達可能な翻訳単位</li>
+<li>その他、点Pを含む翻訳単位がインターフェース依存を持つ翻訳単位であって、処理系が規定するもの</li>
+</ul>
+<p>宣言Dが点Pから到達可能とは、次のことをいう</p>
+<ul>
+<li>DがPと同じ翻訳単位にあり、Pに先立って宣言されている</li>
+<li>または、DがPから到達可能な翻訳単位にあって、破棄(discard)されておらず、プライベートモジュールフラグメント内にもない</li>
+</ul>
+<p>C++20までは到達可能という用語はなかったが、前者の条件を満たす宣言だけが参照できていた。
+宣言が到達可能であるとき、かつそのときに限り、宣言の意味論的な性質(semantic property)を利用できる。</p>
+<p>例えば、クラス定義はクラスの完全性という性質を持っている。クラス定義が到達可能であるときそのクラスは完全である。</p>
+<p>エクスポートの有無とは関係なく、モジュールをインポートしただけでインターフェース依存が発生し、そのモジュールインターフェースユニットおよびその中の宣言へ到達可能となる。</p>
+<h3>モジュールにおけるODR</h3>
+<p>同じトークン列であれば再定義しても良いというODRの<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>は、その定義が名前のあるモジュールに属する場合は適用されない。</p>
+<p>この<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>はヘッダーファイルにクラス定義などを書いてインクルードした際にODR違反にならないための規定である。
+モジュールを定義する場合はヘッダーファイルは使わないから、実質的な影響はない。</p>
+<p>複数のモジュールが<code>#include</code>で同じ宣言を取り込んだ場合はODR違反となってしまうので、基本的に名前のあるモジュールの本体で<code>#include</code>を使用してはならない。</p>
+<p>モジュールユニットの中で<code>#include</code>を使用したい場合、グローバルモジュールフラグメント内で行えば従来通りにODRの<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>となる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n">module</span><span class="p">;</span>             <span class="c1">// グローバルモジュールフラグメントの宣言</span>
+
+<span class="cp">#include</span> <span class="cpf">"lib.h"    // "lib.h"中の宣言はグローバルモジュールに属する(ODRの例外が有効)。</span><span class="cp"></span>
+
+<span class="k">export</span> <span class="n">module</span> <span class="n">foo</span><span class="p">;</span>  <span class="c1">// モジュールの宣言(この上の行までがグローバルモジュールフラグメント)</span>
+
+<span class="cp">#include</span> <span class="cpf">"lib.h"    // "lib.h"中の宣言がモジュールfooに含まれてしまう(ODRの例外なし = ODR違反の可能性大)。</span><span class="cp"></span>
+</code></pre></div>
+</p>
+<h3>ヘッダーユニット</h3>
+<p>一部のヘッダーファイルは、モジュールとしてインポートすることができる。この機能およびヘッダーファイルから生成される翻訳単位をヘッダーユニットという。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n">import</span> <span class="o">&lt;</span><span class="n">foo</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// foo.hをヘッダーユニットとしてインポート</span>
+</code></pre></div>
+</p>
+<p>ただし、インポートできるヘッダーファイル(インポータブルヘッダー)は以下のものに限られる。</p>
+<ul>
+<li>C++ライブラリヘッダー(<a href="../../reference.html">C++標準ライブラリヘッダー</a>のうち、<a href="../../reference.html#clib-facilities">C言語標準ライブラリヘッダーに由来するもの</a>(<code>&lt;cstdio&gt;</code>など)以外)</li>
+<li>その他、<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>のヘッダー</li>
+</ul>
+<p>ヘッダーユニットをインポートしてもその内容が展開されることはないが、ヘッダーユニット内のマクロが使えるようになる。これにより<code>#include</code>とほぼ同じ効果が得られる。</p>
+<p>プリプロセッサは、非モジュールユニットに現れるインポータブルヘッダーに対する<code>#include</code>ディレクティブを<code>import</code>宣言に置換してもよいことになっている。モジュールユニットにおいては、明示的に<code>import</code>宣言をするほうがよい。</p>
+<p>ヘッダーユニットとなるヘッダーファイル自体はモジュール宣言を持てないし、<code>export</code>宣言もできない。</p>
+<p>ヘッダーユニット内の宣言はすべてグローバルモジュールに属し、名前を導入する宣言ならば暗黙的にエクスポートされる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1103r3.pdf" target="_blank">P1103R3</a>より引用</span>
+<span class="c1">// a.h</span>
+<span class="cp">#define X 123 </span><span class="c1">// #1</span>
+<span class="cp">#define Y 45  </span><span class="c1">// #2</span>
+<span class="cp">#define Z a   </span><span class="c1">// #3</span>
+<span class="cp">#undef  X      </span><span class="c1">// a.hではここで#1が無効になる</span>
+
+<span class="c1">// b.h</span>
+<span class="n">import</span> <span class="s">"a.h"</span><span class="p">;</span> <span class="c1">// b.hではここで#1, #2, #3が定義され、#1が無効になる</span>
+<span class="cp">#define X 456 </span><span class="c1">// OK: #1で定義したXはすでに無効</span>
+<span class="cp">#define Y 6   </span><span class="c1">// エラー: #2で定義したYが有効</span>
+
+<span class="c1">// c.h</span>
+<span class="cp">#define Y 45  </span><span class="c1">// #4</span>
+<span class="cp">#define Z c   </span><span class="c1">// #5</span>
+
+<span class="c1">// d.h</span>
+<span class="n">import</span> <span class="s">"a.h"</span><span class="p">;</span> <span class="c1">// d.hではここで#1, #2, #3が定義され、#1が無効になる</span>
+<span class="n">import</span> <span class="s">"c.h"</span><span class="p">;</span> <span class="c1">// d.hではここで#4, #5が定義される</span>
+<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Y</span><span class="p">;</span>    <span class="c1">// OK: #4は#2と同じ</span>
+<span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Z</span><span class="p">;</span>    <span class="c1">// エラー: #5は#3を異なる値で再定義している</span>
+</code></pre></div>
+</p>
+<p>ヘッダーユニットは再エクスポートできるが、ヘッダーユニットを間接的にインポートした場合はマクロはインポートされない。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// lib.h</span>
+<span class="kr">inline</span> <span class="kt">int</span> <span class="nf">f</span><span class="p">(){</span> <span class="k">return</span> <span class="n">NUM</span><span class="p">;</span> <span class="p">}</span>
+<span class="cp">#define NUM 1000</span>
+
+<span class="c1">// lib_mod.cpp</span>
+<span class="c1">// lib.h中の宣言をすべてエクスポートするモジュールlib</span>
+<span class="k">export</span> <span class="n">module</span> <span class="n">lib</span><span class="p">;</span>
+<span class="k">export</span> <span class="n">import</span> <span class="s">"lib.h"</span><span class="p">;</span>
+
+<span class="c1">// main.cpp</span>
+<span class="n">import</span> <span class="n">lib</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="mi">1</span> <span class="o">+</span> <span class="n">f</span><span class="p">();</span> <span class="c1">// OK</span>
+  <span class="mi">1</span> <span class="o">+</span> <span class="n">NUM</span><span class="p">;</span> <span class="c1">// エラー: マクロは再エクスポートしても引き継がれない</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h4>includeとの違い</h4>
+<p>ヘッダーユニットをインポートすると以下のことが起こる。</p>
+<ul>
+<li>ヘッダーファイルを翻訳フェーズ7までコンパイルし、その翻訳単位(ヘッダーユニット)をインポートする。</li>
+<li>さらに、ヘッダーファイルの翻訳フェーズ4終了時点で定義されていたマクロがインポート宣言の直後で宣言される。この処理はプリプロセッサで行われる。</li>
+</ul>
+<p>ヘッダーファイルが新たな翻訳単位としてコンパイルされる点が従来の <code>#include</code> とは異なる。
+ヘッダーユニット内のマクロはインポートできるが、逆は起こらない。すなわち、<code>import</code>を書いた翻訳単位におけるプリプロセッサの状態がヘッダーユニット内に影響を与えることはない。</p>
+<h4>ヘッダーユニットが必要になった背景・経緯</h4>
+<p>単にヘッダーファイルを使いたいだけであれば、グローバルモジュールフラグメント内でインクルードできる。</p>
+<p>しかし、処理系はヘッダーファイルをインポータブルヘッダーに指定することで、それらに対する <code>#include</code> を <code>import</code> に置き換えることができる。</p>
+<p>プログラム全体であるヘッダーファイルに対する <code>#include</code> が <code>import</code> に置き換わった場合、そのヘッダーファイルは1回しかコンパイルされなくなり、コンパイル時間の短縮につながる可能性がある。このように、C++20としてコンパイルするだけで従来のコードでも恩恵を得ることができる。</p>
+<p>言語機能としてのモジュールが導入されても、すでにあるコードがリファクタリングされモジュールにまとめられるには長い時間がかかるため、過渡期においてヘッダーユニットは役に立つ。</p>
+<h2>ビルド</h2>
+<p>プログラムのビルドは規格の範囲外なので、ここでは一般論を述べる。</p>
+<p>モジュールをコンパイルすると、何らかの中間表現(コンパイル済みモジュール)が保存される。</p>
+<ul>
+<li>テンプレートはテンプレートのまま（実体化することなく）エクスポートできるので、中間表現は機械語ではなく、いわゆるプリコンパイルドヘッダーと似たようなものにならざるを得ない。</li>
+<li>モジュールAをインポートするプログラムをコンパイルするには、モジュールAのコンパイル済みモジュールが存在しなければならない。</li>
+<li>モジュールAをインポートするプログラムをリンクするには、モジュールAに関するモジュールユニットから生成されるオブジェクトファイル、ライブラリなどを別途リンクしなければならない。</li>
+</ul>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>プリプロセッサによるインクルードは、ヘッダーファイルの内容をその場に展開する。
+これには次のような問題が指摘されてきた。</p>
+<ol>
+<li>コンパイル時間が長くなる<ul>
+<li>ヘッダーファイルの内容が再帰的に展開され、プログラムが長くなる（Hello worldだけでも数万行に達する）</li>
+<li>さらに、展開が翻訳単位ごとに行われるので、全体で見ると同じヘッダーファイルが何度も解析される</li>
+</ul>
+</li>
+<li>プリプロセッサの状態により、インクルードの結果が変わってしまう<ul>
+<li>インクルードの順番によってエラーが起きることがあった。</li>
+</ul>
+</li>
+<li>ヘッダーファイル内の記述の影響を受けすぎる<ul>
+<li>影響が大きいため、ヘッダーファイル内に書くことがためらわれる記述があった。</li>
+<li><code>using namespace</code>やマクロ(例えばWindowsにおける<code>max</code>)など。</li>
+</ul>
+</li>
+</ol>
+<p>モジュールは、以上のような問題のないプログラム分割の仕組みとして導入された。</p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><a href="../cpp23/meaningful_exports.html">C++23 無意味なexport宣言を禁止する</a></li>
+<li><a href="../cpp26/module_declarations_shouldnt_be_macros.html">C++26 モジュール宣言でのモジュール名のマクロ展開を禁止する</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://onihusube.hatenablog.com/entry/2021/05/28/214612" target="_blank">［C++］C++20モジュールの変遷 - Module TSからC++20DISまで - 地面を見下ろす少年の足蹴にされる私</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1103r3.pdf" target="_blank">P1103R3 Merging Modules</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1502r1.html" target="_blank">P1502R1
+Standard library header units for C++20</a><br />
+  C++ライブラリヘッダーはインポータブルヘッダーとなった。</li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1703r1.html" target="_blank">P1703R1 Recognizing Header Unit Imports Requires Full Preprocessing</a><br />
+  ヘッダーユニットのインポート宣言について、書き方が<code>#include</code>と同程度まで制限された。</li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1766r1.html" target="_blank">P1766R1
+Mitigating minor modules maladies</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1811r0.html#problem" target="_blank">P1811R0
+Relaxing redefinition restrictions for re-exportation robustness</a><br />
+  同時に到達可能とならなければODR違反にならないという仕様が削除された。また、インポータブルヘッダーの<code>#include</code>を<code>import</code>に置き換えるかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>となった。</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

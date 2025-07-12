@@ -1,0 +1,567 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>concepts - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,concepts,cpp20
+">
+        <meta name="title" content="concepts - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="concepts - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="concepts - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/concepts.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="concepts - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/concepts.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;concepts&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;concepts&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">concepts</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-09-03T06:17:49">
+        2024年09月03日 06時17分49秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/concepts.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/concepts.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="header">&lt;concepts&gt;</div><h1 itemprop="name"><span class="token">concepts</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><h2>概要</h2>
+<p><code>&lt;concepts&gt;</code>ヘッダでは基礎的なコンセプトの実装を提供する。これらのコンセプトは標準ライブラリでも使用される。</p>
+<p>本ヘッダはフリースタンディング環境でも提供される。</p>
+<h2>暗黙の意味論的な制約</h2>
+<h3>等しさの保持（<em>equality preservation</em>）</h3>
+<p>ある式への等しい入力によって等しい出力が得られる時、その式は <strong>等しさを保持</strong> している。入力とはその式に与えられた全ての引数（オペランド）であり、出力とはその式の結果およびその式によって変更された全ての引数のこと。</p>
+<p>また、必ずしも入力の個別の値が全てその式にとって有効である必要はない。例えば、整数に対する<code>a / b</code>という式は等しさを保持するが、<code>b = 0</code>の時この式は有効ではない。しかし、このことは式<code>a / b</code>が等しさを保持することを妨げない。<br />
+式への入力のうちこのような有効ではない値を除いたものをその式の <strong>定義域（<em>domain</em>）</strong> と呼ぶ。</p>
+<p>等しさを保持する式はさらに <strong>安定（<em>stable</em>）</strong> でなければならない。式が安定であるとは、その式への同じオブジェクトの入力は、そのオブジェクトの明示的な変更が介在しない限りは常に同じ出力が得られることである。<br />
+式が安定であれば、あるオブジェクトの現在の値についてのことを、等しさを保持する式を介して観測した以前の値についての情報から推察することができる。</p>
+<p>つまりこれらの事は、式が引数と結果以外に副作用を及ぼさず、式内部に状態を持たず、式の実行にはその外部からの影響がないことを要求している。</p>
+<p>そして、C++標準において<code>requires</code>式で使用される全ての式は等しさを保持し安定でなければならない。この事は、場合によっては間接的にユーザーコードに対しても要求される。ただし、「等しさを保持することを要求しない」などと明記されている場合にはその必要はない。</p>
+<h3>式の入力への副作用</h3>
+<p>C++標準で定義される<code>requires</code>式では、それぞれの制約式への入力が（その制約式が実際に実行された場合に）変更されるかどうかを<code>requires</code>式のローカルパラメータの<code>const</code>修飾によって表現する。別に記載のある場合を除いて、<code>const</code>修飾のない左辺値・右辺値のローカルパラメータは変更しても良く変更されうる事を、<code>const</code>修飾されたパラメータは変更してはならず変更されない事を表明する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">C1</span> <span class="o">=</span> <span class="n">requires</span><span class="p">(</span><span class="n">T</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">a</span> <span class="o">+</span> <span class="n">a</span><span class="p">;</span>  <span class="c1">// C1コンセプトを満たす型はこの式の実行においてその引数を変更しても良い</span>
+<span class="p">};</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">C2</span> <span class="o">=</span> <span class="n">requires</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">a</span> <span class="o">+</span> <span class="n">a</span><span class="p">;</span>  <span class="c1">// C2コンセプトを満たす型はこの式の実行においてその引数を変更してはならない</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<p>これによって各制約式では、型パラメータが<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>されない非配列のオブジェクト型であると仮定することで、それぞれの引数の値カテゴリと<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>を確定することができる。</p>
+<h3>暗黙的な式のバリエーション（<em>implicit expression variations</em>）</h3>
+<p><code>requires</code>式において定数左辺値としてローカルパラメータを宣言する場合、それぞれの制約式にはそのパラメータを受け取る位置に非定数左辺値や（定数）右辺値を受け入れる暗黙的な式のバリエーションが要求される。ただし、このような暗黙的な式のバリエーション（のいずれか）が異なる意味論を持ち、明示的に記述される場合を除く。</p>
+<p>この暗黙的な式のバリエーションは各制約式の意味論的な要件を満たすために必要である。ただし、実装が各バリエーションをどこまで構文的に検証するかについては<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// このCコンセプトは</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">C</span> <span class="o">=</span> <span class="n">requires</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span> <span class="n">a</span><span class="p">,</span> <span class="n">T</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// 以下のようなバリエーションが全て有効であることを暗黙的に要求している（実際にこのように検証されるかは未規定）</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">C</span> <span class="o">=</span>
+  <span class="n">requires</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span> <span class="n">a</span><span class="p">,</span> <span class="n">T</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="p">}</span> <span class="o">&amp;&amp;</span>
+  <span class="n">requires</span><span class="p">(</span><span class="n">T</span> <span class="n">a</span><span class="p">,</span> <span class="n">T</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span> <span class="p">}</span> <span class="o">&amp;&amp;</span>
+  <span class="n">requires</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="n">T</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span> <span class="p">}</span> <span class="o">&amp;&amp;</span>
+  <span class="n">requires</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="n">T</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span> <span class="p">};</span>
+</code></pre></div>
+</p>
+<h2>コンセプトのモデル</h2>
+<p>型<code>T</code>があるコンセプト<code>C</code>の構文的な制約（コンセプト定義内の各制約式）を全て満足しそれら制約式の追加の暗黙の意味論的な制約（等しさの保持、安定、入力への副作用の要求および暗黙的な式のバリエーション）についても全て満足していて、<code>C</code>に追加で要求されている意味論的な制約（モデルとなる条件）を全て満足するとき、そのような型<code>T</code>はコンセプト<code>C</code>の <strong>モデル（<em>model</em>）</strong> である。</p>
+<p>モデルとなるための意味論的な制約は文書で指定されているのみであり、通常何らかのチェックは行われない。しかし、標準ライブラリの<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a>などにおいて入力に対してあるコンセプトのモデルである事を要求する場合、モデルとならない型の入力は<a class="cpprefjp-defined-word" data-desc="処理系は規則違反に対してエラーメッセージや警告を出さないかもしれない" href="../implementation-compliance.html#dfn-no-diagnostic-required">診断不要</a>の<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こす。</p>
+<p>本サイトでは、型がコンセプトのモデルとなるための条件をそのコンセプトの構文的な制約条件とは分けて「モデル」という項に記載する。</p>
+<h2>型の関係</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="concepts/same_as.html">same_as</a></code></td>
+<td>2つの型が同じ</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="concepts/derived_from.html">derived_from</a></code></td>
+<td>継承関係にある</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="concepts/convertible_to.html">convertible_to</a></code></td>
+<td>変換可能</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="concepts/common_reference_with.html">common_reference_with</a></code></td>
+<td>共通の参照型</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="concepts/common_with.html">common_with</a></code></td>
+<td>共通の型</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>型の種類</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="concepts/integral.html">integral</a></code></td>
+<td>整数型</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="concepts/signed_integral.html">signed_integral</a></code></td>
+<td>符号付き整数型</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="concepts/unsigned_integral.html">unsigned_integral</a></code></td>
+<td>符号なし整数型</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="concepts/floating_point.html">floating_point</a></code></td>
+<td>浮動小数点数型</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>型の構築・破棄・代入操作</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="concepts/constructible_from.html">constructible_from</a></code></td>
+<td>構築可能</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="concepts/default_initializable.html">default_initializable</a></code></td>
+<td><a class="cpprefjp-defined-word" data-desc="デフォルト初期化。`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト構築</a>可能</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="concepts/copy_constructible.html">copy_constructible</a></code></td>
+<td>コピー構築可能</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="concepts/move_constructible.html">move_constructible</a></code></td>
+<td>ムーブ構築可能</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="concepts/destructible.html">destructible</a></code></td>
+<td>破棄可能</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="concepts/assignable_from.html">assignable_from</a></code></td>
+<td>代入可能</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="concepts/swappable.html">swappable</a></code></td>
+<td>入れ替え可能</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="concepts/swappable.html">swappable_with</a></code></td>
+<td>特定の型と入れ替え可能</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>比較</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="concepts/equality_comparable.html">equality_comparable</a></code></td>
+<td>等値比較可能</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="concepts/equality_comparable.html">equality_comparable_with</a></code></td>
+<td>特定の型と等値比較可能</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="concepts/totally_ordered.html">totally_ordered</a></code></td>
+<td>狭義の全順序による比較が可能</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="concepts/totally_ordered.html">totally_ordered_with</a></code></td>
+<td>特定の型と狭義の全順序による比較が可能</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>値指向の操作</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="concepts/movable.html">movable</a></code></td>
+<td>ムーブ可能</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="concepts/copyable.html">copyable</a></code></td>
+<td>コピー可能</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="concepts/semiregular.html">semiregular</a></code></td>
+<td>半正則</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="concepts/regular.html">regular</a></code></td>
+<td>正則</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>関数呼び出し</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="concepts/invocable.html">invocable</a></code></td>
+<td>INVOKEコンセプトに従った関数呼び出しが可能</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="concepts/invocable.html">regular_invocable</a></code></td>
+<td>正則呼び出し可能</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="concepts/predicate.html">predicate</a></code></td>
+<td><a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a></td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="concepts/relation.html">relation</a></code></td>
+<td>二項関係</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="concepts/equivalence_relation.html">equivalence_relation</a></code></td>
+<td>同値関係</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="concepts/strict_weak_order.html">strict_weak_order</a></code></td>
+<td>狭義の弱順序</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2><a class="cpprefjp-defined-word" data-desc="プログラム定義型に対するオーバーロードが許されている標準関数名について、中でいい感じにオーバーロード解決して呼び出してくれる関数オブジェクト">カスタマイゼーションポイントオブジェクト</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="concepts/swap.html">ranges::swap</a></code></td>
+<td>任意の2つのオブジェクトを入れ替える</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>そのうちどこかに移動するページ</h2>
+<p>以下は、ライブラリとして提供はされていない要件をまとめる。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="concepts/Callable.html">Callable</a></code></td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="concepts/Invoke.html">INVOKE</a></code></td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="concepts/LessThanComparable.html">LessThanComparable</a></code></td>
+<td>小なり比較可能</td>
+</tr>
+<tr>
+<td><code><a href="concepts/ValueSwappable.html">ValueSwappable</a></code></td>
+<td>間接参照して入れ替え可能</td>
+</tr>
+<tr>
+<td><code><span href="https://cpprefjp.github.io/reference/concepts/CopyAssignable.md.nolink">CopyAssignable</span></code></td>
+<td>コピー代入可能</td>
+</tr>
+<tr>
+<td><code><span href="https://cpprefjp.github.io/reference/concepts/MoveAssignable.md.nolink">MoveAssignable</span></code></td>
+<td>ムーブ代入可能</td>
+</tr>
+</tbody>
+</table>
+<h2>関連項目</h2>
+<ul>
+<li><a href="../lang/cpp20/concepts.html">C++20 コンセプト</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://yohhoy.hatenadiary.jp/entry/20190826/p1" target="_blank">C++標準コンセプトの名前付けガイドライン - yohhoyの日記</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0898r3.pdf" target="_blank">P0898R3 Standard Library Concepts</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1754r1.pdf" target="_blank">P1754R1 Rename concepts to standard_case for C++20, while we still can</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2101r0.html" target="_blank">P2101R0 “Models” subsumes “satisfies” (Wording for US298 and US300)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2102r0.html" target="_blank">P2102R0 Make “implicit expression variations” more explicit (Wording for US185)</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

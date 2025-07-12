@@ -1,0 +1,292 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>パラメータパックへのインデックスアクセスを許可 [P2662R3] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp26
+">
+        <meta name="title" content="パラメータパックへのインデックスアクセスを許可 [P2662R3] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="パラメータパックへのインデックスアクセスを許可 [P2662R3] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="パラメータパックへのインデックスアクセスを許可 [P2662R3] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp26/pack_indexing.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="C++26では、可変引数テンプレートのパラメータパックに対してインデックスアクセスを行う添字構文が導入される。この機能により、パラメータパックの特定の要素に直接アクセスできるようになる。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="パラメータパックへのインデックスアクセスを許可 [P2662R3] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp26/pack_indexing.html" />
+        <meta name="twitter:description" content="C++26では、可変引数テンプレートのパラメータパックに対してインデックスアクセスを行う添字構文が導入される。この機能により、パラメータパックの特定の要素に直接アクセスできるようになる。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;3e8ae98ac6628f0d06d67779f0c6b4b8b7c31716&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;utility&gt;\n#include &lt;tuple&gt;\n\ntemplate &lt;int I, typename... Args&gt;\nvoid print_nth(Args&amp;&amp;... args) {\n  // C++23\u5b9f\u88c5 : \u30bf\u30d7\u30eb\u306b\u5909\u63db\u3057\u3066\u304b\u3089I\u756a\u76ee\u306e\u8981\u7d20\u3092\u53c2\u7167\u3059\u308b\n  // auto value = std::get&lt;I&gt;(std::forward_as_tuple(std::forward&lt;Args&gt;(args)...));\n\n  // C++26\u5b9f\u88c5 : \u6dfb\u5b57\u69cb\u6587\u3067I\u756a\u76ee\u306e\u8981\u7d20\u3092\u53c2\u7167\u3059\u308b\n  auto value = args...[I];\n\n  std::cout &lt;&lt; value &lt;&lt; std::endl;\n}\n\nint main() {\n  print_nth&lt;2&gt;(\&#34;A\&#34;, \&#34;B\&#34;, \&#34;C\&#34;, \&#34;D\&#34;); // \u51fa\u529b: C\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp26&#34;, &#34;pack_indexing&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp26.html" itemprop="url">
+              
+                <span itemprop="name">C++26</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">パラメータパックへのインデックスアクセスを許可 [P2662R3]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-05-12T05:52:31">
+        2025年05月12日 05時52分31秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp26/pack_indexing.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp26/pack_indexing.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">パラメータパックへのインデックスアクセスを許可 [P2662R3]</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++26に採用される見込みの言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>C++26では、可変引数テンプレートのパラメータパックに対してインデックスアクセスを行う添字構文が導入される。この機能により、パラメータパックの特定の要素に直接アクセスできるようになる。</p>
+<p>これにより、従来の再帰的テンプレートメタプログラミングやタプルの<code><a href="../../reference/tuple/tuple/get.html">std::get()</a></code>などを使用する必要がなくなり、コードの簡潔さと可読性が向上する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="k">auto</span> <span class="n">first_plus_last</span><span class="p">(</span><span class="n">T</span><span class="p">...</span> <span class="n">values</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">...[</span><span class="mi">0</span><span class="p">]</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">T</span><span class="p">...[</span><span class="mi">0</span><span class="p">](</span><span class="n">values</span><span class="p">...[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">values</span><span class="p">...[</span><span class="k">sizeof</span><span class="p">...(</span><span class="n">values</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">//first_plus_last(); // コンパイルエラー！</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n">first_plus_last</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">11</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>パラメータパックへのインデックスアクセスは、値のパラメータパック、および型のパラメータパックどちらに対しても使用できる。</p>
+<p>インデックスが範囲外の場合、コンパイルエラーとなる。</p>
+<h2>例</h2>
+<h3>N番目の要素を取得する</h3>
+<p><div class="yata" id="3e8ae98ac6628f0d06d67779f0c6b4b8b7c31716"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/tuple.html">&lt;tuple&gt;</a></span><span class="cp"></span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">I</span><span class="p">,</span> <span class="k">typename</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">print_nth</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// C++23実装 : タプルに変換してからI番目の要素を参照する</span>
+  <span class="c1">// auto value = <a href="../../reference/tuple/tuple/get.html">std::get</a>&lt;I&gt;(<a href="../../reference/tuple/forward_as_tuple.html">std::forward_as_tuple</a>(<a href="../../reference/utility/forward.html">std::forward</a>&lt;Args&gt;(args)...));</span>
+
+  <span class="c1">// C++26実装 : 添字構文でI番目の要素を参照する</span>
+  <span class="k">auto</span> <span class="n">value</span> <span class="o">=</span> <span class="n">args</span><span class="p">...[</span><span class="n">I</span><span class="p">];</span>
+
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">print_nth</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"A"</span><span class="p">,</span> <span class="s">"B"</span><span class="p">,</span> <span class="s">"C"</span><span class="p">,</span> <span class="s">"D"</span><span class="p">);</span> <span class="c1">// 出力: C</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>C
+</code></pre></p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><a href="../cpp11/variadic_templates.html">C++11 可変引数テンプレート</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2662r3.pdf" target="_blank">P2662R3 Pack Indexing</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

@@ -1,0 +1,600 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>match_results - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,regex,std,class template,cpp11
+">
+        <meta name="title" content="match_results - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="match_results - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="match_results - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/regex/match_results.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`match_results` は正規表現によるマッチ結果を格納するコンテナである。コンテナの要素はマッチ結果を表すサブマッチ（[`sub_match`](sub_match.md)）である。  " />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="match_results - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/regex/match_results.html" />
+        <meta name="twitter:description" content="`match_results` は正規表現によるマッチ結果を格納するコンテナである。コンテナの要素はマッチ結果を表すサブマッチ（[`sub_match`](sub_match.md)）である。  " />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;regex&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;abe62a5cb45d08a6b87f70033b74da639d335e90&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;regex&gt;\n\nint main()\n{\n  const char s[] = \&#34;The C++11 is very cool!!\&#34;;\n  const std::regex re(\&#34;(\\\\w+) is (\\\\w+)\&#34;);\n\n  std::cmatch m;\n  if (std::regex_search(s, m, re)) {\n    std::cout &lt;&lt; \&#34;ready = \&#34; &lt;&lt; std::boolalpha &lt;&lt; m.ready() &lt;&lt; \&#34;, empty = \&#34; &lt;&lt; m.empty() &lt;&lt; std::endl &lt;&lt; std::endl;\n    std::cout &lt;&lt; \&#34;prefix:&#39;\&#34; &lt;&lt; m.prefix() &lt;&lt; &#39;\\&#39;&#39; &lt;&lt; std::endl;\n    for (std::size_t i = 0, n = m.size(); i &lt; n; ++i) {\n      std::cout &lt;&lt; i &lt;&lt; \&#34;:&#39;\&#34; &lt;&lt; m.str(i) &lt;&lt; \&#34;\\&#39;, position = \&#34; &lt;&lt; m.position(i) &lt;&lt; \&#34;, length = \&#34; &lt;&lt; m.length(i) &lt;&lt; std::endl;\n    }\n    std::cout &lt;&lt; \&#34;suffix:&#39;\&#34; &lt;&lt; m.suffix() &lt;&lt; &#39;\\&#39;&#39; &lt;&lt; std::endl &lt;&lt; std::endl;\n    std::cout &lt;&lt; m.format(\&#34;$`14 is $2$&#39;\&#34;) &lt;&lt; std::endl;\n  } else {\n    std::cout &lt;&lt; \&#34;not match\&#34; &lt;&lt; std::endl;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;regex&#34;, &#34;match_results&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/regex.html" itemprop="url">
+              
+                <span itemprop="name">regex</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">match_results</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-07-18T16:39:47">
+        2024年07月18日 16時39分47秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/regex/match_results.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/regex/match_results.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;regex&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">match_results</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">BidirectionalIterator</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Allocator</span> <span class="o">=</span> <span class="n"><a href="../memory/allocator.html">allocator</a></span><span class="o">&lt;</span><span class="n"><a href="sub_match.html">sub_match</a></span><span class="o">&lt;</span><span class="n">BidirectionalIterator</span><span class="o">&gt;&gt;&gt;</span>
+  <span class="k">class</span> <span class="nc">match_results</span><span class="p">;</span>
+
+  <span class="k">using</span> <span class="n">cmatch</span>  <span class="o">=</span> <span class="n">match_results</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">char</span><span class="o">*&gt;</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">wcmatch</span> <span class="o">=</span> <span class="n">match_results</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">wchar_t</span><span class="o">*&gt;</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">smatch</span>  <span class="o">=</span> <span class="n">match_results</span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">string</a></span><span class="o">::</span><span class="n">const_iterator</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">wsmatch</span> <span class="o">=</span> <span class="n">match_results</span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">wstring</a></span><span class="o">::</span><span class="n">const_iterator</span><span class="o">&gt;</span><span class="p">;</span>
+
+
+  <span class="k">namespace</span> <span class="n">pmr</span> <span class="p">{</span>  <span class="c1">// C++17から</span>
+    <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">BidirectionalIterator</span><span class="o">&gt;</span>
+      <span class="k">using</span> <span class="n">match_results</span> <span class="o">=</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">match_results</span><span class="o">&lt;</span><span class="n">BidirectionalIterator</span><span class="p">,</span>
+                           <span class="n"><a href="../memory_resource/polymorphic_allocator.html">polymorphic_allocator</a></span><span class="o">&lt;</span><span class="n"><a href="sub_match.html">sub_match</a></span><span class="o">&lt;</span><span class="n">BidirectionalIterator</span><span class="o">&gt;&gt;&gt;</span><span class="p">;</span>
+
+    <span class="k">using</span> <span class="n">cmatch</span>  <span class="o">=</span> <span class="n">match_results</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">char</span><span class="o">*&gt;</span><span class="p">;</span>
+    <span class="k">using</span> <span class="n">wcmatch</span> <span class="o">=</span> <span class="n">match_results</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">wchar_t</span><span class="o">*&gt;</span><span class="p">;</span>
+    <span class="k">using</span> <span class="n">smatch</span>  <span class="o">=</span> <span class="n">match_results</span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">string</a></span><span class="o">::</span><span class="n">const_iterator</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="k">using</span> <span class="n">wsmatch</span> <span class="o">=</span> <span class="n">match_results</span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">wstring</a></span><span class="o">::</span><span class="n">const_iterator</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>match_results</code> は正規表現によるマッチ結果を格納するコンテナである。コンテナの要素はマッチ結果を表すサブマッチ（<code><a href="sub_match.html">sub_match</a></code>）である。<br />
+コンテナとは言っても <code><a href="regex_match.html">regex_match</a></code> や <code><a href="regex_search.html">regex_search</a></code> のマッチ結果を格納することを目的としているため、
+一般的なコンテナのように通常の操作でコンテナに要素を格納したり変更したりすることはできない。</p>
+<p>構築直後の <code>match_results</code> オブジェクトは結果を格納していない（<code><a href="match_results/ready.html">ready</a>() == false</code>）ため、ほとんどのメンバ関数は使用することができない。<br />
+<code><a href="regex_match.html">regex_match</a></code> や <code><a href="regex_search.html">regex_search</a></code> に引数として渡されると、マッチが成功したか否かにかかわらずその結果を格納する（<code><a href="match_results/ready.html">ready</a>() == true</code>）。<br />
+なお、<code><a href="regex_iterator.html">regex_iterator</a></code> を間接参照した際の <code>match_results</code> オブジェクトは常にマッチ結果を格納している（<code><a href="match_results/ready.html">ready</a>() == true</code>）。</p>
+<p>マッチ結果を格納した <code>match_results</code> オブジェクトは、マッチが成功した場合には 1 つ以上の要素を格納しているため、<code><a href="match_results/empty.html">empty</a>() == false</code> となる。<br />
+マッチに成功し <code><a href="match_results/empty.html">empty</a>() == false</code> となった <code>match_results</code> オブジェクトに格納されている各要素（サブマッチ：<code><a href="sub_match.html">sub_match</a></code>）には、標準シーケンスコンテナの <code><a href="../vector.html">vector</a></code> 等と同様に <code><a href="match_results/op_at.html">operator[]</a></code> で直接アクセスすることができるだけでなく、
+<code><a href="match_results/str.html">str</a></code>、<code><a href="match_results/position.html">position</a></code>、<code><a href="match_results/length.html">length</a></code> といったメンバ関数で各要素の内容にアクセスすることもできる。<br />
+最初の要素には、マッチした文字列全体を表すサブマッチが格納され、以降に各キャプチャグループ（正規表現内のカッコで囲まれた部分に対応する）が続く。<br />
+また、マッチした文字列だけでなく、マッチした文字列の前（<code><a href="match_results/prefix.html">prefix</a></code>）、および、後（<code><a href="match_results/suffix.html">suffix</a></code>）を指すサブマッチも保持している。
+さらに、マッチした結果を用いた書式出力機能も有する（<code><a href="match_results/format.html">format</a></code>）。</p>
+<p><code>match_results</code> はアロケータ対応コンテナの要件のすべて、および、シーケンスコンテナの要件のうち読み取り専用の操作をサポートしている。<br />
+<code>match_results</code> オブジェクトからメンバ関数で取得できるイテレータについて規格では特に言及されていないが、<code><a href="match_results/op_at.html">operator[]</a></code> が使用できることから通常ランダムアクセスイテレータであるもの考えても差し支えないものと思われる。</p>
+<h2>メンバ関数</h2>
+<h3>構築・破棄</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="match_results/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="match_results/op_destructor.html">(destructor)</a></code></td>
+<td>デストラクタ</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="match_results/op_assign.html">operator=</a></code></td>
+<td>代入演算子</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>状態</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="match_results/ready.html">ready</a></code></td>
+<td>結果が利用可能か否かを返す</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>サイズ</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="match_results/size.html">size</a></code></td>
+<td>サブマッチの数を返す</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="match_results/max_size.html">max_size</a></code></td>
+<td>格納できるサブマッチの最大数を返す</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="match_results/empty.html">empty</a></code></td>
+<td>マッチしたか否かを返す</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>要素アクセス</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="match_results/length.html">length</a></code></td>
+<td>指定されたサブマッチの長さを返す</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="match_results/position.html">position</a></code></td>
+<td>指定されたサブマッチの位置を返す</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="match_results/str.html">str</a></code></td>
+<td>指定されたサブマッチを文字列の形で返す</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="match_results/op_at.html">operator[]</a></code></td>
+<td>指定されたサブマッチを返す</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="match_results/prefix.html">prefix</a></code></td>
+<td>マッチした文字列の前の文字列を示すサブマッチを返す</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="match_results/suffix.html">suffix</a></code></td>
+<td>マッチした文字列の後の文字列を示すサブマッチを返す</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="match_results/begin.html">begin</a></code></td>
+<td>先頭のサブマッチを指すイテレータを取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="match_results/end.html">end</a></code></td>
+<td>末尾のサブマッチの次を指すイテレータを取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="match_results/cbegin.html">cbegin</a></code></td>
+<td>先頭のサブマッチを指すイテレータを取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="match_results/cend.html">cend</a></code></td>
+<td>末尾のサブマッチの次を指すイテレータを取得する</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>フォーマット</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="match_results/format.html">format</a></code></td>
+<td><code>match_results</code> オブジェクトを書式文字列に従って出力する</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>アロケータ</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="match_results/get_allocator.html">get_allocator</a></code></td>
+<td>アロケータオブジェクトを取得する</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>交換</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="match_results/swap.html">swap</a></code></td>
+<td>オブジェクトの内容を交換する</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>value_type</code></td>
+<td>要素の型。<code><a href="sub_match.html">sub_match</a>&lt;BidirectionalIterator&gt;</code> の別名</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>const_reference</code></td>
+<td><code>const</code> 参照の型。<code>const value_type&amp;</code> の別名</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>reference</code></td>
+<td>参照の型。<code>value_type&amp;</code> の別名（C++11 では <code>const value_type&amp;</code> となっていたが、規格のバグとして C++14 で修正された）</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>const_iterator</code></td>
+<td>読み取り専用イテレータの型。実装依存の型の別名</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>iterator</code></td>
+<td>イテレータの型。<code>const_iterator</code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>difference_type</code></td>
+<td>2 つのイテレータの差の型。<code>typename <a href="../iterator/iterator_traits.html">iterator_traits</a>&lt;BidirectionalIterator&gt;::difference_type</code> の別名</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>size_type</code></td>
+<td><code>typename <a href="../memory/allocator_traits.html">allocator_traits</a>&lt;Allocator&gt;::size_type</code> の別名</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>allocator_type</code></td>
+<td>アロケータオブジェクトの型。<code>Allocator</code> の別名</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>char_type</code></td>
+<td>文字の型。<code>typename <a href="../iterator/iterator_traits.html">iterator_traits</a>&lt;BidirectionalIterator&gt;::value_type</code> の別名</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>string_type</code></td>
+<td>文字列の型。<code><a href="../string/basic_string.html">basic_string</a>&lt;char_type&gt;</code> の別名</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>非メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="match_results/op_equal.html">operator==</a></code></td>
+<td>等値比較を行う</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="match_results/op_not_equal.html">operator!=</a></code></td>
+<td>非等値比較を行う</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="match_results/swap_free.html">swap</a></code></td>
+<td>2 つの <code>match_results</code> オブジェクトの内容を交換する</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<p><div class="yata" id="abe62a5cb45d08a6b87f70033b74da639d335e90"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../regex.html">&lt;regex&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">const</span> <span class="kt">char</span> <span class="n">s</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"The C++11 is very cool!!"</span><span class="p">;</span>
+  <span class="k">const</span> <span class="n"><a href="basic_regex.html">std::regex</a></span> <span class="n">re</span><span class="p">(</span><span class="s">"(</span><span class="se">\\</span><span class="s">w+) is (</span><span class="se">\\</span><span class="s">w+)"</span><span class="p">);</span>
+
+  <span class="n"><span style="color:#ff0000">std::cmatch</span></span> <span class="n">m</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n"><a href="regex_search.html">std::regex_search</a></span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">re</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"ready = "</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ios/boolalpha.html">std::boolalpha</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="match_results/ready.html">m.ready()</a></span> <span class="o">&lt;&lt;</span> <span class="s">", empty = "</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="match_results/empty.html">m.empty()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"prefix:'"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="match_results/prefix.html">m.prefix()</a></span> <span class="o">&lt;&lt;</span> <span class="sc">'\''</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n"><a href="match_results/size.html">m.size()</a></span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">":'"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="match_results/str.html">m.str</a></span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\'</span><span class="s">, position = "</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="match_results/position.html">m.position</a></span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">", length = "</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="match_results/length.html">m.length</a></span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"suffix:'"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="match_results/suffix.html">m.suffix()</a></span> <span class="o">&lt;&lt;</span> <span class="sc">'\''</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="match_results/format.html">m.format</a></span><span class="p">(</span><span class="s">"$`14 is $2$'"</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"not match"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>ready = true, empty = false
+
+prefix:'The C++'
+0:'11 is very', position = 7, length = 10
+1:'11', position = 7, length = 2
+2:'very', position = 13, length = 4
+suffix:' cool!!'
+
+The C++14 is very cool!!
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 3.0 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.1 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.2 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.3 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.4 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.5 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.6 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 4.9.0 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.9.1 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.9.2 <span aria-label="検証済" role="img" title="検証済">✅</span>, 5.0.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

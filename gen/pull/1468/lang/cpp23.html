@@ -1,0 +1,669 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>C++23 - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,
+">
+        <meta name="title" content="C++23 - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="C++23 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="C++23 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp23.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="C++23とは、2023年中に改訂され、ISO/IEC 14882:2024で標準規格化されたC++バージョンの通称である。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="C++23 - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp23.html" />
+        <meta name="twitter:description" content="C++23とは、2023年中に改訂され、ISO/IEC 14882:2024で標準規格化されたC++バージョンの通称である。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp23&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">C++23</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-06-25T13:48:21">
+        2025年06月25日 13時48分21秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">suomesta</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp23.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp23.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">C++23</span></h1>
+<div itemprop="articleBody"><h2>概要</h2>
+<p>C++23とは、2023年中に改訂され、ISO/IEC 14882:2024で標準規格化されたC++バージョンの通称である。</p>
+<p>このバージョンは、策定中のためC++2bと呼ばれることがある。「(C++20である2020年の次の) 202b年にリリースされる」という伏せ字として「b」が使われているが、3年周期に次のバージョンが策定されることが決まっているため、伏せ字になっている年数がずれることはない。</p>
+<h2>言語機能</h2>
+<h3>変数</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp23/literal_suffix_for_signed_size_t.html">(符号付き)<code>size_t</code>リテラルのためのサフィックス</a></td>
+<td><code>42z</code>/<code>42Z</code>とすることで<code>size_t</code>に対応する符号付き整数型のリテラルとする</td>
+</tr>
+<tr>
+<td><a href="cpp23/simpler_implicit_move.html">暗黙的なムーブを簡略化</a></td>
+<td>参照を返す関数の<code>return</code>文で暗黙的にムーブされない問題を修正</td>
+</tr>
+</tbody>
+</table>
+<p>これらに加えて、ライブラリ機能として<a class="cpprefjp-defined-word" data-desc="&lt;stdfloat&gt;で定義される内部表現の規定された浮動小数点数型" href="../reference/stdfloat.html">拡張浮動小数点数型</a>が定義された。<code><a href="../reference/stdfloat.html">&lt;stdfloat&gt;</a></code>を参照。</p>
+<h3>関数</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span href="https://cpprefjp.github.io/lang/cpp23/declarations_and_where_to_find_them.md.nolink">スコープと名前ルックアップの仕様整理</span></td>
+<td>複雑で不完全になっているスコープと名前ルックアップの仕様を整理し、一部の問題を解決する</td>
+</tr>
+<tr>
+<td><a href="cpp23/meaningful_exports.html">無意味なexport宣言を禁止する</a></td>
+<td>いくつかの不必要な宣言に対するモジュールexportを禁止する</td>
+</tr>
+</tbody>
+</table>
+<h3>制御構文</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp23/extend_init_statement_to_allow_alias_declaration.html">初期化文での型の別名宣言を許可</a></td>
+<td><code>for (using T = int; T e : v) {}</code>を許可</td>
+</tr>
+<tr>
+<td><a href="cpp23/lifetime_extension_in_range_based_for_loop.html">範囲for文が範囲初期化子内で生じた一時オブジェクトを延命することを規定</a></td>
+<td>範囲初期化子内で生じた一時オブジェクトは範囲for文の終わりまで延命される</td>
+</tr>
+<tr>
+<td><a href="cpp23/labels_at_the_end_of_compound_statements.html">複合文の末尾へのラベルを許可</a></td>
+<td>C互換のため、複合文の末尾でのgoto文のラベルを許可する</td>
+</tr>
+</tbody>
+</table>
+<h3>クラス</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span href="https://cpprefjp.github.io/lang/cpp23/deducing_this.md.nolink">自身のオブジェクトを明示的にパラメータとして指定する</span></td>
+<td>メンバ関数が<code>*this</code>の型・オブジェクトをパラメータとしてとり、<code>*this</code>オブジェクトがconst/非const、左辺値/右辺値であるかをメンバ関数内で識別できるようにする</td>
+</tr>
+<tr>
+<td><a href="cpp23/make_declaration_order_layout_mandated.html">アクセス制御の異なるメンバ変数のレイアウトを宣言順に規定</a></td>
+<td>アクセス制御の異なるメンバ変数のレイアウトは並び替えを許可されていたが宣言順に規定する</td>
+</tr>
+<tr>
+<td><a href="cpp23/multidimensional_subscript_operator.html">添字演算子の多次元サポート</a></td>
+<td><code>operator[](int x, int y, int z)</code>のように添字演算子の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>で複数のパラメータをとることを許可</td>
+</tr>
+<tr>
+<td><a href="cpp23/static_operator.html"><code>this</code>ポインタをもつ必要のない演算子を<code>static</code>として宣言できるようにする</a></td>
+<td>状態をもたないいくつかの演算子を<code>static</code>として宣言できるようにする</td>
+</tr>
+</tbody>
+</table>
+<h3>文字列</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp23/mixed_string_literal_concatenation.html">異なる文字エンコーディングをもつ文字列リテラルの連結を不適格とする</a></td>
+<td><code>auto a = u8"" L"";</code>のような異なる文字エンコーディング同士での文字列リテラルの連結を禁止する</td>
+</tr>
+<tr>
+<td><a href="cpp23/delimited_escape_sequences.html">エスケープシーケンスの区切り</a></td>
+<td>エスケープシーケンスの範囲を明確にする構文を追加する</td>
+</tr>
+<tr>
+<td><span href="https://cpprefjp.github.io/lang/cpp23/numeric_and_universal_character_escapes_in_character_and_string_literals.md.nolink">文字・文字列リテラル中の数値・ユニバーサルキャラクタのエスケープに関する問題解決</span></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="cpp23/remove_non_encodable_wide_character_literals_and_multicharacter_wide_character_literals.html">1ワイド文字に収まらないワイド文字リテラルを禁止する</a></td>
+<td>エンコード結果として<code>wchar_t</code>の大きさに収まらないワイド文字リテラルを禁止する</td>
+</tr>
+<tr>
+<td><a href="cpp23/named_universal_character_escapes.html">名前付きユニバーサルキャラクタ名</a></td>
+<td>16進数のユニバーサルキャラクタだけでなく、その文字の名前を入力できるようにする</td>
+</tr>
+</tbody>
+</table>
+<h3>テンプレート</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp23/generalized_wording_for_partial_specializations.html">変数テンプレートの部分特殊化を許可</a></td>
+<td>変数テンプレートの部分特殊化を許可するために部分特殊化の仕様を汎用化</td>
+</tr>
+<tr>
+<td><a href="cpp23/class_template_argument_deduction_from_inherited.html">継承コンストラクタからのクラステンプレート引数の推論</a></td>
+<td>継承コンストラクタからもクラステンプレート引数を推論できるようにする</td>
+</tr>
+</tbody>
+</table>
+<h3>定数式</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="cpp23/if_consteval.html">if consteval</a></code></td>
+<td>コンパイル時の文脈かどうかで分岐させる</td>
+</tr>
+<tr>
+<td><a href="cpp23/narrowing_contextual_conversions_to_bool.html">定数式の文脈での<code>bool</code>への縮小変換を許可</a></td>
+<td><code>if constexpr(flags &amp; Flags::Exec)</code>や<code>static_assert(N);</code>を許可</td>
+</tr>
+<tr>
+<td><a href="cpp23/non_literal_variables_in_constexpr_functions.html">定数式内での非リテラル変数、静的変数・スレッドローカル変数およびgotoとラベルの存在を許可する</a></td>
+<td>コンパイル時に評価されない限り、定数式内に静的変数・スレッドローカル変数およびgoto文とラベルを含むことを許可する</td>
+</tr>
+<tr>
+<td><a href="cpp23/character_encoding_of_diagnostic_text.html">静的な診断メッセージの文字エンコーディング</a></td>
+<td><code>static_assert</code>や<code>[[deprecated]]</code>などの<a class="cpprefjp-defined-word" data-desc="診断情報。コンパイルエラーや警告。処理系がプログラム翻訳時に提供する情報の総称" href="../implementation-compliance.html#dfn-diagnostic-message">診断メッセージ</a>の文字集合に関する要件をなくす</td>
+</tr>
+<tr>
+<td><a href="cpp23/relaxing_some_constexpr_restrictions.html"><code>constexpr</code>関数が定数実行できない場合でも適格とする</a></td>
+<td>定数式実行できない関数であっても、実際にコンパイル時に評価されない限り<code>constexpr</code>指定することを許可する</td>
+</tr>
+<tr>
+<td><a href="cpp23/permitting_static_constexpr_variables_in_constexpr_functions.html"><code>constexpr</code>関数内での<code>static constexpr</code>変数を許可</a></td>
+<td><code>constexpr</code>関数のローカルで定数を定義できるようにする</td>
+</tr>
+<tr>
+<td><a href="cpp23/consteval_needs_to_propagate_up.html"><code>constexpr</code>関数内で<code>consteval</code>関数を呼び出せない問題を軽減</a></td>
+<td><code>consteval</code>呼び出しを含む<code>constexpr</code>関数を条件付きで<code>consteval</code>関数とみなすようにする</td>
+</tr>
+</tbody>
+</table>
+<h3>ラムダ式</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp23/down_with_lambda_parens.html">ラムダ式で<code>()</code>を省略できる条件を緩和</a></td>
+<td>修飾や<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型をともなってもパラメータリストが空であれば<code>()</code>を省略できる</td>
+</tr>
+<tr>
+<td><a href="cpp23/attributes_on_lambda_expressions.html">ラムダ式に対する属性</a></td>
+<td>ラムダ式のいくつかの箇所に属性を記述できるようにする</td>
+</tr>
+</tbody>
+</table>
+<h3>属性</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp23/portable_assumptions.html">コード内容の仮定をコンパイラに伝えるassume属性</a></td>
+<td>最適化のために、コードの仮定をコンパイラに伝える属性を標準化する</td>
+</tr>
+</tbody>
+</table>
+<h3>プリプロセッサ</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp23/consistent_character_literal_encoding.html">文字リテラルエンコーディングを一貫させる</a></td>
+<td>プリプロセッサの条件式での文字リテラルの扱いをC++式と同様にする</td>
+</tr>
+<tr>
+<td><a href="cpp23/add_support_for_preprocessing_directives_elifdef_and_elifndef.html"><code>elif</code>/<code>elifdef</code>/<code>elifndef</code>のサポートを追加</a></td>
+<td><code>#if</code>/<code>#ifdef</code>/<code>#ifndef</code>に対応する複数条件命令のサポートを追加する</td>
+</tr>
+<tr>
+<td><a href="cpp23/warning.html"><code>#warning</code>のサポートを追加</a></td>
+<td>多くのC++コンパイラが実装していたプリプロセス時の警告<code>#warning message</code>を正式サポート</td>
+</tr>
+<tr>
+<td><a href="cpp23/support_for_utf8_as_a_portable_source_file_encoding.html">汎用的なソースコードのエンコーディングとしてUTF-8をサポート</a></td>
+<td>すべてのコンパイラはUTF-8文字コードのソースコードをサポートしなければならない</td>
+</tr>
+</tbody>
+</table>
+<h3>小さな変更</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp23/predefined_macros.html">更新された定義済みマクロ</a></td>
+<td>標準規格で定義されたマクロの更新</td>
+</tr>
+<tr>
+<td><a href="cpp23/update_normative_reference_to_posix.html">参照するPOSIX規格を更新</a></td>
+<td>新しいPOSIX規格の機能を標準C++が参照していたため、参照するPOSIX規格のバージョンを更新</td>
+</tr>
+<tr>
+<td><a href="cpp23/trimming_whitespaces_before_line_splicing.html">行末スペースを無視するよう規定</a></td>
+<td>行末が「<code>\ </code>」でおわっていた場合にMSVCは行の継続をしない実装になっていたため動作を共通化するため仕様を規定</td>
+</tr>
+</tbody>
+</table>
+<h2>ライブラリ更新の概要</h2>
+<h3>新ライブラリ</h3>
+<ul>
+<li>C++標準ライブラリ全体のモジュールとして<code><a href="../module/std.html">std</a></code>、C互換ライブラリ全体のモジュールとして<code><a href="../module/std.compat.html">std.compat</a></code>を追加</li>
+<li>スタックトレースを取得するためのライブラリとして<code><a href="../reference/stacktrace.html">&lt;stacktrace&gt;</a></code>を追加</li>
+<li>CとC++の間でのアトミック操作の相互運用のため、C互換ライブラリとして<code><a href="../reference/stdatomic.h.html">&lt;stdatomic.h&gt;</a></code>を追加</li>
+<li>外部から提供されるメモリバッファでストリーム処理を行うライブラリとして<code><span href="https://cpprefjp.github.io/reference/spanstream.md.nolink">&lt;spanstream&gt;</span></code>を追加</li>
+<li>正常値とエラー値のどちらかを持つクラスおよびライブラリとして<code><a href="../reference/expected.html">&lt;expected&gt;</a></code>を追加</li>
+<li>多次元配列ビューのライブラリとして<code><a href="../reference/mdspan.html">&lt;mdspan&gt;</a></code>を追加</li>
+<li>ノードベースではないソート済みキーによる順序付き連想コンテナのライブラリとして、<code><a href="../reference/flat_map.html">&lt;flat_map&gt;</a></code>と<code><a href="../reference/flat_set.html">&lt;flat_set&gt;</a></code>を追加</li>
+<li>書式指定で出力するライブラリとして<code><a href="../reference/print.html">&lt;print&gt;</a></code>を追加</li>
+<li>コルーチンによるRangeの生成をサポートする<code><a href="../reference/generator.html">&lt;generator&gt;</a></code>を追加</li>
+<li>拡張浮動小数点数のライブラリとして<code><a href="../reference/stdfloat.html">&lt;stdfloat&gt;</a></code>を追加</li>
+</ul>
+<h3>コンテナ</h3>
+<ul>
+<li><code><a href="../reference/stack/stack.html">std::stack</a></code>と<code><a href="../reference/queue/queue.html">std::queue</a></code>に、イテレータのペアをとるコンストラクタを追加</li>
+<li><code>auto v = std::vector(v, alloc);</code>のようなアロケータ引数をともなう場合のクラステンプレートのテンプレート引数推論が動作しなかったため、各コンテナクラスのコンストラクタにおけるアロケータパラメータの型を<code>const Allocator&amp;</code>から<code>const <a href="../reference/type_traits/type_identity.html">std::type_identity_t</a>&lt;Allocator&gt;&amp;</code>に修正</li>
+<li>N要素のメモリアロケート時にアロケータが実際にどれくらいのメモリを確保したかを得られるインタフェースとして、<ul>
+<li><code><a href="../reference/memory/allocator.html">std::allocator</a></code>クラスに、<code><a href="../reference/memory/allocator/allocate_at_least.html">allocate_at_least()</a></code>メンバ関数を追加</li>
+<li><code><a href="../reference/memory/allocator_traits.html">std::allocator_traits</a></code>クラスに、<code><a href="../reference/memory/allocator_traits/allocate_at_least.html">allocate_at_least()</a></code>関数を追加</li>
+</ul>
+</li>
+<li><code><a href="../reference/utility/pair.html">std::pair</a></code>の転送コンストラクタにデフォルトテンプレート引数を追加することで、<code>{}</code>のような型推論ができない引数を渡した場合でも完全転送が行われるよう修正</li>
+<li>順序付き連想コンテナの要素削除の処理について、一時オブジェクトのコストを抑える拡張が行われた<ul>
+<li><code><a href="../reference/map/map/erase.html">std::map::erase()</a></code></li>
+<li><code><a href="../reference/map/map/extract.html">std::map::extract()</a></code></li>
+</ul>
+</li>
+<li><code><a href="../reference/ranges.html">&lt;ranges&gt;</a></code>に、複数の範囲を綴じ合わせる<code><a href="../reference/ranges/zip_view.html">std::views::zip</a></code>を追加</li>
+<li><code><a href="../reference/ranges.html">&lt;ranges&gt;</a></code>に、複数の範囲の直積をとる<code><a href="../reference/ranges/cartesian_product_view.html">std::views::cartesian_product</a></code>を追加</li>
+<li>Rangeから任意のコンテナに変換するRangeアダプタ<code><a href="../reference/ranges/to.html">std::ranges::to()</a></code>を追加</li>
+<li>Rangeから任意のコンテナに変換するために、可変長のコンテナ (<code><a href="../reference/array/array.html">std::array</a></code>以外) に、以下の機能を追加：<ul>
+<li>Rangeから変換するコンストラクタ</li>
+<li>Rangeを挿入する<code>insert_range()</code>メンバ関数</li>
+<li>Rangeを先頭に追加する<code>prepend_range()</code>メンバ関数</li>
+<li>Rangeを末尾に追加する<code>append_range()</code>メンバ関数</li>
+<li>Rangeを代入する<code>assign_range()</code>メンバ関数</li>
+</ul>
+</li>
+<li><a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>のRangeアダプタがパイプライン演算子 <code>|</code> をサポートしやすくするために、<code><a href="../reference/ranges.html">&lt;ranges&gt;</a></code>に<code><a href="../reference/ranges/range_adaptor_closure.html">std::ranges::range_adaptor_closure</a></code>クラスを追加</li>
+<li><code><a href="../reference/ranges.html">&lt;ranges&gt;</a></code>に、Rangeを連結させる<code><a href="../reference/ranges/join_with_view.html">join_with</a></code>を追加</li>
+<li>Rangeを指定の大きさで分割する<code><a href="../reference/ranges/chunk_view.html">std::views::chunk</a></code>と、Rangeを指定の大きさの隣接要素で分割する<code><a href="../reference/ranges/slide_view.html">std::views::slide</a></code>を追加</li>
+<li>Rangeを条件一致する間の要素で分割する<code><a href="../reference/ranges/chunk_by_view.html">std::views::chunk_by</a></code>を追加</li>
+<li><code><a href="../reference/ranges.html">&lt;ranges&gt;</a></code>に、Rangeを等間隔からなるRangeに変換する<code><a href="../reference/ranges/stride_view.html">std::views::stride</a></code>を追加</li>
+<li><code><a href="../reference/ranges.html">&lt;ranges&gt;</a></code>に、Rangeをムーブするための<code><a href="../reference/ranges/as_rvalue_view.html">std::views::as_rvalue</a></code>を追加</li>
+<li><code><a href="../reference/ranges.html">&lt;ranges&gt;</a></code>に、指定した値をN回繰り返すRangeを生成する<code><a href="../reference/ranges/repeat_view.html">std::views::repeat</a></code>を追加</li>
+<li><code><a href="../reference/ranges.html">&lt;ranges&gt;</a></code>に、Rangeをインデックス付きでループさせる<code><a href="../reference/ranges/enumerate_view.html">std::views::enumerate</a></code>を追加</li>
+</ul>
+<h3>アルゴリズム</h3>
+<ul>
+<li><code><a href="../reference/algorithm.html">&lt;algorithm&gt;</a></code>に、範囲の先頭が指定した範囲と合致するかを判定する<code><a href="../reference/algorithm/ranges_starts_with.html">std::starts_with()</a></code>、範囲の末尾が指定した範囲と合致するかを判定する<code><a href="../reference/algorithm/ranges_ends_with.html">std::ends_with()</a></code>を追加</li>
+<li><code><a href="../reference/algorithm.html">&lt;algorithm&gt;</a></code>に、要素を左シフトさせるRangeアルゴリズム<code><a href="../reference/algorithm/ranges_shift_left.html">std::ranges::shift_left()</a></code>、要素を右シフトさせるRangeアルゴリズム<code><a href="../reference/algorithm/ranges_shift_right.html">std::ranges::shift_right()</a></code>を追加</li>
+<li><code><a href="../reference/algorithm.html">&lt;algorithm&gt;</a></code>に、範囲の末尾から要素を検索する以下のアルゴリズムを追加：<ul>
+<li><code><a href="../reference/algorithm/ranges_find_last.html">std::ranges::find_last()</a></code></li>
+<li><code><a href="../reference/algorithm/ranges_find_last_if.html">std::ranges::find_last_if()</a></code></li>
+<li><code><a href="../reference/algorithm/ranges_find_last_if_not.html">std::ranges::find_last_if_not()</a></code></li>
+</ul>
+</li>
+<li><code><a href="../reference/algorithm.html">&lt;algorithm&gt;</a></code>に、範囲に特定の値が含まれているかを判定する<code><a href="../reference/algorithm/ranges_contains.html">std::ranges::contains()</a></code>、<code><a href="../reference/algorithm/ranges_contains_subrange.html">std::ranges::contains_subrange</a></code>を追加</li>
+<li><code><a href="../reference/algorithm.html">&lt;algorithm&gt;</a></code>に、数値に限定しない汎用的な畳み込みアルゴリズムとして、以下を追加：<ul>
+<li><code><a href="../reference/algorithm/ranges_fold_left.html">std::ranges::fold_left()</a></code></li>
+<li><code><a href="../reference/algorithm/ranges_fold_left_first.html">std::ranges::fold_left_first()</a></code></li>
+<li><code><a href="../reference/algorithm/ranges_fold_right.html">std::ranges::fold_right()</a></code></li>
+<li><code><a href="../reference/algorithm/ranges_fold_right_last.html">std::ranges::fold_right_last()</a></code></li>
+<li><code><a href="../reference/algorithm/ranges_fold_left_with_iter.html">std::ranges::fold_left_with_iter()</a></code></li>
+<li><code><a href="../reference/algorithm/ranges_fold_left_first_with_iter.html">std::ranges::fold_left_first_with_iter()</a></code></li>
+</ul>
+</li>
+<li><code><a href="../reference/numeric.html">&lt;numeric&gt;</a></code>に、連番を生成するRangeアルゴリズム<code><a href="../reference/numeric/ranges_iota.html">std::ranges::iota()</a></code>を追加</li>
+</ul>
+<h3>文字列</h3>
+<ul>
+<li><code><a href="../reference/string/basic_string.html">std::basic_string</a></code>クラスと<code><a href="../reference/string_view/basic_string_view.html">std::basic_string_view</a></code>クラスに、文字列内に指定した文字・文字列が含まれているかを判定するメンバ関数<code>contains()</code>を追加</li>
+<li><code><a href="../reference/string_view/basic_string_view.html">std::basic_string_view</a></code>のコンストラクタに、範囲をとる<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を追加</li>
+<li><code>std::string s = nullptr;</code>のような文字列オブジェクトに<code>nullptr</code>を代入するようなコードはバグの元であるため、<code><a href="../reference/string/basic_string.html">std::basic_string</a></code>と<code><a href="../reference/string_view/basic_string_view.html">std::basic_string_view</a></code>に、<code><a href="../reference/cstddef/nullptr_t.html">nullptr_t</a></code>をとるコンストラクタをdelete定義として追加</li>
+<li><code><a href="../reference/string/basic_string.html">std::basic_string</a></code>クラスに、resize時に任意の初期化を行う<code><a href="../reference/string/basic_string/resize_and_overwrite.html">resize_and_overwrite()</a></code>メンバ関数を追加</li>
+<li><code><a href="../reference/string/basic_string.html">std::basic_string</a></code>クラスのコンストラクタと<code><a href="../reference/string/basic_string/substr.html">substr()</a></code>メンバ関数に一時オブジェクトの<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を追加</li>
+<li><code><a href="../reference/format/format.html">std::format()</a></code>関数でRange・コンテナ、<code><a href="../reference/tuple/tuple.html">std::tuple</a></code>、<code><a href="../reference/utility/pair.html">std::pair</a></code>を出力できるよう、<code><a href="../reference/format/formatter.html">std::formatter</a></code>に特殊化を追加<ul>
+<li>Range・シーケンスコンテナは<code>[1, 2, 3]</code>、<code>["hello", "world"]</code>、<code>['a', 'b', 'c']</code>のように出力される</li>
+<li>連想コンテナの場合、<code>std::map&lt;int, int&gt;{{1, 2}, {3, 4}}</code>は<code>{1: 2, 3: 4}</code>のように出力され、<code>std::set&lt;int&gt;{1, 2, 3}</code>は<code>{1, 2, 3}</code>のように出力される</li>
+<li><code><a href="../reference/tuple/tuple.html">std::tuple</a></code>、<code><a href="../reference/utility/pair.html">std::pair</a></code>は<code>(1, 2)</code>のように出力される</li>
+</ul>
+</li>
+<li><code><a href="../reference/format/format.html">std::format()</a></code>関数のフォーマット指定子としてデバッグ指定「<code>"?"</code>」を追加。これは文字・文字列を引用符で囲み、エスケープシーケンスをエスケープする<ul>
+<li>ただし、Range・コンテナ中の文字・文字列はデフォルトでエスケープされる</li>
+<li><code>format("{:?}", "h\tello")</code>は<code>"h\tello"</code>のように出力される</li>
+</ul>
+</li>
+</ul>
+<h3>入出力</h3>
+<ul>
+<li><code><a href="../reference/ostream/basic_ostream.html">std::basic_ostream</a></code>クラスの<code><a href="../reference/ostream/basic_ostream/op_ostream.html">operator&lt;&lt;</a></code>に、<code>const volatile void*</code>をとる<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を追加</li>
+<li>ファイルを開く際のオプションとして、排他モードを表す<code><a href="../reference/ios/ios_base/type-openmode.html">noreplace</a></code>を追加</li>
+</ul>
+<h3>関数オブジェクト</h3>
+<ul>
+<li><code><a href="../reference/functional/invoke.html">std::invoke()</a></code>の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型を指定するバージョンである<code><a href="../reference/functional/invoke_r.html">std::invoke_r()</a></code>を追加</li>
+<li><code><a href="../reference/functional/function.html">std::function</a></code>クラスと等価な機能をもつ、ムーブのみ可能な<code><a href="../reference/functional/move_only_function.html">std::move_only_function</a></code>クラスを追加</li>
+<li><a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>のRangeアダプタがパイプライン演算子 <code>|</code> をサポートしやすくするために、末尾から引数を束縛する<code><a href="../reference/functional/bind_back.html">std::bind_back()</a></code>関数を追加</li>
+</ul>
+<h3>メモリ</h3>
+<ul>
+<li><code><a href="../reference/memory.html">&lt;memory&gt;</a></code>に、レガシーC関数からスマートポインタへの直接出力をサポートする、スマートポインタアダプタ<code><a href="../reference/memory/out_ptr.html">std::out_ptr</a></code>と<code><a href="../reference/memory/inout_ptr.html">std::inout_ptr</a></code>を追加</li>
+<li><code><a href="../reference/memory/unique_ptr.html">std::unique_ptr</a></code>クラスを<code>constexpr</code>に対応</li>
+<li><code><a href="../reference/memory.html">&lt;memory&gt;</a></code>に、オブジェクトの生存期間を開始することを明示する関数として、<code><a href="../reference/memory/start_lifetime_as.html">std::start_lifetime_as()</a></code>と<code><a href="../reference/memory/start_lifetime_as_array.html">std::start_lifetime_as_array()</a></code>を追加</li>
+<li><code><a href="../reference/bit.html">&lt;bit&gt;</a></code>に、値のバイト入れ替え (エンディアン変換) を行う<code><a href="../reference/bit/byteswap.html">std::byteswap()</a></code>関数を追加</li>
+</ul>
+<h3>ユーティリティ</h3>
+<ul>
+<li><code><a href="../reference/variant/visit.html">std::visit()</a></code>に指定できるバリアントオブジェクトを、直接的な「<code><a href="../reference/variant/variant.html">std::variant</a></code>型の特殊化であること」という制約を緩和し、<code><a href="../reference/variant/variant.html">std::variant</a></code>から派生した型も許可</li>
+<li><code><a href="../reference/utility.html">&lt;utility&gt;</a></code>に、列挙値を基底型に変換する<code><a href="../reference/utility/to_underlying.html">std::to_underlying()</a></code>関数を追加</li>
+<li><code><a href="../reference/utility.html">&lt;utility&gt;</a></code>に、 (主に) メンバ変数を転送するため、指定された型の<code>const</code>性と参照修飾で引数を転送する<code><a href="../reference/utility/forward_like.html">std::forward_like()</a></code>関数を追加</li>
+<li><code><a href="../reference/optional/optional.html">std::optional</a></code>クラスにモナド操作としてメンバ関数<code><a href="../reference/optional/optional/and_then.html">and_then()</a></code>、<code><a href="../reference/optional/optional/transform.html">transform()</a></code>、<code><a href="../reference/optional/optional/or_else.html">or_else()</a></code>を追加</li>
+<li>到達しないパスであることを表明する関数<code><a href="../reference/utility/unreachable.html">std::unreachable()</a></code>を追加</li>
+<li><code><a href="../reference/bitset/bitset.html">std::bitset</a></code>クラスをさらに<code>constexpr</code>対応</li>
+</ul>
+<h3>型情報</h3>
+<ul>
+<li><code><a href="../reference/typeinfo/type_info.html">std::type_info</a></code>クラスの<code><a href="../reference/typeinfo/type_info/op_equal.html">operator==</a></code>を<code>constexpr</code>に対応</li>
+</ul>
+<h3>型特性</h3>
+<ul>
+<li><code><a href="../reference/type_traits.html">&lt;type_traits&gt;</a></code>に、スコープ付き列挙型かを判定する型特性<code><a href="../reference/type_traits/is_scoped_enum.html">std::is_scoped_enum</a></code>を追加</li>
+<li><code><a href="../reference/type_traits.html">&lt;type_traits&gt;</a></code>に、一時オブジェクトの参照への束縛を検出するための型特性として、以下を追加：<ul>
+<li><code><a href="../reference/type_traits/reference_constructs_from_temporary.html">std::reference_constructs_from_temporary</a></code></li>
+<li><code><a href="../reference/type_traits/reference_converts_from_temporary.html">std::reference_converts_from_temporary</a></code></li>
+</ul>
+</li>
+<li><code><a href="../reference/type_traits.html">&lt;type_traits&gt;</a></code>に、暗黙的に構築される型かを判定する型特性<code><a href="../reference/type_traits/is_implicit_lifetime.html">std::is_implicit_lifetime</a></code>を追加</li>
+</ul>
+<h3>C互換ライブラリ</h3>
+<ul>
+<li><code><a href="../reference/cstdlib.html">&lt;cstdlib&gt;</a></code>ヘッダと<code><a href="../reference/cmath.html">&lt;cmath&gt;</a></code>ヘッダの多くの関数を<code>constexpr</code>に対応</li>
+</ul>
+<h3>機能の非推奨化</h3>
+<ul>
+<li><code><a href="../reference/type_traits/aligned_storage.html">std::aligned_storage</a></code>と<code><a href="../reference/type_traits/aligned_union.html">std::aligned_union</a></code>を非推奨化。これらの機能は<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こし、間違った保証が行われ、よくないAPI設計が行われていたため、非推奨とする<ul>
+<li><code><a href="../reference/type_traits/aligned_storage.html">std::aligned_storage</a></code>の代わりに<code>alignas(T) <a href="../reference/cstddef/byte.html">std::byte</a>[sizeof(T)];</code>を使用することを推奨する</li>
+<li><code><a href="../reference/type_traits/aligned_union.html">std::aligned_union</a></code>の代わりに<code>alignas(Ts...) <a href="../reference/cstddef/byte.html">std::byte</a>[<a href="../reference/algorithm/max.html">std::max</a>({sizeof(Ts)...})];</code>を使用することを推奨する</li>
+</ul>
+</li>
+<li><code><a href="../reference/memory/allocator.html">std::allocator</a></code>のメンバ型<code>is_always_equal</code>を非推奨化。これはアロケータが状態をもたないことを表す型でありデフォルトでは<code><a href="../reference/type_traits/true_type.html">true_type</a></code>となっている。状態をもつ<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>のアロケータ型でこのメンバ型の上書きを忘れることでバグが埋め込まれてしまっていたため誤用防止のために非推奨とする</li>
+<li><code><a href="../reference/limits.html">&lt;limits&gt;</a></code>の以下の非正規化数に関する機能を非推奨化。これらの機能は必ずしもコンパイル時に決まらない可能性のある値であり有用でないため、非推奨とする<ul>
+<li><code><a href="../reference/limits/numeric_limits.html">std::numeric_limits</a>::<a href="../reference/limits/numeric_limits/has_denorm.html">has_denorm</a></code></li>
+<li><code><a href="../reference/limits/numeric_limits.html">std::numeric_limits</a>::<a href="../reference/limits/numeric_limits/has_denorm_loss.html">has_denorm_loss</a></code></li>
+<li><code><a href="../reference/limits/float_denorm_style.html">std::float_denorm_style</a></code></li>
+</ul>
+</li>
+</ul>
+<h3>機能の削除</h3>
+<ul>
+<li>ガベージコレクションの実装にうまく役立てられなかった、ガベージコレクション実装のサポートをする以下の機能を削除する：<ul>
+<li><code><a href="../reference/memory/declare_reachable.html">std::declare_reachable()</a></code></li>
+<li><code><a href="../reference/memory/undeclare_reachable.html">std::undeclare_reachable()</a></code></li>
+<li><code><a href="../reference/memory/declare_no_pointers.html">std::declare_no_pointers()</a></code></li>
+<li><code><a href="../reference/memory/undeclare_no_pointers.html">std::undeclare_no_pointers()</a></code></li>
+<li><code><a href="../reference/memory/get_pointer_safety.html">std::get_pointer_safety()</a></code></li>
+<li><code><a href="../reference/memory/pointer_safety.html">std::pointer_safety</a></code></li>
+<li><a href="cpp11/predefined_macros.html"><code>__STDCPP_STRICT_POINTER_SAFETY__</code>マクロ</a></li>
+</ul>
+</li>
+</ul>
+<h3>取り決め</h3>
+<ul>
+<li>以下のヘッダの一部機能をフリースタンディングライブラリとして追加：<ul>
+<li><code><a href="../reference/utility.html">&lt;utility&gt;</a></code></li>
+<li><code><a href="../reference/tuple.html">&lt;tuple&gt;</a></code></li>
+<li><code><a href="../reference/memory.html">&lt;memory&gt;</a></code></li>
+<li><code><a href="../reference/functional.html">&lt;functional&gt;</a></code></li>
+<li><code><a href="../reference/ratio.html">&lt;ratio&gt;</a></code></li>
+<li><code><a href="../reference/iterator.html">&lt;iterator&gt;</a></code></li>
+<li><code><a href="../reference/ranges.html">&lt;ranges&gt;</a></code></li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

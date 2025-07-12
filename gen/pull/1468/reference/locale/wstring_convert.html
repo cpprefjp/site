@@ -1,0 +1,410 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>wstring_convert - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,locale,std,class template,cpp11
+">
+        <meta name="title" content="wstring_convert - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="wstring_convert - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="wstring_convert - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/locale/wstring_convert.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`wstring_convert`は、ワイド文字列とバイト文字列を相互変換するクラスである。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="wstring_convert - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/locale/wstring_convert.html" />
+        <meta name="twitter:description" content="`wstring_convert`は、ワイド文字列とバイト文字列を相互変換するクラスである。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;locale&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;, &#34;cpp17deprecated&#34;, &#34;cpp26removed&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;e44d0d02129c7cf6a98eb13dabc1466adc4ab61c&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;string&gt;\n#include &lt;locale&gt;\n#include &lt;codecvt&gt;\n\nint main()\n{\n  // UTF-8\u3068UTF-32\u306e\u76f8\u4e92\u5909\u63db\u3092\u884c\u3046\u30b3\u30f3\u30d0\u30fc\u30bf\u30fc\n  std::wstring_convert&lt;std::codecvt_utf8&lt;char32_t&gt;, char32_t&gt; converter;\n\n  // UTF-8\u304b\u3089UTF-32\u306b\u5909\u63db\n  std::string u8str = u8\&#34;\u3042\u3044\u3046\u3048\u304a\&#34;;\n  std::u32string u32str = converter.from_bytes(u8str);\n\n  // \u30b3\u30fc\u30c9\u30dd\u30a4\u30f3\u30c8\u6570\u3092\u53d6\u5f97\n  std::size_t codepoint_count = u32str.size();\n  std::cout &lt;&lt; codepoint_count &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;locale&#34;, &#34;wstring_convert&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/locale.html" itemprop="url">
+              
+                <span itemprop="name">locale</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">wstring_convert</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-08-09T03:46:09">
+        2024年08月09日 03時46分09秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/locale/wstring_convert.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/locale/wstring_convert.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;locale&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">wstring_convert</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span><span class="cpp cpp17deprecated text-warning" title="C++17で非推奨">(C++17で非推奨)</span><span class="cpp cpp26removed text-danger" title="C++26で削除">(C++26で削除)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Codecvt</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Elem</span> <span class="o">=</span> <span class="kt">wchar_t</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Wide_alloc</span> <span class="o">=</span> <span class="n"><a href="../memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="n">Elem</span><span class="o">&gt;</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Byte_alloc</span> <span class="o">=</span> <span class="n"><a href="../memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="o">&gt;</span>
+  <span class="k">class</span> <span class="nc">wstring_convert</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>wstring_convert</code>は、ワイド文字列とバイト文字列を相互変換するクラスである。</p>
+<p>バイト文字列とは、ひとつの文字を表すのに可変長のバイト数を必要とする、UTF-8やShift_JISのような文字コードの文字列である。</p>
+<p>ワイド文字列とは、ひとつの文字を表すのに固定長のバイト数を必要とする、UTF-16やUTF-32のような文字コードの文字列である。</p>
+<p>このクラスの<code><a href="wstring_convert/from_bytes.html">from_bytes()</a></code>メンバ関数を使用することによってバイト文字列からワイド文字列への変換ができ、<code><a href="wstring_convert/to_bytes.html">to_bytes()</a></code>メンバ関数を使用することによってワイド文字列からバイト文字列への変換ができる。</p>
+<p>テンプレートパラメータは、以下を意味する：</p>
+<ul>
+<li><code>Codecvt</code> : コード変換を行うクラス。<code><a href="../codecvt.html">&lt;codecvt&gt;</a></code>ヘッダでいくつかの変換器が定義されている。</li>
+<li><code>Elem</code> : ワイド文字列の内部表現で使用する文字型。</li>
+<li><code>Wide_alloc</code> : ワイド文字列のアロケータ。</li>
+<li><code>Byte_alloc</code> : バイト文字列のアロケータ。</li>
+</ul>
+<p>テンプレートパラメータの設定例：</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>目的</th>
+<th>バイト文字列型</th>
+<th>ワイド文字列</th>
+<th>パラメータ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UTF-8とUTF-16の変換</td>
+<td><code><a href="../string/basic_string.html">std::string</a></code></td>
+<td><code><a href="../string/basic_string.html">std::u16string</a></code></td>
+<td><code>std::wstring_convert&lt;<a href="../codecvt/codecvt_utf8_utf16.html">std::codecvt_utf8_utf16</a>&lt;char16_t&gt;, char16_t&gt;</code></td>
+</tr>
+<tr>
+<td>UTF-8とUTF-32の変換</td>
+<td><code><a href="../string/basic_string.html">std::string</a></code></td>
+<td><code><a href="../string/basic_string.html">std::u32string</a></code></td>
+<td><code>std::wstring_convert&lt;<a href="../codecvt/codecvt_utf8.html">std::codecvt_utf8</a>&lt;char32_t&gt;, char32_t&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<h2>非推奨・削除の詳細</h2>
+<p>Unicodeの文字コード変換を行うこれらのクラスは、不正なコードポイントに対する安全なエラー処理の方法を提供していなかったため、セキュリティ上の欠陥があった。</p>
+<p>仕様もあいまいであったため、不正なコードポイントに対してどのように振る舞うかも不明であった。</p>
+<p>Unicode以外のShift_JISやBig5といった文字コードの利用が急激に減少している。標準ライブラリでの現代的なUnicodeの変換機能は非常に必要とされているが、<code><a href="../codecvt.html">&lt;codecvt&gt;</a></code>とそれに関連する機能の設計はお粗末なものだった。将来より良いものを作るために、これらの機能は非推奨・削除とする。</p>
+<p>標準ライブラリにUnicodeの文字コード変換をする代替機能はないため、他の専門特化した文字コード変換のライブラリを使用すること。</p>
+<h2>メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="wstring_convert/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="wstring_convert/op_destructor.html">(destructor)</a></code></td>
+<td>デストラクタ</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="wstring_convert/op_assign.html">operator=</a></code></td>
+<td>代入演算子</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="wstring_convert/from_bytes.html">from_bytes</a></code></td>
+<td>バイト文字列からワイド文字列に変換する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="wstring_convert/to_bytes.html">to_bytes</a></code></td>
+<td>ワイド文字列からバイト文字列に変換する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="wstring_convert/converted.html">converted</a></code></td>
+<td>変換した要素数を取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="wstring_convert/state.html">state</a></code></td>
+<td>変換の状態を取得する</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>byte_string</code></td>
+<td>バイト列型 <code>std::<a href="../string/basic_string.html">basic_string</a>&lt;char, <a href="../string/char_traits.html">char_traits</a>&lt;char&gt;, Byte_alloc&gt;</code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>wide_string</code></td>
+<td>ワイド文字列型 <code>std::<a href="../string/basic_string.html">basic_string</a>&lt;Elem, <a href="../string/char_traits.html">char_traits</a>&lt;Elem&gt;, Wide_alloc&gt;</code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>state_type</code></td>
+<td>ストリームのマルチバイト文字の変換の状態を表す型 <code>Codecvt::state_type</code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>int_type</code></td>
+<td>文字に対応する値を表す数値型 <code>wide_string::traits_type::int_type</code></td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<p><div class="yata" id="e44d0d02129c7cf6a98eb13dabc1466adc4ab61c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../locale.html">&lt;locale&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../codecvt.html">&lt;codecvt&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// UTF-8とUTF-32の相互変換を行うコンバーター</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">wstring_convert</span><span class="o">&lt;</span><span class="n"><a href="../codecvt/codecvt_utf8.html">std::codecvt_utf8</a></span><span class="o">&lt;</span><span class="kt">char32_t</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt">char32_t</span><span class="o">&gt;</span> <span class="n">converter</span><span class="p">;</span>
+
+  <span class="c1">// UTF-8からUTF-32に変換</span>
+  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">u8str</span> <span class="o">=</span> <span class="sa">u8</span><span class="s">"あいうえお"</span><span class="p">;</span>
+  <span class="n"><a href="../string/basic_string.html">std::u32string</a></span> <span class="n">u32str</span> <span class="o">=</span> <span class="n">converter</span><span class="p">.</span><span class="n"><a href="wstring_convert/from_bytes.html">from_bytes</a></span><span class="p">(</span><span class="n">u8str</span><span class="p">);</span>
+
+  <span class="c1">// コードポイント数を取得</span>
+  <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">codepoint_count</span> <span class="o">=</span> <span class="n">u32str</span><span class="p">.</span><span class="n"><a href="../string/basic_string/size.html">size()</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">codepoint_count</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>5
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 3.0 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.1 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.2 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.3 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.4 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 5.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#icc">ICC</a>:</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2010 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2012 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2013 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2007.html" target="_blank">N2007 Proposed Library Additions for Code Conversion</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0618r0.html" target="_blank">P0618R0 Deprecating <code>&lt;codecvt&gt;</code></a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2872r3.pdf" target="_blank">P2872R3 Remove <code>wstring_convert</code> From C++26</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

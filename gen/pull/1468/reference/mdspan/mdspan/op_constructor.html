@@ -1,0 +1,516 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>mdspan::コンストラクタ - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,mdspan,function,std,mdspan,cpp23
+">
+        <meta name="title" content="mdspan::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="mdspan::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="mdspan::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/mdspan/mdspan/op_constructor.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="- (1) : デフォルトコンストラクタ" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="mdspan::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/mdspan/mdspan/op_constructor.html" />
+        <meta name="twitter:description" content="- (1) : デフォルトコンストラクタ" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;mdspan&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;mdspan&#34;], &#34;cpp&#34;: [&#34;cpp23&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;4c4797ed3240d4dc8659a665ccc5fd168476dead&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;array&gt;\n#include &lt;span&gt;\n#include &lt;mdspan&gt;\n\nusing Ext3x4 = std::extents&lt;size_t, 3, 4&gt;;\nusing Ext3xN = std::extents&lt;size_t, 3, std::dynamic_extent&gt;;\nusing Ext2D = std::dextents&lt;size_t, 2&gt;;\n\nint main()\n{\n  int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};\n\n  // (1) : \u30c7\u30d5\u30a9\u30eb\u30c8\u30b3\u30f3\u30b9\u30c8\u30e9\u30af\u30bf\n  {\n    std::mdspan&lt;int, Ext3xN&gt; mat1_3xN;\n    assert(mat1_3xN.empty());\n    // \u52d5\u7684\u8981\u7d20\u6570\u3092\u3082\u3064\u6b21\u5143\u304c\u306a\u3044\u5834\u5408\u306f\u4e0d\u9069\u683c\n    // std::mdspan&lt;int, Ext3x4&gt; mat1_3x4;\n  }\n  // (2), (3) : \u30b3\u30d4\u30fc/\u30e0\u30fc\u30d6\u30b3\u30f3\u30b9\u30c8\u30e9\u30af\u30bf\n  {\n    std::mdspan&lt;int, Ext3xN&gt; src{arr, 4};  // \u30aa\u30fc\u30d0\u30fc\u30ed\u30fc\u30c9(4)\n    std::mdspan&lt;int, Ext3xN&gt; dst = src;\n    assert(dst.data_handle() == src.data_handle());\n    assert(dst.mapping() == src.mapping());\n  }\n  // (4) : \u30dd\u30a4\u30f3\u30bf\uff0b\u8981\u7d20\u6570\u30ea\u30b9\u30c8\u304b\u3089\u69cb\u7bc9\n  {\n    std::mdspan&lt;int, Ext3xN&gt; mat4_all{arr, 3, 4};  // \u5168\u6b21\u5143\u3092\u8a2d\u5b9a\n    std::mdspan&lt;int, Ext3xN&gt; mat4_dyn{arr, 4};     // \u52d5\u7684\u8981\u7d20\u6570\u306e\u307f\u8a2d\u5b9a\n    assert(mat4_all.size() == mat4_dyn.size());\n    std::mdspan&lt;int, Ext3x4&gt; mat4_static{arr};  // \u5168\u6b21\u5143\u304c\u9759\u7684\u8981\u7d20\u6570\n    assert(mat4_static.size() == 12);\n  }\n  // (5) : \u30dd\u30a4\u30f3\u30bf\uff0b\u8981\u7d20\u6570span\u304b\u3089\u69cb\u7bc9\n  {\n    int exts_all[] = {3, 4};\n    int exts_dyn[] = {4};\n    std::mdspan&lt;int, Ext3xN&gt; mat5_all{arr, std::span{exts_all}};  // \u5168\u6b21\u5143\u3092\u8a2d\u5b9a\n    std::mdspan&lt;int, Ext3xN&gt; mat5_dyn{arr, std::span{exts_dyn}};  // \u52d5\u7684\u8981\u7d20\u6570\u306e\u307f\u8a2d\u5b9a\n    assert(mat5_all.size() == mat5_dyn.size());\n  }\n  // (6) : \u30dd\u30a4\u30f3\u30bf\uff0b\u8981\u7d20\u6570array\u304b\u3089\u69cb\u7bc9\n  {\n    std::array exts_all{3, 4};\n    std::array exts_dyn{4};\n    std::mdspan&lt;int, Ext3xN&gt; mat6_all{arr, exts_all};  // \u5168\u6b21\u5143\u3092\u8a2d\u5b9a\n    std::mdspan&lt;int, Ext3xN&gt; mat6_dyn{arr, exts_dyn};  // \u52d5\u7684\u8981\u7d20\u6570\u306e\u307f\u8a2d\u5b9a\n    assert(mat6_all.size() == mat6_dyn.size());\n  }\n  // (7) : \u30dd\u30a4\u30f3\u30bf\uff0b\u591a\u6b21\u5143\u914d\u5217\u30b5\u30a4\u30ba\u304b\u3089\u69cb\u7bc9\n  {\n    Ext2D ext{3, 4};\n    std::mdspan&lt;int, Ext2D&gt; mat7{arr, ext};\n    assert(mat7.size() == 12);\n  }\n  // (8) : \u30dd\u30a4\u30f3\u30bf\uff0b\u30ec\u30a4\u30a2\u30a6\u30c8\u30de\u30c3\u30d4\u30f3\u30b0\u304b\u3089\u69cb\u7bc9\n  {\n    // \u8981\u7d20\u6570 3x3\uff08\u30b9\u30c8\u30e9\u30a4\u30c9\u5e45=[4,1]\uff09\u306e2\u6b21\u5143\u30d3\u30e5\u30fc\n    using Mapping = std::layout_stride::mapping&lt;Ext2D&gt;;\n    Mapping map{Ext2D{3, 3}, std::array{4, 1}};\n    std::mdspan&lt;int, Ext2D, std::layout_stride&gt; mat8{arr, map};\n    assert(mat8.size() == 9);\n    assert(mat8.mapping().required_span_size() == 11);\n    // 1  2  3 (4)\n    // 5  6  7 (8)\n    // 9 10 11  -\n    assert((mat8[1,1] == 6 &amp;&amp; mat8[2,2] == 11));\n  }\n  // (9) : \u30dd\u30a4\u30f3\u30bf\uff0b\u30ec\u30a4\u30a2\u30a6\u30c8\u30de\u30c3\u30d4\u30f3\u30b0\uff0b\u8981\u7d20\u30a2\u30af\u30bb\u30b5\u304b\u3089\u69cb\u7bc9\n  {\n    // \u8981\u7d20\u6570 3x4, \u5217\u512a\u5148\u30ec\u30a4\u30a2\u30a6\u30c8 \u306e2\u6b21\u5143\u30d3\u30e5\u30fc\n    std::layout_left::mapping&lt;Ext3x4&gt; map;\n    std::default_accessor&lt;int&gt; acc;\n    std::mdspan&lt;int, Ext2D, std::layout_stride&gt; mat9{arr, map, acc};\n    // Extents:      extents&lt;size_t, 3, 4&gt; -&gt; dextents&lt;size_t, 2&gt;\n    // LayoutPolicy: layout_left -&gt; layout_stride\n  }\n  // (10) : \u4ed6mdspan\u304b\u3089\u306e\u5909\u63db\u30b3\u30f3\u30b9\u30c8\u30e9\u30af\u30bf\n  {\n    // \u8981\u7d20\u6570 3x4, \u884c\u512a\u5148\u30ec\u30a4\u30a2\u30a6\u30c8 \u306e2\u6b21\u5143\u30d3\u30e5\u30fc\n    std::mdspan&lt;int, Ext3x4&gt; src{arr};  // \u30aa\u30fc\u30d0\u30fc\u30ed\u30fc\u30c9(4)\n    std::mdspan&lt;const int, Ext2D, std::layout_stride&gt; dst = src;\n    // ElementType:    int -&gt; const int\n    // Extents:        extents&lt;size_t, 3, 4&gt; -&gt; dextents&lt;size_t, 2&gt;\n    // LayoutPolicy:   layout_right -&gt; layout_stride\n    // AccessorPolicy: default_accessor&lt;int&gt; -&gt; default_accessor&lt;const int&gt;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;mdspan&#34;, &#34;mdspan&#34;, &#34;op_constructor&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/mdspan.html" itemprop="url">
+              
+                <span itemprop="name">mdspan</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/mdspan/mdspan.html" itemprop="url">
+              
+                <span itemprop="name">mdspan</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">コンストラクタ</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-01-21T01:52:48">
+        2024年01月21日 01時52分48秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yoh</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/mdspan/mdspan/op_constructor.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/mdspan/mdspan/op_constructor.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;mdspan&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class mdspan">mdspan::</span><span class="token">コンストラクタ</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="nf">mdspan</span><span class="p">();</span>  <span class="c1">// (1)</span>
+
+<span class="k">constexpr</span> <span class="nf">mdspan</span><span class="p">(</span><span class="k">const</span> <span class="n">mdspan</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>  <span class="c1">// (2)</span>
+
+<span class="k">constexpr</span> <span class="nf">mdspan</span><span class="p">(</span><span class="n">mdspan</span><span class="o">&amp;&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>  <span class="c1">// (3)</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">OtherIndexTypes</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="k">explicit</span>
+  <span class="n">mdspan</span><span class="p">(</span><span class="n">data_handle_type</span> <span class="n">p</span><span class="p">,</span> <span class="n">OtherIndexTypes</span><span class="p">...</span> <span class="n">exts</span><span class="p">);</span>  <span class="c1">// (4)</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">OtherIndexType</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">N</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="k">explicit</span><span class="p">(</span><span class="n">N</span> <span class="o">!=</span> <span class="n"><a href="rank_dynamic.html">rank_dynamic</a></span><span class="p">())</span>
+  <span class="n">mdspan</span><span class="p">(</span><span class="n">data_handle_type</span> <span class="n">p</span><span class="p">,</span> <span class="n"><a href="../../span/span.html">span</a></span><span class="o">&lt;</span><span class="n">OtherIndexType</span><span class="p">,</span> <span class="n">N</span><span class="o">&gt;</span> <span class="n">exts</span><span class="p">);</span>  <span class="c1">// (5)</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">OtherIndexType</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">N</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="k">explicit</span><span class="p">(</span><span class="n">N</span> <span class="o">!=</span> <span class="n"><a href="rank_dynamic.html">rank_dynamic</a></span><span class="p">())</span>
+  <span class="n">mdspan</span><span class="p">(</span><span class="n">data_handle_type</span> <span class="n">p</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../../array/array.html">array</a></span><span class="o">&lt;</span><span class="n">OtherIndexType</span><span class="p">,</span> <span class="n">N</span><span class="o">&gt;&amp;</span> <span class="n">exts</span><span class="p">);</span>  <span class="c1">// (6)</span>
+
+<span class="k">constexpr</span> <span class="nf">mdspan</span><span class="p">(</span><span class="n">data_handle_type</span> <span class="n">p</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../extents.html">extents_type</a></span><span class="o">&amp;</span> <span class="n">ext</span><span class="p">);</span>  <span class="c1">// (7)</span>
+
+<span class="k">constexpr</span> <span class="nf">mdspan</span><span class="p">(</span><span class="n">data_handle_type</span> <span class="n">p</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../LayoutMapping.html">mapping_type</a></span><span class="o">&amp;</span> <span class="n">m</span><span class="p">);</span>  <span class="c1">// (8)</span>
+
+<span class="k">constexpr</span> <span class="nf">mdspan</span><span class="p">(</span><span class="n">data_handle_type</span> <span class="n">p</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../LayoutMapping.html">mapping_type</a></span><span class="o">&amp;</span> <span class="n">m</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../AccessorPolicy.html">accessor_type</a></span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>  <span class="c1">// (9)</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">OtherElementType</span><span class="p">,</span> <span class="k">class</span> <span class="nc"><a href="../extents.html">OtherExtents</a></span><span class="p">,</span>
+         <span class="k">class</span> <span class="nc"><a href="../LayoutMappingPolicy.html">OtherLayoutPolicy</a></span><span class="p">,</span> <span class="k">class</span> <span class="nc"><a href="../AccessorPolicy.html">OtherAccessorPolicy</a></span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="k">explicit</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">)</span>
+  <span class="n">mdspan</span><span class="p">(</span><span class="k">const</span> <span class="n">mdspan</span><span class="o">&lt;</span><span class="n">OtherElementType</span><span class="p">,</span> <span class="n"><a href="../extents.html">OtherExtents</a></span><span class="p">,</span>
+                      <span class="n"><a href="../LayoutMappingPolicy.html">OtherLayoutPolicy</a></span><span class="p">,</span> <span class="n"><a href="../AccessorPolicy.html">OtherAccessorPolicy</a></span><span class="o">&gt;&amp;</span> <span class="n">other</span><span class="p">);</span>  <span class="c1">// (10)</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<ul>
+<li>(1) : デフォルトコンストラクタ</li>
+<li>(2) : コピーコンストラクタ</li>
+<li>(3) : ムーブコンストラクタ</li>
+<li>(4), (5), (6) : メモリブロックのポインタ<code>p</code>、各次元の要素数リスト<code>exts</code>から構築</li>
+<li>(7) : メモリブロックのポインタ<code>p</code>、多次元配列サイズ<code>ext</code>から構築</li>
+<li>(8) : メモリブロックのポインタ<code>p</code>、レイアウトマッピング<code>m</code>から構築</li>
+<li>(9) : メモリブロックのポインタ<code>p</code>、レイアウトマッピング<code>m</code>、要素アクセサ<code>a</code>から構築</li>
+<li>(10) : 他<code>mdspan</code>からの変換コンストラクタ</li>
+</ul>
+<p>以降は説明専用のメンバ変数<code>ptr_</code>, <code>map_</code>, <code>acc_</code>を用いる。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
+<ul>
+<li>(1) :<ul>
+<li><code><a href="rank_dynamic.html">rank_dynamic()</a> &gt; 0</code></li>
+<li><code><a href="../../type_traits/is_default_constructible.html">is_default_constructible_v</a>&lt;data_handle_type&gt;</code>が<code>true</code></li>
+<li><code><a href="../../type_traits/is_default_constructible.html">is_default_constructible_v</a>&lt;mapping_type&gt;</code>が<code>true</code></li>
+<li><code><a href="../../type_traits/is_default_constructible.html">is_default_constructible_v</a>&lt;accessor_type&gt;</code>が<code>true</code></li>
+</ul>
+</li>
+<li>(4) : <code>N</code>を<code>sizeof...(OtherIndexTypes)</code>としたとき<ul>
+<li><code>(<a href="../../type_traits/is_convertible.html">is_convertible_v</a>&lt;OtherIndexTypes, index_type&gt; &amp;&amp; ...)</code>が<code>true</code></li>
+<li><code>(<a href="../../type_traits/is_nothrow_convertible.html">is_nothrow_constructible_v</a>&lt;index_type, OtherIndexTypes&gt; &amp;&amp; ...)</code>が<code>true</code></li>
+<li><code>N == <a href="rank.html">rank()</a> || N == <a href="rank_dynamic.html">rank_dynamic()</a></code>が<code>true</code></li>
+<li><code><a href="../../type_traits/is_constructible.html">is_constructible_v</a>&lt;mapping_type, extents_type&gt;</code>が<code>true</code></li>
+<li><code><a href="../../type_traits/is_default_constructible.html">is_default_constructible_v</a>&lt;accessor_type&gt;</code>が<code>true</code></li>
+</ul>
+</li>
+<li>(5), (6) :<ul>
+<li><code>(<a href="../../type_traits/is_convertible.html">is_convertible_v</a>&lt;const OtherIndexTypes&amp;, index_type&gt; &amp;&amp; ...)</code>が<code>true</code></li>
+<li><code>(<a href="../../type_traits/is_nothrow_convertible.html">is_nothrow_constructible_v</a>&lt;index_type, const OtherIndexTypes&amp;&gt; &amp;&amp; ...)</code>が<code>true</code></li>
+<li><code>N == <a href="rank.html">rank()</a> || N == <a href="rank_dynamic.html">rank_dynamic()</a></code>が<code>true</code></li>
+<li><code><a href="../../type_traits/is_constructible.html">is_constructible_v</a>&lt;mapping_type, extents_type&gt;</code>が<code>true</code></li>
+<li><code><a href="../../type_traits/is_default_constructible.html">is_default_constructible_v</a>&lt;accessor_type&gt;</code>が<code>true</code></li>
+</ul>
+</li>
+<li>(7) :<ul>
+<li><code><a href="../../type_traits/is_constructible.html">is_constructible_v</a>&lt;mapping_type, extents_type&gt;</code>が<code>true</code></li>
+<li><code><a href="../../type_traits/is_default_constructible.html">is_default_constructible_v</a>&lt;accessor_type&gt;</code>が<code>true</code></li>
+</ul>
+</li>
+<li>(8) :<ul>
+<li><code><a href="../../type_traits/is_default_constructible.html">is_default_constructible_v</a>&lt;accessor_type&gt;</code>が<code>true</code></li>
+</ul>
+</li>
+<li>(10) :<ul>
+<li><code><a href="../../type_traits/is_constructible.html">is_constructible_v</a>&lt;mapping_type, const OtherLayoutPolicy::template mapping&lt;OtherExtents&gt;&amp;&gt;</code>が<code>true</code></li>
+<li><code><a href="../../type_traits/is_constructible.html">is_constructible_v</a>&lt;accessor_type, const OtherAccessor&amp;&gt;</code>が<code>true</code></li>
+</ul>
+</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Mandates。満たさなければプログラムが不適格となる要件。この要件は、オーバーロード解決によって選択された関数内での`static_assert`の定数条件式や、関数に対するdelete宣言などで表現できる">適格要件</a></h2>
+<ul>
+<li>(10) :<ul>
+<li><code><a href="../../type_traits/is_constructible.html">is_constructible_v</a>&lt;data_handle_type, const OtherAccessor::data_handle_type&amp;&gt;</code>が<code>true</code></li>
+<li><code><a href="../../type_traits/is_constructible.html">is_constructible_v</a>&lt;extents_type, OtherExtents&gt;</code>が<code>true</code></li>
+</ul>
+</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a></h2>
+<ul>
+<li>(1) : <a class="cpprefjp-defined-word" data-desc="デフォルト初期化。`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト構築</a>された<code>map_</code>, <code>acc_</code>を用いたとき、半開区間<code>[0, map_.required_span_size())</code>が<code>ptr_</code>と<code>acc_</code>によってアクセス可能な範囲であること。</li>
+<li>(4), (5), (6), (7) : このコンストラクタで構築された<code>map_</code>と<a class="cpprefjp-defined-word" data-desc="デフォルト初期化。`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト構築</a>された<code>acc_</code>を用いたとき、半開区間<code>[0, map_.required_span_size())</code>が<code>p</code>と<code>acc_</code>によってアクセス可能な範囲であること。</li>
+<li>(8) : <a class="cpprefjp-defined-word" data-desc="デフォルト初期化。`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト構築</a>された<code>acc_</code>を用いたとき、半開区間<code>[0, m.required_span_size())</code>が<code>p</code>と<code>acc_</code>によってアクセス可能な範囲であること。</li>
+<li>(9) : 半開区間<code>[0, m.required_span_size())</code>が<code>p</code>と<code>a</code>によってアクセス可能な範囲であること。</li>
+<li>(10) :<ul>
+<li><code><a href="../extents.html">extents_type</a></code>の全ての次元<code>r</code>に対して、<code><a href="../extents/static_extent.html">static_extent</a>(r) == <a href="../../span/dynamic_extent.html">dynamic_extent</a> || <a href="../extents/static_extent.html">static_extent</a>(r) == other.extent(r)</code>が<code>true</code>であり、</li>
+<li>このコンストラクタで構築された<code>ptr_</code>, <code>map_</code>, <code>acc_</code>を用いたとき、半開区間<code>[0, map_.required_span_size())</code>が<code>ptr_</code>と<code>acc_</code>によってアクセス可能な範囲であること。</li>
+</ul>
+</li>
+</ul>
+<h2>効果</h2>
+<ul>
+<li>(1) : <code>ptr_</code>, <code>map_</code>, <code>acc_</code>を<a class="cpprefjp-defined-word" data-desc="`T x{};`構文での初期化。組み込み型の場合はゼロ相当の値で、クラス型の場合はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的に値初期化される">値初期化</a>する。</li>
+<li>(4) :<ul>
+<li><code>ptr_</code>を<code><a href="../../utility/move.html">std::move</a>(p)</code>で<a class="cpprefjp-defined-word" data-desc="direct-non-list-initialization。リスト初期化ではない直接初期化">直接非リスト初期化</a>し、</li>
+<li><code>map_</code>を<code><a href="../extents.html">extents_type</a>(static_cast&lt;index_type&gt;(<a href="../../utility/move.html">std::move</a>(exts))...)</code>で<a class="cpprefjp-defined-word" data-desc="direct-non-list-initialization。リスト初期化ではない直接初期化">直接非リスト初期化</a>し、</li>
+<li><code>acc_</code>を<a class="cpprefjp-defined-word" data-desc="`T x{};`構文での初期化。組み込み型の場合はゼロ相当の値で、クラス型の場合はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的に値初期化される">値初期化</a>する。</li>
+</ul>
+</li>
+<li>(5), (6) :<ul>
+<li><code>ptr_</code>を<code><a href="../../utility/move.html">std::move</a>(p)</code>で<a class="cpprefjp-defined-word" data-desc="direct-non-list-initialization。リスト初期化ではない直接初期化">直接非リスト初期化</a>し、</li>
+<li><code>map_</code>を<code><a href="../extents.html">extents_type</a>(exts)</code>で<a class="cpprefjp-defined-word" data-desc="direct-non-list-initialization。リスト初期化ではない直接初期化">直接非リスト初期化</a>し、</li>
+<li><code>acc_</code>を<a class="cpprefjp-defined-word" data-desc="`T x{};`構文での初期化。組み込み型の場合はゼロ相当の値で、クラス型の場合はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的に値初期化される">値初期化</a>する。</li>
+</ul>
+</li>
+<li>(7) :<ul>
+<li><code>ptr_</code>を<code><a href="../../utility/move.html">std::move</a>(p)</code>で<a class="cpprefjp-defined-word" data-desc="direct-non-list-initialization。リスト初期化ではない直接初期化">直接非リスト初期化</a>し、</li>
+<li><code>map_</code>を<code>ext</code>で<a class="cpprefjp-defined-word" data-desc="direct-non-list-initialization。リスト初期化ではない直接初期化">直接非リスト初期化</a>し、</li>
+<li><code>acc_</code>を<a class="cpprefjp-defined-word" data-desc="`T x{};`構文での初期化。組み込み型の場合はゼロ相当の値で、クラス型の場合はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的に値初期化される">値初期化</a>する。</li>
+</ul>
+</li>
+<li>(8) :<ul>
+<li><code>ptr_</code>を<code><a href="../../utility/move.html">std::move</a>(p)</code>で<a class="cpprefjp-defined-word" data-desc="direct-non-list-initialization。リスト初期化ではない直接初期化">直接非リスト初期化</a>し、</li>
+<li><code>map_</code>を<code>m</code>で<a class="cpprefjp-defined-word" data-desc="direct-non-list-initialization。リスト初期化ではない直接初期化">直接非リスト初期化</a>し、</li>
+<li><code>acc_</code>を<a class="cpprefjp-defined-word" data-desc="`T x{};`構文での初期化。組み込み型の場合はゼロ相当の値で、クラス型の場合はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的に値初期化される">値初期化</a>する。</li>
+</ul>
+</li>
+<li>(9) :<ul>
+<li><code>ptr_</code>を<code><a href="../../utility/move.html">std::move</a>(p)</code>で<a class="cpprefjp-defined-word" data-desc="direct-non-list-initialization。リスト初期化ではない直接初期化">直接非リスト初期化</a>し、</li>
+<li><code>map_</code>を<code>m</code>で<a class="cpprefjp-defined-word" data-desc="direct-non-list-initialization。リスト初期化ではない直接初期化">直接非リスト初期化</a>し、</li>
+<li><code>acc_</code>を<code>a</code>で<a class="cpprefjp-defined-word" data-desc="direct-non-list-initialization。リスト初期化ではない直接初期化">直接非リスト初期化</a>する。</li>
+</ul>
+</li>
+<li>(10) :<ul>
+<li><code>ptr_</code>を<code>other.ptr_</code>で<a class="cpprefjp-defined-word" data-desc="direct-non-list-initialization。リスト初期化ではない直接初期化">直接非リスト初期化</a>し、</li>
+<li><code>map_</code>を<code>other.map_</code>で<a class="cpprefjp-defined-word" data-desc="direct-non-list-initialization。リスト初期化ではない直接初期化">直接非リスト初期化</a>し、</li>
+<li><code>acc_</code>を<code>other.acc_</code>で<a class="cpprefjp-defined-word" data-desc="direct-non-list-initialization。リスト初期化ではない直接初期化">直接非リスト初期化</a>する。</li>
+</ul>
+</li>
+</ul>
+<h2>explicitになる条件</h2>
+<ul>
+<li>(5), (6) : <code>N != <a href="rank_dynamic.html">rank_dynamic()</a></code></li>
+<li>(10) : <code>!<a href="../../type_traits/is_convertible.html">is_convertible_v</a>&lt;const OtherLayoutPolicy::template mapping&lt;OtherExtents&gt;&amp;, mapping_type&gt; || !<a href="../../type_traits/is_convertible.html">is_convertible_v</a>&lt;const OtherAccessor&amp;, accessor_type&gt;</code></li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="4c4797ed3240d4dc8659a665ccc5fd168476dead"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../array.html">&lt;array&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../span.html">&lt;span&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../mdspan.html">&lt;mdspan&gt;</a></span><span class="cp"></span>
+
+<span class="k">using</span> <span class="n">Ext3x4</span> <span class="o">=</span> <span class="n"><a href="../extents.html">std::extents</a></span><span class="o">&lt;</span><span class="kt">size_t</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">using</span> <span class="n">Ext3xN</span> <span class="o">=</span> <span class="n"><a href="../extents.html">std::extents</a></span><span class="o">&lt;</span><span class="kt">size_t</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n"><a href="../../span/dynamic_extent.html">std::dynamic_extent</a></span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">using</span> <span class="n">Ext2D</span> <span class="o">=</span> <span class="n"><a href="../extents.html">std::dextents</a></span><span class="o">&lt;</span><span class="kt">size_t</span><span class="p">,</span> <span class="mi">2</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">arr</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">};</span>
+
+  <span class="c1">// (1) : デフォルトコンストラクタ</span>
+  <span class="p">{</span>
+    <span class="n"><span style="color:#ff0000">std::mdspan</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">Ext3xN</span><span class="o">&gt;</span> <span class="n">mat1_3xN</span><span class="p">;</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">mat1_3xN</span><span class="p">.</span><span class="n"><a href="empty.html">empty()</a></span><span class="p">);</span>
+    <span class="c1">// 動的要素数をもつ次元がない場合は不適格</span>
+    <span class="c1">// <span style="color:#ff0000">std::mdspan</span>&lt;int, Ext3x4&gt; mat1_3x4;</span>
+  <span class="p">}</span>
+  <span class="c1">// (2), (3) : コピー/ムーブコンストラクタ</span>
+  <span class="p">{</span>
+    <span class="n"><span style="color:#ff0000">std::mdspan</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">Ext3xN</span><span class="o">&gt;</span> <span class="n">src</span><span class="p">{</span><span class="n">arr</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>  <span class="c1">// オーバーロード(4)</span>
+    <span class="n"><span style="color:#ff0000">std::mdspan</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">Ext3xN</span><span class="o">&gt;</span> <span class="n">dst</span> <span class="o">=</span> <span class="n">src</span><span class="p">;</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">dst</span><span class="p">.</span><span class="n"><a href="data_handle.html">data_handle()</a></span> <span class="o">==</span> <span class="n">src</span><span class="p">.</span><span class="n"><a href="data_handle.html">data_handle()</a></span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">dst</span><span class="p">.</span><span class="n"><a href="mapping.html">mapping()</a></span> <span class="o">==</span> <span class="n">src</span><span class="p">.</span><span class="n"><a href="mapping.html">mapping()</a></span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="c1">// (4) : ポインタ＋要素数リストから構築</span>
+  <span class="p">{</span>
+    <span class="n"><span style="color:#ff0000">std::mdspan</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">Ext3xN</span><span class="o">&gt;</span> <span class="n">mat4_all</span><span class="p">{</span><span class="n">arr</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>  <span class="c1">// 全次元を設定</span>
+    <span class="n"><span style="color:#ff0000">std::mdspan</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">Ext3xN</span><span class="o">&gt;</span> <span class="n">mat4_dyn</span><span class="p">{</span><span class="n">arr</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>     <span class="c1">// 動的要素数のみ設定</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">mat4_all</span><span class="p">.</span><span class="n"><a href="size.html">size()</a></span> <span class="o">==</span> <span class="n">mat4_dyn</span><span class="p">.</span><span class="n"><a href="size.html">size()</a></span><span class="p">);</span>
+    <span class="n"><span style="color:#ff0000">std::mdspan</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">Ext3x4</span><span class="o">&gt;</span> <span class="n">mat4_static</span><span class="p">{</span><span class="n">arr</span><span class="p">};</span>  <span class="c1">// 全次元が静的要素数</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">mat4_static</span><span class="p">.</span><span class="n"><a href="size.html">size()</a></span> <span class="o">==</span> <span class="mi">12</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="c1">// (5) : ポインタ＋要素数spanから構築</span>
+  <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">exts_all</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
+    <span class="kt">int</span> <span class="n">exts_dyn</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">};</span>
+    <span class="n"><span style="color:#ff0000">std::mdspan</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">Ext3xN</span><span class="o">&gt;</span> <span class="n">mat5_all</span><span class="p">{</span><span class="n">arr</span><span class="p">,</span> <span class="n"><a href="../../span/span.html">std::span</a></span><span class="p">{</span><span class="n">exts_all</span><span class="p">}};</span>  <span class="c1">// 全次元を設定</span>
+    <span class="n"><span style="color:#ff0000">std::mdspan</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">Ext3xN</span><span class="o">&gt;</span> <span class="n">mat5_dyn</span><span class="p">{</span><span class="n">arr</span><span class="p">,</span> <span class="n"><a href="../../span/span.html">std::span</a></span><span class="p">{</span><span class="n">exts_dyn</span><span class="p">}};</span>  <span class="c1">// 動的要素数のみ設定</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">mat5_all</span><span class="p">.</span><span class="n"><a href="size.html">size()</a></span> <span class="o">==</span> <span class="n">mat5_dyn</span><span class="p">.</span><span class="n"><a href="size.html">size()</a></span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="c1">// (6) : ポインタ＋要素数arrayから構築</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../../array/array.html">std::array</a></span> <span class="n">exts_all</span><span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
+    <span class="n"><a href="../../array/array.html">std::array</a></span> <span class="n">exts_dyn</span><span class="p">{</span><span class="mi">4</span><span class="p">};</span>
+    <span class="n"><span style="color:#ff0000">std::mdspan</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">Ext3xN</span><span class="o">&gt;</span> <span class="n">mat6_all</span><span class="p">{</span><span class="n">arr</span><span class="p">,</span> <span class="n">exts_all</span><span class="p">};</span>  <span class="c1">// 全次元を設定</span>
+    <span class="n"><span style="color:#ff0000">std::mdspan</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">Ext3xN</span><span class="o">&gt;</span> <span class="n">mat6_dyn</span><span class="p">{</span><span class="n">arr</span><span class="p">,</span> <span class="n">exts_dyn</span><span class="p">};</span>  <span class="c1">// 動的要素数のみ設定</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">mat6_all</span><span class="p">.</span><span class="n"><a href="size.html">size()</a></span> <span class="o">==</span> <span class="n">mat6_dyn</span><span class="p">.</span><span class="n"><a href="size.html">size()</a></span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="c1">// (7) : ポインタ＋多次元配列サイズから構築</span>
+  <span class="p">{</span>
+    <span class="n">Ext2D</span> <span class="n">ext</span><span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
+    <span class="n"><span style="color:#ff0000">std::mdspan</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">Ext2D</span><span class="o">&gt;</span> <span class="n">mat7</span><span class="p">{</span><span class="n">arr</span><span class="p">,</span> <span class="n">ext</span><span class="p">};</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">mat7</span><span class="p">.</span><span class="n"><a href="size.html">size()</a></span> <span class="o">==</span> <span class="mi">12</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="c1">// (8) : ポインタ＋レイアウトマッピングから構築</span>
+  <span class="p">{</span>
+    <span class="c1">// 要素数 3x3（ストライド幅=[4,1]）の2次元ビュー</span>
+    <span class="k">using</span> <span class="n">Mapping</span> <span class="o">=</span> <span class="n"><a href="../layout_stride/mapping.html">std::layout_stride::mapping</a></span><span class="o">&lt;</span><span class="n">Ext2D</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="n">Mapping</span> <span class="n">map</span><span class="p">{</span><span class="n">Ext2D</span><span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="n"><a href="../../array/array.html">std::array</a></span><span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">}};</span>
+    <span class="n"><span style="color:#ff0000">std::mdspan</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">Ext2D</span><span class="p">,</span> <span class="n"><a href="../layout_stride.html">std::layout_stride</a></span><span class="o">&gt;</span> <span class="n">mat8</span><span class="p">{</span><span class="n">arr</span><span class="p">,</span> <span class="n">map</span><span class="p">};</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">mat8</span><span class="p">.</span><span class="n"><a href="size.html">size()</a></span> <span class="o">==</span> <span class="mi">9</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">mat8</span><span class="p">.</span><span class="n"><a href="mapping.html">mapping()</a></span><span class="p">.</span><span class="n">required_span_size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">11</span><span class="p">);</span>
+    <span class="c1">// 1  2  3 (4)</span>
+    <span class="c1">// 5  6  7 (8)</span>
+    <span class="c1">// 9 10 11  -</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">((</span><span class="n">mat8</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">6</span> <span class="o">&amp;&amp;</span> <span class="n">mat8</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">11</span><span class="p">));</span>
+  <span class="p">}</span>
+  <span class="c1">// (9) : ポインタ＋レイアウトマッピング＋要素アクセサから構築</span>
+  <span class="p">{</span>
+    <span class="c1">// 要素数 3x4, 列優先レイアウト の2次元ビュー</span>
+    <span class="n"><a href="../layout_left/mapping.html">std::layout_left::mapping</a></span><span class="o">&lt;</span><span class="n">Ext3x4</span><span class="o">&gt;</span> <span class="n">map</span><span class="p">;</span>
+    <span class="n"><a href="../default_accessor.html">std::default_accessor</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">acc</span><span class="p">;</span>
+    <span class="n"><span style="color:#ff0000">std::mdspan</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">Ext2D</span><span class="p">,</span> <span class="n"><a href="../layout_stride.html">std::layout_stride</a></span><span class="o">&gt;</span> <span class="n">mat9</span><span class="p">{</span><span class="n">arr</span><span class="p">,</span> <span class="n">map</span><span class="p">,</span> <span class="n">acc</span><span class="p">};</span>
+    <span class="c1">// Extents:      extents&lt;size_t, 3, 4&gt; -&gt; dextents&lt;size_t, 2&gt;</span>
+    <span class="c1">// LayoutPolicy: layout_left -&gt; layout_stride</span>
+  <span class="p">}</span>
+  <span class="c1">// (10) : 他mdspanからの変換コンストラクタ</span>
+  <span class="p">{</span>
+    <span class="c1">// 要素数 3x4, 行優先レイアウト の2次元ビュー</span>
+    <span class="n"><span style="color:#ff0000">std::mdspan</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">Ext3x4</span><span class="o">&gt;</span> <span class="n">src</span><span class="p">{</span><span class="n">arr</span><span class="p">};</span>  <span class="c1">// オーバーロード(4)</span>
+    <span class="n"><span style="color:#ff0000">std::mdspan</span></span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">int</span><span class="p">,</span> <span class="n">Ext2D</span><span class="p">,</span> <span class="n"><a href="../layout_stride.html">std::layout_stride</a></span><span class="o">&gt;</span> <span class="n">dst</span> <span class="o">=</span> <span class="n">src</span><span class="p">;</span>
+    <span class="c1">// ElementType:    int -&gt; const int</span>
+    <span class="c1">// Extents:        extents&lt;size_t, 3, 4&gt; -&gt; dextents&lt;size_t, 2&gt;</span>
+    <span class="c1">// LayoutPolicy:   layout_right -&gt; layout_stride</span>
+    <span class="c1">// AccessorPolicy: default_accessor&lt;int&gt; -&gt; default_accessor&lt;const int&gt;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code></code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++23</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="../extents.html">extents</a></code></li>
+<li><a href="../LayoutMapping.html">LayoutMapping</a></li>
+<li><a href="../AccessorPolicy.html">AccessorPolicy</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0009r18.html" target="_blank">P0009R18 MDSPAN</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

@@ -1,0 +1,483 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>畳み込み式 [N4295] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp17
+">
+        <meta name="title" content="畳み込み式 [N4295] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="畳み込み式 [N4295] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="畳み込み式 [N4295] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp17/folding_expressions.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="畳み込み式 [N4295] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp17/folding_expressions.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;b2777608a2e7832d4d3a738027398e4eb196b355&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;string&gt;\n\n// \u5358\u9805\u53f3\u7573\u307f\u8fbc\u307f\u3067\u548c\u3092\u8a08\u7b97\ntemplate&lt;typename... Args&gt; auto sum(Args... args)\n{\n  return (args + ...);\n}\n\n// \u4e8c\u9805\u53f3\u7573\u307f\u8fbc\u307f\u3067\u548c\u3092\u8a08\u7b97\u3001\u30d5\u30a9\u30fc\u30eb\u30d0\u30c3\u30af\u5024 0 (\u7b97\u8853\u578b\u306b\u5bfe\u3057\u3066\u306f sum \u3068\u540c\u3058\u5024\u3092\u8fd4\u3059\u3060\u308d\u3046)\ntemplate&lt;typename... Args&gt; auto sum0(Args... args)\n{\n  return (args + ... + 0);\n}\n\n// \u5358\u9805\u5de6\u7573\u307f\u8fbc\u307f\u3067\u5f15\u6570\u304c\u5168\u3066 true \u304b\u3069\u3046\u304b\u3092\u8fd4\u3059\ntemplate&lt;typename... Args&gt; bool all(Args... args)\n{\n  return (... &amp;&amp; args);\n}\n\n// \u4e8c\u9805\u5de6\u7573\u307f\u8fbc\u307f\u3067\u5f15\u6570\u3092\u51fa\u529b\ntemplate&lt;typename... Args&gt; void print_all(std::ostream&amp; os, Args... args)\n{\n  (os &lt;&lt; ... &lt;&lt; args);\n}\n\nint main()\n{\n  using namespace std::string_literals;\n  std::cout &lt;&lt; std::boolalpha;\n  std::cout &lt;&lt; sum(1, 2, 3, 4, 5) &lt;&lt; &#39;\\n&#39;;       // int \u306e\u548c\n  std::cout &lt;&lt; sum(\&#34;a\&#34;s, \&#34;b\&#34;s, \&#34;c\&#34;s) &lt;&lt; &#39;\\n&#39;;    // std::string \u306e\u9023\u7d50\n  //std::cout &lt;&lt; sum() &lt;&lt; &#39;\\n&#39;;                  // \u4e0d\u9069\u683c: \u5f15\u6570\u304c\u5fc5\u8981\n  //std::cout &lt;&lt; sum0(\&#34;a\&#34;s, \&#34;b\&#34;s, \&#34;c\&#34;s) &lt;&lt; &#39;\\n&#39;; // \u4e0d\u9069\u683c: std::string + int\n  std::cout &lt;&lt; sum0() &lt;&lt; &#39;\\n&#39;;                   // \u5f15\u6570\u304c\u306a\u3044\u306e\u3067\u8a2d\u5b9a\u3057\u305f 0 \u306b\u30d5\u30a9\u30fc\u30eb\u30d0\u30c3\u30af\n  std::cout &lt;&lt; all() &lt;&lt; &#39;\\n&#39;;                    // \u5f15\u6570\u304c\u306a\u3044\u306e\u3067 true \u306b\u30d5\u30a9\u30fc\u30eb\u30d0\u30c3\u30af\n  print_all(std::cout, 1, 2, 3, &#39;\\n&#39;);\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp17&#34;, &#34;folding_expressions&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp17.html" itemprop="url">
+              
+                <span itemprop="name">C++17</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">畳み込み式 [N4295]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-05-23T01:33:50">
+        2025年05月23日 01時33分50秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp17/folding_expressions.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp17/folding_expressions.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">畳み込み式 [N4295]</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++17に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>畳み込み式 (fold expression) は可変引数テンプレートのパラメータパックに対して二項演算を累積的に行う (畳み込む fold)。</p>
+<h2>仕様</h2>
+<p><div class="codehilite"><pre><span></span><code><span class="p">(</span> <span class="n"><i>pack</i></span> <span class="n"><i>op</i></span> <span class="p">...</span> <span class="p">)</span>          <span class="c1">// (1) 単項右畳み込み</span>
+<span class="p">(</span> <span class="p">...</span> <span class="n"><i>op</i></span> <span class="n"><i>pack</i></span> <span class="p">)</span>          <span class="c1">// (2) 単項左畳み込み</span>
+<span class="p">(</span> <span class="n"><i>pack</i></span> <span class="n"><i>op</i></span> <span class="p">...</span> <span class="n"><i>op</i></span> <span class="n"><i>init</i></span> <span class="p">)</span>  <span class="c1">// (3) 二項右畳み込み</span>
+<span class="p">(</span> <span class="n"><i>init</i></span> <span class="n"><i>op</i></span> <span class="p">...</span> <span class="n"><i>op</i></span> <span class="n"><i>pack</i></span> <span class="p">)</span>  <span class="c1">// (4) 二項左畳み込み</span>
+</code></pre></div>
+</p>
+<ul>
+<li>畳み込み式はカッコ <code>()</code> で囲まれなければならない</li>
+<li><code>op</code> は後述する二項演算子<br />
+    二項畳み込み (3), (4) の場合 <code>op</code> は同一でなければならない</li>
+<li><code>pack</code> は未展開のパラメータパック (規格ではキャスト式 cast-expression と呼ばれる)</li>
+<li><code>init</code> は未展開のパラメータパック以外 (規格ではキャスト式 cast-expression と呼ばれる)</li>
+<li>
+<p>畳み込み式は以下のように展開される:</p>
+<ol>
+<li>単項右畳み込みは <code>arg1 op (... op (argN-1 op argN))</code></li>
+<li>単項左畳み込みは <code>((arg1 op arg2) op ...) op argN</code></li>
+<li>二項右畳み込みは <code>arg1 op (... op (argN-1 op (argN op init)))</code></li>
+<li>二項左畳み込みは <code>(((init op arg1) op arg2) op ...) op argN</code></li>
+</ol>
+<p>ただし <code>argi</code> はパラメータパックの i 番目の要素</p>
+</li>
+<li>
+<p>機能テストマクロは <code>__cpp_fold_expressions</code></p>
+</li>
+</ul>
+<h3>演算子</h3>
+<p><a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を含めて以下の演算子を畳み込み式で使用できる:</p>
+<p><code>+</code>
+<code>-</code>
+<code>*</code>
+<code>/</code>
+<code>%</code>
+<code>^</code>
+<code>&amp;</code>
+<code>|</code>
+<code>=</code>
+<code>&lt;</code>
+<code>&gt;</code>
+<code>&lt;&lt;</code>
+<code>&gt;&gt;</code>
+<code>+=</code>
+<code>-=</code>
+<code>*=</code>
+<code>/=</code>
+<code>%=</code>
+<code>^=</code>
+<code>&amp;=</code>
+<code>|=</code>
+<code>&lt;&lt;=</code>
+<code>&gt;&gt;=</code>
+<code>==</code>
+<code>!=</code>
+<code>&lt;=</code>
+<code>&gt;=</code>
+<code>&amp;&amp;</code>
+<code>||</code>
+<code>,</code>
+<code>.*</code>
+<code>-&gt;*</code></p>
+<h3>パラメータパックが空のときの式の値</h3>
+<p>単項畳み込み (1), (2) でパラメータパックが空の場合、以下の演算子については式の値が設定される:</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>演算子</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&amp;&amp;</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>||</code></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code>,</code></td>
+<td><code>void()</code></td>
+</tr>
+</tbody>
+</table>
+<p>上記以外の演算子に対し空のパラメータパックが適用された場合、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
+<p>空のパラメータパックが適用された場合の挙動を変えるには二項畳み込み (3), (4) で値を与える。</p>
+<h2>例</h2>
+<p><div class="yata" id="b2777608a2e7832d4d3a738027398e4eb196b355"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// 単項右畳み込みで和を計算</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span> <span class="k">auto</span> <span class="n">sum</span><span class="p">(</span><span class="n">Args</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span><span class="n">args</span> <span class="o">+</span> <span class="p">...);</span>
+<span class="p">}</span>
+
+<span class="c1">// 二項右畳み込みで和を計算、フォールバック値 0 (算術型に対しては sum と同じ値を返すだろう)</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span> <span class="k">auto</span> <span class="n">sum0</span><span class="p">(</span><span class="n">Args</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span><span class="n">args</span> <span class="o">+</span> <span class="p">...</span> <span class="o">+</span> <span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// 単項左畳み込みで引数が全て true かどうかを返す</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span> <span class="kt">bool</span> <span class="n">all</span><span class="p">(</span><span class="n">Args</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="p">(...</span> <span class="o">&amp;&amp;</span> <span class="n">args</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// 二項左畳み込みで引数を出力</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">print_all</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span> <span class="n">os</span><span class="p">,</span> <span class="n">Args</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="p">(</span><span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="p">...</span> <span class="o">&lt;&lt;</span> <span class="n">args</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">string_literals</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ios/boolalpha.html">std::boolalpha</a></span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>       <span class="c1">// int の和</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">sum</span><span class="p">(</span><span class="s">"a"</span><span class="n">s</span><span class="p">,</span> <span class="s">"b"</span><span class="n">s</span><span class="p">,</span> <span class="s">"c"</span><span class="n">s</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>    <span class="c1">// <a href="../../reference/string/basic_string.html">std::string</a> の連結</span>
+  <span class="c1">//<a href="../../reference/iostream/cout.html">std::cout</a> &lt;&lt; sum() &lt;&lt; '\n';                  // 不適格: 引数が必要</span>
+  <span class="c1">//<a href="../../reference/iostream/cout.html">std::cout</a> &lt;&lt; sum0("a"s, "b"s, "c"s) &lt;&lt; '\n'; // 不適格: <a href="../../reference/string/basic_string.html">std::string</a> + int</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">sum0</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>                   <span class="c1">// 引数がないので設定した 0 にフォールバック</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">all</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>                    <span class="c1">// 引数がないので true にフォールバック</span>
+  <span class="n">print_all</span><span class="p">(</span><span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="sc">'\n'</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>15
+abc
+0
+true
+123
+</code></pre></p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>今までは、累積的に二項演算を行うには以下のように可変長引数関数を再帰的に呼び出さなければならなかった:</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="nf">sum</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> <span class="p">}</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="k">auto</span> <span class="n">sum</span><span class="p">(</span><span class="n">T</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">t</span><span class="p">;</span> <span class="p">}</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span><span class="p">...</span> <span class="n">Ts</span><span class="o">&gt;</span> <span class="k">auto</span> <span class="n">sum</span><span class="p">(</span><span class="n">T</span> <span class="n">t</span><span class="p">,</span> <span class="n">Ts</span><span class="p">...</span> <span class="n">ts</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">t</span> <span class="o">+</span> <span class="n">sum</span><span class="p">(</span><span class="n">ts</span><span class="p">...);</span> <span class="p">}</span>
+</code></pre></div>
+</p>
+<p>畳み込み式によってこれを簡潔に書けるようになった。</p>
+<h2>検討されたほかの選択肢</h2>
+<h3>パラメータパックが空のときの <code>*</code>, <code>+</code>, <code>&amp;</code>, <code>|</code> の値</h3>
+<p><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4191.html" target="_blank">N4191</a>,
+<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4295.html" target="_blank">N4295</a>
+では以下の演算子についてもパラメータパックが空のときに値を設定することが提案されていた:</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>演算子</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*</code></td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td><code>+</code></td>
+<td><code>int()</code></td>
+</tr>
+<tr>
+<td><code>&amp;</code></td>
+<td><code>-1</code></td>
+</tr>
+<tr>
+<td><code>|</code></td>
+<td><code>int()</code></td>
+</tr>
+</tbody>
+</table>
+<p>二項演算の単位元を設定するのは自然なことだと考えられた。</p>
+<p>しかしながら、<code>operator+</code> を<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>してコンテナや文字列の連結に用いる (cf. <code>std::string</code>) のは一般的なことである。
+そのような場合、空のパラメータパックを与えたときに <code>int()</code> が適用されるのは思わぬ挙動につながり、
+しかもバグ発見が困難であることが
+<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4358.pdf" target="_blank">N4358</a>
+で指摘された。<br />
+<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4072.html" target="_blank">N4072 Fixed Size Parameter Packs</a>
+との兼ね合いもあったが、
+上記のフォールバック値は削除され、パラメータパックが空の場合は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となった。</p>
+<p>一方 <code>operator&amp;&amp;</code>, <code>operator||</code>, <code>operator,</code> は<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>がバッドプラクティスとされているため残された。</p>
+<h4>上記の問題を解決するのに考えられた方法</h4>
+<h5>単位元 <code>identity_element</code></h5>
+<p>空のパラメータパックが与えられた場合、単項畳み込み式は以下のように実装される <code>empty_fold</code> オブジェクトを返す:</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">BinaryFunction</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">empty_fold</span>
+<span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="k">constexpr</span> <span class="k">operator</span> <span class="n">T</span><span class="p">()</span> <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">identity_element</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">BinaryFunction</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<p><code>identity_element</code> は単位元を持つあらゆるマグマに対して特殊化され、例えば <code>std::string::operator+</code> では <code>""s</code> とする。<br />
+演算の左単位元と右単位元が異なる場合は、それぞれ <code>left_identity_element</code> と <code>right_identity_element</code> を定義する。
+それらは特殊化されなかった場合 <code>identity_element</code> にフォールバックする。</p>
+<p>この方法は可能な限りジェネリックであるが、以下のような問題があった:</p>
+<ul>
+<li>空のパラメータパックは型付けされていないが、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型は他の型に文脈的に変換可能である (暗黙の型変換につながり得る)</li>
+<li>テンプレート特殊化だけのために関数をオブジェクトしなければならない</li>
+<li>サポートする演算子と等価な関数オブジェクト間のマッピングを用意しなければならない</li>
+</ul>
+<p>結局のところこれは問題の解決にはつながらず、負担も大きいことから採用されなかった。</p>
+<h5><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型推論</h5>
+<p>可能であれば空の畳み込みから<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型推論を行い、そうでなければプログラムを<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>とする。<br />
+例えば以下の例では <code>std::string</code> に推論する:</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="n">res</span> <span class="o">=</span>  <span class="p">(</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">+</span> <span class="p">...);</span>
+</code></pre></div>
+</p>
+<p>これは <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4072.html" target="_blank">N4072 Fixed Size Parameter Packs</a>
+と適合するが、以下のような問題があった:</p>
+<ul>
+<li>空の単項畳み込みの型が必ずしも正しく推論されない</li>
+<li>単位元を持つ演算でしか機能しない</li>
+</ul>
+<p>ルールが多い割に利点があまりないため採用されなかった。</p>
+<h3>ビット反転演算子 <code>~</code></h3>
+<p><code>~</code> も畳み込み式の演算子として
+<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4191.html" target="_blank">N4191</a>,
+<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4295.html" target="_blank">N4295</a>
+で提案されていたが削除された (理由は発見できず)。</p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><a href="../cpp11/variadic_templates.html">C++11 可変引数テンプレート</a></li>
+<li><code><a href="../../reference/numeric/accumulate.html">std::accumulate</a></code> — <a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a>について累積的に二項演算を行う</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4191.html" target="_blank">N4191 Folding expressions</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4295.html" target="_blank">N4295 Folding expressions</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4358.pdf" target="_blank">N4358 Unary Folds and Empty Parameter Packs</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0036r0.pdf" target="_blank">P0036 Unary Folds and Empty Parameter Packs (revision 1)</a></li>
+<li><a href="https://foonathan.net/2020/05/fold-tricks/" target="_blank">Nifty Fold Expression Tricks - foonathan::blog()</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

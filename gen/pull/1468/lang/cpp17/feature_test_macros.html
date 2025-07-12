@@ -1,0 +1,683 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>機能テストマクロ - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp17
+">
+        <meta name="title" content="機能テストマクロ - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="機能テストマクロ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="機能テストマクロ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp17/feature_test_macros.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="機能テストマクロ - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp17/feature_test_macros.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp17&#34;, &#34;feature_test_macros&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp17.html" itemprop="url">
+              
+                <span itemprop="name">C++17</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">機能テストマクロ</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-07-10T07:47:57">
+        2024年07月10日 07時47分57秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp17/feature_test_macros.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp17/feature_test_macros.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">機能テストマクロ</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++17に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>SD-6 は C++17 の機能について以下のテストマクロを定義することを推奨している：</p>
+<h3>言語機能</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>マクロ名</th>
+<th>値</th>
+<th>機能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__cpp_hex_float</code></td>
+<td><code>201603</code></td>
+<td><a href="hexadecimal_floating_literals.html">16進浮動小数点数リテラル</a></td>
+</tr>
+<tr>
+<td><code>__cpp_inline_variables</code></td>
+<td><code>201606</code></td>
+<td><a href="inline_variables.html">インライン変数</a></td>
+</tr>
+<tr>
+<td><code>__cpp_aligned_new</code></td>
+<td><code>201606</code></td>
+<td><a href="dynamic_memory_allocation_for_over-aligned_data.html">アライメント指定されたデータの動的メモリ確保</a></td>
+</tr>
+<tr>
+<td><code>__cpp_guaranteed_copy_elision</code></td>
+<td><code>201606</code></td>
+<td><a href="guaranteed_copy_elision.html">値のコピー省略を保証</a></td>
+</tr>
+<tr>
+<td><code>__cpp_noexcept_function_type</code></td>
+<td><code>201510</code></td>
+<td><a href="exception_spec_be_part_of_the_type_system.html">例外仕様を型システムの一部にする</a></td>
+</tr>
+<tr>
+<td><code>__cpp_fold_expressions</code></td>
+<td><code>201411</code></td>
+<td><a href="folding_expressions.html">畳み込み式</a></td>
+</tr>
+<tr>
+<td><code>__cpp_constexpr</code></td>
+<td><code>201603</code></td>
+<td><a href="constexpr_lambda.html"><code>constexpr</code>ラムダ</a></td>
+</tr>
+<tr>
+<td><code>__cpp_if_constexpr</code></td>
+<td><code>201606</code></td>
+<td><a href="if_constexpr.html"><code>if constexpr</code>文</a></td>
+</tr>
+<tr>
+<td><code>__cpp_range_based_for</code></td>
+<td><code>201603</code></td>
+<td><a href="generalizing_the_range-based_for_loop.html">範囲 <code>for</code> ループの制限緩和</a></td>
+</tr>
+<tr>
+<td><code>__cpp_static_assert</code></td>
+<td><code>201411</code></td>
+<td><a href="extending_static_assert.html"><code>static_assert</code> のメッセージ省略を許可</a></td>
+</tr>
+<tr>
+<td><code>__cpp_deduction_guides</code></td>
+<td><code>201606</code><br /> <code>201611</code></td>
+<td><a href="type_deduction_for_class_templates.html">クラステンプレートのテンプレート引数推論</a></td>
+</tr>
+<tr>
+<td><code>__cpp_nontype_template_parameter_auto</code></td>
+<td><code>201606</code></td>
+<td><a href="declaring_non-type_template_arguments_with_auto.html">非型テンプレートパラメータの<code>auto</code>宣言</a></td>
+</tr>
+<tr>
+<td><code>__cpp_namespace_attributes</code></td>
+<td><code>201411</code></td>
+<td><a href="attributes_for_namespaces_and_enumerators.html">名前空間への属性付加を許可</a></td>
+</tr>
+<tr>
+<td><code>__cpp_enumerator_attributes</code></td>
+<td><code>201411</code></td>
+<td><a href="attributes_for_namespaces_and_enumerators.html">列挙子への属性付加を許可</a></td>
+</tr>
+<tr>
+<td><code>__cpp_inheriting_constructors</code></td>
+<td><code>201511</code></td>
+<td>継承コンストラクタの新仕様</td>
+</tr>
+<tr>
+<td><code>__cpp_variadic_using</code></td>
+<td><code>201611</code></td>
+<td><a href="pack_expansions_in_using.html"><code>using</code>宣言のパック展開</a></td>
+</tr>
+<tr>
+<td><code>__has_cpp_attribute(fallthrough)</code></td>
+<td><code>true</code></td>
+<td><a href="fallthrough.html"><code>[[fallthrough]]</code>属性</a></td>
+</tr>
+<tr>
+<td><code>__has_cpp_attribute(nodiscard)</code></td>
+<td><code>true</code></td>
+<td><a href="nodiscard.html"><code>[[nodiscard]]</code>属性</a></td>
+</tr>
+<tr>
+<td><code>__has_cpp_attribute(maybe_unused)</code></td>
+<td><code>true</code></td>
+<td><a href="maybe_unused.html"><code>[[maybe_unused]]</code>属性</a></td>
+</tr>
+<tr>
+<td><code>__cpp_structured_bindings</code></td>
+<td><code>201606</code></td>
+<td><a href="structured_bindings.html">構造化束縛</a></td>
+</tr>
+<tr>
+<td><code>__cpp_aggregate_bases</code></td>
+<td><code>201603</code></td>
+<td><a href="extension_to_aggregate_initialization.html">集成体初期化の拡張</a></td>
+</tr>
+<tr>
+<td><code>__cpp_nontype_template_args</code></td>
+<td><code>201411</code></td>
+<td><a href="allow_constant_evaluation_for_all_non-type_template_arguments.html">非型テンプレートパラメータの定数式を評価</a></td>
+</tr>
+<tr>
+<td><code>__cpp_nested_namespace_definitions</code></td>
+<td><code>201411</code></td>
+<td><a href="nested_namespace.html">入れ子名前空間の定義</a></td>
+</tr>
+</tbody>
+</table>
+<h3>ライブラリ</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>マクロ名</th>
+<th>値</th>
+<th>機能</th>
+<th>ヘッダ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__cpp_lib_byte</code></td>
+<td><code>201603</code></td>
+<td><code><a href="../../reference/cstddef/byte.html">std::byte</a></code></td>
+<td><code><a href="../../reference/cstddef.html">&lt;cstddef&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_hardware_interference_size</code></td>
+<td><code>201703</code></td>
+<td><code><a href="../../reference/new/hardware_destructive_interference_size.html">std::hardware_destructive_interference_size</a></code>と<code><a href="../../reference/new/hardware_constructive_interference_size.html">std::hardware_constructive_interference_size</a></code></td>
+<td><code><a href="../../reference/new.html">&lt;new&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_launder</code></td>
+<td><code>201606</code></td>
+<td><code><a href="../../reference/new/launder.html">std::launder()</a></code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_uncaught_exceptions</code></td>
+<td><code>201411</code></td>
+<td><code><a href="../../reference/exception/uncaught_exceptions.html">std::uncaught_exceptions()</a></code></td>
+<td><code><a href="../../reference/exception.html">&lt;exception&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_as_const</code></td>
+<td><code>201510</code></td>
+<td><code><a href="../../reference/utility/as_const.html">std::as_const()</a></code></td>
+<td><code><a href="../../reference/utility.html">&lt;utility&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_make_from_tuple</code></td>
+<td><code>201606</code></td>
+<td><code><a href="../../reference/tuple/make_from_tuple.html">std::make_from_tuple()</a></code></td>
+<td><code><a href="../../reference/utility.html">&lt;utility&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_apply</code></td>
+<td><code>201603</code></td>
+<td><code><a href="../../reference/tuple/apply.html">std::apply()</a></code></td>
+<td><code><a href="../../reference/tuple.html">&lt;tuple&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_optional</code></td>
+<td><code>201606</code></td>
+<td><code><a href="../../reference/optional/optional.html">std::optional</a></code></td>
+<td><code><a href="../../reference/optional.html">&lt;optional&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_any</code></td>
+<td><code>201606</code></td>
+<td><code><a href="../../reference/any/any.html">std::any</a></code></td>
+<td><code><a href="../../reference/any.html">&lt;any&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_variant</code></td>
+<td><code>201606</code></td>
+<td><code><a href="../../reference/variant/variant.html">std::variant</a></code></td>
+<td><code><a href="../../reference/variant.html">&lt;variant&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_memory_resource</code></td>
+<td><code>201603</code></td>
+<td><code><a href="../../reference/memory_resource/memory_resource.html">std::memory_resource</a></code>と関連する機能</td>
+<td><code><a href="../../reference/memory_resource.html">&lt;memory_resource&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_boyer_moore_searcher</code></td>
+<td><code>201603</code></td>
+<td><code><a href="../../reference/functional/boyer_moore_searcher.html">std::boyer_morre_searcher</a></code>と関連する機能</td>
+<td><code><a href="../../reference/functional.html">&lt;functional&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_string_view</code></td>
+<td><code>201606</code></td>
+<td><code><a href="../../reference/string_view/basic_string_view.html">std::string_view</a></code></td>
+<td><code><a href="../../reference/string_view.html">&lt;string_view&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_sample</code></td>
+<td><code>201603</code></td>
+<td><code><a href="../../reference/algorithm/sample.html">std::sample()</a></code></td>
+<td><code><a href="../../reference/algorithm.html">&lt;algorithm&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_addressof_constexpr</code></td>
+<td><code>201603</code></td>
+<td><code><a href="../../reference/memory/addressof.html">std::addressof()</a></code></td>
+<td><code><a href="../../reference/memory.html">&lt;memory&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_raw_memory_algorithms</code></td>
+<td><code>201606</code></td>
+<td><code><a href="../../reference/memory/uninitialized_default_construct.html">std::uninitialized_default_construct()</a></code>と関連する機能</td>
+<td><code><a href="../../reference/memory.html">&lt;memory&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_transparent_operators</code></td>
+<td><code>201510</code></td>
+<td><code><a href="../../reference/memory/owner_less.html">std::owner_less</a></code> の柔軟性向上</td>
+<td><code><a href="../../reference/functional.html">&lt;functional&gt;</a></code><br /> <code><a href="../../reference/memory.html">&lt;memory&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_enable_shared_from_this</code></td>
+<td><code>201603</code></td>
+<td><code><a href="../../reference/memory/enable_shared_from_this.html">std::enable_shared_from_this</a></code></td>
+<td><code><a href="../../reference/memory.html">&lt;memory&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_shared_ptr_weak_type</code></td>
+<td><code>201606</code></td>
+<td><code><a href="../../reference/memory/shared_ptr.html">std::shared_ptr</a></code>クラスのメンバ型<code>weak_type</code></td>
+<td><code><a href="../../reference/memory.html">&lt;memory&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_shared_ptr_arrays</code></td>
+<td><code>201611</code></td>
+<td><code><a href="../../reference/memory/shared_ptr.html">std::shared_ptr</a></code>クラスの配列サポート</td>
+<td><code><a href="../../reference/memory.html">&lt;memory&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_invoke</code></td>
+<td><code>201411</code></td>
+<td><code><a href="../../reference/functional/invoke.html">std::invoke()</a></code></td>
+<td><code><a href="../../reference/functional.html">&lt;functional&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_not_fn</code></td>
+<td><code>201603</code></td>
+<td><code><a href="../../reference/functional/not_fn.html">std::not_fn()</a></code></td>
+<td><code><a href="../../reference/functional.html">&lt;functional&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_void_t</code></td>
+<td><code>201411</code></td>
+<td><code><a href="../../reference/type_traits/void_t.html">std::void_t</a></code></td>
+<td><code><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_bool_constant</code></td>
+<td><code>201505</code></td>
+<td><code><a href="../../reference/type_traits/bool_constant.html">std::bool_constant</a></code></td>
+<td><code><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_type_trait_variable_templates</code></td>
+<td><code>201510</code></td>
+<td>型トレイト変数テンプレート (<code>some_trait_v&lt;T&gt; = some_trait&lt;T&gt;::value</code>)</td>
+<td><code><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_logical_traits</code></td>
+<td><code>201510</code></td>
+<td>論理演算子型トレイト (<code><a href="../../reference/type_traits/conjunction.html">std::conjunction</a></code>, <code><a href="../../reference/type_traits/disjunction.html">std::disjunction</a></code>, <code><a href="../../reference/type_traits/negation.html">std::negation</a></code>)</td>
+<td><code><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_is_swappable</code></td>
+<td><code>201603</code></td>
+<td><code><a href="../../reference/type_traits/is_swappable.html">std::is_swappable</a></code>と関連する機能</td>
+<td><code><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_is_invocable</code></td>
+<td><code>201703</code></td>
+<td><code><a href="../../reference/type_traits/is_invocable.html">std::is_invocable</a></code>と関連する機能</td>
+<td><code><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_has_unique_object_representations</code></td>
+<td><code>201606</code></td>
+<td><code><a href="../../reference/type_traits/has_unique_object_representations.html">std::has_unique_object_representations</a></code></td>
+<td><code><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_is_aggregate</code></td>
+<td><code>201703</code></td>
+<td><code><a href="../../reference/type_traits/is_aggregate.html">std::is_aggregate</a></code></td>
+<td><code><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_chrono</code></td>
+<td><code>201510</code></td>
+<td><code><a href="../../reference/chrono.html">&lt;chrono&gt;</a></code> の改良</td>
+<td><code><a href="../../reference/chrono.html">&lt;chrono&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_execution</code></td>
+<td><code>201603</code></td>
+<td><code><a href="../../reference/execution.html">&lt;execution&gt;</a></code> の追加</td>
+<td><code><a href="../../reference/execution.html">&lt;execution&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_parallel_algorithm</code></td>
+<td><code>201603</code></td>
+<td>並列アルゴリズム</td>
+<td><code><a href="../../reference/algorithm.html">&lt;algorithm&gt;</a></code><br /> <code><a href="../../reference/numeric.html">&lt;numeric&gt;</a></code><br /> <code><a href="../../reference/memory.html">&lt;memory&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_to_chars</code></td>
+<td><code>201611</code></td>
+<td><code><a href="../../reference/charconv/to_chars.html">std::to_chars()</a></code>と<code><a href="../../reference/charconv/from_chars.html">std::from_chars()</a></code></td>
+<td><code><a href="../../reference/charconv.html">&lt;charconv&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_allocator_traits_is_always_equal</code></td>
+<td><code>201411</code></td>
+<td>ライブラリ内の <code>noexcept</code> のクリーンアップ</td>
+<td><code><a href="../../reference/deque.html">&lt;deque&gt;</a></code><br /> <code><a href="../../reference/forward_list.html">&lt;forward_list&gt;</a></code><br /> <code><a href="../../reference/list.html">&lt;list&gt;</a></code><br /> <code><a href="../../reference/map.html">&lt;map&gt;</a></code><br /> <code><a href="../../reference/memory.html">&lt;memory&gt;</a></code><br /> <code><a href="../../reference/scoped_allocator.html">&lt;scoped_allocator&gt;</a></code><br /> <code><a href="../../reference/set.html">&lt;set&gt;</a></code><br /> <code><a href="../../reference/string.html">&lt;string&gt;</a></code><br /> <code><a href="../../reference/unordered_map.html">&lt;unordered_map&gt;</a></code><br /> <code><a href="../../reference/unordered_set.html">&lt;unordered_set&gt;</a></code><br /> <code><a href="../../reference/vector.html">&lt;vector&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_incomplete_container_elements</code></td>
+<td><code>201505</code></td>
+<td>標準コンテナについて<a class="cpprefjp-defined-word" data-desc="型のサイズを決定できない、完全には定義されていない型。例えば先行宣言のみのクラス型、要素数不明の配列型、`void`など。クラス定義内部ではそのクラス自身は不完全型">不完全型</a>を最小限サポート</td>
+<td><code><a href="../../reference/forward_list.html">&lt;forward_list&gt;</a></code><br /> <code><a href="../../reference/list.html">&lt;list&gt;</a></code><br /> <code><a href="../../reference/vector.html">&lt;vector&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_map_try_emplace</code></td>
+<td><code>201411</code></td>
+<td><code><a href="../../reference/map/map/try_emplace.html">std::map::try_emplace()</a></code>, <code><a href="../../reference/map/map/insert_or_assign.html">std::map::insert_or_assign()</a></code></td>
+<td><code><a href="../../reference/map.html">&lt;map&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_unordered_map_try_emplace</code></td>
+<td><code>201411</code></td>
+<td><code><a href="../../reference/unordered_map/unordered_map/try_emplace.html">std::unordered_map::try_emplace()</a></code>, <code><a href="../../reference/unordered_map/unordered_map/insert_or_assign.html">std::unordered_map::insert_or_assign()</a></code></td>
+<td><code><a href="../../reference/unordered_map.html">&lt;unordered_map&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_node_extract</code></td>
+<td><code>201606</code></td>
+<td>連想コンテナのsplice</td>
+<td><code><a href="../../reference/map.html">&lt;map&gt;</a></code><br /> <code><a href="../../reference/set.html">&lt;set&gt;</a></code><br /> <code><a href="../../reference/unordered_map.html">&lt;unordered_map&gt;</a></code><br /> <code><a href="../../reference/unordered_set.html">&lt;unordered_set&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_array_constexpr</code></td>
+<td><code>201603</code></td>
+<td>配列関係のランダムアクセスに<code>constexpr</code>を追加</td>
+<td><code><a href="../../reference/array.html">&lt;array&gt;</a></code>, <code><a href="../../reference/iterator.html">&lt;iterator&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_nonmember_container_access</code></td>
+<td><code>201411</code></td>
+<td>非メンバ関数 <code><a href="../../reference/iterator/size.html">std::size()</a></code>, <code><a href="../../reference/iterator/empty.html">std::empty()</a></code>, <code><a href="../../reference/iterator/data.html">std::data()</a></code></td>
+<td><code><a href="../../reference/iterator.html">&lt;iterator&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_clamp</code></td>
+<td><code>201603</code></td>
+<td><code><a href="../../reference/algorithm/clamp.html">std::clamp()</a></code></td>
+<td><code><a href="../../reference/algorithm.html">&lt;algorithm&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_gcd_lcm</code></td>
+<td><code>201606</code></td>
+<td><code><a href="../../reference/numeric/gcd.html">std::gcd()</a></code>と<code><a href="../../reference/numeric/lcm.html">std::lcm()</a></code></td>
+<td><code><a href="../../reference/numeric.html">&lt;numeric&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_hypot</code></td>
+<td><code>201603</code></td>
+<td>3引数版の<code><a href="../../reference/cmath/hypot.html">std::hypot()</a></code></td>
+<td><code><a href="../../reference/cmath.html">&lt;cmath&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_math_special_functions</code></td>
+<td><code>201603</code></td>
+<td>数学の特殊関数</td>
+<td><code><a href="../../reference/cmath.html">&lt;cmath&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_filesystem</code></td>
+<td><code>201703</code></td>
+<td>ファイルシステムライブラリ</td>
+<td><code><a href="../../reference/filesystem.html">&lt;filesystem&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_atomic_is_always_lock_free</code></td>
+<td><code>201603</code></td>
+<td><code><a href="../../reference/atomic/atomic.html">std::atomic</a></code>クラスの静的メンバ定数<code>is_always_lock_free</code></td>
+<td><code><a href="../../reference/atomic.html">&lt;atomic&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_shared_mutex</code></td>
+<td><code>201505</code></td>
+<td><code><a href="../../reference/shared_mutex/shared_mutex.html">std::shared_mutex</a></code></td>
+<td><code><a href="../../reference/shared_mutex.html">&lt;shared_mutex&gt;</a></code></td>
+</tr>
+<tr>
+<td><code>__cpp_lib_scoped_lock</code></td>
+<td><code>201703</code></td>
+<td>可変個のミューテックスのロックを管理する<code><a href="../../reference/mutex/scoped_lock.html">std::scoped_lock</a></code></td>
+<td><code><a href="../../reference/mutex.html">&lt;mutex&gt;</a></code></td>
+</tr>
+</tbody>
+</table>
+<h2>参照</h2>
+<ul>
+<li><a href="https://isocpp.org/std/standing-documents/sd-6-sg10-feature-test-recommendations#recs.cpp17" target="_blank">SD-6: SG10 Feature Test Recommendations: Standard C++</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

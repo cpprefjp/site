@@ -1,0 +1,344 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>標準規格と処理系 - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,
+">
+        <meta name="title" content="標準規格と処理系 - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="標準規格と処理系 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="標準規格と処理系 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/implementation-compliance.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="標準規格と処理系 - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/implementation-compliance.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="./static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="./static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="./static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="./manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="./static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="./static/css/root.css"> -->
+
+        
+  
+
+
+<link href="./static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="./static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="./static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="./static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="./static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="./static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;implementation-compliance&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="./index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="./index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">標準規格と処理系</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-11-07T07:21:03">
+        2024年11月07日 07時21分03秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Koichi Murase</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/implementation-compliance.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/implementation-compliance.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">標準規格と処理系</span></h1>
+<div itemprop="articleBody"><h2><a href="#summary" id="summary">概要</a></h2>
+<p>※ここでは各用語の日本語訳については、できるだけ JIS C++ (JIS X 3014:2003) に倣った。<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>についてはそれぞれ注釈で説明を与える。</p>
+<h3><a href="#implementation-compliance" id="implementation-compliance">処理系の適合 (implementation compliance)</a></h3>
+<p><strong>処理系</strong> (implementation) または<strong>実装</strong>とはプログラムの<strong>翻訳</strong> (translation) と<strong>実行</strong> (execution) をする一連の枠組み・ソフトウェアのことである。
+C++ の処理系は、翻訳を担うコンパイラと実行を担うオペレーティングシステムから構成されるのが普通だが、後者は前提として特に前者を処理系と考えることも多い。
+<strong>標準規格</strong> (standard) または<strong>規格</strong>とは、C++ の<strong>適合する処理系</strong> (conforming implementation) が満たすべき<strong>要件</strong> (requirement) を取り決めた文書である。</p>
+<h3><a href="#behavior" id="behavior">動作</a></h3>
+<p>適合する処理系は標準規格が定める<strong>抽象機械</strong> (abstract machine) の<strong>外から見た動作</strong> (observable behavior) を<strong>模倣</strong> (emulate) しなければならない。
+外から見た動作は</p>
+<ul>
+<li><code>volatile</code> <a href="lang/cpp11/rvalue_ref_and_move_semantics.html">glvalue</a> を通した抽象機械の読み書き操作</li>
+<li>実行終了後の、ファイルに出力された内容</li>
+<li>対話的な入出力装置の読み書きの順序</li>
+</ul>
+<p>からなる。但し、一部の動作については処理系に対して自由度が認められている。</p>
+<ul>
+<li><dfn id="dfn-implementation-defined-behavior">処理系定義の動作</dfn> (implementation-defined behavior) または<dfn>実装定義の動作</dfn>とされた動作に対しては、処理系は考えられる動作の内の1つを行って良い。処理系はその説明書にその動作を定義する必要がある。</li>
+<li><dfn id="dfn-unspecified-behavior">未規定の動作</dfn> (unspecified behavior) とされた動作に対しては、処理系は考えられる動作の内の1つを行って良い。処理系は説明書にその動作を定義しなくて良い。</li>
+<li><dfn id="dfn-undefined-behavior">未定義の動作</dfn> (undefined behavior; 通称 UB) は、処理系が実際に行う動作について標準規格が如何なる要件もおかないことを表す。</li>
+<li><strong>文化圏固有動作</strong> (locale-specific behavior) に対しては、処理系は現地の国家・文化・言語の風習に依存した動作を行う。処理系はその動作を説明書に記述する必要がある。</li>
+<li><dfn id="dfn-erroneous-behavior">エラー性の動作</dfn> (erroneous behavior; 通称 EB) は、定義された動作であるが、処理系は<a class="cpprefjp-defined-word" data-desc="コンパイルエラーや警告。処理系がプログラム翻訳時に提供する情報の総称" href="#dfn-diagnostic-message">診断情報</a>を出力することが推奨される。その後に<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="#dfn-unspecified-behavior">未規定</a>の時点で、処理系は実行を終了しても良い。</li>
+</ul>
+<p>これらの用語は処理系が取りうる動作の範囲を示すものであって、例えば "<a class="cpprefjp-defined-word" data-desc="処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="#dfn-undefined-behavior">未定義の動作</a>" という名前の具体的な動作がある訳ではないことに注意する。</p>
+<h3><a href="#rule" id="rule">規則</a></h3>
+<p>標準規格の定める要件は、処理系 (抽象機械) に対する直接の要件と、処理系が受け入れるべきプログラムが満たす<strong>規則</strong> (rule) で構成される。
+規則には幾つかの分類があるが、C++ の標準規格内では具体的な分類基準は示されていない。C言語に倣えば以下の解釈になる。</p>
+<ul>
+<li><strong>構文規則</strong> (syntactic rule, syntax rule): 拡張バッカス・ナウア記法の亜種である<strong>構文記法</strong> (syntax notation) によって指定されるプログラムの構文</li>
+<li><strong>制約</strong> (constraints): C言語において構文記法によって表現しきれない構文的な制限を文章で述べたもの。C++ には現れない</li>
+<li><strong>意味規則</strong> (semantic rule): 構文規則と制約のどちらでもないプログラムに対する規則</li>
+</ul>
+<p>各規則には<dfn id="dfn-no-diagnostic-required">診断不要</dfn><sup><a href="#note-1" id="note_ref-1">[注1]</a></sup> (no diagnostic required; 通称 NDR) や「違反すると<a class="cpprefjp-defined-word" data-desc="処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="#dfn-undefined-behavior">未定義の動作</a>になる」などの属性が明記されることがあり、
+<a class="cpprefjp-defined-word" data-desc="処理系は規則違反に対してエラーメッセージや警告を出さないかもしれない" href="#dfn-no-diagnostic-required">診断不要</a>とも<a class="cpprefjp-defined-word" data-desc="処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="#dfn-undefined-behavior">未定義の動作</a>になるとも明記されない規則を<strong>診断対象規則</strong> (diagnosable rule) と呼ぶ。
+<strong>単一定義規則</strong> (ODR; one definition rule) は "使用される変数・関数・クラスについてただ1つの定義を与えなければならない" という一連の規則である。</p>
+<ul>
+<li><dfn id="dfn-well-formed">適格</dfn> (well-formed) とはプログラムが全ての構文規則・診断対象の意味規則・単一定義規則を満たすことである</li>
+<li><dfn id="dfn-ill-formed">不適格</dfn> (ill-formed) とはプログラムが<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="#dfn-well-formed">適格</a>でないことである</li>
+</ul>
+<p>プログラムが規則に違反するとき、処理系はエラーメッセージまたは警告などを出力する。
+この出力を総称して<dfn id="dfn-diagnostic-message">診断情報</dfn> (diagnostic message) または<dfn>診断メッセージ</dfn><sup><a href="#note-2" id="note_ref-2">[注2]</a></sup> と呼び、その内容は<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="#dfn-implementation-defined-behavior">処理系定義</a>である。</p>
+<p>適合する処理系は、</p>
+<ul>
+<li>規則を全て満たすプログラムをそのリソースの範囲で正しく実行 (外から見た動作を模倣) する必要がある。</li>
+<li>診断対象規則に違反するプログラムに対して<a class="cpprefjp-defined-word" data-desc="コンパイルエラーや警告。処理系がプログラム翻訳時に提供する情報の総称" href="#dfn-diagnostic-message">診断情報</a>を出力する必要がある。</li>
+<li><a class="cpprefjp-defined-word" data-desc="処理系は規則違反に対してエラーメッセージや警告を出さないかもしれない" href="#dfn-no-diagnostic-required">診断不要</a>な規則に違反するプログラムの翻訳・実行について、標準規格によって如何なる要件もおかれない。</li>
+</ul>
+<h3><a href="#conditionally-supported" id="conditionally-supported">条件付き対応の構成</a></h3>
+<p>一部の C++ の機能は<strong>条件付き対応の構成</strong><sup><a href="#note-3" id="note_ref-3">[注3]</a></sup> (conditionally-supported constructs) とされ、処理系はこれに対応しなくても良い。
+対応する場合にはその動作は<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="#dfn-implementation-defined-behavior">処理系定義</a>である。</p>
+<h3><a href="#implementation-limit" id="implementation-limit">処理系限界</a></h3>
+<p>変数名の最大の長さや仮引数の最大の数など、処理系が対応する様々なプログラムの大きさのことを<strong>処理系限界</strong> (implementation limit, implementation quantity) と呼ぶ。
+処理系は処理系限界についての情報を説明書に記述する必要がある。</p>
+<h3><a href="#relations" id="relations">規則違反と動作の包含関係</a></h3>
+<p>規則に違反するプログラム・処理系依存の動作を行うプログラムの包含関係について以下の図に示す。</p>
+<p><img alt="俯瞰図" src="static/image/implementation-compliance/overview.png" /></p>
+<ul>
+<li>但し、一つのプログラムが複数の規則に違反する場合については考慮していない。</li>
+<li>構文規則の範囲は規格上曖昧なので、<a class="cpprefjp-defined-word" data-desc="処理系は規則違反に対してエラーメッセージや警告を出さないかもしれない" href="#dfn-no-diagnostic-required">診断不要</a> (NDR) の規則を含むかどうかは解釈による。</li>
+<li><a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="#dfn-ill-formed">不適格</a>かつ<a class="cpprefjp-defined-word" data-desc="処理系は規則違反に対してエラーメッセージや警告を出さないかもしれない" href="#dfn-no-diagnostic-required">診断不要</a>の規則 (ill-formed; NDR) が、規格上矛盾なく定義されているかどうかは議論が分かれる。</li>
+</ul>
+<h3><a href="#informal-terms" id="informal-terms">慣用語</a></h3>
+<p>処理系の性質についての慣用語</p>
+<ul>
+<li><strong>合法</strong> (legal): 処理系が適合することを指す。</li>
+<li><strong>違法</strong> (illegal): 処理系が適合しないことを指す。</li>
+<li><strong>QoI</strong> (quality of implementation; QOI): 処理系の実装品質のこと。適合する処理系であっても処理系依存な部分で粗末な動作をするものが考えうる。</li>
+<li><strong>normative</strong>: (ある規格の記述が) 適合する処理系に対して強制力を持つさまを表す</li>
+<li><strong>informative</strong>: (ある規格の記述が) 強制力を持たないさまを表す</li>
+</ul>
+<p>プログラムの性質についての慣用語</p>
+<ul>
+<li><strong>処理系依存</strong> (implementation-dependent): プログラムの動作が処理系によって異なりうること。
+  条件付き対応の機能を使用している場合や、<a class="cpprefjp-defined-word" data-desc="処理系によって事前に定めた動作をする" href="#dfn-implementation-defined-behavior">処理系定義の動作</a>・<a class="cpprefjp-defined-word" data-desc="事前の断りなく処理系によって異なる動作をする" href="#dfn-unspecified-behavior">未規定の動作</a>・<a class="cpprefjp-defined-word" data-desc="処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="#dfn-undefined-behavior">未定義の動作</a>・文化圏固有動作を起こす場合、処理系限界を超える場合、規則に違反している場合を含む。</li>
+<li><strong>合法</strong> (legal)・<strong>違法</strong> (illegal): これらの語はプログラムに対しても慣用されるが、具体的な意味は明確でない。
+  プログラムの正しさには複数の水準があるためである。
+  <a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="#dfn-well-formed">適格</a>、またはすべての規則を満たす、または<a class="cpprefjp-defined-word" data-desc="処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="#dfn-undefined-behavior">未定義の動作</a>を含まないなどが考えられる。
+  曖昧さを避けるため、このサイトではプログラムに対して合法・違法という語は用いない。</li>
+</ul>
+<h2><a href="#nasal-demon" id="nasal-demon">「鼻から悪魔」とプログラムの可搬性</a></h2>
+<p>プログラムが</p>
+<ul>
+<li><a class="cpprefjp-defined-word" data-desc="処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="#dfn-undefined-behavior">未定義の動作</a> (UB) を引き起こすとき、</li>
+<li>または<a class="cpprefjp-defined-word" data-desc="処理系は規則違反に対してエラーメッセージや警告を出さないかもしれない" href="#dfn-no-diagnostic-required">診断不要</a> (NDR) の規則に違反している</li>
+</ul>
+<p>とき、標準規格は適合する処理系に対して何らの要件も課さない。
+つまり、UB または NDR 違反を含むプログラムに対して処理系がいかなる動作をしても規格には抵触しないということを表す。
+例えば、このことで処理系が鼻から悪魔を出しても、それはプログラムの作者の責任であり、その処理系を責めることはできない。
+この冗談を<strong>鼻から悪魔</strong> (nasal demons)<sup><a href="#cite-1" id="cite_ref-1">[1]</a></sup><sup><a href="#cite-2" id="cite_ref-2">[2]</a></sup> と呼ぶ。鼻から悪魔を出す処理系は今のところ実在しないが、
+実際の<a class="cpprefjp-defined-word" data-desc="処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="#dfn-undefined-behavior">未定義の動作</a>として最適化の過程で或る種の「タイムトラベル」を起こす処理系は実在する<sup><a href="#cite-3" id="cite_ref-3">[3]</a></sup>。</p>
+<p>処理系依存のプログラムは、たとえ或る処理系の上で期待する動作をしたとしても、他の処理系でも正しく動作することは保証されない。
+可搬なプログラムを書くためには、<a class="cpprefjp-defined-word" data-desc="処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="#dfn-undefined-behavior">未定義の動作</a>を引き起こさずかつ<a class="cpprefjp-defined-word" data-desc="処理系は規則違反に対してエラーメッセージや警告を出さないかもしれない" href="#dfn-no-diagnostic-required">診断不要</a>の規則に違反しないプログラムを書くように心懸ける必要がある。
+更に、<a class="cpprefjp-defined-word" data-desc="処理系によって事前に定めた動作をする" href="#dfn-implementation-defined-behavior">処理系定義の動作</a>や<a class="cpprefjp-defined-word" data-desc="事前の断りなく処理系によって異なる動作をする" href="#dfn-unspecified-behavior">未規定の動作</a>は、(内部的に起こしても良いが) 外から見える動作として現れて問題を起こさないようにする必要がある。
+余裕があれば、文化圏固有動作や条件付き対応の構成についても気を配ると良い。</p>
+<h2><a href="#list-of-locale-specific" id="list-of-locale-specific">文化圏固有動作の一覧</a></h2>
+<p>ToDo</p>
+<h2><a href="#list-of-conditionally-supported" id="list-of-conditionally-supported">条件付き対応の一覧</a></h2>
+<p>ToDo</p>
+<h2><a href="#list-of-implementation-limit" id="list-of-implementation-limit">処理系限界の一覧</a></h2>
+<p>ToDo</p>
+<h2>参照</h2>
+<ul>
+<li><a href="https://qiita.com/akinomyoga/items/592e5a3b8438a0c8556b" target="_blank">C++er は“合法”だとか“違法”だとか言いたくて仕方がないけれど、結局どういう意味? それより適合・適格・○○動作・○○規則・診断不要いろいろの関係が謎 - Qiita</a></li>
+<li><a href="http://www.c-lang.org/detail/implementation_defined_behavior.html" target="_blank">処理系定義の動作</a> - C言語の<a class="cpprefjp-defined-word" data-desc="処理系によって事前に定めた動作をする" href="#dfn-implementation-defined-behavior">処理系定義の動作</a>の一覧</li>
+<li><a href="http://www.c-lang.org/detail/undefined_behavior.html" target="_blank">未定義の動作</a> - C言語の<a class="cpprefjp-defined-word" data-desc="処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="#dfn-undefined-behavior">未定義の動作</a>の一覧</li>
+<li><a href="http://www.c-lang.org/detail/unspecified_behavior.html" target="_blank">未規定の動作</a> - C言語の<a class="cpprefjp-defined-word" data-desc="事前の断りなく処理系によって異なる動作をする" href="#dfn-unspecified-behavior">未規定の動作</a>の一覧</li>
+<li><a href="http://www.c-lang.org/detail/locale_specific_behavior.html" target="_blank">文化圏固有動作</a> - C言語の文化圏固有動作の一覧</li>
+<li><a href="https://cpplover.blogspot.jp/2014/06/old-new-thing.html" target="_blank">本の虫: Old New Thing: 未定義動作はタイムトラベルを引き起こす（他にもいろいろあるけど、タイムトラベルが一番ぶっ飛んでる）</a></li>
+<li><a href="https://www.jpcert.or.jp/sc-rules/c-msc15-c.html" target="_blank">MSC15-C. 未定義の動作に依存しない</a></li>
+</ul>
+<h2>出典</h2>
+<ol>
+<li><a href="#cite_ref-1" id="cite-1"><strong>^</strong></a> <cite><a href="http://www.catb.org/jargon/html/N/nasal-demons.html" target="_blank">nasal demons</a></cite></li>
+<li><a href="#cite_ref-2" id="cite-2"><strong>^</strong></a> <cite><a href="https://cpplover.blogspot.jp/2010/01/c0x_14.html" target="_blank">本の虫: C++0x本：鼻から悪魔</a></cite></li>
+<li><a href="#cite_ref-3" id="cite-3"><strong>^</strong></a> <cite><a href="https://cpplover.blogspot.jp/2014/06/old-new-thing.html" target="_blank">本の虫: Old New Thing: 未定義動作はタイムトラベルを引き起こす（他にもいろいろあるけど、タイムトラベルが一番ぶっ飛んでる）</a></cite></li>
+</ol>
+<h2>注釈</h2>
+<ol>
+<li><a href="#note_ref-1" id="note-1"><strong>^</strong></a> no diagnostic required: JIS C++ では一定の訳は与えられず、登場する度に異なる翻訳のされ方をしている。
+  ここでは "<a class="cpprefjp-defined-word" data-desc="処理系は規則違反に対してエラーメッセージや警告を出さないかもしれない" href="#dfn-no-diagnostic-required">診断不要</a>" という語を割り当てることにする。</li>
+<li><a href="#note_ref-2" id="note-2"><strong>^</strong></a> diagnostic message: JIS C++ では "<a class="cpprefjp-defined-word" data-desc="コンパイルエラーや警告。処理系がプログラム翻訳時に提供する情報の総称" href="#dfn-diagnostic-message">診断情報</a>" としている。
+  JIS C言語 (JIS X 3010:2003) では "<a class="cpprefjp-defined-word" data-desc="診断情報。コンパイルエラーや警告。処理系がプログラム翻訳時に提供する情報の総称" href="#dfn-diagnostic-message">診断メッセージ</a>" としている。</li>
+<li><a href="#note_ref-3" id="note-3"><strong>^</strong></a> conditionally-supported constructs: C++11 で導入されたものなので、JIS C++ には対応訳は存在しない。
+  ここでは "条件付き対応の構成" と訳す。
+  因みに JIS C++ では constructs は "構文" と訳している。
+  現に C++98/03 で constructs という単語が使われているのは構文に対してのみである。
+  しかし conditionally-supported constructs が導入された今、
+  constructs という単語は構文とは言い難いものにも使われている。
+  因みに、本来 constructs というのは構成要素というぐらいの意味である。</li>
+</ol></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
