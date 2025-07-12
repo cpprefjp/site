@@ -95,4 +95,3 @@ int main()
 ## 参照
 - [LWG Issue 2018. [CD] `regex_traits::isctype` Returns clause is wrong](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2018)
     - C++14から、戻り値の仕様文面が見直された。
-

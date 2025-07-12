@@ -34,5 +34,3 @@
 | [`basic_stringstream`](sstream/basic_stringstream.md) | 文字列入出力ストリーム(class template)         | |
 | [`stringstream`](sstream/basic_stringstream.md)       | `char`版の文字列入出力ストリーム(type-alias)      | |
 | [`wstringstream`](sstream/basic_stringstream.md)      | `wchar_t`版の文字列入出力ストリーム(type-alias)   | |
-
-

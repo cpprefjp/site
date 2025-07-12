@@ -59,5 +59,3 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 2008 (std::tr1) [mark verified], 2010 [mark verified], 2012 [mark verified]
 
 ## 参照
-
-

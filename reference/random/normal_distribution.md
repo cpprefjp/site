@@ -130,4 +130,3 @@ int main()
 - [Ziggurat sampling - Wikipedia](https://en.wikipedia.org/wiki/Ziggurat_algorithm)
     - Boost 1.56.0以降で、Boost.Randomの`normal_distribution`の実装に使われているアルゴリズム。
     - ボックス＝ミュラー法やPolar法など他の方式よりも、効率を大幅に改善しており、生成される乱数の精度も良い。
-

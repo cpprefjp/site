@@ -362,4 +362,3 @@ p \log_{10}b&\text{もし $b$ が $10$ の累乗の場合}\\
 \end{array}
 \right.
 $$
-

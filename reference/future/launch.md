@@ -41,4 +41,3 @@ namespace std {
 
 ## 参照
 - [LWG Issue 2102. Why is `std::launch` an implementation-defined type?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2102)
-

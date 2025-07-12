@@ -45,4 +45,3 @@ Visual C++では、`static_cast<int>(UINT8_MAX)`としないと、このとお�
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 	- 2012以降、値の型は`unsigned char`となっており、標準規格に合致していないことに注意。
-

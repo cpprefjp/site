@@ -77,5 +77,3 @@ int main()
 
 ## 参照
 - [LWG Issue 2067. `packaged_task` should have deleted copy c'tor with const parameter](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2067)
-
-

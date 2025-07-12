@@ -69,4 +69,3 @@ int main()
 
 ## 参照
 - [P0288R9 move_only_function](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0288r9.html)
-

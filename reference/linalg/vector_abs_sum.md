@@ -131,4 +131,3 @@ int main()
 ## 参照
 - [P1673R13 A free function linear algebra interface based on the BLAS](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1673r13.html)
 - [LAPACK: dzasum](https://netlib.org/lapack/explore-html/d5/d72/group__asum_gaf23444d1c822b34db864558d7afc76dd.html#gaf23444d1c822b34db864558d7afc76dd)
-

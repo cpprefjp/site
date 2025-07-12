@@ -52,4 +52,3 @@ double : -307
 * [`numeric_limits::min_exponent`](min_exponent.md)
 * [`numeric_limits::max_exponent`](max_exponent.md)
 * [`numeric_limits::max_exponent10`](max_exponent10.md)
-

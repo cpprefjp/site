@@ -68,4 +68,3 @@ int main()
 ## 参照
 - [N4861 24 Ranges library](https://timsong-cpp.github.io/cppwp/n4861/ranges)
 - [C++20 ranges](https://techbookfest.org/product/5134506308665344)
-

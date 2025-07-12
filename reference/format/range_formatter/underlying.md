@@ -30,4 +30,3 @@ Rangeの要素型に対する[`formatter`](/reference/format/formatter.md)を取
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
-

@@ -100,4 +100,3 @@ address : 0x1a2b960
 ## 参照
 - [P0339R6 polymorphic_allocator<> as a vocabulary type](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0339r6.pdf)
 - [LWG Issue 3036. `polymorphic_allocator::destroy` is extraneous](https://cplusplus.github.io/LWG/issue3036)
-

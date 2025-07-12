@@ -37,5 +37,3 @@ namespace std {
 
 
 ## 参照
-
-

@@ -117,4 +117,3 @@ libstdc++ の `unordered_multiset` では、アロケータの `select_on_contai
 | [`swap`](op_assign.md)                                 | 内容の交換（非メンバ関数） |
 | [`allocator`](/reference/memory/allocator.md)            | デフォルトのアロケータ |
 | [`allocator_traits`](/reference/memory/allocator_traits.md) | アロケータのトレイツ |
-

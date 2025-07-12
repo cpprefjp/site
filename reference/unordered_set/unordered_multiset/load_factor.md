@@ -93,4 +93,3 @@ size is 20, bucket_count is 23, load_factor is 0.869565
 | [`max_load_factor`](max_load_factor.md) | 負荷率の最大値を取得、設定               |
 | [`rehash`](rehash.md)                   | 最小バケット数指定によるバケット数の調整 |
 | [`reserve`](reserve.md)                 | 最小要素数指定によるバケット数の調整     |
-

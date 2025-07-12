@@ -105,4 +105,3 @@ C++14とは、2014年12月に改訂され、ISO/IEC 14882:2014で標準規格化
 
 ## 参照
 - [C++14 Overview - Standard C++](https://isocpp.org/wiki/faq/cpp14)
-

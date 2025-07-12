@@ -51,5 +51,3 @@ iostream stream error
 
 
 ## 参照
-
-

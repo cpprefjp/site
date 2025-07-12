@@ -75,5 +75,3 @@ b : {1,2,3}
 - [GCC](/implementation.md#gcc): 4.7.3 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
-
-

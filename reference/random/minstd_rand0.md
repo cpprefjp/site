@@ -117,4 +117,3 @@ int main()
 - [Stephen K. Park and Keith W. Miller (1988). "Random Number Generators: Good Ones Are Hard To Find". Communications of the ACM 31 (10): 1192–1201. doi:10.1145/63039.63042.](http://www.firstpr.com.au/dsp/rand31/p1192-park.pdf)
 - [MINSTD - Classical LSGs](https://web.archive.org/web/20181030204012/http://random.mat.sbg.ac.at/results/karl/server/node4.html#SECTION00042000000000000000)
 - A pseudo-random number generator for the System/360, P.A. Lewis, A.S. Goodman, J.M. Miller, IBM Systems Journal, Vol. 8, No. 2, 1969, pp. 136-146
-

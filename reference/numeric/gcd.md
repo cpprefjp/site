@@ -187,4 +187,3 @@ constexpr std::common_type_t<M, N> gcd(M m, N n) {
 }
 ```
 * abs[link /reference/cstdlib/abs.md]
-

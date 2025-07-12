@@ -218,4 +218,3 @@ int main()
 
 ## 参照
 - [LWG Issue 2098. Minor Inconsistency between `promise::set_value` and `promise::set_value_at_thread_exit`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2098)
-

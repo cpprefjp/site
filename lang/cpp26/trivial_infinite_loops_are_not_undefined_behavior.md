@@ -44,4 +44,3 @@ while (true)
 
 ## 参照
 - [P2809R3 Trivial infinite loops are not Undefined Behavior](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2809r3.html)
-

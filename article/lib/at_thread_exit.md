@@ -141,4 +141,3 @@ Hoge destructor
 ## 参考
 - [futureとpromiseのあれこれ（理論編） - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20120131/p1)
 - [N3070 - Handling Detached Threads and thread_local Variables](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3070.html)
-

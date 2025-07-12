@@ -101,4 +101,3 @@ int main()
 
 ## 参照
 - [`enable_shared_from_this`クラステンプレート - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20120314/p1)
-

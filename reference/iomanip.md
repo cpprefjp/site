@@ -18,5 +18,3 @@
 | `get_time`      | 日時書式から入力する (function template)        | C++11 |
 | [`put_time`](iomanip/put_time.md) | 日時書式で出力する (function template)          | C++11 |
 | [`quoted`](iomanip/quoted.md)     | 囲み文字指定で入出力する (function template)    | C++14 |
-
-

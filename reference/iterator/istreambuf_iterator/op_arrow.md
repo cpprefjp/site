@@ -41,5 +41,3 @@ pointer operator->() const;
 
 
 ## 参照
-
-

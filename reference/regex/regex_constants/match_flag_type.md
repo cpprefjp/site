@@ -79,4 +79,3 @@ namespace regex_constants{
     - `match_default`と`format_default`の2つがデフォルト値`0`を持っているが、同じ値を持つビットマスク値が複数含まれていることはビットマスク型の要件と矛盾しているため、C++14でビットマスク型の要件を見なおした。
 - [LWG Issue 2053. Errors in regex bitmask types](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2053)
     - 定数定義に不要な`static`が付いていたため、C++14で削除
-

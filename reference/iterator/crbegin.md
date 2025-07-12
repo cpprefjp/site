@@ -94,4 +94,3 @@ int main()
 
 ## 参照
 - [LWG Issue 2128. Absence of global functions `cbegin`/`cend`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2128)
-

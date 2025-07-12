@@ -35,4 +35,3 @@ namespace std {
 - [`std::tuple`](/reference/tuple/tuple.md)クラス
 - [`std::promise`](/reference/future/promise.md)クラス
 - [`std::function`](/reference/functional/function.md)クラス
-

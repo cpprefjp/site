@@ -112,4 +112,3 @@ int main()
 
 ## 参照
 - [二項分布 - Wikipedia](https://ja.wikipedia.org/wiki/二項分布)
-

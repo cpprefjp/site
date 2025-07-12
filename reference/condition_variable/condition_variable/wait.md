@@ -165,4 +165,3 @@ process data
 ## 参照
 - [LWG Issue 2093. Throws clause of `condition_variable::wait` with predicate](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2093)
 - [LWG Issue 2135. Unclear requirement for exceptions thrown in `condition_variable::wait()`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2135)
-

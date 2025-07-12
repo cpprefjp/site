@@ -152,4 +152,3 @@ int main()
 ## 関連項目
 - [`sleep_for`](/reference/thread/this_thread/sleep_for.md)
 - [`sleep_until`](/reference/thread/this_thread/sleep_until.md)
-

@@ -93,5 +93,3 @@ assign indirect_array : {2,4,6,4,5,6}
 assign valarray : {1,33,3,33,5,33}
 assign value : {1,55,3,55,5,55}
 ```
-
-

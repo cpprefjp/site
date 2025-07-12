@@ -334,5 +334,3 @@ z[3] = 6
 ## 参照
 - [P1673R13 A free function linear algebra interface based on the BLAS](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1673r13.html)
 - [LAPACK: ctrmv](https://netlib.org/lapack/explore-html/d6/d1c/group__trmv_ga0adaf80ae1dfe117390bd7030fd865f1.html#ga0adaf80ae1dfe117390bd7030fd865f1)
-
-

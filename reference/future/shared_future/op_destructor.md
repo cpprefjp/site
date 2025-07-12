@@ -43,4 +43,3 @@
 ## 参照
 - [`async`関数`launch::async`ポリシーと`future`のちょっと特殊な動作 - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20120317/p1)
 - [`async`関数`launch::async`ポリシーと`future`のちょっと特殊な動作（続き） - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20121004/p1)
-

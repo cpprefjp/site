@@ -82,4 +82,3 @@ int main()
 
 ## 関連項目
 - [C++11 初期化子リスト](/lang/cpp11/initializer_lists.md)
-

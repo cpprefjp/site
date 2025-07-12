@@ -40,5 +40,3 @@ int : 2
 char : 2
 double : 2
 ```
-
-

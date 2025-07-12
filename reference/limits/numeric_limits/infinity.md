@@ -56,5 +56,3 @@ double : 1.#INF
 
 ## 参照
 * [`numeric_limits::has_infinity`](has_infinity.md)
-
-

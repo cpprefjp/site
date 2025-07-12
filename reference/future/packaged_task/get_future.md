@@ -88,4 +88,3 @@ int main()
 
 ## 参照
 - [LWG Issue 2412. `promise::set_value()` and `promise::get_future()` should not race](https://wg21.cmeerw.net/lwg/issue2412)
-

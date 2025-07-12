@@ -66,5 +66,3 @@ int main()
 left_shift_result : {4,5,0,0,0}
 right_shift_result : {0,0,0,1,2}
 ```
-
-

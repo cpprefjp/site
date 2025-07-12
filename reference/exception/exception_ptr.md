@@ -103,4 +103,3 @@ error!
 ## 参照
 - [N2107 Exception Propagation across Threads](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2107.html)
 - [N2179 Language Support for Transporting Exceptions between Threads](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2179.html)
-

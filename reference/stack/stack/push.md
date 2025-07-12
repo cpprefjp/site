@@ -71,5 +71,3 @@ int main()
 void push(const value_type& x) { c.push_back(x); }
 void push(value_type&& x) { c.push_back(std::move(x)); }
 ```
-
-

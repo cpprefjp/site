@@ -100,4 +100,3 @@ a
 ## 参照
 - [LWG Issue 2143. `ios_base::xalloc` should be thread-safe](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2143)
     - C++14から、この関数は複数スレッドから呼び出しても安全になった。
-

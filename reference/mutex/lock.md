@@ -109,5 +109,3 @@ Visual C++ 11.0, 12.0では、このコードは正常に動作せず、1件目�
 ## 参照
 - [lock非メンバ関数の使いどころ - yohhoyの日記](http://d.hatena.ne.jp/yohhoy/20120919/p1)
 - [Acquiring Multiple Locks Without Deadlock](https://www.justsoftwaresolutions.co.uk/threading/acquiring-multiple-locks-without-deadlock.html)
-
-

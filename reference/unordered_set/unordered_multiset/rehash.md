@@ -98,4 +98,3 @@ bucket_count is 13
 | [`load_factor`](load_factor.md)         | 現在の負荷率（バケットあたりの要素数の平均）を取得 |
 | [`max_load_factor`](max_load_factor.md) | 負荷率の最大値を取得、設定 |
 | [`reserve`](reserve.md)                 | 最小要素数指定によるバケット数の調整 |
-

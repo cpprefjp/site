@@ -341,4 +341,3 @@
 [icc]: ./implementation.md#icc
 [icx]: ./implementation.md#icc
 [msvc]: ./implementation.md#visual_cpp
-

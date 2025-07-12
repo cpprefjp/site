@@ -24,4 +24,3 @@
 | [`make_exception_ptr`](exception/make_exception_ptr.md) | 例外ポインタを作成する(function) | C++11 |
 | [`throw_with_nested`](exception/throw_with_nested.md) | 現在の例外を入れ子にした例外を送出する(function) | C++11 |
 | [`rethrow_if_nested`](exception/rethrow_if_nested.md) | 入れ子になった例外が存在する場合に、入れ子になった例外を送出する(function) | C++11 |
-

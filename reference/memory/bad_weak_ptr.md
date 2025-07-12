@@ -64,4 +64,3 @@ bad_weak_ptr
     - 2010までは`what()`が`"tr1::bad_weak_ptr"`を返す。
 
 ## 参照
-

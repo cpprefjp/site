@@ -58,5 +58,3 @@ int main() {
 value_type& back() { return c.back(); }
 const value_type& back() const { return c.back(); }
 ```
-
-

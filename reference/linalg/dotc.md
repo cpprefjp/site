@@ -144,4 +144,3 @@ int main()
 ## 参照
 - [P1673R13 A free function linear algebra interface based on the BLAS](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1673r13.html)
 - [`LAPACK: cdotc`](https://netlib.org/lapack/explore-html/d1/dcc/group__dot_ga5c189335a4e6130a2206c190579b1571.html#ga5c189335a4e6130a2206c190579b1571)
-

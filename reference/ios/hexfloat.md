@@ -44,4 +44,3 @@ namespace std {
 - [`fixed`](fixed.md)
 - [`scientific`](scientific.md)
 - [N1503 Proposed Additions to TR-1 to Improve Compatibility with C99](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1503.htm)
-

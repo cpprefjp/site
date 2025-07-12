@@ -53,5 +53,3 @@ Broken promise
 
 
 ## 参照
-
-

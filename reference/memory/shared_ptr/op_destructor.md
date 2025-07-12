@@ -67,4 +67,3 @@ X dtor
 1
 Y dtor
 ```
-

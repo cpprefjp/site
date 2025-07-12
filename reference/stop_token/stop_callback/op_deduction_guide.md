@@ -53,4 +53,3 @@ int main()
 
 ## 関連項目
 - [C++17 クラステンプレートのテンプレート引数推論](/lang/cpp17/type_deduction_for_class_templates.md)
-

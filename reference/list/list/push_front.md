@@ -51,5 +51,3 @@ int main()
 hello
 world
 ```
-
-

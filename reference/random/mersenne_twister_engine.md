@@ -173,4 +173,3 @@ int main()
 * [Mersenne Twister Home Page](http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/mt.html)
 * [メルセンヌ・ツイスタ - Wikipedia](https://ja.wikipedia.org/wiki/メルセンヌ・ツイスタ)
 * GCC(libstdc++) 4.8以降では、`<ext/random>`ヘッダに、SSE最適化されたメルセンヌ・ツイスターである`simd_fast_mersenne_twister_engine`クラスが実装されている
-

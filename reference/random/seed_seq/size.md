@@ -54,5 +54,3 @@ int main()
 
 ## 参照
 - [LWG Issue 2180. Exceptions from `std::seed_seq` operations](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2180)
-
-

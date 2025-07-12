@@ -81,4 +81,3 @@ B, 4
 | [`flat_multimap::lower_bound`](lower_bound.md) | 与えられた値より小さくない最初の要素へのイテレータを返す |
 | [`flat_multimap::upper_bound`](upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを返す       |
 | [`flat_multimap::find`](find.md)               | 指定したキーで要素を探す                                 |
-

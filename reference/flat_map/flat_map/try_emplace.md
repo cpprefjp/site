@@ -173,4 +173,3 @@ false, 114, false
 | [`flat_map::insert_or_assign`](insert_or_assign.md) | 要素を挿入、あるいは代入する               |
 | [`flat_map::emplace`](emplace.md)                   | 要素を直接構築する                         |
 | [`flat_map::emplace_hint`](emplace_hint.md)         | ヒントを使って要素を直接構築する           |
-

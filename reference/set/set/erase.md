@@ -173,4 +173,3 @@ int main()
     - C++17で、`erase(iterator)`を再追加
 - [P2077R3 Heterogeneous erasure overloads for associative containers](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2077r3.html)
     - C++23で、`template <class K> erase(K&& x)`のオーバーロードが追加された
-

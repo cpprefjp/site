@@ -98,4 +98,3 @@ int main()
 - [Clang](/implementation.md#clang): 10.0 [mark verified]
 - [GCC](/implementation.md#gcc): 11.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
-

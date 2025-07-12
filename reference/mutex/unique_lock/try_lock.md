@@ -103,5 +103,3 @@ terminate called after throwing an instance of 'std::system_error'
 
 
 ## 参照
-
-

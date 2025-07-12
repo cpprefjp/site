@@ -72,5 +72,3 @@ int main()
 | [`pop_back`](pop_back.md)   | 末尾要素を削除する |
 | [`pop_front`](pop_front.md) | 先頭要素を削除する |
 | [`empty`](empty.md)         | コンテナが空であるかどうかを調べる |
-
-

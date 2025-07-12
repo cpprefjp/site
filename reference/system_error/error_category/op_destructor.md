@@ -25,4 +25,3 @@ virtual ~error_category();          // C++14
 
 ## 参照
 - [LWG Issue 2145. `error_category` default constructor](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2145)
-

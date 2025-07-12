@@ -176,4 +176,3 @@ h : "D:bar"
 ### 備考
 - GCC 8.1 (SVN) の`operator/=`では、ルートディレクトリを持つパスを加算すると、左辺が削除されないバグがある
     - [Bug 84159 - `filesystem::path::operator/=` with has root directory path](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=84159)
-

@@ -87,4 +87,3 @@ int main() {
 * ifs.is_open[link basic_ifstream/is_open.md]
 * ifs.close[link basic_ifstream/close.md]
 * std::getline[link /reference/string/basic_string/getline.md]
-

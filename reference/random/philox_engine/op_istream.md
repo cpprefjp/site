@@ -75,4 +75,3 @@ int main()
 - [GCC](/implementation.md#gcc): 14 [mark noimpl]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
-

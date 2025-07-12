@@ -55,5 +55,3 @@ GCC 4.8.1時点でのlibstdc++の実装では、[`numeric_limits`](/reference/li
 
 
 ## 参照
-
-

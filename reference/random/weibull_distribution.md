@@ -129,4 +129,3 @@ int main()
 - [ワイブル分布 - Wikipedia](https://ja.wikipedia.org/wiki/ワイブル分布)
 - [ワイブル分布 = NtRand](http://www.ntrand.com/jp/weibull-distribution/)
 - [疲労や破壊現象とワイブル分布](http://web.archive.org/web/20220706102605/http://www.mogami.com/notes/weibull.html)
-

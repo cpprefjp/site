@@ -96,4 +96,3 @@ int main()
 
 ## 参照
 - [LWG 2316 - weak_ptr::lock() should be atomic](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-active.html#2316)
-

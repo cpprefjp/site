@@ -22,4 +22,3 @@ constexpr bad_array_new_length& operator=(const bad_array_new_length&) noexcept;
 
 ## 関連項目
 - [C++26 定数評価での例外送出を許可](/lang/cpp26/allowing_exception_throwing_in_constant-evaluation.md)
-

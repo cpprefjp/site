@@ -80,4 +80,3 @@ false
 ## 参照
 - [LWG Issue 2257. Simplify container requirements with the new algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2257)
     - C++14から、2つ目のイテレータ範囲のendイテレータをとる`equal()`アルゴリズムを使用するようになった。
-

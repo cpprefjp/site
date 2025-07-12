@@ -44,5 +44,3 @@ char : true
 float : false
 double : false
 ```
-
-

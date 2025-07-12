@@ -51,4 +51,3 @@ int main()
 
 ## 参照
 - [P2417R2 A more constexpr bitset](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2417r2.pdf)
-

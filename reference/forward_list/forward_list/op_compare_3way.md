@@ -81,4 +81,3 @@ int main ()
 ## 参照
 - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
-

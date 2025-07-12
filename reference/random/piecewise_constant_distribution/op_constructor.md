@@ -147,5 +147,3 @@ parameter constructor : 0.49003
 
 
 ## 参照
-
-

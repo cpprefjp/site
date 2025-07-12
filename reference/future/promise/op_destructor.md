@@ -71,5 +71,3 @@ std::future_error: Broken promise
 
 
 ## 参照
-
-

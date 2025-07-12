@@ -90,5 +90,3 @@ int main()
 valarray/=valarray : {4,2,2}
 valarray/=int : {2,2,3}
 ```
-
-

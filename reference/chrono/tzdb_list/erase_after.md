@@ -39,4 +39,3 @@ const_iterator erase_after(const_iterator p);
 ## バージョン
 ### 言語
 - C++20
-

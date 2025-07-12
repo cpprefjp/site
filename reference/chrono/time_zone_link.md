@@ -77,4 +77,3 @@ std::cout << linked_tz->name() << std::endl; // Asia/Nicosia
 ## 参照
 - [P1982R0 Rename `link` to `time_zone_link`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1982r0.html)
     - C++20の策定中、National Body Commentとして`link`というクラス名は一般的すぎて説明的ではないと指摘があり、`time_zone_link`に名称変更された
-

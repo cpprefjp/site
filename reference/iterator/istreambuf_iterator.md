@@ -91,4 +91,3 @@ int main()
 
 ## 関連項目
 - [`basic_streambuf`](../streambuf/basic_streambuf.md)
-

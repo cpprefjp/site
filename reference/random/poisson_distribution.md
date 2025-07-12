@@ -167,4 +167,3 @@ Month 12: 1 earthquake(s)
 - [ポアソン分布 - 統計・データ解析](https://okumuralab.org/~okumura/stat/poisson.html)
 - [ポアソン分布 - NtRand](http://www.ntrand.com/jp/poisson-distribution/)
 - [［データ分析］ポアソン分布 ～ 100年に1人の天才は何人現れる？：やさしい確率分布 - ＠IT](https://atmarkit.itmedia.co.jp/ait/articles/2407/11/news002.html)
-

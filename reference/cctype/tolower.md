@@ -52,4 +52,3 @@ int tolower(int ch) {
   return ch;
 }
 ```
-

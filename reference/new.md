@@ -36,4 +36,3 @@
 |------|------|----------------|
 | [`hardware_destructive_interference_size`](new/hardware_destructive_interference_size.md) | 2つのオブジェクトに並行アクセスする際に、パフォーマンス低下を避けられる最小アライメントサイズ (variable) | C++17 |
 | [`hardware_constructive_interference_size`](new/hardware_constructive_interference_size.md) | 2つのオブジェクトに一時局所的にアクセスできる最大サイズ (variable) | C++17 |
-

@@ -203,4 +203,3 @@ z[3] = 602
 ## 参照
 - [P1673R13 A free function linear algebra interface based on the BLAS](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1673r13.html)
 - [LAPACK: cgemv](https://netlib.org/lapack/explore-html/d7/dda/group__gemv_ga44c85a0d7ecd60a6bc8ca27b222d7792.html#ga44c85a0d7ecd60a6bc8ca27b222d7792)
-

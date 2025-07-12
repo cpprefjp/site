@@ -114,4 +114,3 @@ int main()
 
 ## 参照
 - [幾何分布 - Wikipedia](https://ja.wikipedia.org/wiki/幾何分布)
-

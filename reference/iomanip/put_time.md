@@ -93,5 +93,3 @@ Thu Dec 25 15:12:30 2014
 - [GCC](/implementation.md#gcc): 5.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
-
-

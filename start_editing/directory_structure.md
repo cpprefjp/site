@@ -39,4 +39,3 @@ reference階層とmodule階層は上記以外は同じであるため、以下�
 - 名前空間の階層は基本的に導入しない。例外は以下：
     - [`std::this_thread`](/reference/thread/this_thread.md)
         - 名前空間に特殊な意味をもたせている
-

@@ -195,4 +195,3 @@ constexpr std::common_type_t<M, N> lcm(M m, N n) {
 }
 ```
 * abs[link /reference/cstdlib/abs.md]
-
