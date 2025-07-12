@@ -42,13 +42,13 @@ int main() {
 
 ```
 * std::fpos_t[color ff0000]
-* std::fgetpos()[link /reference/cstdio/fgetpos.md.nolink]
-* std::fsetpos()[link /reference/cstdio/fsetpos.md.nolink]
-* std::fopen()[link /reference/cstdio/fopen.md]
-* std::fclose()[link /reference/cstdio/fclose.md]
-* std::fgetc()[link /reference/cstdio/fgetc.md]
-* std::printf()[link /reference/cstdio/printf.md]
-* std::perror()[link /reference/cstdio/perror.md.nolink]
+* std::fgetpos[link /reference/cstdio/fgetpos.md.nolink]
+* std::fsetpos[link /reference/cstdio/fsetpos.md.nolink]
+* std::fopen[link /reference/cstdio/fopen.md]
+* std::fclose[link /reference/cstdio/fclose.md]
+* std::fgetc[link /reference/cstdio/fgetc.md]
+* std::printf[link /reference/cstdio/printf.md]
+* std::perror[link /reference/cstdio/perror.md.nolink]
 
 ### ファイル内容(sample.txt)
 ```

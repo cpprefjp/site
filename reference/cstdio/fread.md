@@ -55,11 +55,11 @@ int main() {
   return 0;
 }
 ```
-* std::fread()[color ff0000]
-* std::fopen()[link /reference/cstdio/fopen.md]
-* std::fclose()[link /reference/cstdio/fclose.md]
-* std::perror()[link /reference/cstdio/perror.md.nolink]
-* std::printf()[link /reference/cstdio/printf.md]
+* std::fread[color ff0000]
+* std::fopen[link /reference/cstdio/fopen.md]
+* std::fclose[link /reference/cstdio/fclose.md]
+* std::perror[link /reference/cstdio/perror.md.nolink]
+* std::printf[link /reference/cstdio/printf.md]
 
 ### ファイル内容(sample.txt)
 ```
