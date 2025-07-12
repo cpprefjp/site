@@ -497,7 +497,7 @@ void f()
 ```cpp
 double array[] = { 1.0, 2.1, 3.3, 4.4 };
 double sum = 0; int factor = 2;
-for_each(array, array + 4, <>(double d ; &sum, factor) ( sum += factor ∗ d ));
+for_each(array, array + 4, <>(double d ; &sum, factor) ( sum += factor * d ));
 ```
 
 参照キャプチャする場合は、変数名の先頭に`&`を付け、コピーキャプチャする場合は変数名のみを指定する。
@@ -507,7 +507,7 @@ for_each(array, array + 4, <>(double d ; &sum, factor) ( sum += factor ∗ d ));
 ```cpp
 double array[] = { 1.0, 2.1, 3.3, 4.4 };
 double sum = 0; int factor = 2;
-for_each(array, array + 4, <&>(double d) ( sum += factor ∗ d ));
+for_each(array, array + 4, <&>(double d) ( sum += factor * d ));
 ```
 
 ここでは、関数の本体に丸カッコを使用している。これは、関数の本体がひとつの式だけで成り立つ場合に使用する。2つ以上の式や文がある場合は、波カッコを使用する。

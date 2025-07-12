@@ -43,7 +43,7 @@ template<class T> struct S {
   T::R f(T::P p) {               // OK, メンバ宣言、およびメンバ宣言における仮引数宣言
     return static_cast<T::R>(p); // OK, static_castの型名
   }
-  auto g() -> S<T*>::Ptr;        // OK, 後置戻り値型
+  auto g() -> S<T*>::Ptr;        // OK, 後置戻り値型
 };
 
 template<typename T> void f() {
