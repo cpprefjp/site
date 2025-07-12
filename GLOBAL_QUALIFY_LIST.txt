@@ -29,6 +29,7 @@
     * std::bitset[link /reference/bitset/bitset.md]
 * <cassert>[link /reference/cassert.md]
     * assert[link /reference/cassert/assert.md]
+* <cctype>[link /reference/cctype.md]
 * <cerrno>[link /reference/cerrno.md]
 * <cfenv>[link /reference/cfenv.md]
 * <cfloat>[link /reference/cfloat.md]
