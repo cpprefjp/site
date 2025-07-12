@@ -30,8 +30,8 @@ void f(std::ios_base& str, std::ios_base::fmtflags mask) {
 
 ## 例
 ```cpp example
-#include<iostream>
-#include<iomanip>
+#include <iostream>
+#include <iomanip>
 
 int main()
 {
