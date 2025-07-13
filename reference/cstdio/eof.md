@@ -3,7 +3,7 @@
 * macro[meta id-type]
 
 ```cpp
-#define EOF /* implementation defined */
+#define EOF /* implementation-defined */
 ```
 
 ## 概要

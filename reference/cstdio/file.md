@@ -5,7 +5,7 @@
 
 ```cpp
 namespace std {
-  typedef /* unspecified */ FILE;
+  using FILE = /* unspecified */;
 }
 ```
 
