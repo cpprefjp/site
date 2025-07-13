@@ -3,7 +3,7 @@
 * macro[meta id-type]
 
 ```cpp
-#define RAND_MAX /*implementation defined*/
+#define RAND_MAX /*implementation-defined*/
 ```
 
 ## 概要
