@@ -5,6 +5,8 @@
 
 ```cpp
 #define FP_FAST_FMA 1
+// または
+#undef FP_FAST_FMA
 ```
 
 ## 概要
