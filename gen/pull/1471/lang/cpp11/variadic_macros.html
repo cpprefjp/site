@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-13T04:07:37">
-        2025年07月13日 04時07分37秒
+      <span itemprop="datePublished" content="2025-07-13T05:39:17">
+        2025年07月13日 05時39分17秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -223,9 +223,10 @@
 <h2>仕様</h2>
 <p>可変引数マクロは、0個以上の任意の引数をマクロに渡すための機能である。</p>
 <p>可変引数マクロは、以下の構文を持つ：</p>
-<p><pre><code>#define identifier ( ... ) replacement-list new-line
-#define identifier ( identifier-list , ... ) replacement-list new-line
-</code></pre></p>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#define identifier ( ... ) replacement-list new-line</span>
+<span class="cp">#define identifier ( identifier-list , ... ) replacement-list new-line</span>
+</code></pre></div>
+</p>
 <p>1行目は、パラメータ全てを可変個受け取る場合。2行目は、先頭のいくつかのパラメータを名前付きで受け取り、それ以外に可変個のパラメータを受け取る場合。</p>
 <p>可変個のパラメータのあとに、名前付きのパラメータを受け取ることはできない。</p>
 <p><code>...</code>が指定されたパラメータには、ユーザーはカンマ区切りで可変個の引数を指定する。</p>

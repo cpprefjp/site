@@ -2,9 +2,36 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-07-13T04:25:32.323669</updated>
-  <id>14d9327f-80c2-4d10-a7ca-38b7980d0396</id>
+  <updated>2025-07-13T05:43:41.395076</updated>
+  <id>f12fa8b0-6221-41e9-b1db-760f3e837977</id>
 
+  
+    <entry>
+      <title>可変引数マクロ [N1653] -- fix(lang/cpp11/variadic_macros): 言語指定 cpp を追加</title>
+      <link href="https://cpprefjp.github.io/lang/cpp11/variadic_macros.html"/>
+      <id>c2758466cdf863bf634601a678d619406871044a:lang/cpp11/variadic_macros.md</id>
+      <updated>2025-07-13T14:39:17+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp11/variadic_macros.md b/lang/cpp11/variadic_macros.md
+index 6e8c08411..3b1e21390 100644
+--- a/lang/cpp11/variadic_macros.md
++++ b/lang/cpp11/variadic_macros.md
+@@ -20,7 +20,7 @@ C99互換として、可変引数マクロ(variadic macros)が導入された。
+ 
+ 可変引数マクロは、以下の構文を持つ：
+ 
+-```
++```cpp
+ #define identifier ( ... ) replacement-list new-line
+ #define identifier ( identifier-list , ... ) replacement-list new-line
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>EOF -- fix(reference/{cstdlib,cstdio}): &#34;/* implementation-defined */ =&gt; implementation-defined&#34;</title>
@@ -48562,64 +48589,6 @@ index 09d721ea6..98a4455ce 100644
       <author>
         <name>Koichi Murase</name>
         <email>myoga.murase@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>resetiosflags -- 自動リンクがつくようにスペースを挿入</title>
-      <link href="https://cpprefjp.github.io/reference/iomanip/resetiosflags.html"/>
-      <id>95459a75fcd9d29defe75a8dca70373cacd6bb3d:reference/iomanip/resetiosflags.md</id>
-      <updated>2025-07-12T16:53:59+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iomanip/resetiosflags.md b/reference/iomanip/resetiosflags.md
-index b7c733638..6f002d690 100644
---- a/reference/iomanip/resetiosflags.md
-+++ b/reference/iomanip/resetiosflags.md
-@@ -30,8 +30,8 @@ void f(std::ios_base&amp;amp; str, std::ios_base::fmtflags mask) {
- 
- ## 例
- ```cpp example
--#include&amp;lt;iostream&amp;gt;
--#include&amp;lt;iomanip&amp;gt;
-+#include &amp;lt;iostream&amp;gt;
-+#include &amp;lt;iomanip&amp;gt;
- 
- int main()
- {
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Raclamusi</name>
-        <email>raclamusi@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>setiosflags -- 自動リンクがつくようにスペースを挿入</title>
-      <link href="https://cpprefjp.github.io/reference/iomanip/setiosflags.html"/>
-      <id>95459a75fcd9d29defe75a8dca70373cacd6bb3d:reference/iomanip/setiosflags.md</id>
-      <updated>2025-07-12T16:53:59+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iomanip/setiosflags.md b/reference/iomanip/setiosflags.md
-index c7706ba64..b5de2269d 100644
---- a/reference/iomanip/setiosflags.md
-+++ b/reference/iomanip/setiosflags.md
-@@ -30,8 +30,8 @@ void f(std::ios_base&amp;amp; str, std::ios_base::fmtflags mask) {
- 
- ## 例
- ```cpp example
--#include&amp;lt;iostream&amp;gt;
--#include&amp;lt;iomanip&amp;gt;
-+#include &amp;lt;iostream&amp;gt;
-+#include &amp;lt;iomanip&amp;gt;
- 
- int main()
- {
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Raclamusi</name>
-        <email>raclamusi@gmail.com</email>
       </author>
     </entry>
   
