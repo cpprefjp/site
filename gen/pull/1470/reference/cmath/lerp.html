@@ -1,0 +1,369 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>lerp - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cmath,std,function,cpp20
+">
+        <meta name="title" content="lerp - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="lerp - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="lerp - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/cmath/lerp.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="二点`a`と`b`の間を、時間`t`で線形補間 (**l**inear int**erp**olate) する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="lerp - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/cmath/lerp.html" />
+        <meta name="twitter:description" content="二点`a`と`b`の間を、時間`t`で線形補間 (**l**inear int**erp**olate) する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cmath&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;2714dbe28b66c23c567dc281a3a1e7d0d6712386&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;cmath&gt;\n\nint main()\n{\n  // \u958b\u59cb\u70b90.0\u304b\u3089\u3001\u76ee\u6a19\u70b910.0\u307e\u3067\u300110% (\u6642\u95930.1) \u305a\u3064\u5024\u3092\u9032\u3081\u308b\n  float start = 0.0f;\n  float target = 10.0f;\n\n  float t = 0.0f;\n  for (int i = 0; i &lt;= 10; ++i) {\n    float r = std::lerp(start, target, t);\n    std::cout &lt;&lt; r &lt;&lt; std::endl;\n\n    t += 0.1f;\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;badfbaa1f90f2e49892c943bdd1908d09a03caa6&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;cmath&gt;\n\n// 2\u6b21\u5143\u4e0a\u306e\u70b9\u3092\u8868\u3059\u578b\nstruct Point {\n  float x, y;\n};\n\n// Point\u578b\u7528\u306b\u7dda\u5f62\u88dc\u9593\u306e\u6a5f\u80fd\u3092\u5b9a\u7fa9\u3059\u308b\nPoint lerp(const Point&amp; a, const Point&amp; b, float t)\n{\n  return Point{\n    std::lerp(a.x, b.x, t),\n    std::lerp(a.y, b.y, t)\n  };\n}\n\nint main()\n{\n  const Point a{1.0f, 2.0f};\n  const Point b{5.0f, 3.0f};\n\n  // \u70b9a\u304b\u3089\u70b9b\u306b\u5411\u304b\u3063\u3066\u300110%\u305a\u3064\u4f4d\u7f6e\u3092\u9032\u3081\u308b\n  float t = 0.1f;\n  for (int i = 0; i &lt;= 10; ++i) {\n    const Point p = lerp(a, b, t);\n    std::cout &lt;&lt; t &lt;&lt; \&#34; : (\&#34; &lt;&lt; p.x &lt;&lt; \&#34;, \&#34; &lt;&lt; p.y &lt;&lt; &#39;)&#39; &lt;&lt; std::endl;\n\n    t += 0.1f;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cmath&#34;, &#34;lerp&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/cmath.html" itemprop="url">
+              
+                <span itemprop="name">cmath</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">lerp</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-06-11T13:45:38">
+        2024年06月11日 13時45分38秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/cmath/lerp.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/cmath/lerp.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;cmath&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">lerp</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">constexpr</span> <span class="kt">float</span> <span class="n">lerp</span><span class="p">(</span><span class="kt">float</span> <span class="n">a</span><span class="p">,</span> <span class="kt">float</span> <span class="n">b</span><span class="p">,</span> <span class="kt">float</span> <span class="n">t</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
+  <span class="k">constexpr</span> <span class="kt">double</span> <span class="nf">lerp</span><span class="p">(</span><span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b</span><span class="p">,</span> <span class="kt">double</span> <span class="n">t</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
+  <span class="k">constexpr</span> <span class="kt">long</span> <span class="kt">double</span> <span class="nf">lerp</span><span class="p">(</span><span class="kt">long</span> <span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="kt">long</span> <span class="kt">double</span> <span class="n">b</span><span class="p">,</span> <span class="kt">long</span> <span class="kt">double</span> <span class="n">t</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>二点<code>a</code>と<code>b</code>の間を、時間<code>t</code>で線形補間 (<strong>l</strong>inear int<strong>erp</strong>olate) する。</p>
+<p>時間は 0.0 (0%) から 1.0 (100%) までの値を基本的には指定するが、1.0を超える指定も許可されている。</p>
+<p>この関数を使用することによって、現在位置を少しずつ進めていくプログラミングスタイルから、現在位置と目標位置を最初に決めて現在の時間に対応する位置を求めるというプログラミングスタイルに考え方を変更できる。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p><div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">t</span> <span class="o">*</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">);</span>
+</code></pre></div>
+</p>
+<h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
+<p>投げない</p>
+<h2>備考</h2>
+<ul>
+<li><code><a href="isfinite.html">isfinite</a>(a) &amp;&amp; <a href="isfinite.html">isfinite</a>(b)</code>である場合、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a><code>r</code>は以下のようになる：<ul>
+<li><code>t == 0</code>である場合、<code>r == a</code></li>
+<li><code>t == 1</code>である場合、<code>r == b</code></li>
+<li><code>t &gt;= 0 &amp;&amp; t &lt;= 1</code>である場合、<code><a href="isfinite.html">isfinite</a>(r) != 0</code></li>
+<li><code><a href="isfinite.html">isfinite</a>(t) &amp;&amp; a == b</code>である場合、<code>r == a</code></li>
+<li><code><a href="isfinite.html">isfinite</a>(t) || !<a href="isnan.html">isnan</a>(t) &amp;&amp; b - a != 0</code>である場合、<code>!<a href="isnan.html">isnan</a>(r)</code></li>
+</ul>
+</li>
+<li>比較関数<code>CMP(x, y)</code>を、<code>x &gt; y</code>であれば1、<code>x &lt; y</code>であれば-1、そうでなければ0を返すものであるとして、あらゆる時間値<code>t1</code>と<code>t2</code>について<code>CMP(lerp(a,b,t2), lerp(a,b,t1))</code>、<code>CMP(t2, t1)</code>、<code>CMP(b,a)</code>はいずれも非負となる</li>
+</ul>
+<h2>例</h2>
+<h3>基本的な使い方</h3>
+<p><div class="yata" id="2714dbe28b66c23c567dc281a3a1e7d0d6712386"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../cmath.html">&lt;cmath&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// 開始点0.0から、目標点10.0まで、10% (時間0.1) ずつ値を進める</span>
+  <span class="kt">float</span> <span class="n">start</span> <span class="o">=</span> <span class="mf">0.0f</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="n">target</span> <span class="o">=</span> <span class="mf">10.0f</span><span class="p">;</span>
+
+  <span class="kt">float</span> <span class="n">t</span> <span class="o">=</span> <span class="mf">0.0f</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">float</span> <span class="n">r</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::lerp</span></span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">r</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+    <span class="n">t</span> <span class="o">+=</span> <span class="mf">0.1f</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</code></pre></p>
+<h3>2次元上の二点間で線形補間する</h3>
+<p><div class="yata" id="badfbaa1f90f2e49892c943bdd1908d09a03caa6"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../cmath.html">&lt;cmath&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// 2次元上の点を表す型</span>
+<span class="k">struct</span> <span class="n">Point</span> <span class="p">{</span>
+  <span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// Point型用に線形補間の機能を定義する</span>
+<span class="n">Point</span> <span class="nf">lerp</span><span class="p">(</span><span class="k">const</span> <span class="n">Point</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">Point</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">,</span> <span class="kt">float</span> <span class="n">t</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="n">Point</span><span class="p">{</span>
+    <span class="n"><span style="color:#ff0000">std::lerp</span></span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">),</span>
+    <span class="n"><span style="color:#ff0000">std::lerp</span></span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">const</span> <span class="n">Point</span> <span class="n">a</span><span class="p">{</span><span class="mf">1.0f</span><span class="p">,</span> <span class="mf">2.0f</span><span class="p">};</span>
+  <span class="k">const</span> <span class="n">Point</span> <span class="n">b</span><span class="p">{</span><span class="mf">5.0f</span><span class="p">,</span> <span class="mf">3.0f</span><span class="p">};</span>
+
+  <span class="c1">// 点aから点bに向かって、10%ずつ位置を進める</span>
+  <span class="kt">float</span> <span class="n">t</span> <span class="o">=</span> <span class="mf">0.1f</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="n">Point</span> <span class="n">p</span> <span class="o">=</span> <span class="n">lerp</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">t</span> <span class="o">&lt;&lt;</span> <span class="s">" : ("</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="p">.</span><span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="p">.</span><span class="n">y</span> <span class="o">&lt;&lt;</span> <span class="sc">')'</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+    <span class="n">t</span> <span class="o">+=</span> <span class="mf">0.1f</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>0.1 : (1.4, 2.1)
+0.2 : (1.8, 2.2)
+0.3 : (2.2, 2.3)
+0.4 : (2.6, 2.4)
+0.5 : (3, 2.5)
+0.6 : (3.4, 2.6)
+0.7 : (3.8, 2.7)
+0.8 : (4.2, 2.8)
+0.9 : (4.6, 2.9)
+1 : (5, 3)
+1.1 : (5.4, 3.1)
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++20</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>:</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 9.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="../numeric/midpoint.html">std::midpoint()</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0811r3.html" target="_blank">P0811R3 Well-behaved interpolation for numbers and pointers</a></li>
+<li><a href="https://cplusplus.github.io/LWG/lwg-active.html#3201" target="_blank">LWG Issue 3201. <code>lerp</code> should be marked as <code>noexcept</code></a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

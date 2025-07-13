@@ -1,0 +1,449 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>variant::operator= - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,variant,std,variant,function,cpp17
+">
+        <meta name="title" content="variant::operator= - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="variant::operator= - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="variant::operator= - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/variant/variant/op_assign.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`variant`オブジェクトもしくは候補型の値を代入する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="variant::operator= - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/variant/variant/op_assign.html" />
+        <meta name="twitter:description" content="`variant`オブジェクトもしくは候補型の値を代入する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;variant&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;variant&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;6d181ba143b8413d28c68e1e7048e562288ba264&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;variant&gt;\n\nint main()\n{\n  // (1) \u30b3\u30d4\u30fc\u4ee3\u5165\n  {\n    std::variant&lt;int, char, double&gt; v1 = 1;\n    std::variant&lt;int, char, double&gt; v2;\n    v2 = v1;\n\n    assert(std::holds_alternative&lt;int&gt;(v1));\n    assert(std::holds_alternative&lt;int&gt;(v2));\n    assert(std::get&lt;int&gt;(v1) == 1);\n    assert(std::get&lt;int&gt;(v2) == 1);\n  }\n\n  // (2) \u30e0\u30fc\u30d6\u4ee3\u5165\n  {\n    std::variant&lt;int, char, double&gt; v1 = 1;\n    std::variant&lt;int, char, double&gt; v2;\n    v2 = std::move(v1);\n\n    assert(std::holds_alternative&lt;int&gt;(v2));\n    assert(std::get&lt;int&gt;(v2) == 1);\n  }\n\n  // (3) \u578b\u3068\u5024\u306e\u5207\u308a\u66ff\u3048\n  {\n    std::variant&lt;int, char, double&gt; v = 1;\n\n    // \u5024\u3092\u66f4\u65b0\n    v = 2;\n\n    // \u4fdd\u6301\u3059\u308b\u578b\u3092\u5207\u308a\u66ff\u3048\n    v = &#39;a&#39;;\n\n    assert(std::holds_alternative&lt;char&gt;(v));\n    assert(std::get&lt;char&gt;(v) == &#39;a&#39;);\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;5c74072f5d4ee1e40f5e1a895e4df83c94c9147b&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;variant&gt;\n#include &lt;string&gt;\n\nint main()\n{\n  // \u7e2e\u5c0f\u5909\u63db (narrowing conversion) \u306f\u884c\u308f\u308c\u306a\u3044\u306e\u3067\u3001\n  // 0\u304cfloat\u578b\u306b\u4ee3\u5165\u3055\u308c\u305f\u308a\u306f\u3057\u306a\u3044\n  {\n    std::variant&lt;float, int&gt; v;\n    v = 0;\n    assert(std::holds_alternative&lt;int&gt;(v));\n  }\n\n  {\n    // \u6587\u5b57\u5217\u30ea\u30c6\u30e9\u30eb\u306f\u3001C++17\u3067\u306fstd::string\u3088\u308a\u3082bool\u306b\u512a\u5148\u7684\u306b\u5909\u63db\u3055\u308c\u3066\u3057\u307e\u3046\n    std::variant&lt;std::string, bool&gt; v;\n    v = \&#34;abc\&#34;;\n    assert(std::holds_alternative&lt;std::string&gt;(v)); // C++17\u3067\u306fbool\u3001C++20\u3067\u306fstd::string\n\n    std::variant&lt;std::string&gt; v2;\n    v2 = \&#34;abc\&#34;;\n    assert(std::holds_alternative&lt;std::string&gt;(v2));\n\n    std::variant&lt;std::string, bool&gt; v3;\n    v3 = std::string(\&#34;abc\&#34;); // C++17/C++20\u3067std::string\n    assert(std::holds_alternative&lt;std::string&gt;(v3));\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;variant&#34;, &#34;variant&#34;, &#34;op_assign&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/variant.html" itemprop="url">
+              
+                <span itemprop="name">variant</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/variant/variant.html" itemprop="url">
+              
+                <span itemprop="name">variant</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">operator=</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-06-11T13:45:38">
+        2024年06月11日 13時45分38秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/variant/variant/op_assign.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/variant/variant/op_assign.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;variant&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class variant">variant::</span><span class="token">operator=</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="n">variant</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">variant</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">);</span>              <span class="c1">// (1)</span>
+<span class="k">constexpr</span> <span class="n">variant</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">variant</span><span class="o">&amp;&amp;</span> <span class="n">t</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">);</span> <span class="c1">// (2)</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">variant</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">);</span>               <span class="c1">// (3) C++17</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="n">variant</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">);</span>     <span class="c1">// (3) C++23</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>variant</code>オブジェクトもしくは候補型の値を代入する。</p>
+<ul>
+<li>(1) : コピー代入演算子</li>
+<li>(2) : ムーブ代入演算子</li>
+<li>(3) : クラスのテンプレート引数で指定した候補型のうち、いずれかの型の値を代入する</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
+<ul>
+<li>(2) :<ul>
+<li><code>Types...</code>のすべての型<code>Ti</code>について、<code><a href="../../type_traits/is_move_constructible.html">is_move_constructible_v</a>&lt;Ti&gt; &amp;&amp; <a href="../../type_traits/is_move_assignable.html">is_move_assignable_v</a>&lt;Ti&gt;</code>が<code>true</code>であること</li>
+</ul>
+</li>
+<li>(3) :<ul>
+<li>C++17 : ここで説明用に、<code>*this</code>が保持している型<code>Tj</code>と、そのインデックス値<code>j</code>を定義する。<code>Types...</code>の各型<code>Ti</code>に対して擬似的な関数<code>FUN(Ti)</code>を定義したとして、<code>FUN(<a href="../../utility/forward.html">std::forward</a>&lt;T&gt;(t))</code>呼び出しによって選択された<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>された関数のパラメータ型を、代入してその後含まれる値の型を<code>Tj</code>とする</li>
+<li>C++20 : ここで説明用に、<code>*this</code>が保持している型<code>Tj</code>と、そのインデックス値<code>j</code>を定義する。<code>Types...</code>の各型<code>Ti</code>を、縮小変換を受け付けない型であり (<code>Ti x[] = {<a href="../../utility/forward.html">std::forward</a>&lt;T&gt;(t)};</code>)、<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>付き<code>bool</code>の場合に<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>を外した<code>bool</code>型になるとして、その型に対して擬似的な関数<code>FUN(Ti)</code>を定義したとして、<code>FUN(<a href="../../utility/forward.html">std::forward</a>&lt;T&gt;(t))</code>呼び出しによって選択された<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>された関数のパラメータ型を、代入してその後含まれる値の型を<code>Tj</code>とする</li>
+<li><code><a href="../../type_traits/is_same.html">is_same_v</a>&lt;<a href="../../type_traits/decay.html">decay_t</a>&lt;T&gt;, variant&gt;</code>が<code>false</code>であること</li>
+<li><code><a href="../../type_traits/is_assignable.html">is_assignable_v</a>&lt;Tj&amp;, T&gt; &amp;&amp; <a href="../../type_traits/is_constructible.html">is_constructible_v</a>&lt;Tj, T&gt;</code>が<code>true</code>であること</li>
+</ul>
+</li>
+</ul>
+<h2>効果</h2>
+<ul>
+<li>(1) :<ul>
+<li><code>*this</code>と<code>rhs</code>がどちらも値を保持していない場合、なにもしない</li>
+<li><code>*this</code>が値を保持し、<code>rhs</code>が保持していない場合、<code>*this</code>が値を保持していない状態にする</li>
+<li><code><a href="index.html">index()</a> == rhs.<a href="index.html">index()</a></code>である場合、<code>rhs</code>が保持している値を<code>*this</code>が保持する値としてコピー代入する (型の切り替えを行わない)</li>
+<li><code>rhs.<a href="index.html">index()</a></code>を<code>j</code>、<code>Types...</code>の<code>j</code>番目の型を<code>Tj</code>として、<code><a href="../../type_traits/is_nothrow_copy_constructible.html">is_nothrow_copy_constructible_v</a>&lt;Tj&gt; == true</code>もしくは<code><a href="../../type_traits/is_nothrow_move_constructible.html">is_nothrow_move_constructible_v</a>&lt;Tj&gt; == false</code>である場合、<code><a href="emplace.html">emplace</a>&lt;j&gt;(<a href="get.html">get</a>&lt;j&gt;(rhs))</code>と等価</li>
+<li>いずれにも当てはまらない場合、<code>operator=(variant(rhs))</code>と等価</li>
+</ul>
+</li>
+<li>(2) :<ul>
+<li><code>*this</code>と<code>t</code>がどちらも値を保持していない場合、なにもしない</li>
+<li><code>*this</code>が値を保持し、<code>t</code>が保持していない場合、<code>*this</code>が値を保持していない状態にする</li>
+<li><code><a href="index.html">index()</a> == t.<a href="index.html">index()</a></code>である場合、<code>t</code>が保持している値を<code>*this</code>が保持する値としてムーブ代入する (型の切り替えを行わない)</li>
+<li>いずれにも当てはまらない場合、<code>t.<a href="index.html">index()</a></code>を<code>j</code>として、<code><a href="emplace.html">emplace</a>&lt;j&gt;(<a href="get.html">get</a>&lt;j&gt;(<a href="../../utility/move.html">std::move</a>(t)))</code>と等価</li>
+</ul>
+</li>
+<li>(3) :<ul>
+<li><code>*this</code>が<code>Tj</code>型の値を保持している場合、<code><a href="../../utility/forward.html">std::forward</a>&lt;T&gt;(rhs)</code>の値を<code>*this</code>に代入する (型の切り替えを行わない)</li>
+<li><code><a href="../../type_traits/is_nothrow_constructible.html">is_nothrow_constructible_v</a>&lt;Tj, T&gt; || !<a href="../../type_traits/is_nothrow_move_constructible.html">is_nothrow_move_constructible_v</a>&lt;Tj&gt;</code>が<code>true</code>である場合、<code><a href="emplace.html">emplace</a>&lt;j&gt;(<a href="../../utility/forward.html">std::forward</a>&lt;T&gt;(rhs))</code>の呼び出しと等価</li>
+<li>いずれにも当てはまらない場合、<code>operator=(variant(<a href="../../utility/forward.html">std::forward</a>&lt;T&gt;(rhs)))</code>呼び出しと等価</li>
+</ul>
+</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p><code>*this</code></p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a></h2>
+<ul>
+<li>(1), (2) : <code><a href="index.html">index()</a> == rhs.<a href="index.html">index()</a></code></li>
+<li>(3) : <code><a href="../holds_alternative.html">holds_alternative</a>&lt;Tj&gt;(*this)</code>が<code>true</code>であること</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
+<ul>
+<li>(2) :<ul>
+<li><code>noexcept</code>演算子内部の式は、以下と等価となる：<ul>
+<li><code>Types...</code>のすべての型<code>Ti</code>について、<code><a href="../../type_traits/is_nothrow_move_constructible.html">is_nothrow_move_constructible_v</a>&lt;Ti&gt; &amp;&amp; <a href="../../type_traits/is_nothrow_move_assignable.html">is_nothrow_move_assignable_v</a>&lt;Ti&gt;</code></li>
+</ul>
+</li>
+<li><code>t.<a href="index.html">index()</a></code>を<code>j</code>、<code>Types...</code>の<code>j</code>番目の型を<code>Tj</code>として、型<code>Tj</code>のムーブ構築中に<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が発生した場合、その<code>variant</code>オブジェクトは値を保持しない状態になる</li>
+<li><code>t.<a href="index.html">index()</a></code>を<code>j</code>、<code>Types...</code>の<code>j</code>番目の型を<code>Tj</code>として、型<code>Tj</code>のムーブ代入中に<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が発生した場合、型<code>Tj</code>のムーブ代入演算子が保証する<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>安全性が定義する値の保持状態となり、<code>*this</code>の<code><a href="index.html">index()</a></code>は<code>j</code>となる</li>
+</ul>
+</li>
+<li>(3) :<ul>
+<li><code>noexcept</code>演算子内部の式は、以下と等価となる：<ul>
+<li><code><a href="../../type_traits/is_nothrow_assignable.html">is_nothrow_assignable_v</a>&lt;Tj&amp;, T&gt; &amp;&amp; <a href="../../type_traits/is_nothrow_constructible.html">is_nothrow_constructible_v</a>&lt;Tj, T&gt;</code></li>
+</ul>
+</li>
+<li>値を保持する<code>*this</code>に対して<code><a href="../../utility/forward.html">std::forward</a>&lt;T&gt;(rhs)</code>の代入中に<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が発生した場合、<code>*this</code>が保持する値と<code>rhs</code>の値は、代入式の<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>安全性が保証する状態となり、<code><a href="valueless_by_exception.html">valueless_by_exception()</a></code>は<code>false</code>となる</li>
+<li>保持する値の初期化中に<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が発生した場合、<code>variant</code>オブジェクトは値を保持しない可能性がある</li>
+</ul>
+</li>
+</ul>
+<h2>トリビアルに定義される条件</h2>
+<ul>
+<li>(1) : <code>Types...</code>のすべての型<code>Ti</code>について、<code><a href="../../type_traits/is_trivially_copy_constructible.html">is_trivially_copy_constructible_v</a>&lt;Ti&gt; &amp;&amp; <a href="../../type_traits/is_trivially_copy_assignable.html">is_trivially_copy_assignable_v</a>&lt;Ti&gt; &amp;&amp; <a href="../../type_traits/is_trivially_destructible.html">is_trivially_destructible_v</a>&lt;Ti&gt;</code>が<code>true</code>であること</li>
+<li>(2) : <code>Types...</code>のすべての型<code>Ti</code>について、<code><a href="../../type_traits/is_trivially_move_constructible.html">is_trivially_move_constructible_v</a>&lt;Ti&gt; &amp;&amp; <a href="../../type_traits/is_trivially_move_assignable.html">is_trivially_move_assignable_v</a>&lt;Ti&gt; &amp;&amp; <a href="../../type_traits/is_trivially_destructible.html">is_trivially_destructible_v</a>&lt;Ti&gt;</code>が<code>true</code>であること</li>
+</ul>
+<h2>delete定義される条件</h2>
+<ul>
+<li>(1) : <code>Types...</code>のすべての型<code>Ti</code>について、<code><a href="../../type_traits/is_copy_constructible.html">is_copy_constructible_v</a>&lt;Ti&gt; &amp;&amp; <a href="../../type_traits/is_copy_assignable.html">is_copy_assignable_v</a>&lt;Ti&gt;</code>が<code>true</code>でないこと</li>
+</ul>
+<h2>備考</h2>
+<ul>
+<li>(3) : 以下のコードは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。第1テンプレート引数の型をとるコンストラクタ<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>と、第2テンプレート引数の型をとるコンストラクタ<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>が定義されるため、曖昧になる：
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="p">,</span> <span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>
+<span class="n">v</span> <span class="o">=</span> <span class="s">"abc"</span><span class="p">;</span> <span class="c1">// コンパイルエラー！</span>
+</code></pre></div>
+</li>
+</ul>
+<h2>例</h2>
+<h3>基本的な使い方</h3>
+<p><div class="yata" id="6d181ba143b8413d28c68e1e7048e562288ba264"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../variant.html">&lt;variant&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// (1) コピー代入</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">char</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">v1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">char</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">v2</span><span class="p">;</span>
+    <span class="n">v2</span> <span class="o">=</span> <span class="n">v1</span><span class="p">;</span>
+
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../holds_alternative.html">std::holds_alternative</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v1</span><span class="p">));</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../holds_alternative.html">std::holds_alternative</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v2</span><span class="p">));</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="get.html">std::get</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="get.html">std::get</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (2) ムーブ代入</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">char</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">v1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">char</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">v2</span><span class="p">;</span>
+    <span class="n">v2</span> <span class="o">=</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">v1</span><span class="p">);</span>
+
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../holds_alternative.html">std::holds_alternative</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v2</span><span class="p">));</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="get.html">std::get</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (3) 型と値の切り替え</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">char</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="c1">// 値を更新</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+    <span class="c1">// 保持する型を切り替え</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="sc">'a'</span><span class="p">;</span>
+
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../holds_alternative.html">std::holds_alternative</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">));</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="get.html">std::get</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">==</span> <span class="sc">'a'</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code></code></pre></p>
+<h3>あいまいになりそうな代入の例 (C++20)</h3>
+<p><div class="yata" id="5c74072f5d4ee1e40f5e1a895e4df83c94c9147b"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../variant.html">&lt;variant&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// 縮小変換 (narrowing conversion) は行われないので、</span>
+  <span class="c1">// 0がfloat型に代入されたりはしない</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">float</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../holds_alternative.html">std::holds_alternative</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">));</span>
+  <span class="p">}</span>
+
+  <span class="p">{</span>
+    <span class="c1">// 文字列リテラルは、C++17では<a href="../../string/basic_string.html">std::string</a>よりもboolに優先的に変換されてしまう</span>
+    <span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="p">,</span> <span class="kt">bool</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="s">"abc"</span><span class="p">;</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../holds_alternative.html">std::holds_alternative</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">));</span> <span class="c1">// C++17ではbool、C++20では<a href="../../string/basic_string.html">std::string</a></span>
+
+    <span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">v2</span><span class="p">;</span>
+    <span class="n">v2</span> <span class="o">=</span> <span class="s">"abc"</span><span class="p">;</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../holds_alternative.html">std::holds_alternative</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">v2</span><span class="p">));</span>
+
+    <span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="p">,</span> <span class="kt">bool</span><span class="o">&gt;</span> <span class="n">v3</span><span class="p">;</span>
+    <span class="n">v3</span> <span class="o">=</span> <span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="s">"abc"</span><span class="p">);</span> <span class="c1">// C++17/C++20で<a href="../../string/basic_string.html">std::string</a></span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../holds_alternative.html">std::holds_alternative</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">v3</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code></code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++17</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: 4.0.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: 7.3 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0608r3.html" target="_blank">P0608R3 A sane variant converting constructor</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0602r4.html" target="_blank">P0602R4 <code>variant</code> and <code>optional</code> should propagate copy/move triviality</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2231r1.html" target="_blank">P2231R1 Missing <code>constexpr</code> in <code>std::optional</code> and <code>std::variant</code></a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

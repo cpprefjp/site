@@ -1,0 +1,548 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>変数の型推論のためのauto [N1984] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp11
+">
+        <meta name="title" content="変数の型推論のためのauto [N1984] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="変数の型推論のためのauto [N1984] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="変数の型推論のためのauto [N1984] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp11/auto.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="C++11 から、変数宣言時に具体的な型名のかわりに `auto` キーワードを指定する事によって、変数の型を初期化子から推論できるようになった。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="変数の型推論のためのauto [N1984] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp11/auto.html" />
+        <meta name="twitter:description" content="C++11 から、変数宣言時に具体的な型名のかわりに `auto` キーワードを指定する事によって、変数の型を初期化子から推論できるようになった。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;4b0f13019bc3a2ee4185a83fbb8a3c8890602cce&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;memory&gt;\n#include &lt;initializer_list&gt;\n\n// \u540d\u524d\u7a7a\u9593\u30b9\u30b3\u30fc\u30d7\u3067\u306e\u5909\u6570\u5ba3\u8a00\nauto v = { 1, 7, 3, 2, 0, 5, 0, 8, };                           // v \u306f std::initializer_list&lt;int&gt; \u578b\n\nstd::unique_ptr&lt;int&gt; create_unique_ptr(int i)\n{\n  // new \u5f0f\u306e\u578b\u540d\u6307\u5b9a\u90e8\n  return std::unique_ptr&lt;int&gt;(i != 0 ? new auto(i) : nullptr);  // new auto(i) \u306f int* \u578b\n}\n\nint main()\n{\n  // for \u6587\u306e\u521d\u671f\u5316\u6587\u3067\u306e\u5909\u6570\u5ba3\u8a00\n  for (auto it = v.begin(), e = v.end(); it != e; ++it) {       // it \u3068 e \u306f const int* \u578b\n    // if \u6587\u306e\u6761\u4ef6\u90e8\u3067\u306e\u5909\u6570\u5ba3\u8a00\n    if (auto ptr = create_unique_ptr(*it)) {                    // ptr \u306f std::unique_ptr&lt;int&gt; \u578b\n      std::cout &lt;&lt; *ptr &lt;&lt; \&#34;, \&#34;;\n    } else {\n      std::cout &lt;&lt; \&#34;null, \&#34;;\n    }\n  }\n  std::cout &lt;&lt; &#39;\\n&#39;;\n}\n&#34;}, {&#34;id&#34;: &#34;d95473c90a23789da1c17d78d8452685002ce692&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\nint main()\n{\n  // \u30d6\u30ed\u30c3\u30af\u30b9\u30b3\u30fc\u30d7\u3067\u306e\u5909\u6570\u5ba3\u8a00\n  static auto s = \&#34;C++\&#34;;                                        // s \u306f const char* \u578b\n\n  // `for` \u6587\u306e\u521d\u671f\u5316\u6587\u3001\u304a\u3088\u3073\u3001\u6761\u4ef6\u90e8\u3067\u306e\u5909\u6570\u5ba3\u8a00\n  for (auto p = s; auto elem = *p; ++p) {                       // p \u306f const char* \u578b\u3001elem \u306f char \u578b\n    std::cout &lt;&lt; elem &lt;&lt; \&#34;, \&#34;;\n  }\n  std::cout &lt;&lt; &#39;\\n&#39;;\n}\n&#34;}, {&#34;id&#34;: &#34;f984e9ca423dc1927882eee6516810d93760bed5&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;initializer_list&gt;\n\nint main()\n{\n  // \u7bc4\u56f2 for \u6587\u306e\u5ba3\u8a00\u90e8\n  for (auto&amp;&amp; elem : { 2, 3, 7, }) {                            // elem \u306f const int&amp; \u578b\n    std::cout &lt;&lt; elem &lt;&lt; \&#34;, \&#34;;\n  }\n  std::cout &lt;&lt; &#39;\\n&#39;;\n}\n&#34;}, {&#34;id&#34;: &#34;d0c9ba868237cd57efb1668c7a7ef2204d96ae11&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\n// \u30ea\u30c6\u30e9\u30eb\u578b\u306e\u5b9a\u7fa9\nstruct S {\n  constexpr S(int i) : i(i) {}\n  int i;\n};\n\nstruct T {\n  // \u30af\u30e9\u30b9\u5b9a\u7fa9\u5185\u306e\u9759\u7684\u30e1\u30f3\u30d0\u5ba3\u8a00\n  static constexpr auto m = S(42);                              // m \u306f S \u578b\n};\n\n// \u9759\u7684\u30e1\u30f3\u30d0\u306e\u5b9a\u7fa9\uff08\u521d\u671f\u5316\u5b50\u304c\u7121\u3044\u305f\u3081\u3001auto \u306f\u4f7f\u3048\u306a\u3044\uff09\nS constexpr T::m;\n\nvoid f(const S&amp; s)\n{\n  // switch \u6587\u306e\u6761\u4ef6\u90e8\u3067\u306e\u5909\u6570\u5ba3\u8a00\n  switch (auto i = s.i) {                                       // i \u306f int \u578b\n  case 42:\n    std::cout &lt;&lt; \&#34;answer\\n\&#34;;\n    break;\n  default:\n    std::cout &lt;&lt; i &lt;&lt; &#39;\\n&#39;;\n    break;\n  }\n}\n\nint main()\n{\n  f(T::m);\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp11&#34;, &#34;auto&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp11.html" itemprop="url">
+              
+                <span itemprop="name">C++11</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">変数の型推論のためのauto [N1984]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-12-22T06:27:29">
+        2024年12月22日 06時27分29秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Raclamusi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp11/auto.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp11/auto.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">変数の型推論のためのauto [N1984]</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++11に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>C++11 から、変数宣言時に具体的な型名のかわりに <code>auto</code> キーワードを指定する事によって、変数の型を初期化子から推論できるようになった。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><span style="color:#ff0000">auto</span></span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>                         <span class="c1">// i は int 型</span>
+<span class="k">const</span> <span class="n"><span style="color:#ff0000">auto</span></span> <span class="n">l</span> <span class="o">=</span> <span class="mi">0L</span><span class="p">;</span>                  <span class="c1">// l は const long 型</span>
+<span class="n"><span style="color:#ff0000">auto</span></span><span class="o">&amp;</span> <span class="n">r</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>                        <span class="c1">// r は int&amp; 型</span>
+<span class="n"><span style="color:#ff0000">auto</span></span> <span class="n">s</span> <span class="o">=</span> <span class="s">""</span><span class="p">;</span>                        <span class="c1">// s は const char* 型</span>
+<span class="n"><span style="color:#ff0000">auto</span></span> <span class="n">p</span> <span class="o">=</span> <span class="n"><a href="../../reference/utility/make_pair.html">std::make_pair</a></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="sc">'c'</span><span class="p">);</span>    <span class="c1">// p は <a href="../../reference/utility/pair.html">std::pair</a>&lt;int, char&gt; 型</span>
+<span class="n"><span style="color:#ff0000">auto</span></span> <span class="n">q</span> <span class="o">=</span> <span class="n"><a href="../../reference/memory/make_shared.html">std::make_shared</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span> <span class="c1">// q は <a href="../../reference/memory/shared_ptr.html">std::shared_ptr</a>&lt;int&gt; 型</span>
+<span class="n"><span style="color:#ff0000">auto</span></span> <span class="n">z</span> <span class="o">=</span> <span class="p">{</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="p">};</span>        <span class="c1">// z は <a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a>&lt;double&gt; 型</span>
+<span class="n"><span style="color:#ff0000">auto</span></span> <span class="n">f</span> <span class="o">=</span> <span class="p">[]{};</span>                      <span class="c1">// f は 引数を取らずに値を返さない operator() を持つユニークなクロージャ型</span>
+</code></pre></div>
+</p>
+<p>型推論のための <code>auto</code> は、基本的には糖衣構文であり具体的な型で書き替えることが可能であるが、上記のクロージャ型のように書き換えが不可能なケースも存在する。<br />
+この機能の追加に伴って、C++03 までの <code>auto</code> に存在した、自動変数である事を意味する記憶クラス指定子としての使用はできなくなった。</p>
+<p>なお、<code>auto</code> は<a href="trailing_return_types.html">戻り値の型を後置する関数宣言構文</a>でも使用されるが、その場合の <code>auto</code> には型推論の意味は無い。<br />
+さらに、C++14 では <code>auto</code> キーワードを使用する機能として、<a href="../cpp14/return_type_deduction_for_normal_functions.html">ユーザ定義変換関数の型推論</a>、<a href="../cpp14/return_type_deduction_for_normal_functions.html">通常関数の戻り値型推論</a>、<a href="../cpp14/placeholder_type_in_trailing_return_type.html">後置戻り値型をプレースホルダーにすることを許可</a>、<a href="../cpp14/generic_lambdas.html">ジェネリックラムダ</a>、および、<code><a href="../cpp14/decltype_auto.html">decltype(auto)</a></code> が追加されている。<br />
+それぞれの機能については、各解説を参照。</p>
+<h2>仕様</h2>
+<h3>使用可能な場所</h3>
+<p><code>auto</code> による型推論は、以下の場所で初期化子がある場合のみ使用可能である。</p>
+<ul>
+<li>ブロックスコープでの変数宣言</li>
+<li>名前空間スコープでの変数宣言</li>
+<li><code>for</code> 文の初期化文部での変数宣言</li>
+<li><code>if</code> 文、<code>switch</code> 文、<code>for</code> 文、<code>while</code> 文の条件部での変数宣言</li>
+<li><code>new</code> 式の型名指定部</li>
+<li>クラス定義内での静的メンバ宣言</li>
+</ul>
+<p>これら以外の場所では <code>auto</code> による型推論は使用できない。<br />
+なお、C++14 ではこれらのほか、<a href="../cpp14/return_type_deduction_for_normal_functions.html">ユーザ定義変換関数</a>、<a href="../cpp14/return_type_deduction_for_normal_functions.html">通常関数の戻り値型</a>、<a href="../cpp14/placeholder_type_in_trailing_return_type.html">後置戻り値型</a>、<a href="../cpp14/generic_lambdas.html">ジェネリックラムダの引数</a>でも使用可能になっている。</p>
+<p><code>auto</code> は単独での指定だけではなく、<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>（<code>const</code>、<code>volatile</code>）やポインタ・参照修飾（<code>*</code>、<code>&amp;</code>、<code>&amp;&amp;</code>）等と共に指定する事が可能である。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><span style="color:#ff0000">auto</span></span> <span class="n">i</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>                <span class="c1">// i は int 型</span>
+<span class="k">const</span> <span class="n"><span style="color:#ff0000">auto</span></span><span class="o">&amp;</span> <span class="n">cri</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>        <span class="c1">// cri は const int&amp; 型</span>
+<span class="k">const</span> <span class="n"><span style="color:#ff0000">auto</span></span><span class="o">*</span> <span class="n">cpi</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">;</span>       <span class="c1">// cpi は const int* 型</span>
+</code></pre></div>
+</p>
+<p>しかし、<code>auto</code> をテンプレート型引数や関数引数の型として使用する事はできない。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">S</span> <span class="p">{</span>
+  <span class="n">S</span><span class="p">(</span><span class="n">T</span> <span class="n">m</span><span class="p">)</span> <span class="o">:</span> <span class="n">m</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="p">{}</span>
+  <span class="n">T</span> <span class="n">m</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n"><span style="color:#ff0000">auto</span></span> <span class="n">s1</span> <span class="o">=</span> <span class="n">S</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>       <span class="c1">// OK! s1 は S&lt;int&gt; 型</span>
+<span class="n">S</span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">auto</span></span><span class="o">&gt;</span> <span class="n">s2</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>            <span class="c1">// NG! <span style="color:#ff0000">auto</span> はテンプレート型引数には使用できない</span>
+
+<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+
+<span class="n"><span style="color:#ff0000">auto</span></span> <span class="n">pf1</span> <span class="o">=</span> <span class="n">f</span><span class="p">;</span>               <span class="c1">// OK! pf1 は void(*)(int) 型</span>
+<span class="kt">void</span><span class="p">(</span><span class="o">*</span><span class="n">pf2</span><span class="p">)(</span><span class="n"><span style="color:#ff0000">auto</span></span><span class="p">)</span> <span class="o">=</span> <span class="n">f</span><span class="p">;</span>       <span class="c1">// NG! <span style="color:#ff0000">auto</span> は関数引数の型には使用できない</span>
+</code></pre></div>
+</p>
+<h3>型推論規則</h3>
+<p><code>auto</code> による型推論は、基本的に関数テンプレートの引数での型推論と同様である。</p>
+<p>例えば、<code>const auto&amp; p = 初期化式;</code> のようなコピー初期化を伴う変数宣言の場合、<code>auto</code> をテンプレート型パラメータ <code>U</code> で置き換えた <code>const U&amp; p</code> を引数とした以下のような関数 <code>f</code> を考える。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">U</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="k">const</span> <span class="n">U</span><span class="o">&amp;</span> <span class="n">p</span><span class="p">);</span>
+</code></pre></div>
+</p>
+<p>この関数テンプレート <code>f</code> を <code>f(初期化式)</code> のように引数に<code>初期化式</code>を与えて呼び出した際の引数 <code>p</code> の型が、実際の変数 <code>p</code> の型となる。<br />
+なお、<code>const auto&amp; p(式リスト);</code> のような直接初期化を伴う変数宣言の場合の推論も同様であるが、変数の型を式リストから推論する関係で（当然ではあるが）式リストに複数の式を書くことはできない。<br />
+（通常の直接初期化のような <code>auto s('c', 42);</code> といった書き方では型推論ができないのでエラーとなる）</p>
+<p>変数宣言がコピーリスト初期化を伴う、例えば <code>auto p = { 初期化子1, 初期化子2, ... 初期化子n };</code> の場合、<code>auto</code> をテンプレート型パラメータ <code>U</code> そのものへ置き換えたものではなく、<code>std::<a href="../../reference/initializer_list/initializer_list.html">initializer_list</a>&lt;U&gt;</code> へ置き換えた以下のような関数を考えて、上記と同様の型推論を行う。  </p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">U</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n"><a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a></span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span> <span class="n">p</span><span class="p">);</span>
+</code></pre></div>
+</p>
+<p>なお、<code>auto p{ 初期化子1, 初期化子2, ... 初期化子n };</code> のような直接リスト初期化の場合、C++11 ではコピーリスト初期化と同様とされている。<br />
+しかし、この（直接リスト初期化の）挙動は C++17 で変更される予定であるため、注意が必要である。<br />
+（gcc 5.1.0 以降、clang 3.8.0 以降では既に変更されており、たとえ C++11 モードを使用しても元の挙動にはならない）</p>
+<h2>例</h2>
+<h3>例１（名前空間スコープ、new 式の型名指定部、for 文の初期化文、if 文の条件部）</h3>
+<p><div class="yata" id="4b0f13019bc3a2ee4185a83fbb8a3c8890602cce"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/initializer_list.html">&lt;initializer_list&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// 名前空間スコープでの変数宣言</span>
+<span class="n"><span style="color:#ff0000">auto</span></span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="p">};</span>                           <span class="c1">// v は <a href="../../reference/initializer_list/initializer_list.html">std::initializer_list</a>&lt;int&gt; 型</span>
+
+<span class="n"><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">create_unique_ptr</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// new 式の型名指定部</span>
+  <span class="k">return</span> <span class="n"><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">i</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">?</span> <span class="k">new</span> <span class="n"><span style="color:#ff0000">auto</span></span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">:</span> <span class="n"><a href="nullptr.html">nullptr</a></span><span class="p">);</span>  <span class="c1">// new <span style="color:#ff0000">auto</span>(i) は int* 型</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// for 文の初期化文での変数宣言</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n"><span style="color:#ff0000">auto</span></span> <span class="n">it</span> <span class="o">=</span> <span class="n"><a href="../../reference/vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="n"><a href="../../reference/vector/vector/end.html">v.end()</a></span><span class="p">;</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">e</span><span class="p">;</span> <span class="o">++</span><span class="n">it</span><span class="p">)</span> <span class="p">{</span>       <span class="c1">// it と e は const int* 型</span>
+    <span class="c1">// if 文の条件部での変数宣言</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n"><span style="color:#ff0000">auto</span></span> <span class="n">ptr</span> <span class="o">=</span> <span class="n">create_unique_ptr</span><span class="p">(</span><span class="o">*</span><span class="n">it</span><span class="p">))</span> <span class="p">{</span>                    <span class="c1">// ptr は <a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a>&lt;int&gt; 型</span>
+      <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">ptr</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"null, "</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力１</h4>
+<p><pre><code>1, 7, 3, 2, null, 5, null, 8, 
+</code></pre></p>
+<h3>例２（ブロックスコープ、for 文の初期化文、および、条件部）</h3>
+<p><div class="yata" id="d95473c90a23789da1c17d78d8452685002ce692"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// ブロックスコープでの変数宣言</span>
+  <span class="k">static</span> <span class="n"><span style="color:#ff0000">auto</span></span> <span class="n">s</span> <span class="o">=</span> <span class="s">"C++"</span><span class="p">;</span>                                        <span class="c1">// s は const char* 型</span>
+
+  <span class="c1">// `for` 文の初期化文、および、条件部での変数宣言</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n"><span style="color:#ff0000">auto</span></span> <span class="n">p</span> <span class="o">=</span> <span class="n">s</span><span class="p">;</span> <span class="n"><span style="color:#ff0000">auto</span></span> <span class="n">elem</span> <span class="o">=</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span> <span class="o">++</span><span class="n">p</span><span class="p">)</span> <span class="p">{</span>                       <span class="c1">// p は const char* 型、elem は char 型</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">elem</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力２</h4>
+<p><pre><code>C, +, +, 
+</code></pre></p>
+<h3>例３（範囲 for 文の宣言部）</h3>
+<p><div class="yata" id="f984e9ca423dc1927882eee6516810d93760bed5"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/initializer_list.html">&lt;initializer_list&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// 範囲 for 文の宣言部</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n"><span style="color:#ff0000">auto</span></span><span class="o">&amp;&amp;</span> <span class="nl">elem</span> <span class="p">:</span> <span class="p">{</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="p">})</span> <span class="p">{</span>                            <span class="c1">// elem は const int&amp; 型</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">elem</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力３</h4>
+<p><pre><code>2, 3, 7, 
+</code></pre></p>
+<h3>例４（クラス定義内の静的メンバ、switch 文の条件部）</h3>
+<p><div class="yata" id="d0c9ba868237cd57efb1668c7a7ef2204d96ae11"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// リテラル型の定義</span>
+<span class="k">struct</span> <span class="n">S</span> <span class="p">{</span>
+  <span class="n"><a href="constexpr.html">constexpr</a></span> <span class="n">S</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="o">:</span> <span class="n">i</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">{}</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">T</span> <span class="p">{</span>
+  <span class="c1">// クラス定義内の静的メンバ宣言</span>
+  <span class="k">static</span> <span class="n"><a href="constexpr.html">constexpr</a></span> <span class="n"><span style="color:#ff0000">auto</span></span> <span class="n">m</span> <span class="o">=</span> <span class="n">S</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>                              <span class="c1">// m は S 型</span>
+<span class="p">};</span>
+
+<span class="c1">// 静的メンバの定義（初期化子が無いため、<span style="color:#ff0000">auto</span> は使えない）</span>
+<span class="n">S</span> <span class="n"><a href="constexpr.html">constexpr</a></span> <span class="n">T</span><span class="o">::</span><span class="n">m</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="k">const</span> <span class="n">S</span><span class="o">&amp;</span> <span class="n">s</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// switch 文の条件部での変数宣言</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="n"><span style="color:#ff0000">auto</span></span> <span class="n">i</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>                                       <span class="c1">// i は int 型</span>
+  <span class="k">case</span> <span class="mi">42</span><span class="o">:</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"answer</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+    <span class="k">break</span><span class="p">;</span>
+  <span class="k">default</span><span class="o">:</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+    <span class="k">break</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="o">::</span><span class="n">m</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力４</h4>
+<p><pre><code>answer
+</code></pre></p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>C++ では、簡単な式の型がしばしば非常に複雑になりうる。それらの型を書いたりその型の変数を宣言するのは退屈で間違えやすい。<br />
+よくあるのは、以下のようなコンテナのイテレータ用の変数宣言である：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">int</span> <span class="n">foo</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../../reference/unordered_map/unordered_map.html">std::unordered_map</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n"><a href="../../reference/unordered_map/unordered_map.html">std::unordered_map</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="o">&gt;&gt;&amp;</span> <span class="n">m</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n"><a href="../../reference/unordered_map/unordered_map.html">std::unordered_map</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n"><a href="../../reference/unordered_map/unordered_map.html">std::unordered_map</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="o">&gt;&gt;::</span><span class="n">const_iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n">m</span><span class="p">.</span><span class="n"><a href="../../reference/unordered_map/unordered_map/begin.html">begin</a></span><span class="p">();</span>
+  <span class="err">…</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>C++11 で導入された <code><a href="decltype.html">decltype</a></code> を使用すれば以下のように簡潔に書く事が出来る。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">int</span> <span class="n">foo</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../../reference/unordered_map/unordered_map.html">std::unordered_map</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n"><a href="../../reference/unordered_map/unordered_map.html">std::unordered_map</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="o">&gt;&gt;&amp;</span> <span class="n">m</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n"><a href="decltype.html">decltype</a></span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n"><a href="../../reference/unordered_map/unordered_map/begin.html">begin</a></span><span class="p">())</span> <span class="n">it</span> <span class="o">=</span> <span class="n">m</span><span class="p">.</span><span class="n"><a href="../../reference/unordered_map/unordered_map/begin.html">begin</a></span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>しかし、<code><a href="decltype.html">decltype</a></code> は変数宣言の用途にはあまり向かない事、および、式自体を二回書く必要があるためメンテナンス上の問題を引き起こす事から、関数テンプレート引数の型推論に基づいた <code>auto</code> を導入することとした。</p>
+<h2>検討されたほかの選択肢</h2>
+<h3>記憶クラス指定子としての <code>auto</code></h3>
+<p>自動変数である事を意味する記憶クラス指定子としての <code>auto</code> を残す案も考えられた。</p>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1705.pdf" target="_blank">N1705 Decltype and auto (revision 4)</a>（「1.1 Changes from N1607」の 5 番目の項目）</li>
+</ul>
+<p>しかし、その場合に発生する新たな曖昧性や混乱を回避するため、および、記憶クラス指定子としての <code>auto</code> の使用が非常に少ないとの調査結果などから、当該用途は直ちに廃止となった。</p>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2337.pdf" target="_blank">N2337 The Syntax of auto Declarations</a></li>
+</ul>
+<h3>暗黙テンプレート</h3>
+<p>テンプレートの宣言を簡潔にする目的で、以下のような文法が提案された。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="k">auto</span> <span class="n">lhs</span><span class="p">,</span> <span class="k">auto</span> <span class="n">rhs</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="err">…</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>これは、以下のようなテンプレート宣言と等価である。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">U</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">T</span> <span class="n">lhs</span><span class="p">,</span> <span class="n">U</span> <span class="n">rhs</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="err">…</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1527.pdf" target="_blank">N1527 Mechanisms for querying types of expressions: Decltype and auto revisited</a>（4.2 Implicit templates）</li>
+</ul>
+<p>しかし、この機能に対する支持が少なかったため、規格入りは見送られた。  </p>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1607.pdf" target="_blank">N1607 Decltype and auto (revision 3)</a>（「1.1 Changes from N1478」の最初の項目、および、「5.3 Implicit templates」）</li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1705.pdf" target="_blank">N1705 Decltype and auto (revision 4)</a>（「1.1 Changes from N1607」の 7 番目の項目）</li>
+</ul>
+<p>なお、C++14 で導入された<a href="../cpp14/generic_lambdas.html">ジェネリックラムダ</a>は、この機能のサブセットとも考えられる。</p>
+<h3>関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型の推論</h3>
+<p>変数宣言時の型推論だけでなく、関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型についても同様に型推論できるようにする検討が行われた。</p>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1527.pdf" target="_blank">N1527 Mechanisms for querying types of expressions: Decltype and auto revisited</a>（4.3 Functions with implicit return types）</li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1607.pdf" target="_blank">N1607 Decltype and auto (revision 3)</a>（5.2 Functions with implicit return types）</li>
+</ul>
+<p>しかし、C++11 でのこの機能の規格入りは見送られた。</p>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1705.pdf" target="_blank">N1705 Decltype and auto (revision 4)</a>（「1.1 Changes from N1607」の 8 番目の項目）</li>
+</ul>
+<p>なお、この機能は C++14 で規格入りした。（<a href="../cpp14/return_type_deduction_for_normal_functions.html">通常関数の戻り値型推論</a>）</p>
+<h3>複数の変数宣言の禁止</h3>
+<p><code>auto</code> を使用した場合に、以下のような複数の変数を同時に宣言することを禁止すべきではないかとの検討が行われた。</p>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1705.pdf" target="_blank">N1705 Decltype and auto (revision 4)</a>（「1.1 Changes from N1607」の 4 番目の項目）</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<p>しかし、その場合以下のような利用方法を不可能にしてしまうため、通常の変数宣言と同様複数の変数宣言を許可することとした。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/unordered_map/unordered_map.html">std::unordered_map</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">m</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">m</span><span class="p">.</span><span class="n"><a href="../../reference/unordered_map/unordered_map/begin.html">begin</a></span><span class="p">(),</span> <span class="n">e</span> <span class="o">=</span> <span class="n">m</span><span class="p">.</span><span class="n"><a href="../../reference/unordered_map/unordered_map/end.html">end</a></span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">e</span><span class="p">;</span> <span class="o">++</span><span class="n">it</span><span class="p">)</span> <span class="p">{</span>
+  <span class="err">…</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1737.pdf" target="_blank">N1737 A Proposal to Restore Multi-declarator auto Declarations</a></li>
+</ul>
+<h3>テンプレート引数としての <code>auto</code> の使用</h3>
+<p>以下のように、テンプレート引数として <code>auto</code> を使用することも検討された。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="k">auto</span><span class="p">,</span> <span class="k">auto</span><span class="o">&gt;&amp;</span> <span class="n">p</span> <span class="o">=</span> <span class="n">foo</span><span class="p">();</span>
+</code></pre></div>
+</p>
+<p>この場合、<code>foo()</code> の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型が <code>std::pair</code> のインスタンスでない時にはエラーとするような表明（アサーション）の役割を担うものとしていた。</p>
+<p>しかし、この使用法は規格から落とされた。</p>
+<h3>テンプレート引数を使用した変数宣言</h3>
+<p>テンプレート引数として <code>auto</code> を使用するケースの更なる特殊ケースとして、以下のような構文も検討された。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n"><a href="../../reference/utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">p</span> <span class="o">=</span> <span class="n">foo</span><span class="p">();</span>
+</code></pre></div>
+</p>
+<p>この場合、<code>foo()</code> の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型が <code>std::pair</code> のインスタンスで、かつ、二つのテンプレート引数が同一でない時にはエラーとするような表明（アサーション）の役割を担うものとしていた。<br />
+この文法を使用すると、テンプレート引数として <code>auto</code> を使用する場合の例は、以下と等価となる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">U</span><span class="o">&gt;</span>
+<span class="n"><a href="../../reference/utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">U</span><span class="o">&gt;&amp;</span> <span class="n">p</span> <span class="o">=</span> <span class="n">foo</span><span class="p">();</span>
+</code></pre></div>
+</p>
+<p>しかし、この使用法も規格から落とされた。</p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><a href="trailing_return_types.html">C++11 戻り値の型を後置する関数宣言構文</a></li>
+<li><a href="decltype.html">C++11 <code>decltype</code></a></li>
+<li><a href="lambda_expressions.html">C++11 ラムダ式</a></li>
+<li><a href="../cpp14/decltype_auto.html">C++14 <code>decltype(auto)</code></a></li>
+<li><a href="../cpp14/placeholder_type_in_trailing_return_type.html">C++14 後置戻り値型をプレースホルダーにすることを許可</a></li>
+<li><a href="../cpp14/return_type_deduction_for_normal_functions.html">C++14 通常関数の戻り値型推論（ユーザ定義変換関数の型推論を含む）</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1478.pdf" target="_blank">N1478 Decltype and auto</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1527.pdf" target="_blank">N1527 Mechanisms for querying types of expressions: Decltype and auto revisited</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1607.pdf" target="_blank">N1607 Decltype and auto (revision 3)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1705.pdf" target="_blank">N1705 Decltype and auto (revision 4)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1721.pdf" target="_blank">N1721 Deducing the type of variable from its initializer expression</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1737.pdf" target="_blank">N1737 A Proposal to Restore Multi-declarator auto Declarations</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1794.pdf" target="_blank">N1794 Deducing the type of variable from its initializer expression (revision 2)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1894.pdf" target="_blank">N1894 Deducing the type of variable from its initializer expression (revision 3)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1984.pdf" target="_blank">N1984 Deducing the type of variable from its initializer expression (revision 4)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2337.pdf" target="_blank">N2337 The Syntax of auto Declarations</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2546.htm" target="_blank">N2546 Removal of auto as a storage-class specifier</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2712.html" target="_blank">N2712 Non-static data member initializers</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2713.html" target="_blank">N2713 Allow auto for non-static data members</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

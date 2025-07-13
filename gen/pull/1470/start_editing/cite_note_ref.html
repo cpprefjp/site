@@ -1,0 +1,435 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>cpprefjpにおける注釈・出典の貼り方 - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,
+">
+        <meta name="title" content="cpprefjpにおける注釈・出典の貼り方 - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="cpprefjpにおける注釈・出典の貼り方 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="cpprefjpにおける注釈・出典の貼り方 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/start_editing/cite_note_ref.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="cpprefjpにおける注釈・出典の貼り方 HTML5でもCommonMarkでも標準的な方法が示されていないが、注釈・出典を貼りたいという需要は存在するため、cpprefjpでは記法を統一した。 HTMLタグのうち、a, sup, citeタグを利用して実現する。 基本的な注釈・出典記法 もっとも一般的に利用を検討するべき注釈・出典記法がこれだ。 本文中に参照を貼り、ページ最下部に「注釈」「出典" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="cpprefjpにおける注釈・出典の貼り方 - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/start_editing/cite_note_ref.html" />
+        <meta name="twitter:description" content="cpprefjpにおける注釈・出典の貼り方 HTML5でもCommonMarkでも標準的な方法が示されていないが、注釈・出典を貼りたいという需要は存在するため、cpprefjpでは記法を統一した。 HTMLタグのうち、a, sup, citeタグを利用して実現する。 基本的な注釈・出典記法 もっとも一般的に利用を検討するべき注釈・出典記法がこれだ。 本文中に参照を貼り、ページ最下部に「注釈」「出典" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;start_editing&#34;, &#34;cite_note_ref&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../start_editing.html" itemprop="url">
+              
+                <span itemprop="name">はじめてのコントリビュート</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">cpprefjpにおける注釈・出典の貼り方</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2023-01-12T05:24:23">
+        2023年01月12日 05時24分23秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/start_editing/cite_note_ref.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/start_editing/cite_note_ref.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">cpprefjpにおける注釈・出典の貼り方</span></h1>
+<div itemprop="articleBody"><p>HTML5でもCommonMarkでも標準的な方法が示されていないが、注釈・出典を貼りたいという需要は存在するため、cpprefjpでは記法を統一した。</p>
+<p>HTMLタグのうち、<code>a</code>, <code>sup</code>, <code>cite</code>タグを利用して実現する。</p>
+<h2>基本的な注釈・出典記法</h2>
+<p>もっとも一般的に利用を検討するべき注釈・出典記法がこれだ。</p>
+<p>本文中に参照を貼り、ページ最下部に「注釈」「出典」の項を作ってそこに注釈・出典を書く。</p>
+<ul>
+<li><code>N</code>, <code>${N}</code>: 1から始まる連番</li>
+</ul>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th></th>
+<th>参照元の見た目</th>
+<th>参照先の見た目</th>
+<th>参照元のid</th>
+<th>参照先のid</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>注釈</td>
+<td><sup>[注N]</sup></td>
+<td><code>N. ^</code></td>
+<td><code>note_ref-${N}</code></td>
+<td><code>note-${N}</code></td>
+</tr>
+<tr>
+<td>出典</td>
+<td><sup>[N]</sup></td>
+<td><code>N. ^</code></td>
+<td><code>cite_ref-${N}</code></td>
+<td><code>cite-${N}</code></td>
+</tr>
+</tbody>
+</table>
+<h3>例</h3>
+<p><div class="codehilite"><pre><span></span><code>ありきたりな世界、と私がよく書くが、この元ネタは、
+おもに工業系と魔術系のMod&lt;sup&gt;&lt;a id="note_ref-1" href="#note-1"&gt;[注1]&lt;/a&gt;&lt;/sup&gt;を導入したバージョン1.7.10のありきたりなMinecraftの実況をやっていきます&lt;sup&gt;&lt;a id="cite_ref-1" href="#cite-1"&gt;[1]&lt;/a&gt;&lt;/sup&gt;、という動画内音声である。
+
+<span class="gu">##</span> 注釈
+
+<span class="k">1.</span> <span class="gs">**&lt;a id="note-1" href="#note_ref-1"&gt;^&lt;/a&gt;**</span> MineCraftには、電気や金属・有機物加工などの概念を追加する工業系Mod、魔法の概念を追加する魔術系Modなどを代表に多種多様な改変を加えるModがある
+
+<span class="gu">##</span> 出典
+
+<span class="k">1.</span> <span class="gs">**&lt;a id="cite-1" href="#cite_ref-1"&gt;^&lt;/a&gt;**</span> &lt;cite&gt;[【Minecraft】ありきたりな工業と魔術S2 Part01【ゆっくり実況】 - ニコニコ動画](http://www.nicovideo.jp/watch/sm25261912)&lt;/cite&gt;、再生位置 0:07 (2017-12-28 2:08 JST 閲覧)
+</code></pre></div>
+</p>
+<h3>表示例</h3>
+<blockquote>
+<p>ありきたりな世界、と私がよく書くが、この元ネタは、
+おもに工業系と魔術系のMod<sup><a href="#note-1" id="note_ref-1">[注1]</a></sup>を導入したバージョン1.7.10のありきたりなMinecraftの実況をやっていきます<sup><a href="#cite-1" id="cite_ref-1">[1]</a></sup>、という動画内音声である。</p>
+<h2>注釈</h2>
+<ol>
+<li><strong><a href="#note_ref-1" id="note-1">^</a></strong> MineCraftには、電気や金属・有機物加工などの概念を追加する工業系Mod、魔法の概念を追加する魔術系Modなどを代表に多種多様な改変を加えるModがある</li>
+</ol>
+<h2>出典</h2>
+<ol>
+<li><strong><a href="#cite_ref-1" id="cite-1">^</a></strong> <cite><a href="http://www.nicovideo.jp/watch/sm25261912" target="_blank">【Minecraft】ありきたりな工業と魔術S2 Part01【ゆっくり実況】 - ニコニコ動画</a></cite>、再生位置 0:07 (2017-12-28 2:08 JST 閲覧)</li>
+</ol>
+</blockquote>
+<h2>節ごとの注釈・出典記法</h2>
+<p>ページが極めて長く、また多くの節がある時に利用を検討するべき注釈・出典記法がこれだ。</p>
+<p>本文中に参照を貼り、節最下部に、節のタイトルレベルより一つ小さい「注釈」「出典」の項を作って、そこに注釈・出典を書く。</p>
+<ul>
+<li><code>N</code>, <code>${N}</code>: 1から始まる連番</li>
+<li><code>${short_name}</code>: 適当にでっち上げたページ内で衝突しない節の名前</li>
+</ul>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th></th>
+<th>参照元の見た目</th>
+<th>参照先の見た目</th>
+<th>参照元のid</th>
+<th>参照先のid</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>注釈</td>
+<td><sup>[§注N]</sup></td>
+<td><code>N. ^</code></td>
+<td><code>note_ref-${short_name}-${N}</code></td>
+<td><code>note-${short_name}-${N}</code></td>
+</tr>
+<tr>
+<td>出典</td>
+<td><sup>[§N]</sup></td>
+<td><code>N. ^</code></td>
+<td><code>cite_ref-${short_name}-${N}</code></td>
+<td><code>cite-${short_name}-${N}</code></td>
+</tr>
+</tbody>
+</table>
+<h3>例</h3>
+<p><div class="codehilite"><pre><span></span><code><span class="gu">##</span> &lt;a id="define-graph" href="#define-graph"&gt;グラフ型を定義する&lt;/a&gt;
+
+(前略)
+
+以下は、無向グラフ&lt;sup&gt;&lt;a id="note_ref-define-graph-1-a" href="#note-define-graph-1"&gt;[§注1]&lt;/a&gt;&lt;/sup&gt;を定義する例：
+
+(中略)
+
+有向グラフ&lt;sup&gt;&lt;a id="note_ref-define-graph-1-b" href="#note-define-graph-1"&gt;[§注1]&lt;/a&gt;&lt;/sup&gt;で、辺に重みを付ける例：
+
+(中略)
+
+<span class="gu">###</span> 注釈
+
+<span class="k">1.</span> &lt;a id="note-define-graph-1"&gt;^&lt;/a&gt; &lt;sup&gt;[**a**](#note_ref-define-graph-1-a)&lt;/sup&gt; &lt;sup&gt;[**b**](#note_ref-define-graph-1-b)&lt;/sup&gt; 有向グラフ、無向グラフについては、[基本的なグラフ理論の復習](https://boostjp.github.io/archive/boost_docs/libs/graph/graph_theory_review.html)を参照
+</code></pre></div>
+</p>
+<h3>表示例</h3>
+<blockquote>
+<h2><a href="#define-graph" id="define-graph">グラフ型を定義する</a></h2>
+<p>(前略)</p>
+<p>以下は、無向グラフ<sup><a href="#note-define-graph-1" id="note_ref-define-graph-1-a">[§注1]</a></sup>を定義する例：</p>
+<p>(中略)</p>
+<p>有向グラフ<sup><a href="#note-define-graph-1" id="note_ref-define-graph-1-b">[§注1]</a></sup>で、辺に重みを付ける例：</p>
+<p>(中略)</p>
+<h3>注釈</h3>
+<ol>
+<li><a id="note-define-graph-1">^</a> <sup><a href="#note_ref-define-graph-1-a"><strong>a</strong></a></sup> <sup><a href="#note_ref-define-graph-1-b"><strong>b</strong></a></sup> 有向グラフ、無向グラフについては、<a href="https://boostjp.github.io/archive/boost_docs/libs/graph/graph_theory_review.html" target="_blank">基本的なグラフ理論の復習</a>を参照</li>
+</ol>
+</blockquote>
+<h2>表に対する注釈記法</h2>
+<p>表の読み方に関わる注釈をつけるときに検討するべき注釈記法がこれだ。</p>
+<p>表中に参照を貼り、表の直後に注釈・出典を書く。</p>
+<ul>
+<li><code>N</code>, <code>${N}</code>: 1から始まる連番</li>
+<li><code>M</code>, <code>${M}</code>: 1からはじまる表番号の連番</li>
+</ul>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th></th>
+<th>参照元の見た目</th>
+<th>参照先の見た目</th>
+<th>参照元のid</th>
+<th>参照先のid</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>注釈</td>
+<td><sup>†N</sup></td>
+<td><code>N. ^</code></td>
+<td><code>note_ref-t${M}-${N}</code></td>
+<td><code>note-t${M}-${N}</code></td>
+</tr>
+</tbody>
+</table>
+<h3>例</h3>
+<p><div class="codehilite"><pre><span></span><code>| コンテナ | ○○操作の計算量 | ××操作の計算量 |
+|--|--|--|
+| <a href="../reference/vector/vector.html">std::vector</a> | O(1) | O(1) |
+| <a href="../reference/list/list.html">std::list</a> | (O(n)&lt;sup&gt;&lt;a id="note_ref-t1-1" href="#note-t1-1"&gt;†1&lt;/a&gt;&lt;/sup&gt;) | O(1) |
+| bar | O(1) | O(1) |
+| baz | O(1) | O(1) |
+
+<span class="k">1.</span> <span class="gs">**&lt;a id="note-t1-1" href="#note_ref-t1-1"&gt;^&lt;/a&gt;**</span> 直接はサポートされないが、`<a href="../reference/iterator/distance.html">std::distance</a>`, etc を用いて実現可能
+</code></pre></div>
+</p>
+<h3>表示例</h3>
+<blockquote>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>コンテナ</th>
+<th>○○操作の<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></th>
+<th>××操作の<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>std::vector</td>
+<td>O(1)</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>std::list</td>
+<td>(O(n)<sup><a href="#note-t1-1" id="note_ref-t1-1">†1</a></sup>)</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>bar</td>
+<td>O(1)</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>baz</td>
+<td>O(1)</td>
+<td>O(1)</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li><strong><a href="#note_ref-t1-1" id="note-t1-1">^</a></strong> 直接はサポートされないが、<code>std::distance</code>, etc を用いて実現可能</li>
+</ol>
+</blockquote>
+<h2>その他</h2>
+<p>同じ参照先に対する参照元が複数あるときは、参照元のid末尾に小文字のアルファベット<code>a</code>から連続で文字を割り当て、参照先の見た目は</p>
+<blockquote>
+<p>N. ^ <sup><strong>a</strong></sup> <sup><strong>b</strong></sup> 本文</p>
+</blockquote>
+<p>のようにする。</p>
+<p>出典のページタイトル・書籍タイトルなどは<code>cite</code>タグで囲う。</p></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

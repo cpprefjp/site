@@ -1,0 +1,883 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>basic_string_view - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,string_view,std,class template,cpp17
+">
+        <meta name="title" content="basic_string_view - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="basic_string_view - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="basic_string_view - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/string_view/basic_string_view.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`std::basic_string_view`は、文字列の所有権を保持せず、文字列のコピーを持つのではなく参照をして、参照先の文字列を加工して扱うクラスである。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="basic_string_view - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/string_view/basic_string_view.html" />
+        <meta name="twitter:description" content="`std::basic_string_view`は、文字列の所有権を保持せず、文字列のコピーを持つのではなく参照をして、参照先の文字列を加工して扱うクラスである。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;string_view&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;de8da19da34446d77b6a17722c890273e1260085&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;string_view&gt;\n\nint main()\n{\n  // \u6587\u5b57\u5217\u30ea\u30c6\u30e9\u30eb\u304b\u3089\u90e8\u5206\u6587\u5b57\u5217\u3092\u53d6\u5f97\u3059\u308b\u3002\n  // \u305d\u306e\u969b\u3001\u30e1\u30e2\u30ea\u30a2\u30ed\u30b1\u30fc\u30c8\u306f\u767a\u751f\u3057\u306a\u3044\n  std::cout &lt;&lt; std::string_view(\&#34;Hello World\&#34;).substr(0, 5) &lt;&lt; std::endl;\n\n  // \u6587\u5b57\u5217\u30ea\u30c6\u30e9\u30eb\u5185\u304b\u3089\u7279\u5b9a\u306e\u6587\u5b57\u5217\u3092\u691c\u7d22\u3059\u308b\u3002\n  // \u3053\u306e\u4f8b\u3067\u3082\u3001\u30e1\u30e2\u30ea\u30a2\u30ed\u30b1\u30fc\u30c8\u3084\u6587\u5b57\u5217\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u306e\u30b3\u30d4\u30fc\u306a\u3069\u306f\u767a\u751f\u3057\u306a\u3044\n  std::string_view sv = \&#34;Hello World\&#34;;\n  std::size_t pos = sv.find(\&#34;rl\&#34;);\n  if (pos != std::string_view::npos) {\n    std::cout &lt;&lt; \&#34;found\&#34; &lt;&lt; std::endl;\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;9c80879792986848c141b262d39af46e2515072a&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;string&gt;\n#include &lt;string_view&gt;\n\n// string, const char*\u3001string_view\u306e\u3069\u308c\u3067\u3082\u53d7\u3051\u53d6\u308c\u308b\u95a2\u6570\nvoid f(std::string_view sv)\n{\n  std::cout &lt;&lt; sv.substr(0, 4) &lt;&lt; std::endl;\n}\n\nint main()\n{\n  // \u6587\u5b57\u5217\u30ea\u30c6\u30e9\u30eb (char\u914d\u5217) \u3092\u6e21\u3059\n  f(\&#34;Hello\&#34;);\n\n  // const char*\u3092\u6e21\u3059\n  const char* chars = \&#34;Hello\&#34;;\n  f(chars);\n\n  // \u5de6\u8fba\u5024\u306estring\u3092\u6e21\u3059\n  std::string s = \&#34;Hello\&#34;;\n  f(s);\n\n  // string\u306e\u4e00\u6642\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3092\u6e21\u3059\n  // \u95a2\u6570f()\u5185\u3067\u306f\u3053\u306e\u4e00\u6642\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u304c\u751f\u5b58\u3057\u3066\u3044\u308b\u306e\u3067\u3001\n  // string_view\u53c2\u7167\u3057\u3066\u3082\u554f\u984c\u306a\u3044\n  f(std::string(\&#34;Hello\&#34;));\n}\n&#34;}, {&#34;id&#34;: &#34;6f0b10ec15808f0634e877001de17c8a5ea96711&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;string_view&gt;\n\nint main()\n{\n  // \u6587\u5b57\u5217\u30ea\u30c6\u30e9\u30eb\u3092\u7bc4\u56f2\u3068\u3057\u3066\u4f7f\u7528\u3059\u308b\u3068\u3001\u30cc\u30eb\u6587\u5b57\u304c\u8981\u7d20\u306b\u542b\u307e\u308c\u308b\n  std::cout &lt;&lt; &#39;[&#39; &lt;&lt; std::endl;\n  for (char c : \&#34;ABC\&#34;) {\n    std::cout &lt;&lt; c &lt;&lt; std::endl;\n  }\n  std::cout &lt;&lt; &#39;]&#39; &lt;&lt; std::endl;\n\n  // string_view\u3092\u4f7f\u7528\u3059\u308b\u3068\u3001\u30cc\u30eb\u6587\u5b57\u304c\u8981\u7d20\u306b\u542b\u307e\u308c\u306a\u3044\n  std::cout &lt;&lt; &#39;[&#39; &lt;&lt; std::endl;\n  for (char c : std::string_view{\&#34;ABC\&#34;}) {\n    std::cout &lt;&lt; c &lt;&lt; std::endl;\n  }\n  std::cout &lt;&lt; &#39;]&#39; &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;string_view&#34;, &#34;basic_string_view&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/string_view.html" itemprop="url">
+              
+                <span itemprop="name">string_view</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">basic_string_view</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-06-11T13:45:38">
+        2024年06月11日 13時45分38秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/string_view/basic_string_view.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/string_view/basic_string_view.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;string_view&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">basic_string_view</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">CharT</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Traits</span> <span class="o">=</span> <span class="n"><a href="../string/char_traits.html">char_traits</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="o">&gt;&gt;</span>
+  <span class="k">class</span> <span class="nc"><a href="">basic_string_view</a></span><span class="p">;</span>
+
+  <span class="k">using</span> <span class="n"><a href="">string_view</a></span> <span class="o">=</span> <span class="n"><a href="">basic_string_view</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">u8<a href="">string_view</a></span> <span class="o">=</span> <span class="n"><a href="">basic_string_view</a></span><span class="o">&lt;</span><span class="n">char8_t</span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// C++20から</span>
+  <span class="k">using</span> <span class="n">u16<a href="">string_view</a></span> <span class="o">=</span> <span class="n"><a href="">basic_string_view</a></span><span class="o">&lt;</span><span class="kt">char16_t</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">u32<a href="">string_view</a></span> <span class="o">=</span> <span class="n"><a href="">basic_string_view</a></span><span class="o">&lt;</span><span class="kt">char32_t</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">wstring_view</span> <span class="o">=</span> <span class="n"><a href="">basic_string_view</a></span><span class="o">&lt;</span><span class="kt">wchar_t</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>std::basic_string_view</code>は、文字列の所有権を保持せず、文字列のコピーを持つのではなく参照をして、参照先の文字列を加工して扱うクラスである。</p>
+<p>文字配列型である文字列リテラルに対して、<code><a href="../string/basic_string.html">std::basic_string</a></code>クラスが持つような便利なメンバ関数群を使用できる。文字列リテラルは静的記憶域に保存されるため、文字列リテラルをこのクラスのオブジェクトに参照させて、そのオブジェクトを持ち回ったとしても参照先の文字列リテラルの寿命が尽きるような問題は発生しない。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="">string_view</a></span> <span class="n">sv</span> <span class="o">=</span> <span class="s">"Hello World"</span><span class="p">;</span> <span class="c1">// この式の評価がおわったあとも、文字列リテラル "Hello World" の寿命は尽きない</span>
+<span class="n"><a href="">string_view</a></span> <span class="n">hello</span> <span class="o">=</span> <span class="n"><a href="basic_string_view/substr.html">sv.substr</a></span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span> <span class="c1">// 先頭5文字を抽出する</span>
+</code></pre></div>
+</p>
+<p>このクラスの実装としては、文字配列の参照する先頭文字へのポインタと、文字数の2つをメンバ変数として持つ。これらの変数を変動させることによって、部分文字列の抽出や、限定された範囲内での検索といったことを実現する。</p>
+<p>このクラスは、<a href="../type_traits/is_trivially_copyable.html">トリビアルコピー可能</a>である（C++23）</p>
+<h2>メンバ関数</h2>
+<h3>構築・破棄</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="basic_string_view/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code>~basic_string_view() = default;</code></td>
+<td>デストラクタ</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code>basic_string_view&amp; operator=(const basic_string_view&amp;) = default;</code><br /> <code>basic_string_view&amp; operator=(basic_string_view&amp;&amp;) = default;</code></td>
+<td>代入演算子</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h3>イテレータ</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="basic_string_view/begin.html">begin</a></code></td>
+<td>先頭の要素を指すイテレータを取得する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="basic_string_view/end.html">end</a></code></td>
+<td>末尾の次を指すイテレータを取得する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="basic_string_view/cbegin.html">cbegin</a></code></td>
+<td>先頭の要素を指す読み取り専用イテレータを取得する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="basic_string_view/cend.html">cend</a></code></td>
+<td>末尾の次を指す読み取り専用イテレータを取得する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="basic_string_view/rbegin.html">rbegin</a></code></td>
+<td>末尾を指す逆イテレータを取得する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="basic_string_view/rend.html">rend</a></code></td>
+<td>先頭の前を指す逆イテレータを取得する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="basic_string_view/crbegin.html">crbegin</a></code></td>
+<td>末尾を指す読み取り専用逆イテレータを取得する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="basic_string_view/crend.html">crend</a></code></td>
+<td>先頭の前を指す読み取り専用逆イテレータを取得する</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h3>領域</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="basic_string_view/size.html">size</a></code></td>
+<td>文字列の長さを取得する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="basic_string_view/length.html">length</a></code></td>
+<td>文字列の長さを取得する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="basic_string_view/max_size.html">max_size</a></code></td>
+<td>参照可能な最大の文字列長を取得する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="basic_string_view/empty.html">empty</a></code></td>
+<td>文字列が空かどうかを判定する</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h3>要素アクセス</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="basic_string_view/op_at.html">operator[]</a></code></td>
+<td>任意の位置の文字を取得する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="basic_string_view/at.html">at</a></code></td>
+<td>任意の位置の文字を取得する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="basic_string_view/front.html">front</a></code></td>
+<td>先頭文字を取得する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="basic_string_view/back.html">back</a></code></td>
+<td>末尾文字を取得する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="basic_string_view/data.html">data</a></code></td>
+<td>文字配列表現を取得する</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h3>文字列の変更</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="basic_string_view/remove_prefix.html">remove_prefix</a></code></td>
+<td>先頭のN文字を削除する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="basic_string_view/remove_suffix.html">remove_suffix</a></code></td>
+<td>末尾のN文字を削除する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="basic_string_view/swap.html">swap</a></code></td>
+<td>他の<code>basic_string_view</code>オブジェクトとデータを入れ替える</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h3>文字列の操作</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="basic_string_view/copy.html">copy</a></code></td>
+<td>他の文字列に、自身の文字列をコピーする</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="basic_string_view/substr.html">substr</a></code></td>
+<td>部分文字列を取得する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="basic_string_view/compare.html">compare</a></code></td>
+<td>他の文字列との比較を行う</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="basic_string_view/starts_with.html">starts_with</a></code></td>
+<td>指定の文字列で始まるかを判定する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="basic_string_view/ends_with.html">ends_with</a></code></td>
+<td>指定の文字列で終わるかを判定する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="basic_string_view/contains.html">contains</a></code></td>
+<td>指定の文字・文字列が含まれているかを判定する</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h3>検索</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="basic_string_view/find.html">find</a></code></td>
+<td>指定文字列を検索する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="basic_string_view/rfind.html">rfind</a></code></td>
+<td>最後に現れる指定文字列を検索する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="basic_string_view/find_first_of.html">find_first_of</a></code></td>
+<td>最初に現れる指定文字を検索する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="basic_string_view/find_last_of.html">find_last_of</a></code></td>
+<td>最後に現れる指定文字を検索する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="basic_string_view/find_first_not_of.html">find_first_not_of</a></code></td>
+<td>先頭から、指定文字が見つからない位置を検索する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="basic_string_view/find_last_not_of.html">find_last_not_of</a></code></td>
+<td>末尾から、指定文字が見つからない位置を検索する</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h3>メンバ定数</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>npos</code></td>
+<td>無効な位置を表す。<code>find</code>や<code>substr</code>などで使われる。<br /><code>static constexpr size_type npos = -1;</code></td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h3>メンバ型</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>traits_type</code></td>
+<td>文字特性型 <code>Traits</code></td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code>value_type</code></td>
+<td>文字型 <code>CharT</code></td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code>pointer</code></td>
+<td>ポインタ型 <code>value_type*</code></td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code>const_pointer</code></td>
+<td><code>const</code>ポインタ型 <code>const value_type*</code></td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code>reference</code></td>
+<td>参照型 <code>value_type&amp;</code></td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code>const_reference</code></td>
+<td><code>const</code>参照型 <code>const value_type&amp;</code></td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code>const_iterator</code></td>
+<td>読み取り専用イテレータ。<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">実装定義</a>。<br /> 要素の型は<code>value_type</code>。<br /> ランダムアクセスイテレータと連続イテレータの要件を満たす</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code>iterator</code></td>
+<td>イテレータ <code>const_iterator</code></td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code>const_reverse_iterator</code></td>
+<td>読み取り専用逆イテレータ <code><a href="../iterator/reverse_iterator.html">reverse_iterator</a>&lt;const_iterator&gt;</code></td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code>reverse_iterator</code></td>
+<td>逆順イテレータ <code>const_reverse_iterator</code></td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code>size_type</code></td>
+<td>要素数を表す符号なし整数型 <code><a href="../cstddef/size_t.html">size_t</a></code></td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code>difference_type</code></td>
+<td>イテレータの差を表す符号付き整数型 <code><a href="../cstddef/ptrdiff_t.html">ptrdiff_t</a></code></td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h2>非メンバ関数</h2>
+<h3>比較演算</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="basic_string_view/op_equal.html">operator==</a></code></td>
+<td>等値比較</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="basic_string_view/op_not_equal.html">operator!=</a></code></td>
+<td>非等値比較</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="basic_string_view/op_compare_3way.html">operator&lt;=&gt;</a></code></td>
+<td>三方比較</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="basic_string_view/op_less.html">operator&lt;</a></code></td>
+<td>左辺が右辺より小さいかの判定を行う</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="basic_string_view/op_less_equal.html">operator&lt;=</a></code></td>
+<td>左辺が右辺以下かの判定を行う</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="basic_string_view/op_greater.html">operator&gt;</a></code></td>
+<td>左辺が右辺より大きいかの判定を行う</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="basic_string_view/op_greater_equal.html">operator&gt;=</a></code></td>
+<td>左辺が右辺以上かの判定を行う</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h3>入出力</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="basic_string_view/op_ostream.html">operator&lt;&lt;</a></code></td>
+<td>ストリームへの出力</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h3>推論ガイド</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="basic_string_view/op_deduction_guide.html">(op_deduction_guide)</a></code></td>
+<td>クラステンプレートの推論補助</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>リテラル</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="basic_string_view/op_sv.html">sv</a></code></td>
+<td><code>basic_string_view</code>のリテラル</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h2>ハッシュサポート</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>template &lt;class T&gt; struct hash;</code></td>
+<td><code>hash</code>クラスの先行宣言</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code>template &lt;&gt; struct hash&lt;string_view&gt;;</code></td>
+<td><code>hash</code>クラスの<code>string_view</code>に対する特殊化</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code>template &lt;&gt; struct hash&lt;wstring_view&gt;;</code></td>
+<td><code>hash</code>クラスの<code>wstring_view</code>に対する特殊化</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code>template &lt;&gt; struct hash&lt;u8string_view&gt;;</code></td>
+<td><code>hash</code>クラスの<code>u8string_view</code>に対する特殊化</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code>template &lt;&gt; struct hash&lt;u16string_view&gt;;</code></td>
+<td><code>hash</code>クラスの<code>u16string_view</code>に対する特殊化</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code>template &lt;&gt; struct hash&lt;u32string_view&gt;;</code></td>
+<td><code>hash</code>クラスの<code>u32string_view</code>に対する特殊化</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<p>上記の各<code>*string_view</code>に対する<code>hash</code>クラスの特殊化は、それぞれ対応する<a href="../string.html"><code>*string</code>型に対する特殊化</a>と同じハッシュ値を算出する。</p>
+<h2>例</h2>
+<h3>基本的な使い方</h3>
+<p><div class="yata" id="de8da19da34446d77b6a17722c890273e1260085"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string_view.html">&lt;string_view&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// 文字列リテラルから部分文字列を取得する。</span>
+  <span class="c1">// その際、メモリアロケートは発生しない</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::string_view</span></span><span class="p">(</span><span class="s">"Hello World"</span><span class="p">).</span><span class="n"><a href="basic_string_view/substr.html">substr</a></span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// 文字列リテラル内から特定の文字列を検索する。</span>
+  <span class="c1">// この例でも、メモリアロケートや文字列オブジェクトのコピーなどは発生しない</span>
+  <span class="n"><span style="color:#ff0000">std::string_view</span></span> <span class="n">sv</span> <span class="o">=</span> <span class="s">"Hello World"</span><span class="p">;</span>
+  <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">pos</span> <span class="o">=</span> <span class="n"><a href="basic_string_view/find.html">sv.find</a></span><span class="p">(</span><span class="s">"rl"</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">pos</span> <span class="o">!=</span> <span class="n"><span style="color:#ff0000">std::string_view</span></span><span class="o">::</span><span class="n">npos</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"found"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>Hello
+found
+</code></pre></p>
+<h3>stringとconst char*の共通インタフェースとして使用する</h3>
+<p><div class="yata" id="9c80879792986848c141b262d39af46e2515072a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string_view.html">&lt;string_view&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// string, const char*、<a href="">string_view</a>のどれでも受け取れる関数</span>
+<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::string_view</span></span> <span class="n">sv</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">sv</span><span class="p">.</span><span class="n"><a href="basic_string_view/substr.html">substr</a></span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// 文字列リテラル (char配列) を渡す</span>
+  <span class="n">f</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">);</span>
+
+  <span class="c1">// const char*を渡す</span>
+  <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">chars</span> <span class="o">=</span> <span class="s">"Hello"</span><span class="p">;</span>
+  <span class="n">f</span><span class="p">(</span><span class="n">chars</span><span class="p">);</span>
+
+  <span class="c1">// 左辺値のstringを渡す</span>
+  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">s</span> <span class="o">=</span> <span class="s">"Hello"</span><span class="p">;</span>
+  <span class="n">f</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+
+  <span class="c1">// stringの一時オブジェクトを渡す</span>
+  <span class="c1">// 関数f()内ではこの一時オブジェクトが生存しているので、</span>
+  <span class="c1">// <a href="">string_view</a>参照しても問題ない</span>
+  <span class="n">f</span><span class="p">(</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="s">"Hello"</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>Hell
+Hell
+Hell
+Hell
+</code></pre></p>
+<h3>文字列リテラルを範囲として使用する場合にヌル文字が含まれないようにする</h3>
+<p><div class="yata" id="6f0b10ec15808f0634e877001de17c8a5ea96711"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string_view.html">&lt;string_view&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// 文字列リテラルを範囲として使用すると、ヌル文字が要素に含まれる</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="sc">'['</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">char</span> <span class="nl">c</span> <span class="p">:</span> <span class="s">"ABC"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="sc">']'</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// <a href="">string_view</a>を使用すると、ヌル文字が要素に含まれない</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="sc">'['</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">char</span> <span class="nl">c</span> <span class="p">:</span> <span class="n"><span style="color:#ff0000">std::string_view</span></span><span class="p">{</span><span class="s">"ABC"</span><span class="p">})</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="sc">']'</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>[
+A
+B
+C
+
+]
+[
+A
+B
+C
+]
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++17</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 4.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 7.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3334.html" target="_blank">N3334 Proposing <code>array_ref&lt;T&gt;</code> and <code>string_ref</code></a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3442.html" target="_blank">N3442 <code>string_ref</code>: a non-owning reference to a string</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3512.html" target="_blank">N3512 <code>string_ref</code>: a non-owning reference to a string, revision 2</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3609.html" target="_blank">N3609 <code>string_view</code>: a non-owning reference to a string, revision 3</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3685.html" target="_blank">N3685 <code>string_view</code>: a non-owning reference to a string, revision 4</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3762.html" target="_blank">N3762 <code>string_view</code>: a non-owning reference to a string, revision 5</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3849.html" target="_blank">N3849 <code>string_view</code>: a non-owning reference to a string, revision 6</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3921.html" target="_blank">N3921 <code>string_view</code>: a non-owning reference to a string, revision 7</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r0.html" target="_blank">P0220R0 Adopt Library Fundamentals TS for C++17</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r1.html" target="_blank">P0220R1 Adopt Library Fundamentals V1 TS Components for C++17 (R1)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r0.pdf" target="_blank">P0254R0 Integrating <code>std::string_view</code> and <code>std::string</code></a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r1.pdf" target="_blank">P0254R1 Integrating <code>std::string_view</code> and <code>std::string</code></a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf" target="_blank">P0254R2 Integrating <code>std::string_view</code> and <code>std::string</code></a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0403r0.html" target="_blank">P0403R0 Literal suffixes for <code>basic_string_view</code></a></li>
+<li><a href="https://cplusplus.github.io/LWG/issue2791" target="_blank">LWG 2791 - <code>string_view</code> objects and strings should yield the same hash values</a></li>
+<li><a href="https://akrzemi1.wordpress.com/2019/09/25/string-literals-make-bad-ranges/" target="_blank">String literals make bad ranges - Andrzej's C++ blog</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2251r1.pdf" target="_blank">Require <code>span</code> &amp; <code>basic_string_view</code> to be Trivially Copyable</a><ul>
+<li>C++23から、トリビアルコピー可能が保証される。</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

@@ -1,0 +1,389 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>range_adaptor_closure - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,ranges,std::ranges,class template,cpp23
+">
+        <meta name="title" content="range_adaptor_closure - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="range_adaptor_closure - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="range_adaptor_closure - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/ranges/range_adaptor_closure.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`range_adaptor_closure` は、Rangeアダプタクロージャオブジェクトの基底クラスとなる空のクラス。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="range_adaptor_closure - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/ranges/range_adaptor_closure.html" />
+        <meta name="twitter:description" content="`range_adaptor_closure` は、Rangeアダプタクロージャオブジェクトの基底クラスとなる空のクラス。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;ranges&#34;], &#34;namespace&#34;: [&#34;std::ranges&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp23&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;155556897a5c0fcf28966af21eb1b4a9e47f6158&#34;, &#34;source&#34;: &#34;#include &lt;ranges&gt;\n#include &lt;vector&gt;\n#include &lt;functional&gt;\n#include &lt;print&gt;\n\ntemplate &lt;typename F&gt;\nclass closure_t : public std::ranges::range_adaptor_closure&lt;closure_t&lt;F&gt;&gt; {\n  F f;\npublic:\n  constexpr closure_t(F f) : f(f) { }\n\n  template &lt;std::ranges::viewable_range R&gt;\n  requires std::invocable&lt;F const&amp;, R&gt;\n  constexpr auto operator()(R&amp;&amp; r) const {\n    return f(std::forward&lt;R&gt;(r));\n  }\n};\n\ntemplate &lt;typename F&gt;\nclass adaptor_t {\n  F f;\npublic:\n  constexpr adaptor_t(F f) : f(f) { }\n\n  template &lt;typename... Args&gt;\n  constexpr auto operator()(Args&amp;&amp;... args) const {\n    if constexpr (std::invocable&lt;F const&amp;, Args...&gt;) {\n      return f(std::forward&lt;Args&gt;(args)...);\n    } else {\n      return closure_t(std::bind_back(f, std::forward&lt;Args&gt;(args)...));\n    }\n  }\n};\n\ninline constexpr closure_t user_defined_join\n  = []&lt;std::ranges::viewable_range R&gt;\n    (R&amp;&amp; r) {\n      return std::ranges::join_view(std::forward&lt;R&gt;(r));\n    };\n\ninline constexpr adaptor_t user_defined_transform\n  = []&lt;std::ranges::viewable_range R, typename F&gt;\n    (R&amp;&amp; r, F&amp;&amp; f) {\n      return std::ranges::transform_view(std::forward&lt;R&gt;(r), std::forward&lt;F&gt;(f));\n    };\n\nint main() {\n  std::vector&lt;std::vector&lt;int&gt;&gt; vv = {{0, 1, 2}, {3, 4, 5}, {6}};\n\n  std::println(\&#34;{}\&#34;, vv | user_defined_join | user_defined_transform([](int x){ return x * x; }));\n}\n&#34;}, {&#34;id&#34;: &#34;3f79821be3c050565c57212d919c812ce0a5c792&#34;, &#34;source&#34;: &#34;#include &lt;ranges&gt;\n#include &lt;vector&gt;\n#include &lt;print&gt;\n#include &lt;generator&gt;\n\nclass positive_impl : public std::ranges::range_adaptor_closure&lt;positive_impl&gt; {\npublic:\n  template &lt;std::ranges::range R&gt;\n  constexpr std::generator&lt;std::ranges::range_value_t&lt;R&gt;&gt; operator()(R&amp;&amp; r) const {\n    for(auto&amp;&amp; n : r) {\n      if(n &gt; 0) {\n        co_yield n;\n      }\n    }\n  }\n};\n\ninline constexpr positive_impl positive;\n\nint main() {\n  std::vector v = {0, -1, 2, -3, 4, -5, 6, -7};\n\n  std::println(\&#34;{}\&#34;, v | positive);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;ranges&#34;, &#34;range_adaptor_closure&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/ranges.html" itemprop="url">
+              
+                <span itemprop="name">ranges</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">range_adaptor_closure</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-09-03T05:39:44">
+        2024年09月03日 05時39分44秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/ranges/range_adaptor_closure.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/ranges/range_adaptor_closure.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;ranges&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::ranges">std::ranges::</span><span class="token">range_adaptor_closure</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">D</span><span class="o">&gt;</span>
+    <span class="n">requires</span> <span class="n"><a href="../type_traits/is_class.html">is_class_v</a></span><span class="o">&lt;</span><span class="n">D</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span> <span class="n"><a href="../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n">D</span><span class="p">,</span> <span class="n"><a href="../type_traits/remove_cv.html">remove_cv_t</a></span><span class="o">&lt;</span><span class="n">D</span><span class="o">&gt;&gt;</span>
+  <span class="k">class</span> <span class="nc">range_adaptor_closure</span> <span class="p">{</span> <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>range_adaptor_closure</code> は、Rangeアダプタクロージャオブジェクトの基底クラスとなる空のクラス。</p>
+<p>以下の要件を満たす型<code>T</code>のオブジェクト<code>t</code>は、Rangeアダプタクロージャオブジェクトとなることが保証される。</p>
+<ul>
+<li><code>t</code>はRangeを受け取る単項関数オブジェクトである</li>
+<li><code>T</code>は<code><a href="../concepts/derived_from.html">derived_from</a>&lt;range_adaptor_closure&lt;T&gt;&gt;</code>のモデルである</li>
+<li><code>T</code>以外の型<code>U</code>に対して、<code>T</code>は<code>range_adaptor_closure&lt;U&gt;</code>の派生クラスではない</li>
+<li><code>T</code>は<code><a href="range.html">range</a></code>のモデルではない</li>
+</ul>
+<p>テンプレートパラメーター<code>D</code>は<a class="cpprefjp-defined-word" data-desc="型のサイズを決定できない、完全には定義されていない型。例えば先行宣言のみのクラス型、要素数不明の配列型、`void`など。クラス定義内部ではそのクラス自身は不完全型">不完全型</a>であってもよい。
+ただし、<code>D</code>が<code>|</code>演算子のオペランドとなる場合は、<code>D</code>は<a class="cpprefjp-defined-word" data-desc="型のサイズを決定できる型。不完全型ではない型">完全型</a>かつ<code><a href="../concepts/derived_from.html">derived_from</a>&lt;range_adaptor_closure&lt;D&gt;&gt;</code>のモデルでなければならない。</p>
+<p><a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>を含む<code>D</code>を引数とする <code>|</code> 演算子を含む式の動作は、<a class="cpprefjp-defined-word" data-desc="ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">プログラム定義</a>の<code>operator|</code>関数が選択された場合は<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>である。</p>
+<p><code>range_adaptor_closure</code>を特殊化するプログラムは<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こす。</p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>Rangeアダプタはその振る舞いだけが規定されていて、Rangeアダプタとなる要件や、具体的なRangeアダプタのクラスは規定されていなかったため、ユーザーが新たに定義することは困難であった。</p>
+<p>各処理系がRangeアダプタを実装する際、どのRangeアダプタでも共通するコードを基底クラスにまとめることが行われ、パイプライン記法をサポートする<code>operator|</code>も基底クラスに対して実装された。
+そのような経験を踏まえ、Rangeアダプタクロージャオブジェクトの基底クラスとして<code>range_adaptor_closure</code>が標準化された。</p>
+<p>ユーザーは、以下のように<code>range_adaptor_closure</code>を継承することで、Rangeアダプタクロージャオブジェクトを定義することができる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">user_defined_closure_t</span> <span class="o">:</span> <span class="k">public</span> <span class="n"><span style="color:#ff0000">std::ranges::range_adaptor_closure</span></span><span class="o">&lt;</span><span class="n">user_defined_closure_t</span><span class="o">&gt;</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="viewable_range.html">std::ranges::viewable_range</a></span> <span class="n">R</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="k">auto</span> <span class="k">operator</span><span class="p">()(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="c1">// user_defined_viewを構築して返す</span>
+    <span class="k">return</span> <span class="n">user_defined_view</span><span class="p">(</span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">r</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">user_defined_closure_t</span> <span class="n">user_defined</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<p>パイプライン記法をサポートする方法は規定されていないが、一般には処理系がRangeと<code>range_adaptor_closure</code>を引数とする以下のような<code>operator|</code>を定義することで行われると考えられる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="viewable_range.html">std::ranges::viewable_range</a></span> <span class="n">R</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <span class="n">requires</span> <span class="n"><a href="../concepts/derived_from.html">std::derived_from</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n"><span style="color:#ff0000">std::ranges::range_adaptor_closure</span></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span> <span class="o">&amp;&amp;</span> <span class="n"><a href="../concepts/invocable.html">std::invocable</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">R</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="k">auto</span> <span class="k">operator</span><span class="o">|</span> <span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">,</span> <span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">raco</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">raco</span><span class="p">(</span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">r</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>例</h2>
+<p><div class="yata" id="155556897a5c0fcf28966af21eb1b4a9e47f6158"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../print.html">&lt;print&gt;</a></span><span class="cp"></span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">F</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">closure_t</span> <span class="o">:</span> <span class="k">public</span> <span class="n"><span style="color:#ff0000">std::ranges::range_adaptor_closure</span></span><span class="o">&lt;</span><span class="n">closure_t</span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;&gt;</span> <span class="p">{</span>
+  <span class="n">F</span> <span class="n">f</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="k">constexpr</span> <span class="n">closure_t</span><span class="p">(</span><span class="n">F</span> <span class="n">f</span><span class="p">)</span> <span class="o">:</span> <span class="n">f</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="viewable_range.html">std::ranges::viewable_range</a></span> <span class="n">R</span><span class="o">&gt;</span>
+  <span class="n">requires</span> <span class="n"><a href="../concepts/invocable.html">std::invocable</a></span><span class="o">&lt;</span><span class="n">F</span> <span class="k">const</span><span class="o">&amp;</span><span class="p">,</span> <span class="n">R</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="k">auto</span> <span class="k">operator</span><span class="p">()(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">r</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">F</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">adaptor_t</span> <span class="p">{</span>
+  <span class="n">F</span> <span class="n">f</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="k">constexpr</span> <span class="n">adaptor_t</span><span class="p">(</span><span class="n">F</span> <span class="n">f</span><span class="p">)</span> <span class="o">:</span> <span class="n">f</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="k">auto</span> <span class="k">operator</span><span class="p">()(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span><span class="n"><a href="../concepts/invocable.html">std::invocable</a></span><span class="o">&lt;</span><span class="n">F</span> <span class="k">const</span><span class="o">&amp;</span><span class="p">,</span> <span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">closure_t</span><span class="p">(</span><span class="n"><a href="../functional/bind_back.html">std::bind_back</a></span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...));</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">closure_t</span> <span class="n">user_defined_join</span>
+  <span class="o">=</span> <span class="p">[]</span><span class="o">&lt;</span><span class="n"><a href="viewable_range.html">std::ranges::viewable_range</a></span> <span class="n">R</span><span class="o">&gt;</span>
+    <span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n"><a href="join_view.html">std::ranges::join_view</a></span><span class="p">(</span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">r</span><span class="p">));</span>
+    <span class="p">};</span>
+
+<span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">adaptor_t</span> <span class="n">user_defined_transform</span>
+  <span class="o">=</span> <span class="p">[]</span><span class="o">&lt;</span><span class="n"><a href="viewable_range.html">std::ranges::viewable_range</a></span> <span class="n">R</span><span class="p">,</span> <span class="k">typename</span> <span class="n">F</span><span class="o">&gt;</span>
+    <span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">,</span> <span class="n">F</span><span class="o">&amp;&amp;</span> <span class="n">f</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n"><a href="transform_view.html">std::ranges::transform_view</a></span><span class="p">(</span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">(</span><span class="n">r</span><span class="p">),</span> <span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;</span><span class="p">(</span><span class="n">f</span><span class="p">));</span>
+    <span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">vv</span> <span class="o">=</span> <span class="p">{{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">},</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">},</span> <span class="p">{</span><span class="mi">6</span><span class="p">}};</span>
+
+  <span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span> <span class="n">vv</span> <span class="o">|</span> <span class="n">user_defined_join</span> <span class="o">|</span> <span class="n">user_defined_transform</span><span class="p">([](</span><span class="kt">int</span> <span class="n">x</span><span class="p">){</span> <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span> <span class="p">}));</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>[0, 1, 4, 9, 16, 25, 36]
+</code></pre></p>
+<h2>例 ジェネレータを使用してRangeアダプタを定義する</h2>
+<p><div class="yata" id="3f79821be3c050565c57212d919c812ce0a5c792"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../print.html">&lt;print&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../generator.html">&lt;generator&gt;</a></span><span class="cp"></span>
+
+<span class="k">class</span> <span class="nc">positive_impl</span> <span class="o">:</span> <span class="k">public</span> <span class="n"><span style="color:#ff0000">std::ranges::range_adaptor_closure</span></span><span class="o">&lt;</span><span class="n">positive_impl</span><span class="o">&gt;</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="range.html">std::ranges::range</a></span> <span class="n">R</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="n"><a href="../generator/generator.html">std::generator</a></span><span class="o">&lt;</span><span class="n"><a href="range_value_t.html">std::ranges::range_value_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;&gt;</span> <span class="k">operator</span><span class="p">()(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="nl">n</span> <span class="p">:</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span><span class="p">(</span><span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">co_yield</span> <span class="n">n</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">positive_impl</span> <span class="n">positive</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n"><a href="../vector/vector.html">std::vector</a></span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">};</span>
+
+  <span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span> <span class="n">v</span> <span class="o">|</span> <span class="n">positive</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>[2, 4, 6]
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++23</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://timsong-cpp.github.io/cppwp/n4950/ranges" target="_blank">N4950 26 Ranges library</a></li>
+<li><a href="https://onihusube.hatenablog.com/entry/2022/04/24/010041" target="_blank">rangesのパイプにアダプトするには</a></li>
+<li><a href="https://wg21.link/p2387r3" target="_blank">P2387R3 Pipe support for user-defined range adaptors</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

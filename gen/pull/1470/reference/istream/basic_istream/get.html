@@ -1,0 +1,349 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>basic_istream::get - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,istream,std,basic_istream,function
+">
+        <meta name="title" content="basic_istream::get - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="basic_istream::get - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="basic_istream::get - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/istream/basic_istream/get.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="basic_istream::get - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/istream/basic_istream/get.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;istream&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;basic_istream&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;1aef905acfe5d99e6b6edd190913873c2363a381&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;locale&gt;\n#include &lt;string&gt;\n\nint main() {\n  int x = std::cin.get();\n  if (x != EOF) {\n    std::cout &lt;&lt; std::char_traits&lt;char&gt;::to_char_type(x) &lt;&lt; std::endl;\n  }\n\n  char y;\n  if (std::cin.get(y)) {\n    std::cout &lt;&lt; y &lt;&lt; std::endl;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;istream&#34;, &#34;basic_istream&#34;, &#34;get&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/istream.html" itemprop="url">
+              
+                <span itemprop="name">istream</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/istream/basic_istream.html" itemprop="url">
+              
+                <span itemprop="name">basic_istream</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">get</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2020-02-20T14:43:22">
+        2020年02月20日 14時43分22秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Mitsuru Kariya</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/istream/basic_istream/get.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/istream/basic_istream/get.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;istream&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class basic_istream">basic_istream::</span><span class="token">get</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="c1">// 1文字</span>
+<span class="n">int_type</span> <span class="nf">get</span><span class="p">();</span>
+<span class="n">basic_istream</span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span> <span class="n">get</span><span class="p">(</span><span class="n">char_type</span><span class="o">&amp;</span> <span class="n">c</span><span class="p">);</span>
+
+<span class="c1">// 文字列</span>
+<span class="n">basic_istream</span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span> <span class="n">get</span><span class="p">(</span><span class="n">char_type</span><span class="o">*</span> <span class="n">s</span><span class="p">,</span> <span class="n">streamsize</span> <span class="n">n</span><span class="p">);</span>
+<span class="n">basic_istream</span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span> <span class="n">get</span><span class="p">(</span><span class="n">char_type</span><span class="o">*</span> <span class="n">s</span><span class="p">,</span> <span class="n">streamsize</span> <span class="n">n</span><span class="p">,</span> <span class="n">char_type</span> <span class="n">delim</span><span class="p">);</span>
+<span class="n">basic_istream</span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span> <span class="n">get</span><span class="p">(</span><span class="n">basic_streambuf</span><span class="o">&lt;</span><span class="n">char_type</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span> <span class="n">sb</span><span class="p">);</span>
+<span class="n">basic_istream</span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span> <span class="n">get</span><span class="p">(</span><span class="n">basic_streambuf</span><span class="o">&lt;</span><span class="n">char_type</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span> <span class="n">sb</span><span class="p">,</span> <span class="n">char_type</span> <span class="n">delim</span><span class="p">);</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>（非書式化入力関数）ストリームから文字または文字列を入力する。</p>
+<ul>
+<li>上2つの<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>は1文字のみの入力を行う。</li>
+<li>残りの<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>は<code>delim</code>または改行までの文字を入力する。入力した文字の受け取り先に応じてさらに<a class="cpprefjp-defined-word" data-desc="オーバーロード。同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">多重定義</a>されている。<ul>
+<li>配列要素へのポインタ<code>s</code>（要素数<code>n</code>）へ書き込むもの。</li>
+<li>ストリームバッファ<code>sb</code>へ書き込むもの。</li>
+</ul>
+</li>
+</ul>
+<h2>効果</h2>
+<h3>1文字</h3>
+<ol>
+<li><code>sentry</code>オブジェクトを構築する。<code>sentry</code>オブジェクトが失敗を示した場合、何もしない。</li>
+<li>ストリームバッファから1文字入力を行う。</li>
+<li>入力が行えなかった場合、<code>setstate(failbit)</code>を呼び出す。</li>
+<li>（引数<code>c</code>を受け取るもののみ）入力した文字を<code>c</code>に代入する。</li>
+</ol>
+<h3>文字列</h3>
+<p>仮引数<code>delim</code>を持たない2つの<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>は、それぞれ以下を実行する。</p>
+<ul>
+<li><code>get(s, n, widen('\n'))</code></li>
+<li><code>get(sb, n, widen('\n'))</code></li>
+</ul>
+<p>仮引数<code>delim</code>を持つ残りの2つは以下の処理を実行する。</p>
+<ol>
+<li><code>sentry</code>オブジェクトを構築する。<code>sentry</code>オブジェクトが失敗を示した場合、何もしない。</li>
+<li>以下のいずれかを満たすまで、文字を入力して書き込む。<ul>
+<li>配列要素へのポインタ<code>s</code>を引数に取るもの<ul>
+<li>引数<code>n</code>文字より1文字少ない文字数まで入力した。</li>
+<li>EOFに達した。この場合、<code>setstate(eofbit)</code>を呼び出す。</li>
+<li>次に入力する文字を<code>c</code>として、<code>Traits::eq_int_type(Traits::to_int_type(c), delim)</code>が真となった。</li>
+</ul>
+</li>
+<li>ストリームバッファへのポインタ<code>sb</code>を引数に取るもの<ul>
+<li>EOFに達した。この場合、<code>setstate(eofbit)</code>を呼び出す。</li>
+<li><code>sb</code>への出力処理に失敗した。</li>
+<li>次に入力する文字を<code>c</code>として、<code>Traits::eq_int_type(Traits::to_int_type(c), delim)</code>が真となった。</li>
+<li><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が送出された（<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>は捕捉され、再送出されることはない）。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><code>str</code>に1文字も入力が行われなかった場合、<code>is.setstate(ios_base::failbit)</code>が呼び出される。</p>
+<p>配列要素へのポインタ<code>s</code>を引数に取るものについては、入力の如何に関わらず末尾にヌル文字を書き込む処理が行われる。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<ul>
+<li><code>int_type</code>を返すものについては入力した文字。入力が行われなければ<code>Traits::eof()</code>。</li>
+<li><code>basic_istream&lt;CharT, Traits&gt;&amp;</code>を返すものについては<code>*this</code>。</li>
+</ul>
+<h2>例（文字）</h2>
+<p><div class="yata" id="1aef905acfe5d99e6b6edd190913873c2363a381"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../locale.html">&lt;locale&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n"><a href="../../iostream/cin.html">std::cin</a></span><span class="p">.</span><span class="n"><span style="color:#ff0000">get</span></span><span class="p">();</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">!=</span> <span class="n">EOF</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../string/char_traits.html">std::char_traits</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;::</span><span class="n"><a href="../../string/char_traits/to_char_type.html">to_char_type</a></span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kt">char</span> <span class="n">y</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n"><a href="../../iostream/cin.html">std::cin</a></span><span class="p">.</span><span class="n"><span style="color:#ff0000">get</span></span><span class="p">(</span><span class="n">y</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">y</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>入力</h3>
+<p><pre><code>12
+</code></pre></p>
+<h3>出力</h3>
+<p><pre><code>1
+2
+</code></pre></p>
+<h2>実装例</h2>
+<p>TBD</p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++98</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><code><a href="../../streambuf/basic_streambuf.html">basic_streambuf</a></code></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

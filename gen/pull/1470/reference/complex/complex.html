@@ -1,0 +1,712 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>complex - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,complex,std,class template
+">
+        <meta name="title" content="complex - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="complex - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="complex - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/complex/complex.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="class template&amp;lt;complex&amp;gt;std::complex namespace std {   template &amp;lt;class T&amp;gt;   class complex; }   &amp;lt;complex&amp;gt;ヘッダでは、複素数を扱うクラスおよび関数を定義する。 complexクラステンプレートは、複素数を表すクラスである。このクラスは、実部(real part)と" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="complex - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/complex/complex.html" />
+        <meta name="twitter:description" content="class template&amp;lt;complex&amp;gt;std::complex namespace std {   template &amp;lt;class T&amp;gt;   class complex; }   &amp;lt;complex&amp;gt;ヘッダでは、複素数を扱うクラスおよび関数を定義する。 complexクラステンプレートは、複素数を表すクラスである。このクラスは、実部(real part)と" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;complex&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;3ff32c2b7b9c33d0a8532f9cbe7fc2d1c8e3aeb5&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;complex&gt;\n\nfloat pi()\n{\n  return 3.141593f;\n}\n\nint main()\n{\n  // \u5b9f\u90e81.0f\u3001\u865a\u90e82.0f\u306e\u8907\u7d20\u6570\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3092\u4f5c\u308b\n  std::complex&lt;float&gt; c(1.0f, 2.0f);\n\n  // \u30b9\u30c8\u30ea\u30fc\u30e0\u51fa\u529b\n  std::cout &lt;&lt; \&#34;output : \&#34; &lt;&lt; c &lt;&lt; std::endl;\n\n  // \u5404\u8981\u7d20\u306e\u53d6\u5f97\n  float real = c.real(); // \u5b9f\u90e8\n  float imag = c.imag(); // \u865a\u90e8\n  std::cout &lt;&lt; \&#34;real : \&#34; &lt;&lt; real &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;imag : \&#34; &lt;&lt; imag &lt;&lt; std::endl;\n\n  // \u6f14\u7b97\n  std::complex&lt;float&gt; a(1.0f, 2.0f);\n  std::complex&lt;float&gt; b(2.0f, 3.0f);\n  std::cout &lt;&lt; \&#34;a + b : \&#34; &lt;&lt; a + b &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;a - b : \&#34; &lt;&lt; a - b &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;a * b : \&#34; &lt;&lt; a * b &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;a / b : \&#34; &lt;&lt; a / b &lt;&lt; std::endl;\n\n  // \u5404\u8907\u7d20\u6570\u306e\u5024\u3092\u53d6\u5f97\u3059\u308b\n  std::cout &lt;&lt; \&#34;abs : \&#34; &lt;&lt; std::abs(c) &lt;&lt; std::endl;   // \u7d76\u5bfe\u5024\n  std::cout &lt;&lt; \&#34;arg : \&#34; &lt;&lt; std::arg(c) &lt;&lt; std::endl;   // \u504f\u89d2\n  std::cout &lt;&lt; \&#34;norm : \&#34; &lt;&lt; std::norm(c) &lt;&lt; std::endl; // \u30ce\u30eb\u30e0\n  std::cout &lt;&lt; \&#34;conj : \&#34; &lt;&lt; std::conj(c) &lt;&lt; std::endl; // \u5171\u5f79\u8907\u7d20\u6570\n  std::cout &lt;&lt; \&#34;proj : \&#34; &lt;&lt; std::proj(c) &lt;&lt; std::endl; // \u30ea\u30fc\u30de\u30f3\u7403\u9762\u3078\u306e\u5c04\u5f71\n  std::cout &lt;&lt; \&#34;polar : \&#34; &lt;&lt; std::polar(1.0f, pi() / 2.0f); // \u6975\u5ea7\u6a19(\u7d76\u5bfe\u5024\uff1a1.0\u3001\u504f\u89d2\uff1a\u5186\u5468\u7387\u00f72.0)\u304b\u3089\u8907\u7d20\u6570\u3092\u4f5c\u308b\n}\n&#34;}, {&#34;id&#34;: &#34;3ef18b2de5013754c308d830ec02bede9f3b4cff&#34;, &#34;source&#34;: &#34;#include &lt;print&gt;\n#include &lt;complex&gt;\n#include &lt;vector&gt;\n#include &lt;ranges&gt;\n\nint main()\n{\n  // \u69cb\u9020\u5316\u675f\u7e1b\u3067\u5404\u8981\u7d20\u3092\u53d6\u5f97\u3059\u308b\n  {\n    std::complex&lt;float&gt; c{1.0f, 2.0f};\n    auto [real, imag] = c;\n    std::println(\&#34;real:{} imag:{}\&#34;, real, imag);\n  }\n\n  // \u5b9a\u6570\u306e\u6dfb\u5b57\u3092\u6307\u5b9a\u3057\u3066\u5404\u8981\u7d20\u3092\u53d6\u5f97\u3059\u308b\n  {\n    std::complex&lt;float&gt; c{1.0f, 2.0f};\n    float real = std::get&lt;0&gt;(c);\n    float imag = std::get&lt;1&gt;(c);\n    std::println(\&#34;real:{} imag:{}\&#34;, real, imag);\n  }\n\n  // complex\u306e\u914d\u5217\u304b\u3089\u5b9f\u90e8\u306e\u307f\u3092\u62bd\u51fa\u3059\u308b\n  {\n    std::vector&lt;std::complex&lt;float&gt;&gt; v {\n      {1.0f, 2.0f},\n      {3.0f, 4.0f},\n      {5.0f, 6.0f}\n    };\n\n    for (float real : v | std::views::elements&lt;0&gt;) {\n      std::println(\&#34;real:{}\&#34;, real);\n    }\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;complex&#34;, &#34;complex&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/complex.html" itemprop="url">
+              
+                <span itemprop="name">complex</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">complex</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-08-02T06:00:52">
+        2024年08月02日 06時00分52秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/complex/complex.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/complex/complex.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;complex&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">complex</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <span class="k">class</span> <span class="nc">complex</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p><code>&lt;complex&gt;</code>ヘッダでは、複素数を扱うクラスおよび関数を定義する。</p>
+<p><code>complex</code>クラステンプレートは、複素数を表すクラスである。このクラスは、実部(real part)と虚部(imaginary part)を、それぞれ型<code>T</code>の値として保持し、演算に使用する。</p>
+<p><code>complex</code>クラステンプレートは<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>されていない浮動小数点数型 (C++23以降は<a class="cpprefjp-defined-word" data-desc="&lt;stdfloat&gt;で定義される内部表現の規定された浮動小数点数型" href="../stdfloat.html">拡張浮動小数点数型</a>を含む) で特殊化され、特化した実装が行われる：</p>
+<p>これ以外の型がテンプレート引数として与えられた場合、その動作は<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>である。</p>
+<h3>配列へのキャスト(C++11)</h3>
+<p><code>complex</code>クラスの左辺値オブジェクト<code>c</code>は、<code>reinterpret_cast&lt;cv修飾 T(&amp;)[2]&gt;(c)</code>もしくは<code>reinterpret_cast&lt;cv修飾 T*&gt;(&amp;c)</code>で浮動小数点数型の配列にキャスト可能である。その場合、配列の<code>0</code>番目は実部を表し、<code>1</code>番目は虚部を表す。</p>
+<h2>メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="complex/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td></td>
+</tr>
+<tr>
+<td><code>~complex() = default;</code></td>
+<td>デストラクタ</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="complex/real.html">real</a></code></td>
+<td>複素数値の実部を取得／設定する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="complex/imag.html">imag</a></code></td>
+<td>複素数値の虚部を取得／設定する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="complex/op_assign.html">operator=</a></code></td>
+<td>複素数値のコピー</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="complex/op_plus_assign.html">operator+=</a></code></td>
+<td>複素数値の加算</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="complex/op_minus_assign.html">operator-=</a></code></td>
+<td>複素数値の減算</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="complex/op_multiply_assign.html">operator*=</a></code></td>
+<td>複素数値の乗算</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="complex/op_divide_assign.html">operator/=</a></code></td>
+<td>複素数値の除算</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>value_type</code></td>
+<td>実部と虚部およびそれらの演算に使用する浮動小数点数型。テンプレートパラメータの型<code>T</code>。</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>非メンバ関数</h2>
+<h3>複素数の値</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="complex/real_free.html">real</a></code></td>
+<td>実部を取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="complex/imag_free.html">imag</a></code></td>
+<td>虚部を取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="complex/abs.html">abs</a></code></td>
+<td>複素数の絶対値を得る</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="complex/arg.html">arg</a></code></td>
+<td>複素数の偏角を得る</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="complex/norm.html">norm</a></code></td>
+<td>複素数体のノルムを得る</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="complex/conj.html">conj</a></code></td>
+<td>共役複素数を得る</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="complex/proj.html">proj</a></code></td>
+<td>リーマン球面への射影を得る</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="complex/polar.html">polar</a></code></td>
+<td>複素数を極形式で指定して作る</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>演算子</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="complex/op_unary_plus.html"><code>operator+</code> (単項)</a></td>
+<td>単項 <code>+</code> 演算（引数をそのまま返す）</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="complex/op_unary_minus.html"><code>operator-</code> (単項)</a></td>
+<td>単項 <code>-</code> 演算（符号を反転した複素数値を得る）</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="complex/op_plus.html">operator+</a></code></td>
+<td><code>complex</code> オブジェクトを加算する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="complex/op_minus.html">operator-</a></code></td>
+<td><code>complex</code> オブジェクトを減算する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="complex/op_multiply.html">operator*</a></code></td>
+<td><code>complex</code> オブジェクトを乗算する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="complex/op_divide.html">operator/</a></code></td>
+<td><code>complex</code> オブジェクトを除算する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="complex/op_equal.html">operator==</a></code></td>
+<td><code>complex</code> オブジェクトを等値比較する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="complex/op_not_equal.html">operator!=</a></code></td>
+<td><code>complex</code> オブジェクトを非等値比較する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="complex/op_ostream.html">operator&lt;&lt;</a></code></td>
+<td>ストリームへの出力</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="complex/op_istream.html">operator&gt;&gt;</a></code></td>
+<td>ストリームからの入力</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>リテラル</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="complex/op_i.html">i</a></code></td>
+<td><code>complex&lt;double&gt;</code>のリテラル</td>
+<td>C++14</td>
+</tr>
+<tr>
+<td><code><a href="complex/op_if.html">if</a></code></td>
+<td><code>complex&lt;float&gt;</code>のリテラル</td>
+<td>C++14</td>
+</tr>
+<tr>
+<td><code><a href="complex/op_il.html">il</a></code></td>
+<td><code>complex&lt;long double&gt;</code>のリテラル</td>
+<td>C++14</td>
+</tr>
+</tbody>
+</table>
+<h3>数学関数の<code>complex</code>に対する<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a></h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="complex/acos.html">acos</a></code></td>
+<td>複素数の逆余弦を求める</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="complex/asin.html">asin</a></code></td>
+<td>複素数の逆正弦を求める</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="complex/atan.html">atan</a></code></td>
+<td>複素数の逆正接を求める</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="complex/acosh.html">acosh</a></code></td>
+<td>複素数の双曲線逆余弦を求める</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="complex/asinh.html">asinh</a></code></td>
+<td>複素数の双曲線逆正弦を求める</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="complex/atanh.html">atanh</a></code></td>
+<td>複素数の双曲線逆正接を求める</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="complex/cos.html">cos</a></code></td>
+<td>複素数の余弦を求める</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="complex/cosh.html">cosh</a></code></td>
+<td>複素数の双曲線余弦を求める</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="complex/exp.html">exp</a></code></td>
+<td>自然対数の底 e の累乗（複素数）を求める。</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="complex/log.html">log</a></code></td>
+<td>複素数の自然対数を求める</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="complex/log10.html">log10</a></code></td>
+<td>複素数の常用対数を求める</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="complex/pow.html">pow</a></code></td>
+<td>複素数の累乗を求める</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="complex/sin.html">sin</a></code></td>
+<td>複素数の正弦を求める</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="complex/sinh.html">sinh</a></code></td>
+<td>複素数の双曲線正弦を求める</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="complex/sqrt.html">sqrt</a></code></td>
+<td>複素数の平方根を求める</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="complex/tan.html">tan</a></code></td>
+<td>複素数の正接を求める</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="complex/tanh.html">tanh</a></code></td>
+<td>複素数の双曲線正接を求める</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>タプルインタフェースサポート</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="complex/tuple_size.html">tuple_size</a></code></td>
+<td>静的な要素数取得(class template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="complex/tuple_element.html">tuple_element</a></code></td>
+<td>静的な要素の型取得(class template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="complex/get.html">get</a></code></td>
+<td>要素を取得する(function template)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<h3>基本的な使い方</h3>
+<p><div class="yata" id="3ff32c2b7b9c33d0a8532f9cbe7fc2d1c8e3aeb5"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../complex.html">&lt;complex&gt;</a></span><span class="cp"></span>
+
+<span class="kt">float</span> <span class="nf">pi</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="mf">3.141593f</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// 実部1.0f、虚部2.0fの複素数オブジェクトを作る</span>
+  <span class="n"><span style="color:#ff0000">std::complex</span></span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span> <span class="n">c</span><span class="p">(</span><span class="mf">1.0f</span><span class="p">,</span> <span class="mf">2.0f</span><span class="p">);</span>
+
+  <span class="c1">// ストリーム出力</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"output : "</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// 各要素の取得</span>
+  <span class="kt">float</span> <span class="n">real</span> <span class="o">=</span> <span class="n"><a href="complex/real.html">c.real()</a></span><span class="p">;</span> <span class="c1">// 実部</span>
+  <span class="kt">float</span> <span class="n">imag</span> <span class="o">=</span> <span class="n"><a href="complex/imag.html">c.imag()</a></span><span class="p">;</span> <span class="c1">// 虚部</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"real : "</span> <span class="o">&lt;&lt;</span> <span class="n">real</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"imag : "</span> <span class="o">&lt;&lt;</span> <span class="n">imag</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// 演算</span>
+  <span class="n"><span style="color:#ff0000">std::complex</span></span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span> <span class="n">a</span><span class="p">(</span><span class="mf">1.0f</span><span class="p">,</span> <span class="mf">2.0f</span><span class="p">);</span>
+  <span class="n"><span style="color:#ff0000">std::complex</span></span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span> <span class="n">b</span><span class="p">(</span><span class="mf">2.0f</span><span class="p">,</span> <span class="mf">3.0f</span><span class="p">);</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"a + b : "</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"a - b : "</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"a * b : "</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"a / b : "</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// 各複素数の値を取得する</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"abs : "</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="complex/abs.html">std::abs</a></span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>   <span class="c1">// 絶対値</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"arg : "</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="complex/arg.html">std::arg</a></span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>   <span class="c1">// 偏角</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"norm : "</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="complex/norm.html">std::norm</a></span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="c1">// ノルム</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"conj : "</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="complex/conj.html">std::conj</a></span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="c1">// 共役複素数</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"proj : "</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="complex/proj.html">std::proj</a></span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="c1">// リーマン球面への射影</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"polar : "</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="complex/polar.html">std::polar</a></span><span class="p">(</span><span class="mf">1.0f</span><span class="p">,</span> <span class="n">pi</span><span class="p">()</span> <span class="o">/</span> <span class="mf">2.0f</span><span class="p">);</span> <span class="c1">// 極座標(絶対値：1.0、偏角：円周率÷2.0)から複素数を作る</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>output : (1,2)
+real : 1
+imag : 2
+a + b : (3,5)
+a - b : (-1,-1)
+a * b : (-4,7)
+a / b : (0.615385,0.0769231)
+abs : 2.23607
+arg : 1.10715
+norm : 5
+conj : (1,-2)
+proj : (1,2)
+polar : (-1.62921e-07,1)
+</code></pre></p>
+<h3>タプルインタフェースを使用する (C++26)</h3>
+<p><div class="yata" id="3ef18b2de5013754c308d830ec02bede9f3b4cff"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../print.html">&lt;print&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../complex.html">&lt;complex&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// 構造化束縛で各要素を取得する</span>
+  <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">complex</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span> <span class="n">c</span><span class="p">{</span><span class="mf">1.0f</span><span class="p">,</span> <span class="mf">2.0f</span><span class="p">};</span>
+    <span class="k">auto</span> <span class="p">[</span><span class="n">real</span><span class="p">,</span> <span class="n">imag</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+    <span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"real:{} imag:{}"</span><span class="p">,</span> <span class="n">real</span><span class="p">,</span> <span class="n">imag</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 定数の添字を指定して各要素を取得する</span>
+  <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">complex</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span> <span class="n">c</span><span class="p">{</span><span class="mf">1.0f</span><span class="p">,</span> <span class="mf">2.0f</span><span class="p">};</span>
+    <span class="kt">float</span> <span class="n">real</span> <span class="o">=</span> <span class="n"><a href="complex/get.html">std::get</a></span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+    <span class="kt">float</span> <span class="n">imag</span> <span class="o">=</span> <span class="n"><a href="complex/get.html">std::get</a></span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+    <span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"real:{} imag:{}"</span><span class="p">,</span> <span class="n">real</span><span class="p">,</span> <span class="n">imag</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// complexの配列から実部のみを抽出する</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">complex</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;&gt;</span> <span class="n">v</span> <span class="p">{</span>
+      <span class="p">{</span><span class="mf">1.0f</span><span class="p">,</span> <span class="mf">2.0f</span><span class="p">},</span>
+      <span class="p">{</span><span class="mf">3.0f</span><span class="p">,</span> <span class="mf">4.0f</span><span class="p">},</span>
+      <span class="p">{</span><span class="mf">5.0f</span><span class="p">,</span> <span class="mf">6.0f</span><span class="p">}</span>
+    <span class="p">};</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">float</span> <span class="nl">real</span> <span class="p">:</span> <span class="n">v</span> <span class="o">|</span> <span class="n"><a href="../ranges/elements_view.html">std::views::elements</a></span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"real:{}"</span><span class="p">,</span> <span class="n">real</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>real:1 imag:2
+real:1 imag:2
+real:1
+real:3
+real:5
+</code></pre></p>
+<h2>参照</h2>
+<ul>
+<li><a href="https://ja.wikipedia.org/wiki/複素数" target="_blank">複素数 - Wikipedia</a></li>
+<li><a href="http://www.jeea.or.jp/course/contents/01109/" target="_blank">複素数の手ほどき - 日本電気技術者協会</a></li>
+<li><a href="http://eman-physics.net/math/imaginary01.html" target="_blank">複素数とは何か - EMANの物理学</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#387" target="_blank">LWG Issue 387. <code>std::complex</code> over-encapsulated</a><ul>
+<li>C++11で、<code>std::complex</code>型のメモリレイアウトが規定された経緯のレポート</li>
+</ul>
+</li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1568.htm" target="_blank">N1568 Proposed additions to TR-1 to improve compatibility with C99</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html" target="_blank">P1467R9 Extended floating-point types and standard names</a><ul>
+<li>C++23で<a class="cpprefjp-defined-word" data-desc="&lt;stdfloat&gt;で定義される内部表現の規定された浮動小数点数型" href="../stdfloat.html">拡張浮動小数点数型</a>に対応した</li>
+</ul>
+</li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2819r2.pdf" target="_blank">P2819R2 Add tuple protocol to complex</a><ul>
+<li>C++26から<code>std::complex</code>にタプルインタフェースがサポートされた</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
