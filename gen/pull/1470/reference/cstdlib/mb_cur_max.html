@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cstdlib&#34;], &#34;id-type&#34;: [&#34;macro&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;55cbc249abb5b977facd71eb4c97f161921184fc&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;clocale&gt;\n#include &lt;cstdlib&gt;\n\nint main() {\n  //C \u30ed\u30b1\u30fc\u30eb(\u6a19\u6e96ASCII)\n  std::cout &lt;&lt; \&#34;Locale: standard, MB_CUR_MAX: \&#34; &lt;&lt; MB_CUR_MAX &lt;&lt; std::endl;\n\n  if (std::setlocale(LC_CTYPE, \&#34;ja_JP.UTF-8\&#34;) == nullptr) {\n      std::cout &lt;&lt; \&#34;Failed to set locale to: ja_JP.UTF-8\&#34;  &lt;&lt; std::endl;\n  }\n  std::setlocale(LC_CTYPE, \&#34;ja_JP.UTF-8\&#34;);//\n  std::cout &lt;&lt; \&#34;Locale: ja_JP.UTF-8, MB_CUR_MAX: \&#34; &lt;&lt; MB_CUR_MAX &lt;&lt; std::endl;\n  return 0;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cstdlib&#34;, &#34;mb_cur_max&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cstdlib&#34;], &#34;id-type&#34;: [&#34;macro&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;cb0adb7a128e809a2f67e06d3522a92dbe6757ad&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;clocale&gt;\n#include &lt;cstdlib&gt;\n\nint main() {\n  //C \u30ed\u30b1\u30fc\u30eb(\u6a19\u6e96ASCII)\n  std::cout &lt;&lt; \&#34;Locale: standard, MB_CUR_MAX: \&#34; &lt;&lt; MB_CUR_MAX &lt;&lt; std::endl;\n\n  if (std::setlocale(LC_CTYPE, \&#34;ja_JP.UTF-8\&#34;) == nullptr) {\n      std::cout &lt;&lt; \&#34;Failed to set locale to: ja_JP.UTF-8\&#34;  &lt;&lt; std::endl;\n  }\n  std::setlocale(LC_CTYPE, \&#34;ja_JP.UTF-8\&#34;);//\u30ed\u30b1\u30fc\u30eb\u3092\u65e5\u672c\u8a9eUTF-8\u306b\u5909\u66f4\n  std::cout &lt;&lt; \&#34;Locale: ja_JP.UTF-8, MB_CUR_MAX: \&#34; &lt;&lt; MB_CUR_MAX &lt;&lt; std::endl;\n  return 0;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cstdlib&#34;, &#34;mb_cur_max&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-13T01:43:07">
-        2025年07月13日 01時43分07秒
+      <span itemprop="datePublished" content="2025-07-13T02:10:25">
+        2025年07月13日 02時10分25秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,7 +225,7 @@
 <h2>結果型</h2>
 <p><code>size_t</code>型の正の整数値。</p>
 <h2>例</h2>
-<p><div class="yata" id="55cbc249abb5b977facd71eb4c97f161921184fc"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="cb0adb7a128e809a2f67e06d3522a92dbe6757ad"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;clocale&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../cstdlib.html">&lt;cstdlib&gt;</a></span><span class="cp"></span>
 
@@ -236,7 +236,7 @@
   <span class="k">if</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">setlocale</span><span class="p">(</span><span class="n">LC_CTYPE</span><span class="p">,</span> <span class="s">"ja_JP.UTF-8"</span><span class="p">)</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
       <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"Failed to set locale to: ja_JP.UTF-8"</span>  <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
   <span class="p">}</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">setlocale</span><span class="p">(</span><span class="n">LC_CTYPE</span><span class="p">,</span> <span class="s">"ja_JP.UTF-8"</span><span class="p">);</span><span class="c1">//</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">setlocale</span><span class="p">(</span><span class="n">LC_CTYPE</span><span class="p">,</span> <span class="s">"ja_JP.UTF-8"</span><span class="p">);</span><span class="c1">//ロケールを日本語UTF-8に変更</span>
   <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"Locale: ja_JP.UTF-8, MB_CUR_MAX: "</span> <span class="o">&lt;&lt;</span> <span class="n">MB_CUR_MAX</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
