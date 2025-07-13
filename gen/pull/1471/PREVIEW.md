@@ -1,14 +1,13 @@
 # PR [\#1471](https://github.com/cpprefjp/site/pull/1471) プレビュー
-- &#x231a; 更新時刻: 2025-07-13 13:20:46 JST
+- &#x231a; 更新時刻: 2025-07-13 13:25:33 JST
 - &#x1f50d; [プレビュー (HTML)](https://cpprefjp.github.io/site/gen/pull/1471)
 - &#x1f4c8; [プレビュー生成記録](https://github.com/cpprefjp/site/actions?query=event%3Apull_request_target+branch%3Afix-define-style)
-- **&#x2AEF;** ソースの変更: [`cfe1432..76deb2c`](https://github.com/cpprefjp/site/compare/cfe143235a01e9c082afc75a97b106af47d465ad..76deb2cb11b4e2c0504d6c4dea937dd8440d5fb4)
+- **&#x2AEF;** ソースの変更: [`cfe1432..c355b3a`](https://github.com/cpprefjp/site/compare/cfe143235a01e9c082afc75a97b106af47d465ad..c355b3a013024b6ad9667200fa7fd95aaab495be)
 
-## 変更記事一覧 (166件)
+## 変更記事一覧 (165件)
 
 - &#x1f4dd; [`lang/cpp11/pragma_operator`](https://cpprefjp.github.io/site/gen/pull/1471/lang/cpp11/pragma_operator.html)
 - &#x1f4dd; [`lang/cpp11/variadic_macros`](https://cpprefjp.github.io/site/gen/pull/1471/lang/cpp11/variadic_macros.html)
-- &#x1f4dd; [`lang/cpp23/if_consteval`](https://cpprefjp.github.io/site/gen/pull/1471/lang/cpp23/if_consteval.html)
 - &#x1f4dd; [`reference/algorithm/equal`](https://cpprefjp.github.io/site/gen/pull/1471/reference/algorithm/equal.html)
 - &#x1f4dd; [`reference/algorithm/fill_n`](https://cpprefjp.github.io/site/gen/pull/1471/reference/algorithm/fill_n.html)
 - &#x1f4dd; [`reference/algorithm/generate_n`](https://cpprefjp.github.io/site/gen/pull/1471/reference/algorithm/generate_n.html)
