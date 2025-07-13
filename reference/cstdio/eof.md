@@ -20,8 +20,7 @@ int main() {
   while ((c = std::getchar()) != EOF) {
     std::putchar(c);
   }
-  if (c == EOF)
-    std::puts("REACHED END");
+  std::puts("REACHED END");
 }
 
 ```
