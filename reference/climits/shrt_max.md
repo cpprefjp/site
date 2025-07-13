@@ -3,7 +3,7 @@
 * macro[meta id-type]
 
 ```cpp
-# define SHRT_MAX implementation-defined
+#define SHRT_MAX implementation-defined
 ```
 
 ## 概要

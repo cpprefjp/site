@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define HUGE_VALF implementation-defined
+#define HUGE_VALF implementation-defined
 ```
 
 ## 概要

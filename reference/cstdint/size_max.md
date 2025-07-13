@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define SIZE_MAX implementation-defined
+#define SIZE_MAX implementation-defined
 ```
 
 ## 概要

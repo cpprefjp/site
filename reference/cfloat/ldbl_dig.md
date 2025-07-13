@@ -4,7 +4,7 @@
 * [mathjax enable]
 
 ```cpp
-# define LDBL_DIG implementation-defined
+#define LDBL_DIG implementation-defined
 ```
 
 ## 概要

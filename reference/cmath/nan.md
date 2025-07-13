@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define NAN constant_expression
+#define NAN constant_expression
 ```
 * constant_expression[italic]
 

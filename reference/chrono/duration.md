@@ -180,13 +180,13 @@ void print(const system_clock::time_point& p)
 {
   std::time_t t = system_clock::to_time_t(p);
   char buf[26];  // 最低26バイトが必要
-# ifdef _MSC_VER
+#ifdef _MSC_VER
   // Visual Studioではctime_s()が推奨されている。
   ctime_s(buf, 26, &t);
-# else
+#else
   // ctime()のリエントラント版
   ctime_r(&t, buf);
-# endif
+#endif
   // 出力された文字列には改行が含まれていることに注意
   std::cout << buf;
 }

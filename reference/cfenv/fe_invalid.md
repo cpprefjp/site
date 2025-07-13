@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define FE_INVALID implementation-defined
+#define FE_INVALID implementation-defined
 ```
 
 ## 概要

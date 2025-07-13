@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define FP_SUBNORMAL integer_constant_expression
+#define FP_SUBNORMAL integer_constant_expression
 ```
 * integer_constant_expression[italic]
 

@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define FP_INFINITE integer_constant_expression
+#define FP_INFINITE integer_constant_expression
 ```
 * integer_constant_expression[italic]
 

@@ -4,7 +4,7 @@
 * [mathjax enable]
 
 ```cpp
-# define LDBL_MAX_10_EXP implementation-defined
+#define LDBL_MAX_10_EXP implementation-defined
 ```
 
 ## 概要

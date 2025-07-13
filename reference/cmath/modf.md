@@ -142,16 +142,16 @@ namespace std {
     return copysign(isinf(value) ? 0.0L : value - (*iptr), value);
   }
 
-# if __cplusplus >= 201103L
+#if __cplusplus >= 201103L
   template<typename T>
   typename enable_if<is_integral<T>::value, double>::type
   modf(T value, double* iptr)
   {
     return modf(static_cast<double>(value), iptr);
   }
-# endif
+#endif
 
-# if __cplusplus > 201402L
+#if __cplusplus > 201402L
   float modff(float value, float* iptr)
   {
     return modf(value, iptr);
@@ -161,7 +161,7 @@ namespace std {
   {
     return modf(value, iptr);
   }
-# endif
+#endif
 }
 ```
 * nearbyint[link nearbyint.md]

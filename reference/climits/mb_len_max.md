@@ -3,7 +3,7 @@
 * macro[meta id-type]
 
 ```cpp
-# define MB_LEN_MAX implementation-defined
+#define MB_LEN_MAX implementation-defined
 ```
 
 ## 概要

@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define FP_ILOGBNAN implementation_defined
+#define FP_ILOGBNAN implementation_defined
 ```
 * implementation_defined[italic]
 

@@ -5,7 +5,7 @@
 * cpp20deprecated[meta cpp]
 
 ```cpp
-# define ATOMIC_FLAG_INIT see below
+#define ATOMIC_FLAG_INIT see below
 ```
 * see below[italic]
 

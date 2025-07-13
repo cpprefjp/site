@@ -5,7 +5,7 @@
 * [mathjax enable]
 
 ```cpp
-# define FLT_TRUE_MIN implementation-defined
+#define FLT_TRUE_MIN implementation-defined
 ```
 
 ## 概要

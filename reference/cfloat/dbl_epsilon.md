@@ -4,7 +4,7 @@
 * [mathjax enable]
 
 ```cpp
-# define DBL_EPSILON implementation-defined
+#define DBL_EPSILON implementation-defined
 ```
 
 ## 概要

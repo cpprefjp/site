@@ -3,7 +3,7 @@
 * macro[meta id-type]
 
 ```cpp
-# define HUGE_VAL implementation-defined
+#define HUGE_VAL implementation-defined
 ```
 
 ## 概要

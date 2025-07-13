@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define INT8_MIN implementation-defined
+#define INT8_MIN implementation-defined
 ```
 
 ## 概要

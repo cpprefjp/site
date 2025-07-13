@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define HUGE_VALL implementation-defined
+#define HUGE_VALL implementation-defined
 ```
 
 ## 概要

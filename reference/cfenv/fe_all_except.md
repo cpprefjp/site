@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define FE_ALL_EXCEPT implementation-defined
+#define FE_ALL_EXCEPT implementation-defined
 ```
 
 ## 概要

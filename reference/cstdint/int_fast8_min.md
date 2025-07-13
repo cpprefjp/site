@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define INT_FAST8_MIN implementation-defined
+#define INT_FAST8_MIN implementation-defined
 ```
 
 ## 概要

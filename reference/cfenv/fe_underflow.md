@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define FE_UNDERFLOW implementation-defined
+#define FE_UNDERFLOW implementation-defined
 ```
 
 ## 概要

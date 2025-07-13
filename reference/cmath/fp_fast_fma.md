@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define FP_FAST_FMA 1
+#define FP_FAST_FMA 1
 ```
 
 ## 概要

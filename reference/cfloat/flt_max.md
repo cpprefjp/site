@@ -4,7 +4,7 @@
 * [mathjax enable]
 
 ```cpp
-# define FLT_MAX implementation-defined
+#define FLT_MAX implementation-defined
 ```
 
 ## 概要

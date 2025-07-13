@@ -5,7 +5,7 @@
 * cpp20deprecated[meta cpp]
 
 ```cpp
-# define ATOMIC_VAR_INIT(value) see below
+#define ATOMIC_VAR_INIT(value) see below
 ```
 * see below[italic]
 
@@ -63,7 +63,7 @@ int main()
 
 ## 実装例
 ```cpp
-# define ATOMIC_VAR_INIT(value) { value }
+#define ATOMIC_VAR_INIT(value) { value }
 ```
 
 ## 参照

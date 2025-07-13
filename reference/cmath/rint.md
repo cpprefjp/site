@@ -66,22 +66,22 @@ void test(const char* title, int round_mode)
   std::cout << "FE_INEXACT = " << std::boolalpha << (std::fetestexcept(FE_INEXACT) != 0) << std::endl << std::endl;
 }
 
-# define test(mode) test(#mode, mode)
+#define test(mode) test(#mode, mode)
 
 int main()
 {
-# ifdef FE_DOWNWARD
+#ifdef FE_DOWNWARD
   test(FE_DOWNWARD);
-# endif
-# ifdef FE_TONEAREST
+#endif
+#ifdef FE_TONEAREST
   test(FE_TONEAREST);
-# endif
-# ifdef FE_TOWARDZERO
+#endif
+#ifdef FE_TOWARDZERO
   test(FE_TOWARDZERO);
-# endif
-# ifdef FE_UPWARD
+#endif
+#ifdef FE_UPWARD
   test(FE_UPWARD);
-# endif
+#endif
 }
 ```
 * std::rint[color ff0000]

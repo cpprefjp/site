@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define MATH_ERREXCEPT 2
+#define MATH_ERREXCEPT 2
 ```
 
 ## 概要

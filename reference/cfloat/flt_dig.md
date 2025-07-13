@@ -4,7 +4,7 @@
 * [mathjax enable]
 
 ```cpp
-# define FLT_DIG implementation-defined
+#define FLT_DIG implementation-defined
 ```
 
 ## 概要

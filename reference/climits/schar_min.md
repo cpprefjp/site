@@ -3,7 +3,7 @@
 * macro[meta id-type]
 
 ```cpp
-# define SCHAR_MIN implementation-defined
+#define SCHAR_MIN implementation-defined
 ```
 
 ## 概要

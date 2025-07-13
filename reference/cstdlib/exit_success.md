@@ -3,7 +3,7 @@
 * macro[meta id-type]
 
 ```cpp
-# define EXIT_SUCCESS implementation-defined
+#define EXIT_SUCCESS implementation-defined
 ```
 
 ## 概要

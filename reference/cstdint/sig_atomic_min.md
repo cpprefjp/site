@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define SIG_ATOMIC_MIN implementation-defined
+#define SIG_ATOMIC_MIN implementation-defined
 ```
 
 ## 概要

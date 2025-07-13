@@ -78,22 +78,22 @@ void test(const char* title, int round_mode)
   std::cout << '\n';
 }
 
-# define test(mode) test(#mode, mode)
+#define test(mode) test(#mode, mode)
 
 int main()
 {
-# ifdef FE_DOWNWARD
+#ifdef FE_DOWNWARD
   test(FE_DOWNWARD);
-# endif
-# ifdef FE_TONEAREST
+#endif
+#ifdef FE_TONEAREST
   test(FE_TONEAREST);
-# endif
-# ifdef FE_TOWARDZERO
+#endif
+#ifdef FE_TOWARDZERO
   test(FE_TOWARDZERO);
-# endif
-# ifdef FE_UPWARD
+#endif
+#ifdef FE_UPWARD
   test(FE_UPWARD);
-# endif
+#endif
 }
 ```
 * std::llrint[color ff0000]

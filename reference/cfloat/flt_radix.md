@@ -3,7 +3,7 @@
 * macro[meta id-type]
 
 ```cpp
-# define FLT_RADIX implementation-defined
+#define FLT_RADIX implementation-defined
 ```
 
 

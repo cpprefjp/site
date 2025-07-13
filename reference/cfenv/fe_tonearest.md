@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define FE_TONEAREST implementation-defined
+#define FE_TONEAREST implementation-defined
 ```
 
 ## 概要

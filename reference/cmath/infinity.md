@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define INFINITY some_expression
+#define INFINITY some_expression
 ```
 
 ## 概要

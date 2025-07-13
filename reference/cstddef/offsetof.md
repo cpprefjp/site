@@ -3,7 +3,7 @@
 * macro[meta id-type]
 
 ```cpp
-# define offsetof(type, member) see-below
+#define offsetof(type, member) see-below
 ```
 * see-below[italic]
 

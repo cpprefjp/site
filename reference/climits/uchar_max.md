@@ -3,7 +3,7 @@
 * macro[meta id-type]
 
 ```cpp
-# define UCHAR_MAX implementation-defined
+#define UCHAR_MAX implementation-defined
 ```
 
 ## 概要

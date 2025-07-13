@@ -85,17 +85,17 @@ int main() {
 ## 実装例
 ```cpp
 template <class OutputIterator, class Size, class Generator>
-# if __cplusplus >= 201103L
+#if __cplusplus >= 201103L
 OutputIterator
-# else
+#else
 void
-# endif
+#endif
 generate_n(OutputIterator first, Size n, Generator gen) {
   while (n-- > 0)
     *first++ = gen();
-# if __cplusplus >= 201103L
+#if __cplusplus >= 201103L
   return first;
-# endif
+#endif
 }
 ```
 

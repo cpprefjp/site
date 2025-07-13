@@ -4,7 +4,7 @@
 * [mathjax enable]
 
 ```cpp
-# define DBL_MIN_EXP implementation-defined
+#define DBL_MIN_EXP implementation-defined
 ```
 
 ## 概要

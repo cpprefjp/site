@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define FE_TOWARDZERO implementation-defined
+#define FE_TOWARDZERO implementation-defined
 ```
 
 ## 概要

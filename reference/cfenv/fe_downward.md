@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define FE_DOWNWARD implementation-defined
+#define FE_DOWNWARD implementation-defined
 ```
 
 ## 概要

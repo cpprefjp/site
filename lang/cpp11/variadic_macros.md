@@ -21,8 +21,8 @@ C99互換として、可変引数マクロ(variadic macros)が導入された。
 可変引数マクロは、以下の構文を持つ：
 
 ```
-# define identifier ( ... ) replacement-list new-line
-# define identifier ( identifier-list , ... ) replacement-list new-line
+#define identifier ( ... ) replacement-list new-line
+#define identifier ( identifier-list , ... ) replacement-list new-line
 ```
 
 1行目は、パラメータ全てを可変個受け取る場合。2行目は、先頭のいくつかのパラメータを名前付きで受け取り、それ以外に可変個のパラメータを受け取る場合。
@@ -43,11 +43,11 @@ C99互換として、可変引数マクロ(variadic macros)が導入された。
 // 可変個のパラメータを受け取り、std::printf()関数の引数として転送する
 // 第1パラメータは必須。
 // 第1パラメータのうしろにカンマがあるので、第2パラメータも必須。
-# define DEBUG_LOG(fmt, ...) std::printf(fmt, __VA_ARGS__)
+#define DEBUG_LOG(fmt, ...) std::printf(fmt, __VA_ARGS__)
 
 // 受け取ったパラメータを展開する
 // 0個以上の、任意の個数のパラメータを受け取れる
-# define FORWARD_ARGS(...) __VA_ARGS__
+#define FORWARD_ARGS(...) __VA_ARGS__
 
 void f1(int a, int b, int c)
 {

@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define INTMAX_MAX implementation-defined
+#define INTMAX_MAX implementation-defined
 ```
 
 ## 概要
