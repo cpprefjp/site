@@ -14,7 +14,7 @@ namespace std {
 
 渡した引数の中にファイル名が格納される。
 
-この関数はスレッドセーフではないため、マルチスレッド環境での使用は推奨されない。
+この関数は引数に`NULL`を渡した場合にスレッドセーフではないため、使用時には注意が必要である。
 
 また、生成された名前が他のファイル名とかぶらないことは保証されていない（保証する必要があるならば[`tmpfile`](/reference/cstdio/tmpfile.md)を使用する）。
 
@@ -31,7 +31,7 @@ namespace std {
 #include <iostream>
 
 int main() {
-    char filename[L_tmpnam];
+    char filename[1000];
     if (std::tmpnam(filename)) {
         std::cout << "Generated filename: " << filename << '\n';
         // ここで fopen(filename, "w") とかして使う（が、あまり推奨されない）
