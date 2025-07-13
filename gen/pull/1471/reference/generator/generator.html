@@ -1,0 +1,677 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>generator - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,generator,class template,std,cpp23
+">
+        <meta name="title" content="generator - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="generator - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="generator - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/generator/generator.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`generator`クラステンプレートは、[コルーチン](/lang/cpp20/coroutines.md)の評価により生成される要素列のビュー(view)を表現する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="generator - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/generator/generator.html" />
+        <meta name="twitter:description" content="`generator`クラステンプレートは、[コルーチン](/lang/cpp20/coroutines.md)の評価により生成される要素列のビュー(view)を表現する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;generator&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;cpp&#34;: [&#34;cpp23&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;ecab885884bd18f44953a55fe6ebab39ddd0fd15&#34;, &#34;source&#34;: &#34;#include &lt;generator&gt;\n#include &lt;ranges&gt;\n#include &lt;iostream&gt;\n\n// \u5076\u6570\u5024\u5217\u3092\u7121\u9650\u751f\u6210\u3059\u308b\u30b3\u30eb\u30fc\u30c1\u30f3\nstd::generator&lt;int&gt; evens()\n{\n  int n = 0;\n  while (true) {\n    co_yield n;\n    n += 2;\n  }\n}\n\nint main()\n{\n  // \u30b8\u30a7\u30cd\u30ec\u30fc\u30bf\u306b\u3088\u308a\u751f\u6210\u3055\u308c\u308bRange\u306e\u3046\u3061\n  // \u5148\u982d\u304b\u30895\u500b\u307e\u3067\u306e\u8981\u7d20\u5024\u3092\u5217\u6319\u3059\u308b\n  for (int n : evens() | std::views::take(5)) {\n    std::cout &lt;&lt; n &lt;&lt; std::endl;\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;49288d7d539782297276ec89d84bf0e254a7ebd8&#34;, &#34;source&#34;: &#34;#include &lt;generator&gt;\n#include &lt;iostream&gt;\n#include &lt;list&gt;\n#include &lt;ranges&gt;\n#include &lt;vector&gt;\n\n// Range\u306e\u8981\u7d20\u5024\u3092\u9010\u6b21\u751f\u6210\u3059\u308b\u30b3\u30eb\u30fc\u30c1\u30f3\nstd::generator&lt;int&gt; ints()\n{\n  int arr[] = {1, 2, 3};\n  co_yield std::ranges::elements_of(arr);\n  std::vector&lt;int&gt; vec = {4, 5, 6};\n  co_yield std::ranges::elements_of(vec);\n  std::list&lt;int&gt; lst = {7, 8, 9};\n  co_yield std::ranges::elements_of(lst);\n}\n\nint main()\n{\n  for (int n : ints())) {\n    std::cout &lt;&lt; n &lt;&lt; &#39; &#39;;\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;0244c20c28c805764a6df1ab70fa57b55253dca7&#34;, &#34;source&#34;: &#34;#include &lt;generator&gt;\n#include &lt;iostream&gt;\n#include &lt;ranges&gt;\n#include &lt;memory&gt;\n\n// \u4e8c\u5206\u6728\u30ce\u30fc\u30c9\nstruct node {\n  int value;\n  std::unique_ptr&lt;node&gt; left = nullptr;\n  std::unique_ptr&lt;node&gt; right = nullptr;\n};\n\n// \u4e8c\u5206\u6728\u3092\u8d70\u67fb: \u5de6(left)\u2192\u81ea\u30ce\u30fc\u30c9\u2192\u53f3(right)\nstd::generator&lt;int&gt; traverse(const node&amp; e)\n{\n  if (e.left) {\n    co_yield std::ranges::elements_of(traverse(*e.left));\n  }\n  co_yield e.value;\n  if (e.right) {\n    co_yield std::ranges::elements_of(traverse(*e.right));\n  }\n}\n\nint main()\n{\n  // tree:\n  //    2\n  //   / \u00a5\n  //  1   4\n  //     / \u00a5\n  //    3   5\n  node tree = {\n    2,\n    std::make_unique&lt;node&gt;(1),\n    std::make_unique&lt;node&gt;(\n      4,\n      std::make_unique&lt;node&gt;(3),\n      std::make_unique&lt;node&gt;(5)\n    ),\n  };\n\n  for (int n: traverse(tree)) {\n    std::cout &lt;&lt; n &lt;&lt; std::endl;\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;756f5011931d68b80b0a20f185be0e7c2f91328b&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;generator&gt;\n#include &lt;ranges&gt;\n#include &lt;string&gt;\n#include &lt;string_view&gt;\n#include &lt;vector&gt;\n\n// Ref=string_view, V=string \u306e\u30b8\u30a7\u30cd\u30ec\u30fc\u30bf\u30b3\u30eb\u30fc\u30c1\u30f3\nauto fizzbuzz() -&gt;\n  std::generator&lt;std::string_view, std::string&gt;\n{\n  for (size_t i = 1; ; ++i) {\n    if (i % 15 == 0) {\n      co_yield \&#34;FizzBuzz\&#34;;\n    } else if (i % 3 == 0) {\n      co_yield \&#34;Fizz\&#34;;\n    } else if (i % 5 == 0) {\n      co_yield \&#34;Buzz\&#34;;\n    } else {\n      co_yield std::to_string(i);\n    }\n  }\n}\n\nint main()\n{\n  // std::ranges::to&lt;C&gt;() \u306f\u5909\u63db\u5143Range\u306e range_value_t \u3092\u5229\u7528\u3057\u3066\u623b\u308a\u5024\u578b\u3092\u6c7a\u5b9a\u3059\u308b\u3002\n  // \u3053\u3053\u3067\u306f std::vector&lt;std::string&gt; \u578b\u3092\u5c0e\u51fa\u3059\u308b\u305f\u3081\u306b\u3001\u30b8\u30a7\u30cd\u30ec\u30fc\u30bf\u30b3\u30eb\u30fc\u30c1\u30f3\u306e\n  // \u7b2c2\u30c6\u30f3\u30d7\u30ec\u30fc\u30c8\u30d1\u30e9\u30e1\u30fc\u30bf V = std::string \u3068\u3057\u3066\u660e\u793a\u6307\u5b9a\u3059\u308b\u5fc5\u8981\u304c\u3042\u308b\u3002\n  auto vec = fizzbuzz() | std::views::take(15) | std::ranges::to&lt;std::vector&gt;();\n\n  // \u3082\u3057 fizzbuzz() \u623b\u308a\u5024\u578b\u304c std::generator&lt;std::string_view&gt; \u3067\u3042\u3063\u305f\u5834\u5408\u3001\n  // \u5909\u6570 vec \u306f std::vector&lt;std::string_view&gt; \u578b\u3068\u306a\u308b\u3002\u3053\u306e\u3068\u304d\u30b3\u30eb\u30fc\u30c1\u30f3\u5185\u90e8\u5b9f\u88c5\u306e\n  // std::to_string() \u306e\u623b\u308a\u5024 std::string \u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u306fco_yield\u5f0f\u672b\u5c3e\u3067\u5bff\u547d\u304c\u5207\u308c\u308b\u305f\u3081\u3001\n  // \u5404\u8981\u7d20 vec[i] \u306b\u683c\u7d0d\u3055\u308c\u308b std::string_view \u306f\u30c0\u30f3\u30b0\u30ea\u30f3\u30b0(dangling)\u72b6\u614b\u306b\u306a\u3063\u3066\u3057\u307e\u3046\u3002\n\n  for (const auto&amp; e : vec) {\n    std::cout &lt;&lt; e &lt;&lt; std::endl;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;generator&#34;, &#34;generator&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/generator.html" itemprop="url">
+              
+                <span itemprop="name">generator</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">generator</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-02-24T16:12:42">
+        2024年02月24日 16時12分42秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Tetsuro Matsumura</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/generator/generator.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/generator/generator.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;generator&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">generator</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Ref</span><span class="p">,</span> <span class="k">class</span> <span class="nc">V</span> <span class="o">=</span> <span class="kt">void</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span> <span class="o">=</span> <span class="kt">void</span><span class="o">&gt;</span>
+  <span class="k">class</span> <span class="nc">generator</span> <span class="o">:</span> <span class="k">public</span> <span class="n"><a href="../ranges/view_interface.html">ranges::view_interface</a></span><span class="o">&lt;</span><span class="n">generator</span><span class="o">&lt;</span><span class="n">Ref</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;&gt;</span> <span class="p">{</span>
+    <span class="p">...</span>
+  <span class="p">};</span>
+
+  <span class="k">namespace</span> <span class="n">pmr</span> <span class="p">{</span>
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">R</span><span class="p">,</span> <span class="k">class</span> <span class="nc">V</span> <span class="o">=</span> <span class="kt">void</span><span class="o">&gt;</span>
+    <span class="k">using</span> <span class="n">generator</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">generator</span><span class="o">&lt;</span><span class="n">R</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n"><a href="../memory_resource/polymorphic_allocator.html">polymorphic_allocator</a></span><span class="o">&lt;&gt;&gt;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>generator</code>クラステンプレートは、<a href="../../lang/cpp20/coroutines.html">コルーチン</a>の評価により生成される要素列のビュー(view)を表現する。
+特殊化された<code>generator</code>は<code><a href="../ranges/view.html">view</a></code>および<code><a href="../ranges/input_range.html">input_range</a></code>のモデルである。
+<code>generator</code>はムーブのみ可能なオブジェクトである。</p>
+<p><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型<code>generator</code>のコルーチン（以下、ジェネレータコルーチン）では<code>co_yield</code>式を用いて値を生成する。<code>co_yield <a href="../ranges/elements_of.html">std::ranges::elements_of</a>(rng)</code>式を用いると、ジェネレータコルーチンから入れ子Range(<code>rng</code>)の各要素を逐次生成する。
+ジェネレータコルーチンでは<code>co_await</code>式を利用できない。</p>
+<p>ジェネレータコルーチンは遅延評価される。
+ジェネレータコルーチンが返す<code>generator</code>オブジェクトを利用するコード（以下、ジェネレータ利用側）において、先頭要素を指す<a href="generator/iterator.html">イテレータ</a>を取得する(<code><a href="generator/begin.html">begin</a></code>)、またはイテレータの<a href="generator/iterator/op_increment.html">インクリメント操作</a>を行うまでジェネレータコルーチンは再開(resume)されない。
+ジェネレータコルーチン本体処理において<code>co_yield</code>式に到達すると、生成値を保持してから中断(suspend)しジェネレータ利用側へと制御を戻す。
+ジェネレータ利用側では<a href="generator/iterator/op_deref.html">イテレータの間接参照</a>を行うことで、ジェネレータによる生成値を取得する。</p>
+<h3>説明用メンバ</h3>
+<p><code>generator</code>では下記の説明用メンバ型を定義する。</p>
+<ul>
+<li><code>value</code> : <code><a href="../type_traits/conditional.html">conditional_t</a>&lt;<a href="../type_traits/is_void.html">is_void_v</a>&lt;V&gt;, <a href="../type_traits/remove_cvref.html">remove_cvref_t</a>&lt;Ref&gt;, V&gt;</code></li>
+<li><code>reference</code> : <code><a href="../type_traits/conditional.html">conditional_t</a>&lt;<a href="../type_traits/is_void.html">is_void_v</a>&lt;V&gt;, Ref&amp;&amp;, Ref&gt;</code></li>
+<li><code><a href="generator/iterator.html">iterator</a></code> : ジェネレータが返すイテレータ型。</li>
+</ul>
+<p><code>generator</code>および<code><a href="generator/promise_type.html">promise_type</a></code>と<code><a href="generator/iterator.html">iterator</a></code>の動作説明のため、下記の説明用メンバを用いる。</p>
+<ul>
+<li><code>coroutine_</code> : <code><a href="../coroutine/coroutine_handle.html">coroutine_handle</a>&lt;<a href="generator/promise_type.html">promise_type</a>&gt;</code>型のコルーチンハンドル</li>
+<li><code>active_</code> : <code><a href="../memory/unique_ptr.html">unique_ptr</a>&lt;<a href="../stack/stack.html">stack</a>&lt;<a href="../coroutine/coroutine_handle.html">coroutine_handle&lt;&gt;</a>&gt;&gt;</code>型のアクティブスタック</li>
+</ul>
+<h3>第1テンプレートパラメータ<code>Ref</code>の概要</h3>
+<p><code>generator</code>クラステンプレートでは、テンプレートパラメータ<code>Ref</code>, <code>V</code>の組み合わせによってco_yieldオペランド型(<code>yielded</code>)やイテレータ間接参照の結果型(<code>reference</code>)や<a href="generator/iterator.html">イテレータの値型(<code>value_type</code>)</a>を制御する。</p>
+<p>第1パラメータ<code>Ref</code>以外は省略可能となっており、ほとんどのユースケース（提案文書によれば98%）では、テンプレートパラメータ<code>Ref</code>のみの明示指定で十分とされる。
+値型<code>T</code>を生成するジェネレータにおいて、第1テンプレートパラメータ<code>Ref</code>に応じて関連する型がそれぞれ導出される。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th><code>Ref</code></th>
+<th>co_yieldオペランド型</th>
+<th>間接参照の結果型</th>
+<th>イテレータの値型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>T</code><br /><code>T&amp;&amp;</code></td>
+<td><code>T&amp;&amp;</code> と <code>const T&amp;</code></td>
+<td><code>T&amp;&amp;</code></td>
+<td><code>T</code></td>
+</tr>
+<tr>
+<td><code>T&amp;</code></td>
+<td><code>T&amp;</code></td>
+<td><code>T&amp;</code></td>
+<td><code>T</code></td>
+</tr>
+<tr>
+<td><code>const T&amp;</code></td>
+<td><code>const T&amp;</code></td>
+<td><code>const T&amp;</code></td>
+<td><code>T</code></td>
+</tr>
+</tbody>
+</table>
+<p>ジェネレータそれ自身ではイテレータの値型を直接利用しない。ジェネレータ利用側でイテレータの<code>value_type</code>型にアクセスする特殊な追加処理を行う場合のみ、第2テンプレートパラメータ<code>V</code>の明示指定が必要とされる。</p>
+<h3>ジェネレータと値のコピー／ムーブ</h3>
+<p><code>generator</code>クラステンプレートでは、その内部動作において最低限のコピー／ムーブ処理しか行わないよう設計されている。このため一定条件を満たせば、コピー不可でムーブのみ可能な型や、コピー／ムーブいずれも不可能な型の生成もサポートする。</p>
+<p>値型<code>T</code>を生成するジェネレータにおいて、第1テンプレートパラメータ<code>Ref</code>とco_yield演算子オペランドに指定する式（左辺値／右辺値やconst修飾）に応じて、ジェネレータコルーチン最大1回のコピーが発生する。
+<code>Ref=T&amp;</code>とした場合、co_yieldに右辺値を指定するとコンパイルエラーになる。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th><code>Ref</code>＼co_yield式</th>
+<th>左辺値</th>
+<th>const左辺値</th>
+<th>右辺値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>T</code><br /><code>T&amp;&amp;</code></td>
+<td>コピー 1回</td>
+<td>コピー 1回</td>
+<td>0回</td>
+</tr>
+<tr>
+<td><code>T&amp;</code></td>
+<td>コピー 1回</td>
+<td>コピー 1回</td>
+<td>(<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>)</td>
+</tr>
+<tr>
+<td><code>const T&amp;</code></td>
+<td>0回</td>
+<td>0回</td>
+<td>0回</td>
+</tr>
+</tbody>
+</table>
+<p>またジェネレータ利用側においては、イテレータ間接参照結果を受ける変数の宣言型<code>X</code>との関係に応じて（例：<a href="../../lang/cpp11/range_based_for.html">範囲for文</a>の変数宣言型）、最大で1回のコピーまたはムーブが生じる。
+<code>Ref=T&amp;</code>または<code>Ref=const T&amp;</code>とした場合、右辺値参照型<code>T&amp;&amp;</code>には束縛できないためコンパイルエラーとなる。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th><code>Ref</code>＼<code>X</code></th>
+<th><code>T</code></th>
+<th><code>T&amp;&amp;</code></th>
+<th><code>const T&amp;</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>T</code><br /><code>T&amp;&amp;</code></td>
+<td>ムーブ 1回</td>
+<td>0回</td>
+<td>0回</td>
+</tr>
+<tr>
+<td><code>T&amp;</code></td>
+<td>コピー 1回</td>
+<td>(<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>)</td>
+<td>0回</td>
+</tr>
+<tr>
+<td><code>const T&amp;</code></td>
+<td>コピー 1回</td>
+<td>(<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>)</td>
+<td>0回</td>
+</tr>
+</tbody>
+</table>
+<p>ムーブのみ可能な型（例：<code><a href="../memory/unique_ptr.html">std::unique_ptr</a></code>）では、上記表においてコピーが生じる組み合わせを避ければジェネレータより生成可能である。
+同様にコピー／ムーブいずれも不可能な型では、コピーまたはムーブが生じる組み合わせを避ければ生成可能である。</p>
+<h3>アロケータサポート</h3>
+<p><code>generator</code>クラステンプレートの第3テンプレートパラメータ<code>Allocator</code>によって、<a href="../../lang/cpp20/coroutines.html">コルーチン・ステート</a>の動的メモリ確保に用いる静的アロケータ型を指定できる。省略時はデフォルトアロケータ<code><a href="../memory/allocator.html">allocator&lt;void&gt;</a></code>が利用される。</p>
+<p>またジェネレータコルーチン定義の引数リストに<code><a href="../memory/allocator_arg_t.html">allocator_arg</a></code>タグ型に続いてアロケータオブジェクトを指定すると、ジェネレータの生成毎に異なるアロケータ利用を指定することもできる。</p>
+<p>C++コンパイラによっては、ジェネレータコルーチンに関する動的メモリ確保・解放処理は最適化によって省略され(coroutine elision)、より効率的なコードが生成されることも期待できる。</p>
+<h3>ジェネレータのネスト</h3>
+<p>別の子ジェネレータコルーチンが返す<code>generator</code>もRangeとなっているため、ある親ジェネレータコルーチン内部で<code>co_yield <a href="../ranges/elements_of.html">std::ranges::elements_of</a></code>構文を用いると、複数ジェネレータコルーチンのネスト構造をとることができる。
+子ジェネーレタコルーチンの遅延評価によって生成される値は、親ジェネレータコルーチンから生成されたかのように振る舞う。</p>
+<p><code>generator</code>クラス（厳密には<code><a href="generator/promise_type.html">generator::promise_type</a></code>）ではジェネレータコルーチンのネスト構造を検出し、<a href="../../lang/cpp20/coroutines.html">対称コルーチン</a>としてコルーチン間の実行フロー転送制御を効率的に行う。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Mandates。満たさなければプログラムが不適格となる要件。この要件は、オーバーロード解決によって選択された関数内での`static_assert`の定数条件式や、関数に対するdelete宣言などで表現できる">適格要件</a></h2>
+<ul>
+<li>テンプレートパラメータ<code>Allocator</code>が<code>void</code>ではない場合、<code><a href="../memory/allocator_traits.html">allocator_traits</a>&lt;Allocator&gt;::pointer</code>はポインタ型であること。</li>
+<li>説明用のメンバ型<code>value</code>は<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>されないオブジェクト型であること。</li>
+<li>説明用のメンバ型<code>reference</code>は参照型、または<code><a href="../concepts/copy_constructible.html">copy_constructible</a></code>のモデルである<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>されないオブジェクト型であること。</li>
+<li>説明用のメンバ型<code>reference</code>が参照型の場合には<code>RRef</code> == <code><a href="../type_traits/remove_reference.html">remove_reference_t</a>&lt;reference&gt;&amp;&amp;</code>、それ以外の場合には<code>RRef</code> == <code>reference</code>としたとき、それぞれ下記のモデルであること。<ul>
+<li><code><a href="../concepts/common_reference_with.html">common_reference_with</a>&lt;reference&amp;&amp;, value&amp;&gt;</code></li>
+<li><code><a href="../concepts/common_reference_with.html">common_reference_with</a>&lt;reference&amp;&amp;, RRef&amp;&amp;&gt;</code></li>
+<li><code><a href="../concepts/common_reference_with.html">common_reference_with</a>&lt;RRef&amp;&amp;, const value&amp;&gt;</code></li>
+</ul>
+</li>
+</ul>
+<p>テンプレートパラメータ<code>Allocator</code>が<code>void</code>ではない場合、<code>Cpp17Allocator</code>の要件を満たすこと。</p>
+<h2>メンバ関数</h2>
+<h3>構築・破棄</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="generator/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>(destructor)</code></td>
+<td>デストラクタ</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>operator=(generator other) noexcept;</code></td>
+<td>ムーブ代入演算子</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h3>イテレータ</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="generator/begin.html">begin</a></code></td>
+<td>Viewの先頭を指すイテレータを取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="generator/end.html">end</a></code></td>
+<td>Viewの番兵を取得する</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>yielded</code></td>
+<td><code>co_yield</code>演算子オペランド型（後述）</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="generator/promise_type.html">promise_type</a></code></td>
+<td>ジェネレータコルーチンのPromise型</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<p><div class="codehilite"><pre><span></span><code><span class="k">using</span> <span class="n">yielded</span> <span class="o">=</span>
+  <span class="n"><a href="../type_traits/conditional.html">conditional_t</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/is_reference.html">is_reference_v</a></span><span class="o">&lt;</span><span class="n">reference</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">reference</span><span class="p">,</span> <span class="k">const</span> <span class="n">reference</span><span class="o">&amp;&gt;</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<h2>例</h2>
+<h3>例1: 単一値の生成</h3>
+<p><div class="yata" id="ecab885884bd18f44953a55fe6ebab39ddd0fd15"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../generator.html">&lt;generator&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// 偶数値列を無限生成するコルーチン</span>
+<span class="n"><span style="color:#ff0000">std::generator</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">evens</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../../lang/cpp20/coroutines.html">co_yield</a></span> <span class="n">n</span><span class="p">;</span>
+    <span class="n">n</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// ジェネレータにより生成されるRangeのうち</span>
+  <span class="c1">// 先頭から5個までの要素値を列挙する</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">n</span> <span class="p">:</span> <span class="n">evens</span><span class="p">()</span> <span class="o">|</span> <span class="n"><a href="../ranges/take_view.html">std::views::take</a></span><span class="p">(</span><span class="mi">5</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>0
+2
+4
+6
+8
+</code></pre></p>
+<h3>例2: Range要素値の逐次生成</h3>
+<p><div class="yata" id="49288d7d539782297276ec89d84bf0e254a7ebd8"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../generator.html">&lt;generator&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../list.html">&lt;list&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// Rangeの要素値を逐次生成するコルーチン</span>
+<span class="n"><span style="color:#ff0000">std::generator</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">ints</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">arr</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+  <span class="n"><a href="../../lang/cpp20/coroutines.html">co_yield</a></span> <span class="nf"><a href="../ranges/elements_of.html">std::ranges::elements_of</a></span><span class="p">(</span><span class="n">arr</span><span class="p">);</span>
+  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">vec</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">};</span>
+  <span class="n"><a href="../../lang/cpp20/coroutines.html">co_yield</a></span> <span class="nf"><a href="../ranges/elements_of.html">std::ranges::elements_of</a></span><span class="p">(</span><span class="n">vec</span><span class="p">);</span>
+  <span class="n"><a href="../list/list.html">std::list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">lst</span> <span class="o">=</span> <span class="p">{</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">};</span>
+  <span class="n"><a href="../../lang/cpp20/coroutines.html">co_yield</a></span> <span class="nf"><a href="../ranges/elements_of.html">std::ranges::elements_of</a></span><span class="p">(</span><span class="n">lst</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">n</span> <span class="p">:</span> <span class="n">ints</span><span class="p">()))</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="sc">' '</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>1 2 3 4 5 6 7 8 9 
+</code></pre></p>
+<h3>例3: ジェネレータのネスト</h3>
+<p><div class="yata" id="0244c20c28c805764a6df1ab70fa57b55253dca7"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../generator.html">&lt;generator&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// 二分木ノード</span>
+<span class="k">struct</span> <span class="n">node</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
+  <span class="n"><a href="../memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="n">node</span><span class="o">&gt;</span> <span class="n">left</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+  <span class="n"><a href="../memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="n">node</span><span class="o">&gt;</span> <span class="n">right</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// 二分木を走査: 左(left)→自ノード→右(right)</span>
+<span class="n"><span style="color:#ff0000">std::generator</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">traverse</span><span class="p">(</span><span class="k">const</span> <span class="n">node</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">left</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../../lang/cpp20/coroutines.html">co_yield</a></span> <span class="n"><a href="../ranges/elements_of.html">std::ranges::elements_of</a></span><span class="p">(</span><span class="n">traverse</span><span class="p">(</span><span class="o">*</span><span class="n">e</span><span class="p">.</span><span class="n">left</span><span class="p">));</span>
+  <span class="p">}</span>
+  <span class="n"><a href="../../lang/cpp20/coroutines.html">co_yield</a></span> <span class="n">e</span><span class="p">.</span><span class="n">value</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">right</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../../lang/cpp20/coroutines.html">co_yield</a></span> <span class="n"><a href="../ranges/elements_of.html">std::ranges::elements_of</a></span><span class="p">(</span><span class="n">traverse</span><span class="p">(</span><span class="o">*</span><span class="n">e</span><span class="p">.</span><span class="n">right</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// tree:</span>
+  <span class="c1">//    2</span>
+  <span class="c1">//   / ¥</span>
+  <span class="c1">//  1   4</span>
+  <span class="c1">//     / ¥</span>
+  <span class="c1">//    3   5</span>
+  <span class="n">node</span> <span class="n">tree</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">2</span><span class="p">,</span>
+    <span class="n"><a href="../memory/make_unique.html">std::make_unique</a></span><span class="o">&lt;</span><span class="n">node</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+    <span class="n"><a href="../memory/make_unique.html">std::make_unique</a></span><span class="o">&lt;</span><span class="n">node</span><span class="o">&gt;</span><span class="p">(</span>
+      <span class="mi">4</span><span class="p">,</span>
+      <span class="n"><a href="../memory/make_unique.html">std::make_unique</a></span><span class="o">&lt;</span><span class="n">node</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+      <span class="n"><a href="../memory/make_unique.html">std::make_unique</a></span><span class="o">&lt;</span><span class="n">node</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="p">),</span>
+  <span class="p">};</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">n</span><span class="p">:</span> <span class="n">traverse</span><span class="p">(</span><span class="n">tree</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>1
+2
+3
+4
+5
+</code></pre></p>
+<h3>例4: 第2テンプレートパラメータVの利用</h3>
+<p><div class="yata" id="756f5011931d68b80b0a20f185be0e7c2f91328b"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../generator.html">&lt;generator&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string_view.html">&lt;string_view&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// Ref=<a href="../string_view/basic_string_view.html">string_view</a>, V=string のジェネレータコルーチン</span>
+<span class="k">auto</span> <span class="nf">fizzbuzz</span><span class="p">()</span> <span class="o">-&gt;</span>
+  <span class="n"><span style="color:#ff0000">std::generator</span></span><span class="o">&lt;</span><span class="n"><a href="../string_view/basic_string_view.html">std::string_view</a></span><span class="p">,</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&gt;</span>
+<span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">15</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n"><a href="../../lang/cpp20/coroutines.html">co_yield</a></span> <span class="s">"FizzBuzz"</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n"><a href="../../lang/cpp20/coroutines.html">co_yield</a></span> <span class="s">"Fizz"</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n"><a href="../../lang/cpp20/coroutines.html">co_yield</a></span> <span class="s">"Buzz"</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="n"><a href="../../lang/cpp20/coroutines.html">co_yield</a></span> <span class="n"><a href="../string/to_string.html">std::to_string</a></span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// <a href="../ranges/to.html">std::ranges::to</a>&lt;C&gt;() は変換元Rangeの <a href="../ranges/range_value_t.html">range_value_t</a> を利用して戻り値型を決定する。</span>
+  <span class="c1">// ここでは <a href="../vector/vector.html">std::vector</a>&lt;<a href="../string/basic_string.html">std::string</a>&gt; 型を導出するために、ジェネレータコルーチンの</span>
+  <span class="c1">// 第2テンプレートパラメータ V = <a href="../string/basic_string.html">std::string</a> として明示指定する必要がある。</span>
+  <span class="k">auto</span> <span class="n">vec</span> <span class="o">=</span> <span class="n">fizzbuzz</span><span class="p">()</span> <span class="o">|</span> <span class="n"><a href="../ranges/take_view.html">std::views::take</a></span><span class="p">(</span><span class="mi">15</span><span class="p">)</span> <span class="o">|</span> <span class="n"><a href="../ranges/to.html">std::ranges::to</a></span><span class="o">&lt;</span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&gt;</span><span class="p">();</span>
+
+  <span class="c1">// もし fizzbuzz() 戻り値型が <span style="color:#ff0000">std::generator</span>&lt;<a href="../string_view/basic_string_view.html">std::string_view</a>&gt; であった場合、</span>
+  <span class="c1">// 変数 vec は <a href="../vector/vector.html">std::vector</a>&lt;<a href="../string_view/basic_string_view.html">std::string_view</a>&gt; 型となる。このときコルーチン内部実装の</span>
+  <span class="c1">// <a href="../string/to_string.html">std::to_string</a>() の戻り値 <a href="../string/basic_string.html">std::string</a> オブジェクトは<a href="../../lang/cpp20/coroutines.html">co_yield</a>式末尾で寿命が切れるため、</span>
+  <span class="c1">// 各要素 vec[i] に格納される <a href="../string_view/basic_string_view.html">std::string_view</a> はダングリング(dangling)状態になってしまう。</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="nl">e</span> <span class="p">:</span> <span class="n">vec</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">e</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>1
+2
+Fizz
+4
+Buzz
+Fizz
+7
+8
+Fizz
+Buzz
+11
+Fizz
+13
+14
+FizzBuzz
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++23</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>:</li>
+<li><a href="../../implementation.html#gcc">GCC</a>:</li>
+<li><a href="../../implementation.html#icc">ICC</a>:</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>:</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="../ranges/elements_of.html">std::ranges::elements_of</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2502r2.pdf" target="_blank">P2502R2 <code>std::generator</code>: Synchronous Coroutine Generator for Ranges</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2787r1.pdf" target="_blank">P2787R1 pmr::generator - Promise Types are not Values</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0981r0.html" target="_blank">P0981R0 Halo: coroutine Heap Allocation eLision Optimization: the joint response</a><ul>
+<li>ジェネレータコルーチン実装において、動的メモリ確保が省略最適化される条件の議論。<code>std::generator</code>の設計に反映されている。</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

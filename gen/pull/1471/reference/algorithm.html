@@ -1,0 +1,1559 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>algorithm - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,algorithm
+">
+        <meta name="title" content="algorithm - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="algorithm - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="algorithm - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/algorithm.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="&amp;lt;algorithm&amp;gt;algorithm 全てのアルゴリズムはデータ構造の実装の詳細から切り離されていて、イテレータによってパラメータ化されている。これはアルゴリズムの要件を満たすイテレータを提供しているなら、どのようなデータ構造であっても動作するということを示している。 このヘッダでは、以下の標準ヘッダをインクルードする：  &amp;lt;initializer_list&amp;gt; (C++" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="algorithm - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/algorithm.html" />
+        <meta name="twitter:description" content="&amp;lt;algorithm&amp;gt;algorithm 全てのアルゴリズムはデータ構造の実装の詳細から切り離されていて、イテレータによってパラメータ化されている。これはアルゴリズムの要件を満たすイテレータを提供しているなら、どのようなデータ構造であっても動作するということを示している。 このヘッダでは、以下の標準ヘッダをインクルードする：  &amp;lt;initializer_list&amp;gt; (C++" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;algorithm&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;algorithm&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">algorithm</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-12-05T02:54:34">
+        2024年12月05日 02時54分34秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/algorithm.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/algorithm.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="header">&lt;algorithm&gt;</div><h1 itemprop="name"><span class="token">algorithm</span></h1>
+<div itemprop="articleBody"><p>全てのアルゴリズムはデータ構造の実装の詳細から切り離されていて、イテレータによってパラメータ化されている。これはアルゴリズムの要件を満たすイテレータを提供しているなら、どのようなデータ構造であっても動作するということを示している。</p>
+<p>このヘッダでは、以下の標準ヘッダをインクルードする：</p>
+<ul>
+<li><code><a href="initializer_list.html">&lt;initializer_list&gt;</a></code> (C++11)</li>
+</ul>
+<h3>テンプレートパラメータ名とイテレータ要件</h3>
+<p><code>&lt;algorithm&gt;</code>ヘッダでは、各アルゴリズムのテンプレートパラメータ名を、型の要件を表すために使っている。アルゴリズムを正しく利用するためには、テンプレートパラメータ名に応じたこれらの要件を満たしている必要がある。以下の通りである。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>テンプレートパラメータ名</th>
+<th>要件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>InputIterator<br /> InputIterator1<br /> InputIterator2</td>
+<td>input iterator</td>
+</tr>
+<tr>
+<td>OutputIterator<br /> OutputIterator1<br /> OutputIterator2</td>
+<td>output iterator</td>
+</tr>
+<tr>
+<td>ForwardIterator<br /> ForwardIterator1<br /> ForwardIterator2</td>
+<td>forward iterator</td>
+</tr>
+<tr>
+<td>BidirectionalIterator<br /> BidirectionalIterator1<br /> BidirectionalIterator2</td>
+<td>bidirectional iterator</td>
+</tr>
+<tr>
+<td>RandomAccessIterator<br /> RandomAccessIterator1<br /> RandomAccessIterator2</td>
+<td>random-access iterator</td>
+</tr>
+</tbody>
+</table>
+<p>もし「効果」のセクションで、イテレータの値を書き換えるという旨の文章が書かれている場合、その引数の型は mutable iterator の要件を満たしていなければならないという追加の要件がある。
+もちろん、output iterator は常に書き換え可能であるため、この追加の要件は無意味である。</p>
+<p>テンプレートパラメータ名が <code>Predicate</code> となっている場合、<code>Predicate</code> の値 <code>pred</code> と、引数として渡すイテレータ <code>i</code> について以下の要件を満たす必要がある</p>
+<ul>
+<li><code>pred(*i)</code> が <code>bool</code> として評価できなければならない。</li>
+<li><code>pred(*i)</code> 内で <code>*i</code> を書き変えてはならない。</li>
+</ul>
+<p>テンプレートパラメータ名が <code>BinaryPredicate</code> となっている場合、<code>BinaryPredicate</code> の値 <code>binary_pred</code> と、引数として渡すイテレータ <code>i1</code>, <code>i2</code> について以下の要件を満たす必要がある</p>
+<ul>
+<li><code>binary_pred(*i1, *i2)</code> が <code>bool</code> として評価できなければならない。</li>
+<li><code>binary_pred(*i1, *i2)</code> 内で <code>*i1</code> や <code>*i2</code> を書き変えてはならない。</li>
+</ul>
+<h3>要素の書き換え操作</h3>
+<p>関数オブジェクトを使用するアルゴリズムでは、<code>for_each</code>と<code>for_each_n</code>以外、<a class="cpprefjp-defined-word" data-desc="ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">プログラム定義</a>の関数に引数として渡された要素を書き換えてはならない。</p>
+<h3>関数オブジェクトの取り扱い</h3>
+<p>関数オブジェクトを引数に取る <code>for_each</code>, <code>for_each_n</code> 以外のアルゴリズムは、内部処理においてその関数オブジェクトをコピーする可能性がある。</p>
+<p>そのため、アルゴリズムの利用者はそのことに注意する必要がある。コピーされてしまうことが問題である場合、<code>reference_wrapper&lt;T&gt;</code> や同様の解決手段を使ってオブジェクトの中身をコピーしないようなラッパークラスを使うといった対策を行う必要がある。</p>
+<h3><code>_copy</code>サフィックス付きアルゴリズム</h3>
+<p>いくつかのアルゴリズムは <code>_copy</code> というサフィックスが付いている。これは <code>_copy</code> サフィックスの付いていないアルゴリズムと違い、処理の結果を別のイテレータへ出力するアルゴリズムである。</p>
+<p>コピーバージョンを含めるかどうかの判断は、通常バージョンの<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a>を考慮する。操作を行うコストがコピーのコストを大きく上回る場合、コピーバージョンは含めないようになっている。例えば <code>sort_copy</code> は存在しない。なぜなら、ソートのコストは大きいし、そのような場合、ユーザは <code>copy</code> してから <code>sort</code> するからだ。</p>
+<h3>イテレータ操作に関する補足</h3>
+<p>アルゴリズムの説明で <code>+</code> や <code>-</code> を使っているが、random-access iterator 以外のイテレータはそれを定義していない。そういった場合、 <code>a+n</code> というのは</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n">X</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+<span class="n"><a href="iterator/advance.html">advance</a></span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+<span class="k">return</span> <span class="n">tmp</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<p>を意味する。また、<code>b-a</code> は</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="nf"><a href="iterator/distance.html">distance</a></span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+</code></pre></div>
+</p>
+<p>を意味する。</p>
+<h3>射影とRangeサポート（C++20）</h3>
+<p>C++20ではアルゴリズム関数の新しいバージョンが<code>std::ranges</code>名前空間に追加された。従来の関数と比べて以下の点が異なる：</p>
+<ul>
+<li>テンプレート引数がコンセプトによって制約される</li>
+<li>イテレータの組に加えて、範囲(Range)も直接渡せる</li>
+<li>射影(Projection)をサポートする</li>
+<li><a href="../article/lib/disable_adl_function.html">ADLで発見されない</a></li>
+</ul>
+<p>新しいアルゴリズム関数には範囲(Range)を直接渡すことができる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// 従来のアルゴリズム関数</span>
+<span class="n"><a href="algorithm/sort.html">sort</a></span><span class="p">(</span><span class="n"><a href="vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="vector/vector/end.html">v.end()</a></span><span class="p">);</span>
+<span class="c1">// C++20以降の新しいアルゴリズム関数: Rangeを直接渡せる</span>
+<span class="n"><a href="algorithm/ranges_sort.html">ranges::sort</a></span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+<span class="c1">// イテレータ対も渡せる</span>
+<span class="n"><a href="algorithm/ranges_sort.html">ranges::sort</a></span><span class="p">(</span><span class="n"><a href="vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="vector/vector/end.html">v.end()</a></span><span class="p">);</span>
+</code></pre></div>
+</p>
+<p>射影は、<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>とは別に渡すことができる関数オブジェクトで、特定のメンバだけを対象にアルゴリズムを実行するために用いる。</p>
+<p>例えば、クラス型の配列のソートでは、特定のメンバによってソートしたいことはよくある。しかし、従来のアルゴリズム関数では特定のメンバで比較を行う<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>を用意しなければならなかった。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">Person</span> <span class="p">{</span>
+  <span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">vector</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span> <span class="n">pv</span> <span class="o">=</span> <span class="p">{</span> <span class="err">…</span> <span class="p">};</span>
+
+<span class="n"><a href="algorithm/sort.html">sort</a></span><span class="p">(</span><span class="n">pv</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">pv</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="p">[](</span><span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="n">b</span><span class="p">){</span> <span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="n">name</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">name</span><span class="p">;</span> <span class="p">});</span>
+</code></pre></div>
+</p>
+<p>これは、<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>がメンバの選択と比較という2つの仕事をしてしまっている点でよくない。この責務を分割し、メンバの選択だけを行うようにしたものが射影である。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// デフォルトの述語(<a href="functional/ranges_less.html">ranges::less</a>{})で、nameでソート</span>
+<span class="n"><a href="algorithm/ranges_sort.html">ranges::sort</a></span><span class="p">(</span><span class="n">pv</span><span class="p">,</span> <span class="p">{},</span> <span class="p">[](</span><span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="n">a</span><span class="p">){</span> <span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="n">name</span><span class="p">;</span> <span class="p">});</span>
+<span class="c1">// <a href="functional/invoke.html">std::invoke</a>で呼び出されるため、メンバ変数ポインタでもよい</span>
+<span class="n"><a href="algorithm/ranges_sort.html">ranges::sort</a></span><span class="p">(</span><span class="n">pv</span><span class="p">,</span> <span class="p">{},</span> <span class="o">&amp;</span><span class="n">Person</span><span class="o">::</span><span class="n">name</span><span class="p">);</span>
+</code></pre></div>
+</p>
+<p>なお、各関数の説明においては、射影の影響は無視していることがある。</p>
+<h2>シーケンスを変更しない操作</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="algorithm/all_of.html">all_of</a></code></td>
+<td>全ての要素が条件を満たしているかを調べる</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/any_of.html">any_of</a></code></td>
+<td>どれかの要素が条件を満たしているかを調べる</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/none_of.html">none_of</a></code></td>
+<td>全ての要素が条件を満たしていないかを調べる</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/for_each.html">for_each</a></code></td>
+<td>全ての要素に対して処理を行う</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/for_each_n.html">for_each_n</a></code></td>
+<td>範囲の先頭N個の要素に対して処理を行う</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/find.html">find</a></code></td>
+<td>指定された値を検索する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/find_if.html">find_if</a></code></td>
+<td>条件を満たす最初の要素を検索する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/find_if_not.html">find_if_not</a></code></td>
+<td>条件を満たしていない最初の要素を検索する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/find_end.html">find_end</a></code></td>
+<td>指定された最後のサブシーケンスを検索する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/find_first_of.html">find_first_of</a></code></td>
+<td>ある集合の1つとマッチする最初の要素を検索する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/adjacent_find.html">adjacent_find</a></code></td>
+<td>隣接する要素で条件を満たしている最初の要素を検索する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/count.html">count</a></code></td>
+<td>指定された値である要素の数を数える</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/count_if.html">count_if</a></code></td>
+<td>条件を満たしている要素の数を数える</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/mismatch.html">mismatch</a></code></td>
+<td>2つの範囲が一致していない場所を検索する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/equal.html">equal</a></code></td>
+<td>2つの範囲を等値比較する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/search.html">search</a></code></td>
+<td>指定された最初のサブシーケンスを検索する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/search_n.html">search_n</a></code></td>
+<td>指定された最初のサブシーケンスを検索する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_all_of.html">ranges::all_of</a></code></td>
+<td>全ての要素が条件を満たしているかを調べる</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_any_of.html">ranges::any_of</a></code></td>
+<td>どれかの要素が条件を満たしているかを調べる</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_none_of.html">ranges::none_of</a></code></td>
+<td>全ての要素が条件を満たしていないかを調べる</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_contains.html">ranges::contains</a></code></td>
+<td>シーケンスの中に指定された要素があるか調べる</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_contains_subrange.html">ranges::contains_subrange</a></code></td>
+<td>シーケンスの中に指定されたシーケンスがあるか調べる</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_for_each.html">ranges::for_each</a></code></td>
+<td>全ての要素に対して処理を行う</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_for_each_n.html">ranges::for_each_n</a></code></td>
+<td>範囲の先頭N個の要素に対して処理を行う</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_find.html">ranges::find</a></code></td>
+<td>指定された値を検索する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_find_if.html">ranges::find_if</a></code></td>
+<td>条件を満たす最初の要素を検索する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_find_if_not.html">ranges::find_if_not</a></code></td>
+<td>条件を満たしていない最初の要素を検索する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_find_last.html">ranges::find_last</a></code></td>
+<td>指定された値を末尾から検索する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_find_last_if.html">ranges::find_last_if</a></code></td>
+<td>条件を満たす最後の要素を検索する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_find_last_if_not.html">ranges::find_last_if_not</a></code></td>
+<td>条件を満たしていない最後の要素を検索する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_find_end.html">ranges::find_end</a></code></td>
+<td>指定された最後のサブシーケンスを検索する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_find_first_of.html">ranges::find_first_of</a></code></td>
+<td>ある集合の1つとマッチする最初の要素を検索する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_adjacent_find.html">ranges::adjacent_find</a></code></td>
+<td>隣接する要素で条件を満たしている最初の要素を検索する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_count.html">ranges::count</a></code></td>
+<td>指定された値である要素の数を数える</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_count_if.html">ranges::count_if</a></code></td>
+<td>条件を満たしている要素の数を数える</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_mismatch.html">ranges::mismatch</a></code></td>
+<td>2つの範囲が一致していない場所を検索する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_equal.html">ranges::equal</a></code></td>
+<td>2つの範囲を等値比較する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_search.html">ranges::search</a></code></td>
+<td>指定された最初のサブシーケンスを検索する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_search_n.html">ranges::search_n</a></code></td>
+<td>指定された最初のサブシーケンスを検索する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_starts_with.html">ranges::starts_with</a></code></td>
+<td>先頭が指定されたシーケンスと一致するかを調べる</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_ends_with.html">ranges::ends_with</a></code></td>
+<td>末尾が指定されたシーケンスと一致するかを調べる</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h3><code>fold</code>アルゴリズム</h3>
+<p><code>fold</code>操作は、初期値及び累積値とともに範囲の各要素について与えられた関数を適用していき、その結果を返すものである。これは、数値集計処理に特化した<code><a href="numeric/accumulate.html">accumulate</a></code>を改善しより汎用的にしたものである。処理を範囲のどちら側から始めるかによって、<code>foldl</code>（<code>fold_left</code>）と<code>foldr</code>（<code>fold_right</code>）の2種類がある。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="algorithm/ranges_fold_left.html">ranges::fold_left</a></code></td>
+<td>範囲の左（先頭）からの<code>fold</code></td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_fold_right.html">ranges::fold_right</a></code></td>
+<td>範囲の右（終端）からの<code>fold</code></td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_fold_left_first.html">ranges::fold_left_first</a></code></td>
+<td>範囲の左（先頭）からの<code>fold</code>、初期値を省略する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_fold_right_last.html">ranges::fold_right_last</a></code></td>
+<td>範囲の右（終端）からの<code>fold</code>、初期値を省略する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_fold_left_with_iter.html">ranges::fold_left_with_iter</a></code></td>
+<td>範囲の左（先頭）からの<code>fold</code>、終端イテレータを返す</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_fold_left_first_with_iter.html">ranges::fold_left_first_with_iter</a></code></td>
+<td>範囲の左（先頭）からの<code>fold</code>、初期値を省略し終端イテレータを返す</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2>シーケンスを変更する操作</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="algorithm/copy.html">copy</a></code></td>
+<td>指定された範囲の要素をコピーする</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/copy_n.html">copy_n</a></code></td>
+<td>指定された数の要素をコピーする</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/copy_if.html">copy_if</a></code></td>
+<td>条件を満たす要素のみをコピーする</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/copy_backward.html">copy_backward</a></code></td>
+<td>指定された範囲の要素を後ろからコピーする</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/move.html">move</a></code></td>
+<td>指定された範囲の要素をムーブする</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/move_backward.html">move_backward</a></code></td>
+<td>指定された範囲の要素を後ろからムーブする</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/swap_ranges.html">swap_ranges</a></code></td>
+<td>指定された2つの範囲同士を swap する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/iter_swap.html">iter_swap</a></code></td>
+<td>2つのイテレータの要素を swap する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/transform.html">transform</a></code></td>
+<td>全ての要素に関数を適用する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/replace.html">replace</a></code></td>
+<td>指定された値と一致する要素を指定された値に置き換える</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/replace_if.html">replace_if</a></code></td>
+<td>条件を満たす要素を指定された値に置き換える</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/replace_copy.html">replace_copy</a></code></td>
+<td>指定された値を一致する要素を指定された値に置き換え、その結果を出力の範囲へコピーする</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/replace_copy_if.html">replace_copy_if</a></code></td>
+<td>条件を満たす要素を指定された値に置き換え、その結果を出力の範囲へコピーする</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/fill.html">fill</a></code></td>
+<td>指定された値で出力の範囲に書き込む</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/fill_n.html">fill_n</a></code></td>
+<td>指定された値で出力の範囲に n 個書き込む</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/generate.html">generate</a></code></td>
+<td>出力の範囲へ関数の結果を書き込む</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/generate_n.html">generate_n</a></code></td>
+<td>出力の範囲へ関数の結果を n 個書き込む</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/remove.html">remove</a></code></td>
+<td>指定された要素を除ける</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/remove_if.html">remove_if</a></code></td>
+<td>条件を満たす要素を除ける</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/remove_copy.html">remove_copy</a></code></td>
+<td>指定された要素を除け、その結果を出力の範囲へコピーする</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/remove_copy_if.html">remove_copy_if</a></code></td>
+<td>条件を満たす要素を除け、その結果を出力の範囲へコピーする</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/unique.html">unique</a></code></td>
+<td>重複した要素を除ける</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/unique_copy.html">unique_copy</a></code></td>
+<td>重複した要素を除け、その結果を出力の範囲へコピーする</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/reverse.html">reverse</a></code></td>
+<td>要素の並びを逆にする</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/reverse_copy.html">reverse_copy</a></code></td>
+<td>要素の並びを逆にし、その結果を出力の範囲へコピーする</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/rotate.html">rotate</a></code></td>
+<td>要素の並びを回転させる</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/rotate_copy.html">rotate_copy</a></code></td>
+<td>要素の並びを回転させ、その結果を出力の範囲へコピーする</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/shift_left.html">shift_left</a></code></td>
+<td>要素を左にシフトさせる</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/shift_right.html">shift_right</a></code></td>
+<td>要素を右にシフトさせる</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/sample.html">sample</a></code></td>
+<td>範囲から指定された個数の要素をランダムに抽出する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/random_shuffle.html">random_shuffle</a></code></td>
+<td>それぞれの要素をランダムな位置に移動させる</td>
+<td>C++14から非推奨<br /> C++17で削除</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/shuffle.html">shuffle</a></code></td>
+<td>それぞれの要素をランダムな位置に移動させる</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/is_partitioned.html">is_partitioned</a></code></td>
+<td>与えられた範囲が条件によって<a href="#sequence-is-partitioned">区分化</a>されているか判定する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/partition.html">partition</a></code></td>
+<td>与えられた範囲を条件によって<a href="#sequence-is-partitioned">区分化</a>する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/stable_partition.html">stable_partition</a></code></td>
+<td>与えられた範囲を相対順序を保ちながら条件によって<a href="#sequence-is-partitioned">区分化</a>する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/partition_copy.html">partition_copy</a></code></td>
+<td>与えられた範囲を条件によって 2 つの出力の範囲へ分けてコピーする</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/partition_point.html">partition_point</a></code></td>
+<td>与えられた範囲から条件によって<a href="#sequence-is-partitioned">区分化</a>されている位置を得る</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_copy.html">ranges::copy</a></code></td>
+<td>指定された範囲の要素をコピーする</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_copy_n.html">ranges::copy_n</a></code></td>
+<td>指定された数の要素をコピーする</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_copy_if.html">ranges::copy_if</a></code></td>
+<td>条件を満たす要素のみをコピーする</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_copy_backward.html">ranges::copy_backward</a></code></td>
+<td>指定された範囲の要素を後ろからコピーする</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_move.html">ranges::move</a></code></td>
+<td>指定された範囲の要素をムーブする</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_move_backward.html">ranges::move_backward</a></code></td>
+<td>指定された範囲の要素を後ろからムーブする</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_swap_ranges.html">ranges::swap_ranges</a></code></td>
+<td>指定された2つの範囲同士を swap する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_transform.html">ranges::transform</a></code></td>
+<td>全ての要素に関数を適用する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_replace.html">ranges::replace</a></code></td>
+<td>指定された値と一致する要素を指定された値に置き換える</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_replace_if.html">ranges::replace_if</a></code></td>
+<td>条件を満たす要素を指定された値に置き換える</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_replace_copy.html">ranges::replace_copy</a></code></td>
+<td>指定された値を一致する要素を指定された値に置き換え、その結果を出力の範囲へコピーする</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_replace_copy_if.html">ranges::replace_copy_if</a></code></td>
+<td>条件を満たす要素を指定された値に置き換え、その結果を出力の範囲へコピーする</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_fill.html">ranges::fill</a></code></td>
+<td>指定された値で出力の範囲に書き込む</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_fill_n.html">ranges::fill_n</a></code></td>
+<td>指定された値で出力の範囲に n 個書き込む</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_generate.html">ranges::generate</a></code></td>
+<td>出力の範囲へ関数の結果を書き込む</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_generate_n.html">ranges::generate_n</a></code></td>
+<td>出力の範囲へ関数の結果を n 個書き込む</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_remove.html">ranges::remove</a></code></td>
+<td>指定された要素を除ける</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_remove_if.html">ranges::remove_if</a></code></td>
+<td>条件を満たす要素を除ける</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_remove_copy.html">ranges::remove_copy</a></code></td>
+<td>指定された要素を除け、その結果を出力の範囲へコピーする</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_remove_copy_if.html">ranges::remove_copy_if</a></code></td>
+<td>条件を満たす要素を除け、その結果を出力の範囲へコピーする</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_unique.html">ranges::unique</a></code></td>
+<td>重複した要素を除ける</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_unique_copy.html">ranges::unique_copy</a></code></td>
+<td>重複した要素を除け、その結果を出力の範囲へコピーする</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_reverse.html">ranges::reverse</a></code></td>
+<td>要素の並びを逆にする</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_reverse_copy.html">ranges::reverse_copy</a></code></td>
+<td>要素の並びを逆にし、その結果を出力の範囲へコピーする</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_rotate.html">ranges::rotate</a></code></td>
+<td>要素の並びを回転させる</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_rotate_copy.html">ranges::rotate_copy</a></code></td>
+<td>要素の並びを回転させ、その結果を出力の範囲へコピーする</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_shift_left.html">ranges::shift_left</a></code></td>
+<td>要素を左にシフトさせる</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_shift_right.html">ranges::shift_right</a></code></td>
+<td>要素を右にシフトさせる</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_sample.html">ranges::sample</a></code></td>
+<td>範囲から指定された個数の要素をランダムに抽出する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_shuffle.html">ranges::shuffle</a></code></td>
+<td>それぞれの要素をランダムな位置に移動させる</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_is_partitioned.html">ranges::is_partitioned</a></code></td>
+<td>与えられた範囲が条件によって<a href="#sequence-is-partitioned">区分化</a>されているか判定する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_partition.html">ranges::partition</a></code></td>
+<td>与えられた範囲を条件によって<a href="#sequence-is-partitioned">区分化</a>する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_stable_partition.html">ranges::stable_partition</a></code></td>
+<td>与えられた範囲を相対順序を保ちながら条件によって<a href="#sequence-is-partitioned">区分化</a>する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_partition_copy.html">ranges::partition_copy</a></code></td>
+<td>与えられた範囲を条件によって 2 つの出力の範囲へ分けてコピーする</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_partition_point.html">ranges::partition_point</a></code></td>
+<td>与えられた範囲から条件によって<a href="#sequence-is-partitioned">区分化</a>されている位置を得る</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>ソートや、それに関連した操作</h2>
+<p>ここで挙げる操作には全て２つのバージョンがある。一つは <code>Compare</code> 型の関数オブジェクトを取る関数、もう一つは <code>operator&lt;</code> を使用する関数である。</p>
+<p><code>Compare</code> は関数オブジェクト型である。<br />
+<code>Compare</code> 型のオブジェクトに適用した関数呼び出しの<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>は、 <code>bool</code> へ文脈依存の変換をされたとき、第一引数が第二引数より小さい場合は <code>true</code> を、そうでない場合は <code>false</code> を返す。<br />
+何らかの順序関係 (ordering relation) を前提とするアルゴリズム全般に対して <code>Compare</code> 型の <code>comp</code> を使用する。<br />
+<code>comp</code> は間接参照したイテレータを通して非 <code>const</code> な関数を適用しないものとする。  </p>
+<p><code>Compare</code> を取るアルゴリズムには全て、代わりに <code>operator&lt;</code> を使うバージョンもある。<br />
+つまり、<code>comp(*i, *j) != false</code> はデフォルトで <code>*i &lt; *j != false</code> である。<br />
+<a id="strict-weak-ordering"></a>
+<a href="#alg.binary.search">二分探索</a>以外のアルゴリズムでは、<code>comp</code> は「狭義の弱順序 (strict weak ordering) 」を示さなければならない。  </p>
+<p>ここでの用語「狭義 (strict) 」 は非反射関係 (irreflexive relation) (全ての <code>x</code> について <code>!comp(x,x)</code> である）の要求を示し、用語「弱 (weak) 」は全順序 (total ordering) ほど強くはないが半順序 (partial ordering) よりは強い要求を示す。<code>!comp(a, b) &amp;&amp; !comp(b, a)</code> として <code>equiv(a, b)</code> を定義する場合、用語「弱」の要求は <code>comp</code> と <code>equiv</code> の両方が以下のように推移的関係 (transitive relations) となることである。  </p>
+<ul>
+<li><code>comp(a, b) &amp;&amp; comp(b, c)</code> は <code>comp(a, c)</code> を意味する</li>
+<li><code>equiv(a, b) &amp;&amp; equiv(b, c)</code> は <code>equiv(a, c)</code> を意味する</li>
+</ul>
+<p>これらの前提のもと、以下を示すことができる。</p>
+<ul>
+<li><code>equiv</code> は同値関係 (equivalence relation) である</li>
+<li><code>comp</code> は <code>equiv</code> によって決まる同値類 (equivalence class) の間での明確な関係を示す</li>
+<li>その示される関係は狭義の全順序 (strict total ordering) である</li>
+</ul>
+<p>数学用語の日本語訳として "equivalence relation" には「同値関係」 "equivalence class" には「同値類」が定着しており、同じく数学的な文脈では上記 <code>equiv</code> を満たす２つの値を「同値」 (equivalent) であると言う。しかし特に数学的でない文脈で「同値」と言った場合は <code>operator==</code> による "equal" の関係と誤解される可能性が高いと考えられるため、本サイトでは上記 <code>equiv</code> による "equivalent" の関係を「等価」 <code>operator==</code> による "equal" の関係を「等値」として区別する。</p>
+<p><a id="sequence-is-sorted"></a>
+あるシーケンスを指す任意のイテレータ <code>i</code> と、<code>i + n</code> がそのシーケンス上の要素を指す有効なイテレータであるような任意の非負整数 <code>n</code> について、<code>comp(*(i + n), *i) == false</code> であれば、そのシーケンスは比較関数 (comparator) <code>comp</code> によってソートされているという。  </p>
+<p><a id="sequence-is-partitioned"></a>
+あるシーケンス <code>[start,finish)</code> があり、<code>0 &lt;= i &lt; (finish - start)</code> 内の全ての整数 <code>i</code> について、<code>i &lt; n</code> の時かつその時に限り <code>f(*(start + i))</code> が <code>true</code> となるような整数 <code>n</code> が存在するなら、そのシーケンス <code>[start,finish)</code> は式 <code>f(e)</code> によって区分化されているという。  </p>
+<ul>
+<li>「区分化されている」と「ソートされている」との関係<br />
+  あるシーケンスが比較関数 <code>comp</code> でソートされている場合、そのシーケンスは <code>comp</code> に任意の検索キー <code>k</code> を部分適用した式 <code>comp(e, k)</code> や <code>!comp(k, e)</code> などにより区分化されているともいえる。<br />
+  例えば、ソートされた整数列 <code>[1, 5, 13, 17, 25]</code> は「 <code>10</code> より小さい」によって区分化されている。さらに、そのほかの任意の数値についても「～より小さい」あるいは「～より小さくない（～以上）」などによって区分化されているといえる。<br />
+  C++03 までの二分探索アルゴリズムは比較関数が狭義の弱順序となることおよび対象シーケンスがその比較関数でソートされていることを要求していた。しかしその後、 C++11 で異なる型のキーによる検索を明示的に許すために制限が見直された結果、比較関数そのものに対する要求はなくなり、比較関数に検索キーを部分適用した式による区分化のみに要求が緩められた。（参照: <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#270" target="_blank">LWG issue 270 "Binary search requirements overly strict"</a> ）<br />
+  これにより、例えばソートされていない整数列 <code>[5, 1, 25, 13, 17]</code> に対しても <code>10</code> をキーとして <code><a href="algorithm/lower_bound.html">lower_bound()</a></code> を用いることにより <code>10</code> より小さい範囲の境界を取り出すことが可能になっている。しかし <code>15</code> をキーとすることは不正である。<br />
+  ただ、 C++03 の要件に合わない（特にソートされていない範囲に対する）二分探索を行いたい場合は、同じく C++11 で追加された <code><a href="algorithm/partition_point.html">partition_point()</a></code> の使用も検討したほうがよい。  </li>
+</ul>
+<p>順序関係を扱う関数の説明において、この節では安定性 (stability) のような考え方を説明するために同値性 (equivalence) の概念を頻繁に使う。
+この節で参照する同値性は必ずしも <code>operator==</code> ではなく、<a href="#strict-weak-ordering">狭義の弱順序</a>によって示される同値関係である。つまりそれは、２つの要素 <code>a</code> と <code>b</code> は <code>!(a &lt; b) &amp;&amp; !(b &lt; a)</code> の時かつその時に限り同値とみなされるということである。  </p>
+<h3>ソート</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="algorithm/sort.html">sort</a></code></td>
+<td>範囲を並べ替える</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/stable_sort.html">stable_sort</a></code></td>
+<td>範囲を安定ソートで並べ替える</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/partial_sort.html">partial_sort</a></code></td>
+<td>範囲を部分的にソートし、先頭N個を並んだ状態にする</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/partial_sort_copy.html">partial_sort_copy</a></code></td>
+<td>範囲を部分的にソートした結果を他の範囲にコピーする</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/is_sorted.html">is_sorted</a></code></td>
+<td>ソート済みか判定する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/is_sorted_until.html">is_sorted_until</a></code></td>
+<td>ソート済みか判定し、ソートされていない位置のイテレータを取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_sort.html">ranges::sort</a></code></td>
+<td>範囲を並べ替える</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_stable_sort.html">ranges::stable_sort</a></code></td>
+<td>範囲を安定ソートで並べ替える</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_partial_sort.html">ranges::partial_sort</a></code></td>
+<td>範囲を部分的にソートし、先頭N個を並んだ状態にする</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_partial_sort_copy.html">ranges::partial_sort_copy</a></code></td>
+<td>範囲を部分的にソートした結果を他の範囲にコピーする</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_is_sorted.html">ranges::is_sorted</a></code></td>
+<td>ソート済みか判定する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_is_sorted_until.html">ranges::is_sorted_until</a></code></td>
+<td>ソート済みか判定し、ソートされていない位置のイテレータを取得する</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>N 番目の要素</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="algorithm/nth_element.html">nth_element</a></code></td>
+<td>基準となる要素よりも小さい要素が、前に来るよう並べ替える</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_nth_element.html">ranges::nth_element</a></code></td>
+<td>基準となる要素よりも小さい要素が、前に来るよう並べ替える</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3><a id="alg.binary.search"></a>二分探索</h3>
+<p>これらのアルゴリズムは全て二分探索を行う。これらは探索されるシーケンスが検索キーを比較関数（暗黙の <code>operator &lt;</code> 、または明示的に渡された <code>Compare comp</code> ）の引数として部分適用することで得られる式によって<a href="#sequence-is-partitioned">区分化</a>されていると仮定している。<br />
+これらはランダムアクセスイテレータでない場合でも最小の比較回数で動作する。<br />
+これらのアルゴリズムに渡されたイテレータがランダムアクセスイテレータである場合、データ構造を渡るときに対数のステップ数で済むため、このイテレータが適している。ランダムアクセスイテレータでない場合は線形のステップ数になる。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="algorithm/lower_bound.html">lower_bound</a></code></td>
+<td>指定された要素以上の値が現れる最初の位置のイテレータを取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/upper_bound.html">upper_bound</a></code></td>
+<td>指定された要素より大きい値が現れる最初の位置のイテレータを取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/equal_range.html">equal_range</a></code></td>
+<td><code>lower_bound</code>と<code>upper_bound</code>の結果を組で取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/binary_search.html">binary_search</a></code></td>
+<td>二分探索法による検索を行う</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_lower_bound.html">ranges::lower_bound</a></code></td>
+<td>指定された要素以上の値が現れる最初の位置のイテレータを取得する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_upper_bound.html">ranges::upper_bound</a></code></td>
+<td>指定された要素より大きい値が現れる最初の位置のイテレータを取得する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_equal_range.html">ranges::equal_range</a></code></td>
+<td>指定した値と等しい範囲を取得する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_binary_search.html">ranges::binary_search</a></code></td>
+<td>二分探索法による検索を行う</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>マージ</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="algorithm/merge.html">merge</a></code></td>
+<td>2つのソート済み範囲をマージする</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/inplace_merge.html">inplace_merge</a></code></td>
+<td>2つの連続したソート済み範囲をマージする</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_merge.html">ranges::merge</a></code></td>
+<td>2つのソート済み範囲をマージする</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_inplace_merge.html">ranges::inplace_merge</a></code></td>
+<td>2つの連続したソート済み範囲をマージする</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>ソート済み構造に対する集合演算</h3>
+<p>このセクションでは基本的なソート済み構造に対する集合演算を定義する。<br />
+これらの演算は、等価なキーの要素を複数格納できる <code>multiset</code> であっても動作する。集合演算のセマンティクスは、等価なキーの要素が複数あっても、一般化された標準的な方法で演算できるようになっている。<br />
+例えば <code><a href="algorithm/set_union.html">set_union()</a></code> ならそれぞれの要素の最大数を格納する、<code><a href="algorithm/set_intersection.html">set_intersection()</a></code> なら最小数を格納するといったようになる。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="algorithm/set_union.html">set_union</a></code></td>
+<td>2つのソート済み範囲の和集合を得る</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/set_intersection.html">set_intersection</a></code></td>
+<td>2つのソート済み範囲の積集合を得る</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/set_difference.html">set_difference</a></code></td>
+<td>2つのソート済み範囲の差集合を得る</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/set_symmetric_difference.html">set_symmetric_difference</a></code></td>
+<td>2つのソート済み範囲の対称差集合を得る</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/includes.html">includes</a></code></td>
+<td>2つのソート済み範囲において、一方の範囲の要素がもう一方の範囲に全て含まれているかを判定する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_set_union.html">ranges::set_union</a></code></td>
+<td>2つのソート済み範囲の和集合を得る</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_set_intersection.html">ranges::set_intersection</a></code></td>
+<td>2つのソート済み範囲の積集合を得る</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_set_difference.html">ranges::set_difference</a></code></td>
+<td>2つのソート済み範囲の差集合を得る</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_set_symmetric_difference.html">ranges::set_symmetric_difference</a></code></td>
+<td>2つのソート済み範囲の対称差集合を得る</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_includes.html">ranges::includes</a></code></td>
+<td>2つのソート済み範囲において、一方の範囲の要素がもう一方の範囲に全て含まれているかを判定する</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>ヒープ</h3>
+<p>２つのランダムアクセスイテレータ <code>[a,b)</code> の範囲を特定の構造で構築したものをヒープ(heap)と呼ぶ。ヒープには２つの特性がある。</p>
+<ul>
+<li><code>*a</code> より大きい要素は無い</li>
+<li><code>*a</code> は、<code>pop_heap()</code> で削除したり、<code>push_heap()</code> で要素を追加する操作が O(log(N)) でできる</li>
+</ul>
+<p>これらの特性はプライオリティキューで有用である。<br />
+<code>make_heap()</code> は heap の中の範囲を変換し、<code>sort_heap()</code> はソート済みシーケンスの中にあるヒープを turn する。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="algorithm/push_heap.html">push_heap</a></code></td>
+<td>ヒープ化された範囲に要素を追加する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/pop_heap.html">pop_heap</a></code></td>
+<td>ヒープ化された範囲の先頭と末尾を入れ替え、ヒープ範囲を作り直す</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/make_heap.html">make_heap</a></code></td>
+<td>範囲をヒープ化する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/sort_heap.html">sort_heap</a></code></td>
+<td>ヒープ化された範囲を並べ替える</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/is_heap_until.html">is_heap_until</a></code></td>
+<td>範囲がヒープ化されているか判定し、ヒープ化されていない最初の要素を指すイテレータを取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/is_heap.html">is_heap</a></code></td>
+<td>範囲がヒープ化されているか判定する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_push_heap.html">ranges::push_heap</a></code></td>
+<td>ヒープ化された範囲に要素を追加する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_pop_heap.html">ranges::pop_heap</a></code></td>
+<td>ヒープ化された範囲の先頭と末尾を入れ替え、ヒープ範囲を作り直す</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_make_heap.html">ranges::make_heap</a></code></td>
+<td>範囲をヒープ化する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_sort_heap.html">ranges::sort_heap</a></code></td>
+<td>ヒープ化された範囲を並べ替える</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_is_heap_until.html">ranges::is_heap_until</a></code></td>
+<td>範囲がヒープ化されているか判定し、ヒープ化されていない最初の要素を指すイテレータを取得する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_is_heap.html">ranges::is_heap</a></code></td>
+<td>範囲がヒープ化されているか判定する</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>最小と最大</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="algorithm/min.html">min</a></code></td>
+<td>最小値を取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/max.html">max</a></code></td>
+<td>最大値を取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/minmax.html">minmax</a></code></td>
+<td>最小値と最大値を取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/min_element.html">min_element</a></code></td>
+<td>範囲内の最小要素へのイテレータを取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/max_element.html">max_element</a></code></td>
+<td>範囲内の最大要素へのイテレータを取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/minmax_element.html">minmax_element</a></code></td>
+<td>範囲内の最小要素と最大要素へのイテレータを取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/clamp.html">clamp</a></code></td>
+<td>値を範囲内に収める</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_min.html">ranges::min</a></code></td>
+<td>最小値を取得する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_max.html">ranges::max</a></code></td>
+<td>最大値を取得する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_minmax.html">ranges::minmax</a></code></td>
+<td>最小値と最大値を取得する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_min_element.html">ranges::min_element</a></code></td>
+<td>範囲内の最小要素へのイテレータを取得する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_max_element.html">ranges::max_element</a></code></td>
+<td>範囲内の最大要素へのイテレータを取得する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_minmax_element.html">ranges::minmax_element</a></code></td>
+<td>範囲内の最小要素と最大要素へのイテレータを取得する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_clamp.html">ranges::clamp</a></code></td>
+<td>値を範囲内に収める</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>辞書式比較</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="algorithm/lexicographical_compare.html">lexicographical_compare</a></code></td>
+<td>2つの範囲を辞書式順序で比較する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_lexicographical_compare.html">ranges::lexicographical_compare</a></code></td>
+<td>2つの範囲を辞書式順序で比較する</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>三方比較アルゴリズム</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="algorithm/lexicographical_compare_three_way.html">lexicographical_compare_three_way</a></code></td>
+<td>2つの範囲を辞書式順序で比較する</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>順列</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="algorithm/next_permutation.html">next_permutation</a></code></td>
+<td>次の順列を生成する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/prev_permutation.html">prev_permutation</a></code></td>
+<td>前の順列を生成する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="algorithm/is_permutation.html">is_permutation</a></code></td>
+<td>範囲が順列かを判定する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_next_permutation.html">ranges::next_permutation</a></code></td>
+<td>次の順列を生成する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_prev_permutation.html">ranges::prev_permutation</a></code></td>
+<td>前の順列を生成する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_is_permutation.html">ranges::is_permutation</a></code></td>
+<td>範囲が順列かを判定する</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>アルゴリズムの<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型</h2>
+<p>これらの型は、複数の値を1つの<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>として返すために使われる汎用的な型である。構造化束縛で受け取ることが想定されている。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="algorithm/ranges_in_fun_result.html">ranges::in_fun_result</a></code></td>
+<td>イテレータと関数オブジェクトを格納する型</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_in_in_result.html">ranges::in_in_result</a></code></td>
+<td>2つのイテレータを格納する型</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_in_out_result.html">ranges::in_out_result</a></code></td>
+<td>2つのイテレータを格納する型</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_in_in_out_result.html">ranges::in_in_out_result</a></code></td>
+<td>3つのイテレータを格納する型</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_in_out_out_result.html">ranges::in_out_out_result</a></code></td>
+<td>3つのイテレータを格納する型</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_min_max_result.html">ranges::min_max_result</a></code></td>
+<td>2つの値または参照を格納する型</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_in_found_result.html">ranges::in_found_result</a></code></td>
+<td>イテレータとbool値を格納する型</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_in_value_result.html">ranges::in_value_result</a></code></td>
+<td>イテレータと値を格納する型</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="algorithm/ranges_out_value_result.html">ranges::out_value_result</a></code></td>
+<td>イテレータと値を格納する型</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="numeric.html">&lt;numeric&gt;</a></code><ul>
+<li>数値計算のアルゴリズム</li>
+</ul>
+</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2930.html" target="_blank">N2930 Range-Based For Loop Wording (Without Concepts)</a></li>
+<li><a href="https://timsong-cpp.github.io/cppwp/n4861/algorithms" target="_blank">N4821 25 Algorithms library</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

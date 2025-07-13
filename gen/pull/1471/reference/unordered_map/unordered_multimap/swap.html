@@ -1,0 +1,368 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>unordered_multimap::swap - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,unordered_map,std,unordered_multimap,function,cpp11
+">
+        <meta name="title" content="unordered_multimap::swap - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="unordered_multimap::swap - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="unordered_multimap::swap - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/swap.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="コンテナの内容を交換する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="unordered_multimap::swap - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/swap.html" />
+        <meta name="twitter:description" content="コンテナの内容を交換する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;unordered_map&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;unordered_multimap&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;6b7f84aa5e0a608d4a32a533b4a16bb1091e426d&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;unordered_map&gt;\n#include &lt;algorithm&gt;\n#include &lt;string&gt;\n#include &lt;utility&gt;\n\ntemplate &lt;class C&gt;\nvoid print(const char* label, const C&amp; c, std::ostream&amp; os = std::cout)\n{\n  os &lt;&lt; label &lt;&lt; \&#34; : \&#34;;\n  std::for_each(c.cbegin(), c.cend(), [&amp;os](const typename C::value_type&amp; v) { os &lt;&lt; &#39;(&#39; &lt;&lt; v.first &lt;&lt; \&#34;, \&#34; &lt;&lt; v.second &lt;&lt; \&#34;), \&#34;; });\n  os &lt;&lt; &#39;\\n&#39;;\n}\n\nint main()\n{\n  std::unordered_multimap&lt;std::string, int&gt; um1{ {\&#34;1st\&#34;, 1}, {\&#34;3rd\&#34;, 3}, {\&#34;5th\&#34;, 5}, {\&#34;7th\&#34;, 7}, {\&#34;9th\&#34;, 9}, {\&#34;1st\&#34;, 1}, {\&#34;3rd\&#34;, 3}, {\&#34;5th\&#34;, 5}, {\&#34;7th\&#34;, 7}, {\&#34;9th\&#34;, 9}, };\n  std::unordered_multimap&lt;std::string, int&gt; um2{ {\&#34;0th\&#34;, 0}, {\&#34;2nd\&#34;, 2}, {\&#34;4th\&#34;, 4}, {\&#34;6th\&#34;, 6}, {\&#34;8th\&#34;, 8}, {\&#34;0th\&#34;, 0}, {\&#34;2nd\&#34;, 2}, {\&#34;4th\&#34;, 4}, {\&#34;6th\&#34;, 6}, {\&#34;8th\&#34;, 8}, };\n\n  print(\&#34;um1 before\&#34;, um1);\n  print(\&#34;um2 before\&#34;, um2);\n  std::cout &lt;&lt; std::endl;\n\n  um1.swap(um2);\n\n  print(\&#34;um1 after\&#34;, um1);\n  print(\&#34;um2 after\&#34;, um2);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;unordered_map&#34;, &#34;unordered_multimap&#34;, &#34;swap&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/unordered_map.html" itemprop="url">
+              
+                <span itemprop="name">unordered_map</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/unordered_map/unordered_multimap.html" itemprop="url">
+              
+                <span itemprop="name">unordered_multimap</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">swap</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-09-03T06:17:49">
+        2024年09月03日 06時17分49秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/unordered_map/unordered_multimap/swap.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/unordered_map/unordered_multimap/swap.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;unordered_map&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class unordered_multimap">unordered_multimap::</span><span class="token">swap</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="n">unordered_multimap</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="n">unordered_multimap</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span>
+  <span class="k">noexcept</span><span class="p">(</span><span class="n">allocator_traits</span><span class="o">&lt;</span><span class="n">Allocator</span><span class="o">&gt;::</span><span class="n">is_always_equal</span><span class="o">::</span><span class="n">value</span>
+            <span class="o">&amp;&amp;</span> <span class="k">noexcept</span><span class="p">(</span><span class="n">swap</span><span class="p">(</span><span class="n"><a href="../../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">Hash</span><span class="o">&amp;&gt;</span><span class="p">(),</span><span class="n"><a href="../../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">Hash</span><span class="o">&amp;&gt;</span><span class="p">()))</span>
+            <span class="o">&amp;&amp;</span> <span class="k">noexcept</span><span class="p">(</span><span class="n">swap</span><span class="p">(</span><span class="n"><a href="../../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">Pred</span><span class="o">&amp;&gt;</span><span class="p">(),</span><span class="n"><a href="../../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">Pred</span><span class="o">&amp;&gt;</span><span class="p">())));</span> <span class="c1">// C++17</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>コンテナの内容を交換する。</p>
+<h2>要件</h2>
+<p>コンテナの <code>key_equal</code> と <code>hasher</code> のオブジェクト（それぞれ <code><a href="key_eq.html">key_eq</a>()</code> と <code><a href="hash_function.html">hash_function</a>()</code> が返すオブジェクト）は、交換可能（swappable）でなければならない。</p>
+<h2>効果</h2>
+<p>当該コンテナと引数で渡されたコンテナの内容を交換する。</p>
+<p>（<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a>が示すように）個々の要素それぞれに対するコピー、ムーブ、交換は行われない。</p>
+<p>また、コンテナの <code>key_equal</code> と <code>hasher</code> のオブジェクト（それぞれ <code><a href="key_eq.html">key_eq</a>()</code> と <code><a href="hash_function.html">hash_function</a>()</code> が返すオブジェクト）も非メンバ関数 <code><a href="../../utility/swap.html">swap</a></code> を非修飾で（つまり <code>std::</code> を付けずに）呼び出すことで交換される。（したがって、<code><a href="../../utility/swap.html">swap</a></code> の呼び出しには <a class="cpprefjp-defined-word" data-desc="実引数依存の名前探索 (Argument Dependent Lookup)。引数の型が所属する名前空間の関数を探索する言語機能">ADL</a> が働く。）</p>
+<p>もし、<code>std::<a href="../../memory/allocator_traits.html">allocator_traits</a>&lt;allocator_type&gt;::propagate_on_container_swap::value</code> が <code>true</code> であれば、アロケータオブジェクト（<code><a href="get_allocator.html">get_allocator</a>()</code> が返すオブジェクト）も非メンバ関数 <code><a href="../../utility/swap.html">swap</a></code> を非修飾で呼び出すことで交換される。そうでなければアロケータオブジェクトは交換されず、その場合、当該コンテナと引数 <code>v</code> がそれぞれ <code><a href="get_allocator.html">get_allocator</a>()</code> で返すオブジェクトが等価でない（<code>operator==</code> が <code>true</code> を返さない）場合、<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こす。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p>なし</p>
+<h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
+<p>コンテナの <code>key_equal</code> と　<code>hasher</code> のオブジェクト（それぞれ <code><a href="key_eq.html">key_eq</a>()</code> と <code><a href="hash_function.html">hash_function</a>()</code> が返すオブジェクト）の <code><a href="../../utility/swap.html">swap</a>()</code> が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げなければ、<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げない。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></h2>
+<p>定数</p>
+<h2>備考</h2>
+<p>交換されたコンテナの要素を指す参照、ポインタ、および、イテレータはいずれも無効とはならずに、元の要素を指し続ける（つまり、それらの指すコンテナは入れ替わる）。なお、<code><a href="end.html">end</a>()</code> は要素を指さないため、無効になるかもしれない。</p>
+<h2>例</h2>
+<p><div class="yata" id="6b7f84aa5e0a608d4a32a533b4a16bb1091e426d"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../unordered_map.html">&lt;unordered_map&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">C</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">print</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">label</span><span class="p">,</span> <span class="k">const</span> <span class="n">C</span><span class="o">&amp;</span> <span class="n">c</span><span class="p">,</span> <span class="n"><a href="../../ostream.html">std::ostream</a></span><span class="o">&amp;</span> <span class="n">os</span> <span class="o">=</span> <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="n">label</span> <span class="o">&lt;&lt;</span> <span class="s">" : "</span><span class="p">;</span>
+  <span class="n"><a href="../../algorithm/for_each.html">std::for_each</a></span><span class="p">(</span><span class="n"><a href="cbegin.html">c.cbegin()</a></span><span class="p">,</span> <span class="n"><a href="cend.html">c.cend()</a></span><span class="p">,</span> <span class="p">[</span><span class="o">&amp;</span><span class="n">os</span><span class="p">](</span><span class="k">const</span> <span class="k">typename</span> <span class="n">C</span><span class="o">::</span><span class="n">value_type</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span> <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="sc">'('</span> <span class="o">&lt;&lt;</span> <span class="n">v</span><span class="p">.</span><span class="n">first</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">v</span><span class="p">.</span><span class="n">second</span> <span class="o">&lt;&lt;</span> <span class="s">"), "</span><span class="p">;</span> <span class="p">});</span>
+  <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">unordered_multimap</span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">um1</span><span class="p">{</span> <span class="p">{</span><span class="s">"1st"</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span> <span class="p">{</span><span class="s">"3rd"</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="p">{</span><span class="s">"5th"</span><span class="p">,</span> <span class="mi">5</span><span class="p">},</span> <span class="p">{</span><span class="s">"7th"</span><span class="p">,</span> <span class="mi">7</span><span class="p">},</span> <span class="p">{</span><span class="s">"9th"</span><span class="p">,</span> <span class="mi">9</span><span class="p">},</span> <span class="p">{</span><span class="s">"1st"</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span> <span class="p">{</span><span class="s">"3rd"</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="p">{</span><span class="s">"5th"</span><span class="p">,</span> <span class="mi">5</span><span class="p">},</span> <span class="p">{</span><span class="s">"7th"</span><span class="p">,</span> <span class="mi">7</span><span class="p">},</span> <span class="p">{</span><span class="s">"9th"</span><span class="p">,</span> <span class="mi">9</span><span class="p">},</span> <span class="p">};</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">unordered_multimap</span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">um2</span><span class="p">{</span> <span class="p">{</span><span class="s">"0th"</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span> <span class="p">{</span><span class="s">"2nd"</span><span class="p">,</span> <span class="mi">2</span><span class="p">},</span> <span class="p">{</span><span class="s">"4th"</span><span class="p">,</span> <span class="mi">4</span><span class="p">},</span> <span class="p">{</span><span class="s">"6th"</span><span class="p">,</span> <span class="mi">6</span><span class="p">},</span> <span class="p">{</span><span class="s">"8th"</span><span class="p">,</span> <span class="mi">8</span><span class="p">},</span> <span class="p">{</span><span class="s">"0th"</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span> <span class="p">{</span><span class="s">"2nd"</span><span class="p">,</span> <span class="mi">2</span><span class="p">},</span> <span class="p">{</span><span class="s">"4th"</span><span class="p">,</span> <span class="mi">4</span><span class="p">},</span> <span class="p">{</span><span class="s">"6th"</span><span class="p">,</span> <span class="mi">6</span><span class="p">},</span> <span class="p">{</span><span class="s">"8th"</span><span class="p">,</span> <span class="mi">8</span><span class="p">},</span> <span class="p">};</span>
+
+  <span class="n">print</span><span class="p">(</span><span class="s">"um1 before"</span><span class="p">,</span> <span class="n">um1</span><span class="p">);</span>
+  <span class="n">print</span><span class="p">(</span><span class="s">"um2 before"</span><span class="p">,</span> <span class="n">um2</span><span class="p">);</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="n">um1</span><span class="p">.</span><span class="n"><span style="color:#ff0000">swap</span></span><span class="p">(</span><span class="n">um2</span><span class="p">);</span>
+
+  <span class="n">print</span><span class="p">(</span><span class="s">"um1 after"</span><span class="p">,</span> <span class="n">um1</span><span class="p">);</span>
+  <span class="n">print</span><span class="p">(</span><span class="s">"um2 after"</span><span class="p">,</span> <span class="n">um2</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>um1 before : (7th, 7), (7th, 7), (5th, 5), (5th, 5), (9th, 9), (9th, 9), (3rd, 3), (3rd, 3), (1st, 1), (1st, 1), 
+um2 before : (8th, 8), (8th, 8), (6th, 6), (6th, 6), (4th, 4), (4th, 4), (2nd, 2), (2nd, 2), (0th, 0), (0th, 0), 
+
+um1 after : (8th, 8), (8th, 8), (6th, 6), (6th, 6), (4th, 4), (4th, 4), (2nd, 2), (2nd, 2), (0th, 0), (0th, 0), 
+um2 after : (7th, 7), (7th, 7), (5th, 5), (5th, 5), (9th, 9), (9th, 9), (3rd, 3), (3rd, 3), (1st, 1), (1st, 1), 
+</code></pre></p>
+<p>注：<code><a href="../unordered_multimap.html">unordered_multimap</a></code> は非順序連想コンテナであるため、出力順序は無意味であることに注意</p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: 3.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: 4.7.2 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#icc">ICC</a>: ?</li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ?</li>
+</ul>
+<h2>関連項目</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="swap_free.html">swap</a></code></td>
+<td>内容の交換（非メンバ関数）</td>
+</tr>
+<tr>
+<td><code><a href="emplace.html">emplace</a></code></td>
+<td>コンテナ内への要素の直接構築</td>
+</tr>
+<tr>
+<td><code><a href="emplace_hint.html">emplace_hint</a></code></td>
+<td>挿入位置のヒントを使用したコンテナ内への要素の直接構築</td>
+</tr>
+<tr>
+<td><code><a href="insert.html">insert</a></code></td>
+<td>要素の追加</td>
+</tr>
+<tr>
+<td><code><a href="erase.html">erase</a></code></td>
+<td>要素の削除</td>
+</tr>
+<tr>
+<td><code><a href="clear.html">clear</a></code></td>
+<td>全要素の削除</td>
+</tr>
+</tbody>
+</table>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf" target="_blank">N4258 Cleaning-up noexcept in the Library, Rev 3</a><ul>
+<li><code>noexcept</code> 追加の経緯となる提案文書</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

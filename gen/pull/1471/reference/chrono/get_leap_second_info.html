@@ -1,0 +1,307 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>get_leap_second_info - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,chrono,std::chrono,function,cpp20
+">
+        <meta name="title" content="get_leap_second_info - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="get_leap_second_info - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="get_leap_second_info - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/chrono/get_leap_second_info.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="指定した日時までに挿入されたうるう秒の回数を取得する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="get_leap_second_info - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/chrono/get_leap_second_info.html" />
+        <meta name="twitter:description" content="指定した日時までに挿入されたうるう秒の回数を取得する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;chrono&#34;], &#34;namespace&#34;: [&#34;std::chrono&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;1773cd79791f13a54846e11a2011a05985eaf556&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;chrono&gt;\n\nnamespace chrono = std::chrono;\nusing namespace std::chrono_literals;\n\nint main()\n{\n  std::cout &lt;&lt; std::boolalpha;\n  // \u65e5\u672c\u6a19\u6e96\u6642(JST)2017\u5e741\u67081\u65e5\u306b\u3046\u308b\u3046\u79d2\u633f\u5165\u304c\u5b9f\u65bd\u3055\u308c\n  //   2016-12-31 23:59:60 UTC\n  // \u304c\u5b58\u5728\u3059\u308b\n  chrono::utc_time tp = chrono::clock_cast&lt;chrono::utc_clock&gt;(chrono::sys_days{2017y/1/1}) - 1s;\n  chrono::leap_second_info info = chrono::get_leap_second_info(tp);\n  std::cout &lt;&lt; tp &lt;&lt; std::endl;\n  std::cout &lt;&lt; info.is_leap_second &lt;&lt; \&#34; \&#34; &lt;&lt; info.elapsed.count() &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;chrono&#34;, &#34;get_leap_second_info&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/chrono.html" itemprop="url">
+              
+                <span itemprop="name">chrono</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">get_leap_second_info</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-10-17T12:25:18">
+        2024年10月17日 12時25分18秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yoh</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/chrono/get_leap_second_info.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/chrono/get_leap_second_info.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;chrono&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::chrono">std::chrono::</span><span class="token">get_leap_second_info</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Duration</span><span class="o">&gt;</span>
+  <span class="n"><a href="leap_second_info.html">leap_second_info</a></span> <span class="n">get_leap_second_info</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="utc_time.html">utc_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;&amp;</span> <span class="n">ut</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>指定した日時までに挿入されたうるう秒の回数を取得する。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型<code><a href="leap_second_info.html">leap_second_info</a></code>の各メンバ変数は、以下の値が代入される：</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>メンバ変数</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>is_leap_second</code></td>
+<td><code>ut</code>自身がうるう秒であれば<code>true</code>、そうでなければ<code>false</code></td>
+</tr>
+<tr>
+<td><code>elapsed</code></td>
+<td>1970年1月1日から<code>ut</code>までに正のうるう秒が挿入された合計 (秒数)。<br /> 合計には<code>ut</code>を含む</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<p><div class="yata" id="1773cd79791f13a54846e11a2011a05985eaf556"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
+
+<span class="k">namespace</span> <span class="n">chrono</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono_literals</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ios/boolalpha.html">std::boolalpha</a></span><span class="p">;</span>
+  <span class="c1">// 日本標準時(JST)2017年1月1日にうるう秒挿入が実施され</span>
+  <span class="c1">//   2016-12-31 23:59:60 UTC</span>
+  <span class="c1">// が存在する</span>
+  <span class="n"><a href="utc_time.html">chrono::utc_time</a></span> <span class="n">tp</span> <span class="o">=</span> <span class="n"><a href="clock_cast.html">chrono::clock_cast</a></span><span class="o">&lt;</span><span class="n"><a href="utc_clock.html">chrono::utc_clock</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="sys_time.html">chrono::sys_days</a></span><span class="p">{</span><span class="n"><a href="year/op_y.html">2017y</a></span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="mi">1</span><span class="p">})</span> <span class="o">-</span> <span class="mi">1</span><span class="n">s</span><span class="p">;</span>
+  <span class="n"><a href="leap_second_info.html">chrono::leap_second_info</a></span> <span class="n">info</span> <span class="o">=</span> <span class="n">chrono</span><span class="o">::</span><span class="n">get_leap_second_info</span><span class="p">(</span><span class="n">tp</span><span class="p">);</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">tp</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">info</span><span class="p">.</span><span class="n">is_leap_second</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> <span class="o">&lt;&lt;</span> <span class="n">info</span><span class="p">.</span><span class="n">elapsed</span><span class="p">.</span><span class="n"><a href="duration/count.html">count()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力例</h3>
+<p><pre><code>2016-12-31 23:59:60
+true 27
+</code></pre></p>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 9.0 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 9.2 <span aria-label="未実装" role="img" title="未実装">❌</span>, 13.2 <span aria-label="実装済" role="img" title="実装済">⭕</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2019 Update 3 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="leap_second.html">leap_second</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://jjy.nict.go.jp/QandA/data/leapsec.html" target="_blank">日本標準時プロジェクト Information of Leap second</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1466r3.html" target="_blank">P1466R3 Miscellaneous minor fixes for chrono</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3359" target="_blank">LWG Issue 3359. <code>&lt;chrono&gt;</code> leap second support should allow for negative leap seconds</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

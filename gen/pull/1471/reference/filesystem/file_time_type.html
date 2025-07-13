@@ -1,0 +1,350 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>file_time_type - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,filesystem,std::filesystem,type-alias,cpp17
+">
+        <meta name="title" content="file_time_type - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="file_time_type - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="file_time_type - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/filesystem/file_time_type.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="ファイル情報で使用する時間の型。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="file_time_type - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/filesystem/file_time_type.html" />
+        <meta name="twitter:description" content="ファイル情報で使用する時間の型。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;filesystem&#34;], &#34;namespace&#34;: [&#34;std::filesystem&#34;], &#34;id-type&#34;: [&#34;type-alias&#34;], &#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;2dab28a4077c41f1c5392cb15ff04cb758237970&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;fstream&gt;\n#include &lt;filesystem&gt;\n#include &lt;ctime&gt;\n#include &lt;iomanip&gt;\n\nnamespace fs = std::filesystem;\n\nvoid print_datetime(const char* name, fs::file_time_type tp)\n{\n  namespace chrono = std::chrono;\n  auto sec = chrono::duration_cast&lt;chrono::seconds&gt;(tp.time_since_epoch());\n\n  std::time_t t = sec.count();\n  const tm* lt = std::localtime(&amp;t);\n  std::cout &lt;&lt; name &lt;&lt; \&#34; : \&#34; &lt;&lt; std::put_time(lt, \&#34;%c\&#34;) &lt;&lt; std::endl;\n}\n\nint main()\n{\n  std::ofstream{\&#34;regular.txt\&#34;};\n  fs::create_directory(\&#34;dir\&#34;);\n\n  // \u30d5\u30a1\u30a4\u30eb\u30fb\u30c7\u30a3\u30ec\u30af\u30c8\u30ea\u306e\u6700\u7d42\u66f4\u65b0\u65e5\u6642\u3092\u53d6\u5f97\n  fs::file_time_type file_time = fs::last_write_time(\&#34;regular.txt\&#34;);\n  fs::file_time_type dir_time = fs::last_write_time(\&#34;dir\&#34;);\n\n  print_datetime(\&#34;file time\&#34;, file_time);\n  print_datetime(\&#34;dir time\&#34;, dir_time);\n\n  // \u30d5\u30a1\u30a4\u30eb\u306e\u6700\u7d42\u66f4\u65b0\u65e5\u6642\u3068\u3057\u3066\u3001\u73fe\u5728\u65e5\u6642\u3092\u8a2d\u5b9a\n  fs::last_write_time(\&#34;regular.txt\&#34;, fs::file_time_type::clock::now());\n}\n&#34;}, {&#34;id&#34;: &#34;bb8a401012fb6323877ac7ac3cce1bb10223a18b&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;fstream&gt;\n#include &lt;filesystem&gt;\n#include &lt;ctime&gt;\n#include &lt;iomanip&gt;\n\nnamespace fs = std::filesystem;\n\nvoid print_datetime(const char* name, fs::file_time_type tp)\n{\n  namespace chrono = std::chrono;\n  chrono::sys_time st = chrono::file_clock::to_sys(tp);\n\n  std::time_t t = chrono::system_clock::to_time_t(st);\n  const tm* lt = std::localtime(&amp;t);\n  std::cout &lt;&lt; name &lt;&lt; \&#34; : \&#34; &lt;&lt; std::put_time(lt, \&#34;%c\&#34;) &lt;&lt; std::endl;\n}\n\nint main()\n{\n  std::ofstream{\&#34;regular.txt\&#34;};\n  fs::create_directory(\&#34;dir\&#34;);\n\n  // \u30d5\u30a1\u30a4\u30eb\u30fb\u30c7\u30a3\u30ec\u30af\u30c8\u30ea\u306e\u6700\u7d42\u66f4\u65b0\u65e5\u6642\u3092\u53d6\u5f97\n  fs::file_time_type file_time = fs::last_write_time(\&#34;regular.txt\&#34;);\n  fs::file_time_type dir_time = fs::last_write_time(\&#34;dir\&#34;);\n\n  print_datetime(\&#34;file time\&#34;, file_time);\n  print_datetime(\&#34;dir time\&#34;, dir_time);\n\n  // \u30d5\u30a1\u30a4\u30eb\u306e\u6700\u7d42\u66f4\u65b0\u65e5\u6642\u3068\u3057\u3066\u3001\u73fe\u5728\u65e5\u6642\u3092\u8a2d\u5b9a\n  fs::last_write_time(\&#34;regular.txt\&#34;, fs::file_time_type::clock::now());\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;filesystem&#34;, &#34;file_time_type&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/filesystem.html" itemprop="url">
+              
+                <span itemprop="name">filesystem</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">file_time_type</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-06-29T06:56:54">
+        2025年06月29日 06時56分54秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">suomesta</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/filesystem/file_time_type.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/filesystem/file_time_type.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">type-alias</div><div class="header">&lt;filesystem&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::filesystem">std::filesystem::</span><span class="token">file_time_type</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">filesystem</span> <span class="p">{</span>
+  <span class="k">using</span> <span class="n">file_time_type</span> <span class="o">=</span> <span class="n"><a href="../chrono/time_point.html">chrono::time_point</a></span><span class="o">&lt;</span><span class="err">実装定義のクロック型</span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// (1) C++17</span>
+  <span class="k">using</span> <span class="n">file_time_type</span> <span class="o">=</span> <span class="n"><a href="../chrono/time_point.html">chrono::time_point</a></span><span class="o">&lt;</span><span class="n"><a href="../chrono/file_clock.html">chrono::file_clock</a></span><span class="o">&gt;</span><span class="p">;</span>   <span class="c1">// (1) C++20</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>ファイル情報で使用する時間の型。</p>
+<p>時間の分解能はOS依存。</p>
+<h2>備考</h2>
+<ul>
+<li>C++17とC++20では標準ライブラリの実装によって、この型を<code><a href="../ctime/time_t.html">std::time_t</a></code>型に変換する方法が異なる場合がある</li>
+</ul>
+<h2>例</h2>
+<h3>C++17での使用例</h3>
+<p><div class="yata" id="2dab28a4077c41f1c5392cb15ff04cb758237970"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../fstream.html">&lt;fstream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../filesystem.html">&lt;filesystem&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../ctime.html">&lt;ctime&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iomanip.html">&lt;iomanip&gt;</a></span><span class="cp"></span>
+
+<span class="k">namespace</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">filesystem</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">print_datetime</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">,</span> <span class="n"><span style="color:#ff0000">fs::file_time_type</span></span> <span class="n">tp</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">namespace</span> <span class="n">chrono</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="p">;</span>
+  <span class="k">auto</span> <span class="n">sec</span> <span class="o">=</span> <span class="n"><a href="../chrono/duration_cast.html">chrono::duration_cast</a></span><span class="o">&lt;</span><span class="n"><a href="../chrono/duration_aliases.html">chrono::seconds</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../chrono/time_point/time_since_epoch.html">tp.time_since_epoch()</a></span><span class="p">);</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="kt">time_t</span> <span class="n">t</span> <span class="o">=</span> <span class="n"><a href="../chrono/duration/count.html">sec.count()</a></span><span class="p">;</span>
+  <span class="k">const</span> <span class="n">tm</span><span class="o">*</span> <span class="n">lt</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">localtime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">);</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="s">" : "</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">put_time</span><span class="p">(</span><span class="n">lt</span><span class="p">,</span> <span class="s">"%c"</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">ofstream</span><span class="p">{</span><span class="s">"regular.txt"</span><span class="p">};</span>
+  <span class="n"><a href="create_directory.html">fs::create_directory</a></span><span class="p">(</span><span class="s">"dir"</span><span class="p">);</span>
+
+  <span class="c1">// ファイル・ディレクトリの最終更新日時を取得</span>
+  <span class="n"><span style="color:#ff0000">fs::file_time_type</span></span> <span class="n">file_time</span> <span class="o">=</span> <span class="n"><a href="last_write_time.html">fs::last_write_time</a></span><span class="p">(</span><span class="s">"regular.txt"</span><span class="p">);</span>
+  <span class="n"><span style="color:#ff0000">fs::file_time_type</span></span> <span class="n">dir_time</span> <span class="o">=</span> <span class="n"><a href="last_write_time.html">fs::last_write_time</a></span><span class="p">(</span><span class="s">"dir"</span><span class="p">);</span>
+
+  <span class="n">print_datetime</span><span class="p">(</span><span class="s">"file time"</span><span class="p">,</span> <span class="n">file_time</span><span class="p">);</span>
+  <span class="n">print_datetime</span><span class="p">(</span><span class="s">"dir time"</span><span class="p">,</span> <span class="n">dir_time</span><span class="p">);</span>
+
+  <span class="c1">// ファイルの最終更新日時として、現在日時を設定</span>
+  <span class="n"><a href="last_write_time.html">fs::last_write_time</a></span><span class="p">(</span><span class="s">"regular.txt"</span><span class="p">,</span> <span class="n"><span style="color:#ff0000">fs::file_time_type</span></span><span class="o">::</span><span class="n">clock</span><span class="o">::</span><span class="n">now</span><span class="p">());</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力例</h4>
+<p><pre><code>file time : Fri Jun 15 14:19:03 2018
+dir time : Fri Jun 15 14:19:03 2018
+</code></pre></p>
+<h3>C++20での使用例</h3>
+<p><div class="yata" id="bb8a401012fb6323877ac7ac3cce1bb10223a18b"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../fstream.html">&lt;fstream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../filesystem.html">&lt;filesystem&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../ctime.html">&lt;ctime&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iomanip.html">&lt;iomanip&gt;</a></span><span class="cp"></span>
+
+<span class="k">namespace</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">filesystem</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">print_datetime</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">,</span> <span class="n"><span style="color:#ff0000">fs::file_time_type</span></span> <span class="n">tp</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">namespace</span> <span class="n">chrono</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="p">;</span>
+  <span class="n"><a href="../chrono/sys_time.html">chrono::sys_time</a></span> <span class="n">st</span> <span class="o">=</span> <span class="n"><a href="../chrono/file_clock.html">chrono::file_clock</a></span><span class="o">::</span><span class="n">to_sys</span><span class="p">(</span><span class="n">tp</span><span class="p">);</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="kt">time_t</span> <span class="n">t</span> <span class="o">=</span> <span class="n"><a href="../chrono/system_clock.html">chrono::system_clock</a></span><span class="o">::</span><span class="n"><a href="../chrono/system_clock/to_time_t.html">to_time_t</a></span><span class="p">(</span><span class="n">st</span><span class="p">);</span>
+  <span class="k">const</span> <span class="n">tm</span><span class="o">*</span> <span class="n">lt</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">localtime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">);</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="s">" : "</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">put_time</span><span class="p">(</span><span class="n">lt</span><span class="p">,</span> <span class="s">"%c"</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">ofstream</span><span class="p">{</span><span class="s">"regular.txt"</span><span class="p">};</span>
+  <span class="n"><a href="create_directory.html">fs::create_directory</a></span><span class="p">(</span><span class="s">"dir"</span><span class="p">);</span>
+
+  <span class="c1">// ファイル・ディレクトリの最終更新日時を取得</span>
+  <span class="n"><span style="color:#ff0000">fs::file_time_type</span></span> <span class="n">file_time</span> <span class="o">=</span> <span class="n"><a href="last_write_time.html">fs::last_write_time</a></span><span class="p">(</span><span class="s">"regular.txt"</span><span class="p">);</span>
+  <span class="n"><span style="color:#ff0000">fs::file_time_type</span></span> <span class="n">dir_time</span> <span class="o">=</span> <span class="n"><a href="last_write_time.html">fs::last_write_time</a></span><span class="p">(</span><span class="s">"dir"</span><span class="p">);</span>
+
+  <span class="n">print_datetime</span><span class="p">(</span><span class="s">"file time"</span><span class="p">,</span> <span class="n">file_time</span><span class="p">);</span>
+  <span class="n">print_datetime</span><span class="p">(</span><span class="s">"dir time"</span><span class="p">,</span> <span class="n">dir_time</span><span class="p">);</span>
+
+  <span class="c1">// ファイルの最終更新日時として、現在日時を設定</span>
+  <span class="n"><a href="last_write_time.html">fs::last_write_time</a></span><span class="p">(</span><span class="s">"regular.txt"</span><span class="p">,</span> <span class="n"><span style="color:#ff0000">fs::file_time_type</span></span><span class="o">::</span><span class="n">clock</span><span class="o">::</span><span class="n">now</span><span class="p">());</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力例</h4>
+<p><pre><code>file time : Wed Jul 15 23:08:06 2020
+dir time : Wed Jul 15 23:08:06 2020
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++17</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 7.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 8.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>:</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="last_write_time.html">last_write_time</a></code></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0355r7.html" target="_blank">P0355R7 Extending <code>&lt;chrono&gt;</code> to Calendars and Time Zones</a></li>
+<li><a href="https://wg21.cmeerw.net/lwg/issue3145" target="_blank"><code>file_clock</code> breaks ABI for C++17 implementations</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

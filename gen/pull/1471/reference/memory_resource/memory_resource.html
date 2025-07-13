@@ -1,0 +1,476 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>memory_resource - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,memory_resource,class,std::pmr,cpp17
+">
+        <meta name="title" content="memory_resource - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="memory_resource - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="memory_resource - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/memory_resource/memory_resource.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`memory_resource`はメモリの確保・解放戦略と実際の処理を実装し、[`polymorphic_allocator`](polymorphic_allocator.md)から利用されるためのインターフェースである。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="memory_resource - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/memory_resource/memory_resource.html" />
+        <meta name="twitter:description" content="`memory_resource`はメモリの確保・解放戦略と実際の処理を実装し、[`polymorphic_allocator`](polymorphic_allocator.md)から利用されるためのインターフェースである。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;memory_resource&#34;], &#34;id-type&#34;: [&#34;class&#34;], &#34;namespace&#34;: [&#34;std::pmr&#34;], &#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;6ab416e52927deadf8e958c32cc0d23ffbdf1c2d&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;memory_resource&gt;\n#include &lt;cstddef&gt;\n\n//\u30b9\u30bf\u30c3\u30af\u9818\u57df\u304b\u3089\u30e1\u30e2\u30ea\u3092\u5272\u308a\u5f53\u3066\u308bmemory_resource\u5b9f\u88c5\ntemplate&lt;std::size_t N&gt;\nstruct stack_resource : public std::pmr::memory_resource {\n\n  stack_resource() = default;\n  //\u30b3\u30d4\u30fc\u306b\u610f\u5473\u304c\u306a\u3044\u306e\u3067\u7981\u6b62\n  stack_resource(const stack_resource&amp;) = delete;\n  stack_resource&amp; operator=(const stack_resource&amp;) = delete;\n\n  void* do_allocate(std::size_t bytes, std::size_t alignment) override {\n    //\u7a7a\u304d\u304c\u306a\u3044\n    if (N &lt;= m_index) throw std::bad_alloc{};\n\n    //2\u306e\u7d2f\u4e57\u3092\u30c1\u30a7\u30c3\u30af\uff08AVX512\u306e\u30a2\u30e9\u30a4\u30e1\u30f3\u30c8\u8981\u6c42\u3067\u3042\u308b64byte\u3092\u6700\u5927\u3068\u3057\u3066\u304a\u304f\uff09\n    bool is_pow2 = false;\n    for (std::size_t pow2 = 1; pow2 &lt;= std::size_t(64); pow2 *= 2) {\n      if (alignment == pow2) {\n        is_pow2 = true;\n        break;\n      }\n    }\n\n    //2\u306e\u7d2f\u4e57\u3067\u306a\u3044\u30a2\u30e9\u30a4\u30e1\u30f3\u30c8\u8981\u6c42\u306falignof(std::max_align_t)\u3078\n    if (!is_pow2) {\n      alignment = alignof(std::max_align_t);\n    }\n\n    auto addr = reinterpret_cast&lt;std::uintptr_t&gt;(&amp;m_buffer[m_index]);\n\n    //\u30a2\u30e9\u30a4\u30e1\u30f3\u30c8\u8981\u6c42\u306b\u5408\u308f\u305b\u308b\n    while ((addr &amp; std::uintptr_t(alignment - 1)) != 0) {\n      ++addr;\n      ++m_index;\n    }\n\n    m_index += bytes;\n\n    //\u30b5\u30a4\u30ba\u304c\u8db3\u308a\u306a\u304f\u306a\u3063\u305f\u3089\n    if (N &lt;= m_index) throw std::bad_alloc{};\n\n    return reinterpret_cast&lt;void*&gt;(addr);\n  }\n\n  void do_deallocate(void* p, std::size_t bytes, [[maybe_unused]] std::size_t alignment) override {\n    auto addr = static_cast&lt;std::byte*&gt;(p);\n    auto end = std::end(m_buffer);\n\n    if (m_buffer &lt;= addr &amp;&amp; addr &lt; end) {\n      //\u5f53\u3066\u305f\u9818\u57df\u3092\u30bc\u30ed\u57cb\u3081\u3059\u308b\u3060\u3051\n      for (std::size_t i = 0; i &lt; bytes; ++i) {\n        if ((addr + i) &lt; end) {\n          addr[i] = std::byte(0);\n        }\n      }\n    }\n\n  }\n\n  bool do_is_equal(const memory_resource&amp; other) const noexcept override {\n    return this == &amp;other;\n  }\n\nprivate:\n  std::byte m_buffer[N]{};\n  std::size_t m_index{};\n};\n\nint main(){\n  stack_resource&lt;100&gt; s{};\n  std::pmr::memory_resource* mr = &amp;s;\n\n  //int1\u3064\u5206\u306e\u9818\u57df\u3092int\u306e\u30a2\u30e9\u30a4\u30e1\u30f3\u30c8\u8981\u6c42\uff08\u591a\u304f\u306e\u74b0\u5883\u3067\u5171\u306b4\u30d0\u30a4\u30c8\uff09\u3067\u30e1\u30e2\u30ea\u78ba\u4fdd\n  void* p = mr-&gt;allocate(sizeof(int), alignof(int));\n  //placement new \u3057\u3066\u69cb\u7bc9\n  int* p_int = new(p) int{ 256 };\n\n  std::cout &lt;&lt; *p_int &lt;&lt; std::endl;\n  //\u4e00\u5fdc\u30a2\u30c9\u30ec\u30b9\u3092\u51fa\u529b\n  std::cout &lt;&lt; p &lt;&lt; std::endl;\n  std::cout &lt;&lt; p_int &lt;&lt; std::endl;\n\n  //\u30c7\u30b9\u30c8\u30e9\u30af\u30bf\u3092\u547c\u3073\u51fa\u3057\u3066\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3092\u7834\u68c4\n  std::destroy_at(p_int);\n\n  //\u30e1\u30e2\u30ea\u306e\u89e3\u653e\n  mr-&gt;deallocate(p, sizeof(int), alignof(int));\n\n  std::cout &lt;&lt; std::boolalpha;\n\n  stack_resource&lt;10&gt; s2{};\n  //\u81ea\u5206\u4ee5\u5916\u3068\u306ftrue\u306b\u306a\u3089\u306a\u3044\n  std::cout &lt;&lt; (*mr == s) &lt;&lt; std::endl;\n  std::cout &lt;&lt; (*mr == s2) &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;memory_resource&#34;, &#34;memory_resource&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/memory_resource.html" itemprop="url">
+              
+                <span itemprop="name">memory_resource</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">memory_resource</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-06-11T13:45:38">
+        2024年06月11日 13時45分38秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/memory_resource/memory_resource.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/memory_resource/memory_resource.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class</div><div class="header">&lt;memory_resource&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::pmr">std::pmr::</span><span class="token">memory_resource</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">pmr</span> <span class="p">{</span>
+  <span class="k">class</span> <span class="nc">memory_resource</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>memory_resource</code>はメモリの確保・解放戦略と実際の処理を実装し、<code><a href="polymorphic_allocator.html">polymorphic_allocator</a></code>から利用されるためのインターフェースである。</p>
+<h2>メンバ関数</h2>
+<h3>構築・破棄</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>virtual ~memory_resource()</code></td>
+<td>仮想デストラクタ</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h3>非仮想インターフェース（NVI）</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="memory_resource/allocate.html">allocate</a></code></td>
+<td>メモリを確保する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="memory_resource/deallocate.html">deallocate</a></code></td>
+<td>メモリを解放する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="memory_resource/is_equal.html">is_equal</a></code></td>
+<td>オブジェクトを超えてメモリ領域の解放を行えるかを調べる</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h3>プライベート純粋仮想関数</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="memory_resource/do_allocate.html">do_allocate</a></code></td>
+<td>メモリを確保する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="memory_resource/do_deallocate.html">do_deallocate</a></code></td>
+<td>メモリを解放する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="memory_resource/do_is_equal.html">do_is_equal</a></code></td>
+<td>オブジェクトを超えてメモリ領域の解放を行えるかを調べる</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h2>非メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="memory_resource/op_equal.html">operator==</a></code></td>
+<td>等値比較</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="memory_resource/op_not_equal.html">operator!=</a></code></td>
+<td>非等値比較</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h2>実装する例</h2>
+<p><div class="yata" id="6ab416e52927deadf8e958c32cc0d23ffbdf1c2d"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../memory_resource.html">&lt;memory_resource&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../cstddef.html">&lt;cstddef&gt;</a></span><span class="cp"></span>
+
+<span class="c1">//スタック領域からメモリを割り当てるmemory_resource実装</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">N</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="nl">stack_resource</span> <span class="p">:</span> <span class="k">public</span> <span class="n"><span style="color:#ff0000">std::pmr::memory_resource</span></span> <span class="p">{</span>
+
+  <span class="n">stack_resource</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+  <span class="c1">//コピーに意味がないので禁止</span>
+  <span class="n">stack_resource</span><span class="p">(</span><span class="k">const</span> <span class="n">stack_resource</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+  <span class="n">stack_resource</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">stack_resource</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+
+  <span class="kt">void</span><span class="o">*</span> <span class="nf">do_allocate</span><span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">bytes</span><span class="p">,</span> <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">alignment</span><span class="p">)</span> <span class="k">override</span> <span class="p">{</span>
+    <span class="c1">//空きがない</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">N</span> <span class="o">&lt;=</span> <span class="n">m_index</span><span class="p">)</span> <span class="k">throw</span> <span class="n"><a href="../new/bad_alloc.html">std::bad_alloc</a></span><span class="p">{};</span>
+
+    <span class="c1">//2の累乗をチェック（AVX512のアライメント要求である64byteを最大としておく）</span>
+    <span class="kt">bool</span> <span class="n">is_pow2</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">pow2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">pow2</span> <span class="o">&lt;=</span> <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="p">(</span><span class="mi">64</span><span class="p">);</span> <span class="n">pow2</span> <span class="o">*=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">alignment</span> <span class="o">==</span> <span class="n">pow2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">is_pow2</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">//2の累乗でないアライメント要求はalignof(<a href="../cstddef/max_align_t.html">std::max_align_t</a>)へ</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">is_pow2</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">alignment</span> <span class="o">=</span> <span class="k">alignof</span><span class="p">(</span><span class="n"><a href="../cstddef/max_align_t.html">std::max_align_t</a></span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">auto</span> <span class="n">addr</span> <span class="o">=</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n"><a href="../cstdint/uintptr_t.html">std::uintptr_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">m_buffer</span><span class="p">[</span><span class="n">m_index</span><span class="p">]);</span>
+
+    <span class="c1">//アライメント要求に合わせる</span>
+    <span class="k">while</span> <span class="p">((</span><span class="n">addr</span> <span class="o">&amp;</span> <span class="n"><a href="../cstdint/uintptr_t.html">std::uintptr_t</a></span><span class="p">(</span><span class="n">alignment</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="o">++</span><span class="n">addr</span><span class="p">;</span>
+      <span class="o">++</span><span class="n">m_index</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">m_index</span> <span class="o">+=</span> <span class="n">bytes</span><span class="p">;</span>
+
+    <span class="c1">//サイズが足りなくなったら</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">N</span> <span class="o">&lt;=</span> <span class="n">m_index</span><span class="p">)</span> <span class="k">throw</span> <span class="n"><a href="../new/bad_alloc.html">std::bad_alloc</a></span><span class="p">{};</span>
+
+    <span class="k">return</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">addr</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kt">void</span> <span class="nf">do_deallocate</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">p</span><span class="p">,</span> <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">bytes</span><span class="p">,</span> <span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span> <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">alignment</span><span class="p">)</span> <span class="k">override</span> <span class="p">{</span>
+    <span class="k">auto</span> <span class="n">addr</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="../cstddef/byte.html">std::byte</a></span><span class="o">*&gt;</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+    <span class="k">auto</span> <span class="n">end</span> <span class="o">=</span> <span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">m_buffer</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">m_buffer</span> <span class="o">&lt;=</span> <span class="n">addr</span> <span class="o">&amp;&amp;</span> <span class="n">addr</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">//当てた領域をゼロ埋めするだけ</span>
+      <span class="k">for</span> <span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">bytes</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">((</span><span class="n">addr</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">)</span> <span class="p">{</span>
+          <span class="n">addr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n"><a href="../cstddef/byte.html">std::byte</a></span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+  <span class="p">}</span>
+
+  <span class="kt">bool</span> <span class="nf">do_is_equal</span><span class="p">(</span><span class="k">const</span> <span class="n">memory_resource</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="k">override</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span> <span class="o">==</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">;</span>
+  <span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+  <span class="n"><a href="../cstddef/byte.html">std::byte</a></span> <span class="n">m_buffer</span><span class="p">[</span><span class="n">N</span><span class="p">]{};</span>
+  <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">m_index</span><span class="p">{};</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+  <span class="n">stack_resource</span><span class="o">&lt;</span><span class="mi">100</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">{};</span>
+  <span class="n"><span style="color:#ff0000">std::pmr::memory_resource</span></span><span class="o">*</span> <span class="n">mr</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">s</span><span class="p">;</span>
+
+  <span class="c1">//int1つ分の領域をintのアライメント要求（多くの環境で共に4バイト）でメモリ確保</span>
+  <span class="kt">void</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">mr</span><span class="o">-&gt;</span><span class="n"><a href="memory_resource/allocate.html">allocate</a></span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">),</span> <span class="k">alignof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+  <span class="c1">//placement new して構築</span>
+  <span class="kt">int</span><span class="o">*</span> <span class="n">p_int</span> <span class="o">=</span> <span class="k">new</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="kt">int</span><span class="p">{</span> <span class="mi">256</span> <span class="p">};</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">p_int</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="c1">//一応アドレスを出力</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">p</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">p_int</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">//デストラクタを呼び出してオブジェクトを破棄</span>
+  <span class="n"><a href="../memory/destroy_at.html">std::destroy_at</a></span><span class="p">(</span><span class="n">p_int</span><span class="p">);</span>
+
+  <span class="c1">//メモリの解放</span>
+  <span class="n">mr</span><span class="o">-&gt;</span><span class="n"><a href="memory_resource/deallocate.html">deallocate</a></span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">),</span> <span class="k">alignof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ios/boolalpha.html">std::boolalpha</a></span><span class="p">;</span>
+
+  <span class="n">stack_resource</span><span class="o">&lt;</span><span class="mi">10</span><span class="o">&gt;</span> <span class="n">s2</span><span class="p">{};</span>
+  <span class="c1">//自分以外とはtrueにならない</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="o">*</span><span class="n">mr</span> <span class="o">==</span> <span class="n">s</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="o">*</span><span class="n">mr</span> <span class="o">==</span> <span class="n">s2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力例（VS2019 Preview2）</h3>
+<p><pre><code>256
+000000308BAFF5D8
+000000308BAFF5D8
+true
+false
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++17</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 9.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2017 update 6 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="pool_resource.html">synchronized_pool_resource</a></code></li>
+<li><code><a href="pool_resource.html">unsynchronized_pool_resource</a></code></li>
+<li><code><a href="monotonic_buffer_resource.html">monotonic_buffer_resource</a></code></li>
+<li><code><a href="new_delete_resource.html">new_delete_resource</a></code></li>
+<li><code><a href="null_memory_resource.html">null_memory_resource</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://faithandbrave.hateblo.jp/entry/2016/08/08/170454" target="_blank">C++1z 多相アロケータとメモリプール - Faith and Brave - C++で遊ぼう </a></li>
+<li><a href="https://cpplover.blogspot.com/2015/09/memoryresource.html" target="_blank">memory_resourceについて - 本の虫</a></li>
+<li><a href="https://qiita.com/MitsutakaTakeda/items/48980faa9498c46b15b2" target="_blank">Polymorphic Allocator in C++17 - Qita</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r1.html" target="_blank">P0220R1 Adopt Library Fundamentals V1 TS Components for C++17 (R1)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0337r0.html" target="_blank">P0337r0 | Delete operator= for polymorphic_allocator</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4562.html#memory.resource.synop" target="_blank">Working Draft, C++ Extensions for Library Fundamentals, Version 2</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
