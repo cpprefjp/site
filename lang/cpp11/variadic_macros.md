@@ -20,10 +20,14 @@ C99互換として、可変引数マクロ(variadic macros)が導入された。
 
 可変引数マクロは、以下の構文を持つ：
 
-```
+```cpp
 #define identifier ( ... ) replacement-list new-line
 #define identifier ( identifier-list , ... ) replacement-list new-line
 ```
+* identifier-list[italic]
+* identifier[italic]
+* replacement-list[italic]
+* new-line[italic]
 
 1行目は、パラメータ全てを可変個受け取る場合。2行目は、先頭のいくつかのパラメータを名前付きで受け取り、それ以外に可変個のパラメータを受け取る場合。
 
