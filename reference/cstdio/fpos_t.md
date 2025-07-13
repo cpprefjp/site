@@ -5,7 +5,7 @@
 
 ```cpp
 namespace std {
-  typedef /* implementation-defined */ fpos_t;
+  using fpos_t = /* implementation-defined */;
 }
 ```
 
