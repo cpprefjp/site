@@ -1,8 +1,8 @@
 # PR [\#1471](https://github.com/cpprefjp/site/pull/1471) プレビュー
-- &#x231a; 更新時刻: 2025-07-14 01:16:52 JST
+- &#x231a; 更新時刻: 2025-07-14 02:16:08 JST
 - &#x1f50d; [プレビュー (HTML)](https://cpprefjp.github.io/site/gen/pull/1471)
 - &#x1f4c8; [プレビュー生成記録](https://github.com/cpprefjp/site/actions?query=event%3Apull_request_target+branch%3Afix-define-style)
-- **&#x2AEF;** ソースの変更: [`116c20a..53e132e`](https://github.com/cpprefjp/site/compare/116c20ad12e92ea2afe704367730ad60b281ca91..53e132eeed999aada1de9512cf6774d66bbb291a)
+- **&#x2AEF;** ソースの変更: [`116c20a..a3029b0`](https://github.com/cpprefjp/site/compare/116c20ad12e92ea2afe704367730ad60b281ca91..a3029b056c2fd30741fc7ba6d96535caf4ccb6eb)
 
 ## 変更記事一覧 (167件)
 

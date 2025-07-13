@@ -2,14 +2,14 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-07-13T16:16:51.483269</updated>
-  <id>dc4ecdf5-6164-41b1-83aa-7c6d5936f776</id>
+  <updated>2025-07-13T17:16:07.722611</updated>
+  <id>6a4b7a3c-a612-4e0a-9ac2-fb7572e1b6d1</id>
 
   
     <entry>
       <title>FILE -- fix(reference/{cstdio,format}): use &#34;unspecified&#34; rather than &#34;/* unspecified */&#34;</title>
       <link href="https://cpprefjp.github.io/reference/cstdio/file.html"/>
-      <id>53e132eeed999aada1de9512cf6774d66bbb291a:reference/cstdio/file.md</id>
+      <id>a3029b056c2fd30741fc7ba6d96535caf4ccb6eb:reference/cstdio/file.md</id>
       <updated>2025-07-14T01:04:20+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/file.md b/reference/cstdio/file.md
@@ -39,7 +39,7 @@ index 243769def..37d2ac195 100644
     <entry>
       <title>formattable -- fix(reference/{cstdio,format}): use &#34;unspecified&#34; rather than &#34;/* unspecified */&#34;</title>
       <link href="https://cpprefjp.github.io/reference/format/formattable.html"/>
-      <id>53e132eeed999aada1de9512cf6774d66bbb291a:reference/format/formattable.md</id>
+      <id>a3029b056c2fd30741fc7ba6d96535caf4ccb6eb:reference/format/formattable.md</id>
       <updated>2025-07-14T01:04:20+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/format/formattable.md b/reference/format/formattable.md
@@ -64,9 +64,338 @@ index 82eaaf447..e040cd16f 100644
     </entry>
   
     <entry>
+      <title>FE_DIVBYZERO -- fix(reference/cmath): 条件付きで定義されるマクロについて #undef の場合も追記</title>
+      <link href="https://cpprefjp.github.io/reference/cfenv/fe_divbyzero.html"/>
+      <id>b6b51861a442c7584fb54d5802a0e8a6117bc1ad:reference/cfenv/fe_divbyzero.md</id>
+      <updated>2025-07-13T15:24:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cfenv/fe_divbyzero.md b/reference/cfenv/fe_divbyzero.md
+index c40429d2b..56bf1bf3e 100644
+--- a/reference/cfenv/fe_divbyzero.md
++++ b/reference/cfenv/fe_divbyzero.md
+@@ -5,6 +5,8 @@
+ 
+ ```cpp
+ #define FE_DIVBYZERO integer-constant-expression
++// または
++#undef FE_DIVBYZERO
+ ```
+ * integer-constant-expression[italic]
+ 
+@@ -13,7 +15,8 @@
+ 
+ 「DIVBYZERO」は「divide-by-zero (ゼロによる除算)」の略称である。
+ 
+-このマクロは、浮動小数点例外の状態を表すビット値である。他の浮動小数点例外マクロとAND (`&amp;amp;`) や OR (`|`)を使用して、複数のマクロを組み合わせて使用できる。
++処理系がこの浮動小数点例外に対応している場合にこのマクロが定義される。
++マクロが定義されるとき、このマクロは浮動小数点例外の状態を表すビット値である。他の浮動小数点例外マクロとAND (`&amp;amp;`) や OR (`|`)を使用して、複数のマクロを組み合わせて使用できる。
+ 
+ ## 例
+ ```cpp example
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>FE_DOWNWARD -- fix(reference/cmath): 条件付きで定義されるマクロについて #undef の場合も追記</title>
+      <link href="https://cpprefjp.github.io/reference/cfenv/fe_downward.html"/>
+      <id>b6b51861a442c7584fb54d5802a0e8a6117bc1ad:reference/cfenv/fe_downward.md</id>
+      <updated>2025-07-13T15:24:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cfenv/fe_downward.md b/reference/cfenv/fe_downward.md
+index 3791056b6..d138e1b12 100644
+--- a/reference/cfenv/fe_downward.md
++++ b/reference/cfenv/fe_downward.md
+@@ -5,6 +5,8 @@
+ 
+ ```cpp
+ #define FE_DOWNWARD integer-constant-expression
++// または
++#undef FE_DOWNWARD
+ ```
+ * integer-constant-expression[italic]
+ 
+@@ -13,7 +15,8 @@
+ 
+ このマクロは、標準ライブラリの丸め処理で使用される丸め方式をユーザーが選択するために使用する。
+ 
+-このマクロの値は、整数の定数式として定義され、非負の値を持つ。
++処理系がこの丸め方式に対応している場合にこのマクロが定義される。
++マクロが定義されるとき、このマクロの値は整数の定数式になり、非負の値を持つ。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>FE_INEXACT -- fix(reference/cmath): 条件付きで定義されるマクロについて #undef の場合も追記</title>
+      <link href="https://cpprefjp.github.io/reference/cfenv/fe_inexact.html"/>
+      <id>b6b51861a442c7584fb54d5802a0e8a6117bc1ad:reference/cfenv/fe_inexact.md</id>
+      <updated>2025-07-13T15:24:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cfenv/fe_inexact.md b/reference/cfenv/fe_inexact.md
+index 214919104..fb1bd7cdb 100644
+--- a/reference/cfenv/fe_inexact.md
++++ b/reference/cfenv/fe_inexact.md
+@@ -5,13 +5,16 @@
+ 
+ ```cpp
+ #define FE_INEXACT integer-constant-expression
++// または
++#undef FE_INEXACT
+ ```
+ * integer-constant-expression[italic]
+ 
+ ## 概要
+ 浮動小数点数の演算が不正確な結果となったことを表す浮動小数点例外の種類。
+ 
+-このマクロは、浮動小数点例外の状態を表すビット値である。他の浮動小数点例外マクロとAND (`&amp;amp;`) や OR (`|`)を使用して、複数のマクロを組み合わせて使用できる。
++処理系がこの浮動小数点例外に対応している場合にこのマクロが定義される。
++マクロが定義されるとき、このマクロは浮動小数点例外の状態を表すビット値である。他の浮動小数点例外マクロとAND (`&amp;amp;`) や OR (`|`)を使用して、複数のマクロを組み合わせて使用できる。
+ 
+ ## 例
+ ```cpp example
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>FE_INVALID -- fix(reference/cmath): 条件付きで定義されるマクロについて #undef の場合も追記</title>
+      <link href="https://cpprefjp.github.io/reference/cfenv/fe_invalid.html"/>
+      <id>b6b51861a442c7584fb54d5802a0e8a6117bc1ad:reference/cfenv/fe_invalid.md</id>
+      <updated>2025-07-13T15:24:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cfenv/fe_invalid.md b/reference/cfenv/fe_invalid.md
+index 1dd7ae231..88241b180 100644
+--- a/reference/cfenv/fe_invalid.md
++++ b/reference/cfenv/fe_invalid.md
+@@ -5,13 +5,16 @@
+ 
+ ```cpp
+ #define FE_INVALID integer-constant-expression
++// または
++#undef FE_INVALID
+ ```
+ * integer-constant-expression[italic]
+ 
+ ## 概要
+ 浮動小数点数に対して不正な操作を行ったことを表す浮動小数点例外の種類。
+ 
+-このマクロは、浮動小数点例外の状態を表すビット値である。他の浮動小数点例外マクロとAND (`&amp;amp;`) や OR (`|`)を使用して、複数のマクロを組み合わせて使用できる。
++処理系がこの浮動小数点例外に対応している場合にこのマクロが定義される。
++マクロが定義されるとき、このマクロは浮動小数点例外の状態を表すビット値である。他の浮動小数点例外マクロとAND (`&amp;amp;`) や OR (`|`)を使用して、複数のマクロを組み合わせて使用できる。
+ 
+ ## 例
+ ```cpp example
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>FE_OVERFLOW -- fix(reference/cmath): 条件付きで定義されるマクロについて #undef の場合も追記</title>
+      <link href="https://cpprefjp.github.io/reference/cfenv/fe_overflow.html"/>
+      <id>b6b51861a442c7584fb54d5802a0e8a6117bc1ad:reference/cfenv/fe_overflow.md</id>
+      <updated>2025-07-13T15:24:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cfenv/fe_overflow.md b/reference/cfenv/fe_overflow.md
+index 87a621ef4..a9f0def58 100644
+--- a/reference/cfenv/fe_overflow.md
++++ b/reference/cfenv/fe_overflow.md
+@@ -5,13 +5,16 @@
+ 
+ ```cpp
+ #define FE_OVERFLOW integer-constant-expression
++// または
++#undef FE_OVERFLOW
+ ```
+ * integer-constant-expression[italic]
+ 
+ ## 概要
+ 浮動小数点数の演算でオーバーフローが発生したことを表す浮動小数点例外の種類。
+ 
+-このマクロは、浮動小数点例外の状態を表すビット値である。他の浮動小数点例外マクロとAND (`&amp;amp;`) や OR (`|`)を使用して、複数のマクロを組み合わせて使用できる。
++処理系がこの浮動小数点例外に対応している場合にこのマクロが定義される。
++マクロが定義されるとき、このマクロは浮動小数点例外の状態を表すビット値である。他の浮動小数点例外マクロとAND (`&amp;amp;`) や OR (`|`)を使用して、複数のマクロを組み合わせて使用できる。
+ 
+ ## 例
+ ```cpp example
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>FE_TONEAREST -- fix(reference/cmath): 条件付きで定義されるマクロについて #undef の場合も追記</title>
+      <link href="https://cpprefjp.github.io/reference/cfenv/fe_tonearest.html"/>
+      <id>b6b51861a442c7584fb54d5802a0e8a6117bc1ad:reference/cfenv/fe_tonearest.md</id>
+      <updated>2025-07-13T15:24:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cfenv/fe_tonearest.md b/reference/cfenv/fe_tonearest.md
+index 039ab0703..baf9d47b5 100644
+--- a/reference/cfenv/fe_tonearest.md
++++ b/reference/cfenv/fe_tonearest.md
+@@ -5,6 +5,8 @@
+ 
+ ```cpp
+ #define FE_TONEAREST integer-constant-expression
++// または
++#undef FE_TONEAREST
+ ```
+ * integer-constant-expression[italic]
+ 
+@@ -15,7 +17,8 @@
+ 
+ このマクロは、標準ライブラリの丸め処理で使用される丸め方式をユーザーが選択するために使用する。
+ 
+-このマクロの値は、整数の定数式として定義され、非負の値を持つ。
++処理系がこの丸め方式に対応している場合にこのマクロが定義される。
++マクロが定義されるとき、このマクロの値は整数の定数式になり、非負の値を持つ。
+ 
+ 
+ ## 備考
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>FE_TOWARDZERO -- fix(reference/cmath): 条件付きで定義されるマクロについて #undef の場合も追記</title>
+      <link href="https://cpprefjp.github.io/reference/cfenv/fe_towardzero.html"/>
+      <id>b6b51861a442c7584fb54d5802a0e8a6117bc1ad:reference/cfenv/fe_towardzero.md</id>
+      <updated>2025-07-13T15:24:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cfenv/fe_towardzero.md b/reference/cfenv/fe_towardzero.md
+index 59850140b..dfdae7884 100644
+--- a/reference/cfenv/fe_towardzero.md
++++ b/reference/cfenv/fe_towardzero.md
+@@ -5,6 +5,8 @@
+ 
+ ```cpp
+ #define FE_TOWARDZERO integer-constant-expression
++// または
++#undef FE_TOWARDZERO
+ ```
+ * integer-constant-expression[italic]
+ 
+@@ -13,7 +15,8 @@
+ 
+ このマクロは、標準ライブラリの丸め処理で使用される丸め方式をユーザーが選択するために使用する。
+ 
+-このマクロの値は、整数の定数式として定義され、非負の値を持つ。
++処理系がこの丸め方式に対応している場合にこのマクロが定義される。
++マクロが定義されるとき、このマクロの値は整数の定数式になり、非負の値を持つ。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>FE_UNDERFLOW -- fix(reference/cmath): 条件付きで定義されるマクロについて #undef の場合も追記</title>
+      <link href="https://cpprefjp.github.io/reference/cfenv/fe_underflow.html"/>
+      <id>b6b51861a442c7584fb54d5802a0e8a6117bc1ad:reference/cfenv/fe_underflow.md</id>
+      <updated>2025-07-13T15:24:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cfenv/fe_underflow.md b/reference/cfenv/fe_underflow.md
+index 4fdc0ee46..821fedaed 100644
+--- a/reference/cfenv/fe_underflow.md
++++ b/reference/cfenv/fe_underflow.md
+@@ -5,13 +5,16 @@
+ 
+ ```cpp
+ #define FE_UNDERFLOW integer-constant-expression
++// または
++#undef FE_UNDERFLOW
+ ```
+ * integer-constant-expression[italic]
+ 
+ ## 概要
+ 浮動小数点数の演算でアンダーフローが発生したことを表す浮動小数点例外の種類。
+ 
+-このマクロは、浮動小数点例外の状態を表すビット値である。他の浮動小数点例外マクロとAND (`&amp;amp;`) や OR (`|`)を使用して、複数のマクロを組み合わせて使用できる。
++処理系がこの浮動小数点例外に対応している場合にこのマクロが定義される。
++マクロが定義されるとき、このマクロは浮動小数点例外の状態を表すビット値である。他の浮動小数点例外マクロとAND (`&amp;amp;`) や OR (`|`)を使用して、複数のマクロを組み合わせて使用できる。
+ 
+ ## 例
+ ```cpp example
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>FE_UPWARD -- fix(reference/cmath): 条件付きで定義されるマクロについて #undef の場合も追記</title>
+      <link href="https://cpprefjp.github.io/reference/cfenv/fe_upward.html"/>
+      <id>b6b51861a442c7584fb54d5802a0e8a6117bc1ad:reference/cfenv/fe_upward.md</id>
+      <updated>2025-07-13T15:24:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cfenv/fe_upward.md b/reference/cfenv/fe_upward.md
+index 24c867ba7..718cd5bbd 100644
+--- a/reference/cfenv/fe_upward.md
++++ b/reference/cfenv/fe_upward.md
+@@ -5,6 +5,8 @@
+ 
+ ```cpp
+ #define FE_UPWARD integer-constant-expression
++// または
++#undef FE_UPWARD
+ ```
+ * integer-constant-expression[italic]
+ 
+@@ -13,7 +15,8 @@
+ 
+ このマクロは、標準ライブラリの丸め処理で使用される丸め方式をユーザーが選択するために使用する。
+ 
+-このマクロの値は、整数の定数式として定義され、非負の値を持つ。
++処理系がこの丸め方式に対応している場合にこのマクロが定義される。
++マクロが定義されるとき、このマクロの値は整数の定数式になり、非負の値を持つ。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
       <title>FP_FAST_FMA -- fix(reference/cmath): 条件付きで定義されるマクロについて #undef の場合も追記</title>
       <link href="https://cpprefjp.github.io/reference/cmath/fp_fast_fma.html"/>
-      <id>6ca1dc1433d8266f67235f52905b3181c743639f:reference/cmath/fp_fast_fma.md</id>
+      <id>b6b51861a442c7584fb54d5802a0e8a6117bc1ad:reference/cmath/fp_fast_fma.md</id>
       <updated>2025-07-13T15:24:50+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cmath/fp_fast_fma.md b/reference/cmath/fp_fast_fma.md
@@ -93,7 +422,7 @@ index 4e23d7228..87e592dd5 100644
     <entry>
       <title>FP_FAST_FMAF -- fix(reference/cmath): 条件付きで定義されるマクロについて #undef の場合も追記</title>
       <link href="https://cpprefjp.github.io/reference/cmath/fp_fast_fmaf.html"/>
-      <id>6ca1dc1433d8266f67235f52905b3181c743639f:reference/cmath/fp_fast_fmaf.md</id>
+      <id>b6b51861a442c7584fb54d5802a0e8a6117bc1ad:reference/cmath/fp_fast_fmaf.md</id>
       <updated>2025-07-13T15:24:50+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cmath/fp_fast_fmaf.md b/reference/cmath/fp_fast_fmaf.md
@@ -120,7 +449,7 @@ index 045ef8e00..74527dfe6 100644
     <entry>
       <title>FP_FAST_FMAL -- fix(reference/cmath): 条件付きで定義されるマクロについて #undef の場合も追記</title>
       <link href="https://cpprefjp.github.io/reference/cmath/fp_fast_fmal.html"/>
-      <id>6ca1dc1433d8266f67235f52905b3181c743639f:reference/cmath/fp_fast_fmal.md</id>
+      <id>b6b51861a442c7584fb54d5802a0e8a6117bc1ad:reference/cmath/fp_fast_fmal.md</id>
       <updated>2025-07-13T15:24:50+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cmath/fp_fast_fmal.md b/reference/cmath/fp_fast_fmal.md
@@ -147,14 +476,14 @@ index 819924966..37dd43922 100644
     <entry>
       <title>NAN -- fix(reference/cmath): 条件付きで定義されるマクロについて #undef の場合も追記</title>
       <link href="https://cpprefjp.github.io/reference/cmath/nan.html"/>
-      <id>6ca1dc1433d8266f67235f52905b3181c743639f:reference/cmath/nan.md</id>
+      <id>b6b51861a442c7584fb54d5802a0e8a6117bc1ad:reference/cmath/nan.md</id>
       <updated>2025-07-13T15:24:50+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cmath/nan.md b/reference/cmath/nan.md
-index 7f5baa3be..16d560bb0 100644
+index 7f5baa3be..c623e65f3 100644
 --- a/reference/cmath/nan.md
 +++ b/reference/cmath/nan.md
-@@ -5,6 +5,8 @@
+@@ -5,11 +5,14 @@
  
  ```cpp
  #define NAN constant-expression
@@ -163,6 +492,303 @@ index 7f5baa3be..16d560bb0 100644
  ```
  * constant-expression[italic]
  
+ ## 概要
+-`NaN`(Not a Number, 非数) がサポートされる場合、`float` の `quiet NaN` の定数式に展開される。
++処理系が `float` 型の quiet NaN (Not a Number, 非数) に対応している場合に定義される。
++`float` の quiet NaN の定数式に展開される。
+ 
+ 
+ ## バージョン
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>FE_ALL_EXCEPT -- fix(reference/cmath): マクロ定数の式の種類についてC規格の記述を反映</title>
+      <link href="https://cpprefjp.github.io/reference/cfenv/fe_all_except.html"/>
+      <id>978af3c4dc54317473945507d96be5b5f91c7d10:reference/cfenv/fe_all_except.md</id>
+      <updated>2025-07-13T15:17:26+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cfenv/fe_all_except.md b/reference/cfenv/fe_all_except.md
+index c7d4159b9..93d2ac031 100644
+--- a/reference/cfenv/fe_all_except.md
++++ b/reference/cfenv/fe_all_except.md
+@@ -4,8 +4,9 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-#define FE_ALL_EXCEPT implementation-defined
++#define FE_ALL_EXCEPT unspecified
+ ```
++* unspecified[italic]
+ 
+ ## 概要
+ 全ての浮動小数点例外マクロをビットORでつなぐことによって実装で定義されるマクロ。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>FE_DIVBYZERO -- fix(reference/cmath): マクロ定数の式の種類についてC規格の記述を反映</title>
+      <link href="https://cpprefjp.github.io/reference/cfenv/fe_divbyzero.html"/>
+      <id>978af3c4dc54317473945507d96be5b5f91c7d10:reference/cfenv/fe_divbyzero.md</id>
+      <updated>2025-07-13T15:17:26+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cfenv/fe_divbyzero.md b/reference/cfenv/fe_divbyzero.md
+index 97b2dd8a6..c40429d2b 100644
+--- a/reference/cfenv/fe_divbyzero.md
++++ b/reference/cfenv/fe_divbyzero.md
+@@ -4,8 +4,9 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-#define FE_DIVBYZERO implementation-defined
++#define FE_DIVBYZERO integer-constant-expression
+ ```
++* integer-constant-expression[italic]
+ 
+ ## 概要
+ 浮動小数点数に対してゼロで除算されたことを表す浮動小数点例外の種類。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>FE_DOWNWARD -- fix(reference/cmath): マクロ定数の式の種類についてC規格の記述を反映</title>
+      <link href="https://cpprefjp.github.io/reference/cfenv/fe_downward.html"/>
+      <id>978af3c4dc54317473945507d96be5b5f91c7d10:reference/cfenv/fe_downward.md</id>
+      <updated>2025-07-13T15:17:26+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cfenv/fe_downward.md b/reference/cfenv/fe_downward.md
+index 8aa5169fc..3791056b6 100644
+--- a/reference/cfenv/fe_downward.md
++++ b/reference/cfenv/fe_downward.md
+@@ -4,8 +4,9 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-#define FE_DOWNWARD implementation-defined
++#define FE_DOWNWARD integer-constant-expression
+ ```
++* integer-constant-expression[italic]
+ 
+ ## 概要
+ 浮動小数点数の丸め方式として、「負の無限大方向への丸め (切り下げ, floor, round down)」を表すマクロ。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>FE_INEXACT -- fix(reference/cmath): マクロ定数の式の種類についてC規格の記述を反映</title>
+      <link href="https://cpprefjp.github.io/reference/cfenv/fe_inexact.html"/>
+      <id>978af3c4dc54317473945507d96be5b5f91c7d10:reference/cfenv/fe_inexact.md</id>
+      <updated>2025-07-13T15:17:26+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cfenv/fe_inexact.md b/reference/cfenv/fe_inexact.md
+index 6fbfdde5f..214919104 100644
+--- a/reference/cfenv/fe_inexact.md
++++ b/reference/cfenv/fe_inexact.md
+@@ -4,8 +4,9 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-#define FE_INEXACT implementation-defined
++#define FE_INEXACT integer-constant-expression
+ ```
++* integer-constant-expression[italic]
+ 
+ ## 概要
+ 浮動小数点数の演算が不正確な結果となったことを表す浮動小数点例外の種類。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>FE_INVALID -- fix(reference/cmath): マクロ定数の式の種類についてC規格の記述を反映</title>
+      <link href="https://cpprefjp.github.io/reference/cfenv/fe_invalid.html"/>
+      <id>978af3c4dc54317473945507d96be5b5f91c7d10:reference/cfenv/fe_invalid.md</id>
+      <updated>2025-07-13T15:17:26+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cfenv/fe_invalid.md b/reference/cfenv/fe_invalid.md
+index a015347a1..1dd7ae231 100644
+--- a/reference/cfenv/fe_invalid.md
++++ b/reference/cfenv/fe_invalid.md
+@@ -4,8 +4,9 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-#define FE_INVALID implementation-defined
++#define FE_INVALID integer-constant-expression
+ ```
++* integer-constant-expression[italic]
+ 
+ ## 概要
+ 浮動小数点数に対して不正な操作を行ったことを表す浮動小数点例外の種類。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>FE_OVERFLOW -- fix(reference/cmath): マクロ定数の式の種類についてC規格の記述を反映</title>
+      <link href="https://cpprefjp.github.io/reference/cfenv/fe_overflow.html"/>
+      <id>978af3c4dc54317473945507d96be5b5f91c7d10:reference/cfenv/fe_overflow.md</id>
+      <updated>2025-07-13T15:17:26+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cfenv/fe_overflow.md b/reference/cfenv/fe_overflow.md
+index 4ff0bdbd0..87a621ef4 100644
+--- a/reference/cfenv/fe_overflow.md
++++ b/reference/cfenv/fe_overflow.md
+@@ -4,8 +4,9 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-#define FE_OVERFLOW implementation-defined
++#define FE_OVERFLOW integer-constant-expression
+ ```
++* integer-constant-expression[italic]
+ 
+ ## 概要
+ 浮動小数点数の演算でオーバーフローが発生したことを表す浮動小数点例外の種類。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>FE_TONEAREST -- fix(reference/cmath): マクロ定数の式の種類についてC規格の記述を反映</title>
+      <link href="https://cpprefjp.github.io/reference/cfenv/fe_tonearest.html"/>
+      <id>978af3c4dc54317473945507d96be5b5f91c7d10:reference/cfenv/fe_tonearest.md</id>
+      <updated>2025-07-13T15:17:26+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cfenv/fe_tonearest.md b/reference/cfenv/fe_tonearest.md
+index 1ce5fd200..039ab0703 100644
+--- a/reference/cfenv/fe_tonearest.md
++++ b/reference/cfenv/fe_tonearest.md
+@@ -4,8 +4,9 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-#define FE_TONEAREST implementation-defined
++#define FE_TONEAREST integer-constant-expression
+ ```
++* integer-constant-expression[italic]
+ 
+ ## 概要
+ 浮動小数点数の丸め方式として、「最も近い値への丸め (round to nearest)」を表すマクロ。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>FE_TOWARDZERO -- fix(reference/cmath): マクロ定数の式の種類についてC規格の記述を反映</title>
+      <link href="https://cpprefjp.github.io/reference/cfenv/fe_towardzero.html"/>
+      <id>978af3c4dc54317473945507d96be5b5f91c7d10:reference/cfenv/fe_towardzero.md</id>
+      <updated>2025-07-13T15:17:26+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cfenv/fe_towardzero.md b/reference/cfenv/fe_towardzero.md
+index 3847072da..59850140b 100644
+--- a/reference/cfenv/fe_towardzero.md
++++ b/reference/cfenv/fe_towardzero.md
+@@ -4,8 +4,9 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-#define FE_TOWARDZERO implementation-defined
++#define FE_TOWARDZERO integer-constant-expression
+ ```
++* integer-constant-expression[italic]
+ 
+ ## 概要
+ 浮動小数点数の丸め方式として、「ゼロ方向への丸め (切り捨て, trunc)」を表すマクロ。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>FE_UNDERFLOW -- fix(reference/cmath): マクロ定数の式の種類についてC規格の記述を反映</title>
+      <link href="https://cpprefjp.github.io/reference/cfenv/fe_underflow.html"/>
+      <id>978af3c4dc54317473945507d96be5b5f91c7d10:reference/cfenv/fe_underflow.md</id>
+      <updated>2025-07-13T15:17:26+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cfenv/fe_underflow.md b/reference/cfenv/fe_underflow.md
+index 94660cdf3..4fdc0ee46 100644
+--- a/reference/cfenv/fe_underflow.md
++++ b/reference/cfenv/fe_underflow.md
+@@ -4,8 +4,9 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-#define FE_UNDERFLOW implementation-defined
++#define FE_UNDERFLOW integer-constant-expression
+ ```
++* integer-constant-expression[italic]
+ 
+ ## 概要
+ 浮動小数点数の演算でアンダーフローが発生したことを表す浮動小数点例外の種類。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>FE_UPWARD -- fix(reference/cmath): マクロ定数の式の種類についてC規格の記述を反映</title>
+      <link href="https://cpprefjp.github.io/reference/cfenv/fe_upward.html"/>
+      <id>978af3c4dc54317473945507d96be5b5f91c7d10:reference/cfenv/fe_upward.md</id>
+      <updated>2025-07-13T15:17:26+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cfenv/fe_upward.md b/reference/cfenv/fe_upward.md
+index 52f82e09e..24c867ba7 100644
+--- a/reference/cfenv/fe_upward.md
++++ b/reference/cfenv/fe_upward.md
+@@ -4,8 +4,9 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-#define FE_UPWARD implementation-defined
++#define FE_UPWARD integer-constant-expression
+ ```
++* integer-constant-expression[italic]
+ 
+ ## 概要
+ 浮動小数点数の丸め方式として、「正の無限大方向への丸め (切り上げ, ceil, round up)」を表すマクロ。
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
@@ -174,7 +800,7 @@ index 7f5baa3be..16d560bb0 100644
     <entry>
       <title>FP_ILOGB0 -- fix(reference/cmath): マクロ定数の式の種類についてC規格の記述を反映</title>
       <link href="https://cpprefjp.github.io/reference/cmath/fp_ilogb0.html"/>
-      <id>6dcd9d0b86150a51c69837084cc9d3ba0a40d593:reference/cmath/fp_ilogb0.md</id>
+      <id>978af3c4dc54317473945507d96be5b5f91c7d10:reference/cmath/fp_ilogb0.md</id>
       <updated>2025-07-13T15:17:26+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cmath/fp_ilogb0.md b/reference/cmath/fp_ilogb0.md
@@ -204,7 +830,7 @@ index ea747b621..1c20eb7a1 100644
     <entry>
       <title>FP_ILOGBNAN -- fix(reference/cmath): マクロ定数の式の種類についてC規格の記述を反映</title>
       <link href="https://cpprefjp.github.io/reference/cmath/fp_ilogbnan.html"/>
-      <id>6dcd9d0b86150a51c69837084cc9d3ba0a40d593:reference/cmath/fp_ilogbnan.md</id>
+      <id>978af3c4dc54317473945507d96be5b5f91c7d10:reference/cmath/fp_ilogbnan.md</id>
       <updated>2025-07-13T15:17:26+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cmath/fp_ilogbnan.md b/reference/cmath/fp_ilogbnan.md
@@ -234,7 +860,7 @@ index dac15985c..9f13217ea 100644
     <entry>
       <title>FP_INFINITE -- fix(reference/cmath): マクロ定数の式の種類についてC規格の記述を反映</title>
       <link href="https://cpprefjp.github.io/reference/cmath/fp_infinite.html"/>
-      <id>6dcd9d0b86150a51c69837084cc9d3ba0a40d593:reference/cmath/fp_infinite.md</id>
+      <id>978af3c4dc54317473945507d96be5b5f91c7d10:reference/cmath/fp_infinite.md</id>
       <updated>2025-07-13T15:17:26+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cmath/fp_infinite.md b/reference/cmath/fp_infinite.md
@@ -264,7 +890,7 @@ index adfd5b925..755ac6bc1 100644
     <entry>
       <title>FP_NAN -- fix(reference/cmath): マクロ定数の式の種類についてC規格の記述を反映</title>
       <link href="https://cpprefjp.github.io/reference/cmath/fp_nan.html"/>
-      <id>6dcd9d0b86150a51c69837084cc9d3ba0a40d593:reference/cmath/fp_nan.md</id>
+      <id>978af3c4dc54317473945507d96be5b5f91c7d10:reference/cmath/fp_nan.md</id>
       <updated>2025-07-13T15:17:26+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cmath/fp_nan.md b/reference/cmath/fp_nan.md
@@ -294,7 +920,7 @@ index ac5bf9cc3..d681b3a44 100644
     <entry>
       <title>FP_NORMAL -- fix(reference/cmath): マクロ定数の式の種類についてC規格の記述を反映</title>
       <link href="https://cpprefjp.github.io/reference/cmath/fp_normal.html"/>
-      <id>6dcd9d0b86150a51c69837084cc9d3ba0a40d593:reference/cmath/fp_normal.md</id>
+      <id>978af3c4dc54317473945507d96be5b5f91c7d10:reference/cmath/fp_normal.md</id>
       <updated>2025-07-13T15:17:26+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cmath/fp_normal.md b/reference/cmath/fp_normal.md
@@ -324,7 +950,7 @@ index 5d9128781..35f1621cb 100644
     <entry>
       <title>FP_SUBNORMAL -- fix(reference/cmath): マクロ定数の式の種類についてC規格の記述を反映</title>
       <link href="https://cpprefjp.github.io/reference/cmath/fp_subnormal.html"/>
-      <id>6dcd9d0b86150a51c69837084cc9d3ba0a40d593:reference/cmath/fp_subnormal.md</id>
+      <id>978af3c4dc54317473945507d96be5b5f91c7d10:reference/cmath/fp_subnormal.md</id>
       <updated>2025-07-13T15:17:26+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cmath/fp_subnormal.md b/reference/cmath/fp_subnormal.md
@@ -354,7 +980,7 @@ index c011449b6..e8ffdff3c 100644
     <entry>
       <title>FP_ZERO -- fix(reference/cmath): マクロ定数の式の種類についてC規格の記述を反映</title>
       <link href="https://cpprefjp.github.io/reference/cmath/fp_zero.html"/>
-      <id>6dcd9d0b86150a51c69837084cc9d3ba0a40d593:reference/cmath/fp_zero.md</id>
+      <id>978af3c4dc54317473945507d96be5b5f91c7d10:reference/cmath/fp_zero.md</id>
       <updated>2025-07-13T15:17:26+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cmath/fp_zero.md b/reference/cmath/fp_zero.md
@@ -384,7 +1010,7 @@ index bdcdcd047..1bfc9d646 100644
     <entry>
       <title>HUGE_VAL -- fix(reference/cmath): マクロ定数の式の種類についてC規格の記述を反映</title>
       <link href="https://cpprefjp.github.io/reference/cmath/huge_val.html"/>
-      <id>6dcd9d0b86150a51c69837084cc9d3ba0a40d593:reference/cmath/huge_val.md</id>
+      <id>978af3c4dc54317473945507d96be5b5f91c7d10:reference/cmath/huge_val.md</id>
       <updated>2025-07-13T15:17:26+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cmath/huge_val.md b/reference/cmath/huge_val.md
@@ -413,7 +1039,7 @@ index c2bccc8d9..ab97b1879 100644
     <entry>
       <title>HUGE_VALF -- fix(reference/cmath): マクロ定数の式の種類についてC規格の記述を反映</title>
       <link href="https://cpprefjp.github.io/reference/cmath/huge_valf.html"/>
-      <id>6dcd9d0b86150a51c69837084cc9d3ba0a40d593:reference/cmath/huge_valf.md</id>
+      <id>978af3c4dc54317473945507d96be5b5f91c7d10:reference/cmath/huge_valf.md</id>
       <updated>2025-07-13T15:17:26+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cmath/huge_valf.md b/reference/cmath/huge_valf.md
@@ -442,7 +1068,7 @@ index c335721e9..af0e69185 100644
     <entry>
       <title>HUGE_VALL -- fix(reference/cmath): マクロ定数の式の種類についてC規格の記述を反映</title>
       <link href="https://cpprefjp.github.io/reference/cmath/huge_vall.html"/>
-      <id>6dcd9d0b86150a51c69837084cc9d3ba0a40d593:reference/cmath/huge_vall.md</id>
+      <id>978af3c4dc54317473945507d96be5b5f91c7d10:reference/cmath/huge_vall.md</id>
       <updated>2025-07-13T15:17:26+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cmath/huge_vall.md b/reference/cmath/huge_vall.md
@@ -471,7 +1097,7 @@ index 87974c6fe..edff3f473 100644
     <entry>
       <title>INFINITY -- fix(reference/cmath): マクロ定数の式の種類についてC規格の記述を反映</title>
       <link href="https://cpprefjp.github.io/reference/cmath/infinity.html"/>
-      <id>6dcd9d0b86150a51c69837084cc9d3ba0a40d593:reference/cmath/infinity.md</id>
+      <id>978af3c4dc54317473945507d96be5b5f91c7d10:reference/cmath/infinity.md</id>
       <updated>2025-07-13T15:17:26+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cmath/infinity.md b/reference/cmath/infinity.md
@@ -500,7 +1126,7 @@ index c54fd23c8..56f223c8a 100644
     <entry>
       <title>NAN -- fix(reference/cmath): マクロ定数の式の種類についてC規格の記述を反映</title>
       <link href="https://cpprefjp.github.io/reference/cmath/nan.html"/>
-      <id>6dcd9d0b86150a51c69837084cc9d3ba0a40d593:reference/cmath/nan.md</id>
+      <id>978af3c4dc54317473945507d96be5b5f91c7d10:reference/cmath/nan.md</id>
       <updated>2025-07-13T15:17:26+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cmath/nan.md b/reference/cmath/nan.md
@@ -519,6 +1145,36 @@ index f27fd5ebe..7f5baa3be 100644
  
  ## 概要
  `NaN`(Not a Number, 非数) がサポートされる場合、`float` の `quiet NaN` の定数式に展開される。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>offsetof -- fix(reference/cmath): マクロ定数の式の種類についてC規格の記述を反映</title>
+      <link href="https://cpprefjp.github.io/reference/cstddef/offsetof.html"/>
+      <id>978af3c4dc54317473945507d96be5b5f91c7d10:reference/cstddef/offsetof.md</id>
+      <updated>2025-07-13T15:17:26+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstddef/offsetof.md b/reference/cstddef/offsetof.md
+index 0f2c5e56b..f8a757c7f 100644
+--- a/reference/cstddef/offsetof.md
++++ b/reference/cstddef/offsetof.md
+@@ -3,9 +3,9 @@
+ * macro[meta id-type]
+ 
+ ```cpp
+-#define offsetof(type, member) see-below
++#define offsetof(type, member) integer-constant-expression
+ ```
+-* see-below[italic]
++* integer-constant-expression[italic]
+ 
+ ## 概要
+ このマクロ関数は、構造体型 `type` のメンバ `member` へのオフセット値をバイト数で返す。
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
