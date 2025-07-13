@@ -16,23 +16,23 @@
 
         <meta charset="UTF-8">
 
-        <title>RAND_MAX - cpprefjp C++日本語リファレンス</title>
+        <title>MB_CUR_MAX - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cstdlib,macro
 ">
-        <meta name="title" content="RAND_MAX - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="RAND_MAX - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="RAND_MAX - cpprefjp C++日本語リファレンス" />
-        <meta property="og:url" content="https://cpprefjp.github.io/reference/cstdlib/rand_max.html" />
+        <meta name="title" content="MB_CUR_MAX - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="MB_CUR_MAX - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="MB_CUR_MAX - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/cstdlib/mb_cur_max.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
-        <meta property="og:description" content="`std::rand()`関数で生成される疑似乱数の最大値を定義しているマクロ。" />
+        <meta property="og:description" content="現在のロケールのマルチバイト文字の最大バイト数を示すマクロ。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="RAND_MAX - cpprefjp C++日本語リファレンス" />
-        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/cstdlib/rand_max.html" />
-        <meta name="twitter:description" content="`std::rand()`関数で生成される疑似乱数の最大値を定義しているマクロ。" />
+        <meta name="twitter:title" content="MB_CUR_MAX - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/cstdlib/mb_cur_max.html" />
+        <meta name="twitter:description" content="現在のロケールのマルチバイト文字の最大バイト数を示すマクロ。" />
 
         
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cstdlib&#34;], &#34;id-type&#34;: [&#34;macro&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;36b0d42f6f1a9547444a2887991dcc756a195535&#34;, &#34;source&#34;: &#34;#include &lt;climits&gt;\n#include &lt;cstdlib&gt;\n#include &lt;ctime&gt;\n#include &lt;iostream&gt;\n\nint main()\n{\n  // use current time as seed for random generator\n  std::srand(std::time(NULL));\n\n  std::cout &lt;&lt; \&#34;RAND_MAX: \&#34; &lt;&lt; RAND_MAX &lt;&lt; &#39;\\n&#39;;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cstdlib&#34;, &#34;rand_max&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cstdlib&#34;], &#34;id-type&#34;: [&#34;macro&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;cb0adb7a128e809a2f67e06d3522a92dbe6757ad&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;clocale&gt;\n#include &lt;cstdlib&gt;\n\nint main() {\n  //C \u30ed\u30b1\u30fc\u30eb(\u6a19\u6e96ASCII)\n  std::cout &lt;&lt; \&#34;Locale: standard, MB_CUR_MAX: \&#34; &lt;&lt; MB_CUR_MAX &lt;&lt; std::endl;\n\n  if (std::setlocale(LC_CTYPE, \&#34;ja_JP.UTF-8\&#34;) == nullptr) {\n      std::cout &lt;&lt; \&#34;Failed to set locale to: ja_JP.UTF-8\&#34;  &lt;&lt; std::endl;\n  }\n  std::setlocale(LC_CTYPE, \&#34;ja_JP.UTF-8\&#34;);//\u30ed\u30b1\u30fc\u30eb\u3092\u65e5\u672c\u8a9eUTF-8\u306b\u5909\u66f4\n  std::cout &lt;&lt; \&#34;Locale: ja_JP.UTF-8, MB_CUR_MAX: \&#34; &lt;&lt; MB_CUR_MAX &lt;&lt; std::endl;\n  return 0;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cstdlib&#34;, &#34;mb_cur_max&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -171,7 +171,7 @@
         <span>
           
             
-              <span itemprop="name">RAND_MAX</span>
+              <span itemprop="name">MB_CUR_MAX</span>
             
           
         </span>
@@ -188,22 +188,22 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-13T03:32:51">
-        2025年07月13日 03時32分51秒
+      <span itemprop="datePublished" content="2025-07-13T02:10:25">
+        2025年07月13日 02時10分25秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Raclamusi</span>
+        <span itemprop="name">K10-K10</span>
       </span>
       が更新
     </small></p>
   
 
         <p class="text-right">
-          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/cstdlib/rand_max.md">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/cstdlib/mb_cur_max.md">
             <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
           </a>
-          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/cstdlib/rand_max.md">
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/cstdlib/mb_cur_max.md">
             <span class="fa fa-fw fa-pencil"></span>編集
           </a>
         </p>
@@ -212,35 +212,48 @@
     <div class="row">
       <div class="col-sm-12 content-body">
         
-  <div class="identifier-type">macro</div><div class="header">&lt;cstdlib&gt;</div><h1 itemprop="name"><span class="token">RAND_MAX</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="cp">#define RAND_MAX </span><span class="cm">/*<i>implementation-defined</i>*/</span><span class="cp"></span>
+  <div class="identifier-type">macro</div><div class="header">&lt;cstdlib&gt;</div><h1 itemprop="name"><span class="token">MB_CUR_MAX</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="cp">#define MB_CUR_MAX </span><span class="cm">/* implementation defined */</span><span class="cp"></span>
+<span class="p">}</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
-<p><code>std::rand()</code>関数で生成される疑似乱数の最大値を定義しているマクロ。</p>
-<p>このマクロの値は実装依存である。</p>
-<p>また、少なくとも<code>32767</code>以上であることは保証されている。</p>
+<p>現在のロケールのマルチバイト文字の最大バイト数を示すマクロ。</p>
+<p>この定数はコンパイル時定数ではなく、実行時に変化する可能性がある。</p>
+<p>この値が<code>MB_LEN_MAX</code>を超えることはない。</p>
+<h2>結果型</h2>
+<p><code>size_t</code>型の正の整数値。</p>
 <h2>例</h2>
-<p><div class="yata" id="36b0d42f6f1a9547444a2887991dcc756a195535"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../climits.html">&lt;climits&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="cb0adb7a128e809a2f67e06d3522a92dbe6757ad"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;clocale&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../cstdlib.html">&lt;cstdlib&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../ctime.html">&lt;ctime&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-  <span class="c1">// use current time as seed for random generator</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">srand</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">//C ロケール(標準ASCII)</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"Locale: standard, MB_CUR_MAX: "</span> <span class="o">&lt;&lt;</span> <span class="n">MB_CUR_MAX</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"RAND_MAX: "</span> <span class="o">&lt;&lt;</span> <span class="n">RAND_MAX</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">setlocale</span><span class="p">(</span><span class="n">LC_CTYPE</span><span class="p">,</span> <span class="s">"ja_JP.UTF-8"</span><span class="p">)</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"Failed to set locale to: ja_JP.UTF-8"</span>  <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">setlocale</span><span class="p">(</span><span class="n">LC_CTYPE</span><span class="p">,</span> <span class="s">"ja_JP.UTF-8"</span><span class="p">);</span><span class="c1">//ロケールを日本語UTF-8に変更</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"Locale: ja_JP.UTF-8, MB_CUR_MAX: "</span> <span class="o">&lt;&lt;</span> <span class="n">MB_CUR_MAX</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
-<h2>出力例</h2>
-<p><pre><code>RAND_MAX: 2147483647
+<h3>出力例</h3>
+<p><pre><code>Locale: standard(C), MB_CUR_MAX: 1
+Locale: ja_JP.UTF-8, MB_CUR_MAX: 6
 </code></pre></p>
 <h2>関連項目</h2>
 <ul>
-<li><code><a href="rand.html">rand()</a></code>: 疑似乱数を生成する。</li>
+<li><code><a href="../climits/mb_len_max.html">MB_LEN_MAX</a></code>:全ロケールでのマルチバイト文字の最大バイト数</li>
+<li><code>setlocale</code>:ロケールを変更する</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://linux.die.net/man/3/mb_cur_max" target="_blank">mb_cur_max(3) - Linux man page</a></li>
 </ul></div>
 
       </div>

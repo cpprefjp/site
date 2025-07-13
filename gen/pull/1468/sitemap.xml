@@ -297,7 +297,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/cstdio.html</loc>
-      <lastmod>2025-07-12T19:33:41+09:00</lastmod>
+      <lastmod>2025-07-13T23:02:46+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.8</priority>
     </url>
@@ -430,7 +430,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/cstdlib.html</loc>
-      <lastmod>2025-07-12T19:33:41+09:00</lastmod>
+      <lastmod>2025-07-13T23:02:46+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.8</priority>
     </url>
@@ -9515,6 +9515,13 @@
     </url>
   
     <url>
+      <loc>https://cpprefjp.github.io/reference/cstdlib/mb_cur_max.html</loc>
+      <lastmod>2025-07-13T23:02:46+09:00</lastmod>
+      <changefreq>daily</changefreq>
+      <priority>0.7</priority>
+    </url>
+  
+    <url>
       <loc>https://cpprefjp.github.io/reference/cstdlib/atexit.html</loc>
       <lastmod>2025-07-12T19:33:41+09:00</lastmod>
       <changefreq>daily</changefreq>
@@ -9593,7 +9600,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/cstdlib/rand_max.html</loc>
-      <lastmod>2025-07-07T17:57:21+09:00</lastmod>
+      <lastmod>2025-07-13T23:02:46+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -26533,7 +26540,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/cstdio/filename_max.html</loc>
-      <lastmod>2025-07-11T21:34:03+09:00</lastmod>
+      <lastmod>2025-07-13T23:02:46+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -26554,7 +26561,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/cstdio/file.html</loc>
-      <lastmod>2025-07-12T13:53:38+09:00</lastmod>
+      <lastmod>2025-07-13T23:02:46+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -26631,7 +26638,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/cstdio/eof.html</loc>
-      <lastmod>2025-07-12T19:33:41+09:00</lastmod>
+      <lastmod>2025-07-13T23:02:46+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -26687,7 +26694,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/cstdio/fpos_t.html</loc>
-      <lastmod>2025-07-13T22:52:13+09:00</lastmod>
+      <lastmod>2025-07-13T23:02:46+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -26715,7 +26722,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/cstdio/fread.html</loc>
-      <lastmod>2025-07-13T22:52:13+09:00</lastmod>
+      <lastmod>2025-07-13T23:02:46+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
