@@ -4,8 +4,9 @@
 * cpp11[meta cpp]
 
 ```cpp
-#define FE_DOWNWARD implementation-defined
+#define FE_DOWNWARD integer-constant-expression
 ```
+* integer-constant-expression[italic]
 
 ## 概要
 浮動小数点数の丸め方式として、「負の無限大方向への丸め (切り下げ, floor, round down)」を表すマクロ。

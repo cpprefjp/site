@@ -4,8 +4,9 @@
 * cpp11[meta cpp]
 
 ```cpp
-#define FE_INVALID implementation-defined
+#define FE_INVALID integer-constant-expression
 ```
+* integer-constant-expression[italic]
 
 ## 概要
 浮動小数点数に対して不正な操作を行ったことを表す浮動小数点例外の種類。

@@ -4,8 +4,9 @@
 * cpp11[meta cpp]
 
 ```cpp
-#define FE_UPWARD implementation-defined
+#define FE_UPWARD integer-constant-expression
 ```
+* integer-constant-expression[italic]
 
 ## 概要
 浮動小数点数の丸め方式として、「正の無限大方向への丸め (切り上げ, ceil, round up)」を表すマクロ。

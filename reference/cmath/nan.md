@@ -4,9 +4,9 @@
 * cpp11[meta cpp]
 
 ```cpp
-#define NAN constant_expression
+#define NAN constant-expression
 ```
-* constant_expression[italic]
+* constant-expression[italic]
 
 ## 概要
 `NaN`(Not a Number, 非数) がサポートされる場合、`float` の `quiet NaN` の定数式に展開される。

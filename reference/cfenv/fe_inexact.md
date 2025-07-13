@@ -4,8 +4,9 @@
 * cpp11[meta cpp]
 
 ```cpp
-#define FE_INEXACT implementation-defined
+#define FE_INEXACT integer-constant-expression
 ```
+* integer-constant-expression[italic]
 
 ## 概要
 浮動小数点数の演算が不正確な結果となったことを表す浮動小数点例外の種類。

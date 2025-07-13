@@ -4,8 +4,9 @@
 * cpp11[meta cpp]
 
 ```cpp
-#define FE_UNDERFLOW implementation-defined
+#define FE_UNDERFLOW integer-constant-expression
 ```
+* integer-constant-expression[italic]
 
 ## 概要
 浮動小数点数の演算でアンダーフローが発生したことを表す浮動小数点例外の種類。

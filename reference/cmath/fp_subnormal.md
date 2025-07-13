@@ -4,9 +4,9 @@
 * cpp11[meta cpp]
 
 ```cpp
-#define FP_SUBNORMAL integer_constant_expression
+#define FP_SUBNORMAL integer-constant-expression
 ```
-* integer_constant_expression[italic]
+* integer-constant-expression[italic]
 
 ## 概要
 浮動小数点数が非正規化数であることを表す整数定数式。

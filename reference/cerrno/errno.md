@@ -3,8 +3,9 @@
 * macro[meta id-type]
 
 ```cpp
-#define errno implementation-defined
+#define errno unspecified
 ```
+* unspecified[italic]
 
 ## 概要
 `errno` は、標準ライブラリのエラー状態を表すマクロである。

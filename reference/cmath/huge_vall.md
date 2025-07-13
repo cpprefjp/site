@@ -4,8 +4,9 @@
 * cpp11[meta cpp]
 
 ```cpp
-#define HUGE_VALL implementation-defined
+#define HUGE_VALL constant-expression
 ```
+* constant-expression[italic]
 
 ## 概要
 `long double` 型の正の値の定数式。

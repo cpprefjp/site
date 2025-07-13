@@ -4,9 +4,9 @@
 * cpp11[meta cpp]
 
 ```cpp
-#define FP_INFINITE integer_constant_expression
+#define FP_INFINITE integer-constant-expression
 ```
-* integer_constant_expression[italic]
+* integer-constant-expression[italic]
 
 ## 概要
 浮動小数点数が（正または負の）無限大であることを表す整数定数式。

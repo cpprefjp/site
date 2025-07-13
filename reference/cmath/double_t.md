@@ -6,9 +6,10 @@
 
 ```cpp
 namespace std {
-  using double_t = implementation-defined;
+  using double_t = floating-type;
 }
 ```
+* floating-type[italic]
 
 ## 概要
 `double` と同じかそれより広い範囲の値を持つ浮動小数点数型を表す。

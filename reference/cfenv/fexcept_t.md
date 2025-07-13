@@ -6,9 +6,10 @@
 
 ```cpp
 namespace std {
-  using fexcept_t = implementation-defined;
+  using fexcept_t = unspecified;
 }
 ```
+* unspecified[italic]
 
 ## 概要
 実装が持つ浮動小数点例外の状態フラグを表す型。

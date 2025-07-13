@@ -4,8 +4,9 @@
 * cpp11[meta cpp]
 
 ```cpp
-#define FE_TONEAREST implementation-defined
+#define FE_TONEAREST integer-constant-expression
 ```
+* integer-constant-expression[italic]
 
 ## 概要
 浮動小数点数の丸め方式として、「最も近い値への丸め (round to nearest)」を表すマクロ。

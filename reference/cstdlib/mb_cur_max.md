@@ -3,8 +3,9 @@
 * macro[meta id-type]
 
 ```cpp
-#define MB_CUR_MAX implementation-defined
+#define MB_CUR_MAX positive-integer-expression
 ```
+* positive-integer-expression[italic]
 
 ## 概要
 現在のロケールのマルチバイト文字の最大バイト数を示すマクロ。

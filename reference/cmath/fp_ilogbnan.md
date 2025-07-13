@@ -4,9 +4,9 @@
 * cpp11[meta cpp]
 
 ```cpp
-#define FP_ILOGBNAN implementation_defined
+#define FP_ILOGBNAN integer-constant-expression
 ```
-* implementation_defined[italic]
+* integer-constant-expression[italic]
 
 ## 概要
 `FP_ILOGBNAN` は、[`std::ilogb()`](ilogb.md) に `NaN` を渡したときの戻り値を表す整数定数式である。

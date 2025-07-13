@@ -4,8 +4,9 @@
 * cpp11[meta cpp]
 
 ```cpp
-#define FE_DIVBYZERO implementation-defined
+#define FE_DIVBYZERO integer-constant-expression
 ```
+* integer-constant-expression[italic]
 
 ## 概要
 浮動小数点数に対してゼロで除算されたことを表す浮動小数点例外の種類。

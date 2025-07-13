@@ -4,8 +4,9 @@
 * cpp11[meta cpp]
 
 ```cpp
-#define INFINITY some_expression
+#define INFINITY constant-expression
 ```
+* constant-expression[italic]
 
 ## 概要
 `float` の無限大がサポートされる場合、`float` 型の正の無限大である。

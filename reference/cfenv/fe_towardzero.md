@@ -4,8 +4,9 @@
 * cpp11[meta cpp]
 
 ```cpp
-#define FE_TOWARDZERO implementation-defined
+#define FE_TOWARDZERO integer-constant-expression
 ```
+* integer-constant-expression[italic]
 
 ## 概要
 浮動小数点数の丸め方式として、「ゼロ方向への丸め (切り捨て, trunc)」を表すマクロ。
