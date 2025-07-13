@@ -31,7 +31,7 @@ int main() {
   if (std::setlocale(LC_CTYPE, "ja_JP.UTF-8") == nullptr) {
       std::cout << "Failed to set locale to: ja_JP.UTF-8"  << std::endl;
   }
-  std::setlocale(LC_CTYPE, "ja_JP.UTF-8");//
+  std::setlocale(LC_CTYPE, "ja_JP.UTF-8");//ロケールを日本語UTF-8に変更
   std::cout << "Locale: ja_JP.UTF-8, MB_CUR_MAX: " << MB_CUR_MAX << std::endl;
   return 0;
 }
