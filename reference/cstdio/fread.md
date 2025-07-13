@@ -5,7 +5,7 @@
 
 ```cpp
 namespace std {
-  std::size_t fread(void *buffer, std::size_t size, std::size_t count, std::FILE *stream);
+  size_t fread(void *buffer, size_t size, size_t count, FILE *stream);
 }
 ```
 
