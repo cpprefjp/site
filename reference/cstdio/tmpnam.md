@@ -31,7 +31,7 @@ namespace std {
 #include <iostream>
 
 int main() {
-    char filename[1000];
+    char filename[L_tmpnam];
     if (std::tmpnam(filename)) {
         std::cout << "Generated filename: " << filename << '\n';
         // ここで fopen(filename, "w") とかして使う（が、あまり推奨されない）
