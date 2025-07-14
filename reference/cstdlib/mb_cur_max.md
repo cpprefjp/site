@@ -3,9 +3,7 @@
 * macro[meta id-type]
 
 ```cpp
-namespace std {
-  #define MB_CUR_MAX /* implementation defined */
-}
+#define MB_CUR_MAX implementation-defined
 ```
 
 ## 概要
@@ -28,24 +26,24 @@ int main() {
   //C ロケール(標準ASCII)
   std::cout << "Locale: standard, MB_CUR_MAX: " << MB_CUR_MAX << std::endl;
   
+  //ロケールを日本(UTF-8)に変更
   if (std::setlocale(LC_CTYPE, "ja_JP.UTF-8") == nullptr) {
-      std::cout << "Failed to set locale to: ja_JP.UTF-8"  << std::endl;
+    std::cout << "Failed to set locale to ja_JP.UTF-8"  << std::endl;
+  } else {
+    std::cout << "Locale: ja_JP.UTF-8, MB_CUR_MAX: " << MB_CUR_MAX << std::endl;
   }
-  std::setlocale(LC_CTYPE, "ja_JP.UTF-8");//ロケールを日本語UTF-8に変更
-  std::cout << "Locale: ja_JP.UTF-8, MB_CUR_MAX: " << MB_CUR_MAX << std::endl;
-  return 0;
 }
 ```
 
 ### 出力例
 ```
-Locale: standard(C), MB_CUR_MAX: 1
+Locale: standard, MB_CUR_MAX: 1
 Locale: ja_JP.UTF-8, MB_CUR_MAX: 6
 ```
 
 ## 関連項目
-- [`MB_LEN_MAX`](/reference/climits/mb_len_max.md):全ロケールでのマルチバイト文字の最大バイト数
-- `setlocale`:ロケールを変更する
+- [`MB_LEN_MAX`](/reference/climits/mb_len_max.md): 全ロケールでのマルチバイト文字の最大バイト数
+- `setlocale`: ロケールを変更する
 
 ## 参照
 - [mb_cur_max(3) - Linux man page](https://linux.die.net/man/3/mb_cur_max)
