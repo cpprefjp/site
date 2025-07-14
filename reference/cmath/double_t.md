@@ -25,6 +25,7 @@ int main() {
 	std::cout << num << std::endl;
 }
 ```
+* std::double_t[color ff0000]
 
 ## 出力例
 ```

@@ -25,6 +25,8 @@ int main() {
 	std::cout << num << std::endl;
 }
 ```
+* std::float_t[color ff0000]
+
 ## 出力例
 ```
 1.01
