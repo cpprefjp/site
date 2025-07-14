@@ -3,7 +3,7 @@
 * macro[meta id-type]
 
 ```cpp
-#define stderr /* implementation-defined */
+#define stderr implementation-defined
 ```
 
 ## 概要
