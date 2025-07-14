@@ -1,0 +1,354 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>unordered_multiset::find - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,unordered_set,std,unordered_multiset,function,cpp11
+">
+        <meta name="title" content="unordered_multiset::find - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="unordered_multiset::find - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="unordered_multiset::find - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/find.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="コンテナ内で指定されたキーに合致する要素を検索し、見つかった場合はそれへのイテレータを返し、見つからなかった場合は [`end`](end.md) （コンテナの最後の要素の次）を指すイテレータを返す。  " />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="unordered_multiset::find - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/find.html" />
+        <meta name="twitter:description" content="コンテナ内で指定されたキーに合致する要素を検索し、見つかった場合はそれへのイテレータを返し、見つからなかった場合は [`end`](end.md) （コンテナの最後の要素の次）を指すイテレータを返す。  " />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;unordered_set&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;unordered_multiset&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;9f225131c3dd41fcf595dbb08898b2f51bf5a813&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;unordered_set&gt;\n#include &lt;algorithm&gt;\n#include &lt;iterator&gt;\n\nint main()\n{\n  std::unordered_multiset&lt;int&gt; ums{ 1, 3, 5, 7, 9, 1, 3, 5, 7, 9, };\n\n  std::copy(ums.begin(), ums.end(), std::ostream_iterator&lt;int&gt;(std::cout, \&#34;, \&#34;));\n  std::cout &lt;&lt; std::endl;\n\n  auto it1 = ums.find(5);\n  if (it1 == ums.end()) {\n    std::cout &lt;&lt; \&#34;not found\&#34; &lt;&lt; std::endl;\n  } else {\n    std::cout &lt;&lt; \&#34;found \&#34; &lt;&lt; *it1 &lt;&lt; \&#34; at \&#34; &lt;&lt; std::distance(ums.begin(), it1) &lt;&lt; std::endl;\n  }\n\n  auto it2 = ums.find(8);\n  if (it2 == ums.end()) {\n    std::cout &lt;&lt; \&#34;not found\&#34; &lt;&lt; std::endl;\n  } else {\n    std::cout &lt;&lt; \&#34;found \&#34; &lt;&lt; *it2 &lt;&lt; \&#34; at \&#34; &lt;&lt; std::distance(ums.begin(), it2) &lt;&lt; std::endl;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;unordered_set&#34;, &#34;unordered_multiset&#34;, &#34;find&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/unordered_set.html" itemprop="url">
+              
+                <span itemprop="name">unordered_set</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/unordered_set/unordered_multiset.html" itemprop="url">
+              
+                <span itemprop="name">unordered_multiset</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">find</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-05-22T07:35:09">
+        2025年05月22日 07時35分09秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/unordered_set/unordered_multiset/find.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/unordered_set/unordered_multiset/find.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;unordered_set&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class unordered_multiset">unordered_multiset::</span><span class="token">find</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">iterator</span>       <span class="nf">find</span><span class="p">(</span><span class="k">const</span> <span class="n">key_type</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span>                    <span class="c1">// (1) C++11</span>
+<span class="n">const_iterator</span> <span class="nf">find</span><span class="p">(</span><span class="k">const</span> <span class="n">key_type</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>              <span class="c1">// (2) C++11</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">K</span><span class="o">&gt;</span> <span class="n">iterator</span>       <span class="n">find</span><span class="p">(</span><span class="k">const</span> <span class="n">K</span><span class="o">&amp;</span> <span class="n">k</span><span class="p">);</span>        <span class="c1">// (3) C++20</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">K</span><span class="o">&gt;</span> <span class="n">const_iterator</span> <span class="n">find</span><span class="p">(</span><span class="k">const</span> <span class="n">K</span><span class="o">&amp;</span> <span class="n">k</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>  <span class="c1">// (4) C++20</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>コンテナ内で指定されたキーに合致する要素を検索し、見つかった場合はそれへのイテレータを返し、見つからなかった場合は <code><a href="end.html">end</a></code> （コンテナの最後の要素の次）を指すイテレータを返す。<br />
+指定されたキーに合致する要素の範囲を取得するには <code><a href="equal_range.html">equal_range</a></code>を用いる。<br />
+また、指定されたキーに合致する要素が存在するかを調べる場合は <code><a href="count.html">count</a></code> を用いる。</p>
+<ul>
+<li>(1) : 非<code>const</code>な<code>*this</code>オブジェクトに対する検索</li>
+<li>(2) : <code>const</code>な<code>*this</code>オブジェクトに対する検索</li>
+<li>(3) : 非<code>const</code>な<code>*this</code>オブジェクトに対する透過的な検索</li>
+<li>(4) : <code>const</code>な<code>*this</code>オブジェクトに対する透過的な検索</li>
+</ul>
+<p>(3), (4)の透過的な検索は、<code>Pred::is_transparent</code>および<code>Hash::is_transparent</code>が定義される場合に有効になる機能であり、例として<code>unordered_multiset&lt;string&gt; s;</code>に対して<code>s.find("key");</code>のように<code>string</code>型のキーを持つ連想コンテナの検索インタフェースに文字列リテラルを渡した際、<code>string</code>の一時オブジェクトが作られないようにできる。詳細は<code><a href="../../functional/hash.html">std::hash</a></code>クラスのページを参照。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
+<ul>
+<li>(3), (4) : <code>Pred::is_transparent</code>型および<code>Hash::is_transparent</code>型が定義されていること</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p>指定されたキーと等価なキーの要素を指すイテレータを返す。そのような要素がない場合には、<code><a href="end.html">end</a>()</code>を返す。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></h2>
+<ul>
+<li>平均： 定数時間</li>
+<li>最悪： <code><a href="size.html">size</a></code> について線形時間</li>
+</ul>
+<h2>備考</h2>
+<ul>
+<li>コンテナが <code>const</code> の場合には <code>const_iterator</code>、そうでない場合には <code>iterator</code> が返るが、<code>unordered_multiset</code> の場合には、いずれにせよ読み取り専用イテレータである。</li>
+<li>指定されたキーと等価なキーの要素が複数あった場合に、どの要素を指すイテレータが返されるかは標準では明確にされていない。ハッシュ関数を使用してバケットに格納するという <code>unordered_multiset</code> の要件を考えると、よほどひねくれた実装にしない限りイテレータの走査順で先頭の要素を指すイテレータが返されるものと思われるが、<code><a href="equal_range.html">equal_range</a>()</code> を使えば確実に先頭の要素を指すイテレータを取得することができる。</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="9f225131c3dd41fcf595dbb08898b2f51bf5a813"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../unordered_set.html">&lt;unordered_set&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../iterator.html">&lt;iterator&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">unordered_multiset</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">ums</span><span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="p">};</span>
+
+  <span class="n"><a href="../../algorithm/copy.html">std::copy</a></span><span class="p">(</span><span class="n"><a href="begin.html">ums.begin()</a></span><span class="p">,</span> <span class="n"><a href="end.html">ums.end()</a></span><span class="p">,</span> <span class="n"><a href="../../iterator/ostream_iterator.html">std::ostream_iterator</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">,</span> <span class="s">", "</span><span class="p">));</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="k">auto</span> <span class="n">it1</span> <span class="o">=</span> <span class="n">ums</span><span class="p">.</span><span class="n"><span style="color:#ff0000">find</span></span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">it1</span> <span class="o">==</span> <span class="n"><a href="end.html">ums.end()</a></span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"not found"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"found "</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it1</span> <span class="o">&lt;&lt;</span> <span class="s">" at "</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../iterator/distance.html">std::distance</a></span><span class="p">(</span><span class="n"><a href="begin.html">ums.begin()</a></span><span class="p">,</span> <span class="n">it1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">auto</span> <span class="n">it2</span> <span class="o">=</span> <span class="n">ums</span><span class="p">.</span><span class="n"><span style="color:#ff0000">find</span></span><span class="p">(</span><span class="mi">8</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">it2</span> <span class="o">==</span> <span class="n"><a href="end.html">ums.end()</a></span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"not found"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"found "</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it2</span> <span class="o">&lt;&lt;</span> <span class="s">" at "</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../iterator/distance.html">std::distance</a></span><span class="p">(</span><span class="n"><a href="begin.html">ums.begin()</a></span><span class="p">,</span> <span class="n">it2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>9, 9, 7, 7, 5, 5, 1, 1, 3, 3,
+found 5 at 4
+not found
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: 3.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: 4.7.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#icc">ICC</a>: ?</li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ?</li>
+</ul>
+<h2>関連項目</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="count.html">count</a></code></td>
+<td>指定したキーの要素数を取得</td>
+</tr>
+<tr>
+<td><code><a href="equal_range.html">equal_range</a></code></td>
+<td>指定したキーの範囲を取得</td>
+</tr>
+</tbody>
+</table>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0919r3.html" target="_blank">P0919R3 Heterogeneous lookup for unordered containers</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

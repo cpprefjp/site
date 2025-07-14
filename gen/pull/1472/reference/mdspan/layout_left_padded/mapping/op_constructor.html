@@ -1,0 +1,500 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>layout_left_padded::mapping::コンストラクタ - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,mdspan,function,std,layout_left_padded::mapping,cpp26
+">
+        <meta name="title" content="layout_left_padded::mapping::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="layout_left_padded::mapping::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="layout_left_padded::mapping::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/mdspan/layout_left_padded/mapping/op_constructor.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="- (1) : デフォルトコンストラクタ" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="layout_left_padded::mapping::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/mdspan/layout_left_padded/mapping/op_constructor.html" />
+        <meta name="twitter:description" content="- (1) : デフォルトコンストラクタ" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;mdspan&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;layout_left_padded::mapping&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;52f3cb9cec854a5a10832896cb89c3f2cdd7fbcd&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;array&gt;\n#include &lt;mdspan&gt;\n\nusing Ext3x3 = std::extents&lt;size_t, 3, 3&gt;;\nusing Ext2D = std::dims&lt;2&gt;;\n\nint main()\n{\n  // (1) : \u30c7\u30d5\u30a9\u30eb\u30c8\u30b3\u30f3\u30b9\u30c8\u30e9\u30af\u30bf\n  {\n    std::layout_left_padded&lt;4&gt;::mapping&lt;Ext3x3&gt; map1s;\n    std::layout_left_padded&lt;&gt;::mapping&lt;Ext3x3&gt; map1d;\n    assert(map1s.stride(1) == 4);\n    assert(map1d.stride(1) == 3);\n  }\n  // (2) : \u30b3\u30d4\u30fc\u30b3\u30f3\u30b9\u30c8\u30e9\u30af\u30bf\n  {\n    std::layout_left_padded&lt;4&gt;::mapping&lt;Ext3x3&gt; map2_a;\n    std::layout_left_padded&lt;4&gt;::mapping&lt;Ext3x3&gt; map2_b = map2_a;\n    assert(map2_a == map2_b);\n  }\n  // (3) : extents\u304b\u3089\u69cb\u7bc9\n  {\n    Ext2D ext{3, 3};\n    std::layout_left_padded&lt;&gt;::mapping&lt;Ext2D&gt; map3 = ext;\n    assert(map3.extents() == ext);\n  }\n  // (4) : extents\u3068\u30d1\u30c7\u30a3\u30f3\u30b0\u304b\u3089\u69cb\u7bc9\n  {\n    Ext2D ext{3, 3};\n    std::layout_left_padded&lt;&gt;::mapping&lt;Ext2D&gt; map4{ext, 4};\n    assert(map4.extents() == ext &amp;&amp; map4.stride(1) == 4);\n  }\n  // (5) : layout_left::mapping\u304b\u3089\u306e\u5909\u63db\u30b3\u30f3\u30b9\u30c8\u30e9\u30af\u30bf\n  {\n    std::layout_left::mapping src5{Ext3x3{}};\n    std::layout_left_padded&lt;&gt;::mapping&lt;Ext2D&gt; dst5 = src5;\n    assert(dst5.stride(1) == 3);\n  }\n  // (6) : layout_stride::mapping\u304b\u3089\u306e\u5909\u63db\u30b3\u30f3\u30b9\u30c8\u30e9\u30af\u30bf\n  {\n    std::array&lt;int, 2&gt; strides{1, 4};\n    std::layout_stride::mapping src6{Ext3x3{}, strides};\n    std::layout_left_padded&lt;&gt;::mapping&lt;Ext2D&gt; dst6{src6};\n    assert(dst6.stride(1) == 4);\n  }\n  // (7) : \u4ed6layout_left_padded::mapping\u304b\u3089\u306e\u5909\u63db\u30b3\u30f3\u30b9\u30c8\u30e9\u30af\u30bf\n  {\n    std::layout_left_padded&lt;4&gt;::mapping&lt;Ext3x3&gt; src7;\n    std::layout_left_padded&lt;&gt;::mapping&lt;Ext2D&gt; dst7{src7};\n    assert(dst7.extents() == Ext3x3{} &amp;&amp; dst7.stride(1) == 4);\n  }\n  // (8) : layout_right(_padded)::mapping\u304b\u3089\u306e\u5909\u63db\u30b3\u30f3\u30b9\u30c8\u30e9\u30af\u30bf\n  {\n    using Ext1D = std::dims&lt;1&gt;;\n    std::layout_right::mapping&lt;Ext1D&gt; src8{Ext1D{5}};\n    std::layout_left_padded&lt;&gt;::mapping&lt;Ext1D&gt; dst8{src8};\n    assert(dst8.extent(0) == 5);\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;mdspan&#34;, &#34;layout_left_padded&#34;, &#34;mapping&#34;, &#34;op_constructor&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../../reference/mdspan.html" itemprop="url">
+              
+                <span itemprop="name">mdspan</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../../reference/mdspan/layout_left_padded.html" itemprop="url">
+              
+                <span itemprop="name">layout_left_padded</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../../reference/mdspan/layout_left_padded/mapping.html" itemprop="url">
+              
+                <span itemprop="name">mapping</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">コンストラクタ</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-04-15T04:10:30">
+        2025年04月15日 04時10分30秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Raclamusi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/mdspan/layout_left_padded/mapping/op_constructor.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/mdspan/layout_left_padded/mapping/op_constructor.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;mdspan&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class layout_left_padded::mapping">layout_left_padded::mapping::</span><span class="token">コンストラクタ</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="nf">mapping</span><span class="p">()</span> <span class="k">noexcept</span><span class="p">;</span>  <span class="c1">// (1)</span>
+
+<span class="k">constexpr</span> <span class="nf">mapping</span><span class="p">(</span><span class="k">const</span> <span class="n">mapping</span><span class="o">&amp;</span><span class="p">)</span> <span class="k">noexcept</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>  <span class="c1">// (2)</span>
+
+<span class="k">constexpr</span> <span class="nf">mapping</span><span class="p">(</span><span class="k">const</span> <span class="n">extents_type</span><span class="o">&amp;</span> <span class="n">ext</span><span class="p">);</span>  <span class="c1">// (3)</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">OtherIndexType</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="n">mapping</span><span class="p">(</span><span class="k">const</span> <span class="n">extents_type</span><span class="o">&amp;</span> <span class="n">ext</span><span class="p">,</span> <span class="n">OtherIndexType</span> <span class="n">pad</span><span class="p">);</span>  <span class="c1">// (4)</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">OtherExtents</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="k">explicit</span><span class="p">(</span><span class="o">!</span><span class="n"><a href="../../../type_traits/is_convertible.html">is_convertible_v</a></span><span class="o">&lt;</span><span class="n">OtherExtents</span><span class="p">,</span> <span class="n">extents_type</span><span class="o">&gt;</span><span class="p">)</span>
+  <span class="n">mapping</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../../layout_left/mapping.html">layout_left::mapping</a></span><span class="o">&lt;</span><span class="n">OtherExtents</span><span class="o">&gt;&amp;</span> <span class="n">other</span><span class="p">);</span>  <span class="c1">// (5)</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">OtherExtents</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="k">explicit</span><span class="p">(</span><span class="n">extents_type</span><span class="o">::</span><span class="n"><a href="../../extents/rank.html">rank()</a></span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+  <span class="n">mapping</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../../layout_stride/mapping.html">layout_stride::mapping</a></span><span class="o">&lt;</span><span class="n">OtherExtents</span><span class="o">&gt;&amp;</span> <span class="n">other</span><span class="p">);</span>  <span class="c1">// (6)</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">LayoutLeftPaddedMapping</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="k">explicit</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">)</span>
+  <span class="n">mapping</span><span class="p">(</span><span class="k">const</span> <span class="n">LayoutLeftPaddedMapping</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">);</span>  <span class="c1">// (7)</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">LayoutRightPaddedMapping</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="k">explicit</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">)</span>
+  <span class="n">mapping</span><span class="p">(</span><span class="k">const</span> <span class="n">LayoutRightPaddedMapping</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>  <span class="c1">// (8)</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<ul>
+<li>(1) : デフォルトコンストラクタ</li>
+<li>(2) : コピーコンストラクタ</li>
+<li>(3) : <code><a href="../../extents.html">extents</a></code>から構築</li>
+<li>(4) : <code><a href="../../extents.html">extents</a></code>とパディングから構築</li>
+<li>(5) : <code><a href="../../layout_left/mapping.html">layout_left::mapping</a></code>からの変換コンストラクタ</li>
+<li>(6) : <code><a href="../../layout_stride/mapping.html">layout_stride::mapping</a></code>からの変換コンストラクタ</li>
+<li>(7) : 他<code>layout_left_padded&lt;S&gt;::mapping</code>からの変換コンストラクタ</li>
+<li>(8) : <code><a href="../../layout_right/mapping.html">layout_right::mapping</a></code>または<code><a href="../../layout_right_padded/mapping.html">layout_right_padded&lt;S&gt;::mapping</a></code>からの変換コンストラクタ</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
+<ul>
+<li>(4) :<ul>
+<li><code><a href="../../../type_traits/is_convertible.html">is_convertible_v</a>&lt;OtherIndexType, index_type&gt;</code>が<code>true</code>であること。</li>
+<li><code><a href="../../../type_traits/is_nothrow_constructible.html">is_nothrow_constructible_v</a>&lt;index_type, OtherIndexType&gt;</code>が<code>true</code>であること。</li>
+</ul>
+</li>
+<li>(5), (6) :<ul>
+<li><code><a href="../../../type_traits/is_constructible.html">is_constructible_v</a>&lt;extents_type, OtherExtents&gt;</code>が<code>true</code>であること。</li>
+</ul>
+</li>
+<li>(7) :<ul>
+<li><code><a href="../../is-layout-left-padded-mapping-of.html">is-layout-left-padded-mapping-of</a>&lt;LayoutLeftPaddedMapping&gt;</code>が<code>true</code>であること。</li>
+<li><code><a href="../../../type_traits/is_constructible.html">is_constructible_v</a>&lt;extents_type, LayoutLeftPaddedMapping::extents_type&gt;</code>が<code>true</code>であること。</li>
+</ul>
+</li>
+<li>(8) :<ul>
+<li><code><a href="../../is-layout-right-padded-mapping-of.html">is-layout-right-padded-mapping-of</a>&lt;LayoutRightPaddedMapping&gt;</code>が<code>true</code>、または<code><a href="../../is-mapping-of.html">is-mapping-of</a>&lt;<a href="../../layout_right.html">layout_right</a>, LayoutRightPaddedMapping&gt;</code>が<code>true</code>であること。</li>
+<li><code>rank_</code>が<code>0</code>または<code>1</code>であること。</li>
+<li><code><a href="../../../type_traits/is_constructible.html">is_constructible_v</a>&lt;extents_type, LayoutRightPaddedMapping::extents_type&gt;</code>が<code>true</code>であること。</li>
+</ul>
+</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Mandates。満たさなければプログラムが不適格となる要件。この要件は、オーバーロード解決によって選択された関数内での`static_assert`の定数条件式や、関数に対するdelete宣言などで表現できる">適格要件</a></h2>
+<ul>
+<li>(5) : <code>OtherExtents::<a href="../../extents/rank.html">rank()</a> &gt; 1</code>のとき、<code>(static-padding-stride == <a href="../../../span/dynamic_extent.html">dynamic_extent</a>) || (OtherExtents::<a href="../../extents/static_extent.html">static_extent</a>(0) == dynamic_extent) || (static-padding-stride == OtherExtents::static_extent(0))</code>が<code>true</code>であること。</li>
+<li>(7) : <code>rank_ &gt; 1</code>のとき、<code>(padding_value == <a href="../../../span/dynamic_extent.html">dynamic_extent</a>) || (LayoutLeftPaddedMapping::padding_value == dynamic_extent) || (padding_value == LayoutLeftPaddedMapping::padding_value)</code>が<code>true</code>であること。</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a></h2>
+<ul>
+<li>(3) :<ul>
+<li><code>ext</code>の多次元インデクス空間のサイズを、<code>index_type</code>型で表現できること。</li>
+<li><code>rank_ &gt; 1</code>かつ<code>padding_value != <a href="../../../span/dynamic_extent.html">dynamic_extent</a></code>のとき、<code>LEAST-MULTIPLE-AT-LEAST(padding_value, ext.<a href="../../extents/extent.html">extent</a>(0))</code>を<code>index_type</code>型で表現できること。</li>
+<li><code>rank_ &gt; 1</code>かつ<code>padding_value != <a href="../../../span/dynamic_extent.html">dynamic_extent</a></code>のとき、半開区間<code>[1, rank_)</code>の全ての値<code>k</code>に対して<code>LEAST-MULTIPLE-AT-LEAST(padding_value, ext.<a href="../../extents/extent.html">extent</a>(0))</code>と全ての<code>ext.extent(k)</code>を乗算した値を<code>index_type</code>型で表現できること。</li>
+</ul>
+</li>
+<li>(4) :<ul>
+<li><code>pad</code>の値を<code>index_type</code>型で表現できること。</li>
+<li><code>extetns_type::<a href="../../extents/index-cast.html">index-cast</a>(pad) &gt; 0</code></li>
+<li><code>rank_ &gt; 1</code>のとき、<code>LEAST-MULTIPLE-AT-LEAST(pad, ext.<a href="../../extents/extent.html">extent</a>(0))</code>を<code>index_type</code>型で表現できること。</li>
+<li><code>rank_ &gt; 1</code>のとき、半開区間<code>[1, rank_)</code>の全ての値<code>k</code>に対して<code>LEAST-MULTIPLE-AT-LEAST(pad, ext.<a href="../../extents/extent.html">extent</a>(0))</code>と全ての<code>ext.extent(k)</code>を乗算した値を<code>index_type</code>型で表現できること。</li>
+<li><code>padding_value != <a href="../../../span/dynamic_extent.html">dynamic_extent</a></code>のとき、<code>padding_value == extetns_type::<a href="../../extents/index-cast.html">index-cast</a>(pad)</code></li>
+</ul>
+</li>
+<li>(5) :<ul>
+<li><code>extents_type::<a href="../../extents/rank.html">rank()</a> &gt; 1</code>かつ<code>padding_value != <a href="../../../span/dynamic_extent.html">dynamic_extent</a></code>のとき、<code>other.<a href="../../layout_left/mapping/stride.html">stride</a>(1) == LEAST-MULTIPLE-AT-LEAST(padding_value, extents_type::<a href="../../extents/index-cast.html">index-cast</a>(other.extents().<a href="../../extents/extent.html">extent</a>(0)))</code></li>
+<li><code>other.<a href="../../layout_left/mapping/required_span_size.html">required_span_size()</a></code>を、<code>index_type</code>型で表現できること。</li>
+</ul>
+</li>
+<li>(6) :<ul>
+<li><code>rank_ &gt; 1</code>かつ<code>padding_value != <a href="../../../span/dynamic_extent.html">dynamic_extent</a></code>のとき、<code>other.<a href="../../layout_stride/mapping/stride.html">stride</a>(1) == LEAST-MULTIPLE-AT-LEAST(padding_value, extents_type::<a href="../../extents/index-cast.html">index-cast</a>(other.extents().<a href="../../extents/extent.html">extent</a>(0)))</code></li>
+<li><code>rank_ &gt; 0</code>のとき、<code>other.<a href="../../layout_stride/mapping/stride.html">stride</a>(0) == 1</code></li>
+<li><code>rank_ &gt; 2</code>のとき、半開区間<code>[2, rank_)</code>の全ての値<code>r</code>に対して<code>other.<a href="../../layout_stride/mapping/stride.html">stride</a>(r) == (other.extents().fwd-prod-of-extents(r) / other.extents().<a href="../../extents/extent.html">extent</a>(0)) * other.stride(1)</code></li>
+<li><code>other.<a href="../../layout_stride/mapping/required_span_size.html">required_span_size()</a></code>を、<code>index_type</code>型で表現できること。</li>
+</ul>
+</li>
+<li>(7) :<ul>
+<li><code>rank_ &gt; 1</code>かつ<code>padding_value != <a href="../../../span/dynamic_extent.html">dynamic_extent</a></code>のとき、<code>other.stride(1) == LEAST-MULTIPLE-AT-LEAST(padding_value, extents_type::<a href="../../extents/index-cast.html">index-cast</a>(other.extent(0)))</code></li>
+<li><code>other.required_span_size()</code>を、<code>index_type</code>型で表現できること。</li>
+</ul>
+</li>
+<li>(8) :<ul>
+<li><code>other.required_span_size()</code>を、<code>index_type</code>型で表現できること。</li>
+</ul>
+</li>
+</ul>
+<h2>効果</h2>
+<ul>
+<li>(1) :<ul>
+<li><code>mapping(extents_type{})</code>と等価。</li>
+</ul>
+</li>
+<li>(3) :<ul>
+<li><code>ext</code>を用いて<code>extents_</code>を<a class="cpprefjp-defined-word" data-desc="direct-non-list-initialization。リスト初期化ではない直接初期化">直接非リスト初期化</a>する。</li>
+<li><code>rank_ &gt; 1</code>のとき、次の値を用いて<code>stride-1</code>を<a class="cpprefjp-defined-word" data-desc="direct-non-list-initialization。リスト初期化ではない直接初期化">直接非リスト初期化</a>する。<ul>
+<li><code>padding_value == <a href="../../../span/dynamic_extent.html">dynamic_extent</a></code>のとき、<code>ext.<a href="../../extents/extent.html">extent</a>(0)</code></li>
+<li>そうでなければ、<code>LEAST-MULTIPLE-AT-LEAST(padding_value, ext.<a href="../../extents/extent.html">extent</a>(0))</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>(4) :<ul>
+<li><code>ext</code>を用いて<code>extents_</code>を<a class="cpprefjp-defined-word" data-desc="direct-non-list-initialization。リスト初期化ではない直接初期化">直接非リスト初期化</a>する。</li>
+<li><code>rank_ &gt; 1</code>のとき、<code>LEAST-MULTIPLE-AT-LEAST(pad, ext.<a href="../../extents/extent.html">extent</a>(0))</code>を用いて<code>stride-1</code>を<a class="cpprefjp-defined-word" data-desc="direct-non-list-initialization。リスト初期化ではない直接初期化">直接非リスト初期化</a>する。</li>
+</ul>
+</li>
+<li>(5) :<ul>
+<li><code>mapping(other.extents())</code>と等価。</li>
+</ul>
+</li>
+<li>(6), (7) :<ul>
+<li><code>other.extents()</code>を用いて<code>extents_</code>を<a class="cpprefjp-defined-word" data-desc="direct-non-list-initialization。リスト初期化ではない直接初期化">直接非リスト初期化</a>する。</li>
+<li><code>rank_ &gt; 1</code>のとき、<code>other.stride(1)</code>を用いて<code>stride-1</code>を<a class="cpprefjp-defined-word" data-desc="direct-non-list-initialization。リスト初期化ではない直接初期化">直接非リスト初期化</a>する。</li>
+</ul>
+</li>
+<li>(8) :<ul>
+<li><code>other.extents()</code>を用いて<code>extents_</code>を<a class="cpprefjp-defined-word" data-desc="direct-non-list-initialization。リスト初期化ではない直接初期化">直接非リスト初期化</a>する。</li>
+</ul>
+</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
+<ul>
+<li>(1), (2), (8) : 投げない</li>
+</ul>
+<h2>explicitになる条件</h2>
+<ul>
+<li>(5) : <code>!<a href="../../../type_traits/is_convertible.html">is_convertible_v</a>&lt;OtherExtents, extents_type&gt;</code></li>
+<li>(6) : <code><a href="../../extents/rank.html">extents_type::rank()</a> &gt; 0</code></li>
+<li>(7) : <code>rank_ &gt; 1 &amp;&amp; (padding_value != <a href="../../../span/dynamic_extent.html">dynamic_extent</a> || LayoutLeftPaddedMapping::padding_value == dynamic_extent)</code></li>
+<li>(8) : <code>!<a href="../../../type_traits/is_convertible.html">is_convertible_v</a>&lt;LayoutRightPaddedMapping::extents_type, extents_type&gt;</code></li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="52f3cb9cec854a5a10832896cb89c3f2cdd7fbcd"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../../array.html">&lt;array&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../../mdspan.html">&lt;mdspan&gt;</a></span><span class="cp"></span>
+
+<span class="k">using</span> <span class="n">Ext3x3</span> <span class="o">=</span> <span class="n"><a href="../../extents.html">std::extents</a></span><span class="o">&lt;</span><span class="kt">size_t</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">using</span> <span class="n">Ext2D</span> <span class="o">=</span> <span class="n"><a href="../../extents.html">std::dims</a></span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// (1) : デフォルトコンストラクタ</span>
+  <span class="p">{</span>
+    <span class="n"><span style="color:#ff0000">std::layout_left_padded&lt;4&gt;::mapping</span></span><span class="o">&lt;</span><span class="n">Ext3x3</span><span class="o">&gt;</span> <span class="n">map1s</span><span class="p">;</span>
+    <span class="n"><span style="color:#ff0000">std::layout_left_padded&lt;&gt;::mapping</span></span><span class="o">&lt;</span><span class="n">Ext3x3</span><span class="o">&gt;</span> <span class="n">map1d</span><span class="p">;</span>
+    <span class="n"><a href="../../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">map1s</span><span class="p">.</span><span class="n">stride</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
+    <span class="n"><a href="../../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">map1d</span><span class="p">.</span><span class="n">stride</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="c1">// (2) : コピーコンストラクタ</span>
+  <span class="p">{</span>
+    <span class="n"><span style="color:#ff0000">std::layout_left_padded&lt;4&gt;::mapping</span></span><span class="o">&lt;</span><span class="n">Ext3x3</span><span class="o">&gt;</span> <span class="n">map2_a</span><span class="p">;</span>
+    <span class="n"><span style="color:#ff0000">std::layout_left_padded&lt;4&gt;::mapping</span></span><span class="o">&lt;</span><span class="n">Ext3x3</span><span class="o">&gt;</span> <span class="n">map2_b</span> <span class="o">=</span> <span class="n">map2_a</span><span class="p">;</span>
+    <span class="n"><a href="../../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">map2_a</span> <span class="o">==</span> <span class="n">map2_b</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="c1">// (3) : extentsから構築</span>
+  <span class="p">{</span>
+    <span class="n">Ext2D</span> <span class="n">ext</span><span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+    <span class="n"><span style="color:#ff0000">std::layout_left_padded&lt;&gt;::mapping</span></span><span class="o">&lt;</span><span class="n">Ext2D</span><span class="o">&gt;</span> <span class="n">map3</span> <span class="o">=</span> <span class="n">ext</span><span class="p">;</span>
+    <span class="n"><a href="../../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">map3</span><span class="p">.</span><span class="n">extents</span><span class="p">()</span> <span class="o">==</span> <span class="n">ext</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="c1">// (4) : extentsとパディングから構築</span>
+  <span class="p">{</span>
+    <span class="n">Ext2D</span> <span class="n">ext</span><span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+    <span class="n"><span style="color:#ff0000">std::layout_left_padded&lt;&gt;::mapping</span></span><span class="o">&lt;</span><span class="n">Ext2D</span><span class="o">&gt;</span> <span class="n">map4</span><span class="p">{</span><span class="n">ext</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
+    <span class="n"><a href="../../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">map4</span><span class="p">.</span><span class="n">extents</span><span class="p">()</span> <span class="o">==</span> <span class="n">ext</span> <span class="o">&amp;&amp;</span> <span class="n">map4</span><span class="p">.</span><span class="n">stride</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="c1">// (5) : layout_left::mappingからの変換コンストラクタ</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../../layout_left/mapping.html">std::layout_left::mapping</a></span> <span class="n">src5</span><span class="p">{</span><span class="n">Ext3x3</span><span class="p">{}};</span>
+    <span class="n"><span style="color:#ff0000">std::layout_left_padded&lt;&gt;::mapping</span></span><span class="o">&lt;</span><span class="n">Ext2D</span><span class="o">&gt;</span> <span class="n">dst5</span> <span class="o">=</span> <span class="n">src5</span><span class="p">;</span>
+    <span class="n"><a href="../../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">dst5</span><span class="p">.</span><span class="n">stride</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="c1">// (6) : layout_stride::mappingからの変換コンストラクタ</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../../../array/array.html">std::array</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">2</span><span class="o">&gt;</span> <span class="n">strides</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
+    <span class="n"><a href="../../layout_stride/mapping.html">std::layout_stride::mapping</a></span> <span class="n">src6</span><span class="p">{</span><span class="n">Ext3x3</span><span class="p">{},</span> <span class="n">strides</span><span class="p">};</span>
+    <span class="n"><span style="color:#ff0000">std::layout_left_padded&lt;&gt;::mapping</span></span><span class="o">&lt;</span><span class="n">Ext2D</span><span class="o">&gt;</span> <span class="n">dst6</span><span class="p">{</span><span class="n">src6</span><span class="p">};</span>
+    <span class="n"><a href="../../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">dst6</span><span class="p">.</span><span class="n">stride</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="c1">// (7) : 他layout_left_padded::mappingからの変換コンストラクタ</span>
+  <span class="p">{</span>
+    <span class="n"><span style="color:#ff0000">std::layout_left_padded&lt;4&gt;::mapping</span></span><span class="o">&lt;</span><span class="n">Ext3x3</span><span class="o">&gt;</span> <span class="n">src7</span><span class="p">;</span>
+    <span class="n"><span style="color:#ff0000">std::layout_left_padded&lt;&gt;::mapping</span></span><span class="o">&lt;</span><span class="n">Ext2D</span><span class="o">&gt;</span> <span class="n">dst7</span><span class="p">{</span><span class="n">src7</span><span class="p">};</span>
+    <span class="n"><a href="../../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">dst7</span><span class="p">.</span><span class="n">extents</span><span class="p">()</span> <span class="o">==</span> <span class="n">Ext3x3</span><span class="p">{}</span> <span class="o">&amp;&amp;</span> <span class="n">dst7</span><span class="p">.</span><span class="n">stride</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="c1">// (8) : layout_right(_padded)::mappingからの変換コンストラクタ</span>
+  <span class="p">{</span>
+    <span class="k">using</span> <span class="n">Ext1D</span> <span class="o">=</span> <span class="n"><a href="../../extents.html">std::dims</a></span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="n"><a href="../../layout_right/mapping.html">std::layout_right::mapping</a></span><span class="o">&lt;</span><span class="n">Ext1D</span><span class="o">&gt;</span> <span class="n">src8</span><span class="p">{</span><span class="n">Ext1D</span><span class="p">{</span><span class="mi">5</span><span class="p">}};</span>
+    <span class="n"><span style="color:#ff0000">std::layout_left_padded&lt;&gt;::mapping</span></span><span class="o">&lt;</span><span class="n">Ext1D</span><span class="o">&gt;</span> <span class="n">dst8</span><span class="p">{</span><span class="n">src8</span><span class="p">};</span>
+    <span class="n"><a href="../../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">dst8</span><span class="p">.</span><span class="n">extent</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code></code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++26</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../../../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../../../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="../../layout_left/mapping.html">layout_left::mapping</a></code></li>
+<li><code><a href="../../layout_right/mapping.html">layout_right::mapping</a></code></li>
+<li><code><a href="../../layout_right_padded/mapping.html">layout_right_padded::mapping</a></code></li>
+<li><code><a href="../../layout_stride/mapping.html">layout_stride::mapping</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2642r6.pdf" target="_blank">P2642R6 Padded mdspan layouts</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

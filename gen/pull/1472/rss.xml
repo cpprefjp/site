@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2025-07-14T08:08:12.198467</updated>
+  <id>65290826-efe4-44cf-ab77-214712d6130c</id>
+
+  
+    <entry>
+      <title>tmpnam -- fixed explanation for tmpnam</title>
+      <link href="https://cpprefjp.github.io/reference/cstdio/tmpnam.html"/>
+      <id>55f9df14fbb786eacb8aa54d1de6df1d82163878:reference/cstdio/tmpnam.md</id>
+      <updated>2025-07-14T08:02:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/tmpnam.md b/reference/cstdio/tmpnam.md
+index 7adeb5fae..1d293b29c 100644
+--- a/reference/cstdio/tmpnam.md
++++ b/reference/cstdio/tmpnam.md
+@@ -14,7 +14,7 @@ namespace std {
+ 
+ 渡した引数の中にファイル名が格納される。
+ 
+-この関数はスレッドセーフではないため、マルチスレッド環境での使用は推奨されない。
++この関数は引数に`NULL`を渡した場合にスレッドセーフではないため、使用時には注意が必要である。
+ 
+ また、生成された名前が他のファイル名とかぶらないことは保証されていない（保証する必要があるならば[`tmpfile`](/reference/cstdio/tmpfile.md)を使用する）。
+ 
+@@ -31,7 +31,7 @@ namespace std {
+ #include &amp;lt;iostream&amp;gt;
+ 
+ int main() {
+-    char filename[L_tmpnam];
++    char filename[1000];
+     if (std::tmpnam(filename)) {
+         std::cout &amp;lt;&amp;lt; &amp;#34;Generated filename: &amp;#34; &amp;lt;&amp;lt; filename &amp;lt;&amp;lt; &amp;#39;\n&amp;#39;;
+         // ここで fopen(filename, &amp;#34;w&amp;#34;) とかして使う（が、あまり推奨されない）
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>tmpnam -- fixed inappropriate code in `tmpnam.md`</title>
+      <link href="https://cpprefjp.github.io/reference/cstdio/tmpnam.html"/>
+      <id>116c20ad12e92ea2afe704367730ad60b281ca91:reference/cstdio/tmpnam.md</id>
+      <updated>2025-07-13T23:53:14+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/tmpnam.md b/reference/cstdio/tmpnam.md
+index ad26323a4..7adeb5fae 100644
+--- a/reference/cstdio/tmpnam.md
++++ b/reference/cstdio/tmpnam.md
+@@ -31,7 +31,7 @@ namespace std {
+ #include &amp;lt;iostream&amp;gt;
+ 
+ int main() {
+-    char filename[1000];
++    char filename[L_tmpnam];
+     if (std::tmpnam(filename)) {
+         std::cout &amp;lt;&amp;lt; &amp;#34;Generated filename: &amp;#34; &amp;lt;&amp;lt; filename &amp;lt;&amp;lt; &amp;#39;\n&amp;#39;;
+         // ここで fopen(filename, &amp;#34;w&amp;#34;) とかして使う（が、あまり推奨されない）
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>EOF -- fixed inappropriate code</title>
+      <link href="https://cpprefjp.github.io/reference/cstdio/eof.html"/>
+      <id>c6a67d839658e27cb8afd9ca2cbd03b7e57ec02b:reference/cstdio/eof.md</id>
+      <updated>2025-07-13T23:23:27+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/eof.md b/reference/cstdio/eof.md
+index b603c81a1..3cda36b5b 100644
+--- a/reference/cstdio/eof.md
++++ b/reference/cstdio/eof.md
+@@ -20,8 +20,7 @@ int main() {
+   while ((c = std::getchar()) != EOF) {
+     std::putchar(c);
+   }
+-  if (c == EOF)
+-    std::puts(&amp;#34;REACHED END&amp;#34;);
++  std::puts(&amp;#34;REACHED END&amp;#34;);
+ }
+ 
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>FILE -- fixed declaration of `file.md`</title>
+      <link href="https://cpprefjp.github.io/reference/cstdio/file.html"/>
+      <id>942ab1ab8586029cfdbf085a32694249e488b25d:reference/cstdio/file.md</id>
+      <updated>2025-07-13T22:56:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/file.md b/reference/cstdio/file.md
+index 5791670be..243769def 100644
+--- a/reference/cstdio/file.md
++++ b/reference/cstdio/file.md
+@@ -5,7 +5,7 @@
+ 
+ ```cpp
+ namespace std {
+-  typedef /* unspecified */ FILE;
++  using FILE = /* unspecified */;
+ }
+ ```
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>

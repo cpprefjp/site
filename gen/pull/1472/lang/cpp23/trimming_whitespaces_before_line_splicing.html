@@ -1,0 +1,292 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>行末スペースを無視するよう規定 [P2223R2] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp23
+">
+        <meta name="title" content="行末スペースを無視するよう規定 [P2223R2] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="行末スペースを無視するよう規定 [P2223R2] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="行末スペースを無視するよう規定 [P2223R2] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp23/trimming_whitespaces_before_line_splicing.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`\` (バックスラッシュ) 後の行末スペースを無視するよう規定する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="行末スペースを無視するよう規定 [P2223R2] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp23/trimming_whitespaces_before_line_splicing.html" />
+        <meta name="twitter:description" content="`\` (バックスラッシュ) 後の行末スペースを無視するよう規定する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp23&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;abab4d17d9ac33c8896cf447357485e1d14dfea1&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\nint f() {\n  int i = 1\n  // \\ \n  + 42\n  ;\n  return i;\n}\n\nint main() {\n  std::cout &lt;&lt; f() &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;d78854c2d95391cb5c3f15dbea36c3293a5f13ec&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\nint f() {\n  int hax = 0;\n  // _ _\n  // | | | |\n  // | |__| | __ ___ __\n  // | __ |/ _` \\ \\/ /\n  // | | | | (_| |&gt; &lt;\n  // |_| |_|\\__,_/_/\\_\\ \n  hax = 1337;\n  return hax;\n}\n\nint main() {\n  // 0\u304c\u51fa\u529b\u3055\u308c\u308b\u3002\n  // \u884c\u672b\u30b9\u30da\u30fc\u30b9\u304c\u7121\u8996\u3055\u308c\u306a\u3051\u308c\u30701337\u304c\u51fa\u529b\u3055\u308c\u308b\n  std::cout &lt;&lt; f() &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp23&#34;, &#34;trimming_whitespaces_before_line_splicing&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp23.html" itemprop="url">
+              
+                <span itemprop="name">C++23</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">行末スペースを無視するよう規定 [P2223R2]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-01-21T02:42:00">
+        2025年01月21日 02時42分00秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">0xbadfca11</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp23/trimming_whitespaces_before_line_splicing.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp23/trimming_whitespaces_before_line_splicing.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">行末スペースを無視するよう規定 [P2223R2]</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++23に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p><code>\</code> (バックスラッシュ) 後の行末スペースを無視するよう規定する。</p>
+<p>これにより、バックスラッシュ後の行末スペースの有無でコンパイラによって動作が異なることがなくなる。</p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>バックスラッシュから行末までの間のスペースをどう扱うかが、実装 (コンパイラ) によって違いがあった。</p>
+<p><div class="yata" id="abab4d17d9ac33c8896cf447357485e1d14dfea1"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+  <span class="c1">// \ </span>
+  <span class="o">+</span> <span class="mi">42</span>
+  <span class="p">;</span>
+  <span class="k">return</span> <span class="n">i</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">f</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>このコードにおいて「<code>// \</code>」のあとにはスペースがあり、EDG (ICCのフロントエンド)、GCC、Clangは行末スペースをトリミング (削除) して関数<code>f()</code>は<code>1</code>を返すが、MSVCはトリミングせず<code>43</code>を返していた。プラットフォーム間の動作差異をなくすために、実装は行末スペースをトリミングしなければならないよう提案することとした。</p>
+<p>例として、IDEやツール (コードフォーマッタ) はそのような行末スペースを削除する可能性があり、Googleのコーディングスタイルでは行末スペースを禁止している。</p>
+<p>ただしこの規定が入ることによって、行末スペースに依存したMSVCの既存のコードが互換性をなくす可能性はある (有用性は低いので問題になる可能性は低い)。GCC、Clang、ICCはデフォルトで行末スペースに対して有用な警告を出力していた。</p>
+<p>行末バックスラッシュを使用した例を紹介する。アスキーアートやダイアグラムをコメントで表現する人々がいる。</p>
+<p><div class="yata" id="d78854c2d95391cb5c3f15dbea36c3293a5f13ec"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">hax</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="c1">// _ _</span>
+  <span class="c1">// | | | |</span>
+  <span class="c1">// | |__| | __ ___ __</span>
+  <span class="c1">// | __ |/ _` \ \/ /</span>
+  <span class="c1">// | | | | (_| |&gt; &lt;</span>
+  <span class="c1">// |_| |_|\__,_/_/\_\ </span>
+  <span class="n">hax</span> <span class="o">=</span> <span class="mi">1337</span><span class="p">;</span>
+  <span class="k">return</span> <span class="n">hax</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// 0が出力される。</span>
+  <span class="c1">// 行末スペースが無視されなければ1337が出力される</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">f</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2223r2.pdf" target="_blank">P2223R2 Trimming whitespaces before line splicing</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

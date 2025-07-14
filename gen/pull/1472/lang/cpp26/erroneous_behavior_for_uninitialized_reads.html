@@ -1,0 +1,399 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>未初期化変数の読み取りをエラー性動作とする [P2795R5] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp26
+">
+        <meta name="title" content="未初期化変数の読み取りをエラー性動作とする [P2795R5] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="未初期化変数の読み取りをエラー性動作とする [P2795R5] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="未初期化変数の読み取りをエラー性動作とする [P2795R5] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp26/erroneous_behavior_for_uninitialized_reads.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="C++23までは、未初期化変数 (デフォルト初期化された変数) の読み取りは未定義動作として扱われていた。C++26では、この未定義動作による安全上のリスクを低減するため、「エラー性動作 (erroneous behavior; 通称 EB、別表記としてエラー性の動作)」を新設してその多くに割り当てることとした。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="未初期化変数の読み取りをエラー性動作とする [P2795R5] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp26/erroneous_behavior_for_uninitialized_reads.html" />
+        <meta name="twitter:description" content="C++23までは、未初期化変数 (デフォルト初期化された変数) の読み取りは未定義動作として扱われていた。C++26では、この未定義動作による安全上のリスクを低減するため、「エラー性動作 (erroneous behavior; 通称 EB、別表記としてエラー性の動作)」を新設してその多くに割り当てることとした。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;8ecc4d0f14af1d43fe031fb8813b2b45acc4a217&#34;, &#34;source&#34;: &#34;// C++23\nvoid f(int) {}\n\nint main() {\n  int x; // \u30c7\u30d5\u30a9\u30eb\u30c8\u521d\u671f\u5316\u3002x\u306f\u4e0d\u5b9a\u5024 (indeterminate value) \u3092\u3082\u3064\n  f(x);  // \u5de6\u8fba\u5024\u304b\u3089\u53f3\u8fba\u5024\u3078\u306e\u5909\u63db\u304c\u672a\u5b9a\u7fa9\u52d5\u4f5c\u3092\u5f15\u304d\u8d77\u3053\u3059\n}\n&#34;}, {&#34;id&#34;: &#34;4a0c4737e6a08d3c9e45aa4958b4810624dce709&#34;, &#34;source&#34;: &#34;// C++26\nvoid f(int) {}\n\nint main() {\n  int x;                   // x\u306f\u30a8\u30e9\u30fc\u6027\u306e\u5024\u3092\u3082\u3064\n  int y [[indeterminate]]; // \u610f\u56f3\u3057\u3066\u4e0d\u5b9a\u5024\u306b\u521d\u671f\u5316\u3055\u308c\u308b\u3053\u3068\u3092\u6307\u793a\n\n  f(x); // \u30a8\u30e9\u30fc\u6027\u52d5\u4f5c (\u30a8\u30e9\u30fc\u6027\u306e\u5024\u306e\u8aad\u307f\u53d6\u308a)\n  f(y); // \u672a\u5b9a\u7fa9\u52d5\u4f5c (\u4e0d\u5b9a\u5024\u306e\u8aad\u307f\u53d6\u308a)\n}\n&#34;}, {&#34;id&#34;: &#34;d493f9173ce919031e6a194f87d399957ba5406f&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n\nint g(bool b) {\n  unsigned char c;\n  unsigned char d = c; // \u30a8\u30e9\u30fc\u6027\u52d5\u4f5c\u3067\u306f\u306a\u3044\u3002d\u306f\u30a8\u30e9\u30fc\u6027\u306e\u5024\u3092\u3082\u3064\n\n  assert(c == d);      // \u5e38\u306b\u771f\u3001\u30a8\u30e9\u30fc\u6027\u52d5\u4f5c (\u6574\u6570\u6607\u683c)\n\n  int e = d;           // \u30a8\u30e9\u30fc\u6027\u52d5\u4f5c (\u578b\u5909\u63db)\n  return b ? d : 0;    // b\u304ctrue\u306e\u5834\u5408\u306b\u30a8\u30e9\u30fc\u6027\u52d5\u4f5c\n}\n\nint main() {\n  int d1, d2;\n\n  int e1 = d1;      // \u30a8\u30e9\u30fc\u6027\u52d5\u4f5c\n  int e2 = d1;      // \u30a8\u30e9\u30fc\u6027\u52d5\u4f5c\n\n  // \u51e6\u7406\u304c\u7d9a\u884c\u3057\u305f\u5834\u5408\u2026\n  assert(e1 == e2); // \u5e38\u306b\u771f\u3001\u30a8\u30e9\u30fc\u6027\u52d5\u4f5c\u3067\u306f\u306a\u3044\u3002\n                    // \u30a8\u30e9\u30fc\u6027\u52d5\u4f5c\u306e\u7d50\u679c\u3067\u751f\u6210\u3055\u308c\u305f\u5024 (e1\u3068e2) \u306f\u3001\n                    // \u30a8\u30e9\u30fc\u6027\u306e\u5024\u3068\u306f\u307f\u306a\u3055\u308c\u306a\u3044\n  assert(e1 == d1); // \u5e38\u306b\u771f\u3001\u30a8\u30e9\u30fc\u6027\u52d5\u4f5c\n  assert(e2 == d1); // \u5e38\u306b\u771f\u3001\u30a8\u30e9\u30fc\u6027\u52d5\u4f5c\n\n  // \u30a8\u30e9\u30fc\u6027\u52d5\u4f5c\u3067\u306f\u306a\u3044\u304c\n  // d2\u306f\u30a8\u30e9\u30fc\u6027\u306e\u5024\u3092\u3082\u3064\n  std::memcpy(&amp;d2, &amp;d1, sizeof(int));\n\n  assert(e1 == d2); // \u5e38\u306b\u771f\u3001\u30a8\u30e9\u30fc\u6027\u52d5\u4f5c\n  assert(e2 == d2); // \u5e38\u306b\u771f\u3001\u30a8\u30e9\u30fc\u6027\u52d5\u4f5c\n}\n&#34;}, {&#34;id&#34;: &#34;7f024e2ac7c9eafd4b7e6b43f81576d40dbc8802&#34;, &#34;source&#34;: &#34;struct T {\n  T() {}\n  int x;\n};\n\nint h(T t [[indeterminate]]) {\n  f(t.x);   // \u5f8c\u8ff0\u306e\u95a2\u6570\u547c\u3073\u51fa\u3057\u306f\u3053\u3053\u3067\u672a\u5b9a\u7fa9\u52d5\u4f5c\u3092\u5f15\u304d\u8d77\u3053\u3059\n  return 0;\n}\n\nint main() {\n  int _ = h(T());\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp26&#34;, &#34;erroneous_behavior_for_uninitialized_reads&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp26.html" itemprop="url">
+              
+                <span itemprop="name">C++26</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">未初期化変数の読み取りをエラー性動作とする [P2795R5]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-05-02T13:10:50">
+        2025年05月02日 13時10分50秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Raclamusi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp26/erroneous_behavior_for_uninitialized_reads.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp26/erroneous_behavior_for_uninitialized_reads.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">未初期化変数の読み取りをエラー性動作とする [P2795R5]</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++26に採用される見込みの言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>C++23までは、未初期化変数 (<a class="cpprefjp-defined-word" data-desc="`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト初期化</a>された変数) の読み取りは<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>として扱われていた。C++26では、この<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>による安全上のリスクを低減するため、「<a class="cpprefjp-defined-word" data-desc="エラー性の動作。未定義動作ではないが、誤ったプログラムの結果とされる動作。erroneous behavior (EB)。処理系によって診断や異常終了を実行することが許可されるが、処理が続行する場合もある" href="../../implementation-compliance.html#dfn-erroneous-behavior">エラー性動作</a> (erroneous behavior; 通称 EB、別表記として<a class="cpprefjp-defined-word" data-desc="未定義動作ではないが、誤ったプログラムの結果とされる動作。erroneous behavior (EB)。処理系によって診断や異常終了を実行することが許可されるが、処理が続行する場合もある" href="../../implementation-compliance.html#dfn-erroneous-behavior">エラー性の動作</a>)」を新設してその多くに割り当てることとした。</p>
+<p><div class="yata" id="8ecc4d0f14af1d43fe031fb8813b2b45acc4a217"><div class="codehilite"><pre><span></span><code><span class="c1">// C++23</span>
+<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">{}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">x</span><span class="p">;</span> <span class="c1">// デフォルト初期化。xは不定値 (indeterminate value) をもつ</span>
+  <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>  <span class="c1">// 左辺値から右辺値への変換が未定義動作を引き起こす</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>未初期化の値は、コンパイラやターゲット環境によって定義された固定値である。コンパイラにはこの誤りを診断することが許可され、推奨されているが、誤りを無視して有効な読み取りとして扱うことも許可されている。このコードは誤りではあるが、実行ごとに異なる動作をしたり攻撃者に値を制御されたりといったリスクはなくなる。</p>
+<p><a class="cpprefjp-defined-word" data-desc="エラー性の動作。未定義動作ではないが、誤ったプログラムの結果とされる動作。erroneous behavior (EB)。処理系によって診断や異常終了を実行することが許可されるが、処理が続行する場合もある" href="../../implementation-compliance.html#dfn-erroneous-behavior">エラー性動作</a>は<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>（一切の保証が失われる）とはちがって、動作を定めたうえで診断も可能とするものである。</p>
+<p>C++26では、不定値で初期化されることを明確に指示する<code>[[indeterminate]]</code>属性も導入され、以下のような動作となる：</p>
+<p><div class="yata" id="4a0c4737e6a08d3c9e45aa4958b4810624dce709"><div class="codehilite"><pre><span></span><code><span class="c1">// C++26</span>
+<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">{}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>                   <span class="c1">// xはエラー性の値をもつ</span>
+  <span class="kt">int</span> <span class="n">y</span> <span class="p">[[</span><span class="n">indeterminate</span><span class="p">]];</span> <span class="c1">// 意図して不定値に初期化されることを指示</span>
+
+  <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="c1">// エラー性動作 (エラー性の値の読み取り)</span>
+  <span class="n">f</span><span class="p">(</span><span class="n">y</span><span class="p">);</span> <span class="c1">// 未定義動作 (不定値の読み取り)</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h2>仕様</h2>
+<ul>
+<li>自動記憶域期間をもつオブジェクトの記憶域は確保時点で「エラー性の値 (erroneous value)」をもつとされ、処理系がプログラムの状態に依存せず決定する何らかの値で埋められる<ul>
+<li>動的記憶域期間であれば不定値、静的・スレッド記憶域期間であればゼロで埋められる。C++23までは自動記憶域期間も不定値で埋められていた</li>
+</ul>
+</li>
+<li>初期化されなかったスカラ型オブジェクトなど、値表現（パディングは含まない）内のいずれかのビットにエラー性の値をもつオブジェクトはエラー性の値をもつとされる</li>
+<li>式が評価された結果としてエラー性の値が生成された場合、<a class="cpprefjp-defined-word" data-desc="エラー性の動作。未定義動作ではないが、誤ったプログラムの結果とされる動作。erroneous behavior (EB)。処理系によって診断や異常終了を実行することが許可されるが、処理が続行する場合もある" href="../../implementation-compliance.html#dfn-erroneous-behavior">エラー性動作</a>を引き起こす<ul>
+<li>ただし、<code>unsigned char</code>（およびunsignedとなる場合は<code>char</code>）もしくは<code><a href="../../reference/cstddef/byte.html">std::byte</a></code>型のエラー性の値がこれらの型のオブジェクトの初期化・代入に使用される場合や値が破棄される場合は<a class="cpprefjp-defined-word" data-desc="エラー性の動作。未定義動作ではないが、誤ったプログラムの結果とされる動作。erroneous behavior (EB)。処理系によって診断や異常終了を実行することが許可されるが、処理が続行する場合もある" href="../../implementation-compliance.html#dfn-erroneous-behavior">エラー性動作</a>にならない</li>
+<li>これらのルールは、式が評価された結果として不定値が生成された場合に<a class="cpprefjp-defined-word" data-desc="処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義の動作</a>を引き起こすとする従来のルールと同様である</li>
+</ul>
+</li>
+<li><a class="cpprefjp-defined-word" data-desc="エラー性の動作。未定義動作ではないが、誤ったプログラムの結果とされる動作。erroneous behavior (EB)。処理系によって診断や異常終了を実行することが許可されるが、処理が続行する場合もある" href="../../implementation-compliance.html#dfn-erroneous-behavior">エラー性動作</a>を引き起こしたうえで生成された値は、後続の処理ではエラー性の値とはみなされない</li>
+</ul>
+<p><div class="yata" id="d493f9173ce919031e6a194f87d399957ba5406f"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">g</span><span class="p">(</span><span class="kt">bool</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">c</span><span class="p">;</span>
+  <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">d</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span> <span class="c1">// エラー性動作ではない。dはエラー性の値をもつ</span>
+
+  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="n">d</span><span class="p">);</span>      <span class="c1">// 常に真、エラー性動作 (整数昇格)</span>
+
+  <span class="kt">int</span> <span class="n">e</span> <span class="o">=</span> <span class="n">d</span><span class="p">;</span>           <span class="c1">// エラー性動作 (型変換)</span>
+  <span class="k">return</span> <span class="n">b</span> <span class="o">?</span> <span class="nl">d</span> <span class="p">:</span> <span class="mi">0</span><span class="p">;</span>    <span class="c1">// bがtrueの場合にエラー性動作</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">d1</span><span class="p">,</span> <span class="n">d2</span><span class="p">;</span>
+
+  <span class="kt">int</span> <span class="n">e1</span> <span class="o">=</span> <span class="n">d1</span><span class="p">;</span>      <span class="c1">// エラー性動作</span>
+  <span class="kt">int</span> <span class="n">e2</span> <span class="o">=</span> <span class="n">d1</span><span class="p">;</span>      <span class="c1">// エラー性動作</span>
+
+  <span class="c1">// 処理が続行した場合…</span>
+  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">e1</span> <span class="o">==</span> <span class="n">e2</span><span class="p">);</span> <span class="c1">// 常に真、エラー性動作ではない。</span>
+                    <span class="c1">// エラー性動作の結果で生成された値 (e1とe2) は、</span>
+                    <span class="c1">// エラー性の値とはみなされない</span>
+  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">e1</span> <span class="o">==</span> <span class="n">d1</span><span class="p">);</span> <span class="c1">// 常に真、エラー性動作</span>
+  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">e2</span> <span class="o">==</span> <span class="n">d1</span><span class="p">);</span> <span class="c1">// 常に真、エラー性動作</span>
+
+  <span class="c1">// エラー性動作ではないが</span>
+  <span class="c1">// d2はエラー性の値をもつ</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">memcpy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">d2</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">d1</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+
+  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">e1</span> <span class="o">==</span> <span class="n">d2</span><span class="p">);</span> <span class="c1">// 常に真、エラー性動作</span>
+  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">e2</span> <span class="o">==</span> <span class="n">d2</span><span class="p">);</span> <span class="c1">// 常に真、エラー性動作</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3><code>[[indeterminate]]</code>属性</h3>
+<p><code>[[indeterminate]]</code>属性は、自動変数が初期状態として意図して不定値をもつことを指示するものであり、自動変数の定義、もしくは関数のパラメータ宣言に適用できる。</p>
+<p>関数のパラメータが<code>[[indeterminate]]</code>属性で宣言される場合、その関数の最初の宣言でそのように宣言されなければならない (注：関数宣言は複数行うことができるが、その最初の宣言で<code>[[indeterminate]]</code>属性をつけなければならない)。</p>
+<p><code>[[indeterminate]]</code>がつけられた変数から読み取りをした場合、<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こす可能性がある。</p>
+<p><div class="yata" id="7f024e2ac7c9eafd4b7e6b43f81576d40dbc8802"><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">T</span> <span class="p">{</span>
+  <span class="n">T</span><span class="p">()</span> <span class="p">{}</span>
+  <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">h</span><span class="p">(</span><span class="n">T</span> <span class="n">t</span> <span class="p">[[</span><span class="n">indeterminate</span><span class="p">]])</span> <span class="p">{</span>
+  <span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">x</span><span class="p">);</span>   <span class="c1">// 後述の関数呼び出しはここで未定義動作を引き起こす</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">_</span> <span class="o">=</span> <span class="n">h</span><span class="p">(</span><span class="n">T</span><span class="p">());</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h2>備考</h2>
+<ul>
+<li>以下のようなケースでは、<a class="cpprefjp-defined-word" data-desc="エラー性の動作。未定義動作ではないが、誤ったプログラムの結果とされる動作。erroneous behavior (EB)。処理系によって診断や異常終了を実行することが許可されるが、処理が続行する場合もある" href="../../implementation-compliance.html#dfn-erroneous-behavior">エラー性動作</a>ではなく<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こす可能性がある：
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="n">T</span><span class="o">*</span> <span class="n">p</span><span class="p">;</span>    <span class="c1">// 未初期化のポインタ。エラー性の値 (例としてヌルポインタ) をもつ</span>
+<span class="kt">bool</span> <span class="n">b</span><span class="p">;</span>  <span class="c1">// 未初期化の真理値。</span>
+         <span class="c1">// bool値として妥当な値表現をもたない可能性がある</span>
+         <span class="c1">// (例: 値表現が8bitで{0x00(false), 0x01(true)}の</span>
+         <span class="c1">// 2通りのみとする処理系で0xCCをもつなど)</span>
+
+<span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">);</span>   <span class="c1">// 間接参照は未定義動作を引き起こす</span>
+<span class="n">g</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>    <span class="c1">// bが妥当な値表現をもつ場合にエラー性動作、そうでなければ未定義動作</span>
+</code></pre></div>
+</li>
+</ul>
+<h3>今後、<a class="cpprefjp-defined-word" data-desc="エラー性の動作。未定義動作ではないが、誤ったプログラムの結果とされる動作。erroneous behavior (EB)。処理系によって診断や異常終了を実行することが許可されるが、処理が続行する場合もある" href="../../implementation-compliance.html#dfn-erroneous-behavior">エラー性動作</a>に分類される可能性のある操作</h3>
+<p>現在、<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>に分類される以下の操作は、<a class="cpprefjp-defined-word" data-desc="エラー性の動作。未定義動作ではないが、誤ったプログラムの結果とされる動作。erroneous behavior (EB)。処理系によって診断や異常終了を実行することが許可されるが、処理が続行する場合もある" href="../../implementation-compliance.html#dfn-erroneous-behavior">エラー性動作</a>に分類できる可能性がある。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>操作</th>
+<th>備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>符号付き整数のオーバーフロー</td>
+<td>演算結果としてオーバーフローした場合に誤った結果になる可能性がある。これは珍しいバグではない。これは安全上の大きな問題ではない</td>
+</tr>
+<tr>
+<td>算術型の変換結果としてその型の表現可能な範囲を超えた</td>
+<td>符号付き整数のオーバーフローと同じ</td>
+</tr>
+<tr>
+<td>誤ったビットシフト (負のシフト幅や、上限を超えたシフト幅)</td>
+<td>符号付き整数のオーバーフローと同じ</td>
+</tr>
+<tr>
+<td>ゼロ割り</td>
+<td>いくつかの固定値での誤った結果となる可能性がある。影響が不明確であるため、変更にはコストがかかる</td>
+</tr>
+<tr>
+<td><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型が非<code>void</code>な関数で<code>return</code>なしに末尾に到達した、もしくは<code>[[noreturn]]</code>属性をつけた関数から返った</td>
+<td><code><a href="../../reference/exception/terminate.html">std::terminate()</a></code>が呼ばれる可能性がある。変更には軽いコストがかかるが、その変更にどの程度の価値があるかは不明</td>
+</tr>
+<tr>
+<td>抽象クラスのコンストラクタ・デストラクタからの純粋仮想関数の呼び出し</td>
+<td>特定の純粋仮想ハンドラが呼ばれる可能性がある。実装によってはすでに<a class="cpprefjp-defined-word" data-desc="エラー性の動作。未定義動作ではないが、誤ったプログラムの結果とされる動作。erroneous behavior (EB)。処理系によって診断や異常終了を実行することが許可されるが、処理が続行する場合もある" href="../../implementation-compliance.html#dfn-erroneous-behavior">エラー性動作</a>のように扱われている可能性がある</td>
+</tr>
+<tr>
+<td>契約違反</td>
+<td>契約に関する現在の策定作業では、契約違反時になにが起こるべきかという問題に直面している。<a class="cpprefjp-defined-word" data-desc="エラー性の動作。未定義動作ではないが、誤ったプログラムの結果とされる動作。erroneous behavior (EB)。処理系によって診断や異常終了を実行することが許可されるが、処理が続行する場合もある" href="../../implementation-compliance.html#dfn-erroneous-behavior">エラー性動作</a>という概念は有用な回答を与えてくれる可能性がある</td>
+</tr>
+</tbody>
+</table>
+<h2>関連項目</h2>
+<ul>
+<li><a href="../cpp11/attributes.html">C++11 属性構文</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2795r5.html" target="_blank">P2795R5 Erroneous behaviour for uninitialized reads</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

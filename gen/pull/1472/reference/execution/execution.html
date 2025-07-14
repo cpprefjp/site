@@ -1,0 +1,778 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>execution - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,std,namespace,cpp17
+">
+        <meta name="title" content="execution - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="execution - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="execution - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/execution/execution.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="namespace&amp;lt;execution&amp;gt;std::execution(C++17) 名前空間 std::execution では、アルゴリズムの並列実行を許可するための実行ポリシー、汎用的な非同期実行フレームワークとしての実行制御ライブラリを定義する。 （実行制御ライブラリの一部は名前空間 std および std::this_thread で定義されるが、本ページでまとめて取り扱う。）" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="execution - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/execution/execution.html" />
+        <meta name="twitter:description" content="namespace&amp;lt;execution&amp;gt;std::execution(C++17) 名前空間 std::execution では、アルゴリズムの並列実行を許可するための実行ポリシー、汎用的な非同期実行フレームワークとしての実行制御ライブラリを定義する。 （実行制御ライブラリの一部は名前空間 std および std::this_thread で定義されるが、本ページでまとめて取り扱う。）" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;execution&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;namespace&#34;], &#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;execution&#34;, &#34;execution&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/execution.html" itemprop="url">
+              
+                <span itemprop="name">execution</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">execution</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-06-03T14:36:23">
+        2025年06月03日 14時36分23秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yoh</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/execution/execution.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/execution/execution.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">namespace</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">execution</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p>名前空間 <code>std::execution</code> では、アルゴリズムの並列実行を許可するための実行ポリシー、汎用的な非同期実行フレームワークとしての実行制御ライブラリを定義する。
+（実行制御ライブラリの一部は名前空間 <code>std</code> および <code>std::this_thread</code> で定義されるが、本ページでまとめて取り扱う。）</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
+  <span class="err">…</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>実行ポリシー(C++17)</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="execution/execution_policy.html">sequenced_policy</a></code></td>
+<td>逐次処理の実行ポリシー型 (class)</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="execution/execution_policy.html">parallel_policy</a></code></td>
+<td>マルチスレッド化の実行ポリシー型 (class)</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="execution/execution_policy.html">parallel_unsequenced_policy</a></code></td>
+<td>マルチスレッド化／ベクトル化の実行ポリシー型 (class)</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="execution/execution_policy.html">unsequenced_policy</a></code></td>
+<td>ベクトル化の実行ポリシー型 (class)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="execution/execution_policy.html">seq</a></code></td>
+<td>逐次処理の実行ポリシー値 (variable)</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="execution/execution_policy.html">par</a></code></td>
+<td>マルチスレッド化の実行ポリシー値 (variable)</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="execution/execution_policy.html">par_unseq</a></code></td>
+<td>マルチスレッド化／ベクトル化の実行ポリシー値 (variable)</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="execution/execution_policy.html">unseq</a></code></td>
+<td>ベクトル化の実行ポリシー値 (variable)</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<p>実行ポリシーは全て名前空間 <code>std::execution</code> で定義される。</p>
+<h2>実行制御ライブラリ(C++26)</h2>
+<h3>Queries</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="forwarding_query.html">forwarding_query</a></code></td>
+<td>対象クエリオブジェクトの転送可否を取得するクエリオブジェクト (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="get_allocator.html">get_allocator</a></code></td>
+<td>アロケータ取得のクエリオブジェクト (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="get_stop_token.html">get_stop_token</a></code></td>
+<td>停止トークン取得のクエリオブジェクト (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="stop_token_of_t.html">stop_token_of_t</a></code></td>
+<td>指定型から停止トークン型を取得 (alias template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/get_domain.html">execution::get_domain</a></code></td>
+<td>実行ドメイン取得のクエリオブジェクト (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/get_scheduler.html">execution::get_scheduler</a></code></td>
+<td>Scheduler取得のクエリオブジェクト (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/get_delegation_scheduler.html">execution::get_delegation_scheduler</a></code></td>
+<td>委任Scheduler取得のクエリオブジェクト (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/forward_progress_guarantee.html">execution::forward_progress_guarantee</a></code></td>
+<td>前方進行保証 (enum)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/get_forward_progress_guarantee.html">execution::get_forward_progress_guarantee</a></code></td>
+<td>前方進行保証取得のクエリオブジェクト (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/get_completion_scheduler.html">execution::get_completion_scheduler</a></code></td>
+<td>完了Scheduler取得のクエリオブジェクト (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/get_env.html">execution::get_env</a></code></td>
+<td>環境取得のクエリオブジェクト (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/env_of_t.html">execution::env_of_t</a></code></td>
+<td>指定型から環境型を取得 (alias template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/prop.html">execution::prop</a></code></td>
+<td>Key/Valueペアによる<a href="queryable.html">クエリ可能オブジェクト</a> (class template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/env.html">execution::env</a></code></td>
+<td>複数Key/Valueからなる<a href="queryable.html">クエリ可能オブジェクト</a> (class template)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<p>クエリオブジェクトは名前空間 <code>std</code> および名前空間 <code>std::execution</code> で定義される。</p>
+<h3>Scheduler</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="execution/scheduler.html">execution::scheduler</a></code></td>
+<td>Scheduler型 (concept)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h3>Receiver</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="execution/receiver.html">execution::receiver</a></code></td>
+<td>Receiver型 (concept)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/receiver_of.html">execution::receiver_of</a></code></td>
+<td>指定完了シグネチャ集合に適合するReceiver (concept)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/set_value.html">execution::set_value</a></code></td>
+<td>値完了関数 (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/set_error.html">execution::set_error</a></code></td>
+<td>エラー完了関数 (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/set_stopped.html">execution::set_stopped</a></code></td>
+<td>停止完了関数 (customization point object)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h3>Operation State</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="execution/operation_state.html">execution::operation_state</a></code></td>
+<td>Operation State型 (concept)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/start.html">execution::start</a></code></td>
+<td>非<a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a>の開始 (customization point object)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h3>Sender</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="execution/default_domain.html">execution::default_domain</a></code></td>
+<td>デフォルト実行ドメイン (class)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/sender.html">execution::sender</a></code></td>
+<td>Sender型 (concept)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/sender_in.html">execution::sender_in</a></code></td>
+<td>指定環境で有効なSender (concept)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/sender_to.html">execution::sender_to</a></code></td>
+<td>指定Receiverに接続可能なSender (concept)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/get_completion_signatures.html">execution::get_completion_signatures</a></code></td>
+<td>Senderの完了シグネチャ集合を取得 (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/completion_signatures_of_t.html">execution::completion_signatures_of_t</a></code></td>
+<td>Senderの完了シグネチャ集合を取得 (alias template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/value_types_of_t.html">execution::value_types_of_t</a></code></td>
+<td>Senderの値完了シグネチャ集合から指定操作で型を生成 (alias template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/error_types_of_t.html">execution::error_types_of_t</a></code></td>
+<td>Senderのエラー完了シグネチャ集合から指定操作で型を生成 (alias template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/sends_stopped.html">execution::sends_stopped</a></code></td>
+<td>Senderが停止完了を送信しうるか否か (variable template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/tag_of_t.html">execution::tag_of_t</a></code></td>
+<td>Senderアルゴリズムタグ型を取得 (alias template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/transform_sender.html">execution::transform_sender</a></code></td>
+<td>Senderを変換 (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/transform_env.html">execution::transform_env</a></code></td>
+<td>環境を変換 (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/apply_sender.html">execution::apply_sender</a></code></td>
+<td>Senderアルゴリズムを適用 (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/connect.html">execution::connect</a></code></td>
+<td>SenderとReceiverを接続 (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/connect_result_t.html">execution::connect_result_t</a></code></td>
+<td><code><a href="execution/connect.html">connect</a></code>結果型を取得 (alias template)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h3>Senderファクトリ</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="execution/just.html">execution::just</a></code></td>
+<td>値を送信するSender (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/just_error.html">execution::just_error</a></code></td>
+<td>エラーを送信するSender (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/just_stopped.html">execution::just_stopped</a></code></td>
+<td>停止を送信するSender (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/read_env.html">execution::read_env</a></code></td>
+<td>Receiver環境からクエリオブジェクトで値を読み取るSender (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/schedule.html">execution::schedule</a></code></td>
+<td>Scheduler上で実行されるSender (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/schedule_result_t.html">execution::schedule_result_t</a></code></td>
+<td><code><a href="execution/schedule.html">schedule</a></code>結果型を取得 (alias template)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h3>Senderアダプタ</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="execution/sender_adaptor_closure.html">execution::sender_adaptor_closure</a></code></td>
+<td>パイプライン記法をサポートするSenderアダプタ実装補助 (class template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/starts_on.html">execution::starts_on</a></code></td>
+<td>指定Scheduler上で開始する (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/continues_on.html">execution::continues_on</a></code></td>
+<td>指定Scheduler上で継続する (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/on.html">execution::on</a></code></td>
+<td>指定Senderのみ別Scheduler上で実行する (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/schedule_from.html">execution::schedule_from</a></code></td>
+<td>Sender完了に依存する作業をスケジュール (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/then.html">execution::then</a></code></td>
+<td>値完了時の継続処理をアタッチ (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/upon_error.html">execution::upon_error</a></code></td>
+<td>エラー完了時の継続処理をアタッチ (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/upon_stopped.html">execution::upon_stopped</a></code></td>
+<td>停止完了時の継続処理をアタッチ (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/let_value.html">execution::let_value</a></code></td>
+<td>値完了結果から入れ子の非<a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a>へ変換 (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/let_error.html">execution::let_error</a></code></td>
+<td>エラー完了結果から入れ子の非<a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a>へ変換 (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/let_stopped.html">execution::let_stopped</a></code></td>
+<td>停止完了を入れ子の非<a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a>へ変換 (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/bulk.html">execution::bulk</a></code></td>
+<td>インデクス空間上で指定関数を反復実行 (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/split.html">execution::split</a></code></td>
+<td>入力Senderの値を複製回送信可能とする (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/when_all.html">execution::when_all</a></code></td>
+<td>全ての入力Sender完了を待機 (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/when_all_with_variant.html">execution::when_all_with_variant</a></code></td>
+<td>複数の値完了シグネチャをもつ全ての入力Sender完了を待機 (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/into_variant.html">execution::into_variant</a></code></td>
+<td>複数の値完了シグネチャを単一<code><a href="../variant/variant.html">variant</a></code>型の値完了シグネチャに変換 (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/stopped_as_optional.html">execution::stopped_as_optional</a></code></td>
+<td>入力Senderの停止完了を空の<code><a href="../optional/optional.html">optional</a></code>値完了に変換 (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/stopped_as_error.html">execution::stopped_as_error</a></code></td>
+<td>入力Senderの停止完了をエラー完了に変換 (customization point object)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h3>Senderコンシューマ</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="this_thread/sync_wait.html">this_thread::sync_wait</a></code></td>
+<td>現在のスレッド上でSender完了を待機 (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="this_thread/sync_wait_with_variant.html">this_thread::sync_wait_with_variant</a></code></td>
+<td>現在のスレッド上でSender完了を待機 (customization point object)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<p>Senderコンシューマは名前空間 <code>std::this_thread</code> で定義される。</p>
+<h3>Sender/Receiverユーティリティ</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="execution/completion_signatures.html">execution::completion_signatures</a></code></td>
+<td>完了シグネチャ集合を表現する型 (class template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/transform_completion_signatures.html">execution::transform_completion_signatures</a></code></td>
+<td>完了シグネチャ集合を変換 (alias template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/transform_completion_signatures_of.html">execution::transform_completion_signatures_of</a></code></td>
+<td>Senderの完了シグネチャ集合を変換 (alias template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/run_loop.html">execution::run_loop</a></code></td>
+<td>単一スレッド上でのループ実行 (class)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h3>コルーチンユーティリティ</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="execution/as_awaitable.html">execution::as_awaitable</a></code></td>
+<td>Senderを<a href="../../lang/cpp20/coroutines.html">Awaitable型</a>へ変換 (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/with_awaitable_senders.html">execution::with_awaitable_senders</a></code></td>
+<td><a href="../../lang/cpp20/coroutines.html">Promise型</a>の基底クラス (class template)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++17</li>
+<li>C++26 実行制御ライブラリ</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0024r2.html" target="_blank">P0024R2 The Parallelism TS Should be Standardized</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
