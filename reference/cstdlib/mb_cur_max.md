@@ -37,7 +37,7 @@ int main() {
 
 ### 出力例
 ```
-Locale: standard(C), MB_CUR_MAX: 1
+Locale: standard, MB_CUR_MAX: 1
 Locale: ja_JP.UTF-8, MB_CUR_MAX: 6
 ```
 
