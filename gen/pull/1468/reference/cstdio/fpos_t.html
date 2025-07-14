@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-13T13:52:11">
-        2025年07月13日 13時52分11秒
+      <span itemprop="datePublished" content="2025-07-14T12:19:05">
+        2025年07月14日 12時19分05秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -214,13 +214,13 @@
         
   <div class="identifier-type">type-alias</div><div class="header">&lt;cstdio&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">fpos_t</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">using</span> <span class="kt">fpos_t</span> <span class="o">=</span> <span class="cm">/* <i>implementation-defined</i> */</span><span class="p">;</span>
+  <span class="k">using</span> <span class="kt">fpos_t</span> <span class="o">=</span> <span class="n"><i>implementation-defined</i></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
 <p>ファイルの位置を保持するための型。</p>
-<p><code><span href="https://cpprefjp.github.io/reference/cstdio/fseek.md.nolink">fseek()</span></code>関数や<code><span href="https://cpprefjp.github.io/reference/cstdio/ftell.md.nolink">ftell()</span></code>関数とは違い、巨大なファイルやマルチバイトファイルに対しても適切に動作するすることを目的に設計された。</p>
+<p><code><span href="https://cpprefjp.github.io/reference/cstdio/fgetpos.md.nolink">fgetpos()</span></code>関数や<code><span href="https://cpprefjp.github.io/reference/cstdio/fsetpos.md.nolink">fsetpos()</span></code>関数で用いられる。これらの関数は<code><span href="https://cpprefjp.github.io/reference/cstdio/fseek.md.nolink">fseek()</span></code>関数や<code><span href="https://cpprefjp.github.io/reference/cstdio/ftell.md.nolink">ftell()</span></code>関数と違い、巨大なファイルやマルチバイトファイルに対しても適切に動作するすることを目的に設計された。</p>
 <h2>例</h2>
 <p><div class="yata" id="dd2b8f897b18327c261e72866a4a922a625889c6"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cstdio.html">&lt;cstdio&gt;</a></span><span class="cp"></span>
 

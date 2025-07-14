@@ -2,9 +2,63 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-07-14T12:19:52.947731</updated>
-  <id>aa83be19-1a0f-4b6b-91aa-29227eb77e20</id>
+  <updated>2025-07-14T12:25:14.780194</updated>
+  <id>70a17793-5b60-4f29-a21f-27b093b72ae7</id>
 
+  
+    <entry>
+      <title>fpos_t -- Update reference/cstdio/fpos_t.md</title>
+      <link href="https://cpprefjp.github.io/reference/cstdio/fpos_t.html"/>
+      <id>3aec3d6e61bd539f145a5629412a95e7cb231fda:reference/cstdio/fpos_t.md</id>
+      <updated>2025-07-14T21:19:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/fpos_t.md b/reference/cstdio/fpos_t.md
+index 314047f65..3303e37c0 100644
+--- a/reference/cstdio/fpos_t.md
++++ b/reference/cstdio/fpos_t.md
+@@ -5,7 +5,7 @@
+ 
+ ```cpp
+ namespace std {
+-  using fpos_t = /* implementation-defined */;
++  using fpos_t = implementation-defined;
+ }
+ ```
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>fpos_t -- Update reference/cstdio/fpos_t.md</title>
+      <link href="https://cpprefjp.github.io/reference/cstdio/fpos_t.html"/>
+      <id>5050bbe3aa50c9d5bee2e2911153043117adb2d6:reference/cstdio/fpos_t.md</id>
+      <updated>2025-07-14T21:18:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/fpos_t.md b/reference/cstdio/fpos_t.md
+index c72b2604a..314047f65 100644
+--- a/reference/cstdio/fpos_t.md
++++ b/reference/cstdio/fpos_t.md
+@@ -12,7 +12,7 @@ namespace std {
+ ## 概要
+ ファイルの位置を保持するための型。
+ 
+-[`fseek()`](/reference/cstdio/fseek.md.nolink)関数や[`ftell()`](/reference/cstdio/ftell.md.nolink)関数とは違い、巨大なファイルやマルチバイトファイルに対しても適切に動作するすることを目的に設計された。
++[`fgetpos()`](/reference/cstdio/fgetpos.md.nolink)関数や[`fsetpos()`](/reference/cstdio/fsetpos.md.nolink)関数で用いられる。これらの関数は[`fseek()`](/reference/cstdio/fseek.md.nolink)関数や[`ftell()`](/reference/cstdio/ftell.md.nolink)関数と違い、巨大なファイルやマルチバイトファイルに対しても適切に動作するすることを目的に設計された。
+ 
+ ## 例
+ ```cpp example
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>EOF -- Merge branch &#39;cpprefjp:master&#39; into master</title>
@@ -548,60 +602,6 @@ index 5791670be..243769def 100644
  }
  ```
  
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>rotarymars</name>
-        <email>s.goto2050@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>fpos_t -- fixed declaration of fpos_t</title>
-      <link href="https://cpprefjp.github.io/reference/cstdio/fpos_t.html"/>
-      <id>b645fd6b7d581bcd26ce2c71f08272db3e6a9862:reference/cstdio/fpos_t.md</id>
-      <updated>2025-07-13T22:52:11+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/fpos_t.md b/reference/cstdio/fpos_t.md
-index fb74effe6..c72b2604a 100644
---- a/reference/cstdio/fpos_t.md
-+++ b/reference/cstdio/fpos_t.md
-@@ -5,7 +5,7 @@
- 
- ```cpp
- namespace std {
--  typedef /* implementation-defined */ fpos_t;
-+  using fpos_t = /* implementation-defined */;
- }
- ```
- 
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>rotarymars</name>
-        <email>s.goto2050@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>fread -- Merge branch &#39;master&#39; of https://github.com/rotarymars/cpprefjp-site</title>
-      <link href="https://cpprefjp.github.io/reference/cstdio/fread.html"/>
-      <id>0e9f6d79142cb4b721c1c35868881bcad1b6afe2:reference/cstdio/fread.md</id>
-      <updated>2025-07-13T22:52:13+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/fread.md b/reference/cstdio/fread.md
-index 8b51b5a88..a2918cf22 100644
---- a/reference/cstdio/fread.md
-+++ b/reference/cstdio/fread.md
-@@ -28,7 +28,7 @@ namespace std {
- 
- 読み込んだデータは、`buffer`が指すメモリの先頭から順に格納される。
- 
--読み込んだデータの長さは、`count * size`バイトである。
-+読み取りエラーが生じなければ、読み込むデータの大きさは`count * size`バイトである。
- 
- ## 例
- ```cpp example
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
