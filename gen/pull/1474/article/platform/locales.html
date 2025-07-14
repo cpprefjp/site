@@ -1,0 +1,897 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>使用できるロケール文字列 - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,
+">
+        <meta name="title" content="使用できるロケール文字列 - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="使用できるロケール文字列 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="使用できるロケール文字列 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/article/platform/locales.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="使用できるロケール文字列 この記事では、使用できるロケール文字列の一覧をまとめる。ここでいうロケール文字列とは、setlocale()関数、_wsetlocale()関数、std::localeコンストラクタで指定する文字列である。  Visual C++ MSDNライブラリのsetlocale、_wsetlocaleでは、以下の形式の文字列が指定できると記述されている。[]で囲っている部分は省略" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="使用できるロケール文字列 - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/article/platform/locales.html" />
+        <meta name="twitter:description" content="使用できるロケール文字列 この記事では、使用できるロケール文字列の一覧をまとめる。ここでいうロケール文字列とは、setlocale()関数、_wsetlocale()関数、std::localeコンストラクタで指定する文字列である。  Visual C++ MSDNライブラリのsetlocale、_wsetlocaleでは、以下の形式の文字列が指定できると記述されている。[]で囲っている部分は省略" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {}, &#34;sources&#34;: [{&#34;id&#34;: &#34;d4c18430c811fc58c9b326d33bf34a64d444e2dc&#34;, &#34;source&#34;: &#34;#include &lt;array&gt;\n#include &lt;codecvt&gt;\n#include &lt;iostream&gt;\n#include &lt;windows.h&gt;\n\nint main()\n{\n  std::locale utf8(std::locale::classic(), new std::codecvt_utf8_utf16&lt;WCHAR, 0x10ffff, std::codecvt_mode::generate_header&gt;());\n  std::wcout.imbue(utf8);\n    ::EnumSystemLocalesEx([](LPWSTR localeName, DWORD /*flags*/, LPARAM lParam) {\n        std::array&lt;WCHAR, 4&gt; language;\n        ::GetLocaleInfoEx(localeName, LOCALE_SABBREVLANGNAME, language.data(), language.size());\n        std::array&lt;WCHAR, 4&gt; country;\n        ::GetLocaleInfoEx(localeName, LOCALE_SABBREVCTRYNAME, country.data(), country.size());\n        std::array&lt;WCHAR, 64&gt; languageFull;\n        ::GetLocaleInfoEx(localeName, LOCALE_SENGLISHLANGUAGENAME, languageFull.data(), languageFull.size());\n        std::array&lt;WCHAR, 64&gt; countryFull;\n        ::GetLocaleInfoEx(localeName, LOCALE_SENGLISHCOUNTRYNAME, countryFull.data(), countryFull.size());\n\n        std::wcout &lt;&lt; language.data() &lt;&lt; L&#39;_&#39; &lt;&lt; country.data() &lt;&lt; L&#39;\\t&#39; &lt;&lt; languageFull.data() &lt;&lt; L&#39;_&#39; &lt;&lt; countryFull.data() &lt;&lt; std::endl;\n        return TRUE;\n    }, LOCALE_NEUTRALDATA, 0, nullptr);\n}\n&#34;}], &#34;page_id&#34;: [&#34;article&#34;, &#34;platform&#34;, &#34;locales&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../article.html" itemprop="url">
+              
+                <span itemprop="name">article</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">platform</span>
+            
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">使用できるロケール文字列</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2019-12-19T20:04:48">
+        2019年12月19日 20時04分48秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yumetodo</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/article/platform/locales.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/article/platform/locales.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">使用できるロケール文字列</span></h1>
+<div itemprop="articleBody"><p>この記事では、使用できるロケール文字列の一覧をまとめる。ここでいうロケール文字列とは、<code>setlocale()</code>関数、<code>_wsetlocale()</code>関数、<code>std::locale</code>コンストラクタで指定する文字列である。 </p>
+<h2>Visual C++</h2>
+<p>MSDNライブラリの<a href="https://docs.microsoft.com/ja-jp/previous-versions/visualstudio/visual-studio-2010/x99tb11d(v=vs.100)" target="_blank">setlocale、_wsetlocale</a>では、以下の形式の文字列が指定できると記述されている。<code>[]</code>で囲っている部分は省略可能であることを意味する。</p>
+<ul>
+<li><code>"lang[_country_region[.code_page]]"</code></li>
+<li><code>".code_page"</code></li>
+<li><code>""</code></li>
+<li><code>NULL</code></li>
+</ul>
+<p><code>lang</code>（言語）、<code>country_region</code>（地域）、<code>code_page</code>（コードページ）の3要素として指定できる項目を明確にすることが本記事の目的である。</p>
+<p>（以下、制作中につき、構成が変化する可能性があります）</p>
+<h2>Windows 8 / Visual C++ 2012 Update 1 無印</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>3文字表記（言語<code>_</code>地域）</th>
+<th>長い表記（言語<code>_</code>地域）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>AFK_ZAF</code></td>
+<td><code>Afrikaans_South Africa</code></td>
+</tr>
+<tr>
+<td><code>AMH_ETH</code></td>
+<td><code>Amharic_Ethiopia</code></td>
+</tr>
+<tr>
+<td><code>ARA_SAU</code></td>
+<td><code>Arabic_Saudi Arabia</code></td>
+</tr>
+<tr>
+<td><code>ASM_IND</code></td>
+<td><code>Assamese_India</code></td>
+</tr>
+<tr>
+<td><code>AZC_AZE</code></td>
+<td><code>Azerbaijani (Cyrillic)_Azerbaijan</code></td>
+</tr>
+<tr>
+<td><code>AZE_AZE</code></td>
+<td><code>Azerbaijani_Azerbaijan</code></td>
+</tr>
+<tr>
+<td><code>AZE_AZE</code></td>
+<td><code>Azerbaijani (Latin)_Azerbaijan</code></td>
+</tr>
+<tr>
+<td><code>BAS_RUS</code></td>
+<td><code>Bashkir_Russia</code></td>
+</tr>
+<tr>
+<td><code>BEL_BLR</code></td>
+<td><code>Belarusian_Belarus</code></td>
+</tr>
+<tr>
+<td><code>BGR_BGR</code></td>
+<td><code>Bulgarian_Bulgaria</code></td>
+</tr>
+<tr>
+<td><code>BNG_IND</code></td>
+<td><code>Bangla_India</code></td>
+</tr>
+<tr>
+<td><code>BOB_CHN</code></td>
+<td><code>Tibetan_China</code></td>
+</tr>
+<tr>
+<td><code>BRE_FRA</code></td>
+<td><code>Breton_France</code></td>
+</tr>
+<tr>
+<td><code>BSB_BIH</code></td>
+<td><code>Bosnian (Latin)_Bosnia and Herzegovina</code></td>
+</tr>
+<tr>
+<td><code>BSB_BIH</code></td>
+<td><code>Bosnian_Bosnia and Herzegovina</code></td>
+</tr>
+<tr>
+<td><code>BSC_BIH</code></td>
+<td><code>Bosnian (Cyrillic)_Bosnia and Herzegovina</code></td>
+</tr>
+<tr>
+<td><code>CAT_ESP</code></td>
+<td><code>Catalan_Spain</code></td>
+</tr>
+<tr>
+<td><code>CHS_CHN</code></td>
+<td><code>Chinese (Simplified)_China</code></td>
+</tr>
+<tr>
+<td><code>CHS_CHN</code></td>
+<td><code>Chinese_China</code></td>
+</tr>
+<tr>
+<td><code>CHT_HKG</code></td>
+<td><code>Chinese (Traditional)_Hong Kong SAR</code></td>
+</tr>
+<tr>
+<td><code>COS_FRA</code></td>
+<td><code>Corsican_France</code></td>
+</tr>
+<tr>
+<td><code>CRE_USA</code></td>
+<td><code>Cherokee_United States</code></td>
+</tr>
+<tr>
+<td><code>CRE_USA</code></td>
+<td><code>Cherokee_United States</code></td>
+</tr>
+<tr>
+<td><code>CSY_CZE</code></td>
+<td><code>Czech_Czech Republic</code></td>
+</tr>
+<tr>
+<td><code>CYM_GBR</code></td>
+<td><code>Welsh_United Kingdom</code></td>
+</tr>
+<tr>
+<td><code>DAN_DNK</code></td>
+<td><code>Danish_Denmark</code></td>
+</tr>
+<tr>
+<td><code>DEU_DEU</code></td>
+<td><code>German_Germany</code></td>
+</tr>
+<tr>
+<td><code>DIV_MDV</code></td>
+<td><code>Divehi_Maldives</code></td>
+</tr>
+<tr>
+<td><code>DSB_GER</code></td>
+<td><code>Lower Sorbian_Germany</code></td>
+</tr>
+<tr>
+<td><code>ELL_GRC</code></td>
+<td><code>Greek_Greece</code></td>
+</tr>
+<tr>
+<td><code>ENU_USA</code></td>
+<td><code>English_United States</code></td>
+</tr>
+<tr>
+<td><code>ESP_ESP</code></td>
+<td><code>Spanish_Spain</code></td>
+</tr>
+<tr>
+<td><code>ETI_EST</code></td>
+<td><code>Estonian_Estonia</code></td>
+</tr>
+<tr>
+<td><code>EUQ_ESP</code></td>
+<td><code>Basque_Spain</code></td>
+</tr>
+<tr>
+<td><code>FAR_IRN</code></td>
+<td><code>Persian_Iran</code></td>
+</tr>
+<tr>
+<td><code>FIN_FIN</code></td>
+<td><code>Finnish_Finland</code></td>
+</tr>
+<tr>
+<td><code>FOS_FRO</code></td>
+<td><code>Faroese_Faroe Islands</code></td>
+</tr>
+<tr>
+<td><code>FPO_PHL</code></td>
+<td><code>Filipino_Philippines</code></td>
+</tr>
+<tr>
+<td><code>FRA_FRA</code></td>
+<td><code>French_France</code></td>
+</tr>
+<tr>
+<td><code>FUL_SEN</code></td>
+<td><code>Fulah_Senegal</code></td>
+</tr>
+<tr>
+<td><code>FUL_SEN</code></td>
+<td><code>Fulah_Senegal</code></td>
+</tr>
+<tr>
+<td><code>FYN_NLD</code></td>
+<td><code>Frisian_Netherlands</code></td>
+</tr>
+<tr>
+<td><code>GLA_GBR</code></td>
+<td><code>Scottish Gaelic_United Kingdom</code></td>
+</tr>
+<tr>
+<td><code>GLC_ESP</code></td>
+<td><code>Galician_Spain</code></td>
+</tr>
+<tr>
+<td><code>GSW_FRA</code></td>
+<td><code>Alsatian_France</code></td>
+</tr>
+<tr>
+<td><code>GUJ_IND</code></td>
+<td><code>Gujarati_India</code></td>
+</tr>
+<tr>
+<td><code>HAU_NGA</code></td>
+<td><code>Hausa_Nigeria</code></td>
+</tr>
+<tr>
+<td><code>HAU_NGA</code></td>
+<td><code>Hausa (Latin)_Nigeria</code></td>
+</tr>
+<tr>
+<td><code>HAW_USA</code></td>
+<td><code>Hawaiian_United States</code></td>
+</tr>
+<tr>
+<td><code>HEB_ISR</code></td>
+<td><code>Hebrew_Israel</code></td>
+</tr>
+<tr>
+<td><code>HIN_IND</code></td>
+<td><code>Hindi_India</code></td>
+</tr>
+<tr>
+<td><code>HRV_HRV</code></td>
+<td><code>Croatian_Croatia</code></td>
+</tr>
+<tr>
+<td><code>HSB_GER</code></td>
+<td><code>Upper Sorbian_Germany</code></td>
+</tr>
+<tr>
+<td><code>HUN_HUN</code></td>
+<td><code>Hungarian_Hungary</code></td>
+</tr>
+<tr>
+<td><code>HYE_ARM</code></td>
+<td><code>Armenian_Armenia</code></td>
+</tr>
+<tr>
+<td><code>IBO_NGA</code></td>
+<td><code>Igbo_Nigeria</code></td>
+</tr>
+<tr>
+<td><code>III_CHN</code></td>
+<td><code>Yi_China</code></td>
+</tr>
+<tr>
+<td><code>IND_IDN</code></td>
+<td><code>Indonesian_Indonesia</code></td>
+</tr>
+<tr>
+<td><code>IRE_IRL</code></td>
+<td><code>Irish_Ireland</code></td>
+</tr>
+<tr>
+<td><code>ISL_ISL</code></td>
+<td><code>Icelandic_Iceland</code></td>
+</tr>
+<tr>
+<td><code>ITA_ITA</code></td>
+<td><code>Italian_Italy</code></td>
+</tr>
+<tr>
+<td><code>IUK_CAN</code></td>
+<td><code>Inuktitut_Canada</code></td>
+</tr>
+<tr>
+<td><code>IUK_CAN</code></td>
+<td><code>Inuktitut (Latin)_Canada</code></td>
+</tr>
+<tr>
+<td><code>IUS_CAN</code></td>
+<td><code>Inuktitut (Syllabics)_Canada</code></td>
+</tr>
+<tr>
+<td><code>IVL_IVC</code></td>
+<td><code>Invariant Language_Invariant Country</code></td>
+</tr>
+<tr>
+<td><code>JPN_JPN</code></td>
+<td><code>Japanese_Japan</code></td>
+</tr>
+<tr>
+<td><code>KAL_GRL</code></td>
+<td><code>Greenlandic_Greenland</code></td>
+</tr>
+<tr>
+<td><code>KAT_GEO</code></td>
+<td><code>Georgian_Georgia</code></td>
+</tr>
+<tr>
+<td><code>KDI_IND</code></td>
+<td><code>Kannada_India</code></td>
+</tr>
+<tr>
+<td><code>KHM_KHM</code></td>
+<td><code>Khmer_Cambodia</code></td>
+</tr>
+<tr>
+<td><code>KIN_RWA</code></td>
+<td><code>Kinyarwanda_Rwanda</code></td>
+</tr>
+<tr>
+<td><code>KKZ_KAZ</code></td>
+<td><code>Kazakh_Kazakhstan</code></td>
+</tr>
+<tr>
+<td><code>KNK_IND</code></td>
+<td><code>Konkani_India</code></td>
+</tr>
+<tr>
+<td><code>KOR_KOR</code></td>
+<td><code>Korean_Korea</code></td>
+</tr>
+<tr>
+<td><code>KUR_IRQ</code></td>
+<td><code>Central Kurdish_Iraq</code></td>
+</tr>
+<tr>
+<td><code>KUR_IRQ</code></td>
+<td><code>Central Kurdish_Iraq</code></td>
+</tr>
+<tr>
+<td><code>KYR_KGZ</code></td>
+<td><code>Kyrgyz_Kyrgyzstan</code></td>
+</tr>
+<tr>
+<td><code>LAO_LAO</code></td>
+<td><code>Lao_Lao PDR</code></td>
+</tr>
+<tr>
+<td><code>LBX_LUX</code></td>
+<td><code>Luxembourgish_Luxembourg</code></td>
+</tr>
+<tr>
+<td><code>LTH_LTU</code></td>
+<td><code>Lithuanian_Lithuania</code></td>
+</tr>
+<tr>
+<td><code>LVI_LVA</code></td>
+<td><code>Latvian_Latvia</code></td>
+</tr>
+<tr>
+<td><code>MAR_IND</code></td>
+<td><code>Marathi_India</code></td>
+</tr>
+<tr>
+<td><code>MKI_MKD</code></td>
+<td><code>Macedonian (Former Yugoslav Republic of Macedonia)_Macedonia (Former Yugoslav Republic of Macedonia)</code></td>
+</tr>
+<tr>
+<td><code>MLT_MLT</code></td>
+<td><code>Maltese_Malta</code></td>
+</tr>
+<tr>
+<td><code>MNG_CHN</code></td>
+<td><code>Mongolian (Traditional Mongolian)_China</code></td>
+</tr>
+<tr>
+<td><code>MNN_MNG</code></td>
+<td><code>Mongolian (Cyrillic)_Mongolia</code></td>
+</tr>
+<tr>
+<td><code>MON_MNG</code></td>
+<td><code>Mongolian_Mongolia</code></td>
+</tr>
+<tr>
+<td><code>MPD_CHL</code></td>
+<td><code>Mapudungun_Chile</code></td>
+</tr>
+<tr>
+<td><code>MRI_NZL</code></td>
+<td><code>Maori_New Zealand</code></td>
+</tr>
+<tr>
+<td><code>MSL_MYS</code></td>
+<td><code>Malay_Malaysia</code></td>
+</tr>
+<tr>
+<td><code>MWK_CAN</code></td>
+<td><code>Mohawk_Canada</code></td>
+</tr>
+<tr>
+<td><code>MYM_IND</code></td>
+<td><code>Malayalam_India</code></td>
+</tr>
+<tr>
+<td><code>NEP_NEP</code></td>
+<td><code>Nepali_Nepal</code></td>
+</tr>
+<tr>
+<td><code>NLD_NLD</code></td>
+<td><code>Dutch_Netherlands</code></td>
+</tr>
+<tr>
+<td><code>NON_NOR</code></td>
+<td><code>Norwegian (Nynorsk)_Norway</code></td>
+</tr>
+<tr>
+<td><code>NOR_NOR</code></td>
+<td><code>Norwegian_Norway</code></td>
+</tr>
+<tr>
+<td><code>NOR_NOR</code></td>
+<td><code>Norwegian (Bokmal)_Norway</code></td>
+</tr>
+<tr>
+<td><code>NSO_ZAF</code></td>
+<td><code>Sesotho sa Leboa_South Africa</code></td>
+</tr>
+<tr>
+<td><code>OCI_FRA</code></td>
+<td><code>Occitan_France</code></td>
+</tr>
+<tr>
+<td><code>ORI_IND</code></td>
+<td><code>Odia_India</code></td>
+</tr>
+<tr>
+<td><code>PAN_IND</code></td>
+<td><code>Punjabi_India</code></td>
+</tr>
+<tr>
+<td><code>PAN_PAK</code></td>
+<td><code>Punjabi_Pakistan</code></td>
+</tr>
+<tr>
+<td><code>PAS_AFG</code></td>
+<td><code>Pashto_Afghanistan</code></td>
+</tr>
+<tr>
+<td><code>PLK_POL</code></td>
+<td><code>Polish_Poland</code></td>
+</tr>
+<tr>
+<td><code>PRS_AFG</code></td>
+<td><code>Dari_Afghanistan</code></td>
+</tr>
+<tr>
+<td><code>PTB_BRA</code></td>
+<td><code>Portuguese_Brazil</code></td>
+</tr>
+<tr>
+<td><code>QUB_BOL</code></td>
+<td><code>Quechua_Bolivia</code></td>
+</tr>
+<tr>
+<td><code>QUT_GTM</code></td>
+<td><code>K'iche'_Guatemala</code></td>
+</tr>
+<tr>
+<td><code>RMC_CHE</code></td>
+<td><code>Romansh_Switzerland</code></td>
+</tr>
+<tr>
+<td><code>ROM_ROM</code></td>
+<td><code>Romanian_Romania</code></td>
+</tr>
+<tr>
+<td><code>RUS_RUS</code></td>
+<td><code>Russian_Russia</code></td>
+</tr>
+<tr>
+<td><code>SAH_RUS</code></td>
+<td><code>Sakha_Russia</code></td>
+</tr>
+<tr>
+<td><code>SAN_IND</code></td>
+<td><code>Sanskrit_India</code></td>
+</tr>
+<tr>
+<td><code>SIN_LKA</code></td>
+<td><code>Sinhala_Sri Lanka</code></td>
+</tr>
+<tr>
+<td><code>SIN_PAK</code></td>
+<td><code>Sindhi_Pakistan</code></td>
+</tr>
+<tr>
+<td><code>SKY_SVK</code></td>
+<td><code>Slovak_Slovakia</code></td>
+</tr>
+<tr>
+<td><code>SLV_SVN</code></td>
+<td><code>Slovenian_Slovenia</code></td>
+</tr>
+<tr>
+<td><code>SMB_SWE</code></td>
+<td><code>Sami (Southern)_Sweden</code></td>
+</tr>
+<tr>
+<td><code>SME_NOR</code></td>
+<td><code>Sami (Northern)_Norway</code></td>
+</tr>
+<tr>
+<td><code>SMK_SWE</code></td>
+<td><code>Sami (Lule)_Sweden</code></td>
+</tr>
+<tr>
+<td><code>SMN_FIN</code></td>
+<td><code>Sami (Inari)_Finland</code></td>
+</tr>
+<tr>
+<td><code>SMS_FIN</code></td>
+<td><code>Sami (Skolt)_Finland</code></td>
+</tr>
+<tr>
+<td><code>SQI_ALB</code></td>
+<td><code>Albanian_Albania</code></td>
+</tr>
+<tr>
+<td><code>SRB_SRB</code></td>
+<td><code>Serbian_Serbia</code></td>
+</tr>
+<tr>
+<td><code>SRM_SRB</code></td>
+<td><code>Serbian (Latin)_Serbia</code></td>
+</tr>
+<tr>
+<td><code>SRO_SRB</code></td>
+<td><code>Serbian (Cyrillic)_Serbia</code></td>
+</tr>
+<tr>
+<td><code>SVE_SWE</code></td>
+<td><code>Swedish_Sweden</code></td>
+</tr>
+<tr>
+<td><code>SWK_KEN</code></td>
+<td><code>Kiswahili_Kenya</code></td>
+</tr>
+<tr>
+<td><code>SYR_SYR</code></td>
+<td><code>Syriac_Syria</code></td>
+</tr>
+<tr>
+<td><code>TAJ_TAJ</code></td>
+<td><code>Tajik_Tajikistan</code></td>
+</tr>
+<tr>
+<td><code>TAJ_TAJ</code></td>
+<td><code>Tajik (Cyrillic)_Tajikistan</code></td>
+</tr>
+<tr>
+<td><code>TAM_IND</code></td>
+<td><code>Tamil_India</code></td>
+</tr>
+<tr>
+<td><code>TEL_IND</code></td>
+<td><code>Telugu_India</code></td>
+</tr>
+<tr>
+<td><code>THA_THA</code></td>
+<td><code>Thai_Thailand</code></td>
+</tr>
+<tr>
+<td><code>TIR_ERI</code></td>
+<td><code>Tigrinya_Eritrea</code></td>
+</tr>
+<tr>
+<td><code>TRK_TUR</code></td>
+<td><code>Turkish_Turkey</code></td>
+</tr>
+<tr>
+<td><code>TSN_ZAF</code></td>
+<td><code>Setswana_South Africa</code></td>
+</tr>
+<tr>
+<td><code>TTT_RUS</code></td>
+<td><code>Tatar_Russia</code></td>
+</tr>
+<tr>
+<td><code>TUK_TKM</code></td>
+<td><code>Turkmen_Turkmenistan</code></td>
+</tr>
+<tr>
+<td><code>TZM_DZA</code></td>
+<td><code>Tamazight_Algeria</code></td>
+</tr>
+<tr>
+<td><code>TZM_DZA</code></td>
+<td><code>Central Atlas Tamazight (Latin)_Algeria</code></td>
+</tr>
+<tr>
+<td><code>TZM_MAR</code></td>
+<td><code>Central Atlas Tamazight (Tifinagh)_Morocco</code></td>
+</tr>
+<tr>
+<td><code>UIG_CHN</code></td>
+<td><code>Uyghur_China</code></td>
+</tr>
+<tr>
+<td><code>UKR_UKR</code></td>
+<td><code>Ukrainian_Ukraine</code></td>
+</tr>
+<tr>
+<td><code>URD_PAK</code></td>
+<td><code>Urdu_Pakistan</code></td>
+</tr>
+<tr>
+<td><code>UZB_UZB</code></td>
+<td><code>Uzbek_Uzbekistan</code></td>
+</tr>
+<tr>
+<td><code>UZB_UZB</code></td>
+<td><code>Uzbek (Cyrillic)_Uzbekistan</code></td>
+</tr>
+<tr>
+<td><code>UZB_UZB</code></td>
+<td><code>Uzbek (Latin)_Uzbekistan</code></td>
+</tr>
+<tr>
+<td><code>VIT_VNM</code></td>
+<td><code>Vietnamese_Vietnam</code></td>
+</tr>
+<tr>
+<td><code>WOL_SEN</code></td>
+<td><code>Wolof_Senegal</code></td>
+</tr>
+<tr>
+<td><code>XHO_ZAF</code></td>
+<td><code>isiXhosa_South Africa</code></td>
+</tr>
+<tr>
+<td><code>YOR_NGA</code></td>
+<td><code>Yoruba_Nigeria</code></td>
+</tr>
+<tr>
+<td><code>ZUL_ZAF</code></td>
+<td><code>isiZulu_South Africa</code></td>
+</tr>
+</tbody>
+</table>
+<p>使用したプログラム</p>
+<p><div class="yata" id="d4c18430c811fc58c9b326d33bf34a64d444e2dc"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/array.html">&lt;array&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/codecvt.html">&lt;codecvt&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;windows.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">locale</span> <span class="n">utf8</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">locale</span><span class="o">::</span><span class="n">classic</span><span class="p">(),</span> <span class="k">new</span> <span class="n">std</span><span class="o">::</span><span class="n">codecvt_utf8_utf16</span><span class="o">&lt;</span><span class="n">WCHAR</span><span class="p">,</span> <span class="mh">0x10ffff</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">codecvt_mode</span><span class="o">::</span><span class="n">generate_header</span><span class="o">&gt;</span><span class="p">());</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">wcout</span><span class="p">.</span><span class="n">imbue</span><span class="p">(</span><span class="n">utf8</span><span class="p">);</span>
+    <span class="o">::</span><span class="n">EnumSystemLocalesEx</span><span class="p">([](</span><span class="n">LPWSTR</span> <span class="n">localeName</span><span class="p">,</span> <span class="n">DWORD</span> <span class="cm">/*flags*/</span><span class="p">,</span> <span class="n">LPARAM</span> <span class="n">lParam</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n"><a href="../../reference/array/array.html">std::array</a></span><span class="o">&lt;</span><span class="n">WCHAR</span><span class="p">,</span> <span class="mi">4</span><span class="o">&gt;</span> <span class="n">language</span><span class="p">;</span>
+        <span class="o">::</span><span class="n">GetLocaleInfoEx</span><span class="p">(</span><span class="n">localeName</span><span class="p">,</span> <span class="n">LOCALE_SABBREVLANGNAME</span><span class="p">,</span> <span class="n">language</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span> <span class="n">language</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+        <span class="n"><a href="../../reference/array/array.html">std::array</a></span><span class="o">&lt;</span><span class="n">WCHAR</span><span class="p">,</span> <span class="mi">4</span><span class="o">&gt;</span> <span class="n">country</span><span class="p">;</span>
+        <span class="o">::</span><span class="n">GetLocaleInfoEx</span><span class="p">(</span><span class="n">localeName</span><span class="p">,</span> <span class="n">LOCALE_SABBREVCTRYNAME</span><span class="p">,</span> <span class="n">country</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span> <span class="n">country</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+        <span class="n"><a href="../../reference/array/array.html">std::array</a></span><span class="o">&lt;</span><span class="n">WCHAR</span><span class="p">,</span> <span class="mi">64</span><span class="o">&gt;</span> <span class="n">languageFull</span><span class="p">;</span>
+        <span class="o">::</span><span class="n">GetLocaleInfoEx</span><span class="p">(</span><span class="n">localeName</span><span class="p">,</span> <span class="n">LOCALE_SENGLISHLANGUAGENAME</span><span class="p">,</span> <span class="n">languageFull</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span> <span class="n">languageFull</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+        <span class="n"><a href="../../reference/array/array.html">std::array</a></span><span class="o">&lt;</span><span class="n">WCHAR</span><span class="p">,</span> <span class="mi">64</span><span class="o">&gt;</span> <span class="n">countryFull</span><span class="p">;</span>
+        <span class="o">::</span><span class="n">GetLocaleInfoEx</span><span class="p">(</span><span class="n">localeName</span><span class="p">,</span> <span class="n">LOCALE_SENGLISHCOUNTRYNAME</span><span class="p">,</span> <span class="n">countryFull</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span> <span class="n">countryFull</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+
+        <span class="n">std</span><span class="o">::</span><span class="n">wcout</span> <span class="o">&lt;&lt;</span> <span class="n">language</span><span class="p">.</span><span class="n">data</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sa">L</span><span class="sc">'_'</span> <span class="o">&lt;&lt;</span> <span class="n">country</span><span class="p">.</span><span class="n">data</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sa">L</span><span class="sc">'\t'</span> <span class="o">&lt;&lt;</span> <span class="n">languageFull</span><span class="p">.</span><span class="n">data</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sa">L</span><span class="sc">'_'</span> <span class="o">&lt;&lt;</span> <span class="n">countryFull</span><span class="p">.</span><span class="n">data</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="p">},</span> <span class="n">LOCALE_NEUTRALDATA</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

@@ -1,0 +1,663 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>year_month_day - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,chrono,std::chrono,class,cpp20
+">
+        <meta name="title" content="year_month_day - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="year_month_day - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="year_month_day - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/chrono/year_month_day.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`year_month_day`は、年、月、日を表すカレンダー表現のためクラスである。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="year_month_day - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/chrono/year_month_day.html" />
+        <meta name="twitter:description" content="`year_month_day`は、年、月、日を表すカレンダー表現のためクラスである。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;chrono&#34;], &#34;namespace&#34;: [&#34;std::chrono&#34;], &#34;id-type&#34;: [&#34;class&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;3a9e74d4e35635947c1dd27bd86a353c00113c45&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;chrono&gt;\n\nnamespace chrono = std::chrono;\nusing namespace std::chrono_literals;\n\nint main()\n{\n  // \u3059\u3079\u30662020\u5e743\u67081\u65e5\u3092\u8868\u3059\n  chrono::year_month_day date1 = 2020y/3/1;\n  chrono::year_month_day date2 = 2020y/chrono::March/1;\n  chrono::year_month_day date3 = 2020y/chrono::March/1d;\n  chrono::year_month_day date4 = 1d/chrono::March/2020;\n  chrono::year_month_day date5 = 1d/3/2020;\n  chrono::year_month_day date6 = chrono::March/1/2020;\n  chrono::year_month_day date7 = 3/1d/2020;\n\n  // \u5404\u30ab\u30ec\u30f3\u30c0\u30fc\u8981\u7d20\u306e\u30b3\u30f3\u30b9\u30c8\u30e9\u30af\u30bf\u306fexplicit\u306a\u306e\u3067\u3001\n  // \u6307\u5b9a\u9806\u306f\u5e74\u3001\u6708\u3001\u65e5\u3067\u6c7a\u307e\u3063\u3066\u3044\u308b\u304c\u3001int\u5024\u306f\u6307\u5b9a\u3067\u304d\u306a\u3044\n  chrono::year_month_day date8{2020y, chrono::March, 1d};\n  chrono::year_month_day date9{chrono::year{2020}, chrono::month{3}, chrono::day{1}};\n  std::cout &lt;&lt; date9 &lt;&lt; std::endl;\n\n  // \u5e74\u3001\u6708\u3001\u6708\u306e\u6700\u7d42\u65e5\u306e\u7d44\u307f\u5408\u308f\u305b\u304b\u3089\u3001\u5e74\u3001\u6708\u3001\u65e5\u306b\u5909\u63db\u3002\n  // \u4ee5\u4e0b\u306f\u3059\u3079\u30662020\u5e742\u670829\u65e5\u3092\u8868\u3059\n  chrono::year_month_day date10 = 2020y/3/chrono::last;\n  chrono::year_month_day date11 = 3/chrono::last/2020;\n  chrono::year_month_day date12 = chrono::last/3/2020;\n  std::cout &lt;&lt; date12 &lt;&lt; std::endl;\n\n  // \u65e5\u5358\u4f4d\u306e\u30b7\u30b9\u30c6\u30e0\u6642\u9593\u306b\u5909\u63db\n  chrono::sys_days sd{date9};\n  std::cout &lt;&lt; sd &lt;&lt; std::endl;\n  std::cout &lt;&lt; sd.time_since_epoch().count() &lt;&lt; std::endl; // 1970\u5e741\u67081\u65e5\u304b\u3089\u306e\u7d4c\u904e\u65e5\n  std::cout &lt;&lt;\n    chrono::time_point_cast&lt;chrono::seconds&gt;(sd).time_since_epoch().count()\n  &lt;&lt; std::endl; // 1970\u5e741\u67081\u65e5\u304b\u3089\u306e\u7d4c\u904e\u79d2\n\n  // \u65e5\u5358\u4f4d\u306e\u30b7\u30b9\u30c6\u30e0\u6642\u9593\u306b\u6642\u30fb\u5206\u3092\u52a0\u7b97\u3057\u3066\u3001\u5206\u307e\u3067\u6271\u3048\u308b\u30b7\u30b9\u30c6\u30e0\u6642\u9593\u306b\u5909\u63db\u3002\n  chrono::sys_time sm = chrono::sys_days{2020y/3/1} + 15h + 30min;\n  std::cout &lt;&lt; sm &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;e79da50a5f4dad1c7d27e8d7aea745c8c71c89ad&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;chrono&gt;\n\nnamespace chrono = std::chrono;\nusing namespace std::chrono_literals;\n\nint main()\n{\n  chrono::year_month_day base_date = 2020y/3/1;\n\n  // year_month_day\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u306b\u5bfe\u3057\u3066\u76f4\u63a51\u65e5\u6e1b\u7b97\u306f\u3067\u304d\u306a\u3044\u306e\u3067\u3001\n  // \u524d\u6708\u306e\u672b\u65e5\u3092\u8868\u3059year_month_day_last\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3092\u4f5c\u3063\u3066\u304b\u3089\u3001\n  // year_month_day\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u306b\u5909\u63db\u3059\u308b\n  chrono::year_month_day date{base_date.year()/(base_date.month() - chrono::months{1})/chrono::last};\n\n  assert(date == 2020y/2/29);\n}\n&#34;}, {&#34;id&#34;: &#34;0ee8c25e8a11d4525ef5d9fafda1203159d50a10&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;chrono&gt;\n\nnamespace chrono = std::chrono;\n\nchrono::year_month_day unix_time_to_ymd(std::time_t unixtime) {\n  // \u30b7\u30b9\u30c6\u30e0\u6642\u9593\u306e\u6642\u9593\u70b9\u306b\u5909\u63db\n  auto tp = chrono::system_clock::from_time_t(unixtime);\n\n  // \u6642\u9593\u70b9\u3092\u65e5\u5358\u4f4d\u306b\u5909\u63db\n  chrono::sys_days sd = chrono::floor&lt;chrono::days&gt;(tp);\n\n  // \u65e5\u4ed8\u306b\u5909\u63db\n  return chrono::year_month_day{sd};\n}\n\nint main()\n{\n  // UNIX\u6642\u9593\u3067\u306e\u73fe\u5728\u65e5\u6642\u3092\u53d6\u5f97\u3000\n  std::time_t now = std::time(nullptr);\n  chrono::year_month_day date = unix_time_to_ymd(now);\n\n  std::cout &lt;&lt; date &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;1f8146623c9a7ab94fafe13198843293b82818cf&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;chrono&gt;\n#include &lt;stdexcept&gt;\n\nint calc_age(const std::chrono::year_month_day&amp; date) {\n  if (!date.ok()) {\n    throw std::invalid_argument(\&#34;invalid date\&#34;);\n  }\n\n  namespace chrono = std::chrono;\n  chrono::year_month_day now {chrono::floor&lt;chrono::days&gt;(chrono::system_clock::now())};\n  int age = (now.year() - date.year()).count();\n  if (now.month() &lt; date.month()) {\n    return age - 1;\n  }\n  else if (now.month() == date.month()) {\n    if (now.day() &lt; date.day()) {\n      return age - 1;\n    }\n  }\n  return age;\n}\n\nint calc_age(int year, int month, int day) {\n  namespace chrono = std::chrono;\n  return calc_age(chrono::year_month_day{\n           chrono::year{year},\n           chrono::month{static_cast&lt;unsigned int&gt;(month)},\n           chrono::day{static_cast&lt;unsigned int&gt;(day)}});\n}\n\nint main()\n{\n  using namespace std::chrono_literals;\n\n  std::cout &lt;&lt; calc_age(1985y/3/1) &lt;&lt; std::endl;\n  std::cout &lt;&lt; calc_age(1954y/10/30) &lt;&lt; std::endl; // 1970\u5e74\u672a\u6e80\u3082\u6271\u3048\u308b\n  std::cout &lt;&lt; calc_age(2000, 2, 29) &lt;&lt; std::endl; // \u3046\u308b\u3046\u5e74\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;chrono&#34;, &#34;year_month_day&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/chrono.html" itemprop="url">
+              
+                <span itemprop="name">chrono</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">year_month_day</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-08-02T05:07:35">
+        2024年08月02日 05時07分35秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/chrono/year_month_day.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/chrono/year_month_day.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class</div><div class="header">&lt;chrono&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::chrono">std::chrono::</span><span class="token">year_month_day</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span> <span class="p">{</span>
+  <span class="k">class</span> <span class="nc">year_month_day</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>year_month_day</code>は、年、月、日を表すカレンダー表現のためクラスである。</p>
+<p>このクラスは、年、および月に関する演算に対応している。ただし、日に関する演算はできない。</p>
+<p>このクラスは等値比較および大小比較ができ、<a href="../concepts/equality_comparable.html">EqualityComparable</a>およびLessThanComparableの要件を満たす。</p>
+<p>このクラスは、<a href="../type_traits/is_trivially_copyable.html">トリビアルコピー可能</a>で、かつ<a href="../type_traits/is_standard_layout.html">スタンダードレイアウト型</a>である。</p>
+<h2>メンバ関数</h2>
+<h3>構築／コピー／破棄</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="year_month_day/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code>year_month_day&amp; operator=(const year_month_day&amp;) = default;</code><br /> <code>year_month_day&amp; operator=(year_month_day&amp;&amp;) = default;</code></td>
+<td>代入演算子</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>算術演算</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="year_month_day/op_plus_assign.html">operator+=</a></code></td>
+<td>加算の複合代入</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="year_month_day/op_minus_assign.html">operator-=</a></code></td>
+<td>減算の複合代入</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>観測</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="year_month_day/year.html">year</a></code></td>
+<td>年要素を取得する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="year_month_day/month.html">month</a></code></td>
+<td>月要素を取得する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="year_month_day/day.html">day</a></code></td>
+<td>日要素を取得する</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>変換</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="year_month_day/op_sys_days.html">operator sys_days</a></code></td>
+<td>システム時間の日付への型変換演算子</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="year_month_day/op_local_days.html">operator local_days</a></code></td>
+<td>ローカル時間の日付への型変換演算子</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>検証</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="year_month_day/ok.html">ok</a></code></td>
+<td>値が範囲に収まっているか判定する</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>非メンバ関数</h2>
+<h3>算術演算</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="year_month_day/op_plus.html">operator+</a></code></td>
+<td>加算</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="year_month_day/op_minus.html">operator-</a></code></td>
+<td>減算</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>比較演算</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="year_month_day/op_equal.html">operator==</a></code></td>
+<td>等値比較を行う</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code>bool operator!=(const year_month_day&amp;, const year_month_day&amp;) noexcept;</code></td>
+<td>非等値比較を行う (<code>==</code>により使用可能)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="year_month_day/op_compare_3way.html">operator&lt;=&gt;</a></code></td>
+<td>三方比較を行う</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code>bool operator&lt;(const year_month_day&amp;, const year_month_day&amp;) noexcept;</code></td>
+<td>左辺が右辺より小さいかを判定する (<code>&lt;=&gt;</code>により使用可能)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code>bool operator&lt;=(const year_month_day&amp;, const year_month_day&amp;) noexcept;</code></td>
+<td>左辺が右辺以下を判定する (<code>&lt;=&gt;</code>により使用可能)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code>bool operator&gt;(const year_month_day&amp;, const year_month_day&amp;) noexcept;</code></td>
+<td>左辺が右辺より大きいかを判定する (<code>&lt;=&gt;</code>により使用可能)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code>bool operator&gt;=(const year_month_day&amp;, const year_month_day&amp;) noexcept;</code></td>
+<td>左辺が右辺以上を判定する (<code>&lt;=&gt;</code>により使用可能)</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>入出力</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="year_month_day/op_ostream.html">operator&lt;&lt;</a></code></td>
+<td>出力ストリームに出力する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="year_month_day/from_stream.html">from_stream</a></code></td>
+<td>フォーマット指定して入力ストリームから入力する</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>文字列フォーマットサポート</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="year_month_day/formatter.html">formatter</a></code></td>
+<td><code><a href="../format/formatter.html">std::formatter</a></code>クラスの特殊化</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>ハッシュサポート</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>template &lt;class T&gt; struct hash;</code></td>
+<td><code>hash</code>クラスの先行宣言</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>template&lt;&gt; struct hash&lt;chrono::year_month_day&gt;;</code></td>
+<td><code>hash</code>クラスの<code>year_month_day</code>に対する特殊化</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<h3>基本的な使い方 (C++20)</h3>
+<p><div class="yata" id="3a9e74d4e35635947c1dd27bd86a353c00113c45"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
+
+<span class="k">namespace</span> <span class="n">chrono</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono_literals</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// すべて2020年3月1日を表す</span>
+  <span class="n">chrono</span><span class="o">::</span><span class="n">year_month_day</span> <span class="n">date1</span> <span class="o">=</span> <span class="n"><a href="year/op_y.html">2020y</a></span><span class="o">/</span><span class="mi">3</span><span class="o">/</span><span class="mi">1</span><span class="p">;</span>
+  <span class="n">chrono</span><span class="o">::</span><span class="n">year_month_day</span> <span class="n">date2</span> <span class="o">=</span> <span class="n"><a href="year/op_y.html">2020y</a></span><span class="o">/</span><span class="n"><a href="month_constants.html">chrono::March</a></span><span class="o">/</span><span class="mi">1</span><span class="p">;</span>
+  <span class="n">chrono</span><span class="o">::</span><span class="n">year_month_day</span> <span class="n">date3</span> <span class="o">=</span> <span class="n"><a href="year/op_y.html">2020y</a></span><span class="o">/</span><span class="n"><a href="month_constants.html">chrono::March</a></span><span class="o">/</span><span class="n"><a href="day/op_d.html">1d</a></span><span class="p">;</span>
+  <span class="n">chrono</span><span class="o">::</span><span class="n">year_month_day</span> <span class="n">date4</span> <span class="o">=</span> <span class="n"><a href="day/op_d.html">1d</a></span><span class="o">/</span><span class="n"><a href="month_constants.html">chrono::March</a></span><span class="o">/</span><span class="mi">2020</span><span class="p">;</span>
+  <span class="n">chrono</span><span class="o">::</span><span class="n">year_month_day</span> <span class="n">date5</span> <span class="o">=</span> <span class="n"><a href="day/op_d.html">1d</a></span><span class="o">/</span><span class="mi">3</span><span class="o">/</span><span class="mi">2020</span><span class="p">;</span>
+  <span class="n">chrono</span><span class="o">::</span><span class="n">year_month_day</span> <span class="n">date6</span> <span class="o">=</span> <span class="n"><a href="month_constants.html">chrono::March</a></span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="mi">2020</span><span class="p">;</span>
+  <span class="n">chrono</span><span class="o">::</span><span class="n">year_month_day</span> <span class="n">date7</span> <span class="o">=</span> <span class="mi">3</span><span class="o">/</span><span class="n"><a href="day/op_d.html">1d</a></span><span class="o">/</span><span class="mi">2020</span><span class="p">;</span>
+
+  <span class="c1">// 各カレンダー要素のコンストラクタはexplicitなので、</span>
+  <span class="c1">// 指定順は年、月、日で決まっているが、int値は指定できない</span>
+  <span class="n">chrono</span><span class="o">::</span><span class="n">year_month_day</span> <span class="n">date8</span><span class="p">{</span><span class="n"><a href="year/op_y.html">2020y</a></span><span class="p">,</span> <span class="n"><a href="month_constants.html">chrono::March</a></span><span class="p">,</span> <span class="n"><a href="day/op_d.html">1d</a></span><span class="p">};</span>
+  <span class="n">chrono</span><span class="o">::</span><span class="n">year_month_day</span> <span class="n">date9</span><span class="p">{</span><span class="n"><a href="year.html">chrono::year</a></span><span class="p">{</span><span class="mi">2020</span><span class="p">},</span> <span class="n"><a href="month.html">chrono::month</a></span><span class="p">{</span><span class="mi">3</span><span class="p">},</span> <span class="n"><a href="day.html">chrono::day</a></span><span class="p">{</span><span class="mi">1</span><span class="p">}};</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">date9</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// 年、月、月の最終日の組み合わせから、年、月、日に変換。</span>
+  <span class="c1">// 以下はすべて2020年2月29日を表す</span>
+  <span class="n">chrono</span><span class="o">::</span><span class="n">year_month_day</span> <span class="n">date10</span> <span class="o">=</span> <span class="n"><a href="year/op_y.html">2020y</a></span><span class="o">/</span><span class="mi">3</span><span class="o">/</span><span class="n"><a href="last_spec.html">chrono::last</a></span><span class="p">;</span>
+  <span class="n">chrono</span><span class="o">::</span><span class="n">year_month_day</span> <span class="n">date11</span> <span class="o">=</span> <span class="mi">3</span><span class="o">/</span><span class="n"><a href="last_spec.html">chrono::last</a></span><span class="o">/</span><span class="mi">2020</span><span class="p">;</span>
+  <span class="n">chrono</span><span class="o">::</span><span class="n">year_month_day</span> <span class="n">date12</span> <span class="o">=</span> <span class="n"><a href="last_spec.html">chrono::last</a></span><span class="o">/</span><span class="mi">3</span><span class="o">/</span><span class="mi">2020</span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">date12</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// 日単位のシステム時間に変換</span>
+  <span class="n"><a href="sys_time.html">chrono::sys_days</a></span> <span class="n">sd</span><span class="p">{</span><span class="n">date9</span><span class="p">};</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">sd</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">sd</span><span class="p">.</span><span class="n"><a href="time_point/time_since_epoch.html">time_since_epoch()</a></span><span class="p">.</span><span class="n"><a href="duration/count.html">count()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="c1">// 1970年1月1日からの経過日</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span>
+    <span class="n"><a href="time_point_cast.html">chrono::time_point_cast</a></span><span class="o">&lt;</span><span class="n"><a href="duration_aliases.html">chrono::seconds</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">sd</span><span class="p">).</span><span class="n"><a href="time_point/time_since_epoch.html">time_since_epoch()</a></span><span class="p">.</span><span class="n"><a href="duration/count.html">count()</a></span>
+  <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="c1">// 1970年1月1日からの経過秒</span>
+
+  <span class="c1">// 日単位のシステム時間に時・分を加算して、分まで扱えるシステム時間に変換。</span>
+  <span class="n"><a href="sys_time.html">chrono::sys_time</a></span> <span class="n">sm</span> <span class="o">=</span> <span class="n"><a href="sys_time.html">chrono::sys_days</a></span><span class="p">{</span><span class="n"><a href="year/op_y.html">2020y</a></span><span class="o">/</span><span class="mi">3</span><span class="o">/</span><span class="mi">1</span><span class="p">}</span> <span class="o">+</span> <span class="n"><a href="duration/op_h.html">15h</a></span> <span class="o">+</span> <span class="n"><a href="duration/op_min.html">30min</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">sm</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力例</h4>
+<p><pre><code>2020-03-01
+2020-02-29
+2020-03-01
+18322
+1583020800
+2020-03-01 15:30:00
+</code></pre></p>
+<h3>前月の末日を求める (C++20)</h3>
+<p><div class="yata" id="e79da50a5f4dad1c7d27e8d7aea745c8c71c89ad"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
+
+<span class="k">namespace</span> <span class="n">chrono</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono_literals</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">chrono</span><span class="o">::</span><span class="n">year_month_day</span> <span class="n">base_date</span> <span class="o">=</span> <span class="mi">2020</span><span class="n">y</span><span class="o">/</span><span class="mi">3</span><span class="o">/</span><span class="mi">1</span><span class="p">;</span>
+
+  <span class="c1">// year_month_dayオブジェクトに対して直接1日減算はできないので、</span>
+  <span class="c1">// 前月の末日を表すyear_month_day_lastオブジェクトを作ってから、</span>
+  <span class="c1">// year_month_dayオブジェクトに変換する</span>
+  <span class="n">chrono</span><span class="o">::</span><span class="n">year_month_day</span> <span class="n">date</span><span class="p">{</span><span class="n"><a href="year_month_day/year.html">base_date.year()</a></span><span class="o">/</span><span class="p">(</span><span class="n"><a href="year_month_day/month.html">base_date.month()</a></span> <span class="o">-</span> <span class="n"><a href="duration_aliases.html">chrono::months</a></span><span class="p">{</span><span class="mi">1</span><span class="p">})</span><span class="o">/</span><span class="n"><a href="last_spec.html">chrono::last</a></span><span class="p">};</span>
+
+  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">date</span> <span class="o">==</span> <span class="mi">2020</span><span class="n">y</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="mi">29</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code></code></pre></p>
+<h3>UNIX時間からyear_month_dayオブジェクトに変換する (C++20)</h3>
+<p><div class="yata" id="0ee8c25e8a11d4525ef5d9fafda1203159d50a10"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
+
+<span class="k">namespace</span> <span class="n">chrono</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="p">;</span>
+
+<span class="n">chrono</span><span class="o">::</span><span class="n">year_month_day</span> <span class="n">unix_time_to_ymd</span><span class="p">(</span><span class="n"><a href="../ctime/time_t.html">std::time_t</a></span> <span class="n">unixtime</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// システム時間の時間点に変換</span>
+  <span class="k">auto</span> <span class="n">tp</span> <span class="o">=</span> <span class="n"><a href="system_clock.html">chrono::system_clock</a></span><span class="o">::</span><span class="n"><a href="system_clock/from_time_t.html">from_time_t</a></span><span class="p">(</span><span class="n">unixtime</span><span class="p">);</span>
+
+  <span class="c1">// 時間点を日単位に変換</span>
+  <span class="n">chrono</span><span class="o">::</span><span class="n">sys_days</span> <span class="n">sd</span> <span class="o">=</span> <span class="n"><a href="time_point/floor.html">chrono::floor</a></span><span class="o">&lt;</span><span class="n"><a href="duration_aliases.html">chrono::days</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">tp</span><span class="p">);</span>
+
+  <span class="c1">// 日付に変換</span>
+  <span class="k">return</span> <span class="n">chrono</span><span class="o">::</span><span class="n">year_month_day</span><span class="p">{</span><span class="n">sd</span><span class="p">};</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// UNIX時間での現在日時を取得　</span>
+  <span class="n"><a href="../ctime/time_t.html">std::time_t</a></span> <span class="n">now</span> <span class="o">=</span> <span class="n"><span href="https://cpprefjp.github.io/reference/ctime/time.md.nolink">std::time</span></span><span class="p">(</span><span class="k">nullptr</span><span class="p">);</span>
+  <span class="n">chrono</span><span class="o">::</span><span class="n">year_month_day</span> <span class="n">date</span> <span class="o">=</span> <span class="n">unix_time_to_ymd</span><span class="p">(</span><span class="n">now</span><span class="p">);</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">date</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力例</h4>
+<p><pre><code>2019-12-20
+</code></pre></p>
+<h3>生年月日から年齢を求める (C++20)</h3>
+<p><div class="yata" id="1f8146623c9a7ab94fafe13198843293b82818cf"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../stdexcept.html">&lt;stdexcept&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">calc_age</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">year_month_day</span><span class="o">&amp;</span> <span class="n">date</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n"><a href="year_month_day/ok.html">date.ok()</a></span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="n"><a href="../stdexcept.html">std::invalid_argument</a></span><span class="p">(</span><span class="s">"invalid date"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">namespace</span> <span class="n">chrono</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="p">;</span>
+  <span class="n">chrono</span><span class="o">::</span><span class="n">year_month_day</span> <span class="n">now</span> <span class="p">{</span><span class="n"><a href="time_point/floor.html">chrono::floor</a></span><span class="o">&lt;</span><span class="n"><a href="duration_aliases.html">chrono::days</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="system_clock.html">chrono::system_clock</a></span><span class="o">::</span><span class="n"><a href="system_clock/now.html">now()</a></span><span class="p">)};</span>
+  <span class="kt">int</span> <span class="n">age</span> <span class="o">=</span> <span class="p">(</span><span class="n">now</span><span class="p">.</span><span class="n"><a href="year_month_day/year.html">year()</a></span> <span class="o">-</span> <span class="n">date</span><span class="p">.</span><span class="n"><a href="year_month_day/year.html">year()</a></span><span class="p">).</span><span class="n"><a href="duration/count.html">count()</a></span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">now</span><span class="p">.</span><span class="n"><a href="year_month_day/month.html">month()</a></span> <span class="o">&lt;</span> <span class="n">date</span><span class="p">.</span><span class="n"><a href="year_month_day/month.html">month()</a></span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">age</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">now</span><span class="p">.</span><span class="n"><a href="year_month_day/month.html">month()</a></span> <span class="o">==</span> <span class="n">date</span><span class="p">.</span><span class="n"><a href="year_month_day/month.html">month()</a></span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">now</span><span class="p">.</span><span class="n"><a href="year_month_day/day.html">day()</a></span> <span class="o">&lt;</span> <span class="n">date</span><span class="p">.</span><span class="n"><a href="year_month_day/day.html">day()</a></span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">age</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">age</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">calc_age</span><span class="p">(</span><span class="kt">int</span> <span class="n">year</span><span class="p">,</span> <span class="kt">int</span> <span class="n">month</span><span class="p">,</span> <span class="kt">int</span> <span class="n">day</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">namespace</span> <span class="n">chrono</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="p">;</span>
+  <span class="k">return</span> <span class="n">calc_age</span><span class="p">(</span><span class="n">chrono</span><span class="o">::</span><span class="n">year_month_day</span><span class="p">{</span>
+           <span class="n"><a href="year.html">chrono::year</a></span><span class="p">{</span><span class="n">year</span><span class="p">},</span>
+           <span class="n"><a href="month.html">chrono::month</a></span><span class="p">{</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">month</span><span class="p">)},</span>
+           <span class="n"><a href="day.html">chrono::day</a></span><span class="p">{</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">day</span><span class="p">)}});</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono_literals</span><span class="p">;</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">calc_age</span><span class="p">(</span><span class="n"><a href="year/op_y.html">1985y</a></span><span class="o">/</span><span class="mi">3</span><span class="o">/</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">calc_age</span><span class="p">(</span><span class="n"><a href="year/op_y.html">1954y</a></span><span class="o">/</span><span class="mi">10</span><span class="o">/</span><span class="mi">30</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="c1">// 1970年未満も扱える</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">calc_age</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">29</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="c1">// うるう年</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力例</h4>
+<p><pre><code>34
+65
+19
+</code></pre></p>
+<p>2020年1月7日に実行した。</p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++20</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 8.0 (入出力ストリームなし) <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 9.2 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2019 Update 3 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2592r3.html" target="_blank">P2592R3 Hashing support for <code>std::chrono</code> value classes</a><ul>
+<li>C++26でハッシュサポートが追加された</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

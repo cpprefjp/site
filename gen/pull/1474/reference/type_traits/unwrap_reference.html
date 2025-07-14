@@ -1,0 +1,333 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>unwrap_reference - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,type_traits,std,class template,cpp20
+">
+        <meta name="title" content="unwrap_reference - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="unwrap_reference - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="unwrap_reference - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/type_traits/unwrap_reference.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="[`reference_wrapper`](/reference/functional/reference_wrapper.md)`&lt;T&gt;`型を`T&amp;`型に展開する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="unwrap_reference - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/type_traits/unwrap_reference.html" />
+        <meta name="twitter:description" content="[`reference_wrapper`](/reference/functional/reference_wrapper.md)`&lt;T&gt;`型を`T&amp;`型に展開する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;type_traits&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;905b695b2d8749f26095911f2ba27e80eb577768&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;functional&gt;\n#include &lt;type_traits&gt;\n\ntemplate &lt;class T&gt;\nstruct X {\n  T t;\n};\n\ntemplate &lt;class T&gt;\nX&lt;typename std::unwrap_reference&lt;T&gt;::type&gt; f(T t)\n{\n  return X&lt;typename std::unwrap_reference&lt;T&gt;::type&gt;{t};\n}\n\nint main()\n{\n  static_assert(std::is_same_v&lt;\n    std::unwrap_reference&lt;std::reference_wrapper&lt;int&gt;&gt;::type,\n    int&amp;\n  &gt;);\n\n  static_assert(std::is_same_v&lt;\n    std::unwrap_reference&lt;int&gt;::type,\n    int\n  &gt;);\n\n  static_assert(std::is_same_v&lt;\n    std::unwrap_reference&lt;const int&amp;&gt;::type,\n    const int&amp;\n  &gt;);\n\n  // X\u30af\u30e9\u30b9\u306b\u53c2\u7167\u3092\u4fdd\u6301\u3055\u305b\u305f\u3044\u5834\u5408\u306bstd::ref()\u3092\u901a\u3057\u3066\u6e21\u3057\u3001\n  // \u305d\u3046\u3067\u306a\u3051\u308c\u3070\u5358\u306b\u5f15\u6570\u3092\u8ee2\u9001\u3059\u308b\u3002\n  int a = 3;\n  X x = f(std::ref(a));\n  x.t = 2;\n  assert(a == 2);\n\n  int b = 4;\n  X y = f(b);\n  y.t = 5;\n  assert(y.t == 5);\n  assert(b == 4);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;type_traits&#34;, &#34;unwrap_reference&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/type_traits.html" itemprop="url">
+              
+                <span itemprop="name">type_traits</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">unwrap_reference</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-06-11T14:15:20">
+        2025年06月11日 14時15分20秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Raclamusi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/type_traits/unwrap_reference.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/type_traits/unwrap_reference.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;type_traits&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">unwrap_reference</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <span class="k">struct</span> <span class="n">unwrap_reference</span> <span class="p">{</span>
+    <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="err">…</span><span class="p">;</span>
+  <span class="p">};</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <span class="k">using</span> <span class="n">unwrap_reference_t</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">unwrap_reference</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code><a href="../functional/reference_wrapper.html">reference_wrapper</a>&lt;T&gt;</code>型を<code>T&amp;</code>型に展開する。</p>
+<h2>効果</h2>
+<ul>
+<li>テンプレートパラメータ<code>T</code>が<code><a href="../functional/reference_wrapper.html">reference_wrapper</a>&lt;T&gt;</code>であれば、<code>T&amp;</code>型をメンバ型<code>type</code>として定義する</li>
+<li>そうでなければ、テンプレートパラメータ<code>T</code>をメンバ型<code>type</code>として定義する</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="905b695b2d8749f26095911f2ba27e80eb577768"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
+  <span class="n">T</span> <span class="n">t</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">X</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n"><span style="color:#ff0000">std::unwrap_reference</span></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&gt;</span> <span class="n">f</span><span class="p">(</span><span class="n">T</span> <span class="n">t</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="n">X</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n"><span style="color:#ff0000">std::unwrap_reference</span></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&gt;</span><span class="p">{</span><span class="n">t</span><span class="p">};</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="is_same.html">std::is_same_v</a></span><span class="o">&lt;</span>
+    <span class="n"><span style="color:#ff0000">std::unwrap_reference</span></span><span class="o">&lt;</span><span class="n"><a href="../functional/reference_wrapper.html">std::reference_wrapper</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;::</span><span class="n">type</span><span class="p">,</span>
+    <span class="kt">int</span><span class="o">&amp;</span>
+  <span class="o">&gt;</span><span class="p">);</span>
+
+  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="is_same.html">std::is_same_v</a></span><span class="o">&lt;</span>
+    <span class="n"><span style="color:#ff0000">std::unwrap_reference</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">,</span>
+    <span class="kt">int</span>
+  <span class="o">&gt;</span><span class="p">);</span>
+
+  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="is_same.html">std::is_same_v</a></span><span class="o">&lt;</span>
+    <span class="n"><span style="color:#ff0000">std::unwrap_reference</span></span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">int</span><span class="o">&amp;&gt;::</span><span class="n">type</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">int</span><span class="o">&amp;</span>
+  <span class="o">&gt;</span><span class="p">);</span>
+
+  <span class="c1">// Xクラスに参照を保持させたい場合に<a href="../functional/ref.html">std::ref</a>()を通して渡し、</span>
+  <span class="c1">// そうでなければ単に引数を転送する。</span>
+  <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+  <span class="n">X</span> <span class="n">x</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n"><a href="../functional/ref.html">std::ref</a></span><span class="p">(</span><span class="n">a</span><span class="p">));</span>
+  <span class="n">x</span><span class="p">.</span><span class="n">t</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
+
+  <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+  <span class="n">X</span> <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+  <span class="n">y</span><span class="p">.</span><span class="n">t</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">y</span><span class="p">.</span><span class="n">t</span> <span class="o">==</span> <span class="mi">5</span><span class="p">);</span>
+  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code></code></pre></p>
+<h2>実装例</h2>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <span class="k">struct</span> <span class="n">unwrap_reference</span> <span class="p">{</span> <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="n">T</span><span class="p">;</span> <span class="p">};</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <span class="k">struct</span> <span class="n">unwrap_reference</span><span class="o">&lt;</span><span class="n"><a href="../functional/reference_wrapper.html">reference_wrapper</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span> <span class="p">{</span> <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="n">T</span><span class="o">&amp;</span><span class="p">;</span> <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++20</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 8.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 9.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0318r1.pdf" target="_blank">P0318R1 <code>unwrap_ref_decay</code> and <code>unwrap_reference</code></a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3348" target="_blank">LWG Issue 3348. <code>__cpp_lib_unwrap_ref</code> in wrong header</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

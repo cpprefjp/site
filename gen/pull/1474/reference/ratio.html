@@ -1,0 +1,461 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>ratio - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,ratio,cpp11
+">
+        <meta name="title" content="ratio - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="ratio - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="ratio - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/ratio.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="&amp;lt;ratio&amp;gt;ratio(C++11) &amp;lt;ratio&amp;gt;ヘッダでは、コンパイル時有理数演算のための、いくつかのクラスを定義する。 ratioクラステンプレート    名前 説明 対応バージョン     ratio コンパイル時有理数(class template) C++11    四則演算    名前 説明 対応バージョン     ratio_add 加算(alias te" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="ratio - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/ratio.html" />
+        <meta name="twitter:description" content="&amp;lt;ratio&amp;gt;ratio(C++11) &amp;lt;ratio&amp;gt;ヘッダでは、コンパイル時有理数演算のための、いくつかのクラスを定義する。 ratioクラステンプレート    名前 説明 対応バージョン     ratio コンパイル時有理数(class template) C++11    四則演算    名前 説明 対応バージョン     ratio_add 加算(alias te" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;ratio&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;ratio&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">ratio</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2023-09-26T11:17:12">
+        2023年09月26日 11時17分12秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yoh</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/ratio.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/ratio.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="header">&lt;ratio&gt;</div><h1 itemprop="name"><span class="token">ratio</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><code>&lt;ratio&gt;</code>ヘッダでは、コンパイル時有理数演算のための、いくつかのクラスを定義する。</p>
+<h2><code>ratio</code>クラステンプレート</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="ratio/ratio.html">ratio</a></code></td>
+<td>コンパイル時有理数(class template)</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>四則演算</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="ratio/ratio_add.html">ratio_add</a></code></td>
+<td>加算(alias template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="ratio/ratio_subtract.html">ratio_subtract</a></code></td>
+<td>減算(alias template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="ratio/ratio_multiply.html">ratio_multiply</a></code></td>
+<td>乗算(alias template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="ratio/ratio_divide.html">ratio_divide</a></code></td>
+<td>除算(alias template)</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>比較演算</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="ratio/ratio_equal.html">ratio_equal</a></code></td>
+<td>等値比較(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="ratio/ratio_not_equal.html">ratio_not_equal</a></code></td>
+<td>非等値比較(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="ratio/ratio_less.html">ratio_less</a></code></td>
+<td>左辺が右辺より小さいかの比較(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="ratio/ratio_less_equal.html">ratio_less_equal</a></code></td>
+<td>左辺が右辺以下かの比較(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="ratio/ratio_greater.html">ratio_greater</a></code></td>
+<td>左辺が右辺より大きいかの比較(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="ratio/ratio_greater_equal.html">ratio_greater_equal</a></code></td>
+<td>左辺が右辺以上かの比較(class template)</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>SI接頭辞の別名型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="ratio/si_prefix.html">quecto</a></code></td>
+<td>クエクト(type-alias)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="ratio/si_prefix.html">ronto</a></code></td>
+<td>ロント(type-alias)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="ratio/si_prefix.html">yocto</a></code></td>
+<td>ヨクト(type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="ratio/si_prefix.html">zepto</a></code></td>
+<td>ゼプト(type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="ratio/si_prefix.html">atto</a></code></td>
+<td>アト(type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="ratio/si_prefix.html">femto</a></code></td>
+<td>フェムト(type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="ratio/si_prefix.html">pico</a></code></td>
+<td>ピコ(type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="ratio/si_prefix.html">nano</a></code></td>
+<td>ナノ(type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="ratio/si_prefix.html">micro</a></code></td>
+<td>マイクロ(type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="ratio/si_prefix.html">milli</a></code></td>
+<td>ミリ(type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="ratio/si_prefix.html">centi</a></code></td>
+<td>センチ(type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="ratio/si_prefix.html">deci</a></code></td>
+<td>デシ(type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="ratio/si_prefix.html">deca</a></code></td>
+<td>デカ(type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="ratio/si_prefix.html">hecto</a></code></td>
+<td>ヘクト(type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="ratio/si_prefix.html">kilo</a></code></td>
+<td>キロ(type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="ratio/si_prefix.html">mega</a></code></td>
+<td>メガ(type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="ratio/si_prefix.html">giga</a></code></td>
+<td>ギガ(type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="ratio/si_prefix.html">tera</a></code></td>
+<td>テラ(type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="ratio/si_prefix.html">peta</a></code></td>
+<td>ペタ(type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="ratio/si_prefix.html">exa</a></code></td>
+<td>エクサ(type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="ratio/si_prefix.html">zetta</a></code></td>
+<td>ゼタ(type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="ratio/si_prefix.html">yotta</a></code></td>
+<td>ヨタ(type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="ratio/si_prefix.html">ronna</a></code></td>
+<td>ロナ(type-alias)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="ratio/si_prefix.html">quetta</a></code></td>
+<td>クエタ(type-alias)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2661.htm" target="_blank">N2661 A Foundation to Sleep On</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2734r0.pdf" target="_blank">P2734R0 Adding the new SI prefixes</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

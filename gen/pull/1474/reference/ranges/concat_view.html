@@ -1,0 +1,488 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>concat_view - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,ranges,std::ranges,class template,cpp26
+">
+        <meta name="title" content="concat_view - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="concat_view - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="concat_view - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/ranges/concat_view.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="concat_view - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/ranges/concat_view.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;ranges&#34;], &#34;namespace&#34;: [&#34;std::ranges&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;1411f30d85d1b3e44c6b88072663f8825de8ac46&#34;, &#34;source&#34;: &#34;import std;\n\nint main() {\n  std::vector&lt;int&gt; v1{1, 2, 3}, v2{4, 5}, v3{};\n  std::array a{6, 7, 8};\n  auto s = std::views::single(9);\n  std::print(\&#34;{} \&#34;, std::views::concat(v1, v2, v3, a, s));\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;ranges&#34;, &#34;concat_view&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/ranges.html" itemprop="url">
+              
+                <span itemprop="name">ranges</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">concat_view</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-06-02T09:28:22">
+        2025年06月02日 09時28分22秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/ranges/concat_view.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/ranges/concat_view.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;ranges&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::ranges">std::ranges::</span><span class="token">concat_view</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="input_range.html">input_range</a></span><span class="p">...</span> <span class="n">Views</span><span class="o">&gt;</span>
+  <span class="n">requires</span> <span class="p">(</span><span class="n"><a href="view.html">view</a></span><span class="o">&lt;</span><span class="n">Views</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span> <span class="p">...)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="k">sizeof</span><span class="p">...(</span><span class="n">Views</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">concatable</span><span class="o">&lt;</span><span class="n">Views</span><span class="p">...</span><span class="o">&gt;</span>
+  <span class="k">class</span> <span class="nc">concat_view</span> <span class="o">:</span> <span class="k">public</span> <span class="n"><a href="view_interface.html">view_interface</a></span><span class="o">&lt;</span><span class="n">concat_view</span><span class="o">&lt;</span><span class="n">Views</span><span class="p">...</span><span class="o">&gt;&gt;</span> <span class="p">{</span><span class="err">……</span> <span class="p">};</span> <span class="c1">// (1)</span>
+
+  <span class="k">namespace</span> <span class="n">views</span> <span class="p">{</span>
+    <span class="kr">inline</span> <span class="k">constexpr</span> <span class="cm">/*unspecified*/</span> <span class="n">concat</span> <span class="o">=</span> <span class="cm">/*unspecified*/</span><span class="p">;</span>      <span class="c1">// (2)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>concat_view</code>は複数のRangeを連結し、1つのRangeとする<code><a href="view.html">view</a></code>。</p>
+<ul>
+<li>(1): <code>concat_view</code>のクラス定義</li>
+<li>(2): <code>concat_view</code>を生成する<a class="cpprefjp-defined-word" data-desc="プログラム定義型に対するオーバーロードが許されている標準関数名について、中でいい感じにオーバーロード解決して呼び出してくれる関数オブジェクト">カスタマイゼーションポイントオブジェクト</a>(Rangeアダプタオブジェクトではない)</li>
+</ul>
+<h3>Rangeコンセプト</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>borrowed</th>
+<th>sized</th>
+<th>output</th>
+<th>input</th>
+<th>forward</th>
+<th>bidirectional</th>
+<th>random_access</th>
+<th>contiguous</th>
+<th>common</th>
+<th>viewable</th>
+<th>view</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>(1)</td>
+<td>〇</td>
+<td>〇</td>
+<td>(2)</td>
+<td>(3)</td>
+<td>(4)</td>
+<td></td>
+<td>(5)</td>
+<td>○</td>
+<td>○</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>(1): 連結するすべてのRangeが<code><a href="sized_range.html">sized_range</a></code>のとき</li>
+<li>(2): 連結するすべてのRangeが<code><a href="forward_range.html">forward_range</a></code>のとき</li>
+<li>(3): 連結するすべてのRangeが<code><a href="bidirectional_range.html">bidirectional_range</a></code>であり、少なくとも最後のRange以外が<code><a href="common_range.html">common_range</a></code>のとき</li>
+<li>(4): 連結するすべてのRangeが<code><a href="random_access_range.html">random_access_range</a></code>であり、少なくとも最後のRange以外が<code><a href="common_range.html">common_range</a></code>のとき</li>
+<li>(5): 最後のRangeが<code><a href="common_range.html">common_range</a></code>のとき</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
+<p>連結するすべてのビューに対して、</p>
+<ul>
+<li>それらの要素に共通の値型<code>Cv</code>、参照型<code>Cr</code>、右辺値参照型<code>Crr</code> が存在し、</li>
+<li><code>Cr&amp;&amp;</code>と<code>Cv&amp;</code>、<code>Cr&amp;&amp;</code>と<code>Crr&amp;&amp;</code>、<code>Crr&amp;&amp;</code>と<code>Cv const&amp;</code>にそれぞれ共通の参照型があり、</li>
+<li>連結するすべてのビューのイテレーター<code>it</code>について、<ul>
+<li><code>*it</code>が<code>Cr</code>に変換可能であり、</li>
+<li><code>ranges::iter_move(it)</code>が<code>Crr</code>に変換可能であること。</li>
+</ul>
+</li>
+</ul>
+<h2>効果</h2>
+<ul>
+<li>(2): 式<code>views::concat(Es...)</code>の効果は次の通り<ul>
+<li><code>Es...</code>が1要素で、その型が <code><a href="input_range.html">input_range</a></code>のモデルであるとき、<code><a href="all.html">views::all</a>(Es...)</code> と等しい</li>
+<li>それ以外のとき、<code>concat_view(Es...)</code> と等しい</li>
+</ul>
+</li>
+</ul>
+<h2>備考</h2>
+<p>本説明に用いる説明専用要素を以下のように定義する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Rs</span><span class="o">&gt;</span>
+  <span class="k">using</span> <span class="n">concat</span><span class="o">-</span><span class="n">reference</span><span class="o">-</span><span class="n">t</span> <span class="o">=</span> <span class="n"><a href="../type_traits/common_reference.html">common_reference_t</a></span><span class="o">&lt;</span><span class="n"><a href="range_reference_t.html">range_reference_t</a></span><span class="o">&lt;</span><span class="n">Rs</span><span class="o">&gt;</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span>
+
+  <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Rs</span><span class="o">&gt;</span>
+  <span class="k">using</span> <span class="n">concat</span><span class="o">-</span><span class="n">value</span><span class="o">-</span><span class="n">t</span> <span class="o">=</span> <span class="n"><a href="../type_traits/common_type.html">common_type_t</a></span><span class="o">&lt;</span><span class="n"><a href="range_value_t.html">range_value_t</a></span><span class="o">&lt;</span><span class="n">Rs</span><span class="o">&gt;</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span>
+
+  <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Rs</span><span class="o">&gt;</span>
+  <span class="k">using</span> <span class="n">concat</span><span class="o">-</span><span class="n">rvalue</span><span class="o">-</span><span class="n">reference</span><span class="o">-</span><span class="n">t</span> <span class="o">=</span> <span class="n"><a href="../type_traits/common_reference.html">common_reference_t</a></span><span class="o">&lt;</span><span class="n"><a href="range_rvalue_reference_t.html">range_rvalue_reference_t</a></span><span class="o">&lt;</span><span class="n">Rs</span><span class="o">&gt;</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span>
+
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Ref</span><span class="p">,</span> <span class="k">class</span> <span class="nc">RRef</span><span class="p">,</span> <span class="k">class</span> <span class="nc">It</span><span class="o">&gt;</span>
+  <span class="n">concept</span> <span class="n">concat</span><span class="o">-</span><span class="n">indirectly</span><span class="o">-</span><span class="n">readable</span><span class="o">-</span><span class="n">impl</span> <span class="o">=</span>
+    <span class="n">requires</span> <span class="p">(</span><span class="k">const</span> <span class="n">It</span> <span class="n">it</span><span class="p">)</span> <span class="p">{</span>
+      <span class="p">{</span> <span class="o">*</span><span class="n">it</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="../concepts/convertible_to.html">convertible_to</a></span><span class="o">&lt;</span><span class="n">Ref</span><span class="o">&gt;</span><span class="p">;</span>
+      <span class="p">{</span> <span class="n"><a href="../iterator/iter_move.html">ranges::iter_move</a></span><span class="p">(</span><span class="n">it</span><span class="p">)</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="../concepts/convertible_to.html">convertible_to</a></span><span class="o">&lt;</span><span class="n">RRef</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="p">};</span>
+
+  <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Rs</span><span class="o">&gt;</span>
+  <span class="n">concept</span> <span class="n">concat</span><span class="o">-</span><span class="n">indirectly</span><span class="o">-</span><span class="n">readable</span> <span class="o">=</span>
+    <span class="n"><a href="../concepts/common_reference_with.html">common_reference_with</a></span><span class="o">&lt;</span><span class="n">concat</span><span class="o">-</span><span class="n">reference</span><span class="o">-</span><span class="n">t</span><span class="o">&lt;</span><span class="n">Rs</span><span class="p">...</span><span class="o">&gt;&amp;&amp;</span><span class="p">,</span> <span class="n">concat</span><span class="o">-</span><span class="n">value</span><span class="o">-</span><span class="n">t</span><span class="o">&lt;</span><span class="n">Rs</span><span class="p">...</span><span class="o">&gt;&amp;&gt;</span> <span class="o">&amp;&amp;</span>
+    <span class="n"><a href="../concepts/common_reference_with.html">common_reference_with</a></span><span class="o">&lt;</span><span class="n">concat</span><span class="o">-</span><span class="n">reference</span><span class="o">-</span><span class="n">t</span><span class="o">&lt;</span><span class="n">Rs</span><span class="p">...</span><span class="o">&gt;&amp;&amp;</span><span class="p">,</span> <span class="n">concat</span><span class="o">-</span><span class="n">rvalue</span><span class="o">-</span><span class="n">reference</span><span class="o">-</span><span class="n">t</span><span class="o">&lt;</span><span class="n">Rs</span><span class="p">...</span><span class="o">&gt;&amp;&amp;&gt;</span> <span class="o">&amp;&amp;</span>
+    <span class="n"><a href="../concepts/common_reference_with.html">common_reference_with</a></span><span class="o">&lt;</span><span class="n">concat</span><span class="o">-</span><span class="n">rvalue</span><span class="o">-</span><span class="n">reference</span><span class="o">-</span><span class="n">t</span><span class="o">&lt;</span><span class="n">Rs</span><span class="p">...</span><span class="o">&gt;&amp;&amp;</span><span class="p">,</span> <span class="n">concat</span><span class="o">-</span><span class="n">value</span><span class="o">-</span><span class="n">t</span><span class="o">&lt;</span><span class="n">Rs</span><span class="p">...</span><span class="o">&gt;</span> <span class="k">const</span><span class="o">&amp;&gt;</span> <span class="o">&amp;&amp;</span>
+    <span class="p">(</span><span class="n">concat</span><span class="o">-</span><span class="n">indirectly</span><span class="o">-</span><span class="n">readable</span><span class="o">-</span><span class="n">impl</span><span class="o">&lt;</span><span class="n">concat</span><span class="o">-</span><span class="n">reference</span><span class="o">-</span><span class="n">t</span><span class="o">&lt;</span><span class="n">Rs</span><span class="p">...</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">concat</span><span class="o">-</span><span class="n">rvalue</span><span class="o">-</span><span class="n">reference</span><span class="o">-</span><span class="n">t</span><span class="o">&lt;</span><span class="n">Rs</span><span class="p">...</span><span class="o">&gt;</span><span class="p">,</span> <span class="n"><a href="iterator_t.html">iterator_t</a></span><span class="o">&lt;</span><span class="n">Rs</span><span class="o">&gt;&gt;</span> <span class="o">&amp;&amp;</span> <span class="p">...);</span>
+
+  <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Rs</span><span class="o">&gt;</span>
+  <span class="n">concept</span> <span class="n">concatable</span> <span class="o">=</span> <span class="n">requires</span> <span class="p">{</span>
+    <span class="k">typename</span> <span class="n">concat</span><span class="o">-</span><span class="n">reference</span><span class="o">-</span><span class="n">t</span><span class="o">&lt;</span><span class="n">Rs</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="k">typename</span> <span class="n">concat</span><span class="o">-</span><span class="n">value</span><span class="o">-</span><span class="n">t</span><span class="o">&lt;</span><span class="n">Rs</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="k">typename</span> <span class="n">concat</span><span class="o">-</span><span class="n">rvalue</span><span class="o">-</span><span class="n">reference</span><span class="o">-</span><span class="n">t</span><span class="o">&lt;</span><span class="n">Rs</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="p">}</span> <span class="o">&amp;&amp;</span> <span class="n">concat</span><span class="o">-</span><span class="n">indirectly</span><span class="o">-</span><span class="n">readable</span><span class="o">&lt;</span><span class="n">Rs</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span>
+
+  <span class="c1">// Fs を Rs の末尾を除いたパックとする</span>
+
+  <span class="k">template</span><span class="o">&lt;</span><span class="kt">bool</span> <span class="n">Const</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Rs</span><span class="o">&gt;</span>
+  <span class="n">concept</span> <span class="n">concat</span><span class="o">-</span><span class="n">is</span><span class="o">-</span><span class="n">random</span><span class="o">-</span><span class="n">access</span> <span class="o">=</span>
+    <span class="n"><a href="all-random-access.html">all-random-access</a></span><span class="o">&lt;</span><span class="n">Const</span><span class="p">,</span> <span class="n">Rs</span><span class="p">...</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
+    <span class="p">(</span><span class="n"><a href="common_range.html">common_range</a></span><span class="o">&lt;</span><span class="n"><a href="maybe-const.html">maybe-const</a></span><span class="o">&lt;</span><span class="n">Const</span><span class="p">,</span> <span class="n">Fs</span><span class="o">&gt;&gt;</span> <span class="o">&amp;&amp;</span> <span class="p">...);</span>
+
+  <span class="k">template</span><span class="o">&lt;</span><span class="kt">bool</span> <span class="n">Const</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Rs</span><span class="o">&gt;</span>
+  <span class="n">concept</span> <span class="n">concat</span><span class="o">-</span><span class="n">is</span><span class="o">-</span><span class="n">bidirectional</span> <span class="o">=</span>
+    <span class="n"><a href="all-bidirectional.html">all-bidirectional</a></span><span class="o">&lt;</span><span class="n">Const</span><span class="p">,</span> <span class="n">Rs</span><span class="p">...</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
+    <span class="p">(</span><span class="n"><a href="common_range.html">common_range</a></span><span class="o">&lt;</span><span class="n"><a href="maybe-const.html">maybe-const</a></span><span class="o">&lt;</span><span class="n">Const</span><span class="p">,</span> <span class="n">Fs</span><span class="o">&gt;&gt;</span> <span class="o">&amp;&amp;</span> <span class="p">...);</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="concat_view/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="concat_view/begin.html">begin</a></code></td>
+<td>先頭を指すイテレータを取得する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="concat_view/end.html">end</a></code></td>
+<td>番兵を取得する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="concat_view/size.html">size</a></code></td>
+<td>要素数を取得する</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>継承しているメンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="view_interface/empty.html">empty</a></code></td>
+<td>Rangeが空かどうかを判定する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="view_interface/op_bool.html">operator bool</a></code></td>
+<td>Rangeが空でないかどうかを判定する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="view_interface/front.html">front</a></code></td>
+<td>先頭要素への参照を取得する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="view_interface/back.html">back</a></code></td>
+<td>末尾要素への参照を取得する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="view_interface/cbegin.html">cbegin</a></code></td>
+<td>定数イテレータを取得する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="view_interface/cend.html">cend</a></code></td>
+<td>定数イテレータ（番兵）を取得する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="view_interface/op_at.html">operator[]</a></code></td>
+<td>要素へアクセスする</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>推論補助</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="concat_view/op_deduction_guide.html">(deduction_guide)</a></code></td>
+<td>クラステンプレートの推論補助</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<p><div class="yata" id="1411f30d85d1b3e44c6b88072663f8825de8ac46"><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../module/std.html">import std;</a></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v1</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="n">v2</span><span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">},</span> <span class="n">v3</span><span class="p">{};</span>
+  <span class="n"><a href="../array/array.html">std::array</a></span> <span class="n">a</span><span class="p">{</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">};</span>
+  <span class="k">auto</span> <span class="n">s</span> <span class="o">=</span> <span class="n"><a href="single_view.html">std::views::single</a></span><span class="p">(</span><span class="mi">9</span><span class="p">);</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">print</span><span class="p">(</span><span class="s">"{} "</span><span class="p">,</span> <span class="n"><span style="color:#ff0000">std::views::concat</span></span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">v3</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">s</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>[1, 2, 3, 4, 5, 6, 7, 8, 9]
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++26</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 20 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 15 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2022 Update 14 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://timsong-cpp.github.io/cppwp/range.concat" target="_blank">26.7.18 Concat view</a> (2024-08-10)</li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2542r8.html" target="_blank">P2542R8 views::concat</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

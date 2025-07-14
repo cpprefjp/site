@@ -1,0 +1,1019 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>atomic - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,atomic,std,class template,cpp11
+">
+        <meta name="title" content="atomic - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="atomic - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="atomic - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/atomic/atomic.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`atomic`クラステンプレートは、型`T`をアトミック操作するためのクラステンプレートである。組み込み型に対する特殊化が提供されており、それぞれに特化した演算が用意されている。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="atomic - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/atomic/atomic.html" />
+        <meta name="twitter:description" content="`atomic`クラステンプレートは、型`T`をアトミック操作するためのクラステンプレートである。組み込み型に対する特殊化が提供されており、それぞれに特化した演算が用意されている。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;atomic&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;18215f27dcaa0713e66aa63edbb36b82cd3de71c&#34;, &#34;source&#34;: &#34;// \u30b9\u30d4\u30f3\u30ed\u30c3\u30af\u306e\u5b9f\u88c5\n// Boost Atomic Library - Usage Example\n// http://www.boost.org/doc/libs/1_53_0/doc/html/atomic/usage_examples.html#boost_atomic.usage_examples.example_spinlock\n\n#include &lt;iostream&gt;\n#include &lt;atomic&gt;\n#include &lt;thread&gt;\n#include &lt;mutex&gt;\n\nclass spinlock {\nprivate:\n  enum LockState {Locked, Unlocked};\n  std::atomic&lt;LockState&gt; state_;\n\npublic:\n  spinlock() : state_(Unlocked) {}\n\n  void lock()\n  {\n    // \u73fe\u5728\u306e\u72b6\u614b\u3092Locked\u3068\u5165\u308c\u66ff\u3048\u308b\n    while (state_.exchange(Locked, std::memory_order_acquire) == Locked) {\n      // busy-wait...\u30a2\u30f3\u30ed\u30c3\u30af\u3055\u308c\u308b\u307e\u3067\u5f85\u6a5f\n    }\n  }\n\n  void unlock()\n  {\n    // \u5024\u3092Unlocked\u306b\u66f4\u65b0\n    state_.store(Unlocked, std::memory_order_release);\n  }\n};\n\nnamespace {\n  spinlock lock;\n}\n\ntemplate &lt;class T&gt;\nvoid print(const T&amp; x)\n{\n  std::lock_guard&lt;spinlock&gt; lk(lock);\n  std::cout &lt;&lt; x &lt;&lt; std::endl;\n}\n\nvoid f()\n{\n  print(1);\n}\n\nvoid g()\n{\n  print(2);\n}\n\nint main()\n{\n  std::thread t1(f);\n  std::thread t2(g);\n\n  t1.join();\n  t2.join();\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;atomic&#34;, &#34;atomic&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/atomic.html" itemprop="url">
+              
+                <span itemprop="name">atomic</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">atomic</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-12-23T06:19:33">
+        2024年12月23日 06時19分33秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/atomic/atomic.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/atomic/atomic.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;atomic&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">atomic</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">atomic</span><span class="p">;</span>          <span class="c1">// (1) C++11</span>
+
+  <span class="k">template</span><span class="o">&lt;&gt;</span> <span class="k">struct</span> <span class="n">atomic</span><span class="o">&lt;</span><span class="n"><i>integral</i></span><span class="o">&gt;</span><span class="p">;</span>       <span class="c1">// (2) C++11</span>
+  <span class="k">template</span><span class="o">&lt;&gt;</span> <span class="k">struct</span> <span class="n">atomic</span><span class="o">&lt;</span><span class="n"><i>floating-point</i></span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// (3) C++20</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">atomic</span><span class="o">&lt;</span><span class="n">T</span><span class="o">*&gt;</span><span class="p">;</span>      <span class="c1">// (4) C++11</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>atomic</code>クラステンプレートは、型<code>T</code>をアトミック操作するためのクラステンプレートである。組み込み型に対する特殊化が提供されており、それぞれに特化した演算が用意されている。</p>
+<ul>
+<li>(1) : プライマリテンプレート。宣言のみ</li>
+<li>(2) : 整数型に対する特殊化</li>
+<li>(3) : (<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>されていない) 浮動小数点数型に対する特殊化<ul>
+<li>(C++23) : <a class="cpprefjp-defined-word" data-desc="&lt;stdfloat&gt;で定義される内部表現の規定された浮動小数点数型" href="../stdfloat.html">拡張浮動小数点数型</a>を含む</li>
+</ul>
+</li>
+<li>(4) : 任意の型のポインタに対する特殊化</li>
+</ul>
+<p>これらのほか、<code><a href="../memory.html">&lt;memory&gt;</a></code>ヘッダで<a href="../memory/atomic.html"><code>std::shared_ptr</code>と<code>std::weak_ptr</code>に対する<code>atomic</code>クラスの特殊化</a>が定義される。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
+<ul>
+<li>型<code>T</code>は<a href="../concepts/copy_constructible.html">コピー構築可能</a>かつ<a href="../type_traits/is_copy_assignable.html">コピー代入可能</a>であること</li>
+<li>以下のいずれかが<code>false</code>である場合、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる：<ul>
+<li><code><a href="../type_traits/is_trivially_copyable.html">is_trivially_copyable_v</a>&lt;T&gt;</code><ul>
+<li>簡潔に言うと、<code>memcpy()</code>可能な型であること</li>
+</ul>
+</li>
+<li><code><a href="../type_traits/is_copy_constructible.html">is_copy_constructible_v</a>&lt;T&gt;</code></li>
+<li><code><a href="../type_traits/is_move_constructible.html">is_move_constructible_v</a>&lt;T&gt;</code></li>
+<li><code><a href="../type_traits/is_copy_assignable.html">is_copy_assignable_v</a>&lt;T&gt;</code></li>
+<li><code><a href="../type_traits/is_move_assignable.html">is_move_assignable_v</a>&lt;T&gt;</code></li>
+<li>C++26: <code><a href="../concepts/same_as.html">same_as</a>&lt;T, <a href="../type_traits/remove_cv.html">remove_cv_t</a>&lt;T&gt;&gt;</code><ul>
+<li><a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>された<code>T</code>は許可しない</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2>別名型</h2>
+<p>特殊化された整数型および<code>bool</code>型には、それぞれ<code>atomic_T</code>という型の別名が提供される。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前付きアトミック型</th>
+<th>テンプレート引数となる整数型</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>atomic_char</code></td>
+<td><code>char</code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>atomic_schar</code></td>
+<td><code>signed char</code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>atomic_uchar</code></td>
+<td><code>unsigned char</code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>atomic_short</code></td>
+<td><code>short</code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>atomic_ushort</code></td>
+<td><code>unsigned short</code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>atomic_int</code></td>
+<td><code>int</code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>atomic_uint</code></td>
+<td><code>unsigned int</code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>atomic_long</code></td>
+<td><code>long</code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>atomic_ulong</code></td>
+<td><code>unsigned long</code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>atomic_llong</code></td>
+<td><code><a href="../../lang/cpp11/long_long_type.html">long long</a></code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>atomic_ullong</code></td>
+<td><code><a href="../../lang/cpp11/long_long_type.html">unsigned long long</a></code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>atomic_char8_t</code></td>
+<td><code><a href="../../lang/cpp20/char8_t.html">char8_t</a></code></td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code>atomic_char16_t</code></td>
+<td><code><a href="../../lang/cpp11/char16_32.html">char16_t</a></code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>atomic_char32_t</code></td>
+<td><code><a href="../../lang/cpp11/char16_32.html">char32_t</a></code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>atomic_wchar_t</code></td>
+<td><code>wchar_t</code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>atomic_bool</code></td>
+<td><code>bool</code></td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<p>浮動小数点数型に対する別名は定義されていない。</p>
+<p>また、<code><a href="../cstdint.html">&lt;cstdint&gt;</a></code>で定義される整数型に対する以下の別名も提供される。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前付きアトミック型</th>
+<th>テンプレート引数となる整数型</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>atomic_int_least8_t</code></td>
+<td><code><a href="../cstdint/int_least8_t.html">int_least8_t</a></code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>atomic_uint_least8_t</code></td>
+<td><code><a href="../cstdint/uint_least8_t.html">uint_least8_t</a></code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>atomic_int_least16_t</code></td>
+<td><code><a href="../cstdint/int_least16_t.html">int_least16_t</a></code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>atomic_uint_least16_t</code></td>
+<td><code><a href="../cstdint/uint_least16_t.html">uint_least16_t</a></code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>atomic_int_least32_t</code></td>
+<td><code><a href="../cstdint/int_least32_t.html">int_least32_t</a></code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>atomic_uint_least32_t</code></td>
+<td><code><a href="../cstdint/uint_least32_t.html">uint_least32_t</a></code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>atomic_int_least64_t</code></td>
+<td><code><a href="../cstdint/int_least64_t.html">int_least64_t</a></code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>atomic_uint_least64_t</code></td>
+<td><code><a href="../cstdint/uint_least64_t.html">uint_least64_t</a></code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>atomic_int_fast8_t</code></td>
+<td><code><a href="../cstdint/int_fast8_t.html">int_fast8_t</a></code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>atomic_uint_fast8_t</code></td>
+<td><code><a href="../cstdint/uint_fast8_t.html">uint_fast8_t</a></code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>atomic_int_fast16_t</code></td>
+<td><code><a href="../cstdint/int_fast16_t.html">int_fast16_t</a></code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>atomic_uint_fast16_t</code></td>
+<td><code><a href="../cstdint/uint_fast16_t.html">uint_fast16_t</a></code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>atomic_int_fast32_t</code></td>
+<td><code><a href="../cstdint/int_fast32_t.html">int_fast32_t</a></code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>atomic_uint_fast32_t</code></td>
+<td><code><a href="../cstdint/uint_fast32_t.html">uint_fast32_t</a></code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>atomic_int_fast64_t</code></td>
+<td><code><a href="../cstdint/int_fast64_t.html">int_fast64_t</a></code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>atomic_uint_fast64_t</code></td>
+<td><code><a href="../cstdint/uint_fast64_t.html">uint_fast64_t</a></code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>atomic_size_t</code></td>
+<td><code><a href="../cstddef/size_t.html">size_t</a></code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>atomic_ptrdiff_t</code></td>
+<td><code><a href="../cstddef/ptrdiff_t.html">ptrdiff_t</a></code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>atomic_intmax_t</code></td>
+<td><code><a href="../cstdint/intmax_t.html">intmax_t</a></code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>atomic_uintmax_t</code></td>
+<td><code><a href="../cstdint/uintmax_t.html">uintmax_t</a></code></td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<p>以下の整数型に対する別名は、整数型に対する<code>atomic</code>型の特殊化だが、その中でも以下の特性を持つものである：</p>
+<ul>
+<li><code>is_always_lock_free</code>プロパティが<code>true</code>である</li>
+<li>wait/notify操作が最も効率的に行える整数アトミック型</li>
+</ul>
+<p>ただし、フリースタンディング環境において、これらの型は定義されない場合がある。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前付きアトミック型</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>atomic_signed_lock_free</code></td>
+<td><code>is_always_lock_free == true</code>かつwait/notify操作が最も効率的に行える符号付き整数のアトミック型</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code>atomic_unsigned_lock_free</code></td>
+<td><code>is_always_lock_free == true</code>かつwait/notify操作が最も効率的に行える符号なし整数のアトミック型</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<p><code><a href="../cstdint.html">&lt;cstdint&gt;</a></code>で定義される整数型に対する以下の別名は、元の整数型が定義される場合のみ定義される。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前付きアトミック型</th>
+<th>テンプレート引数となる整数型</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>atomic_int8_t</code></td>
+<td><code><a href="../cstdint/int8_t.html">int8_t</a></code></td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code>atomic_uint8_t</code></td>
+<td><code><a href="../cstdint/uint8_t.html">uint8_t</a></code></td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code>atomic_int16_t</code></td>
+<td><code><a href="../cstdint/int16_t.html">int16_t</a></code></td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code>atomic_uint16_t</code></td>
+<td><code><a href="../cstdint/uint16_t.html">uint16_t</a></code></td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code>atomic_int32_t</code></td>
+<td><code><a href="../cstdint/int32_t.html">int32_t</a></code></td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code>atomic_uint32_t</code></td>
+<td><code><a href="../cstdint/uint32_t.html">uint32_t</a></code></td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code>atomic_int64_t</code></td>
+<td><code><a href="../cstdint/int64_t.html">int64_t</a></code></td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code>atomic_uint64_t</code></td>
+<td><code><a href="../cstdint/uint64_t.html">uint64_t</a></code></td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code>atomic_intptr_t</code></td>
+<td><code><a href="../cstdint/intptr_t.html">intptr_t</a></code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>atomic_uintptr_t</code></td>
+<td><code><a href="../cstdint/uintptr_t.html">uintptr_t</a></code></td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ関数</h2>
+<h3>共通メンバ関数</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="atomic/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>~atomic() = default</code></td>
+<td>デストラクタ</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/op_assign.html">operator=</a></code></td>
+<td>代入演算子</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/is_lock_free.html">is_lock_free</a></code></td>
+<td>オブジェクトがロックフリーに振る舞えるかを判定する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/store.html">store</a></code></td>
+<td>値を書き込む</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/load.html">load</a></code></td>
+<td>値を読み込む</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/op_t.html">operator T</a></code></td>
+<td>型Tへの変換演算子</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/exchange.html">exchange</a></code></td>
+<td>値を入れ替える</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/compare_exchange_weak.html">compare_exchange_weak</a></code></td>
+<td>弱い比較で値を入れ替える</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/compare_exchange_strong.html">compare_exchange_strong</a></code></td>
+<td>強い比較で値を入れ替える</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/wait.html">wait</a></code></td>
+<td>起床されるまで待機する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="atomic/notify_one.html">notify_one</a></code></td>
+<td>待機しているスレッドをひとつ起床させる</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="atomic/notify_all.html">notify_all</a></code></td>
+<td>待機している全てのスレッドを起床させる</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>共通メンバ型</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>value_type</code></td>
+<td>要素型となるテンプレートパラメータの型<code>T</code></td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h3>共通メンバ定数</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>static constexpr bool is_always_lock_free</code></td>
+<td>型<code>T</code>に対するアトミック操作が常にロックフリー (非ミューテックス) で動作する場合は<code>true</code>、そうでなければ<code>false</code></td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<p><code>is_always_lock_free == true</code>の場合、このクラスのオブジェクトをシグナルハンドラー内で使用できる。</p>
+<h3>atomic&lt;integral&gt;専用メンバ関数</h3>
+<p>整数型に対する特殊化。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="atomic/fetch_add.html">fetch_add</a></code></td>
+<td>加算</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/fetch_sub.html">fetch_sub</a></code></td>
+<td>減算</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/fetch_and.html">fetch_and</a></code></td>
+<td>AND演算</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/fetch_or.html">fetch_or</a></code></td>
+<td>OR演算</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/fetch_xor.html">fetch_xor</a></code></td>
+<td>XOR演算</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/fetch_max.html">fetch_max</a></code></td>
+<td>最大値取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="atomic/fetch_min.html">fetch_min</a></code></td>
+<td>最小値取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="atomic/op_increment.html">operator++</a></code></td>
+<td>インクリメント</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/op_decrement.html">operator--</a></code></td>
+<td>デクリメント</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/op_plus_assign.html">operator+=</a></code></td>
+<td>加算</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/op_minus_assign.html">operator-=</a></code></td>
+<td>減算</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/op_and_assign.html">operator&amp;=</a></code></td>
+<td>AND演算</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/op_or_assign.html">operator|=</a></code></td>
+<td>OR演算</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/op_xor_assign.html">operator^=</a></code></td>
+<td>XOR演算</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>atomic&lt;integral&gt;専用メンバ型</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>difference_type</code></td>
+<td>2つの値の差を表す整数型<code>value_type</code></td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h3>atomic&lt;floating-point&gt;専用メンバ関数</h3>
+<p>浮動小数点数型に対する特殊化。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="atomic/fetch_add.html">fetch_add</a></code></td>
+<td>加算</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="atomic/fetch_sub.html">fetch_sub</a></code></td>
+<td>減算</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="atomic/op_plus_assign.html">operator+=</a></code></td>
+<td>加算</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="atomic/op_minus_assign.html">operator-=</a></code></td>
+<td>減算</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>atomic&lt;floating-point&gt;専用メンバ型</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>difference_type</code></td>
+<td>2つの値の差を表す型<code>value_type</code></td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>atomic&lt;T*&gt;専用メンバ関数</h3>
+<p>ポインタ型に対する特殊化。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="atomic/fetch_add.html">fetch_add</a></code></td>
+<td>加算</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/fetch_sub.html">fetch_sub</a></code></td>
+<td>減算</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/fetch_max.html">fetch_max</a></code></td>
+<td>最大値取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="atomic/fetch_min.html">fetch_min</a></code></td>
+<td>最小値取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="atomic/op_increment.html">operator++</a></code></td>
+<td>インクリメント</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/op_decrement.html">operator--</a></code></td>
+<td>デクリメント</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/op_plus_assign.html">operator+=</a></code></td>
+<td>加算</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="atomic/op_minus_assign.html">operator-=</a></code></td>
+<td>減算</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>atomic&lt;T*&gt;専用メンバ型</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>difference_type</code></td>
+<td>2つの値の差を表す整数型<code><a href="../cstddef/ptrdiff_t.html">ptrdiff_t</a></code></td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h3>例</h3>
+<p><div class="yata" id="18215f27dcaa0713e66aa63edbb36b82cd3de71c"><div class="codehilite"><pre><span></span><code><span class="c1">// スピンロックの実装</span>
+<span class="c1">// Boost Atomic Library - Usage Example</span>
+<span class="c1">// <a href="http://www.boost.org/doc/libs/1_53_0/doc/html/atomic/usage_examples.html#boost_atomic.usage_examples.example_spinlock" target="_blank">http://www.boost.org/doc/libs/1_53_0/doc/html/atomic/usage_examples.html#boost_atomic.usage_examples.example_spinlock</a></span>
+
+<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../atomic.html">&lt;atomic&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../mutex.html">&lt;mutex&gt;</a></span><span class="cp"></span>
+
+<span class="k">class</span> <span class="nc">spinlock</span> <span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+  <span class="k">enum</span> <span class="n">LockState</span> <span class="p">{</span><span class="n">Locked</span><span class="p">,</span> <span class="n">Unlocked</span><span class="p">};</span>
+  <span class="n"><span style="color:#ff0000">std::atomic</span></span><span class="o">&lt;</span><span class="n">LockState</span><span class="o">&gt;</span> <span class="n">state_</span><span class="p">;</span>
+
+<span class="k">public</span><span class="o">:</span>
+  <span class="n">spinlock</span><span class="p">()</span> <span class="o">:</span> <span class="n">state_</span><span class="p">(</span><span class="n">Unlocked</span><span class="p">)</span> <span class="p">{}</span>
+
+  <span class="kt">void</span> <span class="n">lock</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="c1">// 現在の状態をLockedと入れ替える</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">state_</span><span class="p">.</span><span class="n"><span style="color:#ff0000">exchange</span></span><span class="p">(</span><span class="n">Locked</span><span class="p">,</span> <span class="n"><a href="memory_order.html">std::memory_order_acquire</a></span><span class="p">)</span> <span class="o">==</span> <span class="n">Locked</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// busy-wait...アンロックされるまで待機</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="kt">void</span> <span class="n">unlock</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="c1">// 値をUnlockedに更新</span>
+    <span class="n">state_</span><span class="p">.</span><span class="n"><span style="color:#ff0000">store</span></span><span class="p">(</span><span class="n">Unlocked</span><span class="p">,</span> <span class="n"><a href="memory_order.html">std::memory_order_release</a></span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">namespace</span> <span class="p">{</span>
+  <span class="n">spinlock</span> <span class="n">lock</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">print</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n"><a href="../mutex/lock_guard.html">std::lock_guard</a></span><span class="o">&lt;</span><span class="n">spinlock</span><span class="o">&gt;</span> <span class="n">lk</span><span class="p">(</span><span class="n">lock</span><span class="p">);</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">f</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">print</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">g</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">print</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../thread/thread.html">std::thread</a></span> <span class="n">t1</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
+  <span class="n"><a href="../thread/thread.html">std::thread</a></span> <span class="nf">t2</span><span class="p">(</span><span class="n">g</span><span class="p">);</span>
+
+  <span class="n"><a href="../thread/thread/join.html">t1.join()</a></span><span class="p">;</span>
+  <span class="n"><a href="../thread/thread/join.html">t2.join()</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力例</h3>
+<p><pre><code>2
+1
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 3.2 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 4.7.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2012 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2013 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<h3>備考</h3>
+<ul>
+<li>GCC 4.9.2まで、アライメントがおかしくなってセグメンテーションフォルトになるバグがあった。GCC 5.1で修正された。(<a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=65147" target="_blank">Bug 65147</a>)</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><a href="../memory/atomic.html"><code>std::shared_ptr</code>と<code>std::weak_ptr</code>に対する<code>atomic</code>クラスの特殊化</a></li>
+</ul>
+<h3>参照</h3>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2145.html" target="_blank">N2145 C++ Atomic Types and Operations</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2547.htm" target="_blank">N2547 Allow atomics use in signal handlers</a></li>
+<li><a href="http://d.hatena.ne.jp/faith_and_brave/20130110/1357808183" target="_blank">アトミックオブジェクトを含むクラスのコピーとムーブ - Faith and Brave - C++で遊ぼう</a></li>
+<li><a href="https://wg21.cmeerw.net/lwg/issue2441" target="_blank">LWG Issue 2441. Exact-width atomic <code>typedef</code>s should be provided</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0558r1.pdf" target="_blank">P0558R1 Resolving <code>atomic&lt;T&gt;</code> named base class inconsistencies</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0152r1.html" target="_blank">P0152R1 <code>constexpr atomic&lt;T&gt;::is_always_lock_free</code></a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0020r6.html" target="_blank">P0020R6 Floating Point Atomic</a></li>
+<li><a href="https://wg21.cmeerw.net/lwg/issue3045" target="_blank">LWG Issue 3045. <code>atomic</code> doesn't have <code>value_type</code> or <code>difference_type</code></a></li>
+<li><a href="https://wg21.cmeerw.net/lwg/issue3012" target="_blank">LWG Issue 3012. <code>atomic</code> is unimplementable for non-<code>is_trivially_copy_constructible T</code></a></li>
+<li><a href="https://rigtorp.se/spinlock/" target="_blank">Correctly implementing a spinlock in C++</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1135r6.html" target="_blank">P1135R6 The C++20 Synchronization Library</a><ul>
+<li>C++20での<code>atomic_signed_lock_free</code>と<code>atomic_unsigned_lock_free</code>の追加</li>
+</ul>
+</li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html" target="_blank">P1467R9 Extended floating-point types and standard names</a><ul>
+<li>C++23で<a class="cpprefjp-defined-word" data-desc="&lt;stdfloat&gt;で定義される内部表現の規定された浮動小数点数型" href="../stdfloat.html">拡張浮動小数点数型</a>もテンプレート引数として指定することが許可された</li>
+</ul>
+</li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3323r1.html" target="_blank">P3323R1 cv-qualified types in <code>atomic</code> and <code>atomic_ref</code></a><ul>
+<li>C++26で<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>されたテンプレートパラメータが明確に禁止された</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2025-07-14T13:13:24.615153</updated>
+  <id>45dda7d4-127e-4a1e-a2c9-00a64fc9f44b</id>
+
+  
+    <entry>
+      <title>MB_CUR_MAX -- `namespace std`の削除、表記の変更</title>
+      <link href="https://cpprefjp.github.io/reference/cstdlib/mb_cur_max.html"/>
+      <id>62352b3c4040d8534d037b42dc0aabfc152861b9:reference/cstdlib/mb_cur_max.md</id>
+      <updated>2025-07-14T22:07:06+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/mb_cur_max.md b/reference/cstdlib/mb_cur_max.md
+index 21450cdb3..53908c1c0 100644
+--- a/reference/cstdlib/mb_cur_max.md
++++ b/reference/cstdlib/mb_cur_max.md
+@@ -3,9 +3,7 @@
+ * macro[meta id-type]
+ 
+ ```cpp
+-namespace std {
+-  #define MB_CUR_MAX /* implementation defined */
+-}
++#define MB_CUR_MAX implementation-defined
+ ```
+ 
+ ## 概要
+@@ -28,12 +26,12 @@ int main() {
+   //C ロケール(標準ASCII)
+   std::cout &amp;lt;&amp;lt; &amp;#34;Locale: standard, MB_CUR_MAX: &amp;#34; &amp;lt;&amp;lt; MB_CUR_MAX &amp;lt;&amp;lt; std::endl;
+   
++  //ロケールを日本(UTF-8)に変更
+   if (std::setlocale(LC_CTYPE, &amp;#34;ja_JP.UTF-8&amp;#34;) == nullptr) {
+-      std::cout &amp;lt;&amp;lt; &amp;#34;Failed to set locale to: ja_JP.UTF-8&amp;#34;  &amp;lt;&amp;lt; std::endl;
++    std::cout &amp;lt;&amp;lt; &amp;#34;Failed to set locale to: ja_JP.UTF-8&amp;#34;  &amp;lt;&amp;lt; std::endl;
++  } else {
++    std::cout &amp;lt;&amp;lt; &amp;#34;Locale: ja_JP.UTF-8, MB_CUR_MAX: &amp;#34; &amp;lt;&amp;lt; MB_CUR_MAX &amp;lt;&amp;lt; std::endl;
+   }
+-  std::setlocale(LC_CTYPE, &amp;#34;ja_JP.UTF-8&amp;#34;);//ロケールを日本語UTF-8に変更
+-  std::cout &amp;lt;&amp;lt; &amp;#34;Locale: ja_JP.UTF-8, MB_CUR_MAX: &amp;#34; &amp;lt;&amp;lt; MB_CUR_MAX &amp;lt;&amp;lt; std::endl;
+-  return 0;
+ }
+ ```
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>stderr -- removed /* */ for implementation-defined (#1473)</title>
+      <link href="https://cpprefjp.github.io/reference/cstdio/stderr.html"/>
+      <id>be4f0ebf8933b9687adca36fd78b37acf25f4606:reference/cstdio/stderr.md</id>
+      <updated>2025-07-14T21:57:01+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/stderr.md b/reference/cstdio/stderr.md
+index 1909dbab2..d6d0ddf74 100644
+--- a/reference/cstdio/stderr.md
++++ b/reference/cstdio/stderr.md
+@@ -3,7 +3,7 @@
+ * macro[meta id-type]
+ 
+ ```cpp
+-#define stderr /* implementation-defined */
++#define stderr implementation-defined
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>stdin -- removed /* */ for implementation-defined (#1473)</title>
+      <link href="https://cpprefjp.github.io/reference/cstdio/stdin.html"/>
+      <id>be4f0ebf8933b9687adca36fd78b37acf25f4606:reference/cstdio/stdin.md</id>
+      <updated>2025-07-14T21:57:01+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/stdin.md b/reference/cstdio/stdin.md
+index 44a907f0a..2cb07e4ee 100644
+--- a/reference/cstdio/stdin.md
++++ b/reference/cstdio/stdin.md
+@@ -3,7 +3,7 @@
+ * macro[meta id-type]
+ 
+ ```cpp
+-#define stdin /* implementation-defined */
++#define stdin implementation-defined
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>stdout -- removed /* */ for implementation-defined (#1473)</title>
+      <link href="https://cpprefjp.github.io/reference/cstdio/stdout.html"/>
+      <id>be4f0ebf8933b9687adca36fd78b37acf25f4606:reference/cstdio/stdout.md</id>
+      <updated>2025-07-14T21:57:01+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/stdout.md b/reference/cstdio/stdout.md
+index e41783517..d4d068a99 100644
+--- a/reference/cstdio/stdout.md
++++ b/reference/cstdio/stdout.md
+@@ -3,7 +3,7 @@
+ * macro[meta id-type]
+ 
+ ```cpp
+-#define stdout /* implementation-defined */
++#define stdout implementation-defined
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>tmpnam -- fixed index in tmpnam.md</title>
+      <link href="https://cpprefjp.github.io/reference/cstdio/tmpnam.html"/>
+      <id>af2a99dea80102f489a533c6cbc7df70dcdcfc97:reference/cstdio/tmpnam.md</id>
+      <updated>2025-07-14T21:17:41+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/tmpnam.md b/reference/cstdio/tmpnam.md
+index 1d293b29c..d25320e34 100644
+--- a/reference/cstdio/tmpnam.md
++++ b/reference/cstdio/tmpnam.md
+@@ -31,7 +31,7 @@ namespace std {
+ #include &amp;lt;iostream&amp;gt;
+ 
+ int main() {
+-    char filename[1000];
++    char filename[L_tmpnam];
+     if (std::tmpnam(filename)) {
+         std::cout &amp;lt;&amp;lt; &amp;#34;Generated filename: &amp;#34; &amp;lt;&amp;lt; filename &amp;lt;&amp;lt; &amp;#39;\n&amp;#39;;
+         // ここで fopen(filename, &amp;#34;w&amp;#34;) とかして使う（が、あまり推奨されない）
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>tmpnam -- fixed explanation for tmpnam</title>
+      <link href="https://cpprefjp.github.io/reference/cstdio/tmpnam.html"/>
+      <id>55f9df14fbb786eacb8aa54d1de6df1d82163878:reference/cstdio/tmpnam.md</id>
+      <updated>2025-07-14T08:02:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/tmpnam.md b/reference/cstdio/tmpnam.md
+index 7adeb5fae..1d293b29c 100644
+--- a/reference/cstdio/tmpnam.md
++++ b/reference/cstdio/tmpnam.md
+@@ -14,7 +14,7 @@ namespace std {
+ 
+ 渡した引数の中にファイル名が格納される。
+ 
+-この関数はスレッドセーフではないため、マルチスレッド環境での使用は推奨されない。
++この関数は引数に`NULL`を渡した場合にスレッドセーフではないため、使用時には注意が必要である。
+ 
+ また、生成された名前が他のファイル名とかぶらないことは保証されていない（保証する必要があるならば[`tmpfile`](/reference/cstdio/tmpfile.md)を使用する）。
+ 
+@@ -31,7 +31,7 @@ namespace std {
+ #include &amp;lt;iostream&amp;gt;
+ 
+ int main() {
+-    char filename[L_tmpnam];
++    char filename[1000];
+     if (std::tmpnam(filename)) {
+         std::cout &amp;lt;&amp;lt; &amp;#34;Generated filename: &amp;#34; &amp;lt;&amp;lt; filename &amp;lt;&amp;lt; &amp;#39;\n&amp;#39;;
+         // ここで fopen(filename, &amp;#34;w&amp;#34;) とかして使う（が、あまり推奨されない）
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>tmpnam -- fixed inappropriate code in `tmpnam.md`</title>
+      <link href="https://cpprefjp.github.io/reference/cstdio/tmpnam.html"/>
+      <id>116c20ad12e92ea2afe704367730ad60b281ca91:reference/cstdio/tmpnam.md</id>
+      <updated>2025-07-13T23:53:14+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/tmpnam.md b/reference/cstdio/tmpnam.md
+index ad26323a4..7adeb5fae 100644
+--- a/reference/cstdio/tmpnam.md
++++ b/reference/cstdio/tmpnam.md
+@@ -31,7 +31,7 @@ namespace std {
+ #include &amp;lt;iostream&amp;gt;
+ 
+ int main() {
+-    char filename[1000];
++    char filename[L_tmpnam];
+     if (std::tmpnam(filename)) {
+         std::cout &amp;lt;&amp;lt; &amp;#34;Generated filename: &amp;#34; &amp;lt;&amp;lt; filename &amp;lt;&amp;lt; &amp;#39;\n&amp;#39;;
+         // ここで fopen(filename, &amp;#34;w&amp;#34;) とかして使う（が、あまり推奨されない）
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>

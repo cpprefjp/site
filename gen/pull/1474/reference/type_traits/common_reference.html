@@ -1,0 +1,353 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>common_reference - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,type_traits,std,class template,cpp20
+">
+        <meta name="title" content="common_reference - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="common_reference - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="common_reference - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/type_traits/common_reference.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="common_reference - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/type_traits/common_reference.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;type_traits&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;1403628dfa426aee855ad5409cd1811dd0a8cd3a&#34;, &#34;source&#34;: &#34;#include &lt;string&gt;\n#include &lt;vector&gt;\n#include &lt;type_traits&gt;\n\nint main()\n{\n  static_assert(std::same_as&lt;std::common_reference_t&lt;std::size_t&amp;, int&amp;&gt;, std::size_t&gt;);\n  static_assert(std::same_as&lt;std::common_reference_t&lt;const std::size_t&amp;, int&amp;&gt;, std::size_t&gt;);\n  static_assert(std::same_as&lt;std::common_reference_t&lt;long double&amp;, double&amp;&gt;, long double&gt;);\n  static_assert(std::same_as&lt;std::common_reference_t&lt;long double&amp;, const double&amp;&gt;, long double&gt;);\n  static_assert(std::same_as&lt;std::common_reference_t&lt;std::string&amp;, std::string_view&amp;&gt;, std::string_view&gt;);\n  static_assert(std::same_as&lt;std::common_reference_t&lt;const std::vector&lt;int&gt;, std::vector&lt;int&gt;&amp;&gt;, const std::vector&lt;int&gt;&gt;);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;type_traits&#34;, &#34;common_reference&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/type_traits.html" itemprop="url">
+              
+                <span itemprop="name">type_traits</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">common_reference</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-06-11T13:45:38">
+        2024年06月11日 13時45分38秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/type_traits/common_reference.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/type_traits/common_reference.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;type_traits&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">common_reference</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Types</span><span class="o">&gt;</span>
+  <span class="k">struct</span> <span class="n">common_reference</span> <span class="p">{</span>
+    <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="err">…</span><span class="p">;</span>
+  <span class="p">};</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Types</span><span class="o">&gt;</span>
+  <span class="k">using</span> <span class="n"><a href="">common_reference_t</a></span> <span class="o">=</span> <span class="k">typename</span> <span class="n">common_reference</span><span class="o">&lt;</span><span class="n">Types</span><span class="p">...</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>与えられた型を全て参照可能な、共通の参照型を取得する。</p>
+<h2>要件</h2>
+<p><code>Types...</code>の全ての型は<a class="cpprefjp-defined-word" data-desc="型のサイズを決定できる型。不完全型ではない型">完全型</a>であるか、<code>const/volatile</code>修飾された(あるいはされていない)<code>void</code>でなければならない。</p>
+<h2>効果</h2>
+<p><code>Types...</code>に含まれる全ての型を参照可能な参照型を、メンバ型<code>type</code>として定義する。ただし、<code>type</code>は必ずしも参照型であるとは限らない。</p>
+<p>より詳細には、次のように決定される。</p>
+<p><code>N = sizeof...(Types)</code>として</p>
+<ul>
+<li>
+<p><code>N == 0</code> : メンバ型<code>type</code>は定義されない。</p>
+</li>
+<li>
+<p><code>N == 1</code> : <code>Types...</code>内の唯一の型を<code>T</code>とすると、<code>type = T;</code></p>
+</li>
+<li>
+<p><code>N == 2</code> : <code>Types...</code>の１、2番目の型を<code>T1, T2</code>とすると</p>
+<ul>
+<li><code>T1, T2</code>は共に参照型であり、<code>COMMON-REF(T1, T2)</code>が有効ならば、<code>type = COMMON-REF(T1, T2);</code></li>
+<li><code><a href="basic_common_reference.html">basic_common_reference</a>&lt;remove_cvref_t&lt;T1&gt;, remove_cvref_t&lt;T2&gt;, XREF(T1), XREF(T2)&gt;::type</code>が有効ならば、メンバ型<code>type</code>はその型</li>
+<li><code>COND-RES(T1, T2)</code>が有効ならば、<code>type = COND-RES(T1, T2);</code></li>
+<li><code><a href="common_type.html">common_type_t</a>&lt;T1, T2&gt;</code>が有効ならば、<code>type = common_type_t&lt;T1, T2&gt;;</code></li>
+<li>そうでなければ、メンバ型<code>type</code>は定義されない。</li>
+</ul>
+</li>
+<li><code>N &gt;= 3</code> : <code>Types...</code>の１、2番目の型を<code>T1, T2</code>、残りのパラメータパックを<code>Rest</code>、<code>C = common_reference&lt;T1, T2&gt;</code>とすると<ul>
+<li>型<code>C</code>が存在する場合、<code>type = common_reference&lt;C, Rest...&gt;;</code>のようにメンバ型<code>type</code>を定義。</li>
+<li>そうでなければ、メンバ型<code>type</code>は定義されない。</li>
+</ul>
+</li>
+</ul>
+<p><code>COMMON-REF</code>や<code>XREF</code>はそれぞれ次のように定義される型を表す説明専用のものである</p>
+<ul>
+<li><code>XREF(A)</code><ul>
+<li>参照ではなく<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>もされていない型<code>U</code>を引数に取り、<code>A</code>の参照・<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>をそのまま<code>U</code>にコピーした型を示すエイリアステンプレート<code>T&lt;U&gt;</code></li>
+<li>このような<code>T&lt;U&gt;</code>は、<code><a href="basic_common_reference.html">basic_common_reference</a></code>の要件指定で使用される</li>
+</ul>
+</li>
+<li><code>COND-RES(X, Y)</code><ul>
+<li><code>decltype(false ? declval&lt;X(&amp;)()&gt;()() : declval&lt;Y(&amp;)()&gt;()())</code></li>
+</ul>
+</li>
+<li><code>COPYCV(FROM, TO)</code><ul>
+<li>型<code>FROM</code>の最上位の<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>をそのまま<code>TO</code>へコピーした型を示すエイリアス</li>
+</ul>
+</li>
+<li><code>COMMON-REF(A, B)</code><ul>
+<li><code>X = remove_reference_t&lt;A&gt;</code>, <code>Y = remove_reference_t&lt;B&gt;</code>として、以下のように定義される<ol>
+<li><code>A, B</code>が共に左辺値参照型の場合、<code>COND-RES(COPYCV(X, Y) &amp;, COPYCV(Y, X) &amp;)</code>が有効であり参照型ならばその型</li>
+<li><code>A, B</code>が共に右辺値参照型の場合、<code>C = remove_reference_t&lt;COMMON-REF(X, Y)&gt;&amp;&amp;</code>（1に委譲）が有効であり、<code>is_convertible_v&lt;A, C&gt; &amp;&amp; is_convertible_v&lt;B, C&gt; == true</code>ならば、型<code>C</code></li>
+<li><code>A</code>が右辺値参照型で<code>B</code>が左辺値参照型の場合、<code>D = COMMON-REF(const X&amp;, Y&amp;)</code>（1に委譲）が有効であり、<code>is_convertible_v&lt;A, D&gt; == true</code>ならば、型<code>D</code></li>
+<li><code>B</code>が右辺値参照型で<code>A</code>が左辺値参照型の場合、<code>COMMON-REF(B, A)</code>として3に委譲</li>
+<li>それ以外の場合及び、上位のいずれかによる結果として<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>な型が生成された場合は、<code>COMMON-REF(A, B)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h2>備考</h2>
+<p>本メタ関数<code>common_reference</code>は、より一般的なイテレータの<code>value_type</code>と<code>reference</code>との間の関係性を定義するために導入された。</p>
+<p>ポインタ型やC++17までの標準ライブラリにおける普通のイテレータ型では、その<code>reference</code>型は<code>value_type&amp;</code>の別名として定義されるという関係性がある。そのため、<code>value_type</code>と<code>reference</code>はどちらも<code>const</code>左辺値参照を付加することで<code>const value_type&amp;</code>に変換できる（ことが期待される）。</p>
+<p>しかし、C++20から追加される<code>range</code>ライブラリの元となった<code>range-v3</code>ライブラリにおける<code>zip_view</code>（標準ライブラリへはC++23で導入される）のプロキシイテレータのように、特殊なイテレータではそのような関係性が必ずしも成り立つとは限らない。</p>
+<p>このような関係性を持つ型があるとジェネリックなアルゴリズムをより簡易に書くことができるようになるなどメリットがあるため、そのような型を求めるために<code>common_reference</code>が導入された。</p>
+<p>他にも、2つの型の間で定義されるコンセプトにおいて、その2つの型の間で上記のような関係性が自然に要求される場合に、<code><a href="../concepts/common_reference_with.html">common_reference_with</a></code>コンセプトを通じて利用される。</p>
+<h2>例</h2>
+<p><div class="yata" id="1403628dfa426aee855ad5409cd1811dd0a8cd3a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../concepts/same_as.html">std::same_as</a></span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::common_reference_t</span></span><span class="o">&lt;</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="o">&amp;</span><span class="p">,</span> <span class="kt">int</span><span class="o">&amp;&gt;</span><span class="p">,</span> <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="o">&gt;</span><span class="p">);</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../concepts/same_as.html">std::same_as</a></span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::common_reference_t</span></span><span class="o">&lt;</span><span class="k">const</span> <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="o">&amp;</span><span class="p">,</span> <span class="kt">int</span><span class="o">&amp;&gt;</span><span class="p">,</span> <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="o">&gt;</span><span class="p">);</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../concepts/same_as.html">std::same_as</a></span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::common_reference_t</span></span><span class="o">&lt;</span><span class="kt">long</span> <span class="kt">double</span><span class="o">&amp;</span><span class="p">,</span> <span class="kt">double</span><span class="o">&amp;&gt;</span><span class="p">,</span> <span class="kt">long</span> <span class="kt">double</span><span class="o">&gt;</span><span class="p">);</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../concepts/same_as.html">std::same_as</a></span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::common_reference_t</span></span><span class="o">&lt;</span><span class="kt">long</span> <span class="kt">double</span><span class="o">&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="kt">double</span><span class="o">&amp;&gt;</span><span class="p">,</span> <span class="kt">long</span> <span class="kt">double</span><span class="o">&gt;</span><span class="p">);</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../concepts/same_as.html">std::same_as</a></span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::common_reference_t</span></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&amp;</span><span class="p">,</span> <span class="n"><a href="../string_view/basic_string_view.html">std::string_view</a></span><span class="o">&amp;&gt;</span><span class="p">,</span> <span class="n"><a href="../string_view/basic_string_view.html">std::string_view</a></span><span class="o">&gt;</span><span class="p">);</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../concepts/same_as.html">std::same_as</a></span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::common_reference_t</span></span><span class="o">&lt;</span><span class="k">const</span> <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span> <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;&gt;</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code></code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++20</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 10.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2019 Update 3 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="basic_common_reference.html">basic_common_reference</a></code></li>
+<li><code><a href="../concepts/common_reference_with.html">common_reference_with</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0898r3.pdf" target="_blank">P0898R3 Standard Library Concepts</a></li>
+<li><a href="https://stackoverflow.com/questions/59011331/what-is-the-purpose-of-c20-stdcommon-reference" target="_blank">What is the purpose of C++20 std::common_reference? - stackoverflow</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
