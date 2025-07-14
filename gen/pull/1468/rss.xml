@@ -2,9 +2,73 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-07-14T12:25:14.780194</updated>
-  <id>70a17793-5b60-4f29-a21f-27b093b72ae7</id>
+  <updated>2025-07-14T12:33:26.496066</updated>
+  <id>f9dad848-8815-4290-99e9-e3f151b2730c</id>
 
+  
+    <entry>
+      <title>EOF -- Merge branch &#39;cpprefjp:master&#39; into master</title>
+      <link href="https://cpprefjp.github.io/reference/cstdio/eof.html"/>
+      <id>f8f78d595e608e7369792b80d8e79002be5747c2:reference/cstdio/eof.md</id>
+      <updated>2025-07-14T21:29:20+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/eof.md b/reference/cstdio/eof.md
+index b603c81a1..3cda36b5b 100644
+--- a/reference/cstdio/eof.md
++++ b/reference/cstdio/eof.md
+@@ -20,8 +20,7 @@ int main() {
+   while ((c = std::getchar()) != EOF) {
+     std::putchar(c);
+   }
+-  if (c == EOF)
+-    std::puts(&amp;#34;REACHED END&amp;#34;);
++  std::puts(&amp;#34;REACHED END&amp;#34;);
+ }
+ 
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>tmpnam -- Merge branch &#39;cpprefjp:master&#39; into master</title>
+      <link href="https://cpprefjp.github.io/reference/cstdio/tmpnam.html"/>
+      <id>f8f78d595e608e7369792b80d8e79002be5747c2:reference/cstdio/tmpnam.md</id>
+      <updated>2025-07-14T21:29:20+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/tmpnam.md b/reference/cstdio/tmpnam.md
+index ad26323a4..d25320e34 100644
+--- a/reference/cstdio/tmpnam.md
++++ b/reference/cstdio/tmpnam.md
+@@ -14,7 +14,7 @@ namespace std {
+ 
+ 渡した引数の中にファイル名が格納される。
+ 
+-この関数はスレッドセーフではないため、マルチスレッド環境での使用は推奨されない。
++この関数は引数に`NULL`を渡した場合にスレッドセーフではないため、使用時には注意が必要である。
+ 
+ また、生成された名前が他のファイル名とかぶらないことは保証されていない（保証する必要があるならば[`tmpfile`](/reference/cstdio/tmpfile.md)を使用する）。
+ 
+@@ -31,7 +31,7 @@ namespace std {
+ #include &amp;lt;iostream&amp;gt;
+ 
+ int main() {
+-    char filename[1000];
++    char filename[L_tmpnam];
+     if (std::tmpnam(filename)) {
+         std::cout &amp;lt;&amp;lt; &amp;#34;Generated filename: &amp;#34; &amp;lt;&amp;lt; filename &amp;lt;&amp;lt; &amp;#39;\n&amp;#39;;
+         // ここで fopen(filename, &amp;#34;w&amp;#34;) とかして使う（が、あまり推奨されない）
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>fpos_t -- Update reference/cstdio/fpos_t.md</title>
@@ -61,24 +125,24 @@ index c72b2604a..314047f65 100644
     </entry>
   
     <entry>
-      <title>EOF -- Merge branch &#39;cpprefjp:master&#39; into master</title>
-      <link href="https://cpprefjp.github.io/reference/cstdio/eof.html"/>
-      <id>1ebe25212129f823b1b341bb25395e416c2b3aad:reference/cstdio/eof.md</id>
-      <updated>2025-07-13T23:02:46+09:00</updated>
+      <title>tmpnam -- fixed index in tmpnam.md</title>
+      <link href="https://cpprefjp.github.io/reference/cstdio/tmpnam.html"/>
+      <id>af2a99dea80102f489a533c6cbc7df70dcdcfc97:reference/cstdio/tmpnam.md</id>
+      <updated>2025-07-14T21:17:41+09:00</updated>
       
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/eof.md b/reference/cstdio/eof.md
-index 231b8689a..b603c81a1 100644
---- a/reference/cstdio/eof.md
-+++ b/reference/cstdio/eof.md
-@@ -3,7 +3,7 @@
- * macro[meta id-type]
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/tmpnam.md b/reference/cstdio/tmpnam.md
+index 1d293b29c..d25320e34 100644
+--- a/reference/cstdio/tmpnam.md
++++ b/reference/cstdio/tmpnam.md
+@@ -31,7 +31,7 @@ namespace std {
+ #include &amp;lt;iostream&amp;gt;
  
- ```cpp
--#define EOF /* implementation defined */
-+#define EOF /* implementation-defined */
- ```
- 
- ## 概要
+ int main() {
+-    char filename[1000];
++    char filename[L_tmpnam];
+     if (std::tmpnam(filename)) {
+         std::cout &amp;lt;&amp;lt; &amp;#34;Generated filename: &amp;#34; &amp;lt;&amp;lt; filename &amp;lt;&amp;lt; &amp;#39;\n&amp;#39;;
+         // ここで fopen(filename, &amp;#34;w&amp;#34;) とかして使う（が、あまり推奨されない）
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
@@ -88,520 +152,33 @@ index 231b8689a..b603c81a1 100644
     </entry>
   
     <entry>
-      <title>FILE -- Merge branch &#39;cpprefjp:master&#39; into master</title>
-      <link href="https://cpprefjp.github.io/reference/cstdio/file.html"/>
-      <id>1ebe25212129f823b1b341bb25395e416c2b3aad:reference/cstdio/file.md</id>
-      <updated>2025-07-13T23:02:46+09:00</updated>
+      <title>tmpnam -- fixed explanation for tmpnam</title>
+      <link href="https://cpprefjp.github.io/reference/cstdio/tmpnam.html"/>
+      <id>55f9df14fbb786eacb8aa54d1de6df1d82163878:reference/cstdio/tmpnam.md</id>
+      <updated>2025-07-14T08:02:32+09:00</updated>
       
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/file.md b/reference/cstdio/file.md
-index 5791670be..243769def 100644
---- a/reference/cstdio/file.md
-+++ b/reference/cstdio/file.md
-@@ -5,7 +5,7 @@
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/tmpnam.md b/reference/cstdio/tmpnam.md
+index 7adeb5fae..1d293b29c 100644
+--- a/reference/cstdio/tmpnam.md
++++ b/reference/cstdio/tmpnam.md
+@@ -14,7 +14,7 @@ namespace std {
  
- ```cpp
- namespace std {
--  typedef /* unspecified */ FILE;
-+  using FILE = /* unspecified */;
- }
- ```
+ 渡した引数の中にファイル名が格納される。
  
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>rotarymars</name>
-        <email>s.goto2050@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>FILENAME_MAX -- Merge branch &#39;cpprefjp:master&#39; into master</title>
-      <link href="https://cpprefjp.github.io/reference/cstdio/filename_max.html"/>
-      <id>1ebe25212129f823b1b341bb25395e416c2b3aad:reference/cstdio/filename_max.md</id>
-      <updated>2025-07-13T23:02:46+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/filename_max.md b/reference/cstdio/filename_max.md
-index 172e3013e..9e45023ca 100644
---- a/reference/cstdio/filename_max.md
-+++ b/reference/cstdio/filename_max.md
-@@ -3,7 +3,7 @@
- * macro[meta id-type]
+-この関数はスレッドセーフではないため、マルチスレッド環境での使用は推奨されない。
++この関数は引数に`NULL`を渡した場合にスレッドセーフではないため、使用時には注意が必要である。
  
- ```cpp
--#define FILENAME_MAX /* implementation defined */
-+#define FILENAME_MAX /* implementation-defined */
- ```
+ また、生成された名前が他のファイル名とかぶらないことは保証されていない（保証する必要があるならば[`tmpfile`](/reference/cstdio/tmpfile.md)を使用する）。
  
- ## 概要
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>rotarymars</name>
-        <email>s.goto2050@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>cstdlib -- Merge branch &#39;cpprefjp:master&#39; into master</title>
-      <link href="https://cpprefjp.github.io/reference/cstdlib.html"/>
-      <id>1ebe25212129f823b1b341bb25395e416c2b3aad:reference/cstdlib.md</id>
-      <updated>2025-07-13T23:02:46+09:00</updated>
-      
-        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;cstdlib&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;cstdlib&lt;/span&gt;&lt;/h1&gt;
-&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;cstdlib&amp;gt;&lt;/code&gt;ヘッダでは、一般的なユーティリティの関数を定義する。これらの機能は基本的には、&lt;code&gt;std&lt;/code&gt;名前空間に属することを除いてC言語の標準ライブラリ&lt;code&gt;&amp;lt;stdlib.h&amp;gt;&lt;/code&gt;ヘッダと同じである。&lt;/p&gt;
-&lt;p&gt;本ヘッダはフリースタンディング環境でも提供される。
-フリースタンディング環境の場合、少なくとも&lt;code&gt;abort&lt;/code&gt;, &lt;code&gt;atexit&lt;/code&gt;, &lt;code&gt;at_quick_exit&lt;/code&gt;, &lt;code&gt;exit&lt;/code&gt;, &lt;code&gt;quick_exit&lt;/code&gt;関数がサポートされる。&lt;/p&gt;
-&lt;p&gt;ただし、一部の機能には、&lt;code&gt;[[noreturn]]&lt;/code&gt;属性、&lt;code&gt;noexcept&lt;/code&gt;キーワード、スレッドローカルストレージのような、C++特有の言語機能に関する規定がある。&lt;/p&gt;
-&lt;h2&gt;数値変換&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/atoi_atol_atoll.html&#34;&gt;atoi&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;文字列を&lt;code&gt;int&lt;/code&gt;型に変換する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/atoi_atol_atoll.html&#34;&gt;atol&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;文字列を&lt;code&gt;long&lt;/code&gt;型に変換する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/atoi_atol_atoll.html&#34;&gt;atoll&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;文字列を&lt;code&gt;long long&lt;/code&gt;型に変換する (function)&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/atof.html&#34;&gt;atof&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;文字列を&lt;code&gt;double&lt;/code&gt;型に変換する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;strtol&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;文字列を、基数を指定して&lt;code&gt;long&lt;/code&gt;型に変換する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;strtoll&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;文字列を、基数を指定して&lt;code&gt;long long&lt;/code&gt;型に変換する (function)&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;strtoul&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;文字列を、基数を指定して&lt;code&gt;unsigned long&lt;/code&gt;型に変換する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;strtoull&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;文字列を、基数を指定して&lt;code&gt;unsigned long long&lt;/code&gt;型に変換する (function)&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;strtof&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;文字列を、&lt;code&gt;float&lt;/code&gt;型に変換する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;strtod&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;文字列を、&lt;code&gt;double&lt;/code&gt;型に変換する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;strtold&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;文字列を、&lt;code&gt;long double&lt;/code&gt;型に変換する (function)&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;擬似乱数&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/rand_max.html&#34;&gt;RAND_MAX&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;rand&lt;/code&gt;関数によって生成される値域の最大値を表す整数値マクロ (macro)&lt;/td&gt;
-&lt;td&gt;C++14から非推奨&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/srand.html&#34;&gt;srand&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;rand&lt;/code&gt;関数によって生成される擬似乱数のシードを指定する (function)&lt;/td&gt;
-&lt;td&gt;C++14から非推奨&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/rand.html&#34;&gt;rand&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;srand&lt;/code&gt;で指定されたシードを元に、擬似乱数を生成する (function)&lt;/td&gt;
-&lt;td&gt;C++14から非推奨&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;メモリ管理&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/aligned_alloc.html&#34;&gt;aligned_alloc&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;指定したアライメントでメモリを確保する (function)&lt;/td&gt;
-&lt;td&gt;C++17&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/malloc.html&#34;&gt;malloc&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;メモリを確保する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/calloc.html&#34;&gt;calloc&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;メモリを確保し、領域をゼロ初期化する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/realloc.html&#34;&gt;realloc&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;メモリを再確保する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/free.html&#34;&gt;free&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;確保したメモリを解放する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;プログラムの開始と終了&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/exit_failure.html&#34;&gt;EXIT_FAILURE&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;プログラムが異常終了したことを表す整数値マクロ (macro)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/exit_success.html&#34;&gt;EXIT_SUCCESS&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;プログラムが正常終了したことを表す整数値マクロ (macro)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/abort.html&#34;&gt;abort&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;プログラムを異常終了させる (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/exit_.html&#34;&gt;_Exit&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;後処理をせずに、プログラムを終了させる (function)&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/exit.html&#34;&gt;exit&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;プログラムを終了させる (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/atexit.html&#34;&gt;atexit&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;プログラムが通常の方法で終了するときに呼ばれる関数を登録する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/quick_exit.html&#34;&gt;quick_exit&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;後処理をせずに、プログラムを終了させる (function)&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/at_quick_exit.html&#34;&gt;at_quick_exit&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;quick_exit&lt;/code&gt;関数でプログラムが終了するときに呼ばれる関数を登録する (function)&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;環境&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/getenv.html&#34;&gt;getenv&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;環境変数を取得する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/system.html&#34;&gt;system&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;システムコマンドを実行する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;検索と並び替え&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;bsearch&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;二分探索を行う (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;qsort&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;範囲の並べ替えを行う (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;整数に対する算術関数&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/abs.html&#34;&gt;abs&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;int&lt;/code&gt;の絶対値を取得する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/abs.html&#34;&gt;labs&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;long&lt;/code&gt;の絶対値を取得する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/abs.html&#34;&gt;llabs&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;long long&lt;/code&gt;の絶対値を取得する (function)&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/div_t.html&#34;&gt;div_t&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;div&lt;/code&gt;関数の戻り値型 (class)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/div.html&#34;&gt;div&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;int&lt;/code&gt;の除算と剰余算を行う (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/ldiv_t.html&#34;&gt;ldiv_t&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;ldiv&lt;/code&gt;関数の戻り値型 (class)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/div.html&#34;&gt;ldiv&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;long&lt;/code&gt;の除算と剰余算を行う (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/lldiv_t.html&#34;&gt;lldiv_t&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;lldiv&lt;/code&gt;関数の戻り値型 (class)&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/div.html&#34;&gt;lldiv&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;long long&lt;/code&gt;の除算と剰余算を行う (function)&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;マルチバイト文字とワイド文字の変換&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/mb_cur_max.html&#34;&gt;MB_CUR_MAX&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;マルチバイト文字列の最大サイズを表す整数値マクロ (macro)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;mblen&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;マルチバイト文字の長さを取得する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;mbtowc&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;マルチバイト文字を、ワイド文字に変換する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;wctomb&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;ワイド文字を、マルチバイト文字に変換する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;mbstowcs&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;マルチバイト文字列を、ワイド文字列に変換する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;wcstombs&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;ワイド文字列を、マルチバイト文字列に変換する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;&lt;/div&gt;</content>
-      
-      <author>
-        <name>rotarymars</name>
-        <email>s.goto2050@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>MB_CUR_MAX -- Merge branch &#39;cpprefjp:master&#39; into master</title>
-      <link href="https://cpprefjp.github.io/reference/cstdlib/mb_cur_max.html"/>
-      <id>1ebe25212129f823b1b341bb25395e416c2b3aad:reference/cstdlib/mb_cur_max.md</id>
-      <updated>2025-07-13T23:02:46+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/mb_cur_max.md b/reference/cstdlib/mb_cur_max.md
-new file mode 100644
-index 000000000..21450cdb3
---- /dev/null
-+++ b/reference/cstdlib/mb_cur_max.md
-@@ -0,0 +1,51 @@
-+# MB_CUR_MAX
-+* cstdlib[meta header]
-+* macro[meta id-type]
-+
-+```cpp
-+namespace std {
-+  #define MB_CUR_MAX /* implementation defined */
-+}
-+```
-+
-+## 概要
-+現在のロケールのマルチバイト文字の最大バイト数を示すマクロ。
-+
-+この定数はコンパイル時定数ではなく、実行時に変化する可能性がある。
-+
-+この値が`MB_LEN_MAX`を超えることはない。
-+
-+## 結果型
-+`size_t`型の正の整数値。
-+
-+## 例
-+```cpp example
-+#include &amp;lt;iostream&amp;gt;
-+#include &amp;lt;clocale&amp;gt;
-+#include &amp;lt;cstdlib&amp;gt;
-+
-+int main() {
-+  //C ロケール(標準ASCII)
-+  std::cout &amp;lt;&amp;lt; &amp;#34;Locale: standard, MB_CUR_MAX: &amp;#34; &amp;lt;&amp;lt; MB_CUR_MAX &amp;lt;&amp;lt; std::endl;
-+  
-+  if (std::setlocale(LC_CTYPE, &amp;#34;ja_JP.UTF-8&amp;#34;) == nullptr) {
-+      std::cout &amp;lt;&amp;lt; &amp;#34;Failed to set locale to: ja_JP.UTF-8&amp;#34;  &amp;lt;&amp;lt; std::endl;
-+  }
-+  std::setlocale(LC_CTYPE, &amp;#34;ja_JP.UTF-8&amp;#34;);//ロケールを日本語UTF-8に変更
-+  std::cout &amp;lt;&amp;lt; &amp;#34;Locale: ja_JP.UTF-8, MB_CUR_MAX: &amp;#34; &amp;lt;&amp;lt; MB_CUR_MAX &amp;lt;&amp;lt; std::endl;
-+  return 0;
-+}
-+```
-+
-+### 出力例
-+```
-+Locale: standard(C), MB_CUR_MAX: 1
-+Locale: ja_JP.UTF-8, MB_CUR_MAX: 6
-+```
-+
-+## 関連項目
-+- [`MB_LEN_MAX`](/reference/climits/mb_len_max.md):全ロケールでのマルチバイト文字の最大バイト数
-+- `setlocale`:ロケールを変更する
-+
-+## 参照
-+- [mb_cur_max(3) - Linux man page](https://linux.die.net/man/3/mb_cur_max)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>rotarymars</name>
-        <email>s.goto2050@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>RAND_MAX -- Merge branch &#39;cpprefjp:master&#39; into master</title>
-      <link href="https://cpprefjp.github.io/reference/cstdlib/rand_max.html"/>
-      <id>1ebe25212129f823b1b341bb25395e416c2b3aad:reference/cstdlib/rand_max.md</id>
-      <updated>2025-07-13T23:02:46+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/rand_max.md b/reference/cstdlib/rand_max.md
-index cbb6ba54b..5566d9d52 100644
---- a/reference/cstdlib/rand_max.md
-+++ b/reference/cstdlib/rand_max.md
-@@ -3,7 +3,7 @@
- * macro[meta id-type]
+@@ -31,7 +31,7 @@ namespace std {
+ #include &amp;lt;iostream&amp;gt;
  
- ```cpp
--#define RAND_MAX /*implementation defined*/
-+#define RAND_MAX /*implementation-defined*/
- ```
- 
- ## 概要
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>rotarymars</name>
-        <email>s.goto2050@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>FILE -- fixed declaration of `file.md`</title>
-      <link href="https://cpprefjp.github.io/reference/cstdio/file.html"/>
-      <id>942ab1ab8586029cfdbf085a32694249e488b25d:reference/cstdio/file.md</id>
-      <updated>2025-07-13T22:56:02+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/file.md b/reference/cstdio/file.md
-index 5791670be..243769def 100644
---- a/reference/cstdio/file.md
-+++ b/reference/cstdio/file.md
-@@ -5,7 +5,7 @@
- 
- ```cpp
- namespace std {
--  typedef /* unspecified */ FILE;
-+  using FILE = /* unspecified */;
- }
- ```
- 
+ int main() {
+-    char filename[L_tmpnam];
++    char filename[1000];
+     if (std::tmpnam(filename)) {
+         std::cout &amp;lt;&amp;lt; &amp;#34;Generated filename: &amp;#34; &amp;lt;&amp;lt; filename &amp;lt;&amp;lt; &amp;#39;\n&amp;#39;;
+         // ここで fopen(filename, &amp;#34;w&amp;#34;) とかして使う（が、あまり推奨されない）
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>

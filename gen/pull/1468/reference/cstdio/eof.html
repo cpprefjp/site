@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cstdio&#34;], &#34;id-type&#34;: [&#34;macro&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;af57ed0561ac91af71492fda477247941693093b&#34;, &#34;source&#34;: &#34;#include &lt;cstdio&gt;\n\nint main() {\n  int c;\n  while ((c = std::getchar()) != EOF) {\n    std::putchar(c);\n  }\n  if (c == EOF)\n    std::puts(\&#34;REACHED END\&#34;);\n}\n\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cstdio&#34;, &#34;eof&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cstdio&#34;], &#34;id-type&#34;: [&#34;macro&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;d75797d7223cc4218cc560d4735e3ad599e381ca&#34;, &#34;source&#34;: &#34;#include &lt;cstdio&gt;\n\nint main() {\n  int c;\n  while ((c = std::getchar()) != EOF) {\n    std::putchar(c);\n  }\n  std::puts(\&#34;REACHED END\&#34;);\n}\n\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cstdio&#34;, &#34;eof&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-13T03:32:51">
-        2025年07月13日 03時32分51秒
+      <span itemprop="datePublished" content="2025-07-13T14:23:27">
+        2025年07月13日 14時23分27秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Raclamusi</span>
+        <span itemprop="name">rotarymars</span>
       </span>
       が更新
     </small></p>
@@ -220,15 +220,14 @@
 <p>ファイルの終端であることを表すマクロ。</p>
 <p>型は<code>int</code>であり、負であることが保証されている。</p>
 <h2>例</h2>
-<p><div class="yata" id="af57ed0561ac91af71492fda477247941693093b"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cstdio.html">&lt;cstdio&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="d75797d7223cc4218cc560d4735e3ad599e381ca"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cstdio.html">&lt;cstdio&gt;</a></span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
   <span class="kt">int</span> <span class="n">c</span><span class="p">;</span>
   <span class="k">while</span> <span class="p">((</span><span class="n">c</span> <span class="o">=</span> <span class="n"><a href="getchar.html">std::getchar</a></span><span class="p">())</span> <span class="o">!=</span> <span class="n"><span style="color:#ff0000">EOF</span></span><span class="p">)</span> <span class="p">{</span>
     <span class="n"><a href="putchar.html">std::putchar</a></span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
   <span class="p">}</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="n"><span style="color:#ff0000">EOF</span></span><span class="p">)</span>
-    <span class="n"><a href="puts.html">std::puts</a></span><span class="p">(</span><span class="s">"REACHED END"</span><span class="p">);</span>
+  <span class="n"><a href="puts.html">std::puts</a></span><span class="p">(</span><span class="s">"REACHED END"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
