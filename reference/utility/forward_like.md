@@ -8,12 +8,11 @@
 namespace std {
 template <class T, class U>
 [[nodiscard]]
-constexpr auto forward_like(U&& x) noexcept -> see-below; // (1) C++23
+constexpr auto forward_like(U&& x) noexcept -> see below; // (1) C++23
 template <class T, class U>
-constexpr auto forward_like(U&& x) noexcept -> see-below; // (1) C++26
+constexpr auto forward_like(U&& x) noexcept -> see below; // (1) C++26
 }
 ```
-* see-below[italic]
 
 ## 概要
 第一テンプレート引数の`const`性と参照修飾を用いて関数テンプレートの引数を転送する。
