@@ -3,9 +3,7 @@
 * macro[meta id-type]
 
 ```cpp
-namespace std {
-  #define MB_CUR_MAX /* implementation defined */
-}
+#define MB_CUR_MAX implementation-defined
 ```
 
 ## 概要
@@ -28,12 +26,12 @@ int main() {
   //C ロケール(標準ASCII)
   std::cout << "Locale: standard, MB_CUR_MAX: " << MB_CUR_MAX << std::endl;
   
+  //ロケールを日本(UTF-8)に変更
   if (std::setlocale(LC_CTYPE, "ja_JP.UTF-8") == nullptr) {
-      std::cout << "Failed to set locale to: ja_JP.UTF-8"  << std::endl;
+    std::cout << "Failed to set locale to: ja_JP.UTF-8"  << std::endl;
+  } else {
+    std::cout << "Locale: ja_JP.UTF-8, MB_CUR_MAX: " << MB_CUR_MAX << std::endl;
   }
-  std::setlocale(LC_CTYPE, "ja_JP.UTF-8");//ロケールを日本語UTF-8に変更
-  std::cout << "Locale: ja_JP.UTF-8, MB_CUR_MAX: " << MB_CUR_MAX << std::endl;
-  return 0;
 }
 ```
 
