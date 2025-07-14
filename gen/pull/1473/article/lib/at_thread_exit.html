@@ -1,0 +1,352 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>_at_thread_exit系の関数が存在している理由 - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,
+">
+        <meta name="title" content="_at_thread_exit系の関数が存在している理由 - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="_at_thread_exit系の関数が存在している理由 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="_at_thread_exit系の関数が存在している理由 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/article/lib/at_thread_exit.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="_at_thread_exit系の関数が存在している理由 &amp;lt;future&amp;gt; や &amp;lt;condition_variable&amp;gt; には、*_at_thread_exit という名前の関数が定義されている。 namespace std {   void notify_all_at_thread_exit(condition_variable&amp;amp; cond, unique_loc" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="_at_thread_exit系の関数が存在している理由 - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/article/lib/at_thread_exit.html" />
+        <meta name="twitter:description" content="_at_thread_exit系の関数が存在している理由 &amp;lt;future&amp;gt; や &amp;lt;condition_variable&amp;gt; には、*_at_thread_exit という名前の関数が定義されている。 namespace std {   void notify_all_at_thread_exit(condition_variable&amp;amp; cond, unique_loc" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {}, &#34;sources&#34;: [{&#34;id&#34;: &#34;171e623d248d83490f9f10888099cc4ccbfdcc88&#34;, &#34;source&#34;: &#34;#include &lt;type_traits&gt;\n#include &lt;future&gt;\n#include &lt;thread&gt;\n#include &lt;iostream&gt;\n\ntemplate&lt;class F&gt;\nstd::future&lt;typename std::result_of&lt;F()&gt;::type&gt; spawn_task(F f) {\n  using result_type = typename std::result_of&lt;F()&gt;::type;\n  std::packaged_task&lt;result_type ()&gt; task(std::move(f));\n  std::future&lt;result_type&gt; future(task.get_future());\n  std::thread th(std::move(task));\n  th.detach();\n  return future;\n}\n\n\nstruct Hoge {\n  ~Hoge() { std::cout &lt;&lt; \&#34;Hoge destructor\&#34; &lt;&lt; std::endl; }\n};\n\nint f() {\n  thread_local Hoge h;\n  return 42;\n}\n\nint main() {\n  std::future&lt;int&gt; res(spawn_task(f));\n  std::cout &lt;&lt; res.get() &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;af87758ee2bf0e113465ddcd28c0cff86e7107c1&#34;, &#34;source&#34;: &#34;#include &lt;type_traits&gt;\n#include &lt;future&gt;\n#include &lt;thread&gt;\n#include &lt;iostream&gt;\n\nstruct task_executor\n{\n  template &lt;class R&gt;\n  void operator()( std::packaged_task&lt;R&gt; task )\n  {\n    task.make_ready_at_thread_exit(); // operator() \u3092\u547c\u3073\u51fa\u3059\u4ee3\u308f\u308a\u306b make_ready_at_thread_exit() \u3092\u547c\u3073\u51fa\u3059\u3002\n  }\n};\n\ntemplate&lt;class F&gt;\nstd::future&lt;typename std::result_of&lt;F()&gt;::type&gt; spawn_task(F f) {\n  using result_type = typename std::result_of&lt;F()&gt;::type;\n  std::packaged_task&lt;result_type ()&gt; task(std::move(f));\n  std::future&lt;result_type&gt; future(task.get_future());\n  std::thread th(task_executor{}, std::move(task));\n  th.detach();\n  return future;\n}\n\n\nstruct Hoge {\n  ~Hoge() { std::cout &lt;&lt; \&#34;Hoge destructor\&#34; &lt;&lt; std::endl; }\n};\n\nint f() {\n  thread_local Hoge h;\n  return 42;\n}\n\nint main() {\n  std::future&lt;int&gt; res(spawn_task(f));\n  std::cout &lt;&lt; res.get() &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;article&#34;, &#34;lib&#34;, &#34;at_thread_exit&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../article.html" itemprop="url">
+              
+                <span itemprop="name">article</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">lib</span>
+            
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">_at_thread_exit系の関数が存在している理由</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2017-11-27T05:01:15">
+        2017年11月27日 05時01分15秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/article/lib/at_thread_exit.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/article/lib/at_thread_exit.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">_at_thread_exit系の関数が存在している理由</span></h1>
+<div itemprop="articleBody"><p><code><a href="../../reference/future.html">&lt;future&gt;</a></code> や <code><a href="../../reference/condition_variable.html">&lt;condition_variable&gt;</a></code> には、<code>*_at_thread_exit</code> という名前の関数が定義されている。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="kt">void</span> <span class="n"><a href="../../reference/condition_variable/condition_variable/notify_all_at_thread_exit.html">notify_all_at_thread_exit</a></span><span class="p">(</span><span class="n"><a href="../../reference/condition_variable/condition_variable.html">condition_variable</a></span><span class="o">&amp;</span> <span class="n">cond</span><span class="p">,</span> <span class="n"><a href="../../reference/mutex/unique_lock.html">unique_lock</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/mutex/mutex.html">mutex</a></span><span class="o">&gt;</span> <span class="n">lk</span><span class="p">);</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">R</span><span class="o">&gt;</span>
+  <span class="k">class</span> <span class="nc"><a href="../../reference/future/promise.html">promise</a></span> <span class="p">{</span>
+  <span class="k">public</span><span class="o">:</span>
+    <span class="p">...</span>
+    <span class="kt">void</span> <span class="n"><a href="../../reference/future/promise/set_value_at_thread_exit.html">set_value_at_thread_exit</a></span><span class="p">(</span><span class="k">const</span> <span class="n">R</span><span class="o">&amp;</span> <span class="n">r</span><span class="p">);</span>
+    <span class="kt">void</span> <span class="nf"><a href="../../reference/future/promise/set_exception_at_thread_exit.html">set_exception_at_thread_exit</a></span><span class="p">(</span><span class="n"><a href="../../reference/exception/exception_ptr.html">exception_ptr</a></span> <span class="n">p</span><span class="p">);</span>
+  <span class="p">};</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">R</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">ArgTypes</span><span class="o">&gt;</span>
+  <span class="k">class</span> <span class="nc"><a href="../../reference/future/packaged_task.html">packaged_task</a></span><span class="o">&lt;</span><span class="n">R</span><span class="p">(</span><span class="n">ArgTypes</span><span class="p">...)</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="k">public</span><span class="o">:</span>
+    <span class="p">...</span>
+    <span class="kt">void</span> <span class="n"><a href="../../reference/future/packaged_task/make_ready_at_thread_exit.html">make_ready_at_thread_exit</a></span><span class="p">(</span><span class="n">ArgTypes</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>これらの関数は、スレッドローカル記憶域が破棄された後に通知を行なったり、状態を変更する。 </p>
+<p>また、<code><a href="../../reference/thread/thread.html">thread</a>::<a href="../../reference/thread/thread/detach.html">detach</a>()</code> されたスレッド上で、
+スレッドローカル記憶域との同期を取る唯一の方法でもある。</p>
+<p>デタッチされたスレッドにおいて、スレッドローカル記憶域にあるオブジェクトがいつ破棄されるかという規定は無い。
+そのため、<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を含まずにこれらのオブジェクトを破棄するのは難しい。 </p>
+<p>例えば、以下のようなケースで問題になる。</p>
+<p><div class="yata" id="171e623d248d83490f9f10888099cc4ccbfdcc88"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/future.html">&lt;future&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">F</span><span class="o">&gt;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">result_of</span><span class="o">&lt;</span><span class="n">F</span><span class="p">()</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&gt;</span> <span class="n">spawn_task</span><span class="p">(</span><span class="n">F</span> <span class="n">f</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">using</span> <span class="n">result_type</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">result_of</span><span class="o">&lt;</span><span class="n">F</span><span class="p">()</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">packaged_task</span><span class="o">&lt;</span><span class="n">result_type</span> <span class="p">()</span><span class="o">&gt;</span> <span class="n">task</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">f</span><span class="p">));</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="n">result_type</span><span class="o">&gt;</span> <span class="n">future</span><span class="p">(</span><span class="n">task</span><span class="p">.</span><span class="n">get_future</span><span class="p">());</span>
+  <span class="n"><a href="../../reference/thread/thread.html">std::thread</a></span> <span class="nf">th</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">task</span><span class="p">));</span>
+  <span class="n">th</span><span class="p">.</span><span class="n">detach</span><span class="p">();</span>
+  <span class="k">return</span> <span class="n">future</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="k">struct</span> <span class="n">Hoge</span> <span class="p">{</span>
+  <span class="o">~</span><span class="n">Hoge</span><span class="p">()</span> <span class="p">{</span> <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"Hoge destructor"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n"><a href="../../lang/cpp11/thread_local_storage.html">thread_local</a></span> <span class="n">Hoge</span> <span class="n">h</span><span class="p">;</span>
+  <span class="k">return</span> <span class="mi">42</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">res</span><span class="p">(</span><span class="n">spawn_task</span><span class="p">(</span><span class="n">f</span><span class="p">));</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">res</span><span class="p">.</span><span class="n">get</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>出力:</p>
+<p><pre><code>42Hoge destructor
+
+</code></pre></p>
+<p><code>spawn_task</code> は、渡された任意の処理を別スレッドで行なう一般的な関数である。関数内部でスレッドを作り、デタッチを行なっている。 </p>
+<p>出力は、<code>main()</code> 関数での出力と、<code>Hoge</code> デストラクタでの出力が混在している。これはスレッドローカル記憶域と <code>future</code> オブジェクトが正しく同期されていないからである。そのため、これ以外の出力も起こり得る。</p>
+<p>これは <code>*_at_thread_exit</code> 系の関数を利用することで修正できる。</p>
+<p><div class="yata" id="af87758ee2bf0e113465ddcd28c0cff86e7107c1"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/future.html">&lt;future&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">task_executor</span>
+<span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">R</span><span class="o">&gt;</span>
+  <span class="kt">void</span> <span class="k">operator</span><span class="p">()(</span> <span class="n">std</span><span class="o">::</span><span class="n">packaged_task</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span> <span class="n">task</span> <span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">task</span><span class="p">.</span><span class="n"><span style="color:#ff0000">make_ready_at_thread_exit</span></span><span class="p">();</span> <span class="c1">// operator() を呼び出す代わりに <span style="color:#ff0000">make_ready_at_thread_exit</span>() を呼び出す。</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">F</span><span class="o">&gt;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">result_of</span><span class="o">&lt;</span><span class="n">F</span><span class="p">()</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&gt;</span> <span class="n">spawn_task</span><span class="p">(</span><span class="n">F</span> <span class="n">f</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">using</span> <span class="n">result_type</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">result_of</span><span class="o">&lt;</span><span class="n">F</span><span class="p">()</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">packaged_task</span><span class="o">&lt;</span><span class="n">result_type</span> <span class="p">()</span><span class="o">&gt;</span> <span class="n">task</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">f</span><span class="p">));</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="n">result_type</span><span class="o">&gt;</span> <span class="n">future</span><span class="p">(</span><span class="n">task</span><span class="p">.</span><span class="n">get_future</span><span class="p">());</span>
+  <span class="n"><a href="../../reference/thread/thread.html">std::thread</a></span> <span class="nf">th</span><span class="p">(</span><span class="n">task_executor</span><span class="p">{},</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">task</span><span class="p">));</span>
+  <span class="n">th</span><span class="p">.</span><span class="n">detach</span><span class="p">();</span>
+  <span class="k">return</span> <span class="n">future</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="k">struct</span> <span class="n">Hoge</span> <span class="p">{</span>
+  <span class="o">~</span><span class="n">Hoge</span><span class="p">()</span> <span class="p">{</span> <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"Hoge destructor"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n"><a href="../../lang/cpp11/thread_local_storage.html">thread_local</a></span> <span class="n">Hoge</span> <span class="n">h</span><span class="p">;</span>
+  <span class="k">return</span> <span class="mi">42</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">res</span><span class="p">(</span><span class="n">spawn_task</span><span class="p">(</span><span class="n">f</span><span class="p">));</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">res</span><span class="p">.</span><span class="n">get</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>出力:</p>
+<p><pre><code>Hoge destructor
+42
+</code></pre></p>
+<p>このプログラムの出力は、必ずこの通りになる。つまり、確実にスレッドローカル記憶域のオブジェクトが破棄された後に <code>res.get()</code> の結果が出力される。</p>
+<h2>参考</h2>
+<ul>
+<li><a href="http://d.hatena.ne.jp/yohhoy/20120131/p1" target="_blank">futureとpromiseのあれこれ（理論編） - yohhoyの日記</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3070.html" target="_blank">N3070 - Handling Detached Threads and thread_local Variables</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

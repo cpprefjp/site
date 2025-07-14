@@ -1,0 +1,458 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>unordered_set::emplace_hint - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,unordered_set,std,unordered_set,function template,cpp11
+">
+        <meta name="title" content="unordered_set::emplace_hint - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="unordered_set::emplace_hint - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="unordered_set::emplace_hint - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/unordered_set/unordered_set/emplace_hint.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="挿入位置のヒントを使用してコンテナ内へ要素を直接構築する" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="unordered_set::emplace_hint - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/unordered_set/unordered_set/emplace_hint.html" />
+        <meta name="twitter:description" content="挿入位置のヒントを使用してコンテナ内へ要素を直接構築する" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;unordered_set&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;unordered_set&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;0c75d9662a5ae41fe69fbe00c3c42524064cff6a&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;unordered_set&gt;\n#include &lt;string&gt;\n#include &lt;utility&gt;\n#include &lt;algorithm&gt;\n#include &lt;iterator&gt;\n\n// \u30b5\u30f3\u30d7\u30eb\u7528\u30af\u30e9\u30b9\nstruct is : std::pair&lt;int, std::string&gt; {\n  is(int i, const char* s) : std::pair&lt;int, std::string&gt;(i, s) {}\n};\n\n// \u30b5\u30f3\u30d7\u30eb\u7528\u30af\u30e9\u30b9\u306e\u305f\u3081\u306b std::hash \u3092\u7279\u6b8a\u5316\nnamespace std {\n  template &lt;&gt;\n  struct hash&lt;is&gt; : private hash&lt;int&gt;, private hash&lt;std::string&gt; {\n    std::size_t operator()(const is&amp; v) const {\n      return hash&lt;int&gt;::operator()(v.first) ^ hash&lt;string&gt;::operator()(v.second);\n    }\n  };\n}\n\n// \u30b5\u30f3\u30d7\u30eb\u7528\u30af\u30e9\u30b9\u306e\u305f\u3081\u306e\u633f\u5165\u6f14\u7b97\u5b50\nstd::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const is&amp; p)\n{\n  return os &lt;&lt; &#39;(&#39; &lt;&lt; p.first &lt;&lt; &#39;,&#39; &lt;&lt; p.second &lt;&lt; &#39;)&#39;;\n}\n\nint main()\n{\n  std::unordered_set&lt;is&gt; us{ {1, \&#34;1st\&#34;}, {2, \&#34;2nd\&#34;}, {3, \&#34;3rd\&#34;}, };\n\n  // \u521d\u671f\u72b6\u614b\u306e\u51fa\u529b\n  std::copy(us.cbegin(), us.cend(), std::ostream_iterator&lt;is&gt;(std::cout, \&#34;, \&#34;));\n  std::cout &lt;&lt; std::endl;\n\n  auto it1 = us.emplace_hint(us.cend(), 4, \&#34;4th\&#34;);\n  std::cout &lt;&lt; *it1 &lt;&lt; &#39;\\n&#39;;\n\n  auto it2 = us.emplace_hint(us.cbegin(), 5, \&#34;5th\&#34;);\n  std::cout &lt;&lt; *it2 &lt;&lt; &#39;\\n&#39;;\n\n  auto it3 = us.emplace_hint(us.cbegin(), 1, \&#34;1st\&#34;);\n  std::cout &lt;&lt; *it3 &lt;&lt; &#39;\\n&#39;;\n\n  // \u8ffd\u52a0\u7d50\u679c\u306e\u51fa\u529b\n  std::copy(us.cbegin(), us.cend(), std::ostream_iterator&lt;is&gt;(std::cout, \&#34;, \&#34;));\n  std::cout &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;unordered_set&#34;, &#34;unordered_set&#34;, &#34;emplace_hint&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/unordered_set.html" itemprop="url">
+              
+                <span itemprop="name">unordered_set</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/unordered_set/unordered_set.html" itemprop="url">
+              
+                <span itemprop="name">unordered_set</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">emplace_hint</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-06-11T13:45:38">
+        2024年06月11日 13時45分38秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/unordered_set/unordered_set/emplace_hint.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/unordered_set/unordered_set/emplace_hint.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function template</div><div class="header">&lt;unordered_set&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class unordered_set">unordered_set::</span><span class="token">emplace_hint</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="n">iterator</span> <span class="n">emplace_hint</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span> <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>挿入位置のヒントを使用してコンテナ内へ要素を直接構築する</p>
+<h2>要件</h2>
+<ul>
+<li>
+<p>このコンテナの要素型 <code>value_type</code> は、コンテナに対して引数 <code>args</code> から直接構築可能（EmplaceConstructible）でなければならない。<br />
+    ここで、コンテナに対して引数 <code>args</code> から直接構築可能とは、<code>m</code> をアロケータ型 <code>allocator_type</code> の左辺値、<code>p</code> を要素型 <code>value_type</code> へのポインタとすると、以下の式が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>（well-formed）であるということである。</p>
+<p><code>std::<a href="../../memory/allocator_traits.html">allocator_traits</a>&lt;allocator_type&gt;::<a href="../../memory/allocator_traits/construct.html">construct</a>(m, p, std::<a href="../../utility/forward.html">forward</a>&lt;Args&gt;(args)...);</code></p>
+</li>
+<li>
+<p>引数 <code>position</code> は、コンテナの有効な読み取り専用イテレータでなければならないが、間接参照可能（dereferenceable）である必要はない。（つまり、最終要素の次を指すイテレータでも良い）</p>
+</li>
+</ul>
+<h2>効果</h2>
+<p><code>std::<a href="../../utility/forward.html">forward</a>&lt;Args&gt;(args)...</code> から構築された <code>value_type</code> のオブジェクトを <code>t</code> とすると、<code>t</code> と等価なキーがコンテナに既に存在していなければ、<code>t</code> をコンテナに挿入する。</p>
+<p>なお、オブジェクト <code>t</code> は、構築後にコンテナにコピー、あるいはムーブされるわけではなく、コンテナ内に直接構築される。</p>
+<p>引数 <code>position</code> は、要素の挿入位置を探し始める場所のヒントとして使用されるが、実装によって無視されるかもしれない。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p>新たな要素が追加された場合、その追加された要素を指すイテレータ。新たな要素が追加されなかった場合、既にあった要素を指すイテレータ。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
+<p>ハッシュ関数以外から<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が投げられた場合には、挿入はされない。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></h2>
+<p>平均的なケースでは定数（O(<code>1</code>)）だが、最悪のケースではコンテナの要素数に比例（O(<code><a href="size.html">size</a>()</code>)）。</p>
+<h2>備考</h2>
+<ul>
+<li>
+<p>この関数が呼ばれた後も、当該コンテナ内の要素を指す参照は無効にはならない。<br />
+    なお、規格書に明確な記載は無いが、当該コンテナ内の要素を指すポインタも無効にはならない。</p>
+</li>
+<li>
+<p>この関数が呼ばれた後も、呼び出しの前後でこのコンテナのバケット数（<code><a href="bucket_count.html">bucket_count</a>()</code> の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>）が変わらなかった場合には当該コンテナを指すイテレータは無効にはならない。
+    それ以外の場合は、当該コンテナを指すイテレータは無効になる可能性がある。<br />
+    コンテナのバケット数が変わらない場合とは、</p>
+<ul>
+<li>追加しようとした要素と等価なキーの要素が既にコンテナに存在したため、要素が追加されなかった。</li>
+<li>要素追加後の要素数が、要素追加前のバケット数（<code><a href="bucket_count.html">bucket_count</a>()</code> の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>）×最大負荷率（<code><a href="max_load_factor.html">max_load_factor</a>()</code> の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>）よりも小さかった。</li>
+</ul>
+<p>のいずれかである。<br />
+なお、後者の条件は「よりも小さい」となっているが、最大負荷率の定義からすると「以下」の方が適切と思われる。<code><a href="reserve.html">reserve</a></code> も参照。</p>
+</li>
+<li>
+<p>このメンバ関数は、コンテナの種類によってシグネチャが異なるため、注意が必要である。<br />
+<code>emplace</code> も含めた一覧を以下に示す。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>コンテナ</th>
+<th>シグネチャ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>シーケンスコンテナ</td>
+<td><code>template &lt;class... Args&gt;</code><br /> <code>iterator emplace(const_iterator, Args&amp;&amp;...)</code></td>
+</tr>
+<tr>
+<td>連想コンテナ、非順序連想コンテナ<br />（同一キーの重複を許さない場合）</td>
+<td><code>template &lt;class... Args&gt;</code><br /> <code>pair&lt;iterator, bool&gt; emplace(Args&amp;&amp;...)</code></td>
+</tr>
+<tr>
+<td>連想コンテナ、非順序連想コンテナ<br />（同一キーの重複を許す場合）</td>
+<td><code>template &lt;class... Args&gt;</code><br /> <code>iterator emplace(Args&amp;&amp;...)</code></td>
+</tr>
+<tr>
+<td>連想コンテナ、非順序連想コンテナ</td>
+<td><code>template &lt;class... Args&gt;</code><br /> <code>iterator emplace_hint(const_iterator, Args&amp;&amp;...)</code></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><code>unordered_set</code> では、キーのハッシュ値に基づいて要素を格納するバケットを決定するため、<code>position</code> を有効に使用することはできないものと思われる。
+    実際、libstdc++、および、libc++ では <code>position</code> は単に無視される。<br />
+    通常は、<code><a href="emplace.html">emplace</a></code> を使用した方が良いだろう。</p>
+</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="0c75d9662a5ae41fe69fbe00c3c42524064cff6a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../unordered_set.html">&lt;unordered_set&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../iterator.html">&lt;iterator&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// サンプル用クラス</span>
+<span class="k">struct</span> <span class="nl">is</span> <span class="p">:</span> <span class="n"><a href="../../utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="n">is</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">s</span><span class="p">)</span> <span class="o">:</span> <span class="n"><a href="../../utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">};</span>
+
+<span class="c1">// サンプル用クラスのために std::<a href="../../functional/hash.html">hash</a> を特殊化</span>
+<span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;&gt;</span>
+  <span class="k">struct</span> <span class="n"><a href="../../functional/hash.html">hash</a></span><span class="o">&lt;</span><span class="n">is</span><span class="o">&gt;</span> <span class="o">:</span> <span class="k">private</span> <span class="n"><a href="../../functional/hash.html">hash</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span> <span class="k">private</span> <span class="n"><a href="../../functional/hash.html">hash</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span> <span class="k">operator</span><span class="p">()(</span><span class="k">const</span> <span class="n">is</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n"><a href="../../functional/hash.html">hash</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="k">operator</span><span class="p">()(</span><span class="n">v</span><span class="p">.</span><span class="n">first</span><span class="p">)</span> <span class="o">^</span> <span class="n"><a href="../../functional/hash.html">hash</a></span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;::</span><span class="k">operator</span><span class="p">()(</span><span class="n">v</span><span class="p">.</span><span class="n">second</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="c1">// サンプル用クラスのための挿入演算子</span>
+<span class="n"><a href="../../ostream/basic_ostream.html">std::ostream</a></span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n"><a href="../../ostream/basic_ostream.html">std::ostream</a></span><span class="o">&amp;</span> <span class="n">os</span><span class="p">,</span> <span class="k">const</span> <span class="n">is</span><span class="o">&amp;</span> <span class="n">p</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="n">os</span> <span class="o">&lt;&lt;</span> <span class="sc">'('</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="p">.</span><span class="n">first</span> <span class="o">&lt;&lt;</span> <span class="sc">','</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="p">.</span><span class="n">second</span> <span class="o">&lt;&lt;</span> <span class="sc">')'</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../unordered_set.html">std::unordered_set</a></span><span class="o">&lt;</span><span class="n">is</span><span class="o">&gt;</span> <span class="n">us</span><span class="p">{</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="s">"1st"</span><span class="p">},</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="s">"2nd"</span><span class="p">},</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="s">"3rd"</span><span class="p">},</span> <span class="p">};</span>
+
+  <span class="c1">// 初期状態の出力</span>
+  <span class="n"><a href="../../algorithm/copy.html">std::copy</a></span><span class="p">(</span><span class="n"><a href="cbegin.html">us.cbegin()</a></span><span class="p">,</span> <span class="n"><a href="cend.html">us.cend()</a></span><span class="p">,</span> <span class="n"><a href="../../iterator/ostream_iterator.html">std::ostream_iterator</a></span><span class="o">&lt;</span><span class="n">is</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">,</span> <span class="s">", "</span><span class="p">));</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="k">auto</span> <span class="n">it1</span> <span class="o">=</span> <span class="n">us</span><span class="p">.</span><span class="n"><span style="color:#ff0000">emplace_hint</span></span><span class="p">(</span><span class="n"><a href="cend.html">us.cend()</a></span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s">"4th"</span><span class="p">);</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it1</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+
+  <span class="k">auto</span> <span class="n">it2</span> <span class="o">=</span> <span class="n">us</span><span class="p">.</span><span class="n"><span style="color:#ff0000">emplace_hint</span></span><span class="p">(</span><span class="n"><a href="cbegin.html">us.cbegin()</a></span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s">"5th"</span><span class="p">);</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it2</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+
+  <span class="k">auto</span> <span class="n">it3</span> <span class="o">=</span> <span class="n">us</span><span class="p">.</span><span class="n"><span style="color:#ff0000">emplace_hint</span></span><span class="p">(</span><span class="n"><a href="cbegin.html">us.cbegin()</a></span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s">"1st"</span><span class="p">);</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it3</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+
+  <span class="c1">// 追加結果の出力</span>
+  <span class="n"><a href="../../algorithm/copy.html">std::copy</a></span><span class="p">(</span><span class="n"><a href="cbegin.html">us.cbegin()</a></span><span class="p">,</span> <span class="n"><a href="cend.html">us.cend()</a></span><span class="p">,</span> <span class="n"><a href="../../iterator/ostream_iterator.html">std::ostream_iterator</a></span><span class="o">&lt;</span><span class="n">is</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">,</span> <span class="s">", "</span><span class="p">));</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>(3,3rd), (2,2nd), (1,1st), 
+(4,4th)
+(5,5th)
+(1,1st)
+(4,4th), (3,3rd), (2,2nd), (5,5th), (1,1st), 
+</code></pre></p>
+<p>注：<code><a href="../unordered_set.html">unordered_set</a></code> は非順序連想コンテナであるため、出力順序は無意味であることに注意</p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: 3.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: 4.7.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#icc">ICC</a>: ?</li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ?</li>
+</ul>
+<h2>関連項目</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="emplace.html">emplace</a></code></td>
+<td>コンテナ内への要素の直接構築</td>
+</tr>
+<tr>
+<td><code><a href="insert.html">insert</a></code></td>
+<td>要素の追加</td>
+</tr>
+<tr>
+<td><code><a href="erase.html">erase</a></code></td>
+<td>要素の削除</td>
+</tr>
+<tr>
+<td><code><a href="clear.html">clear</a></code></td>
+<td>全要素の削除</td>
+</tr>
+<tr>
+<td><code><a href="swap.html">swap</a></code></td>
+<td>内容の交換</td>
+</tr>
+<tr>
+<td><code><a href="bucket_count.html">bucket_count</a></code></td>
+<td>バケット数の取得</td>
+</tr>
+<tr>
+<td><code><a href="load_factor.html">load_factor</a></code></td>
+<td>現在の負荷率（バケットあたりの要素数の平均）を取得</td>
+</tr>
+<tr>
+<td><code><a href="max_load_factor.html">max_load_factor</a></code></td>
+<td>最大負荷率を取得、設定</td>
+</tr>
+<tr>
+<td><code><a href="rehash.html">rehash</a></code></td>
+<td>最小バケット数指定によるバケット数の調整</td>
+</tr>
+<tr>
+<td><code><a href="reserve.html">reserve</a></code></td>
+<td>最小要素数指定によるバケット数の調整</td>
+</tr>
+</tbody>
+</table>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2680.pdf" target="_blank">N2680 Proposed Wording for Placement Insert (Revision 1)</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

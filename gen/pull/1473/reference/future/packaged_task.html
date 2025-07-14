@@ -1,0 +1,436 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>packaged_task - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,future,std,class template,cpp11
+">
+        <meta name="title" content="packaged_task - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="packaged_task - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="packaged_task - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/future/packaged_task.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`packaged_task`は、「別スレッドでの処理完了を待ち、その処理結果を取得する」といった非同期処理を実現するためのクラスであり、[`future`](future.md)クラスと組み合わせて使用する。`packaged_task`に登録した非同期実行する関数の戻り値を[`future`](future.md)が読み取る。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="packaged_task - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/future/packaged_task.html" />
+        <meta name="twitter:description" content="`packaged_task`は、「別スレッドでの処理完了を待ち、その処理結果を取得する」といった非同期処理を実現するためのクラスであり、[`future`](future.md)クラスと組み合わせて使用する。`packaged_task`に登録した非同期実行する関数の戻り値を[`future`](future.md)が読み取る。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;future&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;7c1ed60519b2910c60da5734b5badfc31881bfe3&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;thread&gt;\n#include &lt;future&gt;\n#include &lt;utility&gt;\n\nint calc()\n{\n  int sum = 0;\n  for (int i = 0; i &lt; 10; ++i) {\n    sum += i + 1;\n  }\n  return sum;\n}\n\nint main()\n{\n  std::packaged_task&lt;int()&gt; task(calc); // \u975e\u540c\u671f\u5b9f\u884c\u3059\u308b\u95a2\u6570\u3092\u767b\u9332\u3059\u308b\n  std::future&lt;int&gt; f = task.get_future();\n\n  // \u5225\u30b9\u30ec\u30c3\u30c9\u3067\u8a08\u7b97\u3092\u884c\u3046\n  std::thread t(std::move(task));\n  t.detach();\n\n  try {\n    // \u975e\u540c\u671f\u51e6\u7406\u306e\u7d50\u679c\u5024\u3092\u53d6\u5f97\u3059\u308b\n    std::cout &lt;&lt; f.get() &lt;&lt; std::endl;\n  }\n  catch (...) {\n    // \u975e\u540c\u671f\u5b9f\u884c\u3057\u3066\u3044\u308b\u95a2\u6570\u5185\u3067\u6295\u3052\u3089\u308c\u305f\u4f8b\u5916\u3092\u6355\u6349\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;future&#34;, &#34;packaged_task&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/future.html" itemprop="url">
+              
+                <span itemprop="name">future</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">packaged_task</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-06-11T13:45:38">
+        2024年06月11日 13時45分38秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/future/packaged_task.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/future/packaged_task.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;future&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">packaged_task</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">packaged_task</span><span class="p">;</span> <span class="c1">// 宣言のみで定義なし</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">R</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">ArgTypes</span><span class="o">&gt;</span>
+  <span class="k">class</span> <span class="nc">packaged_task</span><span class="o">&lt;</span><span class="n">R</span><span class="p">(</span><span class="n">ArgTypes</span><span class="p">...)</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>packaged_task</code>は、「別スレッドでの処理完了を待ち、その処理結果を取得する」といった非同期処理を実現するためのクラスであり、<code><a href="future.html">future</a></code>クラスと組み合わせて使用する。<code>packaged_task</code>に登録した非同期実行する関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を<code><a href="future.html">future</a></code>が読み取る。</p>
+<p><code>packaged_task</code>と<code><a href="future.html">future</a></code>は内部的に同一の共有状態を参照する。  </p>
+<p>テンプレートパラメータ：</p>
+<ul>
+<li><code>R(ArgTypes...)</code> ： 非同期実行する関数のシグニチャ。<code>R</code>が<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型、<code>ArgTypes...</code>が引数の型</li>
+</ul>
+<h2>メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="packaged_task/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="packaged_task/op_destructor.html">(destructor)</a></code></td>
+<td>デストラクタ</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="packaged_task/op_assign.html">operator=</a></code></td>
+<td>代入演算子</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="packaged_task/swap.html">swap</a></code></td>
+<td>他の<code>packaged_task</code>オブジェクトと値を入れ替える</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="packaged_task/valid.html">valid</a></code></td>
+<td>共有状態を持っているかを確認する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="packaged_task/reset.html">reset</a></code></td>
+<td>共有状態を作り直す</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>結果の取得</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="packaged_task/get_future.html">get_future</a></code></td>
+<td>結果取得のための<code>future</code>オブジェクトを取得する</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>実行</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="packaged_task/op_call.html">operator()</a></code></td>
+<td>タスクを実行し、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を共有状態に格納する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="packaged_task/make_ready_at_thread_exit.html">make_ready_at_thread_exit</a></code></td>
+<td>タスクを実行し、スレッド終了時に準備完了状態にする</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>非メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="packaged_task/swap_free.html">swap</a></code></td>
+<td>2つの<code>packaged_task</code>オブジェクトを入れ替える</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>推論補助</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="packaged_task/op_deduction_guide.html">(deduction_guide)</a></code></td>
+<td>クラステンプレートの推論補助</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>その他</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="packaged_task/uses_allocator.html">uses_allocator</a></code></td>
+<td><code>packaged_task</code>による特殊化</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<p><div class="yata" id="7c1ed60519b2910c60da5734b5badfc31881bfe3"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../future.html">&lt;future&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">calc</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">sum</span> <span class="o">+=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">sum</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><span style="color:#ff0000">std::packaged_task</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">()</span><span class="o">&gt;</span> <span class="n">task</span><span class="p">(</span><span class="n">calc</span><span class="p">);</span> <span class="c1">// 非同期実行する関数を登録する</span>
+  <span class="n"><a href="future.html">std::future</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n"><a href="packaged_task/get_future.html">task.get_future()</a></span><span class="p">;</span>
+
+  <span class="c1">// 別スレッドで計算を行う</span>
+  <span class="n"><a href="../thread/thread.html">std::thread</a></span> <span class="n">t</span><span class="p">(</span><span class="n"><a href="../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">task</span><span class="p">));</span>
+  <span class="n"><a href="../thread/thread/detach.html">t.detach()</a></span><span class="p">;</span>
+
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="c1">// 非同期処理の結果値を取得する</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="future/get.html">f.get()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">catch</span> <span class="p">(...)</span> <span class="p">{</span>
+    <span class="c1">// 非同期実行している関数内で投げられた例外を捕捉</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>55
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 4.7.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2012 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<h2>参照</h2></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

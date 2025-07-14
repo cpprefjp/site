@@ -1,0 +1,452 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>説明専用ライブラリ - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,exposition-only
+">
+        <meta name="title" content="説明専用ライブラリ - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="説明専用ライブラリ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="説明専用ライブラリ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/exposition-only.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="&amp;lt;exposition-only&amp;gt;説明専用ライブラリ このページでは、説明専用のライブラリをまとめる。 これらはC++規格の文章中に現れる説明のためのものであり、実際に使うことはできない。    名前 説明 対応バージョン     decay-copy decayした型にコピーまたはムーブする (function template) C++20   synth-three-way 三方" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="説明専用ライブラリ - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/exposition-only.html" />
+        <meta name="twitter:description" content="&amp;lt;exposition-only&amp;gt;説明専用ライブラリ このページでは、説明専用のライブラリをまとめる。 これらはC++規格の文章中に現れる説明のためのものであり、実際に使うことはできない。    名前 説明 対応バージョン     decay-copy decayした型にコピーまたはムーブする (function template) C++20   synth-three-way 三方" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;exposition-only&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;exposition-only&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">説明専用ライブラリ</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-08-11T16:20:31">
+        2024年08月11日 16時20分31秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Tetsuro Matsumura</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/exposition-only.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/exposition-only.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="header">&lt;exposition-only&gt;</div><h1 itemprop="name"><span class="token">説明専用ライブラリ</span></h1>
+<div itemprop="articleBody"><p>このページでは、説明専用のライブラリをまとめる。
+これらはC++規格の文章中に現れる説明のためのものであり、実際に使うことはできない。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="exposition-only/decay-copy.html">decay-copy</a></code></td>
+<td><code><a href="type_traits/decay.html">decay</a></code>した型にコピーまたはムーブする (function template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="exposition-only/synth-three-way-result.html">synth-three-way</a></code></td>
+<td>三方比較可能であればそれを行い、そうでなければ三方比較を実装して比較を行う (variable)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="exposition-only/synth-three-way-result.html">synth-three-way-result</a></code></td>
+<td><code>synth-three-way</code>関数オブジェクトでの比較結果の型 (function template)</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>コンテナ</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="exposition-only/container-compatible-range.html">container-compatible-range</a></code></td>
+<td>指定されたコンテナと互換性のあるRange</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2><code>&lt;concepts&gt;</code></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="concepts/boolean-testable.html">boolean-testable</a></code></td>
+<td>真理値型 (concept)</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2><code>&lt;iterator&gt;</code></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="iterator/dereferenceable.html">with-reference</a></code></td>
+<td>型<code>T</code>に参照を付加する (alias template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="iterator/dereferenceable.html">can-reference</a></code></td>
+<td><code><a href="iterator/dereferenceable.html">with-reference</a></code>可能 (concept)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="iterator/dereferenceable.html">dereferenceable</a></code></td>
+<td>単純な間接参照が可能 (concept)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="iterator/is_integer_like.html">is-integer-like</a></code></td>
+<td>符号付整数型と同等の型か否かを表す (variable template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="iterator/is_integer_like.html">is-signed-integer-like</a></code></td>
+<td>符号なし整数型と同等の型か否かを表す (variable template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><a href="iterator/constant-iterator.html"><code>constant-iterator</code> </a></td>
+<td>要素不変なイテレータ (concept)</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2><code>&lt;ranges&gt;</code></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="ranges/copyable_box.html">copyable-box</a></code></td>
+<td>コピー可能、または<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>なしでムーブ可能な場合のみ値を保持する型 (class template)</td>
+<td>C++20<br /> C++23で削除</td>
+</tr>
+<tr>
+<td><code><a href="ranges/movable_box.html">movable-box</a></code></td>
+<td><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>なしでムーブ可能な場合のみ値を保持する型 (class template)</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="ranges/simple-view.html">simple-view</a></code></td>
+<td>単純なビューを表す (concept)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="ranges/has-arrow.html">has-arrow</a></code></td>
+<td><code><a href="iterator/input_iterator.html">std::input_iterator</a></code>を満たし、アロー演算子が使用できる型かを表す (concept)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="ranges/range-with-movable-references.html">range-with-movable-references</a></code></td>
+<td>要素の参照と右辺値参照がムーブ構築できる<code><a href="ranges/input_range.html">input_range</a></code> (concept)</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="ranges/different-from.html">different-from</a></code></td>
+<td><code>const</code>/<code>volatile</code>修飾を無視して、2つの型が同じでないことを表す (concept)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="ranges/subrange/uses-nonqualification-pointer-conversion.html">uses-nonqualification-pointer-conversion</a></code></td>
+<td>直接変換できない型同士のポインタの変換が必要かどうかを表す (concept)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="ranges/subrange/convertible-to-non-slicing.html">convertible-to-non-slicing</a></code></td>
+<td>スライシングを起こさずに変換できるかどうかを表す (concept)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="ranges/subrange/pair-like-convertible-from.html">pair-like-convertible-from</a></code></td>
+<td>ある2つの型から構築出来る<code><a href="tuple/pair-like.html">pair-like</a></code>な型を表す (concept)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="ranges/maybe-const.html">maybe-const</a></code></td>
+<td>bool値に応じて<code>const</code>修飾を付加する (alias template)</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="ranges/tuple-transform.html">tuple-transform</a></code></td>
+<td><code><a href="tuple/tuple.html">tuple</a></code>の各要素に関数を適用した<code><a href="tuple/tuple.html">tuple</a></code>を生成する (function template)</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="ranges/tuple-for-each.html">tuple-for-each</a></code></td>
+<td><code><a href="tuple/tuple.html">tuple</a></code>の各要素に関数を適用する (function template)</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="ranges/as-lvalue.html">as-lvalue</a></code></td>
+<td>rvalueをlvalueへキャストする (function template)</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="ranges/all-random-access.html">all-random-access</a></code></td>
+<td>すべてのビューが<code><a href="ranges/random_access_range.html">random_access_range</a></code>であるかを表す (concept)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="ranges/all-bidirectional.html">all-bidirectional</a></code></td>
+<td>すべてのビューが<code><a href="ranges/bidirectional_range.html">bidirectional_range</a></code>であるかを表す (concept)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="ranges/all-forward.html">all-forward</a></code></td>
+<td>すべてのビューが<code><a href="ranges/forward_range.html">forward_range</a></code>であるかを表す (concept)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2><code>&lt;tuple&gt;</code></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="tuple/tuple-like.html">tuple-like</a></code></td>
+<td><code><a href="tuple/tuple.html">tuple</a></code>のような型を表す (concept)</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="tuple/pair-like.html">pair-like</a></code></td>
+<td><code><a href="utility/pair.html">pair</a></code>のような型を表す (concept)</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>参照</h2>
+<ul>
+<li><a href="https://timsong-cpp.github.io/cppwp/n4861/expos.only.func" target="_blank">N4861 16.4.2.1 Exposition-only functions</a></li>
+<li><a href="https://cplusplus.github.io/LWG/issue3404" target="_blank">LWG 3404 Finish removing <code>subrange</code>'s conversions from <code>pair-like</code></a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2278r4.html" target="_blank">P2278R4 <code>cbegin</code> should always return a constant iterator</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2494r2.html" target="_blank">P2494R2 Relaxing range adaptors to allow for move only types</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

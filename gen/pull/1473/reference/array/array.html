@@ -1,0 +1,633 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>array - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,array,std,class template,cpp11
+">
+        <meta name="title" content="array - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="array - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="array - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/array/array.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`array`は固定長のオブジェクトを保持するシーケンスコンテナで、各要素は連続して格納される。従来のCスタイルの配列のパフォーマンスを保ったまま、シーケンスのサイズの取得、要素の代入のサポートなど、標準コンテナの恩恵を受ける事ができる。また、境界チェック（範囲外の要素にアクセスしようとしていないかのチェック）付きの要素アクセスもサポートしている。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="array - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/array/array.html" />
+        <meta name="twitter:description" content="`array`は固定長のオブジェクトを保持するシーケンスコンテナで、各要素は連続して格納される。従来のCスタイルの配列のパフォーマンスを保ったまま、シーケンスのサイズの取得、要素の代入のサポートなど、標準コンテナの恩恵を受ける事ができる。また、境界チェック（範囲外の要素にアクセスしようとしていないかのチェック）付きの要素アクセスもサポートしている。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;array&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;c5349e29bcb451e16ccd5cfe60e52536f112ca57&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;array&gt;\n#include &lt;algorithm&gt;\n\nint main()\n{\n  // 3\u8981\u7d20\u306eint\u578b\u914d\u5217\u3092\u5b9a\u7fa9\u3057\u3001\u521d\u671f\u5316\u5b50\u30ea\u30b9\u30c8\u3067\u521d\u671f\u5316\n  std::array&lt;int, 3&gt; ar = {3, 1, 4};\n\n  // size()\u30e1\u30f3\u30d0\u95a2\u6570\u306b\u3088\u308b\u8981\u7d20\u6570\u53d6\u5f97\n  for (std::size_t i = 0; i &lt; ar.size(); ++i) {\n    ++ar[i]; // operator[]\u3067\u4efb\u610f\u306e\u8981\u7d20\u306b\u30e9\u30f3\u30c0\u30e0\u30a2\u30af\u30bb\u30b9\n  }\n\n  // \u30a4\u30c6\u30ec\u30fc\u30bf\u306b\u3088\u308b\u8981\u7d20\u306e\u6a2a\u65ad\n  std::for_each(ar.begin(), ar.end(), [](int x) {\n    std::cout &lt;&lt; x &lt;&lt; std::endl;\n  });\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;array&#34;, &#34;array&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/array.html" itemprop="url">
+              
+                <span itemprop="name">array</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">array</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-08-02T06:00:52">
+        2024年08月02日 06時00分52秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/array/array.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/array/array.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;array&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">array</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">N</span><span class="o">&gt;</span>
+  <span class="k">struct</span> <span class="n">array</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>array</code>は固定長のオブジェクトを保持するシーケンスコンテナで、各要素は連続して格納される。従来のCスタイルの配列のパフォーマンスを保ったまま、シーケンスのサイズの取得、要素の代入のサポートなど、標準コンテナの恩恵を受ける事ができる。また、境界チェック（範囲外の要素にアクセスしようとしていないかのチェック）付きの要素アクセスもサポートしている。</p>
+<p><code>array</code>は、デフォルトコンストラクタで構築された<code>array</code>オブジェクトが空でない点と、<code>swap()</code>の<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a>が定数時間でない点を除いて、コンテナとリバーシブルコンテナの全ての要件を満たす。</p>
+<p>テンプレートパラメータは、以下を意味する：</p>
+<ul>
+<li><code>T</code> : 配列の要素型</li>
+<li><code>N</code> : 配列の要素数。<code>0</code>以上であること</li>
+</ul>
+<h2>メンバ関数</h2>
+<h3>構築／破棄</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="array/op_initializer.html">(initializer)</a></code></td>
+<td><code>array</code>の初期化</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>要素へのアクセス</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="array/at.html">at</a></code></td>
+<td>境界チェック付きの要素アクセス</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="array/op_at.html">operator[]</a></code></td>
+<td>境界チェック無しの要素アクセス</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="array/front.html">front</a></code></td>
+<td>先頭要素への参照を取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="array/back.html">back</a></code></td>
+<td>末尾要素への参照を取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="array/data.html">data</a></code></td>
+<td>コンテナ内部に保持されている生の配列へ直接アクセスする</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>イテレータ</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="array/begin.html">begin</a></code></td>
+<td>先頭要素を指すイテレータを取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="array/end.html">end</a></code></td>
+<td>末尾の1つ次の要素を指すイテレータを取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="array/cbegin.html">cbegin</a></code></td>
+<td>先頭要素を指す読み取り専用イテレータを取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="array/cend.html">cend</a></code></td>
+<td>末尾の次の要素を指す読み取り専用イテレータを取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="array/rbegin.html">rbegin</a></code></td>
+<td>末尾の要素を指す逆イテレータを取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="array/rend.html">rend</a></code></td>
+<td>先頭の1つ前の要素を指す逆イテレータを取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="array/crbegin.html">crbegin</a></code></td>
+<td>末尾の要素を指す読み取り専用逆イテレータを取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="array/crend.html">crend</a></code></td>
+<td>先頭の1つ前の要素を指す読み取り専用逆イテレータを取得する</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>領域</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="array/empty.html">empty</a></code></td>
+<td>コンテナが空かどうかを判定する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="array/size.html">size</a></code></td>
+<td>要素数を取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="array/max_size.html">max_size</a></code></td>
+<td>格納可能な最大の要素数を取得する</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>コンテナの変更</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="array/fill.html">fill</a></code></td>
+<td>コンテナを特定の要素で埋める</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="array/swap.html">swap</a></code></td>
+<td>別の<code>array</code>オブジェクトとコンテナの中身を入れ替える</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>reference</code></td>
+<td>要素の参照型 <code>T&amp;</code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>const_reference</code></td>
+<td>読取り専用の要素の参照型 <code>const T&amp;</code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>iterator</code></td>
+<td>ランダムアクセスイテレータ (<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">実装定義</a>)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>const_iterator</code></td>
+<td>読取り専用のランダムアクセスイテレータ (<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">実装定義</a>)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>reverse_iterator</code></td>
+<td>逆イテレータ <code><a href="../iterator/reverse_iterator.html">reverse_iterator</a>&lt;iterator&gt;</code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>const_reverse_iterator</code></td>
+<td>読み取り専用の逆イテレータ <code><a href="../iterator/reverse_iterator.html">reverse_iterator</a>&lt;const_iterator&gt;</code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>size_type</code></td>
+<td>符号なし整数型 <code><a href="../cstddef/size_t.html">size_t</a></code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>difference_type</code></td>
+<td>符号付き整数型 <code><a href="../cstddef/ptrdiff_t.html">ptrdiff_t</a></code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>pointer</code></td>
+<td>要素のポインタ型 <code>T*</code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>const_pointer</code></td>
+<td>読取り専用の要素のポインタ型 <code>const T*</code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>value_type</code></td>
+<td>要素の型 <code>T</code></td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>非メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="array/op_equal.html">operator==</a></code></td>
+<td>等値比較</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="array/op_not_equal.html">operator!=</a></code></td>
+<td>非等値比較</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="array/op_compare_3way.html">operator&lt;=&gt;</a></code></td>
+<td>三方比較</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="array/op_less.html">operator&lt;</a></code></td>
+<td>左辺が右辺より小さいかの判定を行う</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="array/op_less_equal.html">operator&lt;=</a></code></td>
+<td>左辺が右辺以下かの判定を行う</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="array/op_greater.html">operator&gt;</a></code></td>
+<td>左辺が右辺より大きいかの判定を行う</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="array/op_greater_equal.html">operator&gt;=</a></code></td>
+<td>左辺が右辺以上かの判定を行う</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="array/swap_free.html">swap</a></code></td>
+<td>2つの <code>array</code> オブジェクトを入れ替える</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>配列作成関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="to_array.html">to_array</a></code></td>
+<td>組み込み一次元配列から <code>array</code> を作成する</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>推論補助</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="array/op_deduction_guide.html">(deduction_guide)</a></code></td>
+<td>クラステンプレートの推論補助</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h2>タプルインタフェースサポート</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="array/tuple_size.html">tuple_size</a></code></td>
+<td>静的な要素数取得(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="array/tuple_element.html">tuple_element</a></code></td>
+<td>静的な要素の型取得(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="array/get.html">get</a></code></td>
+<td>要素を取得する(function template)</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<p><div class="yata" id="c5349e29bcb451e16ccd5cfe60e52536f112ca57"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../array.html">&lt;array&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// 3要素のint型配列を定義し、初期化子リストで初期化</span>
+  <span class="n"><a href="">std::array</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">3</span><span class="o">&gt;</span> <span class="n">ar</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
+
+  <span class="c1">// size()メンバ関数による要素数取得</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n"><a href="array/size.html">ar.size()</a></span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">++</span><span class="n"><a href="array/op_at.html">ar[i]</a></span><span class="p">;</span> <span class="c1">// operator[]で任意の要素にランダムアクセス</span>
+  <span class="p">}</span>
+
+  <span class="c1">// イテレータによる要素の横断</span>
+  <span class="n"><a href="../algorithm/for_each.html">std::for_each</a></span><span class="p">(</span><span class="n"><a href="array/begin.html">ar.begin()</a></span><span class="p">,</span> <span class="n"><a href="array/end.html">ar.end()</a></span><span class="p">,</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>4
+2
+5
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 4.7.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2008 (std::tr1) <span aria-label="検証済" role="img" title="検証済">✅</span>, 2010 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2012 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><a href="../../lang/cpp14/brace_elision_in_array_temporary_initialization.html">C++14 宣言時のメンバ初期化を持つ型の集成体初期化を許可</a></li>
+</ul>
+<h2>参照</h2></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

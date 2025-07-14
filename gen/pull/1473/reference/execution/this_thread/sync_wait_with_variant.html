@@ -1,0 +1,348 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>sync_wait_with_variant - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,cpo,std::this_thread,cpp26
+">
+        <meta name="title" content="sync_wait_with_variant - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="sync_wait_with_variant - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="sync_wait_with_variant - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/execution/this_thread/sync_wait_with_variant.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`sync_wait_with_variant`は、入力[Sender](../execution/sender.md)が完了するまで現在のスレッドをブロックし、非同期操作の結果を取得するSenderコンシューマである。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="sync_wait_with_variant - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/execution/this_thread/sync_wait_with_variant.html" />
+        <meta name="twitter:description" content="`sync_wait_with_variant`は、入力[Sender](../execution/sender.md)が完了するまで現在のスレッドをブロックし、非同期操作の結果を取得するSenderコンシューマである。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;execution&#34;], &#34;id-type&#34;: [&#34;cpo&#34;], &#34;namespace&#34;: [&#34;std::this_thread&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;execution&#34;, &#34;this_thread&#34;, &#34;sync_wait_with_variant&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/execution.html" itemprop="url">
+              
+                <span itemprop="name">execution</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/execution/this_thread.html" itemprop="url">
+              
+                <span itemprop="name">this_thread</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">sync_wait_with_variant</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-05-29T09:44:42">
+        2025年05月29日 09時44分42秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yoh</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/execution/this_thread/sync_wait_with_variant.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/execution/this_thread/sync_wait_with_variant.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">customization point object</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::this_thread">std::this_thread::</span><span class="token">sync_wait_with_variant</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">this_thread</span> <span class="p">{</span>
+  <span class="k">struct</span> <span class="n">sync_wait_with_variant_t</span> <span class="p">{</span> <span class="n"><i>unspecified</i></span> <span class="p">};</span>
+  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">sync_wait_with_variant_t</span> <span class="n">sync_wait_with_variant</span><span class="p">{};</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>sync_wait_with_variant</code>は、入力<a href="../execution/sender.html">Sender</a>が完了するまで現在のスレッドをブロックし、非<a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a>の結果を取得するSenderコンシューマである。</p>
+<p><code>sync_wait_with_variant</code>は入力Senderが複数の<a href="../execution/set_value.html">値完了シグネチャ</a>を持つケースに対応する。
+値完了シグネチャが1個だけの場合は<code><a href="sync_wait.html">sync_wait</a></code>アルゴリズムを利用する。</p>
+<p>入力Senderの値完了シグネチャが<code><a href="../execution/set_value.html">set_value_t</a>(Ts0...)</code>, ..., <code><a href="../execution/set_value.html">set_value_t</a>(TsN...)</code>のとき、<code>sync_wait_with_variant</code>の結果型は<code><a href="../../optional/optional.html">optional</a>&lt;<a href="../../variant/variant.html">variant</a>&lt;<a href="../../tuple/tuple.html">tuple</a>&lt;Ts0...&gt;, ..., <a href="../../tuple/tuple.html">tuple</a>&lt;TsN...&gt;&gt;</code>となる。</p>
+<h2>効果</h2>
+<p>説明用の<code>sndr</code>を<code>decltype(<a href="../execution/into_variant.html">into_variant</a>(sndr))</code>が<code>Sndr</code>型となる式とする。</p>
+<p><code><a href="../execution/sender_in.html">sender_in</a>&lt;Sndr, <a href="sync-wait-env.html">sync-wait-env</a>&gt; == false</code>のとき、呼び出し式<code>this_thread::sync_wait_with_variant(sndr)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
+<p>そうでなければ、呼び出し式<code>this_thread::sync_wait_with_variant(sndr)</code>は<code>sndr</code>が1回だけ評価されることを除いて、下記と等価。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../execution/apply_sender.html">apply_sender</a></span><span class="p">(</span><span class="n"><a href="../execution/get-domain-early.html">get-domain-early</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span> <span class="n">sync_wait_with_variant</span><span class="p">,</span> <span class="n">sndr</span><span class="p">)</span>
+</code></pre></div>
+</p>
+<ul>
+<li>型<code>sync-wait-with-variant-result-type&lt;Sndr&gt;</code>が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>であること。</li>
+<li>上記の<code>apply_sender</code>式を<code>e</code>としたとき、<code><a href="../../concepts/same_as.html">same_as</a>&lt;decltype(e), sync-wait-with-variant-result-type&lt;Sndr&gt;&gt; == true</code>であること。</li>
+</ul>
+<h3>結果型</h3>
+<p><code>sync_wait_with_variant</code>の結果型となる、説明専用のエイリアステンプレート<code>sync-wait-with-variant-result-type</code>を下記の通り定義する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">this_thread</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../execution/sender_in.html">execution::sender_in</a></span><span class="o">&lt;</span><span class="n"><a href="sync-wait-env.html">sync-wait-env</a></span><span class="o">&gt;</span> <span class="n">Sndr</span><span class="o">&gt;</span>
+  <span class="k">using</span> <span class="n">sync</span><span class="o">-</span><span class="n">wait</span><span class="o">-</span><span class="n">with</span><span class="o">-</span><span class="n">variant</span><span class="o">-</span><span class="n">result</span><span class="o">-</span><span class="n">type</span> <span class="o">=</span>
+    <span class="n"><a href="../../optional/optional.html">optional</a></span><span class="o">&lt;</span><span class="n"><a href="../execution/value_types_of_t.html">execution::value_types_of_t</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n"><a href="sync-wait-env.html">sync-wait-env</a></span><span class="o">&gt;&gt;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h3>Senderアルゴリズムタグ <code>sync_wait_with_variant</code></h3>
+<p>説明用の<code>sndr</code>を<code>decltype(<a href="../execution/into_variant.html">into_variant</a>(sndr))</code>が<code>Sndr</code>型となる式とする。</p>
+<p><code><a href="../../functional/callable.html">callable</a>&lt;<a href="sync_wait.html">sync_wait_t</a>, Sndr&gt; == false</code>のとき、式<code>sync_wait_with_variant.apply_sender(sndr)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
+<p>そうでなければ、式<code>sync_wait_with_variant.apply_sender(sndr)</code>は下記と等価。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">using</span> <span class="n">result_type</span> <span class="o">=</span> <span class="n">sync</span><span class="o">-</span><span class="n">wait</span><span class="o">-</span><span class="n">with</span><span class="o">-</span><span class="n">variant</span><span class="o">-</span><span class="n">result</span><span class="o">-</span><span class="n">type</span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="n">opt_value</span> <span class="o">=</span> <span class="n"><a href="sync_wait.html">sync_wait</a></span><span class="p">(</span><span class="n"><a href="../execution/into_variant.html">into_variant</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">)))</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">result_type</span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n"><a href="../../tuple/tuple/get.html">get&lt;0&gt;</a></span><span class="p">(</span><span class="o">*</span><span class="n">opt_value</span><span class="p">)));</span>
+<span class="p">}</span>
+<span class="k">return</span> <span class="n">result_type</span><span class="p">(</span><span class="n"><a href="../../optional/nullopt_t.html">nullopt</a></span><span class="p">);</span>
+</code></pre></div>
+</p>
+<h2>カスタマイゼーションポイント</h2>
+<p>入力<a href="../execution/sender.html">Sender</a><code>sndr</code>に<a href="../execution/get-domain-early.html">関連付けられた実行ドメイン</a><code>dom</code>に対して、
+<code><a href="../execution/apply_sender.html">execution::apply_sender</a></code>経由で<code>dom.apply_sender(sync_wait_with_variant, sndr)</code>が呼ばれる。</p>
+<p><a href="../execution/default_domain.html">デフォルト実行ドメイン</a>では、<code>sync_wait_with_variant.apply_sender(sndr)</code>が呼ばれる。</p>
+<p>下記を満たさない場合、呼び出し式<code>this_thread::sync_wait_with_variant(sndr)</code>の<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../../implementation-compliance.html#dfn-undefined-behavior">動作は未定義</a>となる。</p>
+<ul>
+<li>指定したSenderが完了するまで、前方進行保証委任(forward progress guarantee delegation)による現在のスレッドをブロックすること。</li>
+<li>指定したSenderの非<a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a>の結果が返る場合<ul>
+<li><a href="../execution/set_value.html">値完了</a>の場合、結果データは<code><a href="../../optional/optional.html">optional</a></code>オブジェクト内の<code><a href="../../tuple/tuple.html">tuple</a></code>の<code><a href="../../variant/variant.html">variant</a></code>で返されること。</li>
+<li><a href="../execution/set_error.html">エラー完了</a>の場合、<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出すること。</li>
+<li><a href="../execution/set_stopped.html">停止完了</a>の場合、無効値<code><a href="../../optional/optional.html">optional</a></code>オブジェクトが返されること。</li>
+</ul>
+</li>
+</ul>
+<h2>例</h2>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../print.html">&lt;print&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>
+<span class="k">namespace</span> <span class="n">ex</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// 値(100, 'X')を送信するSender</span>
+  <span class="n"><a href="../execution/sender.html">ex::sender</a></span> <span class="k">auto</span> <span class="n">sndr</span> <span class="o">=</span> <span class="n"><a href="../execution/just.html">ex::just</a></span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="sc">'X'</span><span class="p">);</span>
+  <span class="c1">// メインスレッド上で完了待機</span>
+  <span class="k">auto</span> <span class="n">result</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::this_thread::sync_wait_with_variant</span></span><span class="p">(</span><span class="n">sndr</span><span class="p">);</span>
+  <span class="c1">// 結果型optional&lt;variant&lt;<a href="../../tuple/tuple.html">tuple</a>&lt;int,char&gt;&gt;&gt;から<a href="../../tuple/tuple.html">tuple</a>を取り出す</span>
+  <span class="k">auto</span> <span class="n">tup</span> <span class="o">=</span> <span class="n"><a href="../../variant/variant/get.html">get&lt;0&gt;</a></span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n"><a href="../../optional/optional/value.html">value()</a></span><span class="p">);</span>
+  <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"result={}"</span><span class="p">,</span> <span class="n">tup</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h3>出力</h3>
+<p><pre><code>result=(100, 'X')
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++26</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="../execution/sender.html">execution::sender</a></code></li>
+<li><code><a href="sync_wait.html">this_thread::sync_wait</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

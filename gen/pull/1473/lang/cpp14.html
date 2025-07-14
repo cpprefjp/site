@@ -1,0 +1,402 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>C++14 - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,
+">
+        <meta name="title" content="C++14 - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="C++14 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="C++14 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp14.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="C++14とは、2014年12月に改訂され、ISO/IEC 14882:2014で標準規格化されたC++バージョンの通称である。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="C++14 - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp14.html" />
+        <meta name="twitter:description" content="C++14とは、2014年12月に改訂され、ISO/IEC 14882:2014で標準規格化されたC++バージョンの通称である。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp14&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">C++14</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-07-10T07:47:57">
+        2024年07月10日 07時47分57秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp14.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp14.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">C++14</span></h1>
+<div itemprop="articleBody"><h2>概要</h2>
+<p>C++14とは、2014年12月に改訂され、ISO/IEC 14882:2014で標準規格化されたC++バージョンの通称である。</p>
+<p>前バージョンであるC++11からマイナーバージョンアップされ、小さな機能拡張が行われた。</p>
+<p>このバージョンは、策定中はC++1yと呼ばれていた。前バージョンであるC++11が策定中、C++0xと呼ばれていたことから、「xの次」という意味で「y」が使われていた。</p>
+<h2>言語機能</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp14/binary_literals.html">2進数リテラル</a></td>
+<td>2進数を表す<code>0b</code> or <code>0B</code>プレフィックスを付けた数値リテラルの記述を可能とする</td>
+</tr>
+<tr>
+<td><a href="cpp14/return_type_deduction_for_normal_functions.html">通常関数の戻り値型推論</a></td>
+<td>関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型を<code>auto</code>にすることで、<code>return</code>文から<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型を推論させる</td>
+</tr>
+<tr>
+<td><code><a href="cpp14/decltype_auto.html">decltype(auto)</a></code></td>
+<td><code>decltype</code>の規則による変数の型推論</td>
+</tr>
+<tr>
+<td><a href="cpp14/placeholder_type_in_trailing_return_type.html">後置戻り値型をプレースホルダーにすることを許可</a></td>
+<td><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型を後置する関数宣言構文とラムダ式の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型に<code>auto</code>を使用できるようにする</td>
+</tr>
+<tr>
+<td><a href="cpp14/initialize_capture.html">ラムダ式の初期化キャプチャ</a></td>
+<td>キャプチャに代入構文を導入し、一つの変数に複数のキャプチャ方法を指定可能にする</td>
+</tr>
+<tr>
+<td><a href="cpp14/generic_lambdas.html">ジェネリックラムダ</a></td>
+<td>ラムダ式のパラメータを<code>auto</code>にすることで、ジェネリックな関数呼び出し演算子を持つ関数オブジェクトを生成する</td>
+</tr>
+<tr>
+<td><a href="cpp14/variable_templates.html">変数テンプレート</a></td>
+<td>変数定義時のテンプレート指定を可能にする</td>
+</tr>
+<tr>
+<td><a href="cpp14/relaxing_constraints_on_constexpr.html"><code>constexpr</code>関数内での条件分岐とループの文を許可</a></td>
+<td><code>if</code>文、<code>switch</code>文による条件分岐の許可。<br /><code>for</code>文、<code>while</code>文、<code>do-while</code>文によるループの許可。<br /><code>void</code><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型の許可<br />初期化を伴う変数宣言の許可。<br />変数書き換えの許可</td>
+</tr>
+<tr>
+<td><a href="cpp14/member_initializers_and_aggregates.html">宣言時のメンバ初期化を持つ型の集成体初期化を許可</a></td>
+<td>集成体において、宣言時に初期化されているメンバを持つことを許可する</td>
+</tr>
+<tr>
+<td><a href="cpp14/brace_elision_in_array_temporary_initialization.html">ネストする集成体初期化における波カッコ省略を許可</a></td>
+<td>一様初期化と初期化子リストを組み合わせた際、二重に波カッコが必要となっていた仕様を緩和し、波カッコを省略できるようにする</td>
+</tr>
+<tr>
+<td><a href="cpp14/deprecated_attr.html"><code>[[deprecated]]</code>属性</a></td>
+<td>非推奨の機能であることを示す属性</td>
+</tr>
+<tr>
+<td><a href="cpp14/digit_separators.html">数値リテラルの桁区切り文字</a></td>
+<td>シングルクォーテーションで数値リテラルを桁区切りする</td>
+</tr>
+<tr>
+<td><a href="cpp14/sized_deallocation.html">サイズ付きデアロケーション</a></td>
+<td>サイズをとる<code>delete</code>演算子の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を許可する</td>
+</tr>
+<tr>
+<td><a href="cpp14/clarifying_memory_allocation.html">動的メモリ確保の省略の許可</a></td>
+<td>デフォルトの<code>::operator new</code>による動的メモリ確保を省略したりまとめたりする事を許可する</td>
+</tr>
+</tbody>
+</table>
+<h3>小さな変更</h3>
+<p>ここでは、コア言語作業グループへ問題報告され、その解決策として導入された言語仕様の変更を解説する。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cpp14/predefined_macros.html">更新された定義済みマクロ</a></td>
+<td>標準規格で定義されたマクロの更新</td>
+</tr>
+<tr>
+<td><a href="cpp14/feature_test_macros.html">機能テストマクロ</a></td>
+<td>C++14 の機能がサポートされているかどうかをテストするためのマクロ</td>
+</tr>
+<tr>
+<td><a href="cpp14/no_whitespace_literal_operators.html">リテラル演算子のスペースを省略可能とする</a></td>
+<td><code>operator""</code>とサフィックス名の間にスペースを入力しなくてもよくなった</td>
+</tr>
+<tr>
+<td><a href="cpp14/nontype_template_parameters_of_type_nullptr_t.html"><code>nullptr_t</code>型の定数式を非型テンプレートパラメータとすることを許可</a></td>
+<td><code>nullptr_t</code>型の値をテンプレート引数として渡せるようになった</td>
+</tr>
+</tbody>
+</table>
+<h2>ライブラリ更新の概要</h2>
+<h3>コンテナ</h3>
+<ul>
+<li>順序付き連想コンテナのルックアップ処理で、一時オブジェクトが生成されるコストを抑える拡張が行われた<ul>
+<li><code><a href="../reference/map/map/find.html">std::map::find()</a></code></li>
+<li><code><a href="../reference/map/map/count.html">std::map::count()</a></code></li>
+<li><code><a href="../reference/map/map/lower_bound.html">std::map::lower_bound()</a></code></li>
+<li><code><a href="../reference/map/map/upper_bound.html">std::map::upper_bound()</a></code></li>
+<li><code><a href="../reference/map/map/equal_range.html">std::map::equal_range()</a></code></li>
+<li><code>std::map</code>クラスのほか、<code>std::set</code>、<code>std::multiset</code>、<code>std::multimap</code>の上記メンバ関数も対象</li>
+</ul>
+</li>
+</ul>
+<h3>イテレータ</h3>
+<ul>
+<li>Forward Iteratorを<a class="cpprefjp-defined-word" data-desc="`T x{};`構文での初期化。組み込み型の場合はゼロ相当の値で、クラス型の場合はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的に値初期化される">値初期化</a>した場合に、どこも指さないヌルイテレータになる、という規定が追加された(参照 : <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3644.pdf" target="_blank">N3644 Null Forward Iterators</a>)</li>
+</ul>
+<h3>アルゴリズム</h3>
+<ul>
+<li>以下のアルゴリズムに、2つ目の<a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a>の終端イテレータをパラメータにとるバージョンを追加。これにより、2つの範囲が同じ長さかを事前にユーザーがチェックする必要がなくなった<ul>
+<li><code><a href="../reference/algorithm/mismatch.html">std::mismatch()</a></code></li>
+<li><code><a href="../reference/algorithm/equal.html">std::equal()</a></code></li>
+<li><code><a href="../reference/algorithm/is_permutation.html">std::is_permutation()</a></code></li>
+</ul>
+</li>
+<li>乱数生成を行うアルゴリズム、<code>std::rand()</code>と<code><a href="../reference/algorithm/random_shuffle.html">std::random_shuffle()</a></code>を非推奨とする。<code>std::rand()</code>の代わりに<code><a href="../reference/random.html">&lt;random&gt;</a></code>ヘッダで定義される乱数生成器と分布クラスを、<code><a href="../reference/algorithm/random_shuffle.html">std::random_shuffle()</a></code>の代わりに<code><a href="../reference/algorithm/shuffle.html">std::shuffle()</a></code>を使用すること</li>
+</ul>
+<h3>メモリ管理</h3>
+<ul>
+<li><code><a href="../reference/memory/unique_ptr.html">std::unique_ptr</a></code>を生成するヘルパ関数<code><a href="../reference/memory/make_unique.html">std::make_unique()</a></code>を追加</li>
+</ul>
+<h3>入出力</h3>
+<ul>
+<li>文字列をクォート修飾する<code><a href="../reference/iomanip/quoted.html">std::quoted</a></code>マニピュレータを追加</li>
+</ul>
+<h3>汎用的なユーティリティ</h3>
+<ul>
+<li>2つの値を入れ替える関数<code><a href="../reference/utility/exchange.html">std::exchange()</a></code>を追加</li>
+<li>コンパイル時整数シーケンス<code><a href="../reference/utility/integer_sequence.html">std::integer_sequence</a></code>を追加</li>
+<li>タプルを型の集合と見なし、型を指定して対応する値を取得する<code><a href="../reference/tuple/tuple/get.html">std::get()</a></code>の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を追加</li>
+<li><code><a href="../reference/type_traits.html">&lt;type_traits&gt;</a></code>ヘッダの、メンバ型<code>type</code>を定義するクラステンプレートに、エイリアステンプレート版を追加。そのバージョンには、<code>_t</code>サフィックスが付く</li>
+</ul>
+<h3>リテラル演算子</h3>
+<ul>
+<li><code><a href="../reference/string/basic_string.html">std::basic_string</a></code>の<a href="../reference/string/basic_string/op_s.html">リテラル演算子<code>s</code></a>を追加<ul>
+<li><code>"hello"s</code>は、文字コード<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>の<code>std::string</code>オブジェクトを表すリテラル</li>
+<li><code>L"hello"s</code>は、文字コード<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>の<code>std::wstring</code>オブジェクトを表すリテラル</li>
+<li><code>u8"hello"s</code>は、UTF-8文字コードの<code>std::string</code>オブジェクトを表すリテラル</li>
+<li><code>u"hello"s</code>は、UTF-16文字コードの<code>std::u16string</code>オブジェクトを表すリテラル</li>
+<li><code>U"hello"s</code>は、UTF-32文字コードの<code>std::u32string</code>オブジェクトを表すリテラル</li>
+</ul>
+</li>
+<li><code><a href="../reference/chrono/duration.html">std::chrono::duration</a></code>の、各時間単位を表す、以下のリテラルを追加<ul>
+<li>ナノ秒単位を表す<a href="../reference/chrono/duration/op_ns.html"><code>ns</code>リテラル</a></li>
+<li>マイクロ秒単位を表す<a href="../reference/chrono/duration/op_us.html"><code>us</code>リテラル</a></li>
+<li>ミリ秒単位を表す<a href="../reference/chrono/duration/op_ms.html"><code>ms</code>リテラル</a></li>
+<li>秒単位を表す<a href="../reference/chrono/duration/op_s.html"><code>s</code>リテラル</a></li>
+<li>分単位を表す<a href="../reference/chrono/duration/op_min.html"><code>min</code>リテラル</a></li>
+<li>時単位を表す<a href="../reference/chrono/duration/op_h.html"><code>h</code>リテラル</a></li>
+</ul>
+</li>
+<li><code><a href="../reference/complex/complex.html">std::complex</a></code>の、各要素型を表す、以下のリテラルを追加<ul>
+<li><code>std::complex&lt;double&gt;</code>を表す<a href="../reference/complex/complex/op_i.html"><code>i</code>リテラル</a></li>
+<li><code>std::complex&lt;float&gt;</code>を表す<a href="../reference/complex/complex/op_if.html"><code>if</code>リテラル</a></li>
+<li><code>std::complex&lt;long double&gt;</code>を表す<a href="../reference/complex/complex/op_il.html"><code>il</code>リテラル</a></li>
+</ul>
+</li>
+</ul>
+<h3>並行処理</h3>
+<ul>
+<li>Readers-writer lockと呼ばれる、書き込みを行うユーザーが1人、読み込みを行うユーザーが複数いる状況で効率的に振る舞うミューテックスの実装として、<code><a href="../reference/shared_mutex.html">&lt;shared_mutex&gt;</a></code>ヘッダを追加</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://isocpp.org/wiki/faq/cpp14" target="_blank">C++14 Overview - Standard C++</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

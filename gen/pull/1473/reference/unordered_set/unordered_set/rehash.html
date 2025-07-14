@@ -1,0 +1,352 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>unordered_set::rehash - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,unordered_set,std,unordered_set,function,cpp11
+">
+        <meta name="title" content="unordered_set::rehash - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="unordered_set::rehash - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="unordered_set::rehash - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/unordered_set/unordered_set/rehash.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="コンテナのバケット数が最小でも引数 `n` で指定された値になるように調整（リハッシュ）する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="unordered_set::rehash - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/unordered_set/unordered_set/rehash.html" />
+        <meta name="twitter:description" content="コンテナのバケット数が最小でも引数 `n` で指定された値になるように調整（リハッシュ）する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;unordered_set&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;unordered_set&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;f1c1e9ccfc72406175e84c35c7724ad7ce396a7e&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;unordered_set&gt;\n\nint main()\n{\n  std::unordered_set&lt;int&gt; us{ 1, 2, 3, 4, 5, 6, };\n\n  std::cout &lt;&lt; \&#34;size is \&#34; &lt;&lt; us.size() &lt;&lt; \&#34;, max_load_factor is \&#34; &lt;&lt; us.max_load_factor() &lt;&lt; std::endl;\n\n  std::cout &lt;&lt; \&#34;bucket_count is \&#34; &lt;&lt; us.bucket_count() &lt;&lt; std::endl;\n\n  // \u73fe\u5728\u306e\u30d0\u30b1\u30c3\u30c8\u6570\u3088\u308a\u5927\u304d\u306a\u5024\u3092\u6307\u5b9a\u3059\u308b\u3002\n  us.rehash(100);\n  std::cout &lt;&lt; \&#34;bucket_count is \&#34; &lt;&lt; us.bucket_count() &lt;&lt; std::endl;\n\n  // \u73fe\u5728\u306e\u8981\u7d20\u6570 / max_load_factor() \u3088\u308a\u306f\u5927\u304d\u304f\u3001\u73fe\u5728\u306e\u30d0\u30b1\u30c3\u30c8\u6570\u3088\u308a\u306f\u5c0f\u3055\u3044\u5024\u3092\u6307\u5b9a\u3059\u308b\u3002\n  us.rehash(10);\n  std::cout &lt;&lt; \&#34;bucket_count is \&#34; &lt;&lt; us.bucket_count() &lt;&lt; std::endl;\n\n  // \u73fe\u5728\u306e\u8981\u7d20\u6570 / max_load_factor() \u3088\u308a\u5c0f\u3055\u3044\u5024\u3092\u6307\u5b9a\u3059\u308b\u3002\n  us.rehash(1);\n  std::cout &lt;&lt; \&#34;bucket_count is \&#34; &lt;&lt; us.bucket_count() &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;unordered_set&#34;, &#34;unordered_set&#34;, &#34;rehash&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/unordered_set.html" itemprop="url">
+              
+                <span itemprop="name">unordered_set</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/unordered_set/unordered_set.html" itemprop="url">
+              
+                <span itemprop="name">unordered_set</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">rehash</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-06-11T13:45:38">
+        2024年06月11日 13時45分38秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/unordered_set/unordered_set/rehash.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/unordered_set/unordered_set/rehash.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;unordered_set&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class unordered_set">unordered_set::</span><span class="token">rehash</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">rehash</span><span class="p">(</span><span class="n">size_type</span> <span class="n">n</span><span class="p">);</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>コンテナのバケット数が最小でも引数 <code>n</code> で指定された値になるように調整（リハッシュ）する。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a></h2>
+<p><code><a href="bucket_count.html">bucket_count</a>() &gt; <a href="size.html">size</a>() / <a href="max_load_factor.html">max_load_factor</a>()</code> かつ、<code><a href="bucket_count.html">bucket_count</a>() &gt;= n</code>。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p>なし</p>
+<h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
+<p>ハッシュ関数、および、キー比較用関数以外から<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が投げられた場合、コンテナは変更されない。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></h2>
+<p>平均的なケースでは <code><a href="size.html">size</a>()</code> に比例するが、最悪のケースでは <code><a href="size.html">size</a>()</code> の 2 乗に比例する。</p>
+<h2>備考</h2>
+<ul>
+<li>リハッシュが行われた場合、<ul>
+<li>全てのイテレータが無効になる。</li>
+<li>要素間の順番が変わる。</li>
+<li>要素の格納されているバケットが変更になる。</li>
+<li>要素へのポインタや参照は無効に<strong>ならない</strong>。</li>
+</ul>
+</li>
+<li>現在のバケット数が <code>n</code> 以上の場合の動作は、標準では特に規定されていない。</li>
+<li>標準では、<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a>が <code><a href="bucket_count.html">bucket_count</a>() &gt; <a href="size.html">size</a>() / <a href="max_load_factor.html">max_load_factor</a>()</code> となっている（等号がない）が、<code><a href="load_factor.html">load_factor</a>()</code>（<code>= <a href="size.html">size</a>() / <a href="bucket_count.html">bucket_count</a>()</code>）の条件は <code><a href="max_load_factor.html">max_load_factor</a>() &gt;= <a href="load_factor.html">load_factor</a>()</code> である（等号がある）ため、<code><a href="bucket_count.html">bucket_count</a>() &gt;= <a href="size.html">size</a>() / <a href="max_load_factor.html">max_load_factor</a>()</code> の（等号がある）方が適切であると思われる。</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="f1c1e9ccfc72406175e84c35c7724ad7ce396a7e"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../unordered_set.html">&lt;unordered_set&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../unordered_set.html">std::unordered_set</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">us</span><span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="p">};</span>
+
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"size is "</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="size.html">us.size()</a></span> <span class="o">&lt;&lt;</span> <span class="s">", max_load_factor is "</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="max_load_factor.html">us.max_load_factor()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"bucket_count is "</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="bucket_count.html">us.bucket_count()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// 現在のバケット数より大きな値を指定する。</span>
+  <span class="n">us</span><span class="p">.</span><span class="n"><span style="color:#ff0000">rehash</span></span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"bucket_count is "</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="bucket_count.html">us.bucket_count()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// 現在の要素数 / max_load_factor() よりは大きく、現在のバケット数よりは小さい値を指定する。</span>
+  <span class="n">us</span><span class="p">.</span><span class="n"><span style="color:#ff0000">rehash</span></span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"bucket_count is "</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="bucket_count.html">us.bucket_count()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// 現在の要素数 / max_load_factor() より小さい値を指定する。</span>
+  <span class="n">us</span><span class="p">.</span><span class="n"><span style="color:#ff0000">rehash</span></span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"bucket_count is "</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="bucket_count.html">us.bucket_count()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力例</h3>
+<p><pre><code>size is 6, max_load_factor is 1
+bucket_count is 11
+bucket_count is 101
+bucket_count is 11
+bucket_count is 7
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: 3.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: 4.7.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#icc">ICC</a>: ?</li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ?</li>
+</ul>
+<h2>関連項目</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="size.html">size</a></code></td>
+<td>要素数の取得</td>
+</tr>
+<tr>
+<td><code><a href="bucket_count.html">bucket_count</a></code></td>
+<td>バケット数の取得</td>
+</tr>
+<tr>
+<td><code><a href="load_factor.html">load_factor</a></code></td>
+<td>現在の負荷率（バケットあたりの要素数の平均）を取得</td>
+</tr>
+<tr>
+<td><code><a href="max_load_factor.html">max_load_factor</a></code></td>
+<td>負荷率の最大値を取得、設定</td>
+</tr>
+<tr>
+<td><code><a href="reserve.html">reserve</a></code></td>
+<td>最小要素数指定によるバケット数の調整</td>
+</tr>
+</tbody>
+</table></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

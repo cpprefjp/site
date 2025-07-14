@@ -1,0 +1,315 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>operator&gt;&gt; - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,random,std,function template,cpp11
+">
+        <meta name="title" content="operator&gt;&gt; - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="operator&gt;&gt; - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="operator&gt;&gt; - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/random/shuffle_order_engine/op_istream.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="ストリームからの入力を行う。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="operator&gt;&gt; - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/random/shuffle_order_engine/op_istream.html" />
+        <meta name="twitter:description" content="ストリームからの入力を行う。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;random&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;14e776a51e64fc68c8954ebc0f8c4a5a3de0c6ef&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;sstream&gt;\n#include &lt;cassert&gt;\n#include &lt;random&gt;\n\nint main()\n{\n  std::stringstream ss;\n\n  // \u30b9\u30c8\u30ea\u30fc\u30e0\u3078\u51fa\u529b\n  {\n    std::knuth_b engine;\n    ss &lt;&lt; engine;\n  }\n\n  // \u51fa\u529b\u7d50\u679c\u3092\u78ba\u8a8d\n  std::cout &lt;&lt; ss.str() &lt;&lt; std::endl;\n\n  // \u51fa\u529b\u3057\u305f\u30b9\u30c8\u30ea\u30fc\u30e0\u304b\u3089\u8aad\u307f\u8fbc\u3080\n  {\n    std::knuth_b engine;\n    ss &gt;&gt; engine;\n\n    assert(ss);\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;random&#34;, &#34;shuffle_order_engine&#34;, &#34;op_istream&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/random.html" itemprop="url">
+              
+                <span itemprop="name">random</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/random/shuffle_order_engine.html" itemprop="url">
+              
+                <span itemprop="name">shuffle_order_engine</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">operator&gt;&gt;</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-06-11T13:45:38">
+        2024年06月11日 13時45分38秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/random/shuffle_order_engine/op_istream.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/random/shuffle_order_engine/op_istream.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function template</div><div class="header">&lt;random&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">operator&gt;&gt;</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">CharT</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Traits</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Engine</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">K</span><span class="o">&gt;</span>
+  <span class="n"><a href="../../istream/basic_istream.html">std::basic_istream</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span> <span class="k">operator</span><span class="o">&gt;&gt;</span><span class="p">(</span>
+    <span class="n"><a href="../../istream/basic_istream.html">std::basic_istream</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span> <span class="n">os</span>
+    <span class="n">shuffle_order_engine</span><span class="o">&lt;</span><span class="n">Engine</span><span class="p">,</span> <span class="n">K</span><span class="o">&gt;&amp;</span> <span class="n">x</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>ストリームからの入力を行う。</p>
+<h2>効果</h2>
+<p><code>is</code>に対してフォーマットフラグ<code>ios_base::dec</code>を設定する。<br />
+フォーマットを設定した<code>is</code>から、<code>shuffle_order_engine</code>の状態シーケンスを読み取り、オブジェクト<code>x</code>に格納する。<br />
+不正な入力だった場合、<code>is.setstate(ios::failbit)</code>を呼び出し、ストリームを失敗状態にする。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a></h2>
+<p><code>is</code>のフォーマットフラグが、この関数を呼び出す前の状態に戻ること。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p><code>is</code></p>
+<h2>例</h2>
+<p><div class="yata" id="14e776a51e64fc68c8954ebc0f8c4a5a3de0c6ef"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../sstream.html">&lt;sstream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../random.html">&lt;random&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../sstream/basic_stringstream.html">std::stringstream</a></span> <span class="n">ss</span><span class="p">;</span>
+
+  <span class="c1">// ストリームへ出力</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../knuth_b.html">std::knuth_b</a></span> <span class="n">engine</span><span class="p">;</span>
+    <span class="n">ss</span> <span class="o">&lt;&lt;</span> <span class="n">engine</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 出力結果を確認</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../sstream/basic_stringstream/str.html">ss.str()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// 出力したストリームから読み込む</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../knuth_b.html">std::knuth_b</a></span> <span class="n">engine</span><span class="p">;</span>
+    <span class="n">ss</span> <span class="o">&gt;&gt;</span> <span class="n">engine</span><span class="p">;</span>
+
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">ss</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力例</h3>
+<p><pre><code>1465645203 16807 282475249 1622650073 984943658 1144108930 470211272 101027544 1457850878 1458777923 2007237709 823564440 1115438165 1784484492 74243042 114807987 1137522503 1441282327 16531729 823378840 143542612 896544303 1474833169 1264817709 1998097157 1817129560 1131570933 197493099 1404280278 893351816 1505795335 1954899097 1636807826 563613512 101929267 1580723810 704877633 1358580979 1624379149 2128236579 784558821 530511967 2110010672 1551901393 1617819336 1399125485 156091745 1356425228 1899894091 585640194 937186357 1646035001 1025921153 510616708 590357944 771515668 357571490 1044788124 1927702196 1952509530 130060903 1942727722 1083454666 1108728549 685118024 2118797801 1060806853 571540977 194847408 2035308228 158374933 1075260298 824938981 595028635 1962408013 1137623865 997389814 2020739063 107554536 1635339425 1654001669 1777724115 269220094 34075629 1478446501 1864546517 1351934195 1581030105 1557810404 2146319451 1908194298 500782188 657821123 753799505 1102246882 1269406752 1816731566 884936716 1807130337 578354438 892053144 1153851501 1004844897 616783871 382955828 330111137 1227619358 1723153177 70982397 1147722294 1070477904 2051621609 1606946231 1190959745 1912844175 1341853635 1808266298 343098142 456880399 1534827968 280090412 195400260 589673557 6441594 889688008 57716395 1524325968 2014119113 515204530 388471006 681910962 1904797942 1400285365 322842082 1463179852 828530767 832633821 1073185695 316824712 1260973671 1815859901 1267248590 2051724831 1194314738 318153057 2111631616 877819790 304555640 1213110679 541437335 1049077006 996497972 2063936098 270649095 428975319 685583454 1351345223 272112289 1398556760 1334948905 1724586126 532236123 1023129506 836045813 436476770 60935238 1936329094 915896220 304987844 2034712366 881140534 281725226 1901915394 197941363 348318738 152607844 784559590 543436550 290145159 1681808623 977764947 750597385 971307217 1737195272 2000755539 1399399247 462242385 1459413496 1951894885 537140623 1848682420 1012028144 1086531968 1289335735 1755699915 1623161625 992663534 2043046042 1358796011 943454679 1771024152 1479575244 1507977295 2119878818 2049590396 1828087692 621301815 1154112991 1104740033 222122669 889119397 1238489553 1882410547 944975825 1567121210 1866729662 1536830211 1719533808 1517273377 1592822761 41000625 1902737335 1127401868 994977995 140002776 1532062767 1049997439 1433829874 1464689331 428540556 1968456301 1859468872 1911300560 1168120094 298918984 967113755 2124639789 462851407 957828015 678030193 1105222769 1893015680 944303455 1004016855 1732267506 784170963 454233502 2145586676 329863108 1353963249 1323602331 1277844 1887638 1660760808 1561939997 685428651 897054849 1465645203
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: 4.7.2 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>参照</h2></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

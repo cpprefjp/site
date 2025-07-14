@@ -1,0 +1,387 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>valarray::operator= - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,valarray,std,valarray,function
+">
+        <meta name="title" content="valarray::operator= - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="valarray::operator= - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="valarray::operator= - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/valarray/valarray/op_assign.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="- (1) : コピー代入" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="valarray::operator= - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/valarray/valarray/op_assign.html" />
+        <meta name="twitter:description" content="- (1) : コピー代入" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;valarray&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;valarray&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;ddfd7f88aa0706404ad8e3f4181f55180bf01699&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;valarray&gt;\n\ntemplate &lt;class T&gt;\nvoid print(const char* name, const std::valarray&lt;T&gt;&amp; va)\n{\n  std::cout &lt;&lt; name &lt;&lt; \&#34; : {\&#34;;\n  bool first = true;\n\n  for (const T&amp; x : va) {\n    if (first) {\n      first = false;\n    }\n    else {\n      std::cout &lt;&lt; &#39;,&#39;;\n    }\n    std::cout &lt;&lt; x;\n  }\n  std::cout &lt;&lt; \&#34;}\&#34; &lt;&lt; std::endl;\n}\n\nint main()\n{\n  // (1)\n  // \u30b3\u30d4\u30fc\u4ee3\u5165\n  std::valarray&lt;int&gt; va1_org = {1, 2, 3};\n  std::valarray&lt;int&gt; va1 = va1_org;\n  print(\&#34;va1\&#34;, va1);\n\n  // (2)\n  // \u30e0\u30fc\u30d6\u4ee3\u5165\n  std::valarray&lt;int&gt; va2 = std::move(va1);\n  print(\&#34;va2\&#34;, va2);\n\n  // (3)\n  // \u521d\u671f\u5316\u5b50\u30ea\u30b9\u30c8\u3092\u4ee3\u5165\n  std::valarray&lt;int&gt; va3;\n  va3 = {1, 2, 3};\n  print(\&#34;va3\&#34;, va3);\n\n  // (4)\n  // \u5024\u3092\u5168\u8981\u7d20\u306b\u4ee3\u5165\n  std::valarray&lt;int&gt; va4(3);\n  va4 = 1;\n  print(\&#34;va4\&#34;, va4);\n\n  // (5)\n  // \u30b9\u30e9\u30a4\u30b9\u3055\u308c\u305fvalarray\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3092\u4ee3\u5165\n  std::valarray&lt;int&gt; va5_org = {1, 2, 3, 4, 5};\n  std::valarray&lt;int&gt; va5 = va5_org[std::slice(0, 3, 1)]; // \u5148\u982d3\u8981\u7d20\n  print(\&#34;va5\&#34;, va5);\n\n  // (6)\n  // \u884c\u5217\u30b9\u30e9\u30a4\u30b9\u3055\u308c\u305fvalarray\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3092\u4ee3\u5165\n  std::valarray&lt;int&gt; va6_org = {1, 2, 3, 4, 5};\n  std::valarray&lt;std::size_t&gt; va6_len = {1, 2, 2};\n  std::valarray&lt;std::size_t&gt; va6_stride = {2, 3, 1};\n  std::valarray&lt;int&gt; va6 = va6_org[std::gslice(0, va6_len, va6_stride)];\n  print(\&#34;va6\&#34;, va6);\n\n  // (7)\n  // \u30de\u30b9\u30af\u3055\u308c\u305fvalarray\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3092\u4ee3\u5165\n  std::valarray&lt;int&gt; va7_org = {1, 2, 3, 4, 5};\n  std::valarray&lt;bool&gt; va7_mask = {true, false, true, false, true};\n  std::valarray&lt;int&gt; va7 = va7_org[va7_mask];\n  print(\&#34;va7\&#34;, va7);\n\n  // (8)\n  // \u30a4\u30f3\u30c7\u30c3\u30af\u30b9\u5217\u306e\u6307\u5b9a\u306b\u3088\u3063\u3066\u30de\u30b9\u30af\u3055\u308c\u305fvalarray\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3092\u4ee3\u5165\n  std::valarray&lt;int&gt; va8_org = {1, 2, 3, 4, 5};\n  std::valarray&lt;std::size_t&gt; va8_indices = {0, 2, 4};\n  std::valarray&lt;int&gt; va8 = va8_org[va8_indices];\n  print(\&#34;va8\&#34;, va8);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;valarray&#34;, &#34;valarray&#34;, &#34;op_assign&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/valarray.html" itemprop="url">
+              
+                <span itemprop="name">valarray</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/valarray/valarray.html" itemprop="url">
+              
+                <span itemprop="name">valarray</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">operator=</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2019-04-22T15:08:44">
+        2019年04月22日 15時08分44秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Mitsuru Kariya</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/valarray/valarray/op_assign.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/valarray/valarray/op_assign.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;valarray&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class valarray">valarray::</span><span class="token">operator=</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">valarray</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n"><i>ValOrProxy</i></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">x</span><span class="p">);</span>     <span class="c1">// (1)</span>
+<span class="n">valarray</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">valarray</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>   <span class="c1">// (2) C++11</span>
+<span class="n">valarray</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">init</span><span class="p">);</span>   <span class="c1">// (3) C++11</span>
+<span class="n">valarray</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">);</span>             <span class="c1">// (4)</span>
+<span class="n">valarray</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../slice_array.html">slice_array</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">x</span><span class="p">);</span>    <span class="c1">// (5)</span>
+<span class="n">valarray</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../gslice_array.html">gslice_array</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">x</span><span class="p">);</span>   <span class="c1">// (6)</span>
+<span class="n">valarray</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../mask_array.html">mask_array</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">x</span><span class="p">);</span>     <span class="c1">// (7)</span>
+<span class="n">valarray</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../indirect_array.html">indirect_array</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">x</span><span class="p">);</span> <span class="c1">// (8)</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<ul>
+<li>(1) : コピー代入</li>
+<li>(2) : ムーブ代入</li>
+<li>(3) : 初期化子リストの代入</li>
+<li>(4) : 全ての要素に<code>value</code>を代入する</li>
+<li>(5) : <code><a href="../slice_array.html">slice_array</a></code>オブジェクトから<code>valarray</code>への変換を行う。</li>
+<li>(6) : <code><a href="../gslice_array.html">gslice_array</a></code>オブジェクトから<code>valarray</code>への変換を行う。</li>
+<li>(7) : <code><a href="../mask_array.html">mask_array</a></code>オブジェクトから<code>valarray</code>への変換を行う。</li>
+<li>(8) : <code><a href="../indirect_array.html">indirect_array</a></code>オブジェクトから<code>valarray</code>への変換を行う。</li>
+</ul>
+<h2>効果</h2>
+<ul>
+<li>(1) : <code>*this</code>と<code>x</code>が異なる要素数の場合、<code>resize(x.size())</code>を呼び出す。<code>*this</code>の各要素に、<code>x</code>の各要素を代入する。</li>
+<li>(2) : <code>*this</code>に<code>x</code>の所有権を譲渡する。ムーブ後の<code>x</code>の状態は<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>。</li>
+<li>(3) : <code>*this = valarray(init)</code>と等価。</li>
+<li>(4) : <code>*this</code>の全ての要素に値<code>value</code>を代入する。</li>
+<li>(5), (6), (7), (8) : <code>x</code>が参照している要素を、<code>*this</code>に代入する。</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></h2>
+<ul>
+<li>(2) : 全要素のデストラクタを呼び出すために、線形時間</li>
+</ul>
+<h2>備考</h2>
+<ul>
+<li>引数の型 <em><code>ValOrProxy</code></em> は、<code><a href="../valarray.html">valarray</a></code>、あるいは、その代理となる型である。<br />
+<code><a href="../../valarray.html">&lt;valarray&gt;</a></code> の概要も参照のこと。</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="ddfd7f88aa0706404ad8e3f4181f55180bf01699"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../valarray.html">&lt;valarray&gt;</a></span><span class="cp"></span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">print</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">va</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="s">" : {"</span><span class="p">;</span>
+  <span class="kt">bool</span> <span class="n">first</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="nl">x</span> <span class="p">:</span> <span class="n">va</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">first</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">first</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="sc">','</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"}"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// (1)</span>
+  <span class="c1">// コピー代入</span>
+  <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">va1_org</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+  <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">va1</span> <span class="o">=</span> <span class="n">va1_org</span><span class="p">;</span>
+  <span class="n">print</span><span class="p">(</span><span class="s">"va1"</span><span class="p">,</span> <span class="n">va1</span><span class="p">);</span>
+
+  <span class="c1">// (2)</span>
+  <span class="c1">// ムーブ代入</span>
+  <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">va2</span> <span class="o">=</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">va1</span><span class="p">);</span>
+  <span class="n">print</span><span class="p">(</span><span class="s">"va2"</span><span class="p">,</span> <span class="n">va2</span><span class="p">);</span>
+
+  <span class="c1">// (3)</span>
+  <span class="c1">// 初期化子リストを代入</span>
+  <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">va3</span><span class="p">;</span>
+  <span class="n">va3</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+  <span class="n">print</span><span class="p">(</span><span class="s">"va3"</span><span class="p">,</span> <span class="n">va3</span><span class="p">);</span>
+
+  <span class="c1">// (4)</span>
+  <span class="c1">// 値を全要素に代入</span>
+  <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">va4</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+  <span class="n">va4</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="n">print</span><span class="p">(</span><span class="s">"va4"</span><span class="p">,</span> <span class="n">va4</span><span class="p">);</span>
+
+  <span class="c1">// (5)</span>
+  <span class="c1">// スライスされたvalarrayオブジェクトを代入</span>
+  <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">va5_org</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+  <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">va5</span> <span class="o">=</span> <span class="n">va5_org</span><span class="p">[</span><span class="n"><a href="../slice.html">std::slice</a></span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)];</span> <span class="c1">// 先頭3要素</span>
+  <span class="n">print</span><span class="p">(</span><span class="s">"va5"</span><span class="p">,</span> <span class="n">va5</span><span class="p">);</span>
+
+  <span class="c1">// (6)</span>
+  <span class="c1">// 行列スライスされたvalarrayオブジェクトを代入</span>
+  <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">va6_org</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+  <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span><span class="o">&gt;</span> <span class="n">va6_len</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">};</span>
+  <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span><span class="o">&gt;</span> <span class="n">va6_stride</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">};</span>
+  <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">va6</span> <span class="o">=</span> <span class="n">va6_org</span><span class="p">[</span><span class="n"><a href="../gslice.html">std::gslice</a></span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">va6_len</span><span class="p">,</span> <span class="n">va6_stride</span><span class="p">)];</span>
+  <span class="n">print</span><span class="p">(</span><span class="s">"va6"</span><span class="p">,</span> <span class="n">va6</span><span class="p">);</span>
+
+  <span class="c1">// (7)</span>
+  <span class="c1">// マスクされたvalarrayオブジェクトを代入</span>
+  <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">va7_org</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+  <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">va7_mask</span> <span class="o">=</span> <span class="p">{</span><span class="nb">true</span><span class="p">,</span> <span class="nb">false</span><span class="p">,</span> <span class="nb">true</span><span class="p">,</span> <span class="nb">false</span><span class="p">,</span> <span class="nb">true</span><span class="p">};</span>
+  <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">va7</span> <span class="o">=</span> <span class="n">va7_org</span><span class="p">[</span><span class="n">va7_mask</span><span class="p">];</span>
+  <span class="n">print</span><span class="p">(</span><span class="s">"va7"</span><span class="p">,</span> <span class="n">va7</span><span class="p">);</span>
+
+  <span class="c1">// (8)</span>
+  <span class="c1">// インデックス列の指定によってマスクされたvalarrayオブジェクトを代入</span>
+  <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">va8_org</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+  <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span><span class="o">&gt;</span> <span class="n">va8_indices</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
+  <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">va8</span> <span class="o">=</span> <span class="n">va8_org</span><span class="p">[</span><span class="n">va8_indices</span><span class="p">];</span>
+  <span class="n">print</span><span class="p">(</span><span class="s">"va8"</span><span class="p">,</span> <span class="n">va8</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>va1 : {1,2,3}
+va2 : {1,2,3}
+va3 : {1,2,3}
+va4 : {1,1,1}
+va5 : {1,2,3}
+va6 : {1,2,4,5}
+va7 : {1,3,5}
+va8 : {1,3,5}
+</code></pre></p>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf" target="_blank">N2679 Initializer Lists for Standard Containers(Revision 1)</a><ul>
+<li>(3)の経緯となる提案文書</li>
+</ul>
+</li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2071" target="_blank">LWG Issue 2071. <code>std::valarray</code> move-assignment</a><ul>
+<li>C++11でムーブ代入の<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a>を「定数時間」であると記載していたが、実際には全要素のデストラクタを呼び出すために「線形時間」が正しかった。C++14で文面を修正。</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

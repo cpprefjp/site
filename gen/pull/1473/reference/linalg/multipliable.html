@@ -1,0 +1,308 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>multipliable - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,linalg,function template,std::linalg,cpp26
+">
+        <meta name="title" content="multipliable - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="multipliable - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="multipliable - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/linalg/multipliable.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="テンプレートパラメータに指定されたベクトルや行列が掛けられるかを静的要素数で判定する、説明専用の関数である。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="multipliable - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/linalg/multipliable.html" />
+        <meta name="twitter:description" content="テンプレートパラメータに指定されたベクトルや行列が掛けられるかを静的要素数で判定する、説明専用の関数である。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [ ['$','$'] ],
+        displayMath: [ ['$$','$$'] ],
+        processEscapes: true
+      },
+      chtml: {
+        displayAlign: 'left',
+        displayIndent: '2.0em',
+      },
+    };
+    </script>
+    <!-- IEはサポートしないので https://polyfill.io/v3/polyfill.min.js?features=es6 は読み込まない -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;linalg&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;namespace&#34;: [&#34;std::linalg&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;linalg&#34;, &#34;multipliable&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/linalg.html" itemprop="url">
+              
+                <span itemprop="name">linalg</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">multipliable</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-08-08T08:22:01">
+        2024年08月08日 08時22分01秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yoh</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/linalg/multipliable.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/linalg/multipliable.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function template</div><div class="header">&lt;linalg&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::linalg">std::linalg::</span><span class="token">multipliable</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">linalg</span> <span class="p">{</span>
+  <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">multipliable</span><span class="p">(</span>
+    <span class="k">const</span> <span class="n"><a href="inout-matrix.html">in-matrix</a></span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">in_mat</span><span class="p">,</span>
+    <span class="k">const</span> <span class="n"><a href="inout-vector.html">in-vector</a></span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">in_vec</span><span class="p">,</span>
+    <span class="k">const</span> <span class="n"><a href="inout-vector.html">in-vector</a></span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">out_vec</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">out_vec</span><span class="p">.</span><span class="n">extent</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="n">in_mat</span><span class="p">.</span><span class="n">extent</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+           <span class="n">in_mat</span><span class="p">.</span><span class="n">extent</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">in_vec</span><span class="p">.</span><span class="n">extent</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+  <span class="p">}</span> <span class="c1">// (1)</span>
+
+  <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">multipliable</span><span class="p">(</span>
+    <span class="k">const</span> <span class="n"><a href="inout-vector.html">in-vector</a></span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">in_vec</span><span class="p">,</span>
+    <span class="k">const</span> <span class="n"><a href="inout-matrix.html">in-matrix</a></span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">in_mat</span><span class="p">,</span>
+    <span class="k">const</span> <span class="n"><a href="inout-vector.html">in-vector</a></span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">out_vec</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">out_vec</span><span class="p">.</span><span class="n">extent</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="n">in_mat</span><span class="p">.</span><span class="n">extent</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+           <span class="n">in_mat</span><span class="p">.</span><span class="n">extent</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="n">in_vec</span><span class="p">.</span><span class="n">extent</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+  <span class="p">}</span> <span class="c1">// (2)</span>
+
+  <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">multipliable</span><span class="p">(</span>
+    <span class="k">const</span> <span class="n"><a href="inout-matrix.html">in-matrix</a></span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">in_mat1</span><span class="p">,</span>
+    <span class="k">const</span> <span class="n"><a href="inout-matrix.html">in-matrix</a></span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">in_mat2</span><span class="p">,</span>
+    <span class="k">const</span> <span class="n"><a href="inout-matrix.html">in-matrix</a></span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">out_mat</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">out_mat</span><span class="p">.</span><span class="n">extent</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="n">in_mat1</span><span class="p">.</span><span class="n">extent</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+           <span class="n">out_mat</span><span class="p">.</span><span class="n">extent</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">in_mat2</span><span class="p">.</span><span class="n">extent</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+           <span class="n">in1_mat</span><span class="p">.</span><span class="n">extent</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">in_mat2</span><span class="p">.</span><span class="n">extent</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+  <span class="p">}</span> <span class="c1">// (3)</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>テンプレートパラメータに指定されたベクトルや行列が掛けられるかを静的要素数で判定する、説明専用の関数である。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p><code>InMat</code>型の変数を<code>A</code>, <code>InVec</code>型の変数を<code>x</code>, <code>OutVec</code>型の変数を<code>y</code>とする。</p>
+<ul>
+<li>(1): $y \leftarrow Ax$ が可能なら<code>true</code>、そうでないなら<code>false</code></li>
+<li>(2): $y^t \leftarrow x^t A$ が可能なら<code>true</code>、そうでないなら<code>false</code></li>
+<li>(3): <code>InMat1</code>型の変数を<code>A</code>, <code>InMat2</code>型の変数を<code>B</code>, <code>OutMat</code>型の変数<code>C</code>とすると、$C \leftarrow AB$ が可能なら<code>true</code>、そうでないなら<code>false</code></li>
+</ul>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++26</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="../mdspan.html">mdspan</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1673r13.html" target="_blank">P1673R13 A free function linear algebra interface based on the BLAS</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

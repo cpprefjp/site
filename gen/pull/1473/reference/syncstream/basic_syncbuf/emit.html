@@ -1,0 +1,326 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>basic_syncbuf::emit - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,syncstream,function,std,basic_syncbuf,cpp20
+">
+        <meta name="title" content="basic_syncbuf::emit - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="basic_syncbuf::emit - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="basic_syncbuf::emit - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/syncstream/basic_syncbuf/emit.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="格納されている文字データを、ラップされたストリームに転送する。このような転送は、同じストリームを持つ他の`basic_syncbuf`オブジェクトによる転送に関してアトミックである。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="basic_syncbuf::emit - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/syncstream/basic_syncbuf/emit.html" />
+        <meta name="twitter:description" content="格納されている文字データを、ラップされたストリームに転送する。このような転送は、同じストリームを持つ他の`basic_syncbuf`オブジェクトによる転送に関してアトミックである。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;syncstream&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;basic_syncbuf&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;589dfd92e84c6ff74a49f9d9e2e1522aedb1398e&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;syncstream&gt;\n#include &lt;thread&gt;\n\nvoid thread1()\n{\n  std::osyncstream bout{std::cout};\n  bout &lt;&lt; \&#34;Hello, World!\\n\&#34;;\n  bout.emit();  // \u901a\u5e38 std::basic_osyncstream \u304b\u3089\u547c\u3070\u308c\u308b\u3002\n                // \u6587\u5b57\u304c\u8ee2\u9001\u3055\u308c\u308b\u3002\n}\n\nvoid thread2()\n{\n  // \u540c\u3058\u30d0\u30c3\u30d5\u30a1\u306b\u884c\u308f\u308c\u308b\u51fa\u529b\u306f\u3001\u7570\u306a\u308b std::basic_osyncstream(std::basic_syncbuf) \u306e\n  // \u30a4\u30f3\u30b9\u30bf\u30f3\u30b9\u304b\u3089\u3067\u3082\u3001\u30a2\u30c8\u30df\u30c3\u30af\u306b\u51fa\u529b\u3055\u308c\u308b\u3053\u3068\u304c\u4fdd\u8a3c\u3055\u308c\u308b\n  std::osyncstream(std::cout) &lt;&lt; \&#34;Goodbye, \&#34; &lt;&lt; \&#34;Planet!\&#34; &lt;&lt; &#39;\\n&#39;;\n}\n\nint main()\n{\n  std::thread th1(thread1);\n  std::thread th2(thread2);\n  th1.join();\n  th2.join();\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;syncstream&#34;, &#34;basic_syncbuf&#34;, &#34;emit&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/syncstream.html" itemprop="url">
+              
+                <span itemprop="name">syncstream</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/syncstream/basic_syncbuf.html" itemprop="url">
+              
+                <span itemprop="name">basic_syncbuf</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">emit</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-11-18T05:36:09">
+        2024年11月18日 05時36分09秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Koichi Murase</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/syncstream/basic_syncbuf/emit.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/syncstream/basic_syncbuf/emit.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;syncstream&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class basic_syncbuf">basic_syncbuf::</span><span class="token">emit</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">bool</span> <span class="nf">emit</span><span class="p">();</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>格納されている文字データを、ラップされたストリームに転送する。このような転送は、同じストリームを持つ他の<code>basic_syncbuf</code>オブジェクトによる転送に関してアトミックである。</p>
+<h2>効果</h2>
+<p>保留中の出力をラップされたストリームにアトミックに転送する。出力は、連続した文字の並びとして出力ストリームに現れる。<br />
+また、最後に<code>emit()</code>が呼び出されてから<code><a href="sync.html">sync()</a></code>が呼び出されている場合、ラップされたストリームに対して<code>pubsync()</code>を呼び出してフラッシュも行う。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p>以下の条件がすべて満たされる場合は<code>true</code>、そうでない場合は<code>false</code>を返す。</p>
+<ul>
+<li>ラップされたストリームが存在する。(ラップされたストリームへのポインタが<code>nullptr</code>でない。)</li>
+<li>保留中の出力内のすべての文字は正常に転送された。</li>
+<li>要求されている場合、ラップされたストリームに対する<code>pubsync()</code>の呼び出しは成功した。</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a></h2>
+<p>成功すると、書き込まれた文字データは空になる。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a></h2>
+<p>同じストリームバッファオブジェクトに文字を転送するすべての<code>emit()</code>呼び出しは、「<a class="cpprefjp-defined-word" data-desc="happens before。(異なるスレッド間の) 2つの操作の実行順序を規定する関係">よりも前に発生する</a>」関係と一致する全順序で実行されるように見える。各<code>emit()</code>呼び出しは、その全順序で後続の<code>emit()</code>呼び出し<strong><a class="cpprefjp-defined-word" data-desc="synchronizes with。「A は B に対して同期する」という記述は「A が B よりも前に発生する」関係を保証する">に対して同期する</a></strong>。実際には、これは下記の備考にあることを意味する。</p>
+<p>注：ここでは、「<a class="cpprefjp-defined-word" data-desc="happens before。(異なるスレッド間の) 2つの操作の実行順序を規定する関係">よりも前に発生する</a>」関係は全順序関係になっていると考えられる。また、modification order と矛盾しないとも考えられる。下記の参照を参照のこと。</p>
+<h2>備考</h2>
+<p>ラップされたストリームに一意に関連付けられたロックを保持しながら、ラップされたストリームのメンバ関数を呼び出すことができる。つまり、同じストリームを持つ他の<code>basic_syncbuf</code>オブジェクトに対してアトミックに転送することができる。</p>
+<h2>例</h2>
+<p><div class="yata" id="589dfd92e84c6ff74a49f9d9e2e1522aedb1398e"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../syncstream.html">&lt;syncstream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
+
+<span class="kt">void</span> <span class="nf">thread1</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">osyncstream</span> <span class="n">bout</span><span class="p">{</span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">};</span>
+  <span class="n">bout</span> <span class="o">&lt;&lt;</span> <span class="s">"Hello, World!</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+  <span class="n">bout</span><span class="p">.</span><span class="n"><span style="color:#ff0000">emit</span></span><span class="p">();</span>  <span class="c1">// 通常 std::basic_osyncstream から呼ばれる。</span>
+                <span class="c1">// 文字が転送される。</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">thread2</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// 同じバッファに行われる出力は、異なる std::basic_osyncstream(std::basic_syncbuf) の</span>
+  <span class="c1">// インスタンスからでも、アトミックに出力されることが保証される</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">osyncstream</span><span class="p">(</span><span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">"Goodbye, "</span> <span class="o">&lt;&lt;</span> <span class="s">"Planet!"</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../thread/thread.html">std::thread</a></span> <span class="n">th1</span><span class="p">(</span><span class="n">thread1</span><span class="p">);</span>
+  <span class="n"><a href="../../thread/thread.html">std::thread</a></span> <span class="n">th2</span><span class="p">(</span><span class="n">thread2</span><span class="p">);</span>
+  <span class="n">th1</span><span class="p">.</span><span class="n">join</span><span class="p">();</span>
+  <span class="n">th2</span><span class="p">.</span><span class="n">join</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力例</h3>
+<p>thread1 の処理が先行した場合。ただし、各出力は連続したシーケンスとなるように、アトミックに行われることが保証される。</p>
+<p><pre><code>Hello, World!
+Goodbye, Planet!
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++20</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: 11.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: 2019 update 10 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0053r7.pdf" target="_blank">P0053R7 C++ Synchronized Buffered Ostream</a></li>
+<li><a href="https://qiita.com/nojima/items/57da2c4098309386e26b#modification-order" target="_blank">C++ メモリモデル メモ - Qiita</a></li>
+<li><a href="https://yohhoy.hatenadiary.jp/entry/20130427/p1" target="_blank">C++のフェンス is 何 - yohhoyの日記</a></li>
+<li><a href="http://nunuki.hatenablog.com/entry/2016/12/23/182301" target="_blank">半順序？弱順序？二項関係・順序関係まとめ - ぬぬろぐ</a></li>
+<li><a href="https://onihusube.hatenablog.com/entry/2018/09/18/022130" target="_blank">［C++］狭義の弱順序（strict weak orderings）とは？ - 地面を見下ろす少年の足蹴にされる私</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

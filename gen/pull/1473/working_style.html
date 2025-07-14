@@ -1,0 +1,697 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>スタイル - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,
+">
+        <meta name="title" content="スタイル - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="スタイル - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="スタイル - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/working_style.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="スタイル 本サイトで作業を行う上でのスタイルです。  「である」調 句読点は「、」「。」  型修飾のスタイル： /* (A) */ const T &amp;amp;v /* (B) */ const T&amp;amp; v /* (C) */ const T &amp;amp; v /* (D) */ T const &amp;amp;v /* (E) */ T const&amp;amp; v /* (F) */ T const " />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="スタイル - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/working_style.html" />
+        <meta name="twitter:description" content="スタイル 本サイトで作業を行う上でのスタイルです。  「である」調 句読点は「、」「。」  型修飾のスタイル： /* (A) */ const T &amp;amp;v /* (B) */ const T&amp;amp; v /* (C) */ const T &amp;amp; v /* (D) */ T const &amp;amp;v /* (E) */ T const&amp;amp; v /* (F) */ T const " />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="./static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="./static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="./static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="./manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="./static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="./static/css/root.css"> -->
+
+        
+  
+
+
+<link href="./static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="./static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="./static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="./static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="./static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="./static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;working_style&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="./index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="./index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">スタイル</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-04-14T16:16:19">
+        2025年04月14日 16時16分19秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yoh</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/working_style.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/working_style.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">スタイル</span></h1>
+<div itemprop="articleBody"><p>本サイトで作業を行う上でのスタイルです。</p>
+<ul>
+<li>「である」調</li>
+<li>句読点は「、」「。」</li>
+</ul>
+<p>型修飾のスタイル：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="cm">/* (A) */</span> <span class="k">const</span> <span class="n">T</span> <span class="o">&amp;</span><span class="n">v</span>
+<span class="cm">/* (B) */</span> <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">v</span>
+<span class="cm">/* (C) */</span> <span class="k">const</span> <span class="n">T</span> <span class="o">&amp;</span> <span class="n">v</span>
+<span class="cm">/* (D) */</span> <span class="n">T</span> <span class="k">const</span> <span class="o">&amp;</span><span class="n">v</span>
+<span class="cm">/* (E) */</span> <span class="n">T</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">v</span>
+<span class="cm">/* (F) */</span> <span class="n">T</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">v</span>
+</code></pre></div>
+</p>
+<p>本サイトでは、Bのスタイルで型修飾を行います。</p>
+<h2>バージョンの表記</h2>
+<h3>言語</h3>
+<p>C++11以降対応については対応バージョンを明記します。バージョン表記が省略されている場合、C++03、C++98対応であることを表します。</p>
+<h4>例</h4>
+<ul>
+<li>C++17</li>
+<li>C++14</li>
+<li>C++11</li>
+<li>C++03</li>
+<li>C++98</li>
+</ul>
+<h3>処理系</h3>
+<p>開発環境の表記がない場合は、C++98対応のあらゆる環境で使用できるものとします。 
+処理系の記載は、作業者が確認できたものを記載します。</p>
+<h4>例</h4>
+<ul>
+<li>Clang: 2.1, 2.8</li>
+<li>GCC: 4.3.4, 4.4.3, 4.4.4, 4.5.2</li>
+<li>IBM XL C/C++ Enterprise Edition, V11.1.0.0</li>
+<li>Intel: 10.1, 11.0, 11.1, 12.0</li>
+<li>PathScale: 3.2</li>
+<li>QCC</li>
+<li>Visual C++: 2003, 2008, 2010</li>
+<li>pgCC: 11.2</li>
+</ul>
+<p>表記するバージョンには、「未実装」「実装済み」「動作検証済み」を表す絵文字指定を併記してください。</p>
+<ul>
+<li>GCC: 12.0 <span aria-label="未実装" role="img" title="未実装">❌</span>, 13.1 <span aria-label="実装済" role="img" title="実装済">⭕</span>, 14.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<p>ここで、各指定は以下を意味します。</p>
+<ul>
+<li>mark noimpl : 未実装を表す絵文字</li>
+<li>mark impl : 動作確認はできていないけど、リリースノートやそれに類するドキュメントには実装済みと書かれていることを表す絵文字</li>
+<li>mark verified : 動作検証済み</li>
+</ul>
+<h3>訳語表</h3>
+<p>訳語表は随時更新していってください。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>英語</th>
+<th>日本語</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>abstract class</td>
+<td>抽象クラス</td>
+</tr>
+<tr>
+<td>aggregate</td>
+<td>集成体</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>アライメント (表示位置ではなくメモリの文脈)</td>
+</tr>
+<tr>
+<td>apply, application</td>
+<td>適用</td>
+</tr>
+<tr>
+<td>arithmetic type</td>
+<td>算術型</td>
+</tr>
+<tr>
+<td>associative container(s)</td>
+<td>連想コンテナ</td>
+</tr>
+<tr>
+<td>asynchronous operation</td>
+<td>非<a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a></td>
+</tr>
+<tr>
+<td>base class</td>
+<td>基底クラス</td>
+</tr>
+<tr>
+<td>bidirectional iterator</td>
+<td>双方向イテレータ</td>
+</tr>
+<tr>
+<td>bucket</td>
+<td>バケット</td>
+</tr>
+<tr>
+<td>completion function</td>
+<td>完了関数</td>
+</tr>
+<tr>
+<td>completion operation</td>
+<td>完了操作</td>
+</tr>
+<tr>
+<td>completion signature</td>
+<td>完了シグネチャ</td>
+</tr>
+<tr>
+<td>completion tag</td>
+<td>完了タグ</td>
+</tr>
+<tr>
+<td>complexity</td>
+<td><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></td>
+</tr>
+<tr>
+<td>compound type</td>
+<td>複合型</td>
+</tr>
+<tr>
+<td>const iterator</td>
+<td>読み取り専用イテレータ</td>
+</tr>
+<tr>
+<td>const reverse iterator</td>
+<td>読み取り専用逆イテレータ</td>
+</tr>
+<tr>
+<td>covariant</td>
+<td>共変的</td>
+</tr>
+<tr>
+<td>data member</td>
+<td>メンバ変数 (ユーザー視点ではデータメンバより一般的のため)</td>
+</tr>
+<tr>
+<td>dereference</td>
+<td>間接参照</td>
+</tr>
+<tr>
+<td>dereferenceable</td>
+<td>間接参照可能</td>
+</tr>
+<tr>
+<td>derived class</td>
+<td>派生クラス</td>
+</tr>
+<tr>
+<td>direct base class</td>
+<td>直接基底クラス</td>
+</tr>
+<tr>
+<td>delegate</td>
+<td>委譲</td>
+</tr>
+<tr>
+<td>dynamic extent</td>
+<td>(std::mdspanの) 動的要素数</td>
+</tr>
+<tr>
+<td>effects</td>
+<td>効果</td>
+</tr>
+<tr>
+<td>emplace</td>
+<td>直接構築</td>
+</tr>
+<tr>
+<td>empty</td>
+<td>空</td>
+</tr>
+<tr>
+<td>equal</td>
+<td>等値</td>
+</tr>
+<tr>
+<td>equivalence class</td>
+<td>同値分類 (数学的文脈)</td>
+</tr>
+<tr>
+<td>equivalence relation</td>
+<td>同値関係 (数学的文脈)</td>
+</tr>
+<tr>
+<td>equivalent</td>
+<td>同値 (数学的文脈)、等価 (その他文脈)</td>
+</tr>
+<tr>
+<td>forward iterator</td>
+<td>前方向イテレータ</td>
+</tr>
+<tr>
+<td>fundamental type</td>
+<td>単純型</td>
+</tr>
+<tr>
+<td>ill-formed</td>
+<td><a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="implementation-compliance.html#dfn-ill-formed">不適格</a></td>
+</tr>
+<tr>
+<td>implementation-defined</td>
+<td><a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a></td>
+</tr>
+<tr>
+<td>indirect base class</td>
+<td>間接基底クラス</td>
+</tr>
+<tr>
+<td>inherited</td>
+<td>継承</td>
+</tr>
+<tr>
+<td>input iterator</td>
+<td>入力イテレータ</td>
+</tr>
+<tr>
+<td>iterator</td>
+<td>イテレータ</td>
+</tr>
+<tr>
+<td>literal type</td>
+<td>リテラル型</td>
+</tr>
+<tr>
+<td>load factor</td>
+<td>負荷率</td>
+</tr>
+<tr>
+<td>lvalue reference</td>
+<td>左辺値参照</td>
+</tr>
+<tr>
+<td>max load factor</td>
+<td>最大負荷率</td>
+</tr>
+<tr>
+<td>member</td>
+<td>メンバ</td>
+</tr>
+<tr>
+<td>move</td>
+<td>(std::move 的な意味で)ムーブ</td>
+</tr>
+<tr>
+<td>move assignment</td>
+<td>ムーブ代入</td>
+</tr>
+<tr>
+<td>move constructor</td>
+<td>ムーブコンストラクタ</td>
+</tr>
+<tr>
+<td>multidimensional index</td>
+<td>多次元インデクス</td>
+</tr>
+<tr>
+<td>multidimensional index space</td>
+<td>多次元インデクス空間</td>
+</tr>
+<tr>
+<td>mutable iterator</td>
+<td>可変イテレータ</td>
+</tr>
+<tr>
+<td>non-virtual base class</td>
+<td>非仮想基底クラス</td>
+</tr>
+<tr>
+<td>note</td>
+<td>注</td>
+</tr>
+<tr>
+<td>output iterator</td>
+<td>出力イテレータ</td>
+</tr>
+<tr>
+<td>overload</td>
+<td><a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a></td>
+</tr>
+<tr>
+<td>(proposal) paper</td>
+<td>提案文書</td>
+</tr>
+<tr>
+<td>partial ordering</td>
+<td>半順序</td>
+</tr>
+<tr>
+<td>partition</td>
+<td>区分化</td>
+</tr>
+<tr>
+<td>pointer</td>
+<td>ポインタ</td>
+</tr>
+<tr>
+<td>polymorphic</td>
+<td>多相的</td>
+</tr>
+<tr>
+<td>power of N</td>
+<td>Nの累乗</td>
+</tr>
+<tr>
+<td>predicate</td>
+<td><a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a></td>
+</tr>
+<tr>
+<td>propagation, propagate</td>
+<td>伝播<br /> (伝搬は誤用が広まったものなので使わない)</td>
+</tr>
+<tr>
+<td>pure virtual function</td>
+<td>純粋仮想関数</td>
+</tr>
+<tr>
+<td>query object</td>
+<td>クエリオブジェクト</td>
+</tr>
+<tr>
+<td>queryable object</td>
+<td>クエリ可能オブジェクト</td>
+</tr>
+<tr>
+<td>random access iterator</td>
+<td>ランダムアクセスイテレータ</td>
+</tr>
+<tr>
+<td>range</td>
+<td>一般用途の場合：範囲<br /> Rangeアルゴリズム・Rangeアダプタ・Rangeオブジェクトの場合：Range<br /> range-based for：範囲for文<br /> 2つのイテレータによる範囲：<a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a></td>
+</tr>
+<tr>
+<td>region of RCU protection</td>
+<td>RCU保護区間</td>
+</tr>
+<tr>
+<td>remarks</td>
+<td>備考</td>
+</tr>
+<tr>
+<td>requires</td>
+<td>要件</td>
+</tr>
+<tr>
+<td>returns</td>
+<td><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></td>
+</tr>
+<tr>
+<td>reverse iterator</td>
+<td>逆イテレータ</td>
+</tr>
+<tr>
+<td>rvalue reference</td>
+<td>右辺値参照</td>
+</tr>
+<tr>
+<td>sequence container(s)</td>
+<td>シーケンスコンテナ</td>
+</tr>
+<tr>
+<td>signed</td>
+<td>符号付き</td>
+</tr>
+<tr>
+<td>static extent</td>
+<td>(std::mdspanの) 静的要素数</td>
+</tr>
+<tr>
+<td>stop request</td>
+<td>停止要求</td>
+</tr>
+<tr>
+<td>stop state</td>
+<td>停止状態</td>
+</tr>
+<tr>
+<td>stop token</td>
+<td>停止トークン</td>
+</tr>
+<tr>
+<td>Spurious Failure</td>
+<td>見かけ上の失敗<br /> <a href="https://togetter.com/li/430770" target="_blank">https://togetter.com/li/430770</a></td>
+</tr>
+<tr>
+<td>strict weak ordering</td>
+<td>狭義の弱順序</td>
+</tr>
+<tr>
+<td>stride</td>
+<td>(std::mdspanの) ストライド幅</td>
+</tr>
+<tr>
+<td>strong ordering</td>
+<td>全順序</td>
+</tr>
+<tr>
+<td>structural type</td>
+<td>構造的型</td>
+</tr>
+<tr>
+<td>synchronization</td>
+<td>同期</td>
+</tr>
+<tr>
+<td>total ordering relationalship</td>
+<td>全順序関係</td>
+</tr>
+<tr>
+<td>trailing return type</td>
+<td>後置<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型</td>
+</tr>
+<tr>
+<td>trait</td>
+<td>トレイト</td>
+</tr>
+<tr>
+<td>trivial</td>
+<td>トリビアル (逆は非トリビアル)</td>
+</tr>
+<tr>
+<td>underlying type</td>
+<td>基底型</td>
+</tr>
+<tr>
+<td>unit-stride slice</td>
+<td>単位ストライド幅スライス</td>
+</tr>
+<tr>
+<td>unordered associative container(s)</td>
+<td>非順序連想コンテナ</td>
+</tr>
+<tr>
+<td>unspecified</td>
+<td><a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="implementation-compliance.html#dfn-unspecified-behavior">未規定</a></td>
+</tr>
+<tr>
+<td>program-defined type</td>
+<td><a class="cpprefjp-defined-word" data-desc="標準ライブラリの型を除く、ユーザー（プログラマ）によって定義された型のこと">プログラム定義型</a></td>
+</tr>
+<tr>
+<td>virtual base class</td>
+<td>仮想基底クラス</td>
+</tr>
+<tr>
+<td>weak ordering</td>
+<td>弱順序</td>
+</tr>
+<tr>
+<td>well-formed</td>
+<td><a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="implementation-compliance.html#dfn-well-formed">適格</a></td>
+</tr>
+<tr>
+<td>eligible</td>
+<td>資格のある</td>
+</tr>
+<tr>
+<td>synchronizes with</td>
+<td><a class="cpprefjp-defined-word" data-desc="synchronizes with。「A は B に対して同期する」という記述は「A が B よりも前に発生する」関係を保証する">に対して同期する</a> ("と同期する" だと対称関係に見えるため)</td>
+</tr>
+<tr>
+<td>happens before</td>
+<td><a class="cpprefjp-defined-word" data-desc="happens before。(異なるスレッド間の) 2つの操作の実行順序を規定する関係">よりも前に発生する</a></td>
+</tr>
+<tr>
+<td>strongly happens before</td>
+<td><a class="cpprefjp-defined-word" data-desc="strongly happens before。(異なるスレッド間の) 2つの操作の実行順序を規定する強い関係">よりも確実に前に発生する</a></td>
+</tr>
+<tr>
+<td>sequenced before</td>
+<td>よりも前に順序付けられる</td>
+</tr>
+<tr>
+<td>indeterminately sequenced</td>
+<td>不定順で順序付けられる</td>
+</tr>
+</tbody>
+</table></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

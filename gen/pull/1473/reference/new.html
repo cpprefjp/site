@@ -1,0 +1,340 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>new - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,new
+">
+        <meta name="title" content="new - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="new - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="new - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/new.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="&amp;lt;new&amp;gt;new &amp;lt;new&amp;gt;ヘッダは、プログラムが動的に記憶域を確保し、管理するための機能を定義し、記憶域の管理のエラー報告（例外の送出）についても定義する。このヘッダはグローバルネームスペースのnew演算子およびdelete演算子をオーバーロードする。placement new を行いたい場合などに用いる。 本ヘッダはフリースタンディング環境でも提供される。 型    名" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="new - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/new.html" />
+        <meta name="twitter:description" content="&amp;lt;new&amp;gt;new &amp;lt;new&amp;gt;ヘッダは、プログラムが動的に記憶域を確保し、管理するための機能を定義し、記憶域の管理のエラー報告（例外の送出）についても定義する。このヘッダはグローバルネームスペースのnew演算子およびdelete演算子をオーバーロードする。placement new を行いたい場合などに用いる。 本ヘッダはフリースタンディング環境でも提供される。 型    名" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;new&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;new&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">new</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2023-01-16T09:14:16">
+        2023年01月16日 09時14分16秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">onihusube</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/new.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/new.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="header">&lt;new&gt;</div><h1 itemprop="name"><span class="token">new</span></h1>
+<div itemprop="articleBody"><p><code>&lt;new&gt;</code>ヘッダは、プログラムが動的に記憶域を確保し、管理するための機能を定義し、記憶域の管理のエラー報告（<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>の送出）についても定義する。このヘッダはグローバルネームスペースの<code>new</code>演算子および<code>delete</code>演算子を<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>する。placement new を行いたい場合などに用いる。</p>
+<p>本ヘッダはフリースタンディング環境でも提供される。</p>
+<h2>型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="new/bad_alloc.html">bad_alloc</a></code></td>
+<td>何らかの理由で記憶域の動的確保に失敗するなど、<code>get_new_handler()</code>が<code>nullptr</code>を返した場合にスローされる<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>(class)</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="new/bad_array_new_length.html">bad_array_new_length</a></code></td>
+<td>動的に記憶域を確保しようとする配列の長さが0未満または処理系の最大値以上の場合にスローされる<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>(class)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="new/align_val_t.html">align_val_t</a></code></td>
+<td>デフォルトよりも大きなアライメントを要求するとき、<code>new</code> に渡されるアライメント値の型</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="new/nothrow_t.html">nothrow_t</a></code></td>
+<td><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>をスローしないための<code>std::nothrow</code>の型</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="new/new_handler.html">new_handler</a></code></td>
+<td><code>new</code>失敗時に呼ばれる関数の型</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="new/destroying_delete_t.html">destroying_delete_t</a></code></td>
+<td><em>destroying operator delete</em>を定義するためのタグ型</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="new/get_new_handler.html">get_new_handler</a></code></td>
+<td><code>new</code>失敗時に呼ばれる関数を取得する(function)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="new/launder.html">launder</a></code></td>
+<td>置き換えられたオブジェクトに<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../implementation-compliance.html#dfn-well-formed">適格</a>にアクセスする(function)</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="new/set_new_handler.html">set_new_handler</a></code></td>
+<td><code>new</code>失敗時に呼ばれる関数を設定する(function)</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="new/op_new.html">operator new</a></code></td>
+<td>動的に記憶域を確保する(function)</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="new/op_new[].html">operator new[]</a></code></td>
+<td>動的に配列の記憶域を確保する(function)</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="new/op_delete.html">operator delete</a></code></td>
+<td>動的に確保した記憶域を解放する(function)</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="new/op_delete[].html">operator delete[]</a></code></td>
+<td>動的に確保した配列の記憶域を解放する(function)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>干渉サイズ</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="new/hardware_destructive_interference_size.html">hardware_destructive_interference_size</a></code></td>
+<td>2つのオブジェクトに並行アクセスする際に、パフォーマンス低下を避けられる最小アライメントサイズ (variable)</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="new/hardware_constructive_interference_size.html">hardware_constructive_interference_size</a></code></td>
+<td>2つのオブジェクトに一時局所的にアクセスできる最大サイズ (variable)</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

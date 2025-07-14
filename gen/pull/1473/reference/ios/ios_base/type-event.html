@@ -1,0 +1,360 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>ios_base::event - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,ios,enum,std,ios_base
+">
+        <meta name="title" content="ios_base::event - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="ios_base::event - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="ios_base::event - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/ios/ios_base/type-event.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`event` は　[`register_callback`](register_callback.md) で登録した [`event_callback`](type-event_callback.md) 型のコールバック関数を呼び出す際に、当該関数を呼び出すきっかけとなったイベントの種類を表すための列挙型である。  " />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="ios_base::event - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/ios/ios_base/type-event.html" />
+        <meta name="twitter:description" content="`event` は　[`register_callback`](register_callback.md) で登録した [`event_callback`](type-event_callback.md) 型のコールバック関数を呼び出す際に、当該関数を呼び出すきっかけとなったイベントの種類を表すための列挙型である。  " />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;ios&#34;], &#34;id-type&#34;: [&#34;enum&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;ios_base&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;f5832180f89cfb6b3fd99837dd12d2a5f424bd33&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;sstream&gt;\n#include &lt;locale&gt;\n\nstd::stringstream ss1;\n\nvoid f(std::ios_base::event e, std::ios_base&amp; str, int index)\n{\n  switch (e) {\n  case std::ios_base::erase_event:\n    std::cout &lt;&lt; \&#34;event = erase_event, \&#34;;\n    break;\n  case std::ios_base::copyfmt_event:\n    std::cout &lt;&lt; \&#34;event = copyfmt_event, \&#34;;\n    break;\n  case std::ios_base::imbue_event:\n    std::cout &lt;&lt; \&#34;event = imbue_event, \&#34;;\n    break;\n  }\n  std::cout &lt;&lt; \&#34;str = \&#34; &lt;&lt; (&amp;str == &amp;ss1 ? \&#34;ss1\&#34; : \&#34;ss2\&#34;) &lt;&lt; \&#34;, index = \&#34; &lt;&lt; index &lt;&lt; \&#34;, getloc.name = \&#34; &lt;&lt; str.getloc().name() &lt;&lt; &#39;\\n&#39;;\n}\n\nint main()\n{\n  ss1.register_callback(f, 0);\n  std::locale l(\&#34;en_US.UTF-8\&#34;);\n\n  {\n    std::stringstream ss2;\n    ss2.register_callback(f, 1);\n\n    std::cout &lt;&lt; \&#34;imbue start\\n\&#34;;\n    ss2.imbue(l);\n    std::cout &lt;&lt; \&#34;imbue end\\n\&#34;;\n\n    std::cout &lt;&lt; \&#34;copyfmt start\\n\&#34;;\n    ss2.copyfmt(ss1);\n    std::cout &lt;&lt; \&#34;copyfmt end\\n\&#34;;\n  }\n  std::cout &lt;&lt; \&#34;block end\\n\&#34;;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;ios&#34;, &#34;ios_base&#34;, &#34;type-event&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/ios.html" itemprop="url">
+              
+                <span itemprop="name">ios</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/ios/ios_base.html" itemprop="url">
+              
+                <span itemprop="name">ios_base</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">event</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-06-30T05:31:11">
+        2025年06月30日 05時31分11秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Raclamusi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/ios/ios_base/type-event.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/ios/ios_base/type-event.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">enum</div><div class="header">&lt;ios&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class ios_base">ios_base::</span><span class="token">event</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">enum</span> <span class="n">event</span> <span class="p">{</span> <span class="n">erase_event</span><span class="p">,</span> <span class="n">imbue_event</span><span class="p">,</span> <span class="n">copyfmt_event</span> <span class="p">};</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>event</code> は　<code><a href="register_callback.html">register_callback</a></code> で登録した <code><a href="type-event_callback.html">event_callback</a></code> 型のコールバック関数を呼び出す際に、当該関数を呼び出すきっかけとなったイベントの種類を表すための列挙型である。<br />
+<code>event</code> には以下の表のような列挙子値が存在する。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>列挙子</th>
+<th>発生したイベント</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>erase_event</code></td>
+<td><code><a href="../ios_base.html">ios_base</a>::<a href="op_destructor.html">~ios_base</a></code> が呼び出されてオブジェクトの破棄を開始した。または、<code><a href="../basic_ios.html">basic_ios</a>::<a href="../basic_ios/copyfmt.html">copyfmt</a></code> が呼び出された。</td>
+</tr>
+<tr>
+<td><code>imbue_event</code></td>
+<td><code><a href="../ios_base.html">ios_base</a>::<a href="imbue.html">imbue</a></code> が呼び出されて <code><a href="../ios_base.html">ios_base</a>::<a href="getloc.html">getloc</a></code> が新しく設定されたロケールオブジェクトを返すようになった。</td>
+</tr>
+<tr>
+<td><code>copyfmt_event</code></td>
+<td><code><a href="../basic_ios.html">basic_ios</a>::<a href="../basic_ios/copyfmt.html">copyfmt</a></code> が呼び出されて <code><a href="../basic_ios.html">basic_ios</a>::<a href="../basic_ios/exceptions.html">exceptions</a></code> 以外の設定がコピーされた。</td>
+</tr>
+</tbody>
+</table>
+<p>なお、各イベントが発生する正確なタイミングは、それぞれの関数を参照。</p>
+<h2>例</h2>
+<p><div class="yata" id="f5832180f89cfb6b3fd99837dd12d2a5f424bd33"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../sstream.html">&lt;sstream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../locale.html">&lt;locale&gt;</a></span><span class="cp"></span>
+
+<span class="n"><a href="../../sstream/basic_stringstream.html">std::stringstream</a></span> <span class="n">ss1</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="n"><a href="../ios_base.html">std::ios_base</a></span><span class="o">::</span><span class="n"><span style="color:#ff0000">event</span></span> <span class="n">e</span><span class="p">,</span> <span class="n"><a href="../ios_base.html">std::ios_base</a></span><span class="o">&amp;</span> <span class="n">str</span><span class="p">,</span> <span class="kt">int</span> <span class="n">index</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">case</span> <span class="n"><a href="../ios_base.html">std::ios_base</a></span><span class="o">::</span><span class="nl"><span style="color:#ff0000">erase_event</span></span><span class="p">:</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"<span style="color:#ff0000">event</span> = <span style="color:#ff0000">erase_event</span>, "</span><span class="p">;</span>
+    <span class="k">break</span><span class="p">;</span>
+  <span class="k">case</span> <span class="n"><a href="../ios_base.html">std::ios_base</a></span><span class="o">::</span><span class="nl"><span style="color:#ff0000">copyfmt_event</span></span><span class="p">:</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"<span style="color:#ff0000">event</span> = <span style="color:#ff0000">copyfmt_event</span>, "</span><span class="p">;</span>
+    <span class="k">break</span><span class="p">;</span>
+  <span class="k">case</span> <span class="n"><a href="../ios_base.html">std::ios_base</a></span><span class="o">::</span><span class="nl"><span style="color:#ff0000">imbue_event</span></span><span class="p">:</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"<span style="color:#ff0000">event</span> = <span style="color:#ff0000">imbue_event</span>, "</span><span class="p">;</span>
+    <span class="k">break</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"str = "</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">str</span> <span class="o">==</span> <span class="o">&amp;</span><span class="n">ss1</span> <span class="o">?</span> <span class="s">"ss1"</span> <span class="o">:</span> <span class="s">"ss2"</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">", index = "</span> <span class="o">&lt;&lt;</span> <span class="n">index</span> <span class="o">&lt;&lt;</span> <span class="s">", getloc.name = "</span> <span class="o">&lt;&lt;</span> <span class="n">str</span><span class="p">.</span><span class="n">getloc</span><span class="p">().</span><span class="n">name</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">ss1</span><span class="p">.</span><span class="n"><a href="register_callback.html">register_callback</a></span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="n"><a href="../../locale/locale.html">std::locale</a></span> <span class="n">l</span><span class="p">(</span><span class="s">"en_US.UTF-8"</span><span class="p">);</span>
+
+  <span class="p">{</span>
+    <span class="n"><a href="../../sstream/basic_stringstream.html">std::stringstream</a></span> <span class="n">ss2</span><span class="p">;</span>
+    <span class="n">ss2</span><span class="p">.</span><span class="n"><a href="register_callback.html">register_callback</a></span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"<a href="imbue.html">imbue</a> start</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+    <span class="n">ss2</span><span class="p">.</span><span class="n"><a href="imbue.html">imbue</a></span><span class="p">(</span><span class="n">l</span><span class="p">);</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"<a href="imbue.html">imbue</a> end</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"<a href="../basic_ios/copyfmt.html">copyfmt</a> start</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+    <span class="n">ss2</span><span class="p">.</span><span class="n"><a href="../basic_ios/copyfmt.html">copyfmt</a></span><span class="p">(</span><span class="n">ss1</span><span class="p">);</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"<a href="../basic_ios/copyfmt.html">copyfmt</a> end</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"block end</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>imbue start
+event = imbue_event, str = ss2, index = 1, getloc.name = en_US.UTF-8
+imbue end
+copyfmt start
+event = erase_event, str = ss2, index = 1, getloc.name = en_US.UTF-8
+event = copyfmt_event, str = ss2, index = 0, getloc.name = C
+copyfmt end
+event = erase_event, str = ss2, index = 0, getloc.name = C
+block end
+event = erase_event, str = ss1, index = 0, getloc.name = C
+</code></pre></p>
+<p>なお、ロケールの名称（ここでは <code>en_US.UTF-8</code>）は環境依存のため、上記の例は動作しないこともある。<br />
+その場合でも、ロケールの名称を当該環境で適切なものに変更すれば動作するはずである。</p>
+<h2>バージョン</h2>
+<h2>言語</h2>
+<ul>
+<li>C++98</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: 3.0 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.1 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.2 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.3 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.4 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.5.0 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.6.0 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.7.0 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.8.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: 4.3.6 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.4.7 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.5.4 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.6.4 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.7.3 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.8.1 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.8.2 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.9.0 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.9.1 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.9.2 <span aria-label="検証済" role="img" title="検証済">✅</span>, 5.1.0 <span aria-label="検証済" role="img" title="検証済">✅</span>, 5.2.0 <span aria-label="検証済" role="img" title="検証済">✅</span>, 6.0.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><code><a href="../ios_base.html">ios_base</a>::<a href="register_callback.html">register_callback</a></code></li>
+<li><code><a href="../ios_base.html">ios_base</a>::<a href="type-event_callback.html">event_callback</a></code></li>
+<li><code><a href="../ios_base.html">ios_base</a>::<a href="op_destructor.html">~ios_base</a></code></li>
+<li><code><a href="../ios_base.html">ios_base</a>::<a href="imbue.html">imbue</a></code></li>
+<li><code><a href="../ios_base.html">ios_base</a>::<a href="getloc.html">getloc</a></code></li>
+<li><code><a href="../basic_ios.html">basic_ios</a>::<a href="../basic_ios/copyfmt.html">copyfmt</a></code></li>
+<li><code><a href="../basic_ios.html">basic_ios</a>::<a href="../basic_ios/exceptions.html">exceptions</a></code></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

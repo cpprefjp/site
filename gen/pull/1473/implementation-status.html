@@ -1,0 +1,2112 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>コンパイラの実装状況 - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,
+">
+        <meta name="title" content="コンパイラの実装状況 - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="コンパイラの実装状況 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="コンパイラの実装状況 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/implementation-status.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="コンパイラの実装状況 このページでは、C++のバージョンごとの言語機能を、どのコンパイラがどのバージョンからサポートしているかをまとめる。 ライブラリ機能については、本サイトのリファレンスで各機能を参照してもらいたい。  C++11 C++14 C++17 C++20 C++23 C++26  C++11言語機能の実装状況    言語機能 説明 GCC Clang ICC MSVC     N23" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="コンパイラの実装状況 - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/implementation-status.html" />
+        <meta name="twitter:description" content="コンパイラの実装状況 このページでは、C++のバージョンごとの言語機能を、どのコンパイラがどのバージョンからサポートしているかをまとめる。 ライブラリ機能については、本サイトのリファレンスで各機能を参照してもらいたい。  C++11 C++14 C++17 C++20 C++23 C++26  C++11言語機能の実装状況    言語機能 説明 GCC Clang ICC MSVC     N23" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="./static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="./static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="./static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="./manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="./static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="./static/css/root.css"> -->
+
+        
+  
+
+
+<link href="./static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="./static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="./static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="./static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="./static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="./static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;implementation-status&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="./index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="./index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">コンパイラの実装状況</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-06-25T13:48:21">
+        2025年06月25日 13時48分21秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">suomesta</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/implementation-status.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/implementation-status.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">コンパイラの実装状況</span></h1>
+<div itemprop="articleBody"><p>このページでは、C++のバージョンごとの言語機能を、どのコンパイラがどのバージョンからサポートしているかをまとめる。</p>
+<p>ライブラリ機能については、本サイトのリファレンスで各機能を参照してもらいたい。</p>
+<ul>
+<li><a href="#cpp11">C++11</a></li>
+<li><a href="#cpp14">C++14</a></li>
+<li><a href="#cpp17">C++17</a></li>
+<li><a href="#cpp20">C++20</a></li>
+<li><a href="#cpp23">C++23</a></li>
+<li><a href="#cpp26">C++26</a></li>
+</ul>
+<h2><a href="#cpp11" id="cpp11">C++11言語機能の実装状況</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+<th><a href="implementation.html#gcc">GCC</a></th>
+<th><a href="implementation.html#clang">Clang</a></th>
+<th><a href="implementation.html#icc">ICC</a></th>
+<th><a href="implementation.html#visual_cpp">MSVC</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N2341: <code><a href="lang/cpp11/alignas.html">alignas</a></code></td>
+<td>アライメント指定</td>
+<td>4.8</td>
+<td>3.0</td>
+<td>15.0</td>
+<td>2015<br />2003あるいはそれ以前からある<code>__declspec(align(x))</code>構文で代替可能。</td>
+</tr>
+<tr>
+<td>N2341: <code><a href="lang/cpp11/alignof.html">alignof</a></code></td>
+<td>アライメント取得</td>
+<td>4.5</td>
+<td>3.3</td>
+<td>15.0</td>
+<td>2015<br />2003あるいはそれ以前よりある<code>__alignof</code>で代替可能。</td>
+</tr>
+<tr>
+<td>N1984: <a href="lang/cpp11/auto.html">変数の型推論のためのauto</a></td>
+<td>型推論</td>
+<td>4.4</td>
+<td>2.9</td>
+<td>12.0</td>
+<td>2010</td>
+</tr>
+<tr>
+<td>N2343: <code><a href="lang/cpp11/decltype.html">decltype</a></code></td>
+<td>式の型を取得</td>
+<td>4.3</td>
+<td>2.9</td>
+<td>13.0</td>
+<td>2010 (partial)<br /> 2012</td>
+</tr>
+<tr>
+<td>N1653: C99互換のプリプロセッサ</td>
+<td><a href="lang/cpp11/variadic_macros.html">可変引数マクロ</a>、<a href="lang/cpp11/pragma_operator.html">Pragma演算子</a>、<code><a href="lang/cpp11/func.html">__func__</a></code></td>
+<td>4.3</td>
+<td>2.9</td>
+<td>11.1</td>
+<td>2005 (partial): 可変引数のみ <code>_Pragma</code>の代わりに<code>__pragma</code>が存在する。<br /> 2019 Update 6</td>
+</tr>
+<tr>
+<td>N2235: <code><a href="lang/cpp11/constexpr.html">constexpr</a></code></td>
+<td>定数式</td>
+<td>4.6</td>
+<td>3.1</td>
+<td>13.0 (partial)<br /> 14.0</td>
+<td>2015 (partial)<br /> 2015 Update 1</td>
+</tr>
+<tr>
+<td>N2346: <a href="lang/cpp11/defaulted_and_deleted_functions.html">関数の<code>default/delete</code>宣言</a></td>
+<td>自動定義される特殊関数の制御</td>
+<td>4.4</td>
+<td>3.0</td>
+<td>12.0</td>
+<td>2013: ムーブコンストラクタ・ムーブ代入演算子の<code>default</code>は不可<br /> 2015</td>
+</tr>
+<tr>
+<td>N1986: <a href="lang/cpp11/delegating_constructors.html">委譲コンストラクタ</a></td>
+<td>コンストラクタから他のコンストラクタに処理を委譲する</td>
+<td>4.7</td>
+<td>3.0</td>
+<td>14.0</td>
+<td>2013</td>
+</tr>
+<tr>
+<td>N2437: <a href="lang/cpp11/explicit_conversion_operator.html">明示的な型変換演算子のオーバーロード</a></td>
+<td>明示的な型変換が行われる場合にのみ呼び出される演算子を<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>できるようにする</td>
+<td>4.5</td>
+<td>3.0</td>
+<td>14.0</td>
+<td>2013</td>
+</tr>
+<tr>
+<td>N1791: <a href="lang/cpp11/extend_friend_targets.html"><code>friend</code>宣言できる対象を拡張</a></td>
+<td>テンプレートパラメータや型の別名を<code>friend</code>宣言</td>
+<td>4.7</td>
+<td>2.9</td>
+<td>11.1 (partial) <br /> 12.0</td>
+<td>2010</td>
+</tr>
+<tr>
+<td>N1987: <code><a href="lang/cpp11/extern_template.html">extern template</a></code></td>
+<td>テンプレートのインスタンス化抑止</td>
+<td>3.3</td>
+<td>2.9</td>
+<td>11.1</td>
+<td>6.0</td>
+</tr>
+<tr>
+<td>N2540: <a href="lang/cpp11/inheriting_constructors.html">継承コンストラクタ</a></td>
+<td>基底クラスのコンストラクタを継承する</td>
+<td>4.8</td>
+<td>3.3</td>
+<td>15.0</td>
+<td>2015</td>
+</tr>
+<tr>
+<td>N2927: <a href="lang/cpp11/lambda_expressions.html">ラムダ式</a></td>
+<td>関数オブジェクトをその場に書く</td>
+<td>4.5</td>
+<td>3.1</td>
+<td>12.0</td>
+<td>2010 (partial)<br /> 2012</td>
+</tr>
+<tr>
+<td>N2657: <a href="lang/cpp11/local_and_unnamed_type_as_template_arguments.html">ローカル型と無名型を、テンプレート引数として使用することを許可</a></td>
+<td>ローカルおよび無名として定義したクラスや列挙型を、テンプレート引数として渡せるようにする</td>
+<td>4.5</td>
+<td>2.9</td>
+<td>12.0</td>
+<td>2010</td>
+</tr>
+<tr>
+<td>N1811: <a href="lang/cpp11/long_long_type.html"><code>long long</code>型</a></td>
+<td>64ビット以上の大きさを持つ整数型</td>
+<td>4.3</td>
+<td>2.9</td>
+<td>11.1</td>
+<td>2003</td>
+</tr>
+<tr>
+<td>N2535: <a href="lang/cpp11/inline_namespaces.html">インライン名前空間</a></td>
+<td>ネストした名前空間に、透過的にアクセスする</td>
+<td>4.4</td>
+<td>2.9</td>
+<td>14.0</td>
+<td>2015</td>
+</tr>
+<tr>
+<td>N2249: <a href="lang/cpp11/char16_32.html"><code>char16_t</code>と<code>char32_t</code></a></td>
+<td>UTF-16とUTF-32の文字型</td>
+<td>4.4</td>
+<td>2.9</td>
+<td>12.1 (Windows: partial) <br /> 12.1 (GNU/Linux, macOS)<br /> 14.0</td>
+<td>2015<br /> 2010より組み込み型ではなく型の別名として存在する</td>
+</tr>
+<tr>
+<td>N2442: <a href="lang/cpp11/utf8_string_literals.html">UTF-8文字列リテラル</a></td>
+<td><code>char</code>の文字列をUTF-8エンコーディングするプレフィックス</td>
+<td>4.5</td>
+<td>3.0</td>
+<td>12.1 (Windows: partial) <br /> 12.1 (GNU/Linux, macOS)<br /> 14.0</td>
+<td>2015</td>
+</tr>
+<tr>
+<td>N2442: <a href="lang/cpp11/raw_string_literals.html">生文字列リテラル</a></td>
+<td>文字列リテラルにRプレフィックスを付けることで、エスケープシーケンスを無視する</td>
+<td>4.5</td>
+<td>3.0</td>
+<td>14.0</td>
+<td>2013</td>
+</tr>
+<tr>
+<td>N2765: <a href="lang/cpp11/user_defined_literals.html">ユーザー定義リテラル</a></td>
+<td>リテラルのサフィックスを<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>する</td>
+<td>4.7</td>
+<td>3.1</td>
+<td>15.0</td>
+<td>2015</td>
+</tr>
+<tr>
+<td>N2541: <a href="lang/cpp11/trailing_return_types.html">戻り値の型を後置する関数宣言構文</a></td>
+<td>以下のような形式での関数宣言<br /> <code>auto f(arg_types...) -&gt; return_type</code></td>
+<td>4.4</td>
+<td>2.9</td>
+<td>12.0</td>
+<td>2010</td>
+</tr>
+<tr>
+<td>N2431: <code><a href="lang/cpp11/nullptr.html">nullptr</a></code></td>
+<td>ヌルポインタを表すポインタリテラル</td>
+<td>4.6</td>
+<td>3.0</td>
+<td>11.1</td>
+<td>2010</td>
+</tr>
+<tr>
+<td>N1757: <a href="lang/cpp11/right_angle_brackets.html">テンプレートでの連続した右山カッコを許可</a></td>
+<td><code>vector&lt;basic_string&lt;char&gt;&gt;</code>のように、<code>&gt;&gt;</code>をスペースを空けずに記述可能にする</td>
+<td>4.3</td>
+<td>2.9</td>
+<td>11.1</td>
+<td>2005</td>
+</tr>
+<tr>
+<td>N2118: <a href="lang/cpp11/rvalue_ref_and_move_semantics.html">右辺値参照・ムーブセマンティクス</a></td>
+<td>右辺値による<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>、およびそれによるリソースの所有権移動</td>
+<td>4.3 (partial)<br /> 4.6</td>
+<td>2.9</td>
+<td>12.0</td>
+<td>2010 (partial) ムーブコンストラクタと代入演算子の暗黙定義に対応していない。<br /> 2015</td>
+</tr>
+<tr>
+<td>N1720: <a href="lang/cpp11/static_assert.html">コンパイル時アサート</a></td>
+<td>コンパイル時に条件式が真であることを表明する</td>
+<td>4.3</td>
+<td>2.9</td>
+<td>11.1</td>
+<td>2010</td>
+</tr>
+<tr>
+<td>N2347: <a href="lang/cpp11/scoped_enum.html#extended-unscoped-enum"><code>enum</code>の先行宣言</a></td>
+<td></td>
+<td>4.6</td>
+<td>3.1</td>
+<td>11.1 (partial)<br /> 14.0</td>
+<td>2012</td>
+</tr>
+<tr>
+<td>N2347: <a href="lang/cpp11/scoped_enum.html">スコープを持つ列挙型</a></td>
+<td>強い型付けとスコープを持つ列挙型</td>
+<td>4.4</td>
+<td>2.9</td>
+<td>11.1 (partial)<br /> 14.0</td>
+<td>2012</td>
+</tr>
+<tr>
+<td>N2258: <a href="lang/cpp11/alias_templates.html">エイリアステンプレート</a></td>
+<td>テンプレートによって型の別名を定義する</td>
+<td>4.7</td>
+<td>3.0</td>
+<td>12.1</td>
+<td>2013</td>
+</tr>
+<tr>
+<td>N2544: <a href="lang/cpp11/unrestricted_unions.html">共用体でクラスオブジェクトをもつことを許可</a></td>
+<td>共用体のメンバ変数として、クラスオブジェクトを持つ</td>
+<td>4.6</td>
+<td>3.1</td>
+<td>14.0(Linux系OSおよびMacのみ。Windowsは非対応)</td>
+<td>2015</td>
+</tr>
+<tr>
+<td>N2242: <a href="lang/cpp11/variadic_templates.html">可変引数テンプレート</a></td>
+<td>任意の数のテンプレートパラメータを受け取れるようにする</td>
+<td>4.3 (partial)<br /> 4.4</td>
+<td>2.9</td>
+<td>12.1</td>
+<td>2013</td>
+</tr>
+<tr>
+<td>N2930: <a href="lang/cpp11/range_based_for.html">範囲for文</a></td>
+<td>配列やコンテナといった範囲を表すオブジェクトを、簡潔に走査する</td>
+<td>4.6</td>
+<td>3.0</td>
+<td>13.0</td>
+<td>2012</td>
+</tr>
+<tr>
+<td>N2928: <a href="lang/cpp11/override_final.html"><code>override</code>と<code>final</code></a></td>
+<td>メンバ関数のオーバーライド指定、および派生クラスでの<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を禁止する指定</td>
+<td>4.7</td>
+<td>2.9</td>
+<td>14.0</td>
+<td>2005 (partial): <code>override</code>のみ。<code>final</code>の代わりにsealedが存在する。ただし両者ともデストラクタには指定できない。<br /> 2012</td>
+</tr>
+<tr>
+<td>N2761: <a href="lang/cpp11/attributes.html">属性構文</a></td>
+<td><code>[[attr]]</code>構文による、クラス、関数、変数の属性指定</td>
+<td>4.8</td>
+<td>3.3</td>
+<td>12.1</td>
+<td>2015</td>
+</tr>
+<tr>
+<td>N2439: <a href="lang/cpp11/ref_qualifier_for_this.html">メンバ関数の左辺値／右辺値修飾</a></td>
+<td>オブジェクトが左辺値／右辺値の場合のみ呼び出し可能であることの指定</td>
+<td>4.8.1</td>
+<td>2.9</td>
+<td>14.0</td>
+<td>2015</td>
+</tr>
+<tr>
+<td>N2756: <a href="lang/cpp11/non_static_data_member_initializers.html">非静的メンバ変数の初期化</a></td>
+<td>メンバ変数を、宣言と同時に初期値指定する</td>
+<td>4.7</td>
+<td>3.0</td>
+<td>14.0</td>
+<td>2013</td>
+</tr>
+<tr>
+<td>N2672: <a href="lang/cpp11/initializer_lists.html">初期化子リスト</a></td>
+<td>波カッコによる初期化を<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>する。<code>vector&lt;int&gt; v = {1, 2, 3};</code>など。</td>
+<td>4.4</td>
+<td>3.1</td>
+<td>14.0</td>
+<td>2013</td>
+</tr>
+<tr>
+<td>N2672: <a href="lang/cpp11/uniform_initialization.html">一様初期化</a></td>
+<td>コンストラクタ呼び出しを波カッコで行う。 <code>T x { a, b, c };</code></td>
+<td>4.4</td>
+<td>3.1</td>
+<td>13.0(partial)<br /> 14.0</td>
+<td>2013</td>
+</tr>
+<tr>
+<td>N3050: <code><a href="lang/cpp11/noexcept.html">noexcept</a></code></td>
+<td>関数の<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>指定、<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げる可能性のある式かbool値を返す演算子</td>
+<td>4.6</td>
+<td>3.0</td>
+<td>13.0(partial)<br />14.0</td>
+<td>2015</td>
+</tr>
+<tr>
+<td>N2634: <a href="lang/cpp11/sfinae_expressions.html">任意の式によるSFINAE</a></td>
+<td>特定の式が有効かどうかで、その関数を<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>に含めるかどうかを決定する</td>
+<td>4.4</td>
+<td>2.9</td>
+<td>12.0</td>
+<td>2015 Update 1 (partial)<br /> 2017 Update 7</td>
+</tr>
+<tr>
+<td>N2659: <a href="lang/cpp11/thread_local_storage.html">スレッドローカルストレージ</a></td>
+<td>スレッドごとに異なる静的記憶域に保持される変数</td>
+<td>4.8</td>
+<td>3.3</td>
+<td>11.1 (partial)</td>
+<td>2010<br /> <code>__declspec(thread)</code>属性での部分サポート<br /> 2015</td>
+</tr>
+<tr>
+<td>N2660: <a href="lang/cpp11/static_initialization_thread_safely.html">ブロックスコープを持つ<code>static</code>変数初期化のスレッドセーフ化</a></td>
+<td>関数ローカルで定義した<code>static</code>変数の初期化を、スレッドセーフにする</td>
+<td>4.3</td>
+<td>2.9</td>
+<td>11.0 (Lnux/macOS)<br /> 14.0</td>
+<td>2015</td>
+</tr>
+</tbody>
+</table>
+<p>各処理系のC++11実装状況ページ：</p>
+<ul>
+<li>全体的な対応状況： <a href="http://web.archive.org/web/20160327011707/https://wiki.apache.org/stdcxx/C++0xCompilerSupport" target="_blank">C++0xCompilerSupport</a></li>
+<li>GCC： <a href="https://gcc.gnu.org/projects/cxx-status.html#cxx11" target="_blank">C++11 Support in GCC</a></li>
+<li>libstdc++ : <a href="https://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#status.iso.2011" target="_blank">C++ 2011</a></li>
+<li>Clang： <a href="http://clang.llvm.org/cxx_status.html" target="_blank">C++98 and C++11 Support in Clang</a><ul>
+<li><a href="http://clang.llvm.org/cxx_dr_status.html" target="_blank">C++ Defect Report Support in Clang</a></li>
+</ul>
+</li>
+<li>ICC : <a href="https://software.intel.com/en-us/articles/c0x-features-supported-by-intel-c-compiler" target="_blank">C++11 Features Supported by Intel® C++ Compiler</a></li>
+<li>Visual C++ (MSVC):<ul>
+<li><a href="https://docs.microsoft.com/ja-jp/cpp/visual-cpp-language-conformance" target="_blank">Visual C++ 言語への準拠</a></li>
+<li><a href="https://blogs.msdn.microsoft.com/vcblog/2018/05/07/announcing-msvc-conforms-to-the-c-standard/" target="_blank">Announcing: MSVC Conforms to the C++ Standard</a></li>
+</ul>
+</li>
+</ul>
+<h2><a href="#cpp14" id="cpp14">C++14言語機能の実装状況</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+<th><a href="implementation.html#gcc">GCC</a></th>
+<th><a href="implementation.html#clang">Clang</a></th>
+<th><a href="implementation.html#icc">ICC</a></th>
+<th><a href="implementation.html#visual_cpp">MSVC</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N3472: <a href="lang/cpp14/binary_literals.html">2進数リテラル</a></td>
+<td>2進数を表す<code>0b</code> or <code>0B</code>プレフィックスを付けた数値リテラルの記述を可能とする</td>
+<td>4.3(GNU)<br /> 4.9</td>
+<td>2.9</td>
+<td>11.0</td>
+<td>2015</td>
+</tr>
+<tr>
+<td>N3638: <a href="lang/cpp14/return_type_deduction_for_normal_functions.html">通常関数の戻り値型推論</a></td>
+<td>関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型を<code>auto</code>にすることで、<code>return</code>文から<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型を推論させる</td>
+<td>4.8(partial)<br />4.9</td>
+<td>3.3(partial)<br /> 3.4</td>
+<td>15.0</td>
+<td>2015</td>
+</tr>
+<tr>
+<td>N3648: <a href="lang/cpp14/initialize_capture.html">ラムダ式の初期化キャプチャ</a></td>
+<td>キャプチャに代入構文を導入し、一つの変数に複数のキャプチャ方法を指定可能にする</td>
+<td>4.9</td>
+<td>3.4</td>
+<td>15.0</td>
+<td>2015</td>
+</tr>
+<tr>
+<td>N3649: <a href="lang/cpp14/generic_lambdas.html">ジェネリックラムダ</a></td>
+<td>ラムダ式のパラメータを<code>auto</code>にすることで、ジェネリックな関数呼び出し演算子を持つ関数オブジェクトを生成する</td>
+<td>4.9</td>
+<td>3.4</td>
+<td>16.0</td>
+<td>2015</td>
+</tr>
+<tr>
+<td>N3651: <a href="lang/cpp14/variable_templates.html">変数テンプレート</a></td>
+<td>変数定義時のテンプレート指定を可能にする。</td>
+<td>5.1</td>
+<td>3.4</td>
+<td>16.0</td>
+<td>2015 Update 2</td>
+</tr>
+<tr>
+<td>N3652: <a href="lang/cpp14/relaxing_constraints_on_constexpr.html"><code>constexpr</code>関数内での条件分岐とループの文を許可</a></td>
+<td><code>if</code>文、<code>switch</code>文による条件分岐の許可。<br /><code>for</code>文、<code>while</code>文、<code>do-while</code>文によるループの許可。<br /><code>void</code><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型の許可<br />初期化を伴う変数宣言の許可。<br />変数書き換えの許可。</td>
+<td>5.1</td>
+<td>3.3(partial) <br /> 3.4</td>
+<td>16.0</td>
+<td>2017</td>
+</tr>
+<tr>
+<td>N3653: <a href="lang/cpp14/brace_elision_in_array_temporary_initialization.html">宣言時のメンバ初期化を持つ型の集成体初期化を許可</a></td>
+<td>一様初期化と初期化子リストを組み合わせた際、二重に波カッコが必要となっていた仕様を緩和し、波カッコを省略できるようにする</td>
+<td>5.1</td>
+<td>3.3</td>
+<td>16.0</td>
+<td>2017</td>
+</tr>
+<tr>
+<td>N3760: <a href="lang/cpp14/deprecated_attr.html"><code>[[deprecated]]</code>属性</a></td>
+<td>非推奨の機能であることを示す属性。</td>
+<td>4.9</td>
+<td>3.4</td>
+<td>15.0<br /> (Linux/Mac OS)</td>
+<td>2015<br />それ以前は<code>__declspec(deprecated)</code>で代替可能</td>
+</tr>
+<tr>
+<td>N3781: <a href="lang/cpp14/digit_separators.html">数値リテラルの桁区切り文字</a></td>
+<td>シングルクォーテーションで数値リテラルを桁区切りする。</td>
+<td>4.9</td>
+<td>3.4</td>
+<td>16.0</td>
+<td>2015</td>
+</tr>
+<tr>
+<td>N3778: <a href="lang/cpp14/sized_deallocation.html">サイズ付きデアロケーション</a></td>
+<td>サイズをとる<code>delete</code>演算子の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を許可する。</td>
+<td>5.1</td>
+<td>3.4</td>
+<td>16.0</td>
+<td>2015</td>
+</tr>
+</tbody>
+</table>
+<p>各処理系のC++14実装状況ページ：</p>
+<ul>
+<li>GCC: <a href="https://gcc.gnu.org/projects/cxx-status.html#cxx14" target="_blank">C++14 Support in GCC</a></li>
+<li>libstdc++: <a href="https://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#status.iso.2014" target="_blank">C++ 2014</a></li>
+<li>Clang: <a href="http://clang.llvm.org/cxx_status.html" target="_blank">C++98, C++11, and C++14 Support in Clang</a></li>
+<li>Visual C++ (MSVC):<ul>
+<li><a href="https://docs.microsoft.com/ja-jp/cpp/visual-cpp-language-conformance" target="_blank">Visual C++ 言語への準拠</a></li>
+<li><a href="https://blogs.msdn.microsoft.com/vcblog/2018/05/07/announcing-msvc-conforms-to-the-c-standard/" target="_blank">Announcing: MSVC Conforms to the C++ Standard</a></li>
+</ul>
+</li>
+<li>ICC: <a href="https://software.intel.com/en-us/articles/c14-features-supported-by-intel-c-compiler" target="_blank">C++14 Features Supported by Intel C++ Compiler</a><ul>
+<li><a href="https://software.intel.com/en-us/forums/topic/549502" target="_blank">Intel (R) Parallel Studio XE 2016 Beta program has begun</a></li>
+</ul>
+</li>
+</ul>
+<h2><a href="#cpp17" id="cpp17">C++17言語機能の実装状況</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+<th><a href="implementation.html#gcc">GCC</a></th>
+<th><a href="implementation.html#clang">Clang</a></th>
+<th><a href="implementation.html#icc">ICC</a></th>
+<th><a href="implementation.html#visual_cpp">MSVC</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N3928: <a href="lang/cpp17/extending_static_assert.html">メッセージなしの<code>static_assert</code></a></td>
+<td>デフォルトの表明メッセージを使用する</td>
+<td>6</td>
+<td>3.5</td>
+<td>18.0</td>
+<td>2017</td>
+</tr>
+<tr>
+<td>N4086: <a href="lang/cpp17/removing_trigraphs.html">トライグラフを削除</a></td>
+<td></td>
+<td>5.1</td>
+<td>3.5</td>
+<td>19.1</td>
+<td>2010</td>
+</tr>
+<tr>
+<td>N4051: <a href="lang/cpp17/allow_typename_in_a_template_template_parameter.html">テンプレートテンプレートパラメータに<code>typename</code>を許可</a></td>
+<td><code>class</code>キーワードしか使用できなかった部分に、<code>typename</code>を許可</td>
+<td>5.0</td>
+<td>3.5</td>
+<td>17.0</td>
+<td>2015</td>
+</tr>
+<tr>
+<td>N3922: <a href="lang/cpp17/new_rules_for_auto_deduction_from_braced-init-list.html">単一要素の波カッコ初期化を非配列とする</a></td>
+<td><code>initializer_list&lt;T&gt;</code>だったのを<code>T</code>に変更</td>
+<td>5</td>
+<td>3.8</td>
+<td>17.0</td>
+<td>2015</td>
+</tr>
+<tr>
+<td>N4295: <a href="lang/cpp17/folding_expressions.html">畳み込み式</a></td>
+<td>パラメータパックに対する2項演算の集積処理</td>
+<td>6</td>
+<td>3.6</td>
+<td>19.0</td>
+<td>2017 Update 5</td>
+</tr>
+<tr>
+<td>N4267: <a href="lang/cpp17/utf8_character_literals.html">UTF-8文字リテラル</a></td>
+<td>文字列リテラルだけでなく、文字リテラルにもUTF-8指定できるようにする</td>
+<td>6</td>
+<td>3.6</td>
+<td>17.0</td>
+<td>2015</td>
+</tr>
+<tr>
+<td>N4230: <a href="lang/cpp17/nested_namespace.html">入れ子名前空間の定義</a></td>
+<td><code>namespace A::B {}</code>のように、入れ子の名前空間を簡単に定義できるようにする</td>
+<td>6</td>
+<td>3.6</td>
+<td>17.0</td>
+<td>2015 Update 3</td>
+</tr>
+<tr>
+<td>N4266: <a href="lang/cpp17/attributes_for_namespaces_and_enumerators.html">名前空間と列挙子に属性の付加を許可</a></td>
+<td>名前空間の定義と、列挙型の各要素の定義に、属性を付けられるようにする</td>
+<td>名前空間は4.0<br />列挙子は6</td>
+<td>3.6</td>
+<td>17.0</td>
+<td>2015</td>
+</tr>
+<tr>
+<td>N4268: <a href="lang/cpp17/allow_constant_evaluation_for_all_non-type_template_arguments.html">全ての非型テンプレート引数の定数式評価を許可</a></td>
+<td>ポインタの定数式評価として、配列からポインタへの変換や、関数から関数ポインタへの変換などを許可</td>
+<td>6</td>
+<td>3.6</td>
+<td>19.1</td>
+<td>2017 Update 5</td>
+</tr>
+<tr>
+<td>P0001R1: <a href="lang/cpp17/remove_deprecated_use_of_the_register_keyword.html">非推奨だった<code>register</code>キーワードを削除</a></td>
+<td></td>
+<td>7</td>
+<td>3.8</td>
+<td>18.0</td>
+<td>2017 Update 3</td>
+</tr>
+<tr>
+<td>P0002R1: <a href="lang/cpp17/remove_deprecated_increment_of_bool.html">非推奨だった<code>bool</code>型オブジェクトに対するインクリメントの仕様を削除</a></td>
+<td></td>
+<td>7</td>
+<td>3.8</td>
+<td>18.0</td>
+<td>2017 Update 3</td>
+</tr>
+<tr>
+<td>P0012R1: <a href="lang/cpp17/exception_spec_be_part_of_the_type_system.html">例外仕様を型システムの一部にする</a></td>
+<td></td>
+<td>7</td>
+<td>4</td>
+<td>18.0</td>
+<td>2017 Update 5</td>
+</tr>
+<tr>
+<td>P0061R1: <a href="lang/cpp17/has_include.html">プリプロセッサでの条件式<code>__has_include</code></a></td>
+<td>対象のインクルードファイルが存在するかをプリプロセス時に判定する</td>
+<td>5.0</td>
+<td>3.0</td>
+<td>18.0</td>
+<td>2017 Update 3</td>
+</tr>
+<tr>
+<td>P0136R1: <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0136r1.html" target="_blank">継承コンストラクタの新仕様</a></td>
+<td>デフォルト引数を引き継ぐようにした</td>
+<td>7</td>
+<td>3.9</td>
+<td>No</td>
+<td>2017 Update 7</td>
+</tr>
+<tr>
+<td>P0188R1: <a href="lang/cpp17/fallthrough.html"><code>[[fallthrough]]</code>属性</a></td>
+<td><code>case</code>節で<code>break</code>や<code>return</code>を書かなかった場合に、それが意図したフォールスルーであることをコンパイラに伝える属性</td>
+<td>7</td>
+<td>3.9</td>
+<td>18.0</td>
+<td>2017</td>
+</tr>
+<tr>
+<td>P0189R1: <a href="lang/cpp17/nodiscard.html"><code>[[nodiscard]]</code>属性</a></td>
+<td>関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を無視してはならないことをユーザーに伝える属性</td>
+<td>4.8からは<code>[[gnu::warn_unused_result]]</code>を使用すること<br /> 7からサポート</td>
+<td>3.9</td>
+<td>18.0</td>
+<td>2017 Update 3</td>
+</tr>
+<tr>
+<td>P0212R1: <a href="lang/cpp17/maybe_unused.html"><code>[[maybe_unused]]</code>属性</a></td>
+<td>使用しない可能性がある変数であることをコンパイラに伝える属性</td>
+<td>4.8からは<code>[[gnu::unused]]</code>を使用すること<br /> 7からサポート</td>
+<td>3.9</td>
+<td>18.0</td>
+<td>2017 Update 3</td>
+</tr>
+<tr>
+<td>P0017R1: <a href="lang/cpp17/extension_to_aggregate_initialization.html">基底クラスのメンバ変数を集成体初期化するための波カッコを省略できるようにする</a></td>
+<td>基底クラスのメンバを集成体初期化するために、<code>derived d {{42}};</code>の代わりに<code>derived d {42};</code>と書けるようにする</td>
+<td>7</td>
+<td>3.9</td>
+<td>19.1</td>
+<td>2017 Update 7</td>
+</tr>
+<tr>
+<td>P0170R1: <a href="lang/cpp17/constexpr_lambda.html">ラムダ式を<code>constexpr</code>として使用できるようにする</a></td>
+<td>ラムダ式の関数オブジェクトが定数式の文脈で使用された場合に、それがコンパイル時に評価されるようにする</td>
+<td>7</td>
+<td>5</td>
+<td>19.0</td>
+<td>2017 Update 3</td>
+</tr>
+<tr>
+<td>P0184R0: <a href="lang/cpp17/generalizing_the_range-based_for_loop.html">範囲for文のイテレータ型が一致しないことを許可</a></td>
+<td><code>begin()</code>と<code>end()</code>が異なるイテレータ型を返せるようにすることで、終端イテレータを定義しやすくする</td>
+<td>6</td>
+<td>3.9</td>
+<td>18.0</td>
+<td>2017</td>
+</tr>
+<tr>
+<td>P0018R3: <a href="lang/cpp17/lambda_capture_of_this_by_value.html">ラムダ式での<code>*this</code>のコピーキャプチャ</a></td>
+<td>キャプチャリストに<code>*this</code>を指定することで、<code>*this</code>をコピーキャプチャする</td>
+<td>7</td>
+<td>3.9</td>
+<td>19.0</td>
+<td>2017 Update 3</td>
+</tr>
+<tr>
+<td>P0138R2: <a href="lang/cpp17/construction_enum_class_values.html"><code>enum class</code>変数の初期値として整数を指定する際の規則を調整</a></td>
+<td>キャストを使用することなく整数を初期値として使用し、<code>E e{0};</code>のような初期化を許可</td>
+<td>7</td>
+<td>3.9</td>
+<td>19.0</td>
+<td>2017 Update 3</td>
+</tr>
+<tr>
+<td>P0245R1: <a href="lang/cpp17/hexadecimal_floating_literals.html">16進浮動小数点数リテラル</a></td>
+<td><code>hexfloat</code>マニピュレータや<code>printf()</code>の16進数出力に合わせて、浮動小数点数のリテラルも16進数表記できるようにする</td>
+<td>3.0</td>
+<td>3.0</td>
+<td>18.0</td>
+<td>2017 Update 5</td>
+</tr>
+<tr>
+<td>P0028R4: <a href="lang/cpp17/using_attribute_namespaces.html">属性の名前空間指定に繰り返しをなくす</a></td>
+<td><code>[[using CC: opt(1), debug]]</code>のように属性の名前空間宣言をまとめて行う</td>
+<td>7</td>
+<td>3.9</td>
+<td>18.0</td>
+<td>2017 Update 3</td>
+</tr>
+<tr>
+<td>P0035R4: <a href="lang/cpp17/dynamic_memory_allocation_for_over-aligned_data.html">アライメント指定されたデータの動的メモリ確保</a></td>
+<td><code>operator new</code>と<code>operator delete</code>でアライメント値を取得できるようにする</td>
+<td>7</td>
+<td>4</td>
+<td>19.0</td>
+<td>2017 Update 5</td>
+</tr>
+<tr>
+<td>P0091R3: <a href="lang/cpp17/type_deduction_for_class_templates.html">クラステンプレートのテンプレート引数推論</a></td>
+<td>コンストラクタの引数からクラスのテンプレート引数を推論できるようにする</td>
+<td>7</td>
+<td>5</td>
+<td>19.1</td>
+<td>2017 Update 7</td>
+</tr>
+<tr>
+<td>P0127R2: <a href="lang/cpp17/declaring_non-type_template_arguments_with_auto.html">非型テンプレート引数の<code>auto</code>宣言</a></td>
+<td><code>template &lt;typename T, T x&gt;</code>という冗長なコードを<code>template &lt;auto x&gt;</code>のようにして受けられるようにし、<br /> <code>X&lt;3&gt;; X&lt;true&gt;; X&lt;'a'&gt;</code>のように定数を簡潔に渡せるようにする</td>
+<td>7</td>
+<td>4</td>
+<td>19.1</td>
+<td>2017 Update 7</td>
+</tr>
+<tr>
+<td>P0135R1: <a href="lang/cpp17/guaranteed_copy_elision.html">値のコピー省略を保証</a></td>
+<td>一時オブジェクトをコピーする際に、単純な値を持つクラスであればコピーが省略されることを保証する</td>
+<td>7</td>
+<td>4</td>
+<td>19.1</td>
+<td>2017 Update 6</td>
+</tr>
+<tr>
+<td>P0145R3: <a href="lang/cpp17/expression_evaluation_order.html">厳密な式の評価順</a></td>
+<td>式の項が評価される順序を厳密に規定する。<br /> <code>b = a;</code>の式が右から順番(a, bの順)に評価される</td>
+<td>7</td>
+<td>4</td>
+<td>19.1</td>
+<td>2017 Update 7</td>
+</tr>
+<tr>
+<td>P0283R2: <a href="lang/cpp17/non_standard_attributes.html">不明な属性を無視する</a></td>
+<td>実装が知らない名前空間の属性は無視する</td>
+<td>4.8</td>
+<td>3.0</td>
+<td>18.0</td>
+<td>2015</td>
+</tr>
+<tr>
+<td>P0292R2: <a href="lang/cpp17/if_constexpr.html">constexpr if文</a></td>
+<td><code>if constexpr(cond)</code>とすることで、そのif文はコンパイル時に処理される</td>
+<td>7</td>
+<td>3.9</td>
+<td>19.0</td>
+<td>2017 Update 3</td>
+</tr>
+<tr>
+<td>P0386R2: <a href="lang/cpp17/inline_variables.html">インライン変数</a></td>
+<td>インライン指定を関数だけでなく変数にも指定できるようにする</td>
+<td>7</td>
+<td>3.9</td>
+<td>19.0</td>
+<td>2017 Update 5</td>
+</tr>
+<tr>
+<td>P0217R3: <a href="lang/cpp17/structured_bindings.html">構造化束縛</a></td>
+<td>タプルや<a class="cpprefjp-defined-word" data-desc="プログラム定義型。標準ライブラリの型を除く、ユーザー（プログラマ）によって定義された型のこと">ユーザー定義型</a>を分解して受け取れるようにする<br /> <code>tuple&lt;int, string&gt; f();</code> <br /> <code>const auto [a, b] = f(); // aはintの値、bはstringの値</code></td>
+<td>7</td>
+<td>4</td>
+<td>18.0</td>
+<td>2017 Update 3</td>
+</tr>
+<tr>
+<td>P0305R1: <a href="lang/cpp17/selection_statements_with_initializer.html">if文とswitch文の条件式と初期化を分離</a></td>
+<td><code>if (init; condition)</code>のように初期化と条件式を分けて記述できるようにする</td>
+<td>7</td>
+<td>3.9</td>
+<td>18.0</td>
+<td>2017 Update 3</td>
+</tr>
+<tr>
+<td>P0137R1: <a href="lang/cpp17/replacement_of_class_objects_containing_reference_members.html">参照メンバをもつクラスの置き換え</a></td>
+<td>参照型メンバや<code>const</code>メンバ変数を含むクラスについてこれまで<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>とされていた配置<code>new</code>によるオブジェクトの置き換えを条件付きで可能とする</td>
+<td>7</td>
+<td>6.0</td>
+<td>No</td>
+<td>2017 Update 7</td>
+</tr>
+<tr>
+<td>P0003R5: <a href="lang/cpp17/remove_deprecated_exception_specifications.html">非推奨だった例外仕様を削除</a></td>
+<td><code>noexcept</code>が入ったことによって非推奨になった<code>throw</code>キーワードによる<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>仕様を削除</td>
+<td>7</td>
+<td>4</td>
+<td>19.0</td>
+<td>2017 Update 5</td>
+</tr>
+<tr>
+<td>P0195R2: <a href="lang/cpp17/pack_expansions_in_using.html">using宣言でのパック展開</a></td>
+<td>パラメータパックの型を基底クラスとして指定した場合に、<code>using</code>宣言に基底クラスのパラメータパックを指定できるようにする</td>
+<td>7</td>
+<td>4</td>
+<td>19.0</td>
+<td>2017 Update 7</td>
+</tr>
+<tr>
+<td>P0512R0: <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0512r0.pdf" target="_blank">クラステンプレート引数の推論仕様を調整</a></td>
+<td></td>
+<td>8</td>
+<td>5.0</td>
+<td>No</td>
+<td>2017 Update 7</td>
+</tr>
+<tr>
+<td>P0490R0: <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0490r0.html" target="_blank">Committee Draftに対するNational Body Commentへの対応</a></td>
+<td></td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>P0522R0: <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0522r0.html" target="_blank">テンプレートテンプレート引数のマッチングにおいて、互換性のあるテンプレートを除外</a></td>
+<td></td>
+<td>7</td>
+<td>4 (partial)</td>
+<td>19.1</td>
+<td>2017 Update 5</td>
+</tr>
+</tbody>
+</table>
+<p>各処理系のC++17実装状況ページ：</p>
+<ul>
+<li>GCC: <a href="https://gcc.gnu.org/projects/cxx-status.html#cxx17" target="_blank">C++17 Support in GCC</a></li>
+<li>Clang: <a href="http://clang.llvm.org/cxx_status.html" target="_blank">C++ Support in Clang</a></li>
+<li>libc++ : <a href="https://libcxx.llvm.org/Status/Cxx17.html" target="_blank">libc++ C++17 Status</a></li>
+<li>Visual C++ (MSVC):<ul>
+<li><a href="https://docs.microsoft.com/ja-jp/cpp/visual-cpp-language-conformance" target="_blank">Visual C++ 言語への準拠</a></li>
+<li><a href="https://blogs.msdn.microsoft.com/vcblog/2018/05/07/announcing-msvc-conforms-to-the-c-standard/" target="_blank">Announcing: MSVC Conforms to the C++ Standard</a></li>
+</ul>
+</li>
+<li>ICC: <a href="https://software.intel.com/en-us/articles/c17-features-supported-by-intel-c-compiler" target="_blank">C++17 Features Supported by Intel C++ Compiler</a></li>
+</ul>
+<h2><a href="#cpp20" id="cpp20">C++20言語機能の実装状況</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+<th><a href="implementation.html#gcc">GCC</a></th>
+<th><a href="implementation.html#clang">Clang</a></th>
+<th><a href="implementation.html#icc">ICC</a></th>
+<th><a href="implementation.html#visual_cpp">MSVC</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P0683R1: <a href="lang/cpp20/default_member_initializers_for_bit_fields.html">ビットフィールドのメンバ変数初期化</a></td>
+<td>ビットフィールドメンバ変数のデフォルト値を設定する構文を追加する</td>
+<td>8</td>
+<td>6.0</td>
+<td>2021.4</td>
+<td>2019 Update 5</td>
+</tr>
+<tr>
+<td>P0409R2: <a href="lang/cpp20/allow_lambda_capture_equal_this.html">ラムダ式のキャプチャとして<code>[=, this]</code>を許可する</a></td>
+<td>デフォルトコピーキャプチャと<code>this</code>ポインタのコピーキャプチャを両方指定できるようにする</td>
+<td>8</td>
+<td>6.0</td>
+<td>2021.4</td>
+<td>2019 Update 2</td>
+</tr>
+<tr>
+<td>P0806R2: <a href="lang/cpp20/deprecate_implicit_capture_of_this_via_defcopy.html"><code>[=]</code>による<code>this</code>の暗黙のキャプチャを非推奨化</a></td>
+<td>コピーのデフォルトキャプチャでは、<code>this</code>ポインタをキャプチャされなくする</td>
+<td>9</td>
+<td></td>
+<td></td>
+<td>2019 Update 2</td>
+</tr>
+<tr>
+<td>P0428R2: <a href="lang/cpp20/familiar_template_syntax_for_generic_lambdas.html">ジェネリックラムダのテンプレート構文</a></td>
+<td>ジェネリックラムダでテンプレートパラメータを定義できるようにする</td>
+<td>8</td>
+<td>9.0</td>
+<td>2021.4</td>
+<td>2019 Update 2</td>
+</tr>
+<tr>
+<td>P0704R1: <a href="lang/cpp20/fixing_const_qualified_pointers_to_members.html"><code>const</code>修飾されたメンバポインタの制限を修正</a></td>
+<td><code>.*</code>演算子での左辺値の<code>const</code>メンバ関数呼び出しを許可する</td>
+<td>8</td>
+<td>6.0</td>
+<td>2021.4</td>
+<td>2015</td>
+</tr>
+<tr>
+<td>P0306R4: <a href="lang/cpp20/va_opt.html">可変引数が空でない場合のトークン置換</a></td>
+<td>プリプロセッサの置換で可変引数が空の場合に余計なカンマが付いてしまう問題に対処</td>
+<td>8 (partial, <code>#__VA_OPT__</code>による文字列化が未サポート)</td>
+<td>6.0<br /> 9.0 (<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1042r1.html" target="_blank">p1042</a>)</td>
+<td>2021.4</td>
+<td>2019 Update 5</td>
+</tr>
+<tr>
+<td>P0329R4: <a href="lang/cpp20/designated_initialization.html">指示付き初期化</a></td>
+<td>波カッコによる集成体初期化でメンバ名を指定して初期化できるようにする</td>
+<td>8</td>
+<td>6.0 (partial)</td>
+<td>2021.4</td>
+<td>2019 Update 1</td>
+</tr>
+<tr>
+<td>P0734R0: <a href="lang/cpp20/concepts.html">コンセプト</a></td>
+<td>テンプレートパラメータに対する制約を行う</td>
+<td>10</td>
+<td>10.0 (partial)</td>
+<td>2021.6</td>
+<td>2019 Update 3</td>
+</tr>
+<tr>
+<td>P0614R1: <a href="lang/cpp20/range-based_for_statements_with_initializer.html">初期化式をともなう範囲for文</a></td>
+<td>範囲for文スコープで使用する変数の初期化のための構文を追加</td>
+<td>9</td>
+<td>8.0</td>
+<td>2021.7</td>
+<td>2019 Update 5</td>
+</tr>
+<tr>
+<td>P0588R1: <a href="lang/cpp20/simplifying_implicit_lambda_capture.html">暗黙のラムダキャプチャを簡略化</a></td>
+<td>ラムダ式のキャプチャに関する仕様整理</td>
+<td>8</td>
+<td>No</td>
+<td>2021.4</td>
+<td>2019 Update 4</td>
+</tr>
+<tr>
+<td>P0846R0: <a href="lang/cpp20/adl_and_function_templates_that_are_not_visible.html">関数テンプレートに明示的に型指定した場合にADLで見つからない問題を修正</a></td>
+<td>名前空間内の関数テンプレートをテンプレート引数指定かつ非修飾・<a class="cpprefjp-defined-word" data-desc="実引数依存の名前探索 (Argument Dependent Lookup)。引数の型が所属する名前空間の関数を探索する言語機能">ADL</a>で正しく呼び出せるよう修正</td>
+<td>9</td>
+<td>9.0</td>
+<td>2021.4</td>
+<td>2019 Update 1</td>
+</tr>
+<tr>
+<td>P0641R2: <a href="lang/cpp20/resolving_const_mismatch_with_defaulted_copy_constructor.html">デフォルトのコピーコンストラクタと非<code>const</code>なコンストラクタが衝突する問題を修正</a></td>
+<td>非<code>const</code>なオブジェクトをとるコンストラクタを定義すると、そのクラスをラップしたクラスのコピーコンストラクタが<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="implementation-compliance.html#dfn-ill-formed">不適格</a>になってしまう問題を修正</td>
+<td>9</td>
+<td>8.0</td>
+<td>2021.4</td>
+<td>2015</td>
+</tr>
+<tr>
+<td>P0859R0: <a href="lang/cpp20/less_eager_instantiation_of_constexpr_functions.html">評価されない文脈での定数式評価によって特殊メンバ関数がインスタンス化されることを規定</a></td>
+<td><code>sizeof</code>や<code>decltype</code>などの評価されない文脈において定数式評価を行った場合に、ムーブコンストラクタのような特殊メンバ関数が定義されることを規定</td>
+<td>9</td>
+<td>8</td>
+<td></td>
+<td>Partial in 2019 Update 7</td>
+</tr>
+<tr>
+<td>P0515R3: <a href="lang/cpp20/consistent_comparison.html"><code>&lt;=&gt;</code>/<code>==</code>による比較演算子の自動定義</a></td>
+<td>三方比較演算子によって比較演算子の自動生成を行うようにする</td>
+<td>10</td>
+<td>8.0 (partial)</td>
+<td>2021.4</td>
+<td>2019</td>
+</tr>
+<tr>
+<td>P0692R1: <a href="lang/cpp20/access_checking_on_specializations.html">特殊化のアクセスチェック</a></td>
+<td></td>
+<td>Yes</td>
+<td>partial</td>
+<td>2021.4</td>
+<td>2019 Update 6</td>
+</tr>
+<tr>
+<td>P0624R2: <a href="lang/cpp20/default_constructible_and_assignable_stateless_lambdas.html">状態を持たないラムダ式を、デフォルト構築可能、代入可能とする</a></td>
+<td>キャプチャしていないラムダ式を<a class="cpprefjp-defined-word" data-desc="デフォルト初期化。`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト構築</a>・代入可能にする</td>
+<td>9</td>
+<td>8.0</td>
+<td>2021.4</td>
+<td>2019 Update 2</td>
+</tr>
+<tr>
+<td>P0767R1: <a href="lang/cpp20/deprecate_pod.html">PODを非推奨化</a></td>
+<td>PODという用語を非推奨化する</td>
+<td></td>
+<td></td>
+<td>2021.4</td>
+<td>2019 Update 5</td>
+</tr>
+<tr>
+<td>P0315R4: <a href="lang/cpp20/wording_for_lambdas_in_unevaluated_contexts.html">評価されない文脈でのラムダ式</a></td>
+<td>評価されない文脈でもラムダ式を書くことができるようにする</td>
+<td>9</td>
+<td>Partial</td>
+<td>2024.0</td>
+<td>2019 Update 8</td>
+</tr>
+<tr>
+<td>P0840R2: <a href="lang/cpp20/language_support_for_empty_objects.html">空オブジェクトを言語サポート</a></td>
+<td><code>[[no_unique_address]]</code>属性を導入し、空の型のオブジェクトをほかのオブジェクトと共有する最適化を許可する</td>
+<td>9</td>
+<td>9.0</td>
+<td>2021.4</td>
+<td>2019 Update 9 <sup><a href="#note-t1-1" id="note_ref-t1-1">†1</a></sup></td>
+</tr>
+<tr>
+<td>P0962R1: <a href="lang/cpp20/relaxing_the_range_for_loop_customization_point_finding_rules.html">範囲for文がカスタマイゼーションポイントを見つけるルールを緩和</a></td>
+<td><code>begin()</code>/<code>end()</code>メンバ関数のどちらかが見つからなかった場合に非メンバ関数の<code>begin()</code>/<code>end()</code>を探しにいく</td>
+<td>8</td>
+<td>8</td>
+<td>2021.4</td>
+<td>2019 Update 5</td>
+</tr>
+<tr>
+<td>P0969R0: <a href="lang/cpp20/allow_structured_bindings_to_accessible_members.html">friend指定された関数内から構造化束縛を使用して非公開メンバ変数にアクセスすることを許可</a></td>
+<td>構造化束縛の仕様として公開メンバ変数のみを取り出せるようになっていたが、friend指定された関数からは非公開メンバ変数にもアクセスできるようにする</td>
+<td>8</td>
+<td>8.0</td>
+<td>2021.4</td>
+<td>2019</td>
+</tr>
+<tr>
+<td>P0961R1: <a href="lang/cpp20/relaxing_the_structured_bindings_customization_point_finding_rules.html">構造化束縛がカスタマイゼーションポイントを見つけるルールを緩和</a></td>
+<td>非テンプレートの<code>get()</code>メンバ関数が見つかった場合は、非メンバ関数の<code>get()</code>を探しにいく</td>
+<td>8</td>
+<td>8.0</td>
+<td>2021.4</td>
+<td>2019</td>
+</tr>
+<tr>
+<td>P0634R3: <a href="lang/cpp20/down_with_typename.html">型の文脈で<code>typename</code>の省略を許可</a></td>
+<td>型しか現れない文脈では、依存名を解決するための<code>typename</code>キーワードを省略できるようにする</td>
+<td>9</td>
+<td>16</td>
+<td>2023.1</td>
+<td>2019 Update 9</td>
+</tr>
+<tr>
+<td>P0780R2: <a href="lang/cpp20/allow_pack_expansion_in_lambda_init_capture.html">ラムダ式の初期化キャプチャでのパック展開を許可</a></td>
+<td><code>[...args = std::move(args)]</code>のようなキャプチャを許可</td>
+<td>9<br />10</td>
+<td>9.0</td>
+<td>2021.7</td>
+<td>2019 Update 2</td>
+</tr>
+<tr>
+<td>P0479R5: <a href="lang/cpp20/likely_and_unlikely_attributes.html">確率が高い分岐と低い分岐を伝える属性 <code>[[likely]]</code>, <code>[[unlikely]]</code></a></td>
+<td>条件分岐の最適化ヒントを与える属性</td>
+<td>9 (partial, <code>switch</code> 文のみ可能)<br /> 10</td>
+<td>12.0</td>
+<td>2021.7</td>
+<td>2019 Update 6</td>
+</tr>
+<tr>
+<td>P0929R2: <a href="lang/cpp20/checking_for_abstract_class_types.html">抽象型のチェック</a></td>
+<td>関数の宣言段階では、パラメータおよび<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型が抽象型かどうかをチェックしないようにする</td>
+<td>11</td>
+<td></td>
+<td></td>
+<td>2019 Update 5</td>
+</tr>
+<tr>
+<td>P0732R2: <a href="lang/cpp20/class_types_in_non-type_template_parameters.html">非型テンプレートパラメータとしてクラス型を許可する</a></td>
+<td>定数式として使用できる型を広く非型テンプレートパラメータとして使用できるようにする</td>
+<td>9</td>
+<td>partial</td>
+<td>2022.2 Partial</td>
+<td>2019 Update 6</td>
+</tr>
+<tr>
+<td>P0722R3: <a href="lang/cpp20/efficient_sized_delete_for_variable_sized_classes.html">可変長データを扱うクラスの効率的な<code>delete</code></a></td>
+<td>クラスの<code>delete</code>演算子が呼び出される前にデストラクタが呼ばれないようにするオプションを追加</td>
+<td>9</td>
+<td>6.0</td>
+<td>2023.0</td>
+<td>2019 Update 7</td>
+</tr>
+<tr>
+<td>P1064R0: <a href="lang/cpp20/allow_virtual_function_calls_in_constant_expressions.html">定数式からの仮想関数の呼び出しを許可</a></td>
+<td>仮想関数に<code>constexpr</code>を付けられない制限を解除</td>
+<td>9</td>
+<td>9.0</td>
+<td>2021.4</td>
+<td>2019 Update 9</td>
+</tr>
+<tr>
+<td>P1327R1: <a href="lang/cpp20/allowing_dynamic_cast_polymorphic_typeid_in_constant_expressions.html">定数式での<code>dynamic_cast</code>、多態的な<code>typeid</code>を許可</a></td>
+<td>定数式での動的多態を許可</td>
+<td>10</td>
+<td>9.0</td>
+<td>2021.4</td>
+<td>2019 Update 9</td>
+</tr>
+<tr>
+<td>P1002R1: <a href="lang/cpp20/try-catch_blocks_in_constexpr_functions.html">constexpr関数内でのtry-catchブロックを許可</a></td>
+<td>constexpr関数内でtry-catchブロックを書けるようにする</td>
+<td>9</td>
+<td>8.0</td>
+<td>2023.1</td>
+<td>2019 Update 5</td>
+</tr>
+<tr>
+<td>P1073R3: <a href="lang/cpp20/immediate_functions.html">常に定数式評価する<code>consteval</code></a></td>
+<td><code>consteval</code>キーワードを追加し、常に定数式評価されるよう指定できるようにする</td>
+<td>11</td>
+<td>15</td>
+<td>2021.4</td>
+<td>2019 Update 10</td>
+</tr>
+<tr>
+<td>P1330R0: <a href="lang/cpp20/changing_the_active_member_of_a_union_inside_constexpr.html">定数式内での共用体のアクティブメンバの変更を許可</a></td>
+<td>共用体メンバの書き換えを定数式内で行えるようにする</td>
+<td>9</td>
+<td>9.0</td>
+<td>2021.4</td>
+<td>2017</td>
+</tr>
+<tr>
+<td>P1008R1: <a href="lang/cpp20/prohibit_aggregates_with_user-declared_constructors.html">ユーザー宣言したコンストラクタを持つクラスの集成体初期化を禁止</a></td>
+<td>コンストラクタが<code>delete</code>／<code>default</code>宣言されているクラスを、集成体初期化によってコンストラクタ呼び出しを回避して構築できてしまっていた技法を禁止</td>
+<td>9</td>
+<td>8.0</td>
+<td>2021.4</td>
+<td>2019</td>
+</tr>
+<tr>
+<td>P0892R2: <a href="lang/cpp20/explicit_bool.html">関数を条件付きで<code>explicit</code>にする構文を追加</a></td>
+<td><code>explicit(true)</code>のように<code>explicit</code>に真理値パラメータを指定できるようにする</td>
+<td>9</td>
+<td>9.0</td>
+<td>2021.4</td>
+<td>2019 Update 2</td>
+</tr>
+<tr>
+<td>P1236R1: <a href="lang/cpp20/signed_integers_are_twos_complement.html">符号付き整数型が2の補数表現であることを規定</a></td>
+<td>符号付き整数型のビット表現を2の補数に規定する</td>
+<td>9</td>
+<td>9.0</td>
+<td>2023.0</td>
+<td></td>
+</tr>
+<tr>
+<td>P0482R6: <a href="lang/cpp20/char8_t.html">UTF-8エンコーディングされた文字の型として<code>char8_t</code>を追加</a></td>
+<td>UTF-8エンコードされた文字かどうかで<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>・特殊化をできるようにする</td>
+<td>9</td>
+<td>7 (<code>-fchar8_t</code>オプションが必要)</td>
+<td>2021.4</td>
+<td>2019 Update 2</td>
+</tr>
+<tr>
+<td>P1094R2: <a href="lang/cpp20/nested_inline_mamespaces.html">入れ子名前空間定義でのインライン名前空間</a></td>
+<td><code>namespace ns1::inline ns2::ns3 {}</code>のように、入れ子名前空間を定義する式にインライン名前空間の指定を含められるようにする</td>
+<td>9</td>
+<td>8.0</td>
+<td>2021.4</td>
+<td>2019 Update 7</td>
+</tr>
+<tr>
+<td>P1091R3: <a href="lang/cpp20/extending_structured_bindings_to_be_more_like_variable_declarations.html">構造化束縛を拡張して通常の変数宣言のように使用できるようにする</a></td>
+<td>記憶域指定子として<code>static</code>と<code>thread_local</code>の指定を許可</td>
+<td>10</td>
+<td>8.0 (partial)</td>
+<td>2021.4</td>
+<td>2019 Update 4</td>
+</tr>
+<tr>
+<td>P1381R1: <a href="lang/cpp20/reference_capture_of_structured_bindings.html">構造化束縛した変数の参照キャプチャを許可</a></td>
+<td>構造化束縛をした変数は特殊な扱いのためラムダ式で参照キャプチャできない規定となっていたがこれを許可する</td>
+<td>8</td>
+<td>8.0 (partial)</td>
+<td>2021.4</td>
+<td>2017 Update 3</td>
+</tr>
+<tr>
+<td>P0960R3: <a href="lang/cpp20/allow_initializing_aggregates_from_a_parenthesized_list_of_values.html">丸カッコの値リストからの集成体初期化を許可</a></td>
+<td><code>T x{1, 2, 3};</code>と同様に<code>T x(1, 2, 3);</code>でも集成体初期化できるようにする</td>
+<td>10</td>
+<td>No</td>
+<td>2021.4</td>
+<td>2019 Update 8</td>
+</tr>
+<tr>
+<td>P1009R2: <a href="lang/cpp20/array_size_deduction_in_new-expressions.html"><code>new</code>式での配列要素数の推論</a></td>
+<td><code>double* p = new double[]{1,2,3};</code>を許可</td>
+<td>11</td>
+<td>9</td>
+<td>2021.4</td>
+<td>2019 Update 7</td>
+</tr>
+<tr>
+<td>P1041R4: <a href="lang/cpp20/make_char16t_char32t_string_literals_be_utf16_32.html"><code>char16_t</code>と<code>char32_t</code>の文字・文字列リテラルを、文字コードUTF-16/32に規定</a></td>
+<td><code>__STDC_UTF_16__</code>、<code>__STDC_UTF_32__</code>の定義に関係なく、<code>char16_t</code>、<code>char32_t</code>のリテラルをUTF-16/32文字コードに規定する</td>
+<td>10</td>
+<td>Yes</td>
+<td>2023.0</td>
+<td>2015</td>
+</tr>
+<tr>
+<td>P1103R3: <a href="lang/cpp20/modules.html">モジュール</a></td>
+<td>ヘッダファイル・ソースファイル、インクルードに変わる仕組みとしてモジュールを導入する</td>
+<td>11 (<code>-fmodules-ts</code>が必要)</td>
+<td>15<br />8.0 partial (<code>-fmodules</code>, <code>-fmodules-ts</code>が必要)</td>
+<td>2023.1 (Partial)</td>
+<td>2019 Update 8</td>
+</tr>
+<tr>
+<td>P0912R5: <a href="lang/cpp20/coroutines.html">コルーチン</a></td>
+<td>関数実行を中断・再開する仕組みとしてコルーチンを導入する</td>
+<td>10 (<code>-fcoroutines</code>が必要)</td>
+<td>8.0 (partial)</td>
+<td>2021.4</td>
+<td>2019 Update 8</td>
+</tr>
+<tr>
+<td>P1161R3: <a href="lang/cpp20/deprecate_uses_of_the_comma_operator_in_subscripting_expressions.html">添字演算子内でのカンマ演算子の使用を非推奨化</a></td>
+<td><code>ar[i, j]</code>を非推奨化。<code>ar[(i, j)]</code>はOK</td>
+<td>10</td>
+<td>9.0</td>
+<td>2021.6</td>
+<td>2019 Update 5</td>
+</tr>
+<tr>
+<td>P1331R2: <a href="lang/cpp20/permitting_trivial_default_initialization_in_constexpr_contexts.html">constexpr関数内でのトリビアルなデフォルト初期化を許可</a></td>
+<td>constexpr関数内での<a class="cpprefjp-defined-word" data-desc="`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト初期化</a>を許可し、未初期化値を読むことのみ禁止する</td>
+<td>10</td>
+<td>10.0</td>
+<td>2022.3</td>
+<td>2019 Update 7</td>
+</tr>
+<tr>
+<td>P0848R3: <a href="lang/cpp20/conditionally_trivial_special_member_functions.html">条件付きで特殊メンバ関数をトリビアルに定義するように</a></td>
+<td>制約によってトリビアルな特殊メンバ関数と非トリビアルな特殊メンバ関数を<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>できるようにする</td>
+<td>10</td>
+<td>16 Partial (consepts 未実装部あり)</td>
+<td>2022.3</td>
+<td>2019 Update 8</td>
+</tr>
+<tr>
+<td>P1301R4: <a href="lang/cpp20/nodiscard_should_have_a_reason.html"><code>[[nodiscard]]</code>属性に理由となる文字列を付加できるようにする</a></td>
+<td>関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を無視してはならない理由を関数宣言に持たせ、警告メッセージに役立てる</td>
+<td>10</td>
+<td>9.0</td>
+<td>2021.6</td>
+<td>2019 Update 5</td>
+</tr>
+<tr>
+<td>P1099R5: <a href="lang/cpp20/using_enum.html">スコープ付き列挙型のusing宣言</a></td>
+<td><code>using enum EnumType;</code>もしくは<code>using EnumType::enumerator</code>とすることで、列挙値のスコープ指定を省略できるようにする</td>
+<td>11</td>
+<td>13</td>
+<td>2023.0</td>
+<td>2019 Update 4</td>
+</tr>
+<tr>
+<td>P1816R0: <a href="lang/cpp20/class_template_argument_deduction_for_aggregates.html">集成体クラステンプレートのテンプレート引数推論</a></td>
+<td>クラステンプレートのテンプレート引数推論はコンストラクタ引数から推論されるが、集成体初期化からも推論できるようにする</td>
+<td>10</td>
+<td>No</td>
+<td>2024.0</td>
+<td>2019 Update 7</td>
+</tr>
+<tr>
+<td>P1668R1: <a href="lang/cpp20/enabling_constexpr_intrinsics_by_permitting_unevaluated_inline-assembly_in_constexpr_functions.html">constexpr関数内で未評価のインラインアセンブリを許可することによる組み込み関数のconstexpr有効化</a></td>
+<td>コンパイル時に評価されない場合にconstexpr関数にasm定義を含めることを許可</td>
+<td>10</td>
+<td>10.0</td>
+<td>2022.3</td>
+<td>2019 Update 9</td>
+</tr>
+<tr>
+<td>P0388R4: <a href="lang/cpp20/permit_conversions_to_arrays_of_unknown_bound.html">要素数不明の配列への変換を許可</a></td>
+<td>要素数が判明している配列から、要素数が不明の配列への変換を許可</td>
+<td>10</td>
+<td>14</td>
+<td>2021.6</td>
+<td>2019 Update 7</td>
+</tr>
+<tr>
+<td>P1143R2: <a href="lang/cpp20/constinit.html">コンパイル時初期化を強制する<code>constinit</code>キーワードを追加</a></td>
+<td>初期化のみコンパイル時におわらせたい場合に使用する</td>
+<td>10</td>
+<td>10.0</td>
+<td>2022.3</td>
+<td>2019 Update 10</td>
+</tr>
+<tr>
+<td>P1152R4: <a href="lang/cpp20/deprecating_volatile.html">ほとんどの<code>volatile</code>を非推奨化</a></td>
+<td><code>volatile</code>の有用な機能のみを残し、効果が疑わしい、または壊れている機能を非推奨化する</td>
+<td>10</td>
+<td>10.0</td>
+<td>2021.6</td>
+<td>2019 Update 7</td>
+</tr>
+<tr>
+<td>P1814R0: <a href="lang/cpp20/class_template_argument_deduction_for_alias_templates.html">エイリアステンプレート経由でのクラステンプレートのテンプレート引数推論</a></td>
+<td>エイリアステンプレートからクラステンプレートのテンプレート引数を推論できるようにする</td>
+<td>10</td>
+<td>No</td>
+<td></td>
+<td>2019 Update 7</td>
+</tr>
+<tr>
+<td>P0784R7: <a href="lang/cpp20/more_constexpr_containers.html">可変サイズをもつコンテナの<code>constexpr</code>化</a></td>
+<td><code>constexpr</code>記憶域をもつメモリアロケータの存在を考慮することで、可変サイズをもつコンテナをコンパイル時に使用できるようにする</td>
+<td>10</td>
+<td>10.0</td>
+<td>2021.6</td>
+<td>2019 Update 9</td>
+</tr>
+<tr>
+<td>P1957R2: <a href="lang/cpp20/converting_from_pointer_to_bool_should_be_considered_narrowing.html">ポインタから<code>bool</code>への変換を縮小変換とする</a></td>
+<td>ポインタから<code>bool</code>値への変換を縮小変換と規定することで、意図しない変換を防止する</td>
+<td>10</td>
+<td>11.0</td>
+<td></td>
+<td>2019 Update 7</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><a href="#note_ref-t1-1" id="note-t1-1"><strong>^</strong></a> 不明な属性として無視されなくなっただけで期待する効果は得られない。完全に実装されるまでは、代わりに<code><a href="https://devblogs.microsoft.com/cppblog/msvc-cpp20-and-the-std-cpp20-switch/#msvc-extensions-and-abi" target="_blank">[[msvc::no_unique_address]]</a></code>を使用できる。</li>
+</ul>
+<p>各処理系のC++20実装状況ページ：</p>
+<ul>
+<li>GCC: <a href="https://gcc.gnu.org/projects/cxx-status.html#cxx20" target="_blank">C++20 Support in GCC</a></li>
+<li>Clang: <a href="http://clang.llvm.org/cxx_status.html" target="_blank">C++ Support in Clang</a></li>
+<li>libstdc++: <a href="https://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#status.iso.2020" target="_blank">C++ 2020 Implementation Status</a></li>
+<li>libc++: <a href="https://libcxx.llvm.org/Status/Cxx20.html" target="_blank">libc++ C++20 Status</a></li>
+<li>Visual C++ (MSVC):<ul>
+<li><a href="https://docs.microsoft.com/ja-jp/cpp/visual-cpp-language-conformance" target="_blank">Visual C++ 言語への準拠</a></li>
+<li><a href="https://github.com/microsoft/STL/wiki/Changelog" target="_blank">次リリース情報(VS2019,2022) - Change log</a></li>
+</ul>
+</li>
+<li>ICC: <a href="https://www.intel.com/content/www/us/en/developer/articles/technical/c20-features-supported-by-intel-cpp-compiler.html" target="_blank">C++20 Features Supported by Intel® C++ Compiler</a></li>
+</ul>
+<h2><a href="#cpp23" id="cpp23">C++23言語機能の実装状況</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+<th><a href="implementation.html#gcc">GCC</a></th>
+<th><a href="implementation.html#clang">Clang</a></th>
+<th><a href="implementation.html#icc">ICX</a></th>
+<th><a href="implementation.html#visual_cpp">MSVC</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P0330R8: <a href="lang/cpp23/literal_suffix_for_signed_size_t.html">(符号付き)<code>size_t</code>リテラルのためのサフィックス</a></td>
+<td><code>42z</code>/<code>42Z</code>とすることで<code>size_t</code>に対応する符号付き整数型のリテラルとする</td>
+<td>11</td>
+<td>13</td>
+<td>2022.2</td>
+<td>2022 Update 13</td>
+</tr>
+<tr>
+<td>P2290R3: <a href="lang/cpp23/delimited_escape_sequences.html">エスケープシーケンスの区切り</a></td>
+<td>エスケープシーケンスの範囲を明確にする構文を追加する</td>
+<td>13</td>
+<td>15</td>
+<td>2023.2</td>
+<td>-</td>
+</tr>
+<tr>
+<td>P2266R3: <a href="lang/cpp23/simpler_implicit_move.html">暗黙的なムーブを簡略化</a></td>
+<td>参照を返す関数の<code>return</code>文で暗黙的にムーブされない問題を修正</td>
+<td>13</td>
+<td>13</td>
+<td>2022.2</td>
+<td>-</td>
+</tr>
+<tr>
+<td>P1787R6: <span href="https://cpprefjp.github.io/lang/cpp23/declarations_and_where_to_find_them.md.nolink">スコープと名前ルックアップの仕様整理</span></td>
+<td>複雑で不完全になっているスコープと名前ルックアップの仕様を整理し、一部の問題を解決する</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>P2615R1: <a href="lang/cpp23/meaningful_exports.html">無意味なexport宣言を禁止する</a></td>
+<td>いくつかの不必要な宣言に対するモジュールexportを禁止する</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>P2360R0: <a href="lang/cpp23/extend_init_statement_to_allow_alias_declaration.html">初期化文での型の別名宣言を許可</a></td>
+<td><code>for (using T = int; T e : v) {}</code>を許可</td>
+<td>12</td>
+<td>14</td>
+<td>2022.2</td>
+<td>-</td>
+</tr>
+<tr>
+<td>P2718R0: <a href="lang/cpp23/lifetime_extension_in_range_based_for_loop.html">範囲for文が範囲初期化子内で生じた一時オブジェクトを延命することを規定</a></td>
+<td>範囲初期化子内で生じた一時オブジェクトは範囲for文の終わりまで延命される</td>
+<td>-</td>
+<td>20</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>P2324R2: <a href="lang/cpp23/labels_at_the_end_of_compound_statements.html">複合文の末尾へのラベルを許可</a></td>
+<td>C互換のため、複合文の末尾でのgoto文のラベルを許可する</td>
+<td>13</td>
+<td>16</td>
+<td>2023.2</td>
+<td>-</td>
+</tr>
+<tr>
+<td>P0847R7: <span href="https://cpprefjp.github.io/lang/cpp23/deducing_this.md.nolink">自身のオブジェクトを明示的にパラメータとして指定する</span></td>
+<td>メンバ関数が<code>*this</code>の型・オブジェクトをパラメータとしてとり、<code>*this</code>オブジェクトがconst/非const、左辺値/右辺値であるかをメンバ関数内で識別できるようにする</td>
+<td>-</td>
+<td>18</td>
+<td>-</td>
+<td>2022 Update 2 (partial)</td>
+</tr>
+<tr>
+<td>P1847R4: <a href="lang/cpp23/make_declaration_order_layout_mandated.html">アクセス制御の異なるメンバ変数のレイアウトを宣言順に規定</a></td>
+<td>アクセス制御の異なるメンバ変数のレイアウトは並び替えを許可されていたが宣言順に規定する</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>-</td>
+<td>2022</td>
+</tr>
+<tr>
+<td>P2128R6: <a href="lang/cpp23/multidimensional_subscript_operator.html">添字演算子の多次元サポート</a></td>
+<td><code>operator[](int x, int y, int z)</code>のように添字演算子の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>で複数のパラメータをとることを許可</td>
+<td>12</td>
+<td>15</td>
+<td>2022.2</td>
+<td>2022 Update 12</td>
+</tr>
+<tr>
+<td>P1169R4: <a href="lang/cpp23/static_operator.html"><code>this</code>ポインタをもつ必要のない演算子を<code>static</code>として宣言できるようにする</a></td>
+<td>状態をもたないいくつかの演算子を<code>static</code>として宣言できるようにする</td>
+<td>13</td>
+<td>16</td>
+<td>2023.2</td>
+<td>2022 Update 14</td>
+</tr>
+<tr>
+<td>P2201R1: <a href="lang/cpp23/mixed_string_literal_concatenation.html">異なる文字エンコーディングをもつ文字列リテラルの連結を不適格とする</a></td>
+<td><code>auto a = u8"" L"";</code>のような異なる文字エンコーディング同士での文字列リテラルの連結を禁止する</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>2022.2</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>P2029R4: <span href="https://cpprefjp.github.io/lang/cpp23/numeric_and_universal_character_escapes_in_character_and_string_literals.md.nolink">文字・文字列リテラル中の数値・ユニバーサルキャラクタのエスケープに関する問題解決</span></td>
+<td></td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>P2362R3: <a href="lang/cpp23/remove_non_encodable_wide_character_literals_and_multicharacter_wide_character_literals.html">1ワイド文字に収まらないワイド文字リテラルを禁止する</a></td>
+<td>エンコード結果として<code>wchar_t</code>の大きさに収まらないワイド文字リテラルを禁止する</td>
+<td>13</td>
+<td>14</td>
+<td>2023.2</td>
+<td>-</td>
+</tr>
+<tr>
+<td>P2071R2: <a href="lang/cpp23/named_universal_character_escapes.html">名前付きユニバーサルキャラクタ名</a></td>
+<td>16進数のユニバーサルキャラクタだけでなく、その文字の名前を入力できるようにする</td>
+<td>13</td>
+<td>15</td>
+<td>2023.2</td>
+<td>-</td>
+</tr>
+<tr>
+<td>P2096R2: <a href="lang/cpp23/generalized_wording_for_partial_specializations.html">変数テンプレートの部分特殊化を許可</a></td>
+<td>変数テンプレートの部分特殊化を許可するために部分特殊化の仕様を汎用化</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>P2582R1: <a href="lang/cpp23/class_template_argument_deduction_from_inherited.html">継承コンストラクタからのクラステンプレート引数の推論</a></td>
+<td>継承コンストラクタからもクラステンプレート引数を推論できるようにする</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>P1938R3: <code><a href="lang/cpp23/if_consteval.html">if consteval</a></code></td>
+<td>コンパイル時の文脈かどうかで分岐させる</td>
+<td>12</td>
+<td>14</td>
+<td>-</td>
+<td>2022 Update 14</td>
+</tr>
+<tr>
+<td>P1401R5: <a href="lang/cpp23/narrowing_contextual_conversions_to_bool.html">定数式の文脈での<code>bool</code>への縮小変換を許可</a></td>
+<td><code>if constexpr(flags &amp; Flags::Exec)</code>や<code>static_assert(N);</code>を許可</td>
+<td>9</td>
+<td>13</td>
+<td>2022.2</td>
+<td>2022 Update 14</td>
+</tr>
+<tr>
+<td>P2242R3: <a href="lang/cpp23/non_literal_variables_in_constexpr_functions.html">定数式内での非リテラル変数、静的変数・スレッドローカル変数およびgotoとラベルの存在を許可する</a></td>
+<td>コンパイル時に評価されない限り、定数式内に静的変数・スレッドローカル変数およびgoto文とラベルを含むことを許可する</td>
+<td>12</td>
+<td>15</td>
+<td>2022.2</td>
+<td>2022 Update 13</td>
+</tr>
+<tr>
+<td>P2246R1: <a href="lang/cpp23/character_encoding_of_diagnostic_text.html">静的な診断メッセージの文字エンコーディング</a></td>
+<td><code>static_assert</code>や<code>[[deprecated]]</code>などの<a class="cpprefjp-defined-word" data-desc="診断情報。コンパイルエラーや警告。処理系がプログラム翻訳時に提供する情報の総称" href="implementation-compliance.html#dfn-diagnostic-message">診断メッセージ</a>の文字集合に関する要件をなくす</td>
+<td>-</td>
+<td>yes</td>
+<td>2022.2</td>
+<td>2022</td>
+</tr>
+<tr>
+<td>P2448R2: <a href="lang/cpp23/relaxing_some_constexpr_restrictions.html"><code>constexpr</code>関数が定数実行できない場合でも適格とする</a></td>
+<td></td>
+<td>13</td>
+<td>17 (partial)</td>
+<td>2024.0 (partial)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>P2647R1: <a href="lang/cpp23/permitting_static_constexpr_variables_in_constexpr_functions.html"><code>constexpr</code>関数内での<code>static constexpr</code>変数を許可</a></td>
+<td><code>constexpr</code>関数のローカルで定数を定義できるようにする</td>
+<td>13</td>
+<td>16</td>
+<td>2023.2</td>
+<td>-</td>
+</tr>
+<tr>
+<td>P2564R3: <a href="lang/cpp23/consteval_needs_to_propagate_up.html"><code>constexpr</code>関数内で<code>consteval</code>関数を呼び出せない問題を緩和</a></td>
+<td><code>consteval</code>呼び出しを含む<code>constexpr</code>関数を条件付きで<code>consteval</code>関数とみなすようにする</td>
+<td>-</td>
+<td>17</td>
+<td>2024.0</td>
+<td>-</td>
+</tr>
+<tr>
+<td>P1102R2: <a href="lang/cpp23/down_with_lambda_parens.html">ラムダ式で<code>()</code>を省略できる条件を緩和</a></td>
+<td>修飾や<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型をともなってもパラメータリストが空であれば<code>()</code>を省略できる</td>
+<td>11</td>
+<td>13</td>
+<td>2022.2</td>
+<td>2022 Update 14</td>
+</tr>
+<tr>
+<td>P2173R1: <a href="lang/cpp23/attributes_on_lambda_expressions.html">ラムダ式に対する属性</a></td>
+<td>ラムダ式のいくつかの箇所に属性を記述できるようにする</td>
+<td>9</td>
+<td>13</td>
+<td>2022.2</td>
+<td>2022 Update 14</td>
+</tr>
+<tr>
+<td>P1774R8: <a href="lang/cpp23/portable_assumptions.html">コード内容の仮定をコンパイラに伝えるassume属性</a></td>
+<td>最適化のために、コードの仮定をコンパイラに伝える属性を標準化する</td>
+<td>13</td>
+<td>19</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>P2316R2: <a href="lang/cpp23/consistent_character_literal_encoding.html">文字リテラルエンコーディングを一貫させる</a></td>
+<td>プリプロセッサの条件式での文字リテラルの扱いをC++式と同様にする</td>
+<td>yes</td>
+<td>yes</td>
+<td>2022.2</td>
+<td>2022</td>
+</tr>
+<tr>
+<td>P2334R1: <a href="lang/cpp23/add_support_for_preprocessing_directives_elifdef_and_elifndef.html"><code>elif</code>/<code>elifdef</code>/<code>elifndef</code>のサポートを追加</a></td>
+<td><code>#if</code>/<code>#ifdef</code>/<code>#ifndef</code>に対応する複数条件命令のサポートを追加する</td>
+<td>12</td>
+<td>13</td>
+<td>2022.2</td>
+<td>2022 Update 10</td>
+</tr>
+<tr>
+<td>P2437R1: <a href="lang/cpp23/warning.html"><code>#warning</code>のサポートを追加</a></td>
+<td>多くのC++コンパイラが実装していたプリプロセス時の警告<code>#warning message</code>を正式サポート</td>
+<td>yes</td>
+<td>yes</td>
+<td>2023.2</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>P2295R6: <a href="lang/cpp23/support_for_utf8_as_a_portable_source_file_encoding.html">汎用的なソースコードのエンコーディングとしてUTF-8をサポート</a></td>
+<td>すべてのコンパイラはUTF-8文字コードのソースコードをサポートしなければならない</td>
+<td>13</td>
+<td>15</td>
+<td>2023.2</td>
+<td>2019 Update 2</td>
+</tr>
+<tr>
+<td>P2223R2: <a href="lang/cpp23/trimming_whitespaces_before_line_splicing.html">行末スペースを無視するよう規定</a></td>
+<td>行末が「<code>\ </code>」でおわっていた場合にMSVCは行の継続をしない実装になっていたため動作を共通化するため仕様を規定</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>2022.2</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>各処理系のC++23実装状況ページ：</p>
+<ul>
+<li>GCC: <a href="https://gcc.gnu.org/projects/cxx-status.html#cxx23" target="_blank">C++23 Support in GCC</a></li>
+<li>Clang: <a href="https://clang.llvm.org/cxx_status.html#cxx23" target="_blank">C++23 implementation status</a></li>
+<li>Visual C++ (MSVC):<ul>
+<li><a href="https://learn.microsoft.com/en-us/cpp/overview/cpp-conformance-improvements?view=msvc-170" target="_blank">C++ Conformance improvements, behavior changes, and bug fixes in Visual Studio 2022</a></li>
+<li><a href="https://devblogs.microsoft.com/cppblog/msvc-compiler-updates-in-visual-studio-2022-version-17-13/" target="_blank">C++ Language Updates in MSVC in Visual Studio 2022 17.13</a></li>
+<li><a href="https://devblogs.microsoft.com/cppblog/msvc-compiler-language-updates-in-visual-studio-2022-version-17-12/" target="_blank">MSVC Compiler Language Updates in Visual Studio 2022 version 17.12</a></li>
+<li><a href="https://devblogs.microsoft.com/cppblog/c-language-updates-in-msvc-in-visual-studio-2022-17-14/" target="_blank">C++ Language Updates in MSVC in Visual Studio 2022 17.14</a></li>
+</ul>
+</li>
+<li>ICX: <a href="https://www.intel.com/content/www/us/en/developer/articles/technical/c23-features-supported-by-intel-c-compiler.html" target="_blank">C++23 Features Supported by Intel® C++ Compiler</a></li>
+</ul>
+<h2><a href="#cpp26" id="cpp26">C++26言語機能の実装状況</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>言語機能</th>
+<th>説明</th>
+<th><a href="implementation.html#gcc">GCC</a></th>
+<th><a href="implementation.html#clang">Clang</a></th>
+<th><a href="implementation.html#icc">ICX</a></th>
+<th><a href="implementation.html#visual_cpp">MSVC</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P2752R3: <a href="lang/cpp26/static_storage_for_braced_initializers.html"><code>std::initializer_list</code>の配列を静的記憶域に配置する</a></td>
+<td><code>std::vector v = {1, 2, 3};</code>のような初期化で初期化子リストを静的記憶域に配置することで無駄なコピーをなくす</td>
+<td>14</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P2169R4: <a href="lang/cpp26/nice_placeholder_with_no_name.html">宣言のみで使用しない変数の名前として<code>_</code>をサポート</a></td>
+<td>変数名<code>_</code>は暗黙で<code>[[maybe_unused]]</code>が指定される</td>
+<td>14</td>
+<td>18</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P1854R4: <a href="lang/cpp26/making_non-encodable_string_literals_ill-formed.html">文字列リテラルの文字エンコーディング失敗を不適格とする</a></td>
+<td>文字列リテラルのエンコーディング時に文字表現が失われる場合にコンパイルエラーにする</td>
+<td>14</td>
+<td>14</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P2361R6: <span href="https://cpprefjp.github.io/lang/cpp26/unevaluated_strings.md.nolink">コンパイル時にのみ使用される文字列の扱いを明確化</span></td>
+<td><code>static_assert</code>や<code>[[deprecated]]</code>などで使用されるコンパイル時の文字列について、文字コードの指定を禁止し、実行時エンコーディングが行われないことを規定</td>
+<td>14</td>
+<td>18</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P2552R3: <a href="lang/cpp26/on_the_ignorability_of_standard_attributes.html">属性の無視性を見直し</a></td>
+<td>構文として<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="implementation-compliance.html#dfn-well-formed">適格</a>な属性のみを無視できるようにし、そうでない属性の使用を<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="implementation-compliance.html#dfn-ill-formed">不適格</a>とする</td>
+<td>15</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P2738R1: <a href="lang/cpp26/constexpr_cast_from_voidptr.html">定数式での<code>void*</code>からポインタ型へのキャストを許可</a></td>
+<td>型消去のために<code>void*</code>からポインタ型へのキャストを許可する</td>
+<td>14</td>
+<td>17</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P2741R3: <a href="lang/cpp26/user-generated_static_assert_messages.html"><code>static_assert</code>の診断メッセージにユーザーが生成した文字列の指定を許可</a></td>
+<td><code>constexpr</code>な<code>S.size()</code>と<code>S.data()</code>メンバ関数をもつオブジェクトをコンパイル時文字列として指定できるようにする</td>
+<td>14</td>
+<td>17</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P2558R2: <a href="lang/cpp26/add_atsign_dollar_graveaccent_to_the_basic_character_set.html">基本文字集合に@、$、`を追加</a></td>
+<td>C言語との互換性のためにこれらの文字を基本文字集合に追加</td>
+<td>15</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P2662R3: <a href="lang/cpp26/pack_indexing.html">パラメータパックへのインデックスアクセスを許可</a></td>
+<td>可変引数テンプレートのパラメータパックに添字アクセスできるようにする</td>
+<td>15</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P2864R2: <a href="lang/cpp26/remove_deprecated_arithmetic_conversion_on_enumerations.html">非推奨となっていた列挙値から算術型への暗黙変換を削除</a></td>
+<td>C++20から非推奨となっていた列挙値への算術演算で算術型に暗黙変換される仕様を削除</td>
+<td>14</td>
+<td>18</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P2748R5: <a href="lang/cpp26/disallow_binding_a_returned_glvalue_to_a_temporary.html">返却された左辺値から暗黙変換された一時オブジェクトが参照に束縛されることを禁止する</a></td>
+<td>寿命切れの変数によって引き起こされるバグを防止する</td>
+<td>14</td>
+<td>19</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P3106R1: <a href="lang/cpp26/clarifying_rules_for_brace_elision_in_aggregate_initialization.html">要素数不明の配列を集成体初期化する規則を明確化</a></td>
+<td>配列要素の集成体初期化で<code>{}</code>が省略された場合の矛盾していた規定を修正</td>
+<td>yes</td>
+<td>17</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P0609R3: <a href="lang/cpp26/attributes_for_structured_bindings.html">構造化束縛への属性を許可</a></td>
+<td><code>auto [a, b [[maybe_unused]], c] = f();</code>のように構造化束縛の要素に対して属性を付加できるようにする</td>
+<td>15</td>
+<td>19</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P3034R1: <a href="lang/cpp26/module_declarations_shouldnt_be_macros.html">モジュール宣言でのモジュール名のマクロ展開を禁止する</a></td>
+<td><code>export module MACRO_NAME;</code>を禁止</td>
+<td>15</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P2809R3: <a href="lang/cpp26/trivial_infinite_loops_are_not_undefined_behavior.html">空の無限ループは未定義動作ではないと規定</a></td>
+<td>並行プログラムの進行保証などを考慮して空の無限ループを<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>ではないものとする</td>
+<td>14</td>
+<td>19</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P2795R5: <a href="lang/cpp26/erroneous_behavior_for_uninitialized_reads.html">未初期化変数の読み取りをエラー性動作とする</a></td>
+<td>初期化されていない自動変数の読み取りの安全性を規定する</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P2573R2: <a href="lang/cpp26/delete_reason.html">関数宣言を削除する理由を指定できるようにする</a></td>
+<td><code>f() = delete("reason");</code></td>
+<td>15</td>
+<td>19</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P2893R3: <a href="lang/cpp26/variadic_friends.html">可変引数テンプレートで<code>friend</code>宣言をできるようにする</a></td>
+<td>クラステンプレートの可変引数テンプレートでまとめて<code>friend</code>宣言できるようにする</td>
+<td>15</td>
+<td>20</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P2747R2: <a href="lang/cpp26/constexpr_placement_new.html"><code>constexpr</code>配置<code>new</code></a></td>
+<td>定数式の文脈での配置<code>new</code>を許可</td>
+<td>15</td>
+<td>20</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P3144R2: <a href="lang/cpp26/deleting_a_pointer_to_an_incomplete_type_should_be_ill-formed.html">不完全型へのポインタに対する<code>delete</code>を不適格とする</a></td>
+<td><a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こす操作をコンパイルエラーとする</td>
+<td>15</td>
+<td>19</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P2963R3: <span href="https://cpprefjp.github.io/lang/cpp26/ordering_of_constraints_involving_fold_expressions.md.nolink">制約式内での畳み込み式の順序付け</span></td>
+<td>畳み込み式では全体ではなく個別の制約を原子制約式として扱う</td>
+<td></td>
+<td>19</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P0963R3: <a href="lang/cpp26/structured_binding_declaration_as_a_condition.html">条件式での構造化束縛の使用を許可</a></td>
+<td>式全体を<code>bool</code>値に変換できる場合に条件式で構造化束縛を使用できることとする</td>
+<td>15</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P2686R5: <a href="lang/cpp26/constexpr_structured_bindings_and_references_to_constexpr_variables.html"><code>constexpr</code>構造化束縛の許可と、<code>constexpr</code>参照の制限緩和</a></td>
+<td>定数式に対する構造化束縛を許可し、関連して<code>constexpr</code>参照の制限を緩和して自動変数も参照できるようにする</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P3068R6: <a href="lang/cpp26/allowing_exception_throwing_in_constant-evaluation.html">定数評価での例外送出を許可</a></td>
+<td>定数式の文脈での<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>の送出と捕捉を許可</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P2865R6: <a href="lang/cpp26/remove_deprecated_array_comparisons.html">非推奨だった組み込み配列の比較を削除</a></td>
+<td>C++20で非推奨となっていた配列比較を削除</td>
+<td>15</td>
+<td>20</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P1061R10: <a href="lang/cpp26/structured_bindings_can_introduce_a_pack.html">構造化束縛でパックを導入できるようにする</a></td>
+<td>タプルを分解する際に複数の変数をパックとして宣言できるようにする。<code>auto [a, ...xs] = f();</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P3176R0: <a href="lang/cpp26/the_oxford_variadic_comma.html">先行するカンマのない省略記号を非推奨化</a></td>
+<td><code>void f(int, ...);</code>はOK。<code>void f(int...);</code>は非推奨</td>
+<td>15</td>
+<td>20</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P3074R7: <span href="https://cpprefjp.github.io/lang/cpp26/trivial_unions.md.nolink">共用体をトリビアルに未初期化できるようにする</span></td>
+<td><code>constexpr</code>での<code>union U { T storage[N]; };</code>を許可し、未初期化にできるようにする</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P2900R14: <a href="lang/cpp26/contracts.html">契約プログラミングをサポートする</a></td>
+<td>関数の<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a>、<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a>、不変条件を記述できるようにする</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P2841R7: <span href="https://cpprefjp.github.io/lang/cpp26/concept_and_variable-template_template-parameters.md.nolink">コンセプトと変数テンプレートにテンプレートテンプレートパラメータのサポートを追加</span></td>
+<td>テンプレート引数をあとで指定するテンプレートテンプレートパラメータを、コンセプトと変数テンプレートでも使用できるようにする</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P2786R13: <span href="https://cpprefjp.github.io/lang/cpp26/trivial_relocatability.md.nolink">トリビアルな再配置</span></td>
+<td>ムーブ構築と破棄のためにビット単位のコピーとデストラクタ評価が必要になる型のオブジェクトを再配置するメカニズムを導入する</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P1967R14: <a href="lang/cpp26/embed.html">ファイルを読み込む<code>#embed</code>命令を追加</a></td>
+<td>バイナリファイルをインクルードするメカニズム。<code>#include</code>とちがって読み出しサイズなどの柔軟な指定ができる</td>
+<td>15</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>各処理系のC++26実装状況ページ：</p>
+<ul>
+<li>GCC: <a href="https://gcc.gnu.org/projects/cxx-status.html#cxx26" target="_blank">C++26 Support in GCC</a></li>
+<li>Clang:<ul>
+<li><a href="https://clang.llvm.org/cxx_status.html#cxx26" target="_blank">C++2c implementation status</a></li>
+<li><a href="https://libcxx.llvm.org/Status/Format.html" target="_blank">libc++ Format Status</a></li>
+</ul>
+</li>
+<li>Visual C++ (MSVC):<ul>
+<li><a href="https://learn.microsoft.com/en-us/cpp/overview/cpp-conformance-improvements?view=msvc-170" target="_blank">C++ Conformance improvements, behavior changes, and bug fixes in Visual Studio 2022</a></li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
