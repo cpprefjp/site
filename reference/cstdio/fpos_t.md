@@ -5,7 +5,7 @@
 
 ```cpp
 namespace std {
-  using fpos_t = implementation-defined;
+  using fpos_t = object-type;
 }
 ```
 
