@@ -56,7 +56,6 @@ constexpr tuple& operator=(UTuple&&);                    // (13) C++23
 template<tuple-like UTuple>
 constexpr const tuple& operator=(UTuple&&) const;        // (14) C++23
 ```
-* see below[italic]
 * tuple-like[link ../tuple-like.md]
 
 ## 概要

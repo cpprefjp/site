@@ -17,7 +17,6 @@ namespace std {
               const charT* rhs);                                           // (2) C++20
 }
 ```
-* see below[italic]
 
 ## 概要
 `basic_string`オブジェクトの三方比較を行う。

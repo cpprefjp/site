@@ -30,7 +30,6 @@ optional& operator=(optional<U>&& rhs);                            // (6) C++17
 template <class U>
 constexpr optional& operator=(optional<U>&& rhs);                  // (6) C++23
 ```
-* see below[italic]
 * nullopt_t[link /reference/optional/nullopt_t.md]
 
 ## 概要

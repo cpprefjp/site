@@ -16,7 +16,6 @@ namespace std {
   using dims = see below;  // C++26以降
 }
 ```
-* see below[italic]
 
 ## 概要
 `extents`は、多次元配列の次元数(rank)と各次元の要素数(extent)を表現する。

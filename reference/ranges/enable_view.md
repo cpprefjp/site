@@ -29,7 +29,6 @@ namespace std::ranges {
   inline constexpr bool is-derived-from-view-interface = see below; // 説明専用
 }
 ```
-* see below[italic]
 
 `is-derived-from-view-interface<T>`は、`T`がある型`U`についてただ一つだけ`view_interface<U>`を`public`な基底クラスに持ち、他の型`V`についての`view_interface<V>`を基底クラスに持たない場合に`true`となる。
 

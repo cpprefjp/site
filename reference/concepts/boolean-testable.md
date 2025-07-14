@@ -10,7 +10,6 @@ namespace std {
   concept boolean-testable = /*see below*/; // 説明専用コンセプト
 }
 ```
-* see below[italic]
 
 ## 概要
 

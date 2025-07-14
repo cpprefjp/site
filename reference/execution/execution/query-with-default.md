@@ -9,7 +9,6 @@ template<class Tag, class Env, class Default>
 constexpr decltype(auto) query-with-default(
   Tag, const Env& env, Default&& value) noexcept(see below);
 ```
-* see below[italic]
 
 ## 概要
 `query-with-default`は、Senderアルゴリズム動作仕様定義で用いられる説明専用の関数テンプレートである。

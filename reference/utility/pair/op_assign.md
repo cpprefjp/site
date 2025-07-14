@@ -36,7 +36,6 @@ template<pair-like P>
 template<pair-like P>
   constexpr const pair& operator=(P&& p) const;             // (10) C++23
 ```
-* see below[italic]
 * pair-like[link /reference/tuple/pair-like.md]
 
 ## 概要

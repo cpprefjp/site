@@ -92,7 +92,6 @@ namespace std {
              int precision);             // (13) C++23
 }
 ```
-* see below[italic]
 * integer-type[italic]
 * to_chars_result[link to_chars_result.md]
 

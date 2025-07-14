@@ -28,7 +28,6 @@ namespace std::execution {
 * sender_in[link sender_in.md]
 * transform_completion_signatures[link transform_completion_signatures.md]
 * completion_signatures_of_t[link completion_signatures_of_t.md]
-* see below[italic]
 
 ## 概要
 [Sender型](sender.md)`Sndr`が[環境](../queryable.md)`Env`において非同期操作を作成できるとき、Senderの[完了シグネチャ集合](get_completion_signatures.md)から別の完了シグネチャ集合へ変換するエイリアステンプレート。

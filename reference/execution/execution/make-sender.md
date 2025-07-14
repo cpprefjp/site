@@ -8,7 +8,6 @@
 template<class Tag, class Data = see below, class... Child>
 constexpr auto make-sender(Tag tag, Data&& data, Child&&... child);
 ```
-* see below[italic]
 
 ## 概要
 `make-sender`は、Senderアルゴリズム動作仕様定義で用いられる説明専用の関数テンプレートである。

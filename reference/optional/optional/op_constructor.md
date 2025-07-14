@@ -39,7 +39,6 @@ explicit(see below) optional(optional<U>&& rhs);                // (9) C++20
 template <class U>
 explicit(see below) constexpr optional(optional<U>&& rhs);      // (9) C++23
 ```
-* see below[italic]
 * EXPLICIT[italic]
 * nullopt_t[link /reference/optional/nullopt_t.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]

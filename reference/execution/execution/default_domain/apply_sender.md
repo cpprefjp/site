@@ -11,7 +11,6 @@ constexpr decltype(auto) apply_sender(Tag, Sndr&& sndr, Args&&... args)
   noexcept(see below);
 ```
 * sender[link ../sender.md]
-* see below[italic]
 
 ## 概要
 Senderアルゴリズム適用のデフォルト動作。

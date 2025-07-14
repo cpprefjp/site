@@ -21,7 +21,6 @@ namespace std {
 * LayoutPolicy[link LayoutMappingPolicy.md]
 * AccessorPolicy[link AccessorPolicy.md]
 * mdspan[link mdspan.md]
-* see below[italic]
 
 ## 概要
 多次元配列ビュー[`mdspan`](mdspan.md)と各次元からの要素取り出し（スライス）方式を指定して、メモリブロックに対する新しい多次元配列ビュー[`mdspan`](mdspan.md)を取得する。

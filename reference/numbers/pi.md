@@ -16,7 +16,6 @@ namespace std::numbers {
 }
 ```
 * unspecified[italic]
-* see below[italic]
 * floating_point[link /reference/concepts/floating_point.md]
 
 ## 概要

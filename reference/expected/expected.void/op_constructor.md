@@ -28,7 +28,6 @@ constexpr explicit expected(unexpect_t, Args&&... args); // (9)
 template<class U, class... Args>
 constexpr explicit expected(unexpect_t, initializer_list<U> il, Args&&... args); // (10)
 ```
-* see below[italic]
 * unexpected[link ../unexpected.md]
 * unexpect_t[link ../unexpect_t.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]

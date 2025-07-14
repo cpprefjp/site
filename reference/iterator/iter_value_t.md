@@ -10,7 +10,6 @@ namespace std {
   using iter_value_t = /*see below*/;
 }
 ```
-* see below[italic]
 
 ## 概要
 

@@ -41,7 +41,6 @@ namespace std {
                chars_format fmt = chars_format::general); // (5) C++23
 }
 ```
-* see below[italic]
 * integer-type[italic]
 * from_chars_result[link from_chars_result.md]
 

@@ -12,7 +12,6 @@ namespace std::execution {
 }
 ```
 * sender[link sender.md]
-* see below[italic]
 
 ## 概要
 [実行ドメイン](default_domain.md)に応じてSenderアルゴリズムを適用する。

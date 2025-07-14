@@ -17,7 +17,6 @@ friend constexpr auto submdspan_mapping(
   return src.submdspan-mapping-impl(slices...);
 }
 ```
-* see below[italic]
 * submdspan-mapping-impl[italic]
 
 ## 概要

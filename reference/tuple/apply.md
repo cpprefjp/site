@@ -17,7 +17,6 @@ namespace std {
 ```
 * tuple-like[link tuple-like.md]
 * tuple-like[link tuple-like.md]
-* see below[italic]
 
 ## 概要
 タプルを展開し、関数の引数に適用してその関数を実行する。

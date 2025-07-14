@@ -14,7 +14,6 @@ variant& operator=(T&& rhs) noexcept(see below);               // (3) C++17
 template <class T>
 constexpr variant& operator=(T&& rhs) noexcept(see below);     // (3) C++23
 ```
-* see below[italic]
 
 ## 概要
 `variant`オブジェクトもしくは候補型の値を代入する。

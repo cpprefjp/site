@@ -12,7 +12,6 @@ namespace std {
               basic_string_view<charT, traits> y) noexcept; // (1) C++20
 }
 ```
-* see below[italic]
 
 ## 概要
 `basic_string_view`オブジェクトの三方比較を行う。

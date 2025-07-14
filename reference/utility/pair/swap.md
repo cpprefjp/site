@@ -9,7 +9,6 @@
 void swap(pair& p) noexcept(see below);           // (1) C++11
 constexpr void swap(pair& p) noexcept(see below); // (1) C++20
 ```
-* see below[italic]
 
 ## 概要
 他の`pair`オブジェクトと値を入れ替える

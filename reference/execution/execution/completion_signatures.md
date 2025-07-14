@@ -20,7 +20,6 @@ namespace std::execution {
 template<class Sigs>
 concept valid-completion-signatures = see below;
 ```
-* see below[italic]
 
 `Sigs`が[`completion_signatures`](completion_signatures.md)クラステンプレートの特殊化であるとき、`Sigs`は説明専用コンセプト`valid-completion-signatures`のモデルである。
 
@@ -32,7 +31,6 @@ concept valid-completion-signatures = see below;
 template<class Fn>
 concept completion-signature = see below;
 ```
-* see below[italic]
 
 型`Fn`が下記いずれかを満たす関数型であるとき、`Fn`はコンセプト`completion-signature`を満たす。
 - [`set_value_t`](set_value.md)`(Vs...)`（`Vs`はオブジェクト型または参照型のパック）

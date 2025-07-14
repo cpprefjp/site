@@ -13,7 +13,6 @@ namespace std {
   concept three_way_comparable_with = /*see below*/;        // (2)
 }
 ```
-* see below[italic]
 
 ## 概要
 `three_way_comparable`及び`three_way_comparable_with`は、指定された型`T`もしくは`T, U`の間で`<=>`による三方比較を使用可能であり、その戻り値型が指定した[比較カテゴリ型](/reference/compare.md)`Cat`に変換可能であることを表すコンセプトである。

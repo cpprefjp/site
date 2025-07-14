@@ -41,7 +41,6 @@ namespace std::execution {
 * tag_of_t[link tag_of_t.md]
 * impls-for[link impls-for.md]
 * std::move[link /reference/utility/move.md]
-* see below[italic]
 
 ## 概要
 `basic-operation`および`basic-state`は、Senderアルゴリズム動作仕様定義で用いられる説明専用のクラステンプレートである。
@@ -109,7 +108,6 @@ using indices-for = remove_reference_t<Sndr>::indices-for;  // exposition only
 * call-result-t[link /reference/functional/call-result-t.md]
 * impls-for[link impls-for.md]
 * tag_of_t[link tag_of_t.md]
-* see below[italic]
 
 説明専用の定数`connect-all`は、下記ラムダ式と等価な関数呼び出し可能なオブジェクトとして初期化される。
 
@@ -130,7 +128,6 @@ using indices-for = remove_reference_t<Sndr>::indices-for;  // exposition only
 * connect[link connect.md]
 * basic-receiver[link basic-receiver.md]
 * integral_constant[link /reference/type_traits/integral_constant.md]
-* see below[italic]
 
 - テンプレートパラメータ制約 : ラムダ式中の`return`文の式が適格であること。
 - ラムダ式中の`return`文の式が例外送出する可能性がある場合は、`noexcept(false)`となる。そうでなければ、`noexcept(true)`となる。

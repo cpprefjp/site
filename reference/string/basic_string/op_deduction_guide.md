@@ -36,7 +36,6 @@ namespace std {
                     Allocator>;                 // (4) C++23
 }
 ```
-* see below[italic]
 * allocator[link /reference/memory/allocator.md]
 * char_traits[link /reference/string/char_traits.md]
 * ranges::input_range[link /reference/ranges/input_range.md]

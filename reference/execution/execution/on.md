@@ -143,7 +143,6 @@ struct not-a-sender {
 };
 ```
 * sender_t[link sender.md]
-* see below[italic]
 
 メンバ関数`get_completion_signatures`は[`completion_signatures`](completion_signatures.md)クラステンプレートの特殊化とは異なる型のオブジェクトを返す。
 処理系（標準ライブラリ実装者）は、この型を用いてユーザにエラー理由を通知することが推奨される。

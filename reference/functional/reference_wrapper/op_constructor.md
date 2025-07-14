@@ -16,7 +16,6 @@ reference_wrapper(const reference_wrapper& x) noexcept;           // (2) C++11
 
 constexpr reference_wrapper(const reference_wrapper& x) noexcept; // (2) C++20
 ```
-* see below[italic]
 
 ## 概要
 与えられた参照で、参照オブジェクトを構築する。

@@ -67,7 +67,6 @@ constexpr auto
     const Alloc& alloc,
     U&& u) noexcept;                    // (10) C++23
 ```
-* see below[italic]
 
 ## 概要
 `Alloc` 型のアロケータオブジェクト `alloc` を使用した `T` 型オブジェクトの uses-allocator 構築のために必要なコンストラクタ引数を、[`tuple`](../tuple/tuple.md) 型にして返す。

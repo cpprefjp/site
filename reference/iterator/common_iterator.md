@@ -33,7 +33,6 @@ namespace std {
   };
 }
 ```
-* see below[italic]
 * input_or_output_iterator[link /reference/iterator/input_or_output_iterator.md]
 * copyable[link /reference/concepts/copyable.md]
 * variant[link /reference/variant/variant.md]

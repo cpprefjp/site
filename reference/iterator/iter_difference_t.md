@@ -10,7 +10,6 @@ namespace std {
   using iter_difference_t = /*see below*/;
 }
 ```
-* see below[italic]
 
 ## 概要
 

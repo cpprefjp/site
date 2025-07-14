@@ -13,7 +13,6 @@ namespace std {
   concept equality_comparable_with = /*see below*/; // (2)
 }
 ```
-* see below[italic]
 
 ## 概要
 `equality_comparable`及び`equality_comparable_with`は、指定された型`T`もしくは`T, U`の間で`==`演算子による同値比較が可能である事を表すコンセプトである。

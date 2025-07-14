@@ -71,7 +71,6 @@ namespace std {
                           equal_to<ranges::range_value_t<R>>, Allocator>;   // (10) C++23から
 }
 ```
-* see below[italic]
 * hash[link /reference/functional/hash.md]
 * equal_to[link /reference/functional/equal_to.md]
 * allocator[link /reference/memory/allocator.md]
