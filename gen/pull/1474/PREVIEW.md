@@ -1,5 +1,5 @@
 # PR [\#1474](https://github.com/cpprefjp/site/pull/1474) プレビュー
-- &#x231a; 更新時刻: 2025-07-14 22:27:57 JST
+- &#x231a; 更新時刻: 2025-07-14 23:08:42 JST
 - &#x1f50d; [プレビュー (HTML)](https://cpprefjp.github.io/site/gen/pull/1474)
 - &#x1f4c8; [プレビュー生成記録](https://github.com/cpprefjp/site/actions?query=event%3Apull_request_target+branch%3Acstdlib%2Fmb-cur-max)
 - **&#x2AEF;** ソースの変更: [`be4f0eb..fbe0ff2`](https://github.com/cpprefjp/site/compare/be4f0ebf8933b9687adca36fd78b37acf25f4606..fbe0ff2648113ba237bf7873e790402c1ebc4cd0)
