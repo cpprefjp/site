@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-04-23T04:49:45">
-        2025年04月23日 04時49分45秒
+      <span itemprop="datePublished" content="2025-07-14T11:58:53">
+        2025年07月14日 11時58分53秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">rotarymars</span>
+        <span itemprop="name">Koichi Murase</span>
       </span>
       が更新
     </small></p>
@@ -214,18 +214,18 @@
         
   <div class="identifier-type">type-alias</div><div class="header">&lt;cmath&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">double_t</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">using</span> <span class="n">double_t</span> <span class="o">=</span> <span class="n"><i>implementation-defined</i></span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">double_t</span> <span class="o">=</span> <span class="n"><i>floating-type</i></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
 <p><code>double</code> と同じかそれより広い範囲の値を持つ浮動小数点数型を表す。</p>
 <p><code><a href="../cfloat/flt_eval_method.html">FLT_EVAL_METHOD</a></code> が 0 または 1 のとき <code>double</code>, 2 のとき <code>long double</code>, それ以外の場合は実装依存。</p>
-<h2>使用例</h2>
+<h2>例</h2>
 <p><div class="yata" id="ddfe4d3ad71feeeae6bdba7d8e0642283246a55f"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cmath.html">&lt;cmath&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">double_t</span> <span class="n">num</span> <span class="o">=</span> <span class="mf">1.00001</span><span class="p">;</span>
+    <span class="n"><span style="color:#ff0000">std::double_t</span></span> <span class="n">num</span> <span class="o">=</span> <span class="mf">1.00001</span><span class="p">;</span>
     <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">num</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
