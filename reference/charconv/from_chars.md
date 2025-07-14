@@ -10,7 +10,7 @@ namespace std {
   from_chars_result
     from_chars(const char* first,
                const char* last,
-               /*see below*/& value,
+               see below& value,
                int base = 10);      // (1) C++17
   constexpr from_chars_result
     from_chars(const char* first,

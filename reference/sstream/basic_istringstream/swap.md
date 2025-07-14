@@ -6,8 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-void swap(basic_istringstream& rhs);                         // (1) C++11
-void swap(basic_istringstream& rhs) noexcept(/*see below*/); // (1) C++17
+void swap(basic_istringstream& rhs);                     // (1) C++11
+void swap(basic_istringstream& rhs) noexcept(see below); // (1) C++17
 ```
 
 ## 概要

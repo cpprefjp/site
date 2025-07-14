@@ -96,9 +96,9 @@ namespace std {
     ```cpp
     using difference_type   = typename incrementable_traits<I>::difference_type;
     using value_type        = typename indirectly_readable_traits<I>::value_type;
-    using pointer           = /*see below*/;
-    using reference         = /*see below*/;
-    using iterator_category = /*see below*/;
+    using pointer           = see below;
+    using reference         = see below;
+    using iterator_category = see below;
     ```
     * indirectly_readable_traits[link /reference/iterator/indirectly_readable_traits.md]
     * incrementable_traits[link /reference/iterator/incrementable_traits.md]

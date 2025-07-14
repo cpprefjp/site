@@ -24,11 +24,11 @@ namespace std {
   // iterator_traitsにアダプトする
   template<input_iterator I, class S>
   struct iterator_traits<common_iterator<I, S>> {
-    using iterator_concept = /*see below*/;
-    using iterator_category = /*see below*/;  // 定義されない場合がある
+    using iterator_concept = see below;
+    using iterator_category = see below;  // 定義されない場合がある
     using value_type = iter_value_t<I>;
     using difference_type = iter_difference_t<I>;
-    using pointer = /*see below*/;
+    using pointer = see below;
     using reference = iter_reference_t<I>;
   };
 }

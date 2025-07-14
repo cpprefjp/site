@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template<class T>
-  concept default_initializable = /*see below*/;
+  concept default_initializable = see below;
 }
 ```
 

@@ -9,7 +9,7 @@ template<class Tag,
          valid-completion-signatures Completions,
          template<class...> class Tuple,
          template<class...> class Variant>
-using gather-signatures = /*see below*/;
+using gather-signatures = see below;
 ```
 * valid-completion-signatures[link completion_signatures.md]
 

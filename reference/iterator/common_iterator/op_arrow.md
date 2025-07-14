@@ -6,7 +6,7 @@
 * cpp20[meta cpp]
 
 ```cpp
-decltype(auto) operator->() const requires /*see below*/;
+decltype(auto) operator->() const requires see below;
 ```
 
 ## 概要

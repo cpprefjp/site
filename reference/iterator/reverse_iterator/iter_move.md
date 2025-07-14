@@ -10,7 +10,7 @@ namespace std {
   class reverse_iterator {
 
     friend constexpr iter_rvalue_reference_t<Iterator>
-      iter_move(const reverse_iterator& i) noexcept(/*see below*/);
+      iter_move(const reverse_iterator& i) noexcept(see below);
   };
 }
 ```

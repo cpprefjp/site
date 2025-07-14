@@ -7,10 +7,10 @@
 ```cpp
 namespace std {
   template<class T>
-  inline constexpr bool is-integer-like = /*see below*/;
+  inline constexpr bool is-integer-like = see below;
 
   template<class T>
-  inline constexpr bool is-signed-integer-like = /*see below*/;
+  inline constexpr bool is-signed-integer-like = see below;
 }
 ```
 

@@ -7,10 +7,10 @@
 ```cpp
 namespace std {
   template<class T, class Cat = partial_ordering>
-  concept three_way_comparable = /*see below*/;             // (1)
+  concept three_way_comparable = see below;                // (1)
 
   template<class T, class U, class Cat = partial_ordering>
-  concept three_way_comparable_with = /*see below*/;        // (2)
+  concept three_way_comparable_with = see below;           // (2)
 }
 ```
 

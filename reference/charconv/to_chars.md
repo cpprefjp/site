@@ -10,7 +10,7 @@ namespace std {
   to_chars_result
     to_chars(char* first,
              char* last,
-             /*see below*/ value,
+             see below value,
              int base = 10);        // (1) C++17
   constexpr to_chars_result
     to_chars(char* first,

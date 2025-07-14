@@ -7,10 +7,10 @@
 ```cpp
 namespace std {
   template<class T>
-  concept equality_comparable = /*see below*/;      // (1)
+  concept equality_comparable = see below;      // (1)
 
   template<class T, class U>
-  concept equality_comparable_with = /*see below*/; // (2)
+  concept equality_comparable_with = see below; // (2)
 }
 ```
 

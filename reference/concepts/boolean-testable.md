@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template<class T>
-  concept boolean-testable = /*see below*/; // 説明専用コンセプト
+  concept boolean-testable = see below; // 説明専用コンセプト
 }
 ```
 
