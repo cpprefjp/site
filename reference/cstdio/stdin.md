@@ -3,7 +3,7 @@
 * macro[meta id-type]
 
 ```cpp
-#define stdin /* implementation-defined */
+#define stdin implementation-defined
 ```
 
 ## 概要

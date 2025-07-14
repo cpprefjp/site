@@ -3,7 +3,7 @@
 * macro[meta id-type]
 
 ```cpp
-#define stdout /* implementation-defined */
+#define stdout implementation-defined
 ```
 
 ## 概要
