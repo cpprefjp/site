@@ -1,0 +1,407 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>latch - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,latch,std,class,cpp20
+">
+        <meta name="title" content="latch - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="latch - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="latch - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/latch/latch.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`latch`クラスは、ラッチ通過/到達スレッドが期待する個数になるまで複数スレッドの進行をブロックする、スレッド調整機構（同期プリミティブ）である。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="latch - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/latch/latch.html" />
+        <meta name="twitter:description" content="`latch`クラスは、ラッチ通過/到達スレッドが期待する個数になるまで複数スレッドの進行をブロックする、スレッド調整機構（同期プリミティブ）である。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;latch&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;a300c35d4b4dda2735fa4b5bafdaf1d8f982ba12&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;latch&gt;\n#include &lt;mutex&gt;\n#include &lt;thread&gt;\n\nconstexpr int NWORKER = 3;  // \u30ef\u30fc\u30ab\u6570\n\nstd::mutex cout_mtx;  // \u884c\u5358\u4f4dcout\u51fa\u529b\u7528\u30df\u30e5\u30fc\u30c6\u30c3\u30af\u30b9\n\nint main()\n{\n  // 1\u56de\u3060\u3051\u521d\u671f\u5316\u3055\u308c\u308b\u5171\u6709\u30c7\u30fc\u30bf\n  int shared_data = 0;\n\n  // \u521d\u671f\u5316\u6e08\u307f\u3092\u8868\u3059\u30e9\u30c3\u30c1: \u521d\u671f\u30ab\u30a6\u30f3\u30c8\u5024=1\n  std::latch initialized{1};\n  // \u30bf\u30b9\u30af\u5b8c\u4e86\u3092\u8868\u3059\u30e9\u30c3\u30c1: \u521d\u671f\u30ab\u30a6\u30f3\u30c8\u5024=\u30ef\u30fc\u30ab\u6570+1(\u30e1\u30a4\u30f3\u30b9\u30ec\u30c3\u30c9)\n  std::latch completed{NWORKER+1};\n\n  // \u30ef\u30fc\u30ab\u30b9\u30ec\u30c3\u30c9\u7fa4\u3092Fire-and-Forget\u8d77\u52d5\n  for (int id = 1; id &lt;= NWORKER; id++) {\n    std::thread([&amp;,id]{\n      // \u5171\u6709\u30c7\u30fc\u30bf\u306e\u521d\u671f\u5316\u5b8c\u4e86\u3092\u5f85\u6a5f\n      initialized.wait();\n      // \u30e1\u30a4\u30f3\u30b9\u30ec\u30c3\u30c9\u4e0a\u3067\u306eshared_data\u4ee3\u5165\u5b8c\u4e86\u306f\u4fdd\u8a3c\u3055\u308c\u3066\u304a\u308a\u3001\n      // \u4ee5\u964d\u306fshared_data\u8aad\u51fa\u306e\u307f\u3067\u3042\u308c\u3070\u30c7\u30fc\u30bf\u7af6\u5408\u767a\u751f\u3057\u306a\u3044\u3002\n      int local_data = shared_data;\n\n      { // \u30ef\u30fc\u30ab\u30b9\u30ec\u30c3\u30c9\u306e\u30bf\u30b9\u30af\u3092\u5b9f\u884c\n        std::lock_guard lk{cout_mtx};\n        std::cout &lt;&lt; \&#34;Worker#\&#34; &lt;&lt; id &lt;&lt; \&#34;:\&#34; &lt;&lt; local_data &lt;&lt; std::endl;\n      }\n\n      // \u30bf\u30b9\u30af\u5b8c\u4e86\u3092\u901a\u77e5\n      completed.count_down();\n      // \u30ef\u30fc\u30ab\u30b9\u30ec\u30c3\u30c9\u306f\u30d6\u30ed\u30c3\u30af\u3055\u308c\u305a\u305d\u306e\u307e\u307e\u7d42\u4e86\u3059\u308b\n    }).detach();\n  }\n\n  // \u5171\u6709\u30c7\u30fc\u30bf\u3092\u521d\u671f\u5316\n  shared_data = 42;\n\n  // \u5171\u6709\u30c7\u30fc\u30bf\u521d\u671f\u5316\u5b8c\u4e86\u3092\u30ef\u30fc\u30ab\u30b9\u30ec\u30c3\u30c9\u7fa4\u3078\u901a\u77e5\n  initialized.count_down();\n  // \u30e1\u30a4\u30f3\u30b9\u30ec\u30c3\u30c9\u306f\u30d6\u30ed\u30c3\u30af\u3055\u308c\u305a\u5f8c\u7d9a\u884c\u3092\u5b9f\u884c\u3059\u308b\n\n  { // \u30e1\u30a4\u30f3\u30b9\u30ec\u30c3\u30c9\u306e\u30bf\u30b9\u30af\u3092\u5b9f\u884c\n    std::lock_guard lk{cout_mtx};\n    std::cout &lt;&lt; \&#34;Main:\&#34; &lt;&lt; shared_data &lt;&lt; std::endl;\n  }\n\n  // \u30e1\u30a4\u30f3\u30b9\u30ec\u30c3\u30c9\u306e\u30bf\u30b9\u30af\u5b8c\u4e86\u901a\u77e5 \u517c \u5168\u30ef\u30fc\u30ab\u30b9\u30ec\u30c3\u30c9\u306e\u30bf\u30b9\u30af\u5b8c\u4e86\u5f85\u6a5f\n  completed.arrive_and_wait();\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;latch&#34;, &#34;latch&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/latch.html" itemprop="url">
+              
+                <span itemprop="name">latch</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">latch</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-06-11T13:45:38">
+        2024年06月11日 13時45分38秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/latch/latch.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/latch/latch.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class</div><div class="header">&lt;latch&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">latch</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">class</span> <span class="nc">latch</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>latch</code>クラスは、ラッチ通過/到達スレッドが期待する個数になるまで複数スレッドの進行をブロックする、スレッド調整機構（同期プリミティブ）である。</p>
+<p>ラッチは1つのカウンタで状態管理される同期プリミティブとみなせる。カウンタは<code>0</code>以上かつ初期値以下の値をとり、このカウンタ値がラッチ未到達のスレッド個数と解釈される。
+その動作仕様からカウントダウン・ラッチと呼ばれることもある。</p>
+<ul>
+<li><a href="latch/op_constructor.html">コンストラクタ</a>にてカウンタ値を設定する。</li>
+<li><code><a href="latch/count_down.html">count_down()</a></code>によりカウンタ値の減算と通知を行う。（ラッチ通過）</li>
+<li><code><a href="latch/wait.html">wait()</a></code>によりカウンタ値が<code>0</code>になるまで呼び出しスレッドをブロックする。（ラッチ待機）</li>
+<li><code><a href="latch/arrive_and_wait.html">arrive_and_wait()</a></code>は<code>count_down()</code>＋<code>wait()</code>に相当する。（ラッチ到達 兼 待機）</li>
+</ul>
+<p>ラッチオブジェクトは1回だけ使用でき、カウンタ値が<code>0</code>に到達したオブジェクトの再利用はできない。
+複数スレッド間同期を繰り返しとる場合はバリア<code><a href="../barrier/barrier.html">barrier</a></code>を利用する。</p>
+<p>ラッチ<code>latch</code>はカウンタ値<code>0</code>を待機するが、類似機構のセマフォ<code><a href="../semaphore/counting_semaphore.html">counting_semaphore</a></code>はカウンタ値が<code>0</code>より大きいことを待機するという違いがある。</p>
+<h2>メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="latch/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code>(destructor)</code></td>
+<td>デストラクタ</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code>operator=(const latch&amp;) = delete;</code></td>
+<td>代入演算子</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="latch/count_down.html">count_down</a></code></td>
+<td>通過通知</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="latch/try_wait.html">try_wait</a></code></td>
+<td>カウンタ値が<code>0</code>か否かを確認</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="latch/wait.html">wait</a></code></td>
+<td>待機処理</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="latch/arrive_and_wait.html">arrive_and_wait</a></code></td>
+<td>到達通知と待機処理</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>静的メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="latch/max.html">max</a></code></td>
+<td>処理系でサポートされるカウンタ最大値</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<p><div class="yata" id="a300c35d4b4dda2735fa4b5bafdaf1d8f982ba12"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../latch.html">&lt;latch&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../mutex.html">&lt;mutex&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
+
+<span class="k">constexpr</span> <span class="kt">int</span> <span class="n">NWORKER</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>  <span class="c1">// ワーカ数</span>
+
+<span class="n"><a href="../mutex/mutex.html">std::mutex</a></span> <span class="n">cout_mtx</span><span class="p">;</span>  <span class="c1">// 行単位cout出力用ミューテックス</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// 1回だけ初期化される共有データ</span>
+  <span class="kt">int</span> <span class="n">shared_data</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+  <span class="c1">// 初期化済みを表すラッチ: 初期カウント値=1</span>
+  <span class="n"><span style="color:#ff0000">std::latch</span></span> <span class="n">initialized</span><span class="p">{</span><span class="mi">1</span><span class="p">};</span>
+  <span class="c1">// タスク完了を表すラッチ: 初期カウント値=ワーカ数+1(メインスレッド)</span>
+  <span class="n"><span style="color:#ff0000">std::latch</span></span> <span class="n">completed</span><span class="p">{</span><span class="n">NWORKER</span><span class="o">+</span><span class="mi">1</span><span class="p">};</span>
+
+  <span class="c1">// ワーカスレッド群をFire-and-Forget起動</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">id</span> <span class="o">&lt;=</span> <span class="n">NWORKER</span><span class="p">;</span> <span class="n">id</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../thread/thread.html">std::thread</a></span><span class="p">([</span><span class="o">&amp;</span><span class="p">,</span><span class="n">id</span><span class="p">]{</span>
+      <span class="c1">// 共有データの初期化完了を待機</span>
+      <span class="n">initialized</span><span class="p">.</span><span class="n"><a href="latch/wait.html">wait()</a></span><span class="p">;</span>
+      <span class="c1">// メインスレッド上でのshared_data代入完了は保証されており、</span>
+      <span class="c1">// 以降はshared_data読出のみであればデータ競合発生しない。</span>
+      <span class="kt">int</span> <span class="n">local_data</span> <span class="o">=</span> <span class="n">shared_data</span><span class="p">;</span>
+
+      <span class="p">{</span> <span class="c1">// ワーカスレッドのタスクを実行</span>
+        <span class="n"><a href="../mutex/lock_guard.html">std::lock_guard</a></span> <span class="n">lk</span><span class="p">{</span><span class="n">cout_mtx</span><span class="p">};</span>
+        <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"Worker#"</span> <span class="o">&lt;&lt;</span> <span class="n">id</span> <span class="o">&lt;&lt;</span> <span class="s">":"</span> <span class="o">&lt;&lt;</span> <span class="n">local_data</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="c1">// タスク完了を通知</span>
+      <span class="n">completed</span><span class="p">.</span><span class="n"><a href="latch/count_down.html">count_down()</a></span><span class="p">;</span>
+      <span class="c1">// ワーカスレッドはブロックされずそのまま終了する</span>
+    <span class="p">}).</span><span class="n"><a href="../thread/thread/detach.html">detach()</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 共有データを初期化</span>
+  <span class="n">shared_data</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+
+  <span class="c1">// 共有データ初期化完了をワーカスレッド群へ通知</span>
+  <span class="n">initialized</span><span class="p">.</span><span class="n"><a href="latch/count_down.html">count_down()</a></span><span class="p">;</span>
+  <span class="c1">// メインスレッドはブロックされず後続行を実行する</span>
+
+  <span class="p">{</span> <span class="c1">// メインスレッドのタスクを実行</span>
+    <span class="n"><a href="../mutex/lock_guard.html">std::lock_guard</a></span> <span class="n">lk</span><span class="p">{</span><span class="n">cout_mtx</span><span class="p">};</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"Main:"</span> <span class="o">&lt;&lt;</span> <span class="n">shared_data</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// メインスレッドのタスク完了通知 兼 全ワーカスレッドのタスク完了待機</span>
+  <span class="n">completed</span><span class="p">.</span><span class="n"><a href="latch/arrive_and_wait.html">arrive_and_wait()</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力例</h3>
+<p><pre><code>Worker#1:42
+Worker#2:42
+Main:42
+Worker#3:42
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++20</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 11.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="../semaphore.html">&lt;semaphore&gt;</a></code></li>
+<li><code><a href="../barrier.html">&lt;barrier&gt;</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.boost.org/doc/libs/1_73_0/doc/html/thread/synchronization.html#thread.synchronization.latches" target="_blank">Boost.Threadライブラリ, Latches</a></li>
+<li><a href="https://docs.oracle.com/javase/jp/6/api/java/util/concurrent/CountDownLatch.html" target="_blank">Java標準ライブラリ, java.util.concurrent.CountDownLatch</a></li>
+<li><a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.countdownevent" target="_blank">C#標準ライブラリ, System.Threading.CountdownEvent</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

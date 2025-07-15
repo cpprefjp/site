@@ -1,0 +1,307 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>FLT_MAX_10_EXP - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cfloat,macro
+">
+        <meta name="title" content="FLT_MAX_10_EXP - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="FLT_MAX_10_EXP - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="FLT_MAX_10_EXP - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/cfloat/flt_max_10_exp.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="$10$ の $n$ 乗が `float` の有限の値として表現可能であるような最大の整数値 $n$ を表すマクロ。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="FLT_MAX_10_EXP - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/cfloat/flt_max_10_exp.html" />
+        <meta name="twitter:description" content="$10$ の $n$ 乗が `float` の有限の値として表現可能であるような最大の整数値 $n$ を表すマクロ。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [ ['$','$'] ],
+        displayMath: [ ['$$','$$'] ],
+        processEscapes: true
+      },
+      chtml: {
+        displayAlign: 'left',
+        displayIndent: '2.0em',
+      },
+    };
+    </script>
+    <!-- IEはサポートしないので https://polyfill.io/v3/polyfill.min.js?features=es6 は読み込まない -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cfloat&#34;], &#34;id-type&#34;: [&#34;macro&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;4ae23adf3e0548d08ba2296f59bfa4546a151a38&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;cfloat&gt;\n#include &lt;cmath&gt;\n\nint main()\n{\n  std::cout &lt;&lt; FLT_MAX_10_EXP &lt;&lt; &#39;\\n&#39;;\n\n  // \u4ee5\u4e0b\u306e\u5f0f\u3068\u7b49\u4fa1\n  std::cout &lt;&lt; std::floor(std::log10(FLT_MAX)) &lt;&lt; &#39;\\n&#39;;\n\n  // \u4ee5\u4e0b\u306e\u5f0f\u3068\u3082\u7b49\u4fa1\uff08std::pow((float)FLT_RADIX, FLT_MAX_EXP) \u306f float \u306e\u6700\u5927\u5024\u3092\u8d85\u3048\u3066\u3057\u307e\u3046\u305f\u3081\u3001\u5f0f\u3092\u8abf\u6574\u3057\u3066\u3042\u308b\uff09\n  std::cout &lt;&lt; std::floor(std::log10((1 - std::pow((float)FLT_RADIX, -FLT_MANT_DIG)) * std::pow((float)FLT_RADIX, FLT_MAX_EXP - 1) * FLT_RADIX)) &lt;&lt; &#39;\\n&#39;;\n\n  std::cout &lt;&lt; std::boolalpha;\n\n  // float \u306e\u6709\u9650\u306e\u5024\u3068\u3057\u3066\u8868\u73fe\u53ef\u80fd\n  float f1 = std::pow(10.0F, (float)FLT_MAX_10_EXP);\n  std::cout &lt;&lt; f1 &lt;&lt; \&#34;, \&#34; &lt;&lt; std::isfinite(f1) &lt;&lt; &#39;\\n&#39;;\n\n  // float \u306e\u6709\u9650\u306e\u5024\u3068\u3057\u3066\u8868\u73fe\u4e0d\u53ef\u80fd\n  float f2 = std::pow(10.0F, (float)(FLT_MAX_10_EXP + 1));\n  std::cout &lt;&lt; f2 &lt;&lt; \&#34;, \&#34; &lt;&lt; std::isfinite(f2) &lt;&lt; &#39;\\n&#39;;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cfloat&#34;, &#34;flt_max_10_exp&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/cfloat.html" itemprop="url">
+              
+                <span itemprop="name">cfloat</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">FLT_MAX_10_EXP</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2019-02-12T07:01:02">
+        2019年02月12日 07時01分02秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/cfloat/flt_max_10_exp.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/cfloat/flt_max_10_exp.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">macro</div><div class="header">&lt;cfloat&gt;</div><h1 itemprop="name"><span class="token">FLT_MAX_10_EXP</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="cp"># define FLT_MAX_10_EXP <i>implementation-defined</i></span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>$10$ の $n$ 乗が <code>float</code> の有限の値として表現可能であるような最大の整数値 $n$ を表すマクロ。
+以下の式で表される。</p>
+<p>$$
+\lfloor\log_{10} FLT\_MAX \rfloor = \lfloor\log_{10} ((1-b^{-p})b^{e_{\rm max}})\rfloor
+$$</p>
+<p>ここで、$b$ は指数表現の基数（<code><a href="flt_radix.html">FLT_RADIX</a></code>）、$p$ は精度（基数 $b$ での仮数部の桁数、<code><a href="flt_mant_dig.html">FLT_MANT_DIG</a></code>）、$e_{\rm max}$ は指数の最大値（<code><a href="flt_max_exp.html">FLT_MAX_EXP</a></code>）である。<br />
+$b$ や $p$、$e_{\rm max}$ については <code><a href="../cfloat.html">&lt;cfloat&gt;</a></code> のモデルも参照。</p>
+<p><code><a href="../limits/numeric_limits.html">std::numeric_limits</a>&lt;float&gt;::<a href="../limits/numeric_limits/max_exponent10.html">max_exponent10</a></code> と等しい。</p>
+<h2>備考</h2>
+<ul>
+<li>規格で +37 以上であることが規定されている。</li>
+<li>本マクロは <code>#if</code> プリプロセッサディレクティブに使用可能な定数式である。</li>
+<li><code>FLT_MAX_10_EXP</code> は FLoaT MAXimum base-10 EXPonent（maximum：最大値、base-10：10を底とした、exponent：指数）に由来する。</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="4ae23adf3e0548d08ba2296f59bfa4546a151a38"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../cfloat.html">&lt;cfloat&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../cmath.html">&lt;cmath&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">FLT_MAX_10_EXP</span></span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+
+  <span class="c1">// 以下の式と等価</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../cmath/floor.html">std::floor</a></span><span class="p">(</span><span class="n"><a href="../cmath/log10.html">std::log10</a></span><span class="p">(</span><span class="n"><a href="flt_max.html">FLT_MAX</a></span><span class="p">))</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+
+  <span class="c1">// 以下の式とも等価（<a href="../cmath/pow.html">std::pow</a>((float)<a href="flt_radix.html">FLT_RADIX</a>, <a href="flt_max_exp.html">FLT_MAX_EXP</a>) は float の最大値を超えてしまうため、式を調整してある）</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../cmath/floor.html">std::floor</a></span><span class="p">(</span><span class="n"><a href="../cmath/log10.html">std::log10</a></span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n"><a href="../cmath/pow.html">std::pow</a></span><span class="p">((</span><span class="kt">float</span><span class="p">)</span><span class="n"><a href="flt_radix.html">FLT_RADIX</a></span><span class="p">,</span> <span class="o">-</span><span class="n"><a href="flt_mant_dig.html">FLT_MANT_DIG</a></span><span class="p">))</span> <span class="o">*</span> <span class="n"><a href="../cmath/pow.html">std::pow</a></span><span class="p">((</span><span class="kt">float</span><span class="p">)</span><span class="n"><a href="flt_radix.html">FLT_RADIX</a></span><span class="p">,</span> <span class="n"><a href="flt_max_exp.html">FLT_MAX_EXP</a></span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n"><a href="flt_radix.html">FLT_RADIX</a></span><span class="p">))</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ios/boolalpha.html">std::boolalpha</a></span><span class="p">;</span>
+
+  <span class="c1">// float の有限の値として表現可能</span>
+  <span class="kt">float</span> <span class="n">f1</span> <span class="o">=</span> <span class="n"><a href="../cmath/pow.html">std::pow</a></span><span class="p">(</span><span class="mf">10.0F</span><span class="p">,</span> <span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n"><span style="color:#ff0000">FLT_MAX_10_EXP</span></span><span class="p">);</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">f1</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../cmath/isfinite.html">std::isfinite</a></span><span class="p">(</span><span class="n">f1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+
+  <span class="c1">// float の有限の値として表現不可能</span>
+  <span class="kt">float</span> <span class="n">f2</span> <span class="o">=</span> <span class="n"><a href="../cmath/pow.html">std::pow</a></span><span class="p">(</span><span class="mf">10.0F</span><span class="p">,</span> <span class="p">(</span><span class="kt">float</span><span class="p">)(</span><span class="n"><span style="color:#ff0000">FLT_MAX_10_EXP</span></span> <span class="o">+</span> <span class="mi">1</span><span class="p">));</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">f2</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../cmath/isfinite.html">std::isfinite</a></span><span class="p">(</span><span class="n">f2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h2>出力例</h2>
+<p><pre><code>38
+38
+38
+1e+38, true
+inf, false
+</code></pre></p></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

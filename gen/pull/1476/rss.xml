@@ -1,0 +1,4015 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2025-07-15T10:27:51.779257</updated>
+  <id>8d01fce0-8665-4435-a530-c6d9450b5515</id>
+
+  
+    <entry>
+      <title>visit_format_arg -- style(utility,format): &#34;see{[-_] =&gt;  }below&#34; の書き換え</title>
+      <link href="https://cpprefjp.github.io/reference/format/visit_format_arg.html"/>
+      <id>ee5dd862adade6f04bf4c4d21bc43448ac3ed85b:reference/format/visit_format_arg.md</id>
+      <updated>2025-07-14T23:14:09+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/format/visit_format_arg.md b/reference/format/visit_format_arg.md
+index 70a514b1e..917cfc8cf 100644
+--- a/reference/format/visit_format_arg.md
++++ b/reference/format/visit_format_arg.md
+@@ -8,10 +8,9 @@
+ ```cpp
+ namespace std {
+   template&amp;lt;class Visitor, class Context&amp;gt;
+-  see_below visit_format_arg(Visitor&amp;amp;&amp;amp; vis, basic_format_arg&amp;lt;Context&amp;gt; arg); // (1)
++  see below visit_format_arg(Visitor&amp;amp;&amp;amp; vis, basic_format_arg&amp;lt;Context&amp;gt; arg); // (1)
+ }
+ ```
+-* see_below[italic]
+ * basic_format_arg[link /reference/format/basic_format_arg.md]
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>forward_like -- style(utility,format): &#34;see{[-_] =&gt;  }below&#34; の書き換え</title>
+      <link href="https://cpprefjp.github.io/reference/utility/forward_like.html"/>
+      <id>ee5dd862adade6f04bf4c4d21bc43448ac3ed85b:reference/utility/forward_like.md</id>
+      <updated>2025-07-14T23:14:09+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/forward_like.md b/reference/utility/forward_like.md
+index 3ecbe937b..3c87bd84d 100644
+--- a/reference/utility/forward_like.md
++++ b/reference/utility/forward_like.md
+@@ -8,12 +8,11 @@
+ namespace std {
+ template &amp;lt;class T, class U&amp;gt;
+ [[nodiscard]]
+-constexpr auto forward_like(U&amp;amp;&amp;amp; x) noexcept -&amp;gt; see-below; // (1) C++23
++constexpr auto forward_like(U&amp;amp;&amp;amp; x) noexcept -&amp;gt; see below; // (1) C++23
+ template &amp;lt;class T, class U&amp;gt;
+-constexpr auto forward_like(U&amp;amp;&amp;amp; x) noexcept -&amp;gt; see-below; // (1) C++26
++constexpr auto forward_like(U&amp;amp;&amp;amp; x) noexcept -&amp;gt; see below; // (1) C++26
+ }
+ ```
+-* see-below[italic]
+ 
+ ## 概要
+ 第一テンプレート引数の`const`性と参照修飾を用いて関数テンプレートの引数を転送する。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>from_chars -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
+      <link href="https://cpprefjp.github.io/reference/charconv/from_chars.html"/>
+      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/charconv/from_chars.md</id>
+      <updated>2025-07-14T23:12:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/charconv/from_chars.md b/reference/charconv/from_chars.md
+index 295a7eba1..407346b19 100644
+--- a/reference/charconv/from_chars.md
++++ b/reference/charconv/from_chars.md
+@@ -10,7 +10,7 @@ namespace std {
+   from_chars_result
+     from_chars(const char* first,
+                const char* last,
+-               /*see below*/&amp;amp; value,
++               see below&amp;amp; value,
+                int base = 10);      // (1) C++17
+   constexpr from_chars_result
+     from_chars(const char* first,
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>to_chars -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
+      <link href="https://cpprefjp.github.io/reference/charconv/to_chars.html"/>
+      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/charconv/to_chars.md</id>
+      <updated>2025-07-14T23:12:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/charconv/to_chars.md b/reference/charconv/to_chars.md
+index d45eb5797..c19fb9de8 100644
+--- a/reference/charconv/to_chars.md
++++ b/reference/charconv/to_chars.md
+@@ -10,7 +10,7 @@ namespace std {
+   to_chars_result
+     to_chars(char* first,
+              char* last,
+-             /*see below*/ value,
++             see below value,
+              int base = 10);        // (1) C++17
+   constexpr to_chars_result
+     to_chars(char* first,
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>three_way_comparable -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
+      <link href="https://cpprefjp.github.io/reference/compare/three_way_comparable.html"/>
+      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/compare/three_way_comparable.md</id>
+      <updated>2025-07-14T23:12:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/compare/three_way_comparable.md b/reference/compare/three_way_comparable.md
+index ff2d789ed..1ca6bf857 100644
+--- a/reference/compare/three_way_comparable.md
++++ b/reference/compare/three_way_comparable.md
+@@ -7,10 +7,10 @@
+ ```cpp
+ namespace std {
+   template&amp;lt;class T, class Cat = partial_ordering&amp;gt;
+-  concept three_way_comparable = /*see below*/;             // (1)
++  concept three_way_comparable = see below;                // (1)
+ 
+   template&amp;lt;class T, class U, class Cat = partial_ordering&amp;gt;
+-  concept three_way_comparable_with = /*see below*/;        // (2)
++  concept three_way_comparable_with = see below;           // (2)
+ }
+ ```
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>boolean-testable -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
+      <link href="https://cpprefjp.github.io/reference/concepts/boolean-testable.html"/>
+      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/concepts/boolean-testable.md</id>
+      <updated>2025-07-14T23:12:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/concepts/boolean-testable.md b/reference/concepts/boolean-testable.md
+index f300531ca..ef567c5ac 100644
+--- a/reference/concepts/boolean-testable.md
++++ b/reference/concepts/boolean-testable.md
+@@ -7,7 +7,7 @@
+ ```cpp
+ namespace std {
+   template&amp;lt;class T&amp;gt;
+-  concept boolean-testable = /*see below*/; // 説明専用コンセプト
++  concept boolean-testable = see below; // 説明専用コンセプト
+ }
+ ```
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>default_initializable -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
+      <link href="https://cpprefjp.github.io/reference/concepts/default_initializable.html"/>
+      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/concepts/default_initializable.md</id>
+      <updated>2025-07-14T23:12:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/concepts/default_initializable.md b/reference/concepts/default_initializable.md
+index 4d350da56..08ef9a81a 100644
+--- a/reference/concepts/default_initializable.md
++++ b/reference/concepts/default_initializable.md
+@@ -7,7 +7,7 @@
+ ```cpp
+ namespace std {
+   template&amp;lt;class T&amp;gt;
+-  concept default_initializable = /*see below*/;
++  concept default_initializable = see below;
+ }
+ ```
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>equality_comparable -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
+      <link href="https://cpprefjp.github.io/reference/concepts/equality_comparable.html"/>
+      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/concepts/equality_comparable.md</id>
+      <updated>2025-07-14T23:12:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/concepts/equality_comparable.md b/reference/concepts/equality_comparable.md
+index 17bdfa48f..668b8078d 100644
+--- a/reference/concepts/equality_comparable.md
++++ b/reference/concepts/equality_comparable.md
+@@ -7,10 +7,10 @@
+ ```cpp
+ namespace std {
+   template&amp;lt;class T&amp;gt;
+-  concept equality_comparable = /*see below*/;      // (1)
++  concept equality_comparable = see below;      // (1)
+ 
+   template&amp;lt;class T, class U&amp;gt;
+-  concept equality_comparable_with = /*see below*/; // (2)
++  concept equality_comparable_with = see below; // (2)
+ }
+ ```
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>same_as -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
+      <link href="https://cpprefjp.github.io/reference/concepts/same_as.html"/>
+      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/concepts/same_as.md</id>
+      <updated>2025-07-14T23:12:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/concepts/same_as.md b/reference/concepts/same_as.md
+index 955ab8ead..79a4efe31 100644
+--- a/reference/concepts/same_as.md
++++ b/reference/concepts/same_as.md
+@@ -7,7 +7,7 @@
+ ```cpp
+ namespace std {
+   template &amp;lt;class T, class U&amp;gt;
+-  concept same_as = /*see below*/;
++  concept same_as = see below;
+ }
+ ```
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>gather-signatures -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/gather-signatures.html"/>
+      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/execution/execution/gather-signatures.md</id>
+      <updated>2025-07-14T23:12:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/gather-signatures.md b/reference/execution/execution/gather-signatures.md
+index b37ea0cd7..40a8ea3e9 100644
+--- a/reference/execution/execution/gather-signatures.md
++++ b/reference/execution/execution/gather-signatures.md
+@@ -9,7 +9,7 @@ template&amp;lt;class Tag,
+          valid-completion-signatures Completions,
+          template&amp;lt;class...&amp;gt; class Tuple,
+          template&amp;lt;class...&amp;gt; class Variant&amp;gt;
+-using gather-signatures = /*see below*/;
++using gather-signatures = see below;
+ ```
+ * valid-completion-signatures[link completion_signatures.md]
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is-awaitable -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
+      <link href="https://cpprefjp.github.io/reference/execution/is-awaitable.html"/>
+      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/execution/is-awaitable.md</id>
+      <updated>2025-07-14T23:12:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/is-awaitable.md b/reference/execution/is-awaitable.md
+index c5cd3bec2..a14bb68d8 100644
+--- a/reference/execution/is-awaitable.md
++++ b/reference/execution/is-awaitable.md
+@@ -23,7 +23,7 @@ concept is-awaitable;
+ 
+ ```cpp
+ template&amp;lt;class T&amp;gt;
+-concept await-suspend-result = /*see below*/;
++concept await-suspend-result = see below;
+ 
+ template&amp;lt;class A, class Promise&amp;gt;
+ concept is-awaiter =
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>placeholders -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
+      <link href="https://cpprefjp.github.io/reference/functional/placeholders.html"/>
+      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/functional/placeholders.md</id>
+      <updated>2025-07-14T23:12:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/functional/placeholders.md b/reference/functional/placeholders.md
+index a5086d370..f465687c3 100644
+--- a/reference/functional/placeholders.md
++++ b/reference/functional/placeholders.md
+@@ -7,10 +7,10 @@
+ ```cpp
+ namespace std {
+ namespace placeholders {
+-  /*see below*/ unspecified _1;
+-  /*see below*/ unspecified _2;
++  see below unspecified _1;
++  see below unspecified _2;
+   …
+-  /*see below*/ unspecified _N;
++  see below unspecified _N;
+ }}
+ ```
+ * unspecified[italic]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
+      <link href="https://cpprefjp.github.io/reference/functional/reference_wrapper/op_constructor.html"/>
+      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/functional/reference_wrapper/op_constructor.md</id>
+      <updated>2025-07-14T23:12:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/functional/reference_wrapper/op_constructor.md b/reference/functional/reference_wrapper/op_constructor.md
+index d76dd11e4..99346aa13 100644
+--- a/reference/functional/reference_wrapper/op_constructor.md
++++ b/reference/functional/reference_wrapper/op_constructor.md
+@@ -7,10 +7,10 @@
+ 
+ ```cpp
+ template&amp;lt;class U&amp;gt;
+-reference_wrapper(U&amp;amp;&amp;amp; u) noexcept(/*see below*/);                 // (1) C++11
++reference_wrapper(U&amp;amp;&amp;amp; u) noexcept(see below);                     // (1) C++11
+ 
+ template&amp;lt;class U&amp;gt;
+-constexpr reference_wrapper(U&amp;amp;&amp;amp; u) noexcept(/*see below*/);       // (1) C++20
++constexpr reference_wrapper(U&amp;amp;&amp;amp; u) noexcept(see below);           // (1) C++20
+ 
+ reference_wrapper(const reference_wrapper&amp;amp; x) noexcept;           // (2) C++11
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>iter_move (非メンバ関数) -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
+      <link href="https://cpprefjp.github.io/reference/iterator/basic_const_iterator/iter_move.html"/>
+      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/iterator/basic_const_iterator/iter_move.md</id>
+      <updated>2025-07-14T23:12:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/basic_const_iterator/iter_move.md b/reference/iterator/basic_const_iterator/iter_move.md
+index 1614858ef..30602aa33 100644
+--- a/reference/iterator/basic_const_iterator/iter_move.md
++++ b/reference/iterator/basic_const_iterator/iter_move.md
+@@ -6,7 +6,7 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-friend constexpr rvalue-reference iter_move(const basic_const_iterator&amp;amp; i) noexcept(/*see below*/);
++friend constexpr rvalue-reference iter_move(const basic_const_iterator&amp;amp; i) noexcept(see below);
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>common_iterator -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
+      <link href="https://cpprefjp.github.io/reference/iterator/common_iterator.html"/>
+      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/iterator/common_iterator.md</id>
+      <updated>2025-07-14T23:12:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/common_iterator.md b/reference/iterator/common_iterator.md
+index 1fe6eb383..9873ea876 100644
+--- a/reference/iterator/common_iterator.md
++++ b/reference/iterator/common_iterator.md
+@@ -24,11 +24,11 @@ namespace std {
+   // iterator_traitsにアダプトする
+   template&amp;lt;input_iterator I, class S&amp;gt;
+   struct iterator_traits&amp;lt;common_iterator&amp;lt;I, S&amp;gt;&amp;gt; {
+-    using iterator_concept = /*see below*/;
+-    using iterator_category = /*see below*/;  // 定義されない場合がある
++    using iterator_concept = see below;
++    using iterator_category = see below;  // 定義されない場合がある
+     using value_type = iter_value_t&amp;lt;I&amp;gt;;
+     using difference_type = iter_difference_t&amp;lt;I&amp;gt;;
+-    using pointer = /*see below*/;
++    using pointer = see below;
+     using reference = iter_reference_t&amp;lt;I&amp;gt;;
+   };
+ }
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator-&gt; -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
+      <link href="https://cpprefjp.github.io/reference/iterator/common_iterator/op_arrow.html"/>
+      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/iterator/common_iterator/op_arrow.md</id>
+      <updated>2025-07-14T23:12:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/common_iterator/op_arrow.md b/reference/iterator/common_iterator/op_arrow.md
+index 7513a0d32..427bc86a5 100644
+--- a/reference/iterator/common_iterator/op_arrow.md
++++ b/reference/iterator/common_iterator/op_arrow.md
+@@ -6,7 +6,7 @@
+ * cpp20[meta cpp]
+ 
+ ```cpp
+-decltype(auto) operator-&amp;gt;() const requires /*see below*/;
++decltype(auto) operator-&amp;gt;() const requires see below;
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>const_iterator -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
+      <link href="https://cpprefjp.github.io/reference/iterator/const_iterator.html"/>
+      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/iterator/const_iterator.md</id>
+      <updated>2025-07-14T23:12:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/const_iterator.md b/reference/iterator/const_iterator.md
+index 2d42effce..36c561839 100644
+--- a/reference/iterator/const_iterator.md
++++ b/reference/iterator/const_iterator.md
+@@ -7,7 +7,7 @@
+ ```cpp
+ namespace std {
+   template&amp;lt;input_iterator I&amp;gt;
+-  using const_iterator = /*see below*/;
++  using const_iterator = see below;
+ }
+ ```
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>const_sentinel -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
+      <link href="https://cpprefjp.github.io/reference/iterator/const_sentinel.html"/>
+      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/iterator/const_sentinel.md</id>
+      <updated>2025-07-14T23:12:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/const_sentinel.md b/reference/iterator/const_sentinel.md
+index c174d4bad..82af81b7a 100644
+--- a/reference/iterator/const_sentinel.md
++++ b/reference/iterator/const_sentinel.md
+@@ -7,7 +7,7 @@
+ ```cpp
+ namespace std {
+   template&amp;lt;semiregular S&amp;gt;
+-  using const_sentinel = /*see below*/;
++  using const_sentinel = see below;
+ }
+ ```
+ * semiregular[link /reference/concepts/semiregular.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>indirectly_readable -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
+      <link href="https://cpprefjp.github.io/reference/iterator/indirectly_readable.html"/>
+      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/iterator/indirectly_readable.md</id>
+      <updated>2025-07-14T23:12:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/indirectly_readable.md b/reference/iterator/indirectly_readable.md
+index 352808bf6..e39b14374 100644
+--- a/reference/iterator/indirectly_readable.md
++++ b/reference/iterator/indirectly_readable.md
+@@ -7,7 +7,7 @@
+ ```cpp
+ namespace std {
+   template&amp;lt;class In&amp;gt;
+-  concept indirectly_readable = /*see below*/;
++  concept indirectly_readable = see below;
+ }
+ ```
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is-integer-like -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
+      <link href="https://cpprefjp.github.io/reference/iterator/is_integer_like.html"/>
+      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/iterator/is_integer_like.md</id>
+      <updated>2025-07-14T23:12:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/is_integer_like.md b/reference/iterator/is_integer_like.md
+index 3c7930bd5..6e914ca95 100644
+--- a/reference/iterator/is_integer_like.md
++++ b/reference/iterator/is_integer_like.md
+@@ -7,10 +7,10 @@
+ ```cpp
+ namespace std {
+   template&amp;lt;class T&amp;gt;
+-  inline constexpr bool is-integer-like = /*see below*/;
++  inline constexpr bool is-integer-like = see below;
+ 
+   template&amp;lt;class T&amp;gt;
+-  inline constexpr bool is-signed-integer-like = /*see below*/;
++  inline constexpr bool is-signed-integer-like = see below;
+ }
+ ```
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>iter_difference_t -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
+      <link href="https://cpprefjp.github.io/reference/iterator/iter_difference_t.html"/>
+      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/iterator/iter_difference_t.md</id>
+      <updated>2025-07-14T23:12:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/iter_difference_t.md b/reference/iterator/iter_difference_t.md
+index 565b1ef67..254ab018f 100644
+--- a/reference/iterator/iter_difference_t.md
++++ b/reference/iterator/iter_difference_t.md
+@@ -7,7 +7,7 @@
+ ```cpp
+ namespace std {
+   template&amp;lt;class I&amp;gt;
+-  using iter_difference_t = /*see below*/;
++  using iter_difference_t = see below;
+ }
+ ```
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>iter_value_t -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
+      <link href="https://cpprefjp.github.io/reference/iterator/iter_value_t.html"/>
+      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/iterator/iter_value_t.md</id>
+      <updated>2025-07-14T23:12:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/iter_value_t.md b/reference/iterator/iter_value_t.md
+index 39105e353..ee6daacc2 100644
+--- a/reference/iterator/iter_value_t.md
++++ b/reference/iterator/iter_value_t.md
+@@ -7,7 +7,7 @@
+ ```cpp
+ namespace std {
+   template&amp;lt;class I&amp;gt;
+-  using iter_value_t = /*see below*/;
++  using iter_value_t = see below;
+ }
+ ```
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>iterator_traits -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
+      <link href="https://cpprefjp.github.io/reference/iterator/iterator_traits.html"/>
+      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/iterator/iterator_traits.md</id>
+      <updated>2025-07-14T23:12:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/iterator_traits.md b/reference/iterator/iterator_traits.md
+index 4251e4505..7d4083041 100644
+--- a/reference/iterator/iterator_traits.md
++++ b/reference/iterator/iterator_traits.md
+@@ -96,9 +96,9 @@ namespace std {
+     ```cpp
+     using difference_type   = typename incrementable_traits&amp;lt;I&amp;gt;::difference_type;
+     using value_type        = typename indirectly_readable_traits&amp;lt;I&amp;gt;::value_type;
+-    using pointer           = /*see below*/;
+-    using reference         = /*see below*/;
+-    using iterator_category = /*see below*/;
++    using pointer           = see below;
++    using reference         = see below;
++    using iterator_category = see below;
+     ```
+     * indirectly_readable_traits[link /reference/iterator/indirectly_readable_traits.md]
+     * incrementable_traits[link /reference/iterator/incrementable_traits.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>iter_move -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
+      <link href="https://cpprefjp.github.io/reference/iterator/reverse_iterator/iter_move.html"/>
+      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/iterator/reverse_iterator/iter_move.md</id>
+      <updated>2025-07-14T23:12:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/reverse_iterator/iter_move.md b/reference/iterator/reverse_iterator/iter_move.md
+index b5073b7c5..bd27a957d 100644
+--- a/reference/iterator/reverse_iterator/iter_move.md
++++ b/reference/iterator/reverse_iterator/iter_move.md
+@@ -10,7 +10,7 @@ namespace std {
+   class reverse_iterator {
+ 
+     friend constexpr iter_rvalue_reference_t&amp;lt;Iterator&amp;gt;
+-      iter_move(const reverse_iterator&amp;amp; i) noexcept(/*see below*/);
++      iter_move(const reverse_iterator&amp;amp; i) noexcept(see below);
+   };
+ }
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>swap -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
+      <link href="https://cpprefjp.github.io/reference/sstream/basic_istringstream/swap.html"/>
+      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/sstream/basic_istringstream/swap.md</id>
+      <updated>2025-07-14T23:12:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/sstream/basic_istringstream/swap.md b/reference/sstream/basic_istringstream/swap.md
+index 3857dbaff..69cb5cb0b 100644
+--- a/reference/sstream/basic_istringstream/swap.md
++++ b/reference/sstream/basic_istringstream/swap.md
+@@ -6,8 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-void swap(basic_istringstream&amp;amp; rhs);                         // (1) C++11
+-void swap(basic_istringstream&amp;amp; rhs) noexcept(/*see below*/); // (1) C++17
++void swap(basic_istringstream&amp;amp; rhs);                     // (1) C++11
++void swap(basic_istringstream&amp;amp; rhs) noexcept(see below); // (1) C++17
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>swap -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
+      <link href="https://cpprefjp.github.io/reference/sstream/basic_ostringstream/swap.html"/>
+      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/sstream/basic_ostringstream/swap.md</id>
+      <updated>2025-07-14T23:12:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/sstream/basic_ostringstream/swap.md b/reference/sstream/basic_ostringstream/swap.md
+index cb7d94d5e..047f1d44b 100644
+--- a/reference/sstream/basic_ostringstream/swap.md
++++ b/reference/sstream/basic_ostringstream/swap.md
+@@ -6,8 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-void swap(basic_ostringstream&amp;amp; rhs);                         // (1) C++11
+-void swap(basic_ostringstream&amp;amp; rhs) noexcept(/*see below*/); // (1) C++17
++void swap(basic_ostringstream&amp;amp; rhs);                     // (1) C++11
++void swap(basic_ostringstream&amp;amp; rhs) noexcept(see below); // (1) C++17
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>swap -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
+      <link href="https://cpprefjp.github.io/reference/sstream/basic_stringbuf/swap.html"/>
+      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/sstream/basic_stringbuf/swap.md</id>
+      <updated>2025-07-14T23:12:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/sstream/basic_stringbuf/swap.md b/reference/sstream/basic_stringbuf/swap.md
+index 89f1a7c5f..2fefdcd33 100644
+--- a/reference/sstream/basic_stringbuf/swap.md
++++ b/reference/sstream/basic_stringbuf/swap.md
+@@ -6,8 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-void swap(basic_stringbuf&amp;amp; rhs);                         // (1) C++11
+-void swap(basic_stringbuf&amp;amp; rhs) noexcept(/*see below*/); // (1) C++17
++void swap(basic_stringbuf&amp;amp; rhs);                     // (1) C++11
++void swap(basic_stringbuf&amp;amp; rhs) noexcept(see below); // (1) C++17
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>swap -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
+      <link href="https://cpprefjp.github.io/reference/sstream/basic_stringstream/swap.html"/>
+      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/sstream/basic_stringstream/swap.md</id>
+      <updated>2025-07-14T23:12:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/sstream/basic_stringstream/swap.md b/reference/sstream/basic_stringstream/swap.md
+index 915112f68..a62414d11 100644
+--- a/reference/sstream/basic_stringstream/swap.md
++++ b/reference/sstream/basic_stringstream/swap.md
+@@ -6,8 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-void swap(basic_stringstream&amp;amp; rhs);                         // (1) C++11
+-void swap(basic_stringstream&amp;amp; rhs) noexcept(/*see below*/); // (1) C++17
++void swap(basic_stringstream&amp;amp; rhs);                     // (1) C++11
++void swap(basic_stringstream&amp;amp; rhs) noexcept(see below); // (1) C++17
+ ```
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>tuple-like -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
+      <link href="https://cpprefjp.github.io/reference/tuple/tuple-like.html"/>
+      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/tuple/tuple-like.md</id>
+      <updated>2025-07-14T23:12:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/tuple/tuple-like.md b/reference/tuple/tuple-like.md
+index 3728e0bba..e4929c1c7 100644
+--- a/reference/tuple/tuple-like.md
++++ b/reference/tuple/tuple-like.md
+@@ -7,7 +7,7 @@
+ ```cpp
+ namespace std {
+   template &amp;lt;typename T&amp;gt;
+-  concept tuple-like = /*see below*/; // 説明専用コンセプト
++  concept tuple-like = see below; // 説明専用コンセプト
+ }
+ ```
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>ATOMIC_FLAG_INIT -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/atomic/atomic_flag_init.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/atomic/atomic_flag_init.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/atomic/atomic_flag_init.md b/reference/atomic/atomic_flag_init.md
+index bced794a2..b34a7e92e 100644
+--- a/reference/atomic/atomic_flag_init.md
++++ b/reference/atomic/atomic_flag_init.md
+@@ -7,7 +7,6 @@
+ ```cpp
+ # define ATOMIC_FLAG_INIT see below
+ ```
+-* see below[italic]
+ 
+ この機能はC++20で非推奨となった。[`std::atomic_flag`](atomic_flag.md)クラスのデフォルトコンストラクタが値初期化するようになったため、初期化のためにこの機能を使用する必要はない。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>ATOMIC_VAR_INIT -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/atomic/atomic_var_init.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/atomic/atomic_var_init.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/atomic/atomic_var_init.md b/reference/atomic/atomic_var_init.md
+index 490b1131f..0b7ec6dd0 100644
+--- a/reference/atomic/atomic_var_init.md
++++ b/reference/atomic/atomic_var_init.md
+@@ -7,7 +7,6 @@
+ ```cpp
+ # define ATOMIC_VAR_INIT(value) see below
+ ```
+-* see below[italic]
+ 
+ この機能はC++20で非推奨となった。[`std::atomic`](atomic.md)クラスのデフォルトコンストラクタが値初期化するようになったため、初期化のためにこの機能を使用する必要はない。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>barrier -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/barrier/barrier.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/barrier/barrier.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/barrier/barrier.md b/reference/barrier/barrier.md
+index b69d2c5c6..e4c8dca89 100644
+--- a/reference/barrier/barrier.md
++++ b/reference/barrier/barrier.md
+@@ -10,7 +10,6 @@ namespace std {
+   class barrier;
+ }
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ `barrier`クラスは、複数スレッドにより並行実行される反復的なタスク制御に便利な、スレッド調整機構（同期プリミティブ）である。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>from_chars -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/charconv/from_chars.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/charconv/from_chars.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/charconv/from_chars.md b/reference/charconv/from_chars.md
+index 065dd96b1..295a7eba1 100644
+--- a/reference/charconv/from_chars.md
++++ b/reference/charconv/from_chars.md
+@@ -41,7 +41,6 @@ namespace std {
+                chars_format fmt = chars_format::general); // (5) C++23
+ }
+ ```
+-* see below[italic]
+ * integer-type[italic]
+ * from_chars_result[link from_chars_result.md]
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>to_chars -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/charconv/to_chars.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/charconv/to_chars.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/charconv/to_chars.md b/reference/charconv/to_chars.md
+index e3f267787..d45eb5797 100644
+--- a/reference/charconv/to_chars.md
++++ b/reference/charconv/to_chars.md
+@@ -92,7 +92,6 @@ namespace std {
+              int precision);             // (13) C++23
+ }
+ ```
+-* see below[italic]
+ * integer-type[italic]
+ * to_chars_result[link to_chars_result.md]
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>file_clock -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/chrono/file_clock.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/chrono/file_clock.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/chrono/file_clock.md b/reference/chrono/file_clock.md
+index a2384750a..d282c9d8f 100644
+--- a/reference/chrono/file_clock.md
++++ b/reference/chrono/file_clock.md
+@@ -9,7 +9,6 @@ namespace std::chrono {
+   using file_clock = see below;
+ }
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ `file_clock`は、ファイル時間を作るために使用されるクロックである。この時刻系は[`&amp;lt;filesystem&amp;gt;`](/reference/filesystem.md)ライブラリにおいてファイル作成日時やファイル更新日時を表現する[`file_time_type`](/reference/filesystem/file_time_type.md)のために定義される。
+@@ -32,7 +31,6 @@ template&amp;lt;class Duration&amp;gt;
+ static file_time&amp;lt;see below&amp;gt;
+   from_sys(const sys_time&amp;lt;Duration&amp;gt;&amp;amp;);
+ ```
+-* see below[italic]
+ * utc_clock[link utc_clock.md]
+ * sys_time[link sys_time.md]
+ * file_time[link file_time.md]
+@@ -49,7 +47,6 @@ template&amp;lt;class Duration&amp;gt;
+ static file_time&amp;lt;see below&amp;gt;
+   from_utc(const utc_time&amp;lt;Duration&amp;gt;&amp;amp;);
+ ```
+-* see below[italic]
+ * tai_clock[link tai_clock.md]
+ * gps_clock[link gps_clock.md]
+ * utc_time[link utc_time.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>fractional_width -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/chrono/hh_mm_ss/fractional_width.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/chrono/hh_mm_ss/fractional_width.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/chrono/hh_mm_ss/fractional_width.md b/reference/chrono/hh_mm_ss/fractional_width.md
+index 36ae48c33..ee011532b 100644
+--- a/reference/chrono/hh_mm_ss/fractional_width.md
++++ b/reference/chrono/hh_mm_ss/fractional_width.md
+@@ -14,7 +14,6 @@ namespace std::chrono {
+   };
+ }
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ `precision`型によって表現される小数の小数桁数。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>three_way_comparable -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/compare/three_way_comparable.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/compare/three_way_comparable.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/compare/three_way_comparable.md b/reference/compare/three_way_comparable.md
+index 484bbd9ee..ff2d789ed 100644
+--- a/reference/compare/three_way_comparable.md
++++ b/reference/compare/three_way_comparable.md
+@@ -13,7 +13,6 @@ namespace std {
+   concept three_way_comparable_with = /*see below*/;        // (2)
+ }
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ `three_way_comparable`及び`three_way_comparable_with`は、指定された型`T`もしくは`T, U`の間で`&amp;lt;=&amp;gt;`による三方比較を使用可能であり、その戻り値型が指定した[比較カテゴリ型](/reference/compare.md)`Cat`に変換可能であることを表すコンセプトである。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>boolean-testable -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/concepts/boolean-testable.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/concepts/boolean-testable.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/concepts/boolean-testable.md b/reference/concepts/boolean-testable.md
+index 35ec8b320..f300531ca 100644
+--- a/reference/concepts/boolean-testable.md
++++ b/reference/concepts/boolean-testable.md
+@@ -10,7 +10,6 @@ namespace std {
+   concept boolean-testable = /*see below*/; // 説明専用コンセプト
+ }
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>default_initializable -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/concepts/default_initializable.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/concepts/default_initializable.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/concepts/default_initializable.md b/reference/concepts/default_initializable.md
+index dc2da8d2d..4d350da56 100644
+--- a/reference/concepts/default_initializable.md
++++ b/reference/concepts/default_initializable.md
+@@ -10,7 +10,6 @@ namespace std {
+   concept default_initializable = /*see below*/;
+ }
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>equality_comparable -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/concepts/equality_comparable.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/concepts/equality_comparable.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/concepts/equality_comparable.md b/reference/concepts/equality_comparable.md
+index 4f9431023..17bdfa48f 100644
+--- a/reference/concepts/equality_comparable.md
++++ b/reference/concepts/equality_comparable.md
+@@ -13,7 +13,6 @@ namespace std {
+   concept equality_comparable_with = /*see below*/; // (2)
+ }
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ `equality_comparable`及び`equality_comparable_with`は、指定された型`T`もしくは`T, U`の間で`==`演算子による同値比較が可能である事を表すコンセプトである。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>same_as -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/concepts/same_as.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/concepts/same_as.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/concepts/same_as.md b/reference/concepts/same_as.md
+index bb7ce99bd..955ab8ead 100644
+--- a/reference/concepts/same_as.md
++++ b/reference/concepts/same_as.md
+@@ -10,7 +10,6 @@ namespace std {
+   concept same_as = /*see below*/;
+ }
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>apply_sender -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/apply_sender.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/execution/execution/apply_sender.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/apply_sender.md b/reference/execution/execution/apply_sender.md
+index 6fcd23420..e22cf2477 100644
+--- a/reference/execution/execution/apply_sender.md
++++ b/reference/execution/execution/apply_sender.md
+@@ -12,7 +12,6 @@ namespace std::execution {
+ }
+ ```
+ * sender[link sender.md]
+-* see below[italic]
+ 
+ ## 概要
+ [実行ドメイン](default_domain.md)に応じてSenderアルゴリズムを適用する。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>as_awaitable -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/as_awaitable.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/execution/execution/as_awaitable.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/as_awaitable.md b/reference/execution/execution/as_awaitable.md
+index 3261083df..e5d61cb41 100644
+--- a/reference/execution/execution/as_awaitable.md
++++ b/reference/execution/execution/as_awaitable.md
+@@ -58,7 +58,6 @@ namespace std::execution {
+ * env_of_t[link env_of_t.md]
+ * sender_to[link sender_to.md]
+ * coroutine_handle&amp;lt;&amp;gt;[link /reference/coroutine/coroutine_handle.md]
+-* see below[italic]
+ 
+ ### クラステンプレート`sender-awaitable`
+ ```cpp
+@@ -117,7 +116,6 @@ struct awaitable-receiver {
+ * monostate[link /reference/variant/monostate.md]
+ * exception_ptr[link /reference/exception/exception_ptr.md]
+ * coroutine_handle[link /reference/coroutine/coroutine_handle.md]
+-* see below[italic]
+ 
+ 説明用の式`rcvr`を`awaitable-receiver`型の右辺値、`crcvr`を`rcvr`をconst参照する左辺値、`vs`を式パック、`err`を`Err`型の式とする。このとき
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>basic-operation -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/basic-operation.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/execution/execution/basic-operation.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/basic-operation.md b/reference/execution/execution/basic-operation.md
+index 5151b2b2c..44f7fa083 100644
+--- a/reference/execution/execution/basic-operation.md
++++ b/reference/execution/execution/basic-operation.md
+@@ -41,7 +41,6 @@ namespace std::execution {
+ * tag_of_t[link tag_of_t.md]
+ * impls-for[link impls-for.md]
+ * std::move[link /reference/utility/move.md]
+-* see below[italic]
+ 
+ ## 概要
+ `basic-operation`および`basic-state`は、Senderアルゴリズム動作仕様定義で用いられる説明専用のクラステンプレートである。
+@@ -109,7 +108,6 @@ using indices-for = remove_reference_t&amp;lt;Sndr&amp;gt;::indices-for;  // exposition only
+ * call-result-t[link /reference/functional/call-result-t.md]
+ * impls-for[link impls-for.md]
+ * tag_of_t[link tag_of_t.md]
+-* see below[italic]
+ 
+ 説明専用の定数`connect-all`は、下記ラムダ式と等価な関数呼び出し可能なオブジェクトとして初期化される。
+ 
+@@ -130,7 +128,6 @@ using indices-for = remove_reference_t&amp;lt;Sndr&amp;gt;::indices-for;  // exposition only
+ * connect[link connect.md]
+ * basic-receiver[link basic-receiver.md]
+ * integral_constant[link /reference/type_traits/integral_constant.md]
+-* see below[italic]
+ 
+ - テンプレートパラメータ制約 : ラムダ式中の`return`文の式が適格であること。
+ - ラムダ式中の`return`文の式が例外送出する可能性がある場合は、`noexcept(false)`となる。そうでなければ、`noexcept(true)`となる。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>basic-sender -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/basic-sender.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/execution/execution/basic-sender.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/basic-sender.md b/reference/execution/execution/basic-sender.md
+index cf4d6e1c9..049660125 100644
+--- a/reference/execution/execution/basic-sender.md
++++ b/reference/execution/execution/basic-sender.md
+@@ -39,7 +39,6 @@ namespace std::execution {
+ * basic-operation[link basic-operation.md]
+ * std::move[link /reference/utility/move.md]
+ * this Self[link /lang/cpp23/deducing_this.md.nolink]
+-* see below[italic]
+ 
+ ## 概要
+ `basic-sender`は、Senderアルゴリズム動作仕様定義で用いられる説明専用のクラステンプレートである。
+@@ -69,7 +68,6 @@ is_nothrow_constructible_v&amp;lt;basic-operation&amp;lt;Self, Rcvr&amp;gt;, Self, Rcvr&amp;gt;
+ template&amp;lt;class Sndr, class Env&amp;gt;
+ using completion-signatures-for = see below;  // exposition only
+ ```
+-* see below[italic]
+ 
+ 説明用の`sndr`を`decltype((sndr))`が`Sndr`型となる式、`rcvr`を[`sender_in`](sender_in.md)`&amp;lt;Sndr, Env&amp;gt; == true`となる[環境](../queryable.md)`Env`に関連付けられた[`Receiver`](receiver.md)とする。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>bulk -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/bulk.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/execution/execution/bulk.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/bulk.md b/reference/execution/execution/bulk.md
+index 1b90ea800..96ed1cf01 100644
+--- a/reference/execution/execution/bulk.md
++++ b/reference/execution/execution/bulk.md
+@@ -49,7 +49,6 @@ namespace std::execution {
+ ```
+ * impls-for[link impls-for.md]
+ * default-impls[link impls-for.md]
+-* see below[italic]
+ 
+ `impls-for&amp;lt;bulk_t&amp;gt;::complete`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
+ 
+@@ -73,7 +72,6 @@ namespace std::execution {
+ * set_value_t[link set_value.md]
+ * TRY-EVAL[link set_value.md]
+ * std::move[link /reference/utility/move.md]
+-* see below[italic]
+ 
+ 型`Tag`が[`set_value_t`](set_value.md)以外の型であるとき、もしくは式`f(auto(shape), args...)`が適格なときに限って、上記ラムダ式のrequires節が満たされる。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>completion_signatures -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/completion_signatures.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/execution/execution/completion_signatures.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/completion_signatures.md b/reference/execution/execution/completion_signatures.md
+index ac941e36c..731f2795e 100644
+--- a/reference/execution/execution/completion_signatures.md
++++ b/reference/execution/execution/completion_signatures.md
+@@ -20,7 +20,6 @@ namespace std::execution {
+ template&amp;lt;class Sigs&amp;gt;
+ concept valid-completion-signatures = see below;
+ ```
+-* see below[italic]
+ 
+ `Sigs`が[`completion_signatures`](completion_signatures.md)クラステンプレートの特殊化であるとき、`Sigs`は説明専用コンセプト`valid-completion-signatures`のモデルである。
+ 
+@@ -32,7 +31,6 @@ concept valid-completion-signatures = see below;
+ template&amp;lt;class Fn&amp;gt;
+ concept completion-signature = see below;
+ ```
+-* see below[italic]
+ 
+ 型`Fn`が下記いずれかを満たす関数型であるとき、`Fn`はコンセプト`completion-signature`を満たす。
+ - [`set_value_t`](set_value.md)`(Vs...)`（`Vs`はオブジェクト型または参照型のパック）
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>apply_sender -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/default_domain/apply_sender.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/execution/execution/default_domain/apply_sender.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/default_domain/apply_sender.md b/reference/execution/execution/default_domain/apply_sender.md
+index 60a31cec6..35298ced2 100644
+--- a/reference/execution/execution/default_domain/apply_sender.md
++++ b/reference/execution/execution/default_domain/apply_sender.md
+@@ -11,7 +11,6 @@ constexpr decltype(auto) apply_sender(Tag, Sndr&amp;amp;&amp;amp; sndr, Args&amp;amp;&amp;amp;... args)
+   noexcept(see below);
+ ```
+ * sender[link ../sender.md]
+-* see below[italic]
+ 
+ ## 概要
+ Senderアルゴリズム適用のデフォルト動作。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>transform_sender -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/default_domain/transform_sender.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/execution/execution/default_domain/transform_sender.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/default_domain/transform_sender.md b/reference/execution/execution/default_domain/transform_sender.md
+index 4886480af..c808d3683 100644
+--- a/reference/execution/execution/default_domain/transform_sender.md
++++ b/reference/execution/execution/default_domain/transform_sender.md
+@@ -13,7 +13,6 @@ constexpr sender decltype(auto) transform_sender(Sndr&amp;amp;&amp;amp; sndr, const Env&amp;amp;... env)
+ ```
+ * sender[link ../sender.md]
+ * queryable[link ../../queryable.md]
+-* see below[italic]
+ 
+ ## 概要
+ Sender変換のデフォルト動作。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>query -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/env/query.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/execution/execution/env/query.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/env/query.md b/reference/execution/execution/env/query.md
+index 3a4620af3..80e280012 100644
+--- a/reference/execution/execution/env/query.md
++++ b/reference/execution/execution/env/query.md
+@@ -9,7 +9,6 @@
+ template&amp;lt;class QueryTag&amp;gt;
+ constexpr decltype(auto) query(QueryTag q) const noexcept(see below);
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ [クエリオブジェクト](../../queryable.md)`q`をキーとして、対応する値を問い合わせる。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>gather-signatures -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/gather-signatures.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/execution/execution/gather-signatures.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/gather-signatures.md b/reference/execution/execution/gather-signatures.md
+index f36a5e2b6..b37ea0cd7 100644
+--- a/reference/execution/execution/gather-signatures.md
++++ b/reference/execution/execution/gather-signatures.md
+@@ -12,7 +12,6 @@ template&amp;lt;class Tag,
+ using gather-signatures = /*see below*/;
+ ```
+ * valid-completion-signatures[link completion_signatures.md]
+-* see below[italic]
+ 
+ ## 概要
+ `gather-signatures`は、[完了シグネチャ集合](completion_signatures.md)`Completions`のうち完了タグ`Tag`に適合する引数型リスト集合に対して型情報の変換操作を適用し、新たな型を取得する説明専用のエイリアステンプレートである。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>impls-for -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/impls-for.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/execution/execution/impls-for.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/impls-for.md b/reference/execution/execution/impls-for.md
+index 10354d22e..ecc998fac 100644
+--- a/reference/execution/execution/impls-for.md
++++ b/reference/execution/execution/impls-for.md
+@@ -18,7 +18,6 @@ namespace std::execution {
+   };
+ }
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ `impls-for`は、Senderアルゴリズム動作仕様定義で用いられる説明専用のクラステンプレートである。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>into_variant -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/into_variant.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/execution/execution/into_variant.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/into_variant.md b/reference/execution/execution/into_variant.md
+index 2008a4b40..9907330d8 100644
+--- a/reference/execution/execution/into_variant.md
++++ b/reference/execution/execution/into_variant.md
+@@ -45,7 +45,6 @@ namespace std::execution {
+ ```
+ * impls-for[link impls-for.md]
+ * default-impls[link impls-for.md]
+-* see below[italic]
+ 
+ `impls-for&amp;lt;into_variant_t&amp;gt;::get-state`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>let_value -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/let_value.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/execution/execution/let_value.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/let_value.md b/reference/execution/execution/let_value.md
+index 105a327b1..226d1d486 100644
+--- a/reference/execution/execution/let_value.md
++++ b/reference/execution/execution/let_value.md
+@@ -55,7 +55,6 @@ namespace std::execution {
+ * default-impls[link impls-for.md]
+ * decayed-typeof[link /reference/functional/decayed-typeof.md]
+ * let-cpo[italic]
+-* see below[italic]
+ 
+ `impls-for&amp;lt;decayed-typeof&amp;lt;let-cpo&amp;gt;&amp;gt;::get-state`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
+ 
+@@ -84,7 +83,6 @@ namespace std::execution {
+   return state-type{std::forward_like&amp;lt;Sndr&amp;gt;(fn), let-env(child), {}, {}};
+ }
+ ```
+-* see below[italic]
+ 
+ - 説明用のパック`Sigs`を[`completion_signatures_of_t`](completion_signatures_of_t.md)`&amp;lt;`[`child-type`](child-type.md)`&amp;lt;Sndr&amp;gt;,` [`env_of_t`](env_of_t.md)`&amp;lt;Rcvr&amp;gt;&amp;gt;`による[`completion_signatures`](completion_signatures.md)特殊化のテンプレートパラメータとし、パック`LetSigs`を`Sigs`に含まれる型のうち戻り値型が[`decayed-typeof`](/reference/functional/decayed-typeof.md)`&amp;lt;set-cpo&amp;gt;`に等しいものと定義する。説明用のエイリアステンプレート`as-tuple&amp;lt;Tag(Args...)&amp;gt;`を[`decayed-tuple`](decayed-tuple.md)`&amp;lt;Args...&amp;gt;`と定義する。型`args_variant_t`は下記定義において重複削除した型となる。
+ 
+@@ -206,7 +204,6 @@ namespace std::execution {
+ * execution::set_error[link set_error.md]
+ * execution::set_stopped[link set_stopped.md]
+ * std::move[link /reference/utility/move.md]
+-* see below[italic]
+ 
+ メンバ関数`receiver2::get_env`の呼び出しは、下記を満たすオブジェクト`e`を返す。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>make-sender -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/make-sender.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/execution/execution/make-sender.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/make-sender.md b/reference/execution/execution/make-sender.md
+index 1e1b5c643..d57037be0 100644
+--- a/reference/execution/execution/make-sender.md
++++ b/reference/execution/execution/make-sender.md
+@@ -8,7 +8,6 @@
+ template&amp;lt;class Tag, class Data = see below, class... Child&amp;gt;
+ constexpr auto make-sender(Tag tag, Data&amp;amp;&amp;amp; data, Child&amp;amp;&amp;amp;... child);
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ `make-sender`は、Senderアルゴリズム動作仕様定義で用いられる説明専用の関数テンプレートである。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>on -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/on.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/execution/execution/on.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/on.md b/reference/execution/execution/on.md
+index 22906fc8b..464753baf 100644
+--- a/reference/execution/execution/on.md
++++ b/reference/execution/execution/on.md
+@@ -143,7 +143,6 @@ struct not-a-sender {
+ };
+ ```
+ * sender_t[link sender.md]
+-* see below[italic]
+ 
+ メンバ関数`get_completion_signatures`は[`completion_signatures`](completion_signatures.md)クラステンプレートの特殊化とは異なる型のオブジェクトを返す。
+ 処理系（標準ライブラリ実装者）は、この型を用いてユーザにエラー理由を通知することが推奨される。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>product-type -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/product-type.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/execution/execution/product-type.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/product-type.md b/reference/execution/execution/product-type.md
+index ac23581b2..741df2bbd 100644
+--- a/reference/execution/execution/product-type.md
++++ b/reference/execution/execution/product-type.md
+@@ -21,7 +21,6 @@ struct product-type {  // exposition only
+ };
+ ```
+ * this Self[link /lang/cpp23/deducing_this.md.nolink]
+-* see below[italic]
+ 
+ ## 概要
+ `product-type`は、Senderアルゴリズム動作仕様定義で用いられる説明専用のクラステンプレートである。
+@@ -48,7 +47,6 @@ template&amp;lt;class Self, class Fn&amp;gt;
+ constexpr decltype(auto) apply(this Self&amp;amp;&amp;amp; self, Fn&amp;amp;&amp;amp; fn) noexcept(see below);
+ ```
+ * this Self[link /lang/cpp23/deducing_this.md.nolink]
+-* see below[italic]
+ 
+ - テンプレートパラメータ制約 : 下記`return`文の式が適格であること。
+ - 効果 : 下記と等価
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>query-with-default -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/query-with-default.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/execution/execution/query-with-default.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/query-with-default.md b/reference/execution/execution/query-with-default.md
+index 0df3e1fef..8df81e402 100644
+--- a/reference/execution/execution/query-with-default.md
++++ b/reference/execution/execution/query-with-default.md
+@@ -9,7 +9,6 @@ template&amp;lt;class Tag, class Env, class Default&amp;gt;
+ constexpr decltype(auto) query-with-default(
+   Tag, const Env&amp;amp; env, Default&amp;amp;&amp;amp; value) noexcept(see below);
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ `query-with-default`は、Senderアルゴリズム動作仕様定義で用いられる説明専用の関数テンプレートである。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>schedule_from -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/schedule_from.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/execution/execution/schedule_from.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/schedule_from.md b/reference/execution/execution/schedule_from.md
+index 7ca0c2e01..151fd2026 100644
+--- a/reference/execution/execution/schedule_from.md
++++ b/reference/execution/execution/schedule_from.md
+@@ -50,7 +50,6 @@ namespace std::execution {
+ ```
+ * impls-for[link impls-for.md]
+ * default-impls[link impls-for.md]
+-* see below[italic]
+ 
+ `impls-for&amp;lt;schedule_from_t&amp;gt;::get-attrs`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
+ 
+@@ -97,7 +96,6 @@ namespace std::execution {
+ * schedule_result_t[link schedule_result_t.md]
+ * connect[link connect.md]
+ * schedule[link schedule.md]
+-* see below[italic]
+ 
+ - ローカルクラス`state-type`のオブジェクトは[構造化束縛](/lang/cpp17/structured_bindings.md)における初期化子として利用できる。
+ - 説明用のパック`Sigs`を[`completion_signatures_of_t`](completion_signatures_of_t.md)`&amp;lt;`[`child-type`](child-type.md)`&amp;lt;Sndr&amp;gt;,` [`env_of_t`](env_of_t.md)`&amp;lt;Rcvr&amp;gt;&amp;gt;`による[`completion_signatures`](completion_signatures.md)特殊化のテンプレートパラメータと定義する。説明用のエイリアステンプレート`as-tuple&amp;lt;Tag(Args...)&amp;gt;`を[`decayed-tuple`](decayed-tuple.md)`&amp;lt;Args...&amp;gt;`と定義する。型`variant_t`は下記定義において重複削除した型となる。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>single-sender-value-type -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/single-sender-value-type.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/execution/execution/single-sender-value-type.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/single-sender-value-type.md b/reference/execution/execution/single-sender-value-type.md
+index 38d30c9fb..dcbd67138 100644
+--- a/reference/execution/execution/single-sender-value-type.md
++++ b/reference/execution/execution/single-sender-value-type.md
+@@ -8,7 +8,6 @@
+ template&amp;lt;class Sndr, class Env&amp;gt;
+ using single-sender-value-type = see below;  // exposition only
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ `single-sender-value-type`は、実行制御ライブラリの仕様定義で用いられる説明専用のエイリアステンプレートである。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>split -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/split.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/execution/execution/split.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/split.md b/reference/execution/execution/split.md
+index 29ac7e4ff..cbbfd3013 100644
+--- a/reference/execution/execution/split.md
++++ b/reference/execution/execution/split.md
+@@ -66,7 +66,6 @@ namespace std::execution {
+ ```
+ * impls-for[link impls-for.md]
+ * default-impls[link impls-for.md]
+-* see below[italic]
+ 
+ `impls-for&amp;lt;split-impl-tag&amp;gt;::get-state`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
+ 
+@@ -274,7 +273,6 @@ namespace std::execution {
+ * inplace_stop_source[link /reference/stop_token/inplace_stop_source.md]
+ * atomic[link /reference/atomic/atomic.md]
+ * connect_result_t[link connect_result_t.md]
+-* see below[italic]
+ 
+ - 説明用のパック`Sigs`を[`completion_signatures_of_t`](completion_signatures_of_t.md)`&amp;lt;Sndr&amp;gt;`による[`completion_signatures`](completion_signatures.md)特殊化のテンプレートパラメータと定義する。説明用の型`Tag`とパック`Args`に対して、説明用のエイリアステンプレート`as-tuple&amp;lt;Tag(Args...)&amp;gt;`を[`decayed-tuple`](decayed-tuple.md)`&amp;lt;Tag, Args...&amp;gt;`と定義する。型`variant-type`は下記定義において重複削除した型となる。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>tag_of_t -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/tag_of_t.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/execution/execution/tag_of_t.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/tag_of_t.md b/reference/execution/execution/tag_of_t.md
+index 56ae80990..955a92bf6 100644
+--- a/reference/execution/execution/tag_of_t.md
++++ b/reference/execution/execution/tag_of_t.md
+@@ -11,7 +11,6 @@ namespace std::execution {
+ }
+ ```
+ * sender[link sender.md]
+-* see below[italic]
+ 
+ ## 概要
+ [Sender型](sender.md)`Sndr`のSenderアルゴリズムタグ型を取得する。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>transform_completion_signatures -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/transform_completion_signatures.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/execution/execution/transform_completion_signatures.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/transform_completion_signatures.md b/reference/execution/execution/transform_completion_signatures.md
+index 23fd1d7ab..6f590e348 100644
+--- a/reference/execution/execution/transform_completion_signatures.md
++++ b/reference/execution/execution/transform_completion_signatures.md
+@@ -18,7 +18,6 @@ namespace std::execution {
+ * valid-completion-signatures[link completion_signatures.md]
+ * completion_signatures[link completion_signatures.md]
+ * set_stopped_t()[link set_stopped.md]
+-* see below[italic]
+ 
+ ## 概要
+ [完了シグネチャ集合](completion_signatures.md)から別の完了シグネチャ集合へ変換するエイリアステンプレート。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>transform_completion_signatures_of -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/transform_completion_signatures_of.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/execution/execution/transform_completion_signatures_of.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/transform_completion_signatures_of.md b/reference/execution/execution/transform_completion_signatures_of.md
+index 9894aa959..74f43325d 100644
+--- a/reference/execution/execution/transform_completion_signatures_of.md
++++ b/reference/execution/execution/transform_completion_signatures_of.md
+@@ -28,7 +28,6 @@ namespace std::execution {
+ * sender_in[link sender_in.md]
+ * transform_completion_signatures[link transform_completion_signatures.md]
+ * completion_signatures_of_t[link completion_signatures_of_t.md]
+-* see below[italic]
+ 
+ ## 概要
+ [Sender型](sender.md)`Sndr`が[環境](../queryable.md)`Env`において非同期操作を作成できるとき、Senderの[完了シグネチャ集合](get_completion_signatures.md)から別の完了シグネチャ集合へ変換するエイリアステンプレート。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>transform_sender -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/transform_sender.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/execution/execution/transform_sender.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/transform_sender.md b/reference/execution/execution/transform_sender.md
+index 11065a82e..245b8e47e 100644
+--- a/reference/execution/execution/transform_sender.md
++++ b/reference/execution/execution/transform_sender.md
+@@ -14,7 +14,6 @@ namespace std::execution {
+ ```
+ * sender[link sender.md]
+ * queryable[link ../queryable.md]
+-* see below[italic]
+ 
+ ## 概要
+ [実行ドメイン](default_domain.md)に応じて[Sender](sender.md)を変換する。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>variant-or-empty -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/variant-or-empty.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/execution/execution/variant-or-empty.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/variant-or-empty.md b/reference/execution/execution/variant-or-empty.md
+index c8efdb028..e77014c3f 100644
+--- a/reference/execution/execution/variant-or-empty.md
++++ b/reference/execution/execution/variant-or-empty.md
+@@ -10,7 +10,6 @@ namespace std::execution {
+   using variant-or-empty = see below;  // exposition only
+ }
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ `variant-or-empty`は、型パラメータパック`Ts`から[decay](/reference/type_traits/decay.md)結果を要素型とする[`variant`](/reference/variant/variant.md)型を作成する説明専用のエイリアステンプレートである。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>when_all -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/when_all.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/execution/execution/when_all.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/when_all.md b/reference/execution/execution/when_all.md
+index f2475dd1b..0992cf2e9 100644
+--- a/reference/execution/execution/when_all.md
++++ b/reference/execution/execution/when_all.md
+@@ -58,7 +58,6 @@ namespace std::execution {
+ ```
+ * impls-for[link impls-for.md]
+ * default-impls[link impls-for.md]
+-* see below[italic]
+ 
+ `impls-for&amp;lt;when_all_t&amp;gt;::get-attrs`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
+ 
+@@ -83,7 +82,6 @@ namespace std::execution {
+   return see below;
+ }
+ ```
+-* see below[italic]
+ 
+ ラムダ式は下記を満たすオブジェクト`e`を返す。
+ 
+@@ -250,7 +248,6 @@ struct make-state {
+ * stop_callback[link /reference/stop_token/stop_token.md]
+ * optional[link /reference/optional/optional.md]
+ * nullopt[link /reference/optional/nullopt_t.md]
+-* see below[italic]
+ 
+ 説明用の型`copy-fail`を、いずれかの子[Sender](sender.md)の値結果データのdecayコピーが潜在的に例外送出するならば[`exception_ptr`](/reference/exception/exception_ptr.md)とする。そうでなければ、未規定の空のクラス型`none-such`とする。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>with_awaitable_senders -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/with_awaitable_senders.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/execution/execution/with_awaitable_senders.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/with_awaitable_senders.md b/reference/execution/execution/with_awaitable_senders.md
+index 527594c18..2f85891c4 100644
+--- a/reference/execution/execution/with_awaitable_senders.md
++++ b/reference/execution/execution/with_awaitable_senders.md
+@@ -37,7 +37,6 @@ namespace std::execution {
+ * terminate()[link /reference/exception/terminate.md]
+ * coroutine_handle[link /reference/coroutine/coroutine_handle.md]
+ * address()[link /reference/coroutine/coroutine_handle/address.md]
+-* see below[italic]
+ 
+ ## 概要
+ `with_awaitable_senders`は、[コルーチンPromise型](/lang/cpp20/coroutines.md)の基底クラスとして利用することで、[Sender](sender.md)を`co_await`演算子でAwait可能とするクラステンプレートである。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>write-env -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/write-env.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/execution/execution/write-env.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/write-env.md b/reference/execution/execution/write-env.md
+index 3bfda3d39..f53008768 100644
+--- a/reference/execution/execution/write-env.md
++++ b/reference/execution/execution/write-env.md
+@@ -38,7 +38,6 @@ struct impls-for&amp;lt;write-env-t&amp;gt; : default-impls {
+ ```
+ * impls-for[link impls-for.md]
+ * default-impls[link impls-for.md]
+-* see below[italic]
+ 
+ `impls-for&amp;lt;write-env-t&amp;gt;::get-env`メンバの呼び出しは下記を満たすオブジェクト`e`を返す。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator= -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/expected/expected.void/op_assign.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/expected/expected.void/op_assign.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/expected/expected.void/op_assign.md b/reference/expected/expected.void/op_assign.md
+index 8bcc57acd..87ee8509b 100644
+--- a/reference/expected/expected.void/op_assign.md
++++ b/reference/expected/expected.void/op_assign.md
+@@ -17,7 +17,6 @@ constexpr expected&amp;amp; operator=(const unexpected&amp;lt;G&amp;gt;&amp;amp; e); // (3)
+ template&amp;lt;class G&amp;gt;
+ constexpr expected&amp;amp; operator=(unexpected&amp;lt;G&amp;gt;&amp;amp;&amp;amp; e);      // (4)
+ ```
+-* see below[italic]
+ * unexpected[link ../unexpected.md]
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/expected/expected.void/op_constructor.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/expected/expected.void/op_constructor.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/expected/expected.void/op_constructor.md b/reference/expected/expected.void/op_constructor.md
+index 69163677c..a69fb11a3 100644
+--- a/reference/expected/expected.void/op_constructor.md
++++ b/reference/expected/expected.void/op_constructor.md
+@@ -28,7 +28,6 @@ constexpr explicit expected(unexpect_t, Args&amp;amp;&amp;amp;... args); // (9)
+ template&amp;lt;class U, class... Args&amp;gt;
+ constexpr explicit expected(unexpect_t, initializer_list&amp;lt;U&amp;gt; il, Args&amp;amp;&amp;amp;... args); // (10)
+ ```
+-* see below[italic]
+ * unexpected[link ../unexpected.md]
+ * unexpect_t[link ../unexpect_t.md]
+ * initializer_list[link /reference/initializer_list/initializer_list.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>swap -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/expected/expected.void/swap.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/expected/expected.void/swap.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/expected/expected.void/swap.md b/reference/expected/expected.void/swap.md
+index f57e0618f..129ed170a 100644
+--- a/reference/expected/expected.void/swap.md
++++ b/reference/expected/expected.void/swap.md
+@@ -9,7 +9,6 @@
+ // expected&amp;lt;cv void, E&amp;gt;部分特殊化
+ constexpr void swap(expected&amp;amp; rhs) noexcept(see below);
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ 他の`expected`オブジェクトとデータを入れ替える。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator= -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/expected/expected/op_assign.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/expected/expected/op_assign.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/expected/expected/op_assign.md b/reference/expected/expected/op_assign.md
+index a05f7ec1f..cd1fdf24c 100644
+--- a/reference/expected/expected/op_assign.md
++++ b/reference/expected/expected/op_assign.md
+@@ -19,7 +19,6 @@ constexpr expected&amp;amp; operator=(const unexpected&amp;lt;G&amp;gt;&amp;amp; e); // (4)
+ template&amp;lt;class G&amp;gt;
+ constexpr expected&amp;amp; operator=(unexpected&amp;lt;G&amp;gt;&amp;amp;&amp;amp; e);      // (5)
+ ```
+-* see below[italic]
+ * unexpected[link ../unexpected.md]
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/expected/expected/op_constructor.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/expected/expected/op_constructor.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/expected/expected/op_constructor.md b/reference/expected/expected/op_constructor.md
+index 9bc92cb40..e6639f605 100644
+--- a/reference/expected/expected/op_constructor.md
++++ b/reference/expected/expected/op_constructor.md
+@@ -33,7 +33,6 @@ constexpr explicit expected(unexpect_t, Args&amp;amp;&amp;amp;... args); // (11)
+ template&amp;lt;class U, class... Args&amp;gt;
+ constexpr explicit expected(unexpect_t, initializer_list&amp;lt;U&amp;gt; il, Args&amp;amp;&amp;amp;... args); // (12)
+ ```
+-* see below[italic]
+ * unexpected[link ../unexpected.md]
+ * unexpect_t[link ../unexpect_t.md]
+ * initializer_list[link /reference/initializer_list/initializer_list.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>swap -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/expected/expected/swap.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/expected/expected/swap.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/expected/expected/swap.md b/reference/expected/expected/swap.md
+index 8c6f5c8f3..6786915ba 100644
+--- a/reference/expected/expected/swap.md
++++ b/reference/expected/expected/swap.md
+@@ -8,7 +8,6 @@
+ ```cpp
+ constexpr void swap(expected&amp;amp; rhs) noexcept(see below);
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ 他の`expected`オブジェクトとデータを入れ替える。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>format_kind -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/format/format_kind.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/format/format_kind.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/format/format_kind.md b/reference/format/format_kind.md
+index 3e11e6471..da5b09fcf 100644
+--- a/reference/format/format_kind.md
++++ b/reference/format/format_kind.md
+@@ -15,7 +15,6 @@ namespace std {
+ }
+ ```
+ * unspecified[italic]
+-* see below[italic]
+ * range_format[link range_format.md]
+ * ranges::input_range[link /reference/ranges/input_range.md]
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>推論補助 -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/functional/function_ref/op_deduction_guide.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/functional/function_ref/op_deduction_guide.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/functional/function_ref/op_deduction_guide.md b/reference/functional/function_ref/op_deduction_guide.md
+index 4ad2b4c14..b9a246b5d 100644
+--- a/reference/functional/function_ref/op_deduction_guide.md
++++ b/reference/functional/function_ref/op_deduction_guide.md
+@@ -17,7 +17,6 @@ namespace std {
+ }
+ ```
+ * nontype_t[link /reference/utility/nontype_t.md]
+-* see below[italic]
+ 
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>placeholders -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/functional/placeholders.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/functional/placeholders.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/functional/placeholders.md b/reference/functional/placeholders.md
+index 9f21450a9..a5086d370 100644
+--- a/reference/functional/placeholders.md
++++ b/reference/functional/placeholders.md
+@@ -13,7 +13,6 @@ namespace placeholders {
+   /*see below*/ unspecified _N;
+ }}
+ ```
+-* see below[italic]
+ * unspecified[italic]
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/functional/reference_wrapper/op_constructor.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/functional/reference_wrapper/op_constructor.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/functional/reference_wrapper/op_constructor.md b/reference/functional/reference_wrapper/op_constructor.md
+index 1ce16282d..d76dd11e4 100644
+--- a/reference/functional/reference_wrapper/op_constructor.md
++++ b/reference/functional/reference_wrapper/op_constructor.md
+@@ -16,7 +16,6 @@ reference_wrapper(const reference_wrapper&amp;amp; x) noexcept;           // (2) C++11
+ 
+ constexpr reference_wrapper(const reference_wrapper&amp;amp; x) noexcept; // (2) C++20
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ 与えられた参照で、参照オブジェクトを構築する。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>common_iterator -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/iterator/common_iterator.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/iterator/common_iterator.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/common_iterator.md b/reference/iterator/common_iterator.md
+index f8788eb86..1fe6eb383 100644
+--- a/reference/iterator/common_iterator.md
++++ b/reference/iterator/common_iterator.md
+@@ -33,7 +33,6 @@ namespace std {
+   };
+ }
+ ```
+-* see below[italic]
+ * input_or_output_iterator[link /reference/iterator/input_or_output_iterator.md]
+ * copyable[link /reference/concepts/copyable.md]
+ * variant[link /reference/variant/variant.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator-&gt; -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/iterator/common_iterator/op_arrow.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/iterator/common_iterator/op_arrow.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/common_iterator/op_arrow.md b/reference/iterator/common_iterator/op_arrow.md
+index 6e315bc10..7513a0d32 100644
+--- a/reference/iterator/common_iterator/op_arrow.md
++++ b/reference/iterator/common_iterator/op_arrow.md
+@@ -8,7 +8,6 @@
+ ```cpp
+ decltype(auto) operator-&amp;gt;() const requires /*see below*/;
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ イテレータを間接参照する。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>indirectly_readable -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/iterator/indirectly_readable.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/iterator/indirectly_readable.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/indirectly_readable.md b/reference/iterator/indirectly_readable.md
+index ba6e005a3..352808bf6 100644
+--- a/reference/iterator/indirectly_readable.md
++++ b/reference/iterator/indirectly_readable.md
+@@ -10,7 +10,6 @@ namespace std {
+   concept indirectly_readable = /*see below*/;
+ }
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is-integer-like -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/iterator/is_integer_like.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/iterator/is_integer_like.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/is_integer_like.md b/reference/iterator/is_integer_like.md
+index afaa39b97..3c7930bd5 100644
+--- a/reference/iterator/is_integer_like.md
++++ b/reference/iterator/is_integer_like.md
+@@ -13,7 +13,6 @@ namespace std {
+   inline constexpr bool is-signed-integer-like = /*see below*/;
+ }
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>iter_difference_t -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/iterator/iter_difference_t.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/iterator/iter_difference_t.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/iter_difference_t.md b/reference/iterator/iter_difference_t.md
+index c9bddbc3a..565b1ef67 100644
+--- a/reference/iterator/iter_difference_t.md
++++ b/reference/iterator/iter_difference_t.md
+@@ -10,7 +10,6 @@ namespace std {
+   using iter_difference_t = /*see below*/;
+ }
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>iter_value_t -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/iterator/iter_value_t.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/iterator/iter_value_t.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/iter_value_t.md b/reference/iterator/iter_value_t.md
+index 693ffb7a2..39105e353 100644
+--- a/reference/iterator/iter_value_t.md
++++ b/reference/iterator/iter_value_t.md
+@@ -10,7 +10,6 @@ namespace std {
+   using iter_value_t = /*see below*/;
+ }
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>iterator_traits -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/iterator/iterator_traits.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/iterator/iterator_traits.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/iterator_traits.md b/reference/iterator/iterator_traits.md
+index 7dd15cde3..4251e4505 100644
+--- a/reference/iterator/iterator_traits.md
++++ b/reference/iterator/iterator_traits.md
+@@ -100,7 +100,6 @@ namespace std {
+     using reference         = /*see below*/;
+     using iterator_category = /*see below*/;
+     ```
+-    * see below[italic]
+     * indirectly_readable_traits[link /reference/iterator/indirectly_readable_traits.md]
+     * incrementable_traits[link /reference/iterator/incrementable_traits.md]
+     * iter_reference_t[link /reference/iterator/iter_reference_t.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>iter_move -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/iterator/reverse_iterator/iter_move.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/iterator/reverse_iterator/iter_move.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/reverse_iterator/iter_move.md b/reference/iterator/reverse_iterator/iter_move.md
+index ed9367c3d..b5073b7c5 100644
+--- a/reference/iterator/reverse_iterator/iter_move.md
++++ b/reference/iterator/reverse_iterator/iter_move.md
+@@ -14,7 +14,6 @@ namespace std {
+   };
+ }
+ ```
+-* see below[italic]
+ * reverse_iterator[link /reference/iterator/reverse_iterator.md]
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>iter_swap -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/iterator/reverse_iterator/iter_swap.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/iterator/reverse_iterator/iter_swap.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/reverse_iterator/iter_swap.md b/reference/iterator/reverse_iterator/iter_swap.md
+index 4ff978e18..9c63ea99b 100644
+--- a/reference/iterator/reverse_iterator/iter_swap.md
++++ b/reference/iterator/reverse_iterator/iter_swap.md
+@@ -16,7 +16,6 @@ namespace std {
+   };
+ }
+ ```
+-* see below[italic]
+ * reverse_iterator[link /reference/iterator/reverse_iterator.md]
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>extents -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/mdspan/extents.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/mdspan/extents.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/mdspan/extents.md b/reference/mdspan/extents.md
+index 930c8075e..cfc469553 100644
+--- a/reference/mdspan/extents.md
++++ b/reference/mdspan/extents.md
+@@ -16,7 +16,6 @@ namespace std {
+   using dims = see below;  // C++26以降
+ }
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ `extents`は、多次元配列の次元数(rank)と各次元の要素数(extent)を表現する。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/mdspan/extents/op_constructor.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/mdspan/extents/op_constructor.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/mdspan/extents/op_constructor.md b/reference/mdspan/extents/op_constructor.md
+index e35d31114..a0af10732 100644
+--- a/reference/mdspan/extents/op_constructor.md
++++ b/reference/mdspan/extents/op_constructor.md
+@@ -23,7 +23,6 @@ template&amp;lt;class OtherIndexType, size_t N&amp;gt;
+ constexpr explicit(N != rank_dynamic())
+   extents(const array&amp;lt;OtherIndexType, N&amp;gt;&amp;amp; exts) noexcept;  // (5)
+ ```
+-* see below[italic]
+ * rank_dynamic()[link rank_dynamic.md]
+ * span[link /reference/span/span.md]
+ * array[link /reference/array/array.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>推論補助 -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/mdspan/extents/op_deduction_guide.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/mdspan/extents/op_deduction_guide.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/mdspan/extents/op_deduction_guide.md b/reference/mdspan/extents/op_deduction_guide.md
+index e18cb81f3..53ad5c712 100644
+--- a/reference/mdspan/extents/op_deduction_guide.md
++++ b/reference/mdspan/extents/op_deduction_guide.md
+@@ -10,7 +10,6 @@ namespace std {
+   explicit extents(Integrals...) -&amp;gt; see below;
+ }
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ `std::extents`クラステンプレートの型推論補助。多次元配列の動的要素数リストから[`std::dextents`](../extents.md)`&amp;lt;size_t, sizeof...(Integrals)&amp;gt;`型を推論する。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is-layout-left-padded-mapping-of -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/mdspan/is-layout-left-padded-mapping-of.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/mdspan/is-layout-left-padded-mapping-of.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/mdspan/is-layout-left-padded-mapping-of.md b/reference/mdspan/is-layout-left-padded-mapping-of.md
+index e3b3bca45..1bd50f81e 100644
+--- a/reference/mdspan/is-layout-left-padded-mapping-of.md
++++ b/reference/mdspan/is-layout-left-padded-mapping-of.md
+@@ -7,7 +7,6 @@
+ template&amp;lt;class Mapping&amp;gt;
+ constexpr bool is-layout-left-padded-mapping-of = see below;  // exposition only
+ ```
+-* see below[italic]
+ 
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is-layout-right-padded-mapping-of -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/mdspan/is-layout-right-padded-mapping-of.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/mdspan/is-layout-right-padded-mapping-of.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/mdspan/is-layout-right-padded-mapping-of.md b/reference/mdspan/is-layout-right-padded-mapping-of.md
+index 587e8d5cf..de8a0f38a 100644
+--- a/reference/mdspan/is-layout-right-padded-mapping-of.md
++++ b/reference/mdspan/is-layout-right-padded-mapping-of.md
+@@ -7,7 +7,6 @@
+ template&amp;lt;class Mapping&amp;gt;
+ constexpr bool is-layout-right-padded-mapping-of = see below;  // exposition only
+ ```
+-* see below[italic]
+ 
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>submdspan_mapping -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/mdspan/layout_left/mapping/submdspan_mapping.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/mdspan/layout_left/mapping/submdspan_mapping.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/mdspan/layout_left/mapping/submdspan_mapping.md b/reference/mdspan/layout_left/mapping/submdspan_mapping.md
+index e831b2de2..34f9e515f 100644
+--- a/reference/mdspan/layout_left/mapping/submdspan_mapping.md
++++ b/reference/mdspan/layout_left/mapping/submdspan_mapping.md
+@@ -17,7 +17,6 @@ friend constexpr auto submdspan_mapping(
+   return src.submdspan-mapping-impl(slices...);
+ }
+ ```
+-* see below[italic]
+ * submdspan-mapping-impl[italic]
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/mdspan/layout_left_padded/mapping/op_constructor.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/mdspan/layout_left_padded/mapping/op_constructor.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/mdspan/layout_left_padded/mapping/op_constructor.md b/reference/mdspan/layout_left_padded/mapping/op_constructor.md
+index dad0d9a78..2401ec3ea 100644
+--- a/reference/mdspan/layout_left_padded/mapping/op_constructor.md
++++ b/reference/mdspan/layout_left_padded/mapping/op_constructor.md
+@@ -35,7 +35,6 @@ constexpr explicit(see below)
+ * rank()[link ../../extents/rank.md]
+ * layout_left::mapping[link ../../layout_left/mapping.md]
+ * layout_stride::mapping[link ../../layout_stride/mapping.md]
+-* see below[italic]
+ 
+ ## 概要
+ - (1) : デフォルトコンストラクタ
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>submdspan_mapping -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/mdspan/layout_left_padded/mapping/submdspan_mapping.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/mdspan/layout_left_padded/mapping/submdspan_mapping.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/mdspan/layout_left_padded/mapping/submdspan_mapping.md b/reference/mdspan/layout_left_padded/mapping/submdspan_mapping.md
+index 6b6cdb3b0..af428d90d 100644
+--- a/reference/mdspan/layout_left_padded/mapping/submdspan_mapping.md
++++ b/reference/mdspan/layout_left_padded/mapping/submdspan_mapping.md
+@@ -17,7 +17,6 @@ friend constexpr auto submdspan_mapping(
+   return src.submdspan-mapping-impl(slices...);
+ }
+ ```
+-* see below[italic]
+ * submdspan-mapping-impl[italic]
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>submdspan_mapping -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/mdspan/layout_right/mapping/submdspan_mapping.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/mdspan/layout_right/mapping/submdspan_mapping.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/mdspan/layout_right/mapping/submdspan_mapping.md b/reference/mdspan/layout_right/mapping/submdspan_mapping.md
+index 627f6a57e..74e8e945d 100644
+--- a/reference/mdspan/layout_right/mapping/submdspan_mapping.md
++++ b/reference/mdspan/layout_right/mapping/submdspan_mapping.md
+@@ -17,7 +17,6 @@ friend constexpr auto submdspan_mapping(
+   return src.submdspan-mapping-impl(slices...);
+ }
+ ```
+-* see below[italic]
+ * submdspan-mapping-impl[italic]
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/mdspan/layout_right_padded/mapping/op_constructor.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/mdspan/layout_right_padded/mapping/op_constructor.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/mdspan/layout_right_padded/mapping/op_constructor.md b/reference/mdspan/layout_right_padded/mapping/op_constructor.md
+index cebd64271..23616e698 100644
+--- a/reference/mdspan/layout_right_padded/mapping/op_constructor.md
++++ b/reference/mdspan/layout_right_padded/mapping/op_constructor.md
+@@ -34,7 +34,6 @@ constexpr explicit(see below)
+ * is_convertible_v[link /reference/type_traits/is_convertible.md]
+ * layout_right::mapping[link ../../layout_right/mapping.md]
+ * layout_stride::mapping[link ../../layout_stride/mapping.md]
+-* see below[italic]
+ 
+ ## 概要
+ - (1) : デフォルトコンストラクタ
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>submdspan_mapping -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/mdspan/layout_right_padded/mapping/submdspan_mapping.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/mdspan/layout_right_padded/mapping/submdspan_mapping.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/mdspan/layout_right_padded/mapping/submdspan_mapping.md b/reference/mdspan/layout_right_padded/mapping/submdspan_mapping.md
+index afb947788..805c87c10 100644
+--- a/reference/mdspan/layout_right_padded/mapping/submdspan_mapping.md
++++ b/reference/mdspan/layout_right_padded/mapping/submdspan_mapping.md
+@@ -17,7 +17,6 @@ friend constexpr auto submdspan_mapping(
+   return src.submdspan-mapping-impl(slices...);
+ }
+ ```
+-* see below[italic]
+ * submdspan-mapping-impl[italic]
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/mdspan/layout_stride/mapping/op_constructor.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/mdspan/layout_stride/mapping/op_constructor.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/mdspan/layout_stride/mapping/op_constructor.md b/reference/mdspan/layout_stride/mapping/op_constructor.md
+index df6009e6e..4ba297161 100644
+--- a/reference/mdspan/layout_stride/mapping/op_constructor.md
++++ b/reference/mdspan/layout_stride/mapping/op_constructor.md
+@@ -22,7 +22,6 @@ template&amp;lt;class StridedLayoutMapping&amp;gt;
+ * span[link /reference/span/span.md]
+ * array[link /reference/array/array.md]
+ * rank_[italic]
+-* see below[italic]
+ 
+ ## 概要
+ - (1) : デフォルトコンストラクタ
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>submdspan_mapping -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/mdspan/layout_stride/mapping/submdspan_mapping.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/mdspan/layout_stride/mapping/submdspan_mapping.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/mdspan/layout_stride/mapping/submdspan_mapping.md b/reference/mdspan/layout_stride/mapping/submdspan_mapping.md
+index de042c4ed..d2a065238 100644
+--- a/reference/mdspan/layout_stride/mapping/submdspan_mapping.md
++++ b/reference/mdspan/layout_stride/mapping/submdspan_mapping.md
+@@ -17,7 +17,6 @@ friend constexpr auto submdspan_mapping(
+   return src.submdspan-mapping-impl(slices...);
+ }
+ ```
+-* see below[italic]
+ * submdspan-mapping-impl[italic]
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/mdspan/mdspan/op_constructor.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/mdspan/mdspan/op_constructor.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/mdspan/mdspan/op_constructor.md b/reference/mdspan/mdspan/op_constructor.md
+index 9c7913f8d..ef7005bab 100644
+--- a/reference/mdspan/mdspan/op_constructor.md
++++ b/reference/mdspan/mdspan/op_constructor.md
+@@ -45,7 +45,6 @@ template&amp;lt;class OtherElementType, class OtherExtents,
+ * OtherExtents[link ../extents.md]
+ * OtherLayoutPolicy[link ../LayoutMappingPolicy.md]
+ * OtherAccessorPolicy[link ../AccessorPolicy.md]
+-* see below[italic]
+ 
+ ## 概要
+ - (1) : デフォルトコンストラクタ
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>submdspan -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/mdspan/submdspan.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/mdspan/submdspan.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/mdspan/submdspan.md b/reference/mdspan/submdspan.md
+index 5061e9534..8d8c4bd4b 100644
+--- a/reference/mdspan/submdspan.md
++++ b/reference/mdspan/submdspan.md
+@@ -21,7 +21,6 @@ namespace std {
+ * LayoutPolicy[link LayoutMappingPolicy.md]
+ * AccessorPolicy[link AccessorPolicy.md]
+ * mdspan[link mdspan.md]
+-* see below[italic]
+ 
+ ## 概要
+ 多次元配列ビュー[`mdspan`](mdspan.md)と各次元からの要素取り出し（スライス）方式を指定して、メモリブロックに対する新しい多次元配列ビュー[`mdspan`](mdspan.md)を取得する。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>uses_allocator_construction_args -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/memory/uses_allocator_construction_args.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/memory/uses_allocator_construction_args.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory/uses_allocator_construction_args.md b/reference/memory/uses_allocator_construction_args.md
+index 48cc7461b..f62b78c56 100644
+--- a/reference/memory/uses_allocator_construction_args.md
++++ b/reference/memory/uses_allocator_construction_args.md
+@@ -67,7 +67,6 @@ constexpr auto
+     const Alloc&amp;amp; alloc,
+     U&amp;amp;&amp;amp; u) noexcept;                    // (10) C++23
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ `Alloc` 型のアロケータオブジェクト `alloc` を使用した `T` 型オブジェクトの uses-allocator 構築のために必要なコンストラクタ引数を、[`tuple`](../tuple/tuple.md) 型にして返す。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>e -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/numbers/e.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/numbers/e.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/numbers/e.md b/reference/numbers/e.md
+index 0bbb99eba..54670c4d9 100644
+--- a/reference/numbers/e.md
++++ b/reference/numbers/e.md
+@@ -16,7 +16,6 @@ namespace std::numbers {
+ }
+ ```
+ * unspecified[italic]
+-* see below[italic]
+ * floating_point[link /reference/concepts/floating_point.md]
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>egamma -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/numbers/egamma.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/numbers/egamma.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/numbers/egamma.md b/reference/numbers/egamma.md
+index ba67a7b84..54900344c 100644
+--- a/reference/numbers/egamma.md
++++ b/reference/numbers/egamma.md
+@@ -16,7 +16,6 @@ namespace std::numbers {
+ }
+ ```
+ * unspecified[italic]
+-* see below[italic]
+ * floating_point[link /reference/concepts/floating_point.md]
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>inv_pi -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/numbers/inv_pi.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/numbers/inv_pi.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/numbers/inv_pi.md b/reference/numbers/inv_pi.md
+index ef1db0bde..4a890eb9d 100644
+--- a/reference/numbers/inv_pi.md
++++ b/reference/numbers/inv_pi.md
+@@ -16,7 +16,6 @@ namespace std::numbers {
+ }
+ ```
+ * unspecified[italic]
+-* see below[italic]
+ * floating_point[link /reference/concepts/floating_point.md]
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>inv_sqrt3 -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/numbers/inv_sqrt3.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/numbers/inv_sqrt3.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/numbers/inv_sqrt3.md b/reference/numbers/inv_sqrt3.md
+index e6812d42d..1256bd981 100644
+--- a/reference/numbers/inv_sqrt3.md
++++ b/reference/numbers/inv_sqrt3.md
+@@ -16,7 +16,6 @@ namespace std::numbers {
+ }
+ ```
+ * unspecified[italic]
+-* see below[italic]
+ * floating_point[link /reference/concepts/floating_point.md]
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>inv_sqrtpi -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/numbers/inv_sqrtpi.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/numbers/inv_sqrtpi.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/numbers/inv_sqrtpi.md b/reference/numbers/inv_sqrtpi.md
+index 376ac65a8..b8ac8ce2a 100644
+--- a/reference/numbers/inv_sqrtpi.md
++++ b/reference/numbers/inv_sqrtpi.md
+@@ -16,7 +16,6 @@ namespace std::numbers {
+ }
+ ```
+ * unspecified[italic]
+-* see below[italic]
+ * floating_point[link /reference/concepts/floating_point.md]
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>ln10 -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/numbers/ln10.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/numbers/ln10.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/numbers/ln10.md b/reference/numbers/ln10.md
+index b24cde1dd..c5864f9c9 100644
+--- a/reference/numbers/ln10.md
++++ b/reference/numbers/ln10.md
+@@ -16,7 +16,6 @@ namespace std::numbers {
+ }
+ ```
+ * unspecified[italic]
+-* see below[italic]
+ * floating_point[link /reference/concepts/floating_point.md]
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>ln2 -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/numbers/ln2.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/numbers/ln2.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/numbers/ln2.md b/reference/numbers/ln2.md
+index cd484fb12..3e51ed7c0 100644
+--- a/reference/numbers/ln2.md
++++ b/reference/numbers/ln2.md
+@@ -16,7 +16,6 @@ namespace std::numbers {
+ }
+ ```
+ * unspecified[italic]
+-* see below[italic]
+ * floating_point[link /reference/concepts/floating_point.md]
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>log10e -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/numbers/log10e.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/numbers/log10e.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/numbers/log10e.md b/reference/numbers/log10e.md
+index c94f4943b..e3db7896b 100644
+--- a/reference/numbers/log10e.md
++++ b/reference/numbers/log10e.md
+@@ -16,7 +16,6 @@ namespace std::numbers {
+ }
+ ```
+ * unspecified[italic]
+-* see below[italic]
+ * floating_point[link /reference/concepts/floating_point.md]
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>log2e -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/numbers/log2e.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/numbers/log2e.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/numbers/log2e.md b/reference/numbers/log2e.md
+index 67ca91aac..24c29ba31 100644
+--- a/reference/numbers/log2e.md
++++ b/reference/numbers/log2e.md
+@@ -16,7 +16,6 @@ namespace std::numbers {
+ }
+ ```
+ * unspecified[italic]
+-* see below[italic]
+ * floating_point[link /reference/concepts/floating_point.md]
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>phi -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/numbers/phi.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/numbers/phi.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/numbers/phi.md b/reference/numbers/phi.md
+index 43d846b04..1c4d64fac 100644
+--- a/reference/numbers/phi.md
++++ b/reference/numbers/phi.md
+@@ -16,7 +16,6 @@ namespace std::numbers {
+ }
+ ```
+ * unspecified[italic]
+-* see below[italic]
+ * floating_point[link /reference/concepts/floating_point.md]
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>pi -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/numbers/pi.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/numbers/pi.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/numbers/pi.md b/reference/numbers/pi.md
+index 88911655a..5ba5b3997 100644
+--- a/reference/numbers/pi.md
++++ b/reference/numbers/pi.md
+@@ -16,7 +16,6 @@ namespace std::numbers {
+ }
+ ```
+ * unspecified[italic]
+-* see below[italic]
+ * floating_point[link /reference/concepts/floating_point.md]
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>sqrt2 -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/numbers/sqrt2.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/numbers/sqrt2.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/numbers/sqrt2.md b/reference/numbers/sqrt2.md
+index e3eaaf80d..6159b47aa 100644
+--- a/reference/numbers/sqrt2.md
++++ b/reference/numbers/sqrt2.md
+@@ -16,7 +16,6 @@ namespace std::numbers {
+ }
+ ```
+ * unspecified[italic]
+-* see below[italic]
+ * floating_point[link /reference/concepts/floating_point.md]
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>sqrt3 -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/numbers/sqrt3.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/numbers/sqrt3.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/numbers/sqrt3.md b/reference/numbers/sqrt3.md
+index 28fa567b1..6d5e70422 100644
+--- a/reference/numbers/sqrt3.md
++++ b/reference/numbers/sqrt3.md
+@@ -16,7 +16,6 @@ namespace std::numbers {
+ }
+ ```
+ * unspecified[italic]
+-* see below[italic]
+ * floating_point[link /reference/concepts/floating_point.md]
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>make_optional -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/optional/make_optional.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/optional/make_optional.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/optional/make_optional.md b/reference/optional/make_optional.md
+index 86dd062aa..cfbbd0976 100644
+--- a/reference/optional/make_optional.md
++++ b/reference/optional/make_optional.md
+@@ -18,7 +18,6 @@ namespace std {
+                             Args&amp;amp;&amp;amp;... args);             // (3)
+ }
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ 有効な値を保持する`optional`オブジェクトを構築する。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator= -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/optional/optional/op_assign.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/optional/optional/op_assign.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/optional/optional/op_assign.md b/reference/optional/optional/op_assign.md
+index e300b3e18..1aa210d17 100644
+--- a/reference/optional/optional/op_assign.md
++++ b/reference/optional/optional/op_assign.md
+@@ -30,7 +30,6 @@ optional&amp;amp; operator=(optional&amp;lt;U&amp;gt;&amp;amp;&amp;amp; rhs);                            // (6) C++17
+ template &amp;lt;class U&amp;gt;
+ constexpr optional&amp;amp; operator=(optional&amp;lt;U&amp;gt;&amp;amp;&amp;amp; rhs);                  // (6) C++23
+ ```
+-* see below[italic]
+ * nullopt_t[link /reference/optional/nullopt_t.md]
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/optional/optional/op_constructor.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/optional/optional/op_constructor.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/optional/optional/op_constructor.md b/reference/optional/optional/op_constructor.md
+index e867897a0..3b5095f05 100644
+--- a/reference/optional/optional/op_constructor.md
++++ b/reference/optional/optional/op_constructor.md
+@@ -39,7 +39,6 @@ explicit(see below) optional(optional&amp;lt;U&amp;gt;&amp;amp;&amp;amp; rhs);                // (9) C++20
+ template &amp;lt;class U&amp;gt;
+ explicit(see below) constexpr optional(optional&amp;lt;U&amp;gt;&amp;amp;&amp;amp; rhs);      // (9) C++23
+ ```
+-* see below[italic]
+ * EXPLICIT[italic]
+ * nullopt_t[link /reference/optional/nullopt_t.md]
+ * initializer_list[link /reference/initializer_list/initializer_list.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>swap -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/optional/optional/swap.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/optional/optional/swap.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/optional/optional/swap.md b/reference/optional/optional/swap.md
+index 9f06cdc87..aff8a6641 100644
+--- a/reference/optional/optional/swap.md
++++ b/reference/optional/optional/swap.md
+@@ -9,7 +9,6 @@
+ void swap(optional&amp;amp; rhs) noexcept(see below);           // C++17
+ constexpr void swap(optional&amp;amp; rhs) noexcept(see below); // C++23
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ 他の`optional`オブジェクトとデータを入れ替える。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>enable_view -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/ranges/enable_view.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/ranges/enable_view.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ranges/enable_view.md b/reference/ranges/enable_view.md
+index 888d827a6..d254f0ce8 100644
+--- a/reference/ranges/enable_view.md
++++ b/reference/ranges/enable_view.md
+@@ -29,7 +29,6 @@ namespace std::ranges {
+   inline constexpr bool is-derived-from-view-interface = see below; // 説明専用
+ }
+ ```
+-* see below[italic]
+ 
+ `is-derived-from-view-interface&amp;lt;T&amp;gt;`は、`T`がある型`U`についてただ一つだけ`view_interface&amp;lt;U&amp;gt;`を`public`な基底クラスに持ち、他の型`V`についての`view_interface&amp;lt;V&amp;gt;`を基底クラスに持たない場合に`true`となる。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>subspan -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/span/span/subspan.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/span/span/subspan.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/span/span/subspan.md b/reference/span/span/subspan.md
+index 24af924a9..3520ed591 100644
+--- a/reference/span/span/subspan.md
++++ b/reference/span/span/subspan.md
+@@ -13,7 +13,6 @@ constexpr span&amp;lt;element_type, see below&amp;gt;
+ constexpr span&amp;lt;element_type, dynamic_extent&amp;gt;
+   subspan(size_type offset, size_type count = dynamic_extent) const; // (2)
+ ```
+-* see below[italic]
+ * dynamic_extent[link /reference/span/dynamic_extent.md]
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&lt;=&gt; -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/string/basic_string/op_compare_3way.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/string/basic_string/op_compare_3way.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/string/basic_string/op_compare_3way.md b/reference/string/basic_string/op_compare_3way.md
+index 7613848d9..bd547c956 100644
+--- a/reference/string/basic_string/op_compare_3way.md
++++ b/reference/string/basic_string/op_compare_3way.md
+@@ -17,7 +17,6 @@ namespace std {
+               const charT* rhs);                                           // (2) C++20
+ }
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ `basic_string`オブジェクトの三方比較を行う。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>推論補助 -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/string/basic_string/op_deduction_guide.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/string/basic_string/op_deduction_guide.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/string/basic_string/op_deduction_guide.md b/reference/string/basic_string/op_deduction_guide.md
+index c41e6de04..138cf80c9 100644
+--- a/reference/string/basic_string/op_deduction_guide.md
++++ b/reference/string/basic_string/op_deduction_guide.md
+@@ -36,7 +36,6 @@ namespace std {
+                     Allocator&amp;gt;;                 // (4) C++23
+ }
+ ```
+-* see below[italic]
+ * allocator[link /reference/memory/allocator.md]
+ * char_traits[link /reference/string/char_traits.md]
+ * ranges::input_range[link /reference/ranges/input_range.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&lt;=&gt; -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/string_view/basic_string_view/op_compare_3way.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/string_view/basic_string_view/op_compare_3way.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/string_view/basic_string_view/op_compare_3way.md b/reference/string_view/basic_string_view/op_compare_3way.md
+index e22fe1cd5..edd20d525 100644
+--- a/reference/string_view/basic_string_view/op_compare_3way.md
++++ b/reference/string_view/basic_string_view/op_compare_3way.md
+@@ -12,7 +12,6 @@ namespace std {
+               basic_string_view&amp;lt;charT, traits&amp;gt; y) noexcept; // (1) C++20
+ }
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ `basic_string_view`オブジェクトの三方比較を行う。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>apply -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/tuple/apply.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/tuple/apply.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/tuple/apply.md b/reference/tuple/apply.md
+index 5989af552..c25e600dd 100644
+--- a/reference/tuple/apply.md
++++ b/reference/tuple/apply.md
+@@ -17,7 +17,6 @@ namespace std {
+ ```
+ * tuple-like[link tuple-like.md]
+ * tuple-like[link tuple-like.md]
+-* see below[italic]
+ 
+ ## 概要
+ タプルを展開し、関数の引数に適用してその関数を実行する。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator= -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/tuple/tuple/op_assign.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/tuple/tuple/op_assign.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/tuple/tuple/op_assign.md b/reference/tuple/tuple/op_assign.md
+index 4ee7c8ac2..606593b6a 100644
+--- a/reference/tuple/tuple/op_assign.md
++++ b/reference/tuple/tuple/op_assign.md
+@@ -56,7 +56,6 @@ constexpr tuple&amp;amp; operator=(UTuple&amp;amp;&amp;amp;);                    // (13) C++23
+ template&amp;lt;tuple-like UTuple&amp;gt;
+ constexpr const tuple&amp;amp; operator=(UTuple&amp;amp;&amp;amp;) const;        // (14) C++23
+ ```
+-* see below[italic]
+ * tuple-like[link ../tuple-like.md]
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/tuple/tuple/op_constructor.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/tuple/tuple/op_constructor.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/tuple/tuple/op_constructor.md b/reference/tuple/tuple/op_constructor.md
+index e47235858..c7d02f134 100644
+--- a/reference/tuple/tuple/op_constructor.md
++++ b/reference/tuple/tuple/op_constructor.md
+@@ -217,11 +217,9 @@ template&amp;lt;class Alloc, tuple-like UTuple&amp;gt;
+ explicit(see below) constexpr
+   tuple(allocator_arg_t, const Alloc&amp;amp; a, UTuple&amp;amp;&amp;amp;);       // (28) C++23
+ ```
+-* see below[italic]
+ * EXPLICIT[italic]
+ * allocator_arg_t[link /reference/memory/allocator_arg_t.md]
+ * tuple-like[link ../tuple-like.md]
+-* see below[italic]
+ 
+ ## tupleオブジェクトの構築
+ - (1) : デフォルトコンストラクタ（すべての要素を初期化して構築）
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>swap -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/tuple/tuple/swap.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/tuple/tuple/swap.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/tuple/tuple/swap.md b/reference/tuple/tuple/swap.md
+index 8692742cf..304750f7c 100644
+--- a/reference/tuple/tuple/swap.md
++++ b/reference/tuple/tuple/swap.md
+@@ -12,7 +12,6 @@ constexpr void swap(tuple&amp;amp; rhs) noexcept(see below); // (1) C++20
+ constexpr void
+   swap(const tuple&amp;amp; rhs) const noexcept(see below);  // (2) C++23
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ - (1) : 他の[`tuple`](../tuple.md)オブジェクトと中身を入れ替える。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>推論補助 -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_map/op_deduction_guide.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/unordered_map/unordered_map/op_deduction_guide.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_map/op_deduction_guide.md b/reference/unordered_map/unordered_map/op_deduction_guide.md
+index 30210f0aa..43d6a094d 100644
+--- a/reference/unordered_map/unordered_map/op_deduction_guide.md
++++ b/reference/unordered_map/unordered_map/op_deduction_guide.md
+@@ -103,7 +103,6 @@ namespace std {
+                      equal_to&amp;lt;range_key_t&amp;lt;R&amp;gt;&amp;gt;, Allocator&amp;gt;;                   // (12) C++23から
+ }
+ ```
+-* see below[italic]
+ * remove_const_t[link /reference/type_traits/remove_const.md]
+ * add_const_t[link /reference/type_traits/add_const.md]
+ * hash[link /reference/functional/hash.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>推論補助 -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/op_deduction_guide.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/unordered_map/unordered_multimap/op_deduction_guide.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/op_deduction_guide.md b/reference/unordered_map/unordered_multimap/op_deduction_guide.md
+index 24e41595d..fe6b8f36a 100644
+--- a/reference/unordered_map/unordered_multimap/op_deduction_guide.md
++++ b/reference/unordered_map/unordered_multimap/op_deduction_guide.md
+@@ -103,7 +103,6 @@ namespace std {
+                           equal_to&amp;lt;range_key_t&amp;lt;R&amp;gt;&amp;gt;, Allocator&amp;gt;;                   // (12) C++23から
+ }
+ ```
+-* see below[italic]
+ * remove_const_t[link /reference/type_traits/remove_const.md]
+ * add_const_t[link /reference/type_traits/add_const.md]
+ * hash[link /reference/functional/hash.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>推論補助 -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/op_deduction_guide.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/unordered_set/unordered_multiset/op_deduction_guide.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/op_deduction_guide.md b/reference/unordered_set/unordered_multiset/op_deduction_guide.md
+index adae43ec3..1ac09c7df 100644
+--- a/reference/unordered_set/unordered_multiset/op_deduction_guide.md
++++ b/reference/unordered_set/unordered_multiset/op_deduction_guide.md
+@@ -71,7 +71,6 @@ namespace std {
+                           equal_to&amp;lt;ranges::range_value_t&amp;lt;R&amp;gt;&amp;gt;, Allocator&amp;gt;;   // (10) C++23から
+ }
+ ```
+-* see below[italic]
+ * hash[link /reference/functional/hash.md]
+ * equal_to[link /reference/functional/equal_to.md]
+ * allocator[link /reference/memory/allocator.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>推論補助 -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_set/op_deduction_guide.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/unordered_set/unordered_set/op_deduction_guide.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_set/op_deduction_guide.md b/reference/unordered_set/unordered_set/op_deduction_guide.md
+index 66d040423..41a189c92 100644
+--- a/reference/unordered_set/unordered_set/op_deduction_guide.md
++++ b/reference/unordered_set/unordered_set/op_deduction_guide.md
+@@ -67,7 +67,6 @@ namespace std {
+                      equal_to&amp;lt;ranges::range_value_t&amp;lt;R&amp;gt;&amp;gt;, Allocator&amp;gt;;   // (10) C++23から
+ }
+ ```
+-* see below[italic]
+ * hash[link /reference/functional/hash.md]
+ * equal_to[link /reference/functional/equal_to.md]
+ * allocator[link /reference/memory/allocator.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>exchange -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/exchange.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/utility/exchange.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/exchange.md b/reference/utility/exchange.md
+index ea4a1a3a1..155640aa8 100644
+--- a/reference/utility/exchange.md
++++ b/reference/utility/exchange.md
+@@ -17,7 +17,6 @@ namespace std {
+     noexcept(see below);                     // (1) C++23
+ }
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ 値を書き換え、書き換え前の値を返す。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator= -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/pair/op_assign.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/utility/pair/op_assign.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/pair/op_assign.md b/reference/utility/pair/op_assign.md
+index abd960fab..170209e71 100644
+--- a/reference/utility/pair/op_assign.md
++++ b/reference/utility/pair/op_assign.md
+@@ -36,7 +36,6 @@ template&amp;lt;pair-like P&amp;gt;
+ template&amp;lt;pair-like P&amp;gt;
+   constexpr const pair&amp;amp; operator=(P&amp;amp;&amp;amp; p) const;             // (10) C++23
+ ```
+-* see below[italic]
+ * pair-like[link /reference/tuple/pair-like.md]
+ 
+ ## 概要
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/pair/op_constructor.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/utility/pair/op_constructor.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/pair/op_constructor.md b/reference/utility/pair/op_constructor.md
+index 88137dc1b..84f94e188 100644
+--- a/reference/utility/pair/op_constructor.md
++++ b/reference/utility/pair/op_constructor.md
+@@ -67,7 +67,6 @@ constexpr pair(piecewise_construct_t,
+ ```
+ * EXPLICIT[italic]
+ * pair-like[link /reference/tuple/tuple-like.md]
+-* see below[italic]
+ 
+ ## 概要
+ [`pair`](../pair.md)オブジェクトを構築する。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>swap -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/pair/swap.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/utility/pair/swap.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/pair/swap.md b/reference/utility/pair/swap.md
+index 403b9a8ae..a55d13975 100644
+--- a/reference/utility/pair/swap.md
++++ b/reference/utility/pair/swap.md
+@@ -9,7 +9,6 @@
+ void swap(pair&amp;amp; p) noexcept(see below);           // (1) C++11
+ constexpr void swap(pair&amp;amp; p) noexcept(see below); // (1) C++20
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ 他の`pair`オブジェクトと値を入れ替える
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>swap -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/utility/swap.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/utility/swap.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/swap.md b/reference/utility/swap.md
+index df1b79aca..222f6202b 100644
+--- a/reference/utility/swap.md
++++ b/reference/utility/swap.md
+@@ -24,7 +24,6 @@ namespace std {
+                      noexcept(noexcept(swap(*a, *b))); // (2) C++20
+ }
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ 2つの値を入れ替える。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator= -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/variant/variant/op_assign.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/variant/variant/op_assign.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/variant/variant/op_assign.md b/reference/variant/variant/op_assign.md
+index 9c7962ed5..2345dfbbb 100644
+--- a/reference/variant/variant/op_assign.md
++++ b/reference/variant/variant/op_assign.md
+@@ -14,7 +14,6 @@ variant&amp;amp; operator=(T&amp;amp;&amp;amp; rhs) noexcept(see below);               // (3) C++17
+ template &amp;lt;class T&amp;gt;
+ constexpr variant&amp;amp; operator=(T&amp;amp;&amp;amp; rhs) noexcept(see below);     // (3) C++23
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ `variant`オブジェクトもしくは候補型の値を代入する。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/variant/variant/op_constructor.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/variant/variant/op_constructor.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/variant/variant/op_constructor.md b/reference/variant/variant/op_constructor.md
+index 7b50d0ec4..8e71d4ad3 100644
+--- a/reference/variant/variant/op_constructor.md
++++ b/reference/variant/variant/op_constructor.md
+@@ -31,7 +31,6 @@ constexpr explicit variant(in_place_index_t&amp;lt;I&amp;gt;,
+                            initializer_list&amp;lt;U&amp;gt; il,
+                            Args&amp;amp;&amp;amp;... args);              // (8)
+ ```
+-* see below[italic]
+ * size_t[link /reference/cstddef/size_t.md]
+ * initializer_list[link /reference/initializer_list/initializer_list.md]
+ * in_place_type_t[link /reference/utility/in_place_type_t.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>swap -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/variant/variant/swap.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/variant/variant/swap.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/variant/variant/swap.md b/reference/variant/variant/swap.md
+index e5d3e8a90..6583c41e8 100644
+--- a/reference/variant/variant/swap.md
++++ b/reference/variant/variant/swap.md
+@@ -9,7 +9,6 @@
+ void swap(variant&amp;amp; rhs) noexcept(see below);            // C++17
+ constexpr void swap(variant&amp;amp; rhs) noexcept(see below);  // C++23
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ 他の`variant`オブジェクトとデータを入れ替える。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>swap (非メンバ関数) -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/variant/variant/swap_free.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/variant/variant/swap_free.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/variant/variant/swap_free.md b/reference/variant/variant/swap_free.md
+index f92262dbf..e7eaca9bf 100644
+--- a/reference/variant/variant/swap_free.md
++++ b/reference/variant/variant/swap_free.md
+@@ -12,7 +12,6 @@ namespace std {
+   constexpr void swap(variant&amp;lt;Types...&amp;gt;&amp;amp; x, variant&amp;lt;Types...&amp;gt;&amp;amp; y) noexcept(see below);  // C++23
+ }
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ 同じ候補型をもつ2つの`variant`オブジェクトを入れ替える。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>visit -- chore: 個別コードブロックのコード修飾 &#34;* see below[italic]&#34; を削除</title>
+      <link href="https://cpprefjp.github.io/reference/variant/visit.html"/>
+      <id>7b47559e6a2349beaf44f8a9952266bc709a4852:reference/variant/visit.md</id>
+      <updated>2025-07-14T23:04:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/variant/visit.md b/reference/variant/visit.md
+index 6599712d5..b805e9011 100644
+--- a/reference/variant/visit.md
++++ b/reference/variant/visit.md
+@@ -13,7 +13,6 @@ namespace std {
+   constexpr R visit(Visitor&amp;amp;&amp;amp; vis, Variants&amp;amp;&amp;amp;... vars);         // (2) C++20
+ }
+ ```
+-* see below[italic]
+ 
+ ## 概要
+ `variant`オブジェクトが現在保持している型に対応する関数を呼び出す。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>MB_CUR_MAX -- Merge pull request #1474 from cpprefjp/cstdlib/mb-cur-max</title>
+      <link href="https://cpprefjp.github.io/reference/cstdlib/mb_cur_max.html"/>
+      <id>635bc5a02c219ba0434326b9855e11daa37f6697:reference/cstdlib/mb_cur_max.md</id>
+      <updated>2025-07-14T14:04:18+00:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/mb_cur_max.md b/reference/cstdlib/mb_cur_max.md
+index 21450cdb3..3872e41c3 100644
+--- a/reference/cstdlib/mb_cur_max.md
++++ b/reference/cstdlib/mb_cur_max.md
+@@ -3,9 +3,7 @@
+ * macro[meta id-type]
+ 
+ ```cpp
+-namespace std {
+-  #define MB_CUR_MAX /* implementation defined */
+-}
++#define MB_CUR_MAX implementation-defined
+ ```
+ 
+ ## 概要
+@@ -28,24 +26,24 @@ int main() {
+   //C ロケール(標準ASCII)
+   std::cout &amp;lt;&amp;lt; &amp;#34;Locale: standard, MB_CUR_MAX: &amp;#34; &amp;lt;&amp;lt; MB_CUR_MAX &amp;lt;&amp;lt; std::endl;
+   
++  //ロケールを日本(UTF-8)に変更
+   if (std::setlocale(LC_CTYPE, &amp;#34;ja_JP.UTF-8&amp;#34;) == nullptr) {
+-      std::cout &amp;lt;&amp;lt; &amp;#34;Failed to set locale to: ja_JP.UTF-8&amp;#34;  &amp;lt;&amp;lt; std::endl;
++    std::cout &amp;lt;&amp;lt; &amp;#34;Failed to set locale to ja_JP.UTF-8&amp;#34;  &amp;lt;&amp;lt; std::endl;
++  } else {
++    std::cout &amp;lt;&amp;lt; &amp;#34;Locale: ja_JP.UTF-8, MB_CUR_MAX: &amp;#34; &amp;lt;&amp;lt; MB_CUR_MAX &amp;lt;&amp;lt; std::endl;
+   }
+-  std::setlocale(LC_CTYPE, &amp;#34;ja_JP.UTF-8&amp;#34;);//ロケールを日本語UTF-8に変更
+-  std::cout &amp;lt;&amp;lt; &amp;#34;Locale: ja_JP.UTF-8, MB_CUR_MAX: &amp;#34; &amp;lt;&amp;lt; MB_CUR_MAX &amp;lt;&amp;lt; std::endl;
+-  return 0;
+ }
+ ```
+ 
+ ### 出力例
+ ```
+-Locale: standard(C), MB_CUR_MAX: 1
++Locale: standard, MB_CUR_MAX: 1
+ Locale: ja_JP.UTF-8, MB_CUR_MAX: 6
+ ```
+ 
+ ## 関連項目
+-- [`MB_LEN_MAX`](/reference/climits/mb_len_max.md):全ロケールでのマルチバイト文字の最大バイト数
+-- `setlocale`:ロケールを変更する
++- [`MB_LEN_MAX`](/reference/climits/mb_len_max.md): 全ロケールでのマルチバイト文字の最大バイト数
++- `setlocale`: ロケールを変更する
+ 
+ ## 参照
+ - [mb_cur_max(3) - Linux man page](https://linux.die.net/man/3/mb_cur_max)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>

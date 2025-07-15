@@ -1,0 +1,479 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>stoull - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,string,std,function,cpp11
+">
+        <meta name="title" content="stoull - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="stoull - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="stoull - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/string/stoull.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="文字列`str`を数値として読み取って、`unsigned long long`型の値に変換する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="stoull - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/string/stoull.html" />
+        <meta name="twitter:description" content="文字列`str`を数値として読み取って、`unsigned long long`型の値に変換する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;string&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;facb2640391ee8c4d27a5953dacb8d5ce0984881&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;string&gt;\n\nint main()\n{\n  // 10\u9032\u6cd5\u3067\u306e\u5909\u63db\n  {\n    std::cout &lt;&lt; \&#34;---- base = 10\&#34; &lt;&lt; std::endl;\n\n    unsigned long long x = std::stoull(\&#34;10\&#34;); // std::stoull(\&#34;10\&#34;, nullptr, 10);\n    std::cout &lt;&lt; x &lt;&lt; std::endl;\n\n    unsigned long long xw = std::stoull(L\&#34;11\&#34;); // std::stoull(L\&#34;11\&#34;, nullptr, 10);\n    std::cout &lt;&lt; xw &lt;&lt; std::endl;\n  }\n\n  // 2\u9032\u6cd5\u3067\u306e\u5909\u63db\n  {\n    std::cout &lt;&lt; \&#34;---- base = 2\&#34; &lt;&lt; std::endl;\n\n    unsigned long long x = std::stoull(\&#34;1001\&#34;, nullptr, 2);\n    std::cout &lt;&lt; x &lt;&lt; std::endl;\n\n    unsigned long long xw = std::stoull(L\&#34;01001\&#34;, nullptr, 2); // \u5148\u982d\u306b0\u304c\u4ed8\u3044\u3066\u3044\u3066\u3082\u3088\u3044\n    std::cout &lt;&lt; xw &lt;&lt; std::endl;\n  }\n\n  // 8\u9032\u6cd5\u3067\u306e\u5909\u63db\n  {\n    std::cout &lt;&lt; \&#34;---- base = 8\&#34; &lt;&lt; std::endl;\n\n    unsigned long long x = std::stoull(\&#34;10\&#34;, nullptr, 8);\n    std::cout &lt;&lt; x &lt;&lt; std::endl;\n\n    unsigned long long xw = std::stoull(L\&#34;11\&#34;, nullptr, 8);\n    std::cout &lt;&lt; xw &lt;&lt; std::endl;\n  }\n\n  // 16\u9032\u6cd5\u3067\u306e\u5909\u63db\n  {\n    std::cout &lt;&lt; \&#34;---- base = 16\&#34; &lt;&lt; std::endl;\n\n    unsigned long long x = std::stoull(\&#34;10\&#34;, nullptr, 16);\n    std::cout &lt;&lt; x &lt;&lt; std::endl;\n\n    unsigned long long xw = std::stoull(L\&#34;11\&#34;, nullptr, 16);\n    std::cout &lt;&lt; xw &lt;&lt; std::endl;\n  }\n\n  // 16\u9032\u6cd5\u3067\u306e\u5909\u63db\uff08\u30d7\u30ec\u30d5\u30a3\u30c3\u30af\u30b9\u4ed8\u304d\uff09\n  {\n    unsigned long long x = std::stoull(\&#34;0x20\&#34;, nullptr, 16);\n    std::cout &lt;&lt; x &lt;&lt; std::endl;\n\n    unsigned long long xw = std::stoull(L\&#34;0x21\&#34;, nullptr, 16);\n    std::cout &lt;&lt; xw &lt;&lt; std::endl;\n  }\n\n  // base = 0\u306b\u3088\u308b10\u9032\u6cd5\u30fb8\u9032\u6cd5\u30fb16\u9032\u6cd5\u306e\u81ea\u52d5\u5224\u5225\n  {\n    std::cout &lt;&lt; \&#34;---- base = 0\&#34; &lt;&lt; std::endl;\n\n    std::cout &lt;&lt; std::stoull(\&#34;100\&#34;, nullptr, 0) &lt;&lt; std::endl;\n    std::cout &lt;&lt; std::stoull(\&#34;0100\&#34;, nullptr, 0) &lt;&lt; std::endl;\n    std::cout &lt;&lt; std::stoull(\&#34;0x100\&#34;, nullptr, 0) &lt;&lt; std::endl;\n\n    std::cout &lt;&lt; std::stoull(L\&#34;100\&#34;, nullptr, 0) &lt;&lt; std::endl;\n    std::cout &lt;&lt; std::stoull(L\&#34;0100\&#34;, nullptr, 0) &lt;&lt; std::endl;\n    std::cout &lt;&lt; std::stoull(L\&#34;0x100\&#34;, nullptr, 0) &lt;&lt; std::endl;\n  }\n\n  // 2\u756a\u76ee\u306e\u4eee\u5f15\u6570\u306e\u4f7f\u7528\u4f8b\n  {\n    std::cout &lt;&lt; \&#34;---- use of idx parameter\&#34; &lt;&lt; std::endl;\n\n    std::string s = \&#34;30%\&#34;;\n    std::size_t i;\n    unsigned long long x = std::stoull(s, &amp;i);\n    std::cout &lt;&lt; x &lt;&lt; &#39; &#39; &lt;&lt; s[i] &lt;&lt; std::endl;\n\n    std::wstring ws = L\&#34;31%\&#34;;\n    std::size_t wi;\n    unsigned long long xw = std::stoull(ws, &amp;wi);\n    std::cout &lt;&lt; xw &lt;&lt; &#39; &#39; &lt;&lt; wi &lt;&lt; std::endl;\n  }\n\n  // \u6587\u5b57\u5217\u5148\u982d\u306b\u7a7a\u767d\u304c\u3042\u308b\u5834\u5408\n  {\n    std::cout &lt;&lt; \&#34;---- space character before number\&#34; &lt;&lt; std::endl;\n    std::cout &lt;&lt; std::stoull(\&#34;    1\&#34;) &lt;&lt; std::endl;\n    std::cout &lt;&lt; std::stoull(L\&#34;    2\&#34;) &lt;&lt; std::endl;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;string&#34;, &#34;stoull&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/string.html" itemprop="url">
+              
+                <span itemprop="name">string</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">stoull</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-06-11T13:45:38">
+        2024年06月11日 13時45分38秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/string/stoull.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/string/stoull.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;string&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">stoull</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">stoull</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="basic_string.html">std::string</a></span><span class="o">&amp;</span> <span class="n">str</span><span class="p">,</span>
+                            <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="o">*</span> <span class="n">idx</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">,</span>
+                            <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">base</span> <span class="o">=</span> <span class="mi">10</span><span class="p">);</span> <span class="c1">// (1)</span>
+
+  <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="nf">stoull</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="basic_string.html">std::wstring</a></span><span class="o">&amp;</span> <span class="n">str</span><span class="p">,</span>
+                            <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="o">*</span> <span class="n">idx</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">,</span>
+                            <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">base</span> <span class="o">=</span> <span class="mi">10</span><span class="p">);</span> <span class="c1">// (2)</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>文字列<code>str</code>を数値として読み取って、<code>unsigned long long</code>型の値に変換する。</p>
+<h2>効果</h2>
+<p>パラメータ<code>str</code>が<code>string</code>型であれば<code>std::strtoull(str.c_str(), &amp;end, base)</code>、<code>wstring</code>型であれば<code>std::wcstoull(str.c_str(), &amp;end, base)</code>を呼び出して、その<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を返す。</p>
+<p>パラメータ<code>idx</code>が非<code>nullptr</code>の場合、変換に使用されなかった要素のインデックス（<code>end - str.c_str()</code>）が格納される。</p>
+<p>パラメータ<code>base</code>は、整数文字列<code>str</code>の基数を表す。デフォルトでは<code>10</code>進数として文字列を整数に変換する。基数は<code>2</code>から<code>36</code>(<code>36</code>含む)進数を指定できる。基数を<code>0</code>とした場合は、文字列のプレフィックスから基数が自動的に選択される。自動的な選択のルールは、以下のようになる：</p>
+<ul>
+<li>先頭が<code>0</code>：<code>8</code>進数</li>
+<li>先頭が<code>0x</code>もしくは<code>0X</code>：<code>16</code>進数</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p>変換して得られた数値が返される。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
+<ul>
+<li>数値への変換が行われなかった場合、<code><a href="../stdexcept.html">std::invalid_argument</a></code>が送出される。</li>
+<li>以下の条件に合致した場合、<code><a href="../stdexcept.html">std::out_of_range</a></code>が送出される。<ul>
+<li><code>std::strtoull()</code>関数が<code><a href="../cerrno/errno.html">errno</a></code>変数に<code><a href="../cerrno.html">ERANGE</a></code>を設定した場合 (C++14)</li>
+<li>結果が範囲外の値になった場合</li>
+</ul>
+</li>
+</ul>
+<h2>備考</h2>
+<h3>errnoの扱い</h3>
+<ul>
+<li>Visual C++ 11やGCC (libstdc++) 4.8.2では、この関数を呼び出すと<code>errno</code>の値が変更される。</li>
+<li>Clang (libc++) 3.3では、この関数の呼び出し前後で<code>errno</code>の値は変化しない。</li>
+</ul>
+<h3>グローバルロケールの影響</h3>
+<p>この関数は、<code>setlocale()</code>関数により挙動が変化する。</p>
+<p><code>strtoull()</code>関数での文字列先頭の空白を読み飛ばす処理に、<code>&lt;cctype&gt;</code>の<code>isspace()</code>関数が使用されるためである。</p>
+<h2>例</h2>
+<p><div class="yata" id="facb2640391ee8c4d27a5953dacb8d5ce0984881"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// 10進法での変換</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"---- base = 10"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+    <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">x</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::stoull</span></span><span class="p">(</span><span class="s">"10"</span><span class="p">);</span> <span class="c1">// <span style="color:#ff0000">std::stoull</span>("10", nullptr, 10);</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+    <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">xw</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::stoull</span></span><span class="p">(</span><span class="sa">L</span><span class="s">"11"</span><span class="p">);</span> <span class="c1">// <span style="color:#ff0000">std::stoull</span>(L"11", nullptr, 10);</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">xw</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 2進法での変換</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"---- base = 2"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+    <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">x</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::stoull</span></span><span class="p">(</span><span class="s">"1001"</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+    <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">xw</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::stoull</span></span><span class="p">(</span><span class="sa">L</span><span class="s">"01001"</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// 先頭に0が付いていてもよい</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">xw</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 8進法での変換</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"---- base = 8"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+    <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">x</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::stoull</span></span><span class="p">(</span><span class="s">"10"</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+    <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">xw</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::stoull</span></span><span class="p">(</span><span class="sa">L</span><span class="s">"11"</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">xw</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 16進法での変換</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"---- base = 16"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+    <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">x</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::stoull</span></span><span class="p">(</span><span class="s">"10"</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+    <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">xw</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::stoull</span></span><span class="p">(</span><span class="sa">L</span><span class="s">"11"</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">xw</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 16進法での変換（プレフィックス付き）</span>
+  <span class="p">{</span>
+    <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">x</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::stoull</span></span><span class="p">(</span><span class="s">"0x20"</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+    <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">xw</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::stoull</span></span><span class="p">(</span><span class="sa">L</span><span class="s">"0x21"</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">xw</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// base = 0による10進法・8進法・16進法の自動判別</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"---- base = 0"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::stoull</span></span><span class="p">(</span><span class="s">"100"</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::stoull</span></span><span class="p">(</span><span class="s">"0100"</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::stoull</span></span><span class="p">(</span><span class="s">"0x100"</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::stoull</span></span><span class="p">(</span><span class="sa">L</span><span class="s">"100"</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::stoull</span></span><span class="p">(</span><span class="sa">L</span><span class="s">"0100"</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::stoull</span></span><span class="p">(</span><span class="sa">L</span><span class="s">"0x100"</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 2番目の仮引数の使用例</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"---- use of idx parameter"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+    <span class="n"><a href="basic_string.html">std::string</a></span> <span class="n">s</span> <span class="o">=</span> <span class="s">"30%"</span><span class="p">;</span>
+    <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">i</span><span class="p">;</span>
+    <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">x</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::stoull</span></span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="sc">' '</span> <span class="o">&lt;&lt;</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+    <span class="n"><a href="basic_string.html">std::wstring</a></span> <span class="n">ws</span> <span class="o">=</span> <span class="sa">L</span><span class="s">"31%"</span><span class="p">;</span>
+    <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">wi</span><span class="p">;</span>
+    <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">xw</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::stoull</span></span><span class="p">(</span><span class="n">ws</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">wi</span><span class="p">);</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">xw</span> <span class="o">&lt;&lt;</span> <span class="sc">' '</span> <span class="o">&lt;&lt;</span> <span class="n">wi</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 文字列先頭に空白がある場合</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"---- space character before number"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::stoull</span></span><span class="p">(</span><span class="s">"    1"</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::stoull</span></span><span class="p">(</span><span class="sa">L</span><span class="s">"    2"</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>---- base = 10
+10
+11
+---- base = 2
+9
+9
+---- base = 8
+8
+9
+---- base = 16
+16
+17
+32
+33
+---- base = 0
+100
+64
+256
+100
+64
+256
+---- use of idx parameter
+30 %
+31 2
+---- space character before number
+1
+2
+</code></pre></p>
+<h2>実装例</h2>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="nf">stoull</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="basic_string.html">std::string</a></span><span class="o">&amp;</span> <span class="n">str</span><span class="p">,</span> <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="o">*</span> <span class="n">idx</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">base</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n"><a href="basic_string/c_str.html">str.c_str()</a></span><span class="p">;</span>
+  <span class="kt">char</span><span class="o">*</span> <span class="n">end</span><span class="p">;</span>
+  <span class="n"><a href="../cerrno/errno.html">errno</a></span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">x</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">strtoull</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">end</span><span class="p">,</span> <span class="n">base</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">p</span> <span class="o">==</span> <span class="n">end</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="n"><a href="../stdexcept.html">std::invalid_argument</a></span><span class="p">(</span><span class="s">"stoull"</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n"><a href="../cerrno/errno.html">errno</a></span> <span class="o">==</span> <span class="n"><a href="../cerrno.html">ERANGE</a></span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="n"><a href="../stdexcept.html">std::out_of_range</a></span><span class="p">(</span><span class="s">"stoull"</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">idx</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">*</span><span class="n">idx</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">p</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="nf">stoull</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="basic_string.html">std::wstring</a></span><span class="o">&amp;</span> <span class="n">str</span><span class="p">,</span> <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="o">*</span> <span class="n">idx</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">base</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">const</span> <span class="kt">wchar_t</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n"><a href="basic_string/c_str.html">str.c_str()</a></span><span class="p">;</span>
+  <span class="kt">wchar_t</span><span class="o">*</span> <span class="n">end</span><span class="p">;</span>
+  <span class="n"><a href="../cerrno/errno.html">errno</a></span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">x</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">wcstoull</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">end</span><span class="p">,</span> <span class="n">base</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">p</span> <span class="o">==</span> <span class="n">end</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="n"><a href="../stdexcept.html">std::invalid_argument</a></span><span class="p">(</span><span class="s">"stoull"</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n"><a href="../cerrno/errno.html">errno</a></span> <span class="o">==</span> <span class="n"><a href="../cerrno.html">ERANGE</a></span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="n"><a href="../stdexcept.html">std::out_of_range</a></span><span class="p">(</span><span class="s">"stoull"</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">idx</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">*</span><span class="n">idx</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">p</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ?</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: ?</li>
+<li><a href="../../implementation.html#icc">ICC</a>: ?</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2010 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2012 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2013 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<h2>関連リンク</h2>
+<h3>C標準ライブラリに由来する関数</h3>
+<ul>
+<li><code>atoll</code>: <code>stoull</code>は<code>atoll</code>を<code>std::string</code>および<code>std::wstring</code>に対応させ、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型を<code>unsigned long long</code>に変更したものと見なせる。</li>
+<li><code>strtoll</code>, <code>wcstoll</code>: <code>stoull</code>は<code>strtoll</code>および<code>wcstoull</code>をそれぞれ<code>std::string</code>と<code>std::wstring</code>に対応させたものと見なせる。</li>
+</ul>
+<h3>ファミリー</h3>
+<ul>
+<li><code><a href="stoi.html">stoi</a></code>: <a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型が<code>int</code>となったもの。</li>
+<li><code><a href="stol.html">stol</a></code>: <a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型が<code>long</code>となったもの。</li>
+<li><code><a href="stoll.html">stoll</a></code>: <a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型が<code>long long</code>となったもの。</li>
+<li><code><a href="stoul.html">stoul</a></code>: <a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型が<code>unsigned long</code>となったもの。</li>
+<li>(<code>stoull</code>: この関数自身)</li>
+<li><code><a href="stof.html">stof</a></code>: <a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型が<code>float</code>となったもの。</li>
+<li><code><a href="stod.html">stod</a></code>: <a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型が<code>double</code>となったもの。</li>
+<li><code><a href="stold.html">stold</a></code>: <a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型が<code>long double</code>となったもの。</li>
+</ul>
+<h3>ロケール依存しない高速な変換関数</h3>
+<ul>
+<li><code><a href="../charconv/from_chars.html">from_chars</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2408.html" target="_blank">N2408 Simple Numeric Access Revision 2</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2009" target="_blank">LWG Issue 2009. Reporting out-of-bound values on numeric string conversions</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

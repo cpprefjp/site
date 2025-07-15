@@ -1,0 +1,371 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>fpos - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,ios,std,class template
+">
+        <meta name="title" content="fpos - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="fpos - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="fpos - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/ios/fpos.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="class template&amp;lt;ios&amp;gt;std::fpos namespace std {   template &amp;lt;class stateT&amp;gt;   class fpos; }   fposは、ファイル上の位置を表現するクラスである。 概念的には、stateTによる変換状態と整数によるオフセットでファイル上の位置を表現するクラスである。 多くの場合、stateTとしてはstd:" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="fpos - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/ios/fpos.html" />
+        <meta name="twitter:description" content="class template&amp;lt;ios&amp;gt;std::fpos namespace std {   template &amp;lt;class stateT&amp;gt;   class fpos; }   fposは、ファイル上の位置を表現するクラスである。 概念的には、stateTによる変換状態と整数によるオフセットでファイル上の位置を表現するクラスである。 多くの場合、stateTとしてはstd:" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;ios&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;ios&#34;, &#34;fpos&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/ios.html" itemprop="url">
+              
+                <span itemprop="name">ios</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">fpos</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-09-03T06:17:49">
+        2024年09月03日 06時17分49秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/ios/fpos.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/ios/fpos.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;ios&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">fpos</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">stateT</span><span class="o">&gt;</span>
+  <span class="k">class</span> <span class="nc">fpos</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p><code>fpos</code>は、ファイル上の位置を表現するクラスである。
+概念的には、stateTによる変換状態と整数によるオフセットでファイル上の位置を表現するクラスである。</p>
+<p>多くの場合、stateTとしては<code>std::mbstate_t</code>が使用される。とくに、<code>&lt;iosfwd&gt;</code>ヘッダでは、以下の別名型が定義されている。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">state</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">fpos</span><span class="p">;</span>
+<span class="k">using</span> <span class="n">streampos</span>  <span class="o">=</span> <span class="n">fpos</span><span class="o">&lt;</span><span class="n">char_traits</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;::</span><span class="n">state_type</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">using</span> <span class="n">wstreampos</span> <span class="o">=</span> <span class="n">fpos</span><span class="o">&lt;</span><span class="n">char_traits</span><span class="o">&lt;</span><span class="kt">wchar_t</span><span class="o">&gt;::</span><span class="n">state_type</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">using</span> <span class="n">u8streampos</span> <span class="o">=</span> <span class="n">fpos</span><span class="o">&lt;</span><span class="n">char_traits</span><span class="o">&lt;</span><span class="n">char8_t</span><span class="o">&gt;::</span><span class="n">state_type</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">using</span> <span class="n">u16streampos</span> <span class="o">=</span> <span class="n">fpos</span><span class="o">&lt;</span><span class="n">char_traits</span><span class="o">&lt;</span><span class="kt">char16_t</span><span class="o">&gt;::</span><span class="n">state_type</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">using</span> <span class="n">u32streampos</span> <span class="o">=</span> <span class="n">fpos</span><span class="o">&lt;</span><span class="n">char_traits</span><span class="o">&lt;</span><span class="kt">char32_t</span><span class="o">&gt;::</span><span class="n">state_type</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<p><code>char</code>、<code>wchar_t</code>、<code>char8_t</code>、<code>char16_t</code>、<code>char32_t</code>型について<code>char_traits&lt;charT&gt;::state_type</code>は<code>std::mbstate_t</code>の別名である。</p>
+<h2>メンバ関数</h2>
+<h3>構築・破棄</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><span href="https://cpprefjp.github.io/reference/ios/fpos/state.md.nolink">state</span></code></td>
+<td>状態の取得・設定</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>要件</h2>
+<p><code>fpos</code>に関連して、以下の操作が可能であることが要求される。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>式・文</th>
+<th>説明</th>
+<th>アサーション・その他注釈</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>P(i)</code></td>
+<td>intからの一時オブジェクトの作成</td>
+<td><code>p == P(i)</code></td>
+</tr>
+<tr>
+<td><code>P p(i);</code></td>
+<td>intからのオブジェクトの作成</td>
+<td><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a>: <code>p == P(i)</code></td>
+</tr>
+<tr>
+<td><code>P p = i;</code></td>
+<td>〃</td>
+<td>〃</td>
+</tr>
+<tr>
+<td><code>P(o)</code></td>
+<td>オフセットからの（一時）オブジェクトの生成</td>
+<td></td>
+</tr>
+<tr>
+<td><code>O(p)</code></td>
+<td>オフセットへの変換</td>
+<td><code>P(O(p)) == p</code></td>
+</tr>
+<tr>
+<td><code>p == q</code></td>
+<td>比較</td>
+<td>結果の型はboolに変換可能である</td>
+</tr>
+<tr>
+<td><code>p != q</code></td>
+<td>〃</td>
+<td>〃</td>
+</tr>
+<tr>
+<td><code>q = p + o</code></td>
+<td>正値のオフセット</td>
+<td><code>q - o == p</code></td>
+</tr>
+<tr>
+<td><code>p += o</code></td>
+<td>〃</td>
+<td>〃</td>
+</tr>
+<tr>
+<td><code>q = p - o</code></td>
+<td></td>
+<td><code>q + o == p</code></td>
+</tr>
+<tr>
+<td><code>q -= o</code></td>
+<td></td>
+<td>〃</td>
+</tr>
+<tr>
+<td><code>o = p - q</code></td>
+<td>fpos同士の差</td>
+<td><code>q + o == p</code></td>
+</tr>
+<tr>
+<td><code>streamsize(o)</code></td>
+<td>型変換</td>
+<td><code>streamsize(O(sz)) == sz</code></td>
+</tr>
+<tr>
+<td><code>O(sz)</code></td>
+<td>型変換</td>
+<td>〃</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>P: fpos&lt;T&gt;である型</li>
+<li>p, q: fpos&lt;T&gt;である型の値</li>
+<li>O: streamoff型</li>
+<li>o: streamoff型の値</li>
+<li>sz: streamsize型の値</li>
+<li>i: int型の値</li>
+</ul>
+<p>なお、<code>P(O(-1))</code>はエラー値である。<code>basic_istream</code>/<code>basic_ostream</code>/<code>basic_streambuf</code>では以下のように扱われる。</p>
+<ul>
+<li><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>としてこの値が返されれば、操作の失敗を表す。</li>
+<li>引数としてこの値が渡された場合、<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こす。</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

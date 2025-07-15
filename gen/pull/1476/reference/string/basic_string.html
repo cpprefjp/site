@@ -1,0 +1,994 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>basic_string - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,string,std,class template
+">
+        <meta name="title" content="basic_string - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="basic_string - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="basic_string - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/string/basic_string.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`basic_string`クラスは、あらゆる文字型を使用できる文字列クラスである。  " />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="basic_string - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/string/basic_string.html" />
+        <meta name="twitter:description" content="`basic_string`クラスは、あらゆる文字型を使用できる文字列クラスである。  " />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;string&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;64e782e8c368e30f8676b7ad1e1a5c1d38bf07a9&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;cstdio&gt;\n#include &lt;string&gt;\n\nint main()\n{\n  // C\u6587\u5b57\u5217\u304b\u3089string\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3092\u69cb\u7bc9\n  std::string s = \&#34;hello\&#34;;\n\n  // \u672b\u5c3e\u306b\u6587\u5b57\u5217\u3092\u8ffd\u52a0\n  s += \&#34; world\&#34;;\n\n  // \u90e8\u5206\u6587\u5b57\u5217\u3092\u53d6\u5f97(\u59cb\u70b9:0\u3001\u59cb\u70b9\u304b\u3089\u306e\u6587\u5b57\u6570:5)\n  std::string hello = s.substr(0, 5);\n\n  // ostream\u3078\u306e\u51fa\u529b\n  std::cout &lt;&lt; hello &lt;&lt; std::endl;\n\n  // C\u6587\u5b57\u5217\u3092\u53d6\u5f97\u3057\u3001const char*\u3092\u8981\u6c42\u3059\u308bAPI\u306b\u6e21\u3059\n  std::printf(\&#34;%s\&#34;, s.c_str());\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;string&#34;, &#34;basic_string&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/string.html" itemprop="url">
+              
+                <span itemprop="name">string</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">basic_string</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-08-15T04:13:14">
+        2024年08月15日 04時13分14秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">suomesta</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/string/basic_string.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/string/basic_string.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;string&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">basic_string</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">charT</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">traits</span> <span class="o">=</span> <span class="n"><a href="char_traits.html">char_traits</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="o">&gt;</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Allocator</span> <span class="o">=</span> <span class="n"><a href="../memory/allocator.html">allocator</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="o">&gt;</span> <span class="o">&gt;</span>
+  <span class="k">class</span> <span class="nc">basic_string</span><span class="p">;</span>
+
+  <span class="k">using</span> <span class="n">string</span>    <span class="o">=</span> <span class="n">basic_string</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">u8string</span>  <span class="o">=</span> <span class="n">basic_string</span><span class="o">&lt;</span><span class="n">char8_t</span><span class="o">&gt;</span><span class="p">;</span>   <span class="c1">// C++20から</span>
+  <span class="k">using</span> <span class="n">u16string</span> <span class="o">=</span> <span class="n">basic_string</span><span class="o">&lt;</span><span class="kt">char16_t</span><span class="o">&gt;</span><span class="p">;</span>  <span class="c1">// C++11から</span>
+  <span class="k">using</span> <span class="n">u32string</span> <span class="o">=</span> <span class="n">basic_string</span><span class="o">&lt;</span><span class="kt">char32_t</span><span class="o">&gt;</span><span class="p">;</span>  <span class="c1">// C++11から</span>
+  <span class="k">using</span> <span class="n">wstring</span>   <span class="o">=</span> <span class="n">basic_string</span><span class="o">&lt;</span><span class="kt">wchar_t</span><span class="o">&gt;</span><span class="p">;</span>
+
+
+  <span class="k">namespace</span> <span class="n">pmr</span> <span class="p">{</span>  <span class="c1">// C++17から</span>
+    <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">charT</span><span class="p">,</span> <span class="k">class</span> <span class="nc">traits</span> <span class="o">=</span> <span class="n"><a href="char_traits.html">char_traits</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="o">&gt;&gt;</span>
+      <span class="k">using</span> <span class="n">basic_string</span> <span class="o">=</span>
+        <span class="n"><a href="">std::basic_string</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">traits</span><span class="p">,</span> <span class="n"><a href="../memory_resource/polymorphic_allocator.html">polymorphic_allocator</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+
+    <span class="k">using</span> <span class="n">string</span>    <span class="o">=</span> <span class="n">basic_string</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="k">using</span> <span class="n">u8string</span>  <span class="o">=</span> <span class="n">basic_string</span><span class="o">&lt;</span><span class="n">char8_t</span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// C++20から</span>
+    <span class="k">using</span> <span class="n">u16string</span> <span class="o">=</span> <span class="n">basic_string</span><span class="o">&lt;</span><span class="kt">char16_t</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="k">using</span> <span class="n">u32string</span> <span class="o">=</span> <span class="n">basic_string</span><span class="o">&lt;</span><span class="kt">char32_t</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="k">using</span> <span class="n">wstring</span>   <span class="o">=</span> <span class="n">basic_string</span><span class="o">&lt;</span><span class="kt">wchar_t</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>basic_string</code>クラスは、あらゆる文字型を使用できる文字列クラスである。<br />
+テンプレートパラメータとして文字型を受け取るようになっており、使用を容易にするため、以下のパラメータ設定済みエイリアスが定義されている。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>エイリアス</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>string</code></td>
+<td><code>char</code>型文字列。ASCII、UTF-8等のマルチバイト文字列や、バイト配列として使用する。</td>
+<td></td>
+</tr>
+<tr>
+<td><code>wstring</code></td>
+<td><code>wchar_t</code>型文字列。<code>wchar_t</code>が16ビットの環境で、UTF-16の文字列として使用する。</td>
+<td></td>
+</tr>
+<tr>
+<td><code>u8string</code></td>
+<td><code>char8_t</code>型文字列。UTF-8の文字列として使用する。</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code>u16string</code></td>
+<td><code>char16_t</code>型文字列。UTF-16の文字列として使用する。</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>u32string</code></td>
+<td><code>char32_t</code>型文字列。UTF-32の文字列として使用する。</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>pmr::string</code></td>
+<td><a href="../memory_resource/polymorphic_allocator.html">多相アロケータ</a>を用いる<code>string</code></td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code>pmr::wstring</code></td>
+<td><a href="../memory_resource/polymorphic_allocator.html">多相アロケータ</a>を用いる<code>wstring</code></td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code>pmr::u8string</code></td>
+<td><a href="../memory_resource/polymorphic_allocator.html">多相アロケータ</a>を用いる<code>u8string</code></td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code>pmr::u16string</code></td>
+<td><a href="../memory_resource/polymorphic_allocator.html">多相アロケータ</a>を用いる<code>u16string</code></td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code>pmr::u32string</code></td>
+<td><a href="../memory_resource/polymorphic_allocator.html">多相アロケータ</a>を用いる<code>u32string</code></td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<p><code>basic_string</code>文字列オブジェクトに含まれる各要素は、必ずしも1文字を表すわけではないことに注意が必要である。<br />
+このクラスが表すのは、文字型<code>charT</code>の動的配列であり、文字の動的配列ではない。<br />
+したがって、文字列中に以下のようなものが含まれている場合、<code>basic_string</code>クラスにおいては複数の要素と見なされる。</p>
+<ul>
+<li>マルチバイト文字（<code>charT</code>が<code>char</code>などの場合）</li>
+<li>サロゲートペア</li>
+<li>結合文字列</li>
+<li>異体字切り換えシーケンス (IVS)</li>
+</ul>
+<h2>メンバ関数</h2>
+<h3>構築・破棄</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="basic_string/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/op_destructor.html">(destructor)</a></code></td>
+<td>デストラクタ</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/op_assign.html">operator=</a></code></td>
+<td>代入演算子</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>イテレータ</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="basic_string/begin.html">begin</a></code></td>
+<td>先頭の要素を指すイテレータを取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/end.html">end</a></code></td>
+<td>末尾の次を指すイテレータを取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/cbegin.html">cbegin</a></code></td>
+<td>先頭の要素を指す読み取り専用イテレータを取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="basic_string/cend.html">cend</a></code></td>
+<td>末尾の次を指す読み取り専用イテレータを取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="basic_string/rbegin.html">rbegin</a></code></td>
+<td>末尾を指す逆イテレータを取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/rend.html">rend</a></code></td>
+<td>先頭の前を指す逆イテレータを取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/crbegin.html">crbegin</a></code></td>
+<td>末尾を指す読み取り専用逆イテレータを取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="basic_string/crend.html">crend</a></code></td>
+<td>先頭の前を指す読み取り専用逆イテレータを取得する</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>領域</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="basic_string/size.html">size</a></code></td>
+<td>文字列の長さを取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/length.html">length</a></code></td>
+<td>文字列の長さを取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/max_size.html">max_size</a></code></td>
+<td>格納可能な最大の文字列長を取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/resize.html">resize</a></code></td>
+<td>文字列の長さを変更する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/resize_and_overwrite.html">resize_and_overwrite</a></code></td>
+<td>文字列の長さの変更と併せて任意の初期化を行う</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="basic_string/capacity.html">capacity</a></code></td>
+<td>メモリを再確保せずに格納できる最大の要素数を取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/reserve.html">reserve</a></code></td>
+<td><code>capacity</code>を変更する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/shrink_to_fit.html">shrink_to_fit</a></code></td>
+<td><code>capacity</code>を<code>size</code>まで縮小する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="basic_string/clear.html">clear</a></code></td>
+<td>文字列をクリアする</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/empty.html">empty</a></code></td>
+<td>文字列が空かどうかを判定する</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>要素アクセス</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="basic_string/op_at.html">operator[]</a></code></td>
+<td>任意の位置の要素を取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/at.html">at</a></code></td>
+<td>任意の位置の要素を取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/front.html">front</a></code></td>
+<td>先頭要素を取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="basic_string/back.html">back</a></code></td>
+<td>末尾要素を取得する</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>文字列の変更</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="basic_string/op_plus_assign.html">operator+=</a></code></td>
+<td>文字／文字列を追加する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/append.html">append</a></code></td>
+<td>文字／文字列を追加する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/push_back.html">push_back</a></code></td>
+<td>末尾に要素を追加する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/append_range.html">append_range</a></code></td>
+<td>Rangeの要素を末尾へ追加する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="basic_string/assign.html">assign</a></code></td>
+<td>文字列の再代入</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/assign_range.html">assign_range</a></code></td>
+<td>Rangeの要素を再代入</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="basic_string/insert.html">insert</a></code></td>
+<td>文字／文字列を挿入する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/insert_range.html">insert_range</a></code></td>
+<td>Rangeの要素を挿入する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="basic_string/erase.html">erase</a></code></td>
+<td>要素を削除する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/pop_back.html">pop_back</a></code></td>
+<td>末尾の1要素を削除する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="basic_string/replace.html">replace</a></code></td>
+<td>文字列の一部を置換する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/swap.html">swap</a></code></td>
+<td>他の<code>basic_string</code>オブジェクトとデータを入れ替える</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>文字列の操作</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="basic_string/c_str.html">c_str</a></code></td>
+<td>C言語の文字列表現を取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/data.html">data</a></code></td>
+<td>文字配列表現を取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/op_basic_string_view.html">operator basic_string_view</a></code></td>
+<td><code><a href="../string_view/basic_string_view.html">std::basic_string_view</a></code>型に変換する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="basic_string/get_allocator.html">get_allocator</a></code></td>
+<td>アロケータを取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/copy.html">copy</a></code></td>
+<td>他の文字列にコピーする</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/find.html">find</a></code></td>
+<td>指定文字列を検索する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/rfind.html">rfind</a></code></td>
+<td>最後に現れる指定文字列を検索する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/find_first_of.html">find_first_of</a></code></td>
+<td>最初に現れる指定文字を検索する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/find_last_of.html">find_last_of</a></code></td>
+<td>最後に現れる指定文字を検索する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/find_first_not_of.html">find_first_not_of</a></code></td>
+<td>先頭から、指定文字が見つからない位置を検索する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/find_last_not_of.html">find_last_not_of</a></code></td>
+<td>末尾から、指定文字が見つからない位置を検索する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/substr.html">substr</a></code></td>
+<td>部分文字列を取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/compare.html">compare</a></code></td>
+<td>他の文字列との比較を行う</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/starts_with.html">starts_with</a></code></td>
+<td>指定の文字列で始まるかを判定する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="basic_string/ends_with.html">ends_with</a></code></td>
+<td>指定の文字列で終わるかを判定する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="basic_string/contains.html">contains</a></code></td>
+<td>指定の文字・文字列が含まれているかを判定する</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h3>メンバ定数</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>npos</code></td>
+<td>無効な位置を表す。<code>find</code>や<code>substr</code>などで使われる。<br /><code>static const size_type npos = -1;</code></td>
+<td>C++23からconstexpr</td>
+</tr>
+</tbody>
+</table>
+<h3>メンバ型</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>traits_type</code></td>
+<td>文字特性型 <code>traits</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>value_type</code></td>
+<td>文字型 <code>traits::char_type</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>allocator_type</code></td>
+<td>アロケータ型 <code>Allocator</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>size_type</code></td>
+<td>要素数を表す符号なし整数型。<br /> <code>allocator_traits&lt;Allocator&gt;::size_type</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>difference_type</code></td>
+<td>イテレータの差を表す符号付き整数型。 <code>allocator_traits&lt;Allocator&gt;::difference_type</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>reference</code></td>
+<td>参照型 <code>value_type&amp;</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>const_reference</code></td>
+<td><code>const</code>参照型 <code>const value&amp;</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>pointer</code></td>
+<td>ポインタ型 <code>allocator_traits&lt;Allocator&gt;::pointer</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>const_pointer</code></td>
+<td><code>const</code>ポインタ型 <code>allocator_traits&lt;Allocator&gt;::const_pointer</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>iterator</code></td>
+<td>イテレータ</td>
+<td></td>
+</tr>
+<tr>
+<td><code>const_iterator</code></td>
+<td>読み取り専用イテレータ</td>
+<td></td>
+</tr>
+<tr>
+<td><code>reverse_iterator</code></td>
+<td>逆順イテレータ <code><a href="../iterator/reverse_iterator.html">reverse_iterator</a>&lt;iterator&gt;</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>const_reverse_iterator</code></td>
+<td>読み取り専用逆イテレータ <code><a href="../iterator/reverse_iterator.html">reverse_iterator</a>&lt;const_iterator&gt;</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>非メンバ関数</h2>
+<h3>文字列連結</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="basic_string/op_plus.html">operator+</a></code></td>
+<td>文字列の連結</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>比較演算子</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="basic_string/op_equal.html">operator==</a></code></td>
+<td>等値比較</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/op_not_equal.html">operator!=</a></code></td>
+<td>非等値比較</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/op_compare_3way.html">operator&lt;=&gt;</a></code></td>
+<td>三方比較</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="basic_string/op_less.html">operator&lt;</a></code></td>
+<td>左辺が右辺より小さいかの判定を行う</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/op_less_equal.html">operator&lt;=</a></code></td>
+<td>左辺が右辺以下かの判定を行う</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/op_greater.html">operator&gt;</a></code></td>
+<td>左辺が右辺より大きいかの判定を行う</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/op_greater_equal.html">operator&gt;=</a></code></td>
+<td>左辺が右辺以上かの判定を行う</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>入出力</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="basic_string/op_ostream.html">operator&lt;&lt;</a></code></td>
+<td>ストリームへの出力</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/op_istream.html">operator&gt;&gt;</a></code></td>
+<td>ストリームからの入力</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_string/getline.html">getline</a></code></td>
+<td>入力ストリームから1行読み込む</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>入れ替え</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="basic_string/swap_free.html">swap</a></code></td>
+<td>2つの<code>basic_string</code>オブジェクトを入れ替える</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>要素削除</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="basic_string/erase_free.html">erase</a></code></td>
+<td>指定した値をもつ要素とその分の領域を、コンテナから削除する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="basic_string/erase_if_free.html">erase_if</a></code></td>
+<td>指定した条件に合致する要素とその分の領域を、コンテナから削除する</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>リテラル</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="basic_string/op_s.html">s</a></code></td>
+<td><code>basic_string</code>のリテラル</td>
+<td>C++14</td>
+</tr>
+</tbody>
+</table>
+<h2>推論補助</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="basic_string/op_deduction_guide.html">(deduction_guide)</a></code></td>
+<td>クラステンプレートの推論補助</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<h3>基本的な使い方 (C++03)</h3>
+<p><div class="yata" id="64e782e8c368e30f8676b7ad1e1a5c1d38bf07a9"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../cstdio.html">&lt;cstdio&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// C文字列からstringオブジェクトを構築</span>
+  <span class="n"><span style="color:#ff0000">std::string</span></span> <span class="n">s</span> <span class="o">=</span> <span class="s">"hello"</span><span class="p">;</span>
+
+  <span class="c1">// 末尾に文字列を追加</span>
+  <span class="n">s</span> <span class="o">+=</span> <span class="s">" world"</span><span class="p">;</span>
+
+  <span class="c1">// 部分文字列を取得(始点:0、始点からの文字数:5)</span>
+  <span class="n"><span style="color:#ff0000">std::string</span></span> <span class="n">hello</span> <span class="o">=</span> <span class="n"><a href="basic_string/substr.html">s.substr</a></span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+
+  <span class="c1">// ostreamへの出力</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">hello</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// C文字列を取得し、const char*を要求するAPIに渡す</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">printf</span><span class="p">(</span><span class="s">"%s"</span><span class="p">,</span> <span class="n"><a href="basic_string/c_str.html">s.c_str()</a></span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>hello
+hello world
+</code></pre></p>
+<h3>定数式内でbasic_stringを使用する (C++20)</h3>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+
+<span class="k">constexpr</span> <span class="kt">bool</span> <span class="nf">f</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="">std::string</a></span> <span class="n">s</span> <span class="o">=</span> <span class="s">"Hello"</span><span class="p">;</span>
+  <span class="n">s</span> <span class="o">+=</span> <span class="s">" World"</span><span class="p">;</span>
+
+  <span class="k">auto</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n"><a href="basic_string/data.html">s.data()</a></span><span class="p">;</span>
+  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n">f</span><span class="p">());</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2668.htm" target="_blank">N2668 Concurrency Modifications to Basic String</a><ul>
+<li>C++11で、<code>basic_string</code>の仕様が、並行実行のパフォーマンスを考慮したものに変更された経緯の提案文書</li>
+</ul>
+</li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf" target="_blank">P0254R2 Integrating <code>std::string_view</code> and <code>std::string</code></a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

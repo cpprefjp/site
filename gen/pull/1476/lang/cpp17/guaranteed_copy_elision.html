@@ -1,0 +1,392 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>値のコピー省略を保証 [P0135R1] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp17
+">
+        <meta name="title" content="値のコピー省略を保証 [P0135R1] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="値のコピー省略を保証 [P0135R1] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="値のコピー省略を保証 [P0135R1] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp17/guaranteed_copy_elision.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="C++11で右辺値参照を導入するときに規定された「値カテゴリー (value category)」の仕様（C++17で更新）を利用し、[`prvalue`](../cpp11/rvalue_ref_and_move_semantics.md)&lt;sup&gt;&lt;a id=&#34;note_ref-1&#34; href=&#34;#note-1&#34;&gt;[注1]&lt;/a&gt;&lt;/sup&gt;というカテゴリーの値を、オブジェクトの初期化のために" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="値のコピー省略を保証 [P0135R1] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp17/guaranteed_copy_elision.html" />
+        <meta name="twitter:description" content="C++11で右辺値参照を導入するときに規定された「値カテゴリー (value category)」の仕様（C++17で更新）を利用し、[`prvalue`](../cpp11/rvalue_ref_and_move_semantics.md)&lt;sup&gt;&lt;a id=&#34;note_ref-1&#34; href=&#34;#note-1&#34;&gt;[注1]&lt;/a&gt;&lt;/sup&gt;というカテゴリーの値を、オブジェクトの初期化のために" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;d36c46f1b8ff7f093fcc24245ff73fc515c6e78d&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;vector&gt;\n\nstruct Noisy {\n  Noisy() { std::cout &lt;&lt; \&#34;constructed\\n\&#34;; }\n  Noisy(const Noisy&amp;) { std::cout &lt;&lt; \&#34;copy-constructed\\n\&#34;; }\n  Noisy(Noisy&amp;&amp;) { std::cout &lt;&lt; \&#34;move-constructed\\n\&#34;; }\n  ~Noisy() { std::cout &lt;&lt; \&#34;destructed\\n\&#34;; }\n};\n\nstd::vector&lt;Noisy&gt; f() {\n  std::vector&lt;Noisy&gt; v = std::vector&lt;Noisy&gt;(3); // v \u521d\u671f\u5316\u6642\u3001\u30b3\u30d4\u30fc\u306f\u7701\u7565\u3055\u308c\u308b\n  return v; // NRVO \u306f\u3001C++17\u3067\u3082\u4fdd\u8a3c\u3055\u308c\u306a\u3044\n}             // \u6700\u9069\u5316\u3055\u308c\u306a\u3044\u5834\u5408\u3001\u30e0\u30fc\u30d6\u30b3\u30f3\u30b9\u30c8\u30e9\u30af\u30bf\u304c\u3088\u3070\u308c\u308b\n\nvoid g(std::vector&lt;Noisy&gt; arg) {\n  std::cout &lt;&lt; \&#34;arg.size() = \&#34; &lt;&lt; arg.size() &lt;&lt; &#39;\\n&#39;;\n}\n\nint main() {\n  std::vector&lt;Noisy&gt; v = f(); // v \u521d\u671f\u5316\u6642\u3001\u30b3\u30d4\u30fc\u306f\u7701\u7565\u3055\u308c\u308b\n  g(f());                     // g()\u306e\u5f15\u6570\u521d\u671f\u5316\u6642\u3001\u30b3\u30d4\u30fc\u306f\u7701\u7565\u3055\u308c\u308b\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp17&#34;, &#34;guaranteed_copy_elision&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp17.html" itemprop="url">
+              
+                <span itemprop="name">C++17</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">値のコピー省略を保証 [P0135R1]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-06-11T14:15:20">
+        2025年06月11日 14時15分20秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Raclamusi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp17/guaranteed_copy_elision.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp17/guaranteed_copy_elision.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">値のコピー省略を保証 [P0135R1]</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++17に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>C++11で右辺値参照を導入するときに規定された「値カテゴリー (value category)」の仕様（C++17で更新）を利用し、<code><a href="../cpp11/rvalue_ref_and_move_semantics.html">prvalue</a></code><sup><a href="#note-1" id="note_ref-1">[注1]</a></sup>というカテゴリーの値を、オブジェクトの初期化のために使用する場合に、コピーが省略される。</p>
+<h2>仕様</h2>
+<p>まず、prvalueなどの値カテゴリー (value category)については、<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4659.pdf" target="_blank">n4659</a>[basic.lval]/1に定義されている。</p>
+<p>また、[conv.rval]/1 に、次のような記述がある：</p>
+<p>Temporary materialization conversion</p>
+<p><code>T</code>型の<code>prvalue</code>は、<code>T</code>型の<code>xvalue</code>に変換できる。この変換では、一時オブジェクトを結果オブジェクトとして<code>prvalue</code>を評価することによって、<code>prvalue</code>から<code>T</code>型の一時オブジェクトを初期化し、その一時オブジェクトを表す<code>xvalue</code>を生成する。<code>T</code>は<a class="cpprefjp-defined-word" data-desc="型のサイズを決定できる型。不完全型ではない型">完全型</a>でなければならない。
+[注：<code>T</code>がクラス型（またはその配列）の場合、アクセス可能な削除されていないデストラクタが必要である。]
+例:</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">X</span> <span class="p">{</span> <span class="kt">int</span> <span class="n">n</span><span class="p">;</span> <span class="p">};</span>
+<span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">X</span><span class="p">().</span><span class="n">n</span><span class="p">;</span> <span class="c1">// ok, X() prvalue は xvalue に変換される</span>
+</code></pre></div>
+</p>
+<p>つまり、<code>prvalue</code>は一時オブジェクトではない（C++17以降）。次のときにはじめて結果オブジェクトとして一時オブジェクトを使用して評価される。</p>
+<p>[class.temporary]/2 より：</p>
+<p>不必要な一時オブジェクトの作成を避けるために、一時オブジェクトの実体化は一般に可能な限り遅らせる。
+注：一時オブジェクトは次のとき実体化されている。</p>
+<ul>
+<li>参照を<code>prvalue</code>にバインドするとき</li>
+<li>クラス<code>prvalue</code>でメンバアクセスを実行するとき</li>
+<li>配列からポインタへの変換を実行するとき、または配列<code>prvalue</code>をサブスクライブするとき</li>
+<li><code>braced-init-list</code>から<code>std::initializer_list&lt;T&gt;</code>型のオブジェクトを初期化するとき</li>
+<li>特定の未評価のオペランド、および<code>prvalue</code>が廃棄値式(<code>discarded-value expression</code>)として現れる場合</li>
+</ul>
+<p>これより、上の例は「クラス<code>prvalue</code>でメンバアクセスを実行するとき」にあたり、<code>xvalue</code>として一時オブジェクトを生成している。</p>
+<p>また、<code>prvalue</code>から<code>prvalue</code>への変換は、上記の「一時オブジェクトの実体化は一般に可能な限り遅らせられる」ことより、一時オブジェクトを実体化しない。よって、次の例における<code>prvalue</code>の<code>T</code>型の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>は、呼び出し元の<code>t</code>を直接初期化する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n">T</span> <span class="nf">Func</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="n">T</span><span class="p">();}</span> 
+<span class="n">T</span> <span class="n">t</span> <span class="o">=</span> <span class="n">Func</span><span class="p">();</span> <span class="c1">// 直接初期化</span>
+</code></pre></div>
+</p>
+<h2>例</h2>
+<p><a href="https://ja.cppreference.com/w/cpp/language/copy_elision" target="_blank">コピー省略 - cppreference.com</a>より引用した。</p>
+<p><div class="yata" id="d36c46f1b8ff7f093fcc24245ff73fc515c6e78d"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">Noisy</span> <span class="p">{</span>
+  <span class="n">Noisy</span><span class="p">()</span> <span class="p">{</span> <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"constructed</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span> <span class="p">}</span>
+  <span class="n">Noisy</span><span class="p">(</span><span class="k">const</span> <span class="n">Noisy</span><span class="o">&amp;</span><span class="p">)</span> <span class="p">{</span> <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"copy-constructed</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span> <span class="p">}</span>
+  <span class="n">Noisy</span><span class="p">(</span><span class="n">Noisy</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="p">{</span> <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"move-constructed</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span> <span class="p">}</span>
+  <span class="o">~</span><span class="n">Noisy</span><span class="p">()</span> <span class="p">{</span> <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"destructed</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">Noisy</span><span class="o">&gt;</span> <span class="n">f</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">Noisy</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">Noisy</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> <span class="c1">// v 初期化時、コピーは省略される</span>
+  <span class="k">return</span> <span class="n">v</span><span class="p">;</span> <span class="c1">// NRVO は、C++17でも保証されない</span>
+<span class="p">}</span>             <span class="c1">// 最適化されない場合、ムーブコンストラクタがよばれる</span>
+
+<span class="kt">void</span> <span class="n">g</span><span class="p">(</span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">Noisy</span><span class="o">&gt;</span> <span class="n">arg</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"arg.size() = "</span> <span class="o">&lt;&lt;</span> <span class="n">arg</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">Noisy</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="n">f</span><span class="p">();</span> <span class="c1">// v 初期化時、コピーは省略される</span>
+  <span class="n">g</span><span class="p">(</span><span class="n">f</span><span class="p">());</span>                     <span class="c1">// g()の引数初期化時、コピーは省略される</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力例</h3>
+<p>最適化された場合</p>
+<p><pre><code>constructed
+constructed
+constructed
+constructed
+constructed
+constructed
+arg.size() = 3
+destructed
+destructed
+destructed
+destructed
+destructed
+destructed
+</code></pre></p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>のコピーを発生させない手法として、RVO (Return Value Optimization) やNRVO (Named Return Value Optimization) といった最適化があった（注：RVOは、NRVOと区別せずに使われることがある）。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// RVOの最適化が動作した場合</span>
+<span class="k">struct</span> <span class="n">Foo</span> <span class="p">{};</span>
+
+<span class="n">Foo</span> <span class="nf">foo</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="n">Foo</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="n">Foo</span> <span class="n">x</span> <span class="o">=</span> <span class="n">foo</span><span class="p">();</span> <span class="c1">// Foo型のコピーコンストラクタが動作することなくxが初期化される</span>
+</code></pre></div>
+</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// NRVOの最適化が動作した場合</span>
+<span class="k">struct</span> <span class="n">Foo</span> <span class="p">{</span> <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="p">};</span>
+
+<span class="n">Foo</span> <span class="nf">foo</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">Foo</span> <span class="n">y</span><span class="p">;</span>
+  <span class="n">y</span><span class="p">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+  <span class="k">return</span> <span class="n">y</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">Foo</span> <span class="n">x</span> <span class="o">=</span> <span class="n">foo</span><span class="p">();</span> <span class="c1">// Foo型のコピーコンストラクタが動作することなくxが初期化される</span>
+</code></pre></div>
+</p>
+<p>しかし、これらの最適化はコンパイラに対して許可された動作であって、そのように最適化されることが保証されるものではない。そのため、実際には(N)RVOによってコピーは起こらないけどコピーコンストラクタは用意しなければならない、といったことになった。</p>
+<p>C++17では、このようなコピー省略を保証する仕組みが導入される。そのため、オブジェクトの初期化のために使用するprvalueは、コピーもムーブもできない型であっても、関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>として返せるようになる。つまり、NRVOと区別してRVOの場合は、コピーコンストラクタを用意しなくてもよくなった。NRVOは依然として保証がないことに注意。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// C++17</span>
+<span class="k">struct</span> <span class="n">Foo</span> <span class="p">{</span>
+  <span class="c1">// Fooはコピーもムーブもできない</span>
+  <span class="n">Foo</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+  <span class="n">Foo</span><span class="p">(</span><span class="k">const</span> <span class="n">Foo</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+  <span class="n">Foo</span><span class="p">(</span><span class="n">Foo</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">Foo</span> <span class="nf">foo</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="n">Foo</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="n">Foo</span> <span class="n">y</span> <span class="o">=</span> <span class="n">foo</span><span class="p">();</span> <span class="c1">// OK</span>
+</code></pre></div>
+</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// C++17</span>
+<span class="k">struct</span> <span class="n">Foo</span> <span class="p">{</span>
+  <span class="c1">// Fooはコピーもムーブもできない</span>
+  <span class="n">Foo</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+  <span class="n">Foo</span><span class="p">(</span><span class="k">const</span> <span class="n">Foo</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+  <span class="n">Foo</span><span class="p">(</span><span class="n">Foo</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">Foo</span> <span class="nf">foo</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">Foo</span> <span class="n">y</span><span class="p">;</span>
+  <span class="k">return</span> <span class="n">y</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">Foo</span> <span class="n">x</span> <span class="o">=</span> <span class="n">foo</span><span class="p">();</span> <span class="c1">// error Foo型のコピーコンストラクタが必要</span>
+</code></pre></div>
+</p>
+<h2>参照</h2>
+<ul>
+<li><a href="https://ja.cppreference.com/w/cpp/language/copy_elision" target="_blank">コピー省略 - cppreference.com</a></li>
+<li><a href="https://teratail.com/questions/168515" target="_blank">値のコピー省略の保証について｜teratail</a></li>
+<li><a href="https://stackoverflow.com/questions/38043319/how-does-guaranteed-copy-elision-work" target="_blank">c++ - How does guaranteed copy elision work? - Stack Overflow</a></li>
+<li><a href="https://qiita.com/rinse_/items/cffa87016b7de49391ae" target="_blank">右辺値、左辺値などの細かい定義 - Qiita</a></li>
+<li><a href="https://faithandbrave.hateblo.jp/entry/2017/01/24/161342" target="_blank">C++1z 値のコピー省略を保証 - Faith and Brave - C++で遊ぼう</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0135r1.html" target="_blank">P0135R1 Wording for guaranteed copy elision through simplified value categories</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0135r0.html" target="_blank">P0135R0 Guaranteed copy elision through simplified value categories</a></li>
+<li><a href="https://jonasdevlieghere.com/guaranteed-copy-elision/" target="_blank">Guaranteed Copy Elision</a></li>
+</ul>
+<h2>注釈</h2>
+<ol>
+<li><strong><a href="#note_ref-1" id="note-1">^</a></strong> <cite><a href="https://qiita.com/rinse_/items/cffa87016b7de49391ae" target="_blank">右辺値、左辺値などの細かい定義 - Qiita</a></cite>を参照</li>
+</ol></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

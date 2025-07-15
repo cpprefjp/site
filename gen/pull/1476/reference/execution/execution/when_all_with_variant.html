@@ -1,0 +1,397 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>when_all_with_variant - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,cpo,std::execution,cpp26
+">
+        <meta name="title" content="when_all_with_variant - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="when_all_with_variant - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="when_all_with_variant - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/execution/execution/when_all_with_variant.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`when_all_with_variant`は、複数の入力[Sender](sender.md)が全て完了するまで待機するSenderアダプタである。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="when_all_with_variant - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/execution/execution/when_all_with_variant.html" />
+        <meta name="twitter:description" content="`when_all_with_variant`は、複数の入力[Sender](sender.md)が全て完了するまで待機するSenderアダプタである。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;execution&#34;], &#34;id-type&#34;: [&#34;cpo&#34;], &#34;namespace&#34;: [&#34;std::execution&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;fc42e43c5eb8bfe4512eef09c6bc1a54531052d3&#34;, &#34;source&#34;: &#34;#include &lt;print&gt;\n#include &lt;string&gt;\n#include &lt;execution&gt;\nnamespace ex = std::execution;\n\n// MySender\u306f\u4e0b\u8a18\u3044\u305a\u308c\u304b\u306e\u5b8c\u4e86\u64cd\u4f5c\u3092\u884c\u3046\n//   \u5024\u5b8c\u4e86     set_value(int), set_value(string)\n//   \u30a8\u30e9\u30fc\u5b8c\u4e86 set_error(int)\nstruct MySender {\n  using sender_concept = ex::sender_t;\n  using completion_signatures = ex::completion_signatures&lt;\n    ex::set_value_t(int),\n    ex::set_value_t(std::string),\n    ex::set_error_t(int)\n  &gt;;\n\n  template &lt;typename Rcvr&gt;\n  struct state {\n    using operation_state_concept = ex::operation_state_t;\n\n    state(Rcvr rcvr, int val)\n      : rcvr_{std::move(rcvr)}, val_{val} {}\n\n    void start() noexcept {\n      using namespace std::string_literals;\n      switch (val_) {\n      case 1:\n        ex::set_value(std::move(rcvr_), 100);\n        break;\n      case 2:\n        ex::set_value(std::move(rcvr_), \&#34;C++\&#34;s);\n        break;\n      default:\n        ex::set_error(std::move(rcvr_), val_);\n        break;\n      }\n    }\n\n    Rcvr rcvr_;\n    int val_;\n  };\n\n  template &lt;typename Rcvr&gt;\n  auto connect(Rcvr rcvr) noexcept {\n    return state{std::move(rcvr), val_};\n  }\n\n  int val_;\n};\n\nint main()\n{\n  ex::sender auto snd1 = MySender{1};\n  ex::sender auto snd2 = MySender{2};\n  ex::sender auto sndr = ex::when_all_with_variant(snd1, snd2);\n\n  auto result = std::this_thread::sync_wait(sndr);\n  // result := optional&lt;\n  //             tuple&lt;\n  //               variant&lt;tuple&lt;int&gt;, tuple&lt;string&gt;&gt;,\n  //               variant&lt;tuple&lt;int&gt;, tuple&lt;string&gt;&gt;\n  //             &gt;\n  //           &gt;\u578b\n\n  auto [val1, val2] = result.value();\n  // val1,val2 := variant&lt;tuple&lt;int&gt;, tuple&lt;string&gt;&gt;\u578b\n\n  struct DumpVal {\n    void operator()(std::tuple&lt;int&gt; n) {\n      std::println(\&#34;(int) {}\&#34;, get&lt;0&gt;(n));\n    }\n    void operator()(std::tuple&lt;std::string&gt; s) {\n      std::println(\&#34;(str) {}\&#34;, get&lt;0&gt;(s));\n    }\n  };\n  std::visit(DumpVal{}, val1);\n  std::visit(DumpVal{}, val2);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;execution&#34;, &#34;execution&#34;, &#34;when_all_with_variant&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/execution.html" itemprop="url">
+              
+                <span itemprop="name">execution</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/execution/execution.html" itemprop="url">
+              
+                <span itemprop="name">execution</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">when_all_with_variant</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-05-29T06:55:34">
+        2025年05月29日 06時55分34秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yoh</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/execution/execution/when_all_with_variant.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/execution/execution/when_all_with_variant.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">customization point object</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">when_all_with_variant</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
+  <span class="k">struct</span> <span class="n">when_all_with_variant_t</span> <span class="p">{</span> <span class="n"><i>unspecified</i></span> <span class="p">};</span>
+  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">when_all_with_variant_t</span> <span class="n">when_all_with_variant</span><span class="p">{};</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>when_all_with_variant</code>は、複数の入力<a href="sender.html">Sender</a>が全て完了するまで待機するSenderアダプタである。</p>
+<p><code>when_all_with_variant</code>は入力Senderが複数の<a href="set_value.html">値完了シグネチャ</a>を持つケースに対応する。
+全入力Senderの値完了シグネチャが1個だけの場合は<code><a href="when_all.html">when_all</a></code>アルゴリズムを利用する。</p>
+<ul>
+<li>入力Sender全てが値完了のとき、全ての値完了結果を<code><a href="../../variant/variant.html">variant</a></code>の<code><a href="../../tuple/tuple.html">tuple</a></code>に結合して値完了操作を行う。</li>
+<li>いずれかがエラー完了のとき、同エラー値をもってエラー完了操作を行う。このとき停止要求が作成される。</li>
+<li>いずれかが停止完了のとき、停止完了操作を行う。このとき停止要求が作成される。</li>
+</ul>
+<h2>効果</h2>
+<p>説明用のパック<code>sndrs</code>に対してパック<code>Sndrs</code>を<code>decltype((sndrs))...</code>としたとき、型<code>CD</code>を<code><a href="../../type_traits/common_type.html">common_type_t</a>&lt;decltype(<a href="get-domain-early.html">get-domain-early</a>(sndrs))...&gt;</code>とする。</p>
+<p>下記いずれかが<code>true</code>となるとき、呼び出し式<code>when_all_with_variant(sndrs...)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
+<ul>
+<li><code>sizeof...(sndrs) == 0</code>、または</li>
+<li><code>(<a href="sender.html">sender</a>&lt;Sndrs&gt; &amp;&amp; ...) == false</code>、または</li>
+<li>型<code>CD</code>が<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a></li>
+</ul>
+<p>そうでなければ、呼び出し式<code>when_all_with_variant(sndrs...)</code>は下記と等価。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="transform_sender.html">transform_sender</a></span><span class="p">(</span><span class="n">CD</span><span class="p">(),</span> <span class="n"><a href="make-sender.html">make-sender</a></span><span class="p">(</span><span class="n">when_all_with_variant</span><span class="p">,</span> <span class="p">{},</span> <span class="n">sndrs</span><span class="p">...))</span>
+</code></pre></div>
+</p>
+<h3>Senderアルゴリズムタグ <code>when_all_with_variant</code></h3>
+<p>説明用の式<code>sndr</code>と<code>env</code>に対して、<code><a href="sender-for.html">sender-for</a>&lt;decltype((sndr)), when_all_with_variant_t&gt; == false</code>のとき、式<code>when_all_with_variant.transform_sender(sndr, env)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
+<p>そうでなければ、式<code>when_all_with_variant.transform_sender(sndr, env)</code>は下記と等価。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="p">[</span><span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="p">...</span><span class="n">child</span><span class="p">]</span> <span class="o">=</span> <span class="n">sndr</span><span class="p">;</span>
+<span class="k">return</span> <span class="nf"><a href="when_all.html">when_all</a></span><span class="p">(</span><span class="n"><a href="into_variant.html">into_variant</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward_like.html">std::forward_like</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">((</span><span class="n">sndr</span><span class="p">))</span><span class="o">&gt;</span><span class="p">(</span><span class="n">child</span><span class="p">))...);</span>
+</code></pre></div>
+</p>
+<h2>カスタマイゼーションポイント</h2>
+<p>Senderアルゴリズム構築時に、全入力Senderに関連付けられた共通の実行ドメイン<code>CD</code>に対して<code><a href="transform_sender.html">execution::transform_sender</a></code>経由でSender変換が行われる。
+<a href="default_domain.html">デフォルト実行ドメイン</a>では無変換。</p>
+<p><a href="receiver.html">Receiver</a>との<a href="connect.html">接続(connect)</a>時に、<a href="get-domain-late.html">関連付けられた実行ドメイン</a>に対して<code><a href="transform_sender.html">execution::transform_sender</a></code>経由でSender変換が行われる。
+<a href="default_domain.html">デフォルト実行ドメイン</a>では<code>when_all_with_variant.transform_sender(sndr, env)</code>が呼ばれ、前述仕様通りのSenderへと変換される。</p>
+<h2>例</h2>
+<p><div class="yata" id="fc42e43c5eb8bfe4512eef09c6bc1a54531052d3"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../print.html">&lt;print&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>
+<span class="k">namespace</span> <span class="n">ex</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span><span class="p">;</span>
+
+<span class="c1">// MySenderは下記いずれかの完了操作を行う</span>
+<span class="c1">//   値完了     set_value(int), set_value(string)</span>
+<span class="c1">//   エラー完了 set_error(int)</span>
+<span class="k">struct</span> <span class="n">MySender</span> <span class="p">{</span>
+  <span class="k">using</span> <span class="n">sender_concept</span> <span class="o">=</span> <span class="n"><a href="sender.html">ex::sender_t</a></span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">completion_signatures</span> <span class="o">=</span> <span class="n"><a href="completion_signatures.html">ex::completion_signatures</a></span><span class="o">&lt;</span>
+    <span class="n"><a href="set_value.html">ex::set_value_t</a></span><span class="p">(</span><span class="kt">int</span><span class="p">),</span>
+    <span class="n"><a href="set_value.html">ex::set_value_t</a></span><span class="p">(</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="p">),</span>
+    <span class="n"><a href="set_error.html">ex::set_error_t</a></span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+  <span class="o">&gt;</span><span class="p">;</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Rcvr</span><span class="o">&gt;</span>
+  <span class="k">struct</span> <span class="n">state</span> <span class="p">{</span>
+    <span class="k">using</span> <span class="n">operation_state_concept</span> <span class="o">=</span> <span class="n"><a href="operation_state.html">ex::operation_state_t</a></span><span class="p">;</span>
+
+    <span class="n">state</span><span class="p">(</span><span class="n">Rcvr</span> <span class="n">rcvr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">val</span><span class="p">)</span>
+      <span class="o">:</span> <span class="n">rcvr_</span><span class="p">{</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">)},</span> <span class="n">val_</span><span class="p">{</span><span class="n">val</span><span class="p">}</span> <span class="p">{}</span>
+
+    <span class="kt">void</span> <span class="n">start</span><span class="p">()</span> <span class="k">noexcept</span> <span class="p">{</span>
+      <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">string_literals</span><span class="p">;</span>
+      <span class="k">switch</span> <span class="p">(</span><span class="n">val_</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+        <span class="n"><a href="set_value.html">ex::set_value</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr_</span><span class="p">),</span> <span class="mi">100</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
+        <span class="n"><a href="set_value.html">ex::set_value</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr_</span><span class="p">),</span> <span class="s">"C++"</span><span class="n">s</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="k">default</span><span class="o">:</span>
+        <span class="n"><a href="set_error.html">ex::set_error</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr_</span><span class="p">),</span> <span class="n">val_</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">Rcvr</span> <span class="n">rcvr_</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">val_</span><span class="p">;</span>
+  <span class="p">};</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Rcvr</span><span class="o">&gt;</span>
+  <span class="k">auto</span> <span class="n">connect</span><span class="p">(</span><span class="n">Rcvr</span> <span class="n">rcvr</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">state</span><span class="p">{</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">),</span> <span class="n">val_</span><span class="p">};</span>
+  <span class="p">}</span>
+
+  <span class="kt">int</span> <span class="n">val_</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="sender.html">ex::sender</a></span> <span class="k">auto</span> <span class="n">snd1</span> <span class="o">=</span> <span class="n">MySender</span><span class="p">{</span><span class="mi">1</span><span class="p">};</span>
+  <span class="n"><a href="sender.html">ex::sender</a></span> <span class="k">auto</span> <span class="n">snd2</span> <span class="o">=</span> <span class="n">MySender</span><span class="p">{</span><span class="mi">2</span><span class="p">};</span>
+  <span class="n"><a href="sender.html">ex::sender</a></span> <span class="k">auto</span> <span class="n">sndr</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">ex::when_all_with_variant</span></span><span class="p">(</span><span class="n">snd1</span><span class="p">,</span> <span class="n">snd2</span><span class="p">);</span>
+
+  <span class="k">auto</span> <span class="n">result</span> <span class="o">=</span> <span class="n"><a href="../this_thread/sync_wait.html">std::this_thread::sync_wait</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">);</span>
+  <span class="c1">// result := optional&lt;</span>
+  <span class="c1">//             <a href="../../tuple/tuple.html">tuple</a>&lt;</span>
+  <span class="c1">//               variant&lt;<a href="../../tuple/tuple.html">tuple</a>&lt;int&gt;, <a href="../../tuple/tuple.html">tuple</a>&lt;string&gt;&gt;,</span>
+  <span class="c1">//               variant&lt;<a href="../../tuple/tuple.html">tuple</a>&lt;int&gt;, <a href="../../tuple/tuple.html">tuple</a>&lt;string&gt;&gt;</span>
+  <span class="c1">//             &gt;</span>
+  <span class="c1">//           &gt;型</span>
+
+  <span class="k">auto</span> <span class="p">[</span><span class="n">val1</span><span class="p">,</span> <span class="n">val2</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="n"><a href="../../optional/optional/value.html">value()</a></span><span class="p">;</span>
+  <span class="c1">// val1,val2 := variant&lt;<a href="../../tuple/tuple.html">tuple</a>&lt;int&gt;, <a href="../../tuple/tuple.html">tuple</a>&lt;string&gt;&gt;型</span>
+
+  <span class="k">struct</span> <span class="n">DumpVal</span> <span class="p">{</span>
+    <span class="kt">void</span> <span class="k">operator</span><span class="p">()(</span><span class="n"><a href="../../tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"(int) {}"</span><span class="p">,</span> <span class="n"><a href="../../tuple/tuple/get.html">get&lt;0&gt;</a></span><span class="p">(</span><span class="n">n</span><span class="p">));</span>
+    <span class="p">}</span>
+    <span class="kt">void</span> <span class="k">operator</span><span class="p">()(</span><span class="n"><a href="../../tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"(str) {}"</span><span class="p">,</span> <span class="n"><a href="../../tuple/tuple/get.html">get&lt;0&gt;</a></span><span class="p">(</span><span class="n">s</span><span class="p">));</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+  <span class="n"><a href="../../variant/visit.html">std::visit</a></span><span class="p">(</span><span class="n">DumpVal</span><span class="p">{},</span> <span class="n">val1</span><span class="p">);</span>
+  <span class="n"><a href="../../variant/visit.html">std::visit</a></span><span class="p">(</span><span class="n">DumpVal</span><span class="p">{},</span> <span class="n">val2</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>(int) 100
+(str) C++
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++26</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="when_all.html">execution::when_all</a></code></li>
+<li><code><a href="into_variant.html">execution::into_variant</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html" target="_blank">P2999R3 Sender Algorithm Customization</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

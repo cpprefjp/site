@@ -1,0 +1,384 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>function_ref - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,functional,class template,std,cpp26
+">
+        <meta name="title" content="function_ref - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="function_ref - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="function_ref - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/functional/function_ref.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`function_ref`クラステンプレートは、パラメータの型リスト`ArgTypes...`、戻り値の型`R`に合致する、あらゆる関数ポインタ、関数オブジェクト、メンバ関数ポインタ、メンバ変数ポインタを参照できるクラスである。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="function_ref - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/functional/function_ref.html" />
+        <meta name="twitter:description" content="`function_ref`クラステンプレートは、パラメータの型リスト`ArgTypes...`、戻り値の型`R`に合致する、あらゆる関数ポインタ、関数オブジェクト、メンバ関数ポインタ、メンバ変数ポインタを参照できるクラスである。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;functional&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;a4d509b525a590392232c6da5bc08abd7916c96f&#34;, &#34;source&#34;: &#34;#include &lt;functional&gt;\n#include &lt;iostream&gt;\n#include &lt;utility&gt;\n\n// \u547c\u3073\u51fa\u3057\u53ef\u80fd\u306a\u4f55\u304b\u3092\u53d7\u3051\u53d6\u308b\u9ad8\u968e\u95a2\u6570\nint hof(std::function_ref&lt;int(int)&gt; fn)\n{\n  return fn(2);\n}\n\nint add(int x) { return x + 1; }\n\nstruct Calc {\n  int x_;\n  int eval(int y) {\n    return x_ * y;\n  }\n};\n\nint main()\n{\n  // \u901a\u5e38\u95a2\u6570\u3092\u6307\u5b9a\n  std::cout &lt;&lt; hof(add) &lt;&lt; std::endl;\n  // \u30e9\u30e0\u30c0\u5f0f\u3092\u6307\u5b9a\n  std::cout &lt;&lt; hof([](int x) { return x * 2; }) &lt;&lt; std::endl;\n\n  // \u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u675f\u7e1b\u6e08\u307f\u30e1\u30f3\u30d0\u95a2\u6570\u3092\u6307\u5b9a\n  Calc obj{ 3 };\n  std::cout &lt;&lt; hof({std::nontype&lt;&amp;Calc::eval&gt;, obj}) &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;functional&#34;, &#34;function_ref&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/functional.html" itemprop="url">
+              
+                <span itemprop="name">functional</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">function_ref</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-01-07T03:21:49">
+        2024年01月07日 03時21分49秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yoh</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/functional/function_ref.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/functional/function_ref.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;functional&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">function_ref</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">S</span><span class="o">&gt;</span>
+  <span class="k">class</span> <span class="nc">function_ref</span><span class="p">;</span> <span class="c1">// 宣言のみ</span>
+
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">R</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">ArgTypes</span><span class="o">&gt;</span>
+  <span class="k">class</span> <span class="nc">function_ref</span><span class="o">&lt;</span><span class="n">R</span><span class="p">(</span><span class="n">ArgTypes</span><span class="p">...)</span> <span class="cm">/*cv*/</span> <span class="k">noexcept</span><span class="p">(</span><span class="cm">/*noex*/</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>function_ref</code>クラステンプレートは、パラメータの型リスト<code>ArgTypes...</code>、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型<code>R</code>に合致する、あらゆる関数ポインタ、関数オブジェクト、メンバ関数ポインタ、メンバ変数ポインタを参照できるクラスである。
+メンバ関数やメンバ変数に対してオブジェクトを束縛、関数ポインタや関数オブジェクトに対して第1引数を束縛した状態で参照することもできる。</p>
+<p>下記全ての組み合わせ（4種類）に対して、クラステンプレートの部分特殊化が提供される。</p>
+<ul>
+<li><a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>子 <em>cv</em> : <code>const</code>, <a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>無し</li>
+<li>noexcept<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>指定 <em>noex</em> : <code>true</code>, <code>false</code></li>
+</ul>
+<p><code>function_ref</code>クラステンプレートの特殊化は、<code><a href="../concepts/copyable.html">copyable</a></code>のモデルである<a href="../type_traits/is_trivially_copyable.html">トリビアルコピー可能</a>な型となる。</p>
+<h3><code>function</code>ファミリとの比較</h3>
+<p>類似機能を提供する<code><a href="function.html">function</a></code>, <code><a href="move_only_function.html">move_only_function</a></code>, <code><a href="copyable_function.html">copyable_function</a></code>とは異なり、<code>function_ref</code>は下記の特徴をもつ。</p>
+<ul>
+<li>対象の所有権を管理しない軽量ラッパーとして実装される。<ul>
+<li>ポインタ2個のオブジェクトサイズで実装可能。</li>
+</ul>
+</li>
+<li>構築時に必ず呼び出し対象を指定する必要がある。<a class="cpprefjp-defined-word" data-desc="デフォルト初期化。`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト構築</a>不可。<ul>
+<li><code>operator bool</code>を提供しない。</li>
+</ul>
+</li>
+<li>メンバ関数・メンバ変数を参照する場合は、<code><a href="../utility/nontype_t.html">std::nontype</a></code>タグを利用する。<ul>
+<li>対象オブジェクトの束縛タイミングは、構築時または呼び出し時のいずれもサポートする。</li>
+</ul>
+</li>
+<li>ダングリング(dangling)参照を避けるため、左辺値(lvalue)のみを取り扱う。</li>
+</ul>
+<h2>メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="function_ref/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>(destructor)</code></td>
+<td>デストラクタ</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="function_ref/op_assign.html">operator=</a></code></td>
+<td>代入演算子</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="function_ref/op_call.html">operator()</a></code></td>
+<td>関数呼び出し</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>推論補助</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="function_ref/op_deduction_guide.html">(deduction_guide)</a></code></td>
+<td>クラステンプレートの推論補助</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<h3>例1: 基本の使い方</h3>
+<p><div class="yata" id="a4d509b525a590392232c6da5bc08abd7916c96f"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// 呼び出し可能な何かを受け取る高階関数</span>
+<span class="kt">int</span> <span class="nf">hof</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::function_ref</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">fn</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="n">fn</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="k">struct</span> <span class="n">Calc</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">x_</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="nf">eval</span><span class="p">(</span><span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">x_</span> <span class="o">*</span> <span class="n">y</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// 通常関数を指定</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">hof</span><span class="p">(</span><span class="n">add</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="c1">// ラムダ式を指定</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">hof</span><span class="p">([](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span> <span class="p">})</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// オブジェクト束縛済みメンバ関数を指定</span>
+  <span class="n">Calc</span> <span class="n">obj</span><span class="p">{</span> <span class="mi">3</span> <span class="p">};</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">hof</span><span class="p">({</span><span class="n"><a href="../utility/nontype_t.html">std::nontype</a></span><span class="o">&lt;&amp;</span><span class="n">Calc</span><span class="o">::</span><span class="n">eval</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">obj</span><span class="p">})</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>3
+4
+6
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++26</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li>C++11 <code><a href="function.html">function</a></code></li>
+<li>C++23 <code><a href="move_only_function.html">move_only_function</a></code></li>
+<li>C++26 <code><a href="copyable_function.html">copyable_function</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p0792r14.html" target="_blank">P0792R14 <code>function_ref</code>: a type-erased callable reference</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
