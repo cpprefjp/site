@@ -2,14 +2,46 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-07-15T10:27:51.779257</updated>
-  <id>8d01fce0-8665-4435-a530-c6d9450b5515</id>
+  <updated>2025-07-15T10:41:41.848300</updated>
+  <id>70687a30-5a3e-434c-a75e-277e7201c388</id>
 
+  
+    <entry>
+      <title>placeholders -- fix(functional): 余分の /*see below*/ の削除</title>
+      <link href="https://cpprefjp.github.io/reference/functional/placeholders.html"/>
+      <id>fbcad902c7b263ce34c56398b8a2be511e68590a:reference/functional/placeholders.md</id>
+      <updated>2025-07-15T19:34:51+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/functional/placeholders.md b/reference/functional/placeholders.md
+index a5086d370..f03079433 100644
+--- a/reference/functional/placeholders.md
++++ b/reference/functional/placeholders.md
+@@ -7,10 +7,10 @@
+ ```cpp
+ namespace std {
+ namespace placeholders {
+-  /*see below*/ unspecified _1;
+-  /*see below*/ unspecified _2;
++  unspecified _1;
++  unspecified _2;
+   …
+-  /*see below*/ unspecified _N;
++  unspecified _N;
+ }}
+ ```
+ * unspecified[italic]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>visit_format_arg -- style(utility,format): &#34;see{[-_] =&gt;  }below&#34; の書き換え</title>
       <link href="https://cpprefjp.github.io/reference/format/visit_format_arg.html"/>
-      <id>ee5dd862adade6f04bf4c4d21bc43448ac3ed85b:reference/format/visit_format_arg.md</id>
+      <id>7e1ca38527be6c6902b09b1d87c429541c33dbcf:reference/format/visit_format_arg.md</id>
       <updated>2025-07-14T23:14:09+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/format/visit_format_arg.md b/reference/format/visit_format_arg.md
@@ -39,7 +71,7 @@ index 70a514b1e..917cfc8cf 100644
     <entry>
       <title>forward_like -- style(utility,format): &#34;see{[-_] =&gt;  }below&#34; の書き換え</title>
       <link href="https://cpprefjp.github.io/reference/utility/forward_like.html"/>
-      <id>ee5dd862adade6f04bf4c4d21bc43448ac3ed85b:reference/utility/forward_like.md</id>
+      <id>7e1ca38527be6c6902b09b1d87c429541c33dbcf:reference/utility/forward_like.md</id>
       <updated>2025-07-14T23:14:09+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/forward_like.md b/reference/utility/forward_like.md
@@ -72,7 +104,7 @@ index 3ecbe937b..3c87bd84d 100644
     <entry>
       <title>from_chars -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
       <link href="https://cpprefjp.github.io/reference/charconv/from_chars.html"/>
-      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/charconv/from_chars.md</id>
+      <id>a754d24553b1dcfe18948812dc075c770e95cfb7:reference/charconv/from_chars.md</id>
       <updated>2025-07-14T23:12:05+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/charconv/from_chars.md b/reference/charconv/from_chars.md
@@ -99,7 +131,7 @@ index 295a7eba1..407346b19 100644
     <entry>
       <title>to_chars -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
       <link href="https://cpprefjp.github.io/reference/charconv/to_chars.html"/>
-      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/charconv/to_chars.md</id>
+      <id>a754d24553b1dcfe18948812dc075c770e95cfb7:reference/charconv/to_chars.md</id>
       <updated>2025-07-14T23:12:05+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/charconv/to_chars.md b/reference/charconv/to_chars.md
@@ -126,7 +158,7 @@ index d45eb5797..c19fb9de8 100644
     <entry>
       <title>three_way_comparable -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
       <link href="https://cpprefjp.github.io/reference/compare/three_way_comparable.html"/>
-      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/compare/three_way_comparable.md</id>
+      <id>a754d24553b1dcfe18948812dc075c770e95cfb7:reference/compare/three_way_comparable.md</id>
       <updated>2025-07-14T23:12:05+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/compare/three_way_comparable.md b/reference/compare/three_way_comparable.md
@@ -157,7 +189,7 @@ index ff2d789ed..1ca6bf857 100644
     <entry>
       <title>boolean-testable -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
       <link href="https://cpprefjp.github.io/reference/concepts/boolean-testable.html"/>
-      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/concepts/boolean-testable.md</id>
+      <id>a754d24553b1dcfe18948812dc075c770e95cfb7:reference/concepts/boolean-testable.md</id>
       <updated>2025-07-14T23:12:05+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/concepts/boolean-testable.md b/reference/concepts/boolean-testable.md
@@ -184,7 +216,7 @@ index f300531ca..ef567c5ac 100644
     <entry>
       <title>default_initializable -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
       <link href="https://cpprefjp.github.io/reference/concepts/default_initializable.html"/>
-      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/concepts/default_initializable.md</id>
+      <id>a754d24553b1dcfe18948812dc075c770e95cfb7:reference/concepts/default_initializable.md</id>
       <updated>2025-07-14T23:12:05+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/concepts/default_initializable.md b/reference/concepts/default_initializable.md
@@ -211,7 +243,7 @@ index 4d350da56..08ef9a81a 100644
     <entry>
       <title>equality_comparable -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
       <link href="https://cpprefjp.github.io/reference/concepts/equality_comparable.html"/>
-      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/concepts/equality_comparable.md</id>
+      <id>a754d24553b1dcfe18948812dc075c770e95cfb7:reference/concepts/equality_comparable.md</id>
       <updated>2025-07-14T23:12:05+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/concepts/equality_comparable.md b/reference/concepts/equality_comparable.md
@@ -242,7 +274,7 @@ index 17bdfa48f..668b8078d 100644
     <entry>
       <title>same_as -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
       <link href="https://cpprefjp.github.io/reference/concepts/same_as.html"/>
-      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/concepts/same_as.md</id>
+      <id>a754d24553b1dcfe18948812dc075c770e95cfb7:reference/concepts/same_as.md</id>
       <updated>2025-07-14T23:12:05+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/concepts/same_as.md b/reference/concepts/same_as.md
@@ -269,7 +301,7 @@ index 955ab8ead..79a4efe31 100644
     <entry>
       <title>gather-signatures -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
       <link href="https://cpprefjp.github.io/reference/execution/execution/gather-signatures.html"/>
-      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/execution/execution/gather-signatures.md</id>
+      <id>a754d24553b1dcfe18948812dc075c770e95cfb7:reference/execution/execution/gather-signatures.md</id>
       <updated>2025-07-14T23:12:05+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/gather-signatures.md b/reference/execution/execution/gather-signatures.md
@@ -296,7 +328,7 @@ index b37ea0cd7..40a8ea3e9 100644
     <entry>
       <title>is-awaitable -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
       <link href="https://cpprefjp.github.io/reference/execution/is-awaitable.html"/>
-      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/execution/is-awaitable.md</id>
+      <id>a754d24553b1dcfe18948812dc075c770e95cfb7:reference/execution/is-awaitable.md</id>
       <updated>2025-07-14T23:12:05+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/is-awaitable.md b/reference/execution/is-awaitable.md
@@ -321,41 +353,9 @@ index c5cd3bec2..a14bb68d8 100644
     </entry>
   
     <entry>
-      <title>placeholders -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
-      <link href="https://cpprefjp.github.io/reference/functional/placeholders.html"/>
-      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/functional/placeholders.md</id>
-      <updated>2025-07-14T23:12:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/functional/placeholders.md b/reference/functional/placeholders.md
-index a5086d370..f465687c3 100644
---- a/reference/functional/placeholders.md
-+++ b/reference/functional/placeholders.md
-@@ -7,10 +7,10 @@
- ```cpp
- namespace std {
- namespace placeholders {
--  /*see below*/ unspecified _1;
--  /*see below*/ unspecified _2;
-+  see below unspecified _1;
-+  see below unspecified _2;
-   …
--  /*see below*/ unspecified _N;
-+  see below unspecified _N;
- }}
- ```
- * unspecified[italic]
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Koichi Murase</name>
-        <email>myoga.murase@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
       <title>コンストラクタ -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
       <link href="https://cpprefjp.github.io/reference/functional/reference_wrapper/op_constructor.html"/>
-      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/functional/reference_wrapper/op_constructor.md</id>
+      <id>a754d24553b1dcfe18948812dc075c770e95cfb7:reference/functional/reference_wrapper/op_constructor.md</id>
       <updated>2025-07-14T23:12:05+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/functional/reference_wrapper/op_constructor.md b/reference/functional/reference_wrapper/op_constructor.md
@@ -386,7 +386,7 @@ index d76dd11e4..99346aa13 100644
     <entry>
       <title>iter_move (非メンバ関数) -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
       <link href="https://cpprefjp.github.io/reference/iterator/basic_const_iterator/iter_move.html"/>
-      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/iterator/basic_const_iterator/iter_move.md</id>
+      <id>a754d24553b1dcfe18948812dc075c770e95cfb7:reference/iterator/basic_const_iterator/iter_move.md</id>
       <updated>2025-07-14T23:12:05+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/basic_const_iterator/iter_move.md b/reference/iterator/basic_const_iterator/iter_move.md
@@ -413,7 +413,7 @@ index 1614858ef..30602aa33 100644
     <entry>
       <title>common_iterator -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
       <link href="https://cpprefjp.github.io/reference/iterator/common_iterator.html"/>
-      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/iterator/common_iterator.md</id>
+      <id>a754d24553b1dcfe18948812dc075c770e95cfb7:reference/iterator/common_iterator.md</id>
       <updated>2025-07-14T23:12:05+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/common_iterator.md b/reference/iterator/common_iterator.md
@@ -446,7 +446,7 @@ index 1fe6eb383..9873ea876 100644
     <entry>
       <title>operator-&gt; -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
       <link href="https://cpprefjp.github.io/reference/iterator/common_iterator/op_arrow.html"/>
-      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/iterator/common_iterator/op_arrow.md</id>
+      <id>a754d24553b1dcfe18948812dc075c770e95cfb7:reference/iterator/common_iterator/op_arrow.md</id>
       <updated>2025-07-14T23:12:05+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/common_iterator/op_arrow.md b/reference/iterator/common_iterator/op_arrow.md
@@ -473,7 +473,7 @@ index 7513a0d32..427bc86a5 100644
     <entry>
       <title>const_iterator -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
       <link href="https://cpprefjp.github.io/reference/iterator/const_iterator.html"/>
-      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/iterator/const_iterator.md</id>
+      <id>a754d24553b1dcfe18948812dc075c770e95cfb7:reference/iterator/const_iterator.md</id>
       <updated>2025-07-14T23:12:05+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/const_iterator.md b/reference/iterator/const_iterator.md
@@ -500,7 +500,7 @@ index 2d42effce..36c561839 100644
     <entry>
       <title>const_sentinel -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
       <link href="https://cpprefjp.github.io/reference/iterator/const_sentinel.html"/>
-      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/iterator/const_sentinel.md</id>
+      <id>a754d24553b1dcfe18948812dc075c770e95cfb7:reference/iterator/const_sentinel.md</id>
       <updated>2025-07-14T23:12:05+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/const_sentinel.md b/reference/iterator/const_sentinel.md
@@ -527,7 +527,7 @@ index c174d4bad..82af81b7a 100644
     <entry>
       <title>indirectly_readable -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
       <link href="https://cpprefjp.github.io/reference/iterator/indirectly_readable.html"/>
-      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/iterator/indirectly_readable.md</id>
+      <id>a754d24553b1dcfe18948812dc075c770e95cfb7:reference/iterator/indirectly_readable.md</id>
       <updated>2025-07-14T23:12:05+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/indirectly_readable.md b/reference/iterator/indirectly_readable.md
@@ -554,7 +554,7 @@ index 352808bf6..e39b14374 100644
     <entry>
       <title>is-integer-like -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
       <link href="https://cpprefjp.github.io/reference/iterator/is_integer_like.html"/>
-      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/iterator/is_integer_like.md</id>
+      <id>a754d24553b1dcfe18948812dc075c770e95cfb7:reference/iterator/is_integer_like.md</id>
       <updated>2025-07-14T23:12:05+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/is_integer_like.md b/reference/iterator/is_integer_like.md
@@ -585,7 +585,7 @@ index 3c7930bd5..6e914ca95 100644
     <entry>
       <title>iter_difference_t -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
       <link href="https://cpprefjp.github.io/reference/iterator/iter_difference_t.html"/>
-      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/iterator/iter_difference_t.md</id>
+      <id>a754d24553b1dcfe18948812dc075c770e95cfb7:reference/iterator/iter_difference_t.md</id>
       <updated>2025-07-14T23:12:05+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/iter_difference_t.md b/reference/iterator/iter_difference_t.md
@@ -612,7 +612,7 @@ index 565b1ef67..254ab018f 100644
     <entry>
       <title>iter_value_t -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
       <link href="https://cpprefjp.github.io/reference/iterator/iter_value_t.html"/>
-      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/iterator/iter_value_t.md</id>
+      <id>a754d24553b1dcfe18948812dc075c770e95cfb7:reference/iterator/iter_value_t.md</id>
       <updated>2025-07-14T23:12:05+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/iter_value_t.md b/reference/iterator/iter_value_t.md
@@ -639,7 +639,7 @@ index 39105e353..ee6daacc2 100644
     <entry>
       <title>iterator_traits -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
       <link href="https://cpprefjp.github.io/reference/iterator/iterator_traits.html"/>
-      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/iterator/iterator_traits.md</id>
+      <id>a754d24553b1dcfe18948812dc075c770e95cfb7:reference/iterator/iterator_traits.md</id>
       <updated>2025-07-14T23:12:05+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/iterator_traits.md b/reference/iterator/iterator_traits.md
@@ -670,7 +670,7 @@ index 4251e4505..7d4083041 100644
     <entry>
       <title>iter_move -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
       <link href="https://cpprefjp.github.io/reference/iterator/reverse_iterator/iter_move.html"/>
-      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/iterator/reverse_iterator/iter_move.md</id>
+      <id>a754d24553b1dcfe18948812dc075c770e95cfb7:reference/iterator/reverse_iterator/iter_move.md</id>
       <updated>2025-07-14T23:12:05+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/reverse_iterator/iter_move.md b/reference/iterator/reverse_iterator/iter_move.md
@@ -697,7 +697,7 @@ index b5073b7c5..bd27a957d 100644
     <entry>
       <title>swap -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
       <link href="https://cpprefjp.github.io/reference/sstream/basic_istringstream/swap.html"/>
-      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/sstream/basic_istringstream/swap.md</id>
+      <id>a754d24553b1dcfe18948812dc075c770e95cfb7:reference/sstream/basic_istringstream/swap.md</id>
       <updated>2025-07-14T23:12:05+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/sstream/basic_istringstream/swap.md b/reference/sstream/basic_istringstream/swap.md
@@ -726,7 +726,7 @@ index 3857dbaff..69cb5cb0b 100644
     <entry>
       <title>swap -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
       <link href="https://cpprefjp.github.io/reference/sstream/basic_ostringstream/swap.html"/>
-      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/sstream/basic_ostringstream/swap.md</id>
+      <id>a754d24553b1dcfe18948812dc075c770e95cfb7:reference/sstream/basic_ostringstream/swap.md</id>
       <updated>2025-07-14T23:12:05+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/sstream/basic_ostringstream/swap.md b/reference/sstream/basic_ostringstream/swap.md
@@ -755,7 +755,7 @@ index cb7d94d5e..047f1d44b 100644
     <entry>
       <title>swap -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
       <link href="https://cpprefjp.github.io/reference/sstream/basic_stringbuf/swap.html"/>
-      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/sstream/basic_stringbuf/swap.md</id>
+      <id>a754d24553b1dcfe18948812dc075c770e95cfb7:reference/sstream/basic_stringbuf/swap.md</id>
       <updated>2025-07-14T23:12:05+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/sstream/basic_stringbuf/swap.md b/reference/sstream/basic_stringbuf/swap.md
@@ -784,7 +784,7 @@ index 89f1a7c5f..2fefdcd33 100644
     <entry>
       <title>swap -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
       <link href="https://cpprefjp.github.io/reference/sstream/basic_stringstream/swap.html"/>
-      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/sstream/basic_stringstream/swap.md</id>
+      <id>a754d24553b1dcfe18948812dc075c770e95cfb7:reference/sstream/basic_stringstream/swap.md</id>
       <updated>2025-07-14T23:12:05+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/sstream/basic_stringstream/swap.md b/reference/sstream/basic_stringstream/swap.md
@@ -813,7 +813,7 @@ index 915112f68..a62414d11 100644
     <entry>
       <title>tuple-like -- style: &#34;/*see below*/ =&gt; see below&#34; の書き換え</title>
       <link href="https://cpprefjp.github.io/reference/tuple/tuple-like.html"/>
-      <id>902484aa57fc03302799f257bbe7eafb10538ed5:reference/tuple/tuple-like.md</id>
+      <id>a754d24553b1dcfe18948812dc075c770e95cfb7:reference/tuple/tuple-like.md</id>
       <updated>2025-07-14T23:12:05+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/tuple/tuple-like.md b/reference/tuple/tuple-like.md
@@ -3948,67 +3948,6 @@ index 6599712d5..b805e9011 100644
       <author>
         <name>Koichi Murase</name>
         <email>myoga.murase@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>MB_CUR_MAX -- Merge pull request #1474 from cpprefjp/cstdlib/mb-cur-max</title>
-      <link href="https://cpprefjp.github.io/reference/cstdlib/mb_cur_max.html"/>
-      <id>635bc5a02c219ba0434326b9855e11daa37f6697:reference/cstdlib/mb_cur_max.md</id>
-      <updated>2025-07-14T14:04:18+00:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/mb_cur_max.md b/reference/cstdlib/mb_cur_max.md
-index 21450cdb3..3872e41c3 100644
---- a/reference/cstdlib/mb_cur_max.md
-+++ b/reference/cstdlib/mb_cur_max.md
-@@ -3,9 +3,7 @@
- * macro[meta id-type]
- 
- ```cpp
--namespace std {
--  #define MB_CUR_MAX /* implementation defined */
--}
-+#define MB_CUR_MAX implementation-defined
- ```
- 
- ## 概要
-@@ -28,24 +26,24 @@ int main() {
-   //C ロケール(標準ASCII)
-   std::cout &amp;lt;&amp;lt; &amp;#34;Locale: standard, MB_CUR_MAX: &amp;#34; &amp;lt;&amp;lt; MB_CUR_MAX &amp;lt;&amp;lt; std::endl;
-   
-+  //ロケールを日本(UTF-8)に変更
-   if (std::setlocale(LC_CTYPE, &amp;#34;ja_JP.UTF-8&amp;#34;) == nullptr) {
--      std::cout &amp;lt;&amp;lt; &amp;#34;Failed to set locale to: ja_JP.UTF-8&amp;#34;  &amp;lt;&amp;lt; std::endl;
-+    std::cout &amp;lt;&amp;lt; &amp;#34;Failed to set locale to ja_JP.UTF-8&amp;#34;  &amp;lt;&amp;lt; std::endl;
-+  } else {
-+    std::cout &amp;lt;&amp;lt; &amp;#34;Locale: ja_JP.UTF-8, MB_CUR_MAX: &amp;#34; &amp;lt;&amp;lt; MB_CUR_MAX &amp;lt;&amp;lt; std::endl;
-   }
--  std::setlocale(LC_CTYPE, &amp;#34;ja_JP.UTF-8&amp;#34;);//ロケールを日本語UTF-8に変更
--  std::cout &amp;lt;&amp;lt; &amp;#34;Locale: ja_JP.UTF-8, MB_CUR_MAX: &amp;#34; &amp;lt;&amp;lt; MB_CUR_MAX &amp;lt;&amp;lt; std::endl;
--  return 0;
- }
- ```
- 
- ### 出力例
- ```
--Locale: standard(C), MB_CUR_MAX: 1
-+Locale: standard, MB_CUR_MAX: 1
- Locale: ja_JP.UTF-8, MB_CUR_MAX: 6
- ```
- 
- ## 関連項目
--- [`MB_LEN_MAX`](/reference/climits/mb_len_max.md):全ロケールでのマルチバイト文字の最大バイト数
--- `setlocale`:ロケールを変更する
-+- [`MB_LEN_MAX`](/reference/climits/mb_len_max.md): 全ロケールでのマルチバイト文字の最大バイト数
-+- `setlocale`: ロケールを変更する
- 
- ## 参照
- - [mb_cur_max(3) - Linux man page](https://linux.die.net/man/3/mb_cur_max)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
       </author>
     </entry>
   
