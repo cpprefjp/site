@@ -1,10 +1,10 @@
 # PR [\#1471](https://github.com/cpprefjp/site/pull/1471) プレビュー
-- &#x231a; 更新時刻: 2025-07-14 21:53:41 JST
+- &#x231a; 更新時刻: 2025-07-15 19:35:06 JST
 - &#x1f50d; [プレビュー (HTML)](https://cpprefjp.github.io/site/gen/pull/1471)
 - &#x1f4c8; [プレビュー生成記録](https://github.com/cpprefjp/site/actions?query=event%3Apull_request_target+branch%3Afix-define-style)
-- **&#x2AEF;** ソースの変更: [`af2a99d..d8458b6`](https://github.com/cpprefjp/site/compare/af2a99dea80102f489a533c6cbc7df70dcdcfc97..d8458b65f80156b049e324d1bc83269e399e2188)
+- **&#x2AEF;** ソースの変更: [`635bc5a..cbe4f35`](https://github.com/cpprefjp/site/compare/635bc5a02c219ba0434326b9855e11daa37f6697..cbe4f356601c0cd5cd97d5239179914927df9354)
 
-## 変更記事一覧 (187件)
+## 変更記事一覧 (184件)
 
 - &#x1f4dd; [`lang/cpp11/pragma_operator`](https://cpprefjp.github.io/site/gen/pull/1471/lang/cpp11/pragma_operator.html)
 - &#x1f4dd; [`lang/cpp11/variadic_macros`](https://cpprefjp.github.io/site/gen/pull/1471/lang/cpp11/variadic_macros.html)
@@ -174,12 +174,9 @@
 - &#x1f4dd; [`reference/cstdio/eof`](https://cpprefjp.github.io/site/gen/pull/1471/reference/cstdio/eof.html)
 - &#x1f4dd; [`reference/cstdio/file`](https://cpprefjp.github.io/site/gen/pull/1471/reference/cstdio/file.html)
 - &#x1f4dd; [`reference/cstdio/filename_max`](https://cpprefjp.github.io/site/gen/pull/1471/reference/cstdio/filename_max.html)
-- &#x1f4dd; [`reference/cstdio/stderr`](https://cpprefjp.github.io/site/gen/pull/1471/reference/cstdio/stderr.html)
-- &#x1f4dd; [`reference/cstdio/stdin`](https://cpprefjp.github.io/site/gen/pull/1471/reference/cstdio/stdin.html)
-- &#x1f4dd; [`reference/cstdio/stdout`](https://cpprefjp.github.io/site/gen/pull/1471/reference/cstdio/stdout.html)
-- &#x1f4dd; [`reference/cstdio/tmpnam`](https://cpprefjp.github.io/site/gen/pull/1471/reference/cstdio/tmpnam.html)
 - &#x1f4dd; [`reference/cstdlib/exit_failure`](https://cpprefjp.github.io/site/gen/pull/1471/reference/cstdlib/exit_failure.html)
 - &#x1f4dd; [`reference/cstdlib/exit_success`](https://cpprefjp.github.io/site/gen/pull/1471/reference/cstdlib/exit_success.html)
+- &#x1f4dd; [`reference/cstdlib/mb_cur_max`](https://cpprefjp.github.io/site/gen/pull/1471/reference/cstdlib/mb_cur_max.html)
 - &#x1f4dd; [`reference/cstdlib/rand_max`](https://cpprefjp.github.io/site/gen/pull/1471/reference/cstdlib/rand_max.html)
 - &#x1f4dd; [`reference/ctime/time_t`](https://cpprefjp.github.io/site/gen/pull/1471/reference/ctime/time_t.html)
 - &#x1f4dd; [`reference/filesystem/exists`](https://cpprefjp.github.io/site/gen/pull/1471/reference/filesystem/exists.html)

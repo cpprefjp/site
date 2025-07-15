@@ -4378,7 +4378,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/cstddef/max_align_t.html</loc>
-      <lastmod>2025-07-14T20:54:19+09:00</lastmod>
+      <lastmod>2025-07-14T16:23:11+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -4392,7 +4392,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/cstddef/ptrdiff_t.html</loc>
-      <lastmod>2025-07-14T20:54:19+09:00</lastmod>
+      <lastmod>2025-07-14T16:23:11+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -4406,7 +4406,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/cstddef/size_t.html</loc>
-      <lastmod>2025-07-14T20:54:19+09:00</lastmod>
+      <lastmod>2025-07-14T16:23:11+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -18441,7 +18441,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/ctime/time_t.html</loc>
-      <lastmod>2025-07-14T20:54:19+09:00</lastmod>
+      <lastmod>2025-07-14T16:23:11+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -26547,7 +26547,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/cstdio/stdin.html</loc>
-      <lastmod>2025-07-14T16:23:11+09:00</lastmod>
+      <lastmod>2025-07-14T21:57:01+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -26610,7 +26610,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/cstdio/stderr.html</loc>
-      <lastmod>2025-07-14T16:23:11+09:00</lastmod>
+      <lastmod>2025-07-14T21:57:01+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -26631,7 +26631,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/cstdio/stdout.html</loc>
-      <lastmod>2025-07-14T16:23:11+09:00</lastmod>
+      <lastmod>2025-07-14T21:57:01+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -26659,7 +26659,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/cstdio/tmpnam.html</loc>
-      <lastmod>2025-07-14T16:23:11+09:00</lastmod>
+      <lastmod>2025-07-14T21:17:41+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -28276,7 +28276,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/cerrno/errno.html</loc>
-      <lastmod>2025-07-14T20:54:19+09:00</lastmod>
+      <lastmod>2025-07-14T16:23:11+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
