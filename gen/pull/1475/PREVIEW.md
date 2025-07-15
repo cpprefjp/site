@@ -1,8 +1,8 @@
 # PR [\#1475](https://github.com/cpprefjp/site/pull/1475) プレビュー
-- &#x231a; 更新時刻: 2025-07-16 00:58:07 JST
+- &#x231a; 更新時刻: 2025-07-16 07:51:10 JST
 - &#x1f50d; [プレビュー (HTML)](https://cpprefjp.github.io/site/gen/pull/1475)
 - &#x1f4c8; [プレビュー生成記録](https://github.com/cpprefjp/site/actions?query=event%3Apull_request_target+branch%3Acstdlib%2Fstrtol)
-- **&#x2AEF;** ソースの変更: [`635bc5a..3e711d8`](https://github.com/cpprefjp/site/compare/635bc5a02c219ba0434326b9855e11daa37f6697..3e711d8647425930cbf850999a04d86722293657)
+- **&#x2AEF;** ソースの変更: [`635bc5a..2bc7cf6`](https://github.com/cpprefjp/site/compare/635bc5a02c219ba0434326b9855e11daa37f6697..2bc7cf686f3246662f93f2afa5705b70b1d143b6)
 
 ## 変更記事一覧 (4件)
 

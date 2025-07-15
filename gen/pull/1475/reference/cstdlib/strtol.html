@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cstdlib&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;0e1b7e4364a11881b5bdc44327bbefc0a5eaa671&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;cstdlib&gt;\n#include &lt;cerrno&gt;\n#include &lt;climits&gt;\n\nvoid convert_and_print(const char* str, int base) {\n  errno = 0;\n  char* end = nullptr;\n  long result = std::strtol(str, &amp;end, base);\n\n  std::cout &lt;&lt; \&#34;\u57fa\u6570\&#34; &lt;&lt; base &lt;&lt; \&#34;\u3067\u306e\u5909\u63db\u7d50\u679c: \&#34; &lt;&lt; result &lt;&lt; std::endl;\n  if (str == end) {\n    std::cout &lt;&lt; \&#34;\u5909\u63db\u4e0d\u53ef\&#34; &lt;&lt; std::endl;\n  } else if (errno == ERANGE) {\n    std::cout &lt;&lt; \&#34;  \u2192 \u5909\u63db\u7d50\u679c\u304c\u7bc4\u56f2\u5916\&#34; &lt;&lt; std::endl;\n  }\n  if (*end != &#39;\\0&#39;) {\n    std::cout &lt;&lt; \&#34;\u672a\u5909\u63db\u90e8\u5206: \\\&#34;\&#34; &lt;&lt; end &lt;&lt; \&#34;\\\&#34;\&#34; &lt;&lt; std::endl;\n  }\n  std::cout &lt;&lt; std::endl;\n}\n\nint main() {\n  const char* str = \&#34;  -0x2Fabc\&#34;;\n  convert_and_print(str, 0);   // \u81ea\u52d5\u5224\u5225\n  std::cout &lt;&lt; std::endl;\n  convert_and_print(str, 10);  // 10\u9032\u6570\n  convert_and_print(str, 36);  // 36\u9032\u6570\n\n  return 0;\n}\n\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cstdlib&#34;, &#34;strtol&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cstdlib&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;f2767a74d8e050db2313139b356e03229a10a34d&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;cstdlib&gt;\n#include &lt;cerrno&gt;\n#include &lt;climits&gt;\n\nvoid convert_and_print(const char* str, int base) {\n  errno = 0;\n  char* end = nullptr;\n  long result = std::strtol(str, &amp;end, base);\n\n  std::cout &lt;&lt; \&#34;\u57fa\u6570\&#34; &lt;&lt; base &lt;&lt; \&#34;\u3067\u306e\u5909\u63db\u7d50\u679c: \&#34; &lt;&lt; result &lt;&lt; std::endl;\n  if (str == end) {\n    std::cout &lt;&lt; \&#34;\u5909\u63db\u4e0d\u53ef\&#34; &lt;&lt; std::endl;\n  } else if (errno == ERANGE) {\n    std::cout &lt;&lt; \&#34;  \u2192 \u5909\u63db\u7d50\u679c\u304c\u7bc4\u56f2\u5916\&#34; &lt;&lt; std::endl;\n  }\n  if (*end != &#39;\\0&#39;) {\n    std::cout &lt;&lt; \&#34;\u672a\u5909\u63db\u90e8\u5206: \\\&#34;\&#34; &lt;&lt; end &lt;&lt; \&#34;\\\&#34;\&#34; &lt;&lt; std::endl;\n  }\n  std::cout &lt;&lt; std::endl;\n}\n\nint main() {\n  const char* str = \&#34;  -0x2Fabc\&#34;;\n  convert_and_print(str, 0);   // \u81ea\u52d5\u5224\u5225\n  convert_and_print(str, 10);  // 10\u9032\u6570\n  convert_and_print(str, 36);  // 36\u9032\u6570\n\n  return 0;\n}\n\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cstdlib&#34;, &#34;strtol&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-15T15:48:05">
-        2025年07月15日 15時48分05秒
+      <span itemprop="datePublished" content="2025-07-15T22:46:50">
+        2025年07月15日 22時46分50秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -247,7 +247,7 @@
 <li>数値が <code>long</code> の範囲を超えるときは <code>errno</code> に <code>ERANGE</code> が設定される。</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="0e1b7e4364a11881b5bdc44327bbefc0a5eaa671"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="f2767a74d8e050db2313139b356e03229a10a34d"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../cstdlib.html">&lt;cstdlib&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../cerrno.html">&lt;cerrno&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../climits.html">&lt;climits&gt;</a></span><span class="cp"></span>
@@ -272,7 +272,6 @@
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
   <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">str</span> <span class="o">=</span> <span class="s">"  -0x2Fabc"</span><span class="p">;</span>
   <span class="n">convert_and_print</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>   <span class="c1">// 自動判別</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
   <span class="n">convert_and_print</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>  <span class="c1">// 10進数</span>
   <span class="n">convert_and_print</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="mi">36</span><span class="p">);</span>  <span class="c1">// 36進数</span>
 
