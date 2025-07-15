@@ -63,7 +63,6 @@ void convert_and_print(const char* str, int base) {
 int main() {
   const char* str = "  -0x2Fabc";
   convert_and_print(str, 0);   // 自動判別
-  std::cout << std::endl;
   convert_and_print(str, 10);  // 10進数
   convert_and_print(str, 36);  // 36進数
 
