@@ -2,9 +2,325 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-07-15T07:03:06.540896</updated>
-  <id>d8c774aa-696e-42cc-bbd2-cb5772993b33</id>
+  <updated>2025-07-15T15:58:06.420166</updated>
+  <id>68eb82b8-aec6-4954-8ad7-3ce308aa08d9</id>
 
+  
+    <entry>
+      <title>charconv -- add path to `strtol`</title>
+      <link href="https://cpprefjp.github.io/reference/charconv.html"/>
+      <id>3e711d8647425930cbf850999a04d86722293657:reference/charconv.md</id>
+      <updated>2025-07-16T00:52:34+09:00</updated>
+      
+        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;charconv&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;charconv&lt;/span&gt;&lt;span class=&#34;cpp cpp17&#34; title=&#34;C++17で追加&#34;&gt;(C++17)&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;charconv&amp;gt;&lt;/code&gt;ヘッダでは、ロケール依存なし、フォーマット解析なしの高速な文字列・数値変換を提供する。&lt;/p&gt;
+&lt;p&gt;これらの変換は以下のような特徴がある。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;フォーマットは引数で指定し、入力値のフォーマットを実行時に解析することはない&lt;/li&gt;
+&lt;li&gt;動的にメモリ確保を行わない&lt;/li&gt;
+&lt;li&gt;ロケールを考慮しない（Cロケール (POSIXロケール) 固定）&lt;/li&gt;
+&lt;li&gt;バッファオーバーランしない&lt;/li&gt;
+&lt;li&gt;例外を投げない（エラーは戻り値で表現、エラーと有効値は区別可能）&lt;/li&gt;
+&lt;li&gt;使用可能なフォーマットは最小限&lt;ul&gt;
+&lt;li&gt;スペースが現れた場合はそこで変換終了&lt;/li&gt;
+&lt;li&gt;浮動小数点数の指数部以外の&lt;code&gt;+&lt;/code&gt;符号は考慮されない&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;#&lt;/code&gt;による小数点以下の桁数指定はできない&lt;/li&gt;
+&lt;li&gt;16進数に&lt;code&gt;0x&lt;/code&gt;は付けられない&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;文字列 ⇔ 数値変換関数&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;charconv/to_chars.html&#34;&gt;to_chars&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;数値 → 文字列の変換&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;charconv/from_chars.html&#34;&gt;from_chars&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字列 → 数値の変換&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;クラス&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;charconv/chars_format.html&#34;&gt;chars_format&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;変換時の浮動小数点フォーマット指定のための列挙体&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;charconv/to_chars_result.html&#34;&gt;to_chars_result&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;charconv/to_chars.html&#34;&gt;to_chars&lt;/a&gt;&lt;/code&gt;の結果型&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;charconv/from_chars_result.html&#34;&gt;from_chars_result&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;charconv/from_chars.html&#34;&gt;from_chars&lt;/a&gt;&lt;/code&gt;の結果型&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;導入された経緯&lt;/h2&gt;
+&lt;p&gt;XMLやJSONに代表されるテキストベースのデータを利用するケースが増えており、C++においてそれを利用するケースも増加している。
+それらは多くの場合コンピュータによって生成されコンピュータによって読まれるため国際化対応の必要がなく、生成する側でも読む側でもロケールに非依存であり、考慮するべきではない。&lt;br /&gt;
+そして、これらのデータは多くの場合通信に利用されており高いスループットを要求される。&lt;/p&gt;
+&lt;p&gt;しかし、C++17未満の環境で利用可能であった文字列変換法はいずれもロケールに依存しておりロケール非依存な変換が提供されていなかったうえに、いずれの方法も動的なフォーマットの解析・指定や動的メモリ確保、エラー報告の不足等何かしら使いにくい所があった。&lt;br /&gt;
+動的なフォーマット解析はコンパイル時のフォーマットチェック及び選択を妨げ、（&lt;code&gt;iostream&lt;/code&gt;のマニピュレータのような）動的なフォーマット指定はその状態のスレッド間共有が必要になるため好ましくなく、動的メモリ確保を行わず変換エラーは区別できることが望ましい。&lt;/p&gt;
+&lt;p&gt;また、浮動小数点数を10進文字列→2進浮動小数点数→10進文字列と変換した時に最初と最後の文字列が一致する保証がある変換方法も提供されていなかった。&lt;/p&gt;
+&lt;p&gt;各変換方法とその問題点&lt;/p&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;関数&lt;/th&gt;
+&lt;th&gt;欠点&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;sprintf&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ロケール依存、フォーマットの動的解析、バッファオーバーランの危険性&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;snprintf&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ロケール依存、フォーマットの動的解析&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;sscanf&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ロケール依存、フォーマットの動的解析&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/atoi_atol_atoll.html&#34;&gt;atol&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ロケール依存、エラー報告の不足&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/strtol.html&#34;&gt;strtol&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ロケール依存、先頭ホワイトスペースの無視、接頭辞(0x等)を考慮する&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;strstream&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ロケール依存、先頭ホワイトスペースの無視&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;stringstream&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ロケール依存、先頭ホワイトスペースの無視、動的メモリ確保&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;num_put / num_get facets&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ロケール依存、仮想関数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;to_string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ロケール依存、動的メモリ確保&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;stoi&lt;/code&gt;等&lt;/td&gt;
+&lt;td&gt;ロケール依存、動的メモリ確保、先頭ホワイトスペースの無視、接頭辞(0x等)を考慮する、例外の送出&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;これらの問題がなく高速な文字列・数値変換を提供するために、本ヘッダ及び&lt;code&gt;to_chars, from_chars&lt;/code&gt;関数が導入された。各関数の特徴は冒頭及び個別のページを参照のこと。&lt;/p&gt;
+&lt;h2&gt;バージョン&lt;/h2&gt;
+&lt;h3&gt;言語&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;C++17&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;処理系&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;../implementation.html#clang&#34;&gt;Clang&lt;/a&gt;: 7.0(整数のみ) &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 14.0(to_chars()のみ浮動小数点もsupport), 20.1(from_chars()もdouble, floatをsupport) &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../implementation.html#gcc&#34;&gt;GCC&lt;/a&gt;: 8.0(整数のみ) &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 11.1(full support) &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../implementation.html#visual_cpp&#34;&gt;Visual C++&lt;/a&gt;: 2017 update 7(整数のみ) &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, update 9(full support) &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;参照&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://faithandbrave.hateblo.jp/entry/2016/08/24/181540&#34; target=&#34;_blank&#34;&gt;C++1z ロケール依存なし、フォーマット解析なしの高速な文字列・数値変換 - Faith and Brave - C++で遊ぼう&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0067r0.html&#34; target=&#34;_blank&#34;&gt;P0067R0 Elementary string conversions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0067r1.html&#34; target=&#34;_blank&#34;&gt;P0067R1 Elementary string conversions, revision 1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0067r2.html&#34; target=&#34;_blank&#34;&gt;P0067R2 Elementary string conversions, revision 2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0067r3.html&#34; target=&#34;_blank&#34;&gt;P0067R3 Elementary string conversions, revision 3&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0067r4.html&#34; target=&#34;_blank&#34;&gt;P0067R4 Elementary string conversions, revision 4&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0067r5.html&#34; target=&#34;_blank&#34;&gt;P0067R5 Elementary string conversions, revision 5&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0682r1.html&#34; target=&#34;_blank&#34;&gt;P0682R1: Repairing elementary string conversions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://open-std.org/JTC1/SC22/WG21/docs/papers/2015/n4412.html&#34; target=&#34;_blank&#34;&gt;N4412: Shortcomings of iostreams&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://wg21.cmeerw.net/lwg/issue3080&#34; target=&#34;_blank&#34;&gt;LWG Issue 3080. Floating point from_chars pattern specification breaks round-tripping&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>strtol -- ご指摘頂いた点を変更</title>
+      <link href="https://cpprefjp.github.io/reference/cstdlib/strtol.html"/>
+      <id>a32b5ce89c7288668821504c2302eda916f675b9:reference/cstdlib/strtol.md</id>
+      <updated>2025-07-16T00:48:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/strtol.md b/reference/cstdlib/strtol.md
+index 01824776e..949d9f56a 100644
+--- a/reference/cstdlib/strtol.md
++++ b/reference/cstdlib/strtol.md
+@@ -10,34 +10,31 @@ namespace std {
+ ```
+ 
+ ## 概要
+-文字列`nptr`を`long`型の整数に変換する。変換時には`base`で指定された基数に従って解釈される。
++文字列`nptr`を`long`型の整数に変換する。文字列は`base`で指定された基数に従って解釈される。
+ 
+ `endptr`が非`nullptr`の場合、変換が終了した位置の文字へのポインタがそこに格納される。
+ 
+ 基数`base`は 2～36 または 0 の値を取る。
+ 
+ `base`が0の場合
++- 文字列の先頭が`0x`、`0X`は16進数
+ - 文字列の先頭が`0`の場合は8進数
+-- 先頭が`0x`、`0X`は16進数
+-- その他の場合は10進数として変換される。
++- その他の場合は10進数として変換する。
+ 
+ 変換は次のように行われる
+-- 先頭の空白文字は最初の非空白文字から変換される。
++- 先頭が空白文字の場合、最初の非空白文字から変換される。
+ - `+`または`-`が先頭にある場合は、符号として解釈される。
++- 基数が 16 または 0 の場合`0x`または`0X`をスキップする
+ - その後の文字列を、指定された`base`に基づいて整数値に変換する。
+-
++- 各桁は、`0`〜`9`をその値、`a`〜`z`および`A`〜`Z`を10〜35として扱う。
+ 
+ ## 戻り値
+ - 変換可能ならば変換後の数値。
+-
+ - 変換後の数値が`long`の範囲外の場合、`LONG_MAX`または `LONG_MIN`。
+-
+ - 変換不可能なら`0`を返す。
+ 
+ ## 備考
+-この関数はスレッドセーフである。
+-
+-
++- 数値が `long` の範囲を超えるときは `errno` に `ERANGE` が設定される。
+ 
+ ## 例
+ ```cpp example
+@@ -46,32 +43,51 @@ namespace std {
+ #include &amp;lt;cerrno&amp;gt;
+ #include &amp;lt;climits&amp;gt;
+ 
+-int main() {
+-  const char* str = &amp;#34;  -0x2Fabc&amp;#34;;
+-
+-  errno = 0;
+-  long result1 = std::strtol(str, nullptr, 0);  // 自動判別
+-  std::cout &amp;lt;&amp;lt; &amp;#34;変換結果(基数0): &amp;#34; &amp;lt;&amp;lt; result1 &amp;lt;&amp;lt; std::endl;
+-
++void convert_and_print(const char* str, int base) {
+   errno = 0;
+-  long result2 = std::strtol(str, nullptr, 10); // 10進数として解釈
+-  std::cout &amp;lt;&amp;lt; &amp;#34;変換結果(基数10): &amp;#34; &amp;lt;&amp;lt; result2 &amp;lt;&amp;lt; std::endl;
++  char* end = nullptr;
++  long result = std::strtol(str, &amp;amp;end, base);
++
++  std::cout &amp;lt;&amp;lt; &amp;#34;基数&amp;#34; &amp;lt;&amp;lt; base &amp;lt;&amp;lt; &amp;#34;での変換結果: &amp;#34; &amp;lt;&amp;lt; result &amp;lt;&amp;lt; std::endl;
++  if (str == end) {
++    std::cout &amp;lt;&amp;lt; &amp;#34;変換不可&amp;#34; &amp;lt;&amp;lt; std::endl;
++  } else if (errno == ERANGE) {
++    std::cout &amp;lt;&amp;lt; &amp;#34;  → 変換結果が範囲外&amp;#34; &amp;lt;&amp;lt; std::endl;
++  }
++  if (*end != &amp;#39;\0&amp;#39;) {
++    std::cout &amp;lt;&amp;lt; &amp;#34;未変換部分: \&amp;#34;&amp;#34; &amp;lt;&amp;lt; end &amp;lt;&amp;lt; &amp;#34;\&amp;#34;&amp;#34; &amp;lt;&amp;lt; std::endl;
++  }
++  std::cout &amp;lt;&amp;lt; std::endl;
++}
+ 
+-  errno = 0;
+-  long result3 = std::strtol(str, nullptr, 36); // 36進数として解釈
+-  std::cout &amp;lt;&amp;lt; &amp;#34;変換結果(基数36): &amp;#34; &amp;lt;&amp;lt; result3 &amp;lt;&amp;lt; std::endl;
++int main() {
++  const char* str = &amp;#34;  -0x2Fabc&amp;#34;;
++  convert_and_print(str, 0);   // 自動判別
++  std::cout &amp;lt;&amp;lt; std::endl;
++  convert_and_print(str, 10);  // 10進数
++  convert_and_print(str, 36);  // 36進数
+ 
+   return 0;
+ }
++
+ ```
+ ### 出力
+ ```
+-変換結果(基数0): -195260
+-変換結果(基数10): 0
+-変換結果(基数36): -1999456248
++基数0での変換結果: -195260
++
++基数10での変換結果: 0
++未変換部分: &amp;#34;x2Fabc&amp;#34;
++
++基数36での変換結果: -1999456248
++
+ ```
+ 
+ ## 関連項目
+ - [`strtoll`](strtoll.md.nolink): 文字列を、基数を指定して`long long`型に変換する
+ - [`strtoul`](strtoul.md.nolink): 文字列を、基数を指定して`unsigned long`型に変換する
+ - [`strtoull`](strtoull.md.nolink): 文字列を、基数を指定して`unsigned long long`型に変換する
++- [`std::stol`](/reference/string/stol.md): 文字列から`long`型への変換
++- [`&amp;lt;charconv&amp;gt;` ヘッダ](/reference/charconv.md): 高速な文字列 ⇔ 数値変換
++
++## 参考文献
++- Qiita: [Cのstrtolの使い方とendptrの活用例（@yumetodo）](https://qiita.com/yumetodo/items/238751b879c09b56234b)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>stoi -- ご指摘頂いた点を変更</title>
+      <link href="https://cpprefjp.github.io/reference/string/stoi.html"/>
+      <id>a32b5ce89c7288668821504c2302eda916f675b9:reference/string/stoi.md</id>
+      <updated>2025-07-16T00:48:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/string/stoi.md b/reference/string/stoi.md
+index 657d5e1d8..66b15defd 100644
+--- a/reference/string/stoi.md
++++ b/reference/string/stoi.md
+@@ -235,7 +235,7 @@ int stoi(const std::wstring&amp;amp; str, std::size_t* idx = nullptr, int base = 10) {
+ ## 関連リンク
+ ### C標準ライブラリに由来する関数
+ - [`atoi`](/reference/cstdlib/atoi_atol_atoll.md): `stoi`は[`atoi`](/reference/cstdlib/atoi_atol_atoll.md)を`std::string`および`std::wstring`に対応させたものと見なせる。
+-- `strtol`, `wcstol`: `stoi`は`strtol`および`wcstol`をそれぞれ`std::string`と`std::wstring`に対応させ、戻り値の型を`int`に変更したものと見なせる。
++- [`strtol`](/reference/cstdlib/strtol.md), `wcstol`: `stoi`は`strtol`および`wcstol`をそれぞれ`std::string`と`std::wstring`に対応させ、戻り値の型を`int`に変更したものと見なせる。
+ 
+ ### ファミリー
+ - (`stoi`: この関数自身)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>cstdlib -- add path to `strto;.md`</title>
@@ -500,71 +816,6 @@ index 21450cdb3..3872e41c3 100644
  
  ## 参照
  - [mb_cur_max(3) - Linux man page](https://linux.die.net/man/3/mb_cur_max)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>MB_CUR_MAX -- :削除、:後にスペース追加</title>
-      <link href="https://cpprefjp.github.io/reference/cstdlib/mb_cur_max.html"/>
-      <id>fbe0ff2648113ba237bf7873e790402c1ebc4cd0:reference/cstdlib/mb_cur_max.md</id>
-      <updated>2025-07-14T22:22:41+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/mb_cur_max.md b/reference/cstdlib/mb_cur_max.md
-index fb5c43f0e..3872e41c3 100644
---- a/reference/cstdlib/mb_cur_max.md
-+++ b/reference/cstdlib/mb_cur_max.md
-@@ -28,7 +28,7 @@ int main() {
-   
-   //ロケールを日本(UTF-8)に変更
-   if (std::setlocale(LC_CTYPE, &amp;#34;ja_JP.UTF-8&amp;#34;) == nullptr) {
--    std::cout &amp;lt;&amp;lt; &amp;#34;Failed to set locale to: ja_JP.UTF-8&amp;#34;  &amp;lt;&amp;lt; std::endl;
-+    std::cout &amp;lt;&amp;lt; &amp;#34;Failed to set locale to ja_JP.UTF-8&amp;#34;  &amp;lt;&amp;lt; std::endl;
-   } else {
-     std::cout &amp;lt;&amp;lt; &amp;#34;Locale: ja_JP.UTF-8, MB_CUR_MAX: &amp;#34; &amp;lt;&amp;lt; MB_CUR_MAX &amp;lt;&amp;lt; std::endl;
-   }
-@@ -42,8 +42,8 @@ Locale: ja_JP.UTF-8, MB_CUR_MAX: 6
- ```
- 
- ## 関連項目
--- [`MB_LEN_MAX`](/reference/climits/mb_len_max.md):全ロケールでのマルチバイト文字の最大バイト数
--- `setlocale`:ロケールを変更する
-+- [`MB_LEN_MAX`](/reference/climits/mb_len_max.md): 全ロケールでのマルチバイト文字の最大バイト数
-+- `setlocale`: ロケールを変更する
- 
- ## 参照
- - [mb_cur_max(3) - Linux man page](https://linux.die.net/man/3/mb_cur_max)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>MB_CUR_MAX -- コード例変更後、出力例の反映し忘れを変更</title>
-      <link href="https://cpprefjp.github.io/reference/cstdlib/mb_cur_max.html"/>
-      <id>0b04c502696c36721996bdbfac776a80c8ee5ec6:reference/cstdlib/mb_cur_max.md</id>
-      <updated>2025-07-14T22:17:14+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/mb_cur_max.md b/reference/cstdlib/mb_cur_max.md
-index 53908c1c0..fb5c43f0e 100644
---- a/reference/cstdlib/mb_cur_max.md
-+++ b/reference/cstdlib/mb_cur_max.md
-@@ -37,7 +37,7 @@ int main() {
- 
- ### 出力例
- ```
--Locale: standard(C), MB_CUR_MAX: 1
-+Locale: standard, MB_CUR_MAX: 1
- Locale: ja_JP.UTF-8, MB_CUR_MAX: 6
- ```
- 
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
