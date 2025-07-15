@@ -235,7 +235,7 @@ int stoi(const std::wstring& str, std::size_t* idx = nullptr, int base = 10) {
 ## 関連リンク
 ### C標準ライブラリに由来する関数
 - [`atoi`](/reference/cstdlib/atoi_atol_atoll.md): `stoi`は[`atoi`](/reference/cstdlib/atoi_atol_atoll.md)を`std::string`および`std::wstring`に対応させたものと見なせる。
-- `strtol`, `wcstol`: `stoi`は`strtol`および`wcstol`をそれぞれ`std::string`と`std::wstring`に対応させ、戻り値の型を`int`に変更したものと見なせる。
+- [`strtol`](/reference/cstdlib/strtol.md), `wcstol`: `stoi`は`strtol`および`wcstol`をそれぞれ`std::string`と`std::wstring`に対応させ、戻り値の型を`int`に変更したものと見なせる。
 
 ### ファミリー
 - (`stoi`: この関数自身)
