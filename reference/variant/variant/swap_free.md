@@ -12,7 +12,6 @@ namespace std {
   constexpr void swap(variant<Types...>& x, variant<Types...>& y) noexcept(see below);  // C++23
 }
 ```
-* see below[italic]
 
 ## 概要
 同じ候補型をもつ2つの`variant`オブジェクトを入れ替える。

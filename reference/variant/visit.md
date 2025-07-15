@@ -13,7 +13,6 @@ namespace std {
   constexpr R visit(Visitor&& vis, Variants&&... vars);         // (2) C++20
 }
 ```
-* see below[italic]
 
 ## 概要
 `variant`オブジェクトが現在保持している型に対応する関数を呼び出す。

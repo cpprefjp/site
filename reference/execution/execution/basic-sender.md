@@ -39,7 +39,6 @@ namespace std::execution {
 * basic-operation[link basic-operation.md]
 * std::move[link /reference/utility/move.md]
 * this Self[link /lang/cpp23/deducing_this.md.nolink]
-* see below[italic]
 
 ## 概要
 `basic-sender`は、Senderアルゴリズム動作仕様定義で用いられる説明専用のクラステンプレートである。
@@ -69,7 +68,6 @@ is_nothrow_constructible_v<basic-operation<Self, Rcvr>, Self, Rcvr>
 template<class Sndr, class Env>
 using completion-signatures-for = see below;  // exposition only
 ```
-* see below[italic]
 
 説明用の`sndr`を`decltype((sndr))`が`Sndr`型となる式、`rcvr`を[`sender_in`](sender_in.md)`<Sndr, Env> == true`となる[環境](../queryable.md)`Env`に関連付けられた[`Receiver`](receiver.md)とする。
 

@@ -9,10 +9,9 @@ template<class Tag,
          valid-completion-signatures Completions,
          template<class...> class Tuple,
          template<class...> class Variant>
-using gather-signatures = /*see below*/;
+using gather-signatures = see below;
 ```
 * valid-completion-signatures[link completion_signatures.md]
-* see below[italic]
 
 ## 概要
 `gather-signatures`は、[完了シグネチャ集合](completion_signatures.md)`Completions`のうち完了タグ`Tag`に適合する引数型リスト集合に対して型情報の変換操作を適用し、新たな型を取得する説明専用のエイリアステンプレートである。

@@ -58,7 +58,6 @@ namespace std::execution {
 ```
 * impls-for[link impls-for.md]
 * default-impls[link impls-for.md]
-* see below[italic]
 
 `impls-for<when_all_t>::get-attrs`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
 
@@ -83,7 +82,6 @@ namespace std::execution {
   return see below;
 }
 ```
-* see below[italic]
 
 ラムダ式は下記を満たすオブジェクト`e`を返す。
 
@@ -250,7 +248,6 @@ struct make-state {
 * stop_callback[link /reference/stop_token/stop_token.md]
 * optional[link /reference/optional/optional.md]
 * nullopt[link /reference/optional/nullopt_t.md]
-* see below[italic]
 
 説明用の型`copy-fail`を、いずれかの子[Sender](sender.md)の値結果データのdecayコピーが潜在的に例外送出するならば[`exception_ptr`](/reference/exception/exception_ptr.md)とする。そうでなければ、未規定の空のクラス型`none-such`とする。
 

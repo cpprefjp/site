@@ -15,7 +15,6 @@ namespace std {
 }
 ```
 * unspecified[italic]
-* see below[italic]
 * range_format[link range_format.md]
 * ranges::input_range[link /reference/ranges/input_range.md]
 

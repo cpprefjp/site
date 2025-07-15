@@ -4,6 +4,7 @@
 * import std.compat;[link /module/std.compat.md]
 * thread_local[link /lang/cpp11/thread_local_storage.md]
 * decltype(auto)[link /lang/cpp14/decltype_auto.md]
+* see below[italic]
 * synth-three-way-result[link /reference/exposition-only/synth-three-way-result.md]
 * synth-three-way[link /reference/exposition-only/synth-three-way-result.md]
 * <algorithm>[link /reference/algorithm.md]

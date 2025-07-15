@@ -8,7 +8,6 @@
 template<class Sndr, class Env>
 using single-sender-value-type = see below;  // exposition only
 ```
-* see below[italic]
 
 ## 概要
 `single-sender-value-type`は、実行制御ライブラリの仕様定義で用いられる説明専用のエイリアステンプレートである。

@@ -37,7 +37,6 @@ namespace std::execution {
 * terminate()[link /reference/exception/terminate.md]
 * coroutine_handle[link /reference/coroutine/coroutine_handle.md]
 * address()[link /reference/coroutine/coroutine_handle/address.md]
-* see below[italic]
 
 ## 概要
 `with_awaitable_senders`は、[コルーチンPromise型](/lang/cpp20/coroutines.md)の基底クラスとして利用することで、[Sender](sender.md)を`co_await`演算子でAwait可能とするクラステンプレートである。

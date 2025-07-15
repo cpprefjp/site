@@ -7,13 +7,12 @@
 ```cpp
 namespace std {
 namespace placeholders {
-  /*see below*/ unspecified _1;
-  /*see below*/ unspecified _2;
+  unspecified _1;
+  unspecified _2;
   …
-  /*see below*/ unspecified _N;
+  unspecified _N;
 }}
 ```
-* see below[italic]
 * unspecified[italic]
 
 ## 概要

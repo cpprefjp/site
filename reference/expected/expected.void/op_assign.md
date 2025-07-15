@@ -17,7 +17,6 @@ constexpr expected& operator=(const unexpected<G>& e); // (3)
 template<class G>
 constexpr expected& operator=(unexpected<G>&& e);      // (4)
 ```
-* see below[italic]
 * unexpected[link ../unexpected.md]
 
 ## 概要

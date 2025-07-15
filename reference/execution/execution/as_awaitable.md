@@ -58,7 +58,6 @@ namespace std::execution {
 * env_of_t[link env_of_t.md]
 * sender_to[link sender_to.md]
 * coroutine_handle<>[link /reference/coroutine/coroutine_handle.md]
-* see below[italic]
 
 ### クラステンプレート`sender-awaitable`
 ```cpp
@@ -117,7 +116,6 @@ struct awaitable-receiver {
 * monostate[link /reference/variant/monostate.md]
 * exception_ptr[link /reference/exception/exception_ptr.md]
 * coroutine_handle[link /reference/coroutine/coroutine_handle.md]
-* see below[italic]
 
 説明用の式`rcvr`を`awaitable-receiver`型の右辺値、`crcvr`を`rcvr`をconst参照する左辺値、`vs`を式パック、`err`を`Err`型の式とする。このとき
 

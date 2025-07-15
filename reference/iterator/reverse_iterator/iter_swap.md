@@ -16,7 +16,6 @@ namespace std {
   };
 }
 ```
-* see below[italic]
 * reverse_iterator[link /reference/iterator/reverse_iterator.md]
 
 ## 概要

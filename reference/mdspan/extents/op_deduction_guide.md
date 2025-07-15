@@ -10,7 +10,6 @@ namespace std {
   explicit extents(Integrals...) -> see below;
 }
 ```
-* see below[italic]
 
 ## 概要
 `std::extents`クラステンプレートの型推論補助。多次元配列の動的要素数リストから[`std::dextents`](../extents.md)`<size_t, sizeof...(Integrals)>`型を推論する。

@@ -66,7 +66,6 @@ namespace std::execution {
 ```
 * impls-for[link impls-for.md]
 * default-impls[link impls-for.md]
-* see below[italic]
 
 `impls-for<split-impl-tag>::get-state`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
 
@@ -274,7 +273,6 @@ namespace std::execution {
 * inplace_stop_source[link /reference/stop_token/inplace_stop_source.md]
 * atomic[link /reference/atomic/atomic.md]
 * connect_result_t[link connect_result_t.md]
-* see below[italic]
 
 - 説明用のパック`Sigs`を[`completion_signatures_of_t`](completion_signatures_of_t.md)`<Sndr>`による[`completion_signatures`](completion_signatures.md)特殊化のテンプレートパラメータと定義する。説明用の型`Tag`とパック`Args`に対して、説明用のエイリアステンプレート`as-tuple<Tag(Args...)>`を[`decayed-tuple`](decayed-tuple.md)`<Tag, Args...>`と定義する。型`variant-type`は下記定義において重複削除した型となる。
 

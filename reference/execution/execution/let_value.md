@@ -55,7 +55,6 @@ namespace std::execution {
 * default-impls[link impls-for.md]
 * decayed-typeof[link /reference/functional/decayed-typeof.md]
 * let-cpo[italic]
-* see below[italic]
 
 `impls-for<decayed-typeof<let-cpo>>::get-state`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
 
@@ -84,7 +83,6 @@ namespace std::execution {
   return state-type{std::forward_like<Sndr>(fn), let-env(child), {}, {}};
 }
 ```
-* see below[italic]
 
 - 説明用のパック`Sigs`を[`completion_signatures_of_t`](completion_signatures_of_t.md)`<`[`child-type`](child-type.md)`<Sndr>,` [`env_of_t`](env_of_t.md)`<Rcvr>>`による[`completion_signatures`](completion_signatures.md)特殊化のテンプレートパラメータとし、パック`LetSigs`を`Sigs`に含まれる型のうち戻り値型が[`decayed-typeof`](/reference/functional/decayed-typeof.md)`<set-cpo>`に等しいものと定義する。説明用のエイリアステンプレート`as-tuple<Tag(Args...)>`を[`decayed-tuple`](decayed-tuple.md)`<Args...>`と定義する。型`args_variant_t`は下記定義において重複削除した型となる。
 
@@ -206,7 +204,6 @@ namespace std::execution {
 * execution::set_error[link set_error.md]
 * execution::set_stopped[link set_stopped.md]
 * std::move[link /reference/utility/move.md]
-* see below[italic]
 
 メンバ関数`receiver2::get_env`の呼び出しは、下記を満たすオブジェクト`e`を返す。
 

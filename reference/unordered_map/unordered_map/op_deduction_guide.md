@@ -103,7 +103,6 @@ namespace std {
                      equal_to<range_key_t<R>>, Allocator>;                   // (12) C++23から
 }
 ```
-* see below[italic]
 * remove_const_t[link /reference/type_traits/remove_const.md]
 * add_const_t[link /reference/type_traits/add_const.md]
 * hash[link /reference/functional/hash.md]

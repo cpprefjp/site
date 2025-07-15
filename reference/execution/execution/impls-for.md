@@ -18,7 +18,6 @@ namespace std::execution {
   };
 }
 ```
-* see below[italic]
 
 ## 概要
 `impls-for`は、Senderアルゴリズム動作仕様定義で用いられる説明専用のクラステンプレートである。

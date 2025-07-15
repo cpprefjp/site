@@ -17,7 +17,6 @@ namespace std {
 }
 ```
 * nontype_t[link /reference/utility/nontype_t.md]
-* see below[italic]
 
 
 ## 概要

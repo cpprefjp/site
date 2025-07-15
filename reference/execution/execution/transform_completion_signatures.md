@@ -18,7 +18,6 @@ namespace std::execution {
 * valid-completion-signatures[link completion_signatures.md]
 * completion_signatures[link completion_signatures.md]
 * set_stopped_t()[link set_stopped.md]
-* see below[italic]
 
 ## 概要
 [完了シグネチャ集合](completion_signatures.md)から別の完了シグネチャ集合へ変換するエイリアステンプレート。

@@ -13,7 +13,6 @@ constexpr sender decltype(auto) transform_sender(Sndr&& sndr, const Env&... env)
 ```
 * sender[link ../sender.md]
 * queryable[link ../../queryable.md]
-* see below[italic]
 
 ## 概要
 Sender変換のデフォルト動作。

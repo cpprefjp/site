@@ -18,7 +18,6 @@ namespace std {
                             Args&&... args);             // (3)
 }
 ```
-* see below[italic]
 
 ## 概要
 有効な値を保持する`optional`オブジェクトを構築する。

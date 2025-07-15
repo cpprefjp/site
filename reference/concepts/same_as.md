@@ -7,10 +7,9 @@
 ```cpp
 namespace std {
   template <class T, class U>
-  concept same_as = /*see below*/;
+  concept same_as = see below;
 }
 ```
-* see below[italic]
 
 ## 概要
 

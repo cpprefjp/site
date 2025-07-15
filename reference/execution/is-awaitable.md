@@ -23,7 +23,7 @@ concept is-awaitable;
 
 ```cpp
 template<class T>
-concept await-suspend-result = /*see below*/;
+concept await-suspend-result = see below;
 
 template<class A, class Promise>
 concept is-awaiter =

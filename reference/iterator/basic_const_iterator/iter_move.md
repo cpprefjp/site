@@ -6,7 +6,7 @@
 * cpp23[meta cpp]
 
 ```cpp
-friend constexpr rvalue-reference iter_move(const basic_const_iterator& i) noexcept(/*see below*/);
+friend constexpr rvalue-reference iter_move(const basic_const_iterator& i) noexcept(see below);
 ```
 
 ## 概要

@@ -7,16 +7,15 @@
 
 ```cpp
 template<class U>
-reference_wrapper(U&& u) noexcept(/*see below*/);                 // (1) C++11
+reference_wrapper(U&& u) noexcept(see below);                     // (1) C++11
 
 template<class U>
-constexpr reference_wrapper(U&& u) noexcept(/*see below*/);       // (1) C++20
+constexpr reference_wrapper(U&& u) noexcept(see below);           // (1) C++20
 
 reference_wrapper(const reference_wrapper& x) noexcept;           // (2) C++11
 
 constexpr reference_wrapper(const reference_wrapper& x) noexcept; // (2) C++20
 ```
-* see below[italic]
 
 ## 概要
 与えられた参照で、参照オブジェクトを構築する。

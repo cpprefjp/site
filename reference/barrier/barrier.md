@@ -10,7 +10,6 @@ namespace std {
   class barrier;
 }
 ```
-* see below[italic]
 
 ## 概要
 `barrier`クラスは、複数スレッドにより並行実行される反復的なタスク制御に便利な、スレッド調整機構（同期プリミティブ）である。

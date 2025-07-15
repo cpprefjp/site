@@ -24,7 +24,6 @@ namespace std {
                      noexcept(noexcept(swap(*a, *b))); // (2) C++20
 }
 ```
-* see below[italic]
 
 ## 概要
 2つの値を入れ替える。

@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template<input_iterator I>
-  using const_iterator = /*see below*/;
+  using const_iterator = see below;
 }
 ```
 

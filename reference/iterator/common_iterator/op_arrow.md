@@ -6,9 +6,8 @@
 * cpp20[meta cpp]
 
 ```cpp
-decltype(auto) operator->() const requires /*see below*/;
+decltype(auto) operator->() const requires see below;
 ```
-* see below[italic]
 
 ## 概要
 イテレータを間接参照する。
