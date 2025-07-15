@@ -1,0 +1,371 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>rint - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cmath,std,function,cpp11
+">
+        <meta name="title" content="rint - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="rint - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="rint - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/cmath/rint.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="引数 `x` を現在の丸めモードで整数値に丸めた値を得る。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="rint - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/cmath/rint.html" />
+        <meta name="twitter:description" content="引数 `x` を現在の丸めモードで整数値に丸めた値を得る。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cmath&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;7df4a39a2d5bac924fff310bbba2e070e0e6bd86&#34;, &#34;source&#34;: &#34;#include &lt;cfenv&gt;\n#include &lt;cmath&gt;\n#include &lt;iostream&gt;\n\nvoid test(const char* title, int round_mode)\n{\n  std::feclearexcept(FE_ALL_EXCEPT);\n  std::fesetround(round_mode);\n  std::cout &lt;&lt; title &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;rint(2.5) = \&#34; &lt;&lt; std::rint(2.5) &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;rint(-2.5) = \&#34; &lt;&lt; std::rint(-2.5) &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;FE_INEXACT = \&#34; &lt;&lt; std::boolalpha &lt;&lt; (std::fetestexcept(FE_INEXACT) != 0) &lt;&lt; std::endl &lt;&lt; std::endl;\n}\n\n# define test(mode) test(#mode, mode)\n\nint main()\n{\n# ifdef FE_DOWNWARD\n  test(FE_DOWNWARD);\n# endif\n# ifdef FE_TONEAREST\n  test(FE_TONEAREST);\n# endif\n# ifdef FE_TOWARDZERO\n  test(FE_TOWARDZERO);\n# endif\n# ifdef FE_UPWARD\n  test(FE_UPWARD);\n# endif\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cmath&#34;, &#34;rint&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/cmath.html" itemprop="url">
+              
+                <span itemprop="name">cmath</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">rint</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-07-07T15:52:52">
+        2025年07月07日 15時52分52秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Koichi Murase</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/cmath/rint.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/cmath/rint.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;cmath&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">rint</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="kt">float</span> <span class="n">rint</span><span class="p">(</span><span class="kt">float</span> <span class="n">x</span><span class="p">);</span>              <span class="c1">// (1) C++11からC++20まで</span>
+  <span class="kt">double</span> <span class="nf">rint</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">);</span>            <span class="c1">// (2) C++11からC++20まで</span>
+  <span class="kt">long</span> <span class="kt">double</span> <span class="nf">rint</span><span class="p">(</span><span class="kt">long</span> <span class="kt">double</span> <span class="n">x</span><span class="p">);</span>  <span class="c1">// (3) C++11からC++20まで</span>
+
+  <span class="n"><i>floating-point-type</i></span>
+    <span class="nf">rint</span><span class="p">(</span><span class="n"><i>floating-point-type</i></span> <span class="n">x</span><span class="p">);</span>    <span class="c1">// (4) C++23</span>
+
+  <span class="kt">double</span> <span class="nf">rint</span><span class="p">(</span><span class="n"><i>Integral</i></span> <span class="n">x</span><span class="p">);</span>          <span class="c1">// (5) C++11</span>
+
+  <span class="kt">float</span> <span class="nf">rintf</span><span class="p">(</span><span class="kt">float</span> <span class="n">x</span><span class="p">);</span>             <span class="c1">// (6) C++17</span>
+  <span class="kt">long</span> <span class="kt">double</span> <span class="nf">rintl</span><span class="p">(</span><span class="kt">long</span> <span class="kt">double</span> <span class="n">x</span><span class="p">);</span> <span class="c1">// (7) C++17</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>引数 <code>x</code> を現在の丸めモードで整数値に丸めた値を得る。</p>
+<ul>
+<li>(1) : <code>float</code>に対する<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a></li>
+<li>(2) : <code>double</code>に対する<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a></li>
+<li>(3) : <code>long double</code>に対する<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a></li>
+<li>(4) : 浮動小数点数型に対する<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a></li>
+<li>(5) : 整数型に対する<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a> (<code>double</code>にキャストして計算される)</li>
+<li>(6) : <code>float</code>型規定</li>
+<li>(7) : <code>long double</code>型規定</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p>引数 <code>x</code> を現在の丸めモードで整数値に丸めた値</p>
+<h2>備考</h2>
+<ul>
+<li>本関数と <code><a href="nearbyint.html">nearbyint</a></code> は<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>は同一であるが、本関数は引数 <code>x</code> が<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>と異なってる場合 <code><a href="../cfenv/fe_inexact.html">FE_INEXACT</a></code> が発生する可能性があるが、<code><a href="nearbyint.html">nearbyint</a></code> は発生しない点のみ動作が異なる。</li>
+<li>本関数は、C99 の規格にある <code>rint</code>（より正確には <code>math.h</code> ヘッダの <code>rint</code>、<code>rintf</code>、<code>rintl</code> の 3 つ。それぞれ C++ の <code>double</code>、<code>float</code>、<code>long double</code> バージョンに相当）と等価である。</li>
+<li>C++11 以降では、処理系が IEC 60559 に準拠している場合（<code><a href="../limits/numeric_limits.html">std::numeric_limits</a>&lt;T&gt;::<a href="../limits/numeric_limits/is_iec559.html">is_iec559</a>() != false</code>）、以下の規定が追加される。<ul>
+<li><code>x = ±0</code> の場合、<code>±0</code> を返す。</li>
+<li><code>x = ±∞</code> の場合、<code>±∞</code> を返す。</li>
+<li>引数 <code>x</code> が<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>と異なってる場合、<code><a href="../cfenv/fe_inexact.html">FE_INEXACT</a></code> が発生する。</li>
+</ul>
+</li>
+<li>C99 では、丸めモードの設定時には <code>#pragma STDC FENV_ACCESS ON</code> でなければなければならないと記載されているが、C++ には該当する記載を見つけることができなかった。<br />
+    なお、C99 でも <code>FENV_ACCESS</code> のデフォルトは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>である。</li>
+<li>丸めモード <code><a href="../cfenv/fe_tonearest.html">FE_TONEAREST</a></code> は単なる四捨五入ではないことに注意。</li>
+<li>C++23では、(1), (2), (3)が(4)に統合され、<a class="cpprefjp-defined-word" data-desc="&lt;stdfloat&gt;で定義される内部表現の規定された浮動小数点数型" href="../stdfloat.html">拡張浮動小数点数型</a>を含む浮動小数点数型への<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>として定義された</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="7df4a39a2d5bac924fff310bbba2e070e0e6bd86"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cfenv.html">&lt;cfenv&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../cmath.html">&lt;cmath&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="kt">void</span> <span class="nf">test</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">title</span><span class="p">,</span> <span class="kt">int</span> <span class="n">round_mode</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n"><a href="../cfenv/feclearexcept.html">std::feclearexcept</a></span><span class="p">(</span><span class="n"><a href="../cfenv/fe_all_except.html">FE_ALL_EXCEPT</a></span><span class="p">);</span>
+  <span class="n"><a href="../cfenv/fesetround.html">std::fesetround</a></span><span class="p">(</span><span class="n">round_mode</span><span class="p">);</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">title</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"rint(2.5) = "</span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::rint</span></span><span class="p">(</span><span class="mf">2.5</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"rint(-2.5) = "</span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::rint</span></span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"<a href="../cfenv/fe_inexact.html">FE_INEXACT</a> = "</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ios/boolalpha.html">std::boolalpha</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n"><a href="../cfenv/fetestexcept.html">std::fetestexcept</a></span><span class="p">(</span><span class="n"><a href="../cfenv/fe_inexact.html">FE_INEXACT</a></span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cp"># define test(mode) test(#mode, mode)</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="cp"># ifdef <a href="../cfenv/fe_downward.html">FE_DOWNWARD</a></span>
+  <span class="n">test</span><span class="p">(</span><span class="n"><a href="../cfenv/fe_downward.html">FE_DOWNWARD</a></span><span class="p">);</span>
+<span class="cp"># endif</span>
+<span class="cp"># ifdef <a href="../cfenv/fe_tonearest.html">FE_TONEAREST</a></span>
+  <span class="n">test</span><span class="p">(</span><span class="n"><a href="../cfenv/fe_tonearest.html">FE_TONEAREST</a></span><span class="p">);</span>
+<span class="cp"># endif</span>
+<span class="cp"># ifdef <a href="../cfenv/fe_towardzero.html">FE_TOWARDZERO</a></span>
+  <span class="n">test</span><span class="p">(</span><span class="n"><a href="../cfenv/fe_towardzero.html">FE_TOWARDZERO</a></span><span class="p">);</span>
+<span class="cp"># endif</span>
+<span class="cp"># ifdef <a href="../cfenv/fe_upward.html">FE_UPWARD</a></span>
+  <span class="n">test</span><span class="p">(</span><span class="n"><a href="../cfenv/fe_upward.html">FE_UPWARD</a></span><span class="p">);</span>
+<span class="cp"># endif</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力例</h3>
+<p><pre><code>FE_DOWNWARD
+rint(2.5) = 2
+rint(-2.5) = -3
+FE_INEXACT = true
+
+FE_TONEAREST
+rint(2.5) = 2
+rint(-2.5) = -2
+FE_INEXACT = true
+
+FE_TOWARDZERO
+rint(2.5) = 2
+rint(-2.5) = -2
+FE_INEXACT = true
+
+FE_UPWARD
+rint(2.5) = 3
+rint(-2.5) = -2
+FE_INEXACT = true
+
+</code></pre></p>
+<p>処理系が ISO IEC 60559 に準拠していない場合、全ての丸めモードが利用可能とは限らない。<br />
+また、処理系が IEC60559 に準拠していない場合、<code>FE_INEXACT</code> は <code>false</code> の可能性がある。</p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 3.0 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.1 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.2 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.3 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.4 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.5 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.6 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.7 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 4.3.6 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.4.7 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.5.4 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.6.4 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.7.3 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.8.1 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.8.2 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.9.0 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.9.1 <span aria-label="検証済" role="img" title="検証済">✅</span>, 5.0.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2013 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2015 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<h3>備考</h3>
+<ul>
+<li>本関数は C++11 で追加されたが、Clang(libc++) では C++11 モードでなくても使用可能である。</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a> <code>long</code> 版 <code><a href="lrint.html">lrint</a></code></li>
+<li><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a> <code>long long</code> 版 <code><a href="llrint.html">llrint</a></code></li>
+<li><code><a href="../cfenv/fe_inexact.html">FE_INEXACT</a></code> が発生しない版 <code><a href="nearbyint.html">nearbyint</a></code></li>
+<li>常に四捨五入: <code><a href="round.html">round</a></code>、<code><a href="lround.html">lround</a></code> (<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a> <code>long</code>)、<code><a href="llround.html">llround</a></code> (<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a> <code>long long</code>)</li>
+<li>丸めモード: <code><a href="../cfenv/fesetround.html">fesetround</a></code> (設定)、<code><a href="../cfenv/fegetround.html">fegetround</a></code> (取得)、<code><a href="../cfloat/flt_rounds.html">FLT_ROUNDS</a></code> (マクロ)</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html" target="_blank">P1467R9 Extended floating-point types and standard names</a><ul>
+<li>C++23で導入された<a class="cpprefjp-defined-word" data-desc="&lt;stdfloat&gt;で定義される内部表現の規定された浮動小数点数型" href="../stdfloat.html">拡張浮動小数点数型</a>への対応として、<code>float</code>、<code>double</code>、<code>long double</code>の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を<code>floating-point-type</code>の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>に統合し、<a class="cpprefjp-defined-word" data-desc="&lt;stdfloat&gt;で定義される内部表現の規定された浮動小数点数型" href="../stdfloat.html">拡張浮動小数点数型</a>も扱えるようにした</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

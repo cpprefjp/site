@@ -1,0 +1,316 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>unreachable_sentinel_t - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,iterator,std,class,cpp20
+">
+        <meta name="title" content="unreachable_sentinel_t - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="unreachable_sentinel_t - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="unreachable_sentinel_t - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/iterator/unreachable_sentinel_t.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="unreachable_sentinel_t - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/iterator/unreachable_sentinel_t.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;iterator&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;9ab895090ffade9abd36e1c567e6b33b1565b0f8&#34;, &#34;source&#34;: &#34;#include &lt;string&gt;\n#include &lt;iterator&gt;\n#include &lt;algorithm&gt;\n#include &lt;iostream&gt;\n\nint main() {\n  std::string str = \&#34;(any unbounded interval)\&#34;;\n\n  // \u63a2\u3057\u305f\u3044\u5024\uff08\u3053\u3053\u3067\u306f&#39;i&#39;\uff09\u304c\u7bc4\u56f2\u5185\u306b\u542b\u307e\u308c\u3066\u3044\u308b\u3053\u3068\u304c\u4e88\u3081\u5206\u304b\u308b\u5834\u5408\u306b\u5229\u7528\u3067\u304d\u308b\n  // \u6700\u9069\u5316\u306b\u3088\u3063\u3066\u7bc4\u56f2\u306e\u7d42\u7aef\u30c1\u30a7\u30c3\u30af\u304c\u7701\u7565\u3055\u308c\u3001\u52b9\u7387\u7684\u306b\u63a2\u7d22\u3067\u304d\u308b\u53ef\u80fd\u6027\u304c\u3042\u308b\n  // \u3082\u3057\u305d\u306e\u4eee\u5b9a\u304c\u6210\u7acb\u3057\u306a\u3044\u5834\u5408\u3001\u30a4\u30c6\u30ec\u30fc\u30bf\u306b\u3088\u308b\u8d70\u67fb\u306f\u5916\u5074\u306e\u7bc4\u56f2\u3092\u98db\u3073\u51fa\u3057\u672a\u5b9a\u7fa9\u52d5\u4f5c\u3092\u5f15\u304d\u8d77\u3053\u3059\u305f\u3081\u6ce8\u610f\u304c\u5fc5\u8981\u3067\u3042\u308b\n  auto pos = std::ranges::find(str.begin(), std::unreachable_sentinel, &#39;i&#39;);\n\n  // &#39;j&#39;\u306f\u5143\u306e\u6587\u5b57\u5217\u306b\u542b\u307e\u308c\u306a\u3044\u305f\u3081\u672a\u5b9a\u7fa9\u52d5\u4f5c\u3092\u5f15\u304d\u8d77\u3053\u3059\n  //auto pos = std::ranges::find(str.begin(), std::unreachable_sentinel, &#39;j&#39;);\n\n  std::cout &lt;&lt; *pos;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;iterator&#34;, &#34;unreachable_sentinel_t&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/iterator.html" itemprop="url">
+              
+                <span itemprop="name">iterator</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">unreachable_sentinel_t</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-06-04T18:01:33">
+        2025年06月04日 18時01分33秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">onihusube</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/iterator/unreachable_sentinel_t.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/iterator/unreachable_sentinel_t.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class</div><div class="header">&lt;iterator&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">unreachable_sentinel_t</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">struct</span> <span class="n"><a href="">unreachable_sentinel_t</a></span> <span class="p">{</span>
+    <span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="weakly_incrementable.html">weakly_incrementable</a></span> <span class="n">I</span><span class="o">&gt;</span>
+    <span class="k">friend</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="n"><a href="">unreachable_sentinel_t</a></span><span class="p">,</span> <span class="k">const</span> <span class="n">I</span><span class="o">&amp;</span><span class="p">)</span> <span class="k">noexcept</span>
+    <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n"><a href="">unreachable_sentinel_t</a></span> <span class="n">unreachable_sentinel</span><span class="p">{};</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>unreachable_sentinel_t</code>は、<code>weakly_incrementable</code>な型（主にイテレータ型）とともに用いて、非有界な区間の上界を表すことのできる番兵型である。</p>
+<p>非有界な区間とは無限長の範囲のように、その終端が指定されない区間（範囲）のこと。そのような範囲の走査に対して<code>unreachable_sentinel</code>を使用して、別の方法によって範囲の終端が示されることを表し、それによって区間の上界を指定することができる。</p>
+<p>1つの使い方は、無限長の範囲や<code>view</code>の番兵型として指定することで、その長さが無制限であることを表すことである。<code><a href="../ranges/iota_view.html">views::iota</a></code>や<code><a href="../ranges/repeat_view.html">views::repeat</a></code>でそのような使用方法を見ることができる。</p>
+<p>もう一つの使い方として、検索などにおいてある範囲の一部を走査する際にそのイテレータに対する番兵として用いる事で、範囲の終端チェックを省略して走査を効率化できる可能性がある。ただし、実際の終端に到達しても走査が終了しないため、利用にあたっては<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a>（終端となる値が存在しているか）が必ず満たされるかに注意を払う必要がある。</p>
+<h2>非メンバ（<em>Hidden friends</em>）関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>operator==</code></td>
+<td>等値比較、常に<code>false</code>を返す</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code>operator!=</code></td>
+<td>非等値比較、常に<code>true</code>を返す (<code>==</code>により使用可能)</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<p><div class="yata" id="9ab895090ffade9abd36e1c567e6b33b1565b0f8"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iterator.html">&lt;iterator&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">str</span> <span class="o">=</span> <span class="s">"(any unbounded interval)"</span><span class="p">;</span>
+
+  <span class="c1">// 探したい値（ここでは'i'）が範囲内に含まれていることが予め分かる場合に利用できる</span>
+  <span class="c1">// 最適化によって範囲の終端チェックが省略され、効率的に探索できる可能性がある</span>
+  <span class="c1">// もしその仮定が成立しない場合、イテレータによる走査は外側の範囲を飛び出し未定義動作を引き起こすため注意が必要である</span>
+  <span class="k">auto</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n"><a href="../algorithm/find.html">find</a></span><span class="p">(</span><span class="n">str</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">std</span><span class="o">::</span><span class="n"><span style="color:#ff0000">unreachable_sentinel</span></span><span class="p">,</span> <span class="sc">'i'</span><span class="p">);</span>
+
+  <span class="c1">// 'j'は元の文字列に含まれないため未定義動作を引き起こす</span>
+  <span class="c1">//auto pos = std::ranges::<a href="../algorithm/find.html">find</a>(str.begin(), std::<span style="color:#ff0000">unreachable_sentinel</span>, 'j');</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">pos</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>i
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++20</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 10.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2019 Update 5 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf" target="_blank">P0896R4 The One Ranges Proposal (was Merging the Ranges TS)</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

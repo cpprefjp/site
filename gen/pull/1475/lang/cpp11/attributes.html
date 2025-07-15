@@ -1,0 +1,400 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>属性構文 [N2761] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp11
+">
+        <meta name="title" content="属性構文 [N2761] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="属性構文 [N2761] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="属性構文 [N2761] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp11/attributes.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="属性(attributes)は、ソースコードに対して追加の情報をコンパイラに伝えるための構文である。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="属性構文 [N2761] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp11/attributes.html" />
+        <meta name="twitter:description" content="属性(attributes)は、ソースコードに対して追加の情報をコンパイラに伝えるための構文である。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;1da3e47509ca098da6a08967eccb93c4ba59c09c&#34;, &#34;source&#34;: &#34;#include &lt;stdexcept&gt;\n\n[[noreturn]] void report_error()\n{\n  throw std::runtime_error(\&#34;error\&#34;);\n}\n\nint f(int x)\n{\n  if (x &gt; 0) {\n    return x;\n  }\n  report_error();\n}\n\nint main()\n{\n  f(1);\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp11&#34;, &#34;attributes&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp11.html" itemprop="url">
+              
+                <span itemprop="name">C++11</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">属性構文 [N2761]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-04-24T02:14:18">
+        2025年04月24日 02時14分18秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp11/attributes.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp11/attributes.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">属性構文 [N2761]</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++11に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>属性(attributes)は、ソースコードに対して追加の情報をコンパイラに伝えるための構文である。</p>
+<p>属性は<code>[[attr]]</code>のように、属性のリストを二重角カッコで囲んで指定する。C++11時点の標準では、以下の2つの属性を定義する：</p>
+<ol>
+<li><code>[[noreturn]]</code> : 関数が決して返らないことをコンパイラに伝える</li>
+<li><code>[[carries_dependency]]</code> : データの依存性を持たせる or 維持する (C++26で削除)</li>
+</ol>
+<h2>仕様</h2>
+<ul>
+<li>属性はクラス、変数、関数、パラメータ、列挙型、型の別名などあらゆる場所に指定できるが、指定できる場所は属性ごとに異なる。ここでは属性構文をどこに適用できるかは列挙せず、各属性がどこに指定できるかを以下の節で示す。</li>
+<li>ユーザーは任意の属性を定義できない。属性の定義は、標準およびベンダーが行う。</li>
+</ul>
+<h3><a href="#noreturn" id="noreturn"><code>[[noreturn]]</code>属性</a></h3>
+<p><code>[[noreturn]]</code>は、関数が決して返らないことを示すための属性である。</p>
+<p>この属性を指定することで、「関数が返らない」という情報を使用してコンパイラが任意の最適化を行える。また、返らない処理をラップした関数に<code>[[noreturn]]</code>属性を付けることで、「関数が返らないパスが存在する」というコンパイラからの警告を抑制するためにも使用できる：</p>
+<p><div class="yata" id="1da3e47509ca098da6a08967eccb93c4ba59c09c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/stdexcept.html">&lt;stdexcept&gt;</a></span><span class="cp"></span>
+
+<span class="p">[[</span><span class="n">noreturn</span><span class="p">]]</span> <span class="kt">void</span> <span class="n">report_error</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">throw</span> <span class="n">std</span><span class="o">::</span><span class="n">runtime_error</span><span class="p">(</span><span class="s">"error"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">f</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n">report_error</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>このプログラムにおいて、関数<code>f()</code>は条件によってエラーを出力する。関数<code>f()</code>で直接<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出するような場合にはコンパイラは警告を出力しないが、<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出をラップした<code>report_error()</code>のような関数を定義して呼び出す場合、コンパイラはその関数が返らないことを認識できない。そのため、<code>report_error()</code>の後ろに決して実行されることのない<code>return</code>文を書かない限り、コンパイラは「このパスに<code>return</code>文が書かれていない」という警告を出力する。</p>
+<p>そのような状況で、<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出や<code><a href="../../reference/cstdlib/exit.html">std::exit()</a></code>、<code><a href="../../reference/cstdlib/abort.html">std::abort()</a></code>の呼び出しをラップした関数に<code>[[noreturn]]</code>を付けることで、そのようなコンパイラの警告を抑制できる。</p>
+<p><code>[[noreturn]]</code>属性を付けて宣言した関数がほかの翻訳単位で<code>[[noreturn]]</code>属性を付けずに宣言された場合、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
+<p><code>[[noreturn]]</code>属性を付けた関数が返った場合、その<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">動作は未定義</a>。</p>
+<h3><a href="#carries_dependency" id="carries_dependency"><code>[[carries_dependency]]</code>属性</a></h3>
+<p>この属性はC++26で削除された。</p>
+<p><code><a href="../../reference/atomic/memory_order.html">memory_order_consume</a></code>順序付けを実装したC++処理系は存在せず、本属性の代替機能も提供されない。</p>
+<p><code>[[carries_dependency]]</code>は、並行プログラミングのアトミック操作において、値に依存した順序付け <code><a href="../../reference/atomic/memory_order.html">memory_order</a></code>を、関数をまたいで伝播することを明示するための属性である。</p>
+<p>以下は、<code><a href="../../reference/atomic/memory_order.html">memory_order_consume</a></code>を使用した順序付けの例である：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/atomic/atomic.html">atomic</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">*&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="err">…</span><span class="p">;</span>
+<span class="n">T</span><span class="o">*</span> <span class="n">r1</span> <span class="o">=</span> <span class="n"><a href="../../reference/atomic/atomic/load.html">x.load</a></span><span class="p">(</span><span class="n"><a href="../../reference/atomic/memory_order.html">memory_order_consume</a></span><span class="p">);</span>
+
+<span class="c1">// 以下のコードはr1の値に依存しているため、実行順序が保証される</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">r1</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">T</span> <span class="n">r2</span> <span class="o">=</span> <span class="o">*</span><span class="n">r1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="n">T</span> <span class="n">r3</span> <span class="o">=</span> <span class="n">r2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>ここでは、<code>r1</code>に関連する操作が全て同一関数内で行われているが、一部の操作が別の関数になっていると、別の関数になった操作に値の依存があるかどうか・依存として扱ってよいのかどうかがコンパイラに判断できない可能性がある。そのような状況で、関数のパラメータおよび<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>のそれぞれが値の依存性を伝播させることを明示するために<code>[[carries_dependency]]</code>属性を使用する。</p>
+<h4>関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>で値の依存性を伝播させる</h4>
+<p>関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>に対して値の依存性を持たせる場合、関数に対して<code>[[carries_dependency]]</code>属性を付加する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/atomic/atomic.html">atomic</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">*&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="err">…</span><span class="p">;</span>
+<span class="p">[[</span><span class="n">carries_dependency</span><span class="p">]]</span> <span class="n">T</span><span class="o">*</span> <span class="n">f</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="n"><a href="../../reference/atomic/atomic/load.html">x.load</a></span><span class="p">(</span><span class="n"><a href="../../reference/atomic/memory_order.html">memory_order_consume</a></span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">T</span><span class="o">*</span> <span class="n">r1</span> <span class="o">=</span> <span class="n">f</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">r1</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">T</span> <span class="n">r2</span> <span class="o">=</span> <span class="o">*</span><span class="n">r1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="n">T</span> <span class="n">r3</span> <span class="o">=</span> <span class="n">r2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h4>関数のパラメータで値の依存性を伝播させる</h4>
+<p>関数のパラメータに対して値の依存性を持たせる場合、各パラメータ名のうしろに<code>[[carries_dependency]]</code>属性を付加する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="n">T</span><span class="o">*</span> <span class="n">r1</span> <span class="p">[[</span><span class="n">carries_dependency</span><span class="p">]])</span>
+<span class="p">{</span>
+  <span class="n">T</span> <span class="n">r2</span> <span class="o">=</span> <span class="o">*</span><span class="n">r1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="n">T</span> <span class="n">r3</span> <span class="o">=</span> <span class="n">r2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">g</span><span class="p">(</span><span class="n">T</span><span class="o">*</span> <span class="n">r1</span> <span class="p">[[</span><span class="n">carries_dependency</span><span class="p">]])</span>
+<span class="p">{</span>
+  <span class="c1">// …</span>
+<span class="p">}</span>
+
+<span class="n"><a href="../../reference/atomic/atomic.html">atomic</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">*&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="err">…</span><span class="p">;</span>
+<span class="n">T</span><span class="o">*</span> <span class="n">r1</span> <span class="o">=</span> <span class="n"><a href="../../reference/atomic/atomic/load.html">x.load</a></span><span class="p">(</span><span class="n"><a href="../../reference/atomic/memory_order.html">memory_order_consume</a></span><span class="p">);</span>
+
+<span class="c1">// 関数f()と関数g()の呼び出し、およびその関数内の操作が、</span>
+<span class="c1">// r1に依存した操作であるとして実行順序が保証される</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">r1</span><span class="p">)</span>
+  <span class="n">f</span><span class="p">(</span><span class="n">r1</span><span class="p">);</span>
+<span class="k">else</span>
+  <span class="nf">g</span><span class="p">(</span><span class="n">r1</span><span class="p">);</span>
+</code></pre></div>
+</p>
+<p><code>[[carries_dependency]]</code>属性を付けて宣言した関数がほかの翻訳単位で<code>[[carries_dependency]]</code>属性を付けずに宣言された場合、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
+<p><code>[[carries_dependency]]</code>の反対に、値の依存性を断ち切る<code><a href="../../reference/atomic/kill_dependency.html">kill_dependency()</a></code>関数も定義されている。</p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>属性構文はこれまで各ベンダーが独自の構文でサポートしていた。GNUでは<code>__attribute__(())</code>、Microsoftでは<code>__declspec()</code>という構文を使用していた。</p>
+<p>コンパイラに対してヒントを与える属性構文の必要性が標準C++に認識されたために、統一的な構文を標準で定義することとなった。</p>
+<p>C++11で採用されたもの以外で検討された以下の機能は、属性ではなく言語の構文としてサポートされた：</p>
+<ul>
+<li>アライメントを指定する<code>align</code>属性<ul>
+<li>アライメントを指定する<code><a href="alignas.html">alignas</a></code>、アライメントを取得する<code><a href="alignof.html">alignof</a></code>機能として導入された</li>
+</ul>
+</li>
+<li>変数にスレッドローカルストレージを使用することを指示する<code>thread_local</code>属性<ul>
+<li>記憶指定子<code><a href="thread_local_storage.html">thread_local</a></code>として導入された</li>
+</ul>
+</li>
+<li>これ以上継承しない、これ以上オーバーライドしないことを明示する<code>final</code>属性<ul>
+<li>文脈依存キーワード<code><a href="override_final.html">final</a></code>として導入された</li>
+</ul>
+</li>
+</ul>
+<p>以下の属性は、C++11時点では採用されていない：</p>
+<ul>
+<li>関数が同じ引数に対して同じ<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を返すことを明示する<code>pure</code>属性</li>
+<li><code>if</code>文や<code>switch</code>文の<code>case</code>に指定する条件式のヒット率が高いことを指示する<code>probably</code>属性</li>
+<li>関数が非推奨であることを指示する<code>deprecated</code>属性</li>
+<li>基底クラスによって関数を隠蔽しないことを明示する<code>not_hiding</code>属性</li>
+<li>ポインタの所有者(解放する責任を持つユーザー)であることを明示する<code>owner</code>属性</li>
+</ul>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><a href="../cpp14/deprecated_attr.html">C++14 <code>[[deprecated]]</code>属性</a></li>
+<li><a href="../cpp17/maybe_unused.html">C++17 <code>[[maybe_unused]]</code>属性</a></li>
+<li><a href="../cpp17/nodiscard.html">C++17 <code>[[nodiscard]]</code>属性</a><ul>
+<li><a href="../cpp20/nodiscard_should_have_a_reason.html">C++20 <code>[[nodiscard]]</code>属性に理由となる文字列を付加できるようにする</a></li>
+<li><a href="../cpp20/nodiscard_for_constructors.html">C++20 <code>[[nodiscard]]</code>をコンストラクタのオーバーロードごとに付加できるようにする</a></li>
+</ul>
+</li>
+<li><a href="../cpp17/fallthrough.html">C++17 <code>[[fallthrough]]</code>属性</a></li>
+<li><a href="../cpp17/non_standard_attributes.html">C++17 不明な属性を無視する</a><ul>
+<li><a href="../cpp26/on_the_ignorability_of_standard_attributes.html">C++26 属性の無視性を見直し</a></li>
+</ul>
+</li>
+<li><a href="../cpp20/language_support_for_empty_objects.html">C++20 <code>[[no_unique_address]]</code>属性</a></li>
+<li><a href="../cpp20/likely_and_unlikely_attributes.html">C++20 <code>[[likely]]</code>, <code>[[unlikely]]</code>属性</a></li>
+<li><a href="../cpp20/reserving_attribute_namespaces_for_future_use.html">C++20 属性の名前空間を予約</a></li>
+<li><a href="../cpp23/attributes_on_lambda_expressions.html">C++23 ラムダ式に対する属性</a></li>
+<li><a href="../cpp26/attributes_for_structured_bindings.html">C++26 構造化束縛への属性を許可</a></li>
+<li><a href="../cpp26/erroneous_behavior_for_uninitialized_reads.html">C++26 未初期化変数の読み取りをエラー性動作とする (<code>[[indeterminate]]</code>属性)</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2236.pdf" target="_blank">N2236 Towards support for attributes in C++</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2379.pdf" target="_blank">N2379 Towards support for attributes in C++ (Revision 2)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2418.pdf" target="_blank">N2418 Towards support for attributes in C++ (Revision 3)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2643.html" target="_blank">N2643 C++ Data-Dependency Ordering: Function Annotation</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2761.pdf" target="_blank">N2761 Towards support for attributes in C++ (Revision 6) </a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3475r2.pdf" target="_blank">P3475R2 Defang and deprecate memory_order::consume</a><ul>
+<li>C++26で<code>memory_order::consume</code>非推奨化に伴い<code>carries_dependency</code>属性を削除。</li>
+</ul>
+</li>
+<li><a href="http://d.hatena.ne.jp/yohhoy/20141115/p1" target="_blank">（抄訳）N4215 <code>memory_order_consume</code>の利用と実装に向けて［§5-6のみ］</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

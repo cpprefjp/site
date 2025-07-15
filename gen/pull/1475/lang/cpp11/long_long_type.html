@@ -1,0 +1,307 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>long long型 [N1811] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp11
+">
+        <meta name="title" content="long long型 [N1811] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="long long型 [N1811] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="long long型 [N1811] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp11/long_long_type.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="C99互換として、`long long`整数型が追加された。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="long long型 [N1811] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp11/long_long_type.html" />
+        <meta name="twitter:description" content="C99互換として、`long long`整数型が追加された。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;e1c1634cd5c71bf58128fd8bdde363119c200c4f&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\nint main()\n{\n  long long x = 123LL;\n  std::cout &lt;&lt; x &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp11&#34;, &#34;long_long_type&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp11.html" itemprop="url">
+              
+                <span itemprop="name">C++11</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">long long型 [N1811]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-07-04T14:58:11">
+        2025年07月04日 14時58分11秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">rotarymars</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp11/long_long_type.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp11/long_long_type.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">long long型 [N1811]</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++11に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>C99互換として、<code>long long</code>整数型が追加された。</p>
+<p>この整数型は、64ビット以上の値を表現できる。</p>
+<h2>仕様</h2>
+<ul>
+<li><code>long long</code>型および<code>unsigned long long</code>型は、64ビット以上の値を表現できることが保証される。<ul>
+<li>これは、<code>long long</code>型の最大値を表現するマクロ<code><a href="../../reference/climits/llong_max.html">LLONG_MAX</a></code>、および<code>unsigned long long</code>型の最大値を表現するマクロ<code><a href="../../reference/climits/ullong_max.html">ULLONG_MAX</a></code>によって定義されている。</li>
+</ul>
+</li>
+<li>符号付き整数型である<code>long long</code>を表す整数リテラルには、<code>ll</code>もしくは<code>LL</code>サフィックスを使用する。符号なし整数型である<code>unsigned long long</code>型を表す整数リテラルには、<code>ull</code>もしくは<code>ULL</code>サフィックスを使用する。<ul>
+<li>符号指定を除く<code>ll</code>と<code>LL</code>の部分では、大文字と小文字の混在は許可しない。(<code>lL</code>や<code>Ll</code>は許可されないが、'uLL'や'Ull'は問題ない。)</li>
+</ul>
+</li>
+<li><code>long long</code>は、以下のようにも表記できる：<ul>
+<li><code>signed long long</code></li>
+<li><code>signed long long int</code></li>
+<li><code>long long int</code></li>
+</ul>
+</li>
+<li><code>unsigned long long</code>は、<code>unsigned long long int</code>のようにも表記できる。</li>
+</ul>
+<h2>備考</h2>
+<p><code>long long</code>型の追加にともなって、ライブラリにも以下のような変更が入った：</p>
+<ul>
+<li><code><a href="../../reference/cstdio/fprintf.html">fprintf()</a></code>と<code><a href="../../reference/cstdio/fscanf.html">fscanf()</a></code>およびそのフォーマットを使用する関数に、<code>long long</code>を表す<code>ll</code>が表現幅を指示するために追加された。</li>
+<li><code>#if</code>および<code>#elif</code>に指定する定数条件式の評価について、「<code>(unsigned) int</code>は<code>(unsigned) long</code>と同じ表現（範囲）を持つように振舞う」とされていたのが、「全ての符号付きまたは符号無し整数型はそれぞれ<code><a href="../../reference/cstdint/intmax_t.html">intmax_t</a></code>または<code><a href="../../reference/cstdint/uintmax_t.html">uintmax_t</a></code>の表現（範囲）を持つように振舞う」と変更された。</li>
+<li>その他、入出力や数学の関数にも、<code>long long</code>型のサポートが追加された。</li>
+</ul>
+<p><code>long long</code>は64ビット以上の幅であることが保証されるが、64ビット固定の整数型が必要な場合には、<code><a href="../../reference/cstdint/int64_t.html">int64_t</a></code>型を使用することを推奨する。たとえばシリアライズの際には、ビット幅が固定の整数型を使用すれば、異なるプラットフォームでもデシリアライズできる。</p>
+<h2>例</h2>
+<p><div class="yata" id="e1c1634cd5c71bf58128fd8bdde363119c200c4f"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">long</span> <span class="kt">long</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">123LL</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>123
+</code></pre></p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>この型は、64ビットCPUにおいて64ビット幅の整数型を表現するために用意された。</p>
+<p><code>long long</code>のように、<code>long</code>を2つ連続させることで「<code>long</code>より大きな型」であることを表現するのは非常に醜いものではあるが、C99およびコンパイラの実装による事実上の標準があったために、C++もそれにならった。ただし、これは128ビット整数型に対応する際に<code>long long long</code>型を定義することは意味しない。その際は、改めて型の定義を議論する必要があるが、いまは<code>long long</code>で64ビット整数型を表現することとした。</p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><code><a href="../../reference/climits/llong_min.html">LLONG_MIN</a></code></li>
+<li><code><a href="../../reference/climits/llong_max.html">LLONG_MAX</a></code></li>
+<li><code><a href="../../reference/climits/ullong_max.html">ULLONG_MAX</a></code></li>
+<li><code><a href="../../reference/cstdint/int64_t.html">int64_t</a></code></li>
+<li><code><a href="../../reference/cstdint/int_fast64_t.html">int_fast64_t</a></code></li>
+<li><code><a href="../../reference/cstdint/int_least64_t.html">int_least64_t</a></code></li>
+<li><code><a href="../../reference/cstdint/uint64_t.html">uint64_t</a></code></li>
+<li><code><a href="../../reference/cstdint/uint_fast64_t.html">uint_fast64_t</a></code></li>
+<li><code><a href="../../reference/cstdint/uint_least64_t.html">uint_least64_t</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/1995/N0715.ps" target="_blank">N0715 Incorporate the <code>long long</code> integral data type in C++</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1565.pdf" target="_blank">N1565 Adding the <code>long long</code> type to C++</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1735.pdf" target="_blank">N1735 Adding the <code>long long</code> type to C++ (Revision 2)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1811.pdf" target="_blank">N1811 Adding the <code>long long</code> type to C++ (Revision 3)</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

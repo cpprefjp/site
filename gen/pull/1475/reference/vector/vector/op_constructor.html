@@ -1,0 +1,438 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>vector::コンストラクタ - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,vector,std,vector,function
+">
+        <meta name="title" content="vector::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="vector::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="vector::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/vector/vector/op_constructor.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`vector`オブジェクトを次に示す通りの要素で初期化する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="vector::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/vector/vector/op_constructor.html" />
+        <meta name="twitter:description" content="`vector`オブジェクトを次に示す通りの要素で初期化する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;vector&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;vector&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;0e4fcb190ea4b359c5c142b2bc02e7e4cd949c17&#34;, &#34;source&#34;: &#34;#include &lt;list&gt;\n#include &lt;vector&gt;\n#include &lt;scoped_allocator&gt;\n\nint main()\n{\n  using vi = std::vector&lt;int&gt;;\n  std::list&lt;vi, std::scoped_allocator_adaptor&lt;std::allocator&lt;vi&gt;&gt;&gt; l;\n  l.emplace_back(10u);\n}\n&#34;}, {&#34;id&#34;: &#34;11724693e2d93dfc533a02744120b18b4806f5ab&#34;, &#34;source&#34;: &#34;#include &lt;vector&gt;\n#include &lt;iostream&gt;\n#include &lt;string&gt;\n#include &lt;algorithm&gt;\n\ntemplate &lt;class T&gt;\nvoid print(const std::string&amp; name, const std::vector&lt;T&gt;&amp; v)\n{\n  std::cout &lt;&lt; name &lt;&lt; \&#34; : {\&#34;;\n  std::for_each(std::begin(v), std::end(v), [](const T&amp; x) { std::cout &lt;&lt; x &lt;&lt; \&#34; \&#34;; });\n  std::cout &lt;&lt; \&#34;}\&#34; &lt;&lt; std::endl;\n}\n\nint main()\n{\n  std::vector&lt;int&gt; first;                                           // int\u578b\u306e\u7a7a\u306evector\u3092\u69cb\u7bc9\n  std::vector&lt;int&gt; second(4, 100);                                  // 4\u500b\u306eint\u5024\u304b\u3089\u306a\u308bvector\u3092\u69cb\u7bc9\u3057\u3001\u5168\u3066\u306e\u5024\u3092100\u3067\u521d\u671f\u5316\n  std::vector&lt;int&gt; third(std::begin(second), std::end(second));     // second\u306e\u30a4\u30c6\u30ec\u30fc\u30bf\u7bc4\u56f2\u304b\u3089vector\u3092\u69cb\u7bc9\n  std::vector&lt;int&gt; fourth(third);                                  // third\u3092\u30b3\u30d4\u30fc\n\n  // \u7d44\u307f\u8fbc\u307f\u914d\u5217\u304b\u3089vector\u3092\u69cb\u7bc9\n  int myints[] = {16,2,77,29};\n  std::vector&lt;int&gt; fifth(myints, myints + sizeof(myints) / sizeof(int));\n  // fifth(std::begin(myints), std::end(myints)); \u3067\u3082OK\n\n  // \u521d\u671f\u5316\u5b50\u30ea\u30b9\u30c8\u304b\u3089vector\u3092\u69cb\u7bc9\n  std::vector&lt;int&gt; sixth = {1, 2, 3};\n\n  print(\&#34;first\&#34;, first);\n  print(\&#34;second\&#34;, second);\n  print(\&#34;third\&#34;, third);\n  print(\&#34;fourth\&#34;, fourth);\n  print(\&#34;fifth\&#34;, fifth);\n  print(\&#34;sixth\&#34;, sixth);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;vector&#34;, &#34;vector&#34;, &#34;op_constructor&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/vector.html" itemprop="url">
+              
+                <span itemprop="name">vector</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/vector/vector.html" itemprop="url">
+              
+                <span itemprop="name">vector</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">コンストラクタ</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-07-28T07:13:35">
+        2024年07月28日 07時13分35秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">suomesta</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/vector/vector/op_constructor.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/vector/vector/op_constructor.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;vector&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class vector">vector::</span><span class="token">コンストラクタ</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">vector</span><span class="p">();</span>                                          <span class="c1">// (1) C++14</span>
+<span class="n">vector</span><span class="p">()</span> <span class="k">noexcept</span><span class="p">(</span><span class="k">noexcept</span><span class="p">(</span><span class="n">Allocator</span><span class="p">()))</span>           <span class="c1">// (1) C++17</span>
+  <span class="o">:</span> <span class="n">vector</span><span class="p">(</span><span class="n">Allocator</span><span class="p">())</span> <span class="p">{}</span>
+<span class="k">constexpr</span> <span class="n">vector</span><span class="p">()</span> <span class="k">noexcept</span><span class="p">(</span><span class="k">noexcept</span><span class="p">(</span><span class="n">Allocator</span><span class="p">()))</span> <span class="c1">// (1) C++20</span>
+  <span class="o">:</span> <span class="n">vector</span><span class="p">(</span><span class="n">Allocator</span><span class="p">())</span> <span class="p">{}</span>
+
+
+<span class="k">explicit</span> <span class="n">vector</span><span class="p">(</span><span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>                  <span class="c1">// (2) C++14</span>
+<span class="k">explicit</span> <span class="nf">vector</span><span class="p">(</span><span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>           <span class="c1">// (2) C++17</span>
+<span class="k">constexpr</span> <span class="k">explicit</span> <span class="nf">vector</span><span class="p">(</span><span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (2) C++20</span>
+
+<span class="k">explicit</span> <span class="nf">vector</span><span class="p">(</span><span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span>    <span class="c1">// (1) + (2) C++03</span>
+
+<span class="k">explicit</span> <span class="nf">vector</span><span class="p">(</span><span class="n">size_type</span> <span class="n">n</span><span class="p">);</span>                                <span class="c1">// (3) C++11</span>
+<span class="k">explicit</span> <span class="nf">vector</span><span class="p">(</span><span class="n">size_type</span> <span class="n">n</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span>           <span class="c1">// (3) C++14</span>
+<span class="k">constexpr</span> <span class="k">explicit</span> <span class="nf">vector</span><span class="p">(</span><span class="n">size_type</span> <span class="n">n</span><span class="p">,</span>
+                          <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span> <span class="c1">// (3) C++20</span>
+
+<span class="n">vector</span><span class="p">(</span><span class="n">size_type</span> <span class="n">n</span><span class="p">,</span> <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">,</span>
+       <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span>            <span class="c1">// (4) C++11</span>
+<span class="k">constexpr</span> <span class="nf">vector</span><span class="p">(</span><span class="n">size_type</span> <span class="n">n</span><span class="p">,</span> <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">,</span>
+                 <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span>  <span class="c1">// (4) C++20</span>
+
+<span class="k">explicit</span> <span class="nf">vector</span><span class="p">(</span><span class="n">size_type</span> <span class="n">n</span><span class="p">,</span> <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span> <span class="o">=</span> <span class="n">T</span><span class="p">(),</span>
+                <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span>   <span class="c1">// (3) + (4) C++03</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIter</span><span class="o">&gt;</span>
+<span class="n">vector</span><span class="p">(</span><span class="n">InputIter</span> <span class="n">first</span><span class="p">,</span> <span class="n">InputIter</span> <span class="n">last</span><span class="p">,</span>
+      <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span>             <span class="c1">// (5) C++03</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIter</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="n">vector</span><span class="p">(</span><span class="n">InputIter</span> <span class="n">first</span><span class="p">,</span> <span class="n">InputIter</span> <span class="n">last</span><span class="p">,</span>
+                 <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span>  <span class="c1">// (5) C++20</span>
+
+<span class="n">vector</span><span class="p">(</span><span class="k">const</span> <span class="n">vector</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span>                             <span class="c1">// (6) C++03</span>
+<span class="k">constexpr</span> <span class="nf">vector</span><span class="p">(</span><span class="k">const</span> <span class="n">vector</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span>                   <span class="c1">// (6) C++20</span>
+
+<span class="n">vector</span><span class="p">(</span><span class="n">vector</span><span class="o">&amp;&amp;</span> <span class="n">x</span><span class="p">);</span>                                  <span class="c1">// (7) C++11</span>
+<span class="n">vector</span><span class="p">(</span><span class="n">vector</span><span class="o">&amp;&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>                         <span class="c1">// (7) C++17</span>
+<span class="k">constexpr</span> <span class="nf">vector</span><span class="p">(</span><span class="n">vector</span><span class="o">&amp;&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>               <span class="c1">// (7) C++20</span>
+
+<span class="n">vector</span><span class="p">(</span><span class="k">const</span> <span class="n">vector</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>           <span class="c1">// (8) C++11</span>
+<span class="k">constexpr</span> <span class="nf">vector</span><span class="p">(</span><span class="k">const</span> <span class="n">vector</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (8) C++20</span>
+
+<span class="n">vector</span><span class="p">(</span><span class="n">vector</span><span class="o">&amp;&amp;</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>              <span class="c1">// (9) C++11</span>
+<span class="k">constexpr</span> <span class="nf">vector</span><span class="p">(</span><span class="n">vector</span><span class="o">&amp;&amp;</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>    <span class="c1">// (9) C++20</span>
+
+<span class="n">vector</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span>
+       <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span>            <span class="c1">// (10) C++11</span>
+<span class="k">constexpr</span> <span class="nf">vector</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span>
+                 <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span>  <span class="c1">// (10) C++20</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="n">container</span><span class="o">-</span><span class="n">compatible</span><span class="o">-</span><span class="n"><a href="../../ranges/range.html">range</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">R</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="n">vector</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span><span class="p">,</span> <span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">rg</span><span class="p">,</span>
+                 <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span>  <span class="c1">// (11) C++23</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>vector</code>オブジェクトを次に示す通りの要素で初期化する。</p>
+<h2>効果</h2>
+<ul>
+<li>(1) : デフォルトコンストラクタ。<code>size() == 0</code> の要素を持たない空の <code>vector</code> オブジェクトを構築する。</li>
+<li>(2) : アロケータを別で受け取り、<code>size() == 0</code> の要素を持たない空の <code>vector</code> オブジェクトを構築する。</li>
+<li>(1) + (2) : デフォルトコンストラクタ。<code>size() == 0</code> の要素を持たない空の <code>vector</code> オブジェクトを構築する。</li>
+<li>(3) :<ul>
+<li>C++11 : <code>n</code> 個の <code>T()</code> で初期化された要素を保持した <code>vector</code> オブジェクトを構築する。</li>
+<li>C++14 : アロケータ <code>a</code> を使用して、<code>n</code> 個の <code>T()</code> で初期化された要素を保持した <code>vector</code> オブジェクトを構築する。</li>
+</ul>
+</li>
+<li>(4) : 繰り返しシーケンスコンストラクタ。アロケータ <code>a</code> を使用して、<code>value</code> のコピーを <code>n</code> 個要素として保持した <code>vector</code> オブジェクトを構築する。</li>
+<li>(3) + (4) : 繰り返しシーケンスコンストラクタ。アロケータ <code>a</code> を使用して、<code>value</code> のコピーを <code>n</code> 個要素として保持した <code>vector</code> オブジェクトを構築する。</li>
+<li>(5) : <a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a>コンストラクタ。アロケータ <code>a</code> を使用して、<a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a><code>[first, last)</code> を要素としてコピーした <code>vector</code> オブジェクトを構築する。</li>
+<li>(6) : コピーコンストラクタ。<code>x</code> と同じ要素を保持した <code>vector</code> オブジェクトを構築する。</li>
+<li>(7) : ムーブコンストラクタ。<code>x</code> の指す先を自分の領域として <code>vector</code> オブジェクトを構築する。</li>
+<li>(8) : アロケータを別で受け取り、<code>vector</code> オブジェクトをコピー構築する。</li>
+<li>(9) : アロケータを別で受け取り、<code>vector</code> オブジェクトをムーブ構築する。</li>
+<li>(10) : 初期化子リストを受け取るコンストラクタ。<code>vector(il.<a href="../../initializer_list/initializer_list/begin.html">begin</a>(), li.<a href="../../initializer_list/initializer_list/end.html">end</a>(), a)</code> と等価。</li>
+<li>(11) : Rangeコンストラクタ。アロケータ <code>a</code> を使用して、Range <code>rg</code> の要素から <code>vector</code> オブジェクトを構築する。</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></h2>
+<ul>
+<li>(1), (2) : 定数時間</li>
+<li>(3), (4) : <code>n</code> に対して線形時間</li>
+<li>(5) : <code><a href="../../iterator/distance.html">distance</a>(first, last)</code> に対して線形時間。<code>InputIter</code> が前方向イテレータの要件を満たさない場合はあらかじめ要素数が分からないため、再確保のコストが(対数オーダで)別途発生する。</li>
+<li>(6) : <code>x.<a href="size.html">size</a>()</code> に対して線形時間</li>
+<li>(7) : 定数時間</li>
+<li>(8) : <code>x.<a href="size.html">size</a>()</code> に対して線形時間</li>
+<li>(9) : 定数時間。ただし、<code>a == x.<a href="get_allocator.html">get_allocator</a>()</code> でなければ <code>x.<a href="size.html">size</a>()</code> に対して線形時間。</li>
+<li>(10) : <code>il.<a href="../../initializer_list/initializer_list/size.html">size</a>()</code> に対して線形時間</li>
+<li>(11) : <code><a href="../../iterator/ranges_distance.html">ranges::distance</a>(rg)</code> に対して線形時間。<code>R</code> のモデルが <code><a href="../../ranges/forward_range.html">ranges::forward_range</a></code> でも <code><a href="../../ranges/sized_range.html">ranges::sized_range</a></code> でもなければ、あらかじめ要素数が分からないため、再確保のコストが(対数オーダで)別途発生する。</li>
+</ul>
+<h2>備考</h2>
+<ul>
+<li><a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a>コンストラクタ(5) <code>template &lt;class InputIter&gt; vector(InputIter first, InputIter last, const Allocator&amp; a = Allocator())</code> は、C++03 までは <code>InputIter</code> が整数型の場合には <code>vector(static_cast&lt;typename vector::size_type&gt;(first), static_cast&lt;typename vector::value_type&gt;(last), a)</code> と等価とされていたが、C++11 では <code>InputIter</code> が入力イテレータの要件を満たさなければ<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>に参加しないように変更された。</li>
+<li>
+<p>C++11 では、<code>explicit vector(size_type n, const T&amp; value = T(), const Allocator&amp; a = Allocator())</code> の引数 <code>value</code> に関するデフォルト引数が削除され、新たなコンストラクタ <code>explicit vector(size_type n)</code> が追加された。<br />
+    これは、デフォルト引数を使用すると、引数 <code>value</code> の<a class="cpprefjp-defined-word" data-desc="`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト初期化</a> 1 回＋<code>vector</code> の要素へのコピー初期化 <code>n</code> 回のコンストラクタ呼び出しが必要となるが、デフォルト引数でなければ <code>vector</code> の要素への<a class="cpprefjp-defined-word" data-desc="`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト初期化</a> <code>n</code> 回のコンストラクタ呼び出しで済むためである。</p>
+</li>
+<li>
+<p>C++14 では、<code>explicit vector(const Allocator&amp; a = Allocator())</code> がデフォルト引数を使用しない 2 つの<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>に分割された。<br />
+    これは、デフォルトコンストラクタに <code>explicit</code> が付いていると、</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{};</span>
+</code></pre></div>
+</p>
+<p>のようなコード（C++11 から導入された、コピーリスト初期化によるデフォルトコンストラクタ呼び出し）がエラーになってしまうためである。</p>
+</li>
+<li>
+<p>C++14 では、<code>explicit vector(size_type n)</code> に引数が追加され、<code>explicit vector(size_type n, const Allocator&amp; a = Allocator())</code> に変更された。<br />
+    これは、変更されないと <code>n</code> のみを引数にとるアロケータ使用構築（uses-allocator construction）に失敗してしまうためである。
+    具体的には、C++11 では以下のようなコードがエラーになってしまう。</p>
+<p><div class="yata" id="0e4fcb190ea4b359c5c142b2bc02e7e4cd949c17"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../list.html">&lt;list&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../scoped_allocator.html">&lt;scoped_allocator&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">using</span> <span class="n">vi</span> <span class="o">=</span> <span class="n"><a href="../vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="n"><a href="../../list/list.html">std::list</a></span><span class="o">&lt;</span><span class="n">vi</span><span class="p">,</span> <span class="n"><a href="../../scoped_allocator/scoped_allocator_adaptor.html">std::scoped_allocator_adaptor</a></span><span class="o">&lt;</span><span class="n"><a href="../../memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="n">vi</span><span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="p">;</span>
+  <span class="n">l</span><span class="p">.</span><span class="n"><a href="../../list/list/emplace_back.html">emplace_back</a></span><span class="p">(</span><span class="mi">10u</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="11724693e2d93dfc533a02744120b18b4806f5ab"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">print</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&amp;</span> <span class="n">name</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">v</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="s">" : {"</span><span class="p">;</span>
+  <span class="n"><a href="../../algorithm/for_each.html">std::for_each</a></span><span class="p">(</span><span class="n"><a href="../../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n"><a href="../../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="p">[](</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span> <span class="p">});</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"}"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">first</span><span class="p">;</span>                                           <span class="c1">// int型の空のvectorを構築</span>
+  <span class="n"><a href="../vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">second</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>                                  <span class="c1">// 4個のint値からなるvectorを構築し、全ての値を100で初期化</span>
+  <span class="n"><a href="../vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">third</span><span class="p">(</span><span class="n"><a href="../../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">second</span><span class="p">),</span> <span class="n"><a href="../../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">second</span><span class="p">));</span>     <span class="c1">// secondのイテレータ範囲からvectorを構築</span>
+  <span class="n"><a href="../vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">fourth</span><span class="p">(</span><span class="n">third</span><span class="p">);</span>                                  <span class="c1">// thirdをコピー</span>
+
+  <span class="c1">// 組み込み配列からvectorを構築</span>
+  <span class="kt">int</span> <span class="n">myints</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">16</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">77</span><span class="p">,</span><span class="mi">29</span><span class="p">};</span>
+  <span class="n"><a href="../vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">fifth</span><span class="p">(</span><span class="n">myints</span><span class="p">,</span> <span class="n">myints</span> <span class="o">+</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">myints</span><span class="p">)</span> <span class="o">/</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+  <span class="c1">// fifth(<a href="../../iterator/begin.html">std::begin</a>(myints), <a href="../../iterator/end.html">std::end</a>(myints)); でもOK</span>
+
+  <span class="c1">// 初期化子リストからvectorを構築</span>
+  <span class="n"><a href="../vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">sixth</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+
+  <span class="n">print</span><span class="p">(</span><span class="s">"first"</span><span class="p">,</span> <span class="n">first</span><span class="p">);</span>
+  <span class="n">print</span><span class="p">(</span><span class="s">"second"</span><span class="p">,</span> <span class="n">second</span><span class="p">);</span>
+  <span class="n">print</span><span class="p">(</span><span class="s">"third"</span><span class="p">,</span> <span class="n">third</span><span class="p">);</span>
+  <span class="n">print</span><span class="p">(</span><span class="s">"fourth"</span><span class="p">,</span> <span class="n">fourth</span><span class="p">);</span>
+  <span class="n">print</span><span class="p">(</span><span class="s">"fifth"</span><span class="p">,</span> <span class="n">fifth</span><span class="p">);</span>
+  <span class="n">print</span><span class="p">(</span><span class="s">"sixth"</span><span class="p">,</span> <span class="n">sixth</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>first : {}
+second : {100 100 100 100 }
+third : {100 100 100 100 }
+fourth : {100 100 100 100 }
+fifth : {16 2 77 29 }
+sixth : {1 2 3 }
+</code></pre></p>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf" target="_blank">N2679 Initializer Lists for Standard Containers(Revision 1)</a><ul>
+<li>(10)の経緯となる提案文書</li>
+</ul>
+</li>
+<li><a href="http://cplusplus.github.io/LWG/lwg-defects.html#2193" target="_blank">LWG 2193. Default constructors for standard library containers are explicit</a><br />
+<code>explicit vector(const Allocator&amp; a = Allocator())</code> を 2 つの<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>に分割するきっかけとなったレポート</li>
+<li><a href="http://cplusplus.github.io/LWG/lwg-defects.html#2210" target="_blank">LWG 2210. Missing allocator-extended constructor for allocator-aware containers</a><br />
+<code>explicit vector(size_type n)</code> にアロケータ引数を追加するきっかけとなったレポート<br />
+    なお、Discussion の例はアロケータの型が誤っているので注意</li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf" target="_blank">N4258 Cleaning-up noexcept in the Library, Rev 3</a><ul>
+<li><code>noexcept</code> 追加の経緯となる提案文書</li>
+</ul>
+</li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1004r2.pdf" target="_blank">P1004R2 Making <code>std::vector</code> constexpr</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

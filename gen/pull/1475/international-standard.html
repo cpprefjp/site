@@ -1,0 +1,357 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>C++国際標準規格 - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,
+">
+        <meta name="title" content="C++国際標準規格 - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="C++国際標準規格 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="C++国際標準規格 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/international-standard.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="C++国際標準規格 - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/international-standard.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="./static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="./static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="./static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="./manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="./static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="./static/css/root.css"> -->
+
+        
+  
+
+
+<link href="./static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="./static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="./static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="./static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="./static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="./static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;international-standard&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="./index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="./index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">C++国際標準規格</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-03-21T07:51:28">
+        2025年03月21日 07時51分28秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/international-standard.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/international-standard.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">C++国際標準規格</span></h1>
+<div itemprop="articleBody"><h2><a href="#summary" id="summary">概要</a></h2>
+<p>C++ の標準規格の実例として ISO/IEC による<strong>国際標準規格</strong> (international standard) がある。
+最新の国際標準規格は「ISO/IEC 14882:2020 Programming Languages -- C++」(通称 C++20) である。
+C++ の標準規格は、他にも各国の規格化団体によって国際標準規格に等価なものが定められている。
+日本では日本工業標準調査会 (JISC) により「JIS X 3014:2003 プログラム言語C++」が定められているが古い (C++03 相当)。
+ここでは特に国際標準規格について取り扱う。</p>
+<h2><a href="#list-of-iso-cpp" id="list-of-iso-cpp">国際標準規格の一覧</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th align="left">通称<sup><a href="#note-t1-1" id="note_ref-t1-1">†1</a></sup></th>
+<th align="left">名称</th>
+<th align="left">参照する規格案<sup><a href="#note-t1-2" id="note_ref-t1-2">†2</a></sup></th>
+<th align="left">規格案・原案</th>
+<th align="left"><code>__cplusplus</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><a href="lang/cpp26.html">C++26</a> (C++2c)</td>
+<td align="left">ISO/IEC 14882:2026 (予定)</td>
+<td align="left">N5008(<a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/n5008.pdf" target="_blank">PDF</a>/<a href="https://timsong-cpp.github.io/cppwp/" target="_blank">HTML</a>)</td>
+<td align="left">N5008 N5001 N4993 N4986 N4981 N4971 N4964 N4958</td>
+<td align="left">--</td>
+</tr>
+<tr>
+<td align="left"><a href="lang/cpp23.html">C++23</a> (C++2b)</td>
+<td align="left">ISO/IEC 14882:2024</td>
+<td align="left">N4950(<a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/n4950.pdf" target="_blank">PDF</a>/<a href="https://timsong-cpp.github.io/cppwp/n4950/" target="_blank">HTML</a>)</td>
+<td align="left">N4950 N4944 N4928 N4917 N4910 N4901 N4892 N4885 N4878<br />N4868 N4861</td>
+<td align="left"><code>202302L</code></td>
+</tr>
+<tr>
+<td align="left"><a href="lang/cpp20.html">C++20</a> (C++2a)</td>
+<td align="left">ISO/IEC 14882:2020</td>
+<td align="left">N4861<sup><a href="#note-t1-3" id="note_ref-t1-3">†3</a></sup>(<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/n4861.pdf" target="_blank">PDF</a>/<a href="https://timsong-cpp.github.io/cppwp/n4861/" target="_blank">HTML</a>)</td>
+<td align="left">N4860 N4849 N4842 N4835 N4830<br />N4820 N4810 N4800 N4791 <del>N4788</del><sup><a href="#note-t1-4" id="note_ref-t1-4">†4</a></sup><br />N4778 N4762 N4750 N4741 N4727<br />N4713 N4700 N4687</td>
+<td align="left"><code>202002L</code></td>
+</tr>
+<tr>
+<td align="left"><a href="lang/cpp17.html">C++17</a> (C++1z)</td>
+<td align="left">ISO/IEC 14882:2017</td>
+<td align="left">N4659(<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4659.pdf" target="_blank">PDF</a>/<a href="https://timsong-cpp.github.io/cppwp/n4659/" target="_blank">HTML</a>)</td>
+<td align="left">N4660 N4659 N4640 N4618 N4606<br />N4594 N4582 N4567 N4527 N4431<br />N4296</td>
+<td align="left"><code>201703L</code></td>
+</tr>
+<tr>
+<td align="left"><a href="lang/cpp14.html">C++14</a> (C++1y)</td>
+<td align="left">ISO/IEC 14882:2014</td>
+<td align="left">N4140(<a href="https://github.com/cplusplus/draft/blob/master/papers/n4140.pdf?raw=true" target="_blank">PDF</a>/<a href="https://timsong-cpp.github.io/cppwp/n4140/" target="_blank">HTML</a>)</td>
+<td align="left">N4141 N4140 N3937 N3936 N3797<br />N3691 N3690 N3485 N3376 N3337</td>
+<td align="left"><code>201402L</code></td>
+</tr>
+<tr>
+<td align="left"><a href="lang/cpp11.html">C++11</a> (C++0x)</td>
+<td align="left">ISO/IEC 14882:2011</td>
+<td align="left">N3337<sup><a href="#note-t1-5" id="note_ref-t1-5">†5</a></sup>(<a href="https://wg21.link/std11" target="_blank">PDF</a>/<a href="https://timsong-cpp.github.io/cppwp/n3337/" target="_blank">HTML</a>)</td>
+<td align="left">N3291 N3290 N3242 N3225 N3126<br />N3090 N3035 N3000 N2960 N2914<br />N2857 N2798 N2723 N2691 N2606<br />N2588 N2521 N2461 N2369 N2315<br />N2284 N2134 N2009 N1905 N1804<br />N1733 N1655</td>
+<td align="left"><code>201103L</code></td>
+</tr>
+<tr>
+<td align="left">C++03</td>
+<td align="left">ISO/IEC 14882:2003</td>
+<td align="left">N1577</td>
+<td align="left">N1577 ?</td>
+<td align="left"><code>199711L</code><br />(C++98 と同じ)</td>
+</tr>
+<tr>
+<td align="left">C++98</td>
+<td align="left">ISO/IEC 14882:1998</td>
+<td align="left">?</td>
+<td align="left">?</td>
+<td align="left"><code>199711L</code></td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li><a href="#note_ref-t1-1" id="note-t1-1"><strong>^</strong></a> カッコ内は策定時・標準化前に一時的に用いられた通称</li>
+<li><a href="#note_ref-t1-2" id="note-t1-2"><strong>^</strong></a> 最終国際規格案はPDFやHTMLなどの形で一般公開されていないため、それにほぼ同一の内容の規格案を参照する。</li>
+<li><a href="#note_ref-t1-3" id="note-t1-3"><strong>^</strong></a> N4861 は、C++20 DISであるN4860に対するデザインレベルの差とC++17との相互参照がない以外の差はないため、事実上 N4861 が C++20 を参照する時に用いられる。</li>
+<li><a href="#note_ref-t1-4" id="note-t1-4"><strong>^</strong></a> N4788 は政治的事情により撤回された (参照 N4792)</li>
+<li><a href="#note_ref-t1-5" id="note-t1-5"><strong>^</strong></a> N3337 は、C++11規格に対する編集レベルの修正のみが適用された仕様案であるため、事実上 N3337 が C++11 を参照する時に用いられる。C++11規格からN3337への変更点は、<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3338.html" target="_blank">N3338</a>を参照。<br />
+(それより前の公開されているC++11向け仕様案であるN3242からC++11規格に対しては、機能的な変更がいくつかあるため、C++11規格として参照するには適さない)</li>
+</ol>
+<p>最新のDraftのHTML版は以下で公開されている。<br />
+<a href="https://timsong-cpp.github.io/cppwp/" target="_blank">Draft C++ Standard: Contents</a></p>
+<p>標準規格の文章はtexで書かれており、そのソースコードは以下で2011年8月16日以降のものについて(つまりN3291より後、N3337より前)公開されている。<br />
+<a href="https://github.com/cplusplus/draft" target="_blank">cplusplus/draft: C++ standards drafts</a></p>
+<h2><a href="#iso-cpp-committee" id="iso-cpp-committee">用語: 国際標準規格を定める組織</a></h2>
+<ul>
+<li><strong>C++標準化委員会</strong> (C++ Standards Committee): C++ の国際標準規格を策定する団体。
+  組織としての位置づけはISO/IEC JTC1/SC22/WG21になる。
+  <strong>国際標準化機構</strong> (ISO; international organization for standardization) および<strong>国際電気標準会議</strong> (IEC; International Electronics Commission) はそれぞれ様々な規格の標準化団体である。
+  <strong>第一合同技術委員会</strong> (JTC1; Joint Technical Committee 1) は ISO/IEC の下で情報技術の標準化を行う団体である。
+  下部組織の SC22 はプログラム言語の標準化を行う<strong>副委員会</strong> (SC; subcommittee) である。
+  C++標準化委員会は WG21 という<strong>作業グループ</strong> (WG; working group) である。</li>
+<li><strong>CWG</strong> (Core working group): C++標準化委員会の内、コア言語機能の策定を行う作業グループ</li>
+<li><strong>LWG</strong> (Library working group): C++標準化委員会の内、標準ライブラリ機能の策定を行う作業グループ</li>
+<li><strong>NB</strong> (national body) または<strong>MB/NC</strong> (member body/national committee): C++標準化委員会の正会員つまり各国から派遣される団体のこと。本来は member body は ISO での名称で、national committee は IEC での名称。</li>
+</ul>
+<h2><a href="#iso-cpp-documents" id="iso-cpp-documents">用語: 国際標準規格の文書</a></h2>
+<ul>
+<li><strong>提案文書</strong> (proposal paper): 標準規格の変更についての提案文書</li>
+<li><strong>問題</strong> (issue): C++標準規格の問題や課題のこと</li>
+<li><strong>欠陥</strong> (defect): C++標準規格に含まれるいわば "バグ" のこと<ul>
+<li><strong>DR</strong> (defect report, defect resolution): 委員会で承認された欠陥の報告または欠陥の修正のこと</li>
+<li><strong>NAD</strong> (not a defect): 委員会により標準規格の欠陥ではないとされた問題のこと</li>
+<li><strong>DRWP</strong>: 最新の規格原案に取り込み済みの DR のこと</li>
+</ul>
+</li>
+<li><strong>WD</strong> (working draft): 作業原案</li>
+<li><strong>CD</strong> (committee draft): 委員会原案</li>
+<li><strong>FCD</strong> (final committee draft): 最終委員会原案</li>
+<li><strong>DIS</strong> (draft international standard): 国際規格案</li>
+<li><strong>FDIS</strong> (final draft international standard): 最終国際規格案</li>
+<li><strong>IS</strong> (international standard): 国際規格</li>
+<li><strong>TR</strong> (technical report): 技術報告書。用例: TR1</li>
+<li><strong>TS</strong> (technical specifications): 技術仕様書。用例: Concepts TS</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li>標準規格<ul>
+<li><a href="https://www.iso.org/standard/83626.html" target="_blank">ISO/IEC 14882:2024 - Programming languages — C++</a></li>
+<li><a href="https://www.iso.org/standard/79358.html" target="_blank">ISO/IEC 14882:2020 - Programming languages — C++</a></li>
+<li><a href="https://www.iso.org/standard/68564.html" target="_blank">ISO/IEC 14882:2017 - Programming languages -- C++</a></li>
+<li><a href="https://www.iso.org/standard/64029.html" target="_blank">ISO/IEC 14882:2014 - Information technology -- Programming languages -- C++</a></li>
+<li><a href="https://www.iso.org/standard/50372.html" target="_blank">ISO/IEC 14882:2011 - Information technology -- Programming languages -- C++</a></li>
+<li><a href="https://www.iso.org/standard/38110.html" target="_blank">ISO/IEC 14882:2003 - Programming languages -- C++</a></li>
+<li><a href="https://www.iso.org/standard/25845.html" target="_blank">ISO/IEC 14882:1998 - Programming languages -- C++</a></li>
+<li><a href="https://webdesk.jsa.or.jp/books/W11M0090/index/?bunsyo_id=JIS%20X%203014:2003" target="_blank">JIS X 3014:2003 プログラム言語Ｃ＋＋／Information Technology -- Programming languages -- C++ 日本規格協会 JSA Webdesk</a></li>
+</ul>
+</li>
+<li><a href="http://en.cppreference.com/w/cpp/experimental" target="_blank">Experimental C++ Features - cppreference.com</a></li>
+<li><a href="https://stackoverflow.com/questions/29115656/which-draft-is-closest-to-the-c14-standard" target="_blank">c++ - Which draft is closest to the C++14 standard? - Stack Overflow</a></li>
+<li><a href="https://stackoverflow.com/questions/81656/where-do-i-find-the-current-c-or-c-standard-documents" target="_blank">Where do I find the current C or C++ standard documents? - Stack Overflow</a></li>
+<li><a href="https://stackoverflow.com/questions/11053960/how-are-the-cplusplus-directive-defined-in-various-compilers" target="_blank">c++ - How are the __cplusplus directive defined in various compilers? - Stack Overflow</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/" target="_blank">ISO/IEC JTC1/SC22/WG21 - The C++ Standards Committee - ISOCPP</a></li>
+<li><a href="https://ja.wikipedia.org/wiki/%E5%9B%BD%E9%9A%9B%E6%A8%99%E6%BA%96%E5%8C%96%E6%A9%9F%E6%A7%8B" target="_blank">国際標準化機構 - Wikipedia</a></li>
+<li><a href="https://ja.wikipedia.org/wiki/%E5%9B%BD%E9%9A%9B%E9%9B%BB%E6%B0%97%E6%A8%99%E6%BA%96%E4%BC%9A%E8%AD%B0" target="_blank">国際電気標準会議 - Wikipedia</a></li>
+<li><a href="https://ja.wikipedia.org/wiki/ISO/IEC_JTC_1" target="_blank">ISO/IEC JTC 1 - Wikipedia</a></li>
+<li><a href="https://ja.wikipedia.org/wiki/ISO/IEC_JTC_1/SC_22" target="_blank">ISO/IEC JTC 1/SC 22 - Wikipedia</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

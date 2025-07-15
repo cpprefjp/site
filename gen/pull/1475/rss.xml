@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2025-07-15T06:51:35.085949</updated>
+  <id>3f767a13-b106-42e5-8cd0-5ceb8eb63f4a</id>
+
+  
+    <entry>
+      <title>strtol -- new page `strtol.md`</title>
+      <link href="https://cpprefjp.github.io/reference/cstdlib/strtol.html"/>
+      <id>090865fe33d4085c229602076c1172479d519241:reference/cstdlib/strtol.md</id>
+      <updated>2025-07-15T00:43:09+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/strtol.md b/reference/cstdlib/strtol.md
+new file mode 100644
+index 000000000..01824776e
+--- /dev/null
++++ b/reference/cstdlib/strtol.md
+@@ -0,0 +1,77 @@
++# strtol
++* cstdlib[meta header]
++* std[meta namespace]
++* function[meta id-type]
++
++```cpp
++namespace std {
++  long int strtol(const char* nptr, char** endptr, int base);
++}
++```
++
++## 概要
++文字列`nptr`を`long`型の整数に変換する。変換時には`base`で指定された基数に従って解釈される。
++
++`endptr`が非`nullptr`の場合、変換が終了した位置の文字へのポインタがそこに格納される。
++
++基数`base`は 2～36 または 0 の値を取る。
++
++`base`が0の場合
++- 文字列の先頭が`0`の場合は8進数
++- 先頭が`0x`、`0X`は16進数
++- その他の場合は10進数として変換される。
++
++変換は次のように行われる
++- 先頭の空白文字は最初の非空白文字から変換される。
++- `+`または`-`が先頭にある場合は、符号として解釈される。
++- その後の文字列を、指定された`base`に基づいて整数値に変換する。
++
++
++## 戻り値
++- 変換可能ならば変換後の数値。
++
++- 変換後の数値が`long`の範囲外の場合、`LONG_MAX`または `LONG_MIN`。
++
++- 変換不可能なら`0`を返す。
++
++## 備考
++この関数はスレッドセーフである。
++
++
++
++## 例
++```cpp example
++#include &amp;lt;iostream&amp;gt;
++#include &amp;lt;cstdlib&amp;gt;
++#include &amp;lt;cerrno&amp;gt;
++#include &amp;lt;climits&amp;gt;
++
++int main() {
++  const char* str = &amp;#34;  -0x2Fabc&amp;#34;;
++
++  errno = 0;
++  long result1 = std::strtol(str, nullptr, 0);  // 自動判別
++  std::cout &amp;lt;&amp;lt; &amp;#34;変換結果(基数0): &amp;#34; &amp;lt;&amp;lt; result1 &amp;lt;&amp;lt; std::endl;
++
++  errno = 0;
++  long result2 = std::strtol(str, nullptr, 10); // 10進数として解釈
++  std::cout &amp;lt;&amp;lt; &amp;#34;変換結果(基数10): &amp;#34; &amp;lt;&amp;lt; result2 &amp;lt;&amp;lt; std::endl;
++
++  errno = 0;
++  long result3 = std::strtol(str, nullptr, 36); // 36進数として解釈
++  std::cout &amp;lt;&amp;lt; &amp;#34;変換結果(基数36): &amp;#34; &amp;lt;&amp;lt; result3 &amp;lt;&amp;lt; std::endl;
++
++  return 0;
++}
++```
++### 出力
++```
++変換結果(基数0): -195260
++変換結果(基数10): 0
++変換結果(基数36): -1999456248
++```
++
++## 関連項目
++- [`strtoll`](strtoll.md.nolink): 文字列を、基数を指定して`long long`型に変換する
++- [`strtoul`](strtoul.md.nolink): 文字列を、基数を指定して`unsigned long`型に変換する
++- [`strtoull`](strtoull.md.nolink): 文字列を、基数を指定して`unsigned long long`型に変換する
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>MB_CUR_MAX -- Merge pull request #1474 from cpprefjp/cstdlib/mb-cur-max</title>
+      <link href="https://cpprefjp.github.io/reference/cstdlib/mb_cur_max.html"/>
+      <id>635bc5a02c219ba0434326b9855e11daa37f6697:reference/cstdlib/mb_cur_max.md</id>
+      <updated>2025-07-14T14:04:18+00:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/mb_cur_max.md b/reference/cstdlib/mb_cur_max.md
+index 21450cdb3..3872e41c3 100644
+--- a/reference/cstdlib/mb_cur_max.md
++++ b/reference/cstdlib/mb_cur_max.md
+@@ -3,9 +3,7 @@
+ * macro[meta id-type]
+ 
+ ```cpp
+-namespace std {
+-  #define MB_CUR_MAX /* implementation defined */
+-}
++#define MB_CUR_MAX implementation-defined
+ ```
+ 
+ ## 概要
+@@ -28,24 +26,24 @@ int main() {
+   //C ロケール(標準ASCII)
+   std::cout &amp;lt;&amp;lt; &amp;#34;Locale: standard, MB_CUR_MAX: &amp;#34; &amp;lt;&amp;lt; MB_CUR_MAX &amp;lt;&amp;lt; std::endl;
+   
++  //ロケールを日本(UTF-8)に変更
+   if (std::setlocale(LC_CTYPE, &amp;#34;ja_JP.UTF-8&amp;#34;) == nullptr) {
+-      std::cout &amp;lt;&amp;lt; &amp;#34;Failed to set locale to: ja_JP.UTF-8&amp;#34;  &amp;lt;&amp;lt; std::endl;
++    std::cout &amp;lt;&amp;lt; &amp;#34;Failed to set locale to ja_JP.UTF-8&amp;#34;  &amp;lt;&amp;lt; std::endl;
++  } else {
++    std::cout &amp;lt;&amp;lt; &amp;#34;Locale: ja_JP.UTF-8, MB_CUR_MAX: &amp;#34; &amp;lt;&amp;lt; MB_CUR_MAX &amp;lt;&amp;lt; std::endl;
+   }
+-  std::setlocale(LC_CTYPE, &amp;#34;ja_JP.UTF-8&amp;#34;);//ロケールを日本語UTF-8に変更
+-  std::cout &amp;lt;&amp;lt; &amp;#34;Locale: ja_JP.UTF-8, MB_CUR_MAX: &amp;#34; &amp;lt;&amp;lt; MB_CUR_MAX &amp;lt;&amp;lt; std::endl;
+-  return 0;
+ }
+ ```
+ 
+ ### 出力例
+ ```
+-Locale: standard(C), MB_CUR_MAX: 1
++Locale: standard, MB_CUR_MAX: 1
+ Locale: ja_JP.UTF-8, MB_CUR_MAX: 6
+ ```
+ 
+ ## 関連項目
+-- [`MB_LEN_MAX`](/reference/climits/mb_len_max.md):全ロケールでのマルチバイト文字の最大バイト数
+-- `setlocale`:ロケールを変更する
++- [`MB_LEN_MAX`](/reference/climits/mb_len_max.md): 全ロケールでのマルチバイト文字の最大バイト数
++- `setlocale`: ロケールを変更する
+ 
+ ## 参照
+ - [mb_cur_max(3) - Linux man page](https://linux.die.net/man/3/mb_cur_max)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>MB_CUR_MAX -- :削除、:後にスペース追加</title>
+      <link href="https://cpprefjp.github.io/reference/cstdlib/mb_cur_max.html"/>
+      <id>fbe0ff2648113ba237bf7873e790402c1ebc4cd0:reference/cstdlib/mb_cur_max.md</id>
+      <updated>2025-07-14T22:22:41+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/mb_cur_max.md b/reference/cstdlib/mb_cur_max.md
+index fb5c43f0e..3872e41c3 100644
+--- a/reference/cstdlib/mb_cur_max.md
++++ b/reference/cstdlib/mb_cur_max.md
+@@ -28,7 +28,7 @@ int main() {
+   
+   //ロケールを日本(UTF-8)に変更
+   if (std::setlocale(LC_CTYPE, &amp;#34;ja_JP.UTF-8&amp;#34;) == nullptr) {
+-    std::cout &amp;lt;&amp;lt; &amp;#34;Failed to set locale to: ja_JP.UTF-8&amp;#34;  &amp;lt;&amp;lt; std::endl;
++    std::cout &amp;lt;&amp;lt; &amp;#34;Failed to set locale to ja_JP.UTF-8&amp;#34;  &amp;lt;&amp;lt; std::endl;
+   } else {
+     std::cout &amp;lt;&amp;lt; &amp;#34;Locale: ja_JP.UTF-8, MB_CUR_MAX: &amp;#34; &amp;lt;&amp;lt; MB_CUR_MAX &amp;lt;&amp;lt; std::endl;
+   }
+@@ -42,8 +42,8 @@ Locale: ja_JP.UTF-8, MB_CUR_MAX: 6
+ ```
+ 
+ ## 関連項目
+-- [`MB_LEN_MAX`](/reference/climits/mb_len_max.md):全ロケールでのマルチバイト文字の最大バイト数
+-- `setlocale`:ロケールを変更する
++- [`MB_LEN_MAX`](/reference/climits/mb_len_max.md): 全ロケールでのマルチバイト文字の最大バイト数
++- `setlocale`: ロケールを変更する
+ 
+ ## 参照
+ - [mb_cur_max(3) - Linux man page](https://linux.die.net/man/3/mb_cur_max)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>MB_CUR_MAX -- コード例変更後、出力例の反映し忘れを変更</title>
+      <link href="https://cpprefjp.github.io/reference/cstdlib/mb_cur_max.html"/>
+      <id>0b04c502696c36721996bdbfac776a80c8ee5ec6:reference/cstdlib/mb_cur_max.md</id>
+      <updated>2025-07-14T22:17:14+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/mb_cur_max.md b/reference/cstdlib/mb_cur_max.md
+index 53908c1c0..fb5c43f0e 100644
+--- a/reference/cstdlib/mb_cur_max.md
++++ b/reference/cstdlib/mb_cur_max.md
+@@ -37,7 +37,7 @@ int main() {
+ 
+ ### 出力例
+ ```
+-Locale: standard(C), MB_CUR_MAX: 1
++Locale: standard, MB_CUR_MAX: 1
+ Locale: ja_JP.UTF-8, MB_CUR_MAX: 6
+ ```
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>MB_CUR_MAX -- `namespace std`の削除、表記の変更</title>
+      <link href="https://cpprefjp.github.io/reference/cstdlib/mb_cur_max.html"/>
+      <id>62352b3c4040d8534d037b42dc0aabfc152861b9:reference/cstdlib/mb_cur_max.md</id>
+      <updated>2025-07-14T22:07:06+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/mb_cur_max.md b/reference/cstdlib/mb_cur_max.md
+index 21450cdb3..53908c1c0 100644
+--- a/reference/cstdlib/mb_cur_max.md
++++ b/reference/cstdlib/mb_cur_max.md
+@@ -3,9 +3,7 @@
+ * macro[meta id-type]
+ 
+ ```cpp
+-namespace std {
+-  #define MB_CUR_MAX /* implementation defined */
+-}
++#define MB_CUR_MAX implementation-defined
+ ```
+ 
+ ## 概要
+@@ -28,12 +26,12 @@ int main() {
+   //C ロケール(標準ASCII)
+   std::cout &amp;lt;&amp;lt; &amp;#34;Locale: standard, MB_CUR_MAX: &amp;#34; &amp;lt;&amp;lt; MB_CUR_MAX &amp;lt;&amp;lt; std::endl;
+   
++  //ロケールを日本(UTF-8)に変更
+   if (std::setlocale(LC_CTYPE, &amp;#34;ja_JP.UTF-8&amp;#34;) == nullptr) {
+-      std::cout &amp;lt;&amp;lt; &amp;#34;Failed to set locale to: ja_JP.UTF-8&amp;#34;  &amp;lt;&amp;lt; std::endl;
++    std::cout &amp;lt;&amp;lt; &amp;#34;Failed to set locale to: ja_JP.UTF-8&amp;#34;  &amp;lt;&amp;lt; std::endl;
++  } else {
++    std::cout &amp;lt;&amp;lt; &amp;#34;Locale: ja_JP.UTF-8, MB_CUR_MAX: &amp;#34; &amp;lt;&amp;lt; MB_CUR_MAX &amp;lt;&amp;lt; std::endl;
+   }
+-  std::setlocale(LC_CTYPE, &amp;#34;ja_JP.UTF-8&amp;#34;);//ロケールを日本語UTF-8に変更
+-  std::cout &amp;lt;&amp;lt; &amp;#34;Locale: ja_JP.UTF-8, MB_CUR_MAX: &amp;#34; &amp;lt;&amp;lt; MB_CUR_MAX &amp;lt;&amp;lt; std::endl;
+-  return 0;
+ }
+ ```
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>

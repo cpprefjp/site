@@ -1,0 +1,320 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>cout - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,iostream,std,variable
+">
+        <meta name="title" content="cout - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="cout - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="cout - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/iostream/cout.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`cout`も`wcout`も、標準出力に対する出力ストリームオブジェクトである。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="cout - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/iostream/cout.html" />
+        <meta name="twitter:description" content="`cout`も`wcout`も、標準出力に対する出力ストリームオブジェクトである。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;iostream&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;variable&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;b7c7d36dc936251ba9ea0a3b51e70d026efed3c0&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\nint main()\n{\n  std::cout &lt;&lt; \&#34;Hello world\&#34; &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;887aa49d7f8a62c98cc30c1bbbdb9188eccb0ab5&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\nint main()\n{\n  std::wcout.imbue(std::locale(\&#34;\&#34;));\n  //std::wcout.imbue(std::locale(\&#34;ja\&#34;));\n  //std::wcout.imbue(std::locale(\&#34;japanese\&#34;));\n  std::wcout &lt;&lt; L\&#34;\u3042\u308a\u304d\u305f\u308a\u306a\u4e16\u754c\&#34; &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;196b749503a6876d16c69b43539eb27be6f9ed5c&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\nint main()\n{\n  std::ios_base::sync_with_stdio(false);\n  std::locale default_loc(\&#34;\&#34;);\n  std::locale::global(default_loc);\n  std::locale ctype_default(std::locale::classic(), default_loc, std::locale::ctype); //\u203b\n  std::wcout.imbue(ctype_default);\n  std::wcout &lt;&lt; L\&#34;\u3042\u308a\u304d\u305f\u308a\u306a\u4e16\u754c\&#34; &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;iostream&#34;, &#34;cout&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/iostream.html" itemprop="url">
+              
+                <span itemprop="name">iostream</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">cout</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2021-05-23T16:16:23">
+        2021年05月23日 16時16分23秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yumetodo</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/iostream/cout.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/iostream/cout.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">variable</div><div class="header">&lt;iostream&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">cout</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">extern</span> <span class="n"><a href="../ostream/basic_ostream.html">ostream</a></span> <span class="n">cout</span><span class="p">;</span>
+  <span class="k">extern</span> <span class="n"><a href="../ostream/basic_ostream.html">wostream</a></span> <span class="n">wcout</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>cout</code>も<code>wcout</code>も、標準出力に対する出力ストリームオブジェクトである。</p>
+<p>すなわち、<code><a href="../streambuf/basic_streambuf.html">std::basic_streambuf</a></code>から派生していて<code>&lt;cstdio&gt;</code>の<code>stdout</code>オブジェクトに結びつけられているストリームバッファに出力する。</p>
+<p><code>cout</code>は<code>character output</code>を意味する。また<code>wcout</code>は<code>wide character output</code>を意味する。<sup><a href="#cite-1" id="cite_ref-1">[1]</a></sup></p>
+<h2>例</h2>
+<p><div class="yata" id="b7c7d36dc936251ba9ea0a3b51e70d026efed3c0"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><span style="color:#ff0000">std::cout</span></span> <span class="o">&lt;&lt;</span> <span class="s">"Hello world"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>Hello world
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++98</li>
+</ul>
+<h3>備考</h3>
+<p><code>wcout</code>は規格上実装しなければならないが、実装されていなかったり、期待どおりに動作しない事がある。</p>
+<h4>localeの設定</h4>
+<p>望む出力を得るためにlocaleを再設定しなければならない場合がある。</p>
+<p>例えばVisual Studioでは</p>
+<p><div class="yata" id="887aa49d7f8a62c98cc30c1bbbdb9188eccb0ab5"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><span style="color:#ff0000">std::wcout</span></span><span class="p">.</span><span class="n"><a href="../ios/basic_ios/imbue.html">imbue</a></span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">locale</span><span class="p">(</span><span class="s">""</span><span class="p">));</span>
+  <span class="c1">//<span style="color:#ff0000">std::wcout</span>.<a href="../ios/basic_ios/imbue.html">imbue</a>(std::locale("ja"));</span>
+  <span class="c1">//<span style="color:#ff0000">std::wcout</span>.<a href="../ios/basic_ios/imbue.html">imbue</a>(std::locale("japanese"));</span>
+  <span class="n"><span style="color:#ff0000">std::wcout</span></span> <span class="o">&lt;&lt;</span> <span class="sa">L</span><span class="s">"ありきたりな世界"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>のようにして設定しないと何も表示されない。</p>
+<p><code>std::locale("")</code>とすると本来はOSに設定されたロケールが設定されるはずが、MinGW環境でコンパイルし実行すると、以下のようなエラーが出力されてしまう。</p>
+<p><pre><code>terminate called after throwing an instance of 'std::runtime_error'
+  what():  locale::facet::_S_create_c_locale name not valid
+</code></pre></p>
+<p>一方、以下のようなコードなら求める結果が得られる処理系もある。</p>
+<p><div class="yata" id="196b749503a6876d16c69b43539eb27be6f9ed5c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">locale</span> <span class="n">default_loc</span><span class="p">(</span><span class="s">""</span><span class="p">);</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">locale</span><span class="o">::</span><span class="n">global</span><span class="p">(</span><span class="n">default_loc</span><span class="p">);</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">locale</span> <span class="n">ctype_default</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">locale</span><span class="o">::</span><span class="n">classic</span><span class="p">(),</span> <span class="n">default_loc</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">locale</span><span class="o">::</span><span class="n">ctype</span><span class="p">);</span> <span class="c1">//※</span>
+  <span class="n"><span style="color:#ff0000">std::wcout</span></span><span class="p">.</span><span class="n"><a href="../ios/basic_ios/imbue.html">imbue</a></span><span class="p">(</span><span class="n">ctype_default</span><span class="p">);</span>
+  <span class="n"><span style="color:#ff0000">std::wcout</span></span> <span class="o">&lt;&lt;</span> <span class="sa">L</span><span class="s">"ありきたりな世界"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>このように求める結果を得るためのlocaleの設定は処理系によって大きく異なる。</p>
+<h4>端末のロケールやフォントなど</h4>
+<p><code>wcout</code>を使ったとしても、結局<code>stdout</code>に出力するので、その標準出力を受け取って表示する端末のロケールやフォントなどの設定も考える必要がある。</p>
+<h5>Windows</h5>
+<p>Windowsでは<code>wchar_t</code>型といえばUTF-16でエンコードされた文字を指す。もし標準出力を受け取って表示するコンソールのロケールがUTF-8(65001)であるならばUTF-16からUTF-8への変換は一対一対応するため変換段階において問題は起きない。</p>
+<p>しかしながらデフォルトのロケールがUTF-8(65001)ではない事が多い(日本語利用者なら932になっている事が多い)ため、そのロケールで対応していないUnicodeコードポイントは当然変換できないので文字化けする。<code>chcp 65001</code>などでUTF-8にすることができる。</p>
+<p>こうしてUTF-8としてコンソールが文字列を受け取ったとしてもそれを正しく表示できるとは限らない。まずフォントが表示したい文字をすべて含んでいなければならない。またそうしたフォントを使えるようになっていなければならない。Windows10 1709より前では、ロケールをUTF-8にしたときのフォントの指定に制約があり、実質日本語を表示することは不可能だった。次に、🍣🍺のような色のついた絵文字を表示するためには、フォントの対応に加えて、それをDirectWriteなどを用いて描画されることが前提となる。例えばコマンドプロンプトはGDIで描画するため原理上不可能である。Microsoftが開発している<a href="https://github.com/microsoft/terminal" target="_blank">Windows Terminal</a>ではこうした描画側の問題を克服しようとしている。</p>
+<h2>出典</h2>
+<ol>
+<li><strong><a href="#cite_ref-1" id="cite-1">^</a></strong> <cite><a href="http://www.stroustrup.com/bs_faq2.html#cout" target="_blank">Stroustrup: C++ Style and Technique FAQ</a></cite>(2018-08-21 17:01 JST 閲覧)</li>
+</ol>
+<h2>参照</h2>
+<ul>
+<li><a href="../../article/platform/locales.html">使用できるロケール文字列</a></li>
+<li><a href="https://web.archive.org/web/20191011112040/http://www.kijineko.co.jp/tech/cppsamples/stdout.html" target="_blank">標準出力に書き込む | 株式会社きじねこ</a></li>
+<li><a href="http://nullnull.hatenablog.com/entry/20120629/1340935277" target="_blank">c++で日本語の処理（ロケール周り） 7/8追記 - nullnull7の日記</a></li>
+<li><a href="http://web.archive.org/web/20100328154628/http://connect.microsoft.com:80/VisualStudio/feedback/details/492128/std-locale-constructor-modifies-global-locale-via-setlocale" target="_blank">std::locale constructor modifies global locale via "setlocale()" | Microsoft Connect</a></li>
+<li><a href="https://ascii.jp/elem/000/001/868/1868623/2/" target="_blank">ASCII.jp：Windows 10に“まとも”に使えるコンソール「WindowsTerminal」が登場する (2/2)</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
