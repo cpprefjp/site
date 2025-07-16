@@ -2,9 +2,35 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-07-14T23:34:13.574593</updated>
-  <id>3ac1a98a-69f7-444e-b37c-266a3bc46c6c</id>
+  <updated>2025-07-16T01:25:52.245917</updated>
+  <id>4ca54ade-d40e-4776-a986-16692e90ccfc</id>
 
+  
+    <entry>
+      <title>fpos_t -- Update reference/cstdio/fpos_t.md</title>
+      <link href="https://cpprefjp.github.io/reference/cstdio/fpos_t.html"/>
+      <id>c1261d33c05e1fba5c47baad89234a8d2f29bfbd:reference/cstdio/fpos_t.md</id>
+      <updated>2025-07-16T10:21:38+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/fpos_t.md b/reference/cstdio/fpos_t.md
+index 058ef368a..cee012fd6 100644
+--- a/reference/cstdio/fpos_t.md
++++ b/reference/cstdio/fpos_t.md
+@@ -8,6 +8,7 @@ namespace std {
+   using fpos_t = object-type;
+ }
+ ```
++* object-type[italic]
+ 
+ ## 概要
+ ファイルの位置を保持するための型。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>fpos_t -- fixed declaration of `fpos_t`</title>
@@ -143,33 +169,6 @@ index c72b2604a..314047f65 100644
  
  ## 例
  ```cpp example
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>rotarymars</name>
-        <email>s.goto2050@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>tmpnam -- fixed index in tmpnam.md</title>
-      <link href="https://cpprefjp.github.io/reference/cstdio/tmpnam.html"/>
-      <id>af2a99dea80102f489a533c6cbc7df70dcdcfc97:reference/cstdio/tmpnam.md</id>
-      <updated>2025-07-14T21:17:41+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/tmpnam.md b/reference/cstdio/tmpnam.md
-index 1d293b29c..d25320e34 100644
---- a/reference/cstdio/tmpnam.md
-+++ b/reference/cstdio/tmpnam.md
-@@ -31,7 +31,7 @@ namespace std {
- #include &amp;lt;iostream&amp;gt;
- 
- int main() {
--    char filename[1000];
-+    char filename[L_tmpnam];
-     if (std::tmpnam(filename)) {
-         std::cout &amp;lt;&amp;lt; &amp;#34;Generated filename: &amp;#34; &amp;lt;&amp;lt; filename &amp;lt;&amp;lt; &amp;#39;\n&amp;#39;;
-         // ここで fopen(filename, &amp;#34;w&amp;#34;) とかして使う（が、あまり推奨されない）
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
