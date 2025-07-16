@@ -51,7 +51,7 @@ XMLやJSONに代表されるテキストベースのデータを利用するケ�
 | `snprintf`                 | ロケール依存、フォーマットの動的解析                    |
 | `sscanf`                   | ロケール依存、フォーマットの動的解析                    |
 | [`atol`](/reference/cstdlib/atoi_atol_atoll.md) | ロケール依存、エラー報告の不足                       |
-| `strtol`                   | ロケール依存、先頭ホワイトスペースの無視、接頭辞(0x等)を考慮する               |
+| [`strtol`](/reference/cstdlib/strtol.md) | ロケール依存、先頭ホワイトスペースの無視、接頭辞(0x等)を考慮する |
 | `strstream`                | ロケール依存、先頭ホワイトスペースの無視                  |
 | `stringstream`             | ロケール依存、先頭ホワイトスペースの無視、動的メモリ確保          |
 | `num_put / num_get facets` | ロケール依存、仮想関数                           |
