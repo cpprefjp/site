@@ -29,7 +29,7 @@
 | [`SEEK_SET`](/reference/cstdio/seek_set.md.nolink) | ファイルの先頭位置を指定するための整数定数 | |
 | [`SEEK_CUR`](/reference/cstdio/seek_cur.md.nolink) | ファイルの現在位置を指定するための整数定数 | |
 | [`SEEK_END`](/reference/cstdio/seek_end.md.nolink) | ファイルの終端を指定するための整数定数 | |
-| [`TMP_MAX`](/reference/cstdio/tmp_max.md.nolink)  | `tempnam()`関数によって生成できる一時ファイル名の、実装が保証する最低限の数を表す整数定数 | |
+| [`TMP_MAX`](/reference/cstdio/tmp_max.md.nolink)  | `tmpnam()`関数によって生成できる一時ファイル名の、実装が保証する最低限の数を表す整数定数 | |
 | [`stderr`](/reference/cstdio/stderr.md)   | 標準エラーを表す`FILE*`型の式 |
 | [`stdin`](/reference/cstdio/stdin.md)    | 標準入力を表す`FILE*`型の式 |
 | [`stdout`](/reference/cstdio/stdout.md)   | 標準出力を表す`FILE*`型の式 |
