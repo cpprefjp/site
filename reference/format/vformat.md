@@ -32,8 +32,12 @@ namespace std {
 * (3): マルチバイト文字列版 (ロケール指定あり)
 * (4): ワイド文字列版 (ロケール指定あり)
 
-[`format`](format.md)のフォーマット引数を型消去したバージョンであり、内部的に使用される。文字列をフォーマットする目的で直接利用する必要はない。
-ただし、[`format`](format.md)のような関数を自作する場合は、`vformat`を使って実装すると便利である。
+[`std::format()`](format.md)関数のフォーマット引数を実行時文字列にしたバージョンであり、[`std::format()`](format.md)関数の内部で使用される。
+
+[`std::format()`](format.md)のような関数を自作する場合にこの関数を使って実装すると便利であるほか、実行時文字列でフォーマット引数を構築したい場合にも利用できる。
+
+C++26以降は、実行時文字列のフォーマット引数を使用したい場合は、[`std::runtime_format()`](runtime_format.md)関数を使用できる。
+
 
 ## 戻り値
 
@@ -42,6 +46,26 @@ namespace std {
 ## 例外
 
 フォーマット実行時に失敗した場合、[`format_error`](format_error.md)を投げる。
+
+## 例
+```cpp example
+#include <iostream>
+#include <format>
+
+int main() {
+  std::string fmt = "0x{:x} 0b{:04b}";
+  std::string s = std::vformat(fmt, std::make_format_args(10, 6));
+  std::cout << s << std::endl;
+}
+```
+* std::vformat[color ff0000]
+* std::make_format_args[link make_format_args.md]
+
+### 出力
+```
+0xa 0b0110
+```
+
 
 ## 実装例
 
@@ -84,9 +108,8 @@ string vformat(const locale& loc, wstring_view fmt, wformat_args args) {
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
-- [ICC](/implementation.md#icc): ??
+- [Clang](/implementation.md#clang): 17
+- [GCC](/implementation.md#gcc): 13
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 参照
