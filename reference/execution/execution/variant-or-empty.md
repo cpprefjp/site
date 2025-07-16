@@ -10,7 +10,6 @@ namespace std::execution {
   using variant-or-empty = see below;  // exposition only
 }
 ```
-* see below[italic]
 
 ## 概要
 `variant-or-empty`は、型パラメータパック`Ts`から[decay](/reference/type_traits/decay.md)結果を要素型とする[`variant`](/reference/variant/variant.md)型を作成する説明専用のエイリアステンプレートである。

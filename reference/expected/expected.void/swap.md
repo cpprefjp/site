@@ -9,7 +9,6 @@
 // expected<cv void, E>部分特殊化
 constexpr void swap(expected& rhs) noexcept(see below);
 ```
-* see below[italic]
 
 ## 概要
 他の`expected`オブジェクトとデータを入れ替える。

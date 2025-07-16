@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template<semiregular S>
-  using const_sentinel = /*see below*/;
+  using const_sentinel = see below;
 }
 ```
 * semiregular[link /reference/concepts/semiregular.md]

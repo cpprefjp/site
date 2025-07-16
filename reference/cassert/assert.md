@@ -3,13 +3,13 @@
 * macro[meta id-type]
 
 ```cpp
-# if !defined(NDEBUG)
+#if !defined(NDEBUG)
   #define assert(expr) implementation-defined // (1) C++03
   #define assert(...) implementation-defined  // (1) C++26
-# else
+#else
   #define assert(ignore) ((void)0)            // (2) C++03
   #define assert(...) ((void)0)               // (2) C++26
-# endif
+#endif
 ```
 
 ## 概要

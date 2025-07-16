@@ -38,7 +38,6 @@ struct impls-for<write-env-t> : default-impls {
 ```
 * impls-for[link impls-for.md]
 * default-impls[link impls-for.md]
-* see below[italic]
 
 `impls-for<write-env-t>::get-env`メンバの呼び出しは下記を満たすオブジェクト`e`を返す。
 

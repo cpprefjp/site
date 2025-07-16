@@ -7,10 +7,9 @@
 ```cpp
 namespace std {
   template<class In>
-  concept indirectly_readable = /*see below*/;
+  concept indirectly_readable = see below;
 }
 ```
-* see below[italic]
 
 ## 概要
 

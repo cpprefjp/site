@@ -50,7 +50,6 @@ namespace std::execution {
 ```
 * impls-for[link impls-for.md]
 * default-impls[link impls-for.md]
-* see below[italic]
 
 `impls-for<schedule_from_t>::get-attrs`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
 
@@ -97,7 +96,6 @@ namespace std::execution {
 * schedule_result_t[link schedule_result_t.md]
 * connect[link connect.md]
 * schedule[link schedule.md]
-* see below[italic]
 
 - ローカルクラス`state-type`のオブジェクトは[構造化束縛](/lang/cpp17/structured_bindings.md)における初期化子として利用できる。
 - 説明用のパック`Sigs`を[`completion_signatures_of_t`](completion_signatures_of_t.md)`<`[`child-type`](child-type.md)`<Sndr>,` [`env_of_t`](env_of_t.md)`<Rcvr>>`による[`completion_signatures`](completion_signatures.md)特殊化のテンプレートパラメータと定義する。説明用のエイリアステンプレート`as-tuple<Tag(Args...)>`を[`decayed-tuple`](decayed-tuple.md)`<Args...>`と定義する。型`variant_t`は下記定義において重複削除した型となる。

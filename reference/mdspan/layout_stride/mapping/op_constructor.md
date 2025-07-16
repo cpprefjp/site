@@ -22,7 +22,6 @@ template<class StridedLayoutMapping>
 * span[link /reference/span/span.md]
 * array[link /reference/array/array.md]
 * rank_[italic]
-* see below[italic]
 
 ## 概要
 - (1) : デフォルトコンストラクタ

@@ -10,7 +10,7 @@ namespace std {
   to_chars_result
     to_chars(char* first,
              char* last,
-             /*see below*/ value,
+             see below value,
              int base = 10);        // (1) C++17
   constexpr to_chars_result
     to_chars(char* first,
@@ -92,7 +92,6 @@ namespace std {
              int precision);             // (13) C++23
 }
 ```
-* see below[italic]
 * integer-type[italic]
 * to_chars_result[link to_chars_result.md]
 

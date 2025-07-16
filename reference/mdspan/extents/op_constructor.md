@@ -23,7 +23,6 @@ template<class OtherIndexType, size_t N>
 constexpr explicit(N != rank_dynamic())
   extents(const array<OtherIndexType, N>& exts) noexcept;  // (5)
 ```
-* see below[italic]
 * rank_dynamic()[link rank_dynamic.md]
 * span[link /reference/span/span.md]
 * array[link /reference/array/array.md]

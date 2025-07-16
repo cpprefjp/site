@@ -5,9 +5,12 @@
 
 ```cpp
 namespace std {
-  using time_t = implementation-defined;
+  using time_t = integer-type; // C++11 (C99) 以前
+  using time_t = real-type;    // C++14 (C11) 以降
 }
 ```
+* integer-type[italic]
+* real-type[italic]
 
 ## 概要
 `time_t`は、1970年1月1日からの経過時間 (UNIX時間と呼ばれる) を表すための、算術型の別名である。

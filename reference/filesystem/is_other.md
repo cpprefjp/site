@@ -32,11 +32,6 @@ namespace std::filesystem {
 - (3) :
     ```cpp
     file_status s = status(p, ec);
-    if (ec) {
-      return false;
-    }
-
-    ec.clear();
     return is_other(s);
     ```
     * file_status[link file_status.md]

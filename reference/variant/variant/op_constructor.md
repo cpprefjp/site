@@ -31,7 +31,6 @@ constexpr explicit variant(in_place_index_t<I>,
                            initializer_list<U> il,
                            Args&&... args);              // (8)
 ```
-* see below[italic]
 * size_t[link /reference/cstddef/size_t.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 * in_place_type_t[link /reference/utility/in_place_type_t.md]

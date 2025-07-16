@@ -5,9 +5,10 @@
 
 ```cpp
 namespace std {
-  using size_t = implementation-defined;
+  using size_t = unsigned-integer-type;
 }
 ```
+* unsigned-integer-type[italic]
 
 ## 概要
 `size_t`は、オブジェクトのバイト数を表現できる程度に十分に大きい符号なし整数型である。

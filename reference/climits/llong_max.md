@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define LLONG_MAX implementation-defined
+#define LLONG_MAX implementation-defined
 ```
 
 ## 概要

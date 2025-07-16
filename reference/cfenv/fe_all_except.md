@@ -4,8 +4,9 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define FE_ALL_EXCEPT implementation-defined
+#define FE_ALL_EXCEPT unspecified
 ```
+* unspecified[italic]
 
 ## 概要
 全ての浮動小数点例外マクロをビットORでつなぐことによって実装で定義されるマクロ。

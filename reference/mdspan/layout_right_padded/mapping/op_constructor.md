@@ -34,7 +34,6 @@ constexpr explicit(see below)
 * is_convertible_v[link /reference/type_traits/is_convertible.md]
 * layout_right::mapping[link ../../layout_right/mapping.md]
 * layout_stride::mapping[link ../../layout_stride/mapping.md]
-* see below[italic]
 
 ## 概要
 - (1) : デフォルトコンストラクタ

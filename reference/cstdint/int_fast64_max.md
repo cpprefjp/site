@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define INT_FAST64_MAX implementation-defined
+#define INT_FAST64_MAX implementation-defined
 ```
 
 ## 概要

@@ -9,7 +9,6 @@
 void swap(optional& rhs) noexcept(see below);           // C++17
 constexpr void swap(optional& rhs) noexcept(see below); // C++23
 ```
-* see below[italic]
 
 ## 概要
 他の`optional`オブジェクトとデータを入れ替える。

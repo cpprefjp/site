@@ -35,7 +35,6 @@ constexpr explicit(see below)
 * rank()[link ../../extents/rank.md]
 * layout_left::mapping[link ../../layout_left/mapping.md]
 * layout_stride::mapping[link ../../layout_stride/mapping.md]
-* see below[italic]
 
 ## 概要
 - (1) : デフォルトコンストラクタ

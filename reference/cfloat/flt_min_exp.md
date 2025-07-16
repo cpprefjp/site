@@ -4,7 +4,7 @@
 * [mathjax enable]
 
 ```cpp
-# define FLT_MIN_EXP implementation-defined
+#define FLT_MIN_EXP implementation-defined
 ```
 
 ## 概要

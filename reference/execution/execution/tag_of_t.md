@@ -11,7 +11,6 @@ namespace std::execution {
 }
 ```
 * sender[link sender.md]
-* see below[italic]
 
 ## 概要
 [Sender型](sender.md)`Sndr`のSenderアルゴリズムタグ型を取得する。

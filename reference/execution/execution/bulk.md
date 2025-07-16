@@ -49,7 +49,6 @@ namespace std::execution {
 ```
 * impls-for[link impls-for.md]
 * default-impls[link impls-for.md]
-* see below[italic]
 
 `impls-for<bulk_t>::complete`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
 
@@ -73,7 +72,6 @@ namespace std::execution {
 * set_value_t[link set_value.md]
 * TRY-EVAL[link set_value.md]
 * std::move[link /reference/utility/move.md]
-* see below[italic]
 
 型`Tag`が[`set_value_t`](set_value.md)以外の型であるとき、もしくは式`f(auto(shape), args...)`が適格なときに限って、上記ラムダ式のrequires節が満たされる。
 

@@ -4,8 +4,9 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define HUGE_VALF implementation-defined
+#define HUGE_VALF constant-expression
 ```
+* constant-expression[italic]
 
 ## 概要
 `float` 型の正の値の定数式。

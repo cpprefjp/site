@@ -46,7 +46,7 @@ namespace std {
 正確に `last - first` 回代入する
 
 
-## 使用例
+## 例
 ```cpp example
 #include <algorithm>
 #include <iostream>

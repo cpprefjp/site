@@ -4,15 +4,19 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define FE_TOWARDZERO implementation-defined
+#define FE_TOWARDZERO integer-constant-expression
+// または
+#undef FE_TOWARDZERO
 ```
+* integer-constant-expression[italic]
 
 ## 概要
 浮動小数点数の丸め方式として、「ゼロ方向への丸め (切り捨て, trunc)」を表すマクロ。
 
 このマクロは、標準ライブラリの丸め処理で使用される丸め方式をユーザーが選択するために使用する。
 
-このマクロの値は、整数の定数式として定義され、非負の値を持つ。
+処理系がこの丸め方式に対応している場合にこのマクロが定義される。
+マクロが定義されるとき、このマクロの値は整数の定数式になり、非負の値を持つ。
 
 
 ## 例

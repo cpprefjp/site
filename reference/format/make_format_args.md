@@ -63,6 +63,27 @@ return make_format_args<wformat_context>(args...);
 ```
 * wformat_context[link /reference/format/basic_format_context.md]
 
+
+## 例
+```cpp example
+#include <iostream>
+#include <format>
+
+int main() {
+  std::string fmt = "0x{:x} 0b{:04b}";
+  std::string s = std::vformat(fmt, std::make_format_args(10, 6));
+  std::cout << s << std::endl;
+}
+```
+* std::make_format_args[color ff0000]
+* std::vformat[link vformat.md]
+
+### 出力
+```
+0xa 0b0110
+```
+
+
 ## 実装例
 ```cpp
 namespace std {
@@ -87,9 +108,8 @@ namespace std {
 - C++20
 
 ### 処理系
-- [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
-- [ICC](/implementation.md#icc): ??
+- [Clang](/implementation.md#clang): 17
+- [GCC](/implementation.md#gcc): 13
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 参照

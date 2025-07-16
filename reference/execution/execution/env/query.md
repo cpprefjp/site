@@ -9,7 +9,6 @@
 template<class QueryTag>
 constexpr decltype(auto) query(QueryTag q) const noexcept(see below);
 ```
-* see below[italic]
 
 ## 概要
 [クエリオブジェクト](../../queryable.md)`q`をキーとして、対応する値を問い合わせる。

@@ -14,7 +14,6 @@ namespace std::execution {
 ```
 * sender[link sender.md]
 * queryable[link ../queryable.md]
-* see below[italic]
 
 ## 概要
 [実行ドメイン](default_domain.md)に応じて[Sender](sender.md)を変換する。

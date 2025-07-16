@@ -3,7 +3,7 @@
 * macro[meta id-type]
 
 ```cpp
-# define INT_MIN implementation-defined
+#define INT_MIN implementation-defined
 ```
 
 ## 概要

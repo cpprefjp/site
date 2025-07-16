@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define INT32_MIN implementation-defined
+#define INT32_MIN implementation-defined
 ```
 
 ## 概要

@@ -24,15 +24,6 @@ namespace std::filesystem {
 - (3) :
     ```cpp
     file_status s = status(p, ec);
-    if (ec) {
-      return false;
-    }
-
-    if (!status_known(s)) {
-      ec = implementation-defined;
-      return false;
-    }
-    ec.clear();
     return is_directory(s);
     ```
     * file_status[link file_status.md]

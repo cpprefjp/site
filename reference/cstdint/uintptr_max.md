@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define UINTPTR_MAX implementation-defined
+#define UINTPTR_MAX implementation-defined
 ```
 
 ## 概要

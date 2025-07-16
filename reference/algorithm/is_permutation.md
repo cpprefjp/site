@@ -144,7 +144,7 @@ bool is_permutation(ForwardIterator1 first1, ForwardIterator1 last1,
   return true;
 }
 
-# if __cplusplus >= 201402L
+#if __cplusplus >= 201402L
 
 template <class RandomAccessIterator1, class RandomAccessIterator2, class BinaryPredicate>
 bool is_permutation_impl(RandomAccessIterator1 first1, RandomAccessIterator1 last1,
@@ -198,7 +198,7 @@ bool is_permutation(ForwardIterator1 first1, ForwardIterator1 last1,
                              typename std::iterator_traits<ForwardIterator2>::iterator_category());
 }
 
-# endif
+#endif
 ```
 * std::mismatch[link mismatch.md]
 * std::count[link count.md]

@@ -5,9 +5,10 @@
 
 ```cpp
 namespace std {
-  using FILE = /* unspecified */;
+  using FILE = unspecified;
 }
 ```
+* unspecified[italic]
 
 ## 概要
 `FILE`型は、ストリームの制御に必要な情報を持つオブジェクト型である。

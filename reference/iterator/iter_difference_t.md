@@ -7,10 +7,9 @@
 ```cpp
 namespace std {
   template<class I>
-  using iter_difference_t = /*see below*/;
+  using iter_difference_t = see below;
 }
 ```
-* see below[italic]
 
 ## 概要
 

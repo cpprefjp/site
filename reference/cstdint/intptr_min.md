@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define INTPTR_MIN implementation-defined
+#define INTPTR_MIN implementation-defined
 ```
 
 ## 概要

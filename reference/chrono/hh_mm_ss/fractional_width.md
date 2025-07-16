@@ -14,7 +14,6 @@ namespace std::chrono {
   };
 }
 ```
-* see below[italic]
 
 ## 概要
 `precision`型によって表現される小数の小数桁数。

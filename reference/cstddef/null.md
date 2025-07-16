@@ -3,7 +3,7 @@
 * macro[meta id-type]
 
 ```cpp
-# define NULL implementation-defined
+#define NULL implementation-defined
 ```
 
 ## 概要

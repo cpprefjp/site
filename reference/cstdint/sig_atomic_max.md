@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define SIG_ATOMIC_MAX implementation-defined
+#define SIG_ATOMIC_MAX implementation-defined
 ```
 
 ## 概要

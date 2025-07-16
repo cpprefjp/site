@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define WINT_MIN implementation-defined
+#define WINT_MIN implementation-defined
 ```
 
 ## 概要

@@ -4,9 +4,9 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define FP_NAN integer_constant_expression
+#define FP_NAN integer-constant-expression
 ```
-* integer_constant_expression[italic]
+* integer-constant-expression[italic]
 
 ## 概要
 浮動小数点数が `NaN` であることを表すを表す整数定数式。

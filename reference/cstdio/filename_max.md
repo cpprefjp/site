@@ -3,7 +3,7 @@
 * macro[meta id-type]
 
 ```cpp
-#define FILENAME_MAX /* implementation-defined */
+#define FILENAME_MAX implementation-defined
 ```
 
 ## 概要

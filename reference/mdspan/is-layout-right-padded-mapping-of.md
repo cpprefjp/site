@@ -7,7 +7,6 @@
 template<class Mapping>
 constexpr bool is-layout-right-padded-mapping-of = see below;  // exposition only
 ```
-* see below[italic]
 
 
 ## 概要

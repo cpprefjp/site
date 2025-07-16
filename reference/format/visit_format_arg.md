@@ -8,10 +8,9 @@
 ```cpp
 namespace std {
   template<class Visitor, class Context>
-  see_below visit_format_arg(Visitor&& vis, basic_format_arg<Context> arg); // (1)
+  see below visit_format_arg(Visitor&& vis, basic_format_arg<Context> arg); // (1)
 }
 ```
-* see_below[italic]
 * basic_format_arg[link /reference/format/basic_format_arg.md]
 
 ## 概要

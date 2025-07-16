@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template <typename T>
-  concept tuple-like = /*see below*/; // 説明専用コンセプト
+  concept tuple-like = see below; // 説明専用コンセプト
 }
 ```
 

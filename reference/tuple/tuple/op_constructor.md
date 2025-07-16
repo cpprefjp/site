@@ -217,11 +217,9 @@ template<class Alloc, tuple-like UTuple>
 explicit(see below) constexpr
   tuple(allocator_arg_t, const Alloc& a, UTuple&&);       // (28) C++23
 ```
-* see below[italic]
 * EXPLICIT[italic]
 * allocator_arg_t[link /reference/memory/allocator_arg_t.md]
 * tuple-like[link ../tuple-like.md]
-* see below[italic]
 
 ## tupleオブジェクトの構築
 - (1) : デフォルトコンストラクタ（すべての要素を初期化して構築）

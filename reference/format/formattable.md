@@ -7,7 +7,7 @@
 ```cpp
 namespace std {
   template <class charT>
-  using fmt-iter-for = /* unspecified */;
+  using fmt-iter-for = unspecified;
 
   template <class T, class charT>
   concept formattable =

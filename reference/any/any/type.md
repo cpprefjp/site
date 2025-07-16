@@ -8,6 +8,7 @@
 ```cpp
 const type_info& type() const noexcept;
 ```
+* type_info[link /reference/typeinfo/type_info.md]
 
 ## 概要
 保持している値の型情報を取得する。

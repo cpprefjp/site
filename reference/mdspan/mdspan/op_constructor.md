@@ -45,7 +45,6 @@ template<class OtherElementType, class OtherExtents,
 * OtherExtents[link ../extents.md]
 * OtherLayoutPolicy[link ../LayoutMappingPolicy.md]
 * OtherAccessorPolicy[link ../AccessorPolicy.md]
-* see below[italic]
 
 ## 概要
 - (1) : デフォルトコンストラクタ

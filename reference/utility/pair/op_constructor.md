@@ -67,7 +67,6 @@ constexpr pair(piecewise_construct_t,
 ```
 * EXPLICIT[italic]
 * pair-like[link /reference/tuple/tuple-like.md]
-* see below[italic]
 
 ## 概要
 [`pair`](../pair.md)オブジェクトを構築する。

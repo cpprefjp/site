@@ -21,7 +21,6 @@ struct product-type {  // exposition only
 };
 ```
 * this Self[link /lang/cpp23/deducing_this.md.nolink]
-* see below[italic]
 
 ## 概要
 `product-type`は、Senderアルゴリズム動作仕様定義で用いられる説明専用のクラステンプレートである。
@@ -48,7 +47,6 @@ template<class Self, class Fn>
 constexpr decltype(auto) apply(this Self&& self, Fn&& fn) noexcept(see below);
 ```
 * this Self[link /lang/cpp23/deducing_this.md.nolink]
-* see below[italic]
 
 - テンプレートパラメータ制約 : 下記`return`文の式が適格であること。
 - 効果 : 下記と等価
