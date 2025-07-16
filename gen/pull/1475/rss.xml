@@ -2,9 +2,36 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-07-16T14:23:12.749335</updated>
-  <id>011ed9fc-3adf-4bb8-af62-92e8cb5c7989</id>
+  <updated>2025-07-16T15:00:32.128589</updated>
+  <id>777c1eef-d48e-4881-b183-ae0f644bf60c</id>
 
+  
+    <entry>
+      <title>strtol -- strtol:記述の変更</title>
+      <link href="https://cpprefjp.github.io/reference/cstdlib/strtol.html"/>
+      <id>5b1c95f1f3810b3211cb7ffdc214d3fbb94406c9:reference/cstdlib/strtol.md</id>
+      <updated>2025-07-16T23:56:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/strtol.md b/reference/cstdlib/strtol.md
+index a8f808adc..5b20b4df2 100644
+--- a/reference/cstdlib/strtol.md
++++ b/reference/cstdlib/strtol.md
+@@ -19,7 +19,7 @@ namespace std {
+ `base`が0の場合
+ - 文字列の先頭が`0x`または`0X`のときは16進数
+ - 文字列の先頭が`0`のときは8進数
+-- その他の場合は10進数として変換する。
++- その他のときは10進数として変換する。
+ 
+ 変換は次のように行われる
+ - 先頭が空白文字の場合、最初の非空白文字から変換される。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>strtol -- strtol:記述の変更</title>
@@ -15855,136 +15882,6 @@ index 000000000..a2918cf22
       <author>
         <name>rotarymars</name>
         <email>s.goto2050@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>make_format_args -- vformat, make_format_args : 実行時文字列のフォーマット引数で用途があるので説明と例を追加</title>
-      <link href="https://cpprefjp.github.io/reference/format/make_format_args.html"/>
-      <id>bb07e7c90e1f5d510ae07e6b02a9d1f66e0af757:reference/format/make_format_args.md</id>
-      <updated>2025-07-16T20:48:27+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/format/make_format_args.md b/reference/format/make_format_args.md
-index 3e4ffefad..6b189c1da 100644
---- a/reference/format/make_format_args.md
-+++ b/reference/format/make_format_args.md
-@@ -63,6 +63,27 @@ return make_format_args&amp;lt;wformat_context&amp;gt;(args...);
- ```
- * wformat_context[link /reference/format/basic_format_context.md]
- 
-+
-+## 例
-+```cpp example
-+#include &amp;lt;iostream&amp;gt;
-+#include &amp;lt;format&amp;gt;
-+
-+int main() {
-+  std::string fmt = &amp;#34;0x{:x} 0b{:04b}&amp;#34;;
-+  std::string s = std::vformat(fmt, std::make_format_args(10, 6));
-+  std::cout &amp;lt;&amp;lt; s &amp;lt;&amp;lt; std::endl;
-+}
-+```
-+* std::make_format_args[color ff0000]
-+* std::vformat[link vformat.md]
-+
-+### 出力
-+```
-+0xa 0b0110
-+```
-+
-+
- ## 実装例
- ```cpp
- namespace std {
-@@ -87,9 +108,8 @@ namespace std {
- - C++20
- 
- ### 処理系
--- [Clang](/implementation.md#clang): ??
--- [GCC](/implementation.md#gcc): ??
--- [ICC](/implementation.md#icc): ??
-+- [Clang](/implementation.md#clang): 17
-+- [GCC](/implementation.md#gcc): 13
- - [Visual C++](/implementation.md#visual_cpp): ??
- 
- ## 参照
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>vformat -- vformat, make_format_args : 実行時文字列のフォーマット引数で用途があるので説明と例を追加</title>
-      <link href="https://cpprefjp.github.io/reference/format/vformat.html"/>
-      <id>bb07e7c90e1f5d510ae07e6b02a9d1f66e0af757:reference/format/vformat.md</id>
-      <updated>2025-07-16T20:48:27+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/format/vformat.md b/reference/format/vformat.md
-index da0cfc5d2..06b2389e4 100644
---- a/reference/format/vformat.md
-+++ b/reference/format/vformat.md
-@@ -32,8 +32,12 @@ namespace std {
- * (3): マルチバイト文字列版 (ロケール指定あり)
- * (4): ワイド文字列版 (ロケール指定あり)
- 
--[`format`](format.md)のフォーマット引数を型消去したバージョンであり、内部的に使用される。文字列をフォーマットする目的で直接利用する必要はない。
--ただし、[`format`](format.md)のような関数を自作する場合は、`vformat`を使って実装すると便利である。
-+[`std::format()`](format.md)関数のフォーマット引数を実行時文字列にしたバージョンであり、[`std::format()`](format.md)関数の内部で使用される。
-+
-+[`std::format()`](format.md)のような関数を自作する場合にこの関数を使って実装すると便利であるほか、実行時文字列でフォーマット引数を構築したい場合にも利用できる。
-+
-+C++26以降は、実行時文字列のフォーマット引数を使用したい場合は、[`std::runtime_format()`](runtime_format.md)関数を使用できる。
-+
- 
- ## 戻り値
- 
-@@ -43,6 +47,26 @@ namespace std {
- 
- フォーマット実行時に失敗した場合、[`format_error`](format_error.md)を投げる。
- 
-+## 例
-+```cpp example
-+#include &amp;lt;iostream&amp;gt;
-+#include &amp;lt;format&amp;gt;
-+
-+int main() {
-+  std::string fmt = &amp;#34;0x{:x} 0b{:04b}&amp;#34;;
-+  std::string s = std::vformat(fmt, std::make_format_args(10, 6));
-+  std::cout &amp;lt;&amp;lt; s &amp;lt;&amp;lt; std::endl;
-+}
-+```
-+* std::vformat[color ff0000]
-+* std::make_format_args[link make_format_args.md]
-+
-+### 出力
-+```
-+0xa 0b0110
-+```
-+
-+
- ## 実装例
- 
- ```cpp
-@@ -84,9 +108,8 @@ string vformat(const locale&amp;amp; loc, wstring_view fmt, wformat_args args) {
- - C++20
- 
- ### 処理系
--- [Clang](/implementation.md#clang): ??
--- [GCC](/implementation.md#gcc): ??
--- [ICC](/implementation.md#icc): ??
-+- [Clang](/implementation.md#clang): 17
-+- [GCC](/implementation.md#gcc): 13
- - [Visual C++](/implementation.md#visual_cpp): ??
- 
- ## 参照
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
       </author>
     </entry>
   
