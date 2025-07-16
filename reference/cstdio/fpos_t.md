@@ -8,6 +8,7 @@ namespace std {
   using fpos_t = object-type;
 }
 ```
+* object-type[italic]
 
 ## 概要
 ファイルの位置を保持するための型。
