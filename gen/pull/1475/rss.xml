@@ -2,9 +2,38 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-07-16T14:18:26.126258</updated>
-  <id>e05a5f02-c9f9-48c7-9d41-5e6578d41ea2</id>
+  <updated>2025-07-16T14:23:12.749335</updated>
+  <id>011ed9fc-3adf-4bb8-af62-92e8cb5c7989</id>
 
+  
+    <entry>
+      <title>strtol -- strtol:記述の変更</title>
+      <link href="https://cpprefjp.github.io/reference/cstdlib/strtol.html"/>
+      <id>a3c4ce42e1367314524fb90a2ee4d9574d39693a:reference/cstdlib/strtol.md</id>
+      <updated>2025-07-16T23:18:01+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/strtol.md b/reference/cstdlib/strtol.md
+index 08f290690..a8f808adc 100644
+--- a/reference/cstdlib/strtol.md
++++ b/reference/cstdlib/strtol.md
+@@ -17,8 +17,8 @@ namespace std {
+ 基数`base`は 2～36 または 0 の値を取る。
+ 
+ `base`が0の場合
+-- 文字列の先頭が`0x`、`0X`は16進数
+-- 文字列の先頭が`0`の場合は8進数
++- 文字列の先頭が`0x`または`0X`のときは16進数
++- 文字列の先頭が`0`のときは8進数
+ - その他の場合は10進数として変換する。
+ 
+ 変換は次のように行われる
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>Pragma演算子 [N1653] -- Merge branch &#39;master&#39; into cstdlib/strtol</title>
@@ -15956,32 +15985,6 @@ index da0cfc5d2..06b2389e4 100644
       <author>
         <name>Akira Takahashi</name>
         <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>type -- type_infoへのリンクがあってほしいと思ったので追加</title>
-      <link href="https://cpprefjp.github.io/reference/any/any/type.html"/>
-      <id>15541d7b9fc68d9eb591809461c7b6c4a0af2b9a:reference/any/any/type.md</id>
-      <updated>2025-07-16T19:16:35+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/any/any/type.md b/reference/any/any/type.md
-index b0ba6b866..cc67cdd93 100644
---- a/reference/any/any/type.md
-+++ b/reference/any/any/type.md
-@@ -8,6 +8,7 @@
- ```cpp
- const type_info&amp;amp; type() const noexcept;
- ```
-+* type_info[link /reference/typeinfo/type_info.md]
- 
- ## 概要
- 保持している値の型情報を取得する。
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>OGAWA KenIchi</name>
-        <email>kenichi@ice.email.ne.jp</email>
       </author>
     </entry>
   
