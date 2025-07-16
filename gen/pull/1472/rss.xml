@@ -2,8 +2,8 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-07-14T08:08:12.198467</updated>
-  <id>65290826-efe4-44cf-ab77-214712d6130c</id>
+  <updated>2025-07-16T08:54:32.788343</updated>
+  <id>3cce4a26-4cfc-41da-ae50-447453be91ea</id>
 
   
     <entry>
@@ -89,33 +89,6 @@ index b603c81a1..3cda36b5b 100644
  }
  
  ```
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>rotarymars</name>
-        <email>s.goto2050@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>FILE -- fixed declaration of `file.md`</title>
-      <link href="https://cpprefjp.github.io/reference/cstdio/file.html"/>
-      <id>942ab1ab8586029cfdbf085a32694249e488b25d:reference/cstdio/file.md</id>
-      <updated>2025-07-13T22:56:02+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/file.md b/reference/cstdio/file.md
-index 5791670be..243769def 100644
---- a/reference/cstdio/file.md
-+++ b/reference/cstdio/file.md
-@@ -5,7 +5,7 @@
- 
- ```cpp
- namespace std {
--  typedef /* unspecified */ FILE;
-+  using FILE = /* unspecified */;
- }
- ```
- 
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
