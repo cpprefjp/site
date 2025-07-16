@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2023-02-01T07:12:22">
-        2023年02月01日 07時12分22秒
+      <span itemprop="datePublished" content="2025-07-13T06:17:26">
+        2025年07月13日 06時17分26秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -214,7 +214,8 @@
         
   <div class="identifier-type">type-alias</div><div class="header">&lt;ctime&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">time_t</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">using</span> <span class="kt">time_t</span> <span class="o">=</span> <span class="n"><i>implementation-defined</i></span><span class="p">;</span>
+  <span class="k">using</span> <span class="kt">time_t</span> <span class="o">=</span> <span class="n"><i>integer-type</i></span><span class="p">;</span> <span class="c1">// C++11 (C99) 以前</span>
+  <span class="k">using</span> <span class="kt">time_t</span> <span class="o">=</span> <span class="n"><i>real-type</i></span><span class="p">;</span>    <span class="c1">// C++14 (C11) 以降</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>

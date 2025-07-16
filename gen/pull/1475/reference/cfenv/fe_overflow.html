@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-11T17:16:44">
-        2025年07月11日 17時16分44秒
+      <span itemprop="datePublished" content="2025-07-13T06:24:50">
+        2025年07月13日 06時24分50秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -213,12 +213,15 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">macro</div><div class="header">&lt;cfenv&gt;</div><h1 itemprop="name"><span class="token">FE_OVERFLOW</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="cp"># define FE_OVERFLOW <i>implementation-defined</i></span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="cp">#define FE_OVERFLOW <i>integer-constant-expression</i></span>
+<span class="c1">// または</span>
+<span class="cp">#undef FE_OVERFLOW</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
 <p>浮動小数点数の演算でオーバーフローが発生したことを表す浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>の種類。</p>
-<p>このマクロは、浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>の状態を表すビット値である。他の浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>マクロとAND (<code>&amp;</code>) や OR (<code>|</code>)を使用して、複数のマクロを組み合わせて使用できる。</p>
+<p>処理系がこの浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>に対応している場合にこのマクロが定義される。
+マクロが定義されるとき、このマクロは浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>の状態を表すビット値である。他の浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>マクロとAND (<code>&amp;</code>) や OR (<code>|</code>)を使用して、複数のマクロを組み合わせて使用できる。</p>
 <h2>例</h2>
 <p><div class="yata" id="abd0ecb787f9fbc9251451c065b33be974ce1374"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../limits.html">&lt;limits&gt;</a></span><span class="cp"></span>

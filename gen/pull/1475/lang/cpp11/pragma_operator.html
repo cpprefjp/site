@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;aca351d10dace91897b1c649215bef7835abe302&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\n// OpenMP\u306e\u8a00\u8a9e\u62e1\u5f35\u3092\u4f7f\u7528\u3057\u3066\u3001for\u6587\u3092\u4e26\u5217\u5b9f\u884c\u3059\u308b\n# define OMP_PARALLEL_FOR _Pragma(\&#34;omp parallel for\&#34;)\n\n// \u4ee5\u4e0b\u306e\u3088\u3046\u306b\u3001Pragma\u30c7\u30a3\u30ec\u30af\u30c6\u30a3\u30d6\u3067\u306f\u66f8\u3051\u306a\u3044\n//#define OMP_PARALLEL_FOR #pragma omp parallel for\n\nint main()\n{\n  constexpr int N = 5;\n  int a[N] = {1, 2, 3, 4, 5};\n  int b[N] = {1, 2, 3, 4, 5};\n  int c[N] = {};\n\n  // OMP_PARALLEL_FOR\u306f\u3001 _Pragma(\&#34;omp parallel for\&#34;) \u306b\u5c55\u958b\u3055\u308c\u308b\n  OMP_PARALLEL_FOR\n  for (int i = 0; i &lt; N; ++i) {\n    c[i] = a[i] + b[i];\n  }\n\n  for (int i = 0; i &lt; N; ++i) {\n    std::cout &lt;&lt; c[i] &lt;&lt; std::endl;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp11&#34;, &#34;pragma_operator&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;2885a7b70c910f930f86b68cd1e402d57730a44c&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\n// OpenMP\u306e\u8a00\u8a9e\u62e1\u5f35\u3092\u4f7f\u7528\u3057\u3066\u3001for\u6587\u3092\u4e26\u5217\u5b9f\u884c\u3059\u308b\n#define OMP_PARALLEL_FOR _Pragma(\&#34;omp parallel for\&#34;)\n\n// \u4ee5\u4e0b\u306e\u3088\u3046\u306b\u3001Pragma\u30c7\u30a3\u30ec\u30af\u30c6\u30a3\u30d6\u3067\u306f\u66f8\u3051\u306a\u3044\n//#define OMP_PARALLEL_FOR #pragma omp parallel for\n\nint main()\n{\n  constexpr int N = 5;\n  int a[N] = {1, 2, 3, 4, 5};\n  int b[N] = {1, 2, 3, 4, 5};\n  int c[N] = {};\n\n  // OMP_PARALLEL_FOR\u306f\u3001 _Pragma(\&#34;omp parallel for\&#34;) \u306b\u5c55\u958b\u3055\u308c\u308b\n  OMP_PARALLEL_FOR\n  for (int i = 0; i &lt; N; ++i) {\n    c[i] = a[i] + b[i];\n  }\n\n  for (int i = 0; i &lt; N; ++i) {\n    std::cout &lt;&lt; c[i] &lt;&lt; std::endl;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp11&#34;, &#34;pragma_operator&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-10T01:26:30">
-        2025年07月10日 01時26分30秒
+      <span itemprop="datePublished" content="2025-07-13T04:07:37">
+        2025年07月13日 04時07分37秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -234,10 +234,10 @@
 </ul>
 <p>処理結果のプリプロセッサトークンのシーケンスは、Pragmaディレクティブに指定した場合と同様に処理される。</p>
 <h2>例</h2>
-<p><div class="yata" id="aca351d10dace91897b1c649215bef7835abe302"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="2885a7b70c910f930f86b68cd1e402d57730a44c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
 
 <span class="c1">// OpenMPの言語拡張を使用して、for文を並列実行する</span>
-<span class="cp"># define OMP_PARALLEL_FOR _Pragma("omp parallel for")</span>
+<span class="cp">#define OMP_PARALLEL_FOR _Pragma("omp parallel for")</span>
 
 <span class="c1">// 以下のように、Pragmaディレクティブでは書けない</span>
 <span class="c1">//#define OMP_PARALLEL_FOR #pragma omp parallel for</span>

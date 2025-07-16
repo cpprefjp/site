@@ -28,11 +28,11 @@
         <meta property="og:url" content="https://cpprefjp.github.io/reference/cmath/nan.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
-        <meta property="og:description" content="`NaN`(Not a Number, 非数) がサポートされる場合、`float` の `quiet NaN` の定数式に展開される。" />
+        <meta property="og:description" content="処理系が `float` 型の quiet NaN (Not a Number, 非数) に対応している場合に定義される。" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="NAN - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/cmath/nan.html" />
-        <meta name="twitter:description" content="`NaN`(Not a Number, 非数) がサポートされる場合、`float` の `quiet NaN` の定数式に展開される。" />
+        <meta name="twitter:description" content="処理系が `float` 型の quiet NaN (Not a Number, 非数) に対応している場合に定義される。" />
 
         
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2017-03-15T08:17:19">
-        2017年03月15日 08時17分19秒
+      <span itemprop="datePublished" content="2025-07-13T06:24:50">
+        2025年07月13日 06時24分50秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Koichi Murase</span>
       </span>
       が更新
     </small></p>
@@ -213,11 +213,14 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">macro</div><div class="header">&lt;cmath&gt;</div><h1 itemprop="name"><span class="token">NAN</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="cp"># define NAN <i>constant_expression</i></span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="cp">#define NAN <i>constant-expression</i></span>
+<span class="c1">// または</span>
+<span class="cp">#undef NAN</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
-<p><code>NaN</code>(Not a Number, 非数) がサポートされる場合、<code>float</code> の <code>quiet NaN</code> の定数式に展開される。</p>
+<p>処理系が <code>float</code> 型の quiet NaN (Not a Number, 非数) に対応している場合に定義される。
+<code>float</code> の quiet NaN の定数式に展開される。</p>
 <h2>バージョン</h2>
 <h3>言語</h3>
 <ul>

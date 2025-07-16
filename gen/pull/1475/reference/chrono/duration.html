@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;chrono&#34;], &#34;namespace&#34;: [&#34;std::chrono&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;98274dd16b366a9d0d4ad8b1833bc3815c629813&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;chrono&gt;\n#include &lt;ctime&gt;\n\nusing std::chrono::system_clock;\nusing std::chrono::seconds;\n\nvoid print(const system_clock::time_point&amp; p)\n{\n  std::time_t t = system_clock::to_time_t(p);\n  char buf[26];  // \u6700\u4f4e26\u30d0\u30a4\u30c8\u304c\u5fc5\u8981\n# ifdef _MSC_VER\n  // Visual Studio\u3067\u306fctime_s()\u304c\u63a8\u5968\u3055\u308c\u3066\u3044\u308b\u3002\n  ctime_s(buf, 26, &amp;t);\n# else\n  // ctime()\u306e\u30ea\u30a8\u30f3\u30c8\u30e9\u30f3\u30c8\u7248\n  ctime_r(&amp;t, buf);\n# endif\n  // \u51fa\u529b\u3055\u308c\u305f\u6587\u5b57\u5217\u306b\u306f\u6539\u884c\u304c\u542b\u307e\u308c\u3066\u3044\u308b\u3053\u3068\u306b\u6ce8\u610f\n  std::cout &lt;&lt; buf;\n}\n\nint main()\n{\n  // \u73fe\u5728\u65e5\u6642\u3092\u53d6\u5f97\n  system_clock::time_point now = system_clock::now();\n\n  // 3\u79d2\u5f8c\u306e\u65e5\u6642\u3092\u53d6\u5f97\n  system_clock::time_point p = now + seconds(3);\n\n  print(now);\n  print(p);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;chrono&#34;, &#34;duration&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;chrono&#34;], &#34;namespace&#34;: [&#34;std::chrono&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;740171180c227ca1acbf46a49cd825e0e7f68ed6&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;chrono&gt;\n#include &lt;ctime&gt;\n\nusing std::chrono::system_clock;\nusing std::chrono::seconds;\n\nvoid print(const system_clock::time_point&amp; p)\n{\n  std::time_t t = system_clock::to_time_t(p);\n  char buf[26];  // \u6700\u4f4e26\u30d0\u30a4\u30c8\u304c\u5fc5\u8981\n#ifdef _MSC_VER\n  // Visual Studio\u3067\u306fctime_s()\u304c\u63a8\u5968\u3055\u308c\u3066\u3044\u308b\u3002\n  ctime_s(buf, 26, &amp;t);\n#else\n  // ctime()\u306e\u30ea\u30a8\u30f3\u30c8\u30e9\u30f3\u30c8\u7248\n  ctime_r(&amp;t, buf);\n#endif\n  // \u51fa\u529b\u3055\u308c\u305f\u6587\u5b57\u5217\u306b\u306f\u6539\u884c\u304c\u542b\u307e\u308c\u3066\u3044\u308b\u3053\u3068\u306b\u6ce8\u610f\n  std::cout &lt;&lt; buf;\n}\n\nint main()\n{\n  // \u73fe\u5728\u65e5\u6642\u3092\u53d6\u5f97\n  system_clock::time_point now = system_clock::now();\n\n  // 3\u79d2\u5f8c\u306e\u65e5\u6642\u3092\u53d6\u5f97\n  system_clock::time_point p = now + seconds(3);\n\n  print(now);\n  print(p);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;chrono&#34;, &#34;duration&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2024-12-29T06:06:55">
-        2024年12月29日 06時06分55秒
+      <span itemprop="datePublished" content="2025-07-13T04:07:37">
+        2025年07月13日 04時07分37秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">rotarymars</span>
+        <span itemprop="name">Koichi Murase</span>
       </span>
       が更新
     </small></p>
@@ -697,7 +697,7 @@
 </tbody>
 </table>
 <h2>例</h2>
-<p><div class="yata" id="98274dd16b366a9d0d4ad8b1833bc3815c629813"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="740171180c227ca1acbf46a49cd825e0e7f68ed6"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../ctime.html">&lt;ctime&gt;</a></span><span class="cp"></span>
 
@@ -708,13 +708,13 @@
 <span class="p">{</span>
   <span class="n"><a href="../ctime/time_t.html">std::time_t</a></span> <span class="n">t</span> <span class="o">=</span> <span class="n"><a href="system_clock.html">system_clock</a></span><span class="o">::</span><span class="n"><a href="system_clock/to_time_t.html">to_time_t</a></span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
   <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">26</span><span class="p">];</span>  <span class="c1">// 最低26バイトが必要</span>
-<span class="cp"># ifdef _MSC_VER</span>
+<span class="cp">#ifdef _MSC_VER</span>
   <span class="c1">// Visual Studioではctime_s()が推奨されている。</span>
   <span class="n">ctime_s</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">t</span><span class="p">);</span>
-<span class="cp"># else</span>
+<span class="cp">#else</span>
   <span class="c1">// ctime()のリエントラント版</span>
   <span class="n">ctime_r</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">,</span> <span class="n">buf</span><span class="p">);</span>
-<span class="cp"># endif</span>
+<span class="cp">#endif</span>
   <span class="c1">// 出力された文字列には改行が含まれていることに注意</span>
   <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">buf</span><span class="p">;</span>
 <span class="p">}</span>

@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:33:39">
-        2025年07月08日 15時33分39秒
+      <span itemprop="datePublished" content="2025-07-13T04:07:37">
+        2025年07月13日 04時07分37秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Koichi Murase</span>
       </span>
       が更新
     </small></p>
@@ -342,17 +342,17 @@
 </code></pre></p>
 <h2>実装例</h2>
 <p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">OutputIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Size</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
-<span class="cp"># if __cplusplus &gt;= 201103L</span>
+<span class="cp">#if __cplusplus &gt;= 201103L</span>
 <span class="n">OutputIterator</span>
-<span class="cp"># else</span>
+<span class="cp">#else</span>
 <span class="kt">void</span>
-<span class="cp"># endif</span>
+<span class="cp">#endif</span>
 <span class="n">fill_n</span><span class="p">(</span><span class="n">OutputIterator</span> <span class="n">first</span><span class="p">,</span> <span class="n">Size</span> <span class="n">n</span><span class="p">,</span> <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">while</span> <span class="p">(</span><span class="n">n</span><span class="o">--</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
     <span class="o">*</span><span class="n">first</span><span class="o">++</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
-<span class="cp"># if __cplusplus &gt;= 201103L</span>
+<span class="cp">#if __cplusplus &gt;= 201103L</span>
   <span class="k">return</span> <span class="n">first</span><span class="p">;</span>
-<span class="cp"># endif</span>
+<span class="cp">#endif</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>

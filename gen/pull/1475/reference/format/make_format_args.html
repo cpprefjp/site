@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;format&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;format&#34;, &#34;make_format_args&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;format&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;aecb4732974ae99fde75697f07409283d005c8a2&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;format&gt;\n\nint main() {\n  std::string fmt = \&#34;0x{:x} 0b{:04b}\&#34;;\n  std::string s = std::vformat(fmt, std::make_format_args(10, 6));\n  std::cout &lt;&lt; s &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;format&#34;, &#34;make_format_args&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2024-03-27T17:35:04">
-        2024年03月27日 17時35分04秒
+      <span itemprop="datePublished" content="2025-07-16T11:48:27">
+        2025年07月16日 11時48分27秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Tetsuro Matsumura</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -253,6 +253,20 @@
 <p><div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="n">make_format_args</span><span class="o">&lt;</span><span class="n"><a href="basic_format_context.html">wformat_context</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">...);</span>
 </code></pre></div>
 </p>
+<h2>例</h2>
+<p><div class="yata" id="aecb4732974ae99fde75697f07409283d005c8a2"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../format.html">&lt;format&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">fmt</span> <span class="o">=</span> <span class="s">"0x{:x} 0b{:04b}"</span><span class="p">;</span>
+  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">s</span> <span class="o">=</span> <span class="n"><a href="vformat.html">std::vformat</a></span><span class="p">(</span><span class="n">fmt</span><span class="p">,</span> <span class="n"><span style="color:#ff0000">std::make_format_args</span></span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">));</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>0xa 0b0110
+</code></pre></p>
 <h2>実装例</h2>
 <p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
   <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Context</span> <span class="o">=</span> <span class="n">format_context</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
@@ -276,9 +290,8 @@
 </ul>
 <h3>処理系</h3>
 <ul>
-<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
-<li><a href="../../implementation.html#gcc">GCC</a>: ??</li>
-<li><a href="../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../implementation.html#clang">Clang</a>: 17</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 13</li>
 <li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
 </ul>
 <h2>参照</h2>

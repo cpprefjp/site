@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-05-22T07:35:09">
-        2025年05月22日 07時35分09秒
+      <span itemprop="datePublished" content="2025-07-13T04:07:37">
+        2025年07月13日 04時07分37秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Koichi Murase</span>
       </span>
       が更新
     </small></p>
@@ -348,16 +348,16 @@
     <span class="k">return</span> <span class="nf"><a href="copysign.html">copysign</a></span><span class="p">(</span><span class="n"><a href="isinf.html">isinf</a></span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">?</span> <span class="mf">0.0</span><span class="nl">L</span> <span class="p">:</span> <span class="n">value</span> <span class="o">-</span> <span class="p">(</span><span class="o">*</span><span class="n">iptr</span><span class="p">),</span> <span class="n">value</span><span class="p">);</span>
   <span class="p">}</span>
 
-<span class="cp"># if __cplusplus &gt;= 201103L</span>
+<span class="cp">#if __cplusplus &gt;= 201103L</span>
   <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
   <span class="k">typename</span> <span class="n"><a href="../type_traits/enable_if.html">enable_if</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/is_integral.html">is_integral</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;::</span><span class="n">type</span>
   <span class="n">modf</span><span class="p">(</span><span class="n">T</span> <span class="n">value</span><span class="p">,</span> <span class="kt">double</span><span class="o">*</span> <span class="n">iptr</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="k">return</span> <span class="n">modf</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">value</span><span class="p">),</span> <span class="n">iptr</span><span class="p">);</span>
   <span class="p">}</span>
-<span class="cp"># endif</span>
+<span class="cp">#endif</span>
 
-<span class="cp"># if __cplusplus &gt; 201402L</span>
+<span class="cp">#if __cplusplus &gt; 201402L</span>
   <span class="kt">float</span> <span class="n">modff</span><span class="p">(</span><span class="kt">float</span> <span class="n">value</span><span class="p">,</span> <span class="kt">float</span><span class="o">*</span> <span class="n">iptr</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="k">return</span> <span class="n">modf</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">iptr</span><span class="p">);</span>
@@ -367,7 +367,7 @@
   <span class="p">{</span>
     <span class="k">return</span> <span class="n">modf</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">iptr</span><span class="p">);</span>
   <span class="p">}</span>
-<span class="cp"># endif</span>
+<span class="cp">#endif</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>

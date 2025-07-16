@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-11T17:16:44">
-        2025年07月11日 17時16分44秒
+      <span itemprop="datePublished" content="2025-07-13T06:24:50">
+        2025年07月13日 06時24分50秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -213,13 +213,16 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">macro</div><div class="header">&lt;cfenv&gt;</div><h1 itemprop="name"><span class="token">FE_DOWNWARD</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="cp"># define FE_DOWNWARD <i>implementation-defined</i></span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="cp">#define FE_DOWNWARD <i>integer-constant-expression</i></span>
+<span class="c1">// または</span>
+<span class="cp">#undef FE_DOWNWARD</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
 <p>浮動小数点数の丸め方式として、「負の無限大方向への丸め (切り下げ, floor, round down)」を表すマクロ。</p>
 <p>このマクロは、標準ライブラリの丸め処理で使用される丸め方式をユーザーが選択するために使用する。</p>
-<p>このマクロの値は、整数の定数式として定義され、非負の値を持つ。</p>
+<p>処理系がこの丸め方式に対応している場合にこのマクロが定義される。
+マクロが定義されるとき、このマクロの値は整数の定数式になり、非負の値を持つ。</p>
 <h2>例</h2>
 <p><div class="yata" id="b87c9c4d8f62453ecac4046500a3f31ff622eef9"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../cfenv.html">&lt;cfenv&gt;</a></span><span class="cp"></span>

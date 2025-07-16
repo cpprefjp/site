@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2024-05-13T06:14:50">
-        2024年05月13日 06時14分50秒
+      <span itemprop="datePublished" content="2025-07-13T04:07:37">
+        2025年07月13日 04時07分37秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Koichi Murase</span>
       </span>
       が更新
     </small></p>
@@ -213,13 +213,13 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">macro</div><div class="header">&lt;cassert&gt;</div><h1 itemprop="name"><span class="token">assert</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="cp"># if !defined(NDEBUG)</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="cp">#if !defined(NDEBUG)</span>
   <span class="cp">#define <a href="">assert</a>(expr) <i>implementation-defined</i> </span><span class="c1">// (1) C++03</span>
   <span class="cp">#define <a href="">assert</a>(...) <i>implementation-defined</i>  </span><span class="c1">// (1) C++26</span>
-<span class="cp"># else</span>
+<span class="cp">#else</span>
   <span class="cp">#define <a href="">assert</a>(ignore) ((void)0)            </span><span class="c1">// (2) C++03</span>
   <span class="cp">#define <a href="">assert</a>(...) ((void)0)               </span><span class="c1">// (2) C++26</span>
-<span class="cp"># endif</span>
+<span class="cp">#endif</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>

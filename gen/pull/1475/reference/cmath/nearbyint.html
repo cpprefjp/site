@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cmath&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;4d770a9423d2ff198438f1c976056d2e14a35367&#34;, &#34;source&#34;: &#34;#include &lt;cfenv&gt;\n#include &lt;cmath&gt;\n#include &lt;iostream&gt;\n\nvoid test(const char* title, int round_mode)\n{\n  std::feclearexcept(FE_ALL_EXCEPT);\n  std::fesetround(round_mode);\n  std::cout &lt;&lt; title &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;nearbyint(2.5) = \&#34; &lt;&lt; std::nearbyint(2.5) &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;nearbyint(-2.5) = \&#34; &lt;&lt; std::nearbyint(-2.5) &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;FE_INEXACT = \&#34; &lt;&lt; std::boolalpha &lt;&lt; (std::fetestexcept(FE_INEXACT) != 0) &lt;&lt; std::endl &lt;&lt; std::endl;\n}\n\n# define test(mode) test(#mode, mode)\n\nint main()\n{\n# ifdef FE_DOWNWARD\n  test(FE_DOWNWARD);\n# endif\n# ifdef FE_TONEAREST\n  test(FE_TONEAREST);\n# endif\n# ifdef FE_TOWARDZERO\n  test(FE_TOWARDZERO);\n# endif\n# ifdef FE_UPWARD\n  test(FE_UPWARD);\n# endif\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cmath&#34;, &#34;nearbyint&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cmath&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;d2fcd9216d321192df29b6a96cd2bde564510bf9&#34;, &#34;source&#34;: &#34;#include &lt;cfenv&gt;\n#include &lt;cmath&gt;\n#include &lt;iostream&gt;\n\nvoid test(const char* title, int round_mode)\n{\n  std::feclearexcept(FE_ALL_EXCEPT);\n  std::fesetround(round_mode);\n  std::cout &lt;&lt; title &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;nearbyint(2.5) = \&#34; &lt;&lt; std::nearbyint(2.5) &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;nearbyint(-2.5) = \&#34; &lt;&lt; std::nearbyint(-2.5) &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;FE_INEXACT = \&#34; &lt;&lt; std::boolalpha &lt;&lt; (std::fetestexcept(FE_INEXACT) != 0) &lt;&lt; std::endl &lt;&lt; std::endl;\n}\n\n#define test(mode) test(#mode, mode)\n\nint main()\n{\n#ifdef FE_DOWNWARD\n  test(FE_DOWNWARD);\n#endif\n#ifdef FE_TONEAREST\n  test(FE_TONEAREST);\n#endif\n#ifdef FE_TOWARDZERO\n  test(FE_TOWARDZERO);\n#endif\n#ifdef FE_UPWARD\n  test(FE_UPWARD);\n#endif\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cmath&#34;, &#34;nearbyint&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-07T15:52:52">
-        2025年07月07日 15時52分52秒
+      <span itemprop="datePublished" content="2025-07-13T04:07:37">
+        2025年07月13日 04時07分37秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -256,7 +256,7 @@
 <li>C++23では、(1), (2), (3)が(4)に統合され、<a class="cpprefjp-defined-word" data-desc="&lt;stdfloat&gt;で定義される内部表現の規定された浮動小数点数型" href="../stdfloat.html">拡張浮動小数点数型</a>を含む浮動小数点数型への<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>として定義された</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="4d770a9423d2ff198438f1c976056d2e14a35367"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cfenv.html">&lt;cfenv&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="d2fcd9216d321192df29b6a96cd2bde564510bf9"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cfenv.html">&lt;cfenv&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../cmath.html">&lt;cmath&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
 
@@ -270,22 +270,22 @@
   <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"<a href="../cfenv/fe_inexact.html">FE_INEXACT</a> = "</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ios/boolalpha.html">std::boolalpha</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n"><a href="../cfenv/fetestexcept.html">std::fetestexcept</a></span><span class="p">(</span><span class="n"><a href="../cfenv/fe_inexact.html">FE_INEXACT</a></span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="cp"># define test(mode) test(#mode, mode)</span>
+<span class="cp">#define test(mode) test(#mode, mode)</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-<span class="cp"># ifdef <a href="../cfenv/fe_downward.html">FE_DOWNWARD</a></span>
+<span class="cp">#ifdef <a href="../cfenv/fe_downward.html">FE_DOWNWARD</a></span>
   <span class="n">test</span><span class="p">(</span><span class="n"><a href="../cfenv/fe_downward.html">FE_DOWNWARD</a></span><span class="p">);</span>
-<span class="cp"># endif</span>
-<span class="cp"># ifdef <a href="../cfenv/fe_tonearest.html">FE_TONEAREST</a></span>
+<span class="cp">#endif</span>
+<span class="cp">#ifdef <a href="../cfenv/fe_tonearest.html">FE_TONEAREST</a></span>
   <span class="n">test</span><span class="p">(</span><span class="n"><a href="../cfenv/fe_tonearest.html">FE_TONEAREST</a></span><span class="p">);</span>
-<span class="cp"># endif</span>
-<span class="cp"># ifdef <a href="../cfenv/fe_towardzero.html">FE_TOWARDZERO</a></span>
+<span class="cp">#endif</span>
+<span class="cp">#ifdef <a href="../cfenv/fe_towardzero.html">FE_TOWARDZERO</a></span>
   <span class="n">test</span><span class="p">(</span><span class="n"><a href="../cfenv/fe_towardzero.html">FE_TOWARDZERO</a></span><span class="p">);</span>
-<span class="cp"># endif</span>
-<span class="cp"># ifdef <a href="../cfenv/fe_upward.html">FE_UPWARD</a></span>
+<span class="cp">#endif</span>
+<span class="cp">#ifdef <a href="../cfenv/fe_upward.html">FE_UPWARD</a></span>
   <span class="n">test</span><span class="p">(</span><span class="n"><a href="../cfenv/fe_upward.html">FE_UPWARD</a></span><span class="p">);</span>
-<span class="cp"># endif</span>
+<span class="cp">#endif</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>

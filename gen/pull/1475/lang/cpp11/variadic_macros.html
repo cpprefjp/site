@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;aa32f5ca5c003f8f89916cf2dd5148d7ce59f136&#34;, &#34;source&#34;: &#34;#include &lt;cstdio&gt;\n\n// \u53ef\u5909\u500b\u306e\u30d1\u30e9\u30e1\u30fc\u30bf\u3092\u53d7\u3051\u53d6\u308a\u3001std::printf()\u95a2\u6570\u306e\u5f15\u6570\u3068\u3057\u3066\u8ee2\u9001\u3059\u308b\n// \u7b2c1\u30d1\u30e9\u30e1\u30fc\u30bf\u306f\u5fc5\u9808\u3002\n// \u7b2c1\u30d1\u30e9\u30e1\u30fc\u30bf\u306e\u3046\u3057\u308d\u306b\u30ab\u30f3\u30de\u304c\u3042\u308b\u306e\u3067\u3001\u7b2c2\u30d1\u30e9\u30e1\u30fc\u30bf\u3082\u5fc5\u9808\u3002\n# define DEBUG_LOG(fmt, ...) std::printf(fmt, __VA_ARGS__)\n\n// \u53d7\u3051\u53d6\u3063\u305f\u30d1\u30e9\u30e1\u30fc\u30bf\u3092\u5c55\u958b\u3059\u308b\n// 0\u500b\u4ee5\u4e0a\u306e\u3001\u4efb\u610f\u306e\u500b\u6570\u306e\u30d1\u30e9\u30e1\u30fc\u30bf\u3092\u53d7\u3051\u53d6\u308c\u308b\n# define FORWARD_ARGS(...) __VA_ARGS__\n\nvoid f1(int a, int b, int c)\n{\n  std::printf(\&#34;f1 : %d %d %d\\n\&#34;, a, b, c);\n}\n\nvoid f2()\n{\n  std::printf(\&#34;f2\\n\&#34;);\n}\n\nint main()\n{\n  DEBUG_LOG(\&#34;%s %d\\n\&#34;, \&#34;Hello\&#34;, 42);\n\n  f1(FORWARD_ARGS(1, 2, 3)); // \u5f15\u65703\u500b\n  f2(FORWARD_ARGS());        // \u5f15\u65700\u500b\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp11&#34;, &#34;variadic_macros&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;99bf8aeced9580e87d526c7f8034e78bf82a9aed&#34;, &#34;source&#34;: &#34;#include &lt;cstdio&gt;\n\n// \u53ef\u5909\u500b\u306e\u30d1\u30e9\u30e1\u30fc\u30bf\u3092\u53d7\u3051\u53d6\u308a\u3001std::printf()\u95a2\u6570\u306e\u5f15\u6570\u3068\u3057\u3066\u8ee2\u9001\u3059\u308b\n// \u7b2c1\u30d1\u30e9\u30e1\u30fc\u30bf\u306f\u5fc5\u9808\u3002\n// \u7b2c1\u30d1\u30e9\u30e1\u30fc\u30bf\u306e\u3046\u3057\u308d\u306b\u30ab\u30f3\u30de\u304c\u3042\u308b\u306e\u3067\u3001\u7b2c2\u30d1\u30e9\u30e1\u30fc\u30bf\u3082\u5fc5\u9808\u3002\n#define DEBUG_LOG(fmt, ...) std::printf(fmt, __VA_ARGS__)\n\n// \u53d7\u3051\u53d6\u3063\u305f\u30d1\u30e9\u30e1\u30fc\u30bf\u3092\u5c55\u958b\u3059\u308b\n// 0\u500b\u4ee5\u4e0a\u306e\u3001\u4efb\u610f\u306e\u500b\u6570\u306e\u30d1\u30e9\u30e1\u30fc\u30bf\u3092\u53d7\u3051\u53d6\u308c\u308b\n#define FORWARD_ARGS(...) __VA_ARGS__\n\nvoid f1(int a, int b, int c)\n{\n  std::printf(\&#34;f1 : %d %d %d\\n\&#34;, a, b, c);\n}\n\nvoid f2()\n{\n  std::printf(\&#34;f2\\n\&#34;);\n}\n\nint main()\n{\n  DEBUG_LOG(\&#34;%s %d\\n\&#34;, \&#34;Hello\&#34;, 42);\n\n  f1(FORWARD_ARGS(1, 2, 3)); // \u5f15\u65703\u500b\n  f2(FORWARD_ARGS());        // \u5f15\u65700\u500b\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp11&#34;, &#34;variadic_macros&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-10T01:26:30">
-        2025年07月10日 01時26分30秒
+      <span itemprop="datePublished" content="2025-07-13T05:39:17">
+        2025年07月13日 05時39分17秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -223,25 +223,26 @@
 <h2>仕様</h2>
 <p>可変引数マクロは、0個以上の任意の引数をマクロに渡すための機能である。</p>
 <p>可変引数マクロは、以下の構文を持つ：</p>
-<p><pre><code># define identifier ( ... ) replacement-list new-line
-# define identifier ( identifier-list , ... ) replacement-list new-line
-</code></pre></p>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#define <i>identifier</i> ( ... ) <i>replacement-list</i> <i>new-line</i></span>
+<span class="cp">#define <i>identifier</i> ( <i>identifier-list</i> , ... ) <i>replacement-list</i> <i>new-line</i></span>
+</code></pre></div>
+</p>
 <p>1行目は、パラメータ全てを可変個受け取る場合。2行目は、先頭のいくつかのパラメータを名前付きで受け取り、それ以外に可変個のパラメータを受け取る場合。</p>
 <p>可変個のパラメータのあとに、名前付きのパラメータを受け取ることはできない。</p>
 <p><code>...</code>が指定されたパラメータには、ユーザーはカンマ区切りで可変個の引数を指定する。</p>
 <p>可変引数マクロ内で、受け取った可変個のパラメータを使用するには、<code>__VA_ARGS__</code>識別子を指定する。それを使用することで、<code>__VA_ARGS__</code>を指定した部分が、指定された可変個のパラメータで置き換えられる。</p>
 <p>空の可変個パラメータを文字列に変換する場合、対応する文字列は<code>""</code>となる。</p>
 <h2>例</h2>
-<p><div class="yata" id="aa32f5ca5c003f8f89916cf2dd5148d7ce59f136"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/cstdio.html">&lt;cstdio&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="99bf8aeced9580e87d526c7f8034e78bf82a9aed"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/cstdio.html">&lt;cstdio&gt;</a></span><span class="cp"></span>
 
 <span class="c1">// 可変個のパラメータを受け取り、<a href="../../reference/cstdio/printf.html">std::printf</a>()関数の引数として転送する</span>
 <span class="c1">// 第1パラメータは必須。</span>
 <span class="c1">// 第1パラメータのうしろにカンマがあるので、第2パラメータも必須。</span>
-<span class="cp"># define DEBUG_LOG(fmt, ...) <a href="../../reference/cstdio/printf.html">std::printf</a>(fmt, __VA_ARGS__)</span>
+<span class="cp">#define DEBUG_LOG(fmt, ...) <a href="../../reference/cstdio/printf.html">std::printf</a>(fmt, __VA_ARGS__)</span>
 
 <span class="c1">// 受け取ったパラメータを展開する</span>
 <span class="c1">// 0個以上の、任意の個数のパラメータを受け取れる</span>
-<span class="cp"># define FORWARD_ARGS(...) __VA_ARGS__</span>
+<span class="cp">#define FORWARD_ARGS(...) __VA_ARGS__</span>
 
 <span class="kt">void</span> <span class="nf">f1</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">,</span> <span class="kt">int</span> <span class="n">c</span><span class="p">)</span>
 <span class="p">{</span>
