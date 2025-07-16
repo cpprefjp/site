@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define PTRDIFF_MAX implementation-defined
+#define PTRDIFF_MAX implementation-defined
 ```
 
 ## 概要

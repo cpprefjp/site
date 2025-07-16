@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define MATH_ERRNO 1
+#define MATH_ERRNO 1
 ```
 
 ## 概要

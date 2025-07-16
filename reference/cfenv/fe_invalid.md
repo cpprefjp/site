@@ -4,13 +4,17 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define FE_INVALID implementation-defined
+#define FE_INVALID integer-constant-expression
+// または
+#undef FE_INVALID
 ```
+* integer-constant-expression[italic]
 
 ## 概要
 浮動小数点数に対して不正な操作を行ったことを表す浮動小数点例外の種類。
 
-このマクロは、浮動小数点例外の状態を表すビット値である。他の浮動小数点例外マクロとAND (`&`) や OR (`|`)を使用して、複数のマクロを組み合わせて使用できる。
+処理系がこの浮動小数点例外に対応している場合にこのマクロが定義される。
+マクロが定義されるとき、このマクロは浮動小数点例外の状態を表すビット値である。他の浮動小数点例外マクロとAND (`&`) や OR (`|`)を使用して、複数のマクロを組み合わせて使用できる。
 
 ## 例
 ```cpp example

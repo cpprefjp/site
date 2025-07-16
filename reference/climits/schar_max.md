@@ -3,7 +3,7 @@
 * macro[meta id-type]
 
 ```cpp
-# define SCHAR_MAX implementation-defined
+#define SCHAR_MAX implementation-defined
 ```
 
 ## 概要

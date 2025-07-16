@@ -4,7 +4,7 @@
 * [mathjax enable]
 
 ```cpp
-# define FLT_EPSILON implementation-defined
+#define FLT_EPSILON implementation-defined
 ```
 
 ## 概要

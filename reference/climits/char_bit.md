@@ -3,7 +3,7 @@
 * macro[meta id-type]
 
 ```cpp
-# define CHAR_BIT implementation-defined
+#define CHAR_BIT implementation-defined
 ```
 
 ## 概要

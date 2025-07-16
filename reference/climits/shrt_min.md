@@ -3,7 +3,7 @@
 * macro[meta id-type]
 
 ```cpp
-# define SHRT_MIN implementation-defined
+#define SHRT_MIN implementation-defined
 ```
 
 ## 概要

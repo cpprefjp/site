@@ -4,7 +4,7 @@
 * [mathjax enable]
 
 ```cpp
-# define DBL_MAX implementation-defined
+#define DBL_MAX implementation-defined
 ```
 
 ## 概要

@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define INT16_MIN implementation-defined
+#define INT16_MIN implementation-defined
 ```
 
 ## 概要

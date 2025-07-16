@@ -3,7 +3,7 @@
 * macro[meta id-type]
 
 ```cpp
-# define FLT_ROUNDS implementation-defined
+#define FLT_ROUNDS implementation-defined
 ```
 
 ## 概要

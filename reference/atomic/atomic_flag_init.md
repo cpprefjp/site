@@ -5,7 +5,7 @@
 * cpp20deprecated[meta cpp]
 
 ```cpp
-# define ATOMIC_FLAG_INIT see below
+#define ATOMIC_FLAG_INIT see below
 ```
 
 この機能はC++20で非推奨となった。[`std::atomic_flag`](atomic_flag.md)クラスのデフォルトコンストラクタが値初期化するようになったため、初期化のためにこの機能を使用する必要はない。

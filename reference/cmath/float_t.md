@@ -6,9 +6,10 @@
 
 ```cpp
 namespace std {
-  using float_t = implementation-defined;
+  using float_t = floating-type;
 }
 ```
+* floating-type[italic]
 
 ## 概要
 `float` と同じかそれより広い範囲の値を持つ浮動小数点数型を表す。
@@ -24,6 +25,8 @@ int main() {
 	std::cout << num << std::endl;
 }
 ```
+* std::float_t[color ff0000]
+
 ## 出力例
 ```
 1.01

@@ -4,15 +4,19 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define FE_DIVBYZERO implementation-defined
+#define FE_DIVBYZERO integer-constant-expression
+// または
+#undef FE_DIVBYZERO
 ```
+* integer-constant-expression[italic]
 
 ## 概要
 浮動小数点数に対してゼロで除算されたことを表す浮動小数点例外の種類。
 
 「DIVBYZERO」は「divide-by-zero (ゼロによる除算)」の略称である。
 
-このマクロは、浮動小数点例外の状態を表すビット値である。他の浮動小数点例外マクロとAND (`&`) や OR (`|`)を使用して、複数のマクロを組み合わせて使用できる。
+処理系がこの浮動小数点例外に対応している場合にこのマクロが定義される。
+マクロが定義されるとき、このマクロは浮動小数点例外の状態を表すビット値である。他の浮動小数点例外マクロとAND (`&`) や OR (`|`)を使用して、複数のマクロを組み合わせて使用できる。
 
 ## 例
 ```cpp example

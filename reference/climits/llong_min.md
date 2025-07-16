@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define LLONG_MIN implementation-defined
+#define LLONG_MIN implementation-defined
 ```
 
 ## 概要

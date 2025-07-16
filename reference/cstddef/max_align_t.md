@@ -6,9 +6,10 @@
 
 ```cpp
 namespace std {
-  using max_align_t = implementation-defined;
+  using max_align_t = object-type;
 }
 ```
+* object-type[italic]
 
 ## 概要
 `std::max_align_t`のアライメントサイズは、スカラー型の中の最も大きなアライメントサイズと同じかそれ以上である。

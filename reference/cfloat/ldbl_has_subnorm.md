@@ -4,7 +4,7 @@
 * cpp17[meta cpp]
 
 ```cpp
-# define LDBL_HAS_SUBNORM implementation-defined
+#define LDBL_HAS_SUBNORM implementation-defined
 ```
 
 ## 概要

@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define INT_LEAST64_MIN implementation-defined
+#define INT_LEAST64_MIN implementation-defined
 ```
 
 ## 概要

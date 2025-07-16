@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define INTPTR_MAX implementation-defined
+#define INTPTR_MAX implementation-defined
 ```
 
 ## 概要

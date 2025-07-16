@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define UINT_LEAST32_MAX implementation-defined
+#define UINT_LEAST32_MAX implementation-defined
 ```
 
 ## 概要

@@ -146,17 +146,17 @@ int main() {
 ## 実装例
 ```cpp
 template <class OutputIterator, class Size, class T>
-# if __cplusplus >= 201103L
+#if __cplusplus >= 201103L
 OutputIterator
-# else
+#else
 void
-# endif
+#endif
 fill_n(OutputIterator first, Size n, const T& value) {
   while (n-- > 0)
     *first++ = value;
-# if __cplusplus >= 201103L
+#if __cplusplus >= 201103L
   return first;
-# endif
+#endif
 }
 ```
 

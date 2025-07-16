@@ -3,7 +3,7 @@
 * macro[meta id-type]
 
 ```cpp
-# define LONG_MIN implementation-defined
+#define LONG_MIN implementation-defined
 ```
 
 ## 概要

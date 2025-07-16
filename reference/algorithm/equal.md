@@ -166,7 +166,7 @@ bool equal(InputIterator1 first1, InputIterator1 last1,
   return true;
 }
 
-# if __cplusplus >= 201402L
+#if __cplusplus >= 201402L
 
 template<class RandomAccessIterator1, class RandomAccessIterator2, class BinaryPredicate>
 inline bool equal_impl(RandomAccessIterator1 first1, RandomAccessIterator1 last1,
@@ -202,7 +202,7 @@ inline bool equal(InputIterator1 first1, InputIterator1 last1,
   return std::equal(first1, last1, first2, last2, equal_to<>());
 }
 
-# endif
+#endif
 ```
 * equal_to[link ../functional/equal_to.md]
 

@@ -5,9 +5,10 @@
 
 ```cpp
 namespace std {
-  using ptrdiff_t = implementation-defined;
+  using ptrdiff_t = signed-integer-type;
 }
 ```
+* signed-integer-type[italic]
 
 ## 概要
 `ptrdiff_t`は、2 つのポインタの減算の結果を示す型である。これは符号付き整数型であり、互換性のある単純データ型へキャストすることができる。

@@ -26,17 +26,6 @@ Linux環境においては、`/dev/null`、`/dev/urandom`、`/dev/zero`などが
 - (3) :
     ```cpp
     file_status s = status(p, ec);
-    if (ec) {
-      return false;
-    }
-
-    // ファイルが見つからなかったらエラー
-    file_type type = s.type();
-    if (type == file_type::none || file_type::not_found || file_type::unknown) {
-      ec = implementation-defined;
-      return false;
-    }
-    ec.clear();
     return is_character_file(s);
     ```
     * file_status[link file_status.md]

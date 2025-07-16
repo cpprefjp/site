@@ -3,8 +3,9 @@
 * macro[meta id-type]
 
 ```cpp
-# define HUGE_VAL implementation-defined
+#define HUGE_VAL constant-expression
 ```
+* constant-expression[italic]
 
 ## 概要
 `double` 型の正の値の定数式。

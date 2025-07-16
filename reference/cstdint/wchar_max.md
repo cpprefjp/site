@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define WCHAR_MAX implementation-defined
+#define WCHAR_MAX implementation-defined
 ```
 
 ## 概要

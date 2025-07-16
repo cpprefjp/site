@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define math_errhandling implementation-defined
+#define math_errhandling implementation-defined
 ```
 
 ## 概要

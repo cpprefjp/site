@@ -4,9 +4,9 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define FP_ILOGB0 implementation_defined
+#define FP_ILOGB0 integer-constant-expression
 ```
-* implementation_defined[italic]
+* integer-constant-expression[italic]
 
 ## 概要
 `FP_ILOGB0` は、[`std::ilogb`](ilogb.md)`(0)` の戻り値を表す整数定数式である。

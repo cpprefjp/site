@@ -3,7 +3,7 @@
 * macro[meta id-type]
 
 ```cpp
-# define CHAR_MIN implementation-defined
+#define CHAR_MIN implementation-defined
 ```
 
 ## 概要

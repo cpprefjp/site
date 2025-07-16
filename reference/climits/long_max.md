@@ -3,7 +3,7 @@
 * macro[meta id-type]
 
 ```cpp
-# define LONG_MAX implementation-defined
+#define LONG_MAX implementation-defined
 ```
 
 ## 概要

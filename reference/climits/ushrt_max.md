@@ -3,7 +3,7 @@
 * macro[meta id-type]
 
 ```cpp
-# define USHRT_MAX implementation-defined
+#define USHRT_MAX implementation-defined
 ```
 
 ## 概要

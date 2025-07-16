@@ -4,7 +4,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define FLT_EVAL_METHOD implementation-defined
+#define FLT_EVAL_METHOD implementation-defined
 ```
 
 ## 概要

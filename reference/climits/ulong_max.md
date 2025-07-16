@@ -3,7 +3,7 @@
 * macro[meta id-type]
 
 ```cpp
-# define ULONG_MAX implementation-defined
+#define ULONG_MAX implementation-defined
 ```
 
 ## 概要

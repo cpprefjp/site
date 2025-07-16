@@ -5,7 +5,7 @@
 * [mathjax enable]
 
 ```cpp
-# define FLT_DECIMAL_DIG implementation-defined
+#define FLT_DECIMAL_DIG implementation-defined
 ```
 
 ## 概要

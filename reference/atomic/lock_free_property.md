@@ -4,17 +4,17 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define ATOMIC_BOOL_LOCK_FREE unspecified      // (1)
-# define ATOMIC_CHAR_LOCK_FREE unspecified      // (2)
-# define ATOMIC_CHAR8_T_LOCK_FREE unspecified   // (3) C++20から
-# define ATOMIC_CHAR16_T_LOCK_FREE unspecified  // (4)
-# define ATOMIC_CHAR32_T_LOCK_FREE unspecified  // (5)
-# define ATOMIC_WCHAR_T_LOCK_FREE unspecified   // (6)
-# define ATOMIC_SHORT_LOCK_FREE unspecified     // (7)
-# define ATOMIC_INT_LOCK_FREE unspecified       // (8)
-# define ATOMIC_LONG_LOCK_FREE unspecified      // (9)
-# define ATOMIC_LLONG_LOCK_FREE unspecified     // (10)
-# define ATOMIC_POINTER_LOCK_FREE unspecified   // (11)
+#define ATOMIC_BOOL_LOCK_FREE unspecified      // (1)
+#define ATOMIC_CHAR_LOCK_FREE unspecified      // (2)
+#define ATOMIC_CHAR8_T_LOCK_FREE unspecified   // (3) C++20から
+#define ATOMIC_CHAR16_T_LOCK_FREE unspecified  // (4)
+#define ATOMIC_CHAR32_T_LOCK_FREE unspecified  // (5)
+#define ATOMIC_WCHAR_T_LOCK_FREE unspecified   // (6)
+#define ATOMIC_SHORT_LOCK_FREE unspecified     // (7)
+#define ATOMIC_INT_LOCK_FREE unspecified       // (8)
+#define ATOMIC_LONG_LOCK_FREE unspecified      // (9)
+#define ATOMIC_LLONG_LOCK_FREE unspecified     // (10)
+#define ATOMIC_POINTER_LOCK_FREE unspecified   // (11)
 ```
 * unspecified[italic]
 

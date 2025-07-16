@@ -6,16 +6,17 @@
 
 ```cpp
 namespace std {
-  using double_t = implementation-defined;
+  using double_t = floating-type;
 }
 ```
+* floating-type[italic]
 
 ## 概要
 `double` と同じかそれより広い範囲の値を持つ浮動小数点数型を表す。
 
 [`FLT_EVAL_METHOD`](/reference/cfloat/flt_eval_method.md) が 0 または 1 のとき `double`, 2 のとき `long double`, それ以外の場合は実装依存。
 
-## 使用例
+## 例
 ```cpp example
 #include <cmath>
 #include <iostream>
@@ -24,6 +25,7 @@ int main() {
 	std::cout << num << std::endl;
 }
 ```
+* std::double_t[color ff0000]
 
 ## 出力例
 ```

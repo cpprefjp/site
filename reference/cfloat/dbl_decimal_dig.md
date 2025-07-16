@@ -5,7 +5,7 @@
 * [mathjax enable]
 
 ```cpp
-# define DBL_DECIMAL_DIG implementation-defined
+#define DBL_DECIMAL_DIG implementation-defined
 ```
 
 ## 概要

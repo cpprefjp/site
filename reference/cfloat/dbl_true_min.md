@@ -5,7 +5,7 @@
 * [mathjax enable]
 
 ```cpp
-# define DBL_TRUE_MIN implementation-defined
+#define DBL_TRUE_MIN implementation-defined
 ```
 
 ## 概要

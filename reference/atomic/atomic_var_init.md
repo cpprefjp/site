@@ -5,7 +5,7 @@
 * cpp20deprecated[meta cpp]
 
 ```cpp
-# define ATOMIC_VAR_INIT(value) see below
+#define ATOMIC_VAR_INIT(value) see below
 ```
 
 この機能はC++20で非推奨となった。[`std::atomic`](atomic.md)クラスのデフォルトコンストラクタが値初期化するようになったため、初期化のためにこの機能を使用する必要はない。
@@ -62,7 +62,7 @@ int main()
 
 ## 実装例
 ```cpp
-# define ATOMIC_VAR_INIT(value) { value }
+#define ATOMIC_VAR_INIT(value) { value }
 ```
 
 ## 参照

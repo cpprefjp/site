@@ -4,7 +4,9 @@
 * cpp11[meta cpp]
 
 ```cpp
-# define FP_FAST_FMAF 1
+#define FP_FAST_FMAF 1
+// または
+#undef FP_FAST_FMAF
 ```
 
 ## 概要

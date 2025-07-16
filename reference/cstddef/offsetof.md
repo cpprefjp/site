@@ -3,9 +3,9 @@
 * macro[meta id-type]
 
 ```cpp
-# define offsetof(type, member) see-below
+#define offsetof(type, member) integer-constant-expression
 ```
-* see-below[italic]
+* integer-constant-expression[italic]
 
 ## 概要
 このマクロ関数は、構造体型 `type` のメンバ `member` へのオフセット値をバイト数で返す。
