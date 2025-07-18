@@ -89,4 +89,4 @@ int main() {
 - [`<charconv>` ヘッダ](/reference/charconv.md): 高速な文字列 ⇔ 数値変換
 
 ## 参考文献
-- Qiita: [Cのstrtolの使い方とendptrの活用例（@yumetodo）](https://qiita.com/yumetodo/items/238751b879c09b56234b)
+- [C言語で安全に標準入力から数値を取得 #stdin - Qiita](https://qiita.com/yumetodo/items/238751b879c09b56234b): Cのstrtolの使い方とendptrの活用例
