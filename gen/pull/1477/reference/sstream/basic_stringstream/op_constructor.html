@@ -1,0 +1,407 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>basic_stringstream::コンストラクタ - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,sstream,std,basic_stringstream,function
+">
+        <meta name="title" content="basic_stringstream::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="basic_stringstream::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="basic_stringstream::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/sstream/basic_stringstream/op_constructor.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`basic_stringstream`オブジェクトを構築する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="basic_stringstream::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/sstream/basic_stringstream/op_constructor.html" />
+        <meta name="twitter:description" content="`basic_stringstream`オブジェクトを構築する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;sstream&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;basic_stringstream&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;6e7f276d07f880130a2938727c0e7b4e50267984&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;sstream&gt;\n\nint main()\n{\n  // (1) \u30c7\u30d5\u30a9\u30eb\u30c8\u69cb\u7bc9\n  std::stringstream ss1;\n  ss1 &lt;&lt; \&#34;hello\&#34;;\n  std::string s;\n  ss1 &gt;&gt; s;\n  std::cout &lt;&lt; s &lt;&lt; std::endl;\n\n  // (3) \u6587\u5b57\u5217\u3092\u6307\u5b9a\u3057\u3066\u69cb\u7bc9\n  std::stringstream ss2(\&#34;initial value\&#34;);\n  ss2 &lt;&lt; \&#34; added\&#34;;\n  std::cout &lt;&lt; ss2.str() &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;f4040c51cb0dd05aa4c2995284523103b26b722e&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;sstream&gt;\n#include &lt;string_view&gt;\n\nint main()\n{\n  // \u6587\u5b57\u5217\u30ea\u30c6\u30e9\u30eb\u304b\u3089\u69cb\u7bc9\n  std::stringstream ss1{\&#34;Hello?\&#34;};\n  ss1.seekp(0, std::ios_base::end); // \u66f8\u304d\u8fbc\u307f\u4f4d\u7f6e\u3092\u672b\u5c3e\u306b\u8a2d\u5b9a\n  ss1 &lt;&lt; \&#34;World\&#34;;\n  std::cout &lt;&lt; ss1.str() &lt;&lt; std::endl;\n\n  // string_view\u304b\u3089\u69cb\u7bc9\n  std::string_view sv = \&#34;Hello?\&#34;;\n  std::stringstream ss2{sv};\n  ss2 &lt;&lt; \&#34;World\&#34;;\n  std::cout &lt;&lt; ss2.str() &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;sstream&#34;, &#34;basic_stringstream&#34;, &#34;op_constructor&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/sstream.html" itemprop="url">
+              
+                <span itemprop="name">sstream</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/sstream/basic_stringstream.html" itemprop="url">
+              
+                <span itemprop="name">basic_stringstream</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">コンストラクタ</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-06-28T02:55:48">
+        2025年06月28日 02時55分48秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">suomesta</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/sstream/basic_stringstream/op_constructor.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/sstream/basic_stringstream/op_constructor.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;sstream&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class basic_stringstream">basic_stringstream::</span><span class="token">コンストラクタ</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">basic_stringstream</span><span class="p">()</span>
+  <span class="o">:</span> <span class="n">basic_stringstream</span><span class="p">(</span><span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">in</span> <span class="o">|</span> <span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">out</span><span class="p">)</span> <span class="p">{}</span>     <span class="c1">// (1) C++11</span>
+<span class="k">explicit</span> <span class="n">basic_stringstream</span><span class="p">(</span>
+  <span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">openmode</span> <span class="n">which</span><span class="p">);</span>                                <span class="c1">// (2) C++11</span>
+<span class="k">explicit</span> <span class="nf">basic_stringstream</span><span class="p">(</span>
+  <span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">openmode</span> <span class="n">which</span> <span class="o">=</span> <span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">in</span> <span class="o">|</span> <span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">out</span><span class="p">);</span> <span class="c1">// (1)+(2) C++03</span>
+
+<span class="k">explicit</span> <span class="nf">basic_stringstream</span><span class="p">(</span>
+  <span class="k">const</span> <span class="n"><a href="../../string/basic_string.html">basic_string</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;&amp;</span> <span class="n">s</span><span class="p">,</span>
+  <span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">openmode</span> <span class="n">which</span> <span class="o">=</span> <span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">in</span> <span class="o">|</span> <span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">out</span><span class="p">);</span> <span class="c1">// (3) C++03</span>
+
+<span class="k">explicit</span> <span class="nf">basic_stringstream</span><span class="p">(</span>
+  <span class="n"><a href="../../string/basic_string.html">basic_string</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;&amp;&amp;</span> <span class="n">s</span><span class="p">,</span>
+  <span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">openmode</span> <span class="n">which</span> <span class="o">=</span> <span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">in</span> <span class="o">|</span> <span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">out</span><span class="p">);</span>       <span class="c1">// (4) C++20</span>
+
+<span class="n">basic_stringstream</span><span class="p">(</span><span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">openmode</span> <span class="n">which</span><span class="p">,</span> <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (5) C++20</span>
+
+<span class="k">explicit</span> <span class="nf">basic_stringstream</span><span class="p">(</span>
+  <span class="k">const</span> <span class="n"><a href="../../string/basic_string.html">basic_string</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;&amp;</span> <span class="n">s</span><span class="p">,</span>
+  <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">)</span>
+    <span class="o">:</span> <span class="n">basic_stringstream</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">in</span> <span class="o">|</span> <span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">out</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="p">{}</span>   <span class="c1">// (6) C++20</span>
+
+<span class="k">explicit</span> <span class="nf">basic_stringstream</span><span class="p">(</span>
+  <span class="k">const</span> <span class="n"><a href="../../string/basic_string.html">basic_string</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;&amp;</span> <span class="n">s</span><span class="p">,</span>
+  <span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">openmode</span> <span class="n">which</span><span class="p">,</span>
+  <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>                                            <span class="c1">// (7) C++20</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">SAlloc</span><span class="o">&gt;</span>
+<span class="k">explicit</span> <span class="n">basic_stringstream</span><span class="p">(</span>
+  <span class="k">const</span> <span class="n"><a href="../../string/basic_string.html">basic_string</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="p">,</span> <span class="n">SAlloc</span><span class="o">&gt;&amp;</span> <span class="n">s</span><span class="p">,</span>
+  <span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">openmode</span> <span class="n">which</span> <span class="o">=</span> <span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">in</span> <span class="o">|</span> <span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">out</span><span class="p">);</span>       <span class="c1">// (8) C++20</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">SAlloc</span><span class="o">&gt;</span>
+<span class="n">basic_stringstream</span><span class="p">(</span>
+  <span class="k">const</span> <span class="n"><a href="../../string/basic_string.html">basic_string</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="p">,</span> <span class="n">SAlloc</span><span class="o">&gt;&amp;</span> <span class="n">s</span><span class="p">,</span>
+  <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">)</span>
+    <span class="o">:</span> <span class="n">basic_stringstream</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">in</span> <span class="o">|</span> <span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">out</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="p">{}</span>   <span class="c1">// (9) C++20</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">SAlloc</span><span class="o">&gt;</span>
+<span class="n">basic_stringstream</span><span class="p">(</span>
+  <span class="k">const</span> <span class="n"><a href="../../string/basic_string.html">basic_string</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="p">,</span> <span class="n">SAlloc</span><span class="o">&gt;&amp;</span> <span class="n">s</span><span class="p">,</span>
+  <span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">openmode</span> <span class="n">which</span><span class="p">,</span>
+  <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>                                            <span class="c1">// (10) C++20</span>
+
+<span class="n">basic_stringstream</span><span class="p">(</span><span class="n">basic_stringstream</span><span class="o">&amp;&amp;</span> <span class="n">rhs</span><span class="p">);</span>                     <span class="c1">// (11) C++11</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">explicit</span> <span class="n">basic_stringstream</span><span class="p">(</span>
+  <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">t</span><span class="p">,</span>
+  <span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">openmode</span> <span class="n">which</span> <span class="o">=</span> <span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">in</span> <span class="o">|</span> <span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">out</span><span class="p">);</span>       <span class="c1">// (12) C++26</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">basic_stringstream</span><span class="p">(</span>
+  <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">t</span><span class="p">,</span>
+  <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>                                            <span class="c1">// (13) C++26</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">basic_stringstream</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">t</span><span class="p">,</span>
+  <span class="n"><a href="../../ios/ios_base.html">ios_base</a></span><span class="o">::</span><span class="n">openmode</span> <span class="n">which</span><span class="p">,</span>
+  <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>                                            <span class="c1">// (14) C++26</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>basic_stringstream</code>オブジェクトを構築する。</p>
+<p>ここで、初期値として設定する文字列は、既存のファイルを上書きモードで開くことに似ており、ストリームの初期位置が先頭のまま、ストリーム内容の文字列を設定するものである。</p>
+<ul>
+<li>(1) : デフォルトコンストラクタ</li>
+<li>(2) : 指定されたモードで構築する</li>
+<li>(3) : 初期文字列として<code><a href="../../string/basic_string.html">std::basic_string</a></code>オブジェクトのコピーを指定して構築する</li>
+<li>(4) : 初期文字列として<code><a href="../../string/basic_string.html">std::basic_string</a></code>オブジェクトの右辺値参照を指定して構築する</li>
+<li>(5) : 指定されたモードとアロケータで構築する</li>
+<li>(6) : 初期文字列として<code><a href="../../string/basic_string.html">std::basic_string</a></code>オブジェクトのコピーと、アロケータを指定して構築する</li>
+<li>(7) : 初期文字列として<code><a href="../../string/basic_string.html">std::basic_string</a></code>オブジェクトのコピー、モード、アロケータを指定して構築する</li>
+<li>(8) : 初期文字列として<code>Allocator</code>に変換可能なアロケータをもつ<code><a href="../../string/basic_string.html">std::basic_string</a></code>オブジェクトのコピーと、モードを指定して構築する</li>
+<li>(9) : 初期文字列として<code>Allocator</code>に変換可能なアロケータをもつ<code><a href="../../string/basic_string.html">std::basic_string</a></code>オブジェクトのコピーと、アロケータを指定して構築する</li>
+<li>(10) : 初期文字列として<code>Allocator</code>に変換可能なアロケータをもつ<code><a href="../../string/basic_string.html">std::basic_string</a></code>オブジェクトのコピー、モード、アロケータを指定して構築する</li>
+<li>(11) : ムーブコンストラクタ</li>
+<li>(12) : 初期文字列として<code><a href="../../string_view/basic_string_view.html">std::basic_string_view</a></code>に変換可能な文字列と、モードを指定して構築する</li>
+<li>(13) : 初期文字列として<code><a href="../../string_view/basic_string_view.html">std::basic_string_view</a></code>に変換可能な文字列と、アロケータを指定して構築する</li>
+<li>(14) : 初期文字列として<code><a href="../../string_view/basic_string_view.html">std::basic_string_view</a></code>に変換可能な文字列、モード、アロケータを指定して構築する</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
+<ul>
+<li>(12), (13), (14) : <code>is_convertible_v&lt;const T&amp;, basic_string_view&lt;CharT, Traits&gt;&gt;</code>が<code>true</code>であること</li>
+</ul>
+<h2>効果</h2>
+<ul>
+<li>(1) : 内部の<code>basic_stringbuf</code>オブジェクトを<code>basic_stringbuf&lt;CharT, Traits, Allocator&gt;(ios_base::in | ios_base::out)</code>で構築する</li>
+<li>(2) : 内部の<code>basic_stringbuf</code>オブジェクトを<code>basic_stringbuf&lt;CharT, Traits, Allocator&gt;(which)</code>で構築する</li>
+<li>(3) : 内部の<code>basic_stringbuf</code>オブジェクトを<code>basic_stringbuf&lt;CharT, Traits, Allocator&gt;(s, which)</code>で構築する</li>
+<li>(4) : 内部の<code>basic_stringbuf</code>オブジェクトを<code>basic_stringbuf&lt;CharT, Traits, Allocator&gt;(std::move(s), which)</code>で構築する</li>
+<li>(5) : 内部の<code>basic_stringbuf</code>オブジェクトを<code>basic_stringbuf&lt;CharT, Traits, Allocator&gt;(which, a)</code>で構築する</li>
+<li>(6), (7), (8), (9), (10) : 各引数は対応する<code>basic_stringbuf</code>のコンストラクタに渡される</li>
+<li>(11) : <code>rhs</code>から<code>basic_stringstream</code>オブジェクトをムーブ構築する</li>
+<li>(12) : <code>basic_string_view&lt;CharT, Traits&gt;(t)</code>で文字列を初期化し、モードは<code>which</code>に設定する</li>
+<li>(13) : <code>basic_string_view&lt;CharT, Traits&gt;(t)</code>で文字列を初期化し、モードは<code>ios_base::in | ios_base::out</code>、アロケータは<code>a</code>に設定する</li>
+<li>(14) : <code>basic_string_view&lt;CharT, Traits&gt;(t)</code>で文字列を初期化し、モードは<code>which</code>、アロケータは<code>a</code>に設定する</li>
+</ul>
+<h2>例</h2>
+<h3>基本的な使い方</h3>
+<p><div class="yata" id="6e7f276d07f880130a2938727c0e7b4e50267984"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../sstream.html">&lt;sstream&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// (1) デフォルト構築</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">stringstream</span> <span class="n">ss1</span><span class="p">;</span>
+  <span class="n">ss1</span> <span class="o">&lt;&lt;</span> <span class="s">"hello"</span><span class="p">;</span>
+  <span class="n"><a href="../../string/basic_string.html">std::string</a></span> <span class="n">s</span><span class="p">;</span>
+  <span class="n">ss1</span> <span class="o">&gt;&gt;</span> <span class="n">s</span><span class="p">;</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// (3) 文字列を指定して構築</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">stringstream</span> <span class="n">ss2</span><span class="p">(</span><span class="s">"initial value"</span><span class="p">);</span>
+  <span class="n">ss2</span> <span class="o">&lt;&lt;</span> <span class="s">" added"</span><span class="p">;</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">ss2</span><span class="p">.</span><span class="n"><a href="str.html">str()</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>hello
+initial value added
+</code></pre></p>
+<h3>string_viewからの構築 (C++26)</h3>
+<p><div class="yata" id="f4040c51cb0dd05aa4c2995284523103b26b722e"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../sstream.html">&lt;sstream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../string_view.html">&lt;string_view&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// 文字列リテラルから構築</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">stringstream</span> <span class="n">ss1</span><span class="p">{</span><span class="s">"Hello?"</span><span class="p">};</span>
+  <span class="n">ss1</span><span class="p">.</span><span class="n">seekp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n">end</span><span class="p">);</span> <span class="c1">// 書き込み位置を末尾に設定</span>
+  <span class="n">ss1</span> <span class="o">&lt;&lt;</span> <span class="s">"World"</span><span class="p">;</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">ss1</span><span class="p">.</span><span class="n">str</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// <a href="../../string_view/basic_string_view.html">string_view</a>から構築</span>
+  <span class="n"><a href="../../string_view/basic_string_view.html">std::string_view</a></span> <span class="n">sv</span> <span class="o">=</span> <span class="s">"Hello?"</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">stringstream</span> <span class="n">ss2</span><span class="p">{</span><span class="n">sv</span><span class="p">};</span>
+  <span class="n">ss2</span> <span class="o">&lt;&lt;</span> <span class="s">"World"</span><span class="p">;</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">ss2</span><span class="p">.</span><span class="n">str</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>Hello?World
+World?
+</code></pre></p>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0408r7.pdf" target="_blank">P0408R7 Efficient Access to <code>basic_stringbuf</code>'s Buffer</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2495r3.pdf" target="_blank">P2495R3 Interfacing stringstreams with <code>string_view</code></a><ul>
+<li>C++26で<code><a href="../../string_view/basic_string_view.html">std::string_view</a></code>に対応した</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

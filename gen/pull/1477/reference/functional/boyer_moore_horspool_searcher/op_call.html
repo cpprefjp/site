@@ -1,0 +1,335 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>boyer_moore_horspool_searcher::operator() - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,functional,std,boyer_moore_horspool_searcher,function template,cpp17
+">
+        <meta name="title" content="boyer_moore_horspool_searcher::operator() - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="boyer_moore_horspool_searcher::operator() - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="boyer_moore_horspool_searcher::operator() - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/functional/boyer_moore_horspool_searcher/op_call.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="検索を実行する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="boyer_moore_horspool_searcher::operator() - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/functional/boyer_moore_horspool_searcher/op_call.html" />
+        <meta name="twitter:description" content="検索を実行する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;functional&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;boyer_moore_horspool_searcher&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;d2c035ab9dd3b6eab7d3cf76cc7c42accbe768a0&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;string&gt;\n#include &lt;functional&gt;\n#include &lt;iterator&gt;\n\nint main()\n{\n  // text\u5185\u306epattern\u3092\u691c\u7d22\u3059\u308b\n  //                      xxxx\n  std::string text = \&#34;babcabaabaac\&#34;;\n  std::string pattern = \&#34;abaa\&#34;;\n\n  // pattern\u3092\u767b\u9332\n  std::boyer_moore_horspool_searcher searcher {\n    pattern.cbegin(),\n    pattern.cend()\n  };\n\n  // text\u3092\u6307\u5b9a\u3057\u3066\u691c\u7d22\u3092\u5b9f\u884c\n  using iterator = std::string::const_iterator;\n  std::pair&lt;iterator, iterator&gt; result = searcher(text.cbegin(), text.cend());\n\n  // \u898b\u3064\u304b\u3063\u305f\n  if (result.first != result.second) {\n    // \u898b\u3064\u304b\u3063\u305f\u4f4d\u7f6e\u3092\u53d6\u5f97\n    std::ptrdiff_t n = std::distance(text.cbegin(), result.first);\n\n    // \u898b\u3064\u304b\u3063\u305f\u6587\u5b57\u5217 (pattern) \u3092\u53d6\u5f97\n    std::string s {result.first, result.second};\n\n    std::cout &lt;&lt; n &lt;&lt; std::endl;\n    std::cout &lt;&lt; s &lt;&lt; std::endl;\n  }\n  // \u898b\u3064\u304b\u3089\u306a\u304b\u3063\u305f\n  else {\n    std::cout &lt;&lt; \&#34;not found\&#34; &lt;&lt; std::endl;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;functional&#34;, &#34;boyer_moore_horspool_searcher&#34;, &#34;op_call&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/functional.html" itemprop="url">
+              
+                <span itemprop="name">functional</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/functional/boyer_moore_horspool_searcher.html" itemprop="url">
+              
+                <span itemprop="name">boyer_moore_horspool_searcher</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">operator()</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-06-11T13:45:38">
+        2024年06月11日 13時45分38秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/functional/boyer_moore_horspool_searcher/op_call.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/functional/boyer_moore_horspool_searcher/op_call.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function template</div><div class="header">&lt;functional&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class boyer_moore_horspool_searcher">boyer_moore_horspool_searcher::</span><span class="token">operator()</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">RandomAccessIterator2</span><span class="o">&gt;</span>
+<span class="n"><a href="../../utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="n">RandomAccessIterator2</span><span class="p">,</span> <span class="n">RandomAccessIterator2</span><span class="o">&gt;</span>
+  <span class="k">operator</span><span class="p">()(</span><span class="n">RandomAccessIterator2</span> <span class="n">first</span><span class="p">,</span> <span class="n">RandomAccessIterator2</span> <span class="n">last</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>検索を実行する。</p>
+<p>この関数は、全体のシーケンス範囲<code>[first, last)</code>に含まれる部分シーケンス範囲<code>[pat_first, pat_last)</code>を検索する。検索対象 (pattern) となる部分シーケンスは、このクラスのコンストラクタで登録し、メンバ変数として保持されている。</p>
+<p>この関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>としては、見つかった部分シーケンスの、全体シーケンス上の<a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a>が返る。</p>
+<h2>効果</h2>
+<p>シーケンス内の部分シーケンスと等値になる範囲を検索する。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<ul>
+<li>部分シーケンス<code>[pat_first, pat_last)</code>が空である場合、<code><a href="../../utility/make_pair.html">make_pair</a>(first, first)</code>を返す</li>
+<li>イテレータ<code>i</code>と<code>j</code>として以下を定義し、<ul>
+<li><code>i</code> : <a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a><code>[first, last)</code>のうち、部分範囲<code>[pat_first, pat_last)</code>が現れる最初の位置を指すイテレータ。各要素の等値比較は、<code>pred(*(i + n), *(pat_first + n)) != false</code>で判定する</li>
+<li><code>j</code> : <code><a href="../../iterator/next.html">next</a>(i, <a href="../../iterator/distance.html">distance</a>(pat_first, pat_last))</code></li>
+<li>合致する部分シーケンスが見つかった場合、<code><a href="../../utility/make_pair.html">make_pair</a>(i, j)</code>を返す</li>
+</ul>
+</li>
+<li>合致する部分シーケンスが見つからなかった場合、<code><a href="../../utility/make_pair.html">make_pair</a>(last, last)</code>を返す</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></h2>
+<p>最大で<code>(last - first) * (pat_last - pat_first)</code>回だけ<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>を適用する</p>
+<h2>例</h2>
+<p><div class="yata" id="d2c035ab9dd3b6eab7d3cf76cc7c42accbe768a0"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../iterator.html">&lt;iterator&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// text内のpatternを検索する</span>
+  <span class="c1">//                      xxxx</span>
+  <span class="n"><a href="../../string/basic_string.html">std::string</a></span> <span class="n">text</span> <span class="o">=</span> <span class="s">"babcabaabaac"</span><span class="p">;</span>
+  <span class="n"><a href="../../string/basic_string.html">std::string</a></span> <span class="n">pattern</span> <span class="o">=</span> <span class="s">"abaa"</span><span class="p">;</span>
+
+  <span class="c1">// patternを登録</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">boyer_moore_horspool_searcher</span> <span class="n">searcher</span> <span class="p">{</span>
+    <span class="n"><a href="../../string/basic_string/cbegin.html">pattern.cbegin()</a></span><span class="p">,</span>
+    <span class="n"><a href="../../string/basic_string/cend.html">pattern.cend()</a></span>
+  <span class="p">};</span>
+
+  <span class="c1">// textを指定して検索を実行</span>
+  <span class="k">using</span> <span class="n">iterator</span> <span class="o">=</span> <span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">::</span><span class="n">const_iterator</span><span class="p">;</span>
+  <span class="n"><a href="../../utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="n">iterator</span><span class="p">,</span> <span class="n">iterator</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">searcher</span><span class="p">(</span><span class="n"><a href="../../string/basic_string/cbegin.html">text.cbegin()</a></span><span class="p">,</span> <span class="n"><a href="../../string/basic_string/cend.html">text.cend()</a></span><span class="p">);</span>
+
+  <span class="c1">// 見つかった</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">first</span> <span class="o">!=</span> <span class="n">result</span><span class="p">.</span><span class="n">second</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 見つかった位置を取得</span>
+    <span class="n"><a href="../../cstddef/ptrdiff_t.html">std::ptrdiff_t</a></span> <span class="n">n</span> <span class="o">=</span> <span class="n"><a href="../../iterator/distance.html">std::distance</a></span><span class="p">(</span><span class="n"><a href="../../string/basic_string/cbegin.html">text.cbegin()</a></span><span class="p">,</span> <span class="n">result</span><span class="p">.</span><span class="n">first</span><span class="p">);</span>
+
+    <span class="c1">// 見つかった文字列 (pattern) を取得</span>
+    <span class="n"><a href="../../string/basic_string.html">std::string</a></span> <span class="n">s</span> <span class="p">{</span><span class="n">result</span><span class="p">.</span><span class="n">first</span><span class="p">,</span> <span class="n">result</span><span class="p">.</span><span class="n">second</span><span class="p">};</span>
+
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="c1">// 見つからなかった</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"not found"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>4
+abaa
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++17</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>:</li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: 7.3 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0253r1.pdf" target="_blank">P0253R1 Fixing a design mistake in the searchers interface in Library Fundamentals</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

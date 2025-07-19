@@ -1,0 +1,322 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>常に定数式評価する`consteval` [P1073R3] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp20
+">
+        <meta name="title" content="常に定数式評価する`consteval` [P1073R3] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="常に定数式評価する`consteval` [P1073R3] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="常に定数式評価する`consteval` [P1073R3] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp20/immediate_functions.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="常に定数式評価する`consteval` [P1073R3] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp20/immediate_functions.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;7cb87c32c588dfc98c9aadb870b6c7491e6fed1c&#34;, &#34;source&#34;: &#34;consteval void f(int n) {\n  if(n &lt; 0) {\n    throw \&#34;n should not be negative\&#34;; // throw\u306f\u5b9a\u6570\u5f0f\u3068\u3057\u3066\u8a55\u4fa1\u3067\u304d\u306a\u3044\u304c\u3001\u3053\u3053\u3092\u901a\u3089\u306a\u3051\u308c\u3070OK\n  }\n}\n\nint main() {\n  f(10); // OK\n  f(-1); // \u30a8\u30e9\u30fc\n}\n&#34;}, {&#34;id&#34;: &#34;92cb0f1fecf349f6677252d58f05e3d5a861453b&#34;, &#34;source&#34;: &#34;// P1073R3\u3088\u308a\u5f15\u7528\nconsteval int sqr(int n) {\n  return n*n;\n}\nconstexpr int r = sqr(100);  // OK\n\nint main(){\n  static_assert(r == 10000, \&#34;100 * 100 == 10000\&#34;);\n  // int x = 100;\n  // int r2 = sqr(x);  // \u30a8\u30e9\u30fc: \u5b9a\u6570\u5f0f\u8a55\u4fa1\u3055\u308c\u306a\u3044\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp20&#34;, &#34;immediate_functions&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp20.html" itemprop="url">
+              
+                <span itemprop="name">C++20</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">常に定数式評価する`consteval` [P1073R3]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-07-10T07:47:57">
+        2024年07月10日 07時47分57秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp20/immediate_functions.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp20/immediate_functions.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">常に定数式評価する<code>consteval</code> [P1073R3]</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++20に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>C++20では、関数またはメンバ関数に対して、<code>consteval</code>キーワードで常に定数式評価されるよう指定できる。そのような関数を<strong>即時関数</strong>(immediate function)という。</p>
+<p><code>constexpr</code>と似ているが、<code>constexpr</code>を付けた関数はコンパイル時にも実行時にも評価できるのに対し、<code>consteval</code>の場合は必ずコンパイル時に評価される点が異なる。</p>
+<h2>仕様</h2>
+<p><code>consteval</code>指定子の付いた関数(即時関数)は、定数式評価されない場合はエラーとなる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1073r3.html" target="_blank">P1073R3</a>より引用</span>
+<span class="n">consteval</span> <span class="kt">int</span> <span class="nf">sqr</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">constexpr</span> <span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="n">sqr</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>  <span class="c1">// OK</span>
+<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">r2</span> <span class="o">=</span> <span class="n">sqr</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>  <span class="c1">// エラー: 定数式評価されない</span>
+</code></pre></div>
+</p>
+<p>ただし、他の即時関数の中では、即時関数が定数式評価されなくてもエラーとはならない。これは、呼び出し元が即時関数であれば、結局はコンパイル時に評価されるからである。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1073r3.html" target="_blank">P1073R3</a>より引用</span>
+<span class="n">consteval</span> <span class="kt">int</span> <span class="nf">sqrsqr</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">sqr</span><span class="p">(</span><span class="n">sqr</span><span class="p">(</span><span class="n">n</span><span class="p">));</span> <span class="c1">// ここでは定数式ではないがOK</span>
+<span class="p">}</span>
+
+<span class="k">constexpr</span> <span class="kt">int</span> <span class="nf">dblsqr</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">sqr</span><span class="p">(</span><span class="n">n</span><span class="p">);</span> <span class="c1">// エラー: 定数式評価されず、呼び出し元が即時関数ではない</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>即時関数のポインタを取得することはできない。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1073r3.html" target="_blank">P1073R3</a>より引用</span>
+<span class="k">using</span> <span class="n">Int2Int</span> <span class="o">=</span> <span class="kt">int</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+<span class="n">Int2Int</span> <span class="o">*</span><span class="n">pf</span> <span class="o">=</span> <span class="n">sqr</span><span class="p">;</span> <span class="c1">// エラー</span>
+</code></pre></div>
+</p>
+<p>定数式として評価できない部分があっても、評価しようとしなければエラーとならない。</p>
+<p><div class="yata" id="7cb87c32c588dfc98c9aadb870b6c7491e6fed1c"><div class="codehilite"><pre><span></span><code><span class="n">consteval</span> <span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="s">"n should not be negative"</span><span class="p">;</span> <span class="c1">// throwは定数式として評価できないが、ここを通らなければOK</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">f</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="c1">// OK</span>
+  <span class="n">f</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// エラー</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>この性質は様々なチェックをコンパイル時に行うために活用できる。たとえば、<code><a href="../../reference/format/format.html">std::format</a></code>におけるコンパイル時の書式文字列チェックで使用されている。</p>
+<h2>例</h2>
+<p><div class="yata" id="92cb0f1fecf349f6677252d58f05e3d5a861453b"><div class="codehilite"><pre><span></span><code><span class="c1">// <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1073r3.html" target="_blank">P1073R3</a>より引用</span>
+<span class="n">consteval</span> <span class="kt">int</span> <span class="nf">sqr</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">constexpr</span> <span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="n">sqr</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>  <span class="c1">// OK</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n">r</span> <span class="o">==</span> <span class="mi">10000</span><span class="p">,</span> <span class="s">"100 * 100 == 10000"</span><span class="p">);</span>
+  <span class="c1">// int x = 100;</span>
+  <span class="c1">// int r2 = sqr(x);  // エラー: 定数式評価されない</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code></code></pre></p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>C++11で導入された<code>constexpr</code>指定子によって、関数を定数式評価できることを表明できるようになった。しかし、<code>constexpr</code>関数は定数式評価しないで実行時に評価することもできる。</p>
+<p>それに対して、関数形式のマクロを置き換えたいであるとか、単に定数式以外では用途がない関数であるなどの理由で、必ず定数式評価される関数を作りたいという要求があり、即時関数が導入されることになった。</p>
+<p>即時関数は実行時に評価できず、アドレスを取ることもできないので、処理系は即時関数の実体を完全に消すことができる。</p>
+<p>また、即時関数はコンパイル時にしか取得できない情報へアクセスするコンパイラマジックな関数を表現するのにも使用できる。C++20では、ソースコード上の位置を返す<a href="../../reference/source_location/source_location/current.html"><code>std::source_location::current()</code>関数</a>が即時関数になっている。</p>
+<h2>検討されたほかの選択肢</h2>
+<p>当初は <code>constexpr!</code>というキーワードが提案されていたが、最終的に<code>consteval</code>になった。</p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><a href="../cpp11/constexpr.html">C++11 <code>constexpr</code></a></li>
+<li><a href="constinit.html">C++20 コンパイル時初期化を強制する<code>constinit</code>キーワードを追加</a></li>
+<li><a href="../cpp23/if_consteval.html">C++23 <code>if consteval</code></a></li>
+<li><a href="../cpp23/consteval_needs_to_propagate_up.html">C++23 <code>constexpr</code>関数内で<code>consteval</code>関数を呼び出せない問題を軽減</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1073r3.html" target="_blank">P1073R3 Immediate functions</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

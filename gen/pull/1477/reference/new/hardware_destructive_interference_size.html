@@ -1,0 +1,354 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>hardware_destructive_interference_size - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,new,std,variable,cpp17
+">
+        <meta name="title" content="hardware_destructive_interference_size - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="hardware_destructive_interference_size - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="hardware_destructive_interference_size - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/new/hardware_destructive_interference_size.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="2つのオブジェクトに並行アクセスする際に、パフォーマンス低下を避けられる最小アライメントサイズ。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="hardware_destructive_interference_size - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/new/hardware_destructive_interference_size.html" />
+        <meta name="twitter:description" content="2つのオブジェクトに並行アクセスする際に、パフォーマンス低下を避けられる最小アライメントサイズ。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;new&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;variable&#34;], &#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;9eafccbc93e4ab96355a1d5d42f95ed43e22be65&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;new&gt;\n#include &lt;thread&gt;\n#include &lt;vector&gt;\n\nstruct X {\n  alignas(std::hardware_destructive_interference_size) int a;\n  alignas(std::hardware_destructive_interference_size) int b;\n};\n\nstruct IndividualCacheInt {\n  alignas(std::hardware_destructive_interference_size) int value;\n};\n\nint main()\n{\n  std::cout &lt;&lt; \&#34;hardware_destructive_interference_size : \&#34;\n            &lt;&lt; std::hardware_destructive_interference_size\n            &lt;&lt; std::endl;\n\n  // \u69cb\u9020\u4f53\u5185\u306e\u30e1\u30f3\u30d0\u5909\u6570a\u3068b\u3092\u3001\u305d\u308c\u305e\u308c\u5225\u306a\u30ad\u30e3\u30c3\u30b7\u30e5\u30e9\u30a4\u30f3\u306b\u4e57\u305b\u308b\n  {\n    X x;\n    x.a = 0;\n    x.b = 0;\n    std::thread t1{[&amp;x]{\n      for (int i = 0; i &lt; 100; ++i) {\n        ++x.a;\n      }\n    }};\n\n    std::thread t2{[&amp;x]{\n      for (int i = 0; i &lt; 100; ++i) {\n        ++x.b;\n      }\n    }};\n\n    t1.join();\n    t2.join();\n  }\n\n  // \u9023\u7d9a\u3057\u305f\u30e1\u30e2\u30ea\u306e\u5404\u8981\u7d20\u3092\u3001\u500b\u5225\u306e\u30ad\u30e3\u30c3\u30b7\u30e5\u306b\u4e57\u305b\u308b\n  {\n    std::vector&lt;IndividualCacheInt&gt; v{10};\n    std::vector&lt;std::thread&gt; threads;\n    for (std::size_t i = 0; i &lt; v.size(); ++i) {\n      threads.push_back(std::thread{[&amp;v, i]{\n        for (int j = 0; j &lt; 100; ++j) {\n          ++v[i].value;\n        }\n      }});\n    }\n\n    for (std::thread&amp; t : threads) {\n      t.join();\n    }\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;new&#34;, &#34;hardware_destructive_interference_size&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/new.html" itemprop="url">
+              
+                <span itemprop="name">new</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">hardware_destructive_interference_size</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-09-18T05:54:15">
+        2024年09月18日 05時54分15秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/new/hardware_destructive_interference_size.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/new/hardware_destructive_interference_size.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">variable</div><div class="header">&lt;new&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">hardware_destructive_interference_size</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">hardware_destructive_interference_size</span> <span class="o">=</span> <span class="n"><i>implementation-defined</i></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>2つのオブジェクトに並行アクセスする際に、パフォーマンス低下を避けられる最小アライメントサイズ。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">keep_apart</span> <span class="p">{</span>
+  <span class="n"><a href="../atomic/atomic.html">std::atomic</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">cat</span><span class="p">;</span>
+  <span class="n"><a href="../atomic/atomic.html">std::atomic</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dog</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<p>このような構造体がある場合、<code>cat</code>と<code>dog</code>が同じキャッシュラインに乗ることがある。スレッド1では<code>cat</code>変数、スレッド2では<code>dog</code>変数を操作するような状況で、それぞれが共通のキャッシュを無効化してしまうパフォーマンス劣化の問題が起こりえる。こういった状況を「false sharing」という。</p>
+<p><code>hardware_destructive_interference_size</code>は、false sharingを回避するための、変数ごとにキャッシュラインを分けられる最小アライメントサイズである。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">keep_apart</span> <span class="p">{</span>
+  <span class="k">alignas</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::hardware_destructive_interference_size</span></span><span class="p">)</span> <span class="n"><a href="../atomic/atomic.html">std::atomic</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">cat</span><span class="p">;</span>
+  <span class="k">alignas</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::hardware_destructive_interference_size</span></span><span class="p">)</span> <span class="n"><a href="../atomic/atomic.html">std::atomic</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dog</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<h2>備考</h2>
+<ul>
+<li>この変数の値は、<code>alignof(<a href="../cstddef/max_align_t.html">max_align_t</a>)</code>以上である</li>
+<li>実装上、<code>hardware_constructive_interference_size</code>と<code>hardware_destructive_interference_size</code>は同値になるはずだが、利用目的によって名前を使い分けるために分かれている</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="9eafccbc93e4ab96355a1d5d42f95ed43e22be65"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../new.html">&lt;new&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
+  <span class="k">alignas</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::hardware_destructive_interference_size</span></span><span class="p">)</span> <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+  <span class="k">alignas</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::hardware_destructive_interference_size</span></span><span class="p">)</span> <span class="kt">int</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">IndividualCacheInt</span> <span class="p">{</span>
+  <span class="k">alignas</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::hardware_destructive_interference_size</span></span><span class="p">)</span> <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"hardware_destructive_interference_size : "</span>
+            <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::hardware_destructive_interference_size</span></span>
+            <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// 構造体内のメンバ変数aとbを、それぞれ別なキャッシュラインに乗せる</span>
+  <span class="p">{</span>
+    <span class="n">X</span> <span class="n">x</span><span class="p">;</span>
+    <span class="n">x</span><span class="p">.</span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">x</span><span class="p">.</span><span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n"><a href="../thread/thread.html">std::thread</a></span> <span class="n">t1</span><span class="p">{[</span><span class="o">&amp;</span><span class="n">x</span><span class="p">]{</span>
+      <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">++</span><span class="n">x</span><span class="p">.</span><span class="n">a</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}};</span>
+
+    <span class="n"><a href="../thread/thread.html">std::thread</a></span> <span class="n">t2</span><span class="p">{[</span><span class="o">&amp;</span><span class="n">x</span><span class="p">]{</span>
+      <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">++</span><span class="n">x</span><span class="p">.</span><span class="n">b</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}};</span>
+
+    <span class="n"><a href="../thread/thread/join.html">t1.join()</a></span><span class="p">;</span>
+    <span class="n"><a href="../thread/thread/join.html">t2.join()</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 連続したメモリの各要素を、個別のキャッシュに乗せる</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">IndividualCacheInt</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">{</span><span class="mi">10</span><span class="p">};</span>
+    <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n"><a href="../thread/thread.html">std::thread</a></span><span class="o">&gt;</span> <span class="n">threads</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n"><a href="../vector/vector/size.html">v.size()</a></span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n"><a href="../vector/vector/push_back.html">threads.push_back</a></span><span class="p">(</span><span class="n"><a href="../thread/thread.html">std::thread</a></span><span class="p">{[</span><span class="o">&amp;</span><span class="n">v</span><span class="p">,</span> <span class="n">i</span><span class="p">]{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
+          <span class="o">++</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">value</span><span class="p">;</span>
+        <span class="p">}</span>
+      <span class="p">}});</span>
+    <span class="p">}</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="n"><a href="../thread/thread.html">std::thread</a></span><span class="o">&amp;</span> <span class="nl">t</span> <span class="p">:</span> <span class="n">threads</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n"><a href="../thread/thread/join.html">t.join()</a></span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力例</h3>
+<p><pre><code>hardware_destructive_interference_size : 64
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++17</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 19 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 12.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2019 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4523.html" target="_blank">N4523 <code>constexpr std::thread::hardware_{true,false}_sharing_size</code></a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0154r0.html" target="_blank">P0154R0 <code>constexpr std::hardware_{constructive,destructive}_interference_size</code></a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0154r1.html" target="_blank">P0154R1 <code>constexpr std::hardware_{constructive,destructive}_interference_size</code></a></li>
+<li><a href="http://www.kumikomi.net/archives/2005/02/02multi.php?page=11" target="_blank">今さら聞けないマルチプロセッサの基礎教えます　――キャッシュの共有，割り込みの共有，OSによる制御 - ページ11 キャッシュの利用にも注意が必要</a></li>
+<li><a href="http://yoskhdia.hatenablog.com/entry/2016/06/03/191329" target="_blank">false sharingの整理 - yoskhdia’s diary</a></li>
+<li><a href="https://stackoverflow.com/questions/39680206/understanding-stdhardware-destructive-interference-size-and-stdhardware-cons" target="_blank">Understanding <code>std::hardware_destructive_interference_size</code> and <code>std::hardware_constructive_interference_size</code> - Stack Overflow</a><ul>
+<li>設計についての作者JF Bastien氏からのコメントがある</li>
+<li>WebAssemblyなどの仮想環境ではターゲットアーキテクチャが実行時に決まるため、実行時の値もあるとよいだろう、とのコメントもある</li>
+</ul>
+</li>
+<li><a href="https://lists.llvm.org/pipermail/cfe-dev/2018-May/058073.html" target="_blank">[RFC] C++17 hardware constructive / destructive interference size - Clang Developers Mailing list</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

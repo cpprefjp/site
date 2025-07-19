@@ -1,0 +1,494 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>allocator - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,memory,std,class template
+">
+        <meta name="title" content="allocator - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="allocator - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="allocator - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/memory/allocator.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`allocator`は、標準ライブラリ内でデフォルト使用されるメモリアロケータクラスである。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="allocator - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/memory/allocator.html" />
+        <meta name="twitter:description" content="`allocator`は、標準ライブラリ内でデフォルト使用されるメモリアロケータクラスである。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;memory&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;8d8a83928f809f1be090064697a0ca52dea50e79&#34;, &#34;source&#34;: &#34;#include &lt;memory&gt;\n#include &lt;iostream&gt;\n#include &lt;algorithm&gt;\n#include &lt;numeric&gt;\n\nint main(int argc, char** argv) {\n  auto alc = std::allocator&lt;int&gt;();\n\n  // 10\u8981\u7d20\u306eint\u578b\u304c\u5165\u308b\u9818\u57df\u3092\u78ba\u4fdd\n  int* arr = alc.allocate(10);\n\n  // \u78ba\u4fdd\u3057\u305f\u9818\u57df\u306e\u5404\u8981\u7d20\u3092\u69cb\u7bc9\u3059\u308b(\u30b3\u30f3\u30b9\u30c8\u30e9\u30af\u30bf\u3092\u547c\u3073\u51fa\u3059)\n  for (std::size_t i = 0; i != 10; ++i) alc.construct(arr + i);\n\n  std::iota(arr, arr + 10, 0);\n  std::for_each(arr, arr + 10, [](int i) { std::cout &lt;&lt; i &lt;&lt; \&#34; \&#34;; });\n  std::cout &lt;&lt; std::endl;\n\n  // \u914d\u5217\u306e\u5404\u8981\u7d20\u3092\u7834\u68c4\u3059\u308b(\u30c7\u30b9\u30c8\u30e9\u30af\u30bf\u3092\u547c\u3073\u51fa\u3059)\n  for (std::size_t i = 0; i != 10; ++i) alc.destroy(arr + i);\n\n  // \u9818\u57df\u3092\u89e3\u653e\u3059\u308b\n  alc.deallocate(arr, 10);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;memory&#34;, &#34;allocator&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/memory.html" itemprop="url">
+              
+                <span itemprop="name">memory</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">allocator</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-05-28T08:09:01">
+        2025年05月28日 08時09分01秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/memory/allocator.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/memory/allocator.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;memory&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">allocator</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <span class="k">class</span> <span class="nc">allocator</span><span class="p">;</span>
+
+  <span class="k">template</span> <span class="o">&lt;&gt;</span>
+  <span class="k">class</span> <span class="nc">allocator</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span> <span class="p">{</span> <span class="c1">// C++17から非推奨・C++20で削除</span>
+    <span class="k">using</span> <span class="n">pointer</span>       <span class="o">=</span> <span class="kt">void</span><span class="o">*</span><span class="p">;</span>
+    <span class="k">using</span> <span class="n">const_pointer</span> <span class="o">=</span> <span class="k">const</span> <span class="kt">void</span><span class="o">*</span><span class="p">;</span>
+    <span class="k">using</span> <span class="n">value_type</span>    <span class="o">=</span> <span class="kt">void</span><span class="p">;</span>
+    <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">rebind</span> <span class="p">{</span> <span class="k">using</span> <span class="n">other</span> <span class="o">=</span> <span class="n">allocator</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span><span class="p">;</span> <span class="p">};</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>allocator</code>は、標準ライブラリ内でデフォルト使用されるメモリアロケータクラスである。</p>
+<p>標準ライブラリ内では、主にコンテナがメモリの確保と解放を行っているが、コンテナ内で使用するメモリアロケータは、ユーザーが独自に実装したものを<code>allocator</code>クラスの代わりに使用することもできる。例：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v1</span><span class="p">;</span>                   <span class="c1">// <a href="">std::allocator</a>クラスでメモリアロケートされる。</span>
+<span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">MyAllocator</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">v2</span><span class="p">;</span> <span class="c1">// 自分が用意したアロケータを使用する。</span>
+</code></pre></div>
+</p>
+<h3>備考</h3>
+<p>C++11から：</p>
+<p>デストラクタを除く、<code>allocator</code>クラスのメンバ関数は、データ競合を引き起こさない。そのため、複数スレッドから同時に<code>allocator</code>クラスのメンバ関数が呼ばれたとしても、正しくメモリ確保・解放される。</p>
+<h2>メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="allocator/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="allocator/op_destructor.html">(destructor)</a></code></td>
+<td>デストラクタ</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="allocator/op_assign.html">operator=</a></code></td>
+<td>代入演算子</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="allocator/allocate.html">allocate</a></code></td>
+<td>メモリを確保する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="allocator/allocate_at_least.html">allocate_at_least</a></code></td>
+<td>指定した要素数以上のメモリを確保する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="allocator/deallocate.html">deallocate</a></code></td>
+<td>メモリを解放する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="allocator/address.html">address</a></code></td>
+<td>変数のアドレスを取得する</td>
+<td>C++17から非推奨<br /> C++20で削除</td>
+</tr>
+<tr>
+<td><code><a href="allocator/max_size.html">max_size</a></code></td>
+<td>一度に確保可能なメモリの最大サイズを取得する</td>
+<td>C++17から非推奨<br /> C++20で削除</td>
+</tr>
+<tr>
+<td><code><a href="allocator/construct.html">construct</a></code></td>
+<td>引数を元にインスタンスを構築する</td>
+<td>C++17から非推奨<br /> C++20で削除</td>
+</tr>
+<tr>
+<td><code><a href="allocator/destroy.html">destroy</a></code></td>
+<td>インスタンスを破棄する</td>
+<td>C++17から非推奨<br /> C++20で削除</td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>value_type</code></td>
+<td>要素の型 <code>T</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>propagate_on_container_move_assignment</code></td>
+<td>コンテナのムーブ代入時に、アロケータの状態を伝播するか。 <code><a href="../type_traits/true_type.html">true_type</a></code></td>
+<td>C++14</td>
+</tr>
+<tr>
+<td><code>size_type</code></td>
+<td>要素数を表す符号なし整数型 <code>size_t</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>difference_type</code></td>
+<td>ポインタの差を表す符号付き整数型 <code>ptrdiff_t</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>pointer</code></td>
+<td>要素のポインタ型 <code>T*</code></td>
+<td>C++17から非推奨<br /> C++20で削除</td>
+</tr>
+<tr>
+<td><code>const_pointer</code></td>
+<td>読み取り専用の要素のポインタ型 <code>const T*</code></td>
+<td>C++17から非推奨<br /> C++20で削除</td>
+</tr>
+<tr>
+<td><code>reference</code></td>
+<td>要素の参照型 <code>T&amp;</code></td>
+<td>C++17から非推奨<br /> C++20で削除</td>
+</tr>
+<tr>
+<td><code>const_reference</code></td>
+<td>読み取り専用の要素の参照型 <code>const T&amp;</code></td>
+<td>C++17から非推奨<br /> C++20で削除</td>
+</tr>
+<tr>
+<td><code>rebind&lt;U&gt;</code></td>
+<td>型<code>U</code>を確保するように再束縛する</td>
+<td>C++17から非推奨<br /> C++20で削除</td>
+</tr>
+<tr>
+<td><code>is_always_equal</code></td>
+<td>同じ型のアロケータオブジェクトが2つある場合、それらが常に同値であるか。<code><a href="../type_traits/true_type.html">true_type</a></code></td>
+<td>C++17<br /> C++20で非推奨<br /> C++26で削除</td>
+</tr>
+</tbody>
+</table>
+<h2>非メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="allocator/op_equal.html">operator==</a></code></td>
+<td>等値比較。常に<code>true</code>を返す</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="allocator/op_not_equal.html">operator!=</a></code></td>
+<td>非等値比較。常に<code>false</code>を返す</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>非推奨・削除の詳細</h2>
+<ul>
+<li>
+<p><code>address</code>/<code>max_size</code>/<code>construct</code>/<code>destroy</code>/<code>pointer</code>/<code>const_pointer</code>/<code>reference</code>/<code>const_reference</code>/<code>rebind&lt;U&gt;</code>メンバがC++17から非推奨となり、C++20で削除された。</p>
+<ul>
+<li>これらは特殊なアロケータの実装でない限り共通に定義できるものであるため、アロケータの中間インタフェースである<code><a href="allocator_traits.html">std::allocator_traits</a></code>クラスに、共通のデフォルト実装を定義することとなった。</li>
+<li>以後は<code><a href="allocator_traits.html">std::allocator_traits</a>&lt;std::allocator&lt;T&gt;&gt;</code>クラスの各機能を代替として使用すること。</li>
+</ul>
+</li>
+<li>
+<p>C++17から<code>void</code>の特殊化版が非推奨となり、C++20で削除された。</p>
+<ul>
+<li>従来<code>void</code>の特殊化版は<code>allocate</code>/<code>deallocate</code>メンバ関数が存在せず、実際に確保するオブジェクトの型(<code>R</code>とする)を隠蔽しつつメモリアロケータとしては<code>std::allocator</code>を使うことを表明するためにのみ用いられた。
+  この際<code>typename std::allocator&lt;void&gt;::template rebind&lt;R&gt;::other</code>型から実際に確保するオブジェクト型の<code>std::allocator&lt;R&gt;</code>を再束縛していた。</li>
+<li>この非推奨・削除は<code>std::allocator&lt;void&gt;</code>もプライマリテンプレートからインスタンス化されるようになったことを意味し、C++20以降も<code>std::allocator&lt;void&gt;</code>の使用自体は問題なく可能であることに注意。<ul>
+<li>なお、プライマリテンプレートからインスタンス化されるようになっても<code>allocate</code>/<code>deallocate</code>メンバは内部で<code>sizeof(void)</code>を要求するため引き続き使用不可能であり、<code>std::allocator&lt;void&gt;</code>の使用用途としては従来と同じく再束縛を目的とすることになる(上述のように<code><a href="allocator_traits.html">std::allocator_traits</a></code>の代替機能を用いて<code>typename <a href="allocator_traits.html">std::allocator_traits</a>&lt;std::allocator&lt;void&gt;&gt;::template rebind_alloc&lt;R&gt;</code>のようにする)。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>メンバ型の<code>size_type</code>と<code>difference_type</code>は、C++17で非推奨となったがC++20で非推奨が取り消された。</p>
+</li>
+<li>メンバ型の<code>is_always_equal</code>は、このクラスを継承したメモリアロケータが<code>is_always_equal</code>の値を引き継いでしまうという点で問題があったため、C++20で非推奨となり、C++26で削除された。<ul>
+<li>代わりに<code><a href="allocator_traits.html">std::allocator_traits</a></code>クラスの<code>is_always_equal</code>メンバ型を使用すること。</li>
+</ul>
+</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="8d8a83928f809f1be090064697a0ca52dea50e79"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../numeric.html">&lt;numeric&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">auto</span> <span class="n">alc</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::allocator</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span>
+
+  <span class="c1">// 10要素のint型が入る領域を確保</span>
+  <span class="kt">int</span><span class="o">*</span> <span class="n">arr</span> <span class="o">=</span> <span class="n"><a href="allocator/allocate.html">alc.allocate</a></span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+
+  <span class="c1">// 確保した領域の各要素を構築する(コンストラクタを呼び出す)</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">!=</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="n"><a href="allocator/construct.html">alc.construct</a></span><span class="p">(</span><span class="n">arr</span> <span class="o">+</span> <span class="n">i</span><span class="p">);</span>
+
+  <span class="n"><a href="../numeric/iota.html">std::iota</a></span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">arr</span> <span class="o">+</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="n"><a href="../algorithm/for_each.html">std::for_each</a></span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">arr</span> <span class="o">+</span> <span class="mi">10</span><span class="p">,</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span> <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span> <span class="p">});</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// 配列の各要素を破棄する(デストラクタを呼び出す)</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">!=</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="n"><a href="allocator/destroy.html">alc.destroy</a></span><span class="p">(</span><span class="n">arr</span> <span class="o">+</span> <span class="n">i</span><span class="p">);</span>
+
+  <span class="c1">// 領域を解放する</span>
+  <span class="n"><a href="allocator/deallocate.html">alc.deallocate</a></span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>0 1 2 3 4 5 6 7 8 9 
+</code></pre></p>
+<h3>処理系</h3>
+<ul>
+<li><code>propagate_on_container_move_assignment</code><ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 3.4</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: </li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2012, 2013</li>
+</ul>
+</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://rawgit.com/google/cxx-std-draft/allocator-paper/allocator_user_guide.html" target="_blank">A visitor’s guide to C++ allocators</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2103" target="_blank">LWG #2103 - <code>std::allocator_traits&lt;std::allocator&lt;T&gt;&gt;::propagate_on_container_move_assignment</code></a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2669.htm" target="_blank">N2669 Thread-Safety in the Standard Library (Rev 2)</a></li>
+<li><a href="https://www.foonathan.net/2015/10/allocatorawarecontainer-propagation-pitfalls/" target="_blank">AllocatorAwareContainer: Introduction and pitfalls of <code>propagate_on_container_XXX</code> defaults</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0174r2.html" target="_blank">P0174R2 Deprecating Vestigial Library Parts in C++17</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0619r4.html" target="_blank">P0619R4 Reviewing deprecated facilities of C++17 for C++20</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf" target="_blank">N4258 Cleaning-up noexcept in the Library, Rev 3</a></li>
+<li><a href="https://cplusplus.github.io/LWG/issue3170" target="_blank">LWG Issue 3170. <code>is_always_equal</code> added to <code>std::allocator</code> makes the standard library treat derived types as always equal</a><ul>
+<li>C++20で<code>is_always_equal</code>メンバ型が非推奨化された</li>
+</ul>
+</li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2868r3.pdf" target="_blank">P2868R3 Remove Deprecated <code>std::allocator</code> Typedef From C++26</a><ul>
+<li>C++26で<code>is_always_equal</code>メンバ型が削除された</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

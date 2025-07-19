@@ -1,0 +1,339 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>スコープを持つ列挙型 [N2347] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp11
+">
+        <meta name="title" content="スコープを持つ列挙型 [N2347] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="スコープを持つ列挙型 [N2347] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="スコープを持つ列挙型 [N2347] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp11/scoped_enum.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`enum class`で定義した列挙型は、従来の`enum`に加えて、「整数型への暗黙の型変換を行わない」「列挙型のスコープを持つ」という機能を持つ。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="スコープを持つ列挙型 [N2347] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp11/scoped_enum.html" />
+        <meta name="twitter:description" content="`enum class`で定義した列挙型は、従来の`enum`に加えて、「整数型への暗黙の型変換を行わない」「列挙型のスコープを持つ」という機能を持つ。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;2674a918954574b9389f2b18357c9ab3bce11e94&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;type_traits&gt;\n\nenum class Color { Red, Green, Blue };\nenum class CharColor : char { Red, Green, Blue }; // \u57fa\u5e95\u578b\u3092char\u306b\u3059\u308b\n\nint main()\n{\n  // \u5358\u306bRed\u3068\u6307\u5b9a\u3059\u308b\u306e\u3067\u306f\u306a\u304f\u3001\u3069\u306e\u5217\u6319\u578b\u306b\u5c5e\u3059\u308b\u306e\u304b\u3092\u6307\u5b9a\u3059\u308b\n  Color c = Color::Red;\n\n  // \u660e\u793a\u7684\u306a\u578b\u5909\u63db\u306f\u8a31\u53ef\u3059\u308b\n  int colorValue = static_cast&lt;int&gt;(Color::Red);\n  //int colorValue = Color::Red; // \u30b3\u30f3\u30d1\u30a4\u30eb\u30a8\u30e9\u30fc : \u6697\u9ed9\u306e\u578b\u5909\u63db\u306f\u3067\u304d\u306a\u3044\n  assert(colorValue == 0);\n\n  // \u5217\u6319\u578b\u306e\u57fa\u5e95\u578b\u3092\u53d6\u5f97\u3057\u3066\u3001\u305d\u306e\u578b\u306b\u30ad\u30e3\u30b9\u30c8\n  auto colorValue2 = static_cast&lt;std::underlying_type&lt;Color&gt;::type&gt;(Color::Red);\n  assert(colorValue2 == 0);\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp11&#34;, &#34;scoped_enum&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp11.html" itemprop="url">
+              
+                <span itemprop="name">C++11</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">スコープを持つ列挙型 [N2347]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-12-22T06:27:29">
+        2024年12月22日 06時27分29秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Raclamusi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp11/scoped_enum.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp11/scoped_enum.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">スコープを持つ列挙型 [N2347]</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++11に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p><code>enum class</code>で定義した列挙型は、従来の<code>enum</code>に加えて、「整数型への暗黙の型変換を行わない」「列挙型のスコープを持つ」という機能を持つ。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">enum</span> <span class="k">class</span> <span class="nc">Color</span> <span class="p">{</span> <span class="n">Red</span><span class="p">,</span> <span class="n">Green</span><span class="p">,</span> <span class="n">Blue</span> <span class="p">};</span>
+
+<span class="c1">// 単にRedと指定するのではなく、どの列挙型に属するのかを指定する</span>
+<span class="n">Color</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Color</span><span class="o">::</span><span class="n">Red</span><span class="p">;</span>
+
+<span class="c1">// 明示的な型変換は許可する</span>
+<span class="kt">int</span> <span class="n">color</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Color</span><span class="o">::</span><span class="n">Red</span><span class="p">);</span>
+<span class="c1">//int color = Color::Red; // コンパイルエラー : 暗黙の型変換はできない</span>
+</code></pre></div>
+</p>
+<h2>仕様</h2>
+<ul>
+<li><code>enum class</code>もしくは<code>enum struct</code>で定義した列挙型は、「スコープを持つ列挙型 (scoped enumeration type)」という。<code>enum class</code>と<code>enum struct</code>に、機能の違いはない</li>
+<li><code>enum</code>で定義した列挙型は、「スコープを持たない列挙型 (unscoped enumeration type)」という</li>
+<li>
+<p>列挙型には、型名の後ろにコロン <code>:</code> 区切りで、基底の整数型を指定できる。基底型として指定した整数型の<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>は無視される</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// 基底型をintとする</span>
+<span class="k">enum</span> <span class="k">class</span> <span class="nc">Color</span> <span class="o">:</span> <span class="kt">int</span> <span class="p">{</span>
+  <span class="n">Red</span><span class="p">,</span> <span class="n">Green</span><span class="p">,</span> <span class="n">Blue</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<ul>
+<li>列挙子の値が基底型の範囲に収まらない場合、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる</li>
+<li>列挙型の基底型を取得するには、<code><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></code>ヘッダで定義される<code><a href="../../reference/type_traits/underlying_type.html">std::underlying_type</a></code>を使用する</li>
+</ul>
+</li>
+<li>
+<p>列挙型は、先行宣言でも基底型を指定できる。その場合、再宣言および定義でも、同じ基底型を明示的に指定する必要がある</p>
+</li>
+<li>スコープを持つ列挙型に基底型を指定しない場合、基底型は<code>int</code>となる</li>
+<li>スコープを持たない列挙型に基底型を指定しない場合、その列挙型の全ての列挙子の値を表現できる整数型のいずれかが基底型となる（どの整数型となるかは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">実装定義</a>だが、すべての列挙子の値が<code>int</code>もしくは<code>unsigned int</code>に収まる限り<code>int</code>より大きな型にはならない）</li>
+<li>スコープを持たない列挙型の列挙子が空である場合、値<code>0</code>ひとつを列挙子として持つ</li>
+<li>2つの列挙型の基底型が同じである場合、それらの列挙型は互換性のあるメモリレイアウトを持つ</li>
+<li>列挙子に値を指定しない場合、最初の列挙子には定数値<code>0</code>が設定される。2つ目以降の列挙子は、ひとつ前の値を<code>1</code>進めた値を持つ</li>
+</ul>
+<h3><a href="#extended-unscoped-enum" id="extended-unscoped-enum">スコープを持つ列挙型に合わせた、enumの拡張</a></h3>
+<p>スコープを持つ列挙型の導入に合わせて、スコープを持たない列挙型もC++11で以下の機能拡張が行われた</p>
+<ul>
+<li>基底型を指定できるようになった</li>
+<li>基底型が指定されている場合は、先行宣言ができるようになった</li>
+<li>列挙型名をスコープとして書けるようになった (<code>列挙型名::列挙子</code>が許可された)</li>
+</ul>
+<p>詳細は、上述した仕様を参照。</p>
+<h2>例</h2>
+<p><div class="yata" id="2674a918954574b9389f2b18357c9ab3bce11e94"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+
+<span class="k">enum</span> <span class="k">class</span> <span class="nc">Color</span> <span class="p">{</span> <span class="n">Red</span><span class="p">,</span> <span class="n">Green</span><span class="p">,</span> <span class="n">Blue</span> <span class="p">};</span>
+<span class="k">enum</span> <span class="k">class</span> <span class="nc">CharColor</span> <span class="o">:</span> <span class="kt">char</span> <span class="p">{</span> <span class="n">Red</span><span class="p">,</span> <span class="n">Green</span><span class="p">,</span> <span class="n">Blue</span> <span class="p">};</span> <span class="c1">// 基底型をcharにする</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// 単にRedと指定するのではなく、どの列挙型に属するのかを指定する</span>
+  <span class="n">Color</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Color</span><span class="o">::</span><span class="n">Red</span><span class="p">;</span>
+
+  <span class="c1">// 明示的な型変換は許可する</span>
+  <span class="kt">int</span> <span class="n">colorValue</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Color</span><span class="o">::</span><span class="n">Red</span><span class="p">);</span>
+  <span class="c1">//int colorValue = Color::Red; // コンパイルエラー : 暗黙の型変換はできない</span>
+  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">colorValue</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+
+  <span class="c1">// 列挙型の基底型を取得して、その型にキャスト</span>
+  <span class="k">auto</span> <span class="n">colorValue2</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="../../reference/type_traits/underlying_type.html">std::underlying_type</a></span><span class="o">&lt;</span><span class="n">Color</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Color</span><span class="o">::</span><span class="n">Red</span><span class="p">);</span>
+  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">colorValue2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code></code></pre></p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>C++03は、C99の列挙型に対する改善は提供していたが、依然として以下のような問題が残っていた：</p>
+<ul>
+<li>型の安全性</li>
+<li>予期しないエラー(スコープがないことによる名前衝突、上記の型安全性の問題による予期しない型変換)</li>
+<li>コードのわかりやすさ(明確さ)</li>
+<li>コードの移植性</li>
+</ul>
+<p>ECMA規格になっているC++/CLIが、現在のスコープを持つ列挙型と等価の機能を持っていたために、その経験を標準C++に取り入れることとなった。</p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><code><a href="../../reference/type_traits/underlying_type.html">underlying_type</a></code></li>
+<li><code><a href="../../reference/utility/to_underlying.html">to_underlying</a></code></li>
+<li><a href="../cpp17/construction_enum_class_values.html">enum class変数の初期値として整数を指定する際の規則を調整</a></li>
+<li><a href="../cpp20/using_enum.html">スコープ付き列挙型のusing宣言</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1513.pdf" target="_blank">N1513 Improving Enumeration Types</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1579.pdf" target="_blank">N1579 Strongly Typed Enums</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1719.pdf" target="_blank">N1719 Strongly Typed Enums (revision 1)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2213.pdf" target="_blank">N2213 Strongly Typed Enums (revision 2)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2347.pdf" target="_blank">N2347 Strongly Typed Enums (revision 3)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2499.pdf" target="_blank">N2499 Forward declaration of enumerations</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

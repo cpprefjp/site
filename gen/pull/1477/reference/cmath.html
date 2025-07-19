@@ -1,0 +1,1227 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>cmath - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cmath
+">
+        <meta name="title" content="cmath - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="cmath - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="cmath - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/cmath.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="&amp;lt;cmath&amp;gt;cmath &amp;lt;cmath&amp;gt;ヘッダでは、一般的な数学関数および各種マクロを提供する。  標準Cライブラリとの差異 エラーの扱い エラーの種類 三角関数 双曲線関数 指数関数と対数関数 仮数と指数 累乗・冪根と絶対値 誤差関数とガンマ関数 その他特殊関数 最近傍整数 剰余 浮動小数点操作 最大値・最小値と正の差 乗算・加算 線形補完 数値分類 数値比較 型 数値の" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="cmath - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/cmath.html" />
+        <meta name="twitter:description" content="&amp;lt;cmath&amp;gt;cmath &amp;lt;cmath&amp;gt;ヘッダでは、一般的な数学関数および各種マクロを提供する。  標準Cライブラリとの差異 エラーの扱い エラーの種類 三角関数 双曲線関数 指数関数と対数関数 仮数と指数 累乗・冪根と絶対値 誤差関数とガンマ関数 その他特殊関数 最近傍整数 剰余 浮動小数点操作 最大値・最小値と正の差 乗算・加算 線形補完 数値分類 数値比較 型 数値の" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cmath&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cmath&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">cmath</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-12-22T06:27:29">
+        2024年12月22日 06時27分29秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Raclamusi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/cmath.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/cmath.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="header">&lt;cmath&gt;</div><h1 itemprop="name"><span class="token">cmath</span></h1>
+<div itemprop="articleBody"><p><code>&lt;cmath&gt;</code>ヘッダでは、一般的な数学関数および各種マクロを提供する。</p>
+<ul>
+<li><a href="#difference-from-c">標準Cライブラリとの差異</a></li>
+<li><a href="#error-handling">エラーの扱い</a></li>
+<li><a href="#error-kind">エラーの種類</a></li>
+<li><a href="#trigonometric-functions">三角関数</a></li>
+<li><a href="#hyperbolic-functions">双曲線関数</a></li>
+<li><a href="#exponential-and-logarithmic-functions">指数関数と対数関数</a></li>
+<li><a href="#fraction-and-exponent-functions">仮数と指数</a></li>
+<li><a href="#power-and-absolute-value-functions">累乗・冪根と絶対値</a></li>
+<li><a href="#error-and-gamma-functions">誤差関数とガンマ関数</a></li>
+<li><a href="#mathematical-special-functions">その他特殊関数</a></li>
+<li><a href="#nearest-integer-functions">最近傍整数</a></li>
+<li><a href="#remainder-functions">剰余</a></li>
+<li><a href="#manipulation-functions">浮動小数点操作</a></li>
+<li><a href="#maximum-minimum-and-positive-difference-functions">最大値・最小値と正の差</a></li>
+<li><a href="#floating-multiply-add">乗算・加算</a></li>
+<li><a href="#linear-interpolation">線形補完</a></li>
+<li><a href="#classification-functions">数値分類</a></li>
+<li><a href="#comparison-functions">数値比較</a></li>
+<li><a href="#types">型</a></li>
+<li><a href="#value-macros">数値のマクロ</a></li>
+<li><a href="#classification-macros">数値分類のマクロ</a></li>
+<li><a href="#other-macros">その他のマクロ</a></li>
+</ul>
+<h2><a href="#difference-from-c" id="difference-from-c">標準Cライブラリとの差異</a></h2>
+<p><code>&lt;cmath&gt;</code>は基本的には、標準 C ライブラリの <code>&lt;math.h&gt;</code> に準拠しているが、いくつかの変更点がある。</p>
+<h3><a href="#cpp03" id="cpp03">C++03のC90との差異</a></h3>
+<ul>
+<li>各関数は std 名前空間に定義されている。</li>
+<li><code>fabs</code> と等価の関数 <code>abs</code> を追加している。</li>
+<li><code>pow</code> の第 2 引数が <code>int</code> の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を追加している。</li>
+<li>各関数（上記 2 関数を含む）に対して、引数および<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の <code>double</code> に対応する箇所が <code>float</code> および <code>long double</code> になっている<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>バージョンを追加している。</li>
+</ul>
+<h3><a href="#cpp11" id="cpp11">C++11のC99との差異</a></h3>
+<ul>
+<li>各関数は std 名前空間に定義されている。</li>
+<li><code>fabs</code> と等価の関数 <code>abs</code> を追加している。</li>
+<li>引数に <code>double</code> を含む各関数（上記 <code>abs</code> を含む）に対して、引数および<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の <code>double</code> に対応する箇所が <code>float</code> と <code>long double</code> の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>バージョンを追加している。<br />
+    なお、C99 にも同様の関数（接尾辞が <code>f</code> および <code>l</code> のもの）が存在するが、それらについては規格書では言及されていない。<br />
+    ただし、<code>nan</code> については、引数の型では区別がつかないため、C99 の <code>nanf</code> および <code>nanl</code> をそのまま使用する。</li>
+<li>数値分類、および、数値比較の各マクロの替わりに、引数が各浮動小数点型で、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>が <code>bool</code> の関数を追加している。</li>
+<li>
+<p>上記に加えて、以下のような<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>ができるように、更に<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を追加している。</p>
+<ol>
+<li><code>double</code> 型の仮引数に対応する実引数のいずれかが <code>long double</code> である場合、<code>double</code> 型の仮引数に対応する全ての実引数を <code>long double</code> にキャストしてから<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>を行う。</li>
+<li>上記以外で、<code>double</code> 型の仮引数に対応する実引数のいずれかが <code>double</code> 型または整数型である場合、<code>double</code> 型の仮引数に対応する全ての実引数を <code>double</code> にキャストしてから<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>を行う。</li>
+<li>上記以外の場合、<code>double</code> 型の仮引数に対応する全ての実引数を <code>float</code> にキャストしてから<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>を行う。</li>
+</ol>
+<p>これらの規則は、C99 で導入された <code>&lt;tgmath.h&gt;</code> の type-generic マクロとほぼ等価であるが、以下の点が異なる。</p>
+<ul>
+<li>C99 では <code>modf</code> は type-generic マクロの対象ではないが、C++11 では<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>の対象である。</li>
+<li>C99 では列挙型も整数型とみなされるが、C++11 では列挙型は（スコープ付き・スコープ無し共に）整数型とはみなされない。  </li>
+<li>C++ のクラス型は変換演算子を持つことができるため、実引数の型が変換演算子を持つクラス型の場合も上記に従って<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>が行われる。  </li>
+</ul>
+<p>しかし、上記の<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>の規則に厳密に従うと、列挙型や変換演算子を持つクラス型の引数が <code>float</code> と等価の扱いになってしまう。<br />
+このため、上記に記載のある無条件の「キャスト」は、C++14 ではその対象が「算術型」のみに限られることになり、列挙型や変換演算子を持つクラス型は上記の「キャスト」の対象とはならなくなった。<br />
+（もちろん、<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>の後の暗黙の変換は依然として有効であるため、スコープ無し列挙型や <code>explicit</code> でない変換演算子を持つクラス型は、明示的なキャスト無しで実引数になり得る。）<br />
+なお、C++11 の記載にある無条件のキャストは規格のバグとされたため、C++11 であってもスコープ付き列挙型や explicit な変換演算子のあるクラス型に、上記規則にある無条件のキャストが適用されると想定すべきではない。<br />
+（<a href="http://cplusplus.github.io/LWG/lwg-defects.html#2086" target="_blank">LWG 2086. Overly generic type support for math functions</a> 参照）</p>
+<p>各関数の個別ページでは、上記の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>関数をコードで示す際には、引数や<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型を斜体で示す。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><i>Integral</i></span>      <span class="c1">// 任意の整数型</span>
+<span class="n"><i>Arithmetic</i></span>    <span class="c1">// 任意の算術型</span>
+<span class="n"><i>Promoted</i></span>      <span class="c1">// 決定された戻り値型</span>
+</code></pre></div>
+</p>
+<p>複数の引数がある場合には、数字のサフィックスで区別する。
+例を以下に示す。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">double</span> <span class="nf">atan</span><span class="p">(</span><span class="n"><i>Integral</i></span> <span class="n">x</span><span class="p">);</span>
+
+<span class="n"><i>Promoted</i></span> <span class="nf">atan2</span><span class="p">(</span><span class="n"><i>Arithmetic1</i></span> <span class="n">y</span><span class="p">,</span> <span class="n"><i>Arithmetic2</i></span> <span class="n">x</span><span class="p">);</span>
+</code></pre></div>
+</p>
+</li>
+</ul>
+<h3><a href="#cpp23" id="cpp23">C++23での差異</a></h3>
+<h4>constexpr対応</h4>
+<p>C++23では、多くの数学関数が<code>constexpr</code>に対応し、定数式内で使用できるようになった。C++23時点では、コンパイラベンダの負担が少ない機能を<code>constexpr</code>対応した。</p>
+<p>C++23で<code>constexpr</code>対応する関数の条件は以下：</p>
+<ol>
+<li>有理数の集合、または実数のどこにも密でない部分集合に作用すると見なされ、関数が閉じていること</li>
+<li>関数が丸めモードに強く依存しないこと</li>
+</ol>
+<p><code><a href="cmath/exp.html">exp()</a></code>、<code><a href="cmath/log.html">log()</a></code>、<code><a href="cmath/sqrt.html">sqrt()</a></code>、<code><a href="cmath/cos.html">cos()</a></code>、<code><a href="cmath/sin.html">sin()</a></code>は1. の条件を満たさないため、C++23では<code>constexpr</code>に対応しない。</p>
+<p><code><a href="cmath/nearbyint.html">nearbyint()</a></code>は2. の条件を満たさないため、C++23では<code>constexpr</code>に対応しない。</p>
+<p>ただし、コンパイラが先行して<code>constexpr</code>非対応の関数も対応している可能性がある。</p>
+<p>なお、C++20では<code><a href="cmath/lerp.html">lerp()</a></code>のみ<code>constexpr</code>に対応している。これはC標準ライブラリからの移植ではなく、C++で標準化された関数だからである (<code><a href="cerrno/errno.html">errno</a></code>や浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>のようなグローバル状態を使用しない)。</p>
+<h4><a class="cpprefjp-defined-word" data-desc="&lt;stdfloat&gt;で定義される内部表現の規定された浮動小数点数型" href="stdfloat.html">拡張浮動小数点数型</a>への対応</h4>
+<p>C++23では<code><a href="stdfloat.html">&lt;stdfloat&gt;</a></code>に<a class="cpprefjp-defined-word" data-desc="&lt;stdfloat&gt;で定義される内部表現の規定された浮動小数点数型" href="stdfloat.html">拡張浮動小数点数型</a>が追加された。その対応として、以下のような<code>float</code>、<code>double</code>、<code>long double</code>に対する<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>は、</p>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">float</span> <span class="nf">abs</span><span class="p">(</span><span class="kt">float</span> <span class="n">x</span><span class="p">);</span>
+<span class="kt">double</span> <span class="nf">abs</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">);</span>
+<span class="kt">long</span> <span class="kt">double</span> <span class="nf">abs</span><span class="p">(</span><span class="kt">long</span> <span class="kt">double</span> <span class="n">x</span><span class="p">);</span>
+</code></pre></div>
+</p>
+<p>以下のように<code>floating-point-type</code>への<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>に統合され、<a class="cpprefjp-defined-word" data-desc="&lt;stdfloat&gt;で定義される内部表現の規定された浮動小数点数型" href="stdfloat.html">拡張浮動小数点数型</a>も扱えるようになった。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><i>floating-point-type</i></span> <span class="nf">abs</span><span class="p">(</span><span class="n"><i>floating-point-type</i></span> <span class="n">x</span><span class="p">);</span>
+</code></pre></div>
+</p>
+<h2><a href="#error-handling" id="error-handling">エラーの扱い</a></h2>
+<p><code>&lt;cmath&gt;</code> で提供される各関数は、特に明記されていない限り、引数の型が表現できる全ての値についての挙動が定義されている。
+なお、ここで言う「挙動が定義されている」とは、<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こさないというだけで、エラーが発生したり、実装依存の挙動となる場合がある事に注意。</p>
+<p><code>&lt;cmath&gt;</code> で提供される各関数においてエラーが発生した場合、<code><a href="cerrno/errno.html">errno</a></code>、あるいは、浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>のいずれか、もしくは両方によってエラーが通知される。<br />
+C++11 以降の場合、どちらの方法によって通知されるかは <code><a href="cmath/math_errhandling.html">math_errhandling</a></code> の値によって判別可能である。（利用者が選択する事はできない）<br />
+C++03 までの場合、<code><a href="cerrno/errno.html">errno</a></code> でしか通知されない。</p>
+<h3><code><a href="cerrno/errno.html">errno</a></code> によるエラーの通知</h3>
+<p><code><a href="cerrno/errno.html">errno</a></code> によってエラーが通知される場合、エラー内容は <code><a href="cerrno/errno.html">errno</a></code> に設定された値によって判別可能である。<br />
+なお、エラーが発生しなかった場合でも <code><a href="cerrno/errno.html">errno</a></code> がクリアされる事は無いので、エラー発生の有無を <code><a href="cerrno/errno.html">errno</a></code> で判断するためにはあらかじめ <code><a href="cerrno/errno.html">errno</a></code> にゼロを設定しておく必要がある。</p>
+<h3>浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>によるエラーの通知（C++11 以降）</h3>
+<p>名称に「<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>」と付いているが、C++ の<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>とは全く関係ないため注意。<br />
+浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>によってエラーが通知される場合、エラー内容は浮動小数点状態フラグに設定されるため、<code><a href="cfenv/fetestexcept.html">fetestexcept</a></code> によって判別可能である。<br />
+なお、エラーが発生しなかった場合でも浮動小数点状態フラグがクリアされる事は無いので、エラー発生の有無を浮動小数点状態フラグで判断するためにはあらかじめ <code><a href="cfenv/feclearexcept.html">feclearexcept</a></code> で浮動小数点状態フラグをクリアしておく必要がある。</p>
+<h2><a href="#error-kind" id="error-kind">エラーの種類</a></h2>
+<p><code>&lt;cmath&gt;</code> で提供される各関数で発生するエラーは、以下の 5 種類ある。</p>
+<h3>定義域エラー（domain error）</h3>
+<p>引数の値が、関数の数学的な定義域の範囲外であることを示すエラー。（例：<code><a href="cmath/sqrt.html">sqrt</a>(-1.0)</code> や、<code><a href="cmath/asin.html">asin</a>(2.0)</code> 等）</p>
+<p>定義域エラーが発生しなければならない条件は関数毎に規格で規定されているが、数学的な定義と整合的である場合には追加の条件で定義域エラーが発生する事が処理系に許されている。</p>
+<p>定義域エラーが発生した場合、通知は以下のように行われる。</p>
+<ul>
+<li><code><a href="cerrno/errno.html">errno</a></code> によってエラーが通知される場合、<code><a href="cerrno.html">EDOM</a></code>（定義域エラー、Error DOMain）が設定される。  </li>
+<li>浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>によってエラーが通知される場合、<code><a href="cfenv/fe_invalid.html">FE_INVALID</a></code>（無効演算浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>）が設定される。  </li>
+</ul>
+<p>定義域エラーが発生した場合、関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>は<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>であるが、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型が quiet NaN（quiet Not a Number：静かな非数）を表現可能（<code><a href="limits/numeric_limits.html">std::numeric_limits</a>&lt;T&gt;::<a href="limits/numeric_limits/has_quiet_nan.html">has_quiet_NaN</a></code> が真）の場合、一般的には quiet NaN が返る。</p>
+<h3>極エラー（pole error）</h3>
+<p>引数の値が有限値である場合に、関数の当該値に対する数学的な極限値が無限大であることを示すエラー。（例：<code><a href="cmath/log.html">log</a>(0.0)</code> や、<code><a href="cmath/atanh.html">atanh</a>(1.0)</code> 等）<br />
+引数の値が無限大の場合には、極エラーではないので注意。</p>
+<p>極エラーが発生しなければならない条件は関数毎に規格で規定されているが、数学的な定義と整合的である場合には追加の条件で極エラーが発生する事が処理系に許されている。  </p>
+<p>極エラーが発生した場合、通知は以下のように行われる。</p>
+<ul>
+<li><code><a href="cerrno/errno.html">errno</a></code> によってエラーが通知される場合、<code><a href="cerrno.html">ERANGE</a></code>（値域エラー、Error RANGE）が設定される。</li>
+<li>浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>によってエラーが通知される場合、<code><a href="cfenv/fe_divbyzero.html">FE_DIVBYZERO</a></code>（ゼロ除算浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>）が設定される（注：「ゼロ除算浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>」は誤記では無い）。</li>
+</ul>
+<p>極エラーが発生した場合、関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>は<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>であるが、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型が浮動小数点数の場合、一般的には <code><a href="cmath/huge_val.html">HUGE_VAL</a></code>（<code>double</code>）、<code><a href="cmath/huge_valf.html">HUGE_VALF</a></code>（<code>float</code> 、C++11 以降のみ）、<code><a href="cmath/huge_vall.html">HUGE_VALL</a></code>（<code>long double</code>、C++11 以降のみ）に正しい符号を付加した値が返る。
+また、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型が無限大を表現可能（<code><a href="limits/numeric_limits.html">std::numeric_limits</a>&lt;T&gt;::<a href="limits/numeric_limits/has_infinity.html">has_infinity</a></code> が真）の場合、一般的には無限大（<code><a href="limits/numeric_limits.html">std::numeric_limits</a>&lt;T&gt;::<a href="limits/numeric_limits/infinity.html">infinity</a>()</code>）が返る。
+なお、マクロ <code><a href="cmath/infinity.html">INFINITY</a></code> も、定義されている場合には無限大を表すものではあるが、<code>float</code> 型であることに注意。</p>
+<h3>オーバーフローエラー（overflow error）</h3>
+<p><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>が有限だが大きすぎるため、余分な丸め誤差無しでは<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型で表す事が出来ないことを示すエラー。</p>
+<p>オーバーフローエラーが発生した場合、通知は以下のように行われる。</p>
+<ul>
+<li><code><a href="cerrno/errno.html">errno</a></code> によってエラーが通知される場合、<code><a href="cerrno.html">ERANGE</a></code>（値域エラー、Error RANGE）が設定される。</li>
+<li>浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>によってエラーが通知される場合、<code><a href="cfenv/fe_overflow.html">FE_OVERFLOW</a></code>（オーバーフロー浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>）が設定される。</li>
+</ul>
+<p>オーバーフローエラーが発生した場合、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型が浮動小数点型でデフォルトの丸めモードが有効であれば、<code><a href="cmath/huge_val.html">HUGE_VAL</a></code>（<code>double</code>）、<code><a href="cmath/huge_valf.html">HUGE_VALF</a></code>（<code>float</code> 、C++11 以降のみ）、<code><a href="cmath/huge_vall.html">HUGE_VALL</a></code>（<code>long double</code>、C++11 以降のみ）に正しい符号を付加した値が返る。</p>
+<h3>アンダーフローエラー（underflow error）</h3>
+<p><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の絶対値が小さすぎるため、余分な丸め誤差無しでは<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型で表す事が出来ないことを示すエラー。</p>
+<p>アンダーフローエラーが発生した場合でも処理系によってはエラーの通知が行われないが（規格でエラーの通知が任意となっているため）、通知される場合には以下のように行われる。</p>
+<ul>
+<li><code><a href="cerrno/errno.html">errno</a></code> によってエラーが通知される場合、<code><a href="cerrno.html">ERANGE</a></code>（値域エラー、Error RANGE）が設定される。</li>
+<li>浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>によってエラーが通知される場合、<code><a href="cfenv/fe_underflow.html">FE_UNDERFLOW</a></code>（アンダーフロー浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>）が設定される。</li>
+</ul>
+<p>アンダーフローエラーが発生した場合、関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>は<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>であるが、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の絶対値はその型における最小の正の正規化数（<code><a href="limits/numeric_limits.html">std::numeric_limits</a>&lt;T&gt;::<a href="limits/numeric_limits/min.html">min</a>()</code>）以下である。（非正規化数、あるいは、ゼロを含む）</p>
+<h3>不正確エラー（inexact error）</h3>
+<p><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>が<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型では正確に表す事が出来ないことを示すエラー。（例：<code><a href="cmath/exp.html">exp</a>(1.0)</code> や、<code><a href="cmath/sqrt.html">sqrt</a>(2.0)</code> 等）<br />
+浮動小数点演算ではほとんどの場合に発生する。</p>
+<p>不正確エラーが発生した場合でも処理系によってはエラーの通知が行われないが（規格でエラーの通知が任意となっているため）、通知される場合には以下のように行われる。</p>
+<ul>
+<li><code><a href="cerrno/errno.html">errno</a></code> によるエラーの通知は行われない。</li>
+<li>浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>によってエラーが通知される場合、<code><a href="cfenv/fe_inexact.html">FE_INEXACT</a></code>（不正確浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>）が設定される。</li>
+</ul>
+<p>不正確エラーが発生した場合、関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>は真の値を丸めた値となるが、その際の丸め方式は<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>である。（関数に特別に規定がある場合を除く）<br />
+特に、<code><a href="cfenv/fesetround.html">fesetround</a></code> で設定した丸め方式に従うとは限らないため、注意が必要である。</p>
+<h2>定数式になる条件</h2>
+<p><code>constexpr</code>対応する数学関数において、以下のいずれかの条件に合致する場合、定数式とならない (引数によってコンパイルエラーになる)</p>
+<ul>
+<li><code><a href="cfenv/fe_inexact.html">FE_INEXACT</a></code>以外の、以下の浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が発生した場合：<ul>
+<li><code><a href="cfenv/fe_divbyzero.html">FE_DIVBYZERO</a></code> (ゼロ除算)</li>
+<li><code><a href="cfenv/fe_invalid.html">FE_INVALID</a></code> (不正な演算)</li>
+<li><code><a href="cfenv/fe_overflow.html">FE_OVERFLOW</a></code> (オーバーフロー)</li>
+<li><code><a href="cfenv/fe_underflow.html">FE_UNDERFLOW</a></code> (アンダーフロー)</li>
+</ul>
+</li>
+<li><code><a href="cmath/math_errhandling.html">math_errhandling</a> &amp; <a href="cmath/math_errno.html">MATH_ERRNO</a></code>が真で、<code><a href="cerrno/errno.html">errno</a></code>が設定された場合</li>
+</ul>
+<h2><a href="#trigonometric-functions" id="trigonometric-functions">三角関数</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="cmath/sin.html">sin</a></code></td>
+<td>正弦関数（サイン）</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="cmath/cos.html">cos</a></code></td>
+<td>余弦関数（コサイン）</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="cmath/tan.html">tan</a></code></td>
+<td>正接関数（タンジェント）</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="cmath/asin.html">asin</a></code></td>
+<td>逆正弦関数（アークサイン）</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="cmath/acos.html">acos</a></code></td>
+<td>逆余弦関数（アークコサイン）</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="cmath/atan.html">atan</a></code></td>
+<td>逆正接関数（アークタンジェント）</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="cmath/atan2.html">atan2</a></code></td>
+<td>対辺と隣辺からの逆正接関数（アークタンジェント）</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#hyperbolic-functions" id="hyperbolic-functions">双曲線関数</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="cmath/sinh.html">sinh</a></code></td>
+<td>双曲線正弦関数（ハイパボリックサイン）</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="cmath/cosh.html">cosh</a></code></td>
+<td>双曲線余弦関数（ハイパボリックコサイン）</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="cmath/tanh.html">tanh</a></code></td>
+<td>双曲線正接関数（ハイパボリックタンジェント）</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="cmath/asinh.html">asinh</a></code></td>
+<td>逆双曲線正弦関数（エリアハイパボリックサイン）</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/acosh.html">acosh</a></code></td>
+<td>逆双曲線余弦関数（エリアハイパボリックコサイン）</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/atanh.html">atanh</a></code></td>
+<td>逆双曲線正接関数（エリアハイパボリックタンジェント）</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#exponential-and-logarithmic-functions" id="exponential-and-logarithmic-functions">指数関数と対数関数</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="cmath/exp.html">exp</a></code></td>
+<td>e (ネイピア数) を底とする指数関数</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="cmath/exp2.html">exp2</a></code></td>
+<td>2 を底とする指数関数</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/expm1.html">expm1</a></code></td>
+<td>e (ネイピア数) を底とする指数関数から 1 を引いた値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/log.html">log</a></code></td>
+<td>e (ネイピア数) を底とする自然対数</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="cmath/log10.html">log10</a></code></td>
+<td>10 を底とする常用対数</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="cmath/log1p.html">log1p</a></code></td>
+<td>引数に 1 を足した値の、e (ネイピア数) を底とする自然対数</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/log2.html">log2</a></code></td>
+<td>2 を底とする二進対数</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#fraction-and-exponent-functions" id="fraction-and-exponent-functions">仮数と指数</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="cmath/ldexp.html">ldexp</a></code></td>
+<td>2 の累乗との乗算</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="cmath/frexp.html">frexp</a></code></td>
+<td>仮数部と 2 の累乗への分解</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="cmath/ilogb.html">ilogb</a></code></td>
+<td>指数部を符号付き整数値として抽出</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/logb.html">logb</a></code></td>
+<td>指数部を浮動小数点数値として抽出</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/modf.html">modf</a></code></td>
+<td>整数部と小数部への分解</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="cmath/scalbn.html">scalbn</a></code></td>
+<td>内部表現の基数 (<code>FLT_RADIX</code>) の累乗との乗算</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/scalbln.html">scalbln</a></code></td>
+<td>内部表現の基数 (<code>FLT_RADIX</code>) の累乗との乗算。乗数として<code>long</code>をとる</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#power-and-absolute-value-functions" id="power-and-absolute-value-functions">累乗・冪根と絶対値</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="cmath/pow.html">pow</a></code></td>
+<td>累乗</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="cmath/sqrt.html">sqrt</a></code></td>
+<td>平方根</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="cmath/cbrt.html">cbrt</a></code></td>
+<td>立方根</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/hypot.html">hypot</a></code></td>
+<td>平方和の平方根</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/abs.html">abs</a></code></td>
+<td>絶対値</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="cmath/fabs.html">fabs</a></code></td>
+<td>絶対値</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#error-and-gamma-functions" id="error-and-gamma-functions">誤差関数とガンマ関数</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="cmath/erf.html">erf</a></code></td>
+<td>誤差関数</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/erfc.html">erfc</a></code></td>
+<td>相補誤差関数</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/tgamma.html">tgamma</a></code></td>
+<td>ガンマ関数</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/lgamma.html">lgamma</a></code></td>
+<td>ガンマ関数の自然対数</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#mathematical-special-functions" id="mathematical-special-functions">その他特殊関数</a></h2>
+<p>以下の関数は引数に NaN が渡された場合、
+NaN を返さなければならないが定義域エラーを報告してはならない。
+引数が NaN ではないが次の条件を一つでも満たす場合、定義域エラーを報告しなければならない:</p>
+<ul>
+<li>規格が関数の定義域を明示していて (各解説ページを参照)、その定義域内にない</li>
+<li>数学関数の値の虚部が 0 でない</li>
+<li>数学関数が数学的に定義されていない</li>
+</ul>
+<p>数学関数が数学的に定義されるのは以下のいずれかの場合である:</p>
+<ul>
+<li>ある集合において明示的に定義されている</li>
+<li>極限が存在する (右極限と左極限が存在し、一致する)</li>
+</ul>
+<p>特記のない限り、以下の関数は全ての有限値と正負の無限大において定義される。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="cmath/assoc_laguerre.html">assoc_laguerre</a></code></td>
+<td>ラゲール陪多項式</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="cmath/assoc_legendre.html">assoc_legendre</a></code></td>
+<td>ルジャンドル陪関数</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="cmath/beta.html">beta</a></code></td>
+<td>ベータ関数</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="cmath/comp_ellint_1.html">comp_ellint_1</a></code></td>
+<td>第1種完全楕円積分</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="cmath/comp_ellint_2.html">comp_ellint_2</a></code></td>
+<td>第2種完全楕円積分</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="cmath/comp_ellint_3.html">comp_ellint_3</a></code></td>
+<td>第3種完全楕円積分</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="cmath/cyl_bessel_i.html">cyl_bessel_i</a></code></td>
+<td>第1種変形ベッセル関数</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="cmath/cyl_bessel_j.html">cyl_bessel_j</a></code></td>
+<td>第1種ベッセル関数</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="cmath/cyl_bessel_k.html">cyl_bessel_k</a></code></td>
+<td>第2種変形ベッセル関数</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="cmath/cyl_neumann.html">cyl_neumann</a></code></td>
+<td>第2種ベッセル関数</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="cmath/ellint_1.html">ellint_1</a></code></td>
+<td>第1種不完全楕円積分</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="cmath/ellint_2.html">ellint_2</a></code></td>
+<td>第2種不完全楕円積分</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="cmath/ellint_3.html">ellint_3</a></code></td>
+<td>第3種不完全楕円積分</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="cmath/expint.html">expint</a></code></td>
+<td>指数積分</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="cmath/hermite.html">hermite</a></code></td>
+<td>エルミート多項式</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="cmath/laguerre.html">laguerre</a></code></td>
+<td>ラゲール多項式</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="cmath/legendre.html">legendre</a></code></td>
+<td>ルジャンドル多項式</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="cmath/riemann_zeta.html">riemann_zeta</a></code></td>
+<td>リーマンのゼータ関数</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="cmath/sph_bessel.html">sph_bessel</a></code></td>
+<td>第1種球ベッセル関数</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="cmath/sph_legendre.html">sph_legendre</a></code></td>
+<td>球面調和関数の <em>θ</em> 成分</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="cmath/sph_neumann.html">sph_neumann</a></code></td>
+<td>第2種球ベッセル関数</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#nearest-integer-functions" id="nearest-integer-functions">最近傍整数</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="cmath/ceil.html">ceil</a></code></td>
+<td>天井関数（引数より小さくない最近傍の整数）</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="cmath/floor.html">floor</a></code></td>
+<td>床関数（引数より大きくない最近傍の整数）</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="cmath/trunc.html">trunc</a></code></td>
+<td>ゼロ方向への丸め</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/round.html">round</a></code></td>
+<td>四捨五入による丸め</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/lround.html">lround</a></code></td>
+<td><code>long</code> 型への四捨五入による丸め</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/llround.html">llround</a></code></td>
+<td><code>long long</code> 型への四捨五入による丸め</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/nearbyint.html">nearbyint</a></code></td>
+<td>現在の丸めモードによる丸め</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/rint.html">rint</a></code></td>
+<td>現在の丸めモードによる丸め</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/lrint.html">lrint</a></code></td>
+<td><code>long</code> 型への現在の丸めモードによる丸め</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/llrint.html">llrint</a></code></td>
+<td><code>long long</code> 型への現在の丸めモードによる丸め</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#remainder-functions" id="remainder-functions">剰余</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="cmath/fmod.html">fmod</a></code></td>
+<td>浮動小数点剰余</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="cmath/remainder.html">remainder</a></code></td>
+<td>符号付きの浮動小数点剰余</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/remquo.html">remquo</a></code></td>
+<td>商と浮動小数点剰余</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#manipulation-functions" id="manipulation-functions">浮動小数点操作</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="cmath/copysign.html">copysign</a></code></td>
+<td>符号のコピー</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/nanf.html">nan</a></code></td>
+<td>文字列から quiet NaN への変換</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/nanf.html">nanf</a></code></td>
+<td>文字列から quiet NaN への変換</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/nanf.html">nanl</a></code></td>
+<td>文字列から quiet NaN への変換</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/nextafter.html">nextafter</a></code></td>
+<td>指定方向への次の表現可能な値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/nexttoward.html">nexttoward</a></code></td>
+<td>指定方向への次の表現可能な値</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#maximum-minimum-and-positive-difference-functions" id="maximum-minimum-and-positive-difference-functions">最大値・最小値と正の差</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="cmath/fmax.html">fmax</a></code></td>
+<td>最大値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/fmin.html">fmin</a></code></td>
+<td>最小値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/fdim.html">fdim</a></code></td>
+<td>正の差</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#floating-multiply-add" id="floating-multiply-add">乗算-加算</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="cmath/fma.html">fma</a></code></td>
+<td>乗算と加算の合成</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#linear-interpolation" id="linear-interpolation">線形補完</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="cmath/lerp.html">lerp</a></code></td>
+<td>線形補間</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#classification-functions" id="classification-functions">数値分類</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="cmath/fpclassify.html">fpclassify</a></code></td>
+<td>数値を NaN、無限大、正規化数、非正規化数、0 または他の<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>のカテゴリに分類</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/isfinite.html">isfinite</a></code></td>
+<td>数値が有限であるか判定</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/isinf.html">isinf</a></code></td>
+<td>数値が無限大であるか判定</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/isnan.html">isnan</a></code></td>
+<td>数値が NaN であるか判定</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/isnormal.html">isnormal</a></code></td>
+<td>数値が正規化数であるか判定</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/signbit.html">signbit</a></code></td>
+<td>数値の符号が負であるか判定</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#comparison-functions" id="comparison-functions">数値比較</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="cmath/isgreater.html">isgreater</a></code></td>
+<td>第 1 引数が第 2 引数より大きいか判定</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/isgreaterequal.html">isgreaterequal</a></code></td>
+<td>第 1 引数が第 2 引数以上か判定</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/isless.html">isless</a></code></td>
+<td>第 1 引数が第 2 引数より小さいか判定</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/islessequal.html">islessequal</a></code></td>
+<td>第 1 引数が第 2 引数以下か判定</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/islessgreater.html">islessgreater</a></code></td>
+<td>第 1 引数が第 2 引数より小さいか、あるいは大きいか判定</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/isunordered.html">isunordered</a></code></td>
+<td>第 1 引数と第 2 引数が順序付けられていないか判定</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#types" id="types">型</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="cmath/float_t.html">float_t</a></code></td>
+<td><code>float</code> 以上の浮動小数点数型</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/double_t.html">double_t</a></code></td>
+<td><code>double</code> 以上の浮動小数点数型</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#value-macros" id="value-macros">数値のマクロ</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="cmath/huge_val.html">HUGE_VAL</a></code></td>
+<td><code>double</code> 型の正の巨大値</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="cmath/huge_valf.html">HUGE_VALF</a></code></td>
+<td><code>float</code> 型の正の巨大値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/huge_vall.html">HUGE_VALL</a></code></td>
+<td><code>long double</code> 型の正の巨大値</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/infinity.html">INFINITY</a></code></td>
+<td><code>float</code> 型の正の無限大</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/nan.html">NAN</a></code></td>
+<td><code>float</code> 型の <code>quiet NaN</code></td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#classification-macros" id="classification-macros">数値分類のマクロ</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="cmath/fp_infinite.html">FP_INFINITE</a></code></td>
+<td>数値分類で無限大を表す整数定数式</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/fp_nan.html">FP_NAN</a></code></td>
+<td>数値分類で <code>NaN</code> を表す整数定数式</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/fp_normal.html">FP_NORMAL</a></code></td>
+<td>数値分類で正規化数を表す整数定数式</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/fp_subnormal.html">FP_SUBNORMAL</a></code></td>
+<td>数値分類で非正規化数を表す整数定数式</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/fp_zero.html">FP_ZERO</a></code></td>
+<td>数値分類で浮動小数点数の 0 を表す整数定数式</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#other-macros" id="other-macros">その他のマクロ</a></h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="cmath/fp_fast_fma.html">FP_FAST_FMA</a></code></td>
+<td><code>double</code> 型の <code>fma</code> 関数がより高速な実装であるか</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/fp_fast_fmaf.html">FP_FAST_FMAF</a></code></td>
+<td><code>float</code> 型の <code>fma</code> 関数がより高速な実装であるか</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/fp_fast_fmal.html">FP_FAST_FMAL</a></code></td>
+<td><code>long double</code> 型の <code>fma</code> 関数がより高速な実装であるか</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/fp_ilogb0.html">FP_ILOGB0</a></code></td>
+<td><code>ilogb(0)</code> の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を表す整数定数式</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/fp_ilogbnan.html">FP_ILOGBNAN</a></code></td>
+<td><code>ilogb(NaN)</code> の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を表す整数定数式</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/math_errno.html">MATH_ERRNO</a></code></td>
+<td>数学ライブラリ内で<code>errno</code>にエラーが設定されたかを表す整数定数</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/math_errexcept.html">MATH_ERREXCEPT</a></code></td>
+<td>数学ライブラリ内で浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が発生したかを表す整数定数</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="cmath/math_errhandling.html">math_errhandling</a></code></td>
+<td><code>&lt;cmath&gt;</code> 内の関数がエラーをどのように取り扱うかを表すマクロ</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="numbers.html">&lt;numbers&gt;</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1568.htm" target="_blank">N1568 Proposed additions to TR-1 to improve compatibility with C99</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0175r0.html" target="_blank">P0175R0 Synopses for the C library</a><ul>
+<li>C++17 から<code>f</code>、<code>l</code>サフィックス付きのC関数を導入</li>
+</ul>
+</li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0533r9.pdf" target="_blank">P0533R9 constexpr for <code>&lt;cmath&gt;</code> and <code>&lt;cstdlib&gt;</code></a><ul>
+<li>C++23での、一部関数の<code>constexpr</code>対応</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
