@@ -15,7 +15,6 @@
 ## 例
 ```cpp example
 #include <cstdio>
-#include <iostream>
 
 int main() {
   // BUFSIZの値を表示
