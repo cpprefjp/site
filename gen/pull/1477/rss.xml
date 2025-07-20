@@ -2,9 +2,38 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-07-19T12:46:21.987447</updated>
-  <id>2a3efe08-5ad6-4042-9f97-93ca99600d84</id>
+  <updated>2025-07-20T11:01:21.160065</updated>
+  <id>9ec048af-99a7-4755-a72a-cc886f54a4fc</id>
 
+  
+    <entry>
+      <title>BUFSIZ -- bufsiz.md implementation-defined -&gt; unspecified</title>
+      <link href="https://cpprefjp.github.io/reference/cstdio/bufsiz.html"/>
+      <id>8fa26539b40bfd81fd331c725b85b9cac56ad2bc:reference/cstdio/bufsiz.md</id>
+      <updated>2025-07-20T19:55:47+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/bufsiz.md b/reference/cstdio/bufsiz.md
+index 6fe47bd32..59c16b9be 100644
+--- a/reference/cstdio/bufsiz.md
++++ b/reference/cstdio/bufsiz.md
+@@ -3,8 +3,9 @@
+ * macro[meta id-type]
+ 
+ ```cpp
+-#define BUFSIZ implementation-defined
++#define BUFSIZ unspecified
+ ```
++* unspecified[italic]
+ 
+ ## 概要
+ 標準入出力のバッファサイズを表すマクロ。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>cstdio -- new page bufsiz.md</title>
@@ -1558,33 +1587,6 @@ index 657d5e1d8..66b15defd 100644
       <author>
         <name>Raclamusi</name>
         <email>raclamusi@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>strtol -- strtol:記述の変更</title>
-      <link href="https://cpprefjp.github.io/reference/cstdlib/strtol.html"/>
-      <id>5b1c95f1f3810b3211cb7ffdc214d3fbb94406c9:reference/cstdlib/strtol.md</id>
-      <updated>2025-07-16T23:56:02+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/strtol.md b/reference/cstdlib/strtol.md
-index a8f808adc..5b20b4df2 100644
---- a/reference/cstdlib/strtol.md
-+++ b/reference/cstdlib/strtol.md
-@@ -19,7 +19,7 @@ namespace std {
- `base`が0の場合
- - 文字列の先頭が`0x`または`0X`のときは16進数
- - 文字列の先頭が`0`のときは8進数
--- その他の場合は10進数として変換する。
-+- その他のときは10進数として変換する。
- 
- 変換は次のように行われる
- - 先頭が空白文字の場合、最初の非空白文字から変換される。
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
       </author>
     </entry>
   
