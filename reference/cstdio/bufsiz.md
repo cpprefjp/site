@@ -3,8 +3,9 @@
 * macro[meta id-type]
 
 ```cpp
-#define BUFSIZ implementation-defined
+#define BUFSIZ unspecified
 ```
+* unspecified[italic]
 
 ## 概要
 標準入出力のバッファサイズを表すマクロ。
