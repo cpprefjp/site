@@ -1,0 +1,344 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>compare_three_way_result - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,compare,class template,std,cpp20
+">
+        <meta name="title" content="compare_three_way_result - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="compare_three_way_result - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="compare_three_way_result - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/compare/compare_three_way_result.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="compare_three_way_result - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/compare/compare_three_way_result.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;compare&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;558730aadc66ecd31ca26d4eef4ebf5c175d508c&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;compare&gt;\n#include &lt;type_traits&gt;\n\ntemplate&lt;typename T, typename Cat&gt;\nusing fallback_comp3way_t = std::conditional_t&lt;std::three_way_comparable&lt;T&gt;, std::compare_three_way_result&lt;T&gt;, std::type_identity&lt;Cat&gt;&gt;::type;\n\ntemplate&lt;typename T&gt;\nstruct wrap {\n  T t;\n\n  // &lt;=&gt;\u3092\u4f7f\u7528\u53ef\u80fd\u306a\u3089\u305d\u308c\u3092\u3001\u305d\u3046\u3067\u306a\u3044\u306a\u3089&lt; ==\u3092\u4f7f\u3063\u3066default\u5b9f\u88c5\n  auto operator&lt;=&gt;(const wrap&amp;) const\n    -&gt; fallback_comp3way_t&lt;T, std::weak_ordering&gt;\n      = default;\n};\n\n// &lt;=&gt;\u3092\u5b9a\u7fa9\u3057\u306a\u3044\u578b\nstruct no_spaceship {\n  int n;\n\n  bool operator&lt;(const no_spaceship&amp; that) const noexcept {\n    return n &lt; that.n;\n  }\n\n  bool operator==(const no_spaceship&amp; that) const noexcept {\n    return n == that.n;\n  }\n};\n\nint main()\n{\n  wrap&lt;no_spaceship&gt; t1 = {{20}}, t2 = {{30}};\n\n  std::cout &lt;&lt; std::boolalpha;\n  std::cout &lt;&lt; (t1 &lt;  t2) &lt;&lt; std::endl;\n  std::cout &lt;&lt; (t1 &lt;= t2) &lt;&lt; std::endl;\n  std::cout &lt;&lt; (t1 &gt;  t2) &lt;&lt; std::endl;\n  std::cout &lt;&lt; (t1 &gt;= t2) &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;compare&#34;, &#34;compare_three_way_result&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/compare.html" itemprop="url">
+              
+                <span itemprop="name">compare</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">compare_three_way_result</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-06-30T05:34:19">
+        2025年06月30日 05時34分19秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Raclamusi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/compare/compare_three_way_result.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/compare/compare_three_way_result.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;compare&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">compare_three_way_result</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span> <span class="o">=</span> <span class="n">T</span><span class="o">&gt;</span>
+  <span class="k">struct</span> <span class="n">compare_three_way_result</span> <span class="p">{</span>
+    <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="err">…</span><span class="p">;</span>
+  <span class="p">};</span>
+
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span> <span class="o">=</span> <span class="n">T</span><span class="o">&gt;</span>
+  <span class="k">using</span> <span class="n"><a href="">compare_three_way_result_t</a></span> <span class="o">=</span> <span class="k">typename</span> <span class="n">compare_three_way_result</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">U</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>与えられた型の間の<code>&lt;=&gt;</code>による比較結果型を求める。</p>
+<h2>効果</h2>
+<p><code>T2 = remove_reference_t&lt;T&gt;</code>、<code>U2 = remove_reference_t&lt;U&gt;</code>として、<code>const T2&amp; t</code>、<code>const U2&amp; u</code>のように定義されるオブジェクト<code>t, u</code>に対する<code>t &lt;=&gt; u</code>が使用可能であれば、<code>type = decltype(t &lt;=&gt; u)</code>のようにメンバ型<code>type</code>を定義する。</p>
+<p>それ以外の場合は、<code>type</code>は定義されない。</p>
+<p>ただし、これらのチェックは未評価の文脈で行われる。</p>
+<h2>備考</h2>
+<p>ユーザーはこのクラスの明示的、部分特殊化を定義してはならない。それらの特殊化を定義した場合、そのプログラムの<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">動作は未定義</a>。</p>
+<h2>例</h2>
+<p><div class="yata" id="558730aadc66ecd31ca26d4eef4ebf5c175d508c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../compare.html">&lt;compare&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">Cat</span><span class="o">&gt;</span>
+<span class="k">using</span> <span class="n">fallback_comp3way_t</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">conditional_t</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="three_way_comparable.html">three_way_comparable</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n"><span style="color:#ff0000">compare_three_way_result</span></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n"><a href="../type_traits/type_identity.html">type_identity</a></span><span class="o">&lt;</span><span class="n">Cat</span><span class="o">&gt;&gt;::</span><span class="n">type</span><span class="p">;</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">wrap</span> <span class="p">{</span>
+  <span class="n">T</span> <span class="n">t</span><span class="p">;</span>
+
+  <span class="c1">// &lt;=&gt;を使用可能ならそれを、そうでないなら&lt; ==を使ってdefault実装</span>
+  <span class="k">auto</span> <span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">wrap</span><span class="o">&amp;</span><span class="p">)</span> <span class="k">const</span>
+    <span class="o">-&gt;</span> <span class="n">fallback_comp3way_t</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">weak_ordering</span><span class="o">&gt;</span>
+      <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// &lt;=&gt;を定義しない型</span>
+<span class="k">struct</span> <span class="n">no_spaceship</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+
+  <span class="kt">bool</span> <span class="k">operator</span><span class="o">&lt;</span><span class="p">(</span><span class="k">const</span> <span class="n">no_spaceship</span><span class="o">&amp;</span> <span class="n">that</span><span class="p">)</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="n">that</span><span class="p">.</span><span class="n">n</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kt">bool</span> <span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span> <span class="n">no_spaceship</span><span class="o">&amp;</span> <span class="n">that</span><span class="p">)</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">n</span> <span class="o">==</span> <span class="n">that</span><span class="p">.</span><span class="n">n</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">wrap</span><span class="o">&lt;</span><span class="n">no_spaceship</span><span class="o">&gt;</span> <span class="n">t1</span> <span class="o">=</span> <span class="p">{{</span><span class="mi">20</span><span class="p">}},</span> <span class="n">t2</span> <span class="o">=</span> <span class="p">{{</span><span class="mi">30</span><span class="p">}};</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ios/boolalpha.html">std::boolalpha</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">t1</span> <span class="o">&lt;</span>  <span class="n">t2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">t1</span> <span class="o">&lt;=</span> <span class="n">t2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">t1</span> <span class="o">&gt;</span>  <span class="n">t2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">t1</span> <span class="o">&gt;=</span> <span class="n">t2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>true
+true
+false
+false
+</code></pre></p>
+<p>このコードをコンパイルできるコンパイラがまだないため、結果は予想。</p>
+<h2>実装例</h2>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">U</span> <span class="o">=</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">simple_3way_comparable</span> <span class="o">=</span> <span class="n">requires</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n"><a href="../type_traits/remove_reference.html">remove_reference_t</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">t</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n"><a href="../type_traits/remove_reference.html">remove_reference_t</a></span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;</span> <span class="n">u</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">t</span> <span class="o">&lt;=&gt;</span> <span class="n">u</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">U</span> <span class="o">=</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">compare_three_way_result</span> <span class="p">{};</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">U</span><span class="o">&gt;</span>
+<span class="n">requires</span> <span class="n">simple_3way_comparable</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">U</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">compare_three_way_result</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">U</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="k">decltype</span><span class="p">(</span><span class="n"><a href="../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="k">const</span> <span class="n"><a href="../type_traits/remove_reference.html">remove_reference_t</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;&gt;</span><span class="p">()</span> <span class="o">&lt;=&gt;</span> <span class="n"><a href="../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="k">const</span> <span class="n"><a href="../type_traits/remove_reference.html">remove_reference_t</a></span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;&gt;</span><span class="p">());</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++20</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 10.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><a href="../../lang/cpp20/consistent_comparison.html">C++20 <code>&lt;=&gt;</code>/<code>==</code>による比較演算子の自動定義</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://wg21.link/p1614" target="_blank">P1614R2 The Mothership has Landed (Adding &lt;=&gt; to the Library)</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

@@ -1,0 +1,374 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>atomic_flag::wait - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,atomic,std,atomic_flag,function,cpp20
+">
+        <meta name="title" content="atomic_flag::wait - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="atomic_flag::wait - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="atomic_flag::wait - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/atomic/atomic_flag/wait.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="起床されるまで待機する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="atomic_flag::wait - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/atomic/atomic_flag/wait.html" />
+        <meta name="twitter:description" content="起床されるまで待機する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;atomic&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;atomic_flag&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;60b617a8f295265aeb4ec6b90244916f28f6ba83&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;atomic&gt;\n#include &lt;thread&gt;\n\nclass my_mutex {\n  std::atomic_flag state_ = ATOMIC_FLAG_INIT; // clear:unlock, set:lock\npublic:\n  void lock() noexcept {\n    while (state_.test_and_set()) {\n      state_.wait(true);\n    }\n  }\n\n  void unlock() noexcept {\n    state_.clear();\n    state_.notify_one();\n  }\n};\n\nmy_mutex mut;\nvoid print(int x) {\n  mut.lock();\n  std::cout &lt;&lt; x &lt;&lt; std::endl;\n  mut.unlock();\n}\n\nint main()\n{\n  std::thread t1 {[] {\n    for (int i = 0; i &lt; 5; ++i) {\n      print(i);\n    }\n  }};\n  std::thread t2 {[] {\n    for (int i = 5; i &lt; 10; ++i) {\n      print(i);\n    }\n  }};\n\n  t1.join();\n  t2.join();\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;atomic&#34;, &#34;atomic_flag&#34;, &#34;wait&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/atomic.html" itemprop="url">
+              
+                <span itemprop="name">atomic</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/atomic/atomic_flag.html" itemprop="url">
+              
+                <span itemprop="name">atomic_flag</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">wait</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-01-22T04:39:19">
+        2025年01月22日 04時39分19秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yoh</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/atomic/atomic_flag/wait.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/atomic/atomic_flag/wait.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;atomic&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class atomic_flag">atomic_flag::</span><span class="token">wait</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">void</span>
+  <span class="nf">wait</span><span class="p">(</span><span class="kt">bool</span> <span class="n">old</span><span class="p">,</span>
+       <span class="n"><a href="../memory_order.html">memory_order</a></span> <span class="n">order</span> <span class="o">=</span> <span class="n"><a href="../memory_order.html">memory_order</a></span><span class="o">::</span><span class="n">seq_cst</span>
+       <span class="p">)</span> <span class="k">const</span> <span class="k">volatile</span> <span class="k">noexcept</span><span class="p">;</span>                 <span class="c1">// (1) C++20</span>
+
+<span class="kt">void</span>
+  <span class="nf">wait</span><span class="p">(</span><span class="kt">bool</span> <span class="n">old</span><span class="p">,</span>
+       <span class="n"><a href="../memory_order.html">memory_order</a></span> <span class="n">order</span> <span class="o">=</span> <span class="n"><a href="../memory_order.html">memory_order</a></span><span class="o">::</span><span class="n">seq_cst</span>
+       <span class="p">)</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span>                          <span class="c1">// (2) C++20</span>
+<span class="k">constexpr</span> <span class="kt">void</span>
+  <span class="nf">wait</span><span class="p">(</span><span class="kt">bool</span> <span class="n">old</span><span class="p">,</span>
+       <span class="n"><a href="../memory_order.html">memory_order</a></span> <span class="n">order</span> <span class="o">=</span> <span class="n"><a href="../memory_order.html">memory_order</a></span><span class="o">::</span><span class="n">seq_cst</span>
+       <span class="p">)</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span>                          <span class="c1">// (2) C++26</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>起床されるまで待機する。</p>
+<p>この関数は、ブロッキング同期を行うための機能であり、ビジーループによるポーリングよりもエネルギー消費が低く効率的な待機を実現できる。アトミック操作版の<code><a href="../../condition_variable/condition_variable.html">std::condition_variable</a></code>であると言える。</p>
+<p>この関数によってブロッキング待機をしたら、対応する起床関数である<code><a href="notify_one.html">notify_one()</a></code>、<code><a href="notify_all.html">notify_all()</a></code>によってブロッキング待機を解除できる。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a></h2>
+<p><code>order</code>が以下のメモリオーダーではないこと：</p>
+<ul>
+<li><code><a href="../memory_order.html">memory_order_release</a></code></li>
+<li><code><a href="../memory_order.html">memory_order_acq_rel</a></code></li>
+</ul>
+<h2>効果</h2>
+<ul>
+<li>以下のステップを順に繰り返し実行する：<ul>
+<li>式<code><a href="test.html">test</a>(order) != old</code>を評価する</li>
+<li>比較結果が<code>true</code>に評価された場合、関数を<code>return</code>する</li>
+<li>アトミック起床操作が呼ばれてアンロックされるまで、この関数の実行をブロックする<ul>
+<li>ただし、起床操作が呼ばれていなくても、アンロックされる場合がある (spuriously unblock)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p>なし</p>
+<h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
+<p>投げない</p>
+<h2>備考</h2>
+<ul>
+<li>Windowsでは<code>WaitOnAddress()</code>関数、POSIXでは<code><a href="https://web.archive.org/web/20230605025744/https://linuxjm.osdn.jp/html/LDP_man-pages/man2/futex.2.html" target="_blank">futex()</a></code>関数が実装に使われる</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="60b617a8f295265aeb4ec6b90244916f28f6ba83"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../atomic.html">&lt;atomic&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
+
+<span class="k">class</span> <span class="nc">my_mutex</span> <span class="p">{</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">atomic_flag</span> <span class="n">state_</span> <span class="o">=</span> <span class="n"><a href="../atomic_flag_init.html">ATOMIC_FLAG_INIT</a></span><span class="p">;</span> <span class="c1">// clear:unlock, set:lock</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="kt">void</span> <span class="n">lock</span><span class="p">()</span> <span class="k">noexcept</span> <span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">state_</span><span class="p">.</span><span class="n"><a href="test_and_set.html">test_and_set</a></span><span class="p">())</span> <span class="p">{</span>
+      <span class="n">state_</span><span class="p">.</span><span class="n"><span style="color:#ff0000">wait</span></span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="kt">void</span> <span class="n">unlock</span><span class="p">()</span> <span class="k">noexcept</span> <span class="p">{</span>
+    <span class="n">state_</span><span class="p">.</span><span class="n"><a href="clear.html">clear()</a></span><span class="p">;</span>
+    <span class="n">state_</span><span class="p">.</span><span class="n"><a href="notify_one.html">notify_one()</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="n">my_mutex</span> <span class="n">mut</span><span class="p">;</span>
+<span class="kt">void</span> <span class="nf">print</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">mut</span><span class="p">.</span><span class="n">lock</span><span class="p">();</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n">mut</span><span class="p">.</span><span class="n">unlock</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../thread/thread.html">std::thread</a></span> <span class="n">t1</span> <span class="p">{[]</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">print</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}};</span>
+  <span class="n"><a href="../../thread/thread.html">std::thread</a></span> <span class="n">t2</span> <span class="p">{[]</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">print</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}};</span>
+
+  <span class="n"><a href="../../thread/thread/join.html">t1.join()</a></span><span class="p">;</span>
+  <span class="n"><a href="../../thread/thread/join.html">t2.join()</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力例</h3>
+<p><pre><code>0
+5
+1
+6
+2
+7
+3
+8
+4
+9
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++20</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: 9.0 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: 9.2 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: 2019 Update 3 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0514r4.pdf" target="_blank">P0514R4 Efficient concurrent waiting for C++20</a></li>
+<li><a href="https://github.com/ogiroux/atomic_wait" target="_blank">ogiroux/atomic_wait - Sample implementation of C++20 atomic_wait/notify</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1135r6.html" target="_blank">P1135R6 The C++20 Synchronization Library</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html" target="_blank">P3309R3 <code>constexpr atomic</code> and <code>atomic_ref</code></a><ul>
+<li>C++26で<code>constexpr</code>に対応した</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

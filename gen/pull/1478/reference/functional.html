@@ -1,0 +1,775 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>functional - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,functional
+">
+        <meta name="title" content="functional - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="functional - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="functional - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/functional.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="&amp;lt;functional&amp;gt;functional &amp;lt;functional&amp;gt;ヘッダは、関数オブジェクトに関する機能を提供する。 関数オブジェクトとは、通常の関数と同じ構文で関数呼び出しを扱えるクラスである。 単純な関数オブジェクトの構造は次のとおりである： struct doubler {   int operator ()(int x) const { return x * 2" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="functional - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/functional.html" />
+        <meta name="twitter:description" content="&amp;lt;functional&amp;gt;functional &amp;lt;functional&amp;gt;ヘッダは、関数オブジェクトに関する機能を提供する。 関数オブジェクトとは、通常の関数と同じ構文で関数呼び出しを扱えるクラスである。 単純な関数オブジェクトの構造は次のとおりである： struct doubler {   int operator ()(int x) const { return x * 2" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;functional&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;functional&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">functional</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-03-10T02:17:53">
+        2024年03月10日 02時17分53秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Tetsuro Matsumura</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/functional.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/functional.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="header">&lt;functional&gt;</div><h1 itemprop="name"><span class="token">functional</span></h1>
+<div itemprop="articleBody"><p><code>&lt;functional&gt;</code>ヘッダは、関数オブジェクトに関する機能を提供する。</p>
+<p>関数オブジェクトとは、通常の関数と同じ構文で関数呼び出しを扱えるクラスである。<br />
+単純な関数オブジェクトの構造は次のとおりである：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">doubler</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="k">operator</span> <span class="p">()(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<p>関数オブジェクトは、関数・関数へのポインタに対して、以下のような利点がある：</p>
+<ul>
+<li>状態を保持できる</li>
+<li>(特にアルゴリズムにファンクタとして渡した場合)インライン展開が容易である</li>
+<li>多相(<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>やテンプレート)にしても関数へのポインタのように曖昧にならない</li>
+</ul>
+<h2>多相的な関数オブジェクト</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="functional/function.html">function</a></code></td>
+<td>関数・関数オブジェクトの多相的なラッパー(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="functional/bad_function_call.html">bad_function_call</a></code></td>
+<td>不正な関数呼び出しに関する<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>(class)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="functional/move_only_function.html">move_only_function</a></code></td>
+<td>ムーブのみ可能な関数・関数オブジェクトの多相軽量ラッパー(class template)</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="functional/copyable_function.html">copyable_function</a></code></td>
+<td>コピー可能な関数・関数オブジェクトの多相軽量ラッパー(class template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="functional/function_ref.html">function_ref</a></code></td>
+<td>関数・関数オブジェクトの多相参照ラッパー(class template)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>統一的な関数呼び出し</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="functional/invoke.html">invoke</a></code></td>
+<td>共通の操作で関数呼び出しを行う(function template)</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h2>引数の束縛</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="functional/bind_front.html">bind_front</a></code></td>
+<td>関数の引数を先頭から順に部分適用する(function template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="functional/bind_back.html">bind_back</a></code></td>
+<td>関数の引数を末尾から順に部分適用する(function template)</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="functional/bind.html">bind</a></code></td>
+<td>関数の引数を部分適用する(function template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="functional/is_bind_expression.html">is_bind_expression</a></code></td>
+<td>型を<code>bind</code>の式と見なすか判定する(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="functional/is_placeholder.html">is_placeholder</a></code></td>
+<td>型がプレースホルダーかどうかを判定する(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="functional/placeholders.html">placeholders</a></code></td>
+<td>部分適用のためのプレースホルダー(namespace)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="functional/mem_fn.html">mem_fn</a></code></td>
+<td>メンバ関数アダプタ(function template)</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>参照ラッパー</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="functional/reference_wrapper.html">reference_wrapper</a></code></td>
+<td>テンプレートで参照を渡すためのラッパー(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="functional/ref.html">ref</a></code></td>
+<td>オブジェクトへの参照を構築する(function template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="functional/cref.html">cref</a></code></td>
+<td>オブジェクトへのconst左辺値参照を構築する(function template)</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>ハッシュ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="functional/hash.html">hash</a></code></td>
+<td>オブジェクトを示すハッシュを計算する(class template)</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>算術演算関数オブジェクト</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="functional/plus.html">plus</a></code></td>
+<td>加算(class template)</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="functional/minus.html">minus</a></code></td>
+<td>減算(class template)</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="functional/multiplies.html">multiplies</a></code></td>
+<td>乗算(class template)</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="functional/divides.html">divides</a></code></td>
+<td>除算(class template)</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="functional/modulus.html">modulus</a></code></td>
+<td>剰余算(class template)</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="functional/negate.html">negate</a></code></td>
+<td>符号反転(class template)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>比較演算関数オブジェクト</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="functional/equal_to.html">equal_to</a></code></td>
+<td>等値比較(class template)</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="functional/not_equal_to.html">not_equal_to</a></code></td>
+<td>非等値比較(class template)</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="functional/less.html">less</a></code></td>
+<td>左辺が右辺より小さいかの比較(class template)</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="functional/less_equal.html">less_equal</a></code></td>
+<td>左辺が右辺以下かの比較(class template)</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="functional/greater.html">greater</a></code></td>
+<td>左辺が右辺より大きいかの比較(class template)</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="functional/greater_equal.html">greater_equal</a></code></td>
+<td>左辺が右辺以上かの比較(class template)</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="functional/ranges_equal_to.html">ranges::equal_to</a></code></td>
+<td>等値比較(class template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="functional/ranges_not_equal_to.html">ranges::not_equal_to</a></code></td>
+<td>非等値比較(class template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="functional/ranges_less.html">ranges::less</a></code></td>
+<td>左辺が右辺より小さいかの比較(class template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="functional/ranges_less_equal.html">ranges::less_equal</a></code></td>
+<td>左辺が右辺以下かの比較(class template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="functional/ranges_greater.html">ranges::greater</a></code></td>
+<td>左辺が右辺より大きいかの比較(class template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="functional/ranges_greater_equal.html">ranges::greater_equal</a></code></td>
+<td>左辺が右辺以上かの比較(class template)</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>論理演算関数オブジェクト</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="functional/logical_and.html">logical_and</a></code></td>
+<td>論理積(AND) (class template)</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="functional/logical_or.html">logical_or</a></code></td>
+<td>論理和(OR) (class template)</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="functional/logical_not.html">logical_not</a></code></td>
+<td>論理否定 (class template)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>ビット演算関数オブジェクト</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="functional/bit_and.html">bit_and</a></code></td>
+<td>ビットごとの論理積(AND) (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="functional/bit_or.html">bit_or</a></code></td>
+<td>ビットごとの論理和(OR) (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="functional/bit_xor.html">bit_xor</a></code></td>
+<td>ビットごとの排他的論理和(XOR) (class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="functional/bit_not.html">bit_not</a></code></td>
+<td>ビットごとの論理否定(NOT) (class template)</td>
+<td>C++14</td>
+</tr>
+</tbody>
+</table>
+<h2>論理反転関数オブジェクト</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="functional/not_fn.html">not_fn</a></code></td>
+<td>任意個数の引数をとる関数オブジェクトを論理反転する (function template)</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="functional/negators.html">unary_negate</a></code></td>
+<td>単項の論理反転 (class template)</td>
+<td>C++17から非推奨<br /> C++20で削除</td>
+</tr>
+<tr>
+<td><code><a href="functional/negators.html">not1</a></code></td>
+<td>単項の<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>を論理反転する (function template)</td>
+<td>C++17から非推奨<br /> C++20で削除</td>
+</tr>
+<tr>
+<td><code><a href="functional/negators.html">binary_negate</a></code></td>
+<td>二項の論理反転 (class template)</td>
+<td>C++17から非推奨<br /> C++20で削除</td>
+</tr>
+<tr>
+<td><code><a href="functional/negators.html">not2</a></code></td>
+<td>二項の<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>を論理反転する (function template)</td>
+<td>C++17から非推奨<br /> C++20で削除</td>
+</tr>
+</tbody>
+</table>
+<h2>恒等写像関数オブジェクト</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="functional/identity.html">identity</a></code></td>
+<td>入力値を値カテゴリも含めてそのまま返す (class)</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>検索</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="functional/default_searcher.html">default_searcher</a></code></td>
+<td>二分探索による検索器 (class template)</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="functional/boyer_moore_searcher.html">boyer_moore_searcher</a></code></td>
+<td>ボイヤー・ムーア法による検索器 (class template)</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="functional/boyer_moore_horspool_searcher.html">boyer_moore_horspool_searcher</a></code></td>
+<td>ボイヤー・ムーア・ホースプール法による検索器 (class template)</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h2>古い関数オブジェクトアダプタ (C++11から非推奨, C++17で削除)</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>unary_function</code></td>
+<td>単項関数オブジェクト(class template)</td>
+<td>C++11から非推奨<br /> C++17で削除</td>
+</tr>
+<tr>
+<td><code>binary_function</code></td>
+<td>二項関数オブジェクト(class template)</td>
+<td>C++11から非推奨<br /> C++17で削除</td>
+</tr>
+<tr>
+<td><code>pointer_to_unary_function</code></td>
+<td>単項関数ポインタを関数オブジェクトに変換するアダプタ(class template)</td>
+<td>C++11から非推奨<br /> C++17で削除</td>
+</tr>
+<tr>
+<td><code>pointer_to_binary_function</code></td>
+<td>二項関数ポインタを関数オブジェクトに変換するアダプタ(class template)</td>
+<td>C++11から非推奨<br /> C++17で削除</td>
+</tr>
+<tr>
+<td><code>ptr_fun</code></td>
+<td>関数ポインタを関数オブジェクトに変換する(function template)</td>
+<td>C++11から非推奨<br /> C++17で削除</td>
+</tr>
+<tr>
+<td><code>mem_fun_t</code></td>
+<td>メンバ関数ポインタを関数オブジェクトに変換するアダプタ。<br /> オブジェクトへのポインタに対してメンバ関数を呼び出す。(class template)</td>
+<td>C++11から非推奨<br /> C++17で削除</td>
+</tr>
+<tr>
+<td><code>mem_fun1_t</code></td>
+<td>単項メンバ関数ポインタを関数オブジェクトに変換するアダプタ。<br /> オブジェクトへのポインタに対してメンバ関数を呼び出す。(class template)</td>
+<td>C++11から非推奨<br /> C++17で削除</td>
+</tr>
+<tr>
+<td><code>mem_fun_ref_t</code></td>
+<td>メンバ関数ポインタを関数オブジェクトに変換するアダプタ。<br /> オブジェクトへの参照に対してメンバ関数を呼び出す。(class template)</td>
+<td>C++11から非推奨<br /> C++17で削除</td>
+</tr>
+<tr>
+<td><code>mem_fun1_ref_t</code></td>
+<td>単項メンバ関数ポインタを関数オブジェクトに変換するアダプタ。<br /> オブジェクトへの参照に対してメンバ関数を呼び出す。(class template)</td>
+<td>C++11から非推奨<br /> C++17で削除</td>
+</tr>
+<tr>
+<td><code>const_mem_fun_t</code></td>
+<td>メンバ関数ポインタを関数オブジェクトに変換するアダプタ。<br /> オブジェクトへのconstポインタに対してメンバ関数を呼び出す。(class template)</td>
+<td>C++11から非推奨<br /> C++17で削除</td>
+</tr>
+<tr>
+<td><code>const_mem_fun1_t</code></td>
+<td>単項メンバ関数ポインタを関数オブジェクトに変換するアダプタ。<br /> オブジェクトへのconstポインタに対してメンバ関数を呼び出す。(class template)</td>
+<td>C++11から非推奨<br /> C++17で削除</td>
+</tr>
+<tr>
+<td><code>mem_fun</code></td>
+<td>メンバ関数ポインタを関数オブジェクトに変換する。<br /> 返される関数オブジェクトは、オブジェクトへのポインタを引数にとる。(function template)</td>
+<td>C++11から非推奨<br /> C++17で削除</td>
+</tr>
+<tr>
+<td><code>mem_fun_ref</code></td>
+<td>メンバ関数ポインタを関数オブジェクトに変換する。<br /> 返される関数オブジェクトは、オブジェクトへの参照を引数にとる。(function template)</td>
+<td>C++11から非推奨<br /> C++17で削除</td>
+</tr>
+</tbody>
+</table>
+<h2>古い関数バインダ (C++11から非推奨, C++17で削除)</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>binder1st</code></td>
+<td>第1引数を部分適用する関数オブジェクト(class template)</td>
+<td>C++11から非推奨<br /> C++17で削除</td>
+</tr>
+<tr>
+<td><code>bind1st</code></td>
+<td>第1引数を部分適用する(function template)</td>
+<td>C++11から非推奨<br /> C++17で削除</td>
+</tr>
+<tr>
+<td><code>binder2nd</code></td>
+<td>第2引数を部分適用する関数オブジェクト(class template)</td>
+<td>C++11から非推奨<br /> C++17で削除</td>
+</tr>
+<tr>
+<td><code>bind2nd</code></td>
+<td>第2引数を部分適用する関数オブジェクト(function template)</td>
+<td>C++11から非推奨<br /> C++17で削除</td>
+</tr>
+</tbody>
+</table>
+<h2>名前付き要件</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="concepts/Callable.html"><em>Callable</em></a></td>
+<td>関数呼び出し可能な型</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><a href="concepts/Invoke.html"><em>INVOKE</em></a></td>
+<td>関数呼び出しの式</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4190.htm" target="_blank">N4190 Removing <code>auto_ptr</code>, <code>random_shuffle()</code>, And Old <code>&lt;functional&gt;</code> Stuff</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

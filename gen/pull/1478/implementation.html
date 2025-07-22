@@ -1,0 +1,1143 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>処理系 - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,
+">
+        <meta name="title" content="処理系 - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="処理系 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="処理系 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/implementation.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="処理系  Clang GNU Compiler Collection Intel C++ Compiler Microsoft Visual C++  本サイトにおける処理系バージョンに記載 本サイトのリファレンスページでは、「処理系」の項目にバージョン番号を記載している。これは、処理系がその機能をサポート開始した厳密なバージョンではなく、リファレンス執筆者が動作確認できたバージョンである。 古く" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="処理系 - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/implementation.html" />
+        <meta name="twitter:description" content="処理系  Clang GNU Compiler Collection Intel C++ Compiler Microsoft Visual C++  本サイトにおける処理系バージョンに記載 本サイトのリファレンスページでは、「処理系」の項目にバージョン番号を記載している。これは、処理系がその機能をサポート開始した厳密なバージョンではなく、リファレンス執筆者が動作確認できたバージョンである。 古く" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="./static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="./static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="./static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="./manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="./static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="./static/css/root.css"> -->
+
+        
+  
+
+
+<link href="./static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="./static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="./static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="./static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="./static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="./static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;implementation&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="./index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="./index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">処理系</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-02-17T06:35:02">
+        2025年02月17日 06時35分02秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Koichi Murase</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/implementation.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/implementation.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">処理系</span></h1>
+<div itemprop="articleBody"><ul>
+<li><a href="#clang">Clang</a></li>
+<li><a href="#gcc">GNU Compiler Collection</a></li>
+<li><a href="#icc">Intel C++ Compiler</a></li>
+<li><a href="#visual_cpp">Microsoft Visual C++</a></li>
+</ul>
+<h2>本サイトにおける処理系バージョンに記載</h2>
+<p>本サイトのリファレンスページでは、「処理系」の項目にバージョン番号を記載している。これは、処理系がその機能をサポート開始した厳密なバージョンではなく、リファレンス執筆者が動作確認できたバージョンである。</p>
+<p>古くからサポートされている機能だが、古い処理系を入手することが難しい場合などがあるため、本サイトではこのようなルールになっている。</p>
+<h2><a href="#clang" id="clang">Clang</a></h2>
+<p>このサイトでは Clang と呼ぶ。「クラン(グ)」と読む。</p>
+<ul>
+<li><a href="http://clang.llvm.org/" target="_blank">"clang" C Language Family Frontend for LLVM</a></li>
+</ul>
+<h3>別名</h3>
+<ul>
+<li>clang</li>
+<li>clang++</li>
+<li>Apple LLVMコンパイラ</li>
+</ul>
+<h3>C++11の機能を有効にする</h3>
+<ul>
+<li><code>-std=c++11</code>オプションを使用する。</li>
+</ul>
+<h3>C++14の機能を有効にする</h3>
+<ul>
+<li>Clang 3.2から3.4までは、<code>-std=c++1y</code>オプションを使用する。<ul>
+<li>GNU拡張を有効にする<code>-std=gnu++1y</code>オプションもある。</li>
+</ul>
+</li>
+<li>Clang 3.5以降は、<code>-std=c++14</code>オプションを使用する(以前までのオプションも使用できる)。<ul>
+<li>GNU拡張を有効にする<code>-std=gnu++14</code>オプションもある。</li>
+</ul>
+</li>
+<li>Clang 6.0以降は、C++14がデフォルトとなる。デフォルトバージョンのコンパイルオプションは<code>-std=gnu++14</code></li>
+</ul>
+<h3>C++17の機能を有効にする</h3>
+<ul>
+<li>Clang 3.5から4.0までは、<code>-std=c++1z</code>オプションを使用する。<ul>
+<li>GNU拡張を有効にする<code>-std=gnu++1z</code>オプションもある。</li>
+</ul>
+</li>
+<li>Clang 5.0以降は、<code>-std=c++17</code>オプションを使用する(以前までのオプションも使用できる)。<ul>
+<li>GNU拡張を有効にする<code>-std=gnu++17</code>オプションもある。</li>
+</ul>
+</li>
+<li>Clang 16.0以降はC++17がデフォルトとなる。デフォルトバージョンのコンパイルオプションは<code>-std=gnu++17</code></li>
+</ul>
+<h3>C++20の機能を有効にする</h3>
+<ul>
+<li>Clang 6.0以降は、<code>-std=c++2a</code>オプションを使用する。<ul>
+<li>GNU拡張を有効にする<code>-std=gnu++2a</code>オプションもある。</li>
+</ul>
+</li>
+<li>Clang 11.0以降は、<code>-std=c++20</code>オプションを使用する(以前までのオプションも使用できる)。<ul>
+<li>GNU拡張を有効にする<code>-std=gnu++20</code>オプションもある。</li>
+</ul>
+</li>
+</ul>
+<h3>C++23の機能を有効にする</h3>
+<ul>
+<li>Clang 12.0以降は、<code>-std=c++2b</code>オプションを使用する。<ul>
+<li>GNU拡張を有効にする<code>-std=gnu++2b</code>オプションもある。</li>
+</ul>
+</li>
+<li>Clang 17.0以降は、<code>-std=c++23</code>オプションを使用する(以前までのオプションも使用できる)。<ul>
+<li>GNU拡張を有効にする<code>-std=gnu++23</code>オプションもある。</li>
+</ul>
+</li>
+</ul>
+<h3>C++26の機能を有効にする</h3>
+<ul>
+<li>Clang 17.0以降は、<code>-std=c++2c</code>オプションを使用する。<ul>
+<li>GNU拡張を有効にする<code>-std=gnu++2c</code>オプションもある。</li>
+</ul>
+</li>
+</ul>
+<h2><a href="#gcc" id="gcc">GNU Compiler Collection</a></h2>
+<p>このサイトでは GCC と呼ぶ</p>
+<ul>
+<li><a href="https://gcc.gnu.org/" target="_blank">GCC, the GNU Compiler Collection - GNU Project - Free Software Foundation (FSF)</a></li>
+<li><a href="http://mingw-w64.org/" target="_blank">Mingw-w64 - GCC for Windows 64 &amp; 32 bits [mingw-w64]</a></li>
+<li><a href="http://www.equation.com/servlet/equation.cmd?fa=fortran" target="_blank">Fortran, C, C++ for Windows</a> (MinGW バイナリ)</li>
+</ul>
+<h3>別名</h3>
+<ul>
+<li>gcc</li>
+<li>g++</li>
+</ul>
+<h3>C++11の機能を有効にする</h3>
+<ul>
+<li>GCC 4.3から4.6までは、<code>-std=c++0x</code>オプションを使用する。<ul>
+<li>GNU拡張を有効にする<code>-std=gnu++0x</code>オプションもある。</li>
+</ul>
+</li>
+<li>GCC 4.7以降は、<code>-std=c++11</code>オプションを使用する (旧オプションは非推奨)。<ul>
+<li>GNU拡張を有効にする<code>-std=gnu++11</code>オプションもある。</li>
+</ul>
+</li>
+</ul>
+<h3>C++14の機能を有効にする</h3>
+<ul>
+<li>GCC 4.8から4.9までは、<code>-std=c++1y</code>オプションを使用する。<ul>
+<li>GNU拡張を有効にする<code>-std=gnu++1y</code>オプションもある。</li>
+</ul>
+</li>
+<li>GCC 5.1以降は、<code>-std=c++14</code>オプションを使用する (旧オプションは非推奨)。<ul>
+<li>GNU拡張を有効にする<code>-std=gnu++14</code>オプションもある。</li>
+</ul>
+</li>
+<li>GCC 6.1以降は、C++14がデフォルトとなる。デフォルトバージョンのコンパイルオプションは<code>-std=gnu++14</code></li>
+</ul>
+<h3>C++17の機能を有効にする</h3>
+<ul>
+<li>GCC 6.1以降は、<code>-std=c++1z</code>オプションを使用する。<ul>
+<li>GNU拡張を有効にする<code>-std=gnu++1z</code>オプションもある。</li>
+</ul>
+</li>
+<li>GCC 7.1以降は、<code>-std=c++17</code>オプションを使用する。<ul>
+<li>GNU拡張を有効にする<code>-std=gnu++17</code>オプションもある (旧オプションは非推奨)。</li>
+</ul>
+</li>
+<li>GCC 11.1以降は、C++17がデフォルトとなる。デフォルトバージョンのコンパイルオプションは<code>-std=gnu++17</code></li>
+</ul>
+<h3>C++20の機能を有効にする</h3>
+<ul>
+<li>GCC 8.1以降は、<code>-std=c++2a</code>オプションを使用する。<ul>
+<li>GNU拡張を有効にする<code>-std=gnu++2a</code>オプションもある。</li>
+</ul>
+</li>
+<li>GCC 10.1以降は、<code>-std=c++20</code>オプションを使用する。<ul>
+<li>GNU拡張を有効にする<code>-std=gnu++20</code>オプションもある。</li>
+</ul>
+</li>
+</ul>
+<h3>C++23の機能を有効にする</h3>
+<ul>
+<li>GCC 11.1以降は、<code>-std=c++23</code>オプションもしくは仮称バージョンの<code>-std=c++2b</code>オプションを使用する。<ul>
+<li>GNU拡張を有効にする<code>-std=gnu++23</code>および<code>-std=gnu++2b</code>オプションもある。</li>
+</ul>
+</li>
+</ul>
+<h2><a href="#icc" id="icc">Intel C++ Compiler</a></h2>
+<p>このサイトでは ICC と呼ぶ。</p>
+<ul>
+<li><a href="https://www.xlsoft.com/jp/products/intel/compilers/ccl/index.html?tab=0" target="_blank">XLsoft エクセルソフト : インテル C++ Composer XE Linux 版/インテル C++ コンパイラー XE Linux 版 製品紹介</a></li>
+<li><a href="https://www.xlsoft.com/jp/products/intel/compilers/ccl/index.html?tab=0" target="_blank">XLsoft エクセルソフト : インテル C++ Composer XE Mac OS 版/インテル C++ コンパイラー XE Mac OS 版 製品紹介</a></li>
+<li><a href="https://www.xlsoft.com/jp/products/intel/compilers/ccw/index.html?tab=0" target="_blank">XLsoft エクセルソフト : インテル C++ Composer XE Windows 版/インテル C++ コンパイラー XE Windows 版 製品紹介</a></li>
+</ul>
+<h3>別名</h3>
+<ul>
+<li>ICC</li>
+<li>ICL</li>
+</ul>
+<h3>C++11の機能を有効にする</h3>
+<ul>
+<li>Windowsでは<code>/Qstd:c++11</code>、Linux/macOSでは<code>-std=c++11</code>オプションを使用する。</li>
+</ul>
+<h3>C++14の機能を有効にする</h3>
+<ul>
+<li>ICC 16.0からは、Windowsでは<code>/Qstd:c++14</code>オプション、Linux/macOSでは<code>-std=c++14</code>オプションを使用する。</li>
+</ul>
+<h3>C++17の機能を有効にする</h3>
+<ul>
+<li>ICC 17.0からは、Windowsでは<code>/Qstd:c++17</code>オプション、Linux/macOSでは<code>-std=c++17</code>オプションを使用する。</li>
+</ul>
+<h2><a href="#visual_cpp" id="visual_cpp">Microsoft Visual C++</a></h2>
+<p>このサイトでは Visual C++ と呼ぶ。Visual Studio 2012 以降、Visual C++は独立した製品名ではなくなり製品Visual Studioのみに含まれるようになったが、当サイトでは製品に含まれているコンポーネント名としてのVisual C++を採用する。</p>
+<ul>
+<li><a href="https://www.visualstudio.com/ja-jp/visual-studio-homepage-vs.aspx" target="_blank">Visual Studio - Microsoft Developer Tools</a>: Visual C++を含む統合開発環境。</li>
+<li><a href="https://visualstudio.microsoft.com/ja/downloads/" target="_blank">Build Tools for Visual Studio</a>: コマンドラインのみからコンパイルするために必要な環境を構築するもの。</li>
+</ul>
+<h3>別名</h3>
+<ul>
+<li>VC</li>
+<li>VC++</li>
+<li>MSVC</li>
+<li>cl</li>
+</ul>
+<h3><a href="#visual_cpp_ver" id="visual_cpp_ver">バージョンの表記</a></h3>
+<p>以下に当サイトにおけるバージョン表記と、製品・バージョン等の対応を示す。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>表記</th>
+<th>製品名 [Visual Studio バージョン] <sup><a href="#note-t1-1" id="note_ref-t1-1">†1</a></sup></th>
+<th>VC++ バージョン <sup><a href="#note-t1-2" id="note_ref-t1-2">†2</a></sup></th>
+<th><code>_MSC_VER</code></th>
+<th><code>_MSC_FULL_VER</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2022 Update 14</td>
+<td>Visual Studio 2022 Version 17.14.0</td>
+<td>14.44</td>
+<td>1944</td>
+<td></td>
+</tr>
+<tr>
+<td>2022 Update 13</td>
+<td>Visual Studio 2022 Version 17.13.2</td>
+<td>14.43</td>
+<td>1943</td>
+<td>194334808</td>
+</tr>
+<tr>
+<td>2022 Update 13</td>
+<td>Visual Studio 2022 Version 17.13.0</td>
+<td>14.43</td>
+<td>1943</td>
+<td>194334808</td>
+</tr>
+<tr>
+<td>2022 Update 12</td>
+<td>Visual Studio 2022 Version 17.12.4</td>
+<td>14.42</td>
+<td>1942</td>
+<td>194234436</td>
+</tr>
+<tr>
+<td>2022 Update 12</td>
+<td>Visual Studio 2022 Version 17.12.3</td>
+<td>14.42</td>
+<td>1942</td>
+<td>194234435</td>
+</tr>
+<tr>
+<td>2022 Update 11</td>
+<td>Visual Studio 2022 Version 17.11.0</td>
+<td>14.41</td>
+<td>1941</td>
+<td>194134120</td>
+</tr>
+<tr>
+<td>2022 Update 10</td>
+<td>Visual Studio 2022 Version 17.10.5</td>
+<td>14.40</td>
+<td>1939</td>
+<td>194033811</td>
+</tr>
+<tr>
+<td>2022 Update 9</td>
+<td>Visual Studio 2022 Version 17.9.2</td>
+<td>14.39</td>
+<td>1939</td>
+<td>193933521</td>
+</tr>
+<tr>
+<td>2022 Update 8</td>
+<td>Visual Studio 2022 Version 17.8.3</td>
+<td>14.38</td>
+<td>1938</td>
+<td>193833133</td>
+</tr>
+<tr>
+<td>2022 Update 7</td>
+<td>Visual Studio 2022 Version 17.7.0</td>
+<td>14.37</td>
+<td>1937</td>
+<td>193732822</td>
+</tr>
+<tr>
+<td>2022 Update 6</td>
+<td>Visual Studio 2022 Version 17.6.2</td>
+<td>14.36</td>
+<td>1936</td>
+<td>193632532</td>
+</tr>
+<tr>
+<td>2022 Update 5</td>
+<td>Visual Studio 2022 Version 17.5.4</td>
+<td>??</td>
+<td>1935</td>
+<td>193532217</td>
+</tr>
+<tr>
+<td>2022 Update 4</td>
+<td>Visual Studio 2022 Version 17.4.9</td>
+<td>??</td>
+<td>1934</td>
+<td>193431944</td>
+</tr>
+<tr>
+<td>2022 Update 3</td>
+<td>Visual Studio 2022 Version 17.3.6</td>
+<td>14.33</td>
+<td>1933</td>
+<td>193331630</td>
+</tr>
+<tr>
+<td>2022 Update 2</td>
+<td>Visual Studio 2022 Version 17.2.2</td>
+<td>14.32</td>
+<td>1932</td>
+<td>193231329</td>
+</tr>
+<tr>
+<td>2022</td>
+<td>Visual Studio 2022 Version 17.0.2</td>
+<td>14.30</td>
+<td>1930</td>
+<td>193030706</td>
+</tr>
+<tr>
+<td>2022</td>
+<td>Visual Studio 2022 Version 17.0.1</td>
+<td>14.30</td>
+<td>1930</td>
+<td>193030705</td>
+</tr>
+<tr>
+<td>2019 Update 11</td>
+<td>Visual Studio 2019 バージョン 16.11.2</td>
+<td>14.28</td>
+<td>1929</td>
+<td>192930133</td>
+</tr>
+<tr>
+<td>2019 Update 9</td>
+<td>Visual Studio 2019 バージョン 16.9.2</td>
+<td>14.28</td>
+<td>1928</td>
+<td>192829913</td>
+</tr>
+<tr>
+<td>2019 Update 8</td>
+<td>Visual Studio 2019 バージョン 16.8.2</td>
+<td>14.28</td>
+<td>1928</td>
+<td>192829334</td>
+</tr>
+<tr>
+<td>2019 Update 8</td>
+<td>Visual Studio 2019 バージョン 16.8.1</td>
+<td>14.28</td>
+<td>1928</td>
+<td>192829333</td>
+</tr>
+<tr>
+<td>2019 Update 7</td>
+<td>Visual Studio 2019 バージョン 16.7</td>
+<td>14.27</td>
+<td>1927</td>
+<td>192729112</td>
+</tr>
+<tr>
+<td>2019 Update 6</td>
+<td>Visual Studio 2019 バージョン 16.6.2</td>
+<td>14.26</td>
+<td>1926</td>
+<td>192628806</td>
+</tr>
+<tr>
+<td>2019 Update 5</td>
+<td>Visual Studio 2019 バージョン 16.5.1</td>
+<td>14.25</td>
+<td>1925</td>
+<td>192528611</td>
+</tr>
+<tr>
+<td>2019 Update 4</td>
+<td>Visual Studio 2019 バージョン 16.4.0</td>
+<td>14.24</td>
+<td>1924</td>
+<td>192428314</td>
+</tr>
+<tr>
+<td>2019 Update 3</td>
+<td>Visual Studio 2019 バージョン 16.3.2</td>
+<td>14.23</td>
+<td>1923</td>
+<td>192328105</td>
+</tr>
+<tr>
+<td>2019 Update 2</td>
+<td>Visual Studio 2019 バージョン 16.2.3</td>
+<td>14.22</td>
+<td>1922</td>
+<td>192227905</td>
+</tr>
+<tr>
+<td>2019 Update 1</td>
+<td>Visual Studio 2019 バージョン 16.1.2</td>
+<td>14.21</td>
+<td>1921</td>
+<td>192127702</td>
+</tr>
+<tr>
+<td>2019</td>
+<td>Visual Studio 2019 バージョン 16.0.0</td>
+<td>14.20</td>
+<td>1920</td>
+<td>192027508</td>
+</tr>
+<tr>
+<td>2017 Update 9</td>
+<td>Visual Studio 2017 バージョン 15.9.11</td>
+<td>14.16</td>
+<td>1916</td>
+<td>191627030</td>
+</tr>
+<tr>
+<td>2017 Update 9</td>
+<td>Visual Studio 2017 バージョン 15.9.7</td>
+<td>14.16</td>
+<td>1916</td>
+<td>191627027</td>
+</tr>
+<tr>
+<td>2017 Update 9</td>
+<td>Visual Studio 2017 バージョン 15.9.5</td>
+<td>14.16</td>
+<td>1916</td>
+<td>191627026</td>
+</tr>
+<tr>
+<td>2017 Update 9</td>
+<td>Visual Studio 2017 バージョン 15.9.4</td>
+<td>14.16</td>
+<td>1916</td>
+<td>191627025</td>
+</tr>
+<tr>
+<td>2017 Update 9</td>
+<td>Visual Studio 2017 バージョン 15.9.1</td>
+<td>14.16</td>
+<td>1916</td>
+<td>191627023</td>
+</tr>
+<tr>
+<td>2017 Update 9</td>
+<td>Visual Studio 2017 バージョン 15.9.0</td>
+<td>14.16</td>
+<td>1916</td>
+<td></td>
+</tr>
+<tr>
+<td>2017 Update 8</td>
+<td>Visual Studio 2017 バージョン 15.8.0</td>
+<td>14.15</td>
+<td>1915</td>
+<td></td>
+</tr>
+<tr>
+<td>2017 Update 7</td>
+<td>Visual Studio 2017 バージョン 15.7.5</td>
+<td>14.14</td>
+<td>1914</td>
+<td>191426433</td>
+</tr>
+<tr>
+<td>2017 Update 7</td>
+<td>Visual Studio 2017 バージョン 15.7.3</td>
+<td>14.14</td>
+<td>1914</td>
+<td>191426430</td>
+</tr>
+<tr>
+<td>2017 Update 7</td>
+<td>Visual Studio 2017 バージョン 15.7.2</td>
+<td>14.14</td>
+<td>1914</td>
+<td>191426429</td>
+</tr>
+<tr>
+<td>2017 Update 7</td>
+<td>Visual Studio 2017 バージョン 15.7.1</td>
+<td>14.14</td>
+<td>1914</td>
+<td>191426428</td>
+</tr>
+<tr>
+<td>2017 Update 6</td>
+<td>Visual Studio 2017 バージョン 15.6.7</td>
+<td>14.13</td>
+<td>1913</td>
+<td>191326132</td>
+</tr>
+<tr>
+<td>2017 Update 6</td>
+<td>Visual Studio 2017 バージョン 15.6.6</td>
+<td>14.13</td>
+<td>1913</td>
+<td>191326131</td>
+</tr>
+<tr>
+<td>2017 Update 6</td>
+<td>Visual Studio 2017 バージョン 15.6.4</td>
+<td>14.13</td>
+<td>1913</td>
+<td>191326129</td>
+</tr>
+<tr>
+<td>2017 Update 6</td>
+<td>Visual Studio 2017 バージョン 15.6.3</td>
+<td>14.13</td>
+<td>1913</td>
+<td>191326129</td>
+</tr>
+<tr>
+<td>2017 Update 6</td>
+<td>Visual Studio 2017 バージョン 15.6.2</td>
+<td>14.13</td>
+<td>1913</td>
+<td>191326128</td>
+</tr>
+<tr>
+<td>2017 Update 6</td>
+<td>Visual Studio 2017 バージョン 15.6.1</td>
+<td>14.13</td>
+<td>1913</td>
+<td>191326128</td>
+</tr>
+<tr>
+<td>2017 Update 6</td>
+<td>Visual Studio 2017 バージョン 15.6.0</td>
+<td>14.13</td>
+<td>1913</td>
+<td>191326128</td>
+</tr>
+<tr>
+<td>2017 Update 5</td>
+<td>Visual Studio 2017 バージョン 15.5.7</td>
+<td>14.12</td>
+<td>1912</td>
+<td>191225835</td>
+</tr>
+<tr>
+<td>2017 Update 5</td>
+<td>Visual Studio 2017 バージョン 15.5.6</td>
+<td>14.12</td>
+<td>1912</td>
+<td>191225835</td>
+</tr>
+<tr>
+<td>2017 Update 5</td>
+<td>Visual Studio 2017 バージョン 15.5.4</td>
+<td>14.12</td>
+<td>1912</td>
+<td>191225834</td>
+</tr>
+<tr>
+<td>2017 Update 5</td>
+<td>Visual Studio 2017 バージョン 15.5.3</td>
+<td>14.12</td>
+<td>1912</td>
+<td>191225834</td>
+</tr>
+<tr>
+<td>2017 Update 5</td>
+<td>Visual Studio 2017 バージョン 15.5.2</td>
+<td>14.12</td>
+<td>1912</td>
+<td>191225831</td>
+</tr>
+<tr>
+<td>2017 Update 4</td>
+<td>Visual Studio 2017 バージョン 15.4.5</td>
+<td>14.11</td>
+<td>1911</td>
+<td>191125547</td>
+</tr>
+<tr>
+<td>2017 Update 4</td>
+<td>Visual Studio 2017 バージョン 15.4.4</td>
+<td>14.11</td>
+<td>1911</td>
+<td>191125542</td>
+</tr>
+<tr>
+<td>2017 Update 3</td>
+<td>Visual Studio 2017 バージョン 15.3.3</td>
+<td>14.11</td>
+<td>1911</td>
+<td>191125507</td>
+</tr>
+<tr>
+<td>2017 Update 2 <sup><a href="#note-t1-3" id="note_ref-t1-3-a">†3</a></sup></td>
+<td>Visual Studio 2017 バージョン 15.2</td>
+<td>14.10</td>
+<td>1910</td>
+<td>191025017</td>
+</tr>
+<tr>
+<td>2017 Update 1 <sup><a href="#note-t1-3" id="note_ref-t1-3-b">†3</a></sup></td>
+<td>Visual Studio 2017 バージョン 15.1</td>
+<td>14.10</td>
+<td>1910</td>
+<td>191025017</td>
+</tr>
+<tr>
+<td>2017</td>
+<td>Visual Studio 2017 バージョン 15.0</td>
+<td>14.10 <sup><a href="#note-t1-4" id="note_ref-t1-4">†4</a></sup></td>
+<td>1910</td>
+<td>191025017</td>
+</tr>
+<tr>
+<td>2015 Update 3</td>
+<td>Visual Studio 2015 Update 3 [14.0]</td>
+<td>14.0</td>
+<td>1900</td>
+<td>190024210</td>
+</tr>
+<tr>
+<td>2015 Update 2</td>
+<td>Visual Studio 2015 Update 2 [14.0]</td>
+<td>14.0</td>
+<td>1900</td>
+<td>190023918</td>
+</tr>
+<tr>
+<td>2015 Update 1</td>
+<td>Visual Studio 2015 Update 1 [14.0]</td>
+<td>14.0</td>
+<td>1900</td>
+<td>190023506</td>
+</tr>
+<tr>
+<td>2015</td>
+<td>Visual Studio 2015          [14.0]</td>
+<td>14.0</td>
+<td>1900</td>
+<td>190023026</td>
+</tr>
+<tr>
+<td>2013 Update 5</td>
+<td>Visual Studio 2013 Update 5 [12.0]</td>
+<td>12.0</td>
+<td>1800</td>
+<td>180040629</td>
+</tr>
+<tr>
+<td>2013 Update 4</td>
+<td>Visual Studio 2013 Update 4 [12.0]</td>
+<td>12.0</td>
+<td>1800</td>
+<td>180031101</td>
+</tr>
+<tr>
+<td>2013 Update 3</td>
+<td>Visual Studio 2013 Update 3 [12.0]</td>
+<td>12.0</td>
+<td>1800</td>
+<td>180030723</td>
+</tr>
+<tr>
+<td>2013 Update 2</td>
+<td>Visual Studio 2013 Update 2 [12.0]</td>
+<td>12.0</td>
+<td>1800</td>
+<td>180030501</td>
+</tr>
+<tr>
+<td>2013 Update 1 <sup><a href="#note-t1-3" id="note_ref-t1-3-c">†3</a></sup></td>
+<td>Visual Studio 2013 Update 1 [12.0]</td>
+<td>12.0</td>
+<td>1800</td>
+<td>180021005</td>
+</tr>
+<tr>
+<td>2013</td>
+<td>Visual Studio 2013          [12.0]</td>
+<td>12.0</td>
+<td>1800</td>
+<td>180021005</td>
+</tr>
+<tr>
+<td>2012 Update 4</td>
+<td>Visual Studio 2012 Update 4 [11.0]</td>
+<td>11.0</td>
+<td>1700</td>
+<td>170061030</td>
+</tr>
+<tr>
+<td>2012 Update 3</td>
+<td>Visual Studio 2012 Update 3 [11.0]</td>
+<td>11.0</td>
+<td>1700</td>
+<td>170060610</td>
+</tr>
+<tr>
+<td>2012 Update 2</td>
+<td>Visual Studio 2012 Update 2 [11.0]</td>
+<td>11.0</td>
+<td>1700</td>
+<td>170060315</td>
+</tr>
+<tr>
+<td>2012 Update 1</td>
+<td>Visual Studio 2012 Update 1 [11.0]</td>
+<td>11.0</td>
+<td>1700</td>
+<td>170051106</td>
+</tr>
+<tr>
+<td>2012</td>
+<td>Visual Studio 2012          [11.0]</td>
+<td>11.0</td>
+<td>1700</td>
+<td>170050727</td>
+</tr>
+<tr>
+<td>2010 SP1</td>
+<td>Visual Studio 2010 SP1      [10.0]<br />Visual C++ 2010 SP1     [10.0]</td>
+<td>10.0</td>
+<td>1600</td>
+<td>160040219</td>
+</tr>
+<tr>
+<td>2010</td>
+<td>Visual Studio 2010          [10.0]<br />Visual C++ 2010         [10.0]</td>
+<td>10.0</td>
+<td>1600</td>
+<td>160030319</td>
+</tr>
+<tr>
+<td>2008 SP1</td>
+<td>Visual Studio 2008 SP1      [9.0] <br />Visual C++ 2008 SP1     [9.0]</td>
+<td>9.0</td>
+<td>1500</td>
+<td>150030729</td>
+</tr>
+<tr>
+<td>2008</td>
+<td>Visual Studio 2008          [9.0] <br />Visual C++ 2008         [9.0]</td>
+<td>9.0</td>
+<td>1500</td>
+<td>150021022</td>
+</tr>
+<tr>
+<td>2005 SP1</td>
+<td>Visual Studio 2005 SP1      [8.0] <br />Visual C++ 2005 SP1     [8.0]</td>
+<td>8.0</td>
+<td>1400</td>
+<td>140050727</td>
+</tr>
+<tr>
+<td>2005</td>
+<td>Visual Studio 2005          [8.0] <br />Visual C++ 2005         [8.0]</td>
+<td>8.0</td>
+<td>1400</td>
+<td>140050320</td>
+</tr>
+<tr>
+<td></td>
+<td>Windows Server 2003 SP1 DDK (for AMD64)</td>
+<td></td>
+<td>1400</td>
+<td>140040310</td>
+</tr>
+<tr>
+<td>2003 SP1</td>
+<td>Visual Studio .NET 2003 SP1 [7.1]<br />Visual C++ .NET 2003 SP1 [7.1]</td>
+<td>7.1</td>
+<td>1310</td>
+<td>13106030</td>
+</tr>
+<tr>
+<td></td>
+<td>Windows Server 2003 SP1 DDK</td>
+<td></td>
+<td>1310</td>
+<td>13104035</td>
+</tr>
+<tr>
+<td>2003</td>
+<td>Visual Studio .NET 2003     [7.1]<br />Visual C++ .NET 2003     [7.1]</td>
+<td>7.1</td>
+<td>1310</td>
+<td>13103077</td>
+</tr>
+<tr>
+<td></td>
+<td>Visual Studio Toolkit 2003  [7.1]</td>
+<td>7.1</td>
+<td>1310</td>
+<td>13103052</td>
+</tr>
+<tr>
+<td></td>
+<td>Windows Server 2003 DDK</td>
+<td></td>
+<td>1310</td>
+<td>13102179</td>
+</tr>
+<tr>
+<td>2002</td>
+<td>Visual Studio .NET 2002     [7.0]<br />Visual C++ .NET 2002     [7.0]</td>
+<td>7.0</td>
+<td>1300</td>
+<td>13009466</td>
+</tr>
+<tr>
+<td></td>
+<td>Windows XP SP1 DDK</td>
+<td></td>
+<td>1300</td>
+<td>13009176</td>
+</tr>
+<tr>
+<td>6.0 SP6</td>
+<td>Visual Studio 6.0 SP6<br />Visual C++ 6.0 SP6</td>
+<td>6.0</td>
+<td>1200</td>
+<td>12008804</td>
+</tr>
+<tr>
+<td>6.0 SP5</td>
+<td>Visual Studio 6.0 SP5<br />Visual C++ 6.0 SP5</td>
+<td>6.0</td>
+<td>1200</td>
+<td>12008804</td>
+</tr>
+<tr>
+<td></td>
+<td>Visual Studio 97 [5.0]<br />Visual C++ 5.0</td>
+<td>5.0</td>
+<td>1100</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Visual C++ 4.2</td>
+<td>4.2</td>
+<td>1020</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Visual C++ 4.1</td>
+<td>4.1</td>
+<td>1010</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Visual C++ 4.0</td>
+<td>4.0</td>
+<td>1000</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Visual C++ 2.0</td>
+<td>2.0</td>
+<td>900</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Visual C++ 1.0</td>
+<td>1.0</td>
+<td>800</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Microsoft C/C++ 7.0</td>
+<td></td>
+<td>700</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Microsoft C 6.0</td>
+<td></td>
+<td>600</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li><strong><a href="#note_ref-t1-1" id="note-t1-1">^</a></strong> 製品名の列にはVisual C++コンパイラを含む実際に入手する製品の名称を示す。製品のエディション (Express/Standard/Professional/Enterprise/Community 他) は省略する。
+    Visual Studioの製品バージョンは、製品名に現れていないときは <code>[ ～ ]</code> 内に記す。
+    製品バージョンの番号は、2017以降、C++ツールセットのバージョンなど類似のものが色々あるが、ここではメインメニューの [ヘルプ]-[Microsoft Visual Studio のバージョン情報] から確認できるものを指す。
+    バージョン表記として "バージョン \&lt;番号&gt;" と "Version 番号" が混在しているが、これは編集者の裁量によるもので特に理由はない。
+    バージョン \&lt;番号&gt; の表記はリリースノートに見られる「Visual Studio 2017 バージョン 15.0」などに基づく。
+    "Version \&lt;番号&gt;" の表記はバージョン情報の画面に見られる「Version 17.13.0」という表記に基づく。</li>
+<li><strong><a href="#note_ref-t1-2" id="note-t1-2">^</a></strong> VC++バージョンの列にはVisual C++ツールセットのバージョンを記述する。この表では特にVisual C++を入れた時に既定で選択されるツールセットのみについて扱う。Visual Studio 2022においては<code>C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC</code>配下のフォルダ名(<code>14.39.33519</code>など)で確認できる。</li>
+<li><a id="note-t1-3">^</a> <sup><a href="#note_ref-t1-3-a"><strong>a</strong></a></sup> <sup><a href="#note_ref-t1-3-b"><strong>b</strong></a></sup> <sup><a href="#note_ref-t1-3-c"><strong>c</strong></a></sup> IDEのみ修正され、コンパイラ、ヘッダー、ライブラリ等は変更されなかった。<ul>
+<li><a href="https://blogs.msdn.microsoft.com/vcblog/2017/08/11/c17-features-and-stl-fixes-in-vs-2017-15-3/" target="_blank">C++17 Features And STL Fixes In VS 2017 15.3 | Visual C++ Team Blog</a> - "<em>After VS 2017 RTM, the 15.1 and 15.2 updates improved the IDE. The 15.3 update improves both the IDE and the toolset.</em>"</li>
+<li><a href="https://support.microsoft.com/en-us/help/2911573/description-of-visual-studio-2013-update-1" target="_blank">Description of Visual Studio 2013 Update 1</a></li>
+</ul>
+</li>
+<li>
+<p><strong><a href="#note_ref-t1-4" id="note-t1-4">^</a></strong> 2017は2015とバイナリ互換が保たれているためメジャーバージョンアップは行われなかった。その結果、製品バージョンとVisual C++バージョンが一致しなくなった。
+  <a href="https://blogs.msdn.microsoft.com/vcblog/2017/03/07/binary-compatibility-and-pain-free-upgrade-why-moving-to-visual-studio-2017-is-almost-too-easy/" target="_blank">Binary Compatibility and Pain-free Upgrade: Why Moving to Visual Studio 2017 is almost “too easy”</a></p>
+</li>
+<li>
+<p>2015以降、Visual Studioの既定のインストールではVisual C++は入らなくなった。Visual StudioのインストーラでVisual C++コンポーネントを選択する必要がある。
+  <a href="https://docs.microsoft.com/ja-JP/previous-versions/60k1461a(v=vs.140)?redirectedfrom=MSDN" target="_blank">Visual Studio 2015 の Visual C++</a> の [警告] を参照。</p>
+</li>
+<li>2017 Update 5からside-by-sideがサポートされ、一つの製品内で同時に複数のVisual C++ツールセットを選択できるようになった。
+  <a href="https://blogs.msdn.microsoft.com/vcblog/2017/11/15/side-by-side-minor-version-msvc-toolsets-in-visual-studio-2017/" target="_blank">Side-by-side minor version MSVC toolsets in Visual Studio 2017 | Visual C++ Team Blog</a></li>
+<li>コンパイラのバージョン情報は、以下のページで確認できる。
+  <a href="https://learn.microsoft.com/en-us/cpp/overview/compiler-versions" target="_blank">Microsoft Visual C++ compiler versioning</a></li>
+</ol>
+<h3>C++11の機能を有効にする</h3>
+<ul>
+<li>C++11は常に有効である</li>
+</ul>
+<h3>C++14の機能を有効にする</h3>
+<ul>
+<li>C++14は常に有効である</li>
+<li>2015 Update 3から<code>/std:c++14</code>オプションが導入されたが既定値でありC++14を無効化する機能は提供されていない。<code>_MSVC_LANG</code>マクロの値は<code>201402</code>になる</li>
+</ul>
+<h3>C++17の機能を有効にする</h3>
+<ul>
+<li>2015 Update 2以前に実装された機能については、互換性の観点から常に有効である</li>
+<li>2015 Update 3以降に実装された機能については、<code>/std:c++17</code>オプションを使用する。<code>_MSVC_LANG</code>マクロの値は<code>201703</code>になる</li>
+</ul>
+<h3>C++20の機能を有効にする</h3>
+<ul>
+<li>2019 Update 11以降は<code>/std:c++23</code>オプションを使用する。それ以前は<code>/std:c++latest</code>オプションを使用する</li>
+</ul>
+<h3>C++23の機能を有効にする</h3>
+<ul>
+<li>2022 Update 14以降は<code>/std:c++23preview</code>オプションを使用する。それ以前は<code>/std:c++latest</code>オプションを使用する</li>
+</ul>
+<h3>最新バージョンの言語機能を有効にする</h3>
+<ul>
+<li>2015 Update 3以降は<code>/std:c++latest</code>オプションを使用する</li>
+<li><a href="https://docs.microsoft.com/en-us/cpp/build/reference/std-specify-language-standard-version" target="_blank">-std (Specify Language Standard Version) | Microsoft Docs</a></li>
+<li><a href="https://docs.microsoft.com/en-us/cpp/preprocessor/predefined-macros" target="_blank">Predefined Macros | Microsoft Docs</a></li>
+<li><a href="https://blogs.msdn.microsoft.com/vcblog/2016/06/07/standards-version-switches-in-the-compiler/" target="_blank">Standards version switches in the compiler</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

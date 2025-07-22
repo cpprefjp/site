@@ -1,0 +1,1185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2025-07-22T13:06:31.919239</updated>
+  <id>160f319b-9887-4e33-a3d6-9cc4ac15a66e</id>
+
+  
+    <entry>
+      <title>はじめてのコントリビュート -- プライマリ宣言のリストを作成し、グローバル修飾リストにプライマリではないオーバーロード・特殊化が登録されたらエラーにするようにした</title>
+      <link href="https://cpprefjp.github.io/start_editing.html"/>
+      <id>f78ec17cf2805e3c4339b680d370ea6ab09861da:start_editing.md</id>
+      <updated>2025-07-22T17:49:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/start_editing.md b/start_editing.md
+index 65ee4f8c9..1fd44f9fa 100644
+--- a/start_editing.md
++++ b/start_editing.md
+@@ -38,11 +38,28 @@ buildアクションで、MarkdownからHTMLへの変換と、GitHub Pagesへの
+ 
+ 
+ #### 自動テスト
+-- 禁止文字の検出 (detect forbidden charactersアクション)
+-    - ソフトハイフンやゼロ幅スペースなどの禁止された文字が使用されている場合に、エラーが発生する
+-- 内部リンクの誤り検出 (inner link checkアクション)
+-    - サイト内のリンクが存在しない、または存在しているのに.nolinkを指定している場合にエラーが発生する
+-    - [GitHub Actionsの実行ログ](https://github.com/cpprefjp/site/actions/workflows/check.yml)で、どのページのどのリンクが不正かがわかるので、それを修正すること
++- checkアクション
++    - 禁止文字の検出 (detect forbidden characters)
++        - ソフトハイフンやゼロ幅スペースなどの禁止された文字が使用されている場合に、エラーが発生する
++    - 内部リンクの誤り検出 (inner link check)
++        - サイト内のリンクが存在しない、または存在しているのに.nolinkを指定している場合にエラーが発生する
++        - [GitHub Actionsの実行ログ](https://github.com/cpprefjp/site/actions/workflows/check.yml)で、どのページのどのリンクが不正かがわかるので、それを修正すること
++    - コード修飾の誤り検出 (code qualify check)
++        - コードブロック中のコードを修飾しているのに、その修飾対象がない場合に、エラーが発生する
++        - [GitHub Actionsの実行ログ](https://github.com/cpprefjp/site/actions/workflows/check.yml)で、どのページのどのコード修飾が不正かがわかるので、それを修正すること
++    - グローバル修飾リストの誤り検出 (global qualify check)
++        - `GLOBAL_QUALIFY_LIST.txt`に登録されている識別子のうち、`PRIMARY_OVERLOAD_SPECIALIZATION_LIST.txt`に登録されているプライマリ宣言へのリンク以外が登録されている場合に、エラーが発生する
++    - 所属ヘッダメタ情報の誤り検出 (meta header check)
++        - `[meta header]`または`[meta module]`指定が誤っている（ディレクトリ階層と一致しない）場合に、エラーが発生する
++        - 導入経緯は [PR#1204](https://github.com/cpprefjp/site/issues/1204) を参照
++    - NGワードの検出 (ngword check)
++        - 日本語入力環境における典型的な誤入力・誤変換をエラーとして検知する
++        - 具体的な対象ワードリストは[ngword_check.py](https://github.com/cpprefjp/site/blob/master/.github/workflows/script/ngword_check.py)を参照
++    - 用語の誤った使い方を検出 (defined word check)
++        - 用語の許可した使い方、許可しない使い方を列挙し、許可した使い方以外の使われ方をエラーとして検出する
++        - 具体的な用語、許可した使い方、許可しない使い方は、[defined_word_check.py](https://github.com/cpprefjp/site/blob/master/.github/workflows/script/defined_word_check.py)を参照
++    - 表示崩れする書き方を検出 (display error check)
++        - 箇条書きのインデントが4の倍数でない行をエラーとして検出する
+ - 外部リンク切れを検出 (outer link checkアクション)
+     - 日本時間で日曜日の23:30に実行される
+     - 外部リンクのページにアクセスできない (ページが消滅したか、一時的にアクセスできない、などの理由) 場合にエラーとなる
+@@ -50,20 +67,6 @@ buildアクションで、MarkdownからHTMLへの変換と、GitHub Pagesへの
+     - ページが消滅した場合は、代替となるものがあれば差し替え、なければInternet Archiveに変更する
+     - 一時的にアクセスできない場合は、時間を置いてアクセスできるようになったらissueを閉じる
+     - 海外からのアクセス (GitHub Actions) を拒否しているページもあるため、そのようなページは個別にチェックから外す ([link_check.py](https://github.com/cpprefjp/site/blob/master/.github/workflows/script/link_check.py)の`IGNORE_LIST`に追加する)
+-- コード修飾の誤り検出 (code qualify checkアクション)
+-    - コードブロック中のコードを修飾しているのに、その修飾対象がない場合に、エラーが発生する
+-    - [GitHub Actionsの実行ログ](https://github.com/cpprefjp/site/actions/workflows/check.yml)で、どのページのどのコード修飾が不正かがわかるので、それを修正すること
+-- 所属ヘッダメタ情報の誤り検出 (meta header checkアクション)
+-    - `[meta header]`または`[meta module]`指定が誤っている（ディレクトリ階層と一致しない）場合に、エラーが発生する
+-    - 導入経緯は [PR#1204](https://github.com/cpprefjp/site/issues/1204) を参照
+-- NGワードの検出 (ngword checkアクション)
+-    - 日本語入力環境における典型的な誤入力・誤変換をエラーとして検知する
+-    - 具体的な対象ワードリストは[ngword_check.py](https://github.com/cpprefjp/site/blob/master/.github/workflows/script/ngword_check.py)を参照
+-- 用語の誤った使い方を検出 (defined word checkアクション)
+-    - 用語の許可した使い方、許可しない使い方を列挙し、許可した使い方以外の使われ方をエラーとして検出する
+-    - 具体的な用語、許可した使い方、許可しない使い方は、[defined_word_check.py](https://github.com/cpprefjp/site/blob/master/.github/workflows/script/defined_word_check.py)を参照
+-- 表示崩れする書き方を検出 (display error checkアクション)
+-    - 箇条書きのインデントが4の倍数でない行をエラーとして検出する
+ 
+ 
+ ### 自動反映ツール
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>strtol -- fix: 参考にした記事はもとのタイトルをそのまま記述するべき (#1475)</title>
+      <link href="https://cpprefjp.github.io/reference/cstdlib/strtol.html"/>
+      <id>63eebbda07077b87b8d1c9d201b0638a709864f5:reference/cstdlib/strtol.md</id>
+      <updated>2025-07-18T20:16:56+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/strtol.md b/reference/cstdlib/strtol.md
+index 5b20b4df2..dedfa2cd5 100644
+--- a/reference/cstdlib/strtol.md
++++ b/reference/cstdlib/strtol.md
+@@ -89,4 +89,4 @@ int main() {
+ - [`&amp;lt;charconv&amp;gt;` ヘッダ](/reference/charconv.md): 高速な文字列 ⇔ 数値変換
+ 
+ ## 参考文献
+-- Qiita: [Cのstrtolの使い方とendptrの活用例（@yumetodo）](https://qiita.com/yumetodo/items/238751b879c09b56234b)
++- [C言語で安全に標準入力から数値を取得 #stdin - Qiita](https://qiita.com/yumetodo/items/238751b879c09b56234b): Cのstrtolの使い方とendptrの活用例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yumetodo</name>
+        <email>yume-wikijp@live.jp</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>charconv -- Merge pull request #1475 from cpprefjp/cstdlib/strtol</title>
+      <link href="https://cpprefjp.github.io/reference/charconv.html"/>
+      <id>9d7b798b618855c2dd8d96b480e2b3359afe166c:reference/charconv.md</id>
+      <updated>2025-07-16T22:49:49+00:00</updated>
+      
+        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;charconv&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;charconv&lt;/span&gt;&lt;span class=&#34;cpp cpp17&#34; title=&#34;C++17で追加&#34;&gt;(C++17)&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;charconv&amp;gt;&lt;/code&gt;ヘッダでは、ロケール依存なし、フォーマット解析なしの高速な文字列・数値変換を提供する。&lt;/p&gt;
+&lt;p&gt;これらの変換は以下のような特徴がある。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;フォーマットは引数で指定し、入力値のフォーマットを実行時に解析することはない&lt;/li&gt;
+&lt;li&gt;動的にメモリ確保を行わない&lt;/li&gt;
+&lt;li&gt;ロケールを考慮しない（Cロケール (POSIXロケール) 固定）&lt;/li&gt;
+&lt;li&gt;バッファオーバーランしない&lt;/li&gt;
+&lt;li&gt;例外を投げない（エラーは戻り値で表現、エラーと有効値は区別可能）&lt;/li&gt;
+&lt;li&gt;使用可能なフォーマットは最小限&lt;ul&gt;
+&lt;li&gt;スペースが現れた場合はそこで変換終了&lt;/li&gt;
+&lt;li&gt;浮動小数点数の指数部以外の&lt;code&gt;+&lt;/code&gt;符号は考慮されない&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;#&lt;/code&gt;による小数点以下の桁数指定はできない&lt;/li&gt;
+&lt;li&gt;16進数に&lt;code&gt;0x&lt;/code&gt;は付けられない&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;文字列 ⇔ 数値変換関数&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;charconv/to_chars.html&#34;&gt;to_chars&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;数値 → 文字列の変換&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;charconv/from_chars.html&#34;&gt;from_chars&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字列 → 数値の変換&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;クラス&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;charconv/chars_format.html&#34;&gt;chars_format&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;変換時の浮動小数点フォーマット指定のための列挙体&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;charconv/to_chars_result.html&#34;&gt;to_chars_result&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;charconv/to_chars.html&#34;&gt;to_chars&lt;/a&gt;&lt;/code&gt;の結果型&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;charconv/from_chars_result.html&#34;&gt;from_chars_result&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;charconv/from_chars.html&#34;&gt;from_chars&lt;/a&gt;&lt;/code&gt;の結果型&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;導入された経緯&lt;/h2&gt;
+&lt;p&gt;XMLやJSONに代表されるテキストベースのデータを利用するケースが増えており、C++においてそれを利用するケースも増加している。
+それらは多くの場合コンピュータによって生成されコンピュータによって読まれるため国際化対応の必要がなく、生成する側でも読む側でもロケールに非依存であり、考慮するべきではない。&lt;br /&gt;
+そして、これらのデータは多くの場合通信に利用されており高いスループットを要求される。&lt;/p&gt;
+&lt;p&gt;しかし、C++17未満の環境で利用可能であった文字列変換法はいずれもロケールに依存しておりロケール非依存な変換が提供されていなかったうえに、いずれの方法も動的なフォーマットの解析・指定や動的メモリ確保、エラー報告の不足等何かしら使いにくい所があった。&lt;br /&gt;
+動的なフォーマット解析はコンパイル時のフォーマットチェック及び選択を妨げ、（&lt;code&gt;iostream&lt;/code&gt;のマニピュレータのような）動的なフォーマット指定はその状態のスレッド間共有が必要になるため好ましくなく、動的メモリ確保を行わず変換エラーは区別できることが望ましい。&lt;/p&gt;
+&lt;p&gt;また、浮動小数点数を10進文字列→2進浮動小数点数→10進文字列と変換した時に最初と最後の文字列が一致する保証がある変換方法も提供されていなかった。&lt;/p&gt;
+&lt;p&gt;各変換方法とその問題点&lt;/p&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;関数&lt;/th&gt;
+&lt;th&gt;欠点&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;sprintf&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ロケール依存、フォーマットの動的解析、バッファオーバーランの危険性&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;snprintf&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ロケール依存、フォーマットの動的解析&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;sscanf&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ロケール依存、フォーマットの動的解析&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/atoi_atol_atoll.html&#34;&gt;atol&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ロケール依存、エラー報告の不足&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/strtol.html&#34;&gt;strtol&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ロケール依存、先頭ホワイトスペースの無視、接頭辞(0x等)を考慮する&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;strstream&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ロケール依存、先頭ホワイトスペースの無視&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;stringstream&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ロケール依存、先頭ホワイトスペースの無視、動的メモリ確保&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;num_put / num_get facets&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ロケール依存、仮想関数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;to_string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ロケール依存、動的メモリ確保&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;stoi&lt;/code&gt;等&lt;/td&gt;
+&lt;td&gt;ロケール依存、動的メモリ確保、先頭ホワイトスペースの無視、接頭辞(0x等)を考慮する、例外の送出&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;これらの問題がなく高速な文字列・数値変換を提供するために、本ヘッダ及び&lt;code&gt;to_chars, from_chars&lt;/code&gt;関数が導入された。各関数の特徴は冒頭及び個別のページを参照のこと。&lt;/p&gt;
+&lt;h2&gt;バージョン&lt;/h2&gt;
+&lt;h3&gt;言語&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;C++17&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;処理系&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;../implementation.html#clang&#34;&gt;Clang&lt;/a&gt;: 7.0(整数のみ) &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 14.0(to_chars()のみ浮動小数点もsupport), 20.1(from_chars()もdouble, floatをsupport) &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../implementation.html#gcc&#34;&gt;GCC&lt;/a&gt;: 8.0(整数のみ) &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 11.1(full support) &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../implementation.html#visual_cpp&#34;&gt;Visual C++&lt;/a&gt;: 2017 update 7(整数のみ) &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, update 9(full support) &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;参照&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://faithandbrave.hateblo.jp/entry/2016/08/24/181540&#34; target=&#34;_blank&#34;&gt;C++1z ロケール依存なし、フォーマット解析なしの高速な文字列・数値変換 - Faith and Brave - C++で遊ぼう&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0067r0.html&#34; target=&#34;_blank&#34;&gt;P0067R0 Elementary string conversions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0067r1.html&#34; target=&#34;_blank&#34;&gt;P0067R1 Elementary string conversions, revision 1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0067r2.html&#34; target=&#34;_blank&#34;&gt;P0067R2 Elementary string conversions, revision 2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0067r3.html&#34; target=&#34;_blank&#34;&gt;P0067R3 Elementary string conversions, revision 3&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0067r4.html&#34; target=&#34;_blank&#34;&gt;P0067R4 Elementary string conversions, revision 4&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0067r5.html&#34; target=&#34;_blank&#34;&gt;P0067R5 Elementary string conversions, revision 5&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0682r1.html&#34; target=&#34;_blank&#34;&gt;P0682R1: Repairing elementary string conversions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://open-std.org/JTC1/SC22/WG21/docs/papers/2015/n4412.html&#34; target=&#34;_blank&#34;&gt;N4412: Shortcomings of iostreams&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://wg21.cmeerw.net/lwg/issue3080&#34; target=&#34;_blank&#34;&gt;LWG Issue 3080. Floating point from_chars pattern specification breaks round-tripping&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>cstdlib -- Merge pull request #1475 from cpprefjp/cstdlib/strtol</title>
+      <link href="https://cpprefjp.github.io/reference/cstdlib.html"/>
+      <id>9d7b798b618855c2dd8d96b480e2b3359afe166c:reference/cstdlib.md</id>
+      <updated>2025-07-16T22:49:49+00:00</updated>
+      
+        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;cstdlib&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;cstdlib&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;cstdlib&amp;gt;&lt;/code&gt;ヘッダでは、一般的なユーティリティの関数を定義する。これらの機能は基本的には、&lt;code&gt;std&lt;/code&gt;名前空間に属することを除いてC言語の標準ライブラリ&lt;code&gt;&amp;lt;stdlib.h&amp;gt;&lt;/code&gt;ヘッダと同じである。&lt;/p&gt;
+&lt;p&gt;本ヘッダはフリースタンディング環境でも提供される。
+フリースタンディング環境の場合、少なくとも&lt;code&gt;abort&lt;/code&gt;, &lt;code&gt;atexit&lt;/code&gt;, &lt;code&gt;at_quick_exit&lt;/code&gt;, &lt;code&gt;exit&lt;/code&gt;, &lt;code&gt;quick_exit&lt;/code&gt;関数がサポートされる。&lt;/p&gt;
+&lt;p&gt;ただし、一部の機能には、&lt;code&gt;[[noreturn]]&lt;/code&gt;属性、&lt;code&gt;noexcept&lt;/code&gt;キーワード、スレッドローカルストレージのような、C++特有の言語機能に関する規定がある。&lt;/p&gt;
+&lt;h2&gt;数値変換&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/atoi_atol_atoll.html&#34;&gt;atoi&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字列を&lt;code&gt;int&lt;/code&gt;型に変換する (function)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/atoi_atol_atoll.html&#34;&gt;atol&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字列を&lt;code&gt;long&lt;/code&gt;型に変換する (function)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/atoi_atol_atoll.html&#34;&gt;atoll&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字列を&lt;code&gt;long long&lt;/code&gt;型に変換する (function)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/atof.html&#34;&gt;atof&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字列を&lt;code&gt;double&lt;/code&gt;型に変換する (function)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/strtol.html&#34;&gt;strtol&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字列を、基数を指定して&lt;code&gt;long&lt;/code&gt;型に変換する (function)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;strtoll&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字列を、基数を指定して&lt;code&gt;long long&lt;/code&gt;型に変換する (function)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;strtoul&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字列を、基数を指定して&lt;code&gt;unsigned long&lt;/code&gt;型に変換する (function)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;strtoull&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字列を、基数を指定して&lt;code&gt;unsigned long long&lt;/code&gt;型に変換する (function)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;strtof&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字列を、&lt;code&gt;float&lt;/code&gt;型に変換する (function)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;strtod&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字列を、&lt;code&gt;double&lt;/code&gt;型に変換する (function)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;strtold&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字列を、&lt;code&gt;long double&lt;/code&gt;型に変換する (function)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;擬似乱数&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/rand_max.html&#34;&gt;RAND_MAX&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;rand&lt;/code&gt;関数によって生成される値域の最大値を表す整数値マクロ (macro)&lt;/td&gt;
+&lt;td&gt;C++14から非推奨&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/srand.html&#34;&gt;srand&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;rand&lt;/code&gt;関数によって生成される擬似乱数のシードを指定する (function)&lt;/td&gt;
+&lt;td&gt;C++14から非推奨&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/rand.html&#34;&gt;rand&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;srand&lt;/code&gt;で指定されたシードを元に、擬似乱数を生成する (function)&lt;/td&gt;
+&lt;td&gt;C++14から非推奨&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;メモリ管理&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/aligned_alloc.html&#34;&gt;aligned_alloc&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;指定したアライメントでメモリを確保する (function)&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/malloc.html&#34;&gt;malloc&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;メモリを確保する (function)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/calloc.html&#34;&gt;calloc&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;メモリを確保し、領域をゼロ初期化する (function)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/realloc.html&#34;&gt;realloc&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;メモリを再確保する (function)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/free.html&#34;&gt;free&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;確保したメモリを解放する (function)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;プログラムの開始と終了&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/exit_failure.html&#34;&gt;EXIT_FAILURE&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;プログラムが異常終了したことを表す整数値マクロ (macro)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/exit_success.html&#34;&gt;EXIT_SUCCESS&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;プログラムが正常終了したことを表す整数値マクロ (macro)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/abort.html&#34;&gt;abort&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;プログラムを異常終了させる (function)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/exit_.html&#34;&gt;_Exit&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;後処理をせずに、プログラムを終了させる (function)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/exit.html&#34;&gt;exit&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;プログラムを終了させる (function)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/atexit.html&#34;&gt;atexit&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;プログラムが通常の方法で終了するときに呼ばれる関数を登録する (function)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/quick_exit.html&#34;&gt;quick_exit&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;後処理をせずに、プログラムを終了させる (function)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/at_quick_exit.html&#34;&gt;at_quick_exit&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;quick_exit&lt;/code&gt;関数でプログラムが終了するときに呼ばれる関数を登録する (function)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;環境&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/getenv.html&#34;&gt;getenv&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;環境変数を取得する (function)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/system.html&#34;&gt;system&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;システムコマンドを実行する (function)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;検索と並び替え&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;bsearch&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;二分探索を行う (function)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;qsort&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;範囲の並べ替えを行う (function)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;整数に対する算術関数&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/abs.html&#34;&gt;abs&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;int&lt;/code&gt;の絶対値を取得する (function)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/abs.html&#34;&gt;labs&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;long&lt;/code&gt;の絶対値を取得する (function)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/abs.html&#34;&gt;llabs&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;long long&lt;/code&gt;の絶対値を取得する (function)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/div_t.html&#34;&gt;div_t&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;div&lt;/code&gt;関数の戻り値型 (class)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/div.html&#34;&gt;div&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;int&lt;/code&gt;の除算と剰余算を行う (function)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/ldiv_t.html&#34;&gt;ldiv_t&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ldiv&lt;/code&gt;関数の戻り値型 (class)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/div.html&#34;&gt;ldiv&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;long&lt;/code&gt;の除算と剰余算を行う (function)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/lldiv_t.html&#34;&gt;lldiv_t&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;lldiv&lt;/code&gt;関数の戻り値型 (class)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/div.html&#34;&gt;lldiv&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;long long&lt;/code&gt;の除算と剰余算を行う (function)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;マルチバイト文字とワイド文字の変換&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/mb_cur_max.html&#34;&gt;MB_CUR_MAX&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;マルチバイト文字列の最大サイズを表す整数値マクロ (macro)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;mblen&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;マルチバイト文字の長さを取得する (function)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;mbtowc&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;マルチバイト文字を、ワイド文字に変換する (function)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;wctomb&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ワイド文字を、マルチバイト文字に変換する (function)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;mbstowcs&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;マルチバイト文字列を、ワイド文字列に変換する (function)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;wcstombs&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ワイド文字列を、マルチバイト文字列に変換する (function)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>strtol -- Merge pull request #1475 from cpprefjp/cstdlib/strtol</title>
+      <link href="https://cpprefjp.github.io/reference/cstdlib/strtol.html"/>
+      <id>9d7b798b618855c2dd8d96b480e2b3359afe166c:reference/cstdlib/strtol.md</id>
+      <updated>2025-07-16T22:49:49+00:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/strtol.md b/reference/cstdlib/strtol.md
+new file mode 100644
+index 000000000..5b20b4df2
+--- /dev/null
++++ b/reference/cstdlib/strtol.md
+@@ -0,0 +1,92 @@
++# strtol
++* cstdlib[meta header]
++* std[meta namespace]
++* function[meta id-type]
++
++```cpp
++namespace std {
++  long int strtol(const char* nptr, char** endptr, int base);
++}
++```
++
++## 概要
++文字列`nptr`を`long`型の整数に変換する。文字列は`base`で指定された基数に従って解釈される。
++
++`endptr`が非`nullptr`の場合、変換が終了した位置の文字へのポインタがそこに格納される。
++
++基数`base`は 2～36 または 0 の値を取る。
++
++`base`が0の場合
++- 文字列の先頭が`0x`または`0X`のときは16進数
++- 文字列の先頭が`0`のときは8進数
++- その他のときは10進数として変換する。
++
++変換は次のように行われる
++- 先頭が空白文字の場合、最初の非空白文字から変換される。
++- `+`または`-`が先頭にある場合は、符号として解釈される。
++- 基数が 16 または 0 の場合`0x`または`0X`をスキップする
++- その後の文字列を、指定された`base`に基づいて整数値に変換する。
++- 各桁は、`0`〜`9`をその値、`a`〜`z`および`A`〜`Z`を10〜35として扱う。
++
++## 戻り値
++- 変換可能ならば変換後の数値。
++- 変換後の数値が`long`の範囲外の場合、`LONG_MAX`または `LONG_MIN`。
++- 変換不可能なら`0`を返す。
++
++## 備考
++- 数値が `long` の範囲を超えるときは `errno` に `ERANGE` が設定される。
++
++## 例
++```cpp example
++#include &amp;lt;iostream&amp;gt;
++#include &amp;lt;cstdlib&amp;gt;
++#include &amp;lt;cerrno&amp;gt;
++#include &amp;lt;climits&amp;gt;
++
++void convert_and_print(const char* str, int base) {
++  errno = 0;
++  char* end = nullptr;
++  long result = std::strtol(str, &amp;amp;end, base);
++
++  std::cout &amp;lt;&amp;lt; &amp;#34;基数&amp;#34; &amp;lt;&amp;lt; base &amp;lt;&amp;lt; &amp;#34;での変換結果: &amp;#34; &amp;lt;&amp;lt; result &amp;lt;&amp;lt; std::endl;
++  if (str == end) {
++    std::cout &amp;lt;&amp;lt; &amp;#34;変換不可&amp;#34; &amp;lt;&amp;lt; std::endl;
++  } else if (errno == ERANGE) {
++    std::cout &amp;lt;&amp;lt; &amp;#34;  → 変換結果が範囲外&amp;#34; &amp;lt;&amp;lt; std::endl;
++  }
++  if (*end != &amp;#39;\0&amp;#39;) {
++    std::cout &amp;lt;&amp;lt; &amp;#34;未変換部分: \&amp;#34;&amp;#34; &amp;lt;&amp;lt; end &amp;lt;&amp;lt; &amp;#34;\&amp;#34;&amp;#34; &amp;lt;&amp;lt; std::endl;
++  }
++  std::cout &amp;lt;&amp;lt; std::endl;
++}
++
++int main() {
++  const char* str = &amp;#34;  -0x2Fabc&amp;#34;;
++  convert_and_print(str, 0);   // 自動判別
++  convert_and_print(str, 10);  // 10進数
++  convert_and_print(str, 36);  // 36進数
++
++  return 0;
++}
++
++```
++### 出力
++```
++基数0での変換結果: -195260
++
++基数10での変換結果: 0
++未変換部分: &amp;#34;x2Fabc&amp;#34;
++
++基数36での変換結果: -1999456248
++
++```
++
++## 関連項目
++- [`strtoll`](strtoll.md.nolink): 文字列を、基数を指定して`long long`型に変換する
++- [`strtoul`](strtoul.md.nolink): 文字列を、基数を指定して`unsigned long`型に変換する
++- [`strtoull`](strtoull.md.nolink): 文字列を、基数を指定して`unsigned long long`型に変換する
++- [`std::stol`](/reference/string/stol.md): 文字列から`long`型への変換
++- [`&amp;lt;charconv&amp;gt;` ヘッダ](/reference/charconv.md): 高速な文字列 ⇔ 数値変換
++
++## 参考文献
++- Qiita: [Cのstrtolの使い方とendptrの活用例（@yumetodo）](https://qiita.com/yumetodo/items/238751b879c09b56234b)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>stoi -- Merge pull request #1475 from cpprefjp/cstdlib/strtol</title>
+      <link href="https://cpprefjp.github.io/reference/string/stoi.html"/>
+      <id>9d7b798b618855c2dd8d96b480e2b3359afe166c:reference/string/stoi.md</id>
+      <updated>2025-07-16T22:49:49+00:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/string/stoi.md b/reference/string/stoi.md
+index 657d5e1d8..66b15defd 100644
+--- a/reference/string/stoi.md
++++ b/reference/string/stoi.md
+@@ -235,7 +235,7 @@ int stoi(const std::wstring&amp;amp; str, std::size_t* idx = nullptr, int base = 10) {
+ ## 関連リンク
+ ### C標準ライブラリに由来する関数
+ - [`atoi`](/reference/cstdlib/atoi_atol_atoll.md): `stoi`は[`atoi`](/reference/cstdlib/atoi_atol_atoll.md)を`std::string`および`std::wstring`に対応させたものと見なせる。
+-- `strtol`, `wcstol`: `stoi`は`strtol`および`wcstol`をそれぞれ`std::string`と`std::wstring`に対応させ、戻り値の型を`int`に変更したものと見なせる。
++- [`strtol`](/reference/cstdlib/strtol.md), `wcstol`: `stoi`は`strtol`および`wcstol`をそれぞれ`std::string`と`std::wstring`に対応させ、戻り値の型を`int`に変更したものと見なせる。
+ 
+ ### ファミリー
+ - (`stoi`: この関数自身)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>cstdio -- tempnam → tmpnam</title>
+      <link href="https://cpprefjp.github.io/reference/cstdio.html"/>
+      <id>b0adf47e9c68abc8459ea70ce2252de8ea40a60d:reference/cstdio.md</id>
+      <updated>2025-07-17T01:04:57+09:00</updated>
+      
+        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;cstdio&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;cstdio&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;cstdio&amp;gt;&lt;/code&gt;ヘッダでは、標準入出力のための機能を定義する。これらの機能は、&lt;code&gt;std&lt;/code&gt;名前空間に属することを除いてC言語の標準ライブラリ&lt;code&gt;&amp;lt;stdio.h&amp;gt;&lt;/code&gt;ヘッダと同じである。&lt;/p&gt;
+&lt;h2&gt;型&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstddef/size_t.html&#34;&gt;size_t&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;符号なし整数型&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/file.html&#34;&gt;FILE&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ストリームの制御に必要な情報を持つオブジェクト型&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/fpos_t.html&#34;&gt;fpos_t&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルの全ての位置にアクセスするための配列以外の完全オブジェクト型&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;マクロ&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstddef/null.html&#34;&gt;NULL&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ヌルポインタ定数に展開されるマクロ&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/iofbf.md.nolink&#34;&gt;_IOFBF&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;入出力を完全にバッファリングする指定のための整数定数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/iolbf.md.nolink&#34;&gt;_IOLBF&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;入出力を行バッファリングする指定のための整数定数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/ionbf.md.nolink&#34;&gt;_IONBF&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;入出力をバッファリングしない指定のための整数定数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/bufsiz.md.nolink&#34;&gt;BUFSIZ&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;バッファサイズを表す整数定数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/eof.html&#34;&gt;EOF&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルの終端であることを表す&lt;code&gt;int&lt;/code&gt;型の整数定数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/fopen_max.md.nolink&#34;&gt;FOPEN_MAX&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;実装によって保証されるファイルを開ける最低限の数を表す整数定数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/filename_max.html&#34;&gt;FILENAME_MAX&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;実装によって保証されるファイル名の最大の長さを表す整数定数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/l_tmpnam.md.nolink&#34;&gt;L_tmpnam&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;tmpnam()&lt;/code&gt;関数によって作られた一時ファイル名を保持する似に必要な長さを表す整数定数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/seek_set.md.nolink&#34;&gt;SEEK_SET&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルの先頭位置を指定するための整数定数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/seek_cur.md.nolink&#34;&gt;SEEK_CUR&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルの現在位置を指定するための整数定数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/seek_end.md.nolink&#34;&gt;SEEK_END&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルの終端を指定するための整数定数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/tmp_max.md.nolink&#34;&gt;TMP_MAX&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;tmpnam()&lt;/code&gt;関数によって生成できる一時ファイル名の、実装が保証する最低限の数を表す整数定数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/stderr.html&#34;&gt;stderr&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;標準エラーを表す&lt;code&gt;FILE*&lt;/code&gt;型の式&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/stdin.html&#34;&gt;stdin&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;標準入力を表す&lt;code&gt;FILE*&lt;/code&gt;型の式&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/stdout.html&#34;&gt;stdout&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;標準出力を表す&lt;code&gt;FILE*&lt;/code&gt;型の式&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;ファイル操作&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/remove.html&#34;&gt;remove&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルを削除する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/rename.html&#34;&gt;rename&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイル名を変更、ファイルを移動する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/tmpfile.html&#34;&gt;tmpfile&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;一時ファイルを生成する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/tmpnam.html&#34;&gt;tmpnam&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;一時ファイル名を生成する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/fclose.html&#34;&gt;fclose&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルを閉じる&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/fopen.html&#34;&gt;fopen&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルを開く&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/fflush.html&#34;&gt;fflush&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルをフラッシュする&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/fprintf.html&#34;&gt;fprintf&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;書式を指定してファイルに出力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/fscanf.html&#34;&gt;fscanf&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;書式を指定してファイルから入力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/vfprintf.md.nolink&#34;&gt;vfprintf&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;可変引数リスト&lt;code&gt;va_list&lt;/code&gt;を使用し、書式を指定してファイルに出力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/vfscanf.md.nolink&#34;&gt;vfscanf&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;可変引数リスト&lt;code&gt;va_list&lt;/code&gt;を使用し、書式を指定してファイルから入力する&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/fgetc.html&#34;&gt;fgetc&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルから1文字入力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/fgets.html&#34;&gt;fgets&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルからN文字入力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/fputc.html&#34;&gt;fputc&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルに1文字出力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/fputs.html&#34;&gt;fputs&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルにN文字出力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/fread.html&#34;&gt;fread&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルからN文字読み込む&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/fwrite.md.nolink&#34;&gt;fwrite&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルにN文字書き込む&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/fgetpos.md.nolink&#34;&gt;fgetpos&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルの現在位置を取得する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/fseek.md.nolink&#34;&gt;fseek&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルの現在位置を移動する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/fsetpos.md.nolink&#34;&gt;fsetpos&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルの現在位置を設定する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/ftell.md.nolink&#34;&gt;ftell&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルの現在位置を取得する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/rewind.md.nolink&#34;&gt;rewind&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルの現在位置を先頭に戻し、エラーや終端判定をクリアする&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/clearerr.md.nolink&#34;&gt;clearerr&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;エラーをクリアする&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/feof.html&#34;&gt;feof&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルが終端に到達したか判定する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/ferror.md.nolink&#34;&gt;ferror&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルストリームがエラー状態かを判定する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/perror.md.nolink&#34;&gt;perror&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;システムエラーメッセージを出力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;標準入出力&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/printf.html&#34;&gt;printf&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;書式を指定して標準出力に出力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/scanf.html&#34;&gt;scanf&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;書式を指定して標準入力から入力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/vprintf.md.nolink&#34;&gt;vprintf&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;可変引数リスト&lt;code&gt;va_list&lt;/code&gt;を使用し、書式を指定して標準出力に出力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/vscanf.md.nolink&#34;&gt;vscanf&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;可変引数リスト&lt;code&gt;va_list&lt;/code&gt;を使用し、書式を指定して標準入力から入力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/getc.html&#34;&gt;getc&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ストリームから1文字入力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/getchar.html&#34;&gt;getchar&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;標準入力から1文字入力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/putc.html&#34;&gt;putc&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ストリームに1文字出力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/putchar.html&#34;&gt;putchar&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;標準出力に1文字出力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/puts.html&#34;&gt;puts&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;標準出力に文字列を出力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/ungetc.html&#34;&gt;ungetc&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;入力ストリームに1文字戻す&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;文字列入出力&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/snprintf.md.nolink&#34;&gt;snprintf&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;書式と文字数を指定して、文字列領域に出力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/sprintf.md.nolink&#34;&gt;sprintf&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;書式を指定して文字列領域に出力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/sscanf.md.nolink&#34;&gt;sscanf&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;書式を指定して文字列領域から入力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;vsnprintf&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;可変引数リスト&lt;code&gt;va_list&lt;/code&gt;を使用し、書式と文字数を指定して、文字列領域に出力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/vsprintf.md.nolink&#34;&gt;vsprintf&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;可変引数リスト&lt;code&gt;va_list&lt;/code&gt;を使用し、書式を指定して文字列領域に出力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/vsscanf.md.nolink&#34;&gt;vsscanf&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;可変引数リスト&lt;code&gt;va_list&lt;/code&gt;を使用し、書式を指定して文字列領域から入力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;バッファ操作&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/setbuf.md.nolink&#34;&gt;setbuf&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;入出力用のバッファを設定する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/setvbuf.md.nolink&#34;&gt;setvbuf&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;戦略を指定して入出力用のバッファを設定する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;参照&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0063r3.html&#34; target=&#34;_blank&#34;&gt;P0063R3 C++17 should refer to C11 instead of C99&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0175r1.html&#34; target=&#34;_blank&#34;&gt;P0175R1 Synopses for the C library&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>strtol -- strtol:記述の変更</title>
+      <link href="https://cpprefjp.github.io/reference/cstdlib/strtol.html"/>
+      <id>5b1c95f1f3810b3211cb7ffdc214d3fbb94406c9:reference/cstdlib/strtol.md</id>
+      <updated>2025-07-16T23:56:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/strtol.md b/reference/cstdlib/strtol.md
+index a8f808adc..5b20b4df2 100644
+--- a/reference/cstdlib/strtol.md
++++ b/reference/cstdlib/strtol.md
+@@ -19,7 +19,7 @@ namespace std {
+ `base`が0の場合
+ - 文字列の先頭が`0x`または`0X`のときは16進数
+ - 文字列の先頭が`0`のときは8進数
+-- その他の場合は10進数として変換する。
++- その他のときは10進数として変換する。
+ 
+ 変換は次のように行われる
+ - 先頭が空白文字の場合、最初の非空白文字から変換される。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>
