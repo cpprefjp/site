@@ -52,7 +52,7 @@ int main()
 }
 ```
 * std::swap[color ff0000]
-* extract[link reference/map/map/extract.md.nolink]
+* extract[link /reference/map/map/extract.md]
 * key[link key.md]
 * mapped[link mapped.md]
 
