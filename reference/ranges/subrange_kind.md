@@ -1,6 +1,6 @@
 # subrange_kind
 * ranges[meta header]
-* std::range[meta namespace]
+* std::ranges[meta namespace]
 * enum[meta id-type]
 * cpp20[meta cpp]
 
