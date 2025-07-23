@@ -21,7 +21,7 @@
 | [`_IOFBF`](/reference/cstdio/iofbf.md.nolink) | 入出力を完全にバッファリングする指定のための整数定数 | |
 | [`_IOLBF`](/reference/cstdio/iolbf.md.nolink) | 入出力を行バッファリングする指定のための整数定数 | |
 | [`_IONBF`](/reference/cstdio/ionbf.md.nolink) | 入出力をバッファリングしない指定のための整数定数 | |
-| [`BUFSIZ`](/reference/cstdio/bufsiz.md.nolink) | バッファサイズを表す整数定数 | |
+| [`BUFSIZ`](/reference/cstdio/bufsiz.md) | バッファサイズを表す整数定数 | |
 | [`EOF`](/reference/cstdio/eof.md)    | ファイルの終端であることを表す`int`型の整数定数 | |
 | [`FOPEN_MAX`](/reference/cstdio/fopen_max.md.nolink)    | 実装によって保証されるファイルを開ける最低限の数を表す整数定数 | |
 | [`FILENAME_MAX`](/reference/cstdio/filename_max.md) | 実装によって保証されるファイル名の最大の長さを表す整数定数 | |
