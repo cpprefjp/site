@@ -324,7 +324,6 @@ C++20とは、2020年中に改訂され、ISO/IEC 14882:2020で標準規格化�
 - [`std::atomic`](/reference/atomic/atomic.md)クラスと[`std::atomic_flag`](/reference/atomic/atomic_flag.md)クラスのデフォルトコンストラクタが値初期化するようになったため、不要になった以下のアトミックオブジェクトの初期化機能を非推奨化：
     - [`std::atomic_init()`](/reference/atomic/atomic_init.md)関数
     - [`ATOMIC_VAR_INIT`](/reference/atomic/atomic_var_init.md)マクロ
-    - [`ATOMIC_FLAG_INIT`](/reference/atomic/atomic_flag_init.md)マクロ
 - [`std::shared_ptr`](/reference/memory/shared_ptr.md)の[`std::atomic`特殊化](/reference/memory/atomic.md)追加にともない、[`std::shared_ptr`](/reference/memory/shared_ptr.md)に対する以下のアトミック操作を非推奨化：
     - [`std::atomic_is_lock_free`](/reference/memory/shared_ptr/atomic_is_lock_free.md)
     - [`std::atomic_load`](/reference/memory/shared_ptr/atomic_load.md)
