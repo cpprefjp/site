@@ -1,0 +1,370 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>reference_constructs_from_temporary - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,type_traits,class template,std,cpp23
+">
+        <meta name="title" content="reference_constructs_from_temporary - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="reference_constructs_from_temporary - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="reference_constructs_from_temporary - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/type_traits/reference_constructs_from_temporary.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="参照`T`が一時オブジェクト`U`を直接初期化（丸カッコによる初期化）で束縛した時、その一時オブジェクトの寿命を延長するかを判定する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="reference_constructs_from_temporary - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/type_traits/reference_constructs_from_temporary.html" />
+        <meta name="twitter:description" content="参照`T`が一時オブジェクト`U`を直接初期化（丸カッコによる初期化）で束縛した時、その一時オブジェクトの寿命を延長するかを判定する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;type_traits&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;cpp&#34;: [&#34;cpp23&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;e2ff0dd47a555e575cdfd99144997391817338be&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\nstruct S {\n  S() { std::cout &lt;&lt; \&#34;S construct\&#34; &lt;&lt; std::endl; }\n  ~S() { std::cout &lt;&lt; \&#34;S destruct\&#34; &lt;&lt; std::endl; }\n};\n\nS&amp;&amp; f() { return S{}; }\n\nint main() {\n  std::cout &lt;&lt; \&#34;1\&#34; &lt;&lt; std::endl;\n\n  // f \u306e\u623b\u308a\u5024\u306f s \u306b\u675f\u7e1b\u3055\u308c\u3066\u5bff\u547d\u304c\u5ef6\u9577\u3055\u308c\u305f\u304b\uff1f\n  // \u5b9f\u969b\u306b\u306f\u3053\u306e\u5ba3\u8a00\u306e1\u6587\u304c\u7d42\u4e86\u3057\u305f\u969b\u306b f \u306e\u623b\u308a\u5024\u306f\u7834\u68c4\u3055\u308c\u3066\u3044\u308b\n  S&amp;&amp; s(f());\n\n  std::cout &lt;&lt; \&#34;2\&#34; &lt;&lt; std::endl;\n}\n\n&#34;}, {&#34;id&#34;: &#34;4926b39c189d0e753383ee44bda78e3c1e2970e9&#34;, &#34;source&#34;: &#34;#include &lt;type_traits&gt;\n\nstruct A {\n    A() = default;\n    A(int) {}\n};\n\nstruct B : A {\n    explicit B(int) {}\n};\n\nstruct C {\n    operator struct A() { return A{}; }\n    explicit operator struct B() { return B{0}; }\n};\n\nint main()\n{\n    // OK: \u308f\u304b\u308a\u3084\u3059\u304f\u5bff\u547d\u304c\u5ef6\u9577\u3055\u308c\u308b\u30bf\u30a4\u30d7\n    static_assert(std::reference_constructs_from_temporary_v&lt;int&amp;&amp;, int&gt;);\n    static_assert(std::reference_constructs_from_temporary_v&lt;const int&amp;, int&gt;);\n    static_assert(std::reference_constructs_from_temporary_v&lt;A&amp;&amp;, B&gt;);\n    static_assert(std::reference_constructs_from_temporary_v&lt;const A&amp;&amp;, B&gt;);\n\n    // OK: \u5909\u63db\u3055\u308c\u3066 rvalue \u306b\u306a\u3063\u3066\u304b\u3089\u675f\u7e1b\u3055\u308c\u3066\u5bff\u547d\u304c\u5ef6\u9577\u3055\u308c\u308b\u30bf\u30a4\u30d7\n    static_assert(std::reference_constructs_from_temporary_v&lt;int&amp;&amp;, long&gt;);\n    static_assert(std::reference_constructs_from_temporary_v&lt;int&amp;&amp;, long&amp;&gt;);\n    static_assert(std::reference_constructs_from_temporary_v&lt;int&amp;&amp;, long&amp;&amp;&gt;);\n\n    // OK: explicit \u3067\u306f\u306a\u3044\u306e\u3067\u5909\u63db\u3055\u308c\u3066 rvalue \u306b\u306a\u3063\u3066\u304b\u3089\u675f\u7e1b\u3055\u308c\u3066\u5bff\u547d\u304c\u5ef6\u9577\u3055\u308c\u308b\u30bf\u30a4\u30d7\n    static_assert(std::reference_constructs_from_temporary_v&lt;A&amp;&amp;, C&gt;);\n    static_assert(std::reference_constructs_from_temporary_v&lt;A&amp;&amp;, C&amp;&gt;);\n    static_assert(std::reference_constructs_from_temporary_v&lt;A&amp;&amp;, C&amp;&amp;&gt;);\n    static_assert(std::reference_constructs_from_temporary_v&lt;A&amp;&amp;, int&gt;);\n\n\n    // NG: const \u3067\u306f\u306a\u3044\u5de6\u8fba\u5024\u53c2\u7167\u306f\u5bff\u547d\u3092\u5ef6\u9577\u3057\u306a\u3044\u3093\u3067\u3059\u30bf\u30a4\u30d7\n    //     1\u3064\u76ee3\u3064\u76ee\u306f\u305d\u3082\u305d\u3082\u53c2\u7167\u305d\u306e\u3082\u306e\u304c\u69cb\u7bc9\u51fa\u6765\u306a\u3044\n    static_assert(false == std::reference_constructs_from_temporary_v&lt;int&amp;, int&gt;);\n    static_assert(false == std::reference_constructs_from_temporary_v&lt;int&amp;, int&amp;&gt;);\n    static_assert(false == std::reference_constructs_from_temporary_v&lt;int&amp;, int&amp;&amp;&gt;);\n\n    // NG: \u69cb\u7bc9\u3067\u304d\u306a\u3044\u30d1\u30bf\u30fc\u30f3\u3068\u53f3\u8fba\u5024\u53c2\u7167\u306f\u533a\u5225\u3059\u308b\u30d1\u30bf\u30fc\u30f3\n    static_assert(false == std::reference_constructs_from_temporary_v&lt;int&amp;&amp;, int&amp;&gt;);\n    static_assert(false == std::reference_constructs_from_temporary_v&lt;int&amp;&amp;, int&amp;&amp;&gt;);\n\n    // NG: explicit \u306a\u306e\u3067\u5909\u63db\u51fa\u6765\u305a\u306b\u8a70\u3080\u30d1\u30bf\u30fc\u30f3\n    static_assert(false == std::reference_constructs_from_temporary_v&lt;B&amp;&amp;, C&gt;);\n    static_assert(false == std::reference_constructs_from_temporary_v&lt;B&amp;&amp;, C&amp;&gt;);\n    static_assert(false == std::reference_constructs_from_temporary_v&lt;B&amp;&amp;, C&amp;&amp;&gt;);\n    static_assert(false == std::reference_constructs_from_temporary_v&lt;B&amp;&amp;, int&gt;);\n}\n\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;type_traits&#34;, &#34;reference_constructs_from_temporary&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/type_traits.html" itemprop="url">
+              
+                <span itemprop="name">type_traits</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">reference_constructs_from_temporary</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-12-22T06:27:29">
+        2024年12月22日 06時27分29秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Raclamusi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/type_traits/reference_constructs_from_temporary.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/type_traits/reference_constructs_from_temporary.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;type_traits&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">reference_constructs_from_temporary</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
+  <span class="k">struct</span> <span class="n">reference_constructs_from_temporary</span><span class="p">;</span>
+
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
+    <span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">reference_constructs_from_temporary_v</span>
+       <span class="o">=</span> <span class="n">reference_constructs_from_temporary</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">U</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>参照<code>T</code>が一時オブジェクト<code>U</code>を直接初期化（丸カッコによる初期化）で束縛した時、その一時オブジェクトの寿命を延長するかを判定する。</p>
+<p><code><a href="../tuple/tuple.html">tuple</a></code>や<code><a href="../utility/pair.html">pair</a></code>のコンストラクタなど、<code>explicit</code>なコンストラクタ・変換関数におけるダングリング参照の生成を回避するために使用される。</p>
+<p>なお、コピー初期化（代入形式による初期化）における文脈では<code><a href="reference_converts_from_temporary.html">reference_converts_from_temporary</a></code>が使用される。</p>
+<h2>要件</h2>
+<p><code>T</code>と<code>U</code>のどちらも、<a class="cpprefjp-defined-word" data-desc="型のサイズを決定できる型。不完全型ではない型">完全型</a>、<code>const</code>/<code>volatile</code>修飾された（あるいはされていない）<code>void</code>、要素数不明の配列型であること。</p>
+<h2>効果</h2>
+<p><code>VAL&lt;U&gt;</code>を次のように定義する。</p>
+<ul>
+<li><code>U</code>が参照型や関数型の場合、<code><a href="../utility/declval.html">declval</a>&lt;U&gt;()</code>と同じ型と値カテゴリを持つ式</li>
+<li><code>U</code>が参照型や関数型でない場合、型<code>U</code>である<code>prvalue</code>（ただし、<code>U</code>に<code>const</code>/<code>volatile</code>修飾があれば調整される）</li>
+</ul>
+<p><code><a href="conjunction.html">conjunction_v</a>&lt;<a href="is_reference.html">is_reference</a>&lt;T&gt;, <a href="is_constructible.html">is_constructible</a>&lt;T, U&gt;&gt;</code>が<code>true</code>かつ、<code>T t(VAL&lt;U&gt;)</code>において<code>t</code>が一時オブジェクトの寿命を延長する場合に<code><a href="true_type.html">true_type</a></code>から派生し、そうでなければ<code><a href="false_type.html">false_type</a></code>から派生する。</p>
+<h2>備考</h2>
+<p>多くのメタ関数は<code>prvalue</code>と<code>xvalue</code>を区別しないが、このメタ関数は区別する。例えば、右辺値参照に「<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型が右辺値参照である関数」の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を束縛することを考える。（再現コードは、説明の最後に付す）</p>
+<p>この事自体は即座に<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>とはならない。しかし、その関数が実際には<code>prvalue</code>を返しているとすれば、その<code>prvalue</code>は<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の時点で右辺値参照に束縛されるため、それを右辺値参照に束縛したとしても寿命は延長されることはない。そのため、最終的にダングリング参照を生じることとなる。</p>
+<p>このような場面においては、本メタ関数が<code>prvalue</code>と<code>xvalue</code>を、<code>prvalue</code>を<code>T</code>（参照なしの型）として、<code>xvalue</code>を<code>T&amp;&amp;</code>（右辺値参照である型、転送参照(Forwarding Reference) を意味しているわけではない）として区別すれば検出が可能となる。</p>
+<p><div class="yata" id="e2ff0dd47a555e575cdfd99144997391817338be"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">S</span> <span class="p">{</span>
+  <span class="n">S</span><span class="p">()</span> <span class="p">{</span> <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"S construct"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="p">}</span>
+  <span class="o">~</span><span class="n">S</span><span class="p">()</span> <span class="p">{</span> <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"S destruct"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="n">S</span><span class="o">&amp;&amp;</span> <span class="n">f</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">S</span><span class="p">{};</span> <span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"1"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// f の戻り値は s に束縛されて寿命が延長されたか？</span>
+  <span class="c1">// 実際にはこの宣言の1文が終了した際に f の戻り値は破棄されている</span>
+  <span class="n">S</span><span class="o">&amp;&amp;</span> <span class="n">s</span><span class="p">(</span><span class="n">f</span><span class="p">());</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"2"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>1
+S construct
+S destruct
+2
+
+</code></pre></p>
+<h2>例</h2>
+<p><div class="yata" id="4926b39c189d0e753383ee44bda78e3c1e2970e9"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">A</span> <span class="p">{</span>
+    <span class="n">A</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+    <span class="n">A</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="nl">B</span> <span class="p">:</span> <span class="n">A</span> <span class="p">{</span>
+    <span class="k">explicit</span> <span class="n">B</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">C</span> <span class="p">{</span>
+    <span class="k">operator</span> <span class="k">struct</span> <span class="n">A</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">A</span><span class="p">{};</span> <span class="p">}</span>
+    <span class="k">explicit</span> <span class="k">operator</span> <span class="k">struct</span> <span class="n">B</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">B</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// OK: わかりやすく寿命が延長されるタイプ</span>
+    <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">reference_constructs_from_temporary_v</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&amp;&amp;</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">);</span>
+    <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">reference_constructs_from_temporary_v</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">int</span><span class="o">&amp;</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">);</span>
+    <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">reference_constructs_from_temporary_v</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&amp;&amp;</span><span class="p">,</span> <span class="n">B</span><span class="o">&gt;</span><span class="p">);</span>
+    <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">reference_constructs_from_temporary_v</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">A</span><span class="o">&amp;&amp;</span><span class="p">,</span> <span class="n">B</span><span class="o">&gt;</span><span class="p">);</span>
+
+    <span class="c1">// OK: 変換されて rvalue になってから束縛されて寿命が延長されるタイプ</span>
+    <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">reference_constructs_from_temporary_v</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&amp;&amp;</span><span class="p">,</span> <span class="kt">long</span><span class="o">&gt;</span><span class="p">);</span>
+    <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">reference_constructs_from_temporary_v</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&amp;&amp;</span><span class="p">,</span> <span class="kt">long</span><span class="o">&amp;&gt;</span><span class="p">);</span>
+    <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">reference_constructs_from_temporary_v</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&amp;&amp;</span><span class="p">,</span> <span class="kt">long</span><span class="o">&amp;&amp;&gt;</span><span class="p">);</span>
+
+    <span class="c1">// OK: explicit ではないので変換されて rvalue になってから束縛されて寿命が延長されるタイプ</span>
+    <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">reference_constructs_from_temporary_v</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&amp;&amp;</span><span class="p">,</span> <span class="n">C</span><span class="o">&gt;</span><span class="p">);</span>
+    <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">reference_constructs_from_temporary_v</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&amp;&amp;</span><span class="p">,</span> <span class="n">C</span><span class="o">&amp;&gt;</span><span class="p">);</span>
+    <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">reference_constructs_from_temporary_v</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&amp;&amp;</span><span class="p">,</span> <span class="n">C</span><span class="o">&amp;&amp;&gt;</span><span class="p">);</span>
+    <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">reference_constructs_from_temporary_v</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&amp;&amp;</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">);</span>
+
+
+    <span class="c1">// NG: const ではない左辺値参照は寿命を延長しないんですタイプ</span>
+    <span class="c1">//     1つ目3つ目はそもそも参照そのものが構築出来ない</span>
+    <span class="k">static_assert</span><span class="p">(</span><span class="nb">false</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">reference_constructs_from_temporary_v</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&amp;</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">);</span>
+    <span class="k">static_assert</span><span class="p">(</span><span class="nb">false</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">reference_constructs_from_temporary_v</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&amp;</span><span class="p">,</span> <span class="kt">int</span><span class="o">&amp;&gt;</span><span class="p">);</span>
+    <span class="k">static_assert</span><span class="p">(</span><span class="nb">false</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">reference_constructs_from_temporary_v</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&amp;</span><span class="p">,</span> <span class="kt">int</span><span class="o">&amp;&amp;&gt;</span><span class="p">);</span>
+
+    <span class="c1">// NG: 構築できないパターンと右辺値参照は区別するパターン</span>
+    <span class="k">static_assert</span><span class="p">(</span><span class="nb">false</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">reference_constructs_from_temporary_v</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&amp;&amp;</span><span class="p">,</span> <span class="kt">int</span><span class="o">&amp;&gt;</span><span class="p">);</span>
+    <span class="k">static_assert</span><span class="p">(</span><span class="nb">false</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">reference_constructs_from_temporary_v</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&amp;&amp;</span><span class="p">,</span> <span class="kt">int</span><span class="o">&amp;&amp;&gt;</span><span class="p">);</span>
+
+    <span class="c1">// NG: explicit なので変換出来ずに詰むパターン</span>
+    <span class="k">static_assert</span><span class="p">(</span><span class="nb">false</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">reference_constructs_from_temporary_v</span><span class="o">&lt;</span><span class="n">B</span><span class="o">&amp;&amp;</span><span class="p">,</span> <span class="n">C</span><span class="o">&gt;</span><span class="p">);</span>
+    <span class="k">static_assert</span><span class="p">(</span><span class="nb">false</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">reference_constructs_from_temporary_v</span><span class="o">&lt;</span><span class="n">B</span><span class="o">&amp;&amp;</span><span class="p">,</span> <span class="n">C</span><span class="o">&amp;&gt;</span><span class="p">);</span>
+    <span class="k">static_assert</span><span class="p">(</span><span class="nb">false</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">reference_constructs_from_temporary_v</span><span class="o">&lt;</span><span class="n">B</span><span class="o">&amp;&amp;</span><span class="p">,</span> <span class="n">C</span><span class="o">&amp;&amp;&gt;</span><span class="p">);</span>
+    <span class="k">static_assert</span><span class="p">(</span><span class="nb">false</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">reference_constructs_from_temporary_v</span><span class="o">&lt;</span><span class="n">B</span><span class="o">&amp;&amp;</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code></code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++23</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ???</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: ???</li>
+<li><a href="../../implementation.html#icc">ICC</a>: ???</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ???</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="reference_converts_from_temporary.html">reference_converts_from_temporary</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2255r2.html" target="_blank">P2255R2 A type trait to detect reference binding to temporary</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

@@ -1,0 +1,504 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>basic_istream - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,istream,std,class template
+">
+        <meta name="title" content="basic_istream - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="basic_istream - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="basic_istream - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/istream/basic_istream.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`basic_istream`は、入力ストリームを表現するクラスである。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="basic_istream - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/istream/basic_istream.html" />
+        <meta name="twitter:description" content="`basic_istream`は、入力ストリームを表現するクラスである。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;istream&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;istream&#34;, &#34;basic_istream&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/istream.html" itemprop="url">
+              
+                <span itemprop="name">istream</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">basic_istream</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2019-06-07T09:32:57">
+        2019年06月07日 09時32分57秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/istream/basic_istream.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/istream/basic_istream.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;istream&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">basic_istream</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">CharT</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Traits</span> <span class="o">=</span> <span class="n"><a href="../string/char_traits.html">char_traits</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="o">&gt;&gt;</span>
+  <span class="k">class</span> <span class="nc">basic_istream</span> <span class="o">:</span> <span class="k">virtual</span> <span class="k">public</span> <span class="n"><a href="../ios/basic_ios.html">basic_ios</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;</span> <span class="p">{</span> <span class="err">……</span> <span class="p">};</span>
+
+  <span class="k">using</span> <span class="n">istream</span>  <span class="o">=</span> <span class="n">basic_istream</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">wistream</span> <span class="o">=</span> <span class="n">basic_istream</span><span class="o">&lt;</span><span class="kt">wchar_t</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>basic_istream</code>は、入力ストリームを表現するクラスである。
+すなわち、<code>rdbuf()</code>が指し示すストリームバッファオブジェクトに対する読み取り操作を提供する。</p>
+<p>各種の入力関数——特に<code>&gt;&gt;</code>演算子——がこのクラスのメンバ関数・非メンバ関数として定義されている。
+このため、ユーザーコードで入力処理を実装する際には、<code>basic_istream</code>、あるいはそれに対する別名である<code>istream</code>や<code>wistream</code>などの型への参照を実引数として受け取るようにすると良い。</p>
+<p>テンプレートパラメータとして文字型を受け取るようになっており、使用を容易にするため、以下のパラメータ設定済みエイリアスが定義されている。
+このエイリアスは<code>&lt;istream&gt;</code>ヘッダと<code>&lt;iosfwd&gt;</code>ヘッダで定義されている。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>エイリアス</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>istream</code></td>
+<td><code>char</code>型。ASCII、UTF-8等のマルチバイト文字列や、バイナリデータとして使用する。</td>
+<td></td>
+</tr>
+<tr>
+<td><code>wistream</code></td>
+<td><code>wchar_t</code>型。ワイド文字列として使用する。</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>書式化入力関数と非書式化入力関数</h2>
+<p><code>basic_istream</code>での入力操作は、書式化入力関数と非書式化入力関数の2種類に分類される。</p>
+<h3>書式化入力関数</h3>
+<p>書式化入力関数は、そのほとんどがストリームバッファから抽出した文字の並びから目的のオブジェクトに変換する処理を伴う入力処理である。
+以下の共通した機能を持つ。</p>
+<ul>
+<li><code>skipws</code>フラグが設定されている場合、入力処理開始時に空白文字を読み飛ばす処理が挿入される。</li>
+<li>オブジェクトへの変換処理が失敗した場合、<code>setstate(ios_base::failbit)</code>が呼び出される。</li>
+</ul>
+<p><code>&gt;&gt;</code>演算子での入力処理の多くは書式化入力関数である。</p>
+<h3>非書式化入力関数</h3>
+<p>非書式化入力関数は、ストリームバッファから抽出した文字の並びをそのまま呼び出し元に引き渡す入力処理である。
+また、ストリームバッファからの読み取りを伴わない入力操作も便宜上こちらに分類される。</p>
+<p>非書式化関数で入力した文字数は<code>gcount</code>メンバ関数で取得できる。</p>
+<h3>書式化入力関数と非書式化入力関数の効果</h3>
+<p>注意：書式化入力関数と非書式化入力関数すべてについて、「効果」の項目は以下の処理を前提として記載している。</p>
+<p>書式化入力関数・非書式化入力関数は、入力処理に先立って<code>sentry</code>オブジェクトを構築し、関数から脱出する前に破棄する。</p>
+<ul>
+<li>書式化入力関数は、<code>sentry</code>コンストラクタの2番目の仮引数<code>noskipws</code>に<code>false</code>を渡す。</li>
+<li>非書式化入力関数は、<code>sentry</code>コンストラクタの2番目の仮引数<code>noskipws</code>に<code>true</code>を渡す。</li>
+</ul>
+<p>構築した<code>sentry</code>オブジェクトが<code>explicit operator bool</code>関数で<code>true</code>に変換できる場合のみ、実際の入力処理（各関数の「効果」として記載した処理）が実行される。</p>
+<p>関数内部で<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が送出された場合、<code>ios_base::badbit</code>を設定する。
+そして、<code>(exceptions() &amp; badbit) != 0</code>であれば<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を再送出する。</p>
+<h2>メンバ</h2>
+<p>基底クラスである<code><a href="../ios/ios_base.html">ios_base</a></code>と<code><a href="../ios/basic_ios.html">basic_ios</a></code>も参照のこと。</p>
+<h3>型</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="basic_istream/sentry.html">sentry</a></code></td>
+<td>入力操作の前処理・後処理</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>構築・破棄</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="basic_istream/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td></td>
+</tr>
+<tr>
+<td><code>(destructor)</code></td>
+<td>デストラクタ</td>
+<td></td>
+</tr>
+<tr>
+<td><code>operator=</code></td>
+<td>ムーブ代入</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>swap</code></td>
+<td>値の交換</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>コピーコンストラクタとコピー代入演算子はdelete定義されている。</li>
+<li>ムーブコンストラクタ・ムーブ代入演算子と<code>swap</code>はprotectedで定義されている。</li>
+</ul>
+<h3>入力処理</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="basic_istream/op_istream.html">operator&gt;&gt;</a></code></td>
+<td>書式化入力・マニピュレータの実行</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_istream/get.html">get</a></code></td>
+<td>文字・文字列の入力</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_istream/getline.html">getline</a></code></td>
+<td>1行の文字列の入力</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_istream/peek.html">peek</a></code></td>
+<td>次の入力文字を確認する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_istream/read.html">read</a></code></td>
+<td>指定した数ちょうどの文字の入力</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_istream/readsome.html">readsome</a></code></td>
+<td>指定した数までの文字の入力</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_istream/ignore.html">ignore</a></code></td>
+<td>入力文字を読み捨てる</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>&gt;&gt;</code>演算子のほとんどは書式化入力関数である。
+その他のメンバ関数は非書式化入力関数である。</p>
+<h3>読み戻し</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="basic_istream/putback.html">putback</a></code></td>
+<td>任意の文字を1文字を入力ストリームに戻す</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_istream/unget.html">unget</a></code></td>
+<td>最後に読み取った1文字を入力ストリームに戻す</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>これらは非書式化入力関数である。</p>
+<h3>シーク</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="basic_istream/tellg.html">tellg</a></code></td>
+<td>現在の読み取り位置を取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_istream/seekg.html">seekg</a></code></td>
+<td>読み取り位置を移動する</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>これらは非書式化入力関数である。</p>
+<h3>入力処理その他</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="basic_istream/gcount.html">gcount</a></code></td>
+<td>最後に実行した非書式化入力関数での入力文字数を取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="basic_istream/sync.html">sync</a></code></td>
+<td>ストリームバッファの同期</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>gcountは書式化入力関数・非書式化入力関数いずれでもない。
+syncは非書式化入力関数である。</p>
+<h2>非メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="basic_istream/op_istream_free.html">operator&gt;&gt;</a></code></td>
+<td>文字・文字列の書式化入力、および、右辺値ストリームからの入力</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>参照</h2>
+<ul>
+<li>基底クラス<ul>
+<li><code><a href="../ios/ios_base.html">ios_base</a></code></li>
+<li><code><a href="../ios/basic_ios.html">basic_ios</a></code></li>
+</ul>
+</li>
+<li><code>basic_istream&lt;&gt;</code>型のオブジェクト<ul>
+<li><code><a href="../iostream/cin.html">cin</a></code></li>
+<li><code><span href="https://cpprefjp.github.io/reference/iostream/wcin.md.nolink">wcin</span></code></li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

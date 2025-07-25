@@ -1,0 +1,1055 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>chrono - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,chrono,cpp11
+">
+        <meta name="title" content="chrono - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="chrono - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="chrono - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/chrono.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="&amp;lt;chrono&amp;gt;chrono(C++11) &amp;lt;chrono&amp;gt;ヘッダは、時間に関するユーティリティとして機能する関数・クラスを提供する。このヘッダに含まれる関数・クラスは、std::chrono名前空間で定義される。 このライブラリは、タイムアウト、操作間隔、スケジューリングといった短期間の操作を主な用途として想定している。そのためカレンダー機能としては遥かな過去・未来を扱え" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="chrono - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/chrono.html" />
+        <meta name="twitter:description" content="&amp;lt;chrono&amp;gt;chrono(C++11) &amp;lt;chrono&amp;gt;ヘッダは、時間に関するユーティリティとして機能する関数・クラスを提供する。このヘッダに含まれる関数・クラスは、std::chrono名前空間で定義される。 このライブラリは、タイムアウト、操作間隔、スケジューリングといった短期間の操作を主な用途として想定している。そのためカレンダー機能としては遥かな過去・未来を扱え" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;chrono&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;chrono&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">chrono</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-06-20T09:40:21">
+        2024年06月20日 09時40分21秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yoh</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/chrono.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/chrono.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="header">&lt;chrono&gt;</div><h1 itemprop="name"><span class="token">chrono</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><code>&lt;chrono&gt;</code>ヘッダは、時間に関するユーティリティとして機能する関数・クラスを提供する。このヘッダに含まれる関数・クラスは、<code>std::chrono</code>名前空間で定義される。</p>
+<p>このライブラリは、タイムアウト、操作間隔、スケジューリングといった短期間の操作を主な用途として想定している。そのためカレンダー機能としては遥かな過去・未来を扱えるようにはなっていない。</p>
+<p>このヘッダでは、以下の標準ヘッダをインクルードする：</p>
+<ul>
+<li><code><a href="compare.html">&lt;compare&gt;</a></code> (C++20)</li>
+</ul>
+<h2>時間を表す型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="chrono/duration.html">duration</a></code></td>
+<td>時間の間隔(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="chrono/time_point.html">time_point</a></code></td>
+<td>時間軸上の一点(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="chrono/treat_as_floating_point.html">treat_as_floating_point</a></code></td>
+<td><code>duration</code>内部表現の型が浮動小数点型かを判定するためのトレイト(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="chrono/duration_values.html">duration_values</a></code></td>
+<td><code>duration</code>内部表現の特別な値を取得するためのトレイト(class template)</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>時間の単位を表す型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="chrono/duration_aliases.html">nanoseconds</a></code></td>
+<td>ナノ秒を表現するためのdurationの別名(type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="chrono/duration_aliases.html">microseconds</a></code></td>
+<td>マイクロ秒を表現するためのdurationの別名(type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="chrono/duration_aliases.html">milliseconds</a></code></td>
+<td>ミリ秒を表現するためのdurationの別名(type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="chrono/duration_aliases.html">seconds</a></code></td>
+<td>秒を表現するためのdurationの別名(type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="chrono/duration_aliases.html">minutes</a></code></td>
+<td>分を表現するためのdurationの別名(type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="chrono/duration_aliases.html">hours</a></code></td>
+<td>時を表現するためのdurationの別名(type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="chrono/duration_aliases.html">days</a></code></td>
+<td>日を表現するためのdurationの別名(type-alias)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/duration_aliases.html">weeks</a></code></td>
+<td>週を表現するためのdurationの別名(type-alias)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/duration_aliases.html">years</a></code></td>
+<td>年を表現するためのdurationの別名(type-alias)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/duration_aliases.html">months</a></code></td>
+<td>月を表現するためのdurationの別名(type-alias)</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>時計型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="chrono/is_clock.html">is_clock</a></code></td>
+<td>クロック型かを判定する (class template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/system_clock.html">system_clock</a></code></td>
+<td>システム時間のクロック(class)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="chrono/steady_clock.html">steady_clock</a></code></td>
+<td>時間が逆行しないクロック(class)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="chrono/high_resolution_clock.html">high_resolution_clock</a></code></td>
+<td>高分解能クロック(class)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="chrono/utc_clock.html">utc_clock</a></code></td>
+<td>UTC時間 (協定世界時) のクロック (class)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/tai_clock.html">tai_clock</a></code></td>
+<td>TAI時間 (国際原子時) のクロック (class)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/gps_clock.html">gps_clock</a></code></td>
+<td>GPS時間のクロック (class)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/file_clock.html">file_clock</a></code></td>
+<td>ファイル時間を作るために使用されるクロック (type-alias)</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>システム時間用の機能</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="chrono/sys_time.html">sys_time</a></code></td>
+<td>システム時間の一点を指すtime_pointの別名 (type-alias)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/sys_time.html">sys_seconds</a></code></td>
+<td>秒単位でシステム時間の一点を指すtime_pointの別名 (type-alias)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/sys_time.html">sys_days</a></code></td>
+<td>日単位でシステム時間の一点を指すtime_pointの別名 (type-alias)</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>ローカル時間用の機能</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="chrono/local_time.html">local_t</a></code></td>
+<td>ローカル時間を表す擬似的なクロック (class)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/local_time.html">local_time</a></code></td>
+<td>ローカル時間の一点を指すtime_pointの別名 (type-alias)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/local_time.html">local_seconds</a></code></td>
+<td>秒単位でローカル時間の一点を指すtime_pointの別名 (type-alias)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/local_time.html">local_days</a></code></td>
+<td>日単位でローカル時間の一点を指すtime_pointの別名 (type-alias)</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>UTC時間用の機能</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="chrono/utc_time.html">utc_time</a></code></td>
+<td>UTC時間の一点を指すtime_pointの別名 (type-alias)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/utc_time.html">utc_seconds</a></code></td>
+<td>秒単位でUTC時間の一点を指すtime_pointの別名 (type-alias)</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>TAI時間用の機能</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="chrono/tai_time.html">tai_time</a></code></td>
+<td>TAI時間の一点を指すtime_pointの別名 (type-alias)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/tai_time.html">tai_seconds</a></code></td>
+<td>秒単位でTAI時間の一点を指すtime_pointの別名 (type-alias)</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>GPS時間用の機能</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="chrono/gps_time.html">gps_time</a></code></td>
+<td>GPS時間の一点を指すtime_pointの別名 (type-alias)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/gps_time.html">gps_seconds</a></code></td>
+<td>秒単位でGPS時間の一点を指すtime_pointの別名 (type-alias)</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>ファイル時間用の機能</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="chrono/file_time.html">file_time</a></code></td>
+<td>ファイル時間の一点を指すtime_pointの別名 (type-alias)</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>時計時間の変換</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="chrono/clock_time_conversion.html">clock_time_conversion</a></code></td>
+<td>時計間の変換方法を組み合わせごとに定義するためのクラス (class template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/clock_cast.html">clock_cast</a></code></td>
+<td>ほかの時計時間のtime_pointに変換する (function template)</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>うるう秒の情報</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="chrono/leap_second_info.html">leap_second_info</a></code></td>
+<td>うるう秒の情報を扱うクラス (class)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/get_leap_second_info.html">get_leap_second_info</a></code></td>
+<td>指定した日時までに挿入されたうるう秒の回数を取得する (function template)</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>カレンダー型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="chrono/last_spec.html">last_spec</a></code></td>
+<td>月の最終日、月の最終曜日など、文脈に応じた「最後」を表す型 (class)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/day.html">day</a></code></td>
+<td><a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>の月の指定した日を表す型 (class)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/month.html">month</a></code></td>
+<td>月単体の値を表す型 (class)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/year.html">year</a></code></td>
+<td>カレンダーの年を表す型 (class)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/weekday.html">weekday</a></code></td>
+<td>週の日を表す型 (class)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/weekday_indexed.html">weekday_indexed</a></code></td>
+<td>N回目の指定した曜日を表す型 (class)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/weekday_last.html">weekday_last</a></code></td>
+<td><a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>の月の最後の指定した曜日を表す型 (class)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/month_day.html">month_day</a></code></td>
+<td>月と日を表す型 (class)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/month_day_last.html">month_day_last</a></code></td>
+<td>指定した月の最終日を表す型 (class)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/month_weekday.html">month_weekday</a></code></td>
+<td>月の指定したN番目の曜日を表す型 (class)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/month_weekday_last.html">month_weekday_last</a></code></td>
+<td>月の指定した最終回目の曜日を表す型 (class)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/year_month.html">year_month</a></code></td>
+<td>年と月を表す型 (class)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/year_month_day.html">year_month_day</a></code></td>
+<td>年、月、日を表す型 (class)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/year_month_day_last.html">year_month_day_last</a></code></td>
+<td>年、月、月の最終日を表す型 (class)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/year_month_weekday.html">year_month_weekday</a></code></td>
+<td>年、月、N回目の指定した曜日を表す型 (class)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/year_month_weekday_last.html">year_month_weekday_last</a></code></td>
+<td>年、月、月の最後の指定した曜日を表す型 (class)</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>1日内の時間情報</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="chrono/hh_mm_ss.html">hh_mm_ss</a></code></td>
+<td>時間間隔を時、分、秒に分割するクラス (class)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/is_am.html">is_am</a></code></td>
+<td>時間が午前かを判定する (function)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/is_pm.html">is_pm</a></code></td>
+<td>時間が午後かを判定する (function)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/make12.html">make12</a></code></td>
+<td>24時間ベースの時間を12時間ベースの時間範囲に変換する (function)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/make24.html">make24</a></code></td>
+<td>12時間ベースの時間を24時間ベースの時間範囲に変換する (function)</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>タイムゾーン</h2>
+<h3>タイムゾーンのデータベース</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="chrono/tzdb.html">tzdb</a></code></td>
+<td>タイムゾーンのデータベース型 (class)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/get_tzdb.html">get_tzdb</a></code></td>
+<td>タイムゾーンデータベースを取得する (function)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/tzdb_list.html">tzdb_list</a></code></td>
+<td>タイムゾーンデータベースのリスト (class)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/get_tzdb_list.html">get_tzdb_list</a></code></td>
+<td>タイムゾーンデータベースのリストを取得する (function)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/locate_zone.html">locate_zone</a></code></td>
+<td>指定した名前のタイムゾーンを取得する (function)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/current_zone.html">current_zone</a></code></td>
+<td>現在のタイムゾーンを取得する (function)</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>リモートタイムゾーンデータベースのサポート</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="chrono/reload_tzdb.html">reload_tzdb</a></code></td>
+<td>リモートタイムゾーンデータベースを再読み込みする (function)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/remote_version.html">remote_version</a></code></td>
+<td>リモートタイムゾーンデータベースの最新バージョン番号を取得する (function)</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>クラス</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="chrono/nonexistent_local_time.html">nonexistent_local_time</a></code></td>
+<td>存在しないローカル時間をシステム時間に変換しようとした (class)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/ambiguous_local_time.html">ambiguous_local_time</a></code></td>
+<td>ローカル時間があいまい (class)</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>タイムゾーン</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="chrono/sys_info.html">sys_info</a></code></td>
+<td>システム時間用のタイムゾーン情報 (class)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/local_info.html">local_info</a></code></td>
+<td>ローカル時間用のタイムゾーン情報 (class)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/choose.html">choose</a></code></td>
+<td>タイムゾーンを変換する際に、早い時間側と遅い時間側どちらに丸めるかの種類 (enum)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/time_zone.html">time_zone</a></code></td>
+<td>タイムゾーンの変換を扱うクラス (class)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/zoned_traits.html">zoned_traits</a></code></td>
+<td>タイムゾーン取得のカスタマイズ用中間インタフェース (class)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/zoned_time.html">zoned_time</a></code></td>
+<td>タイムゾーンを考慮した時間軸上の一点を表す型 (class)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/zoned_time.html">zoned_seconds</a></code></td>
+<td>秒単位でタイムゾーンを考慮した時間軸上の一点を表す型 (type-alias)</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>うるう秒サポート</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="chrono/leap_second.html">leap_second</a></code></td>
+<td>うるう秒が挿入された日時を表す型 (class)</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>リンク</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="chrono/time_zone_link.html">time_zone_link</a></code></td>
+<td>タイムゾーンの代替名を管理する型 (class)</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>文字列フォーマット</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="chrono/local-time-format-t.html">local-time-format-t</a></code></td>
+<td>ローカル時間を文字列フォーマットするために必要な情報をまとめた説明用の型 (class template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/local_time_format.html">local_time_format</a></code></td>
+<td>ローカル時間の文字列フォーマット用オブジェクトを生成する (function template)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/format.html">format</a></code></td>
+<td>文字列フォーマット</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>文字列解析</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="chrono/parse.html">parse</a></code></td>
+<td>日時文字列を解析する入力マニピュレータ (function template)</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>カレンダー定数</h2>
+<h3>最後</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="chrono/last_spec.html">last</a></code></td>
+<td>月の最終日、月の最終曜日など、文脈に応じた「最後」を表す定数 (variable)</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>曜日</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="chrono/weekday_constants.html">Sunday</a></code></td>
+<td>日曜日を表す定数 (variable)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/weekday_constants.html">Monday</a></code></td>
+<td>月曜日を表す定数 (variable)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/weekday_constants.html">Tuesday</a></code></td>
+<td>火曜日を表す定数 (variable)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/weekday_constants.html">Wednesday</a></code></td>
+<td>水曜日を表す定数 (variable)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/weekday_constants.html">Thursday</a></code></td>
+<td>木曜日を表す定数 (variable)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/weekday_constants.html">Friday</a></code></td>
+<td>金曜日を表す定数 (variable)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/weekday_constants.html">Saturday</a></code></td>
+<td>土曜日を表す定数 (variable)</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>月</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="chrono/month_constants.html">January</a></code></td>
+<td>1月を表す定数 (variable)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/month_constants.html">February</a></code></td>
+<td>2月を表す定数 (variable)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/month_constants.html">March</a></code></td>
+<td>3月を表す定数 (variable)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/month_constants.html">April</a></code></td>
+<td>4月を表す定数 (variable)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/month_constants.html">May</a></code></td>
+<td>5月を表す定数 (variable)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/month_constants.html">June</a></code></td>
+<td>6月を表す定数 (variable)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/month_constants.html">July</a></code></td>
+<td>7月を表す定数 (variable)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/month_constants.html">August</a></code></td>
+<td>8月を表す定数 (variable)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/month_constants.html">September</a></code></td>
+<td>9月を表す定数 (variable)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/month_constants.html">October</a></code></td>
+<td>10月を表す定数 (variable)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/month_constants.html">November</a></code></td>
+<td>11月を表す定数 (variable)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="chrono/month_constants.html">December</a></code></td>
+<td>12月を表す定数 (variable)</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2661.htm" target="_blank">N2661 A Foundation to Sleep On</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0216r0.html" target="_blank">P0216R0 C++ Standard Proposal — A Time-Zone Library</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0355r7.html" target="_blank">P0355R7 Extending <code>&lt;chrono&gt;</code> to Calendars and Time Zones</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2051r0.html" target="_blank">P2051R0 C++ Standard Library Issues to be moved in Prague</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

@@ -1,0 +1,368 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>sph_bessel - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cmath,function,std,cpp17
+">
+        <meta name="title" content="sph_bessel - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="sph_bessel - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="sph_bessel - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/cmath/sph_bessel.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="第1種球ベッセル関数 (spherical Bessel functions of the first kind) を求める。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="sph_bessel - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/cmath/sph_bessel.html" />
+        <meta name="twitter:description" content="第1種球ベッセル関数 (spherical Bessel functions of the first kind) を求める。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [ ['$','$'] ],
+        displayMath: [ ['$$','$$'] ],
+        processEscapes: true
+      },
+      chtml: {
+        displayAlign: 'left',
+        displayIndent: '2.0em',
+      },
+    };
+    </script>
+    <!-- IEはサポートしないので https://polyfill.io/v3/polyfill.min.js?features=es6 は読み込まない -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cmath&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;f0dfee35b2527efc0766b94732599f162bc8c4b8&#34;, &#34;source&#34;: &#34;#include &lt;cmath&gt;\n#include &lt;iostream&gt;\n\nconstexpr double pi = 3.141592653589793;\n\nvoid p(unsigned n) {\n  for (double r : {0., 0.25, 0.5})\n    std::cout &lt;&lt; \&#34;sph_bessel(\&#34; &lt;&lt; n &lt;&lt; \&#34;, \&#34; &lt;&lt; r &lt;&lt; \&#34; pi) = \&#34; &lt;&lt; std::sph_bessel(n, r * pi) &lt;&lt; \&#34;\\n\&#34;;\n  std::cout &lt;&lt; \&#34;\\n\&#34;;\n}\n\nint main() {\n  p(0); // sph_bessel(0, x) = sin(x) / x\n  p(1); // sph_bessel(1, x) = sin(x) / x^2 - cos(x) / x\n  p(2); // sph_bessel(2, x) = (3 / x^3 - 1 / x) * sin(x) - (3 / x^2) * cos(x)\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cmath&#34;, &#34;sph_bessel&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/cmath.html" itemprop="url">
+              
+                <span itemprop="name">cmath</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">sph_bessel</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-06-11T13:45:38">
+        2024年06月11日 13時45分38秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/cmath/sph_bessel.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/cmath/sph_bessel.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;cmath&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">sph_bessel</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="kt">double</span>
+    <span class="n">sph_bessel</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span>
+               <span class="kt">double</span> <span class="n">x</span><span class="p">);</span>              <span class="c1">// (1) C++17</span>
+  <span class="n"><i>floating-point-type</i></span>
+    <span class="nf">sph_bessel</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span>
+               <span class="n"><i>floating-point-type</i></span> <span class="n">x</span><span class="p">);</span> <span class="c1">// (1) C++23</span>
+
+  <span class="n"><i>Promoted</i></span>
+    <span class="nf">sph_bessel</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span>
+               <span class="n"><i>Arithmetic</i></span> <span class="n">x</span><span class="p">);</span>          <span class="c1">// (2) C++17</span>
+
+  <span class="kt">float</span>
+    <span class="nf">sph_besself</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span>
+                <span class="kt">float</span> <span class="n">x</span><span class="p">);</span>              <span class="c1">// (3) C++17</span>
+
+  <span class="kt">long</span> <span class="kt">double</span>
+    <span class="nf">sph_bessell</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span>
+                <span class="kt">long</span> <span class="kt">double</span> <span class="n">x</span><span class="p">);</span>        <span class="c1">// (4) C++17</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>第1種球ベッセル関数 (spherical Bessel functions of the first kind) を求める。</p>
+<ul>
+<li>(1) :<ul>
+<li>C++17 : <code>double</code>に対する<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a></li>
+<li>C++23 : 浮動小数点数型に対する<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a></li>
+</ul>
+</li>
+<li>(2) : 算術型に対する<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a> (対応する精度の浮動小数点数型にキャストして計算される)</li>
+<li>(3) : <code>float</code>型規定</li>
+<li>(4) : <code>long double</code>型規定</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p>引数 <code>n</code>, <code>x</code> の第1種球ベッセル関数
+$$
+j_n(x) = \sqrt{\frac{\pi}{2x}} J_{n + 1/2}(x)
+\quad \text{for } x \ge 0
+$$
+を返す。
+$J$ は第1種ベッセル関数 (<code><a href="cyl_bessel_j.html">cyl_bessel_j</a></code>)。</p>
+<h2>備考</h2>
+<ul>
+<li><code>n &gt;= 128</code> の場合、この関数の呼び出しの効果は<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">実装定義</a>である</li>
+<li>(1) : C++23では、<a class="cpprefjp-defined-word" data-desc="&lt;stdfloat&gt;で定義される内部表現の規定された浮動小数点数型" href="../stdfloat.html">拡張浮動小数点数型</a>を含む浮動小数点数型への<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>として定義された</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="f0dfee35b2527efc0766b94732599f162bc8c4b8"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cmath.html">&lt;cmath&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="k">constexpr</span> <span class="kt">double</span> <span class="n">pi</span> <span class="o">=</span> <span class="mf">3.141592653589793</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">p</span><span class="p">(</span><span class="kt">unsigned</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">double</span> <span class="nl">r</span> <span class="p">:</span> <span class="p">{</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">})</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"sph_bessel("</span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">r</span> <span class="o">&lt;&lt;</span> <span class="s">" pi) = "</span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::sph_bessel</span></span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">r</span> <span class="o">*</span> <span class="n">pi</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">p</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="c1">// sph_bessel(0, x) = sin(x) / x</span>
+  <span class="n">p</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// sph_bessel(1, x) = sin(x) / x^2 - cos(x) / x</span>
+  <span class="n">p</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span> <span class="c1">// sph_bessel(2, x) = (3 / x^3 - 1 / x) * sin(x) - (3 / x^2) * cos(x)</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力例</h3>
+<p><pre><code>sph_bessel(0, 0 pi) = 1
+sph_bessel(0, 0.25 pi) = 0.900316
+sph_bessel(0, 0.5 pi) = 0.63662
+
+sph_bessel(1, 0 pi) = 0
+sph_bessel(1, 0.25 pi) = 0.246002
+sph_bessel(1, 0.5 pi) = 0.405285
+
+sph_bessel(2, 0 pi) = 0
+sph_bessel(2, 0.25 pi) = 0.0393422
+sph_bessel(2, 0.5 pi) = 0.137417
+
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++17</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 7.1.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>実装例</h2>
+<h3>漸化式</h3>
+<p>$$
+j_n(x) = \frac{2n-1}{x} j_{n-1}(x) - j_{n-2}(x);
+j_0(x) = \frac{\sin x}{x}, j_1(x) = \frac{\sin x}{x^2} - \frac{\cos x}{x}
+$$</p>
+<h2>関連項目</h2>
+<ul>
+<li>第2種球ベッセル関数 <code><a href="sph_neumann.html">sph_neumann</a></code></li>
+<li>第1種ベッセル関数 <code><a href="cyl_bessel_j.html">cyl_bessel_j</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3060.pdf" target="_blank">N3060 JTC1.22.29124 Programming Language C++ — Special Math Functions</a></li>
+<li><a href="https://isocpp.org/files/papers/P0226R1.pdf" target="_blank">WG21 P0226R1 Mathematical Special Functions for C++17, v5</a></li>
+<li><a href="https://www.iso.org/standard/50511.html" target="_blank">ISO/IEC 29124:2010 Information technology -- Programming languages, their environments and system software interfaces -- Extensions to the C++ Library to support mathematical special functions</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html" target="_blank">P1467R9 Extended floating-point types and standard names</a><ul>
+<li>C++23で導入された<a class="cpprefjp-defined-word" data-desc="&lt;stdfloat&gt;で定義される内部表現の規定された浮動小数点数型" href="../stdfloat.html">拡張浮動小数点数型</a>への対応として、<code>float</code>、<code>double</code>、<code>long double</code>の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を<code>floating-point-type</code>の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>に統合し、<a class="cpprefjp-defined-word" data-desc="&lt;stdfloat&gt;で定義される内部表現の規定された浮動小数点数型" href="../stdfloat.html">拡張浮動小数点数型</a>も扱えるようにした</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

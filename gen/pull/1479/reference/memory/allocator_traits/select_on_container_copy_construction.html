@@ -1,0 +1,358 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>allocator_traits::select_on_container_copy_construction - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,memory,std,allocator_traits,function,cpp11
+">
+        <meta name="title" content="allocator_traits::select_on_container_copy_construction - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="allocator_traits::select_on_container_copy_construction - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="allocator_traits::select_on_container_copy_construction - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/memory/allocator_traits/select_on_container_copy_construction.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="コンテナのコピー構築に使用するアロケータオブジェクトを取得する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="allocator_traits::select_on_container_copy_construction - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/memory/allocator_traits/select_on_container_copy_construction.html" />
+        <meta name="twitter:description" content="コンテナのコピー構築に使用するアロケータオブジェクトを取得する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;memory&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;allocator_traits&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;01b5d196ffa22142d3ace2b3689c35d0fab125ff&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;memory&gt;\n\ntemplate &lt;class T, class Alloc&gt;\nclass MyVector {\n  T* data_;\n  std::size_t size_;\n  Alloc alloc_;\npublic:\n  MyVector()\n    : data_(nullptr), size_(0) {}\n\n  MyVector(std::size_t size)\n  {\n    using traits = std::allocator_traits&lt;Alloc&gt;;\n\n    size_ = size;\n    data_ = traits::allocate(alloc_, size);\n\n    for (std::size_t i = 0; i &lt; size_; ++i) {\n      traits::construct(alloc_, &amp;data_[i]);\n    }\n  }\n\n  MyVector(const MyVector&amp; other, Alloc alloc)\n  {\n    alloc_ = alloc; // \u53d7\u3051\u53d6\u3063\u305f\u30a2\u30ed\u30b1\u30fc\u30bf\u3092\u30e1\u30f3\u30d0\u5909\u6570\u306b\u4fdd\u6301\u3059\u308b\n\n    // \u53d7\u3051\u53d6\u3063\u305f\u30a2\u30ed\u30b1\u30fc\u30bf\u3067\u30e1\u30e2\u30ea\u78ba\u4fdd\n    using traits = std::allocator_traits&lt;Alloc&gt;;\n    size_ = other.size_;\n    data_ = traits::allocate(alloc_, size_);\n\n    for (std::size_t i = 0; i &lt; size_; ++i) {\n      traits::construct(alloc_, &amp;data_[i], other.data_[i]);\n    }\n  }\n\n  // \u30b3\u30d4\u30fc\u69cb\u7bc9\u306b\u4f7f\u7528\u3059\u308b\u30a2\u30ed\u30b1\u30fc\u30bf\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3092\u53d6\u5f97\u3057\u3001\n  // \u30a2\u30ed\u30b1\u30fc\u30bf\u3092\u53d7\u3051\u53d6\u308b\u30b3\u30d4\u30fc\u30b3\u30f3\u30b9\u30c8\u30e9\u30af\u30bf\u306b\u59d4\u8b72\n  MyVector(const MyVector&amp; other)\n    : MyVector(\n        other,\n        std::allocator_traits&lt;Alloc&gt;::select_on_container_copy_construction(other.alloc_)) {}\n\n  ~MyVector()\n  {\n    release();\n  }\n\nprivate:\n  void release()\n  {\n    if (!data_)\n      return;\n\n    using traits = std::allocator_traits&lt;Alloc&gt;;\n\n    // \u8981\u7d20\u3092\u7834\u68c4\n    for (std::size_t i = 0; i &lt; size_; ++i) {\n      traits::destroy(alloc_, &amp;data_[i]);\n    }\n\n    // \u30e1\u30e2\u30ea\u3092\u89e3\u653e\n    traits::deallocate(alloc_, data_, size_);\n\n    size_ = 0;\n    data_ = nullptr;\n  }\n};\n\nint main()\n{\n  MyVector&lt;int, std::allocator&lt;int&gt;&gt; a;\n  MyVector&lt;int, std::allocator&lt;int&gt;&gt; b = a;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;memory&#34;, &#34;allocator_traits&#34;, &#34;select_on_container_copy_construction&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/memory.html" itemprop="url">
+              
+                <span itemprop="name">memory</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/memory/allocator_traits.html" itemprop="url">
+              
+                <span itemprop="name">allocator_traits</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">select_on_container_copy_construction</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-06-11T13:45:38">
+        2024年06月11日 13時45分38秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/memory/allocator_traits/select_on_container_copy_construction.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/memory/allocator_traits/select_on_container_copy_construction.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;memory&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class allocator_traits">allocator_traits::</span><span class="token">select_on_container_copy_construction</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">static</span> <span class="n">Alloc</span> <span class="nf">select_on_container_copy_construction</span><span class="p">(</span><span class="k">const</span> <span class="n">Alloc</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>                 <span class="c1">// C++17 まで</span>
+<span class="k">static</span> <span class="k">constexpr</span> <span class="n">Alloc</span> <span class="nf">select_on_container_copy_construction</span><span class="p">(</span><span class="k">const</span> <span class="n">Alloc</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>       <span class="c1">// C++20 から</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>コンテナのコピー構築に使用するアロケータオブジェクトを取得する。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p><code>a.select_on_container_copy_construction()</code>という式が有効ならその<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を返し、そうでなければデフォルト実装として<code>a</code>を返す。</p>
+<h2>備考</h2>
+<p>この関数は、標準コンテナのコピーコンストラクタで呼び出され、この関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>であるアロケータオブジェクトを、コピーに必要なメモリ確保・解放、オブジェクトの構築・破棄に使用する。</p>
+<h2>例</h2>
+<p><div class="yata" id="01b5d196ffa22142d3ace2b3689c35d0fab125ff"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Alloc</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">MyVector</span> <span class="p">{</span>
+  <span class="n">T</span><span class="o">*</span> <span class="n">data_</span><span class="p">;</span>
+  <span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span> <span class="n">size_</span><span class="p">;</span>
+  <span class="n">Alloc</span> <span class="n">alloc_</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="n">MyVector</span><span class="p">()</span>
+    <span class="o">:</span> <span class="n">data_</span><span class="p">(</span><span class="k">nullptr</span><span class="p">),</span> <span class="n">size_</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">{}</span>
+
+  <span class="n">MyVector</span><span class="p">(</span><span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span> <span class="n">size</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">using</span> <span class="n">traits</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">allocator_traits</span><span class="o">&lt;</span><span class="n">Alloc</span><span class="o">&gt;</span><span class="p">;</span>
+
+    <span class="n">size_</span> <span class="o">=</span> <span class="n">size</span><span class="p">;</span>
+    <span class="n">data_</span> <span class="o">=</span> <span class="n"><a href="allocate.html">traits::allocate</a></span><span class="p">(</span><span class="n">alloc_</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size_</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n"><a href="construct.html">traits::construct</a></span><span class="p">(</span><span class="n">alloc_</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">data_</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="n">MyVector</span><span class="p">(</span><span class="k">const</span> <span class="n">MyVector</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">,</span> <span class="n">Alloc</span> <span class="n">alloc</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">alloc_</span> <span class="o">=</span> <span class="n">alloc</span><span class="p">;</span> <span class="c1">// 受け取ったアロケータをメンバ変数に保持する</span>
+
+    <span class="c1">// 受け取ったアロケータでメモリ確保</span>
+    <span class="k">using</span> <span class="n">traits</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">allocator_traits</span><span class="o">&lt;</span><span class="n">Alloc</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="n">size_</span> <span class="o">=</span> <span class="n">other</span><span class="p">.</span><span class="n">size_</span><span class="p">;</span>
+    <span class="n">data_</span> <span class="o">=</span> <span class="n"><a href="allocate.html">traits::allocate</a></span><span class="p">(</span><span class="n">alloc_</span><span class="p">,</span> <span class="n">size_</span><span class="p">);</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size_</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n"><a href="construct.html">traits::construct</a></span><span class="p">(</span><span class="n">alloc_</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">data_</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">other</span><span class="p">.</span><span class="n">data_</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// コピー構築に使用するアロケータオブジェクトを取得し、</span>
+  <span class="c1">// アロケータを受け取るコピーコンストラクタに委譲</span>
+  <span class="n">MyVector</span><span class="p">(</span><span class="k">const</span> <span class="n">MyVector</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span>
+    <span class="o">:</span> <span class="n">MyVector</span><span class="p">(</span>
+        <span class="n">other</span><span class="p">,</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">allocator_traits</span><span class="o">&lt;</span><span class="n">Alloc</span><span class="o">&gt;::</span><span class="n"><span style="color:#ff0000">select_on_container_copy_construction</span></span><span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="n">alloc_</span><span class="p">))</span> <span class="p">{}</span>
+
+  <span class="o">~</span><span class="n">MyVector</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="n">release</span><span class="p">();</span>
+  <span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+  <span class="kt">void</span> <span class="n">release</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">data_</span><span class="p">)</span>
+      <span class="k">return</span><span class="p">;</span>
+
+    <span class="k">using</span> <span class="n">traits</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">allocator_traits</span><span class="o">&lt;</span><span class="n">Alloc</span><span class="o">&gt;</span><span class="p">;</span>
+
+    <span class="c1">// 要素を破棄</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size_</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n"><a href="destroy.html">traits::destroy</a></span><span class="p">(</span><span class="n">alloc_</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">data_</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// メモリを解放</span>
+    <span class="n"><a href="deallocate.html">traits::deallocate</a></span><span class="p">(</span><span class="n">alloc_</span><span class="p">,</span> <span class="n">data_</span><span class="p">,</span> <span class="n">size_</span><span class="p">);</span>
+
+    <span class="n">size_</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">data_</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">MyVector</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n"><a href="../allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">;</span>
+  <span class="n">MyVector</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n"><a href="../allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code></code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: 4.7.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: 2012 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2013 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0784r7.html" target="_blank">P0784R7 More constexpr containers</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

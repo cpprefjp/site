@@ -1,0 +1,1817 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2025-07-25T10:32:59.463820</updated>
+  <id>efd4e4f3-d6f6-4a0d-85c0-fcc1cf45a9d0</id>
+
+  
+    <entry>
+      <title>C++20 -- atomic/atomic_flag: LWG3659対応</title>
+      <link href="https://cpprefjp.github.io/lang/cpp20.html"/>
+      <id>a24d77626e24507f94bc3ba95acb9b323985084a:lang/cpp20.md</id>
+      <updated>2025-07-25T19:26:24+09:00</updated>
+      
+        <content type="html">&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;C++20&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;h2&gt;概要&lt;/h2&gt;
+&lt;p&gt;C++20とは、2020年中に改訂され、ISO/IEC 14882:2020で標準規格化されたC++バージョンの通称である。&lt;/p&gt;
+&lt;p&gt;このバージョンは、策定中はC++2aと呼ばれることがあった。「202a年にリリースされる」という伏せ字として「a」が使われているが、3年周期に次のバージョンが策定されることが決まっているため、伏せ字になっている年数がずれることはない。&lt;/p&gt;
+&lt;h2&gt;言語機能&lt;/h2&gt;
+&lt;h3&gt;クラス&lt;/h3&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;言語機能&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/consistent_comparison.html&#34;&gt;&lt;code&gt;&amp;lt;=&amp;gt;&lt;/code&gt;/&lt;code&gt;==&lt;/code&gt;による比較演算子の自動定義&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;三方比較演算子によって比較演算子の自動生成を行うようにする&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/default_member_initializers_for_bit_fields.html&#34;&gt;ビットフィールドのメンバ変数初期化&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;ビットフィールドメンバ変数のデフォルト値を設定する構文を追加する&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/explicit_bool.html&#34;&gt;関数を条件付きで&lt;code&gt;explicit&lt;/code&gt;にする構文を追加&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;explicit(true)&lt;/code&gt;のように&lt;code&gt;explicit&lt;/code&gt;に真理値パラメータを指定できるようにする&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/fixing_const_qualified_pointers_to_members.html&#34;&gt;&lt;code&gt;const&lt;/code&gt;修飾されたメンバポインタの制限を修正&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;.*&lt;/code&gt;演算子での左辺値の&lt;code&gt;const&lt;/code&gt;メンバ関数呼び出しを許可する&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/resolving_const_mismatch_with_defaulted_copy_constructor.html&#34;&gt;デフォルトのコピーコンストラクタと非&lt;code&gt;const&lt;/code&gt;なコンストラクタが衝突する問題を修正&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;非&lt;code&gt;const&lt;/code&gt;なオブジェクトをとるコンストラクタを定義すると、そのクラスをラップしたクラスのコピーコンストラクタが&lt;a class=&#34;cpprefjp-defined-word&#34;&gt;不適格&lt;/a&gt;になってしまう問題を修正&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/access_checking_on_specializations.html&#34;&gt;特殊化のアクセスチェック&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/language_support_for_empty_objects.html&#34;&gt;空オブジェクトに対する最適化を支援する属性&lt;code&gt;[[no_unique_address]]&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;[[no_unique_address]]&lt;/code&gt;属性を導入し、空の型のオブジェクトをほかのオブジェクトと共有する最適化を許可する&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/allow_structured_bindings_to_accessible_members.html&#34;&gt;friend指定された関数内から構造化束縛を使用して非公開メンバ変数にアクセスすることを許可&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;構造化束縛の仕様として公開メンバ変数のみを取り出せるようになっていたが、friend指定された関数からは非公開メンバ変数にもアクセスできるようにする&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/relaxing_the_structured_bindings_customization_point_finding_rules.html&#34;&gt;構造化束縛がカスタマイゼーションポイントを見つけるルールを緩和&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;非テンプレートの&lt;code&gt;get()&lt;/code&gt;メンバ関数が見つかった場合は、非メンバ関数の&lt;code&gt;get()&lt;/code&gt;を探しにいく&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/checking_for_abstract_class_types.html&#34;&gt;抽象型のチェック&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;関数の宣言段階では、パラメータおよび戻り値型が抽象型かどうかをチェックしないようにする&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/efficient_sized_delete_for_variable_sized_classes.html&#34;&gt;可変長データを扱うクラスの効率的な&lt;code&gt;delete&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;クラスの&lt;code&gt;delete&lt;/code&gt;演算子が呼び出される前にデストラクタが呼ばれないようにするオプションを追加&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/conditionally_trivial_special_member_functions.html&#34;&gt;条件付きで特殊メンバ関数をトリビアルに定義するように&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;制約によってトリビアルな特殊メンバ関数と非トリビアルな特殊メンバ関数をオーバーロードできるようにする&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/implicit_creation_of_objects_for_low-level_object_manipulation.html&#34;&gt;未初期化領域への暗黙的なオブジェクト構築&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;未初期化領域の利用時に自動的にトリビアルな型のオブジェクトを構築する&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;列挙型&lt;/h3&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;言語機能&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/using_enum.html&#34;&gt;スコープ付き列挙型のusing宣言&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;using enum EnumType;&lt;/code&gt;もしくは&lt;code&gt;using EnumType::enumerator&lt;/code&gt;とすることで、列挙値のスコープ指定を省略できるようにする&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;変数&lt;/h3&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;言語機能&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/designated_initialization.html&#34;&gt;指示付き初期化&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;波カッコによる集成体初期化でメンバ名を指定して初期化できるようにする&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/extending_structured_bindings_to_be_more_like_variable_declarations.html&#34;&gt;構造化束縛を拡張して通常の変数宣言のように使用できるようにする&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;記憶域指定子として&lt;code&gt;static&lt;/code&gt;と&lt;code&gt;thread_local&lt;/code&gt;の指定を許可&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/allow_initializing_aggregates_from_a_parenthesized_list_of_values.html&#34;&gt;丸カッコの値リストからの集成体初期化を許可&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;T x{1, 2, 3};&lt;/code&gt;と同様に&lt;code&gt;T x(1, 2, 3);&lt;/code&gt;でも集成体初期化できるようにする&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/array_size_deduction_in_new-expressions.html&#34;&gt;&lt;code&gt;new&lt;/code&gt;式での配列要素数の推論&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;double* p = new double[]{1,2,3};&lt;/code&gt;を許可&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/permit_conversions_to_arrays_of_unknown_bound.html&#34;&gt;要素数不明の配列への変換を許可&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;要素数が判明している配列から、要素数が不明の配列への変換を許可&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/converting_from_pointer_to_bool_should_be_considered_narrowing.html&#34;&gt;ポインタから&lt;code&gt;bool&lt;/code&gt;への変換を縮小変換とする&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;ポインタから&lt;code&gt;bool&lt;/code&gt;値への変換を縮小変換と規定することで、意図しない変換を防止する&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;整数&lt;/h3&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;言語機能&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/signed_integers_are_twos_complement.html&#34;&gt;符号付き整数型が2の補数表現であることを規定&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;符号付き整数型のビット表現を2の補数に規定する&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;文字列&lt;/h3&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;言語機能&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/char8_t.html&#34;&gt;UTF-8エンコーディングされた文字の型として&lt;code&gt;char8_t&lt;/code&gt;を追加&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;UTF-8エンコードされた文字かどうかでオーバーロード・特殊化をできるようにする&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/make_char16t_char32t_string_literals_be_utf16_32.html&#34;&gt;&lt;code&gt;char16_t&lt;/code&gt;と&lt;code&gt;char32_t&lt;/code&gt;の文字・文字列リテラルを、文字コードUTF-16/32に規定&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;__STDC_UTF_16__&lt;/code&gt;、&lt;code&gt;__STDC_UTF_32__&lt;/code&gt;の定義に関係なく、&lt;code&gt;char16_t&lt;/code&gt;、&lt;code&gt;char32_t&lt;/code&gt;のリテラルをUTF-16/32文字コードに規定する&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;関数&lt;/h3&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;言語機能&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/nodiscard_should_have_a_reason.html&#34;&gt;&lt;code&gt;[[nodiscard]]&lt;/code&gt;属性に理由となる文字列を付加できるようにする&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;関数の戻り値を無視してはならない理由を関数宣言に持たせ、警告メッセージに役立てる&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/nodiscard_for_constructors.html&#34;&gt;&lt;code&gt;[[nodiscard]]&lt;/code&gt;をコンストラクタのオーバーロードごとに付加できるようにする&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;リソース確保するコンストラクタにのみ&lt;code&gt;[[nodisacrd]]&lt;/code&gt;を付加できるようにする&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;制御構文&lt;/h3&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;言語機能&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/range-based_for_statements_with_initializer.html&#34;&gt;初期化式をともなう範囲for文&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;範囲for文スコープで使用する変数の初期化のための構文を追加&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/relaxing_the_range_for_loop_customization_point_finding_rules.html&#34;&gt;範囲for文がカスタマイゼーションポイントを見つけるルールを緩和&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;begin()&lt;/code&gt;/&lt;code&gt;end()&lt;/code&gt;メンバ関数のどちらかが見つからなかった場合に非メンバ関数の&lt;code&gt;begin()&lt;/code&gt;/&lt;code&gt;end()&lt;/code&gt;を探しにいく&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/likely_and_unlikely_attributes.html&#34;&gt;確率が高い分岐と低い分岐を伝える属性 &lt;code&gt;[[likely]]&lt;/code&gt;, &lt;code&gt;[[unlikely]]&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;条件分岐の最適化ヒントを与える属性&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;テンプレート&lt;/h3&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;言語機能&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/concepts.html&#34;&gt;コンセプト&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;テンプレートパラメータに対する制約を行う&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/function_templates_with_auto_parameters.html&#34;&gt;autoパラメータによる関数テンプレートの簡易定義&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;ジェネリックラムダと同様、関数パラメータの型を&lt;code&gt;auto&lt;/code&gt;にすることで簡易的に関数テンプレートを定義できるようにする&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/down_with_typename.html&#34;&gt;型の文脈で&lt;code&gt;typename&lt;/code&gt;の省略を許可&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;型しか現れない文脈では、依存名を解決するための&lt;code&gt;typename&lt;/code&gt;キーワードを省略できるようにする&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/class_types_in_non-type_template_parameters.html&#34;&gt;非型テンプレートパラメータとしてクラス型を許可する&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;定数式として使用できる型を広く非型テンプレートパラメータとして使用できるようにする&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/adl_and_function_templates_that_are_not_visible.html&#34;&gt;関数テンプレートに明示的に型指定した場合にADLで見つからない問題を修正&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;名前空間内の関数テンプレートをテンプレート引数指定かつ非修飾・ADLで正しく呼び出せるよう修正&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/class_template_argument_deduction_for_aggregates.html&#34;&gt;集成体クラステンプレートのテンプレート引数推論&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;クラステンプレートのテンプレート引数推論はコンストラクタ引数から推論されるが、集成体初期化からも推論できるようにする&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/class_template_argument_deduction_for_alias_templates.html&#34;&gt;エイリアステンプレート経由でのクラステンプレートのテンプレート引数推論&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;エイリアステンプレートからクラステンプレートのテンプレート引数を推論できるようにする&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;定数式&lt;/h3&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;言語機能&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/less_eager_instantiation_of_constexpr_functions.html&#34;&gt;評価されない文脈での定数式評価によって特殊メンバ関数がインスタンス化されることを規定&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;sizeof&lt;/code&gt;や&lt;code&gt;decltype&lt;/code&gt;などの評価されない文脈において定数式評価を行った場合に、ムーブコンストラクタのような特殊メンバ関数が定義されることを規定&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/allow_virtual_function_calls_in_constant_expressions.html&#34;&gt;定数式からの仮想関数の呼び出しを許可&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;仮想関数に&lt;code&gt;constexpr&lt;/code&gt;を付けられない制限を解除&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/allowing_dynamic_cast_polymorphic_typeid_in_constant_expressions.html&#34;&gt;定数式での&lt;code&gt;dynamic_cast&lt;/code&gt;、多態的な&lt;code&gt;typeid&lt;/code&gt;を許可&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;定数式での動的多態を許可&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/try-catch_blocks_in_constexpr_functions.html&#34;&gt;constexpr関数内でのtry-catchブロックを許可&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;constexpr関数内で&lt;code&gt;try-catch&lt;/code&gt;ブロックを書けるようにする&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/immediate_functions.html&#34;&gt;常に定数式評価する&lt;code&gt;consteval&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;consteval&lt;/code&gt;キーワードを追加し、常に定数式評価されるよう指定できるようにする&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/changing_the_active_member_of_a_union_inside_constexpr.html&#34;&gt;定数式内での共用体のアクティブメンバの変更を許可&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;共用体メンバの書き換えを定数式内で行えるようにする&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/permitting_trivial_default_initialization_in_constexpr_contexts.html&#34;&gt;constexpr関数内でのトリビアルなデフォルト初期化を許可&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;constexpr関数内でのデフォルト初期化を許可し、未初期化値を読むことのみ禁止する&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/enabling_constexpr_intrinsics_by_permitting_unevaluated_inline-assembly_in_constexpr_functions.html&#34;&gt;constexpr関数内で未評価のインラインアセンブリを許可することによる組み込み関数のconstexpr有効化&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;コンパイル時に評価されない場合にconstexpr関数にasm定義を含めることを許可&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/constinit.html&#34;&gt;コンパイル時初期化を強制する&lt;code&gt;constinit&lt;/code&gt;キーワードを追加&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;初期化のみコンパイル時におわらせたい場合に使用する&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/more_constexpr_containers.html&#34;&gt;可変サイズをもつコンテナの&lt;code&gt;constexpr&lt;/code&gt;化&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;constexpr&lt;/code&gt;記憶域をもつメモリアロケータの存在を考慮することで、可変サイズをもつコンテナをコンパイル時に使用できるようにする&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;ラムダ式&lt;/h3&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;言語機能&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/familiar_template_syntax_for_generic_lambdas.html&#34;&gt;ジェネリックラムダのテンプレート構文&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;ジェネリックラムダでテンプレートパラメータを定義できるようにする&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/allow_lambda_capture_equal_this.html&#34;&gt;ラムダ式のキャプチャとして&lt;code&gt;[=, this]&lt;/code&gt;を許可する&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;デフォルトコピーキャプチャと&lt;code&gt;this&lt;/code&gt;ポインタのコピーキャプチャを両方指定できるようにする&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/simplifying_implicit_lambda_capture.html&#34;&gt;暗黙のラムダキャプチャを簡略化&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;ラムダ式のキャプチャに関する仕様整理&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/default_constructible_and_assignable_stateless_lambdas.html&#34;&gt;状態を持たないラムダ式を、デフォルト構築可能、代入可能とする&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;キャプチャしていないラムダ式をデフォルト構築・代入可能にする&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/wording_for_lambdas_in_unevaluated_contexts.html&#34;&gt;評価されない文脈でのラムダ式&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;評価されない文脈でもラムダ式を書くことができるようにする&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/allow_pack_expansion_in_lambda_init_capture.html&#34;&gt;ラムダ式の初期化キャプチャでのパック展開を許可&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;[...args = std::move(args)]&lt;/code&gt;のようなキャプチャを許可&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/reference_capture_of_structured_bindings.html&#34;&gt;構造化束縛した変数の参照キャプチャを許可&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;構造化束縛をした変数は特殊な扱いのためラムダ式で参照キャプチャできない規定となっていたがこれを許可する&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;名前空間&lt;/h3&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;言語機能&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/nested_inline_mamespaces.html&#34;&gt;入れ子名前空間定義でのインライン名前空間&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;namespace ns1::inline ns2::ns3 {}&lt;/code&gt;のように、入れ子名前空間を定義する式にインライン名前空間の指定を含められるようにする&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;モジュール化&lt;/h3&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;言語機能&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/modules.html&#34;&gt;モジュール&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;ヘッダファイル・ソースファイル、インクルードに変わる仕組みとしてモジュールを導入する&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;並行・並列処理&lt;/h3&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;言語機能&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/coroutines.html&#34;&gt;コルーチン&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;関数実行を中断・再開する仕組みとしてコルーチンを導入する&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;プリプロセッサ&lt;/h3&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;言語機能&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/va_opt.html&#34;&gt;可変引数が空でない場合のトークン置換&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;プリプロセッサの置換で可変引数が空の場合に余計なカンマが付いてしまう問題に対処&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;機能の非推奨化&lt;/h3&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;言語機能&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/deprecating_volatile.html&#34;&gt;ほとんどの&lt;code&gt;volatile&lt;/code&gt;を非推奨化&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;volatile&lt;/code&gt;の有用な機能のみを残し、効果が疑わしい、または壊れている機能を非推奨化する&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/deprecate_pod.html&#34;&gt;PODを非推奨化&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;PODという用語を非推奨化する&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/deprecate_implicit_capture_of_this_via_defcopy.html&#34;&gt;&lt;code&gt;[=]&lt;/code&gt;による&lt;code&gt;this&lt;/code&gt;の暗黙のキャプチャを非推奨化&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;コピーのデフォルトキャプチャでは、&lt;code&gt;this&lt;/code&gt;ポインタのキャプチャを非推奨化する&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/deprecate_uses_of_the_comma_operator_in_subscripting_expressions.html&#34;&gt;添字演算子内でのカンマ演算子の使用を非推奨化&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ar[i, j]&lt;/code&gt;を非推奨化。&lt;code&gt;ar[(i, j)]&lt;/code&gt;はOK&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/deprecate_arithmetic_conversion_on_enumerations.html&#34;&gt;列挙値から算術型への暗黙変換を非推奨化&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;列挙値への算術演算で算術型に暗黙変換される仕様を非推奨とする&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/deprecate_array_comparisons.html&#34;&gt;組み込み配列の比較を非推奨化&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;組み込み配列同士の比較演算を非推奨とする&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;機能の削除&lt;/h3&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;言語機能&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/remove_deprecated_nothrow_exception_specification.html&#34;&gt;&lt;code&gt;throw()&lt;/code&gt;による例外送出しない指定を削除&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;代わりに&lt;code&gt;noexcept&lt;/code&gt;を使用すること&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/prohibit_aggregates_with_user-declared_constructors.html&#34;&gt;ユーザー宣言したコンストラクタを持つクラスの集成体初期化を禁止&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;コンストラクタが&lt;code&gt;delete&lt;/code&gt;／&lt;code&gt;default&lt;/code&gt;宣言されているクラスを、集成体初期化によってコンストラクタ呼び出しを回避して構築できてしまっていた技法を禁止&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;小さな変更&lt;/h3&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;言語機能&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/predefined_macros.html&#34;&gt;更新された定義済みマクロ&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;標準規格で定義されたマクロの更新&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/update_the_reference_to_the_unicode_standard.html&#34;&gt;Unicode標準への参照を更新&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;標準C++からISO/IEC 10646への参照を更新する&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;cpp20/reserving_attribute_namespaces_for_future_use.html&#34;&gt;属性の名前空間を予約&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;将来の使用のために属性の名前空間を予約&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;ライブラリ更新の概要&lt;/h2&gt;
+&lt;h3&gt;新ライブラリ&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;バージョン情報ライブラリとして&lt;code&gt;&lt;a href=&#34;../reference/version.html&#34;&gt;&amp;lt;version&amp;gt;&lt;/a&gt;&lt;/code&gt;を追加。ここでは、実装依存の情報 (バージョンやリリース日付など) が標準ライブラリの実装によって定義される&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/chrono.html&#34;&gt;&amp;lt;chrono&amp;gt;&lt;/a&gt;&lt;/code&gt;ライブラリに、カレンダーとタイムゾーンの機能を拡張&lt;/li&gt;
+&lt;li&gt;任意のシーケンスの部分シーケンスを参照するライブラリとして&lt;code&gt;&lt;a href=&#34;../reference/span.html&#34;&gt;&amp;lt;span&amp;gt;&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
+&lt;li&gt;文字列フォーマットライブラリとして&lt;code&gt;&lt;a href=&#34;../reference/format.html&#34;&gt;&amp;lt;format&amp;gt;&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
+&lt;li&gt;出力ストリームを同期するライブラリとして&lt;code&gt;&lt;a href=&#34;../reference/syncstream.html&#34;&gt;&amp;lt;syncstream&amp;gt;&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
+&lt;li&gt;三方比較ライブラリとして&lt;code&gt;&lt;a href=&#34;../reference/compare.html&#34;&gt;&amp;lt;compare&amp;gt;&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
+&lt;li&gt;数値ライブラリとして&lt;code&gt;&lt;a href=&#34;../reference/numbers.html&#34;&gt;&amp;lt;numbers&amp;gt;&lt;/a&gt;&lt;/code&gt;を追加。数学定数が定義される&lt;/li&gt;
+&lt;li&gt;ビット操作ライブラリとして&lt;code&gt;&lt;a href=&#34;../reference/bit.html&#34;&gt;&amp;lt;bit&amp;gt;&lt;/a&gt;&lt;/code&gt;を追加&lt;ul&gt;
+&lt;li&gt;Strict Aliasing規則に抵触しないビットレベルの再解釈キャストである&lt;code&gt;&lt;a href=&#34;../reference/bit/bit_cast.html&#34;&gt;std::bit_cast()&lt;/a&gt;&lt;/code&gt;関数を追加&lt;/li&gt;
+&lt;li&gt;1ビットだけ立っている値をもっているかを判定する&lt;code&gt;&lt;a href=&#34;../reference/bit/has_single_bit.html&#34;&gt;std::has_single_bit()&lt;/a&gt;&lt;/code&gt;関数を追加&lt;/li&gt;
+&lt;li&gt;整数値を2の累乗値に切り上げる&lt;code&gt;&lt;a href=&#34;../reference/bit/bit_ceil.html&#34;&gt;std::bit_ceil()&lt;/a&gt;&lt;/code&gt;関数、整数値を2の累乗値に切り下げる&lt;code&gt;&lt;a href=&#34;../reference/bit/bit_floor.html&#34;&gt;std::bit_floor()&lt;/a&gt;&lt;/code&gt;関数を追加&lt;/li&gt;
+&lt;li&gt;値を表現するために必要なビット幅を求める&lt;code&gt;&lt;a href=&#34;../reference/bit/bit_width.html&#34;&gt;std::bit_width()&lt;/a&gt;&lt;/code&gt;関数を追加&lt;/li&gt;
+&lt;li&gt;循環ビットシフトを行う&lt;code&gt;&lt;a href=&#34;../reference/bit/rotl.html&#34;&gt;std::rotl()&lt;/a&gt;&lt;/code&gt;と&lt;code&gt;&lt;a href=&#34;../reference/bit/rotr.html&#34;&gt;std::rotr()&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
+&lt;li&gt;連続した0もしくは1のビットを数える&lt;code&gt;&lt;a href=&#34;../reference/bit/countl_zero.html&#34;&gt;std::countl_zero()&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;../reference/bit/countl_one.html&#34;&gt;std::countl_one()&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;../reference/bit/countr_zero.html&#34;&gt;std::countr_zero()&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;../reference/bit/countr_one.html&#34;&gt;std::countr_one()&lt;/a&gt;&lt;/code&gt;、および立っているビットを数える&lt;code&gt;&lt;a href=&#34;../reference/bit/popcount.html&#34;&gt;std::popcount()&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
+&lt;li&gt;エンディアンを表す列挙型として&lt;code&gt;&lt;a href=&#34;../reference/bit/endian.html&#34;&gt;std::endian&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;型制約のための要件ライブラリとして&lt;code&gt;&lt;a href=&#34;../reference/concepts.html&#34;&gt;&amp;lt;concepts&amp;gt;&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
+&lt;li&gt;言語機能であるコルーチンを制御するライブラリとして&lt;code&gt;&lt;a href=&#34;../reference/coroutine.html&#34;&gt;&amp;lt;coroutine&amp;gt;&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
+&lt;li&gt;スレッドの実行を停止させるメカニズムとして&lt;code&gt;&lt;a href=&#34;../reference/stop_token.html&#34;&gt;&amp;lt;stop_token&amp;gt;&lt;/a&gt;&lt;/code&gt;を追加し、停止に対応したスレッドクラスとして&lt;code&gt;&lt;a href=&#34;../reference/thread.html&#34;&gt;&amp;lt;thread&amp;gt;&lt;/a&gt;&lt;/code&gt;に&lt;code&gt;&lt;a href=&#34;../reference/thread/jthread.html&#34;&gt;std::jthread&lt;/a&gt;&lt;/code&gt;クラスを追加&lt;/li&gt;
+&lt;li&gt;軽量な同期プリミティブであるセマフォのライブラリとして&lt;code&gt;&lt;a href=&#34;../reference/semaphore.html&#34;&gt;&amp;lt;semaphore&amp;gt;&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
+&lt;li&gt;スレッド調整メカニズムとして、ラッチライブラリの&lt;code&gt;&lt;a href=&#34;../reference/latch.html&#34;&gt;&amp;lt;latch&amp;gt;&lt;/a&gt;&lt;/code&gt;、バリアライブラリの&lt;code&gt;&lt;a href=&#34;../reference/barrier.html&#34;&gt;&amp;lt;barrier&amp;gt;&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
+&lt;li&gt;イテレータの組ではなく、コンテナや配列、部分的なコンテナなどを扱う範囲ライブラリとして&lt;code&gt;&lt;a href=&#34;../reference/ranges.html&#34;&gt;&amp;lt;ranges&amp;gt;&lt;/a&gt;&lt;/code&gt;を追加&lt;ul&gt;
+&lt;li&gt;既存のイテレータの組を扱うアルゴリズムは、&lt;code&gt;std::ranges&lt;/code&gt;名前空間に範囲版アルゴリズムが追加される&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;ソースコードの位置を取得するライブラリとして&lt;code&gt;&lt;a href=&#34;../reference/source_location.html&#34;&gt;&amp;lt;source_location&amp;gt;&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;取り決め&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;std&lt;/code&gt;名前空間以下の関数テンプレートをユーザーが特殊化することを禁止する (参照 : &lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0551r3.pdf&#34; target=&#34;_blank&#34;&gt;P0551R3&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;コンテナ&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;連想コンテナに、要素がコンテナに含まれているかを判定する&lt;code&gt;contains()&lt;/code&gt;メンバ関数を追加&lt;/li&gt;
+&lt;li&gt;順序付き連想コンテナと同様に、非順序連想コンテナの検索処理で、一時オブジェクトが生成されるコストを抑える拡張を追加。キー等値比較を行う関数オブジェクトとハッシュ計算を行う関数オブジェクトの両方に&lt;code&gt;is_transparent&lt;/code&gt;が定義されていれば、透過的な検索が使用できる。&lt;code&gt;&lt;a href=&#34;../reference/functional/hash.html&#34;&gt;std::hash&lt;/a&gt;&lt;/code&gt;クラスのページを参照&lt;/li&gt;
+&lt;li&gt;各コンテナの非メンバ関数として、要素を削除する&lt;code&gt;std::erase()&lt;/code&gt;関数と&lt;code&gt;std::erase_if()&lt;/code&gt;関数を追加&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/forward_list/forward_list.html&#34;&gt;std::forward_list&lt;/a&gt;&lt;/code&gt;と&lt;code&gt;&lt;a href=&#34;../reference/list/list.html&#34;&gt;std::list&lt;/a&gt;&lt;/code&gt;のメンバ関数&lt;code&gt;remove()&lt;/code&gt;、&lt;code&gt;remove_if()&lt;/code&gt;、&lt;code&gt;unique()&lt;/code&gt;の戻り値型を、&lt;code&gt;void&lt;/code&gt;から&lt;code&gt;Container::size_type&lt;/code&gt;に変更&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/array/array.html&#34;&gt;std::array&lt;/a&gt;&lt;/code&gt;クラスの比較演算子、&lt;code&gt;&lt;a href=&#34;../reference/array/array/fill.html&#34;&gt;fill()&lt;/a&gt;&lt;/code&gt;メンバ関数、&lt;code&gt;&lt;a href=&#34;../reference/array/array/swap.html&#34;&gt;swap()&lt;/a&gt;&lt;/code&gt;メンバ関数、&lt;code&gt;&lt;a href=&#34;../reference/array/array/swap_free.html&#34;&gt;swap()&lt;/a&gt;&lt;/code&gt;非メンバ関数に&lt;code&gt;constexpr&lt;/code&gt;を追加。このクラスのメンバ関数はすべて&lt;code&gt;constexpr&lt;/code&gt;に対応した&lt;/li&gt;
+&lt;li&gt;組み込み配列を&lt;code&gt;&lt;a href=&#34;../reference/array/array.html&#34;&gt;std::array&lt;/a&gt;&lt;/code&gt;に変換する関数として&lt;code&gt;&lt;a href=&#34;../reference/array/to_array.html&#34;&gt;std::to_array()&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/iterator.html&#34;&gt;&amp;lt;iterator&amp;gt;&lt;/a&gt;&lt;/code&gt;に、符号付き整数としてコンテナの要素数を取得する&lt;code&gt;&lt;a href=&#34;../reference/iterator/ssize.html&#34;&gt;std::ssize()&lt;/a&gt;&lt;/code&gt;関数を追加&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory/allocator.html&#34;&gt;std::allocator&lt;/a&gt;&lt;/code&gt;、および&lt;code&gt;&lt;a href=&#34;../reference/vector/vector.html&#34;&gt;std::vector&lt;/a&gt;&lt;/code&gt;と&lt;code&gt;&lt;a href=&#34;../reference/string/basic_string.html&#34;&gt;std::basic_string&lt;/a&gt;&lt;/code&gt;を&lt;code&gt;constexpr&lt;/code&gt;対応&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;アルゴリズム&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/algorithm.html&#34;&gt;&amp;lt;algorithm&amp;gt;&lt;/a&gt;&lt;/code&gt;の多くの関数に&lt;code&gt;constexpr&lt;/code&gt;を追加&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/algorithm.html&#34;&gt;&amp;lt;algorithm&amp;gt;&lt;/a&gt;&lt;/code&gt;に、要素位置をシフトする&lt;code&gt;&lt;a href=&#34;../reference/algorithm/shift_left.html&#34;&gt;std::shift_left()&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;../reference/algorithm/shift_right.html&#34;&gt;std::shift_right()&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/algorithm.html&#34;&gt;&amp;lt;algorithm&amp;gt;&lt;/a&gt;&lt;/code&gt;に三方比較による辞書順比較アルゴリズム&lt;code&gt;&lt;a href=&#34;../reference/algorithm/lexicographical_compare_three_way.html&#34;&gt;std::lexicographical_compare_three_way()&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
+&lt;li&gt;数値とポインタの中点を求める関数として、&lt;code&gt;&lt;a href=&#34;../reference/numeric.html&#34;&gt;&amp;lt;numeric&amp;gt;&lt;/a&gt;&lt;/code&gt;に&lt;code&gt;&lt;a href=&#34;../reference/numeric/midpoint.html&#34;&gt;std::midpoint()&lt;/a&gt;&lt;/code&gt;関数を追加&lt;/li&gt;
+&lt;li&gt;浮動小数点数を線形補間する関数として、&lt;code&gt;&lt;a href=&#34;../reference/cmath.html&#34;&gt;&amp;lt;cmath&amp;gt;&lt;/a&gt;&lt;/code&gt;に&lt;code&gt;&lt;a href=&#34;../reference/cmath/lerp.html&#34;&gt;std::lerp()&lt;/a&gt;&lt;/code&gt;関数を追加&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/numeric.html&#34;&gt;&amp;lt;numeric&amp;gt;&lt;/a&gt;&lt;/code&gt;の数値計算アルゴリズムをムーブに対応&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/numeric.html&#34;&gt;&amp;lt;numeric&amp;gt;&lt;/a&gt;&lt;/code&gt;の数値計算アルゴリズムに&lt;code&gt;constexpr&lt;/code&gt;を追加&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;イテレータ&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/iterator/back_insert_iterator.html&#34;&gt;std::back_insert_iterator&lt;/a&gt;&lt;/code&gt;クラス、&lt;code&gt;&lt;a href=&#34;../reference/iterator/front_insert_iterator.html&#34;&gt;std::front_insert_iterator&lt;/a&gt;&lt;/code&gt;クラス、&lt;code&gt;&lt;a href=&#34;../reference/iterator/insert_iterator.html&#34;&gt;std::insert_iterator&lt;/a&gt;&lt;/code&gt;クラスのコンストラクタ、代入演算子、間接参照演算子、インクリメント演算子、および&lt;code&gt;&lt;a href=&#34;../reference/iterator/back_inserter.html&#34;&gt;std::back_inserter()&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;../reference/iterator/front_inserter.html&#34;&gt;std::front_inserter()&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;../reference/iterator/inserter.html&#34;&gt;std::inserter()&lt;/a&gt;&lt;/code&gt;に&lt;code&gt;constexpr&lt;/code&gt;を追加。これらのクラスのメンバ関数はすべて&lt;code&gt;constexpr&lt;/code&gt;に対応した&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;関数オブジェクト&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/functional/reference_wrapper.html&#34;&gt;std::reference_wrapper&lt;/a&gt;&lt;/code&gt;クラス、&lt;code&gt;&lt;a href=&#34;../reference/functional/ref.html&#34;&gt;std::ref()&lt;/a&gt;&lt;/code&gt;関数、&lt;code&gt;&lt;a href=&#34;../reference/functional/cref.html&#34;&gt;std::cref()&lt;/a&gt;&lt;/code&gt;関数のテンプレートパラメータ&lt;code&gt;T&lt;/code&gt;型に不完全型を指定することを許可&lt;/li&gt;
+&lt;li&gt;メンバ関数の部分適用を簡単にするために、プレースホルダーの指定なく引数を先頭から順に束縛する&lt;code&gt;&lt;a href=&#34;../reference/functional/bind_front.html&#34;&gt;std::bind_front()&lt;/a&gt;&lt;/code&gt;関数を追加&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/functional/invoke.html&#34;&gt;std::invoke()&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;../reference/functional/reference_wrapper.html&#34;&gt;std::reference_wrapper&lt;/a&gt;&lt;/code&gt;の各操作、&lt;code&gt;&lt;a href=&#34;../reference/functional/not_fn.html&#34;&gt;std::not_fn()&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;../reference/functional/bind.html&#34;&gt;std::bind()&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;../reference/functional/mem_fn.html&#34;&gt;std::mem_fn()&lt;/a&gt;&lt;/code&gt;を&lt;code&gt;constexpr&lt;/code&gt;対応&lt;/li&gt;
+&lt;li&gt;コンセプトの導入にともない、&lt;code&gt;&lt;a href=&#34;../reference/functional.html&#34;&gt;&amp;lt;functional&amp;gt;&lt;/a&gt;&lt;/code&gt;に、受け取った値をそのまま返す関数オブジェクト&lt;code&gt;&lt;a href=&#34;../reference/functional/identity.html&#34;&gt;std::identity&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;文字列&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/string/basic_string.html&#34;&gt;std::basic_string&lt;/a&gt;&lt;/code&gt;クラスと&lt;code&gt;&lt;a href=&#34;../reference/string_view/basic_string_view.html&#34;&gt;std::basic_string_view&lt;/a&gt;&lt;/code&gt;クラスに、先頭の部分文字列を判定する&lt;code&gt;starts_with()&lt;/code&gt;メンバ関数、末尾の部分文字列を判定する&lt;code&gt;ends_with()&lt;/code&gt;メンバ関数を追加&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/string/basic_string.html&#34;&gt;std::basic_string&lt;/a&gt;::&lt;a href=&#34;../reference/string/basic_string/reserve.html&#34;&gt;reserve()&lt;/a&gt;&lt;/code&gt;メンバ関数の、メモリの縮小機能を削除し、伸長のみとする。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/string/char_traits.html&#34;&gt;std::char_traits&lt;/a&gt;&lt;/code&gt;クラスの&lt;code&gt;&lt;a href=&#34;../reference/string/char_traits/move.html&#34;&gt;move()&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;../reference/string/char_traits/copy.html&#34;&gt;copy()&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;../reference/string/char_traits/assign.html&#34;&gt;assign()&lt;/a&gt;&lt;/code&gt;静的メンバ関数に&lt;code&gt;constexpr&lt;/code&gt;を追加&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;並行・並列処理&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/atomic/atomic.html&#34;&gt;std::atomic&lt;/a&gt;&lt;/code&gt;クラスと&lt;code&gt;&lt;a href=&#34;../reference/atomic/atomic_flag.html&#34;&gt;std::atomic_flag&lt;/a&gt;&lt;/code&gt;クラスのデフォルトコンストラクタが、値初期化するよう動作変更。これまではC言語との互換性のために未初期化となっていた&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory.html&#34;&gt;&amp;lt;memory&amp;gt;&lt;/a&gt;&lt;/code&gt;に、&lt;code&gt;&lt;a href=&#34;../reference/memory/atomic.html&#34;&gt;std::atomic&lt;/a&gt;&lt;/code&gt;クラスの&lt;code&gt;&lt;a href=&#34;../reference/memory/shared_ptr.html&#34;&gt;std::shared_ptr&lt;/a&gt;&lt;/code&gt;と&lt;code&gt;&lt;a href=&#34;../reference/memory/weak_ptr.html&#34;&gt;std::weak_ptr&lt;/a&gt;&lt;/code&gt;に対する特殊化を追加&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/atomic/atomic.html&#34;&gt;std::atomic&lt;/a&gt;&lt;/code&gt;クラスの浮動小数点数型に対する特殊化を追加&lt;/li&gt;
+&lt;li&gt;アトミッククラスに対するブロッキング同期の機能として&lt;code&gt;&lt;a href=&#34;../reference/atomic/atomic/wait.html&#34;&gt;wait()&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;../reference/atomic/atomic/notify_one.html&#34;&gt;notify_one()&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;../reference/atomic/atomic/notify_all.html&#34;&gt;notify_all()&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
+&lt;li&gt;ロックフリーであることが保証されたアトミック整数型の別名として&lt;code&gt;&lt;a href=&#34;../reference/atomic/atomic.html&#34;&gt;atomic_signed_lock_free&lt;/a&gt;&lt;/code&gt;と&lt;code&gt;&lt;a href=&#34;../reference/atomic/atomic.html&#34;&gt;atomic_unsigned_lock_free&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/atomic/memory_order.html&#34;&gt;std::memory_order&lt;/a&gt;&lt;/code&gt;の列挙子にスコープをもたせた&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/atomic/atomic_flag.html&#34;&gt;std::atomic_flag&lt;/a&gt;&lt;/code&gt;クラスに、&lt;code&gt;bool&lt;/code&gt;値を読み込むメンバ関数&lt;code&gt;&lt;a href=&#34;../reference/atomic/atomic_flag/test.html&#34;&gt;test()&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
+&lt;li&gt;非アトミックなオブジェクトにアトミック操作を適用するためのクラス&lt;code&gt;&lt;a href=&#34;../reference/atomic/atomic_ref.html&#34;&gt;std::atomic_ref&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
+&lt;li&gt;ベクトル化の実行ポリシーとして、&lt;code&gt;&lt;a href=&#34;../reference/execution.html&#34;&gt;&amp;lt;execution&amp;gt;&lt;/a&gt;&lt;/code&gt;に&lt;code&gt;&lt;a href=&#34;../reference/execution/execution/execution_policy.html&#34;&gt;std::execution::unsequenced_policy&lt;/a&gt;&lt;/code&gt;型と&lt;code&gt;&lt;a href=&#34;../reference/execution/execution/execution_policy.html&#34;&gt;std::execution::unseq&lt;/a&gt;&lt;/code&gt;タグを追加&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;入出力&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;同期ストリームの追加にともなって、&lt;code&gt;&lt;a href=&#34;../reference/ostream.html&#34;&gt;&amp;lt;ostream&amp;gt;&lt;/a&gt;&lt;/code&gt;に、同期ストリーム関係の出力マニピュレータを追加&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/istream/basic_istream/op_istream_free.html&#34;&gt;operator&amp;gt;&amp;gt;&lt;/a&gt;(basic_istream&amp;amp;, CharT*)&lt;/code&gt;を&lt;code&gt;operator&amp;gt;&amp;gt;(basic_istream&amp;amp;, CharT (&amp;amp;)[N])&lt;/code&gt;に修正&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/ostream/basic_ostream/op_ostream_free.html&#34;&gt;operator&amp;lt;&amp;lt;&lt;/a&gt;&lt;/code&gt;に、&lt;code&gt;wchar_t&lt;/code&gt; (&lt;code&gt;char&lt;/code&gt;版のみ)、&lt;code&gt;char8_t&lt;/code&gt;、&lt;code&gt;char16_t&lt;/code&gt;、&lt;code&gt;char32_t&lt;/code&gt;のdelete宣言を追加&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/iterator/istream_iterator.html&#34;&gt;std::istream_iterator&lt;/a&gt;&lt;/code&gt;について、要件の書き方を整理し、振る舞いをより明確化&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;std::basic_stringbuf&lt;/code&gt;、&lt;code&gt;std::basic_istringstream&lt;/code&gt;、&lt;code&gt;std::basic_ostringstream&lt;/code&gt;クラスに、アロケータを伝播させるためのインタフェースを追加&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;スマートポインタ&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory/make_shared.html&#34;&gt;std::make_shared()&lt;/a&gt;&lt;/code&gt;と&lt;code&gt;&lt;a href=&#34;../reference/memory/allocate_shared.html&#34;&gt;std::allocate_shared()&lt;/a&gt;&lt;/code&gt;を配列に対応&lt;/li&gt;
+&lt;li&gt;スマートポインタをデフォルト初期化で構築するヘルパ関数として、&lt;code&gt;&lt;a href=&#34;../reference/memory/make_unique_for_overwrite.html&#34;&gt;std::make_unique_for_overwrite()&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;../reference/memory/make_shared_for_overwrite.html&#34;&gt;std::make_shared_for_overwrite()&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;../reference/memory/allocate_shared_for_overwrite.html&#34;&gt;std::allocate_shared_for_overwrite()&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
+&lt;li&gt;ポインタを生ポインタに変換する&lt;code&gt;&lt;a href=&#34;../reference/memory/to_address.html&#34;&gt;std::to_address()&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory/pointer_traits.html&#34;&gt;std::pointer_traits&lt;/a&gt;::&lt;a href=&#34;../reference/memory/pointer_traits/pointer_to.html&#34;&gt;pointer_to()&lt;/a&gt;&lt;/code&gt;関数に&lt;code&gt;constexpr&lt;/code&gt;を追加&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;メモリ&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory.html&#34;&gt;&amp;lt;memory&amp;gt;&lt;/a&gt;&lt;/code&gt;に、Nバイトアライメントされたポインタであることをコンパイラに伝える&lt;code&gt;&lt;a href=&#34;../reference/memory/assume_aligned.html&#34;&gt;std::assume_aligned()&lt;/a&gt;&lt;/code&gt;関数を追加&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory.html&#34;&gt;&amp;lt;memory&amp;gt;&lt;/a&gt;&lt;/code&gt;に、uses allocator構築をサポートするユーティリティ関数として、&lt;code&gt;&lt;a href=&#34;../reference/memory/uses_allocator_construction_args.html&#34;&gt;std::uses_allocator_construction_args()&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;../reference/memory/make_obj_using_allocator.html&#34;&gt;std::make_obj_using_allocator()&lt;/a&gt;&lt;/code&gt;、&lt;code&gt;&lt;a href=&#34;../reference/memory/uninitialized_construct_using_allocator.html&#34;&gt;std::uninitialized_construct_using_allocator()&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory_resource/polymorphic_allocator.html&#34;&gt;std::pmr::polymorphic_allocator&lt;/a&gt;&lt;/code&gt;に、以下の変更を追加：&lt;ul&gt;
+&lt;li&gt;クラステンプレートのデフォルトテンプレート引数を&lt;code&gt;&lt;a href=&#34;../reference/cstddef/byte.html&#34;&gt;std::byte&lt;/a&gt;&lt;/code&gt;型とした&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;void*&lt;/code&gt;のバイト列をメモリ確保する&lt;code&gt;&lt;a href=&#34;../reference/memory_resource/polymorphic_allocator/allocate_bytes.html&#34;&gt;allocate_bytes()&lt;/a&gt;&lt;/code&gt;、解放する&lt;code&gt;&lt;a href=&#34;../reference/memory_resource/polymorphic_allocator/deallocate_bytes.html&#34;&gt;deallocate_bytes()&lt;/a&gt;&lt;/code&gt;メンバ関数を追加&lt;/li&gt;
+&lt;li&gt;指定した型のメモリを確保する&lt;code&gt;&lt;a href=&#34;../reference/memory_resource/polymorphic_allocator/allocate_object.html&#34;&gt;allocate_object()&lt;/a&gt;&lt;/code&gt;、解放する&lt;code&gt;&lt;a href=&#34;../reference/memory_resource/polymorphic_allocator/deallocate_object.html&#34;&gt;deallocate_object()&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
+&lt;li&gt;指定した型のメモリ確保と構築をする&lt;code&gt;&lt;a href=&#34;../reference/memory_resource/polymorphic_allocator/new_object.html&#34;&gt;new_object()&lt;/a&gt;&lt;/code&gt;、破棄と解放をする&lt;code&gt;&lt;a href=&#34;../reference/memory_resource/polymorphic_allocator/delete_object.html&#34;&gt;delete_object()&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;ユーティリティ&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/utility.html&#34;&gt;&amp;lt;utility&amp;gt;&lt;/a&gt;&lt;/code&gt;に、符号付き整数と符号なし整数の安全な比較関数として、以下を追加：&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/utility/cmp_equal.html&#34;&gt;std::cmp_equal()&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/utility/cmp_not_equal.html&#34;&gt;std::cmp_not_equal()&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/utility/cmp_less.html&#34;&gt;std::cmp_less()&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/utility/cmp_less_equal.html&#34;&gt;std::cmp_less_equal()&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/utility/cmp_greater.html&#34;&gt;std::cmp_greater()&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/utility/cmp_greater_equal.html&#34;&gt;std::cmp_greater_equal()&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/utility/in_range.html&#34;&gt;std::in_range()&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/utility/swap.html&#34;&gt;std::swap()&lt;/a&gt;&lt;/code&gt;関数に&lt;code&gt;constexpr&lt;/code&gt;を追加&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/utility/exchange.html&#34;&gt;std::exchange()&lt;/a&gt;&lt;/code&gt;関数に&lt;code&gt;constexpr&lt;/code&gt;を追加&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/complex/complex.html&#34;&gt;std::complex&lt;/a&gt;&lt;/code&gt;クラスを&lt;code&gt;constexpr&lt;/code&gt;に対応&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/utility/pair.html&#34;&gt;std::pair&lt;/a&gt;&lt;/code&gt;クラスの&lt;a href=&#34;../reference/utility/pair/op_constructor.html&#34;&gt;コンストラクタ&lt;/a&gt;、&lt;a href=&#34;../reference/utility/pair/op_assign.html&#34;&gt;代入演算子&lt;/a&gt;、&lt;code&gt;&lt;a href=&#34;../reference/utility/pair/swap.html&#34;&gt;swap()&lt;/a&gt;&lt;/code&gt;メンバ関数、&lt;code&gt;&lt;a href=&#34;../reference/utility/pair/swap_free.html&#34;&gt;swap()&lt;/a&gt;&lt;/code&gt;非メンバ関数に&lt;code&gt;constexpr&lt;/code&gt;を追加。このクラスのメンバ関数はすべて&lt;code&gt;constexpr&lt;/code&gt;に対応した&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/tuple/tuple.html&#34;&gt;std::tuple&lt;/a&gt;&lt;/code&gt;クラスの&lt;a href=&#34;../reference/tuple/tuple/op_constructor.html&#34;&gt;コンストラクタ&lt;/a&gt;、&lt;a href=&#34;../reference/tuple/tuple/op_assign.html&#34;&gt;代入演算子&lt;/a&gt;、&lt;code&gt;&lt;a href=&#34;../reference/tuple/tuple/swap.html&#34;&gt;swap()&lt;/a&gt;&lt;/code&gt;メンバ関数、&lt;code&gt;&lt;a href=&#34;../reference/tuple/tuple/swap_free.html&#34;&gt;swap()&lt;/a&gt;&lt;/code&gt;非メンバ関数に&lt;code&gt;constexpr&lt;/code&gt;を追加。このクラスのメンバ関数はすべて&lt;code&gt;constexpr&lt;/code&gt;に対応した&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;ファイルシステム&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/filesystem/create_directory.html&#34;&gt;std::filesystem::create_directory()&lt;/a&gt;&lt;/code&gt;と&lt;code&gt;&lt;a href=&#34;../reference/filesystem/create_directories.html&#34;&gt;std::filesystem::create_directories()&lt;/a&gt;&lt;/code&gt;の仕様が直感的ではなく、すでにディレクトリが存在している場合にエラーとなっていた。C++20ではその状況ではエラーにならないようにする (エラーではなく&lt;code&gt;false&lt;/code&gt;が返る)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;型特性&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/type_traits.html&#34;&gt;&amp;lt;type_traits&amp;gt;&lt;/a&gt;&lt;/code&gt;に、constexpr関数が定数式評価されたかを判定する特殊な関数&lt;code&gt;&lt;a href=&#34;../reference/type_traits/is_constant_evaluated.html&#34;&gt;std::is_constant_evaluated()&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/type_traits.html&#34;&gt;&amp;lt;type_traits&amp;gt;&lt;/a&gt;&lt;/code&gt;に、型のCV修飾と参照を除去する型特性クラスとして&lt;code&gt;&lt;a href=&#34;../reference/type_traits/remove_cvref.html&#34;&gt;std::remove_cvref&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/type_traits.html&#34;&gt;&amp;lt;type_traits&amp;gt;&lt;/a&gt;&lt;/code&gt;に、受け取った型をそのまま返す&lt;code&gt;&lt;a href=&#34;../reference/type_traits/type_identity.html&#34;&gt;std::type_identity&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/type_traits.html&#34;&gt;&amp;lt;type_traits&amp;gt;&lt;/a&gt;&lt;/code&gt;に、例外送出せずに暗黙の型変換が可能かを判定する&lt;code&gt;&lt;a href=&#34;../reference/type_traits/is_nothrow_convertible.html&#34;&gt;std::is_nothrow_convertible&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/type_traits.html&#34;&gt;&amp;lt;type_traits&amp;gt;&lt;/a&gt;&lt;/code&gt;に、要素数が判明している配列型かを判定する&lt;code&gt;&lt;a href=&#34;../reference/type_traits/is_bounded_array.html&#34;&gt;std::is_bounded_array&lt;/a&gt;&lt;/code&gt;、要素数が不明な配列型かを判定する&lt;code&gt;&lt;a href=&#34;../reference/type_traits/is_unbounded_array.html&#34;&gt;std::is_unbounded_array&lt;/a&gt;&lt;/code&gt;を追加&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/type_traits.html&#34;&gt;&amp;lt;type_traits&amp;gt;&lt;/a&gt;&lt;/code&gt;に、レイアウト互換性、ポインタ相互交換可能性を判定する以下の型特性を追加：&lt;ul&gt;
+&lt;li&gt;2つの型にレイアウト互換があるかを判定する&lt;code&gt;&lt;a href=&#34;../reference/type_traits/is_layout_compatible.html&#34;&gt;std::is_layout_compatible&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;2つのメンバポインタが互換な共通位置にあるかを判定する&lt;code&gt;&lt;a href=&#34;../reference/type_traits/is_corresponding_member.html&#34;&gt;std::is_corresponding_member()&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;基底クラスと派生クラスの間でポインタ相互交換可能かを判定する&lt;code&gt;&lt;a href=&#34;../reference/type_traits/is_pointer_interconvertible_base_of.html&#34;&gt;std::is_pointer_interconvertible_base_of&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;メンバポインタとクラスの間でポインタ相互交換可能かを判定する&lt;code&gt;&lt;a href=&#34;../reference/type_traits/is_pointer_interconvertible_with_class.html&#34;&gt;is_pointer_interconvertible_with_class()&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/type_traits.html&#34;&gt;&amp;lt;type_traits&amp;gt;&lt;/a&gt;&lt;/code&gt;に、&lt;code&gt;&lt;a href=&#34;../reference/functional/reference_wrapper.html&#34;&gt;std::reference_wrapper&lt;/a&gt;&amp;lt;T&amp;gt;&lt;/code&gt;型を&lt;code&gt;T&amp;amp;&lt;/code&gt;型に展開する&lt;code&gt;&lt;a href=&#34;../reference/type_traits/unwrap_reference.html&#34;&gt;std::unwrap_reference&lt;/a&gt;&lt;/code&gt;型特性、&lt;code&gt;&lt;a href=&#34;../reference/type_traits/decay.html&#34;&gt;std::decay&lt;/a&gt;&lt;/code&gt; + &lt;code&gt;&lt;a href=&#34;../reference/functional/reference_wrapper.html&#34;&gt;std::reference_wrapper&lt;/a&gt;&amp;lt;T&amp;gt;&lt;/code&gt;型の展開をする&lt;code&gt;&lt;a href=&#34;../reference/type_traits/unwrap_ref_decay.html&#34;&gt;std::unwrap_ref_decay&lt;/a&gt;&lt;/code&gt;型特性を追加&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;機能の非推奨化&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;一貫比較機能によって比較演算子の定義が容易になったため、不要になった演算子の簡潔定義機能である&lt;code&gt;&lt;a href=&#34;../reference/utility/rel_ops.html&#34;&gt;std::rel_ops&lt;/a&gt;&lt;/code&gt;を非推奨化&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/string/basic_string.html&#34;&gt;std::basic_string&lt;/a&gt;::&lt;a href=&#34;../reference/string/basic_string/reserve.html&#34;&gt;reserve()&lt;/a&gt;&lt;/code&gt;メンバ関数が、メモリの縮小をしなくなったため、デフォルト引数&lt;code&gt;0&lt;/code&gt;を非推奨化&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/atomic/atomic.html&#34;&gt;std::atomic&lt;/a&gt;&lt;/code&gt;クラスと&lt;code&gt;&lt;a href=&#34;../reference/atomic/atomic_flag.html&#34;&gt;std::atomic_flag&lt;/a&gt;&lt;/code&gt;クラスのデフォルトコンストラクタが値初期化するようになったため、不要になった以下のアトミックオブジェクトの初期化機能を非推奨化：&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/atomic/atomic_init.html&#34;&gt;std::atomic_init()&lt;/a&gt;&lt;/code&gt;関数&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/atomic/atomic_var_init.html&#34;&gt;ATOMIC_VAR_INIT&lt;/a&gt;&lt;/code&gt;マクロ&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory/shared_ptr.html&#34;&gt;std::shared_ptr&lt;/a&gt;&lt;/code&gt;の&lt;a href=&#34;../reference/memory/atomic.html&#34;&gt;&lt;code&gt;std::atomic&lt;/code&gt;特殊化&lt;/a&gt;追加にともない、&lt;code&gt;&lt;a href=&#34;../reference/memory/shared_ptr.html&#34;&gt;std::shared_ptr&lt;/a&gt;&lt;/code&gt;に対する以下のアトミック操作を非推奨化：&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory/shared_ptr/atomic_is_lock_free.html&#34;&gt;std::atomic_is_lock_free&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory/shared_ptr/atomic_load.html&#34;&gt;std::atomic_load&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory/shared_ptr/atomic_load_explicit.html&#34;&gt;std::atomic_load_explicit&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory/shared_ptr/atomic_store.html&#34;&gt;std::atomic_store&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory/shared_ptr/atomic_store_explicit.html&#34;&gt;std::atomic_store_explicit&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory/shared_ptr/atomic_exchange.html&#34;&gt;std::atomic_exchange&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory/shared_ptr/atomic_exchange_explicit.html&#34;&gt;std::atomic_exchange_explicit&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory/shared_ptr/atomic_compare_exchange_weak.html&#34;&gt;std::atomic_compare_exchange_weak&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory/shared_ptr/atomic_compare_exchange_strong.html&#34;&gt;std::atomic_compare_exchange_strong&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory/shared_ptr/atomic_compare_exchange_weak_explicit.html&#34;&gt;std::atomic_compare_exchange_weak_explicit&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory/shared_ptr/atomic_compare_exchange_strong_explicit.html&#34;&gt;std::atomic_compare_exchange_strong_explicit&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;機能の削除&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;C++11で&lt;code&gt;&lt;a href=&#34;../reference/memory/allocator_traits.html&#34;&gt;allocator_traits&lt;/a&gt;&lt;/code&gt;クラスが導入されたことでC++17から非推奨化されていた、&lt;code&gt;&lt;a href=&#34;../reference/memory/allocator.html&#34;&gt;allocator&lt;/a&gt;&lt;/code&gt;の以下のメンバを削除。なお、&lt;code&gt;size_type&lt;/code&gt;型と&lt;code&gt;difference_type&lt;/code&gt;型の非推奨は取り消された。&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;pointer&lt;/code&gt;型&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;const_pointer&lt;/code&gt;型&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;reference&lt;/code&gt;型&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;const_reference&lt;/code&gt;型&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rebind&lt;/code&gt;型&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory/allocator/address.html&#34;&gt;address()&lt;/a&gt;&lt;/code&gt;メンバ関数&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory/allocator/allocate.html&#34;&gt;allocate()&lt;/a&gt;&lt;/code&gt;メンバ関数の&lt;code&gt;hint&lt;/code&gt;パラメータ&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory/allocator/max_size.html&#34;&gt;max_size()&lt;/a&gt;&lt;/code&gt;メンバ関数&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory/allocator/construct.html&#34;&gt;construct()&lt;/a&gt;&lt;/code&gt;メンバ関数&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/memory/allocator/destroy.html&#34;&gt;destroy()&lt;/a&gt;&lt;/code&gt;メンバ関数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;C++11で&lt;code&gt;&lt;a href=&#34;../reference/memory/allocator_traits.html&#34;&gt;allocator_traits&lt;/a&gt;&lt;/code&gt;クラスが導入されたことでC++17から非推奨化されていた、要素型を再束縛するための&lt;code&gt;allocator&amp;lt;void&amp;gt;&lt;/code&gt;特殊化を削除&lt;/li&gt;
+&lt;li&gt;C++17で非推奨化されていた、&lt;code&gt;constexpr&lt;/code&gt;で扱える型の分類である&lt;code&gt;&lt;a href=&#34;../reference/type_traits/is_literal_type.html&#34;&gt;is_literal_type&lt;/a&gt;&lt;/code&gt;型特性を削除&lt;/li&gt;
+&lt;li&gt;C++17で非推奨化されていた、一時的なメモリ確保のための&lt;code&gt;&lt;a href=&#34;../reference/memory/get_temporary_buffer.html&#34;&gt;std::get_temporary_buffer()&lt;/a&gt;&lt;/code&gt;関数と&lt;code&gt;&lt;a href=&#34;../reference/memory/return_temporary_buffer.html&#34;&gt;std::return_temporary_buffer()&lt;/a&gt;&lt;/code&gt;関数を削除&lt;/li&gt;
+&lt;li&gt;C++17で非推奨化されていた&lt;code&gt;&lt;a href=&#34;../reference/memory/raw_storage_iterator.html&#34;&gt;raw_storage_iterator&lt;/a&gt;&lt;/code&gt;クラスを削除&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/functional/not_fn.html&#34;&gt;not_fn()&lt;/a&gt;&lt;/code&gt;の追加にともない、C++17から非推奨化されていた以下の機能を削除：&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/functional/negators.html&#34;&gt;not1()&lt;/a&gt;&lt;/code&gt;関数&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/functional/negators.html&#34;&gt;not2()&lt;/a&gt;&lt;/code&gt;関数&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/functional/negators.html&#34;&gt;unary_negate&lt;/a&gt;&lt;/code&gt;クラス&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/functional/negators.html&#34;&gt;binary_negate&lt;/a&gt;&lt;/code&gt;クラス&lt;/li&gt;
+&lt;li&gt;標準関数オブジェクトの&lt;code&gt;result_type&lt;/code&gt;、&lt;code&gt;argument_type&lt;/code&gt;、&lt;code&gt;first_argument_type&lt;/code&gt;、&lt;code&gt;second_argument_type&lt;/code&gt;型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;C++17から非推奨化されていた&lt;code&gt;&lt;a href=&#34;../reference/memory/shared_ptr.html&#34;&gt;shared_ptr&lt;/a&gt;::&lt;a href=&#34;../reference/memory/shared_ptr/unique.html&#34;&gt;unique()&lt;/a&gt;&lt;/code&gt;を削除&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../reference/type_traits/invoke_result.html&#34;&gt;invoke_result&lt;/a&gt;&lt;/code&gt;の追加にともない、C++17から非推奨化されていた&lt;code&gt;&lt;a href=&#34;../reference/type_traits/result_of.html&#34;&gt;result_of&lt;/a&gt;&lt;/code&gt;を削除&lt;/li&gt;
+&lt;li&gt;C++17での&lt;code&gt;&lt;a href=&#34;../reference/exception/uncaught_exceptions.html&#34;&gt;uncaught_exceptions()&lt;/a&gt;&lt;/code&gt;の追加にともない、非推奨化していた&lt;code&gt;&lt;a href=&#34;../reference/exception/uncaught_exception.html&#34;&gt;uncaught_exception()&lt;/a&gt;&lt;/code&gt;を削除&lt;/li&gt;
+&lt;li&gt;C++17で非推奨化されていたC互換ライブラリ&lt;code&gt;&amp;lt;ccomplex&amp;gt;&lt;/code&gt;, &lt;code&gt;&amp;lt;cstdalign&amp;gt;&lt;/code&gt;, &lt;code&gt;&amp;lt;cstdbool&amp;gt;&lt;/code&gt;, &lt;code&gt;&amp;lt;ctgmath&amp;gt;&lt;/code&gt;を削除。また、C++ではなにも定義されないC互換ライブラリ&lt;code&gt;&amp;lt;ciso646&amp;gt;&lt;/code&gt;を削除&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;参照&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2131r0.html&#34; target=&#34;_blank&#34;&gt;P2131R0 Changes between C++17 and C++20 DIS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>atomic -- atomic/atomic_flag: LWG3659対応</title>
+      <link href="https://cpprefjp.github.io/reference/atomic.html"/>
+      <id>a24d77626e24507f94bc3ba95acb9b323985084a:reference/atomic.md</id>
+      <updated>2025-07-25T19:26:24+09:00</updated>
+      
+        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;atomic&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;atomic&lt;/span&gt;&lt;span class=&#34;cpp cpp11&#34; title=&#34;C++11で追加&#34;&gt;(C++11)&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;atomic&amp;gt;&lt;/code&gt;ヘッダでは、アトミック操作(atomic operation ： 不可分操作とも呼ばれる)のライブラリを提供する。&lt;/p&gt;
+&lt;p&gt;アトミック操作は、スレッド間でデータをやり取りするための最も基本的な同期プリミティブであり、
+変数への不可分(atomic)な読み込みや書き込み、および読み書きを同時に行う操作(Read-Modify-Write operation)を提供する。&lt;/p&gt;
+&lt;p&gt;本ヘッダはフリースタンディング環境でも提供される。
+フリースタンディング環境の場合、常にロックフリーな整数アトミック型のサポート、&lt;code&gt;atomic_signed_lock_free&lt;/code&gt;や&lt;code&gt;atomic_unsigned_lock_free&lt;/code&gt;の提供可否は処理系定義となる。&lt;/p&gt;
+&lt;h2&gt;順序と一貫性&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/memory_order.html&#34;&gt;memory_order&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;メモリオーダーの種類(enum)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/kill_dependency.html&#34;&gt;kill_dependency&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;データ依存性を切る(function template)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;ロックフリープロパティ&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/lock_free_property.html&#34;&gt;ATOMIC_BOOL_LOCK_FREE&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;atomic&amp;lt;bool&amp;gt;&lt;/code&gt;に対する操作がロックフリーかを調べる(define)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/lock_free_property.html&#34;&gt;ATOMIC_CHAR_LOCK_FREE&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;atomic&amp;lt;char&amp;gt;&lt;/code&gt;に対する操作がロックフリーかを調べる(define)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/lock_free_property.html&#34;&gt;ATOMIC_CHAR8_T_LOCK_FREE&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;atomic&amp;lt;char8_t&amp;gt;&lt;/code&gt;に対する操作がロックフリーかを調べる(define)&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/lock_free_property.html&#34;&gt;ATOMIC_CHAR16_T_LOCK_FREE&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;atomic&amp;lt;char16_t&amp;gt;&lt;/code&gt;に対する操作がロックフリーかを調べる(define)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/lock_free_property.html&#34;&gt;ATOMIC_CHAR32_T_LOCK_FREE&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;atomic&amp;lt;char32_t&amp;gt;&lt;/code&gt;に対する操作がロックフリーかを調べる(define)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/lock_free_property.html&#34;&gt;ATOMIC_WCHAR_T_LOCK_FREE&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;atomic&amp;lt;wchar_t&amp;gt;&lt;/code&gt;に対する操作がロックフリーかを調べる(define)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/lock_free_property.html&#34;&gt;ATOMIC_SHORT_LOCK_FREE&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;atomic&amp;lt;short&amp;gt;&lt;/code&gt;に対する操作がロックフリーかを調べる(define)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/lock_free_property.html&#34;&gt;ATOMIC_INT_LOCK_FREE&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;atomic&amp;lt;int&amp;gt;&lt;/code&gt;に対する操作がロックフリーかを調べる(define)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/lock_free_property.html&#34;&gt;ATOMIC_LONG_LOCK_FREE&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;atomic&amp;lt;long&amp;gt;&lt;/code&gt;に対する操作がロックフリーかを調べる(define)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/lock_free_property.html&#34;&gt;ATOMIC_LLONG_LOCK_FREE&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;atomic&amp;lt;long long&amp;gt;&lt;/code&gt;に対する操作がロックフリーかを調べる(define)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/lock_free_property.html&#34;&gt;ATOMIC_POINTER_LOCK_FREE&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;atomic&amp;lt;T*&amp;gt;&lt;/code&gt;に対する操作がロックフリーかを調べる(define)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;汎用型&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_ref.html&#34;&gt;atomic_ref&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;参照したオブジェクトに対してアトミック操作を適用する型(class template)&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic.html&#34;&gt;atomic&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;アトミック型(class template)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;アトミック型に対する一般的な操作&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_is_lock_free.html&#34;&gt;atomic_is_lock_free&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;指定されたオブジェクトがロックフリーに振る舞うことができるかを調べる(function template)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_init.html&#34;&gt;atomic_init&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;初期化(function template)&lt;/td&gt;
+&lt;td&gt;C++11&lt;br /&gt;C++20から非推奨&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_store.html&#34;&gt;atomic_store&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;値を書き込む(function template)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_store_explicit.html&#34;&gt;atomic_store_explicit&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;メモリオーダーを指定して値を書き込む(function template)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_load.html&#34;&gt;atomic_load&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;値を読み込む(function template)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_load_explicit.html&#34;&gt;atomic_load_explicit&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;メモリオーダーを指定して値を読み込む(function template)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_exchange.html&#34;&gt;atomic_exchange&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;値を入れ替える(function template)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_exchange_explicit.html&#34;&gt;atomic_exchange_explicit&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;メモリオーダーを指定して値を入れ替える(function template)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_compare_exchange_weak.html&#34;&gt;atomic_compare_exchange_weak&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;弱い比較で値の入れ替えを行う(function template)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_compare_exchange_strong.html&#34;&gt;atomic_compare_exchange_strong&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;強い比較で値の入れ替えを行う(function template)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_compare_exchange_weak_explicit.html&#34;&gt;atomic_compare_exchange_weak_explicit&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;弱い比較でメモリオーダーを指定して値の入れ替えを行う(function template)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_compare_exchange_strong_explicit.html&#34;&gt;atomic_compare_exchange_strong_explicit&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;強い比較でメモリオーダーを指定して値の入れ替えを行う(function template)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;アトミック型に対する算術操作&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_fetch_add.html&#34;&gt;atomic_fetch_add&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;加算(function template)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_fetch_add_explicit.html&#34;&gt;atomic_fetch_add_explicit&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;メモリオーダーを指定して加算(function template)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_fetch_sub.html&#34;&gt;atomic_fetch_sub&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;減算(function template)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_fetch_sub_explicit.html&#34;&gt;atomic_fetch_sub_explicit&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;メモリオーダーを指定して減算(function template)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_fetch_and.html&#34;&gt;atomic_fetch_and&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;AND演算(function template)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_fetch_and_explicit.html&#34;&gt;atomic_fetch_and_explicit&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;メモリオーダーを指定してAND演算(function template)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_fetch_or.html&#34;&gt;atomic_fetch_or&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;OR演算(function template)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_fetch_or_explicit.html&#34;&gt;atomic_fetch_or_explicit&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;メモリオーダーを指定してOR演算(function template)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_fetch_xor.html&#34;&gt;atomic_fetch_xor&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;XOR演算(function template)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_fetch_xor_explicit.html&#34;&gt;atomic_fetch_xor_explicit&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;メモリオーダーを指定してXOR演算(function template)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_fetch_max.html&#34;&gt;atomic_fetch_max&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;最大値取得(function template)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_fetch_max_explicit.html&#34;&gt;atomic_fetch_max_explicit&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;メモリオーダーを指定して最大値取得(function template)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_fetch_min.html&#34;&gt;atomic_fetch_min&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;最小値取得(function template)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_fetch_min_explicit.html&#34;&gt;atomic_fetch_min_explicit&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;メモリオーダーを指定して最小値取得(function template)&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;アトミック型に対するブロッキング同期操作&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_wait.html&#34;&gt;atomic_wait&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;起床されるまで待機する (function template )&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_wait_explicit.html&#34;&gt;atomic_wait_explicit&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;メモリオーダーを指定して起床されるまで待機する (function template )&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_notify_one.html&#34;&gt;atomic_notify_one&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;待機しているスレッドをひとつ起床させる (function template)&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_notify_all.html&#34;&gt;atomic_notify_all&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;待機している全てのスレッドを起床させる (function template)&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;初期化&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_var_init.html&#34;&gt;ATOMIC_VAR_INIT&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;アトミック変数の初期化(define)&lt;/td&gt;
+&lt;td&gt;C++11&lt;br /&gt;C++20から非推奨&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;フラグ型とその操作&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_flag.html&#34;&gt;atomic_flag&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;フラグ用アトミック型(class)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_flag_test.html&#34;&gt;atomic_flag_test&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;現在の値を&lt;code&gt;bool&lt;/code&gt;値として取得する (function)&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_flag_test_explicit.html&#34;&gt;atomic_flag_test_explicit&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;メモリオーダーを指定して現在の値を&lt;code&gt;bool&lt;/code&gt;値として取得する (function)&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_flag_test_and_set.html&#34;&gt;atomic_flag_test_and_set&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;フラグを立てる(function)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_flag_test_and_set_explicit.html&#34;&gt;atomic_flag_test_and_set_explicit&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;メモリオーダーを指定してフラグを立てる(function)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_flag_clear.html&#34;&gt;atomic_flag_clear&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;フラグをクリアする(function)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_flag_clear_explicit.html&#34;&gt;atomic_flag_clear_explicit&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;メモリオーダーを指定してフラグをクリアする(function)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_flag_wait.html&#34;&gt;atomic_flag_wait&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;起床されるまで待機する (function)&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_flag_wait_explicit.html&#34;&gt;atomic_flag_wait_explicit&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;メモリオーダーを指定して起床されるまで待機する (function)&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_flag_notify_one.html&#34;&gt;atomic_flag_notify_one&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;待機しているスレッドをひとつ起床させる (function)&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_flag_notify_all.html&#34;&gt;atomic_flag_notify_all&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;待機している全てのスレッドを起床させる (function)&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_flag_init.html&#34;&gt;ATOMIC_FLAG_INIT&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;フラグ変数の初期化(define)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;フェンス&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_thread_fence.html&#34;&gt;atomic_thread_fence&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;スレッド間で有効なフェンスを設定する(function)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;atomic/atomic_signal_fence.html&#34;&gt;atomic_signal_fence&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;スレッドと、そのスレッド上で処理されるシグナルハンドラとの間でのみ有効なフェンスを設定する(function)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;バージョン&lt;/h2&gt;
+&lt;h3&gt;言語&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;C++11&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;関連項目&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;stdatomic.h.html&#34;&gt;&amp;lt;stdatomic.h&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;参照&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.open-std.org/JTC1/SC22/WG21/docs/papers/2006/n2047.html&#34; target=&#34;_blank&#34;&gt;N2047 An Atomic Operations Library for C++&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2427.html&#34; target=&#34;_blank&#34;&gt;N2427 C++ Atomic Types and Operations&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.boost.org/doc/libs/release/libs/atomic/&#34; target=&#34;_blank&#34;&gt;Boost Atomic Library&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- atomic/atomic_flag: LWG3659対応</title>
+      <link href="https://cpprefjp.github.io/reference/atomic/atomic_flag/op_constructor.html"/>
+      <id>a24d77626e24507f94bc3ba95acb9b323985084a:reference/atomic/atomic_flag/op_constructor.md</id>
+      <updated>2025-07-25T19:26:24+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/atomic/atomic_flag/op_constructor.md b/reference/atomic/atomic_flag/op_constructor.md
+index f511c95f6..7d64b3bd3 100644
+--- a/reference/atomic/atomic_flag/op_constructor.md
++++ b/reference/atomic/atomic_flag/op_constructor.md
+@@ -13,14 +13,14 @@ atomic_flag(const atomic_flag&amp;amp;) = delete; // (2) C++11
+ atomic_flag(atomic_flag&amp;amp;&amp;amp;) = delete;      // (3) C++11
+ 
+ atomic_flag(FOR_ATOMIC_FLAG_INIT);        // (4) C++11
+-                                          // (4) C++20で非推奨
+ ```
++* FOR_ATOMIC_FLAG_INIT[italic]
+ 
+ ## 概要
+ - (1) : デフォルトコンストラクタ
+ - (2) : コピーコンストラクタ。コピー禁止
+ - (3) : ムーブコンストラクタ。ムーブ禁止
+-- (4) : `ATOMIC_FLAG_INIT`マクロのための特別なコンストラクタ。フラグをクリアする。`atomic_flag`クラスのデフォルトコンストラクタはデフォルト定義されるため、デフォルト構築では未初期化状態となる。
++- (4) : [`ATOMIC_FLAG_INIT`](../atomic_flag_init.md)マクロでコピー初期化を行うための特別なコンストラクタ。フラグをクリアする。
+ 
+ 
+ ## 効果
+@@ -29,7 +29,7 @@ atomic_flag(FOR_ATOMIC_FLAG_INIT);        // (4) C++11
+     - C++14 : フラグを未規定の状態にする
+     - C++20 : フラグをクリア状態にする
+ - (4) :
+-    - `ATOMIC_FLAG_INIT`マクロを使用することで、フラグがクリアされた状態となる
++    - コピー初期化形式で[`ATOMIC_FLAG_INIT`](../atomic_flag_init.md)マクロを使用することで、フラグがクリアされた状態となる
+     - C++11 : このマクロを、静的な有効期間を持つ`atomic_flag`オブジェクトに使用した場合、その初期化は静的に行われる
+     - C++14 : このマクロを、完全に静的な有効期間を持つ`atomic_flag`オブジェクトに使用した場合、その初期化は静的に行われる
+ 
+@@ -65,3 +65,4 @@ int main()
+ ## 参照
+ - [LWG Issue 2159. `atomic_flag` initialization](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2159)
+ - [P0883R2 Fixing Atomic Initialization, Rev2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0883r2.pdf)
++- [LWG Issue 3659. Consider `ATOMIC_FLAG_INIT` undeprecation](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#3659)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>ATOMIC_FLAG_INIT -- atomic/atomic_flag: LWG3659対応</title>
+      <link href="https://cpprefjp.github.io/reference/atomic/atomic_flag_init.html"/>
+      <id>a24d77626e24507f94bc3ba95acb9b323985084a:reference/atomic/atomic_flag_init.md</id>
+      <updated>2025-07-25T19:26:24+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/atomic/atomic_flag_init.md b/reference/atomic/atomic_flag_init.md
+index 94db339aa..04d97c796 100644
+--- a/reference/atomic/atomic_flag_init.md
++++ b/reference/atomic/atomic_flag_init.md
+@@ -2,22 +2,18 @@
+ * atomic[meta header]
+ * macro[meta id-type]
+ * cpp11[meta cpp]
+-* cpp20deprecated[meta cpp]
+ 
+ ```cpp
+ #define ATOMIC_FLAG_INIT see below
+ ```
+ 
+-この機能はC++20で非推奨となった。[`std::atomic_flag`](atomic_flag.md)クラスのデフォルトコンストラクタが値初期化するようになったため、初期化のためにこの機能を使用する必要はない。
+-
+-
+ ## 概要
+-フラグを初期化する。
++フラグをクリア状態に初期化する。
+ 
+ このマクロは、[`atomic_flag`](atomic_flag.md)オブジェクトの初期化に使用し、フラグをクリア状態にする。静的オブジェクトに対しては、その初期化は静的に行われなければならない。
+ 
+ 
+-## 非推奨の詳細 (C++20)
++## 備考
+ C言語との互換性のために、`std::atomic_flag`クラスのデフォルトコンストラクタはトリビアルに定義され、初期値は未規定となっていた。そのためこの機能を介して`std::atomic_flag`オブジェクトを初期化する必要があったが、C++20からデフォルトコンストラクタが値初期化を行うようになったため、初期化のためにこの機能を使用する必要はなくなった。
+ 
+ 
+@@ -59,3 +55,4 @@ false
+ 
+ ## 参照
+ - [P0883R2 Fixing Atomic Initialization, Rev2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0883r2.pdf)
++- [LWG Issue 3659. Consider `ATOMIC_FLAG_INIT` undeprecation](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#3659)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>BUFSIZ -- added info for bufsiz.md</title>
+      <link href="https://cpprefjp.github.io/reference/cstdio/bufsiz.html"/>
+      <id>24dc1089c1641f9fe2912a0f1478b68eb2d60cca:reference/cstdio/bufsiz.md</id>
+      <updated>2025-07-24T21:29:45+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/bufsiz.md b/reference/cstdio/bufsiz.md
+index 8f1ff4180..c8af3427c 100644
+--- a/reference/cstdio/bufsiz.md
++++ b/reference/cstdio/bufsiz.md
+@@ -10,7 +10,7 @@
+ ## 概要
+ [`setbuf()`](/reference/cstdio/setbuf.md.nolink)関数で使われる標準入出力のバッファサイズを表すマクロ。
+ 
+-このマクロは、標準入出力関数で使用されるデフォルトのバッファサイズを定義する。値は実装依存であるが、一般的には512バイトや1024バイトなどの値が使用される。
++このマクロは、標準入出力関数で使用されるデフォルトのバッファサイズを定義する。値は実装依存であり、256バイト以上であることは保証されているが、一般的には512バイトや1024バイトなどの値が使用される。
+ 
+ ## 例
+ ```cpp example
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>cstdio -- Merge pull request #1477 from rotarymars/master</title>
+      <link href="https://cpprefjp.github.io/reference/cstdio.html"/>
+      <id>ffd0531bfbd55c46381809d71ec9671b90ba52f0:reference/cstdio.md</id>
+      <updated>2025-07-23T22:33:06+09:00</updated>
+      
+        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;cstdio&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;cstdio&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;cstdio&amp;gt;&lt;/code&gt;ヘッダでは、標準入出力のための機能を定義する。これらの機能は、&lt;code&gt;std&lt;/code&gt;名前空間に属することを除いてC言語の標準ライブラリ&lt;code&gt;&amp;lt;stdio.h&amp;gt;&lt;/code&gt;ヘッダと同じである。&lt;/p&gt;
+&lt;h2&gt;型&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstddef/size_t.html&#34;&gt;size_t&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;符号なし整数型&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/file.html&#34;&gt;FILE&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ストリームの制御に必要な情報を持つオブジェクト型&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/fpos_t.html&#34;&gt;fpos_t&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルの全ての位置にアクセスするための配列以外の完全オブジェクト型&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;マクロ&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstddef/null.html&#34;&gt;NULL&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ヌルポインタ定数に展開されるマクロ&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/iofbf.md.nolink&#34;&gt;_IOFBF&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;入出力を完全にバッファリングする指定のための整数定数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/iolbf.md.nolink&#34;&gt;_IOLBF&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;入出力を行バッファリングする指定のための整数定数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/ionbf.md.nolink&#34;&gt;_IONBF&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;入出力をバッファリングしない指定のための整数定数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/bufsiz.html&#34;&gt;BUFSIZ&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;バッファサイズを表す整数定数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/eof.html&#34;&gt;EOF&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルの終端であることを表す&lt;code&gt;int&lt;/code&gt;型の整数定数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/fopen_max.md.nolink&#34;&gt;FOPEN_MAX&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;実装によって保証されるファイルを開ける最低限の数を表す整数定数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/filename_max.html&#34;&gt;FILENAME_MAX&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;実装によって保証されるファイル名の最大の長さを表す整数定数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/l_tmpnam.md.nolink&#34;&gt;L_tmpnam&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;tmpnam()&lt;/code&gt;関数によって作られた一時ファイル名を保持する似に必要な長さを表す整数定数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/seek_set.md.nolink&#34;&gt;SEEK_SET&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルの先頭位置を指定するための整数定数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/seek_cur.md.nolink&#34;&gt;SEEK_CUR&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルの現在位置を指定するための整数定数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/seek_end.md.nolink&#34;&gt;SEEK_END&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルの終端を指定するための整数定数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/tmp_max.md.nolink&#34;&gt;TMP_MAX&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;tmpnam()&lt;/code&gt;関数によって生成できる一時ファイル名の、実装が保証する最低限の数を表す整数定数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/stderr.html&#34;&gt;stderr&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;標準エラーを表す&lt;code&gt;FILE*&lt;/code&gt;型の式&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/stdin.html&#34;&gt;stdin&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;標準入力を表す&lt;code&gt;FILE*&lt;/code&gt;型の式&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/stdout.html&#34;&gt;stdout&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;標準出力を表す&lt;code&gt;FILE*&lt;/code&gt;型の式&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;ファイル操作&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/remove.html&#34;&gt;remove&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルを削除する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/rename.html&#34;&gt;rename&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイル名を変更、ファイルを移動する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/tmpfile.html&#34;&gt;tmpfile&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;一時ファイルを生成する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/tmpnam.html&#34;&gt;tmpnam&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;一時ファイル名を生成する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/fclose.html&#34;&gt;fclose&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルを閉じる&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/fopen.html&#34;&gt;fopen&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルを開く&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/fflush.html&#34;&gt;fflush&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルをフラッシュする&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/fprintf.html&#34;&gt;fprintf&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;書式を指定してファイルに出力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/fscanf.html&#34;&gt;fscanf&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;書式を指定してファイルから入力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/vfprintf.md.nolink&#34;&gt;vfprintf&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;可変引数リスト&lt;code&gt;va_list&lt;/code&gt;を使用し、書式を指定してファイルに出力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/vfscanf.md.nolink&#34;&gt;vfscanf&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;可変引数リスト&lt;code&gt;va_list&lt;/code&gt;を使用し、書式を指定してファイルから入力する&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/fgetc.html&#34;&gt;fgetc&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルから1文字入力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/fgets.html&#34;&gt;fgets&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルからN文字入力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/fputc.html&#34;&gt;fputc&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルに1文字出力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/fputs.html&#34;&gt;fputs&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルにN文字出力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/fread.html&#34;&gt;fread&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルからN文字読み込む&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/fwrite.md.nolink&#34;&gt;fwrite&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルにN文字書き込む&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/fgetpos.md.nolink&#34;&gt;fgetpos&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルの現在位置を取得する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/fseek.md.nolink&#34;&gt;fseek&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルの現在位置を移動する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/fsetpos.md.nolink&#34;&gt;fsetpos&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルの現在位置を設定する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/ftell.md.nolink&#34;&gt;ftell&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルの現在位置を取得する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/rewind.md.nolink&#34;&gt;rewind&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルの現在位置を先頭に戻し、エラーや終端判定をクリアする&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/clearerr.md.nolink&#34;&gt;clearerr&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;エラーをクリアする&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/feof.html&#34;&gt;feof&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルが終端に到達したか判定する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/ferror.md.nolink&#34;&gt;ferror&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルストリームがエラー状態かを判定する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/perror.md.nolink&#34;&gt;perror&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;システムエラーメッセージを出力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;標準入出力&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/printf.html&#34;&gt;printf&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;書式を指定して標準出力に出力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/scanf.html&#34;&gt;scanf&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;書式を指定して標準入力から入力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/vprintf.md.nolink&#34;&gt;vprintf&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;可変引数リスト&lt;code&gt;va_list&lt;/code&gt;を使用し、書式を指定して標準出力に出力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/vscanf.md.nolink&#34;&gt;vscanf&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;可変引数リスト&lt;code&gt;va_list&lt;/code&gt;を使用し、書式を指定して標準入力から入力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/getc.html&#34;&gt;getc&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ストリームから1文字入力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/getchar.html&#34;&gt;getchar&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;標準入力から1文字入力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/putc.html&#34;&gt;putc&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ストリームに1文字出力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/putchar.html&#34;&gt;putchar&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;標準出力に1文字出力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/puts.html&#34;&gt;puts&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;標準出力に文字列を出力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/ungetc.html&#34;&gt;ungetc&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;入力ストリームに1文字戻す&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;文字列入出力&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/snprintf.md.nolink&#34;&gt;snprintf&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;書式と文字数を指定して、文字列領域に出力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/sprintf.md.nolink&#34;&gt;sprintf&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;書式を指定して文字列領域に出力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/sscanf.md.nolink&#34;&gt;sscanf&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;書式を指定して文字列領域から入力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;vsnprintf&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;可変引数リスト&lt;code&gt;va_list&lt;/code&gt;を使用し、書式と文字数を指定して、文字列領域に出力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/vsprintf.md.nolink&#34;&gt;vsprintf&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;可変引数リスト&lt;code&gt;va_list&lt;/code&gt;を使用し、書式を指定して文字列領域に出力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/vsscanf.md.nolink&#34;&gt;vsscanf&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;可変引数リスト&lt;code&gt;va_list&lt;/code&gt;を使用し、書式を指定して文字列領域から入力する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;バッファ操作&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/setbuf.md.nolink&#34;&gt;setbuf&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;入出力用のバッファを設定する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdio/setvbuf.md.nolink&#34;&gt;setvbuf&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;戦略を指定して入出力用のバッファを設定する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;参照&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0063r3.html&#34; target=&#34;_blank&#34;&gt;P0063R3 C++17 should refer to C11 instead of C99&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0175r1.html&#34; target=&#34;_blank&#34;&gt;P0175R1 Synopses for the C library&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>BUFSIZ -- Merge pull request #1477 from rotarymars/master</title>
+      <link href="https://cpprefjp.github.io/reference/cstdio/bufsiz.html"/>
+      <id>ffd0531bfbd55c46381809d71ec9671b90ba52f0:reference/cstdio/bufsiz.md</id>
+      <updated>2025-07-23T22:33:06+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/bufsiz.md b/reference/cstdio/bufsiz.md
+new file mode 100644
+index 000000000..8f1ff4180
+--- /dev/null
++++ b/reference/cstdio/bufsiz.md
+@@ -0,0 +1,52 @@
++# BUFSIZ
++* cstdio[meta header]
++* macro[meta id-type]
++
++```cpp
++#define BUFSIZ unspecified
++```
++* unspecified[italic]
++
++## 概要
++[`setbuf()`](/reference/cstdio/setbuf.md.nolink)関数で使われる標準入出力のバッファサイズを表すマクロ。
++
++このマクロは、標準入出力関数で使用されるデフォルトのバッファサイズを定義する。値は実装依存であるが、一般的には512バイトや1024バイトなどの値が使用される。
++
++## 例
++```cpp example
++#include &amp;lt;cstdio&amp;gt;
++
++int main() {
++  // BUFSIZの値を表示
++  std::printf(&amp;#34;BUFSIZ = %d\n&amp;#34;, BUFSIZ);
++  
++  // バッファサイズを指定してファイルを開く
++  char buffer[BUFSIZ];
++  std::FILE* file = std::fopen(&amp;#34;test.txt&amp;#34;, &amp;#34;w&amp;#34;);
++  if (file) {
++    // バッファを設定
++    std::setbuf(file, buffer);
++    std::fprintf(file, &amp;#34;Hello, World!\n&amp;#34;);
++    std::fclose(file);
++  }
++  
++  return 0;
++}
++```
++* BUFSIZ[color ff0000]
++* std::printf[link /reference/cstdio/printf.md]
++* std::fopen[link /reference/cstdio/fopen.md]
++* std::setbuf[link /reference/cstdio/setbuf.md.nolink]
++* std::fprintf[link /reference/cstdio/fprintf.md]
++* std::fclose[link /reference/cstdio/fclose.md]
++
++### 出力例
++```
++BUFSIZ = 1024
++```
++
++## 処理系
++
++- [Clang](/implementation.md#clang): ??
++- [GCC](/implementation.md#gcc): ??
++- [Visual C++](/implementation.md#visual_cpp): ??
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>subrange_kind -- 名前空間を修正 std::range → std::ranges</title>
+      <link href="https://cpprefjp.github.io/reference/ranges/subrange_kind.html"/>
+      <id>700975a36d656a697d230e166cb683cc684cd639:reference/ranges/subrange_kind.md</id>
+      <updated>2025-07-23T21:00:41+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ranges/subrange_kind.md b/reference/ranges/subrange_kind.md
+index 88285aba6..9b8c8cf09 100644
+--- a/reference/ranges/subrange_kind.md
++++ b/reference/ranges/subrange_kind.md
+@@ -1,6 +1,6 @@
+ # subrange_kind
+ * ranges[meta header]
+-* std::range[meta namespace]
++* std::ranges[meta namespace]
+ * enum[meta id-type]
+ * cpp20[meta cpp]
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>swap -- node_handle : リンクミスを修正</title>
+      <link href="https://cpprefjp.github.io/reference/node_handle/node_handle/swap.html"/>
+      <id>4b0e7ea7c835aefe4e7bc318783691ed1d366242:reference/node_handle/node_handle/swap.md</id>
+      <updated>2025-07-22T18:39:16+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/node_handle/node_handle/swap.md b/reference/node_handle/node_handle/swap.md
+index c3f3741ac..a2ba4f1dc 100644
+--- a/reference/node_handle/node_handle/swap.md
++++ b/reference/node_handle/node_handle/swap.md
+@@ -64,7 +64,7 @@ int main()
+ }
+ ```
+ * swap[color ff0000]
+-* extract[link reference/map/map/extract.md.nolink]
++* extract[link /reference/map/map/extract.md]
+ * key[link key.md]
+ * mapped[link mapped.md]
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>swap (非メンバ関数) -- node_handle : リンクミスを修正</title>
+      <link href="https://cpprefjp.github.io/reference/node_handle/node_handle/swap_free.html"/>
+      <id>4b0e7ea7c835aefe4e7bc318783691ed1d366242:reference/node_handle/node_handle/swap_free.md</id>
+      <updated>2025-07-22T18:39:16+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/node_handle/node_handle/swap_free.md b/reference/node_handle/node_handle/swap_free.md
+index 676ddfe2b..919a7f31a 100644
+--- a/reference/node_handle/node_handle/swap_free.md
++++ b/reference/node_handle/node_handle/swap_free.md
+@@ -52,7 +52,7 @@ int main()
+ }
+ ```
+ * std::swap[color ff0000]
+-* extract[link reference/map/map/extract.md.nolink]
++* extract[link /reference/map/map/extract.md]
+ * key[link key.md]
+ * mapped[link mapped.md]
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>

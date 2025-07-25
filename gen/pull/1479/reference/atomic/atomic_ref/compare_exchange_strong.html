@@ -1,0 +1,405 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>atomic_ref::compare_exchange_strong - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,atomic,std,atomic_ref,function,cpp20
+">
+        <meta name="title" content="atomic_ref::compare_exchange_strong - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="atomic_ref::compare_exchange_strong - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="atomic_ref::compare_exchange_strong - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/atomic/atomic_ref/compare_exchange_strong.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="強い比較で値を入れ替える。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="atomic_ref::compare_exchange_strong - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/atomic/atomic_ref/compare_exchange_strong.html" />
+        <meta name="twitter:description" content="強い比較で値を入れ替える。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;atomic&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;atomic_ref&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;2ac4aa44c4b06c84758384af00a164b8cc4544ce&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;atomic&gt;\n\nint main()\n{\n  {\n    int value = 3;\n    std::atomic_ref&lt;int&gt; x{value};\n\n    // x == expected\u306a\u306e\u3067\u3001x\u306f2\u306b\u7f6e\u304d\u63db\u3048\u3089\u308c\u308b\n    int expected = 3;\n    bool result = x.compare_exchange_strong(expected, 2);\n\n    std::cout &lt;&lt; std::boolalpha &lt;&lt; result &lt;&lt; \&#34; \&#34; &lt;&lt; value &lt;&lt; \&#34; \&#34; &lt;&lt; expected &lt;&lt; std::endl;\n  }\n  {\n    int value = 3;\n    std::atomic_ref&lt;int&gt; x{value};\n\n    // x != expected\u306a\u306e\u3067\u3001expected\u304cx\u306e\u5024\u3067\u7f6e\u304d\u63db\u3048\u3089\u308c\u308b\n    int expected = 1;\n    bool result = x.compare_exchange_strong(expected, 2);\n\n    std::cout &lt;&lt; std::boolalpha &lt;&lt; result &lt;&lt; \&#34; \&#34; &lt;&lt; value &lt;&lt; \&#34; \&#34; &lt;&lt; expected &lt;&lt; std::endl;\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;950efb42bcd6b971fee72ce2a2b5be215eecfc72&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;atomic&gt;\n#include &lt;thread&gt;\n\nclass my_flag {\n  bool value_ = false;\npublic:\n  void atomic_set() {\n    // \u5024\u304cfalse\u3060\u3063\u305f\u3089true\u306b\u3059\u308b\u3002\n    // false\u3067\u306a\u304b\u3063\u305f\u3089 (true) \u3001\u305d\u306e\u307e\u307e\n    bool expected = false;\n    std::atomic_ref{value_}.compare_exchange_strong(expected, true);\n  }\n\n  // \u975e\u30a2\u30c8\u30df\u30c3\u30af\u306a\u5024\u53d6\u5f97\n  bool get() const {\n    return value_;\n  }\n};\n\nint main()\n{\n  my_flag x;\n\n  // \u3044\u305a\u308c\u304b\u306e\u30b9\u30ec\u30c3\u30c9\u306e\u51e6\u7406\u304c\u304a\u308f\u3063\u305f\u3089 (\u6210\u529f\u3057\u305f\u3089) \u30d5\u30e9\u30b0\u3092\u30aa\u30f3\u306b\u3059\u308b\n  std::thread t1 {[&amp;x] {\n    x.atomic_set();\n  }};\n  std::thread t2 {[&amp;x] {\n    x.atomic_set();\n  }};\n\n  t1.join();\n  t2.join();\n\n  std::cout &lt;&lt; std::boolalpha &lt;&lt; x.get() &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;atomic&#34;, &#34;atomic_ref&#34;, &#34;compare_exchange_strong&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/atomic.html" itemprop="url">
+              
+                <span itemprop="name">atomic</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/atomic/atomic_ref.html" itemprop="url">
+              
+                <span itemprop="name">atomic_ref</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">compare_exchange_strong</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-12-23T07:58:47">
+        2024年12月23日 07時58分47秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/atomic/atomic_ref/compare_exchange_strong.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/atomic/atomic_ref/compare_exchange_strong.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;atomic&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class atomic_ref">atomic_ref::</span><span class="token">compare_exchange_strong</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">bool</span>
+  <span class="nf">compare_exchange_strong</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span> <span class="n">expected</span><span class="p">,</span>
+                          <span class="n">T</span> <span class="n">desired</span><span class="p">,</span>
+                          <span class="n"><a href="../memory_order.html">memory_order</a></span> <span class="n">success</span><span class="p">,</span>
+                          <span class="n"><a href="../memory_order.html">memory_order</a></span> <span class="n">failure</span>
+                          <span class="p">)</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span>  <span class="c1">// (1) C++20</span>
+<span class="k">constexpr</span> <span class="kt">bool</span>
+  <span class="nf">compare_exchange_strong</span><span class="p">(</span><span class="n">value_type</span><span class="o">&amp;</span> <span class="n">expected</span><span class="p">,</span>
+                          <span class="n">value_type</span> <span class="n">desired</span><span class="p">,</span>
+                          <span class="n"><a href="../memory_order.html">memory_order</a></span> <span class="n">success</span><span class="p">,</span>
+                          <span class="n"><a href="../memory_order.html">memory_order</a></span> <span class="n">failure</span>
+                          <span class="p">)</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span>  <span class="c1">// (1) C++26</span>
+
+<span class="kt">bool</span>
+  <span class="nf">compare_exchange_strong</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span> <span class="n">expected</span><span class="p">,</span>
+                          <span class="n">T</span> <span class="n">desired</span><span class="p">,</span>
+                          <span class="n"><a href="../memory_order.html">memory_order</a></span> <span class="n">order</span> <span class="o">=</span> <span class="n"><a href="../memory_order.html">memory_order_seq_cst</a></span>
+                          <span class="p">)</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span>  <span class="c1">// (2) C++20</span>
+<span class="k">constexpr</span> <span class="kt">bool</span>
+  <span class="nf">compare_exchange_strong</span><span class="p">(</span><span class="n">value_type</span><span class="o">&amp;</span> <span class="n">expected</span><span class="p">,</span>
+                          <span class="n">value_type</span> <span class="n">desired</span><span class="p">,</span>
+                          <span class="n"><a href="../memory_order.html">memory_order</a></span> <span class="n">order</span> <span class="o">=</span> <span class="n"><a href="../memory_order.html">memory_order_seq_cst</a></span>
+                          <span class="p">)</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span>  <span class="c1">// (2) C++26</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>強い比較で値を入れ替える。</p>
+<ul>
+<li>(1) : 現在の値と<code>expected</code>が等値である場合に、<code>success</code>メモリオーダーで現在の値を<code>desired</code>で置き換え、そうでなければ<code>failure</code>メモリオーダーで<code>expected</code>を現在の値で置き換える</li>
+<li>(2) : 現在の値と<code>expected</code>が等値である場合に、現在の値を<code>desired</code>で置き換え、そうでなければ<code>expected</code>を現在の値で置き換える。どちらの値置き換えの場合でも<code>order</code>メモリオーダーが使用される</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
+<ul>
+<li>C++26 : <code><a href="../../type_traits/is_const.html">is_const_v</a>&lt;T&gt;</code>が<code>false</code>であること</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a></h2>
+<ul>
+<li><code>failure</code>が<code><a href="../memory_order.html">memory_order_release</a></code>, <code><a href="../memory_order.html">memory_order_acq_rel</a></code>ではないこと</li>
+</ul>
+<h2>効果</h2>
+<p>現在の値と<code>expected</code>をバイトレベルで等値比較を行い、<code>true</code>である場合は現在の値を<code>desired</code>で置き換え、<code>false</code>である場合は<code>expected</code>を現在の値で置き換える。</p>
+<ul>
+<li>(1) : バイト等値比較が<code>true</code>の場合は<code>success</code>メモリオーダー、<code>false</code>の場合は<code>failure</code>メモリオーダーに従って、アトミックに値の置き換えが行われる</li>
+<li>(2) : アトミックな値置き換えでは<code>order</code>メモリオーダーが使用される</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p>この関数を呼び出す前の<code>*this</code>が保持する値と<code>expected</code>の等値比較の結果が返される。等値であれば<code>true</code>、そうでなければ<code>false</code>が返る。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
+<p>投げない</p>
+<h2>備考</h2>
+<p>この関数は、値が交換可能な場合はCAS (compare-and-swap) 操作が常に成功する。</p>
+<p><code><a href="compare_exchange_weak.html">compare_exchange_weak()</a></code>はより弱い命令であり、交換可能な場合でもCAS操作が失敗する可能性がある。</p>
+<p>通常、CAS操作は、CASが成功するまでループさせる。</p>
+<p>しかし、もしCAS操作でSpurious Failureが発生しなければループさせる必要が無くなるといった状況であれば、<code>compare_exchange_strong()</code>を使うことで効率良くCASを行うことができる。</p>
+<p>逆に言えば、そのような状況でないなら常にループで<code><a href="compare_exchange_weak.html">compare_exchange_weak()</a></code>を利用すれば良い。</p>
+<h2>例</h2>
+<h3>基本的な使い方</h3>
+<p><div class="yata" id="2ac4aa44c4b06c84758384af00a164b8cc4544ce"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../atomic.html">&lt;atomic&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">atomic_ref</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">x</span><span class="p">{</span><span class="n">value</span><span class="p">};</span>
+
+    <span class="c1">// x == expectedなので、xは2に置き換えられる</span>
+    <span class="kt">int</span> <span class="n">expected</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="kt">bool</span> <span class="n">result</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n"><span style="color:#ff0000">compare_exchange_strong</span></span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ios/boolalpha.html">std::boolalpha</a></span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> <span class="o">&lt;&lt;</span> <span class="n">expected</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">atomic_ref</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">x</span><span class="p">{</span><span class="n">value</span><span class="p">};</span>
+
+    <span class="c1">// x != expectedなので、expectedがxの値で置き換えられる</span>
+    <span class="kt">int</span> <span class="n">expected</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kt">bool</span> <span class="n">result</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n"><span style="color:#ff0000">compare_exchange_strong</span></span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ios/boolalpha.html">std::boolalpha</a></span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span> <span class="o">&lt;&lt;</span> <span class="n">expected</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>true 2 3
+false 3 3
+</code></pre></p>
+<h3>フラグのオン・オフをする例</h3>
+<p><div class="yata" id="950efb42bcd6b971fee72ce2a2b5be215eecfc72"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../atomic.html">&lt;atomic&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
+
+<span class="k">class</span> <span class="nc">my_flag</span> <span class="p">{</span>
+  <span class="kt">bool</span> <span class="n">value_</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="kt">void</span> <span class="n">atomic_set</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 値がfalseだったらtrueにする。</span>
+    <span class="c1">// falseでなかったら (true) 、そのまま</span>
+    <span class="kt">bool</span> <span class="n">expected</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">atomic_ref</span><span class="p">{</span><span class="n">value_</span><span class="p">}.</span><span class="n"><span style="color:#ff0000">compare_exchange_strong</span></span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 非アトミックな値取得</span>
+  <span class="kt">bool</span> <span class="n">get</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">value_</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">my_flag</span> <span class="n">x</span><span class="p">;</span>
+
+  <span class="c1">// いずれかのスレッドの処理がおわったら (成功したら) フラグをオンにする</span>
+  <span class="n"><a href="../../thread/thread.html">std::thread</a></span> <span class="n">t1</span> <span class="p">{[</span><span class="o">&amp;</span><span class="n">x</span><span class="p">]</span> <span class="p">{</span>
+    <span class="n">x</span><span class="p">.</span><span class="n">atomic_set</span><span class="p">();</span>
+  <span class="p">}};</span>
+  <span class="n"><a href="../../thread/thread.html">std::thread</a></span> <span class="n">t2</span> <span class="p">{[</span><span class="o">&amp;</span><span class="n">x</span><span class="p">]</span> <span class="p">{</span>
+    <span class="n">x</span><span class="p">.</span><span class="n">atomic_set</span><span class="p">();</span>
+  <span class="p">}};</span>
+
+  <span class="n"><a href="../../thread/thread/join.html">t1.join()</a></span><span class="p">;</span>
+  <span class="n"><a href="../../thread/thread/join.html">t2.join()</a></span><span class="p">;</span>
+
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ios/boolalpha.html">std::boolalpha</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span><span class="p">.</span><span class="n">get</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>true
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++20</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: 9.0 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: 10.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3323r1.html" target="_blank">P3323R1 cv-qualified types in <code>atomic</code> and <code>atomic_ref</code></a><ul>
+<li>C++26で<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>されたテンプレート引数を受け取れるようになった</li>
+</ul>
+</li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html" target="_blank">P3309R3 <code>constexpr atomic</code> and <code>atomic_ref</code></a><ul>
+<li>C++26で<code>constexpr</code>に対応した</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

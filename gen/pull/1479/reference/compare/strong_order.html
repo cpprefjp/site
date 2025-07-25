@@ -1,0 +1,401 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>strong_order - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,compare,cpo,std,cpp20
+">
+        <meta name="title" content="strong_order - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="strong_order - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="strong_order - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/compare/strong_order.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="strong_order - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/compare/strong_order.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;compare&#34;], &#34;id-type&#34;: [&#34;cpo&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;f7dea320ba667daae3e2d2d958b6c93d8aa95032&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;compare&gt;\n#include &lt;limits&gt;\n\nstruct no_spaceship {\n  int n1 = 0;\n  int n2 = 0;\n  int n3 = 0;\n\n  friend auto strong_order(const no_spaceship&amp; lhs, const no_spaceship&amp; rhs) -&gt; std::strong_ordering {\n    //1 -&gt; 3 -&gt; 2\u306e\u9806\u3067\u6bd4\u8f03\n    if (auto cmp = lhs.n1 &lt;=&gt; rhs.n1; cmp != 0) return cmp;\n    if (auto cmp = lhs.n3 &lt;=&gt; rhs.n3; cmp != 0) return cmp;\n    return lhs.n2 &lt;=&gt; rhs.n2;\n  }\n};\n\nstruct have_spaceship {  \n  int n1 = 0;\n  int n2 = 0;\n  int n3 = 0;\n\n  friend auto operator&lt;=&gt;(const have_spaceship&amp; lhs, const have_spaceship&amp; rhs) -&gt; std::strong_ordering {\n    //\u5ba3\u8a00\u3068\u9006\u9806\u3067\u6bd4\u8f03\n    if (auto cmp = lhs.n3 &lt;=&gt; rhs.n3; cmp != 0) return cmp;\n    if (auto cmp = lhs.n2 &lt;=&gt; rhs.n2; cmp != 0) return cmp;\n    return lhs.n1 &lt;=&gt; rhs.n1;\n  }\n};\n\n\nint main()\n{\n  std::cout &lt;&lt; std::boolalpha;\n\n  //2. \u30e6\u30fc\u30b6\u30fc\u5b9a\u7fa9strong_order()\u306b\u3088\u308b\u30ab\u30b9\u30bf\u30e0\u6bd4\u8f03\n  no_spaceship s1 = {1, 2, 3}, s2 = {2, 1, 3};\n  std::cout &lt;&lt; (std::strong_order(s1, s2) &lt; 0) &lt;&lt; std::endl;\n\n  std::cout &lt;&lt; \&#34;\\n\&#34;;\n\n  //3. \u6d6e\u52d5\u5c0f\u6570\u70b9\u6570\u306e\u6bd4\u8f03\n  constexpr auto qnan = std::numeric_limits&lt;double&gt;::quiet_NaN();\n  constexpr auto snan = std::numeric_limits&lt;double&gt;::signaling_NaN();\n\n  std::cout &lt;&lt; (std::strong_order(-0.0, +0.0) &lt; 0) &lt;&lt; std::endl;\n  std::cout &lt;&lt; (std::strong_order(-qnan, +qnan) &lt; 0) &lt;&lt; std::endl;\n  std::cout &lt;&lt; (std::strong_order(+snan, +qnan) &lt; 0) &lt;&lt; std::endl;\n  std::cout &lt;&lt; (std::strong_order(-qnan, -snan) &lt; 0) &lt;&lt; std::endl;\n\n  std::cout &lt;&lt; \&#34;\\n\&#34;;\n\n  //4. \u30e6\u30fc\u30b6\u30fc\u5b9a\u7fa9&lt;=&gt;\u306b\u3088\u308b\u30ab\u30b9\u30bf\u30e0\u6bd4\u8f03\n  have_spaceship s3 = {1, 2, 3}, s4 = {2, 1, 3};\n  std::cout &lt;&lt; (std::strong_order(s3, s4) &lt; 0) &lt;&lt; std::endl;\n\n  std::cout &lt;&lt; \&#34;\\n\&#34;;\n\n  //4. \u7d44\u307f\u8fbc\u307f\u578b\u306e\u6bd4\u8f03\n  std::cout &lt;&lt; (std::strong_order(1, 2) &lt; 0) &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;compare&#34;, &#34;strong_order&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/compare.html" itemprop="url">
+              
+                <span itemprop="name">compare</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">strong_order</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-07-10T07:47:57">
+        2024年07月10日 07時47分57秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/compare/strong_order.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/compare/strong_order.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">customization point object</div><div class="header">&lt;compare&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">strong_order</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="kr">inline</span> <span class="k">namespace</span> <span class="cm">/*unspecified*/</span> <span class="p">{</span>
+
+    <span class="kr">inline</span> <span class="k">constexpr</span> <span class="cm">/*unspecified*/</span> <span class="n">strong_order</span> <span class="o">=</span> <span class="cm">/*unspecified*/</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>strong_order</code>は2つの引数を受け取り、それらを全順序の上で比較する関数オブジェクトである。</p>
+<h2>効果</h2>
+<p><code>strong_order(a, b)</code>のように呼び出された時、以下のいずれかと等価（上から順に考慮される）</p>
+<ol>
+<li>
+<p><code><a href="../type_traits/decay.html">decay</a></code>を通した<code>a, b</code>の型が異なる場合、呼び出しは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>（コンパイルエラー）</p>
+</li>
+<li>
+<p><code>std::strong_order</code>（本関数オブジェクト）の宣言を含まないコンテキストで、<code><a href="strong_ordering.html">strong_ordering</a>(strong_order(a, b))</code>が呼び出し可能ならば<code>strong_ordering(strong_order(a, b))</code></p>
+</li>
+<li>
+<p><code><a href="../type_traits/decay.html">decay</a></code>を通した<code>a, b</code>の型<code>T</code>が浮動小数点型の場合、<code>T</code>の組み込みの比較演算子による順序と一貫する<code><a href="strong_ordering.html">strong_ordering</a></code>の値を返す。<br />
+   さらに、<code><a href="../limits/numeric_limits/is_iec559.html">numeric_limits&lt;T&gt;::is_iec559</a>== true</code>の場合、その順序はISO/IEC/IEEE 60559の<code>totalOrder</code>による全順序と一致する。</p>
+</li>
+<li>
+<p><code><a href="strong_ordering.html">strong_ordering</a>(a &lt;=&gt; b)</code>が呼び出し可能ならば<code>strong_ordering(a &lt;=&gt; b)</code></p>
+</li>
+<li>
+<p>それ以外の場合、呼び出しは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>。</p>
+</li>
+</ol>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p>呼び出しが<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../implementation-compliance.html#dfn-well-formed">適格</a>ならば、比較結果を表す<code><a href="strong_ordering.html">strong_ordering</a></code>の値。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
+<p>上記「効果」節のそれぞれのケース毎に</p>
+<ol>
+<li>--</li>
+<li>呼び出される<code>strong_order(a, b)</code>およびその<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の<code>strong_ordering</code>への変換が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出するかに従う。</li>
+<li>投げない。</li>
+<li>呼び出される<code>a &lt;=&gt; b</code>およびその<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の<code>strong_ordering</code>への変換が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出するかに従う。</li>
+</ol>
+<h2>定数式に評価される条件</h2>
+<p>上記「効果」節のそれぞれのケース毎に</p>
+<ol>
+<li>--</li>
+<li>呼び出される<code>strong_order(a, b)</code>およびその<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の<code>strong_ordering</code>への変換が定数評価可能であるかに従う。</li>
+<li>引数<code>a, b</code>が定数（式）ならば、常に定数評価可能</li>
+<li>呼び出される<code>a &lt;=&gt; b</code>およびその<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の<code>strong_ordering</code>への変換が定数評価可能であるかに従う。</li>
+</ol>
+<h2>カスタマイゼーションポイント</h2>
+<p>上記「効果」節2,4のケースでは、<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>の<code>strong_order()</code>もしくは<code>&lt;=&gt;</code>演算子を定義しておくことによって実行される比較をカスタマイズすることができる。</p>
+<ol>
+<li>--</li>
+<li>引数<code>a, b</code>の型<code>T</code>と同じ名前空間、もしくは<code>T</code>の定義内で<code>friend</code>関数として<code>strong_order()</code>を定義しておく。</li>
+<li>--</li>
+<li>引数<code>a, b</code>の型<code>T</code>に対して、使用可能な<code>&lt;=&gt;</code>演算子を定義しておく。</li>
+</ol>
+<p>ただし、どちらのケースもその<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型は<code><a href="strong_ordering.html">strong_ordering</a></code>に変換可能でなければならない。</p>
+<h2>備考</h2>
+<p>ISO/IEC/IEEE 60559の<code>totalOrder</code>による全順序では、<code>±0</code>や内部表現の異なる<code>NaN</code>を区別した上で順序付けされる。すなわち、本関数オブジェクトによる浮動小数点数の比較においてはこれらの値を識別することができる。</p>
+<p>その順序付けは以下のようになる。</p>
+<p>{負のquiet NaN} <code>&lt;</code> {負のsignaling NaN} <code>&lt;</code> {負の数} <code>&lt; -0.0 &lt; +0.0 &lt;</code> {正の数} <code>&lt;</code> {正のsignaling NaN} <code>&lt;</code> {正のquiet NaN}</p>
+<p>それぞれの種類の<code>NaN</code>の集合内では、<code>NaN</code>のペイロード（先頭ビットを除いた仮数部）の表現によって順序付けされる。</p>
+<h2>例</h2>
+<p><div class="yata" id="f7dea320ba667daae3e2d2d958b6c93d8aa95032"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../compare.html">&lt;compare&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../limits.html">&lt;limits&gt;</a></span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">no_spaceship</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">n1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">n2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">n3</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+  <span class="k">friend</span> <span class="k">auto</span> <span class="nf"><span style="color:#ff0000">strong_order</span></span><span class="p">(</span><span class="k">const</span> <span class="n">no_spaceship</span><span class="o">&amp;</span> <span class="n">lhs</span><span class="p">,</span> <span class="k">const</span> <span class="n">no_spaceship</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">std</span><span class="o">::</span><span class="n"><a href="strong_ordering.html">strong_ordering</a></span> <span class="p">{</span>
+    <span class="c1">//1 -&gt; 3 -&gt; 2の順で比較</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="n">cmp</span> <span class="o">=</span> <span class="n">lhs</span><span class="p">.</span><span class="n">n1</span> <span class="o">&lt;=&gt;</span> <span class="n">rhs</span><span class="p">.</span><span class="n">n1</span><span class="p">;</span> <span class="n">cmp</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="n">cmp</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="n">cmp</span> <span class="o">=</span> <span class="n">lhs</span><span class="p">.</span><span class="n">n3</span> <span class="o">&lt;=&gt;</span> <span class="n">rhs</span><span class="p">.</span><span class="n">n3</span><span class="p">;</span> <span class="n">cmp</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="n">cmp</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">lhs</span><span class="p">.</span><span class="n">n2</span> <span class="o">&lt;=&gt;</span> <span class="n">rhs</span><span class="p">.</span><span class="n">n2</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">have_spaceship</span> <span class="p">{</span>  
+  <span class="kt">int</span> <span class="n">n1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">n2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">n3</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+  <span class="k">friend</span> <span class="k">auto</span> <span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">have_spaceship</span><span class="o">&amp;</span> <span class="n">lhs</span><span class="p">,</span> <span class="k">const</span> <span class="n">have_spaceship</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">std</span><span class="o">::</span><span class="n"><a href="strong_ordering.html">strong_ordering</a></span> <span class="p">{</span>
+    <span class="c1">//宣言と逆順で比較</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="n">cmp</span> <span class="o">=</span> <span class="n">lhs</span><span class="p">.</span><span class="n">n3</span> <span class="o">&lt;=&gt;</span> <span class="n">rhs</span><span class="p">.</span><span class="n">n3</span><span class="p">;</span> <span class="n">cmp</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="n">cmp</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="n">cmp</span> <span class="o">=</span> <span class="n">lhs</span><span class="p">.</span><span class="n">n2</span> <span class="o">&lt;=&gt;</span> <span class="n">rhs</span><span class="p">.</span><span class="n">n2</span><span class="p">;</span> <span class="n">cmp</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="n">cmp</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">lhs</span><span class="p">.</span><span class="n">n1</span> <span class="o">&lt;=&gt;</span> <span class="n">rhs</span><span class="p">.</span><span class="n">n1</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ios/boolalpha.html">std::boolalpha</a></span><span class="p">;</span>
+
+  <span class="c1">//2. ユーザー定義<span style="color:#ff0000">strong_order</span>()によるカスタム比較</span>
+  <span class="n">no_spaceship</span> <span class="n">s1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="n">s2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><span style="color:#ff0000">strong_order</span></span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+
+  <span class="c1">//3. 浮動小数点数の比較</span>
+  <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">qnan</span> <span class="o">=</span> <span class="n"><a href="../limits/numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;::</span><span class="n">quiet_NaN</span><span class="p">();</span>
+  <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">snan</span> <span class="o">=</span> <span class="n"><a href="../limits/numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;::</span><span class="n">signaling_NaN</span><span class="p">();</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><span style="color:#ff0000">strong_order</span></span><span class="p">(</span><span class="o">-</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">+</span><span class="mf">0.0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><span style="color:#ff0000">strong_order</span></span><span class="p">(</span><span class="o">-</span><span class="n">qnan</span><span class="p">,</span> <span class="o">+</span><span class="n">qnan</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><span style="color:#ff0000">strong_order</span></span><span class="p">(</span><span class="o">+</span><span class="n">snan</span><span class="p">,</span> <span class="o">+</span><span class="n">qnan</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><span style="color:#ff0000">strong_order</span></span><span class="p">(</span><span class="o">-</span><span class="n">qnan</span><span class="p">,</span> <span class="o">-</span><span class="n">snan</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+
+  <span class="c1">//4. ユーザー定義&lt;=&gt;によるカスタム比較</span>
+  <span class="n">have_spaceship</span> <span class="n">s3</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="n">s4</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><span style="color:#ff0000">strong_order</span></span><span class="p">(</span><span class="n">s3</span><span class="p">,</span> <span class="n">s4</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+
+  <span class="c1">//4. 組み込み型の比較</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><span style="color:#ff0000">strong_order</span></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>true
+
+true
+true
+true
+true
+
+false
+
+true
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++20</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 10.1(浮動小数点数の比較が未実装) <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><a href="../../lang/cpp20/consistent_comparison.html">C++20 <code>&lt;=&gt;</code>/<code>==</code>による比較演算子の自動定義</a></li>
+<li><code><a href="strong_ordering.html">strong_ordering</a></code></li>
+<li><code><a href="compare_strong_order_fallback.html">compare_strong_order_fallback</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://wg21.link/p0768" target="_blank">P0768R1 Library support for the spaceship (comparison) operator</a></li>
+<li><a href="http://wg21.link/p1614" target="_blank">P1614R2 The Mothership has Landed (Adding &lt;=&gt; to the Library)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/IEEE_754#Total-ordering_predicate" target="_blank">IEEE 754 - wikipedia</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1605.pdf" target="_blank">Floating-point extensions for C — Part 1: Binary floating-point arithmetic - WG14 N1605</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
