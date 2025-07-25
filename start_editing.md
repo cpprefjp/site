@@ -38,11 +38,28 @@ buildアクションで、MarkdownからHTMLへの変換と、GitHub Pagesへの
 
 
 #### 自動テスト
-- 禁止文字の検出 (detect forbidden charactersアクション)
-    - ソフトハイフンやゼロ幅スペースなどの禁止された文字が使用されている場合に、エラーが発生する
-- 内部リンクの誤り検出 (inner link checkアクション)
-    - サイト内のリンクが存在しない、または存在しているのに.nolinkを指定している場合にエラーが発生する
-    - [GitHub Actionsの実行ログ](https://github.com/cpprefjp/site/actions/workflows/check.yml)で、どのページのどのリンクが不正かがわかるので、それを修正すること
+- checkアクション
+    - 禁止文字の検出 (detect forbidden characters)
+        - ソフトハイフンやゼロ幅スペースなどの禁止された文字が使用されている場合に、エラーが発生する
+    - 内部リンクの誤り検出 (inner link check)
+        - サイト内のリンクが存在しない、または存在しているのに.nolinkを指定している場合にエラーが発生する
+        - [GitHub Actionsの実行ログ](https://github.com/cpprefjp/site/actions/workflows/check.yml)で、どのページのどのリンクが不正かがわかるので、それを修正すること
+    - コード修飾の誤り検出 (code qualify check)
+        - コードブロック中のコードを修飾しているのに、その修飾対象がない場合に、エラーが発生する
+        - [GitHub Actionsの実行ログ](https://github.com/cpprefjp/site/actions/workflows/check.yml)で、どのページのどのコード修飾が不正かがわかるので、それを修正すること
+    - グローバル修飾リストの誤り検出 (global qualify check)
+        - `GLOBAL_QUALIFY_LIST.txt`に登録されている識別子のうち、`PRIMARY_OVERLOAD_SPECIALIZATION_LIST.txt`に登録されているプライマリ宣言へのリンク以外が登録されている場合に、エラーが発生する
+    - 所属ヘッダメタ情報の誤り検出 (meta header check)
+        - `[meta header]`または`[meta module]`指定が誤っている（ディレクトリ階層と一致しない）場合に、エラーが発生する
+        - 導入経緯は [PR#1204](https://github.com/cpprefjp/site/issues/1204) を参照
+    - NGワードの検出 (ngword check)
+        - 日本語入力環境における典型的な誤入力・誤変換をエラーとして検知する
+        - 具体的な対象ワードリストは[ngword_check.py](https://github.com/cpprefjp/site/blob/master/.github/workflows/script/ngword_check.py)を参照
+    - 用語の誤った使い方を検出 (defined word check)
+        - 用語の許可した使い方、許可しない使い方を列挙し、許可した使い方以外の使われ方をエラーとして検出する
+        - 具体的な用語、許可した使い方、許可しない使い方は、[defined_word_check.py](https://github.com/cpprefjp/site/blob/master/.github/workflows/script/defined_word_check.py)を参照
+    - 表示崩れする書き方を検出 (display error check)
+        - 箇条書きのインデントが4の倍数でない行をエラーとして検出する
 - 外部リンク切れを検出 (outer link checkアクション)
     - 日本時間で日曜日の23:30に実行される
     - 外部リンクのページにアクセスできない (ページが消滅したか、一時的にアクセスできない、などの理由) 場合にエラーとなる
@@ -50,20 +67,6 @@ buildアクションで、MarkdownからHTMLへの変換と、GitHub Pagesへの
     - ページが消滅した場合は、代替となるものがあれば差し替え、なければInternet Archiveに変更する
     - 一時的にアクセスできない場合は、時間を置いてアクセスできるようになったらissueを閉じる
     - 海外からのアクセス (GitHub Actions) を拒否しているページもあるため、そのようなページは個別にチェックから外す ([link_check.py](https://github.com/cpprefjp/site/blob/master/.github/workflows/script/link_check.py)の`IGNORE_LIST`に追加する)
-- コード修飾の誤り検出 (code qualify checkアクション)
-    - コードブロック中のコードを修飾しているのに、その修飾対象がない場合に、エラーが発生する
-    - [GitHub Actionsの実行ログ](https://github.com/cpprefjp/site/actions/workflows/check.yml)で、どのページのどのコード修飾が不正かがわかるので、それを修正すること
-- 所属ヘッダメタ情報の誤り検出 (meta header checkアクション)
-    - `[meta header]`または`[meta module]`指定が誤っている（ディレクトリ階層と一致しない）場合に、エラーが発生する
-    - 導入経緯は [PR#1204](https://github.com/cpprefjp/site/issues/1204) を参照
-- NGワードの検出 (ngword checkアクション)
-    - 日本語入力環境における典型的な誤入力・誤変換をエラーとして検知する
-    - 具体的な対象ワードリストは[ngword_check.py](https://github.com/cpprefjp/site/blob/master/.github/workflows/script/ngword_check.py)を参照
-- 用語の誤った使い方を検出 (defined word checkアクション)
-    - 用語の許可した使い方、許可しない使い方を列挙し、許可した使い方以外の使われ方をエラーとして検出する
-    - 具体的な用語、許可した使い方、許可しない使い方は、[defined_word_check.py](https://github.com/cpprefjp/site/blob/master/.github/workflows/script/defined_word_check.py)を参照
-- 表示崩れする書き方を検出 (display error checkアクション)
-    - 箇条書きのインデントが4の倍数でない行をエラーとして検出する
 
 
 ### 自動反映ツール

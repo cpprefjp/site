@@ -1,0 +1,159 @@
+# オーバーロード・特殊化されている関数・クラスのプライマリ宣言を列挙する。
+# これら識別子のうち、ここで定義されているリンク以外は、GLOBAL_QUALIFY_LIST.txtに登録してはならない。
+# このファイルへの登録ルールとしては、
+# 1. ヘッダごとにアルファベット順
+# 2. ただし、長い名前を優先して登録する
+# 3. プライマリ宣言をどれかひとつに特定できない場合、[link]のように空リンクにする
+
+# <algorithm>
+* std::erase_if[link /reference/algorithm/erase_if.md]
+    # dequeとflat_mapとflat_setとforward_listとlistとmapとsetとstringとunordered_mapとunordered_setとvectorでオーバーロードされている
+* std::erase[link /reference/algorithm/erase.md]
+    # dequeとforward_listとlistとstringとvectorでオーバーロードされている
+* std::iter_swap[link /reference/algorithm/iter_swap.md]
+    # iteratorにもある
+* std::swap[link /reference/algorithm/swap.md]
+
+# <atomic>
+* std::atomic_compare_exchange_strong_explicit[link /reference/atomic/atomic_compare_exchange_strong_explicit.md]
+    # memoryでオーバーロードされている
+* std::atomic_compare_exchange_strong[link /reference/atomic/atomic_compare_exchange_strong.md]
+    # memoryでオーバーロードされている
+* std::atomic_compare_exchange_weak_explicit[link /reference/atomic/atomic_compare_exchange_weak_explicit.md]
+* std::atomic_compare_exchange_weak[link /reference/atomic/atomic_compare_exchange_weak.md]
+* std::atomic_exchange[link /reference/atomic/atomic_exchange.md]
+* std::atomic_exchange_explicit[link /reference/atomic/atomic_exchange_explicit.md]
+* std::atomic_is_lock_free[link /reference/atomic/atomic_is_lock_free.md]
+* std::atomic_load_explicit[link /reference/atomic/atomic_load_explicit.md]
+* std::atomic_load[link /reference/atomic/atomic_load.md]
+* std::atomic_store_explicit[link /reference/atomic/atomic_store_explicit.md]
+* std::atomic_store[link /reference/atomic/atomic_store.md]
+* std::atomic[link /reference/atomic/atomic.md]
+
+# <cctype>
+* std::tolower[link /reference/cctype/tolower.md]
+* std::toupper[link /reference/cctype/toupper.md]
+
+# <cmath>
+* std::acosh[link /reference/cmath/acosh.md]
+    # complexでオーバーロードされている
+* std::acos[link /reference/cmath/acos.md]
+    # valarrayとcomplexでオーバーロードされている
+* std::asinh[link /reference/cmath/asinh.md]
+    # complexでオーバーロードされている
+* std::asin[link /reference/cmath/asin.md]
+    # valarrayとcomplexでオーバーロードされている
+* std::atan2[link /reference/cmath/atan2.md]
+    # valarrayでオーバーロードされている
+* std::atanh[link /reference/cmath/atanh.md]
+    # complexでオーバーロードされている
+* std::atan (valarrayとcomplexでオーバーロードされている。プライマリはcmath)
+* std::ceil[link /reference/cmath/ceil.md]
+    # chronoでオーバーロードされている
+* std::cosh[link /reference/cmath/cosh.md]
+    # valarrayとcomplexでオーバーロードされている
+* std::cos[link /reference/cmath/cos.md]
+    # valarrayとcomplexでオーバーロードされている
+* std::exp[link /reference/cmath/exp.md]
+    # valarrayとcomplexでオーバーロードされている
+* std::floor[link /reference/cmath/floor.md]
+    # chronoでオーバーロードされている
+* std::log10[link /reference/cmath/log10.md]
+    # valarrayとcomplexでオーバーロードされている
+* std::log[link /reference/cmath/log.md]
+    # valarrayとcomplexでオーバーロードされている
+* std::pow[link /reference/cmath/pow.md]
+    # valarrayとcomplexでオーバーロードされている
+* std::round[link /reference/cmath/round.md]
+    # chronoでオーバーロードされている
+* std::sinh[link /reference/cmath/sinh.md]
+    # complexでオーバーロードされている
+* std::sin[link /reference/cmath/sinh.md]
+    # valarrayとcomplexでオーバーロードされている
+* std::sqrt[link /reference/cmath/sqrt.md]
+    # valarrayとcomplexでオーバーロードされている
+* std::tanh[link /reference/cmath/tanh.md]
+    # valarrayとcomplexでオーバーロードされている
+* std::tan[link /reference/cmath/tan.md]
+    # valarrayとcomplexでオーバーロードされている
+
+# <cstdio>
+* std::remove[link /reference/cstdio/remove.md]
+    # algorithmでオーバーロードされている
+
+# <cstdlib>
+* std::abs[link /reference/cstdlib/abs.md]
+    # cmathとvalarrayとcomplexでオーバーロードされている
+
+# <expected>
+* std::unexpected[link /reference/expected/unexpected.md]
+    # exceptionにもある。先に登録されたのはそちらだが、すでに機能削除されている
+
+# <format>
+* std::formatter (いろんなところで特殊化されている。プライマリはformat)
+* std::enable_nonlocking_formatter_optimization (chronoで特殊化されている。プライマリはformat)
+
+# <istream>
+* operator>>[link /reference/istream/basic_istream/op_istream_free.md]
+    * あちこちでオーバーロードされている
+
+# <iterator>
+    * std::begin[link /reference/iterator/begin.md]
+    * std::end[link /reference/iterator/end.md]
+
+# <memory>
+* std::uses_allocator[link /reference/memory/uses_allocator.md]
+    * flat_mapとflat_setとfutureで特殊化されている
+
+# <ostream>
+* operator<<[link /reference/ostream/basic_ostream/op_ostream_free.md]
+    * あちこちでオーバーロードされている
+
+# <print>
+* std::println[link /reference/print/println.md]
+    * ostreamでオーバーロードされている
+* std::print[link /reference/print/print.md]
+    * ostreamでオーバーロードされている
+* std::vprint_unicode[link /reference/print/vprint_unicode.md]
+    * ostreamでオーバーロードされている
+* std::vprint_nonunicode[link /reference/print/vprint_nonunicode.md]
+
+# <system_error>
+* is_error_code_enum[link /reference/system_error/is_error_code_enum.md]
+    # futureで特殊化されている
+* make_error_code[link /reference/system_error/make_error_code.md]
+    # futureでオーバーロードされている
+* make_error_condition[link /reference/system_error/make_error_condition.md]
+    # futureでオーバーロードされている
+
+# <tuple>
+* std::tuple_size[link /reference/tuple/tuple_size.md]
+    # std::arrayとstd::complexが特殊化している
+* std::tuple_element[link /reference/tuple/tuple_element.md]
+    # std::arrayとstd::complexが特殊化している
+* std::get[link /reference/tuple/get.md]
+    # std::arrayとstd::complexとstd::variantがオーバーロードしている
+
+# <type_traits>
+* std::basic_common_reference[link /reference/type_traits/basic_common_reference.md]
+    # tupleとutilityで特殊化されている
+* std::common_type[link /reference/type_traits/common_type.md]
+    # chronoで特殊化されている
+
+# <utility>
+* std::move[link /reference/utility/move.md]
+
+
+* operator==[link]
+* operator!=[link]
+* operator<=>[link]
+* operator<=[link]
+* operator<[link]
+* operator>=[link]
+* operator>[link]
+* std::sorted_equivalent_t[link]
+    # flat_mapとflat_setにある
+* std::sorted_unique_t[link]
+    # flat_mapとflat_setにある
+* std::this_thread[link]
+    # executionとthreadにある

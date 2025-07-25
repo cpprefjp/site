@@ -9,6 +9,7 @@ jobs:
       matrix:
         item:
           - {name: code_qualify}
+          - {name: global_qualify}
           - {name: defined_word}
           - {name: display_error}
           - {name: meta_header}

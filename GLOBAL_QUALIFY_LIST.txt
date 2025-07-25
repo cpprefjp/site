@@ -37,6 +37,7 @@
 # 7. オーバーロードされている名前は、優先度の高いプライマリ宣言をグローバル修飾リストに登録する
 #     7.1 ライブラリごとにオーバーロード・特殊化されているものはグローバル修飾リストに登録せず、個別ページで指定する
 #         (std::begin/std::end、std::common_typeなど)
+#         プライマリ宣言されている関数・クラスの一覧は、 PRIMARY_OVERLOAD_SPECIALIZATION.txt を参照
 
 * floating-point-type[italic]
 * implementation-defined[italic]
