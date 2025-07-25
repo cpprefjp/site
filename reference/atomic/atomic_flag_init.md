@@ -2,22 +2,18 @@
 * atomic[meta header]
 * macro[meta id-type]
 * cpp11[meta cpp]
-* cpp20deprecated[meta cpp]
 
 ```cpp
 #define ATOMIC_FLAG_INIT see below
 ```
 
-この機能はC++20で非推奨となった。[`std::atomic_flag`](atomic_flag.md)クラスのデフォルトコンストラクタが値初期化するようになったため、初期化のためにこの機能を使用する必要はない。
-
-
 ## 概要
-フラグを初期化する。
+フラグをクリア状態に初期化する。
 
 このマクロは、[`atomic_flag`](atomic_flag.md)オブジェクトの初期化に使用し、フラグをクリア状態にする。静的オブジェクトに対しては、その初期化は静的に行われなければならない。
 
 
-## 非推奨の詳細 (C++20)
+## 備考
 C言語との互換性のために、`std::atomic_flag`クラスのデフォルトコンストラクタはトリビアルに定義され、初期値は未規定となっていた。そのためこの機能を介して`std::atomic_flag`オブジェクトを初期化する必要があったが、C++20からデフォルトコンストラクタが値初期化を行うようになったため、初期化のためにこの機能を使用する必要はなくなった。
 
 
@@ -59,3 +55,4 @@ false
 
 ## 参照
 - [P0883R2 Fixing Atomic Initialization, Rev2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0883r2.pdf)
+- [LWG Issue 3659. Consider `ATOMIC_FLAG_INIT` undeprecation](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#3659)
