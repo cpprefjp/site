@@ -6,13 +6,8 @@
 # 3. プライマリ宣言をどれかひとつに特定できない場合、[link]のように空リンクにする
 
 # <algorithm>
-* std::erase_if[link /reference/algorithm/erase_if.md]
-    # dequeとflat_mapとflat_setとforward_listとlistとmapとsetとstringとunordered_mapとunordered_setとvectorでオーバーロードされている
-* std::erase[link /reference/algorithm/erase.md]
-    # dequeとforward_listとlistとstringとvectorでオーバーロードされている
 * std::iter_swap[link /reference/algorithm/iter_swap.md]
     # iteratorにもある
-* std::swap[link /reference/algorithm/swap.md]
 
 # <atomic>
 * std::atomic_compare_exchange_strong_explicit[link /reference/atomic/atomic_compare_exchange_strong_explicit.md]
@@ -131,7 +126,7 @@
     # std::arrayとstd::complexが特殊化している
 * std::tuple_element[link /reference/tuple/tuple_element.md]
     # std::arrayとstd::complexが特殊化している
-* std::get[link /reference/tuple/get.md]
+* std::get[link /reference/tuple/tuple/get.md]
     # std::arrayとstd::complexとstd::variantがオーバーロードしている
 
 # <type_traits>
@@ -142,6 +137,7 @@
 
 # <utility>
 * std::move[link /reference/utility/move.md]
+* std::swap[link /reference/utility/swap.md]
 
 
 * operator==[link]
@@ -151,6 +147,10 @@
 * operator<[link]
 * operator>=[link]
 * operator>[link]
+* std::erase_if[link]
+    # dequeとflat_mapとflat_setとforward_listとlistとmapとsetとstringとunordered_mapとunordered_setとvectorでオーバーロードされている
+* std::erase[link]
+    # dequeとforward_listとlistとstringとvectorでオーバーロードされている
 * std::sorted_equivalent_t[link]
     # flat_mapとflat_setにある
 * std::sorted_unique_t[link]
