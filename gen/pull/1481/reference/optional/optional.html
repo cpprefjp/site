@@ -1,0 +1,602 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>optional - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,optional,std,class template,cpp17
+">
+        <meta name="title" content="optional - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="optional - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="optional - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/optional/optional.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`optional`クラスは、任意の型`T`の値を有効値として、あらゆる型に共通の無効値状態を表現できる型である。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="optional - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/optional/optional.html" />
+        <meta name="twitter:description" content="`optional`クラスは、任意の型`T`の値を有効値として、あらゆる型に共通の無効値状態を表現できる型である。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;optional&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;9a27469119d04e3872eb45ea3b0c032ed43a6503&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;optional&gt;\n\n// \u9664\u7b97\u3092\u3059\u308b\u95a2\u6570\u3002\n// \u30bc\u30ed\u5272\u308a\u3092\u8a66\u307f\u305f\u5834\u5408\u3001\u7121\u52b9\u5024\u304c\u8fd4\u308b\nstd::optional&lt;int&gt; safe_divide(int a, int b)\n{\n  if (b == 0)\n    return std::nullopt;\n\n  return a / b;\n}\n\nint main()\n{\n  // 9/3\u3092\u8a08\u7b97\u3059\u308b\n  std::optional&lt;int&gt; result1 = safe_divide(9, 3);\n  if (result1) { // \u8a08\u7b97\u306b\u6210\u529f\u3057\u305f\u5834\u5408\u3001\u6709\u52b9\u5024\u304c\u8fd4\u308b\n    int x = result1.value(); // \u6709\u52b9\u5024\u3092\u53d6\u308a\u51fa\u3059\n    std::cout &lt;&lt; x &lt;&lt; std::endl;\n  }\n\n  // 3/0\u306e\u8a08\u7b97\u3092\u8a66\u307f\u308b\n  std::optional&lt;int&gt; result2 = safe_divide(3, 0);\n  if (!result2) { // \u8a08\u7b97\u306b\u5931\u6557\u3057\u305f\u5834\u5408\u3001\u7121\u52b9\u5024\u304c\u8fd4\u308b\n    std::cout &lt;&lt; \&#34;error\&#34; &lt;&lt; std::endl;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;optional&#34;, &#34;optional&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/optional.html" itemprop="url">
+              
+                <span itemprop="name">optional</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">optional</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-06-11T13:45:38">
+        2024年06月11日 13時45分38秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/optional/optional.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/optional/optional.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;optional&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">optional</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <span class="k">class</span> <span class="nc">optional</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>optional</code>クラスは、任意の型<code>T</code>の値を有効値として、あらゆる型に共通の無効値状態を表現できる型である。</p>
+<p>このクラスには、大きく2つの用途がある：</p>
+<ol>
+<li>オブジェクトの初期化タイミングを遅延させる</li>
+<li>エラー報告のために、あらゆる型に共通の無効値表現を持たせる</li>
+</ol>
+<p>オブジェクトは定義した時点で初期化が行われるが、<code>optional</code>クラスはその初期化タイミングを遅延させるために使用できる。この用途には、<code><a href="../memory/shared_ptr.html">std::shared_ptr</a></code>のようなスマートポインタを使用することもできるが、このクラスは動的メモリ確保を行わないため、リソース管理ではなく初期化タイミングを遅延させるだけであれば、このクラスの方が適している。</p>
+<p>エラー報告について、このクラスを使用しない場合、従来の方法として有効値と無効値は、以下のように表現されていた：</p>
+<ul>
+<li><code>int</code>型の場合、0以上の値を有効な値とし、エラーが起きたら負数を代入する</li>
+<li>ポインタの場合、オブジェクトへのポインタを有効な値とし、どこも指さないヌルポインタを無効値として代入する</li>
+</ul>
+<p>このような有効値と無効値の表現は、変数単位もしくはAPI・ライブラリ単位での仕様である。<code>optional</code>クラスでは、<code><a href="nullopt_t.html">nullopt</a></code>という特殊な定数を無効値とし、あらゆる型に共通の無効状態を持たせられるようになっている。</p>
+<p>このクラスは、ヒープからの動的メモリ確保を行わない。実装は配置newや<code><a href="../type_traits/aligned_storage.html">std::aligned_storage</a></code>のような機能によって、スタック領域のメモリのみを使用する。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
+<p>型<code>T</code>が以下のいずれかに該当してはならない：</p>
+<ul>
+<li>参照型</li>
+<li>(<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>された)<code><a href="../utility/in_place_t.html">std::in_place_t</a></code></li>
+<li>(<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>された)<code><a href="nullopt_t.html">std::nullopt_t</a></code></li>
+</ul>
+<p>また、型<code>T</code>は<code><a href="../concepts/destructible.html">std::destructible</a></code>要件を満たすこと。</p>
+<h2>備考</h2>
+<p>このクラスの前身となった<a href="https://boost.org/libs/optional" target="_blank">Boost Optional Library</a>では、<code>optional&lt;int&amp;&gt;</code>のように左辺値参照を要素型とした場合に、無効値の領域を最適化する機能が入っていた。</p>
+<p>標準ライブラリの<code>optional</code>クラスには現在、参照を持たせることはできない。</p>
+<h2>メンバ関数</h2>
+<h3>構築・破棄</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="optional/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="optional/op_destructor.html">(destructor)</a></code></td>
+<td>デストラクタ</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h3>代入</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="optional/op_assign.html">operator=</a></code></td>
+<td>代入演算子</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="optional/emplace.html">emplace</a></code></td>
+<td>要素型のコンストラクタ引数から直接構築する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="optional/swap.html">swap</a></code></td>
+<td>他の<code>optional</code>オブジェクトとデータを入れ替える</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="optional/reset.html">reset</a></code></td>
+<td>有効値を保持していない状態にする</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h3>値の観測</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="optional/op_deref.html">operator*</a></code></td>
+<td>間接参照</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="optional/op_arrow.html">operator-&gt;</a></code></td>
+<td>メンバアクセス</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="optional/op_bool.html">operator bool</a></code></td>
+<td>有効な値を保持しているかを判定する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="optional/has_value.html">has_value</a></code></td>
+<td>有効な値を保持しているかを判定する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="optional/value.html">value</a></code></td>
+<td>有効値を取得する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="optional/value_or.html">value_or</a></code></td>
+<td>有効値もしくは指定された無効値を取得する</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h3>モナド操作</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="optional/and_then.html">and_then</a></code></td>
+<td>有効値に対して関数を適用する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="optional/transform.html">transform</a></code></td>
+<td>有効値を変換する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="optional/or_else.html">or_else</a></code></td>
+<td>無効値に対して関数を適用する</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>value_type</code></td>
+<td>要素型<code>T</code></td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h2>非メンバ関数</h2>
+<h3>ヘルパ関数</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="make_optional.html">make_optional</a></code></td>
+<td>有効な値を保持する<code>optional</code>オブジェクトを構築する</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h3>値の入れ替え</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="optional/swap_free.html">swap</a></code></td>
+<td>2つの<code>optional</code>オブジェクトを入れ替える</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h3>比較演算子</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="optional/op_equal.html">operator==</a></code></td>
+<td>等値比較</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="optional/op_not_equal.html">operator!=</a></code></td>
+<td>非等値比較</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="optional/op_compare_3way.html">operator&lt;=&gt;</a></code></td>
+<td>三方比較</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code><a href="optional/op_less.html">operator&lt;</a></code></td>
+<td>左辺が右辺より小さいかを判定する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="optional/op_less_equal.html">operator&lt;=</a></code></td>
+<td>左辺が右辺以下かを判定する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="optional/op_greater.html">operator&gt;</a></code></td>
+<td>左辺が右辺より大きいかを判定する</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code><a href="optional/op_greater_equal.html">operator&gt;=</a></code></td>
+<td>左辺が右辺以上かを判定する</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h2>推論補助</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="optional/op_deduction_guide.html">(deduction_guide)</a></code></td>
+<td>クラステンプレートの推論補助</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h2>ハッシュサポート</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>template &lt;class T&gt; struct hash;</code></td>
+<td><code>hash</code>クラスの先行宣言</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td><code>template &lt;class T&gt; struct hash&lt;optional&lt;T&gt;&gt;;</code></td>
+<td><code>hash</code>クラスの<code>optional</code>に対する特殊化</td>
+<td>C++17</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<p><div class="yata" id="9a27469119d04e3872eb45ea3b0c032ed43a6503"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../optional.html">&lt;optional&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// 除算をする関数。</span>
+<span class="c1">// ゼロ割りを試みた場合、無効値が返る</span>
+<span class="n"><a href="">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">safe_divide</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n"><a href="nullopt_t.html">std::nullopt</a></span><span class="p">;</span>
+
+  <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// 9/3を計算する</span>
+  <span class="n"><a href="">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">safe_divide</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+  <span class="n"><a href="optional/op_bool.html">if (result1)</a></span> <span class="p">{</span> <span class="c1">// 計算に成功した場合、有効値が返る</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n"><a href="optional/value.html">result1.value()</a></span><span class="p">;</span> <span class="c1">// 有効値を取り出す</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 3/0の計算を試みる</span>
+  <span class="n"><a href="">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">safe_divide</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="n"><a href="optional/op_bool.html">if (!result2)</a></span> <span class="p">{</span> <span class="c1">// 計算に失敗した場合、無効値が返る</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"error"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>3
+error
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++17</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 4.0.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 7.2 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1878.htm" target="_blank">N1878 A proposal to add an utility class to represent optional objects (Revision 1)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3406.html" target="_blank">N3406 A proposal to add a utility class to represent optional objects (Revision 2)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3527.html" target="_blank">N3527 A proposal to add a utility class to represent optional objects (Revision 3)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3672.html" target="_blank">N3672 A proposal to add a utility class to represent optional objects (Revision 4)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3793.html" target="_blank">N3793 A proposal to add a utility class to represent optional objects (Revision 5)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3966.html" target="_blank">N3966 Fixes for optional objects</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3982.html" target="_blank">N3982 Rvalue reference overloads for optional</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4480.html" target="_blank">N4480 Programming Languages — C++ Extensions for Library Fundamentals</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r0.html" target="_blank">P0220R0 Adopt Library Fundamentals TS for C++17</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r1.html" target="_blank">P0220R1 Adopt Library Fundamentals V1 TS Components for C++17 (R1)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0032r0.pdf" target="_blank">P0032R0 Homogeneous interface for <code>variant</code>, <code>any</code> and <code>optional</code></a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0032r1.pdf" target="_blank">P0032R1 Homogeneous interface for <code>variant</code>, <code>any</code> and <code>optional</code> (Revision 1)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0032r2.pdf" target="_blank">P0032R2 Homogeneous interface for <code>variant</code>, <code>any</code> and <code>optional</code> (Revision 2)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0032r3.pdf" target="_blank">P0032R3 Homogeneous interface for <code>variant</code>, <code>any</code> and <code>optional</code> (Revision 3)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0307r0.pdf" target="_blank">P0307R0 Making Optional Greater Equal Again</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0307r2.pdf" target="_blank">P0307R2 Making Optional Greater Equal Again</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0504r0.html" target="_blank">P0504R0 Revisiting in-place tag types for <code>any</code>/<code>optional</code>/<code>variant</code></a></li>
+<li><a href="https://wg21.cmeerw.net/lwg/issue3196" target="_blank">LWG Issue 3196. <code>std::optional&lt;T&gt;</code> is ill-formed is <code>T</code> is an array</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0798r8.html" target="_blank">P0798R8 Monadic operations for std::optional</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

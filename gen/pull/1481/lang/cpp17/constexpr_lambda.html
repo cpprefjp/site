@@ -1,0 +1,392 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>constexpr ラムダ [P0170R1] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp17
+">
+        <meta name="title" content="constexpr ラムダ [P0170R1] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="constexpr ラムダ [P0170R1] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="constexpr ラムダ [P0170R1] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp17/constexpr_lambda.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="constexpr ラムダ [P0170R1] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp17/constexpr_lambda.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;dcceb5149e600e6968f8c59de5e49cb06a4dc79d&#34;, &#34;source&#34;: &#34;constexpr int add_one(int n){\n  // n\u304c\u30b3\u30f3\u30d1\u30a4\u30eb\u6642\u5b9a\u6570\u306a\u3089\u30e9\u30e0\u30c0\u5f0f\u3092constexpr\u306e\u6587\u8108\u3067\u4f7f\u3048\u308b\n  return [n]{ return n + 1; }();\n}\n\nint main(){\n  static_assert( add_one(1) == 2 );\n}\n&#34;}, {&#34;id&#34;: &#34;ef15389ee4115425d7d6fd3ad863d9b315d5aea9&#34;, &#34;source&#34;: &#34;constexpr auto add_one(int n){\n  // n\u304c\u30b3\u30f3\u30d1\u30a4\u30eb\u6642\u5b9a\u6570\u306a\u3089\u30e9\u30e0\u30c0\u5f0f\u306f\u30ea\u30c6\u30e9\u30eb\u578b\n  auto f = [n]{ return n + 1; };\n  // n\u304c\u30b3\u30f3\u30d1\u30a4\u30eb\u6642\u5b9a\u6570\u306a\u3089f\u306f\u30ea\u30c6\u30e9\u30eb\u578b\u306a\u306e\u3067g\u3082\u30ea\u30c6\u30e9\u30eb\u578b\n  auto g = [f]{ return f(); };\n  return g;\n}\n\nint main(){\n  static_assert( add_one(1)() == 2 );\n}\n&#34;}, {&#34;id&#34;: &#34;0521676aa11e954232e629f21df1784147ce2197&#34;, &#34;source&#34;: &#34;int main(){\n  // \u30e9\u30e0\u30c0\u5f0f\u306bconstexpr\u3092\u3064\u3051\u308b\u3053\u3068\u304c\u3067\u304d\u308b\n  auto f1 = []() constexpr {};\n  // OK\n  auto f2 = []() mutable constexpr {};\n  // \u3053\u308c\u3082OK\n  auto f3 = []() constexpr mutable {};\n}\n&#34;}, {&#34;id&#34;: &#34;213a61b452f0ecf941c9f45caffcc05cd335561f&#34;, &#34;source&#34;: &#34;int main(){\n  auto twice = [](int n){ return n*2; };\n  // twice\u306eoperator()\u306f\u81ea\u52d5\u7684\u306bconstexpr\u6307\u5b9a\u3055\u308c\u3066\u3044\u308b\u306e\u3067OK\n  constexpr int x = twice(2);\n}\n&#34;}, {&#34;id&#34;: &#34;75b904aa6208588836170f04cd2dd6c51fd792f5&#34;, &#34;source&#34;: &#34;int main(){\n  auto twice = [](int n){ return n*2; };\n  constexpr int (*func_pointer_to_twice)(int) = twice;\n  static_assert(func_pointer_to_twice(2) == 4);\n}\n&#34;}, {&#34;id&#34;: &#34;8e75a2d039a4d4430a7d0a3b4386abef90dc043e&#34;, &#34;source&#34;: &#34;#include &lt;array&gt;\nint main(){\n  // static_assert\u3067\u3082\u4f7f\u3048\u308b\u3088\u3046\u306b\u306a\u3063\u305f\n  static_assert([](int a, int b){ return a + b; }(1, 2) == 3);\n\n  // \u3061\u3087\u3063\u3068\u8907\u96d1\u306aconstexpr\u5909\u6570\u306e\u521d\u671f\u5316\u306b\u3082\u4f7f\u3048\u308b\n  constexpr auto arr = []{\n    std::array&lt;int,100&gt; a{};\n    int i{};\n    for(auto&amp; e: a) e = ++i;\n    return a;\n  }();\n\n  static_assert(arr[99] == 100);\n}\n&#34;}, {&#34;id&#34;: &#34;5d91cbd17af3aa144aa0c3e678d44df727f9fa49&#34;, &#34;source&#34;: &#34;int main(){\n  auto fact_impl = [=](auto fac, unsigned n) {\n    if (n==0) return 1u;\n    return n * fac(fac, n - 1);\n  };\n  auto factorial = [=](unsigned n) {\n    return fact_impl(fact_impl, n);\n  };\n\n  constexpr int value = factorial(4);\n  static_assert(value == 24);\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp17&#34;, &#34;constexpr_lambda&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp17.html" itemprop="url">
+              
+                <span itemprop="name">C++17</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">constexpr ラムダ [P0170R1]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-04-20T05:50:30">
+        2025年04月20日 05時50分30秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">tshino</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp17/constexpr_lambda.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp17/constexpr_lambda.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">constexpr ラムダ [P0170R1]</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++17に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>C++17から、ラムダ式をconstexpr関数として使えるようになった。</p>
+<p>また、制限を満たすラムダ式が生成するクロージャオブジェクトがリテラルとして扱われるようになった。</p>
+<h2>仕様</h2>
+<p>ラムダ式のキャプチャが全てコンパイル時定数のとき、そのラムダ式をconstexprの文脈で使うことができる。</p>
+<p><div class="yata" id="dcceb5149e600e6968f8c59de5e49cb06a4dc79d"><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="kt">int</span> <span class="nf">add_one</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">){</span>
+  <span class="c1">// nがコンパイル時定数ならラムダ式をconstexprの文脈で使える</span>
+  <span class="k">return</span> <span class="p">[</span><span class="n">n</span><span class="p">]{</span> <span class="k">return</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="p">}();</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+  <span class="k">static_assert</span><span class="p">(</span> <span class="n">add_one</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>ラムダ式が生成するクロージャオブジェクトは、ラムダ式のキャプチャが全てコンパイル時定数のとき、リテラル型として扱われる。</p>
+<p><div class="yata" id="ef15389ee4115425d7d6fd3ad863d9b315d5aea9"><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="k">auto</span> <span class="nf">add_one</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">){</span>
+  <span class="c1">// nがコンパイル時定数ならラムダ式はリテラル型</span>
+  <span class="k">auto</span> <span class="n">f</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span><span class="p">]{</span> <span class="k">return</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="p">};</span>
+  <span class="c1">// nがコンパイル時定数ならfはリテラル型なのでgもリテラル型</span>
+  <span class="k">auto</span> <span class="n">g</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="p">]{</span> <span class="k">return</span> <span class="n">f</span><span class="p">();</span> <span class="p">};</span>
+  <span class="k">return</span> <span class="n">g</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+  <span class="k">static_assert</span><span class="p">(</span> <span class="n">add_one</span><span class="p">(</span><span class="mi">1</span><span class="p">)()</span> <span class="o">==</span> <span class="mi">2</span> <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>ラムダ式にconstexpr修飾をつけることができる。</p>
+<p>修飾を書く場所はmutableを書いていたところである。</p>
+<p>mutableとconstexprはどちらを先に書いてもよい。</p>
+<p>constexpr修飾するとラムダ式のoperator()がconstexprとして扱われる。</p>
+<p><div class="yata" id="0521676aa11e954232e629f21df1784147ce2197"><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+  <span class="c1">// ラムダ式にconstexprをつけることができる</span>
+  <span class="k">auto</span> <span class="n">f1</span> <span class="o">=</span> <span class="p">[]()</span> <span class="k">constexpr</span> <span class="p">{};</span>
+  <span class="c1">// OK</span>
+  <span class="k">auto</span> <span class="n">f2</span> <span class="o">=</span> <span class="p">[]()</span> <span class="k">mutable</span> <span class="k">constexpr</span> <span class="p">{};</span>
+  <span class="c1">// これもOK</span>
+  <span class="k">auto</span> <span class="n">f3</span> <span class="o">=</span> <span class="p">[]()</span> <span class="k">constexpr</span> <span class="k">mutable</span> <span class="p">{};</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>constexpr修飾されていないラムダ式のoperator()はラムダ式がconstexpr関数としての条件を満たす場合</p>
+<p>（つまりラムダ式のキャプチャが全てコンパイル時定数のとき）</p>
+<p>自動的にconstexpr指定される。</p>
+<p><div class="yata" id="213a61b452f0ecf941c9f45caffcc05cd335561f"><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+  <span class="k">auto</span> <span class="n">twice</span> <span class="o">=</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">n</span><span class="p">){</span> <span class="k">return</span> <span class="n">n</span><span class="o">*</span><span class="mi">2</span><span class="p">;</span> <span class="p">};</span>
+  <span class="c1">// twiceのoperator()は自動的にconstexpr指定されているのでOK</span>
+  <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">twice</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>ラムダ式の関数ポインタへの変換もコンパイル時に行える。</p>
+<p>変換された関数ポインタもコンパイル時に呼び出せる。</p>
+<p><div class="yata" id="75b904aa6208588836170f04cd2dd6c51fd792f5"><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+  <span class="k">auto</span> <span class="n">twice</span> <span class="o">=</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">n</span><span class="p">){</span> <span class="k">return</span> <span class="n">n</span><span class="o">*</span><span class="mi">2</span><span class="p">;</span> <span class="p">};</span>
+  <span class="k">constexpr</span> <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">func_pointer_to_twice</span><span class="p">)(</span><span class="kt">int</span><span class="p">)</span> <span class="o">=</span> <span class="n">twice</span><span class="p">;</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n">func_pointer_to_twice</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>constexpr lambdaはSFINAEの文脈で用いる事はできない。</p>
+<p>以下のような記述を許可してしまうとあらゆる文や式が実体化に成功するかをチェックできてしまうため、禁止されている。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// エラー、SFINAEの文脈でconstexprラムダが使われている</span>
+<span class="k">template</span> <span class="o">&lt;</span> <span class="k">typename</span> <span class="n">T</span><span class="p">,</span>
+    <span class="kt">bool</span> <span class="n">b</span> <span class="o">=</span> <span class="p">[]{</span>
+        <span class="n">T</span> <span class="n">t</span><span class="p">;</span>
+        <span class="n">t</span><span class="p">.</span><span class="n">func</span><span class="p">();</span>
+        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}()</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">f</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">T</span> <span class="n">t</span><span class="p">;</span>
+    <span class="n">t</span><span class="p">.</span><span class="n">func</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>備考</h2>
+<p><a href="feature_test_macros.html">機能テストマクロ</a>は__cpp_constexprで、値は201603。</p>
+<p>（__cpp_constexprマクロの値は、C++11では200704、C++14では201304だった。）</p>
+<h2>例</h2>
+<p><div class="yata" id="8e75a2d039a4d4430a7d0a3b4386abef90dc043e"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/array.html">&lt;array&gt;</a></span><span class="cp"></span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+  <span class="c1">// static_assertでも使えるようになった</span>
+  <span class="k">static_assert</span><span class="p">([](</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">){</span> <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span> <span class="p">}(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+
+  <span class="c1">// ちょっと複雑なconstexpr変数の初期化にも使える</span>
+  <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">[]{</span>
+    <span class="n"><a href="../../reference/array/array.html">std::array</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="mi">100</span><span class="o">&gt;</span> <span class="n">a</span><span class="p">{};</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">{};</span>
+    <span class="k">for</span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="nl">e</span><span class="p">:</span> <span class="n">a</span><span class="p">)</span> <span class="n">e</span> <span class="o">=</span> <span class="o">++</span><span class="n">i</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">a</span><span class="p">;</span>
+  <span class="p">}();</span>
+
+  <span class="k">static_assert</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">99</span><span class="p">]</span> <span class="o">==</span> <span class="mi">100</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>0
+</code></pre></p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>C++14まではラムダ式をconstexprの文脈で使うことが出来なかった。</p>
+<p>つまり、以下のようなコードが動かなかった。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="k">auto</span> <span class="n">f1</span> <span class="o">=</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">i</span><span class="p">;</span> <span class="p">};</span> <span class="c1">// error!</span>
+<span class="k">auto</span> <span class="n">f2</span> <span class="o">=</span> <span class="p">[]</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> <span class="p">};</span>
+<span class="k">constexpr</span> <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="n">f2</span><span class="p">();</span> <span class="c1">// error!</span>
+</code></pre></div>
+</p>
+<p>しかし、無名クラスを使えば似たようなことはできた。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// OK</span>
+<span class="k">constexpr</span> <span class="k">struct</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="k">operator</span><span class="p">()(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">i</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span> <span class="n">f1</span><span class="p">{};</span>
+
+<span class="k">struct</span> <span class="p">{</span>
+  <span class="k">constexpr</span> <span class="kt">int</span> <span class="k">operator</span><span class="p">()()</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span> <span class="n">f2</span><span class="p">{};</span>
+<span class="k">constexpr</span> <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="n">f2</span><span class="p">();</span> <span class="c1">// OK</span>
+</code></pre></div>
+</p>
+<p>例えば、以下のような階乗を計算するコードを書いたとする。</p>
+<p>C++17のconstexprラムダであれば定数伝播によって、
+コンパイラが <code>factorial(4)</code> を <code>24</code> に置き換えることができる。</p>
+<p><div class="yata" id="5d91cbd17af3aa144aa0c3e678d44df727f9fa49"><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+  <span class="k">auto</span> <span class="n">fact_impl</span> <span class="o">=</span> <span class="p">[</span><span class="o">=</span><span class="p">](</span><span class="k">auto</span> <span class="n">fac</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="mi">1u</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fac</span><span class="p">(</span><span class="n">fac</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="p">};</span>
+  <span class="k">auto</span> <span class="n">factorial</span> <span class="o">=</span> <span class="p">[</span><span class="o">=</span><span class="p">](</span><span class="kt">unsigned</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">fact_impl</span><span class="p">(</span><span class="n">fact_impl</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+  <span class="p">};</span>
+
+  <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n">value</span> <span class="o">==</span> <span class="mi">24</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>C++14まではラムダ式がコンパイル時に呼び出せないため、
+上記の無名クラスや他の冗長な方法でconstexprラムダをエミュレートする開発者が少なからずいた。</p>
+<p>ラムダがconstexprでないことによって不要に複雑なコードを書くことは混乱のもとであるとして、C++17にconstexprラムダが提案された。</p>
+<h2>検討されたほかの選択肢</h2>
+<p>(執筆中)</p>
+<h2>参照</h2>
+<p>(執筆中)</p>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0170r1.pdf" target="_blank">P0170R1 Wording for Constexpr Lambda</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

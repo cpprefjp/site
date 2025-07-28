@@ -1,0 +1,349 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>kill_dependency - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,atomic,std,function template,cpp11
+">
+        <meta name="title" content="kill_dependency - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="kill_dependency - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="kill_dependency - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/atomic/kill_dependency.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="データ依存性を切る。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="kill_dependency - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/atomic/kill_dependency.html" />
+        <meta name="twitter:description" content="データ依存性を切る。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;atomic&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;, &#34;cpp26deprecated&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;29f6abc6eaff55af305da4fa35ddbc18fcd92228&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;atomic&gt;\n#include &lt;thread&gt;\n\nstd::atomic&lt;int&gt; a(-1);\nint table[10];\n\nvoid f()\n{\n  table[3] = 5;\n  table[5] = -1;\n  a.store(3, std::memory_order_release);\n}\n\nint main()\n{\n  std::thread t1(f);\n\n  int r0;\n  do {\n    r0 = a.load(std::memory_order_consume);\n  } while (r0 &lt; 0);\n  std::cout &lt;&lt; r0 &lt;&lt; std::endl; // \u6b63\u3057\u304f\u540c\u671f\u5316\u3055\u308c\u3066\u304a\u308a\u3001\u5fc5\u305a\&#34;3\&#34;\u304c\u51fa\u529b\u3055\u308c\u308b\u3002\n\n  int r1 = table[r0];\n  std::cout &lt;&lt; r1 &lt;&lt; std::endl; // \u6b63\u3057\u304f\u540c\u671f\u5316\u3055\u308c\u3066\u304a\u308a\u3001\u5fc5\u305a\&#34;5\&#34;\u304c\u51fa\u529b\u3055\u308c\u308b\u3002\n\n  int r2 = table[r1];\n  std::cout &lt;&lt; r2 &lt;&lt; std::endl; // \u6b63\u3057\u304f\u540c\u671f\u5316\u3055\u308c\u3066\u304a\u308a\u3001\u5fc5\u305a\&#34;-1\&#34;\u304c\u51fa\u529b\u3055\u308c\u308b\u3002\n\n  int r3 = table[std::kill_dependency(r1)];  // data race. \u672a\u5b9a\u7fa9\u52d5\u4f5c\u3002\n  std::cout &lt;&lt; r3 &lt;&lt; std::endl; // \u6700\u9069\u5316\u306a\u3069\u306e\u7d50\u679c\u3001\&#34;-1\&#34;\u4ee5\u5916\u304c\u51fa\u529b\u3055\u308c\u308b\u53ef\u80fd\u6027\u304c\u3042\u308b\u3002\n\n\n  t1.join();\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;atomic&#34;, &#34;kill_dependency&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/atomic.html" itemprop="url">
+              
+                <span itemprop="name">atomic</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">kill_dependency</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-05-01T15:59:23">
+        2025年05月01日 15時59分23秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yoh</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/atomic/kill_dependency.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/atomic/kill_dependency.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function template</div><div class="header">&lt;atomic&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">kill_dependency</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span><span class="cpp cpp26deprecated text-warning" title="C++26で非推奨">(C++26で非推奨)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <span class="n">T</span> <span class="n">kill_dependency</span><span class="p">(</span><span class="n">T</span> <span class="n">y</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>           <span class="c1">// (1) C++11</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="n">T</span> <span class="n">kill_dependency</span><span class="p">(</span><span class="n">T</span> <span class="n">y</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (1) C++26(非推奨)</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>この関数は、C++26で非推奨となった。</p>
+<p><code><a href="memory_order.html">memory_order_consume</a></code>順序付けを実装したC++処理系は存在せず、本関数の代替機能も提供されない。</p>
+<h2>概要</h2>
+<p>データ依存性を切る。</p>
+<h2>効果</h2>
+<p>引数の依存性を<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>に持ち運ばない</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p><code>y</code></p>
+<h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
+<p>投げない</p>
+<h2>備考</h2>
+<p>この関数は、読み込んだ値に依存する式に対する順序を保証する<code><a href="memory_order.html">memory_order_consume</a></code>メモリーオーダーにおいて、値の依存性を断ち切り、最適化を許可するために用意されている。</p>
+<p>この関数とは逆に、依存性を持ち運ぶことをコンパイラに指示するための<code><a href="../../lang/cpp11/attributes.html#carries_dependency">[[carries_dependency]]</a></code>属性も用意されている。</p>
+<h2>注意</h2>
+<p>この関数は、並行性およびコンパイラの最適化に関する深い理解をもつ専門家ですら正しく利用することが非常に難しい。</p>
+<p>安易に利用すると、この関数がアトミックウェポンと化してしまうので控えること。</p>
+<h2>例</h2>
+<p><div class="yata" id="29f6abc6eaff55af305da4fa35ddbc18fcd92228"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../atomic.html">&lt;atomic&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
+
+<span class="n"><a href="atomic.html">std::atomic</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">a</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">table</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+
+<span class="kt">void</span> <span class="nf">f</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">table</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+  <span class="n">table</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+  <span class="n"><a href="atomic/store.html">a.store</a></span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n"><a href="memory_order.html">std::memory_order_release</a></span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../thread/thread.html">std::thread</a></span> <span class="n">t1</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
+
+  <span class="kt">int</span> <span class="n">r0</span><span class="p">;</span>
+  <span class="k">do</span> <span class="p">{</span>
+    <span class="n">r0</span> <span class="o">=</span> <span class="n"><a href="atomic/load.html">a.load</a></span><span class="p">(</span><span class="n"><a href="memory_order.html">std::memory_order_consume</a></span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">r0</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">r0</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="c1">// 正しく同期化されており、必ず"3"が出力される。</span>
+
+  <span class="kt">int</span> <span class="n">r1</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="n">r0</span><span class="p">];</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">r1</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="c1">// 正しく同期化されており、必ず"5"が出力される。</span>
+
+  <span class="kt">int</span> <span class="n">r2</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="n">r1</span><span class="p">];</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">r2</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="c1">// 正しく同期化されており、必ず"-1"が出力される。</span>
+
+  <span class="kt">int</span> <span class="n">r3</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="n"><span style="color:#ff0000">std::kill_dependency</span></span><span class="p">(</span><span class="n">r1</span><span class="p">)];</span>  <span class="c1">// data race. 未定義動作。</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">r3</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="c1">// 最適化などの結果、"-1"以外が出力される可能性がある。</span>
+
+
+  <span class="n"><a href="../thread/thread/join.html">t1.join()</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力例</h3>
+<p><pre><code>3
+5
+-1
+0
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 4.7.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2012 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2013 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<h2>実装例</h2>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">T</span> <span class="n">kill_dependency</span><span class="p">(</span><span class="n">T</span> <span class="n">y</span><span class="p">)</span> <span class="k">noexcept</span>
+<span class="p">{</span>
+  <span class="c1">// この実装では単に引数をそのまま返しているだけであり、データ依存性は切れていない。</span>
+  <span class="c1">// よって、仕様を正確に実装しているわけではない。</span>
+  <span class="c1">// 仕様通りにデータ依存性の切断を行うためには、コンパイラの最適化のコードに手を加えて</span>
+  <span class="c1">// この関数を特別扱いしなければならない。</span>
+  <span class="k">return</span> <span class="n">y</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2492.html" target="_blank">N2492 C++ Data-Dependency Ordering: Atomics and Memory Model</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2664.htm" target="_blank">N2664 C++ Data-Dependency Ordering: Atomics and Memory Model</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2643.html" target="_blank">N2643 C++ Data-Dependency Ordering: Function Annotation</a></li>
+<li><a href="http://stackoverflow.com/q/7150395/463412" target="_blank">What does <code>std::kill_dependency</code> do, and why would I want to use it? - StackOverflow</a></li>
+<li><a href="http://d.hatena.ne.jp/bsdhouse/20090929/1254237835" target="_blank">C++0xのメモリバリアをより深く解説してみる - yamasaのネタ帳</a></li>
+<li><a href="http://d.hatena.ne.jp/yohhoy/20141115/p1" target="_blank">（抄訳）N4215 <code>memory_order_consume</code>の利用と実装に向けて［§5-6のみ］</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3309r3.html" target="_blank">P3309R3 <code>constexpr atomic</code> and <code>atomic_ref</code></a><ul>
+<li>C++26で<code>constexpr</code>に対応した</li>
+</ul>
+</li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3475r2.pdf" target="_blank">P3475R2 Defang and deprecate memory_order::consume</a><ul>
+<li>C++26で<code>memory_order::consume</code>とあわせて<code>kill_dependency</code>関数を非推奨化。</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

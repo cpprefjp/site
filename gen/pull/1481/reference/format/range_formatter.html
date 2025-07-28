@@ -1,0 +1,406 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>range_formatter - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,format,class template,std,cpp23
+">
+        <meta name="title" content="range_formatter - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="range_formatter - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="range_formatter - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/format/range_formatter.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`range_formatter`は、Range・コンテナに対する[`formatter`](formatter.md)クラスの特殊化を実装するためのユーティリティクラスである。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="range_formatter - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/format/range_formatter.html" />
+        <meta name="twitter:description" content="`range_formatter`は、Range・コンテナに対する[`formatter`](formatter.md)クラスの特殊化を実装するためのユーティリティクラスである。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;format&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;cpp&#34;: [&#34;cpp23&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;7794d3efc4e5e5b1450d191d34503a1cd1a48693&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;format&gt;\n#include &lt;vector&gt;\n\ntemplate &lt;class T&gt;\nclass MyVector {\n  std::vector&lt;T&gt; v_;\npublic:\n  using base_type = std::vector&lt;T&gt;;\n  using iterator = typename base_type::iterator;\n  using const_iterator = typename base_type::iterator;\n  using value_type = typename base_type::value_type;\n  using reference = typename base_type::reference;\n  using const_reference = typename base_type::const_reference;\n\n  MyVector() = default;\n  MyVector(std::initializer_list&lt;T&gt; init)\n      : v_(init.begin(), init.end()) {}\n\n  iterator begin() { v_.begin(); }\n  const_iterator begin() const { v_.begin(); }\n\n  iterator end() { v_.end(); }\n  const_iterator end() const { v_.end(); }\n\n  const std::vector&lt;T&gt;&amp; base() const { return v_; }\n};\n\ntemplate &lt;class T&gt;\nconstexpr std::range_format std::format_kind&lt;MyVector&lt;T&gt;&gt; = std::range_format::sequence;\n\ntemplate &lt;class T&gt;\nclass std::range_formatter&lt;MyVector&lt;T&gt;&gt; : public std::range_formatter&lt;std::vector&lt;T&gt;&gt; {\n  bool is_colon = false;\n  using base_type = std::range_formatter&lt;std::vector&lt;T&gt;&gt;;\npublic:\n\n  // \u30b3\u30f3\u30d1\u30a4\u30eb\u6642\u306e\u66f8\u5f0f\u6587\u5b57\u5217\u306e\u89e3\u6790\u304c\u3042\u308b\u305f\u3081\u3001\n  // constexpr\u306b\u3059\u308b\u5fc5\u8981\u304c\u3042\u308b\u3002\n  // \u3053\u306e\u95a2\u6570\u306b\u6e21\u3055\u308c\u308b\u30d1\u30e9\u30e1\u30fc\u30bf\u306f\u3001{:%j}\u306e%\u4ee5\u964d\u3002\n  // \u89e3\u6790\u304c\u304a\u308f\u3063\u305f\u5834\u6240\u3092\u6307\u3059\u30a4\u30c6\u30ec\u30fc\u30bf\u3092\u8fd4\u3059\u3002\n  constexpr auto parse(std::format_parse_context&amp; pctx) {\n    auto it = pctx.begin();\n    if (*it == &#39;c&#39;) {\n      is_colon = true;\n      ++it;\n    }\n    pctx.advance_to(it);\n    return base_type::parse(pctx);\n  }\n\n  // format()\u95a2\u6570\u306f\u66f8\u5f0f\u306e\u60c5\u5831\u3092\u3082\u305f\u306a\u3044\u3002\n  // parse()\u95a2\u6570\u3067\u89e3\u6790\u3057\u305f\u66f8\u5f0f\u3092\u30e1\u30f3\u30d0\u5909\u6570\u3067\u4fdd\u6301\u3057\u3066\u304a\u3044\u3066\u3001\n  // \u305d\u308c\u3092\u3082\u3068\u306b\u66f8\u5f0f\u5316\u3059\u308b\n  auto format(const MyVector&lt;T&gt;&amp; v, std::format_context&amp; fctx) const {\n    if (is_colon) {\n      auto out = fctx.out();\n      bool is_first = true;\n      for (const T&amp; x : v) {\n        if (is_first) {\n          is_first = false;\n        }\n        else {\n          *out = &#39;:&#39;;\n          ++out;\n        }\n        fctx.advance_to(out);\n        out = underlying().format(x, fctx);\n      }\n      return out;\n    }\n    return base_type::format(v.base(), fctx);\n  }\n};\n\n#include &lt;cstdint&gt;\n\nint main()\n{\n  std::vector&lt;std::uint8_t&gt; v = {0xaa, 0xbb, 0xcc, 0xdd, 0xee, 0xff};\n  std::cout &lt;&lt; std::format(\&#34;{:c:02x}\&#34;, v) &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;format&#34;, &#34;range_formatter&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/format.html" itemprop="url">
+              
+                <span itemprop="name">format</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">range_formatter</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2023-07-02T11:35:22">
+        2023年07月02日 11時35分22秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">acd1034</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/format/range_formatter.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/format/range_formatter.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;format&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">range_formatter</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">charT</span> <span class="o">=</span> <span class="kt">char</span><span class="o">&gt;</span>
+    <span class="n">requires</span> <span class="n"><a href="../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">T</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span> <span class="n"><a href="formattable.html">formattable</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">charT</span><span class="o">&gt;</span>
+  <span class="k">class</span> <span class="nc">range_formatter</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>range_formatter</code>は、Range・コンテナに対する<code><a href="formatter.html">formatter</a></code>クラスの特殊化を実装するためのユーティリティクラスである。</p>
+<p>このクラスは、説明専用クラス<code><a href="range-default-formatter.html">range-default-formatter</a></code>の内部実装として使用される。</p>
+<p><a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>のコンテナ・RangeをRange書式に対応する場合は、以下のようにする：</p>
+<ul>
+<li>オリジナル書式を定義しないのであれば、このクラスではなく、<code><a href="format_kind.html">format_kind</a></code>を特殊化する</li>
+<li>オリジナル書式を定義するのであれば、このクラスおよび<code><a href="format_kind.html">format_kind</a></code>を特殊化して<code><a href="range_formatter/parse.html">parse()</a></code>メンバ関数と<code><a href="range_formatter/format.html">format()</a></code>メンバ関数を実装する</li>
+</ul>
+<h2>メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>メンバ関数</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="range_formatter/set_separator.html">set_separator</a></code></td>
+<td>要素の区切り文字を設定する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="range_formatter/set_brackets.html">set_brackets</a></code></td>
+<td>全体の囲み文字を設定する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="range_formatter/underlying.html">underlying</a></code></td>
+<td>要素型の<code>formatter</code>を取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="range_formatter/parse.html">parse</a></code></td>
+<td>書式の解析を行う</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="range_formatter/format.html">format</a></code></td>
+<td>書式化を行う</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<h3>オリジナル書式を定義する例</h3>
+<p><div class="yata" id="7794d3efc4e5e5b1450d191d34503a1cd1a48693"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../format.html">&lt;format&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">MyVector</span> <span class="p">{</span>
+  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">v_</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="k">using</span> <span class="n">base_type</span> <span class="o">=</span> <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">iterator</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">base_type</span><span class="o">::</span><span class="n">iterator</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">const_iterator</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">base_type</span><span class="o">::</span><span class="n">iterator</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">value_type</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">base_type</span><span class="o">::</span><span class="n">value_type</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">reference</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">base_type</span><span class="o">::</span><span class="n">reference</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">const_reference</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">base_type</span><span class="o">::</span><span class="n">const_reference</span><span class="p">;</span>
+
+  <span class="n">MyVector</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+  <span class="n">MyVector</span><span class="p">(</span><span class="n"><a href="../initializer_list/initializer_list.html">std::initializer_list</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">init</span><span class="p">)</span>
+      <span class="o">:</span> <span class="n">v_</span><span class="p">(</span><span class="n">init</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">init</span><span class="p">.</span><span class="n">end</span><span class="p">())</span> <span class="p">{}</span>
+
+  <span class="n">iterator</span> <span class="n">begin</span><span class="p">()</span> <span class="p">{</span> <span class="n">v_</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="p">}</span>
+  <span class="n">const_iterator</span> <span class="n">begin</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="n">v_</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="p">}</span>
+
+  <span class="n">iterator</span> <span class="n">end</span><span class="p">()</span> <span class="p">{</span> <span class="n">v_</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="p">}</span>
+  <span class="n">const_iterator</span> <span class="n">end</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="n">v_</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="p">}</span>
+
+  <span class="k">const</span> <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">base</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">v_</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="n">std</span><span class="o">::</span><span class="n">range_format</span> <span class="n">std</span><span class="o">::</span><span class="n">format_kind</span><span class="o">&lt;</span><span class="n">MyVector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">range_format</span><span class="o">::</span><span class="n">sequence</span><span class="p">;</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">std</span><span class="o">::</span><span class="n">range_formatter</span><span class="o">&lt;</span><span class="n">MyVector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span> <span class="o">:</span> <span class="k">public</span> <span class="n">std</span><span class="o">::</span><span class="n">range_formatter</span><span class="o">&lt;</span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span> <span class="p">{</span>
+  <span class="kt">bool</span> <span class="n">is_colon</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">base_type</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">range_formatter</span><span class="o">&lt;</span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+
+  <span class="c1">// コンパイル時の書式文字列の解析があるため、</span>
+  <span class="c1">// constexprにする必要がある。</span>
+  <span class="c1">// この関数に渡されるパラメータは、{:%j}の%以降。</span>
+  <span class="c1">// 解析がおわった場所を指すイテレータを返す。</span>
+  <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">parse</span><span class="p">(</span><span class="n"><a href="basic_format_parse_context.html">std::format_parse_context</a></span><span class="o">&amp;</span> <span class="n">pctx</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n"><a href="basic_format_parse_context/begin.html">pctx.begin()</a></span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="n">it</span> <span class="o">==</span> <span class="sc">'c'</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">is_colon</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+      <span class="o">++</span><span class="n">it</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n"><a href="basic_format_parse_context/advance_to.html">pctx.advance_to</a></span><span class="p">(</span><span class="n">it</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">base_type</span><span class="o">::</span><span class="n">parse</span><span class="p">(</span><span class="n">pctx</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// format()関数は書式の情報をもたない。</span>
+  <span class="c1">// parse()関数で解析した書式をメンバ変数で保持しておいて、</span>
+  <span class="c1">// それをもとに書式化する</span>
+  <span class="k">auto</span> <span class="n">format</span><span class="p">(</span><span class="k">const</span> <span class="n">MyVector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">v</span><span class="p">,</span> <span class="n"><a href="basic_format_context.html">std::format_context</a></span><span class="o">&amp;</span> <span class="n">fctx</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">is_colon</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">auto</span> <span class="n">out</span> <span class="o">=</span> <span class="n"><a href="basic_format_context/out.html">fctx.out()</a></span><span class="p">;</span>
+      <span class="kt">bool</span> <span class="n">is_first</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+      <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="nl">x</span> <span class="p">:</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">is_first</span><span class="p">)</span> <span class="p">{</span>
+          <span class="n">is_first</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="p">{</span>
+          <span class="o">*</span><span class="n">out</span> <span class="o">=</span> <span class="sc">':'</span><span class="p">;</span>
+          <span class="o">++</span><span class="n">out</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n"><a href="basic_format_context/advance_to.html">fctx.advance_to</a></span><span class="p">(</span><span class="n">out</span><span class="p">);</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n"><a href="range_formatter/underlying.html">underlying()</a></span><span class="p">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fctx</span><span class="p">);</span>
+      <span class="p">}</span>
+      <span class="k">return</span> <span class="n">out</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">base_type</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">base</span><span class="p">(),</span> <span class="n">fctx</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="cp">#include</span> <span class="cpf"><a href="../cstdint.html">&lt;cstdint&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n"><a href="../cstdint/uint8_t.html">std::uint8_t</a></span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mh">0xaa</span><span class="p">,</span> <span class="mh">0xbb</span><span class="p">,</span> <span class="mh">0xcc</span><span class="p">,</span> <span class="mh">0xdd</span><span class="p">,</span> <span class="mh">0xee</span><span class="p">,</span> <span class="mh">0xff</span><span class="p">};</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="format.html">std::format</a></span><span class="p">(</span><span class="s">"{:c:02x}"</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>aa:bb:cc:dd:ee:ff
+</code></pre></p>
+<p>(動作確認はできていない)</p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++23</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="range-default-formatter.html">range-default-formatter</a></code></li>
+<li><code><a href="formatter.html">formatter</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2286r8.html" target="_blank">P2286R8 Formatting Ranges</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2585r1.html" target="_blank">P2585R1 Improve default container formatting</a><ul>
+<li>C++23から、Range・コンテナ、<code>pair</code>、<code>tuple</code>のフォーマット出力、および文字・文字列のデバッグ指定 (<code>"?"</code>) が追加された</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
