@@ -16,7 +16,7 @@ using single-sender-value-type = see below;  // exposition only
 
 - [`value_types_of_t`](value_types_of_t.md)`<Sndr, Env,` [`decay_t`](/reference/type_traits/decay.md)`,` [`type_identity_t`](/reference/type_traits/type_identity.md)`>`が適格であるならば、その型。
 - そうではなく、[`value_types_of_t`](value_types_of_t.md)`<Sndr, Env,` [`tuple`](/reference/tuple/tuple.md)`,` [`variant`](/reference/variant/variant.md)`>`が`variant<tuple<>>`もしくは`variant<>`ならば、`void`型。
-- [`value_types_of_t`](value_types_of_t.md)`<Sndr, Env,` [`decayed-tuple`](decayed-tuple.md)`,` [`type_identity_t`](/reference/type_traits/type_identity.md)>`が適格であるならば、その型。
+- [`value_types_of_t`](value_types_of_t.md)`<Sndr, Env,` [`decayed-tuple`](decayed-tuple.md)`,` [`type_identity_t`](/reference/type_traits/type_identity.md)`>`が適格であるならば、その型。
 - そうでなければ、`single-sender-value-type<Sndr, Env>`は不適格。
 
 

@@ -44,7 +44,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------|--------------------------------------------|-------|
-| `explicit T(const` [`string`](/reference/string/basic_string.md)`& what_arg); // C++03`<br/> `constexpr explicit T(const` [`string`](/reference/string/basic_string.md)`& what_arg); // C++26 | 指定したメッセージを持つ例外オブジェクトを生成する | |
+| `explicit T(const` [`string`](/reference/string/basic_string.md)`& what_arg); // C++03`<br/> `constexpr explicit T(const` [`string`](/reference/string/basic_string.md)`& what_arg); // C++26` | 指定したメッセージを持つ例外オブジェクトを生成する | |
 | `explicit T(const char* what_arg); // C++11`<br/> `constexpr explicit T(const char* what_arg); // C++26` | 指定したメッセージを持つ例外オブジェクトを生成する | C++11 |
 | `virtual const char* what() const noexcept; // C++03`<br/> `constexpr virtual const char* what() const noexcept; // C++26` | メッセージを取得する | |
 
