@@ -28,7 +28,7 @@ template<sender Sndr, queryable Env>
 説明用の式`e`を次の通りとしたとき、`e`を返す。
 
 - 適格であるならば、式[`tag_of_t`](../tag_of_t.md)`<Sndr>().transform_env(`[`std::forward`](/reference/utility/forward.md)`<Sndr>(sndr),` [`std::forward`](/reference/utility/forward.md)`<Env>(env))`
-- そうでなければ、`static_cast<Env>(`[`std::forward`](/reference/utility/forward.md)`<Env>(env))`
+- そうでなければ、[`FWD-ENV`](../../forwarding_query.md)`(`[`std::forward`](/reference/utility/forward.md)`<Env>(env))`
 
 
 ## 例外
@@ -53,3 +53,4 @@ template<sender Sndr, queryable Env>
 ## 参照
 - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [LWG 4209. `default_domain::transform_env` should be returning `FWD-ENV(env)`](https://cplusplus.github.io/LWG/issue4209)
