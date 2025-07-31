@@ -13,14 +13,14 @@ atomic_flag(const atomic_flag&) = delete; // (2) C++11
 atomic_flag(atomic_flag&&) = delete;      // (3) C++11
 
 atomic_flag(FOR_ATOMIC_FLAG_INIT);        // (4) C++11
-                                          // (4) C++20で非推奨
 ```
+* FOR_ATOMIC_FLAG_INIT[italic]
 
 ## 概要
 - (1) : デフォルトコンストラクタ
 - (2) : コピーコンストラクタ。コピー禁止
 - (3) : ムーブコンストラクタ。ムーブ禁止
-- (4) : `ATOMIC_FLAG_INIT`マクロのための特別なコンストラクタ。フラグをクリアする。`atomic_flag`クラスのデフォルトコンストラクタはデフォルト定義されるため、デフォルト構築では未初期化状態となる。
+- (4) : [`ATOMIC_FLAG_INIT`](../atomic_flag_init.md)マクロでコピー初期化を行うための特別なコンストラクタ。フラグをクリアする。
 
 
 ## 効果
@@ -29,7 +29,7 @@ atomic_flag(FOR_ATOMIC_FLAG_INIT);        // (4) C++11
     - C++14 : フラグを未規定の状態にする
     - C++20 : フラグをクリア状態にする
 - (4) :
-    - `ATOMIC_FLAG_INIT`マクロを使用することで、フラグがクリアされた状態となる
+    - コピー初期化形式で[`ATOMIC_FLAG_INIT`](../atomic_flag_init.md)マクロを使用することで、フラグがクリアされた状態となる
     - C++11 : このマクロを、静的な有効期間を持つ`atomic_flag`オブジェクトに使用した場合、その初期化は静的に行われる
     - C++14 : このマクロを、完全に静的な有効期間を持つ`atomic_flag`オブジェクトに使用した場合、その初期化は静的に行われる
 
@@ -65,3 +65,4 @@ int main()
 ## 参照
 - [LWG Issue 2159. `atomic_flag` initialization](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2159)
 - [P0883R2 Fixing Atomic Initialization, Rev2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0883r2.pdf)
+- [LWG Issue 3659. Consider `ATOMIC_FLAG_INIT` undeprecation](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#3659)

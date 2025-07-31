@@ -113,7 +113,7 @@
 | [`atomic_flag_wait_explicit`](atomic/atomic_flag_wait_explicit.md) | メモリオーダーを指定して起床されるまで待機する (function) | C++20 |
 | [`atomic_flag_notify_one`](atomic/atomic_flag_notify_one.md) | 待機しているスレッドをひとつ起床させる (function) | C++20 |
 | [`atomic_flag_notify_all`](atomic/atomic_flag_notify_all.md) | 待機している全てのスレッドを起床させる (function) | C++20 |
-| [`ATOMIC_FLAG_INIT`](atomic/atomic_flag_init.md) | フラグ変数の初期化(define) | C++11<br/>C++20から非推奨 |
+| [`ATOMIC_FLAG_INIT`](atomic/atomic_flag_init.md) | フラグ変数の初期化(define) | C++11 |
 
 
 ## フェンス
