@@ -99,10 +99,10 @@ namespace std::execution {
 * schedule[link schedule.md]
 
 - ローカルクラス`state-type`のオブジェクトは[構造化束縛](/lang/cpp17/structured_bindings.md)における初期化子として利用できる。
-- 説明用のパック`Sigs`を[`completion_signatures_of_t`](completion_signatures_of_t.md)`<`[`child-type`](child-type.md)`<Sndr>,` [`FWD-ENV-T`](../forwarding_query.md)`(`[`env_of_t`](env_of_t.md)`<Rcvr>)>`による[`completion_signatures`](completion_signatures.md)特殊化のテンプレートパラメータと定義する。説明用のエイリアステンプレート`as-tuple<Tag(Args...)>`を[`decayed-tuple`](decayed-tuple.md)`<Args...>`と定義する。型`variant_t`は下記定義において重複削除した型となる。
+- 説明用のパック`Sigs`を[`completion_signatures_of_t`](completion_signatures_of_t.md)`<`[`child-type`](child-type.md)`<Sndr>,` [`FWD-ENV-T`](../forwarding_query.md)`(`[`env_of_t`](env_of_t.md)`<Rcvr>)>`による[`completion_signatures`](completion_signatures.md)特殊化のテンプレートパラメータと定義する。説明用のエイリアステンプレート`as-tuple<Tag(Args...)>`を[`decayed-tuple`](decayed-tuple.md)`<Tag, Args...>`と定義し、説明用の変数テンプレート`is-nothrow-decay-copy-sig<Tag(Args...)>`を型`Args...`が全て例外送出せずdecayコピー可能ならば値`true`、そうでなければ`false`となる`bool const`型のコア定数式と定義する。説明用のパック`error-completion`を、`(is-nothrow-decay-copy-sig<Sigs> &&...)`が`false`ならば[`set_error_t`](set_error.md)`(`[`exception_ptr`](/reference/exception/exception_ptr.md)`)`、そうでなければ空のパックと定義する。型`variant_t`は下記定義において重複削除した型となる。
 
     ```cpp
-    variant<monostate, as-tuple<Sigs>...>
+    variant<monostate, as-tuple<Sigs>..., error-completion...>
     ```
     * variant[link /reference/variant/variant.md]
     * monostate[link /reference/variant/monostate.md]
@@ -115,15 +115,13 @@ namespace std::execution {
 []<class Tag, class... Args>(auto, auto& state, auto& rcvr, Tag, Args&&... args) noexcept
     -> void {
   using result_t = decayed-tuple<Tag, Args...>;
-  constexpr bool nothrow = is_nothrow_constructible_v<result_t, Tag, Args...>;
+  constexpr bool nothrow = (is_nothrow_constructible_v<decay_t<Args>, Args> && ...);
 
   try {
     state.async-result.template emplace<result_t>(Tag(), std::forward<Args>(args)...);
   } catch (...) {
-    if constexpr (!nothrow) {
-      set_error(std::move(rcvr), current_exception());
-      return;
-    }
+    if constexpr (!nothrow)
+      state.async-result.template emplace<tuple<set_error_t, exception_ptr>>(set_error, current_exception());
   }
   start(state.op-state);
 };
@@ -133,8 +131,9 @@ namespace std::execution {
 * start[link start.md]
 * is_nothrow_constructible_v[link /reference/type_traits/is_nothrow_constructible.md]
 * template emplace[link /reference/variant/variant/emplace.md]
+* set_error_t[link set_error.md]
+* exception_ptr[link /reference/exception/exception_ptr.md]
 * current_exception()[link /reference/exception/current_exception.md]
-* std::move[link /reference/utility/move.md]
 
 
 ## 説明専用エンティティ
@@ -212,4 +211,5 @@ Senderアルゴリズム構築時および[Receiver](receiver.md)接続時に、
 - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3396R1 std::execution wording fixes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html)
+- [LWG 4198. `schedule_from` isn't starting the schedule sender if decay-copying results throws](https://cplusplus.github.io/LWG/issue4198)
 - [LWG 4203. Constraints on `get-state` functions are incorrect](https://cplusplus.github.io/LWG/issue4203)
