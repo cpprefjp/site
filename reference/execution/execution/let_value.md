@@ -95,7 +95,7 @@ namespace std::execution {
 - 説明用の型`Tag`とパック`Args`に対して、説明用のエイリアステンプレート`as-sndr2<Tag(Args...)>`を[`call-result-t`](/reference/functional/call-result-t.md)`<Fn,` [`decay_t`](/reference/type_traits/decay.md)`<Args>&...>`と定義する。型`ops2_variant_t`は下記定義において重複削除した型となる。
 
     ```cpp
-    variant<monostate, connect_result_t<as-sndr2<LetSigs>, receiver2<Rcvr, Env>>...>
+    variant<monostate, connect_result_t<as-sndr2<LetSigs>, receiver2<Rcvr, env_t>>...>
     ```
     * variant[link /reference/variant/variant.md]
     * monostate[link /reference/variant/monostate.md]
@@ -125,7 +125,14 @@ namespace std::execution {
 
 説明用の式`sndr`と`env`に対して、型`Sndr`を`decltype((sndr))`とする。[`sender-for`](sender-for.md)`<Sndr,` [`decayed-typeof`](/reference/functional/decayed-typeof.md)`<let-cpo>> == false`のとき、式`let-cpo.transform_env(sndr, env)`は不適格となる。
 
-そうでなければ、式`let-cpo.transform_env(sndr, env)`は[`JOIN-ENV`](../queryable.md)`(let-env(sndr),` [`FWD-ENV`](../forwarding_query.md)`(env))`と等価。
+そうでなければ、式`let-cpo.transform_env(sndr, env)`は下記と等価。
+
+```cpp
+auto& [_, _, child] = sndr;
+return JOIN-ENV(let-env(child), FWD-ENV(env));
+```
+* JOIN-ENV[link ../queryable.md]
+* FWD-ENV[link ../forwarding_query.md]
 
 
 ## 説明専用エンティティ
@@ -400,3 +407,5 @@ catch 0
 - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3396R1 std::execution wording fixes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html)
+- [LWG 4204. specification of `as-sndr2(Sig)` in [exec.let] is incomplete](https://cplusplus.github.io/LWG/issue4204)
+- [LWG 4205. `let_[*].transform_env` is specified in terms of the `let_*` sender itself instead of its child](https://cplusplus.github.io/LWG/issue4205)
