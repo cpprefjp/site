@@ -20,8 +20,9 @@ namespace std::execution {
     }
 
     template<has-as-awaitable<Derived> T>
-    decltype(auto) await_transform(T&& value)
+    auto await_transform(T&& value)
       noexcept(noexcept(std::forward<T>(value).as_awaitable(declval<Derived&>())))
+      -> decltype(std::forward<T>(value).as_awaitable(declval<Derived&>()))
     {
       return std::forward<T>(value).as_awaitable(static_cast<Derived&>(*this));
     }
@@ -45,3 +46,4 @@ namespace std::execution {
 
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [LWG 4201. `with-await-transform::await_transform` should not use a deduced return type](https://cplusplus.github.io/LWG/issue4201)
