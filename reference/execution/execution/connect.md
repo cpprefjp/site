@@ -32,7 +32,7 @@ transform_sender(decltype(get-domain-late(sndr, get_env(rcvr))){}, sndr, get_env
 * get-domain-late[link get-domain-late.md]
 * get_env[link get_env.md]
 
-式`connect(sndr, rcvr)`は下記と等価であり、[`operation_state`](operation_state.md)を満たす型の値となる。
+式`connect(sndr, rcvr)`は`rcvr`が1回だけ評価されることを除いて、下記と等価。式の型は[`operation_state`](operation_state.md)を満たす。
 
 - 適格であるならば、式`new_sndr.connect(rcvr)`
 - そうでなければ、式`connect-awaitable(new_sndr, rcvr)`
@@ -238,3 +238,4 @@ int main()
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3396R1 std::execution wording fixes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html)
+- [LWG 4208. Wording needs to ensure that in `connect(sndr, rcvr)` that `rcvr` expression is only evaluated once](https://cplusplus.github.io/LWG/issue4208)
