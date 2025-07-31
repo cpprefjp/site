@@ -22,6 +22,8 @@ namespace std {
 - `forwarding_query(q) == false`ならば、式`FWD-ENV(env).query(q, as...)`は不適格となる。
 - そうでなければ、式`FWD-ENV(env)`は式`env.query(q, as...)`と等価であり、その型は[`queryable`](queryable.md)を満たす。
 
+また、説明専用の型`FWD-ENV-T(Env)`を`decltype(FWD-ENV(declval<Env>()))`と定義する。
+
 
 ## 効果
 説明用の式`q`を`Q`型の[クエリオブジェクト](queryable.md)としたとき、呼び出し式`forwarding_query(q)`は下記と等価であり、`bool`型の値となる。

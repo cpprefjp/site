@@ -30,13 +30,13 @@ transform_sender(get-domain-early(sndr), make-sender(stopped_as_optional, {}, sn
 
 
 ### Senderアルゴリズムタグ `stopped_as_optional`
-説明用の式`sndr`と`env`に対して、型`Sndr`を`decltype((sndr))`、型`Env`を`decltype((env))`とする。[`sender-for`](sender-for.md)`<Sndr, stopped_as_optional_t> == false`、もしくは[`single-sender-value-type`](single-sender-value-type.md)`<Sndr, Env>`が不適格または`void`のとき、式`stopped_as_optional.transform_sender(sndr, env)`は不適格となる。
+説明用の式`sndr`と`env`に対して、型`Sndr`を`decltype((sndr))`、型`Env`を`decltype((env))`とする。[`sender-for`](sender-for.md)`<Sndr, stopped_as_optional_t> == false`、もしくは[`single-sender-value-type`](single-sender-value-type.md)`<`[`child-type`](child-type.md)`<Sndr>,` [`FWD-ENV-T`](../forwarding_query.md)`(Env)>`が不適格または`void`のとき、式`stopped_as_optional.transform_sender(sndr, env)`は不適格となる。
 
 そうでなければ、式`stopped_as_optional.transform_sender(sndr, env)`は下記と等価。
 
 ```cpp
 auto&& [_, _, child] = sndr;
-using V = single-sender-value-type<Sndr, Env>;
+using V = single-sender-value-type<child-type<Sndr>, FWD-ENV-T(Env)>;
 return let_stopped(
     then(std::forward_like<Sndr>(child),
          []<class... Ts>(Ts&&... ts) noexcept(is_nothrow_constructible_v<V, Ts...>) {
@@ -45,6 +45,8 @@ return let_stopped(
     []() noexcept { return just(optional<V>()); });
 ```
 * single-sender-value-type[link single-sender-value-type.md]
+* child-type[link child-type.md]
+* FWD-ENV-T[link ../forwarding_query.md]
 * let_stopped[link let_stopped.md]
 * then[link then.md]
 * just[link just.md]
@@ -164,3 +166,4 @@ stopped
 ## 参照
 - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [LWG 4203. Constraints on `get-state` functions are incorrect](https://cplusplus.github.io/LWG/issue4203)

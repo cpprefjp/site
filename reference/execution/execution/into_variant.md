@@ -52,13 +52,14 @@ namespace std::execution {
 
 ```cpp
 []<class Sndr, class Rcvr>(Sndr&& sndr, Rcvr& rcvr) noexcept
-  -> type_identity<value_types_of_t<child-type<Sndr>, env_of_t<Rcvr>>> {
+  -> type_identity<value_types_of_t<child-type<Sndr>, FWD-ENV-T(env_of_t<Rcvr>)>> {
   return {};
 }
 ```
 * type_identity[link /reference/type_traits/type_identity.md]
 * value_types_of_t[link value_types_of_t.md]
 * child-type[link child-type.md]
+* FWD-ENV-T[link ../forwarding_query.md]
 * env_of_t[link env_of_t.md]
 
 `impls-for<into_variant_t>::complete`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
@@ -205,3 +206,4 @@ int main()
 ## 参照
 - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [LWG 4203. Constraints on `get-state` functions are incorrect](https://cplusplus.github.io/LWG/issue4203)

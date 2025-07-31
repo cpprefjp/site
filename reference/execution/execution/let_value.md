@@ -84,7 +84,7 @@ namespace std::execution {
 }
 ```
 
-- 説明用のパック`Sigs`を[`completion_signatures_of_t`](completion_signatures_of_t.md)`<`[`child-type`](child-type.md)`<Sndr>,` [`env_of_t`](env_of_t.md)`<Rcvr>>`による[`completion_signatures`](completion_signatures.md)特殊化のテンプレートパラメータとし、パック`LetSigs`を`Sigs`に含まれる型のうち戻り値型が[`decayed-typeof`](/reference/functional/decayed-typeof.md)`<set-cpo>`に等しいものと定義する。説明用のエイリアステンプレート`as-tuple<Tag(Args...)>`を[`decayed-tuple`](decayed-tuple.md)`<Args...>`と定義する。型`args_variant_t`は下記定義において重複削除した型となる。
+- 説明用のパック`Sigs`を[`completion_signatures_of_t`](completion_signatures_of_t.md)`<`[`child-type`](child-type.md)`<Sndr>,` [`FWD-ENV-T`](../forwarding_query.md)`(`[`env_of_t`](env_of_t.md)`<Rcvr>)>`による[`completion_signatures`](completion_signatures.md)特殊化のテンプレートパラメータとし、パック`LetSigs`を`Sigs`に含まれる型のうち戻り値型が[`decayed-typeof`](/reference/functional/decayed-typeof.md)`<set-cpo>`に等しいものと定義する。説明用のエイリアステンプレート`as-tuple<Tag(Args...)>`を[`decayed-tuple`](decayed-tuple.md)`<Args...>`と定義する。型`args_variant_t`は下記定義において重複削除した型となる。
 
     ```cpp
     variant<monostate, as-tuple<LetSigs>...>
@@ -215,7 +215,7 @@ namespace std::execution {
 メンバ関数`receiver2::get_env`の呼び出しは、下記を満たすオブジェクト`e`を返す。
 
 - 型`decltype(e)`が[`queryable`](../queryable.md)のモデルであり、かつ
-- 与えられた[クエリオブジェクト](../queryable.md)`q`に対して、式`e.query(q)`は式`env.query(q)`が有効ならばその式と等価。そうでなければ、式`e.query(q)`は[`get_env`](get_env.md)`(rcvr).query(q)`と等価。
+- 与えられた[クエリオブジェクト](../queryable.md)`q`に対して、式`e.query(q)`は式`env.query(q)`が有効ならばその式と等価。そうではなく、`q`の型が[`forwarding-query`](../forwarding-query.md)を満たすならば式`e.query(q)`は[`get_env`](get_env.md)`(rcvr).query(q)`と等価。そうでなければ、式`e.query(q)`は不適格となる。
 
 
 ## カスタマイゼーションポイント
@@ -407,5 +407,6 @@ catch 0
 - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3396R1 std::execution wording fixes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html)
+- [LWG 4203. Constraints on `get-state` functions are incorrect](https://cplusplus.github.io/LWG/issue4203)
 - [LWG 4204. specification of `as-sndr2(Sig)` in [exec.let] is incomplete](https://cplusplus.github.io/LWG/issue4204)
 - [LWG 4205. `let_[*].transform_env` is specified in terms of the `let_*` sender itself instead of its child](https://cplusplus.github.io/LWG/issue4205)

@@ -87,7 +87,7 @@ namespace std::execution {
 
 - `decltype(e)`が[`queryable`](../queryable.md)のモデル、かつ
 - 式`e.query(`[`get_stop_token`](../get_stop_token.md)`)`が`state.stop-src.`[`get_token()`](/reference/stop_token/inplace_stop_source/get_token.md)と等価、かつ
-- [`get_stop_token`](../get_stop_token.md)以外の[クエリオブジェクト](../queryable.md)`q`に対して、式`e.query(q)`は[`get_env`](get_env.md)`(rcvr).query(q)`と等価。
+- [`get_stop_token`](../get_stop_token.md)以外かつ[`forwarding-query`](../forwarding-query.md)を満たす[クエリオブジェクト](../queryable.md)`q`に対して、式`e.query(q)`は[`get_env`](get_env.md)`(rcvr).query(q)`と等価。
 
 `impls-for<when_all_t>::get-state`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
 
@@ -212,7 +212,7 @@ enum class disposition { started, error, stopped };  // exposition only
 ```cpp
 template<class Rcvr>
 struct make-state {
-  template<max-1-sender-in<env_of_t<Rcvr>>... Sndrs>
+  template<max-1-sender-in<FWD-ENV-T(env_of_t<Rcvr>)>... Sndrs>
   auto operator()(auto, auto, Sndrs&&... sndrs) const {
     using values_tuple = see below;
     using errors_variant = see below;
@@ -239,6 +239,7 @@ struct make-state {
   }
 };
 ```
+* FWD-ENV-T[link ../forwarding_query.md]
 * env_of_t[link env_of_t.md]
 * stop_token_of_t[link ../stop_token_of_t.md]
 * on-stop-request[link on-stop-request.md]
@@ -254,9 +255,10 @@ struct make-state {
 型`values_tuple`は、適格であるならば下記の型とする。そうでなければ、[`tuple<>`](/reference/tuple/tuple.md)とする。
 
 ```cpp
-tuple<value_types_of_t<Sndrs, env_of_t<Rcvr>, decayed-tuple, optional>...>
+tuple<value_types_of_t<Sndrs, FWD-ENV-T(env_of_t<Rcvr>), decayed-tuple, optional>...>
 ```
 * value_types_of_t[link value_types_of_t.md]
+* FWD-ENV-T[link ../forwarding_query.md]
 * env_of_t[link env_of_t.md]
 * decayed-tuple[link decayed-tuple.md]
 * optional[link /reference/optional/optional.md]
@@ -477,4 +479,5 @@ error=-2
 - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3396R1 std::execution wording fixes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html)
+- [LWG 4203. Constraints on `get-state` functions are incorrect](https://cplusplus.github.io/LWG/issue4203)
 - [LWG 4227. Missing `noexcept` operator in [exec.when.all]](https://cplusplus.github.io/LWG/issue4227)

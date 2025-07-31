@@ -67,7 +67,7 @@ namespace std::execution {
 
 ```cpp
 []<class Sndr, class Rcvr>(Sndr&& sndr, Rcvr& rcvr) noexcept(see below)
-    requires sender_in<child-type<Sndr>, env_of_t<Rcvr>> {
+    requires sender_in<child-type<Sndr>, FWD-ENV-T(env_of_t<Rcvr>)> {
 
   auto& [_, sch, child] = sndr;
 
@@ -91,6 +91,7 @@ namespace std::execution {
 ```
 * sender_in[link sender_in.md]
 * child-type[link child-type.md]
+* FWD-ENV-T[link ../forwarding_query.md]
 * env_of_t[link env_of_t.md]
 * connect_result_t[link connect_result_t.md]
 * schedule_result_t[link schedule_result_t.md]
@@ -98,7 +99,7 @@ namespace std::execution {
 * schedule[link schedule.md]
 
 - ローカルクラス`state-type`のオブジェクトは[構造化束縛](/lang/cpp17/structured_bindings.md)における初期化子として利用できる。
-- 説明用のパック`Sigs`を[`completion_signatures_of_t`](completion_signatures_of_t.md)`<`[`child-type`](child-type.md)`<Sndr>,` [`env_of_t`](env_of_t.md)`<Rcvr>>`による[`completion_signatures`](completion_signatures.md)特殊化のテンプレートパラメータと定義する。説明用のエイリアステンプレート`as-tuple<Tag(Args...)>`を[`decayed-tuple`](decayed-tuple.md)`<Args...>`と定義する。型`variant_t`は下記定義において重複削除した型となる。
+- 説明用のパック`Sigs`を[`completion_signatures_of_t`](completion_signatures_of_t.md)`<`[`child-type`](child-type.md)`<Sndr>,` [`FWD-ENV-T`](../forwarding_query.md)`(`[`env_of_t`](env_of_t.md)`<Rcvr>)>`による[`completion_signatures`](completion_signatures.md)特殊化のテンプレートパラメータと定義する。説明用のエイリアステンプレート`as-tuple<Tag(Args...)>`を[`decayed-tuple`](decayed-tuple.md)`<Args...>`と定義する。型`variant_t`は下記定義において重複削除した型となる。
 
     ```cpp
     variant<monostate, as-tuple<Sigs>...>
@@ -211,3 +212,4 @@ Senderアルゴリズム構築時および[Receiver](receiver.md)接続時に、
 - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3396R1 std::execution wording fixes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html)
+- [LWG 4203. Constraints on `get-state` functions are incorrect](https://cplusplus.github.io/LWG/issue4203)
