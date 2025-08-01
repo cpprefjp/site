@@ -75,7 +75,7 @@ def is_ignore_link(link: str) -> bool:
     return False
 
 
-def find_all_links(text: str) -> (list, set):
+def find_all_links(text: str, is_global: bool) -> (list, set):
     inner_links = []
     outer_links = set()
 
@@ -115,6 +115,10 @@ def find_all_links(text: str) -> (list, set):
                 add_link(link)
 
     for line in text.split("\n"):
+        # コメント
+        if is_global and line.startswith("#"):
+            continue
+
         for m in re.finditer(r'[\*-] (.*?)\[link (.*?)\]', line):
             add_link(m.group(2))
 
@@ -144,12 +148,15 @@ if __name__ == '__main__':
     current_dir = os.getcwd()
     outer_link_dict = dict()
     if len(args.url) <= 0:
-        for p in glob.glob("**/*.md", recursive=True):
+        path_list = [(p, False) for p in glob.glob("**/*.md", recursive=True)]
+        path_list.append(("GLOBAL_QUALIFY_LIST.txt", True))
+        path_list.append(("PRIMARY_OVERLOAD_SPECIALIZATION.txt", True))
+        for p, is_global in path_list:
             dirname = os.path.dirname(p)
             with open(p) as f:
                 text = f.read()
 
-            inner_links, outer_links = find_all_links(text)
+            inner_links, outer_links = find_all_links(text, is_global)
             for link in outer_links:
                 if link in outer_link_dict:
                     outer_link_dict[link].append(p)
