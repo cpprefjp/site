@@ -17,7 +17,7 @@ def convrert_qualify_list(qualify_list: str) -> list:
             ls.append((m.group(1), m.group(2).strip()))
     return ls
 
-def check(global_qualify_list_str: str, primary_overload_specialization_list_str: str) -> bool:
+def check_link(global_qualify_list_str: str, primary_overload_specialization_list_str: str) -> bool:
     found_error: bool = False
 
     global_qualify_list = convrert_qualify_list(global_qualify_list_str)
@@ -35,15 +35,21 @@ def check(global_qualify_list_str: str, primary_overload_specialization_list_str
 
     return not found_error
 
-if __name__ == '__main__':
+def check() -> bool:
     found_error = False
+    current_dir = os.getcwd()
+    outer_link_dict = dict()
+
     with open("GLOBAL_QUALIFY_LIST.txt") as f:
         global_qualify_list = f.read()
     with open("PRIMARY_OVERLOAD_SPECIALIZATION.txt") as f:
         primary_overload_specialization_list = f.read()
 
-    if not check(global_qualify_list, primary_overload_specialization_list):
+    if not check_link(global_qualify_list, primary_overload_specialization_list):
         found_error = True
 
-    if found_error:
+    return not found_error
+
+if __name__ == '__main__':
+    if not check():
         sys.exit(1)

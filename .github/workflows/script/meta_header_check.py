@@ -48,7 +48,7 @@ def check_header(text: str, filename: str) -> bool:
 
     return not found_error
 
-if __name__ == '__main__':
+def check() -> bool:
     found_error = False
     for p in sorted(list(glob.glob("**/*.md", recursive=True))):
         with open(p) as f:
@@ -56,6 +56,8 @@ if __name__ == '__main__':
 
         if not check_header(text, p):
             found_error = True
+    return not found_error
 
-    if found_error:
+if __name__ == '__main__':
+    if not check():
         sys.exit(1)
