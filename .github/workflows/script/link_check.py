@@ -124,30 +124,15 @@ def find_all_links(text: str, is_global: bool) -> (list, set):
 
     return inner_links, outer_links
 
-if __name__ == '__main__':
-    argparser = argparse.ArgumentParser(description="")
-    argparser.add_argument("--check-inner-link",
-                           dest='check_inner_link',
-                           action='store_true',
-                           default=False)
-    argparser.add_argument("--check-outer-link",
-                           dest='check_outer_link',
-                           action='store_true',
-                           default=False)
-    argparser.add_argument("--url",
-                           dest='url',
-                           type=str,
-                           default='')
-    args = argparser.parse_args()
-
-    if not args.check_inner_link and not args.check_outer_link:
+def check(check_inner_link: bool, check_outer_link: bool, url: str) -> bool:
+    if not check_inner_link and not check_outer_link:
         print("unchecked", file=sys.stderr)
-        sys.exit(1)
+        return False
 
     found_error = False
     current_dir = os.getcwd()
     outer_link_dict = dict()
-    if len(args.url) <= 0:
+    if len(url) <= 0:
         path_list = [(p, False) for p in glob.glob("**/*.md", recursive=True)]
         path_list.append(("GLOBAL_QUALIFY_LIST.txt", True))
         path_list.append(("PRIMARY_OVERLOAD_SPECIALIZATION.txt", True))
@@ -163,7 +148,7 @@ if __name__ == '__main__':
                 else:
                     outer_link_dict[link] = [p]
 
-            if args.check_inner_link:
+            if check_inner_link:
                 for link in inner_links:
                     rel_link = ""
                     if link.startswith("/"):
@@ -180,9 +165,9 @@ if __name__ == '__main__':
                             print("{} href {} not found.".format(p, link), file=sys.stderr)
                             found_error = True
 
-    if args.check_outer_link:
-        if len(args.url) > 0:
-            outer_link_dict[args.url] = ""
+    if check_outer_link:
+        if len(url) > 0:
+            outer_link_dict[url] = ""
 
         for link, from_list in outer_link_dict.items():
             exists, reason = check_url(link)
@@ -190,5 +175,27 @@ if __name__ == '__main__':
                 print("URL {} not found. {} from:{}".format(link, reason, from_list), file=sys.stderr)
                 found_error = True
 
-    if found_error:
+    return not found_error
+
+def check_inner_link() -> bool:
+    return check(True, False, '')
+
+if __name__ == '__main__':
+    argparser = argparse.ArgumentParser(description="")
+    argparser.add_argument("--check-inner-link",
+                           dest='check_inner_link',
+                           action='store_true',
+                           default=False)
+    argparser.add_argument("--check-outer-link",
+                           dest='check_outer_link',
+                           action='store_true',
+                           default=False)
+    argparser.add_argument("--url",
+                           dest='url',
+                           type=str,
+                           default='')
+    args = argparser.parse_args()
+
+    if not check(args.check_inner_link, args.check_outer_link, args.url):
         sys.exit(1)
+

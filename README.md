@@ -25,11 +25,14 @@ cpprefjpは、以下のコアメンバが運営を行っています。
 cpprefjpでは、C++の最新バージョンに随時対応しています。
 
 
-## 各種ツールの使用方法
-### 内部リンクのチェック
-Python 3系をインストールした状態で、以下を実行する：
+## ローカルでの各種チェックを実行するスクリプト
+Python 3系をインストールした状態で、以下を実行します：
 
 ```
 pip3 install requests
-python3 .github/workflows/script/link_check.py --check-inner-link
+python3 .github/workflows/script/check.py
 ```
+
+これで、Pull RequestでのCI実行と同等のチェックがローカルで実行されます。
+
+(外部リンクチェックだけは実行に時間がかかるので、ここでは実行されません。CIでも週に一回しか実行されません。)

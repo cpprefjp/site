@@ -68,7 +68,7 @@ def check_ngword(text: str, filename: str) -> bool:
             found_error = True
     return not found_error
 
-if __name__ == '__main__':
+def check() -> bool:
     found_error = False
     for p in sorted(list(glob.glob("**/*.md", recursive=True))):
         if p.startswith("start_editing/"):
@@ -80,5 +80,8 @@ if __name__ == '__main__':
         if not check_ngword(text, p):
             found_error = True
 
-    if found_error:
+    return not found_error
+
+if __name__ == '__main__':
+    if not check():
         sys.exit(1)
