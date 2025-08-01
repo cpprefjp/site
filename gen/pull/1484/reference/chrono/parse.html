@@ -1,0 +1,571 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>parse - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,chrono,std::chrono,function,cpp20
+">
+        <meta name="title" content="parse - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="parse - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="parse - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/chrono/parse.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="日時文字列を解析する入力マニピュレータ。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="parse - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/chrono/parse.html" />
+        <meta name="twitter:description" content="日時文字列を解析する入力マニピュレータ。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;chrono&#34;], &#34;namespace&#34;: [&#34;std::chrono&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;788a5835d103d2a87cf7a8f13af789a67b686e31&#34;, &#34;source&#34;: &#34;#include &lt;sstream&gt;\n#include &lt;chrono&gt;\n\nnamespace chrono = std::chrono;\n\nint main()\n{\n  // \u30bf\u30a4\u30e0\u30be\u30fc\u30f3\u60c5\u5831\u3092\u542b\u307e\u306a\u3044\u65e5\u6642\u306e\u89e3\u6790\n  {\n    std::stringstream ss;\n    ss &lt;&lt; \&#34;2019-10-24 20:15:10\&#34;;\n\n    chrono::sys_seconds tp;\n    ss &gt;&gt; chrono::parse(\&#34;%Y-%m-%d %H:%M:%S\&#34;, tp);\n\n    if (ss) {\n      std::cout &lt;&lt; tp &lt;&lt; std::endl;\n    }\n    else {\n      std::cout &lt;&lt; \&#34;\u89e3\u6790\u5931\u6557\&#34; &lt;&lt; std::endl;\n    }\n  }\n\n  // \u30bf\u30a4\u30e0\u30be\u30fc\u30f3\u60c5\u5831\u3092\u542b\u3080\u65e5\u6642\u306e\u89e3\u6790\n  {\n    std::stringstream ss;\n    ss &lt;&lt; \&#34;2019-10-24 20:15:10 JST+0900\&#34;;\n\n    chrono::sys_seconds tp;\n    std::string abbrev;\n    chrono::minutes offset;\n    ss &gt;&gt; chrono::parse(\&#34;%Y-%m-%d %H:%M:%S %Z%z\&#34;, tp, abbrev, offset);\n\n    if (ss) {\n      std::cout &lt;&lt; tp &lt;&lt; std::endl;\n      std::cout &lt;&lt; abbrev &lt;&lt; std::endl;\n      std::cout &lt;&lt; chrono::floor&lt;chrono::hours&gt;(offset) &lt;&lt; std::endl;\n    }\n    else {\n      std::cout &lt;&lt; \&#34;\u89e3\u6790\u5931\u6557\&#34; &lt;&lt; std::endl;\n    }\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;chrono&#34;, &#34;parse&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/chrono.html" itemprop="url">
+              
+                <span itemprop="name">chrono</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">parse</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-06-26T14:50:22">
+        2025年06月26日 14時50分22秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Raclamusi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/chrono/parse.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/chrono/parse.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;chrono&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::chrono">std::chrono::</span><span class="token">parse</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">charT</span><span class="p">,</span> <span class="k">class</span> <span class="nc">traits</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Alloc</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Parsable</span><span class="o">&gt;</span>
+  <span class="n"><i>unspecified</i></span>
+    <span class="n">parse</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../string/basic_string.html">std::basic_string</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">traits</span><span class="p">,</span> <span class="n">Alloc</span><span class="o">&gt;&amp;</span> <span class="n">fmt</span><span class="p">,</span>
+          <span class="n">Parsable</span><span class="o">&amp;</span> <span class="n">tp</span><span class="p">);</span>                                      <span class="c1">// (1) C++20</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">charT</span><span class="p">,</span> <span class="k">class</span> <span class="nc">traits</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Alloc</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Parsable</span><span class="o">&gt;</span>
+  <span class="n"><i>unspecified</i></span>
+    <span class="n">parse</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../string/basic_string.html">std::basic_string</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">traits</span><span class="p">,</span> <span class="n">Alloc</span><span class="o">&gt;&amp;</span> <span class="n">fmt</span><span class="p">,</span>
+          <span class="n">Parsable</span><span class="o">&amp;</span> <span class="n">tp</span><span class="p">,</span>
+          <span class="n"><a href="../string/basic_string.html">std::basic_string</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">traits</span><span class="p">,</span> <span class="n">Alloc</span><span class="o">&gt;&amp;</span> <span class="n">abbrev</span><span class="p">);</span>   <span class="c1">// (2) C++20</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">charT</span><span class="p">,</span> <span class="k">class</span> <span class="nc">traits</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Alloc</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Parsable</span><span class="o">&gt;</span>
+  <span class="n"><i>unspecified</i></span>
+    <span class="n">parse</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../string/basic_string.html">std::basic_string</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">traits</span><span class="p">,</span> <span class="n">Alloc</span><span class="o">&gt;&amp;</span> <span class="n">fmt</span><span class="p">,</span>
+          <span class="n">Parsable</span><span class="o">&amp;</span> <span class="n">tp</span><span class="p">,</span>
+          <span class="n"><a href="duration_aliases.html">minutes</a></span><span class="o">&amp;</span> <span class="n">offset</span><span class="p">);</span>                                   <span class="c1">// (3) C++20</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">charT</span><span class="p">,</span> <span class="k">class</span> <span class="nc">traits</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Alloc</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Parsable</span><span class="o">&gt;</span>
+  <span class="n"><i>unspecified</i></span>
+    <span class="n">parse</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../string/basic_string.html">std::basic_string</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">traits</span><span class="p">,</span> <span class="n">Alloc</span><span class="o">&gt;&amp;</span> <span class="n">fmt</span><span class="p">,</span>
+          <span class="n">Parsable</span><span class="o">&amp;</span> <span class="n">tp</span><span class="p">,</span>
+          <span class="n"><a href="../string/basic_string.html">std::basic_string</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">traits</span><span class="p">,</span> <span class="n">Alloc</span><span class="o">&gt;&amp;</span> <span class="n">abbrev</span><span class="p">,</span>
+          <span class="n"><a href="duration_aliases.html">minutes</a></span><span class="o">&amp;</span> <span class="n">offset</span><span class="p">);</span>                                   <span class="c1">// (4) C++20</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>日時文字列を解析する入力マニピュレータ。</p>
+<ul>
+<li>(1) タイムゾーン関係の入力を受け取らない単純な解析を行う</li>
+<li>(2) chronoオブジェクトと、タイムゾーンの略称を解析する</li>
+<li>(3) chronoオブジェクトと、UTCタイムゾーンからのオフセット時間を解析する</li>
+<li>(4) chronoオブジェクトと、タイムゾーンの略称、UTCタイムゾーンからのオフセット時間を解析する</li>
+</ul>
+<p><code>fmt</code>パラメータに指定できるフォーマットフラグは、以下である。<code>N</code>として10進整数を指定できる場合があり、それを指定することでより多くの文字数を読み込める。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>フォーマットフラグ</th>
+<th>説明</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>%a</code></td>
+<td>ロケール依存の曜日の完全名もしくは略称 (大文字・小文字を区別しない)</td>
+<td><code>"Sun"</code><br /> 日本のロケールでは<code>"日"</code></td>
+</tr>
+<tr>
+<td><code>%A</code></td>
+<td><code>%a</code>と等価</td>
+<td></td>
+</tr>
+<tr>
+<td><code>%b</code></td>
+<td>ロケール依存の月の完全名もしくは略称 (大文字・小文字を区別しない)</td>
+<td><code>"Apr"</code><br /> <code>"April"</code><br /> 日本のロケールでは<code>"4月"</code></td>
+</tr>
+<tr>
+<td><code>%B</code></td>
+<td><code>%b</code>と等価</td>
+<td></td>
+</tr>
+<tr>
+<td><code>%c</code></td>
+<td>ロケール依存の日付・時間の表現。改良コマンド<code>%Ec</code>を指定すると、異なる表現になる</td>
+<td><code>"Fri Apr 24 17:14:44 2020"</code><br /> 日本のロケールでは<code>"2020年04月24日 17時14分44秒"</code><br /> <code>%Ec</code>では<code>"令和02年04月24日 17時14分44秒"</code></td>
+</tr>
+<tr>
+<td><code>%C</code></td>
+<td>世紀の10進数番号。改良コマンド<code>%NC</code> (Nは10進整数) によって読み込む最大の文字数を指定できる。Nを指定しない場合、デフォルトは2。先頭の0は許可されるが要求はされない。改良コマンド<code>%EC</code>はロケール依存の異なる表現になる</td>
+<td><code>"21"</code><br /> <code>%EC</code>では元号<code>"令和"</code></td>
+</tr>
+<tr>
+<td><code>%d</code></td>
+<td>10進数の月の日。改良コマンド<code>%Nd</code> (Nは10進整数) によって読み込む最大の文字数を指定できる。Nを指定しない場合、デフォルトは2。先頭の0は許可されるが要求はされない。改良コマンド<code>%Od</code>はロケール依存の異なる表現になる</td>
+<td><code>"4"</code></td>
+</tr>
+<tr>
+<td><code>%D</code></td>
+<td><code>%m/%d/%y</code>と等価</td>
+<td><code>"04/01/2020"</code></td>
+</tr>
+<tr>
+<td><code>%e</code></td>
+<td><code>%d</code>と等価で、<code>%d</code>と同様の改良コマンドが使用できる</td>
+<td></td>
+</tr>
+<tr>
+<td><code>%F</code></td>
+<td><code>%Y-%m-%d</code>と等価。<code>%NF</code> (Nは10進整数) を指定した場合、幅は<code>%Y</code>にのみ適用される</td>
+<td><code>"2020-04-24"</code></td>
+</tr>
+<tr>
+<td><code>%g</code></td>
+<td>ISOの週ベースのうしろ2桁10進数の年。改良コマンド<code>%Ng</code> (Nは10進整数) によって読み込む最大の文字数を指定できる。Nを指定しない場合、デフォルトは2。先頭の0は許可されるが要求はされない。</td>
+<td><code>"20"</code></td>
+</tr>
+<tr>
+<td><code>%G</code></td>
+<td>ISOの週ベースの10進数の年。改良コマンド<code>%NG</code> (Nは10進整数) によって読み込む最大の文字数を指定できる。Nを指定しない場合、デフォルトは4。先頭の0は許可されるが要求はされない。</td>
+<td><code>"2020"</code></td>
+</tr>
+<tr>
+<td><code>%h</code></td>
+<td><code>%b</code>と等価</td>
+<td></td>
+</tr>
+<tr>
+<td><code>%H</code></td>
+<td>24時間時計での10進数の時。改良コマンド<code>%NH</code> (Nは10進整数) によって読み込む最大の文字数を指定できる。Nを指定しない場合、デフォルトは2。先頭の0は許可されるが要求はされない。改良コマンド<code>%OH</code>はロケール依存の異なる表現になる</td>
+<td><code>"17"</code></td>
+</tr>
+<tr>
+<td><code>%I</code></td>
+<td>12時間時計での10進数の時。改良コマンド<code>%NI</code> (Nは10進整数) によって読み込む最大の文字数を指定できる。Nを指定しない場合、デフォルトは2。先頭の0は許可されるが要求はされない。改良コマンド<code>%OI</code>はロケール依存の異なる表現になる</td>
+<td><code>"05"</code></td>
+</tr>
+<tr>
+<td><code>%j</code></td>
+<td>10進数での年の日。1月1日は<code>001</code>。改良コマンド<code>%Nj</code> (Nは10進整数) によって読み込む最大の文字数を指定できる。Nを指定しない場合、デフォルトは3。先頭の0は許可されるが要求はされない。<code><a href="duration.html">duration</a></code>の特殊化が与えられた場合、<code><a href="duration_aliases.html">days</a></code>の10進数値として解析される</td>
+<td><code>"115"</code></td>
+</tr>
+<tr>
+<td><code>%m</code></td>
+<td>10進数での月。1月は<code>01</code>。改良コマンド<code>%Nm</code> (Nは10進整数) によって読み込む最大の文字数を指定できる。Nを指定しない場合、デフォルトは2。先頭の0は許可されるが要求はされない。改良コマンド<code>%Om</code>はロケール依存の異なる表現になる</td>
+<td><code>"04"</code></td>
+</tr>
+<tr>
+<td><code>%M</code></td>
+<td>10進数での分。改良コマンド<code>%NM</code> (Nは10進整数) によって読み込む最大の文字数を指定できる。Nを指定しない場合、デフォルトは2。先頭の0は許可されるが要求はされない。改良コマンド<code>%OM</code>はロケール依存の異なる表現になる</td>
+<td><code>"14"</code></td>
+</tr>
+<tr>
+<td><code>%n</code></td>
+<td>ひとつのホワイトスペース文字にマッチする。</td>
+<td></td>
+</tr>
+<tr>
+<td><code>%p</code></td>
+<td>12時間時計でのロケール依存の午前・午後の表現</td>
+<td><code>"PM"</code>, <code>"午後"</code></td>
+</tr>
+<tr>
+<td><code>%r</code></td>
+<td>12時間時計でのロケール依存の時間</td>
+<td><code>"05:14:44 PM"</code><br /> <code>"午後05時14分44秒"</code></td>
+</tr>
+<tr>
+<td><code>%R</code></td>
+<td><code>%H:%M</code>と等価</td>
+<td><code>"17:14"</code></td>
+</tr>
+<tr>
+<td><code>%S</code></td>
+<td>10進数での秒。改良コマンド<code>%NS</code> (Nは10進整数) によって読み込む最大の文字数を指定できる。Nが指定されず秒に変換可能な精度である場合、デフォルトは2。秒に変可能な精度でない場合は、デフォルトの幅は入力の10進精度によって決まり、フィールドは固定フォーマットの<code>long double</code>として解釈される。小数点はロケールによって決まる。先頭の0は許可されるが要求はされない。改良コマンド<code>%OS</code>はロケール依存の異なる表現になる。</td>
+<td><code>"44"</code><br /> <code>"44.123"</code></td>
+</tr>
+<tr>
+<td><code>%t</code></td>
+<td>ゼロ個もしくはひとつのホワイトスペース文字にマッチする</td>
+<td></td>
+</tr>
+<tr>
+<td><code>%T</code></td>
+<td><code>%H:%M:%S</code>と等価</td>
+<td><code>"17:14:44.123"</code></td>
+</tr>
+<tr>
+<td><code>%u</code></td>
+<td>10進数での月曜を1とするISO曜日番号 (1-7)。改良コマンド<code>%Nu</code> (Nは10進整数) によって読み込む最大の文字数を指定できる。Nを指定しない場合、デフォルトは1。先頭の0は許可されるが要求はされない。改良コマンド<code>%Ou</code>はロケール依存の異なる表現になる</td>
+<td><code>"5"</code></td>
+</tr>
+<tr>
+<td><code>%U</code></td>
+<td>10進数での年の週番号。年の最初の日曜日が最初の曜日であるとして<code>01</code>、同年のそれより前の日は<code>00</code>となる。改良コマンド<code>%NU</code> (Nは10進整数) によって読み込む最大の文字数を指定できる。Nを指定しない場合、デフォルトは2。先頭の0は許可されるが要求はされない。</td>
+<td><code>"16"</code></td>
+</tr>
+<tr>
+<td><code>%V</code></td>
+<td>10進数でのISO週ベースの週番号。改良コマンド<code>%NV</code> (Nは10進整数) によって読み込む最大の文字数を指定できる。Nを指定しない場合、デフォルトは2。先頭の0は許可されるが要求はされない。</td>
+<td><code>"17"</code></td>
+</tr>
+<tr>
+<td><code>%w</code></td>
+<td>10進数での日曜を0とする曜日番号 (0-6)。改良コマンド<code>%Nw</code> (Nは10進整数) によって読み込む最大の文字数を指定できる。Nを指定しない場合、デフォルトは1。先頭の0は許可されるが要求はされない。改良コマンド<code>%Ow</code>はロケール依存の異なる表現になる</td>
+<td><code>"5"</code></td>
+</tr>
+<tr>
+<td><code>%W</code></td>
+<td>10進数での年の週番号。年の最初の月曜日が最初の曜日であるとして<code>01</code>、同年のそれより前の日は<code>00</code>となる。改良コマンド<code>%NW</code> (Nは10進整数) によって読み込む最大の文字数を指定できる。Nを指定しない場合、デフォルトは2。先頭の0は許可されるが要求はされない。改良コマンド<code>%OW</code>を指定はロケール依存の異なる表現になる</td>
+<td><code>"16"</code></td>
+</tr>
+<tr>
+<td><code>%x</code></td>
+<td>ロケール依存の日付表現。改良コマンド<code>%Ex</code>はロケール依存の異なる表現になる</td>
+<td><code>"04/24/20"</code><br /> <code>"2020年04月24日"</code><br /> <code>%Ex</code>では<code>"令和02年04月24日"</code></td>
+</tr>
+<tr>
+<td><code>%X</code></td>
+<td>ロケール依存の時間表現。改良コマンド<code>%EX</code>はロケール依存の異なる表現になる</td>
+<td><code>"17:14:44"</code><br /> <code>"17時14分44秒"</code></td>
+</tr>
+<tr>
+<td><code>%y</code></td>
+<td>10進数での年のうしろ2桁。世紀が (<code>%C</code>などで) 指定されない場合、範囲<code>[69, 99]</code>は1969年から1999年を参照し、範囲<code>[00, 68]</code>は2000年から2068年を参照する。改良コマンド<code>%Ny</code> (Nは10進整数) によって読み込む最大の文字数を指定できる。Nを指定しない場合、デフォルトは2。先頭の0は許可されるが要求はされない。改良コマンド<code>%Ey</code>または<code>%Oy</code>はロケール依存の異なる表現になる。</td>
+<td><code>"20"</code><br /> <code>%Ey</code>では (元号ベースの下2桁年) <code>"02"</code></td>
+</tr>
+<tr>
+<td><code>%Y</code></td>
+<td>10進数での年。改良コマンド<code>%NY</code> (Nは10進整数) によって読み込む最大の文字数を指定できる。Nを指定しない場合、デフォルトは4。先頭の0は許可されるが要求はされない。改良コマンド<code>%EY</code>はロケール依存の異なる表現になる</td>
+<td><code>"2020"</code><br /> <code>%EY</code>では<code>"令和02年"</code></td>
+</tr>
+<tr>
+<td><code>%z</code></td>
+<td><code>[+|-]hh[mm]</code>フォーマットでのUTCタイムゾーンからのオフセット時間 (<code>[ ]</code>カッコ内は省略可能)。例として<code>-0430</code>はUTCから4時間30分遅れていることを表す。 改良コマンド<code>%Ez</code>と<code>%Oz</code>は、時と分の間にコロン (<code>:</code>) が要求され、時の先頭のゼロは省略できる<code>[+|-]h[h][:mm]</code>フォーマットとなる。</td>
+<td><code>"+0900"</code><br /><code>%Ez</code>では<code>"9"</code></td>
+</tr>
+<tr>
+<td><code>%Z</code></td>
+<td>タイムゾーンの略称。単一の単語を解析する。この単語に含めることができるのは、基本文字集合の英数字または<code>'_'</code>, <code>'/'</code>, <code>'-'</code>, <code>'+'</code>の文字のみ。</td>
+<td><code>"JST"</code></td>
+</tr>
+<tr>
+<td><code>%%</code></td>
+<td>文字<code>%</code>を抽出する</td>
+<td><code>"%"</code></td>
+</tr>
+</tbody>
+</table>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
+<ul>
+<li>(1) : <code>from_stream(<a href="../utility/declval.html">declval</a>&lt;basic_istream&lt;charT, traits&gt;&amp;&gt;(), fmt.<a href="../string/basic_string/c_str.html">c_str()</a>, tp)</code>が評価されないオペランドとして扱われた場合に<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../implementation-compliance.html#dfn-well-formed">適格</a>な式であること</li>
+<li>(2) : <code>from_stream(<a href="../utility/declval.html">declval</a>&lt;basic_istream&lt;charT, traits&gt;&amp;&gt;(), fmt.<a href="../string/basic_string/c_str.html">c_str()</a>, tp, <a href="../memory/addressof.html">addressof</a>(abbrev))</code>が評価されないオペランドとして扱われた場合に<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../implementation-compliance.html#dfn-well-formed">適格</a>な式であること</li>
+<li>(3) : 式<code>from_stream(<a href="../utility/declval.html">declval</a>&lt;basic_istream&lt;charT, traits&gt;&amp;&gt;(), fmt.<a href="../string/basic_string/c_str.html">c_str()</a>, tp, <a href="../utility/declval.html">declval</a>&lt;<a href="../string/basic_string.html">basic_string</a>&lt;charT, traits, Alloc&gt;*&gt;(), &amp;offset)</code>が評価されないオペランドとして扱われた場合に<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../implementation-compliance.html#dfn-well-formed">適格</a>な式であること</li>
+<li>(4) : <code>from_stream(<a href="../utility/declval.html">declval</a>&lt;basic_istream&lt;charT, traits&gt;&amp;&gt;(), fmt.<a href="../string/basic_string/c_str.html">c_str()</a>, tp, <a href="../memory/addressof.html">addressof</a>(abbrev), &amp;offset)</code>が評価されないオペランドとして扱われた場合に<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../implementation-compliance.html#dfn-well-formed">適格</a>な式であること</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<ul>
+<li>(1) : このマニピュレータは、<code><a href="../istream/basic_istream.html">basic_istream</a>&lt;charT, traits&gt;</code>型オブジェクト<code>is</code>に対して<code>from_stream(is, fmt.<a href="../string/basic_string/c_str.html">c_str()</a>, tp)</code>を呼び出した結果の<code>is</code>を返す</li>
+<li>(2) : このマニピュレータは、<code><a href="../istream/basic_istream.html">basic_istream</a>&lt;charT, traits&gt;</code>型オブジェクト<code>is</code>に対して<code>from_stream(is, fmt.<a href="../string/basic_string/c_str.html">c_str()</a>, tp, <a href="../memory/addressof.html">addressof</a>(abbrev))</code>を呼び出した結果の<code>is</code>を返す</li>
+<li>(3) : このマニピュレータは、<code><a href="../istream/basic_istream.html">basic_istream</a>&lt;charT, traits&gt;</code>型オブジェクト<code>is</code>に対して<code>from_stream(is, fmt.<a href="../string/basic_string/c_str.html">c_str()</a>, tp, static_cast&lt;<a href="../string/basic_string.html">basic_string</a>&lt;charT, traits, Alloc&gt;*&gt;(nullptr), &amp;offset)</code>を呼び出した結果の<code>is</code>を返す</li>
+<li>(4) : このマニピュレータは、<code><a href="../istream/basic_istream.html">basic_istream</a>&lt;charT, traits&gt;</code>型オブジェクト<code>is</code>に対して<code>from_stream(is, fmt.<a href="../string/basic_string/c_str.html">c_str()</a>, tp, <a href="../memory/addressof.html">addressof</a>(abbrev), &amp;offset)</code>を呼び出した結果の<code>is</code>を返す</li>
+</ul>
+<p>以下、<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>全体について、</p>
+<ul>
+<li>これらの関数を<a class="cpprefjp-defined-word" data-desc="実引数依存の名前探索 (Argument Dependent Lookup)。引数の型が所属する名前空間の関数を探索する言語機能">ADL</a> (引数依存の名前探索、argument dependent lookup) で呼び出すために、<code>from_stream</code>を修飾せずに呼び出している</li>
+<li>これらの関数は書式化されていない入力関数として動作するが (<code><a href="../ios/boolalpha.html">std::boolalpha</a></code>, <code><a href="../iomanip/quoted.html">std::quoted</a></code>などの影響を受けない)、後続で呼び出された<code><a href="../istream/basic_istream.html">std::basic_istream</a>&lt;&gt;::<a href="../istream/basic_istream/gcount.html">gcount()</a></code>の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>に<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>の影響がある</li>
+<li>概要欄に示したフォーマットフラグに含まれておらず、スペースを除くフォーマット文字列のすべての文字は、ストリームから変更されずに解析される</li>
+<li>スペース文字は、入力ストリーム内の「ゼロ個以上のスペース文字」と合致する</li>
+<li>解析する<code>tp</code>の型が、フォーマットフラグの情報を表現できない場合、<code>is.<a href="../ios/basic_ios/setstate.html">setstate</a>(<a href="../ios/ios_base/type-iostate.html">ios_base::failbit</a>)</code>が呼び出される<ul>
+<li>例として、<code><a href="duration.html">duration</a></code>は<code><a href="weekday.html">weekday</a></code>を表現できない</li>
+<li>ただし、フォーマットフラグが時刻を表すものである場合 (<code>"%H"</code>, <code>"%I"</code>, <code>"%p"</code>など)、<code><a href="duration.html">duration</a></code>の特殊化は、その日の深夜0時からの経過時間だと見なして読み込む</li>
+</ul>
+</li>
+<li>フォーマット文字列で指定されたいずれの解析にも失敗した場合、もしくは完全な<code>duration</code>、時間点、カレンダーデータ構造を指定するために十分な情報が解析されなかった場合、<code>is.<a href="../ios/basic_ios/setstate.html">setstate</a>(<a href="../ios/ios_base/type-iostate.html">ios_base::failbit</a>)</code>が呼び出される</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="788a5835d103d2a87cf7a8f13af789a67b686e31"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../sstream.html">&lt;sstream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
+
+<span class="k">namespace</span> <span class="n">chrono</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// タイムゾーン情報を含まない日時の解析</span>
+  <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">stringstream</span> <span class="n">ss</span><span class="p">;</span>
+    <span class="n">ss</span> <span class="o">&lt;&lt;</span> <span class="s">"2019-10-24 20:15:10"</span><span class="p">;</span>
+
+    <span class="n"><a href="sys_time.html">chrono::sys_seconds</a></span> <span class="n">tp</span><span class="p">;</span>
+    <span class="n">ss</span> <span class="o">&gt;&gt;</span> <span class="n"><span style="color:#ff0000">chrono::parse</span></span><span class="p">(</span><span class="s">"%Y-%m-%d %H:%M:%S"</span><span class="p">,</span> <span class="n">tp</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">ss</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">tp</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"解析失敗"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// タイムゾーン情報を含む日時の解析</span>
+  <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">stringstream</span> <span class="n">ss</span><span class="p">;</span>
+    <span class="n">ss</span> <span class="o">&lt;&lt;</span> <span class="s">"2019-10-24 20:15:10 JST+0900"</span><span class="p">;</span>
+
+    <span class="n"><a href="sys_time.html">chrono::sys_seconds</a></span> <span class="n">tp</span><span class="p">;</span>
+    <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">abbrev</span><span class="p">;</span>
+    <span class="n"><a href="duration_aliases.html">chrono::minutes</a></span> <span class="n">offset</span><span class="p">;</span>
+    <span class="n">ss</span> <span class="o">&gt;&gt;</span> <span class="n"><span style="color:#ff0000">chrono::parse</span></span><span class="p">(</span><span class="s">"%Y-%m-%d %H:%M:%S %Z%z"</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">abbrev</span><span class="p">,</span> <span class="n">offset</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">ss</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">tp</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">abbrev</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="duration/floor.html">chrono::floor</a></span><span class="o">&lt;</span><span class="n"><a href="duration_aliases.html">chrono::hours</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">offset</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"解析失敗"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>2019-10-24 20:15:10
+2019-10-24 11:15:10
+JST
+9h
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++20</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 9.0 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 9.2 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2019 Update 3 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://wg21.cmeerw.net/lwg/issue3131" target="_blank">LWG Issue 3131. <code>addressof</code> all the things</a></li>
+<li><a href="https://wg21.cmeerw.net/lwg/issue3218" target="_blank">LWG Issue 3218. Modifier for <code>%d</code> parse flag does not match POSIX and format specification</a></li>
+<li><a href="https://wg21.cmeerw.net/lwg/issue3235" target="_blank">LWG Issue 3235. <code>parse</code> manipulator without abbreviation is not callable</a></li>
+<li><a href="https://wg21.cmeerw.net/lwg/issue3245" target="_blank">LWG Issue 3245. Unnecessary restriction on <code>'%p'</code> parse specifier</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3269" target="_blank">LWG Issue 3269. Parse manipulators do not specify the result of the extraction from stream</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3270" target="_blank">LWG Issue 3270. Parsing and formatting <code>%j</code> with <code>duration</code>s</a></li>
+<li><a href="https://wg21.cmeerw.net/lwg/issue3272" target="_blank">LWG Issue 3272. <code>%I%p</code> should <code>parse</code>/<code>format duration</code> since midnight</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

@@ -1,0 +1,302 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>cpprefjp - C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,
+">
+        <meta name="title" content="cpprefjp - C++日本語リファレンス" />
+        <meta itemprop="name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:title" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/index.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="cpprefjp - C++日本語リファレンス 本サイトcpprefjpは、プログラミング言語C++のリファレンスを提供するWebサイトです。 最新C++バージョンのリファレンスを提供していきます。 運営方針 本リファレンスサイトは、C++言語の最新のリファレンスを常に提供し続けることを目標にしています。 各クラス、関数にはそれぞれ1つ以上のサンプルコードを付けていく方針です。 本サイトでは、他サ" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="cpprefjp - C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/index.html" />
+        <meta name="twitter:description" content="cpprefjp - C++日本語リファレンス 本サイトcpprefjpは、プログラミング言語C++のリファレンスを提供するWebサイトです。 最新C++バージョンのリファレンスを提供していきます。 運営方針 本リファレンスサイトは、C++言語の最新のリファレンスを常に提供し続けることを目標にしています。 各クラス、関数にはそれぞれ1つ以上のサンプルコードを付けていく方針です。 本サイトでは、他サ" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="./static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="./static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="./static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="./manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="./static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="./static/css/root.css"> -->
+
+        
+  
+
+
+<link href="./static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="./static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="./static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="./static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="./static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="./static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;index&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="./index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <i class="fa fa-fw fa-home"></i>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-07-04T02:33:39">
+        2025年07月04日 02時33分39秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/index.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/index.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">cpprefjp - C++日本語リファレンス</span></h1>
+<div itemprop="articleBody"><p>本サイトcpprefjpは、プログラミング言語C++のリファレンスを提供するWebサイトです。</p>
+<p>最新C++バージョンのリファレンスを提供していきます。</p>
+<h2>運営方針</h2>
+<p>本リファレンスサイトは、C++言語の最新のリファレンスを常に提供し続けることを目標にしています。</p>
+<p>各クラス、関数にはそれぞれ1つ以上のサンプルコードを付けていく方針です。</p>
+<p>本サイトでは、他サイトおよび規格書の直接的な翻訳ではなく、編集者の調査と考えに基づいた解説を提供していきます。</p>
+<h2>HTMLデータのダウンロード</h2>
+<ul>
+<li><a href="https://github.com/cpprefjp/cpprefjp.github.io/archive/refs/heads/master.zip" target="_blank">cpprefjp.github.io-master.zip</a></li>
+</ul>
+<p>ローカルで閲覧できるHTMLを用意しています。</p>
+<h2>スポンサーシップ</h2>
+<ul>
+<li><a href="https://opencollective.com/cpprefjp" target="_blank">cpprefjp - Open Collective</a></li>
+</ul>
+<p>このプロジェクトは、持続的な活動のため、ユーザーの方々からのご支援をお待ちしております。上記Open Collectiveのプロジェクトでスポンサーシップの募集をしております。</p>
+<p>ご支援いただくユーザーの方々には、以下の特典があります。</p>
+<ul>
+<li>本ページ (cpprefjpサイトのトップページ) に1年間、金額順でロゴを表示させていただきます (金額が同じ場合は登録順)</li>
+<li>シルバースポンサー以上の方は、<a href="https://github.com/cpprefjp/site" target="_blank">cpprefjp/site</a>リポジトリのissueとして、採用情報を投稿できます (一週間ほどで閉じます)</li>
+</ul>
+<p>ご支援いただいた資金は、貢献度に応じてコントリビューターに分配させていただきます。</p>
+<p>また、スポンサーシップの入金方法として、Open Collectiveのほかに銀行振込も対応しております。</p>
+<p>銀行振込に関して、またはそれ以外でスポンサーシップの相談に関しては、以下のメールアドレスにお問い合わせください。</p>
+<ul>
+<li>メールアドレス : <a href="mailto:cpprefjp_org@googlegroups.com">cpprefjp_org@googlegroups.com</a></li>
+<li>宛名 : cpprefjp管理者<ul>
+<li>代表として、主に高橋晶 (Akira Takahashi) がご対応させていただきます</li>
+</ul>
+</li>
+</ul>
+<h2>参加方法</h2>
+<p>本サイトは、多くのユーザの手によって書かれています。</p>
+<p>あなたがこの cpprefjp プロジェクトに参加したいのであれば、私達はそれをとても歓迎します。</p>
+<p>cpprefjp プロジェクトに参加する方法は簡単です。</p>
+<ol>
+<li><a href="https://github.com/cpprefjp/site/issues?state=open" target="_blank">cpprefjp の Issues</a> にアクセスし、</li>
+<li>あなたが手伝えそうな、まだ誰にもアサインされていないタスクを見つけ、</li>
+<li>その Issue のコメントに「このタスクやります」と書く</li>
+</ol>
+<p>これだけです。</p>
+<p>あとは、そのタスクを完了させて pull request を送れば、あなたも cpprefjp のコミッタになれます。</p>
+<h2>編集者向けのさらなる情報</h2>
+<p>本サイトは、GitHubのリポジトリ上で、Markdown形式でリファレンスを記載し、GitHub Pagesに自動反映するという形をとっています。本サイトのMarkdownソースは、以下のリポジトリにあります。</p>
+<ul>
+<li><a href="https://github.com/cpprefjp/site" target="_blank">https://github.com/cpprefjp/site</a></li>
+</ul>
+<p>上記リポジトリのREADMEに、コアメンバの一覧を記載してありますので、何かありましたらそのうちの誰か、もしくはリポジトリへのIssueという形でご相談ください。</p>
+<p>本サイトの編集方法については、以下のドキュメントを参照してください。</p>
+<ul>
+<li><a href="start_editing.html">cpprefjpを編集するには</a></li>
+</ul>
+<p>本サイトのコンテンツを作成、編集するにあたり、仕様を熟知し、一人で完璧に正しい内容を書くことは要求しません。</p>
+<p>たとえ間違ったことを記載した場合や、不安の残る内容を記載した場合でも、それに気づいた誰かが修正してくれます。</p>
+<h2>その他参考情報</h2>
+<p>以下のWebサイトから転載許可をいただいています。</p>
+<p>翻訳や解説などで活用してください：</p>
+<ul>
+<li><a href="https://web.archive.org/web/20190112041213/http://episteme.wankuma.com/stlprog/index.html" target="_blank">Standard Template Library プログラミング on the Web</a></li>
+</ul>
+<h2>スポンサー</h2>
+<p>cpprefjpプロジェクトは、以下の方々にスポンサーになっていただいております。</p>
+<h3>ゴールドスポンサー</h3>
+<p><div style="text-align: center"><a href="https://www.cocotone.jp" target="_blank"><img alt="cocotone様" src="static/image/sponsors/cocotone/cocotone.png" title="cocotone様" width="560" /></a></div></p>
+<p><div style="text-align: center"><a href="https://www.cube-soft.jp/" target="_blank"><img alt="CubeSoft様" src="https://raw.githubusercontent.com/cube-soft/cube.assets/master/home/banner/large.png" title="CubeSoft様" /></a></div></p>
+<h3>シルバースポンサー</h3>
+<p><div style="text-align: center"><a href="https://acerola-software.jp/" target="_blank"><img alt="Acerola Software様" src="static/image/sponsors/Acerola/as_logo.png" title="Acerola Software様" width="400" /></a></div></p>
+<p><div style="text-align: center"><a href="https://www.fixstars.com/" target="_blank"><img alt="Fixstars様" src="static/image/sponsors/Fixstars/fixstars-logo.png" title="Fixstars様" width="400" /></a></div></p>
+<p><div style="text-align: center"><a href="https://www.pegasys-inc.com/" target="_blank"><img alt="pegasys様" src="https://tmpgenc.pegasys-inc.com/images/pegasys_logo.png" title="pegasys様" width="320" /></a></div></p>
+<p><div style="text-align: center"><a href="https://vaporoid.com/sys/" target="_blank"><img alt="vaporoid様" src="static/image/sponsors/vaporoid/cpprefjp-400x150.png" title="vaporoid様" width="400" /></a></div></p>
+<p><div style="text-align: center"><a href="https://mkohana.github.io/" target="_blank"><img alt="M.Kohana様" src="static/image/sponsors/m_kohana/m_kohana.jpg" title="M.Kohana様" width="320" /></a></div></p>
+<p><div style="text-align: center"><a href="https://www.techarts.co.jp/" target="_blank"><img alt="有限会社テクニカルアーツ様" src="static/image/sponsors/technical_arts/TechnicalArtsLogo3.png" title="有限会社テクニカルアーツ様" width="400" /></a></div></p>
+<p><ul><li>T.Kishu様</li></ul></p>
+<h3>ブロンズスポンサー</h3>
+<p><div style="text-align: center"><img alt="Azaika様" src="static/image/sponsors/Azaika/Azaika.jpg" title="Azaika様" width="256" /></div></p>
+<p><ul><li>イシハラユウヤ様</li></ul></p>
+<p><ul><li><a href="https://opencollective.com/meg_nakagami" target="_blank">Megumi Nakagami様</a></li></ul></p>
+<p><div style="text-align: center"><a href="https://github.com/minachun/minachun" target="_blank"><img alt="minachun / J.Minami様" src="https://raw.githubusercontent.com/minachun/minachun/main/banner.png" title="minachun / J.Minami様" /></a></div></p>
+<p><div style="text-align: center"><a href="https://gravatar.com/overthestardust" target="_blank"><img alt="星くず彼方に" src="static/image/sponsors/overthestardust/overthestardust.png" title="星くず彼方に" width="256" /></a></div></p>
+<p><div style="text-align: center"><a href="https://github.com/zonuexe" target="_blank"><img alt="USAMI Kenta" src="https://gravatar.com/userimage/33138763/7af48baae61cde116bd8d28a5158946e.jpeg?size=256" title="USAMI Kenta" width="256" /></a></div></p>
+<p><div style="text-align: center"><a href="https://github.com/soramimi" target="_blank"><img alt="soramimi" src="https://www.soramimi.jp/avater.jpg" title="soramimi" width="256" /></a></div></p>
+<p><ul><li>Agate Pris様</li></ul></p>
+<p><div style="text-align: center"><a href="https://x.com/HappyLuckyAkira" target="_blank"><img alt="Akira Kubo様" src="static/image/sponsors/HappyLuckyAkira/HappyLuckyAkira.jpg" title="Akira Kubo様" width="256" /></a></div></p>
+<p><div style="text-align: center"><a href="https://profile.bocchi-master.net/" target="_blank"><img alt="ぼっちマスター様" src="static/image/sponsors/bocchi-master/my-icon.png" title="ぼっちマスター様" width="320" /></a></div></p>
+<p>スポンサーシップについては、以下のページを参照ください。</p>
+<ul>
+<li><a href="https://opencollective.com/cpprefjp" target="_blank">cpprefjp - Open Collective</a></li>
+</ul>
+<p>連絡先が不明なスポンサー様は、ロゴの表示が現在できておりません。Open Collectiveの問い合わせフォームから、表示するロゴ画像とリンク先URLについてご連絡いただきたいです。</p>
+<h2>プライバシーポリシー</h2>
+<p>本サイトは、サイトの改善のためにGoogleアナリティクスを使用しています。本サイトをご利用中のブラウザは、Googleに特定の情報を自動的に送信します。本サイトは、この分析のためにCookieを使用します。利用者は、本サイトを利用することで、この目的においてCookieを使用することを許可したものとみなします。</p>
+<p>Googleによるデータ使用の詳細は、以下のURLで確認することができます。</p>
+<p><a href="https://www.google.com/intl/ja/policies/privacy/partners/" target="_blank">https://www.google.com/intl/ja/policies/privacy/partners/</a></p>
+<h2>ライセンスについて</h2>
+<p>本サイトの情報は、<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)</a>の下に提供しています。</p>
+<p><img alt="" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></p>
+<p>cpprefjpサイトのアイコン・ロゴ画像は、<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ja" target="_blank">クリエイティブ・コモンズ 表示 - 非営利 - 改変禁止 4.0 国際 (CC BY-NC-ND 4.0)</a>の下に提供しています。</p>
+<p>高解像度画像データ： <a href="https://github.com/cpprefjp/image/tree/master/cpprefjp/icon" target="_blank">cpprefjp/image</a></p>
+<p><img alt="" src="https://licensebuttons.net/l/by-nc-nd/4.0/88x31.png" /></p></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

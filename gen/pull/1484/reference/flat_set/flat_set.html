@@ -1,0 +1,772 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>flat_set - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,flat_set,std,class template,cpp23
+">
+        <meta name="title" content="flat_set - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="flat_set - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="flat_set - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/flat_set/flat_set.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`std::flat_set`は、重複しない要素を格納する連想コンテナの一種であり、要素自身がキーとなる、集合を表すクラスである。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="flat_set - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/flat_set/flat_set.html" />
+        <meta name="twitter:description" content="`std::flat_set`は、重複しない要素を格納する連想コンテナの一種であり、要素自身がキーとなる、集合を表すクラスである。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;flat_set&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp23&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;c8ac84de38179af4527eef48d1c0e257ef14a2b9&#34;, &#34;source&#34;: &#34;#include &lt;flat_set&gt;\n#include &lt;iostream&gt;\n#include &lt;string&gt;\n\nint main()\n{\n  // string\u3092\u30ad\u30fc\u3068\u3057\u3066\u6271\u3046\u9023\u60f3\u914d\u5217\n  std::flat_set&lt;std::string&gt; fs = {\&#34;Carol\&#34;, \&#34;Alice\&#34;, \&#34;Bob\&#34;};\n\n  // \u691c\u7d22 : \u30ad\u30fc\u3092\u6307\u5b9a\u3057\u3001\u30a4\u30c6\u30ec\u30fc\u30bf\u3092\u5f97\u308b\n  auto it = fs.find(\&#34;Alice\&#34;);\n  std::cout &lt;&lt; *it &lt;&lt; std::endl\n            &lt;&lt; std::endl;\n\n  // \u5168\u4f53\u3092\u51fa\u529b\u3059\u308b\n  for (const auto&amp; str : fs) {\n    std::cout &lt;&lt; str &lt;&lt; std::endl;\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;9f7a864ed71298ae2ba514813fe530aab42b10d3&#34;, &#34;source&#34;: &#34;#include &lt;deque&gt;\n#include &lt;flat_set&gt;\n#include &lt;iostream&gt;\n\nint main()\n{\n  std::deque&lt;int&gt; keys = {1, 4, 2, 8, 5, 7};\n\n  // int\u3092\u30ad\u30fc\u3068\u3057\u3066\u6271\u3046\u9023\u60f3\u914d\u5217\n  // \u30ad\u30fc\u306e\u9806\u5e8f\u306fgreater\u3001\u30ad\u30fc\u306e\u30b3\u30f3\u30c6\u30ca\u306fdeque\u3067\u4fdd\u6301\n  std::flat_set&lt;int,\n                std::greater&lt;int&gt;,\n                std::deque&lt;int&gt;&gt; fs(keys);\n\n  // \u5168\u4f53\u3092\u51fa\u529b\u3059\u308b\n  for (int i : fs) {\n    std::cout &lt;&lt; i &lt;&lt; \&#34; \&#34;;\n  }\n  std::cout &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;flat_set&#34;, &#34;flat_set&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/flat_set.html" itemprop="url">
+              
+                <span itemprop="name">flat_set</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">flat_set</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-06-25T13:48:21">
+        2025年06月25日 13時48分21秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">suomesta</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/flat_set/flat_set.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/flat_set/flat_set.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;flat_set&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">flat_set</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Key</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Compare</span> <span class="o">=</span> <span class="n"><a href="../functional/less.html">less</a></span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">KeyContainer</span> <span class="o">=</span> <span class="n"><a href="../vector/vector.html">vector</a></span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;&gt;</span>
+  <span class="k">class</span> <span class="nc">flat_set</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>std::flat_set</code>は、重複しない要素を格納する連想コンテナの一種であり、要素自身がキーとなる、集合を表すクラスである。</p>
+<p><code>std::flat_set</code>は、ノードベースで実装される<code><a href="../set/set.html">std::set</a></code>、ハッシュテーブルで実装される<code><a href="../unordered_set/unordered_set.html">std::unordered_set</a></code>とは異なり、ソート済み配列と二分探索の組み合わせで実装される。これはほかの実装と比較して、メモリ使用量と列挙速度において優位であり、一方で挿入速度と検索速度はほかの実装に劣る。</p>
+<p>また、このクラスは分類としては<code><a href="../queue/queue.html">std::queue</a></code>や<code><a href="../stack/stack.html">std::stack</a></code>と同様の<a class="cpprefjp-defined-word" data-desc="コンテナをラップしたクラス。一部のコンテナインタフェースをもたない場合がある">コンテナアダプタ</a>に分類され、キーの配列をラップして扱う実装となっている。</p>
+<p>このコンテナクラスは、ランダムアクセスイテレータをサポートする。</p>
+<h3>ほかの連想コンテナとの要件の違い</h3>
+<p>このクラスは要件として、コンテナクラスと、逆順コンテナクラスであることは満たすが、連想コンテナの要件としては以下を満たさない：</p>
+<ul>
+<li>node handleに関する要件</li>
+<li>イテレータ無効化に関する要件</li>
+<li>単一要素の挿入と削除に線形時間かかる (挿入位置のイテレータを指定したとしても)</li>
+</ul>
+<p>また、このコンテナはメモリアロケータを指定できない設計にもなっている。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
+<ul>
+<li><code>KeyContainer</code>に指定するコンテナ型は、<ul>
+<li>シーケンスコンテナの要件を満たし、</li>
+<li>ランダムアクセスイテレータをもつこと</li>
+</ul>
+</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Mandates。満たさなければプログラムが不適格となる要件。この要件は、オーバーロード解決によって選択された関数内での`static_assert`の定数条件式や、関数に対するdelete宣言などで表現できる">適格要件</a></h2>
+<ul>
+<li><code>Key</code>が<code>KeyContainer::value_type</code>と同じ型であること</li>
+</ul>
+<h2>メンバ関数</h2>
+<h3>構築・破棄</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="flat_set/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><span href="https://cpprefjp.github.io/reference/flat_set/flat_set/op_destructor.md.nolink">(destructor)</span></code></td>
+<td>デストラクタ</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_set/op_assign.html">operator=</a></code></td>
+<td>代入演算子</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h3>イテレータ</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="flat_set/begin.html">begin</a></code></td>
+<td>先頭を指すイテレータを取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_set/cbegin.html">cbegin</a></code></td>
+<td>先頭を指す読み取り専用イテレータを取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_set/end.html">end</a></code></td>
+<td>末尾の次を指すイテレータを取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_set/cend.html">cend</a></code></td>
+<td>末尾の次を指す読み取り専用イテレータを取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_set/rbegin.html">rbegin</a></code></td>
+<td>末尾を指す逆イテレータを取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_set/crbegin.html">crbegin</a></code></td>
+<td>末尾を指す読み取り専用逆イテレータを取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_set/rend.html">rend</a></code></td>
+<td>先頭の前を指す逆イテレータを取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_set/crend.html">crend</a></code></td>
+<td>先頭の前を指す読み取り専用逆イテレータを取得する</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h3>領域</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="flat_set/empty.html">empty</a></code></td>
+<td>コンテナが空であるかどうかを調べる</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_set/size.html">size</a></code></td>
+<td>要素数を取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_set/max_size.html">max_size</a></code></td>
+<td>格納可能な最大の要素数を取得する</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h3>コンテナの変更</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="flat_set/clear.html">clear</a></code></td>
+<td>全ての要素を削除する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_set/insert.html">insert</a></code></td>
+<td>要素を挿入する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_set/insert_range.html">insert_range</a></code></td>
+<td>Rangeを挿入する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_set/emplace.html">emplace</a></code></td>
+<td>要素を直接構築する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_set/emplace_hint.html">emplace_hint</a></code></td>
+<td>ヒントを使って要素を直接構築する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_set/erase.html">erase</a></code></td>
+<td>要素を削除する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_set/swap.html">swap</a></code></td>
+<td>コンテンツを交換する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_set/extract.html">extract</a></code></td>
+<td>キーのコンテナを取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_set/replace.html">replace</a></code></td>
+<td>キーのコンテナを置き換える</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h3>要素アクセス</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="flat_set/count.html">count</a></code></td>
+<td>指定したキーにマッチする要素の数を取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_set/find.html">find</a></code></td>
+<td>指定したキーで要素を探す</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_set/contains.html">contains</a></code></td>
+<td>指定したキーの要素が含まれているかを判定する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_set/equal_range.html">equal_range</a></code></td>
+<td>指定したキーにマッチする要素範囲を取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_set/lower_bound.html">lower_bound</a></code></td>
+<td>与えられた値より小さくない最初の要素へのイテレータを取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_set/upper_bound.html">upper_bound</a></code></td>
+<td>特定の値よりも大きい最初の要素へのイテレータを取得する</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h3>オブザーバー</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="flat_set/key_comp.html">key_comp</a></code></td>
+<td>キー比較用の関数オブジェクトを取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_set/value_comp.html">value_comp</a></code></td>
+<td>要素比較用の関数オブジェクトを取得する</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>key_type</code></td>
+<td>キーの型。テンプレートパラメータ <code>Key</code></td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>value_type</code></td>
+<td>要素の型。テンプレートパラメータ <code>Key</code></td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>key_compare</code></td>
+<td>キーの大小関係を判定する二項<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>の型。テンプレートパラメータ <code>Compare</code></td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>value_compare</code></td>
+<td>要素の大小関係を判定する二項<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>の型。テンプレートパラメータ <code>Compare</code></td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>reference</code></td>
+<td>要素への参照型。<code>value_type&amp;</code></td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>const_reference</code></td>
+<td>要素への<code>const</code>参照型。<code>const value_type&amp;</code></td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>size_type</code></td>
+<td>要素数を表す符号なし整数型 <code><a href="../cstddef/size_t.html">size_t</a></code></td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>difference_type</code></td>
+<td>同一のコンテナを指す <code>iterator</code> の差を表す符号付き整数型 <code><a href="../cstddef/ptrdiff_t.html">ptrdiff_t</a></code></td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>iterator</code></td>
+<td>ランダムアクセスイテレータ</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>const_iterator</code></td>
+<td>読み取り専用ランダムアクセスイテレータ</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>reverse_iterator</code></td>
+<td>逆順ランダムアクセスイテレータ。<code><a href="../iterator/reverse_iterator.html">std::reverse_iterator</a>&lt;iterator&gt;</code></td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>const_reverse_iterator</code></td>
+<td>読み取り専用逆順ランダムアクセスイテレータ。<code><a href="../iterator/reverse_iterator.html">std::reverse_iterator</a>&lt;const_iterator&gt;</code></td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>container_type</code></td>
+<td>キーを格納するコンテナ型 <code>KeyContainer</code></td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2>非メンバ関数</h2>
+<h3>要素削除</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="flat_set/erase_if_free.html">erase_if</a></code></td>
+<td>指定した条件に合致する要素とその分の領域を、コンテナから削除する</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2>非メンバ（<em>Hidden friends</em>）関数</h2>
+<h3>比較演算子</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="flat_set/op_equal.html">operator==</a></code></td>
+<td>左辺と右辺が等しいかの判定を行う</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>bool operator!=(const flat_set&amp; x, const flat_set&amp; y);</code></td>
+<td>左辺と右辺が等しくないかの判定を行う (<code>==</code>により使用可能)</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_set/op_compare_3way.html">operator&lt;=&gt;</a></code></td>
+<td>三方比較を行う</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>bool operator&lt;(const flat_set&amp; x, const flat_set&amp; y);</code></td>
+<td>左辺が右辺より小さいかの判定を行う  (<code>&lt;=&gt;</code>により使用可能)</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>bool operator&lt;=(const flat_set&amp; x, const flat_set&amp; y);</code></td>
+<td>左辺が右辺より小さいか等しいかの判定を行う (<code>&lt;=&gt;</code>により使用可能)</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>bool operator&gt;(const flat_set&amp; x, const flat_set&amp; y);</code></td>
+<td>左辺が右辺より大きいかの判定を行う (<code>&lt;=&gt;</code>により使用可能)</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>bool operator&gt;=(const flat_set&amp; x, const flat_set&amp; y);</code></td>
+<td>左辺が右辺より大きいか等しいかの判定を行う (<code>&lt;=&gt;</code>により使用可能)</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h3>入れ替え</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="flat_set/swap_free.html">swap</a></code></td>
+<td>2つの<code>flat_set</code>オブジェクトを入れ替える</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2>推論補助</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="flat_set/op_deduction_guide.html">(deduction_guide)</a></code></td>
+<td>クラステンプレートの推論補助</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2>その他</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="flat_set/uses_allocator.html">uses_allocator</a></code></td>
+<td><code>flat_set</code>による特殊化</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<h3>基本的な使い方</h3>
+<p><div class="yata" id="c8ac84de38179af4527eef48d1c0e257ef14a2b9"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../flat_set.html">&lt;flat_set&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// stringをキーとして扱う連想配列</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">flat_set</span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">fs</span> <span class="o">=</span> <span class="p">{</span><span class="s">"Carol"</span><span class="p">,</span> <span class="s">"Alice"</span><span class="p">,</span> <span class="s">"Bob"</span><span class="p">};</span>
+
+  <span class="c1">// 検索 : キーを指定し、イテレータを得る</span>
+  <span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n"><a href="flat_set/find.html">fs.find</a></span><span class="p">(</span><span class="s">"Alice"</span><span class="p">);</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span>
+            <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// 全体を出力する</span>
+  <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="nl">str</span> <span class="p">:</span> <span class="n">fs</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">str</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>Alice
+
+Alice
+Bob
+Carol
+</code></pre></p>
+<h3>キー以外のテンプレートを指定</h3>
+<p><div class="yata" id="9f7a864ed71298ae2ba514813fe530aab42b10d3"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../deque/deque.html">&lt;deque&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../flat_set.html">&lt;flat_set&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../deque/deque.html">std::deque</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">keys</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">};</span>
+
+  <span class="c1">// intをキーとして扱う連想配列</span>
+  <span class="c1">// キーの順序はgreater、キーのコンテナはdequeで保持</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">flat_set</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span>
+                <span class="n"><a href="../functional/greater.html">std::greater</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span>
+                <span class="n"><a href="../deque/deque.html">std::deque</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">fs</span><span class="p">(</span><span class="n">keys</span><span class="p">);</span>
+
+  <span class="c1">// 全体を出力する</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">i</span> <span class="p">:</span> <span class="n">fs</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>8 7 5 4 2 1 
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++23</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1222r0.pdf" target="_blank">P1222R0 A Standard <code>flat_set</code></a><ul>
+<li>C++23で<code>flat_set</code>が導入された経緯・動機・設計について記載されている</li>
+</ul>
+</li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1222r4.pdf" target="_blank">P1222R4 A Standard <code>flat_set</code></a><ul>
+<li>C++23で導入された<code>flat_set</code>の仕様</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

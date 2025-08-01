@@ -1,0 +1,915 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>flat_map - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,flat_map,std,class template,cpp23
+">
+        <meta name="title" content="flat_map - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="flat_map - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="flat_map - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/flat_map/flat_map.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`std::flat_map`は、重複しない要素を格納する連想コンテナの一種であり、キーとそれに対応する値を格納する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="flat_map - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/flat_map/flat_map.html" />
+        <meta name="twitter:description" content="`std::flat_map`は、重複しない要素を格納する連想コンテナの一種であり、キーとそれに対応する値を格納する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;flat_map&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp23&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;f929d72149b18684b6cd73b6ded1e08ee5b7562d&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;string&gt;\n#include &lt;flat_map&gt;\n\nint main()\n{\n  // string\u3092\u30ad\u30fc\u3001int\u3092\u5024\u3068\u3057\u3066\u6271\u3046\u9023\u60f3\u914d\u5217\n  std::flat_map&lt;std::string, int&gt; fm = {\n    {\&#34;Carol\&#34;, 4},\n    {\&#34;Alice\&#34;, 3},\n    {\&#34;Bob\&#34;, 1}\n  };\n\n  // \u691c\u7d22 : \u30ad\u30fc(string)\u3092\u6307\u5b9a\u3057\u3001\u5024(int)\u3092\u5f97\u308b\n  int r = fm.at(\&#34;Alice\&#34;);\n  std::cout &lt;&lt; r &lt;&lt; std::endl;\n\n  // \u5168\u4f53\u3092\u51fa\u529b\u3059\u308b\n  for (const auto&amp; [key, value] : fm) {\n    std::cout &lt;&lt; key &lt;&lt; \&#34; : \&#34; &lt;&lt; value &lt;&lt; std::endl;\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;241bbcbf270ea3ffa0260f13a397f79f4670ba57&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;string&gt;\n#include &lt;flat_map&gt;\n\n// \u8981\u7d20\u304c\u3072\u3068\u3064\u306e\u5834\u5408\nstruct MyInt {\n  int value;\n\n  friend auto operator&lt;=&gt;(const MyInt&amp; a, const MyInt&amp; b) noexcept {\n    return a.value &lt;=&gt; b.value;\n  }\n};\n\n// \u8981\u7d20\u304c\u8907\u6570\u306e\u5834\u5408\nstruct Person {\n  int id;\n  int age;\n  std::string name;\n\n  friend auto operator&lt;=&gt;(const Person&amp; a, const Person&amp; b) noexcept {\n    if (auto comp = a.id &lt;=&gt; b.id; comp != 0) {\n      return comp;\n    }\n    if (auto comp = a.age &lt;=&gt; b.age; comp != 0) {\n      return comp;\n    }\n    return a.name &lt;=&gt; b.name;\n  }\n};\n\nint main()\n{\n  std::flat_map&lt;MyInt, int&gt; fm1 {\n    {MyInt{1}, 3},\n    {MyInt{2}, 1},\n    {MyInt{3}, 4},\n  };\n  std::cout &lt;&lt; fm1[MyInt{2}] &lt;&lt; std::endl;\n\n  std::flat_map&lt;Person, int&gt; fm2 {\n    {Person{1, 18, \&#34;Alice\&#34;}, 3},\n    {Person{2, 30, \&#34;Bob\&#34;}, 1},\n    {Person{3, 30, \&#34;Carol\&#34;}, 4},\n  };\n  std::cout &lt;&lt; fm2[Person{2, 30, \&#34;Bob\&#34;}] &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;4e081c3312912709c7b8b659cb69a04f158043b4&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;string&gt;\n#include &lt;tuple&gt;\n#include &lt;flat_map&gt;\n\n// \u8981\u7d20\u304c\u3072\u3068\u3064\u306e\u5834\u5408\nstruct MyInt {\n  int value;\n};\n\nstruct MyIntLess {\n  bool operator()(const MyInt&amp; a, const MyInt&amp; b) const noexcept {\n    return a.value &lt; b.value;\n  }\n};\n\n// \u8981\u7d20\u304c\u8907\u6570\u306e\u5834\u5408\nstruct Person {\n  int id;\n  int age;\n  std::string name;\n};\n\nstruct PersonLess {\n  bool operator()(const Person&amp; a, const Person&amp; b) const noexcept {\n    // \u30ad\u30fc\u3068\u3057\u3066\u6bd4\u8f03\u3057\u305f\u3044\u8981\u7d20\u3092\u5217\u6319\u3059\u308b\n    return std::tie(a.id, a.age, a.name) &lt; std::tie(b.id, b.age, b.name);\n  }\n};\n\nint main()\n{\n  std::flat_map&lt;MyInt, int, MyIntLess&gt; fm1 {\n    {MyInt{1}, 3},\n    {MyInt{2}, 1},\n    {MyInt{3}, 4},\n  };\n  std::cout &lt;&lt; fm1[MyInt{2}] &lt;&lt; std::endl;\n\n  std::flat_map&lt;Person, int, PersonLess&gt; fm2 {\n    {Person{1, 18, \&#34;Alice\&#34;}, 3},\n    {Person{2, 30, \&#34;Bob\&#34;}, 1},\n    {Person{3, 30, \&#34;Carol\&#34;}, 4},\n  };\n  std::cout &lt;&lt; fm2[Person{2, 30, \&#34;Bob\&#34;}] &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;flat_map&#34;, &#34;flat_map&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/flat_map.html" itemprop="url">
+              
+                <span itemprop="name">flat_map</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">flat_map</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-06-25T13:48:21">
+        2025年06月25日 13時48分21秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">suomesta</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/flat_map/flat_map.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/flat_map/flat_map.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;flat_map&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">flat_map</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Key</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">T</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Compare</span> <span class="o">=</span> <span class="n"><a href="../functional/less.html">less</a></span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">KeyContainer</span> <span class="o">=</span> <span class="n"><a href="../vector/vector.html">vector</a></span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">MappedContainer</span> <span class="o">=</span> <span class="n"><a href="../vector/vector.html">vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span>
+  <span class="k">class</span> <span class="nc">flat_map</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>std::flat_map</code>は、重複しない要素を格納する連想コンテナの一種であり、キーとそれに対応する値を格納する。</p>
+<p><code>std::flat_map</code>は、ノードベースで実装される<code><a href="../map/map.html">std::map</a></code>、ハッシュテーブルで実装される<code><a href="../unordered_map/unordered_map.html">std::unordered_map</a></code>とは異なり、ソート済み配列と二分探索の組み合わせで実装される。これはほかの実装と比較して、メモリ使用量と列挙速度において優位であり、一方で挿入速度と検索速度はほかの実装に劣る。</p>
+<p>また、このクラスは分類としては<code><a href="../queue/queue.html">std::queue</a></code>や<code><a href="../stack/stack.html">std::stack</a></code>と同様の<a class="cpprefjp-defined-word" data-desc="コンテナをラップしたクラス。一部のコンテナインタフェースをもたない場合がある">コンテナアダプタ</a>に分類され、キーの配列と値の配列の2つを内部で持ち、それを<code><a href="../ranges/zip_view.html">std::ranges::zip_view</a></code>で綴じあわせて扱う実装となっている。</p>
+<p>このコンテナクラスは、ランダムアクセスイテレータをサポートする。</p>
+<h3>ほかの連想コンテナとの要件の違い</h3>
+<p>このクラスは要件として、コンテナクラスと、逆順コンテナクラスであることは満たすが、連想コンテナの要件としては以下を満たさない：</p>
+<ul>
+<li>node handleに関する要件</li>
+<li>イテレータ無効化に関する要件</li>
+<li>単一要素の挿入と削除に線形時間かかる (挿入位置のイテレータを指定したとしても)</li>
+</ul>
+<p>また、このコンテナはメモリアロケータを指定できない設計にもなっている。</p>
+<p><code>value_type</code>は、<code><a href="../map/map.html">std::map</a></code>では<code><a href="../utility/pair.html">std::pair</a>&lt;const Key, T&gt;</code>だが、このクラスは<code><a href="../utility/pair.html">std::pair</a>&lt;Key, T&gt;</code>である (<code>const</code>がつかない)。</p>
+<p>以下の不変条件をもち、メンバ関数のいずれかが<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>によって終了した場合には不変条件の状態に復元される (ただし、その復元操作によってコンテナが空になる可能性がある)：</p>
+<ul>
+<li>キーの配列と値の配列が、同じ要素数をもつ</li>
+<li>キーの配列が、指定された比較関数オブジェクトを尊重してソートを行う</li>
+<li>値の配列内のオフセット<code>off</code>の値は、キー配列内のオフセット<code>off</code>のキーに関連付けられた値である</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
+<ul>
+<li><code>KeyContainer</code>と<code>MappedContainer</code>に指定するコンテナ型は、<ul>
+<li>シーケンスコンテナの要件を満たし、</li>
+<li>ランダムアクセスイテレータをもち、</li>
+<li><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出しないメンバ関数<code>size()</code>と<code>max_size()</code>をもつこと</li>
+</ul>
+</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Mandates。満たさなければプログラムが不適格となる要件。この要件は、オーバーロード解決によって選択された関数内での`static_assert`の定数条件式や、関数に対するdelete宣言などで表現できる">適格要件</a></h2>
+<ul>
+<li><code>Key</code>が<code>KeyContainer::value_type</code>と同じ型であること</li>
+<li><code>T</code>が<code>MappedContainer::value_type</code>と同じ型であること</li>
+</ul>
+<h2>メンバ関数</h2>
+<h3>構築・破棄</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="flat_map/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><span href="https://cpprefjp.github.io/reference/flat_map/flat_map/op_destructor.md.nolink">(destructor)</span></code></td>
+<td>デストラクタ</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_map/op_assign.html">operator=</a></code></td>
+<td>代入演算子</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h3>イテレータ</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="flat_map/begin.html">begin</a></code></td>
+<td>先頭を指すイテレータを取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_map/cbegin.html">cbegin</a></code></td>
+<td>先頭を指す読み取り専用イテレータを取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_map/end.html">end</a></code></td>
+<td>末尾の次を指すイテレータを取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_map/cend.html">cend</a></code></td>
+<td>末尾の次を指す読み取り専用イテレータを取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_map/rbegin.html">rbegin</a></code></td>
+<td>末尾を指す逆イテレータを取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_map/crbegin.html">crbegin</a></code></td>
+<td>末尾を指す読み取り専用逆イテレータを取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_map/rend.html">rend</a></code></td>
+<td>先頭の前を指す逆イテレータを取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_map/crend.html">crend</a></code></td>
+<td>先頭の前を指す読み取り専用逆イテレータを取得する</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h3>領域</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="flat_map/empty.html">empty</a></code></td>
+<td>コンテナが空であるかどうかを調べる</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_map/size.html">size</a></code></td>
+<td>要素数を取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_map/max_size.html">max_size</a></code></td>
+<td>格納可能な最大の要素数を取得する</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h3>コンテナの変更</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="flat_map/clear.html">clear</a></code></td>
+<td>全ての要素を削除する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_map/insert.html">insert</a></code></td>
+<td>要素を挿入する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_map/insert_or_assign.html">insert_or_assign</a></code></td>
+<td>要素を挿入、あるいは代入する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_map/insert_range.html">insert_range</a></code></td>
+<td>Rangeを挿入する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_map/emplace.html">emplace</a></code></td>
+<td>要素を直接構築する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_map/emplace_hint.html">emplace_hint</a></code></td>
+<td>ヒントを使って要素を直接構築する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_map/try_emplace.html">try_emplace</a></code></td>
+<td>キーが存在しない場合のみ要素を直接構築する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_map/erase.html">erase</a></code></td>
+<td>要素を削除する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_map/swap.html">swap</a></code></td>
+<td>コンテンツを交換する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_map/extract.html">extract</a></code></td>
+<td>キーのコンテナ、値のコンテナを取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_map/replace.html">replace</a></code></td>
+<td>キーのコンテナ、値のコンテナを置き換える</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h3>要素アクセス</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="flat_map/op_at.html">operator[]</a></code></td>
+<td>指定したキーを持つ要素を取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_map/at.html">at</a></code></td>
+<td>指定したキーを持つ要素を取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_map/count.html">count</a></code></td>
+<td>指定したキーにマッチする要素の数を取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_map/find.html">find</a></code></td>
+<td>指定したキーで要素を探す</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_map/contains.html">contains</a></code></td>
+<td>指定したキーの要素が含まれているかを判定する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_map/equal_range.html">equal_range</a></code></td>
+<td>指定したキーにマッチする要素範囲を取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_map/lower_bound.html">lower_bound</a></code></td>
+<td>与えられた値より小さくない最初の要素へのイテレータを取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_map/upper_bound.html">upper_bound</a></code></td>
+<td>特定の値よりも大きい最初の要素へのイテレータを取得する</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h3>オブザーバー</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="flat_map/key_comp.html">key_comp</a></code></td>
+<td>キー比較用の関数オブジェクトを取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_map/value_comp.html">value_comp</a></code></td>
+<td>要素比較用の関数オブジェクトを取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_map/keys.html">keys</a></code></td>
+<td>キーのコンテナを取得する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_map/values.html">values</a></code></td>
+<td>値のコンテナを取得する</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>key_type</code></td>
+<td>キーの型。テンプレートパラメータ <code>Key</code></td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>mapped_type</code></td>
+<td>値の型。テンプレートパラメータ <code>T</code></td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>value_type</code></td>
+<td>要素の型。<code><a href="../utility/pair.html">std::pair</a>&lt;key_type, mapped_type&gt;</code></td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>key_compare</code></td>
+<td>キー値の大小関係を判定する二項<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>の型。テンプレートパラメータ <code>Compare</code></td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_map/value_compare.html">value_compare</a></code></td>
+<td>要素値のキー部分で大小関係を判定する二項<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>の型。入れ子クラス</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>reference</code></td>
+<td>要素への参照型。<code><a href="../utility/pair.html">std::pair</a>&lt;const key_type&amp;, mapped_type&amp;&gt;</code></td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>const_reference</code></td>
+<td>要素への<code>const</code>参照型。<code><a href="../utility/pair.html">std::pair</a>&lt;const key_type&amp;, const mapped_type&amp;&gt;</code></td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>size_type</code></td>
+<td>要素数を表す符号なし整数型 <code><a href="../cstddef/size_t.html">size_t</a></code></td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>difference_type</code></td>
+<td>同一のコンテナを指す <code>iterator</code> の差を表す符号付き整数型 <code><a href="../cstddef/ptrdiff_t.html">ptrdiff_t</a></code></td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>iterator</code></td>
+<td>ランダムアクセスイテレータ</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>const_iterator</code></td>
+<td>読み取り専用ランダムアクセスイテレータ</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>reverse_iterator</code></td>
+<td>逆順ランダムアクセスイテレータ。<code><a href="../iterator/reverse_iterator.html">std::reverse_iterator</a>&lt;iterator&gt;</code></td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>const_reverse_iterator</code></td>
+<td>読み取り専用逆順ランダムアクセスイテレータ。<code><a href="../iterator/reverse_iterator.html">std::reverse_iterator</a>&lt;const_iterator&gt;</code></td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>key_container_type</code></td>
+<td>キーを格納するコンテナ型 <code>KeyContainer</code></td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>mapped_container_type</code></td>
+<td>値を格納するコンテナ型 <code>MappedContainer</code></td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_map/containers.html">containers</a></code></td>
+<td>キーのコンテナと値のコンテナを保持する型</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_map/key_equiv.html">key_equiv</a></code></td>
+<td>要素をとってキーの等価比較を行う説明専用の関数オブジェクト</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2>非メンバ関数</h2>
+<h3>要素削除</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="flat_map/erase_if_free.html">erase_if</a></code></td>
+<td>指定した条件に合致する要素とその分の領域を、コンテナから削除する</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2>非メンバ（<em>Hidden friends</em>）関数</h2>
+<h3>比較演算子</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="flat_map/op_equal.html">operator==</a></code></td>
+<td>左辺と右辺が等しいかの判定を行う</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>bool operator!=(const flat_map&amp; x, const flat_map&amp; y);</code></td>
+<td>左辺と右辺が等しくないかの判定を行う (<code>==</code>により使用可能)</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="flat_map/op_compare_3way.html">operator&lt;=&gt;</a></code></td>
+<td>三方比較を行う</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>bool operator&lt;(const flat_map&amp; x, const flat_map&amp; y);</code></td>
+<td>左辺が右辺より小さいかの判定を行う  (<code>&lt;=&gt;</code>により使用可能)</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>bool operator&lt;=(const flat_map&amp; x, const flat_map&amp; y);</code></td>
+<td>左辺が右辺より小さいか等しいかの判定を行う (<code>&lt;=&gt;</code>により使用可能)</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>bool operator&gt;(const flat_map&amp; x, const flat_map&amp; y);</code></td>
+<td>左辺が右辺より大きいかの判定を行う (<code>&lt;=&gt;</code>により使用可能)</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>bool operator&gt;=(const flat_map&amp; x, const flat_map&amp; y);</code></td>
+<td>左辺が右辺より大きいか等しいかの判定を行う (<code>&lt;=&gt;</code>により使用可能)</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h3>入れ替え</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="flat_map/swap_free.html">swap</a></code></td>
+<td>2つの<code>flat_map</code>オブジェクトを入れ替える</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2>推論補助</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="flat_map/op_deduction_guide.html">(deduction_guide)</a></code></td>
+<td>クラステンプレートの推論補助</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2>その他</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="flat_map/uses_allocator.html">uses_allocator</a></code></td>
+<td><code>flat_map</code>による特殊化</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<h3>基本的な使い方</h3>
+<p><div class="yata" id="f929d72149b18684b6cd73b6ded1e08ee5b7562d"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../flat_map.html">&lt;flat_map&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// stringをキー、intを値として扱う連想配列</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">flat_map</span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">fm</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">{</span><span class="s">"Carol"</span><span class="p">,</span> <span class="mi">4</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">"Alice"</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">"Bob"</span><span class="p">,</span> <span class="mi">1</span><span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="c1">// 検索 : キー(string)を指定し、値(int)を得る</span>
+  <span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="n"><a href="flat_map/at.html">fm.at</a></span><span class="p">(</span><span class="s">"Alice"</span><span class="p">);</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">r</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// 全体を出力する</span>
+  <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="p">[</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">]</span> <span class="o">:</span> <span class="n">fm</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">key</span> <span class="o">&lt;&lt;</span> <span class="s">" : "</span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>3
+Alice : 3
+Bob : 1
+Carol : 4
+</code></pre></p>
+<h3><a class="cpprefjp-defined-word" data-desc="プログラム定義型。標準ライブラリの型を除く、ユーザー（プログラマ）によって定義された型のこと">ユーザー定義型</a>をキーとして使用する (<code>operator&lt;=&gt;</code>を定義)</h3>
+<p><div class="yata" id="241bbcbf270ea3ffa0260f13a397f79f4670ba57"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../flat_map.html">&lt;flat_map&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// 要素がひとつの場合</span>
+<span class="k">struct</span> <span class="n">MyInt</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
+
+  <span class="k">friend</span> <span class="k">auto</span> <span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">MyInt</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">MyInt</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="n">value</span> <span class="o">&lt;=&gt;</span> <span class="n">b</span><span class="p">.</span><span class="n">value</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// 要素が複数の場合</span>
+<span class="k">struct</span> <span class="n">Person</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">id</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">name</span><span class="p">;</span>
+
+  <span class="k">friend</span> <span class="k">auto</span> <span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">Person</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">Person</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">id</span> <span class="o">&lt;=&gt;</span> <span class="n">b</span><span class="p">.</span><span class="n">id</span><span class="p">;</span> <span class="n">comp</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">comp</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">age</span> <span class="o">&lt;=&gt;</span> <span class="n">b</span><span class="p">.</span><span class="n">age</span><span class="p">;</span> <span class="n">comp</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">comp</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="n">name</span> <span class="o">&lt;=&gt;</span> <span class="n">b</span><span class="p">.</span><span class="n">name</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">flat_map</span><span class="o">&lt;</span><span class="n">MyInt</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">fm1</span> <span class="p">{</span>
+    <span class="p">{</span><span class="n">MyInt</span><span class="p">{</span><span class="mi">1</span><span class="p">},</span> <span class="mi">3</span><span class="p">},</span>
+    <span class="p">{</span><span class="n">MyInt</span><span class="p">{</span><span class="mi">2</span><span class="p">},</span> <span class="mi">1</span><span class="p">},</span>
+    <span class="p">{</span><span class="n">MyInt</span><span class="p">{</span><span class="mi">3</span><span class="p">},</span> <span class="mi">4</span><span class="p">},</span>
+  <span class="p">};</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">fm1</span><span class="p">[</span><span class="n">MyInt</span><span class="p">{</span><span class="mi">2</span><span class="p">}]</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="n">flat_map</span><span class="o">&lt;</span><span class="n">Person</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">fm2</span> <span class="p">{</span>
+    <span class="p">{</span><span class="n">Person</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="s">"Alice"</span><span class="p">},</span> <span class="mi">3</span><span class="p">},</span>
+    <span class="p">{</span><span class="n">Person</span><span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s">"Bob"</span><span class="p">},</span> <span class="mi">1</span><span class="p">},</span>
+    <span class="p">{</span><span class="n">Person</span><span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s">"Carol"</span><span class="p">},</span> <span class="mi">4</span><span class="p">},</span>
+  <span class="p">};</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">fm2</span><span class="p">[</span><span class="n">Person</span><span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s">"Bob"</span><span class="p">}]</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>1
+1
+</code></pre></p>
+<h3><a class="cpprefjp-defined-word" data-desc="プログラム定義型。標準ライブラリの型を除く、ユーザー（プログラマ）によって定義された型のこと">ユーザー定義型</a>をキーとして使用する (大小比較の関数オブジェクトを定義)</h3>
+<p><div class="yata" id="4e081c3312912709c7b8b659cb69a04f158043b4"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../tuple.html">&lt;tuple&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../flat_map.html">&lt;flat_map&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// 要素がひとつの場合</span>
+<span class="k">struct</span> <span class="n">MyInt</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">MyIntLess</span> <span class="p">{</span>
+  <span class="kt">bool</span> <span class="k">operator</span><span class="p">()(</span><span class="k">const</span> <span class="n">MyInt</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">MyInt</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">value</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// 要素が複数の場合</span>
+<span class="k">struct</span> <span class="n">Person</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">id</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">name</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">PersonLess</span> <span class="p">{</span>
+  <span class="kt">bool</span> <span class="k">operator</span><span class="p">()(</span><span class="k">const</span> <span class="n">Person</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">Person</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="p">{</span>
+    <span class="c1">// キーとして比較したい要素を列挙する</span>
+    <span class="k">return</span> <span class="n"><a href="../tuple/tie.html">std::tie</a></span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">id</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">age</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">name</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n"><a href="../tuple/tie.html">std::tie</a></span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">id</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">age</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">name</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">flat_map</span><span class="o">&lt;</span><span class="n">MyInt</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="n">MyIntLess</span><span class="o">&gt;</span> <span class="n">fm1</span> <span class="p">{</span>
+    <span class="p">{</span><span class="n">MyInt</span><span class="p">{</span><span class="mi">1</span><span class="p">},</span> <span class="mi">3</span><span class="p">},</span>
+    <span class="p">{</span><span class="n">MyInt</span><span class="p">{</span><span class="mi">2</span><span class="p">},</span> <span class="mi">1</span><span class="p">},</span>
+    <span class="p">{</span><span class="n">MyInt</span><span class="p">{</span><span class="mi">3</span><span class="p">},</span> <span class="mi">4</span><span class="p">},</span>
+  <span class="p">};</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">fm1</span><span class="p">[</span><span class="n">MyInt</span><span class="p">{</span><span class="mi">2</span><span class="p">}]</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="n">flat_map</span><span class="o">&lt;</span><span class="n">Person</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="n">PersonLess</span><span class="o">&gt;</span> <span class="n">fm2</span> <span class="p">{</span>
+    <span class="p">{</span><span class="n">Person</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="s">"Alice"</span><span class="p">},</span> <span class="mi">3</span><span class="p">},</span>
+    <span class="p">{</span><span class="n">Person</span><span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s">"Bob"</span><span class="p">},</span> <span class="mi">1</span><span class="p">},</span>
+    <span class="p">{</span><span class="n">Person</span><span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s">"Carol"</span><span class="p">},</span> <span class="mi">4</span><span class="p">},</span>
+  <span class="p">};</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">fm2</span><span class="p">[</span><span class="n">Person</span><span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s">"Bob"</span><span class="p">}]</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>1
+1
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++23</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0429r3.pdf" target="_blank">P0429R3 A Standard <code>flat_map</code></a><ul>
+<li>C++23で<code>flat_map</code>が導入された経緯・動機・設計について記載されている</li>
+</ul>
+</li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0429r9.pdf" target="_blank">P0429R9 A Standard <code>flat_map</code></a><ul>
+<li>C++23で導入された<code>flat_map</code>の仕様</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

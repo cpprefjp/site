@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2025-08-01T05:25:55.410935</updated>
+  <id>69146956-576b-4737-91d3-28906ea7b1f5</id>
+
+  
+    <entry>
+      <title>schedule_from -- execution/schedule_from: LWG4198</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/schedule_from.html"/>
+      <id>30b7ea69ca6bb4e84c07e08486a472e4c003c627:reference/execution/execution/schedule_from.md</id>
+      <updated>2025-07-31T23:01:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/schedule_from.md b/reference/execution/execution/schedule_from.md
+index 8c221273e..7b07f0cfe 100644
+--- a/reference/execution/execution/schedule_from.md
++++ b/reference/execution/execution/schedule_from.md
+@@ -99,10 +99,10 @@ namespace std::execution {
+ * schedule[link schedule.md]
+ 
+ - ローカルクラス`state-type`のオブジェクトは[構造化束縛](/lang/cpp17/structured_bindings.md)における初期化子として利用できる。
+-- 説明用のパック`Sigs`を[`completion_signatures_of_t`](completion_signatures_of_t.md)`&amp;lt;`[`child-type`](child-type.md)`&amp;lt;Sndr&amp;gt;,` [`FWD-ENV-T`](../forwarding_query.md)`(`[`env_of_t`](env_of_t.md)`&amp;lt;Rcvr&amp;gt;)&amp;gt;`による[`completion_signatures`](completion_signatures.md)特殊化のテンプレートパラメータと定義する。説明用のエイリアステンプレート`as-tuple&amp;lt;Tag(Args...)&amp;gt;`を[`decayed-tuple`](decayed-tuple.md)`&amp;lt;Args...&amp;gt;`と定義する。型`variant_t`は下記定義において重複削除した型となる。
++- 説明用のパック`Sigs`を[`completion_signatures_of_t`](completion_signatures_of_t.md)`&amp;lt;`[`child-type`](child-type.md)`&amp;lt;Sndr&amp;gt;,` [`FWD-ENV-T`](../forwarding_query.md)`(`[`env_of_t`](env_of_t.md)`&amp;lt;Rcvr&amp;gt;)&amp;gt;`による[`completion_signatures`](completion_signatures.md)特殊化のテンプレートパラメータと定義する。説明用のエイリアステンプレート`as-tuple&amp;lt;Tag(Args...)&amp;gt;`を[`decayed-tuple`](decayed-tuple.md)`&amp;lt;Tag, Args...&amp;gt;`と定義し、説明用の変数テンプレート`is-nothrow-decay-copy-sig&amp;lt;Tag(Args...)&amp;gt;`を型`Args...`が全て例外送出せずdecayコピー可能ならば値`true`、そうでなければ`false`となる`bool const`型のコア定数式と定義する。説明用のパック`error-completion`を、`(is-nothrow-decay-copy-sig&amp;lt;Sigs&amp;gt; &amp;amp;&amp;amp;...)`が`false`ならば[`set_error_t`](set_error.md)`(`[`exception_ptr`](/reference/exception/exception_ptr.md)`)`、そうでなければ空のパックと定義する。型`variant_t`は下記定義において重複削除した型となる。
+ 
+     ```cpp
+-    variant&amp;lt;monostate, as-tuple&amp;lt;Sigs&amp;gt;...&amp;gt;
++    variant&amp;lt;monostate, as-tuple&amp;lt;Sigs&amp;gt;..., error-completion...&amp;gt;
+     ```
+     * variant[link /reference/variant/variant.md]
+     * monostate[link /reference/variant/monostate.md]
+@@ -115,15 +115,13 @@ namespace std::execution {
+ []&amp;lt;class Tag, class... Args&amp;gt;(auto, auto&amp;amp; state, auto&amp;amp; rcvr, Tag, Args&amp;amp;&amp;amp;... args) noexcept
+     -&amp;gt; void {
+   using result_t = decayed-tuple&amp;lt;Tag, Args...&amp;gt;;
+-  constexpr bool nothrow = is_nothrow_constructible_v&amp;lt;result_t, Tag, Args...&amp;gt;;
++  constexpr bool nothrow = (is_nothrow_constructible_v&amp;lt;decay_t&amp;lt;Args&amp;gt;, Args&amp;gt; &amp;amp;&amp;amp; ...);
+ 
+   try {
+     state.async-result.template emplace&amp;lt;result_t&amp;gt;(Tag(), std::forward&amp;lt;Args&amp;gt;(args)...);
+   } catch (...) {
+-    if constexpr (!nothrow) {
+-      set_error(std::move(rcvr), current_exception());
+-      return;
+-    }
++    if constexpr (!nothrow)
++      state.async-result.template emplace&amp;lt;tuple&amp;lt;set_error_t, exception_ptr&amp;gt;&amp;gt;(set_error, current_exception());
+   }
+   start(state.op-state);
+ };
+@@ -133,8 +131,9 @@ namespace std::execution {
+ * start[link start.md]
+ * is_nothrow_constructible_v[link /reference/type_traits/is_nothrow_constructible.md]
+ * template emplace[link /reference/variant/variant/emplace.md]
++* set_error_t[link set_error.md]
++* exception_ptr[link /reference/exception/exception_ptr.md]
+ * current_exception()[link /reference/exception/current_exception.md]
+-* std::move[link /reference/utility/move.md]
+ 
+ 
+ ## 説明専用エンティティ
+@@ -212,4 +211,5 @@ Senderアルゴリズム構築時および[Receiver](receiver.md)接続時に、
+ - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
+ - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+ - [P3396R1 std::execution wording fixes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html)
++- [LWG 4198. `schedule_from` isn&amp;#39;t starting the schedule sender if decay-copying results throws](https://cplusplus.github.io/LWG/issue4198)
+ - [LWG 4203. Constraints on `get-state` functions are incorrect](https://cplusplus.github.io/LWG/issue4203)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>into_variant -- executuon: LWG4203</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/into_variant.html"/>
+      <id>9fee4b58d5d84e299877b0624cd66a30cee3bca5:reference/execution/execution/into_variant.md</id>
+      <updated>2025-07-31T22:41:23+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/into_variant.md b/reference/execution/execution/into_variant.md
+index 9907330d8..2e290b3ba 100644
+--- a/reference/execution/execution/into_variant.md
++++ b/reference/execution/execution/into_variant.md
+@@ -52,13 +52,14 @@ namespace std::execution {
+ 
+ ```cpp
+ []&amp;lt;class Sndr, class Rcvr&amp;gt;(Sndr&amp;amp;&amp;amp; sndr, Rcvr&amp;amp; rcvr) noexcept
+-  -&amp;gt; type_identity&amp;lt;value_types_of_t&amp;lt;child-type&amp;lt;Sndr&amp;gt;, env_of_t&amp;lt;Rcvr&amp;gt;&amp;gt;&amp;gt; {
++  -&amp;gt; type_identity&amp;lt;value_types_of_t&amp;lt;child-type&amp;lt;Sndr&amp;gt;, FWD-ENV-T(env_of_t&amp;lt;Rcvr&amp;gt;)&amp;gt;&amp;gt; {
+   return {};
+ }
+ ```
+ * type_identity[link /reference/type_traits/type_identity.md]
+ * value_types_of_t[link value_types_of_t.md]
+ * child-type[link child-type.md]
++* FWD-ENV-T[link ../forwarding_query.md]
+ * env_of_t[link env_of_t.md]
+ 
+ `impls-for&amp;lt;into_variant_t&amp;gt;::complete`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
+@@ -205,3 +206,4 @@ int main()
+ ## 参照
+ - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
+ - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
++- [LWG 4203. Constraints on `get-state` functions are incorrect](https://cplusplus.github.io/LWG/issue4203)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>let_value -- executuon: LWG4203</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/let_value.html"/>
+      <id>9fee4b58d5d84e299877b0624cd66a30cee3bca5:reference/execution/execution/let_value.md</id>
+      <updated>2025-07-31T22:41:23+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/let_value.md b/reference/execution/execution/let_value.md
+index cbe8531ad..90a4eb318 100644
+--- a/reference/execution/execution/let_value.md
++++ b/reference/execution/execution/let_value.md
+@@ -84,7 +84,7 @@ namespace std::execution {
+ }
+ ```
+ 
+-- 説明用のパック`Sigs`を[`completion_signatures_of_t`](completion_signatures_of_t.md)`&amp;lt;`[`child-type`](child-type.md)`&amp;lt;Sndr&amp;gt;,` [`env_of_t`](env_of_t.md)`&amp;lt;Rcvr&amp;gt;&amp;gt;`による[`completion_signatures`](completion_signatures.md)特殊化のテンプレートパラメータとし、パック`LetSigs`を`Sigs`に含まれる型のうち戻り値型が[`decayed-typeof`](/reference/functional/decayed-typeof.md)`&amp;lt;set-cpo&amp;gt;`に等しいものと定義する。説明用のエイリアステンプレート`as-tuple&amp;lt;Tag(Args...)&amp;gt;`を[`decayed-tuple`](decayed-tuple.md)`&amp;lt;Args...&amp;gt;`と定義する。型`args_variant_t`は下記定義において重複削除した型となる。
++- 説明用のパック`Sigs`を[`completion_signatures_of_t`](completion_signatures_of_t.md)`&amp;lt;`[`child-type`](child-type.md)`&amp;lt;Sndr&amp;gt;,` [`FWD-ENV-T`](../forwarding_query.md)`(`[`env_of_t`](env_of_t.md)`&amp;lt;Rcvr&amp;gt;)&amp;gt;`による[`completion_signatures`](completion_signatures.md)特殊化のテンプレートパラメータとし、パック`LetSigs`を`Sigs`に含まれる型のうち戻り値型が[`decayed-typeof`](/reference/functional/decayed-typeof.md)`&amp;lt;set-cpo&amp;gt;`に等しいものと定義する。説明用のエイリアステンプレート`as-tuple&amp;lt;Tag(Args...)&amp;gt;`を[`decayed-tuple`](decayed-tuple.md)`&amp;lt;Args...&amp;gt;`と定義する。型`args_variant_t`は下記定義において重複削除した型となる。
+ 
+     ```cpp
+     variant&amp;lt;monostate, as-tuple&amp;lt;LetSigs&amp;gt;...&amp;gt;
+@@ -215,7 +215,7 @@ namespace std::execution {
+ メンバ関数`receiver2::get_env`の呼び出しは、下記を満たすオブジェクト`e`を返す。
+ 
+ - 型`decltype(e)`が[`queryable`](../queryable.md)のモデルであり、かつ
+-- 与えられた[クエリオブジェクト](../queryable.md)`q`に対して、式`e.query(q)`は式`env.query(q)`が有効ならばその式と等価。そうでなければ、式`e.query(q)`は[`get_env`](get_env.md)`(rcvr).query(q)`と等価。
++- 与えられた[クエリオブジェクト](../queryable.md)`q`に対して、式`e.query(q)`は式`env.query(q)`が有効ならばその式と等価。そうではなく、`q`の型が[`forwarding-query`](../forwarding-query.md)を満たすならば式`e.query(q)`は[`get_env`](get_env.md)`(rcvr).query(q)`と等価。そうでなければ、式`e.query(q)`は不適格となる。
+ 
+ 
+ ## カスタマイゼーションポイント
+@@ -407,5 +407,6 @@ catch 0
+ - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
+ - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+ - [P3396R1 std::execution wording fixes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html)
++- [LWG 4203. Constraints on `get-state` functions are incorrect](https://cplusplus.github.io/LWG/issue4203)
+ - [LWG 4204. specification of `as-sndr2(Sig)` in [exec.let] is incomplete](https://cplusplus.github.io/LWG/issue4204)
+ - [LWG 4205. `let_[*].transform_env` is specified in terms of the `let_*` sender itself instead of its child](https://cplusplus.github.io/LWG/issue4205)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>schedule_from -- executuon: LWG4203</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/schedule_from.html"/>
+      <id>9fee4b58d5d84e299877b0624cd66a30cee3bca5:reference/execution/execution/schedule_from.md</id>
+      <updated>2025-07-31T22:41:23+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/schedule_from.md b/reference/execution/execution/schedule_from.md
+index 151fd2026..8c221273e 100644
+--- a/reference/execution/execution/schedule_from.md
++++ b/reference/execution/execution/schedule_from.md
+@@ -67,7 +67,7 @@ namespace std::execution {
+ 
+ ```cpp
+ []&amp;lt;class Sndr, class Rcvr&amp;gt;(Sndr&amp;amp;&amp;amp; sndr, Rcvr&amp;amp; rcvr) noexcept(see below)
+-    requires sender_in&amp;lt;child-type&amp;lt;Sndr&amp;gt;, env_of_t&amp;lt;Rcvr&amp;gt;&amp;gt; {
++    requires sender_in&amp;lt;child-type&amp;lt;Sndr&amp;gt;, FWD-ENV-T(env_of_t&amp;lt;Rcvr&amp;gt;)&amp;gt; {
+ 
+   auto&amp;amp; [_, sch, child] = sndr;
+ 
+@@ -91,6 +91,7 @@ namespace std::execution {
+ ```
+ * sender_in[link sender_in.md]
+ * child-type[link child-type.md]
++* FWD-ENV-T[link ../forwarding_query.md]
+ * env_of_t[link env_of_t.md]
+ * connect_result_t[link connect_result_t.md]
+ * schedule_result_t[link schedule_result_t.md]
+@@ -98,7 +99,7 @@ namespace std::execution {
+ * schedule[link schedule.md]
+ 
+ - ローカルクラス`state-type`のオブジェクトは[構造化束縛](/lang/cpp17/structured_bindings.md)における初期化子として利用できる。
+-- 説明用のパック`Sigs`を[`completion_signatures_of_t`](completion_signatures_of_t.md)`&amp;lt;`[`child-type`](child-type.md)`&amp;lt;Sndr&amp;gt;,` [`env_of_t`](env_of_t.md)`&amp;lt;Rcvr&amp;gt;&amp;gt;`による[`completion_signatures`](completion_signatures.md)特殊化のテンプレートパラメータと定義する。説明用のエイリアステンプレート`as-tuple&amp;lt;Tag(Args...)&amp;gt;`を[`decayed-tuple`](decayed-tuple.md)`&amp;lt;Args...&amp;gt;`と定義する。型`variant_t`は下記定義において重複削除した型となる。
++- 説明用のパック`Sigs`を[`completion_signatures_of_t`](completion_signatures_of_t.md)`&amp;lt;`[`child-type`](child-type.md)`&amp;lt;Sndr&amp;gt;,` [`FWD-ENV-T`](../forwarding_query.md)`(`[`env_of_t`](env_of_t.md)`&amp;lt;Rcvr&amp;gt;)&amp;gt;`による[`completion_signatures`](completion_signatures.md)特殊化のテンプレートパラメータと定義する。説明用のエイリアステンプレート`as-tuple&amp;lt;Tag(Args...)&amp;gt;`を[`decayed-tuple`](decayed-tuple.md)`&amp;lt;Args...&amp;gt;`と定義する。型`variant_t`は下記定義において重複削除した型となる。
+ 
+     ```cpp
+     variant&amp;lt;monostate, as-tuple&amp;lt;Sigs&amp;gt;...&amp;gt;
+@@ -211,3 +212,4 @@ Senderアルゴリズム構築時および[Receiver](receiver.md)接続時に、
+ - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
+ - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+ - [P3396R1 std::execution wording fixes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html)
++- [LWG 4203. Constraints on `get-state` functions are incorrect](https://cplusplus.github.io/LWG/issue4203)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>stopped_as_optional -- executuon: LWG4203</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/stopped_as_optional.html"/>
+      <id>9fee4b58d5d84e299877b0624cd66a30cee3bca5:reference/execution/execution/stopped_as_optional.md</id>
+      <updated>2025-07-31T22:41:23+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/stopped_as_optional.md b/reference/execution/execution/stopped_as_optional.md
+index da13267d4..dc28ba07a 100644
+--- a/reference/execution/execution/stopped_as_optional.md
++++ b/reference/execution/execution/stopped_as_optional.md
+@@ -30,13 +30,13 @@ transform_sender(get-domain-early(sndr), make-sender(stopped_as_optional, {}, sn
+ 
+ 
+ ### Senderアルゴリズムタグ `stopped_as_optional`
+-説明用の式`sndr`と`env`に対して、型`Sndr`を`decltype((sndr))`、型`Env`を`decltype((env))`とする。[`sender-for`](sender-for.md)`&amp;lt;Sndr, stopped_as_optional_t&amp;gt; == false`、もしくは[`single-sender-value-type`](single-sender-value-type.md)`&amp;lt;Sndr, Env&amp;gt;`が不適格または`void`のとき、式`stopped_as_optional.transform_sender(sndr, env)`は不適格となる。
++説明用の式`sndr`と`env`に対して、型`Sndr`を`decltype((sndr))`、型`Env`を`decltype((env))`とする。[`sender-for`](sender-for.md)`&amp;lt;Sndr, stopped_as_optional_t&amp;gt; == false`、もしくは[`single-sender-value-type`](single-sender-value-type.md)`&amp;lt;`[`child-type`](child-type.md)`&amp;lt;Sndr&amp;gt;,` [`FWD-ENV-T`](../forwarding_query.md)`(Env)&amp;gt;`が不適格または`void`のとき、式`stopped_as_optional.transform_sender(sndr, env)`は不適格となる。
+ 
+ そうでなければ、式`stopped_as_optional.transform_sender(sndr, env)`は下記と等価。
+ 
+ ```cpp
+ auto&amp;amp;&amp;amp; [_, _, child] = sndr;
+-using V = single-sender-value-type&amp;lt;Sndr, Env&amp;gt;;
++using V = single-sender-value-type&amp;lt;child-type&amp;lt;Sndr&amp;gt;, FWD-ENV-T(Env)&amp;gt;;
+ return let_stopped(
+     then(std::forward_like&amp;lt;Sndr&amp;gt;(child),
+          []&amp;lt;class... Ts&amp;gt;(Ts&amp;amp;&amp;amp;... ts) noexcept(is_nothrow_constructible_v&amp;lt;V, Ts...&amp;gt;) {
+@@ -45,6 +45,8 @@ return let_stopped(
+     []() noexcept { return just(optional&amp;lt;V&amp;gt;()); });
+ ```
+ * single-sender-value-type[link single-sender-value-type.md]
++* child-type[link child-type.md]
++* FWD-ENV-T[link ../forwarding_query.md]
+ * let_stopped[link let_stopped.md]
+ * then[link then.md]
+ * just[link just.md]
+@@ -164,3 +166,4 @@ stopped
+ ## 参照
+ - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
+ - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
++- [LWG 4203. Constraints on `get-state` functions are incorrect](https://cplusplus.github.io/LWG/issue4203)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>when_all -- executuon: LWG4203</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/when_all.html"/>
+      <id>9fee4b58d5d84e299877b0624cd66a30cee3bca5:reference/execution/execution/when_all.md</id>
+      <updated>2025-07-31T22:41:23+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/when_all.md b/reference/execution/execution/when_all.md
+index ae02008c7..47fa9b2ec 100644
+--- a/reference/execution/execution/when_all.md
++++ b/reference/execution/execution/when_all.md
+@@ -87,7 +87,7 @@ namespace std::execution {
+ 
+ - `decltype(e)`が[`queryable`](../queryable.md)のモデル、かつ
+ - 式`e.query(`[`get_stop_token`](../get_stop_token.md)`)`が`state.stop-src.`[`get_token()`](/reference/stop_token/inplace_stop_source/get_token.md)と等価、かつ
+-- [`get_stop_token`](../get_stop_token.md)以外の[クエリオブジェクト](../queryable.md)`q`に対して、式`e.query(q)`は[`get_env`](get_env.md)`(rcvr).query(q)`と等価。
++- [`get_stop_token`](../get_stop_token.md)以外かつ[`forwarding-query`](../forwarding-query.md)を満たす[クエリオブジェクト](../queryable.md)`q`に対して、式`e.query(q)`は[`get_env`](get_env.md)`(rcvr).query(q)`と等価。
+ 
+ `impls-for&amp;lt;when_all_t&amp;gt;::get-state`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
+ 
+@@ -212,7 +212,7 @@ enum class disposition { started, error, stopped };  // exposition only
+ ```cpp
+ template&amp;lt;class Rcvr&amp;gt;
+ struct make-state {
+-  template&amp;lt;max-1-sender-in&amp;lt;env_of_t&amp;lt;Rcvr&amp;gt;&amp;gt;... Sndrs&amp;gt;
++  template&amp;lt;max-1-sender-in&amp;lt;FWD-ENV-T(env_of_t&amp;lt;Rcvr&amp;gt;)&amp;gt;... Sndrs&amp;gt;
+   auto operator()(auto, auto, Sndrs&amp;amp;&amp;amp;... sndrs) const {
+     using values_tuple = see below;
+     using errors_variant = see below;
+@@ -239,6 +239,7 @@ struct make-state {
+   }
+ };
+ ```
++* FWD-ENV-T[link ../forwarding_query.md]
+ * env_of_t[link env_of_t.md]
+ * stop_token_of_t[link ../stop_token_of_t.md]
+ * on-stop-request[link on-stop-request.md]
+@@ -254,9 +255,10 @@ struct make-state {
+ 型`values_tuple`は、適格であるならば下記の型とする。そうでなければ、[`tuple&amp;lt;&amp;gt;`](/reference/tuple/tuple.md)とする。
+ 
+ ```cpp
+-tuple&amp;lt;value_types_of_t&amp;lt;Sndrs, env_of_t&amp;lt;Rcvr&amp;gt;, decayed-tuple, optional&amp;gt;...&amp;gt;
++tuple&amp;lt;value_types_of_t&amp;lt;Sndrs, FWD-ENV-T(env_of_t&amp;lt;Rcvr&amp;gt;), decayed-tuple, optional&amp;gt;...&amp;gt;
+ ```
+ * value_types_of_t[link value_types_of_t.md]
++* FWD-ENV-T[link ../forwarding_query.md]
+ * env_of_t[link env_of_t.md]
+ * decayed-tuple[link decayed-tuple.md]
+ * optional[link /reference/optional/optional.md]
+@@ -477,4 +479,5 @@ error=-2
+ - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
+ - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+ - [P3396R1 std::execution wording fixes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html)
++- [LWG 4203. Constraints on `get-state` functions are incorrect](https://cplusplus.github.io/LWG/issue4203)
+ - [LWG 4227. Missing `noexcept` operator in [exec.when.all]](https://cplusplus.github.io/LWG/issue4227)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>forwarding_query -- executuon: LWG4203</title>
+      <link href="https://cpprefjp.github.io/reference/execution/forwarding_query.html"/>
+      <id>9fee4b58d5d84e299877b0624cd66a30cee3bca5:reference/execution/forwarding_query.md</id>
+      <updated>2025-07-31T22:41:23+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/forwarding_query.md b/reference/execution/forwarding_query.md
+index 3f973fabe..8b5e23a84 100644
+--- a/reference/execution/forwarding_query.md
++++ b/reference/execution/forwarding_query.md
+@@ -22,6 +22,8 @@ namespace std {
+ - `forwarding_query(q) == false`ならば、式`FWD-ENV(env).query(q, as...)`は不適格となる。
+ - そうでなければ、式`FWD-ENV(env)`は式`env.query(q, as...)`と等価であり、その型は[`queryable`](queryable.md)を満たす。
+ 
++また、説明専用の型`FWD-ENV-T(Env)`を`decltype(FWD-ENV(declval&amp;lt;Env&amp;gt;()))`と定義する。
++
+ 
+ ## 効果
+ 説明用の式`q`を`Q`型の[クエリオブジェクト](queryable.md)としたとき、呼び出し式`forwarding_query(q)`は下記と等価であり、`bool`型の値となる。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>when_all -- execution/when_all: LWG4227</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/when_all.html"/>
+      <id>664d0699baa19a5c51b3b3ddea3af210899cd419:reference/execution/execution/when_all.md</id>
+      <updated>2025-07-31T22:03:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/when_all.md b/reference/execution/execution/when_all.md
+index 0992cf2e9..ae02008c7 100644
+--- a/reference/execution/execution/when_all.md
++++ b/reference/execution/execution/when_all.md
+@@ -92,7 +92,7 @@ namespace std::execution {
+ `impls-for&amp;lt;when_all_t&amp;gt;::get-state`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
+ 
+ ```cpp
+-[]&amp;lt;class Sndr, class Rcvr&amp;gt;(Sndr&amp;amp;&amp;amp; sndr, Rcvr&amp;amp; rcvr) noexcept(e) -&amp;gt; decltype(e) {
++[]&amp;lt;class Sndr, class Rcvr&amp;gt;(Sndr&amp;amp;&amp;amp; sndr, Rcvr&amp;amp; rcvr) noexcept(noexcept(e)) -&amp;gt; decltype(e) {
+   return e;
+ }
+ ```
+@@ -477,3 +477,4 @@ error=-2
+ - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
+ - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+ - [P3396R1 std::execution wording fixes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html)
++- [LWG 4227. Missing `noexcept` operator in [exec.when.all]](https://cplusplus.github.io/LWG/issue4227)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>

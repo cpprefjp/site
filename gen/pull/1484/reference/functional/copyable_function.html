@@ -1,0 +1,520 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>copyable_function - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,functional,class template,std,cpp26
+">
+        <meta name="title" content="copyable_function - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="copyable_function - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="copyable_function - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/functional/copyable_function.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`copyable_function`クラステンプレートは、パラメータの型リスト`ArgTypes...`、戻り値の型`R`に合致する、あらゆる関数ポインタ、関数オブジェクト、メンバ関数ポインタ、メンバ変数ポインタを保持できるクラスである。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="copyable_function - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/functional/copyable_function.html" />
+        <meta name="twitter:description" content="`copyable_function`クラステンプレートは、パラメータの型リスト`ArgTypes...`、戻り値の型`R`に合致する、あらゆる関数ポインタ、関数オブジェクト、メンバ関数ポインタ、メンバ変数ポインタを保持できるクラスである。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;functional&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;4dadadcd2c809225636bf18eefcf122dfef40be6&#34;, &#34;source&#34;: &#34;#include &lt;functional&gt;\n#include &lt;iostream&gt;\n\nint add(int x) { return x + 1; }\n\nint main()\n{\n  // \u95a2\u6570\u3092\u4ee3\u5165\n  std::copyable_function&lt;int(int)&gt; f = add;\n\n  // \u95a2\u6570\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3092\u4ee3\u5165\n  f = [](int x) { return x + 1; };\n\n  // \u4fdd\u6301\u3057\u3066\u3044\u308b\u95a2\u6570\u3092\u547c\u3073\u51fa\u3059\n  int result = f(1);\n  std::cout &lt;&lt; result &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;a89526c11534b9a266103f01c5b5e756c37f27ee&#34;, &#34;source&#34;: &#34;#include &lt;functional&gt;\n#include &lt;iostream&gt;\n#include &lt;string&gt;\n#include &lt;utility&gt;\n\nstruct Functor {\n  std::string operator()() &amp; {\n    return \&#34;L-val\&#34;;\n  }\n  std::string operator()() &amp;&amp; {\n    return \&#34;R-val\&#34;;\n  }\n};\n\nint main()\n{\n  std::cout &lt;&lt; \&#34;-- copyable_function\&#34; &lt;&lt; std::endl;\n  std::copyable_function&lt;std::string(void)&gt;    mof1 = Functor{};\n  std::copyable_function&lt;std::string(void) &amp;&amp;&gt; mof2 = Functor{};\n  std::cout &lt;&lt; \&#34;mof1/L-val: \&#34; &lt;&lt; mof1()            &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;mof1/R-val: \&#34; &lt;&lt; std::move(mof1)() &lt;&lt; std::endl;\n//std::cout &lt;&lt; \&#34;mof2/L-val: \&#34; &lt;&lt; mof2()            &lt;&lt; std::endl; // \u4e0d\u9069\u683c\n  std::cout &lt;&lt; \&#34;mof2/R-val: \&#34; &lt;&lt; std::move(mof2)() &lt;&lt; std::endl;\n\n  std::cout &lt;&lt; \&#34;-- function\&#34; &lt;&lt; std::endl;\n  std::function&lt;std::string(void)&gt;    fn1 = Functor{};\n//std::function&lt;std::string(void) &amp;&amp;&gt; fn2 = Functor{}; // \u4e0d\u9069\u683c\n  std::cout &lt;&lt; \&#34;fn1/L-val: \&#34; &lt;&lt; fn1()            &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;fn1/R-val: \&#34; &lt;&lt; std::move(fn1)() &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;3c2bbd5ac34569ea3e8ec47a4906800aa06de429&#34;, &#34;source&#34;: &#34;#include &lt;functional&gt;\n\nvoid func() {}\nvoid func_noex() noexcept {}\n\nint main()\n{\n  std::copyable_function&lt;void(void)&gt;          mof1 = func;\n  std::copyable_function&lt;void(void)&gt;          mof2 = func_noex;\n//std::copyable_function&lt;void(void) noexcept&gt; mof3 = func; // \u4e0d\u9069\u683c\n  std::copyable_function&lt;void(void) noexcept&gt; mof4 = func_noex;\n  static_assert(not noexcept(mof1()));\n  static_assert(not noexcept(mof2()));\n  static_assert(    noexcept(mof4()));\n\n  std::function&lt;void(void)&gt;          fn1 = func;\n  std::function&lt;void(void)&gt;          fn2 = func_noex;\n//std::function&lt;void(void) noexcept&gt; fn3 = func;      // \u4e0d\u9069\u683c\n//std::function&lt;void(void) noexcept&gt; fn4 = func_noex; // \u4e0d\u9069\u683c\n  static_assert(not noexcept(fn1()));\n  static_assert(not noexcept(fn2()));\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;functional&#34;, &#34;copyable_function&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/functional.html" itemprop="url">
+              
+                <span itemprop="name">functional</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">copyable_function</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-01-05T09:09:24">
+        2024年01月05日 09時09分24秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yoh</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/functional/copyable_function.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/functional/copyable_function.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;functional&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">copyable_function</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">S</span><span class="o">&gt;</span>
+  <span class="k">class</span> <span class="nc">copyable_function</span><span class="p">;</span> <span class="c1">// 宣言のみ</span>
+
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">R</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">ArgTypes</span><span class="o">&gt;</span>
+  <span class="k">class</span> <span class="nc">copyable_function</span><span class="o">&lt;</span><span class="n">R</span><span class="p">(</span><span class="n">ArgTypes</span><span class="p">...)</span> <span class="cm">/*cv*/</span> <span class="cm">/*ref*/</span> <span class="k">noexcept</span><span class="p">(</span><span class="cm">/*noex*/</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>copyable_function</code>クラステンプレートは、パラメータの型リスト<code>ArgTypes...</code>、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型<code>R</code>に合致する、あらゆる関数ポインタ、関数オブジェクト、メンバ関数ポインタ、メンバ変数ポインタを保持できるクラスである。</p>
+<p>下記全ての組み合わせ（12種類）に対して、クラステンプレートの部分特殊化が提供される。</p>
+<ul>
+<li><a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>子 <em>cv</em> : <code>const</code>, <a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>無し</li>
+<li>参照修飾子 <em>ref</em> : <code>&amp;</code>, <code>&amp;&amp;</code>, 参照修飾無し</li>
+<li>noexcept<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>指定 <em>noex</em> : <code>true</code>, <code>false</code></li>
+</ul>
+<h3><code>function</code>との比較</h3>
+<p><code><a href="function.html">std::function</a></code>と比べて、<code>std::copyable_function</code>は下記の特徴をもつ。</p>
+<ul>
+<li>関数型の<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>／参照修飾／noexcept<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>指定をサポートする。<ul>
+<li>const性などを正しく伝搬することでバグ発生リスクを軽減する</li>
+</ul>
+</li>
+<li><code><a href="function/target_type.html">target_type</a></code>型と<code><a href="function/target.html">target()</a></code>を提供しない。<ul>
+<li>実行時型情報（RTTI）非依存</li>
+</ul>
+</li>
+<li><a href="copyable_function/op_call.html">関数呼び出し</a>は強い<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a>を持つ。<ul>
+<li>関数呼び出し時のnullチェックが要求されない</li>
+</ul>
+</li>
+<li>クラステンプレート引数の<a href="../../lang/cpp17/type_deduction_for_class_templates.html">推論補助</a>を提供しない。</li>
+</ul>
+<h2>メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="copyable_function/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="copyable_function/op_destructor.html">(destructor)</a></code></td>
+<td>デストラクタ</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="copyable_function/op_assign.html">operator=</a></code></td>
+<td>代入演算子</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="copyable_function/swap.html">swap</a></code></td>
+<td>他の<code>copyable_function</code>オブジェクトと中身を入れ替える</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="copyable_function/op_bool.html">operator bool</a></code></td>
+<td>関数呼び出しが可能か調べる</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="copyable_function/op_call.html">operator()</a></code></td>
+<td>関数呼び出し</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result_type</code></td>
+<td>関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型(テンプレートパラメータ<code>R</code>)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>非メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="copyable_function/op_equal.html">operator==</a></code></td>
+<td>等値比較</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="copyable_function/op_not_equal.html">operator!=</a></code></td>
+<td>非等値比較</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="copyable_function/swap_free.html">swap</a></code></td>
+<td>2つの<code>copyable_function</code>オブジェクトを入れ替える</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<h3>例1: 基本の使い方</h3>
+<p><div class="yata" id="4dadadcd2c809225636bf18eefcf122dfef40be6"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// 関数を代入</span>
+  <span class="n"><span style="color:#ff0000">std::copyable_function</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">add</span><span class="p">;</span>
+
+  <span class="c1">// 関数オブジェクトを代入</span>
+  <span class="n">f</span> <span class="o">=</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="p">};</span>
+
+  <span class="c1">// 保持している関数を呼び出す</span>
+  <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n"><a href="copyable_function/op_call.html">f(1)</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>2
+</code></pre></p>
+<h3>例2: const性の伝搬</h3>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">Functor</span> <span class="p">{</span>
+  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="k">operator</span><span class="p">()()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s">"non-const"</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="k">operator</span><span class="p">()()</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s">"const"</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"-- copyable_function"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+        <span class="n"><span style="color:#ff0000">std::copyable_function</span></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="o">&gt;</span>       <span class="n">mof1</span> <span class="o">=</span> <span class="n">Functor</span><span class="p">{};</span>
+  <span class="k">const</span> <span class="n"><span style="color:#ff0000">std::copyable_function</span></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="o">&gt;</span>       <span class="n">mof2</span> <span class="o">=</span> <span class="n">Functor</span><span class="p">{};</span> <span class="c1">// (呼び出し時に不適格)</span>
+        <span class="n"><span style="color:#ff0000">std::copyable_function</span></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="o">&gt;</span> <span class="n">mof3</span> <span class="o">=</span> <span class="n">Functor</span><span class="p">{};</span>
+  <span class="k">const</span> <span class="n"><span style="color:#ff0000">std::copyable_function</span></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">const</span><span class="o">&gt;</span> <span class="n">mof4</span> <span class="o">=</span> <span class="n">Functor</span><span class="p">{};</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"mof1: "</span> <span class="o">&lt;&lt;</span> <span class="n">mof1</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="c1">//<a href="../iostream/cout.html">std::cout</a> &lt;&lt; "mof2: " &lt;&lt; mof2() &lt;&lt; <a href="../ostream/endl.html">std::endl</a>; // 不適格</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"mof3: "</span> <span class="o">&lt;&lt;</span> <span class="n">mof3</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"mof4: "</span> <span class="o">&lt;&lt;</span> <span class="n">mof4</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"-- function"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+        <span class="n"><a href="function.html">std::function</a></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="o">&gt;</span>       <span class="n">fn1</span> <span class="o">=</span> <span class="n">Functor</span><span class="p">{};</span>
+  <span class="k">const</span> <span class="n"><a href="function.html">std::function</a></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="o">&gt;</span>       <span class="n">fn2</span> <span class="o">=</span> <span class="n">Functor</span><span class="p">{};</span>
+<span class="c1">//      <a href="function.html">std::function</a>&lt;<a href="../string/basic_string.html">std::string</a>(void) const&gt; fn3 = Functor{}; // 不適格</span>
+<span class="c1">//const <a href="function.html">std::function</a>&lt;<a href="../string/basic_string.html">std::string</a>(void) const&gt; fn4 = Functor{}; // 不適格</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"fn1: "</span> <span class="o">&lt;&lt;</span> <span class="n">fn1</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"fn2: "</span> <span class="o">&lt;&lt;</span> <span class="n">fn2</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h4>出力</h4>
+<p><pre><code>-- copyable_function
+mof1: non-const
+mof3: const
+mof4: const
+-- function
+fn1: non-const
+fn2: non-const
+</code></pre></p>
+<h3>例3: 左辺値/右辺値の伝搬</h3>
+<p><div class="yata" id="a89526c11534b9a266103f01c5b5e756c37f27ee"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">Functor</span> <span class="p">{</span>
+  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="k">operator</span><span class="p">()()</span> <span class="o">&amp;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s">"L-val"</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="k">operator</span><span class="p">()()</span> <span class="o">&amp;&amp;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s">"R-val"</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"-- copyable_function"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><span style="color:#ff0000">std::copyable_function</span></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="o">&gt;</span>    <span class="n">mof1</span> <span class="o">=</span> <span class="n">Functor</span><span class="p">{};</span>
+  <span class="n"><span style="color:#ff0000">std::copyable_function</span></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="o">&amp;&amp;&gt;</span> <span class="n">mof2</span> <span class="o">=</span> <span class="n">Functor</span><span class="p">{};</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"mof1/L-val: "</span> <span class="o">&lt;&lt;</span> <span class="n">mof1</span><span class="p">()</span>            <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"mof1/R-val: "</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">mof1</span><span class="p">)()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="c1">//<a href="../iostream/cout.html">std::cout</a> &lt;&lt; "mof2/L-val: " &lt;&lt; mof2()            &lt;&lt; <a href="../ostream/endl.html">std::endl</a>; // 不適格</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"mof2/R-val: "</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">mof2</span><span class="p">)()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"-- function"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="function.html">std::function</a></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="o">&gt;</span>    <span class="n">fn1</span> <span class="o">=</span> <span class="n">Functor</span><span class="p">{};</span>
+<span class="c1">//<a href="function.html">std::function</a>&lt;<a href="../string/basic_string.html">std::string</a>(void) &amp;&amp;&gt; fn2 = Functor{}; // 不適格</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"fn1/L-val: "</span> <span class="o">&lt;&lt;</span> <span class="n">fn1</span><span class="p">()</span>            <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"fn1/R-val: "</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">fn1</span><span class="p">)()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>-- copyable_function
+mof1/L-val: L-val
+mof1/R-val: L-val
+mof2/R-val: R-val
+-- function
+fn1/L-val: L-val
+fn1/R-val: L-val
+</code></pre></p>
+<h3>例4: noexcept指定の伝搬</h3>
+<p><div class="yata" id="3c2bbd5ac34569ea3e8ec47a4906800aa06de429"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
+
+<span class="kt">void</span> <span class="nf">func</span><span class="p">()</span> <span class="p">{}</span>
+<span class="kt">void</span> <span class="nf">func_noex</span><span class="p">()</span> <span class="k">noexcept</span> <span class="p">{}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><span style="color:#ff0000">std::copyable_function</span></span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="o">&gt;</span>          <span class="n">mof1</span> <span class="o">=</span> <span class="n">func</span><span class="p">;</span>
+  <span class="n"><span style="color:#ff0000">std::copyable_function</span></span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="o">&gt;</span>          <span class="n">mof2</span> <span class="o">=</span> <span class="n">func_noex</span><span class="p">;</span>
+<span class="c1">//<span style="color:#ff0000">std::copyable_function</span>&lt;void(void) noexcept&gt; mof3 = func; // 不適格</span>
+  <span class="n"><span style="color:#ff0000">std::copyable_function</span></span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="k">noexcept</span><span class="o">&gt;</span> <span class="n">mof4</span> <span class="o">=</span> <span class="n">func_noex</span><span class="p">;</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n">not</span> <span class="k">noexcept</span><span class="p">(</span><span class="n">mof1</span><span class="p">()));</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n">not</span> <span class="k">noexcept</span><span class="p">(</span><span class="n">mof2</span><span class="p">()));</span>
+  <span class="k">static_assert</span><span class="p">(</span>    <span class="k">noexcept</span><span class="p">(</span><span class="n">mof4</span><span class="p">()));</span>
+
+  <span class="n"><a href="function.html">std::function</a></span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="o">&gt;</span>          <span class="n">fn1</span> <span class="o">=</span> <span class="n">func</span><span class="p">;</span>
+  <span class="n"><a href="function.html">std::function</a></span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="o">&gt;</span>          <span class="n">fn2</span> <span class="o">=</span> <span class="n">func_noex</span><span class="p">;</span>
+<span class="c1">//<a href="function.html">std::function</a>&lt;void(void) noexcept&gt; fn3 = func;      // 不適格</span>
+<span class="c1">//<a href="function.html">std::function</a>&lt;void(void) noexcept&gt; fn4 = func_noex; // 不適格</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n">not</span> <span class="k">noexcept</span><span class="p">(</span><span class="n">fn1</span><span class="p">()));</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n">not</span> <span class="k">noexcept</span><span class="p">(</span><span class="n">fn2</span><span class="p">()));</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code></code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++26</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li>C++11 <code><a href="function.html">function</a></code></li>
+<li>C++23 <code><a href="move_only_function.html">move_only_function</a></code></li>
+<li>C++26 <code><a href="function_ref.html">function_ref</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2548r6.pdf" target="_blank">P2548R6 copyable_function</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
