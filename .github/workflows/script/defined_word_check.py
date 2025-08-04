@@ -65,8 +65,9 @@ def check_defined_word(text: str, filename: str) -> bool:
 
     return not found_error
 
-if __name__ == '__main__':
+def check() -> bool:
     found_error = False
+    current_dir = os.getcwd()
     for p in sorted(list(glob.glob("**/*.md", recursive=True))):
         if p.startswith("start_editing/"):
             continue
@@ -77,5 +78,8 @@ if __name__ == '__main__':
         if not check_defined_word(text, p):
             found_error = True
 
-    if found_error:
+    return not found_error
+
+if __name__ == '__main__':
+    if not check():
         sys.exit(1)

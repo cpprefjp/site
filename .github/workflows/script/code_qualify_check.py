@@ -28,7 +28,7 @@ def check_exist_qualify_target(text: str, filename: str) -> bool:
             code = ""
     return not found_error
 
-if __name__ == '__main__':
+def check() -> bool:
     found_error = False
     current_dir = os.getcwd()
     outer_link_dict = dict()
@@ -41,5 +41,8 @@ if __name__ == '__main__':
         if not check_exist_qualify_target(text, p):
             found_error = True
 
-    if found_error:
+    return not found_error
+
+if __name__ == '__main__':
+    if not check():
         sys.exit(1)
