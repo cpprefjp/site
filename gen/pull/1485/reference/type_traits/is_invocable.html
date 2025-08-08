@@ -1,0 +1,357 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>is_invocable - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,type_traits,std,class template,cpp17
+">
+        <meta name="title" content="is_invocable - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="is_invocable - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="is_invocable - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/type_traits/is_invocable.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="型`F`が、与えられた型の引数`ArgsTypes...`で関数呼び出し可能かどうかを調べる。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="is_invocable - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/type_traits/is_invocable.html" />
+        <meta name="twitter:description" content="型`F`が、与えられた型の引数`ArgsTypes...`で関数呼び出し可能かどうかを調べる。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;type_traits&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;11ed1f85ea3a7824745a504d0d0e572aa3f9cb2d&#34;, &#34;source&#34;: &#34;#include &lt;type_traits&gt;\n#include &lt;vector&gt;\n#include &lt;string&gt;\n#include &lt;iostream&gt;\n\n\nstruct functor {\n  auto operator()() -&gt; int {\n    return 0;\n  }\n\n  auto operator()(int, double) -&gt; std::string {\n    return \&#34;string\&#34;;\n  }\n};\n\nstruct has_member {\n  auto member_function(std::vector&lt;char&gt;) -&gt; short {\n    return 0;\n  }\n\n  int member_object;\n};\n\nauto f(int) -&gt; double {\n  return 0.0;\n}\n\n\nint main()\n{\n  std::cout &lt;&lt; std::boolalpha;\n\n  //true\u3068\u306a\u308b\u547c\u3073\u51fa\u3057\n\n  //has_member.*(has_member::*member_function, std::vector&lt;char&gt;)\n  std::cout &lt;&lt; std::is_invocable&lt;decltype(&amp;has_member::member_function), has_member, std::vector&lt;char&gt;&gt;::value &lt;&lt; std::endl;\n\n  //(*(has_member*)).*(has_member::*member_function, std::vector&lt;char&gt;)\n  std::cout &lt;&lt; std::is_invocable&lt;decltype(&amp;has_member::member_function), has_member*, std::vector&lt;char&gt;&gt;::value &lt;&lt; std::endl;\n\n  //has_member.*(has_member::*member_object)\n  std::cout &lt;&lt; std::is_invocable&lt;decltype(&amp;has_member::member_object), has_member&gt;::value &lt;&lt; std::endl;\n\n  //(*(has_member*)).*(has_member::*member_object)\n  std::cout &lt;&lt; std::is_invocable&lt;decltype(&amp;has_member::member_object), has_member*&gt;::value &lt;&lt; std::endl;\n\n  //functor::operator()()\n  std::cout &lt;&lt; std::is_invocable&lt;functor&gt;::value &lt;&lt; std::endl;\n\n  //functor::operator()(int, double)\n  std::cout &lt;&lt; std::is_invocable&lt;functor, int, double&gt;::value &lt;&lt; std::endl;\n\n  //f(int)\n  std::cout &lt;&lt; std::is_invocable&lt;decltype(f), int&gt;::value &lt;&lt; std::endl;\n\n\n  //false\u3068\u306a\u308b\u547c\u3073\u51fa\u3057\uff08\u3044\u305a\u308c\u3082\u5b9a\u7fa9\u3055\u308c\u3066\u3044\u306a\u3044\uff09\n\n  //has_member.*(has_member::*member_function, int)\n  std::cout &lt;&lt; std::is_invocable&lt;decltype(&amp;has_member::member_function), has_member, int&gt;::value &lt;&lt; std::endl;\n\n  //functor::operator()(std::string)\n  std::cout &lt;&lt; std::is_invocable&lt;functor, std::string&gt;::value &lt;&lt; std::endl;\n\n  //f(const char*)\n  std::cout &lt;&lt; std::is_invocable&lt;decltype(f), const char*&gt;::value &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;type_traits&#34;, &#34;is_invocable&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/type_traits.html" itemprop="url">
+              
+                <span itemprop="name">type_traits</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">is_invocable</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-06-11T13:45:38">
+        2024年06月11日 13時45分38秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/type_traits/is_invocable.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/type_traits/is_invocable.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;type_traits&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">is_invocable</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">F</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">ArgsTypes</span><span class="o">&gt;</span>
+  <span class="k">struct</span> <span class="n">is_invocable</span><span class="p">;</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">F</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">ArgsTypes</span><span class="o">&gt;</span>
+  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">is_invocable_v</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">is_invocable</span><span class="o">&lt;</span><span class="n">F</span><span class="p">,</span> <span class="n">ArgsTypes</span><span class="p">...</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>型<code>F</code>が、与えられた型の引数<code>ArgsTypes...</code>で関数呼び出し可能かどうかを調べる。</p>
+<h2>要件</h2>
+<p>型<code>F</code>および<code>ArgsTypes...</code>パラメータパックの全ての型が、<a class="cpprefjp-defined-word" data-desc="型のサイズを決定できる型。不完全型ではない型">完全型</a>であること。もしくは<code>const</code>/<code>volatile</code>修飾された(あるいはされていない)<code>void</code>か、要素数不明の配列型であること。</p>
+<h2>効果</h2>
+<p>型<code>F</code>に対して引数<code>ArgsTypes...</code>による<a href="../concepts/Invoke.html"><em>INVOKE</em></a>要件に従った呼び出しが可能であれば<code><a href="true_type.html">true_type</a></code>から派生し、そうでなければ<code><a href="false_type.html">false_type</a></code>から派生する。</p>
+<p>結果が<code>true</code>となる場合、以下のような呼び出しが可能であるということと等価である：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">invoke</span><span class="p">(</span><span class="n"><a href="../utility/declval.html">std::declval</a></span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;</span><span class="p">(),</span> <span class="n"><a href="../utility/declval.html">std::declval</a></span><span class="o">&lt;</span><span class="n">ArgsTypes</span><span class="o">&gt;</span><span class="p">()...)</span>
+</code></pre></div>
+</p>
+<h2>例</h2>
+<p><div class="yata" id="11ed1f85ea3a7824745a504d0d0e572aa3f9cb2d"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+
+<span class="k">struct</span> <span class="n">functor</span> <span class="p">{</span>
+  <span class="k">auto</span> <span class="k">operator</span><span class="p">()()</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">auto</span> <span class="k">operator</span><span class="p">()(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">double</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s">"string"</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">has_member</span> <span class="p">{</span>
+  <span class="k">auto</span> <span class="n">member_function</span><span class="p">(</span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">short</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kt">int</span> <span class="n">member_object</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">auto</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">double</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="mf">0.0</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ios/boolalpha.html">std::boolalpha</a></span><span class="p">;</span>
+
+  <span class="c1">//trueとなる呼び出し</span>
+
+  <span class="c1">//has_member.*(has_member::*member_function, <a href="../vector/vector.html">std::vector</a>&lt;char&gt;)</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::is_invocable</span></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="o">&amp;</span><span class="n">has_member</span><span class="o">::</span><span class="n">member_function</span><span class="p">),</span> <span class="n">has_member</span><span class="p">,</span> <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;&gt;::</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">//(*(has_member*)).*(has_member::*member_function, <a href="../vector/vector.html">std::vector</a>&lt;char&gt;)</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::is_invocable</span></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="o">&amp;</span><span class="n">has_member</span><span class="o">::</span><span class="n">member_function</span><span class="p">),</span> <span class="n">has_member</span><span class="o">*</span><span class="p">,</span> <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;&gt;::</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">//has_member.*(has_member::*member_object)</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::is_invocable</span></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="o">&amp;</span><span class="n">has_member</span><span class="o">::</span><span class="n">member_object</span><span class="p">),</span> <span class="n">has_member</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">//(*(has_member*)).*(has_member::*member_object)</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::is_invocable</span></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="o">&amp;</span><span class="n">has_member</span><span class="o">::</span><span class="n">member_object</span><span class="p">),</span> <span class="n">has_member</span><span class="o">*&gt;::</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">//functor::operator()()</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::is_invocable</span></span><span class="o">&lt;</span><span class="n">functor</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">//functor::operator()(int, double)</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::is_invocable</span></span><span class="o">&lt;</span><span class="n">functor</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">//f(int)</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::is_invocable</span></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="kt">int</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+
+  <span class="c1">//falseとなる呼び出し（いずれも定義されていない）</span>
+
+  <span class="c1">//has_member.*(has_member::*member_function, int)</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::is_invocable</span></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="o">&amp;</span><span class="n">has_member</span><span class="o">::</span><span class="n">member_function</span><span class="p">),</span> <span class="n">has_member</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">//functor::operator()(<a href="../string/basic_string.html">std::string</a>)</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::is_invocable</span></span><span class="o">&lt;</span><span class="n">functor</span><span class="p">,</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">//f(const char*)</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::is_invocable</span></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*&gt;::</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>true
+true
+true
+true
+true
+true
+true
+false
+false
+false
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++17</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2017 Update 3 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://faithandbrave.hateblo.jp/entry/2016/05/13/183857" target="_blank">C++1z 関数が呼び出し可能かを判定する型特性 - Faith and Brave - C++で遊ぼう</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0604r0.html" target="_blank">Resolving GB 55, US 84, US 85, US 86</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

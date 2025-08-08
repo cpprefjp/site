@@ -1,0 +1,332 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>regex_iterator::コンストラクタ - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,regex,std,regex_iterator,function,cpp11
+">
+        <meta name="title" content="regex_iterator::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="regex_iterator::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="regex_iterator::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/regex/regex_iterator/op_constructor.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`regex_iterator` オブジェクトを構築する" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="regex_iterator::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/regex/regex_iterator/op_constructor.html" />
+        <meta name="twitter:description" content="`regex_iterator` オブジェクトを構築する" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;regex&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;regex_iterator&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;bd3141faa7b311b8ca9b2f0e02df8cff4207b3bb&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;iterator&gt;\n#include &lt;regex&gt;\n#include &lt;string&gt;\n\nint main()\n{\n  std::regex re(\&#34;\\\\d+\&#34;);\n  std::string s(\&#34;This compiler supports the C++11 standard.\&#34;);\n  std::sregex_iterator it(std::begin(s), std::end(s), re);\n  if (it != std::sregex_iterator()) {\n    std::cout &lt;&lt; \&#34;match:\&#34; &lt;&lt; it-&gt;str() &lt;&lt; std::endl;\n  } else {\n    std::cout &lt;&lt; \&#34;not match\&#34; &lt;&lt; std::endl;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;regex&#34;, &#34;regex_iterator&#34;, &#34;op_constructor&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/regex.html" itemprop="url">
+              
+                <span itemprop="name">regex</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/regex/regex_iterator.html" itemprop="url">
+              
+                <span itemprop="name">regex_iterator</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">コンストラクタ</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-06-11T13:45:38">
+        2024年06月11日 13時45分38秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/regex/regex_iterator/op_constructor.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/regex/regex_iterator/op_constructor.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;regex&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class regex_iterator">regex_iterator::</span><span class="token">コンストラクタ</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">regex_iterator</span><span class="p">();</span>                                                                              <span class="c1">// (1)</span>
+
+<span class="n">regex_iterator</span><span class="p">(</span><span class="n">BidirectionalIterator</span> <span class="n">a</span><span class="p">,</span> <span class="n">BidirectionalIterator</span> <span class="n">b</span><span class="p">,</span>
+               <span class="k">const</span> <span class="n">regex_type</span><span class="o">&amp;</span> <span class="n">re</span><span class="p">,</span>
+               <span class="n">regex_constants</span><span class="o">::</span><span class="n">match_flag_type</span> <span class="n">m</span> <span class="o">=</span> <span class="n"><a href="../regex_constants/match_flag_type.html">regex_constants::match_default</a></span><span class="p">);</span>           <span class="c1">// (2)</span>
+
+<span class="n">regex_iterator</span><span class="p">(</span><span class="n">BidirectionalIterator</span> <span class="n">a</span><span class="p">,</span> <span class="n">BidirectionalIterator</span> <span class="n">b</span><span class="p">,</span>
+               <span class="k">const</span> <span class="n">regex_type</span><span class="o">&amp;&amp;</span> <span class="n">re</span><span class="p">,</span>
+               <span class="n">regex_constants</span><span class="o">::</span><span class="n">match_flag_type</span> <span class="n">m</span> <span class="o">=</span> <span class="n"><a href="../regex_constants/match_flag_type.html">regex_constants::match_default</a></span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>  <span class="c1">// (3) C++14 から</span>
+
+<span class="n">regex_iterator</span><span class="p">(</span><span class="k">const</span> <span class="n">regex_iterator</span><span class="o">&amp;</span><span class="p">);</span>                                                         <span class="c1">// (4)</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>regex_iterator</code> オブジェクトを構築する</p>
+<h2>効果</h2>
+<ul>
+<li>(1) デフォルトコンストラクタ。シーケンスの終端を示す特別なイテレータを構築する。</li>
+<li>(2) メンバ変数 <code>begin</code>、<code>end</code>、<code>pregex</code>、<code>flags</code> をそれぞれ <code>a</code>、<code>b</code>、<code><a href="../../memory/addressof.html">addressof</a>(re)</code>、<code>m</code> で初期化して、<code><a href="../regex_search.html">regex_search</a>(begin, end, match, *pregex, flags)</code> を呼び出す。
+    検索に成功しなかった場合（<code>false</code> が返された場合）、デフォルトコンストラクタで構築した場合と同様、直ちにシーケンスの終端を示す特別なイテレータとなる。</li>
+<li>(3) deleted コンストラクタであるため、使用するとコンパイルエラーとなる。</li>
+<li>(4) コピーコンストラクタ。</li>
+</ul>
+<h2>備考</h2>
+<ul>
+<li>メンバ変数 <code>begin</code>、<code>end</code>、<code>pregex</code>、<code>flags</code>、<code>match</code> はあくまでも説明用のプライベートメンバ変数であるため、注意すること。</li>
+<li><code>regex_iterator</code> は指定された正規表現 <code>re</code> のコピーではなく、<code>re</code> へのポインタをオブジェクト内に保持するため、引数に渡した正規表現オブジェクトは当該イテレータを使用し終わるまで破棄されないようにする必要がある。<br />
+    従って、(2) の形式のコンストラクタに渡す引数 <code>re</code> に一時オブジェクトを指定することはほぼ間違いなくプログラミング上のエラーを意味する。<br />
+    (3) の形式のコンストラクタが C++14 で追加された理由は、この事態をコンパイル時に検出するためである。<br />
+    しかし、この追加のため、C++11 では<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>となりうる以下のようなコードは C++14 ではコンパイルエラーになる。
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">sregex_iterator</span><span class="o">&amp;&amp;</span><span class="p">);</span>
+
+<span class="n">f</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">sregex_iterator</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">s</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">std</span><span class="o">::</span><span class="n">regex</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">d+"</span><span class="p">)));</span>
+</code></pre></div>
+</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="bd3141faa7b311b8ca9b2f0e02df8cff4207b3bb"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../iterator.html">&lt;iterator&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../regex.html">&lt;regex&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../basic_regex.html">std::regex</a></span> <span class="n">re</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">d+"</span><span class="p">);</span>
+  <span class="n"><a href="../../string/basic_string.html">std::string</a></span> <span class="n">s</span><span class="p">(</span><span class="s">"This compiler supports the C++11 standard."</span><span class="p">);</span>
+  <span class="n"><span style="color:#ff0000">std::sregex_iterator</span></span> <span class="n">it</span><span class="p">(</span><span class="n"><a href="../../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n"><a href="../../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n">re</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">it</span> <span class="o">!=</span> <span class="n"><span style="color:#ff0000">std::sregex_iterator</span></span><span class="p">())</span> <span class="p">{</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"match:"</span> <span class="o">&lt;&lt;</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">str</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"not match"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>match:11
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11（一部 C++14）</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: 3.0 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.1 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.2 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.3 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.4 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.5 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.6 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: 4.9.0 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.9.1 <span aria-label="検証済" role="img" title="検証済">✅</span>, 5.0.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h3>備考</h3>
+<ul>
+<li>libstdc++ には 5.0.0 rev.218373 現在、(3) の形式のコンストラクタは存在しない。</li>
+<li>libc++ には、3.4 までは (3) の形式のコンストラクタは存在しない。</li>
+<li>libstdc++ では 5.0.0 rev.218373 現在、コピーコンストラクタで構築したオブジェクトの <code>match.<a href="../match_results/position.html">position</a>(i)</code> が補正されずに誤っている。（補正については <code><a href="op_increment.html">operator++</a></code> の「効果」を参照）</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://wg21.cmeerw.net/lwg/issue3040" target="_blank">LWG Issue 3040. <code>basic_string_view::starts_with</code> Effects are incorrect</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

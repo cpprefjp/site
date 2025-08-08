@@ -1,0 +1,329 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>定数式での`dynamic_cast`、多態的な`typeid`を許可 [P1327R1] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp20
+">
+        <meta name="title" content="定数式での`dynamic_cast`、多態的な`typeid`を許可 [P1327R1] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="定数式での`dynamic_cast`、多態的な`typeid`を許可 [P1327R1] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="定数式での`dynamic_cast`、多態的な`typeid`を許可 [P1327R1] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp20/allowing_dynamic_cast_polymorphic_typeid_in_constant_expressions.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="定数式での`dynamic_cast`、多態的な`typeid`を許可 [P1327R1] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp20/allowing_dynamic_cast_polymorphic_typeid_in_constant_expressions.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;628b3183eba1f58b03dc54da0b52acdf6de3a9a8&#34;, &#34;source&#34;: &#34;struct base {\n  virtual int f() const = 0;\n};\n\nstruct derived1 : public base {\n  constexpr int f() const override {\n    return 10;\n  }\n};\n\nstruct derived2 : public base {\n  constexpr int f() const override {\n    return 20;\n  }\n};\n\nstruct base2 {\n  virtual int g() const = 0;\n};\n\nstruct derived3 : public base, public base2 {\n  constexpr int f() const override {\n    return 30;\n  }\n\n  constexpr int g() const override {\n    return 30;\n  }\n};\n\nconstexpr auto&amp; get_typeinfo(const base* p) {\n  // \u30b3\u30f3\u30d1\u30a4\u30eb\u6642\u306b\u52d5\u7684\u578b\u306etype_info\u3092\u53d6\u5f97\u3059\u308b\n  return typeid(*p);\n}\n\nconstexpr int side_cast(const base* p) {\n  // \u30b3\u30f3\u30d1\u30a4\u30eb\u6642\u30b5\u30a4\u30c9\u30ad\u30e3\u30b9\u30c8\n  const base2* b2 = dynamic_cast&lt;const base2*&gt;(p);\n  return b2-&gt;g();\n}\n\nint main() {\n  constexpr derived1 d1{};\n  constexpr derived2 d2{};\n\n  // typeid\u306e\u4f8b\n  constexpr auto&amp; tid1 = get_typeinfo(&amp;d1);\n  constexpr auto&amp; tid2 = get_typeinfo(&amp;d2);\n\n  std::cout &lt;&lt; std::boolalpha;\n  std::cout &lt;&lt; (tid1 == tid2) &lt;&lt; std::endl;\n\n  // dynamic_cast\u306e\u4f8b\n  constexpr derived3 d3{};\n  constexpr int n = side_cast(&amp;d3);\n\n  static_assert(n == 30);\n  std::cout &lt;&lt; n &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp20&#34;, &#34;allowing_dynamic_cast_polymorphic_typeid_in_constant_expressions&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp20.html" itemprop="url">
+              
+                <span itemprop="name">C++20</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">定数式での`dynamic_cast`、多態的な`typeid`を許可 [P1327R1]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-06-09T08:31:47">
+        2025年06月09日 08時31分47秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp20/allowing_dynamic_cast_polymorphic_typeid_in_constant_expressions.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp20/allowing_dynamic_cast_polymorphic_typeid_in_constant_expressions.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">定数式での<code>dynamic_cast</code>、多態的な<code>typeid</code>を許可 [P1327R1]</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++20に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>C++20より、<code>constexpr</code>関数内（定数式）で<code>dynamic_cast</code>および多態的な型に対する<code>typeid</code>を使用することができるようになる。</p>
+<p>ただし、定数式での<code>dynamic_cast/typeid</code>の実行が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げる場合は定数式で実行可能ではない。そのコンテキストが定数式で実行されなければならない所（<code>constexpr</code>変数の初期化式など）ではない場合、その実行は実行時まで延期される。</p>
+<h2>例</h2>
+<p><div class="yata" id="628b3183eba1f58b03dc54da0b52acdf6de3a9a8"><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">base</span> <span class="p">{</span>
+  <span class="k">virtual</span> <span class="kt">int</span> <span class="n">f</span><span class="p">()</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="nl">derived1</span> <span class="p">:</span> <span class="k">public</span> <span class="n">base</span> <span class="p">{</span>
+  <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">f</span><span class="p">()</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">10</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="nl">derived2</span> <span class="p">:</span> <span class="k">public</span> <span class="n">base</span> <span class="p">{</span>
+  <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">f</span><span class="p">()</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">20</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">base2</span> <span class="p">{</span>
+  <span class="k">virtual</span> <span class="kt">int</span> <span class="n">g</span><span class="p">()</span> <span class="k">const</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="nl">derived3</span> <span class="p">:</span> <span class="k">public</span> <span class="n">base</span><span class="p">,</span> <span class="k">public</span> <span class="n">base2</span> <span class="p">{</span>
+  <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">f</span><span class="p">()</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">30</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">g</span><span class="p">()</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">30</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">constexpr</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">get_typeinfo</span><span class="p">(</span><span class="k">const</span> <span class="n">base</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// コンパイル時に動的型のtype_infoを取得する</span>
+  <span class="k">return</span> <span class="n"><span style="color:#ff0000">typeid</span></span><span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">constexpr</span> <span class="kt">int</span> <span class="n">side_cast</span><span class="p">(</span><span class="k">const</span> <span class="n">base</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// コンパイル時サイドキャスト</span>
+  <span class="k">const</span> <span class="n">base2</span><span class="o">*</span> <span class="n">b2</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">dynamic_cast</span></span><span class="o">&lt;</span><span class="k">const</span> <span class="n">base2</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+  <span class="k">return</span> <span class="n">b2</span><span class="o">-&gt;</span><span class="n">g</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">constexpr</span> <span class="n">derived1</span> <span class="n">d1</span><span class="p">{};</span>
+  <span class="k">constexpr</span> <span class="n">derived2</span> <span class="n">d2</span><span class="p">{};</span>
+
+  <span class="c1">// <span style="color:#ff0000">typeid</span>の例</span>
+  <span class="k">constexpr</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">tid1</span> <span class="o">=</span> <span class="n">get_typeinfo</span><span class="p">(</span><span class="o">&amp;</span><span class="n">d1</span><span class="p">);</span>
+  <span class="k">constexpr</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">tid2</span> <span class="o">=</span> <span class="n">get_typeinfo</span><span class="p">(</span><span class="o">&amp;</span><span class="n">d2</span><span class="p">);</span>
+
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ios/boolalpha.html">std::boolalpha</a></span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">tid1</span> <span class="o">==</span> <span class="n">tid2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// <span style="color:#ff0000">dynamic_cast</span>の例</span>
+  <span class="k">constexpr</span> <span class="n">derived3</span> <span class="n">d3</span><span class="p">{};</span>
+  <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">side_cast</span><span class="p">(</span><span class="o">&amp;</span><span class="n">d3</span><span class="p">);</span>
+
+  <span class="k">static_assert</span><span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">30</span><span class="p">);</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>false
+30
+</code></pre></p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p><code><a href="../../reference/system_error/error_category.html">std::error_category</a></code>に新しい仮想関数やメンバを追加する提案が提出されていたが、ABIを破損する（クラスレイアウトが変更されてしまう）ことから採択されなかった。</p>
+<p>代替案として、<code>std::error_category</code>を派生させた別の型を導入して、その型に対して変更を加えるという方法が検討された。その場合、<code><a href="../../reference/system_error/error_code.html">std::error_code</a></code>では、<code>dynamic_cast/typeid</code>を使用して新旧<code>error_category</code>のどちらを利用しているのかをチェックした上で処理を分ける事になる。</p>
+<p>しかしその方法は、<code>std::error_code</code>のメンバ関数を<code>constexpr</code>にする提案と衝突してしまっていた。<code>dynamic_cast</code>および多態的な型に対する<code>typeid</code>は定数式で実行可能ではなかったためである。</p>
+<p>この提案の採択以前に、C++20にて定数式での仮想関数呼び出しが許可され、コンパイラは定数式においてあるオブジェクトの動的型を追跡し続けるようになっていた。したがって、<code>dynamic_cast</code>および多態的な型に対する<code>typeid</code>を定数式で利用できない技術的な理由は取り除かれており、これらを定数式で実行できないという制限は緩和されることになった。</p>
+<h2>検討されたほかの選択肢</h2>
+<p>別の提案（P1328R0）にて<code>typeinfo</code>の<code><a href="../../reference/typeinfo/type_info/op_equal.html">operator==</a></code>も<code>constexpr</code>にする事が提案されている。これは当初C++20に導入される予定であったが、実装可能性に関する懸念が提起されその調査に時間がかかったためC++20には間に合わなかった。</p>
+<p>その後、実装可能性に関する懸念は払拭されたため、C++23に導入される予定である。</p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><a href="allow_virtual_function_calls_in_constant_expressions.html">C++20 定数式からの仮想関数の呼び出しを許可</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1327r1.html" target="_blank">P1327R1 Allowing dynamic_cast, polymorphic typeid in Constant Expressions</a></li>
+<li><a href="https://wg21.link/P1328" target="_blank">P1328R0 Making std::type_info::operator== constexpr</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

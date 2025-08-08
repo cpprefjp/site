@@ -1,0 +1,454 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>regex_replace - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,regex,std,function template,cpp11
+">
+        <meta name="title" content="regex_replace - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="regex_replace - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="regex_replace - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/regex/regex_replace.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="指定された文字列の中で、正規表現にマッチする部分を指定した文字列に置換する。  " />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="regex_replace - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/regex/regex_replace.html" />
+        <meta name="twitter:description" content="指定された文字列の中で、正規表現にマッチする部分を指定した文字列に置換する。  " />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;regex&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;be3a64332dffd9e03c5c2aeff5a6890dab566212&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;iterator&gt;\n#include &lt;list&gt;\n#include &lt;regex&gt;\n#include &lt;string&gt;\n\nint main()\n{\n  {\n    // (1) \u306e\u5f62\u5f0f\n    const std::list&lt;char&gt; s = { &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;0&#39;, &#39;1&#39;, &#39;2&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39; };\n    const std::regex re(\&#34;\\\\d+\&#34;);\n    const std::string fmt = \&#34;[$&amp;]\&#34;;\n    std::cout &lt;&lt; \&#34;(1) &#39;\&#34;;\n    std::regex_replace(std::ostream_iterator&lt;char&gt;(std::cout), std::begin(s), std::end(s), re, fmt);\n    std::cout &lt;&lt; &#39;\\&#39;&#39; &lt;&lt; std::endl;\n  }\n  {\n    // (2) \u306e\u5f62\u5f0f\n    const std::list&lt;char&gt; s = { &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;0&#39;, &#39;1&#39;, &#39;2&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39; };\n    const std::regex re(\&#34;\\\\d+\&#34;);\n    const char fmt[] = \&#34;[$&amp;]\&#34;;\n    const std::regex_constants::match_flag_type flags = std::regex_constants::format_no_copy;\n    std::cout &lt;&lt; \&#34;(2) &#39;\&#34;;\n    std::regex_replace(std::ostream_iterator&lt;char&gt;(std::cout), std::begin(s), std::end(s), re, fmt, flags);\n    std::cout &lt;&lt; &#39;\\&#39;&#39; &lt;&lt; std::endl;\n  }\n  {\n    // (3) \u306e\u5f62\u5f0f\n    const std::string s = \&#34;abc123def456ghi\&#34;;\n    const std::regex re(\&#34;\\\\d+\&#34;);\n    const std::string fmt = \&#34;[$&amp;]\&#34;;\n    std::cout &lt;&lt; \&#34;(3) &#39;\&#34; &lt;&lt; std::regex_replace(s, re, fmt) &lt;&lt; &#39;\\&#39;&#39; &lt;&lt; std::endl;\n  }\n  {\n    // (4) \u306e\u5f62\u5f0f\n    const std::string s = \&#34;abc123def456ghi\&#34;;\n    const std::regex re(\&#34;\\\\d+\&#34;);\n    const char fmt[] = \&#34;[$&amp;]\&#34;;\n    const std::regex_constants::match_flag_type flags = std::regex_constants::format_first_only;\n    std::cout &lt;&lt; \&#34;(4) &#39;\&#34; &lt;&lt; std::regex_replace(s, re, fmt, flags) &lt;&lt; &#39;\\&#39;&#39; &lt;&lt; std::endl;\n  }\n  {\n    // (5) \u306e\u5f62\u5f0f\n    const char s[] = \&#34;abc123def456ghi\&#34;;\n    const std::regex re(\&#34;(\\\\d)(\\\\d)(\\\\d)\&#34;);\n    const std::string fmt = \&#34;[$3$2$1]\&#34;;\n    std::cout &lt;&lt; \&#34;(5) &#39;\&#34; &lt;&lt; std::regex_replace(s, re, fmt) &lt;&lt; &#39;\\&#39;&#39; &lt;&lt; std::endl;\n  }\n  {\n    // (6) \u306e\u5f62\u5f0f\n    const char s[] = \&#34;abc123def456ghi\&#34;;\n    const std::regex re(\&#34;(\\\\d)(\\\\d)(\\\\d)\&#34;);\n    const char fmt[] = \&#34;[\\\\3\\\\2\\\\1]\&#34;;\n    const std::regex_constants::match_flag_type flags = std::regex_constants::format_sed;\n    std::cout &lt;&lt; \&#34;(6) &#39;\&#34; &lt;&lt; std::regex_replace(s, re, fmt, flags) &lt;&lt; &#39;\\&#39;&#39; &lt;&lt; std::endl;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;regex&#34;, &#34;regex_replace&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/regex.html" itemprop="url">
+              
+                <span itemprop="name">regex</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">regex_replace</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-05-22T07:35:09">
+        2025年05月22日 07時35分09秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/regex/regex_replace.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/regex/regex_replace.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function template</div><div class="header">&lt;regex&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">regex_replace</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">OutputIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">BidirectionalIterator</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">traits</span><span class="p">,</span> <span class="k">class</span> <span class="nc">charT</span><span class="p">,</span> <span class="k">class</span> <span class="nc">FST</span><span class="p">,</span> <span class="k">class</span> <span class="nc">FSA</span><span class="o">&gt;</span>
+  <span class="n">OutputIterator</span>
+  <span class="n">regex_replace</span><span class="p">(</span><span class="n">OutputIterator</span> <span class="n">out</span><span class="p">,</span>
+                <span class="n">BidirectionalIterator</span> <span class="n">first</span><span class="p">,</span> <span class="n">BidirectionalIterator</span> <span class="n">last</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n"><a href="basic_regex.html">basic_regex</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span> <span class="n">e</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n"><a href="../string/basic_string.html">basic_string</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">FST</span><span class="p">,</span> <span class="n">FSA</span><span class="o">&gt;&amp;</span> <span class="n">fmt</span><span class="p">,</span>
+                <span class="n">regex_constants</span><span class="o">::</span><span class="n">match_flag_type</span> <span class="n">flags</span> <span class="o">=</span> <span class="n"><a href="regex_constants/match_flag_type.html">regex_constants::match_default</a></span><span class="p">);</span> <span class="c1">// (1)</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">OutputIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">BidirectionalIterator</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">traits</span><span class="p">,</span> <span class="k">class</span> <span class="nc">charT</span><span class="o">&gt;</span>
+  <span class="n">OutputIterator</span>
+  <span class="n">regex_replace</span><span class="p">(</span><span class="n">OutputIterator</span> <span class="n">out</span><span class="p">,</span>
+                <span class="n">BidirectionalIterator</span> <span class="n">first</span><span class="p">,</span> <span class="n">BidirectionalIterator</span> <span class="n">last</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n"><a href="basic_regex.html">basic_regex</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span> <span class="n">e</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">charT</span><span class="o">*</span> <span class="n">fmt</span><span class="p">,</span>
+                <span class="n">regex_constants</span><span class="o">::</span><span class="n">match_flag_type</span> <span class="n">flags</span> <span class="o">=</span> <span class="n"><a href="regex_constants/match_flag_type.html">regex_constants::match_default</a></span><span class="p">);</span> <span class="c1">// (2)</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">traits</span><span class="p">,</span> <span class="k">class</span> <span class="nc">charT</span><span class="p">,</span> <span class="k">class</span> <span class="nc">ST</span><span class="p">,</span> <span class="k">class</span> <span class="nc">SA</span><span class="p">,</span> <span class="k">class</span> <span class="nc">FST</span><span class="p">,</span> <span class="k">class</span> <span class="nc">FSA</span><span class="o">&gt;</span>
+  <span class="n"><a href="../string/basic_string.html">basic_string</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">ST</span><span class="p">,</span> <span class="n">SA</span><span class="o">&gt;</span>
+  <span class="n">regex_replace</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../string/basic_string.html">basic_string</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">ST</span><span class="p">,</span> <span class="n">SA</span><span class="o">&gt;&amp;</span> <span class="n">s</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n"><a href="basic_regex.html">basic_regex</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span> <span class="n">e</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n"><a href="../string/basic_string.html">basic_string</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">FST</span><span class="p">,</span> <span class="n">FSA</span><span class="o">&gt;&amp;</span> <span class="n">fmt</span><span class="p">,</span>
+                <span class="n">regex_constants</span><span class="o">::</span><span class="n">match_flag_type</span> <span class="n">flags</span> <span class="o">=</span> <span class="n"><a href="regex_constants/match_flag_type.html">regex_constants::match_default</a></span><span class="p">);</span> <span class="c1">// (3)</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">traits</span><span class="p">,</span> <span class="k">class</span> <span class="nc">charT</span><span class="p">,</span> <span class="k">class</span> <span class="nc">ST</span><span class="p">,</span> <span class="k">class</span> <span class="nc">SA</span><span class="o">&gt;</span>
+  <span class="n"><a href="../string/basic_string.html">basic_string</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">ST</span><span class="p">,</span> <span class="n">SA</span><span class="o">&gt;</span>
+  <span class="n">regex_replace</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../string/basic_string.html">basic_string</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">ST</span><span class="p">,</span> <span class="n">SA</span><span class="o">&gt;&amp;</span> <span class="n">s</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n"><a href="basic_regex.html">basic_regex</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span> <span class="n">e</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">charT</span><span class="o">*</span> <span class="n">fmt</span><span class="p">,</span>
+                <span class="n">regex_constants</span><span class="o">::</span><span class="n">match_flag_type</span> <span class="n">flags</span> <span class="o">=</span> <span class="n"><a href="regex_constants/match_flag_type.html">regex_constants::match_default</a></span><span class="p">);</span> <span class="c1">// (4)</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">traits</span><span class="p">,</span> <span class="k">class</span> <span class="nc">charT</span><span class="p">,</span> <span class="k">class</span> <span class="nc">FST</span><span class="p">,</span> <span class="k">class</span> <span class="nc">FSA</span><span class="o">&gt;</span>
+  <span class="n"><a href="../string/basic_string.html">basic_string</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="o">&gt;</span>
+  <span class="n">regex_replace</span><span class="p">(</span><span class="k">const</span> <span class="n">charT</span><span class="o">*</span> <span class="n">s</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n"><a href="basic_regex.html">basic_regex</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span> <span class="n">e</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n"><a href="../string/basic_string.html">basic_string</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">FST</span><span class="p">,</span> <span class="n">FSA</span><span class="o">&gt;&amp;</span> <span class="n">fmt</span><span class="p">,</span>
+                <span class="n">regex_constants</span><span class="o">::</span><span class="n">match_flag_type</span> <span class="n">flags</span> <span class="o">=</span> <span class="n"><a href="regex_constants/match_flag_type.html">regex_constants::match_default</a></span><span class="p">);</span> <span class="c1">// (5)</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">traits</span><span class="p">,</span> <span class="k">class</span> <span class="nc">charT</span><span class="o">&gt;</span>
+  <span class="n"><a href="../string/basic_string.html">basic_string</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="o">&gt;</span>
+  <span class="n">regex_replace</span><span class="p">(</span><span class="k">const</span> <span class="n">charT</span><span class="o">*</span> <span class="n">s</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n"><a href="basic_regex.html">basic_regex</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span> <span class="n">e</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">charT</span><span class="o">*</span> <span class="n">fmt</span><span class="p">,</span>
+                <span class="n">regex_constants</span><span class="o">::</span><span class="n">match_flag_type</span> <span class="n">flags</span> <span class="o">=</span> <span class="n"><a href="regex_constants/match_flag_type.html">regex_constants::match_default</a></span><span class="p">);</span> <span class="c1">// (6)</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>指定された文字列の中で、正規表現にマッチする部分を指定した文字列に置換する。<br />
+置換は、全てのマッチする部分、あるいは、最初のマッチする部分のみのいずれかを指定可能である。<br />
+また、マッチしない部分を残すか否かも指定可能である。</p>
+<h2>効果</h2>
+<ul>
+<li>(1), (2) <code>[first, last)</code> で指定された文字列内に出現する、正規表現 <code>e</code> にマッチする部分を、置換文字列 <code>fmt</code> で置換した結果を出力イテレータ <code>out</code> に出力する。<br />
+    置換文字列 <code>fmt</code> には通常の文字の他、マッチした文字列全体やキャプチャグループを表すシーケンスを使用することができる。<br />
+    指定可能なシーケンスは、デフォルトでは ECMAScript の置換文字列と等価であるが、<code>flags</code> に <code><a href="regex_constants/match_flag_type.html">regex_constants::format_sed</a></code> が指定されていた場合には POSIX にて規定されている sed の置換文字列と等価となる。<br />
+    なお、デフォルトでは全てのマッチする部分が <code>fmt</code> で置換されるが、<code>flags</code> に <code><a href="regex_constants/match_flag_type.html">regex_constants::format_first_only</a></code> が指定されていた場合には最初にマッチする部分のみが置換される。<br />
+    また、デフォルトではマッチしない部分はそのまま <code>out</code> に出力されるが、<code>flags</code> に <code><a href="regex_constants/match_flag_type.html">regex_constants::format_no_copy</a></code> が指定されていた場合には、マッチしない部分は <code>out</code> には出力されない。</li>
+<li>(3), (4) 置換対象文字列が <code><a href="../string/basic_string.html">basic_string</a>&lt;charT, ST, SA&gt;</code> 型の文字列 <code>s</code> であること、および、置換結果が <code><a href="../string/basic_string.html">basic_string</a>&lt;charT, ST, SA&gt;</code> 型の文字列として返される点を除いて、(1), (2) と同様である。</li>
+<li>(5), (6) 置換対象文字列が <code>const charT*</code> 型の文字列 <code>s</code> であること、および、置換結果が <code><a href="../string/basic_string.html">basic_string</a>&lt;charT&gt;</code> 型の文字列として返される点を除いて、(1), (2) と同様である。</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<ul>
+<li>(1), (2) 置換結果出力後の <code>out</code>（引数のコピーではない）</li>
+<li>(3), (4) 置換結果の文字列</li>
+<li>(5), (6) 置換結果の文字列</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
+<p>本関数は <code><a href="regex_error.html">regex_error</a></code> を送出する可能性がある。<br />
+もしそのような<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a> <code>e</code> が送出された場合、 <code>e.<a href="regex_error/code.html">code</a>()</code> は <code><a href="regex_constants/error_type.html">regex_constants::error_complexity</a></code> か <code><a href="regex_constants/error_type.html">regex_constants::error_stack</a></code> のいずれかである。</p>
+<h2>備考</h2>
+<p>本関数の正確な挙動は以下の通りである。</p>
+<ul>
+<li>
+<p>(1), (2) <code><a href="regex_iterator.html">regex_iterator</a></code> 型のオブジェクト <code>i</code> を</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="regex_iterator.html">regex_iterator</a></span><span class="o">&lt;</span><span class="n">BidirectionalIterator</span><span class="p">,</span> <span class="n">charT</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;</span> <span class="n">i</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
+</code></pre></div>
+</p>
+<p>として構築する。  </p>
+<ul>
+<li>
+<p><code>i</code> がシーケンス終端イテレータの場合（すなわち、マッチが 1 つも存在しない場合）<br />
+<code>flags &amp; <a href="regex_constants/match_flag_type.html">regex_constants::format_no_copy</a></code> が <code>0</code> であれば、</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n">out</span> <span class="o">=</span> <span class="n"><a href="../algorithm/copy.html">copy</a></span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span>
+</code></pre></div>
+</p>
+<p>を呼び出す。</p>
+</li>
+<li>
+<p><code>i</code> がシーケンス終端イテレータでは無い場合（すなわち、マッチが 1 つ以上存在した場合）<br />
+<code>i</code> を用いて <code>[first, last)</code> で指定された文字列中のすべてのマッチを <code><a href="match_results.html">match_results</a>&lt;BidirectionalIterator&gt;</code> 型のオブジェクト <code>m</code> として列挙して以下を繰り返す。<br />
+    ただし、<code>flags &amp; <a href="regex_constants/match_flag_type.html">regex_constants::format_first_only</a></code> が <code>0</code> でなければ、最初のマッチのみを処理する。  </p>
+<ul>
+<li>
+<p><code>flags &amp; <a href="regex_constants/match_flag_type.html">regex_constants::format_no_copy</a></code> が <code>0</code> であれば、
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="n">out</span> <span class="o">=</span> <span class="n"><a href="../algorithm/copy.html">copy</a></span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n"><a href="match_results/prefix.html">prefix</a></span><span class="p">().</span><span class="n">first</span><span class="p">,</span> <span class="n">m</span><span class="p">.</span><span class="n"><a href="match_results/prefix.html">prefix</a></span><span class="p">().</span><span class="n">second</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span>
+</code></pre></div>
+</p>
+<p>を呼び出す。  </p>
+</li>
+<li>
+<p>その後、(1) の形式であれば</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n">out</span> <span class="o">=</span> <span class="n">m</span><span class="p">.</span><span class="n"><a href="match_results/format.html">format</a></span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">fmt</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
+</code></pre></div>
+</p>
+<p>を、(2) の形式であれば</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n">out</span> <span class="o">=</span> <span class="n">m</span><span class="p">.</span><span class="n"><a href="match_results/format.html">format</a></span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">fmt</span><span class="p">,</span> <span class="n">fmt</span> <span class="o">+</span> <span class="n"><a href="../string/char_traits.html">char_traits</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="o">&gt;::</span><span class="n"><a href="../string/char_traits/length.html">length</a></span><span class="p">(</span><span class="n">fmt</span><span class="p">),</span> <span class="n">flags</span><span class="p">)</span>
+</code></pre></div>
+</p>
+<p>を呼び出す。</p>
+</li>
+</ul>
+<p>最後に、<code>flags &amp; <a href="regex_constants/match_flag_type.html">regex_constants::format_no_copy</a></code> が <code>0</code> であれば、最後のマッチの <code>m</code> のコピーを <code>last_m</code> として</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n">out</span> <span class="o">=</span> <span class="n"><a href="../algorithm/copy.html">copy</a></span><span class="p">(</span><span class="n">last_m</span><span class="p">.</span><span class="n"><a href="match_results/suffix.html">suffix</a></span><span class="p">().</span><span class="n">first</span><span class="p">,</span> <span class="n">last_m</span><span class="p">.</span><span class="n"><a href="match_results/suffix.html">suffix</a></span><span class="p">().</span><span class="n">second</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span>
+</code></pre></div>
+</p>
+<p>を呼び出す。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>(3), (4) <code><a href="../string/basic_string.html">basic_string</a>&lt;charT, ST, SA&gt;</code> 型の空の文字列オブジェクト <code>result</code> を構築し、<code>regex_replace(<a href="../iterator/back_inserter.html">back_inserter</a>(result), s.<a href="../string/basic_string/begin.html">begin</a>(), s.<a href="../string/basic_string/end.html">end</a>(), e, fmt, flags)</code> を呼び出す。<br />
+    <a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>は <code>result</code> となる。</p>
+</li>
+<li>(5), (6) <code><a href="../string/basic_string.html">basic_string</a>&lt;charT&gt;</code> 型の空の文字列オブジェクト <code>result</code> を構築し、<code>regex_replace(<a href="../iterator/back_inserter.html">back_inserter</a>(result), s, s + <a href="../string/char_traits.html">char_traits</a>::<a href="../string/char_traits/length.html">length</a>(s), e, fmt, flags)</code> を呼び出す。<br />
+    <a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>は <code>result</code> となる。</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="be3a64332dffd9e03c5c2aeff5a6890dab566212"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iterator.html">&lt;iterator&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../list.html">&lt;list&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../regex.html">&lt;regex&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="p">{</span>
+    <span class="c1">// (1) の形式</span>
+    <span class="k">const</span> <span class="n"><a href="../list/list.html">std::list</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="p">{</span> <span class="sc">'a'</span><span class="p">,</span> <span class="sc">'b'</span><span class="p">,</span> <span class="sc">'c'</span><span class="p">,</span> <span class="sc">'0'</span><span class="p">,</span> <span class="sc">'1'</span><span class="p">,</span> <span class="sc">'2'</span><span class="p">,</span> <span class="sc">'d'</span><span class="p">,</span> <span class="sc">'e'</span><span class="p">,</span> <span class="sc">'f'</span> <span class="p">};</span>
+    <span class="k">const</span> <span class="n"><a href="basic_regex.html">std::regex</a></span> <span class="n">re</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">d+"</span><span class="p">);</span>
+    <span class="k">const</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">fmt</span> <span class="o">=</span> <span class="s">"[$&amp;]"</span><span class="p">;</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"(1) '"</span><span class="p">;</span>
+    <span class="n"><span style="color:#ff0000">std::regex_replace</span></span><span class="p">(</span><span class="n"><a href="../iterator/ostream_iterator.html">std::ostream_iterator</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="p">),</span> <span class="n"><a href="../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n">re</span><span class="p">,</span> <span class="n">fmt</span><span class="p">);</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="sc">'\''</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="p">{</span>
+    <span class="c1">// (2) の形式</span>
+    <span class="k">const</span> <span class="n"><a href="../list/list.html">std::list</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="p">{</span> <span class="sc">'a'</span><span class="p">,</span> <span class="sc">'b'</span><span class="p">,</span> <span class="sc">'c'</span><span class="p">,</span> <span class="sc">'0'</span><span class="p">,</span> <span class="sc">'1'</span><span class="p">,</span> <span class="sc">'2'</span><span class="p">,</span> <span class="sc">'d'</span><span class="p">,</span> <span class="sc">'e'</span><span class="p">,</span> <span class="sc">'f'</span> <span class="p">};</span>
+    <span class="k">const</span> <span class="n"><a href="basic_regex.html">std::regex</a></span> <span class="n">re</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">d+"</span><span class="p">);</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="n">fmt</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"[$&amp;]"</span><span class="p">;</span>
+    <span class="k">const</span> <span class="n"><a href="regex_constants/match_flag_type.html">std::regex_constants::match_flag_type</a></span> <span class="n">flags</span> <span class="o">=</span> <span class="n"><a href="regex_constants/match_flag_type.html">std::regex_constants::format_no_copy</a></span><span class="p">;</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"(2) '"</span><span class="p">;</span>
+    <span class="n"><span style="color:#ff0000">std::regex_replace</span></span><span class="p">(</span><span class="n"><a href="../iterator/ostream_iterator.html">std::ostream_iterator</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="p">),</span> <span class="n"><a href="../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n">re</span><span class="p">,</span> <span class="n">fmt</span><span class="p">,</span> <span class="n">flags</span><span class="p">);</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="sc">'\''</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="p">{</span>
+    <span class="c1">// (3) の形式</span>
+    <span class="k">const</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">s</span> <span class="o">=</span> <span class="s">"abc123def456ghi"</span><span class="p">;</span>
+    <span class="k">const</span> <span class="n"><a href="basic_regex.html">std::regex</a></span> <span class="n">re</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">d+"</span><span class="p">);</span>
+    <span class="k">const</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">fmt</span> <span class="o">=</span> <span class="s">"[$&amp;]"</span><span class="p">;</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"(3) '"</span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::regex_replace</span></span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">re</span><span class="p">,</span> <span class="n">fmt</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">'\''</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="p">{</span>
+    <span class="c1">// (4) の形式</span>
+    <span class="k">const</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">s</span> <span class="o">=</span> <span class="s">"abc123def456ghi"</span><span class="p">;</span>
+    <span class="k">const</span> <span class="n"><a href="basic_regex.html">std::regex</a></span> <span class="n">re</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">d+"</span><span class="p">);</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="n">fmt</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"[$&amp;]"</span><span class="p">;</span>
+    <span class="k">const</span> <span class="n"><a href="regex_constants/match_flag_type.html">std::regex_constants::match_flag_type</a></span> <span class="n">flags</span> <span class="o">=</span> <span class="n"><a href="regex_constants/match_flag_type.html">std::regex_constants::format_first_only</a></span><span class="p">;</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"(4) '"</span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::regex_replace</span></span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">re</span><span class="p">,</span> <span class="n">fmt</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">'\''</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="p">{</span>
+    <span class="c1">// (5) の形式</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="n">s</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"abc123def456ghi"</span><span class="p">;</span>
+    <span class="k">const</span> <span class="n"><a href="basic_regex.html">std::regex</a></span> <span class="n">re</span><span class="p">(</span><span class="s">"(</span><span class="se">\\</span><span class="s">d)(</span><span class="se">\\</span><span class="s">d)(</span><span class="se">\\</span><span class="s">d)"</span><span class="p">);</span>
+    <span class="k">const</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">fmt</span> <span class="o">=</span> <span class="s">"[$3$2$1]"</span><span class="p">;</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"(5) '"</span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::regex_replace</span></span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">re</span><span class="p">,</span> <span class="n">fmt</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">'\''</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="p">{</span>
+    <span class="c1">// (6) の形式</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="n">s</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"abc123def456ghi"</span><span class="p">;</span>
+    <span class="k">const</span> <span class="n"><a href="basic_regex.html">std::regex</a></span> <span class="n">re</span><span class="p">(</span><span class="s">"(</span><span class="se">\\</span><span class="s">d)(</span><span class="se">\\</span><span class="s">d)(</span><span class="se">\\</span><span class="s">d)"</span><span class="p">);</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="n">fmt</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"[</span><span class="se">\\</span><span class="s">3</span><span class="se">\\</span><span class="s">2</span><span class="se">\\</span><span class="s">1]"</span><span class="p">;</span>
+    <span class="k">const</span> <span class="n"><a href="regex_constants/match_flag_type.html">std::regex_constants::match_flag_type</a></span> <span class="n">flags</span> <span class="o">=</span> <span class="n"><a href="regex_constants/match_flag_type.html">std::regex_constants::format_sed</a></span><span class="p">;</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"(6) '"</span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::regex_replace</span></span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">re</span><span class="p">,</span> <span class="n">fmt</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">'\''</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>(1) 'abc[012]def'
+(2) '[012]'
+(3) 'abc[123]def[456]ghi'
+(4) 'abc[123]def456ghi'
+(5) 'abc[321]def[654]ghi'
+(6) 'abc[321]def[654]ghi'
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 3.0 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.1 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.2 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.3 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.4 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.5 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.6 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 4.9.0 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.9.1 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.9.2 <span aria-label="検証済" role="img" title="検証済">✅</span>, 5.0.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://cpplover.blogspot.jp/2015/01/c-stdregex.html" target="_blank">C++の正規表現ライブラリ: std::regex | 本の虫</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

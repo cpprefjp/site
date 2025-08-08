@@ -1,0 +1,376 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>memory_order - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,atomic,std,enum,cpp11
+">
+        <meta name="title" content="memory_order - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="memory_order - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="memory_order - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/atomic/memory_order.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="コンパイラに許可されている最適化の一つに、「プログラムの意味を変えない限りにおいて、メモリアクセスの順番を変えたり、省略したりしてもよい」というものがある。また、マルチコアCPUにおいては、あるCPUコアによるメモリアクセスの順序が他のコアからも同じように見えるとは限らない。このような挙動はマルチスレッドプログラミングにおいて問題になることがある。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="memory_order - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/atomic/memory_order.html" />
+        <meta name="twitter:description" content="コンパイラに許可されている最適化の一つに、「プログラムの意味を変えない限りにおいて、メモリアクセスの順番を変えたり、省略したりしてもよい」というものがある。また、マルチコアCPUにおいては、あるCPUコアによるメモリアクセスの順序が他のコアからも同じように見えるとは限らない。このような挙動はマルチスレッドプログラミングにおいて問題になることがある。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;atomic&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;enum&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;c6c58c78693d493a4c71c837489e75548422c07d&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;atomic&gt;\n#include &lt;thread&gt;\nint data;\nstd::atomic&lt;bool&gt; ready(false);\n\nvoid f()\n{\n  while (!ready.load(std::memory_order_acquire)) {\n  }\n\n  std::cout &lt;&lt; data &lt;&lt; std::endl;   // (2)\n}\n\nint main()\n{\n  std::thread t(f);\n\n  data = 3;   // (1)\n  ready.store(true, std::memory_order_release);\n\n  t.join();\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;atomic&#34;, &#34;memory_order&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/atomic.html" itemprop="url">
+              
+                <span itemprop="name">atomic</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">memory_order</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-04-03T04:51:18">
+        2025年04月03日 04時51分18秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yoh</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/atomic/memory_order.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/atomic/memory_order.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">enum</div><div class="header">&lt;atomic&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">memory_order</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="c1">// C++11</span>
+  <span class="k">enum</span> <span class="n">memory_order</span> <span class="p">{</span>
+    <span class="n">memory_order_relaxed</span><span class="p">,</span> <span class="n">memory_order_consume</span><span class="p">,</span> <span class="n">memory_order_acquire</span><span class="p">,</span>
+    <span class="n">memory_order_release</span><span class="p">,</span> <span class="n">memory_order_acq_rel</span><span class="p">,</span> <span class="n">memory_order_seq_cst</span>
+  <span class="p">};</span>
+
+  <span class="c1">// C++20</span>
+  <span class="k">enum</span> <span class="k">class</span> <span class="nc">memory_order</span> <span class="p">{</span>
+    <span class="n">relaxed</span><span class="p">,</span> <span class="n">consume</span><span class="p">,</span> <span class="n">acquire</span><span class="p">,</span> <span class="n">release</span><span class="p">,</span> <span class="n">acq_rel</span><span class="p">,</span> <span class="n">seq_cst</span>
+  <span class="p">};</span>
+  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">memory_order</span> <span class="n">memory_order_relaxed</span> <span class="o">=</span> <span class="n">memory_order</span><span class="o">::</span><span class="n">relaxed</span><span class="p">;</span>
+  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">memory_order</span> <span class="n">memory_order_consume</span> <span class="o">=</span> <span class="n">memory_order</span><span class="o">::</span><span class="n">consume</span><span class="p">;</span>
+  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">memory_order</span> <span class="n">memory_order_acquire</span> <span class="o">=</span> <span class="n">memory_order</span><span class="o">::</span><span class="n">acquire</span><span class="p">;</span>
+  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">memory_order</span> <span class="n">memory_order_release</span> <span class="o">=</span> <span class="n">memory_order</span><span class="o">::</span><span class="n">release</span><span class="p">;</span>
+  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">memory_order</span> <span class="n">memory_order_acq_rel</span> <span class="o">=</span> <span class="n">memory_order</span><span class="o">::</span><span class="n">acq_rel</span><span class="p">;</span>
+  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">memory_order</span> <span class="n">memory_order_seq_cst</span> <span class="o">=</span> <span class="n">memory_order</span><span class="o">::</span><span class="n">seq_cst</span><span class="p">;</span>
+
+  <span class="c1">// C++26</span>
+  <span class="k">enum</span> <span class="k">class</span> <span class="nc">memory_order</span> <span class="o">:</span> <span class="n"><i>unspecified</i></span> <span class="p">{</span>
+    <span class="n">relaxed</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>              <span class="n">acquire</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="n">release</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">acq_rel</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">seq_cst</span> <span class="o">=</span> <span class="mi">5</span>
+  <span class="p">};</span>
+  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">memory_order</span> <span class="n">memory_order_relaxed</span> <span class="o">=</span> <span class="n">memory_order</span><span class="o">::</span><span class="n">relaxed</span><span class="p">;</span>
+  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">memory_order</span> <span class="n">memory_order_acquire</span> <span class="o">=</span> <span class="n">memory_order</span><span class="o">::</span><span class="n">acquire</span><span class="p">;</span>
+  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">memory_order</span> <span class="n">memory_order_release</span> <span class="o">=</span> <span class="n">memory_order</span><span class="o">::</span><span class="n">release</span><span class="p">;</span>
+  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">memory_order</span> <span class="n">memory_order_acq_rel</span> <span class="o">=</span> <span class="n">memory_order</span><span class="o">::</span><span class="n">acq_rel</span><span class="p">;</span>
+  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">memory_order</span> <span class="n">memory_order_seq_cst</span> <span class="o">=</span> <span class="n">memory_order</span><span class="o">::</span><span class="n">seq_cst</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>コンパイラに許可されている最適化の一つに、「プログラムの意味を変えない限りにおいて、メモリアクセスの順番を変えたり、省略したりしてもよい」というものがある。また、マルチコアCPUにおいては、あるCPUコアによるメモリアクセスの順序が他のコアからも同じように見えるとは限らない。このような挙動はマルチスレッドプログラミングにおいて問題になることがある。
+この問題への対処として、C++11では各スレッドの実行に順序付けをするための「<a class="cpprefjp-defined-word" data-desc="happens before。(異なるスレッド間の) 2つの操作の実行順序を規定する関係">よりも前に発生する</a>」という関係を定義し、それによってあるスレッドでの操作が他スレッドから可視になるか否かを定めている。
+atomic変数においては、"release"操作によって書き込まれた値を"acquire"操作によって別のスレッドが読み出した場合に、そのrelease操作とacquire操作の間に順序付けが行われる。以下に例を挙げる。</p>
+<p><div class="yata" id="c6c58c78693d493a4c71c837489e75548422c07d"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../atomic.html">&lt;atomic&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
+<span class="kt">int</span> <span class="n">data</span><span class="p">;</span>
+<span class="n"><a href="atomic.html">std::atomic</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">ready</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+
+<span class="kt">void</span> <span class="nf">f</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">ready</span><span class="p">.</span><span class="n"><a href="atomic/load.html">load</a></span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::memory_order_acquire</span></span><span class="p">))</span> <span class="p">{</span>
+  <span class="p">}</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>   <span class="c1">// (2)</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../thread/thread.html">std::thread</a></span> <span class="n">t</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
+
+  <span class="n">data</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>   <span class="c1">// (1)</span>
+  <span class="n">ready</span><span class="p">.</span><span class="n"><a href="atomic/store.html">store</a></span><span class="p">(</span><span class="nb">true</span><span class="p">,</span> <span class="n"><span style="color:#ff0000">std::memory_order_release</span></span><span class="p">);</span>
+
+  <span class="n"><a href="../thread/thread/join.html">t.join()</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>3
+</code></pre></p>
+<p><code><a href="atomic.html">atomic&lt;bool&gt;</a></code>型の変数<code>ready</code>への読み書きに注目すると、<code>main()</code>では変数<code>ready</code>に <code>true</code> を"release"操作として書き込み、<code>f()</code>では"acquire"操作としての読み込みを <code>true</code> が返されるまで繰り返している。よって、<code>f()</code>の<code>while</code>ループを抜けた時点で、<code>main()</code>の<code>ready.store()</code>と<code>f()</code>の<code>ready.load()</code>の間に順序付け(「<a class="cpprefjp-defined-word" data-desc="happens before。(異なるスレッド間の) 2つの操作の実行順序を規定する関係">よりも前に発生する</a>」関係)が成立している。
+ここでさらに変数<code>data</code>への読み書き(1), (2)に注目すると、(1)は<code>ready.store()</code>より前、(2)は<code>ready.load()</code>より後にあるので、以下のようなスレッド間の順序付け(「<a class="cpprefjp-defined-word" data-desc="happens before。(異なるスレッド間の) 2つの操作の実行順序を規定する関係">よりも前に発生する</a>」関係)が成立することになる。
+   (1) → <code>ready.store()</code> → <code>ready.load()</code> → (2)
+よって、(1)における書き込みが(2)の時点で可視であることが保証される。
+このようにしてC++のマルチスレッドプログラムにおける実行順序および可視性を理解することができる。</p>
+<p>以下の列挙値はatomic変数への操作に指定可能な順序付けの種類を表す。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>列挙値</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>relaxed</code></td>
+<td>スレッド間の順序付けの効果は一切持たない。</td>
+</tr>
+<tr>
+<td><code>consume</code></td>
+<td>C++26で非推奨</td>
+</tr>
+<tr>
+<td><code>acquire</code></td>
+<td>acquire操作としての読み込みを行うことを指示する。<a href="atomic/store.html">store()</a>など、書き込みのみを行う操作に対しては指定できない。</td>
+</tr>
+<tr>
+<td><code>release</code></td>
+<td>release操作としての書き込みを行うことを指示する。<a href="atomic/load.html">load()</a>など、読み込みのみを行う操作に対しては指定できない。</td>
+</tr>
+<tr>
+<td><code>acq_rel</code></td>
+<td>読み込みと書き込みを同時に行う操作(Read-Modify-Write操作)に対してのみ指定することができ、acquireとreleaseを合わせた効果を持つ。</td>
+</tr>
+<tr>
+<td><code>seq_cst</code></td>
+<td>acquire(読み込み操作の場合)、release(書き込み操作の場合)、acq_rel(Read-Modify-Write操作の場合)としての効果を持つ。さらに、同じseq_cstが指定されている他のatomic操作との間での順序一貫性も保証する。これは最も強い保証であり、標準のatomic操作におけるデフォルトのメモリオーダーとして使用される。「seq_cst」は「sequential consistency(順序一貫性)」を意味する。</td>
+</tr>
+</tbody>
+</table>
+<h2>備考</h2>
+<p>非推奨化された<code>consume</code>列挙値の挙動はacquire操作と似ているが、それより弱い順序付けでの読み込みを行うことを指示する。acquire操作は後続の全ての操作に対して順序付けを行うのに対し、consume操作は読み込まれた値に依存(ただし条件分岐による依存は除く)する操作のみに順序付けを保証する点が異なる。
+複雑なconsume操作を正しく実装するC++コンパイラは登場せず、より単純なacquire操作として扱われていた。C++20では仕様再検討に伴う一時的な利用回避が宣言され、最終的には役に立たないとの判断からC++26で非推奨となった。</p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 4.7.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2012 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2013 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://d.hatena.ne.jp/bsdhouse/20090720/1248085754" target="_blank">そろそろvolatileについて一言いっておくか - yamasaのネタ帳</a></li>
+<li><a href="http://d.hatena.ne.jp/bsdhouse/20090816/1250446250" target="_blank">次期C++に導入されるメモリバリアについて解説してみる - yamasaのネタ帳</a></li>
+<li><a href="http://d.hatena.ne.jp/bsdhouse/20090929/1254237835" target="_blank">C++0xのメモリバリアをより深く解説してみる - yamasaのネタ帳</a></li>
+<li><a href="http://www.cl.cam.ac.uk/~pes20/cpp/cpp0xmappings.html" target="_blank">C/C++11 mappings to processors</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1525.htm" target="_blank">N1525: Memory-Order Rationale</a></li>
+<li><a href="http://preshing.com/20140709/the-purpose-of-memory_order_consume-in-cpp11/" target="_blank">The Purpose of memory_order_consume in C++11</a></li>
+<li><a href="http://d.hatena.ne.jp/yohhoy/20141115/p1" target="_blank">（抄訳）N4215 <code>memory_order_consume</code>の利用と実装に向けて［§5-6のみ］</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0439r0.html" target="_blank">P0439R0 Make <code>std::memory_order</code> a scoped enumeration</a><ul>
+<li>C++20で<code>memory_order</code>をスコープ付き列挙型に変更。</li>
+</ul>
+</li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0371r1.html" target="_blank">P0371R1 Temporarily discourage <code>memory_order_consume</code></a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3475r2.pdf" target="_blank">P3475R2 Defang and deprecate memory_order::consume</a><ul>
+<li>C++26で<code>memory_order::consume</code>列挙子を非推奨化。</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

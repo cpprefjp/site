@@ -1,0 +1,299 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>is_array - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,type_traits,std,class template,cpp11
+">
+        <meta name="title" content="is_array - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="is_array - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="is_array - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/type_traits/is_array.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="型`T`が配列型かを調べる" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="is_array - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/type_traits/is_array.html" />
+        <meta name="twitter:description" content="型`T`が配列型かを調べる" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;type_traits&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;2f9e8164bd5d2d1114cf5e75a23d9a5eb66f9696&#34;, &#34;source&#34;: &#34;#include &lt;type_traits&gt;\n#include &lt;array&gt;\n\nstatic_assert(std::is_array&lt;int[1]&gt;::value == true, \&#34;value == true, int[1] is array\&#34;);\nstatic_assert(std::is_same&lt;std::is_array&lt;int[1]&gt;::value_type, bool&gt;::value, \&#34;value_type == bool\&#34;);\nstatic_assert(std::is_same&lt;std::is_array&lt;int[1]&gt;::type, std::true_type&gt;::value, \&#34;type == true_type\&#34;);\nstatic_assert(std::is_array&lt;int[1]&gt;() == true, \&#34;is_array&lt;int[1]&gt;() == true\&#34;);\n\nstatic_assert(std::is_array&lt;int&gt;::value == false, \&#34;value == false, int is not array\&#34;);\nstatic_assert(std::is_same&lt;std::is_array&lt;int&gt;::value_type, bool&gt;::value, \&#34;value_type == bool\&#34;);\nstatic_assert(std::is_same&lt;std::is_array&lt;int&gt;::type, std::false_type&gt;::value, \&#34;type == false_type\&#34;);\nstatic_assert(std::is_array&lt;int&gt;() == false, \&#34;is_array&lt;int&gt;() == false\&#34;);\n\nstatic_assert(std::is_array&lt;int[]&gt;::value == true, \&#34;int[] is array\&#34;);\nstatic_assert(std::is_array&lt;int*[2]&gt;::value == true, \&#34;int*[2] is array\&#34;);\nstatic_assert(std::is_array&lt;const unsigned[3][4]&gt;::value == true, \&#34;const unsigned[3][4] is array\&#34;);\nstatic_assert(std::is_array&lt;volatile long[][5]&gt;::value == true, \&#34;volatile long[][5] is array\&#34;);\n\nstatic_assert(std::is_array&lt;std::array&lt;int, 6&gt; &gt;::value == false, \&#34;std::array&lt;int, 6&gt; is not array\&#34;);\nstatic_assert(std::is_array&lt;int (*)[7]&gt;::value == false, \&#34;int (*)[7]* is not array\&#34;);\nstatic_assert(std::is_array&lt;long (&amp;)[8]&gt;::value == false, \&#34;long (&amp;)[8] is not array\&#34;);\nstatic_assert(std::is_array&lt;void (int (&amp;)[9])&gt;::value == false, \&#34;void (int (&amp;)[9]) is not array\&#34;);\n\nint main(){}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;type_traits&#34;, &#34;is_array&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/type_traits.html" itemprop="url">
+              
+                <span itemprop="name">type_traits</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">is_array</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-06-11T13:45:38">
+        2024年06月11日 13時45分38秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/type_traits/is_array.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/type_traits/is_array.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;type_traits&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">is_array</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <span class="k">struct</span> <span class="n">is_array</span><span class="p">;</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">is_array_v</span> <span class="o">=</span> <span class="n">is_array</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span> <span class="c1">// C++17</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>型<code>T</code>が配列型かを調べる</p>
+<h2>効果</h2>
+<p><code>is_array</code>は、<code>T</code>が配列型であるならば<code><a href="true_type.html">true_type</a></code>から派生し、そうでなければ<code><a href="false_type.html">false_type</a></code>から派生する。</p>
+<h2>備考</h2>
+<p>要素数が未知(<code>T[]</code>)だとしても判断することができる。クラステンプレート<code><a href="../array/array.html">array</a></code>は、配列型とは見なされない。</p>
+<h2>例</h2>
+<p><div class="yata" id="2f9e8164bd5d2d1114cf5e75a23d9a5eb66f9696"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../array.html">&lt;array&gt;</a></span><span class="cp"></span>
+
+<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_array</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">true</span><span class="p">,</span> <span class="s">"value == true, int[1] is array"</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="is_same.html">std::is_same</a></span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::is_array</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&gt;::</span><span class="n">value_type</span><span class="p">,</span> <span class="kt">bool</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">"value_type == bool"</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="is_same.html">std::is_same</a></span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::is_array</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">,</span> <span class="n"><a href="true_type.html">std::true_type</a></span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">"type == true_type"</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_array</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">==</span> <span class="nb">true</span><span class="p">,</span> <span class="s">"is_array&lt;int[1]&gt;() == true"</span><span class="p">);</span>
+
+<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_array</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">false</span><span class="p">,</span> <span class="s">"value == false, int is not array"</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="is_same.html">std::is_same</a></span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::is_array</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">value_type</span><span class="p">,</span> <span class="kt">bool</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">"value_type == bool"</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="is_same.html">std::is_same</a></span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::is_array</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">,</span> <span class="n"><a href="false_type.html">std::false_type</a></span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">"type == false_type"</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_array</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">==</span> <span class="nb">false</span><span class="p">,</span> <span class="s">"is_array&lt;int&gt;() == false"</span><span class="p">);</span>
+
+<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_array</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">[]</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">true</span><span class="p">,</span> <span class="s">"int[] is array"</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_array</span></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">*</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">true</span><span class="p">,</span> <span class="s">"int*[2] is array"</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_array</span></span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">unsigned</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">true</span><span class="p">,</span> <span class="s">"const unsigned[3][4] is array"</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_array</span></span><span class="o">&lt;</span><span class="k">volatile</span> <span class="kt">long</span><span class="p">[][</span><span class="mi">5</span><span class="p">]</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">true</span><span class="p">,</span> <span class="s">"volatile long[][5] is array"</span><span class="p">);</span>
+
+<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_array</span></span><span class="o">&lt;</span><span class="n"><a href="../array/array.html">std::array</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">6</span><span class="o">&gt;</span> <span class="o">&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">false</span><span class="p">,</span> <span class="s">"<a href="../array/array.html">std::array</a>&lt;int, 6&gt; is not array"</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_array</span></span><span class="o">&lt;</span><span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="p">)[</span><span class="mi">7</span><span class="p">]</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">false</span><span class="p">,</span> <span class="s">"int (*)[7]* is not array"</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_array</span></span><span class="o">&lt;</span><span class="kt">long</span> <span class="p">(</span><span class="o">&amp;</span><span class="p">)[</span><span class="mi">8</span><span class="p">]</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">false</span><span class="p">,</span> <span class="s">"long (&amp;)[8] is not array"</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::is_array</span></span><span class="o">&lt;</span><span class="kt">void</span> <span class="p">(</span><span class="kt">int</span> <span class="p">(</span><span class="o">&amp;</span><span class="p">)[</span><span class="mi">9</span><span class="p">])</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">false</span><span class="p">,</span> <span class="s">"void (int (&amp;)[9]) is not array"</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code></code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#gcc">GCC</a>: 4.3.4 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.5.3 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.6.1 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.7.2 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2008 (std::tr1) <span aria-label="検証済" role="img" title="検証済">✅</span>, 2010 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2012 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2013 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2015 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<h4>備考</h4>
+<p>上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 2010 は <code><a href="integral_constant.html">integral_constant</a></code> が <code>operator bool()</code> を持っていないためエラーになる。</p>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0006r0.html" target="_blank">P0006R0 Adopt Type Traits Variable Templates from Library Fundamentals TS for C++17</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

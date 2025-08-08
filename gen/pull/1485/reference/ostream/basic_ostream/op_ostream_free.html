@@ -1,0 +1,492 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>operator&lt;&lt; (非メンバ関数) - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,ostream,std,function template
+">
+        <meta name="title" content="operator&lt;&lt; (非メンバ関数) - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="operator&lt;&lt; (非メンバ関数) - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="operator&lt;&lt; (非メンバ関数) - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/ostream/basic_ostream/op_ostream_free.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="operator&lt;&lt; (非メンバ関数) - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/ostream/basic_ostream/op_ostream_free.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<link rel="manifest" href="../../../manifest.json?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=77dc81f1a0fc7ba1be2bc06336653840aa3f2e20"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;ostream&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function template&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;17fabd63df68085f9491c67ac33af1a1f14027ba&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;iomanip&gt;\n\nint main()\n{\n  std::wcout &lt;&lt; std::left &lt;&lt; std::setfill(L&#39;+&#39;);\n\n  std::wcout &lt;&lt; std::setw(10) &lt;&lt; L&#39;C&#39; &lt;&lt; std::endl;\n  std::wcout &lt;&lt; std::setw(10) &lt;&lt; &#39;C&#39; &lt;&lt; std::endl;\n\n  std::wcout &lt;&lt; std::setw(10) &lt;&lt; L\&#34;cpprefjp\&#34; &lt;&lt; std::endl;\n  std::wcout &lt;&lt; std::setw(10) &lt;&lt; \&#34;cpprefjp\&#34; &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;3b955348dc1469e33dac3183b783bebe3c7d4446&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;iomanip&gt;\n\nint main()\n{\n  std::cout &lt;&lt; std::left &lt;&lt; std::setfill(&#39;+&#39;);\n\n  std::cout &lt;&lt; std::setw(10) &lt;&lt; &#39;C&#39; &lt;&lt; std::endl;\n  std::cout &lt;&lt; std::setw(10) &lt;&lt; static_cast&lt;signed char&gt;(&#39;C&#39;) &lt;&lt; std::endl;\n  std::cout &lt;&lt; std::setw(10) &lt;&lt; static_cast&lt;unsigned char&gt;(&#39;C&#39;) &lt;&lt; std::endl;\n\n  std::cout &lt;&lt; std::setw(10) &lt;&lt; \&#34;cpprefjp\&#34; &lt;&lt; std::endl;\n  std::cout &lt;&lt; std::setw(10) &lt;&lt; reinterpret_cast&lt;const signed char*&gt;(\&#34;cpprefjp\&#34;) &lt;&lt; std::endl;\n  std::cout &lt;&lt; std::setw(10) &lt;&lt; reinterpret_cast&lt;const unsigned char*&gt;(\&#34;cpprefjp\&#34;) &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;99785aaf36ff3bae87eb0f23742046aba967a9ba&#34;, &#34;source&#34;: &#34;#include &lt;fstream&gt;\n#include &lt;string&gt;\n#include &lt;iostream&gt;\n\nint main()\n{\n  std::ofstream(\&#34;test.txt\&#34;) &lt;&lt; \&#34;cpprefjp\&#34; &lt;&lt; std::endl;\n\n  std::string s;\n  std::ifstream ifs(\&#34;test.txt\&#34;);\n  ifs &gt;&gt; s;\n  std::cout &lt;&lt; s &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;ostream&#34;, &#34;basic_ostream&#34;, &#34;op_ostream_free&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/ostream.html" itemprop="url">
+              
+                <span itemprop="name">ostream</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/ostream/basic_ostream.html" itemprop="url">
+              
+                <span itemprop="name">basic_ostream</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">operator&lt;&lt; (非メンバ関数)</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-05-22T12:25:02">
+        2025年05月22日 12時25分02秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/ostream/basic_ostream/op_ostream_free.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/ostream/basic_ostream/op_ostream_free.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function template</div><div class="header">&lt;ostream&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">operator&lt;&lt; (非メンバ関数)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="c1">// 文字の書式化出力</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">CharT</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Traits</span><span class="o">&gt;</span>
+  <span class="n">basic_ostream</span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">basic_ostream</span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span> <span class="n">os</span><span class="p">,</span> <span class="n">CharT</span> <span class="n">c</span><span class="p">);</span>                    <span class="c1">// (1)</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">CharT</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Traits</span><span class="o">&gt;</span>
+  <span class="n">basic_ostream</span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">basic_ostream</span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span> <span class="n">os</span><span class="p">,</span> <span class="kt">char</span> <span class="n">c</span><span class="p">);</span>                     <span class="c1">// (2)</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Traits</span><span class="o">&gt;</span>
+  <span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span> <span class="n">os</span><span class="p">,</span> <span class="kt">char</span> <span class="n">c</span><span class="p">);</span>                       <span class="c1">// (3)</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Traits</span><span class="o">&gt;</span>
+  <span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span> <span class="n">os</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">c</span><span class="p">);</span>              <span class="c1">// (4)</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Traits</span><span class="o">&gt;</span>
+  <span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span> <span class="n">os</span><span class="p">,</span> <span class="kt">signed</span> <span class="kt">char</span> <span class="n">c</span><span class="p">);</span>                <span class="c1">// (5)</span>
+  <span class="c1">// The following deleted overloads prevent formatting character values as numeric values.</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">traits</span><span class="o">&gt;</span>
+  <span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span><span class="p">,</span> <span class="kt">wchar_t</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>                <span class="c1">// (6) C++20から</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">traits</span><span class="o">&gt;</span>
+  <span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span><span class="p">,</span> <span class="n">char8_t</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>                <span class="c1">// (7) C++20から</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">traits</span><span class="o">&gt;</span>
+  <span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span><span class="p">,</span> <span class="kt">char16_t</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>               <span class="c1">// (8) C++20から</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">traits</span><span class="o">&gt;</span>
+  <span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span><span class="p">,</span> <span class="kt">char32_t</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>               <span class="c1">// (9) C++20から</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">traits</span><span class="o">&gt;</span>
+  <span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">wchar_t</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">wchar_t</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span><span class="p">,</span> <span class="n">char8_t</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>          <span class="c1">// (10) C++20から</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">traits</span><span class="o">&gt;</span>
+  <span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">wchar_t</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">wchar_t</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span><span class="p">,</span> <span class="kt">char16_t</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>         <span class="c1">// (11) C++20から</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">traits</span><span class="o">&gt;</span>
+  <span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">wchar_t</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">wchar_t</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span><span class="p">,</span> <span class="kt">char32_t</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>         <span class="c1">// (12) C++20から</span>
+
+  <span class="c1">// 文字列の書式化出力</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">CharT</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Traits</span><span class="o">&gt;</span>
+  <span class="n">basic_ostream</span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">basic_ostream</span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span> <span class="n">os</span><span class="p">,</span> <span class="k">const</span> <span class="n">CharT</span><span class="o">*</span> <span class="n">s</span><span class="p">);</span>             <span class="c1">// (13)</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">CharT</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Traits</span><span class="o">&gt;</span>
+  <span class="n">basic_ostream</span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">basic_ostream</span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span> <span class="n">os</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">s</span><span class="p">);</span>              <span class="c1">// (14)</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Traits</span><span class="o">&gt;</span>
+  <span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span> <span class="n">os</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">s</span><span class="p">);</span>                <span class="c1">// (15)</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Traits</span><span class="o">&gt;</span>
+  <span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span> <span class="n">os</span><span class="p">,</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">char</span><span class="o">*</span> <span class="n">s</span><span class="p">);</span>       <span class="c1">// (16)</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Traits</span><span class="o">&gt;</span>
+  <span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span> <span class="n">os</span><span class="p">,</span> <span class="k">const</span> <span class="kt">signed</span> <span class="kt">char</span><span class="o">*</span> <span class="n">s</span><span class="p">);</span>         <span class="c1">// (17)</span>
+  <span class="c1">// The following deleted overloads prevent formatting strings as pointer values.</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">traits</span><span class="o">&gt;</span>
+    <span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="kt">wchar_t</span><span class="o">*</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>       <span class="c1">// (18) C++20から</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">traits</span><span class="o">&gt;</span>
+    <span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="n">char8_t</span><span class="o">*</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>       <span class="c1">// (19) C++20から</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">traits</span><span class="o">&gt;</span>
+    <span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char16_t</span><span class="o">*</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>      <span class="c1">// (20) C++20から</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">traits</span><span class="o">&gt;</span>
+    <span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char32_t</span><span class="o">*</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>      <span class="c1">// (21) C++20から</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">traits</span><span class="o">&gt;</span>
+    <span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">wchar_t</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">wchar_t</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="n">char8_t</span><span class="o">*</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span> <span class="c1">// (22) C++20から</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">traits</span><span class="o">&gt;</span>
+    <span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">wchar_t</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">wchar_t</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char16_t</span><span class="o">*</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span><span class="c1">// (23) C++20から</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">traits</span><span class="o">&gt;</span>
+    <span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">wchar_t</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">basic_ostream</span><span class="o">&lt;</span><span class="kt">wchar_t</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char32_t</span><span class="o">*</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span><span class="c1">// (24) C++20から</span>
+
+  <span class="c1">// 右辺値参照ストリームへの出力 (C++11)</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">CharT</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Traits</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <span class="n">basic_ostream</span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;</span> <span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">basic_ostream</span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;&amp;&amp;</span> <span class="n">os</span><span class="p">,</span> <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span>                <span class="c1">// (25) C++11 から</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>ストリームへの出力を行う。</p>
+<ul>
+<li>文字に対する<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>は、書式化出力関数である。</li>
+<li>文字列に対する<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>は、書式化出力関数である。</li>
+</ul>
+<h2>効果</h2>
+<h3>(1)-(5) 文字の書式化出力</h3>
+<p>文字 <code>c</code> を出力ストリーム <code>os</code> に出力する。この際、<code>os</code> に設定されている幅、埋め文字、および、整列方向に従う。<br />
+なお、(2) の形式（<code>os</code> の文字型（<code>char_type</code>）が <code>char</code> 以外で <code>c</code> が <code>char</code> ）の時は、<code>c</code> を直接出力するのではなく、<code>os.<a href="../../ios/basic_ios/widen.html">widen</a>(c)</code> を出力する。<br />
+出力後、幅指定は <code>0</code> にリセットされる。</p>
+<h3>(6)-(12) 文字の書式化出力 (C++20)</h3>
+<p>これらの関数は削除されている</p>
+<h3>(13)-(17) 文字列の書式化出力</h3>
+<p><a class="cpprefjp-defined-word" data-desc="null-terminated。文字列においてヌル文字 '\0' を用いてその終端を表すこと。ヌル文字自体は文字列に含まない。広義には線形データ構造においてヌルまたは値 0 を番兵としてその終わりを示すこと">ヌル終端</a>文字列 <code>s</code> を出力ストリーム <code>os</code> に出力する。この際、<code>os</code> に設定されている幅、埋め文字、および、整列方向に従う。<br />
+出力する文字列の長さは以下で求める。</p>
+<ul>
+<li>(13) と (15) の形式：<code>Traits::length(s)</code></li>
+<li>(14) の形式：<code>std::<a href="../../string/char_traits.html">char_traits</a>&lt;char&gt;::<a href="../../string/char_traits/length.html">length</a>(s)</code></li>
+<li>(16) と (17) の形式：<code>Traits::length(reinterpret_cast&lt;const char*&gt;(s))</code></li>
+</ul>
+<p>なお、(14) の形式（<code>os</code> の文字型（<code>char_type</code>）が <code>char</code> 以外で <code>s</code> が <code>const char*</code>）の時は、<code>s</code> の各文字 <code>c</code> を直接出力するのではなく、<code>os.<a href="../../ios/basic_ios/widen.html">widen</a>(c)</code> を出力する。<br />
+出力後、幅指定は <code>0</code> にリセットされる。</p>
+<h3>(18)-(24) 文字列の書式化出力 (C++20)</h3>
+<p>これらの関数は削除されている</p>
+<h3>(25) 右辺値参照ストリームへの出力 (C++11)</h3>
+<p><code>os &lt;&lt; x</code>を実行する。<br />
+この<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>は、一時オブジェクトなどに対して<code>&lt;&lt;</code>演算子を利用可能にするためのものである。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p><code>os</code></p>
+<h2>備考</h2>
+<ul>
+<li>(25) の形式は C++11 から追加されたが、より使いやすくするための変更が提案されている。<br />
+<a href="https://wg21.cmeerw.net/lwg/issue1203" target="_blank">LWG1203. More useful rvalue stream insertion</a></li>
+<li>(3)、および、(15) の形式は、<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>時の曖昧さ解消のために存在する。<br />
+    （これらが存在しないと、<code>CharT</code> が <code>char</code> 型の場合に、(1) と (2)、あるいは (13) と (14) が同じ優先順位となり<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>に失敗してしまう）</li>
+</ul>
+<h2>例</h2>
+<h3>(1), (2), (13), (14) の例</h3>
+<p><div class="yata" id="17fabd63df68085f9491c67ac33af1a1f14027ba"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../iomanip.html">&lt;iomanip&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><span href="https://cpprefjp.github.io/reference/iostream/wcout.md.nolink">std::wcout</span></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ios/left.html">std::left</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../iomanip/setfill.html">std::setfill</a></span><span class="p">(</span><span class="sa">L</span><span class="sc">'+'</span><span class="p">);</span>
+
+  <span class="n"><span href="https://cpprefjp.github.io/reference/iostream/wcout.md.nolink">std::wcout</span></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../iomanip/setw.html">std::setw</a></span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sa">L</span><span class="sc">'C'</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><span href="https://cpprefjp.github.io/reference/iostream/wcout.md.nolink">std::wcout</span></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../iomanip/setw.html">std::setw</a></span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">'C'</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="n"><span href="https://cpprefjp.github.io/reference/iostream/wcout.md.nolink">std::wcout</span></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../iomanip/setw.html">std::setw</a></span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sa">L</span><span class="s">"cpprefjp"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><span href="https://cpprefjp.github.io/reference/iostream/wcout.md.nolink">std::wcout</span></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../iomanip/setw.html">std::setw</a></span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">"cpprefjp"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>C+++++++++
+C+++++++++
+cpprefjp++
+cpprefjp++
+</code></pre></p>
+<h3>(3)-(5), (15)-(17) の例</h3>
+<p><div class="yata" id="3b955348dc1469e33dac3183b783bebe3c7d4446"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../iomanip.html">&lt;iomanip&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ios/left.html">std::left</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../iomanip/setfill.html">std::setfill</a></span><span class="p">(</span><span class="sc">'+'</span><span class="p">);</span>
+
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../iomanip/setw.html">std::setw</a></span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">'C'</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../iomanip/setw.html">std::setw</a></span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">signed</span> <span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="sc">'C'</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../iomanip/setw.html">std::setw</a></span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="sc">'C'</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../iomanip/setw.html">std::setw</a></span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">"cpprefjp"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../iomanip/setw.html">std::setw</a></span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">signed</span> <span class="kt">char</span><span class="o">*&gt;</span><span class="p">(</span><span class="s">"cpprefjp"</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../iomanip/setw.html">std::setw</a></span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">char</span><span class="o">*&gt;</span><span class="p">(</span><span class="s">"cpprefjp"</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>C+++++++++
+C+++++++++
+C+++++++++
+cpprefjp++
+cpprefjp++
+cpprefjp++
+</code></pre></p>
+<h3>(25) の例</h3>
+<p><div class="yata" id="99785aaf36ff3bae87eb0f23742046aba967a9ba"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../fstream.html">&lt;fstream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../fstream/basic_ofstream.html">std::ofstream</a></span><span class="p">(</span><span class="s">"test.txt"</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">"cpprefjp"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="n"><a href="../../string/basic_string.html">std::string</a></span> <span class="n">s</span><span class="p">;</span>
+  <span class="n"><a href="../../fstream/basic_ifstream.html">std::ifstream</a></span> <span class="n">ifs</span><span class="p">(</span><span class="s">"test.txt"</span><span class="p">);</span>
+  <span class="n">ifs</span> <span class="o">&gt;&gt;</span> <span class="n">s</span><span class="p">;</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>cpprefjp
+</code></pre></p>
+<p>なお、この例は C++03 でもコンパイル・実行可能だが、その場合は出力に謎の 16 進数が出力される。<br />
+これは、C++03 では <code>"cpprefjp"</code> の出力の際に <code>operator&lt;&lt;(basic_ostream&lt;char, Traits&gt;&amp;, const char*)</code> ではなく <code>basic_ostream&lt;char, Traits&gt;::operator&lt;&lt;(const void*)</code> が呼び出されるためである。<br />
+（<code>operator&lt;&lt;(basic_ostream&lt;char, Traits&gt;&amp;, const char*)</code> は左辺に <code>const</code> ではない参照を必要とするため <code>ofstream</code> の一時オブジェクトを受け取れないが、<code>basic_ostream&lt;char, Traits&gt;::operator&lt;&lt;(const void*)</code> はメンバ関数であるため <code>ofstream</code> の一時オブジェクトに対しても呼び出す事が可能）</p>
+<h2>実装例</h2>
+<p>TBD</p>
+<h2>C++20で追加された<code>delete</code>指定<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>について</h2>
+<p><a href="../../../lang/cpp20/char8_t.html"><code>char8_t</code>型の追加</a>に伴って、次に示すようなコードに破壊的変更が生じてしまった。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">u8</span><span class="sc">'x'</span><span class="p">;</span>    <span class="c1">// C++17までは x と表示された。C++20では120と表示される</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="sa">u8</span><span class="s">"text"</span><span class="p">;</span> <span class="c1">// C++20までは text と表示された。C++20では文字列先頭へのポインタが表示される</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>これは<code>char8_t</code>/<code>char16_t</code>/<code>char32_t</code>に対するostreamの<code>operator&lt;&lt;</code>が提供されないため、他の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>が選ばれるためにこのような直感に反する挙動が発生する。</p>
+<p>そこで(6)-(12), (18)-(24)のように<code>delete</code>指定された<code>operator&lt;&lt;</code>を追加することで<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>にし、このような直感的ではない挙動を避ける。</p>
+<p><a href="../../../lang/cpp20/feature_test_macros.html">機能テストマクロ</a>は<code>__cpp_lib_char8_t</code>で、値は<code>201907</code>。</p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++98</li>
+<li>C++11: ストリームへの右辺値参照を実引数として受け取るものが追加された</li>
+<li>C++20: <code>char8_t</code>等への対応の一環として<code>delete</code>指定されたoverloadが追加された</li>
+</ul>
+<h2>関連項目</h2>
+<h3>このほかの<code>&lt;&lt;</code>演算子関数</h3>
+<ul>
+<li><a href="op_ostream.html"><code>bool</code>値・数値・ポインタ、ストリームバッファ、マニピュレータに対するもの</a></li>
+<li><a href="../../regex/sub_match/op_ostream.html"><code>std::sub_match</code>に関するもの</a></li>
+<li><a href="../../system_error/error_code/op_ostream.html"><code>std::error_code</code>に関するもの</a></li>
+<li><a href="../../complex/complex/op_ostream.html"><code>std::complex</code>に関するもの</a></li>
+<li><a href="../../bitset/bitset/op_ostream.html"><code>std::bitset</code>に関するもの</a></li>
+<li><a href="../../string/basic_string/op_ostream.html"><code>std::basic_string</code>に関するもの</a></li>
+<li><a href="../../memory/shared_ptr/op_ostream.html"><code>std::shared_ptr</code>に関するもの</a></li>
+<li><a href="../../random/shuffle_order_engine/op_ostream.html"><code>std::shuffle_order_engine</code>に関するもの</a></li>
+<li><a href="../../random/gamma_distribution/op_ostream.html"><code>std::gamma_distribution</code>に関するもの</a></li>
+<li><a href="../../random/geometric_distribution/op_ostream.html"><code>std::geometric_distribution</code>に関するもの</a></li>
+<li><a href="../../random/extreme_value_distribution/op_ostream.html"><code>std::extreme_value_distribution</code>に関するもの</a></li>
+<li><a href="../../random/fisher_f_distribution/op_ostream.html"><code>std::fisher_f_distribution</code>に関するもの</a></li>
+<li><a href="../../random/mersenne_twister_engine/op_ostream.html"><code>std::mersenne_twister_engine</code>に関するもの</a></li>
+<li><a href="../../random/chi_squared_distribution/op_ostream.html"><code>std::chi_squared_distribution</code>に関するもの</a></li>
+<li><a href="../../random/exponential_distribution/op_ostream.html"><code>std::exponential_distribution</code>に関するもの</a></li>
+<li><a href="../../random/discrete_distribution/op_ostream.html"><code>std::discrete_distribution</code>に関するもの</a></li>
+<li><a href="../../random/subtract_with_carry_engine/op_ostream.html"><code>std::subtract_with_carry_engine</code>に関するもの</a></li>
+<li><a href="../../random/piecewise_constant_distribution/op_ostream.html"><code>std::piecewise_constant_distribution</code>に関するもの</a></li>
+<li><a href="../../random/poisson_distribution/op_ostream.html"><code>std::poisson_distribution</code>に関するもの</a></li>
+<li><a href="../../random/student_t_distribution/op_ostream.html"><code>std::student_t_distribution</code>に関するもの</a></li>
+<li><a href="../../random/bernoulli_distribution/op_ostream.html"><code>std::bernoulli_distribution</code>に関するもの</a></li>
+<li><a href="../../random/weibull_distribution/op_ostream.html"><code>std::weibull_distribution</code>に関するもの</a></li>
+<li><a href="../../random/binomial_distribution/op_ostream.html"><code>std::binomial_distribution</code>に関するもの</a></li>
+<li><a href="../../random/piecewise_linear_distribution/op_ostream.html"><code>std::piecewise_linear_distribution</code>に関するもの</a></li>
+<li><a href="../../random/uniform_real_distribution/op_ostream.html"><code>std::uniform_real_distribution</code>に関するもの</a></li>
+<li><a href="../../random/negative_binomial_distribution/op_ostream.html"><code>std::negative_binomial_distribution</code>に関するもの</a></li>
+<li><a href="../../random/discard_block_engine/op_ostream.html"><code>std::discard_block_engine</code>に関するもの</a></li>
+<li><a href="../../random/normal_distribution/op_ostream.html"><code>std::normal_distribution</code>に関するもの</a></li>
+<li><a href="../../random/cauchy_distribution/op_ostream.html"><code>std::cauchy_distribution</code>に関するもの</a></li>
+<li><a href="../../random/lognormal_distribution/op_ostream.html"><code>std::lognormal_distribution</code>に関するもの</a></li>
+<li><a href="../../random/linear_congruential_engine/op_ostream.html"><code>std::linear_congruential_engine</code>に関するもの</a></li>
+<li><a href="../../random/uniform_int_distribution/op_ostream.html"><code>std::uniform_int_distribution</code>に関するもの</a></li>
+<li><a href="../../random/independent_bits_engine/op_ostream.html"><code>std::independent_bits_engine</code>に関するもの</a></li>
+</ul>
+<h3>出力対象の型</h3>
+<ul>
+<li><code><a href="../../streambuf/basic_streambuf.html">basic_streambuf</a></code></li>
+</ul>
+<h3>C++20での変更関連</h3>
+<ul>
+<li><a href="../../../lang/cpp20/char8_t.html">UTF-8エンコーディングされた文字の型として<code>char8_t</code>を追加</a></li>
+<li><a href="../../../lang/cpp11/char16_32.html">char16_tとchar32_t</a></li>
+<li><a href="../../../lang/cpp11/utf8_string_literals.html">UTF-8文字列リテラル</a></li>
+<li><a href="../../../lang/cpp17/utf8_character_literals.html">UTF-8文字リテラル</a></li>
+</ul>
+<h2>参照</h2>
+<p><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1423r3.html" target="_blank">P1423R3: char8_t backward compatibility remediation</a></p></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

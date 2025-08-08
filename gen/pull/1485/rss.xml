@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2025-08-08T02:51:50.831841</updated>
+  <id>a4184585-b025-463b-b5c5-ad51d4abb85c</id>
+
+  
+    <entry>
+      <title>stod -- fix typo in std::stod()</title>
+      <link href="https://cpprefjp.github.io/reference/string/stod.html"/>
+      <id>11888d8f4fc06abc8657bd00de4d38056c15e9e5:reference/string/stod.md</id>
+      <updated>2025-08-01T19:07:49+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/string/stod.md b/reference/string/stod.md
+index cbf7ef217..2d61a8c0c 100644
+--- a/reference/string/stod.md
++++ b/reference/string/stod.md
+@@ -28,7 +28,7 @@ namespace std {
+ ## 例外
+ - 数値への変換が行われなかった場合、[`std::invalid_argument`](/reference/stdexcept.md)が送出される。
+ - 以下の条件に合致した場合、[`std::out_of_range`](/reference/stdexcept.md)が送出される。
+-    - `std::strtoull()`関数が[`errno`](/reference/cerrno/errno.md)変数に[`ERANGE`](/reference/cerrno.md)を設定した場合
++    - `std::strtod()`関数が[`errno`](/reference/cerrno/errno.md)変数に[`ERANGE`](/reference/cerrno.md)を設定した場合
+     - 結果が範囲外の値になった場合 (C++14)
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>suomesta</name>
+        <email>shawn316michaels@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>
