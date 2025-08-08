@@ -31,7 +31,7 @@ transform_sender(get-domain-early(sndr), make-sender(upon_stopped, f, sndr))
 * make-sender[link make-sender.md]
 
 
-### Senderアルゴリズムタグ `upon_error`
+### Senderアルゴリズムタグ `upon_stopped`
 Senderアルゴリズム動作説明用のクラステンプレート[`impls-for`](impls-for.md)に対して、下記の特殊化が定義される。
 
 ```cpp
