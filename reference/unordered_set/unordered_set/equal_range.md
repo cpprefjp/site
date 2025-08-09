@@ -83,8 +83,8 @@ int main()
 * std::ostream[link /reference/ostream.md]
 * us.begin()[link begin.md]
 * us.end()[link end.md]
-* first[link /reference/utility/pair.md]
-* second[link /reference/utility/pair.md]
+* first[link /reference/utility/pair/first.md]
+* second[link /reference/utility/pair/second.md]
 
 ### 出力
 ```
