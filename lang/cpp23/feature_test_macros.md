@@ -87,7 +87,7 @@
 |`__cpp_lib_ranges_zip`|`202110L`|[`std::ranges::zip_view`](/reference/ranges/zip_view.md)と[`std::ranges::zip_transform_view`](/reference/ranges/zip_transform_view.md)と[`std::ranges::adjacent_view`](/reference/ranges/adjacent_view.md)と[`std::ranges::adjacent_transform_view`](/reference/ranges/adjacent_transform_view.md)の追加|[`<ranges>`](/reference/ranges.md)<br/>[`<tuple>`](/reference/tuple.md)<br/>[`<utility>`](/reference/utility.md)|
 |`__cpp_lib_reference_from_temporary`|`202202L`|[`std::reference_constructs_from_temporary`](/reference/type_traits/reference_constructs_from_temporary.md)と[`std::reference_converts_from_temporary`](/reference/type_traits/reference_converts_from_temporary.md)の追加|[`<type_traits>`](/reference/type_traits.md)|
 |`__cpp_lib_shift`|`202202L`|[`std::ranges::shift_left()`](/reference/algorithm/ranges_shift_left.md)と[`std::ranges::shift_right()`](/reference/algorithm/ranges_shift_right.md)の追加|[`<algorithm>`](/reference/algorithm.md)|
-|`__cpp_lib_spanstream`|`202106L`|`<spanstream>`の追加|`<spanstream>`|
+|`__cpp_lib_spanstream`|`202106L`|[`<spanstream>`](/reference/spanstream.md)の追加|[`<spanstream>`](/reference/spanstream.md)|
 |`__cpp_lib_stacktrace`|`202011L`|[`<stacktrace>`](/reference/stacktrace.md)の追加|[`<stacktrace>`](/reference/stacktrace.md)|
 |`__cpp_lib_start_lifetime_as`|`202207L`|[`std::start_lifetime_as()`](/reference/memory/start_lifetime_as.md)の追加|[`<memory>`](/reference/memory.md)|
 |`__cpp_lib_stdatomic_h`|`202011L`|[`<stdatomic.h>`](/reference/stdatomic.h.md)の追加|[`<stdatomic.h>`](/reference/stdatomic.h.md)|
