@@ -23,13 +23,13 @@ void span(ROS&& s) noexcept;                  // (3)
 
 
 ## テンプレートパラメータ制約
-- (3) : `ROS` が [`ranges​::​borrowed_range`](/reference/ranges/borrowed_range.md) の要求を満たすこと (`(!convertible_to<ROS, std​::​span<charT>>) && convertible_to<ROS, std​::​span<const charT>>`が`true`であること)。
+- (3) : `ROS` が [`ranges::borrowed_range`](/reference/ranges/borrowed_range.md) の要求を満たすこと (`(!convertible_to<ROS, std::span<charT>>) && convertible_to<ROS, std::span<const charT>>`が`true`であること)。
 
 
 ## 効果
 - (1) : `return rdbuf()->span();` と同等
 - (2) : `rdbuf()->span(s)` と同等
-- (3) : `std​::​span<const charT>(std​::​forward<ROS>(s))` を `sp` とした時、`this->span(std::span<charT>(const_cast<charT*>(sp.data()), sp.size()))` と同等
+- (3) : `std::span<const charT>(std::forward<ROS>(s))` を `sp` とした時、`this->span(std::span<charT>(const_cast<charT*>(sp.data()), sp.size()))` と同等
 
 ## 例
 ```cpp example

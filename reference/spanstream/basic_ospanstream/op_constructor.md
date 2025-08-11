@@ -24,9 +24,9 @@ basic_ospanstream(basic_ospanstream&& rhs);           // (3)
 - (3) : ムーブコンストラクタ
 
 ## 効果
-- (1) : 内部で保持している [`basic_spanbuf<charT, traits>`](/reference/spanstream/basic_spanbuf.md) 型の固定長バッファを `sb` とすると、ベースクラスを `basic_ostream<charT, traits>(addressof(sb))` で構築し、さらに `sb` を `basic_spanbuf<charT, traits>(s, which | ios_base​::​out)` で初期化する
+- (1) : 内部で保持している [`basic_spanbuf<charT, traits>`](/reference/spanstream/basic_spanbuf.md) 型の固定長バッファを `sb` とすると、ベースクラスを `basic_ostream<charT, traits>(addressof(sb))` で構築し、さらに `sb` を `basic_spanbuf<charT, traits>(s, which | ios_base::out)` で初期化する
 - (2) : （削除）
-- (3) : 内部で保持している [`basic_spanbuf<charT, traits>`](/reference/spanstream/basic_spanbuf.md) 型の固定長バッファを `sb` とすると、ベースクラスを `std​::​move(rhs)` で構築し、さらに `sb` を `std​::​move(rhs.sb)` で初期化する。続いて、`basic_ostream<charT, traits>​::​set_rdbuf(addressof(sb))` を呼び、[`basic_spanbuf`](/reference/spanstream/basic_spanbuf.md) を設定する。
+- (3) : 内部で保持している [`basic_spanbuf<charT, traits>`](/reference/spanstream/basic_spanbuf.md) 型の固定長バッファを `sb` とすると、ベースクラスを `std::move(rhs)` で構築し、さらに `sb` を `std::move(rhs.sb)` で初期化する。続いて、`basic_ostream<charT, traits>::set_rdbuf(addressof(sb))` を呼び、[`basic_spanbuf`](/reference/spanstream/basic_spanbuf.md) を設定する。
 
 
 ## 例

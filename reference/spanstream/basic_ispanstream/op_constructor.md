@@ -29,13 +29,13 @@ explicit basic_ispanstream(ROS&& s);                  // (4)
 
 
 ## テンプレートパラメータ制約
-- (4) : `ROS` が [`ranges​::​borrowed_range`](/reference/ranges/borrowed_range.md) の要求を満たすこと (`(!convertible_to<ROS, std​::​span<charT>>) && convertible_to<ROS, std​::​span<const charT>>`が`true`であること)。
+- (4) : `ROS` が [`ranges::borrowed_range`](/reference/ranges/borrowed_range.md) の要求を満たすこと (`(!convertible_to<ROS, std::span<charT>>) && convertible_to<ROS, std::span<const charT>>`が`true`であること)。
 
 ## 効果
-- (1) : 内部で保持している [`basic_spanbuf<charT, traits>`](/reference/spanstream/basic_spanbuf.md) 型の固定長バッファを `sb` とすると、ベースクラスを `basic_istream<charT, traits>(addressof(sb))` で構築し、さらに `sb` を `basic_spanbuf<charT, traits>(s, which | ios_base​::​in)` で初期化する
+- (1) : 内部で保持している [`basic_spanbuf<charT, traits>`](/reference/spanstream/basic_spanbuf.md) 型の固定長バッファを `sb` とすると、ベースクラスを `basic_istream<charT, traits>(addressof(sb))` で構築し、さらに `sb` を `basic_spanbuf<charT, traits>(s, which | ios_base::in)` で初期化する
 - (2) : （削除）
-- (3) : 内部で保持している [`basic_spanbuf<charT, traits>`](/reference/spanstream/basic_spanbuf.md) 型の固定長バッファを `sb` とすると、ベースクラスを `std​::​move(rhs)` で構築し、さらに `sb` を `std​::​move(rhs.sb)` で初期化する。続いて、`basic_istream<charT, traits>​::​set_rdbuf(addressof(sb))` を呼び、[`basic_spanbuf`](/reference/spanstream/basic_spanbuf.md) を設定する。
-- (4) : `std​::​span<const charT>(std​::​forward<ROS>(s))` を `sp` とした時、`basic_ispanstream(std::span<charT>(const_cast<charT*>(sp.data()), sp.size()))` と同等
+- (3) : 内部で保持している [`basic_spanbuf<charT, traits>`](/reference/spanstream/basic_spanbuf.md) 型の固定長バッファを `sb` とすると、ベースクラスを `std::move(rhs)` で構築し、さらに `sb` を `std::move(rhs.sb)` で初期化する。続いて、`basic_istream<charT, traits>::set_rdbuf(addressof(sb))` を呼び、[`basic_spanbuf`](/reference/spanstream/basic_spanbuf.md) を設定する。
+- (4) : `std::span<const charT>(std::forward<ROS>(s))` を `sp` とした時、`basic_ispanstream(std::span<charT>(const_cast<charT*>(sp.data()), sp.size()))` と同等
 
 
 ## 例
