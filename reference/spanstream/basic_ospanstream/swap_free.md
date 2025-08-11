@@ -38,8 +38,8 @@ int main()
   std::cout << oss2.span().data() << std::endl;
 }
 ```
-* std::swap(ioss1, oss2);[color ff0000]
-* std::ispanstream[link /reference/spanstream/basic_ospanstream.md]
+* std::swap(oss1, oss2);[color ff0000]
+* std::ospanstream[link /reference/spanstream/basic_ospanstream.md]
 * std::span<char>[link /reference/span/span.md]
 * span()[link span.md]
 * data()[link /reference/span/span/data.md]

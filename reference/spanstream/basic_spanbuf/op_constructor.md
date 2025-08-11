@@ -81,7 +81,7 @@ int main()
 * std::span<char>[link /reference/span/span.md]
 * in_avail()[link /reference/streambuf/basic_streambuf/in_avail.md]
 * sbumpc()[link /reference/streambuf/basic_streambuf/sbumpc.md]
-* pubseekpos()[link /reference/streambuf/basic_streambuf/pubseekpos.md]
+* pubseekpos[link /reference/streambuf/basic_streambuf/pubseekpos.md]
 * std::move[link /reference/utility/move.md]
 
 ### 出力
