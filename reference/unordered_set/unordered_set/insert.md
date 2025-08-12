@@ -203,8 +203,8 @@ int main()
 * c.begin()[link begin.md]
 * c.end()[link end.md]
 * us.begin()[link begin.md]
-* second[link /reference/utility/pair.md]
-* first[link /reference/utility/pair.md]
+* second[link /reference/utility/pair/second.md]
+* first[link /reference/utility/pair/first.md]
 * fl.cbegin()[link /reference/forward_list/forward_list/cbegin.md]
 * fl.cend()[link /reference/forward_list/forward_list/cend.md]
 

@@ -24,7 +24,6 @@ struct on-stop-request {
 
 ## 関連項目
 - [`execution::when_all`](when_all.md)
-- [`execution::split`](split.md)
 
 
 ## 参照

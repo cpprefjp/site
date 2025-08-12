@@ -177,7 +177,7 @@
 | [`<fstream>`](/reference/fstream.md)       | ファイルストリーム           |                |
 | [`<filesystem>`](/reference/filesystem.md) | ファイルシステム             | C++17          |
 | [`<syncstream>`](/reference/syncstream.md) | 同期化出力ストリームラッパー | C++20          |
-| [`<spanstream>`](/reference/spanstream.md.nolink) | メモリバッファの所有権をもたないストリーム | C++23 |
+| [`<spanstream>`](/reference/spanstream.md) | メモリバッファの所有権をもたないストリーム | C++23 |
 | [`<print>`](/reference/print.md)           | 書式指定による出力 | C++23 |
 
 

@@ -1,6 +1,7 @@
 import sys
 import code_qualify_check
 import display_error_check
+import forbidden_character_check
 import global_qualify_check
 import link_check
 import meta_header_check
@@ -12,6 +13,9 @@ if __name__ == '__main__':
         sys.exit(1)
     if not display_error_check.check():
         print("display_error_check failed")
+        sys.exit(1)
+    if not forbidden_character_check.check():
+        print("forbidden_character_check failed")
         sys.exit(1)
     if not global_qualify_check.check():
         print("global_qualify_check failed")

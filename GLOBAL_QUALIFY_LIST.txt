@@ -302,6 +302,7 @@
 * <span>[link /reference/span.md]
     * std::dynamic_extent[link /reference/span/dynamic_extent.md]
     * std::span[link /reference/span/span.md]
+* <spanstream>[link /reference/spanstream.md]
 * <sstream>[link /reference/sstream.md]
     * std::istringstream[link /reference/sstream/basic_istringstream.md]
 * <stack>[link /reference/stack.md]
