@@ -177,6 +177,7 @@ C++11で採用されたもの以外で検討された以下の機能は、属性
 - [C++20 `[[likely]]`, `[[unlikely]]`属性](/lang/cpp20/likely_and_unlikely_attributes.md)
 - [C++20 属性の名前空間を予約](/lang/cpp20/reserving_attribute_namespaces_for_future_use.md)
 - [C++23 ラムダ式に対する属性](/lang/cpp23/attributes_on_lambda_expressions.md)
+- [C++23 コード内容の仮定をコンパイラに伝える`assume`属性](/lang/cpp23/portable_assumptions.md)
 - [C++26 構造化束縛への属性を許可](/lang/cpp26/attributes_for_structured_bindings.md)
 - [C++26 未初期化変数の読み取りをエラー性動作とする (`[[indeterminate]]`属性)](/lang/cpp26/erroneous_behavior_for_uninitialized_reads.md)
 
