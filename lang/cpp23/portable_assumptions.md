@@ -65,6 +65,7 @@ int f(int y)
 
 
 ## <a id="relative-page" href="#relative-page">関連項目</a>
+- [C++11 属性構文](/lang/cpp11/attributes.md)
 - [C++20 `[[likely]]`, `[[unlikely]]`属性](/lang/cpp20/likely_and_unlikely_attributes.md)
 
 
