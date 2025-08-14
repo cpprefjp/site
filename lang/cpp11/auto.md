@@ -372,6 +372,7 @@ std::pair<T, U>& p = foo();
 - [C++14 `decltype(auto)`](../cpp14/decltype_auto.md)
 - [C++14 後置戻り値型をプレースホルダーにすることを許可](../cpp14/placeholder_type_in_trailing_return_type.md)
 - [C++14 通常関数の戻り値型推論（ユーザ定義変換関数の型推論を含む）](../cpp14/return_type_deduction_for_normal_functions.md)
+- [C++17 単一要素の波カッコ初期化を非配列とする](../cpp17/new_rules_for_auto_deduction_from_braced-init-list.md)
 
 
 ## 参照

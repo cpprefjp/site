@@ -93,6 +93,7 @@ i
 
 ## <a id="relative-page" href="#relative-page">関連項目</a>
 
+* [C++11 変数の型推論のための`auto`](/lang/cpp11/auto.md)
 * [C++11 初期化リスト](/lang/cpp11/initializer_lists.md)
 
 

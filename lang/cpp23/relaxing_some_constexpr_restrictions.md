@@ -115,8 +115,9 @@ void f(std::optional<T>& opt)
 
 ## <a id="relative-page" href="#relative-page">関連項目</a>
 
-- [C++20 - constexpr関数内でのtry-catchブロックを許可](/lang/cpp20/try-catch_blocks_in_constexpr_functions.md)
-- [C++20 - constexpr関数内で未評価のインラインアセンブリを許可することによる組み込み関数のconstexpr有効化](/lang/cpp20/enabling_constexpr_intrinsics_by_permitting_unevaluated_inline-assembly_in_constexpr_functions.md)
+- [C++11 `constexpr`](/lang/cpp11/constexpr.md)
+- [C++20 `constexpr`関数内での`try-catch`ブロックを許可](/lang/cpp20/try-catch_blocks_in_constexpr_functions.md)
+- [C++20 `constexpr`関数内で未評価のインラインアセンブリを許可することによる組み込み関数の`constexpr`有効化](/lang/cpp20/enabling_constexpr_intrinsics_by_permitting_unevaluated_inline-assembly_in_constexpr_functions.md)
 
 ## 参照
 
