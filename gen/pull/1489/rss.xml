@@ -1,0 +1,2590 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2025-08-16T13:07:34.753958</updated>
+  <id>0f5b5e87-8440-49ae-8e56-2fa8a223a321</id>
+
+  
+    <entry>
+      <title>execution -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution.md b/reference/execution/execution.md
+index a9eda1dc8..48a57ff2e 100644
+--- a/reference/execution/execution.md
++++ b/reference/execution/execution.md
+@@ -82,9 +82,8 @@ namespace std::execution {
+ | [`execution::default_domain`](execution/default_domain.md) | デフォルト実行ドメイン (class) | C++26 |
+ | [`execution::sender`](execution/sender.md) | Sender型 (concept) | C++26 |
+ | [`execution::sender_in`](execution/sender_in.md) | 指定環境で有効なSender (concept) | C++26 |
++| [`execution::dependent_sender`](execution/dependent_sender.md) | 依存Sender (concept) | C++26 |
+ | [`execution::sender_to`](execution/sender_to.md) | 指定Receiverに接続可能なSender (concept) | C++26 |
+-| [`execution::get_completion_signatures`](execution/get_completion_signatures.md) | Senderの完了シグネチャ集合を取得 (customization point object) | C++26 |
+-| [`execution::completion_signatures_of_t`](execution/completion_signatures_of_t.md) | Senderの完了シグネチャ集合を取得 (alias template) | C++26 |
+ | [`execution::value_types_of_t`](execution/value_types_of_t.md) | Senderの値完了シグネチャ集合から指定操作で型を生成 (alias template) | C++26 |
+ | [`execution::error_types_of_t`](execution/error_types_of_t.md) | Senderのエラー完了シグネチャ集合から指定操作で型を生成 (alias template) | C++26 |
+ | [`execution::sends_stopped`](execution/sends_stopped.md) | Senderが停止完了を送信しうるか否か (variable template) | C++26 |
+@@ -142,6 +141,9 @@ Senderコンシューマは名前空間 `std::this_thread` で定義される。
+ | 名前 | 説明 | 対応バージョン |
+ |------|------|----------------|
+ | [`execution::completion_signatures`](execution/completion_signatures.md) | 完了シグネチャ集合を表現する型 (class template) | C++26 |
++| [`execution::dependent_sender_error`](execution/dependent_sender_error.md) | 依存Sender例外(class) | C++26 |
++| [`execution::get_completion_signatures`](execution/get_completion_signatures.md) | Senderの完了シグネチャ集合を取得 (function template) | C++26 |
++| [`execution::completion_signatures_of_t`](execution/completion_signatures_of_t.md) | Senderの完了シグネチャ集合を取得 (alias template) | C++26 |
+ | [`execution::run_loop`](execution/run_loop.md) | 単一スレッド上でのループ実行 (class) | C++26 |
+ 
+ ### コルーチンユーティリティ
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>basic-operation -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/basic-operation.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/basic-operation.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/basic-operation.md b/reference/execution/execution/basic-operation.md
+index 44f7fa083..865e8143b 100644
+--- a/reference/execution/execution/basic-operation.md
++++ b/reference/execution/execution/basic-operation.md
+@@ -39,6 +39,7 @@ namespace std::execution {
+ ```
+ * operation_state_t[link operation_state.md]
+ * tag_of_t[link tag_of_t.md]
++* indices-for[link basic-sender.md]
+ * impls-for[link impls-for.md]
+ * std::move[link /reference/utility/move.md]
+ 
+@@ -60,6 +61,7 @@ is_nothrow_constructible_v&amp;lt;basic-state&amp;lt;Self, Rcvr&amp;gt;, Self, Rcvr&amp;gt; &amp;amp;&amp;amp;
+ noexcept(connect-all(this, std::forward&amp;lt;Sndr&amp;gt;(sndr), indices-for&amp;lt;Sndr&amp;gt;()))
+ ```
+ * is_nothrow_constructible_v[link /reference/type_traits/is_nothrow_constructible.md]
++* indices-for[link basic-sender.md]
+ 
+ `basic-state`コンストラクタ`noexcept`節の式は下記の通り。
+ 
+@@ -101,13 +103,11 @@ constexpr auto connect-all = see below;  // exposition only
+ template&amp;lt;class Sndr, class Rcvr&amp;gt;
+ using connect-all-result = call-result-t&amp;lt;  // exposition only
+   decltype(connect-all), basic-state&amp;lt;Sndr, Rcvr&amp;gt;*, Sndr, indices-for&amp;lt;Sndr&amp;gt;&amp;gt;;
+-
+-template&amp;lt;class Sndr&amp;gt;
+-using indices-for = remove_reference_t&amp;lt;Sndr&amp;gt;::indices-for;  // exposition only 
+ ```
+ * call-result-t[link /reference/functional/call-result-t.md]
+ * impls-for[link impls-for.md]
+ * tag_of_t[link tag_of_t.md]
++* indices-for[link basic-sender.md]
+ 
+ 説明専用の定数`connect-all`は、下記ラムダ式と等価な関数呼び出し可能なオブジェクトとして初期化される。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>basic-sender -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/basic-sender.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/basic-sender.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/basic-sender.md b/reference/execution/execution/basic-sender.md
+index 049660125..4ddea44f6 100644
+--- a/reference/execution/execution/basic-sender.md
++++ b/reference/execution/execution/basic-sender.md
+@@ -22,11 +22,8 @@ namespace std::execution {
+       return {std::forward&amp;lt;Self&amp;gt;(self), std::move(rcvr)};
+     }
+ 
+-    template&amp;lt;decays-to&amp;lt;basic-sender&amp;gt; Self, class Env&amp;gt;
+-    auto get_completion_signatures(this Self&amp;amp;&amp;amp; self, Env&amp;amp;&amp;amp; env) noexcept
+-      -&amp;gt; completion-signatures-for&amp;lt;Self, Env&amp;gt; {
+-      return {};
+-    }
++    template&amp;lt;decays-to&amp;lt;basic-sender&amp;gt; Self, class... Env&amp;gt;
++    static constexpr auto get_completion_signatures();
+   };
+ }
+ ```
+@@ -62,19 +59,35 @@ is_nothrow_constructible_v&amp;lt;basic-operation&amp;lt;Self, Rcvr&amp;gt;, Self, Rcvr&amp;gt;
+ * is_nothrow_constructible_v[link /reference/type_traits/is_nothrow_constructible.md]
+ * basic-operation[link basic-operation.md]
+ 
+-説明専用のエイリアステンプレート`completion-signatures-for`は、下記の通り定義される。
++### `get_completion_signatures`メンバ関数
++```cpp
++template&amp;lt;class Tag, class Data, class... Child&amp;gt;
++template&amp;lt;class Sndr, class... Env&amp;gt;
++constexpr auto basic-sender&amp;lt;Tag, Data, Child...&amp;gt;::get_completion_signatures();
++```
++
++型`E`をリスト`Env...,` [`env&amp;lt;&amp;gt;`](env.md)における先頭の型としたとき、[環境](../queryable.md)`E`をもつ[Receiver](receiver.md)型を`Rcvr`とする。式`CHECK-TYPE()`を[`impls-for`](impls-for.md)`&amp;lt;Tag&amp;gt;::template check-types&amp;lt;Sndr, E&amp;gt;()`とし、型`CS`を下記の通り定義する。
++
++- `CHECK-TYPE()`がコア定数式のとき、`op`を[`connect_result_t`](connect_result_t.md)`&amp;lt;Sndr, Rcvr&amp;gt;`型の左辺値とする。`CS`は[`completion_signatures`](completion_signatures.md)の特殊化となり、そのテンプレート引数の集合は評価`op.`[`start()`](start.md)の結果結果として得られる完了操作の集合に対応する。
++- そうでなければ、`CS`は[`completion_signatures&amp;lt;&amp;gt;`](completion_signatures.md)となる。
++
++テンプレートパラメータ制約 : 式`CHECK-TYPES()`が適格であること。
++
++効果：下記と等価。
+ 
+ ```cpp
+-template&amp;lt;class Sndr, class Env&amp;gt;
+-using completion-signatures-for = see below;  // exposition only
++CHECK-TYPES();
++return CS();
+ ```
+ 
+-説明用の`sndr`を`decltype((sndr))`が`Sndr`型となる式、`rcvr`を[`sender_in`](sender_in.md)`&amp;lt;Sndr, Env&amp;gt; == true`となる[環境](../queryable.md)`Env`に関連付けられた[`Receiver`](receiver.md)とする。
+ 
+-`completion-signatures-for&amp;lt;Sndr, Env&amp;gt;`は[`completion_signatures`](completion_signatures.md)の特殊化であり、そのテンプレート引数は `sndr`と`rcvr`との[接続(connect)](connect.md)結果[Operation State](operation_state.md)を[開始(start)](start.md)して得られる可能性のある結果の完了シグネチャ集合となる。
++## 説明専用エンティティ
++説明専用のエイリアステンプレート`indices-for`を下記の通り定義する。
+ 
+-[`sender_in`](sender_in.md)`&amp;lt;Sndr, Env&amp;gt; == false`となる場合、`completion-signatures-for&amp;lt;Sndr, Env&amp;gt;`は[`completion_signatures`](completion_signatures.md)の特殊化ではない別の型となる。
+- 処理系（標準ライブラリ実装者）は、この型を用いてユーザにエラー理由を通知することが推奨される。
++```cpp
++template&amp;lt;class Sndr&amp;gt;
++using indices-for = remove_reference_t&amp;lt;Sndr&amp;gt;::indices-for;  // exposition only 
++```
+ 
+ 
+ ## バージョン
+@@ -91,3 +104,4 @@ using completion-signatures-for = see below;  // exposition only
+ ## 参照
+ - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
+ - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
++- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>bulk -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/bulk.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/bulk.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/bulk.md b/reference/execution/execution/bulk.md
+index 96ed1cf01..fc2f1cad1 100644
+--- a/reference/execution/execution/bulk.md
++++ b/reference/execution/execution/bulk.md
+@@ -44,6 +44,9 @@ namespace std::execution {
+   template&amp;lt;&amp;gt;
+   struct impls-for&amp;lt;bulk_t&amp;gt; : default-impls {
+     static constexpr auto complete = see below;
++
++    template&amp;lt;class Sndr, class... Env&amp;gt;
++    static consteval void check-types();
+   };
+ }
+ ```
+@@ -75,6 +78,26 @@ namespace std::execution {
+ 
+ 型`Tag`が[`set_value_t`](set_value.md)以外の型であるとき、もしくは式`f(auto(shape), args...)`が適格なときに限って、上記ラムダ式のrequires節が満たされる。
+ 
++メンバ関数`impls-for&amp;lt;bulk_t&amp;gt;::check-types`の効果は下記の通り。
++
++```cpp
++auto cs = get_completion_signatures&amp;lt;child-type&amp;lt;Sndr&amp;gt;, FWD-ENV-T(Env)...&amp;gt;();
++auto fn = []&amp;lt;class... Ts&amp;gt;(set_value_t(*)(Ts...)) {
++  if constexpr (!invocable&amp;lt;remove_cvref_t&amp;lt;data-type&amp;lt;Sndr&amp;gt;&amp;gt;, Ts&amp;amp;...&amp;gt;)
++    throw unspecified-exception();
++};
++cs.for-each(overload-set{fn, [](auto){}});
++```
++* get_completion_signatures[link get_completion_signatures.md]
++* child-type[link child-type.md]
++* FWD-ENV-T[link ../forwarding_query.md]
++* set_value_t[link set_value.md]
++* data-type[link data-type.md]
++* for-each[link completion_signatures.md]
++* overload-set[link overload-set.md]
++
++`unspecified-exception`は[`exception`](/reference/exception/exception.md)から派生した型となる。
++
+ 
+ ## カスタマイゼーションポイント
+ Senderアルゴリズム構築時および[Receiver](receiver.md)接続時に、関連付けられた実行ドメインに対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
+@@ -133,3 +156,4 @@ int main()
+ ## 参照
+ - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
+ - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
++- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>child-type -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/child-type.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/child-type.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/child-type.md b/reference/execution/execution/child-type.md
+index 07ed69cdb..96124dc1d 100644
+--- a/reference/execution/execution/child-type.md
++++ b/reference/execution/execution/child-type.md
+@@ -22,7 +22,10 @@ namespace std::execution {
+ 
+ ## 関連項目
+ - [`execution::schedule_from`](schedule_from.md)
++- [`execution::let_value`](let_value.md)
+ - [`execution::into_variant`](into_variant.md)
++- [`execution::stopped_as_optional`](stopped_as_optional.md)
++- [`write-env`](write-env.md)
+ 
+ 
+ ## 参照
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>completion_signatures -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/completion_signatures.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/completion_signatures.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/completion_signatures.md b/reference/execution/execution/completion_signatures.md
+index 731f2795e..36c97e73e 100644
+--- a/reference/execution/execution/completion_signatures.md
++++ b/reference/execution/execution/completion_signatures.md
+@@ -7,21 +7,31 @@
+ ```cpp
+ namespace std::execution {
+   template&amp;lt;completion-signature... Fns&amp;gt;
+-  struct completion_signatures {};
++  struct completion_signatures {
++    template&amp;lt;class Tag&amp;gt;
++    static constexpr size_t count-of(Tag) { return see below; }
++
++    template&amp;lt;class Fn&amp;gt;
++    static constexpr void for-each(Fn&amp;amp;&amp;amp; fn) {  // exposition only
++      (std::forward&amp;lt;Fn&amp;gt;(fn)(static_cast&amp;lt;Fns*&amp;gt;(nullptr)), ...);
++    }
++  };
+ }
+ ```
+ 
+ ## 概要
+ `completion_signatures`クラステンプレートは、完了シグネチャの集合をテンプレートパラメータとして表現する。
+ 
+-実行制御ライブラリ仕様定義では、説明専用のコンセプト`valid-completion-signatures`を利用する。
++式`tag`の[decayed](/reference/type_traits/decay.md)型を`Tag`としたとき、説明専用のメンバ関数`count-of`は`Fns`中の`Tag(Ts...)`形式で表される関数型の個数を返す。
+ 
++
++### 説明専用のコンセプト `valid-completion-signatures`
+ ```cpp
+ template&amp;lt;class Sigs&amp;gt;
+ concept valid-completion-signatures = see below;
+ ```
+ 
+-`Sigs`が[`completion_signatures`](completion_signatures.md)クラステンプレートの特殊化であるとき、`Sigs`は説明専用コンセプト`valid-completion-signatures`のモデルである。
++`Sigs`が`completion_signatures`クラステンプレートの特殊化であるとき、`Sigs`は説明専用コンセプト`valid-completion-signatures`のモデルである。
+ 
+ 
+ ## テンプレートパラメータ制約
+@@ -88,3 +98,4 @@ int main()
+ 
+ ## 参照
+ - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
++- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>completion_signatures_of_t -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/completion_signatures_of_t.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/completion_signatures_of_t.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/completion_signatures_of_t.md b/reference/execution/execution/completion_signatures_of_t.md
+index 94616cf72..e1bae9396 100644
+--- a/reference/execution/execution/completion_signatures_of_t.md
++++ b/reference/execution/execution/completion_signatures_of_t.md
+@@ -6,15 +6,13 @@
+ 
+ ```cpp
+ namespace std::execution {
+-  template&amp;lt;class Sndr, class Env = env&amp;lt;&amp;gt;&amp;gt;
+-    requires sender_in&amp;lt;Sndr, Env&amp;gt;
+-  using completion_signatures_of_t = call-result-t&amp;lt;get_completion_signatures_t, Sndr, Env&amp;gt;;
++  template&amp;lt;class Sndr, class... Env&amp;gt;
++    requires sender_in&amp;lt;Sndr, Env...&amp;gt;
++  using completion_signatures_of_t = decltype(get_completion_signatures&amp;lt;Sndr, Env...&amp;gt;());
+ }
+ ```
+-* env&amp;lt;&amp;gt;[link env.md]
+ * sender_in[link sender_in.md]
+-* call-result-t[link /reference/functional/call-result-t.md]
+-* get_completion_signatures_t[link get_completion_signatures.md]
++* get_completion_signatures[link get_completion_signatures.md]
+ 
+ ## 概要
+ [Sender型](sender.md)`Sndr`から[環境](../queryable.md)`Env`における[完了シグネチャ集合](completion_signatures.md)を取得する。
+@@ -37,3 +35,4 @@ namespace std::execution {
+ 
+ ## 参照
+ - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
++- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>connect -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/connect.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/connect.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/connect.md b/reference/execution/execution/connect.md
+index 484c5208c..5d4d76807 100644
+--- a/reference/execution/execution/connect.md
++++ b/reference/execution/execution/connect.md
+@@ -23,7 +23,6 @@ namespace std::execution {
+ 
+ ## 効果
+ 説明用の型`Sndr`を`decltype((sndr))`、型`Rcvr`を`decltype((rcvr))`とし、式`new_sndr`を次の通りとする。
+-このとき[`sender`](sender.md)`&amp;lt;Sndr&amp;gt; &amp;amp;&amp;amp;` [`receiver`](receiver.md)`&amp;lt;Rcvr&amp;gt; == true`であること。
+ 
+ ```cpp
+ transform_sender(decltype(get-domain-late(sndr, get_env(rcvr))){}, sndr, get_env(rcvr))
+@@ -37,6 +36,11 @@ transform_sender(decltype(get-domain-late(sndr, get_env(rcvr))){}, sndr, get_env
+ - 適格であるならば、式`new_sndr.connect(rcvr)`
+ - そうでなければ、式`connect-awaitable(new_sndr, rcvr)`
+ 
++このとき下記が全て`true`であること。
++
++- [`sender_in`](sender_in.md)`&amp;lt;Sndr,` [`env_of_t`](env_of_t.md)`&amp;lt;Rcvr&amp;gt;&amp;gt;`
++- [`receiver_of`](receiver_of.md)`&amp;lt;Rcvr,` [`completion_signatures_of_t`](completion_signatures_of_t.md)`&amp;lt;Sndr,` [`env_of_t`](env_of_t.md)`&amp;lt;Rcvr&amp;gt;&amp;gt;&amp;gt;`
++
+ 
+ ### Awaitable接続用へルパ
+ 説明用のクラス`connect-awaitable-promise`, `operation-state-task`をそれぞれ下記の通り定義する。
+@@ -108,7 +112,7 @@ namespace std::execution {
+ * destroy()[link /reference/coroutine/coroutine_handle/destroy.md]
+ * resume()[link /reference/coroutine/coroutine_handle/resume.md]
+ 
+-`C`型の`c`と[コルーチンPromise型](/lang/cpp20/coroutines.md)の左辺値`p`に対して、`await-result-type&amp;lt;C, Promise&amp;gt;`を`decltype(`[`GET-AWAITER`](../is-awaitable.md)`(c, p).`[`await_resume()`](/lang/cpp20/coroutines.md)`)`型とする。
++`C`型の`c`と[コルーチンPromise型](/lang/cpp20/coroutines.md)の左辺値`p`に対して、`await-result-type&amp;lt;C, Promise&amp;gt;`を`decltype(`[`GET-AWAITER`](../is-awaitable.md)`(c, p).`[`await_resume()`](/lang/cpp20/coroutines.md)`)`型とし、`await-result-type&amp;lt;C&amp;gt;`を`decltype(`[`GET-AWAITER`](../is-awaitable.md)`(c).`[`await_resume()`](/lang/cpp20/coroutines.md)`)`型とする。
+ 型`V`を`await-result-type&amp;lt;DS, connect-awaitable-promise&amp;gt;`とする。
+ 
+ [完了シグネチャ集合型](completion_signatures.md)`Sigs`を下記の通り定義する。
+@@ -238,4 +242,5 @@ int main()
+ ## 参照
+ - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+ - [P3396R1 std::execution wording fixes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html)
++- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+ - [LWG 4208. Wording needs to ensure that in `connect(sndr, rcvr)` that `rcvr` expression is only evaluated once](https://cplusplus.github.io/LWG/issue4208)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>data-type -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/data-type.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/data-type.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/data-type.md b/reference/execution/execution/data-type.md
+new file mode 100644
+index 000000000..2c1e44abe
+--- /dev/null
++++ b/reference/execution/execution/data-type.md
+@@ -0,0 +1,31 @@
++# data-type
++* execution[meta header]
++* std::execution[meta namespace]
++* type-alias[meta id-type]
++* cpp26[meta cpp]
++
++```cpp
++namespace std::execution {
++  template&amp;lt;class Sndr&amp;gt;
++  using data-type = decltype(declval&amp;lt;Sndr&amp;gt;().template get&amp;lt;1&amp;gt;());  // exposition only
++}
++```
++* template get[link product-type.md]
++
++## 概要
++[Senderアルゴリズム型](basic-sender.md)`Sndr`のデータ型を取得する説明専用のエイリアステンプレート。
++
++
++## バージョン
++### 言語
++- C++26
++
++## 関連項目
++- [`execution::read_env`](read_env.md)
++- [`execution::schedule_from`](schedule_from.md)
++- [`write-env`](write-env.md)
++
++
++## 参照
++- [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
++- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>decay-copyable-result-datums -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/decay-copyable-result-datums.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/decay-copyable-result-datums.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/decay-copyable-result-datums.md b/reference/execution/execution/decay-copyable-result-datums.md
+new file mode 100644
+index 000000000..ab8807748
+--- /dev/null
++++ b/reference/execution/execution/decay-copyable-result-datums.md
+@@ -0,0 +1,39 @@
++# decay-copyable-result-datums
++* execution[meta header]
++* function template[meta id-type]
++* std::execution[meta namespace]
++* cpp26[meta cpp]
++
++```cpp
++constexpr void decay-copyable-result-datums(auto cs) {
++  cs.for-each([]&amp;lt;class Tag, class... Ts&amp;gt;(Tag(*)(Ts...)) {
++    if constexpr (!(is_constructible_v&amp;lt;decay_t&amp;lt;Ts&amp;gt;, Ts&amp;gt; &amp;amp;&amp;amp;...))
++      throw unspecified-exception();
++  });
++}
++```
++* for-each[link completion_signatures.md]
++
++## 概要
++`decay-copyable-result-datums`は、Senderアルゴリズム動作仕様定義で用いられる説明専用の関数テンプレートである。
++
++`unspecified-exception`は[`exception`](/reference/exception/exception.md)から派生した型となる。
++
++
++## バージョン
++### 言語
++- C++26
++
++### 処理系
++- [Clang](/implementation.md#clang): ??
++- [GCC](/implementation.md#gcc): ??
++- [ICC](/implementation.md#icc): ??
++- [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 関連項目
++- [`execution::schedule_from`](schedule_from.md)
++
++
++## 参照
++- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>dependent_sender -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/dependent_sender.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/dependent_sender.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/dependent_sender.md b/reference/execution/execution/dependent_sender.md
+new file mode 100644
+index 000000000..0324296f0
+--- /dev/null
++++ b/reference/execution/execution/dependent_sender.md
+@@ -0,0 +1,53 @@
++# dependent_sender
++* execution[meta header]
++* concept[meta id-type]
++* std::execution[meta namespace]
++* cpp26[meta cpp]
++
++```cpp
++namespace std::execution {
++  template&amp;lt;class Sndr&amp;gt;
++  concept dependent_sender =
++    sender&amp;lt;Sndr&amp;gt; &amp;amp;&amp;amp; bool_constant&amp;lt;is-dependent-sender-helper&amp;lt;Sndr&amp;gt;()&amp;gt;::value;
++}
++```
++* sender[link sender.md]
++* bool_constant[link /reference/type_traits/bool_constant.md]
++
++## 概要
++`dependent_sender`は、[Sender型](sender.md)`Sndr`が依存Senderであることを表すコンセプトである。
++
++説明用の変数テンプレート`is-dependent-sender-helper`を下記の通り定義する。
++
++```cpp
++template&amp;lt;class Sndr&amp;gt;
++consteval bool is-dependent-sender-helper() try {  // exposition only
++  get_completion_signatures&amp;lt;Sndr&amp;gt;();
++  return false;
++} catch (dependent_sender_error&amp;amp;) {
++  return true;
++}
++```
++* get_completion_signatures[link get_completion_signatures.md]
++* dependent_sender_error[link dependent_sender_error.md]
++
++
++## バージョン
++### 言語
++- C++26
++
++### 処理系
++- [Clang](/implementation.md#clang): ??
++- [GCC](/implementation.md#gcc): ??
++- [ICC](/implementation.md#icc): ??
++- [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 関連項目
++- [`execution::sender`](sender.md)
++- [`execution::get_completion_signatures`](get_completion_signatures.md)
++
++
++## 参照
++- [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
++- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>dependent_sender_error -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/dependent_sender_error.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/dependent_sender_error.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/dependent_sender_error.md b/reference/execution/execution/dependent_sender_error.md
+new file mode 100644
+index 000000000..ca1b4f329
+--- /dev/null
++++ b/reference/execution/execution/dependent_sender_error.md
+@@ -0,0 +1,34 @@
++# dependent_sender_error
++* execution[meta header]
++* class[meta id-type]
++* std::execution[meta namespace]
++* cpp26[meta cpp]
++
++```cpp
++namespace std::execution {
++  struct dependent_sender_error : exception {};
++}
++```
++* exception[link /reference/exception/exception.md]
++
++## 概要
++`dependent_sender_error`は、[依存Sender](dependent_sender.md)に対する[完了シグネチャ集合取得](get_completion_signatures.md)時に送出される例外クラスである。
++
++
++## バージョン
++### 言語
++- C++26
++
++### 処理系
++- [Clang](/implementation.md#clang): ??
++- [GCC](/implementation.md#gcc): ??
++- [ICC](/implementation.md#icc): ??
++- [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 関連項目
++- [`execution::dependent_sender`](dependent_sender.md)
++- [`execution::get_completion_signatures`](get_completion_signatures.md)
++
++## 参照
++- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>get_completion_signatures -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/get_completion_signatures.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/get_completion_signatures.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/get_completion_signatures.md b/reference/execution/execution/get_completion_signatures.md
+index 1461fb267..5fc96a34e 100644
+--- a/reference/execution/execution/get_completion_signatures.md
++++ b/reference/execution/execution/get_completion_signatures.md
+@@ -1,35 +1,55 @@
+ # get_completion_signatures
+ * execution[meta header]
+-* cpo[meta id-type]
++* function template[meta id-type]
+ * std::execution[meta namespace]
+ * cpp26[meta cpp]
+ 
+ ```cpp
+ namespace std::execution {
+-  struct get_completion_signatures_t;
+-  inline constexpr get_completion_signatures_t get_completion_signatures{};
++  template&amp;lt;class Sndr, class... Env&amp;gt;
++  consteval auto get_completion_signatures() -&amp;gt; valid-completion-signatures auto;
+ }
+ ```
++* valid-completion-signatures[link completion_signatures.md]
+ 
+ ## 概要
+-`get_completion_signatures`は、[Sender](sender.md)の[完了シグネチャ集合](completion_signatures.md)を取得するカスタマイゼーションポイントオブジェクトである。
++`get_completion_signatures`は、[Sender](sender.md)の[完了シグネチャ集合](completion_signatures.md)を取得する関数テンプレートである。
+ 
++説明用の式`except`を、[`move_constructible`](/reference/concepts/move_constructible.md)`&amp;lt;Except&amp;gt; &amp;amp;&amp;amp;` [`derived_from`](/reference/concepts/derived_from.md)`&amp;lt;Except,` [`exception`](/reference/exception/exception.md)`&amp;gt;`が`true`となる未規定なクラス`Except`の右辺値とする。`e`がコア定数式かつその型が[`valid-completion-signatures`](completion_signatures.md)を満たすならば、式`CHECKED-COMPLSIGS(e)`を`e`とする。そうでなければ下記の式となる。
+ 
+-## 効果
+-説明用の`sndr`を`decltype((sndr))`が`Sndr`型となる式、`env`を`decltype((env))`が`Env`型となる式とする。
+-式`new_sndr`を[`transform_sender`](transform_sender.md)`(decltype(`[`get-domain-late`](get-domain-late.md)`(sndr, env)){}, sndr, env)`とし、型`NewSndr`を`decltype((new_sndr))`とする。
++```cpp
++(e, throw except, completion_signatures())
++```
++* completion_signatures[link completion_signatures.md]
++
++説明用の式`get-complsigs&amp;lt;Sndr, Env...&amp;gt;()`を、[`remove_reference_t`](/reference/type_traits/remove_reference.md)`&amp;lt;Sndr&amp;gt;::template get_completion_signatures&amp;lt;Sndr, Env...&amp;gt;()`と等価な式とする。
+ 
+-式`get_completion_signatures(sndr, env)`は、`void(sndr)`と`void(env)`が不定順で序列化(indeterminately sequenced)されることを除いて`(void(sndr), void(env), CS())`と等価である。
++`sizeof...(Env) == 0`が`true`ならば、説明用の型`NewSndr`を`Sndr`とする。そうでなければ、下記の通り定義される式`s`を用いて`decltype(s)`とする。
++
++```cpp
++transform_sender(
++  get-domain-late(declval&amp;lt;Sndr&amp;gt;(), declval&amp;lt;Env&amp;gt;()...),
++  declval&amp;lt;Sndr&amp;gt;(),
++  declval&amp;lt;Env&amp;gt;()...)
++```
++* transform_sender[link transform_sender.md]
++* get-domain-late[link get-domain-late.md]
+ 
+-ここで、説明用の型`CS`は下記の通り定義される。
+ 
+-- 型が適格であるならば、`decltype(new_sndr.get_completion_signatures(env))`
+-- そうではなく、型が適格であるならば[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`&amp;lt;NewSndr&amp;gt;::completion_signatures`
+-- そうではなく、[`is-awaitable`](../is-awaitable.md)`&amp;lt;NewSndr,` [`env-promise`](env-promise.md)`&amp;lt;Env&amp;gt;&amp;gt; == true`ならば
++## テンプレートパラメータ制約
++`sizeof...(Env) &amp;lt;= 1`
++
++
++## 効果
++下記の通り定義される式`e`を用いて、`return e;`と等価。
++
++- 式`get-complsigs&amp;lt;NewSndr, Env...&amp;gt;()`が適格であるならば、`CHECKED-COMPLSIGS(get-complsigs&amp;lt;NewSndr, Env...&amp;gt;())`
++- そうではなく、式`get-complsigs&amp;lt;NewSndr&amp;gt;()`が適格であるならば、`CHECKED-COMPLSIGS(get-complsigs&amp;lt;NewSndr&amp;gt;())`
++- そうではなく、[`is-awaitable`](../is-awaitable.md)`&amp;lt;NewSndr,` [`env-promise`](env-promise.md)`&amp;lt;Env&amp;gt;...&amp;gt; == true`ならば
+ 
+     ```cpp
+     completion_signatures&amp;lt;
+-      SET-VALUE-SIG(await-result-type&amp;lt;NewSndr, env-promise&amp;lt;Env&amp;gt;&amp;gt;),
++      SET-VALUE-SIG(await-result-type&amp;lt;NewSndr, env-promise&amp;lt;Env&amp;gt;...&amp;gt;),
+       set_error_t(exception_ptr),
+       set_stopped_t()&amp;gt;
+     ```
+@@ -41,12 +61,9 @@ namespace std::execution {
+     * exception_ptr[link /reference/exception/exception_ptr.md]
+     * set_stopped_t[link set_stopped.md]
+ 
+-- そうでなければ、`CS`は不適格となる。
+-
+-
+-## カスタマイゼーションポイント
+-- Sender`sndr`[変換後](transform_sender.md)の`new_sndr`に対して、`new_sndr.get_completion_signatures(env)`が返す型。
+-- 変換後Senderの型`NewSndr`に対して、メンバ型`NewSndr::completion_signatures`
++- そうではなく、`sizeof...(Env) == 0`ならば、`(throw dependent-sender-error(),` [`completion_signatures()`](completion_signatures.md)`)`
++    - 型`dependent-sender-error`は、[`dependent_sender_error`](dependent_sender_error.md)もしくは`dependent_sender_error`から曖昧さなく公開派生された未規定の型とする。
++- そうでなければ、`(throw except,` [`completion_signatures()`](completion_signatures.md)`)`
+ 
+ 説明用の式`rcvr`を[`receiver`](receiver.md)のモデルである型`Rcvr`の右辺値、型`Sndr`を[`sender_in`](sender_in.md)`&amp;lt;Sndr,` [`env_of_t`](env_of_t.md)`&amp;lt;Rcvr&amp;gt;&amp;gt; == true`となる型とする。
+ `Sigs...`を[`completion_signatures_of_t`](completion_signatures_of_t.md)`&amp;lt;Sndr,` [`env_of_t`](env_of_t.md)`&amp;lt;Rcvr&amp;gt;&amp;gt;`による[`completion_signatures`](completion_signatures.md)特殊化のテンプレートパラメータと定義する。
+@@ -75,7 +92,7 @@ int main()
+   ex::sender auto sndr = ex::just(42);
+ 
+   // 値完了シグネチャ set_value_t(int)
+-  auto sigs = ex::get_completion_signatures(sndr, ex::env&amp;lt;&amp;gt;{});
++  auto sigs = ex::get_completion_signatures(sndr);
+   static_assert(std::same_as&amp;lt;decltype(sigs),
+     ex::completion_signatures&amp;lt;ex::set_value_t(int)&amp;gt;&amp;gt;);
+ }
+@@ -84,7 +101,6 @@ int main()
+ * ex::sender[link sender.md]
+ * ex::just[link just.md]
+ * ex::completion_signatures[link completion_signatures.md]
+-* ex::env&amp;lt;&amp;gt;[link env.md]
+ * ex::set_value_t[link set_value.md]
+ 
+ ### 出力
+@@ -105,7 +121,9 @@ int main()
+ 
+ ## 関連項目
+ - [`execution::sender`](sender.md)
++- [`execution::dependent_sender`](dependent_sender.md)
+ 
+ 
+ ## 参照
+ - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
++- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>impls-for -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/impls-for.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/impls-for.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/impls-for.md b/reference/execution/execution/impls-for.md
+index ecc998fac..f875fb8a3 100644
+--- a/reference/execution/execution/impls-for.md
++++ b/reference/execution/execution/impls-for.md
+@@ -15,6 +15,9 @@ namespace std::execution {
+     static constexpr auto get-state = see below;  // exposition only
+     static constexpr auto start = see below;      // exposition only
+     static constexpr auto complete = see below;   // exposition only
++
++    template&amp;lt;class Sndr, class... Env&amp;gt;
++    static consteval void check-types();
+   };
+ }
+ ```
+@@ -111,6 +114,24 @@ namespace std::execution {
+ * callable[link /reference/functional/callable.md]
+ * std::move[link /reference/utility/move.md]
+ 
++### `check-types`メンバ関数
++
++```cpp
++template&amp;lt;class Sndr, class... Env&amp;gt;
++static consteval void default-impls::check-types();
++```
++
++説明用のパック`Is`を、[`indices-for`](basic-sender.md)`&amp;lt;Sndr&amp;gt;`で導入される[`integer_sequence`](/reference/utility/integer_sequence.md)クラス特殊化の整数テンプレート引数とする。
++
++効果：下記と等価。
++
++```cpp
++(get_completion_signatures&amp;lt;child-type&amp;lt;Sndr, Is&amp;gt;, FWD-ENV-T(Env)...&amp;gt;(), ...);
++```
++* get_completion_signatures[link get_completion_signatures.md]
++* child-type[link child-type.md]
++* FWD-ENV-T[link ../forwarding_query.md]
++
+ 
+ ## バージョン
+ ### 言語
+@@ -125,3 +146,4 @@ namespace std::execution {
+ 
+ ## 参照
+ - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
++- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>into_variant -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/into_variant.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/into_variant.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/into_variant.md b/reference/execution/execution/into_variant.md
+index 2e290b3ba..b518ff19a 100644
+--- a/reference/execution/execution/into_variant.md
++++ b/reference/execution/execution/into_variant.md
+@@ -40,11 +40,21 @@ namespace std::execution {
+   struct impls-for&amp;lt;into_variant_t&amp;gt; : default-impls {
+     static constexpr auto get-state = see below;
+     static constexpr auto complete = see below;
++
++    template&amp;lt;class Sndr, class... Env&amp;gt;
++    static consteval void check-types() {
++      auto cs = get_completion_signatures&amp;lt;child-type&amp;lt;Sndr&amp;gt;, FWD-ENV-T(Env)...&amp;gt;();
++      decay-copyable-result-datums(cs);
++    }
+   };
+ }
+ ```
+ * impls-for[link impls-for.md]
+ * default-impls[link impls-for.md]
++* get_completion_signatures[link get_completion_signatures.md]
++* child-type[link child-type.md]
++* FWD-ENV-T[link ../forwarding_query.md]
++* decay-copyable-result-datums[link decay-copyable-result-datums.md]
+ 
+ `impls-for&amp;lt;into_variant_t&amp;gt;::get-state`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
+ 
+@@ -206,4 +216,5 @@ int main()
+ ## 参照
+ - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
+ - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
++- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+ - [LWG 4203. Constraints on `get-state` functions are incorrect](https://cplusplus.github.io/LWG/issue4203)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>let_value -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/let_value.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/let_value.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/let_value.md b/reference/execution/execution/let_value.md
+index 90a4eb318..7ada68818 100644
+--- a/reference/execution/execution/let_value.md
++++ b/reference/execution/execution/let_value.md
+@@ -48,6 +48,9 @@ namespace std::execution {
+   struct impls-for&amp;lt;decayed-typeof&amp;lt;let-cpo&amp;gt;&amp;gt; : default-impls {
+     static constexpr auto get-state = see below;
+     static constexpr auto complete = see below;
++
++    template&amp;lt;class Sndr, class... Env&amp;gt;
++    static consteval void check-types();
+   };
+ }
+ ```
+@@ -123,6 +126,34 @@ namespace std::execution {
+ * std::move[link /reference/utility/move.md]
+ * set-cpo[italic]
+ 
++メンバ関数`impls-for&amp;lt;decayed-typeof&amp;lt;let-cpo&amp;gt;&amp;gt;::check-types`の効果は下記の通り。
++
++```cpp
++using LetFn = remove_cvref_t&amp;lt;data-type&amp;lt;Sndr&amp;gt;&amp;gt;;
++auto cs = get_completion_signatures&amp;lt;child-type&amp;lt;Sndr&amp;gt;, FWD-ENV-T(Env)...&amp;gt;();
++auto fn = []&amp;lt;class... Ts&amp;gt;(decayed-typeof&amp;lt;set-cpo&amp;gt;(*)(Ts...)) {
++  if constexpr (!is-valid-let-sender) 　// see below
++    throw unspecified-exception();
++};
++cs.for-each(overload-set(fn, [](auto){}));
++```
++* data-type[link data-type.md]
++* get_completion_signatures[link get_completion_signatures.md]
++* child-type[link child-type.md]
++* FWD-ENV-T[link ../forwarding_query.md]
++* decayed-typeof[link /reference/functional/decayed-typeof.md]
++* for-each[link completion_signatures.md]
++* overload-set[link overload-set.md]
++* set-cpo[italic]
++
++`unspecified-exception`は[`exception`](/reference/exception/exception.md)から派生した型となる。
++変数`is-valid-let-sender`は下記を全て満たす時に限って`true`となる。
++
++- `(`[`constructible_from`](/reference/concepts/constructible_from.md)`&amp;lt;decay_t&amp;lt;Ts&amp;gt;, Ts&amp;gt; &amp;amp;&amp;amp;...)`
++- `invocable&amp;lt;LetFn, decay_t&amp;lt;Ts&amp;gt;&amp;amp;...&amp;gt;`
++- [`sender`](sender.md)`&amp;lt;invoke_result_t&amp;lt;LetFn, decay_t&amp;lt;Ts&amp;gt;&amp;amp;...&amp;gt;&amp;gt;`
++- パック`env-t`を`decltype(let-cpo.transform_env(declval&amp;lt;Sndr&amp;gt;(), declval&amp;lt;Env&amp;gt;()))`としたとき、`sizeof...(Env) == 0 ||` [`sender_in`](sender_in.md)`&amp;lt;invoke_result_t&amp;lt;LetFn, decay_t&amp;lt;Ts&amp;gt;&amp;amp;...&amp;gt;, env-t...&amp;gt;`
++
+ 説明用の式`sndr`と`env`に対して、型`Sndr`を`decltype((sndr))`とする。[`sender-for`](sender-for.md)`&amp;lt;Sndr,` [`decayed-typeof`](/reference/functional/decayed-typeof.md)`&amp;lt;let-cpo&amp;gt;&amp;gt; == false`のとき、式`let-cpo.transform_env(sndr, env)`は不適格となる。
+ 
+ そうでなければ、式`let-cpo.transform_env(sndr, env)`は下記と等価。
+@@ -407,6 +438,7 @@ catch 0
+ - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
+ - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+ - [P3396R1 std::execution wording fixes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html)
++- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+ - [LWG 4203. Constraints on `get-state` functions are incorrect](https://cplusplus.github.io/LWG/issue4203)
+ - [LWG 4204. specification of `as-sndr2(Sig)` in [exec.let] is incomplete](https://cplusplus.github.io/LWG/issue4204)
+ - [LWG 4205. `let_[*].transform_env` is specified in terms of the `let_*` sender itself instead of its child](https://cplusplus.github.io/LWG/issue4205)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>make-sender -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/make-sender.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/make-sender.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/make-sender.md b/reference/execution/execution/make-sender.md
+index d57037be0..d0c93010a 100644
+--- a/reference/execution/execution/make-sender.md
++++ b/reference/execution/execution/make-sender.md
+@@ -20,9 +20,12 @@ constexpr auto make-sender(Tag tag, Data&amp;amp;&amp;amp; data, Child&amp;amp;&amp;amp;... child);
+ 
+ 
+ ## 適格要件
+-- [`semiregular`](/reference/concepts/semiregular.md)`&amp;lt;Tag&amp;gt; == true`
+-- [`movable-value`](../movable-value.md)`&amp;lt;Data&amp;gt; == true`
+-- `(`[`sender`](sender.md)`&amp;lt;Child&amp;gt; &amp;amp;&amp;amp; ...) == true`
++下記の式が全て`true`であること。
++
++- [`semiregular`](/reference/concepts/semiregular.md)`&amp;lt;Tag&amp;gt;`
++- [`movable-value`](../movable-value.md)`&amp;lt;Data&amp;gt;`
++- `(`[`sender`](sender.md)`&amp;lt;Child&amp;gt; &amp;amp;&amp;amp; ...)`
++- 型`Sndr`を[`basic-sender`](basic-sender.md)`&amp;lt;Tag, Data, Child...&amp;gt;`としたとき、[`dependent_sender`](dependent_sender.md)`&amp;lt;Sndr&amp;gt; ||` [`sender_in`](sender_in.md)`&amp;lt;Sndr&amp;gt;`
+ 
+ 
+ ## 戻り値
+@@ -32,6 +35,8 @@ constexpr auto make-sender(Tag tag, Data&amp;amp;&amp;amp; data, Child&amp;amp;&amp;amp;... child);
+ ## 備考
+ テンプレートパラメータ`Data`のデフォルト引数は、[`semiregular`](/reference/concepts/semiregular.md)のモデルである空のトリビアルにコピー可能な未規定なクラス型。
+ 
++[`sender_in`](sender_in.md)`&amp;lt;Sndr&amp;gt;`の評価結果が[`get_completion_signatures`](get_completion_signatures.md)`&amp;lt;Sndr&amp;gt;()`から送出された例外の場合、処理系（標準ライブラリ実装者）はエラーメッセージにその例外に関する情報を含めることが推奨される。
++
+ 
+ ## バージョン
+ ### 言語
+@@ -45,3 +50,4 @@ constexpr auto make-sender(Tag tag, Data&amp;amp;&amp;amp; data, Child&amp;amp;&amp;amp;... child);
+ ## 参照
+ - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
+ - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
++- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>not-a-sender -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/not-a-sender.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/not-a-sender.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/not-a-sender.md b/reference/execution/execution/not-a-sender.md
+new file mode 100644
+index 000000000..78020fec3
+--- /dev/null
++++ b/reference/execution/execution/not-a-sender.md
+@@ -0,0 +1,39 @@
++# not-a-sender
++* execution[meta header]
++* class[meta id-type]
++* std::execution[meta namespace]
++* cpp26[meta cpp]
++
++```cpp
++struct not-a-sender {
++  using sender_concept = sender_t;
++
++  template&amp;lt;class Sndr&amp;gt;
++    static consteval auto get_completion_signatures() -&amp;gt; completion_signatures&amp;lt;&amp;gt; {
++      throw unspecified-exception();
++  }
++};
++```
++* sender_t[link sender.md]
++* get_completion_signatures[link get_completion_signatures.md]
++* completion_signatures[link completion_signatures.md]
++
++## 概要
++`not-a-sender`は、Senderアルゴリズム動作仕様定義で用いられる説明専用のクラスである。
++
++`unspecified-exception`は[`exception`](/reference/exception/exception.md)から派生した型となる。
++
++
++## バージョン
++### 言語
++- C++26
++
++
++## 関連項目
++- [`execution::on`](on.md)
++- [`execution::stopped_as_optional`](stopped_as_optional.md)
++
++
++## 参照
++- [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
++- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>on -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/on.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/on.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/on.md b/reference/execution/execution/on.md
+index 464753baf..41061fa9f 100644
+--- a/reference/execution/execution/on.md
++++ b/reference/execution/execution/on.md
+@@ -127,25 +127,12 @@ transform_sender(
+     * set_value_t[link set_value.md]
+     * get_env[link get_env.md]
+     * query-with-default[link query-with-default.md]
++    * not-a-sender[link not-a-sender.md]
+     * write-env[link write-env.md]
+     * SCHED-ENV[link scheduler.md]
+     * std::move[link /reference/utility/move.md]
+ 
+-説明専用のクラス`not-a-scheduler`を未規定な空のクラス型、`not-a-sender`を下記の通り定義する。
+-
+-```cpp
+-struct not-a-sender {
+-  using sender_concept = sender_t;
+-
+-  auto get_completion_signatures(auto&amp;amp;&amp;amp;) const {
+-    return see below;
+-  }
+-};
+-```
+-* sender_t[link sender.md]
+-
+-メンバ関数`get_completion_signatures`は[`completion_signatures`](completion_signatures.md)クラステンプレートの特殊化とは異なる型のオブジェクトを返す。
+-処理系（標準ライブラリ実装者）は、この型を用いてユーザにエラー理由を通知することが推奨される。
++説明専用のクラス`not-a-scheduler`を未規定な空のクラス型とする。
+ 
+ 
+ ## カスタマイゼーションポイント
+@@ -328,3 +315,4 @@ val=42
+ ## 参照
+ - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
+ - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
++- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>overload-set -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/overload-set.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/overload-set.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/overload-set.md b/reference/execution/execution/overload-set.md
+new file mode 100644
+index 000000000..ae04ed5bd
+--- /dev/null
++++ b/reference/execution/execution/overload-set.md
+@@ -0,0 +1,30 @@
++# overload-set
++* execution[meta header]
++* class template[meta id-type]
++* std::execution[meta namespace]
++* cpp26[meta cpp]
++
++```cpp
++template&amp;lt;class... Fns&amp;gt;
++struct overload-set : Fns... {
++  using Fns::operator()...;
++};
++```
++
++## 概要
++`overload-set`は、Senderアルゴリズム動作仕様定義で用いられる説明専用のクラステンプレートである。
++
++
++## バージョン
++### 言語
++- C++26
++
++
++## 関連項目
++- [`execution::then`](then.md)
++- [`execution::let_value`](let_value.md)
++- [`execution::bulk`](bulk.md)
++
++
++## 参照
++- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>read_env -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/read_env.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/read_env.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/read_env.md b/reference/execution/execution/read_env.md
+index dd01a8ca6..0f8bf7826 100644
+--- a/reference/execution/execution/read_env.md
++++ b/reference/execution/execution/read_env.md
+@@ -33,6 +33,9 @@ namespace std::execution {
+       [](auto query, auto&amp;amp; rcvr) noexcept -&amp;gt; void {
+         TRY-SET-VALUE(rcvr, query(get_env(rcvr)));
+       };
++
++    template&amp;lt;class Sndr, class Env&amp;gt;
++    static consteval void check-types();
+   };
+ }
+ ```
+@@ -42,6 +45,9 @@ namespace std::execution {
+ * TRY-SET-VALUE[link set_value.md]
+ * get_env[link get_env.md]
+ 
++型`Q`を[`decay_t`](/reference/type_traits/decay.md)`&amp;lt;`[`data-type`](data-type.md)`&amp;lt;Sndr&amp;gt;&amp;gt;`とする。
++`Env`型の左辺値`env`に対して式`Q()(env)`が不適格もしくは`void`型をもつとき、メンバ関数`check-types`は[`exception`](/reference/exception/exception.md)から派生した未規定の型を例外として送出する。
++
+ 
+ ## 備考
+ `read_env`の[Senderアルゴリズムタグ型](tag_of_t.md)は未規定とされる。
+@@ -96,3 +102,4 @@ int main()
+ 
+ ## 参照
+ - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
++- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>run-loop-sender -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/run_loop/run-loop-sender.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/run_loop/run-loop-sender.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/run_loop/run-loop-sender.md b/reference/execution/execution/run_loop/run-loop-sender.md
+index 65937e3ef..059a36fb9 100644
+--- a/reference/execution/execution/run_loop/run-loop-sender.md
++++ b/reference/execution/execution/run_loop/run-loop-sender.md
+@@ -14,7 +14,7 @@ class run-loop-sender;  // exposition only
+ 
+ ## クラス仕様
+ - `run-loop-sender`型は[`sender`](../sender.md)のモデルである。
+-- 任意の型`Env`に対して、[`completion_signatures_of_t`](../completion_signatures_of_t.md)`&amp;lt;run-loop-sender, Env&amp;gt;`は[`completion_signatures`](../completion_signatures.md)`&amp;lt;`[`set_value_t`](../set_value.md)`(),` [`set_error_t`](../set_error.md)`(`[`exception_ptr`](/reference/exception/exception_ptr.md)`),` [`set_stopped_t`](../set_stopped.md)`()&amp;gt;`
++- [`completion_signatures_of_t`](../completion_signatures_of_t.md)`&amp;lt;run-loop-sender&amp;gt;`は[`completion_signatures`](../completion_signatures.md)`&amp;lt;`[`set_value_t`](../set_value.md)`(),` [`set_error_t`](../set_error.md)`(`[`exception_ptr`](/reference/exception/exception_ptr.md)`),` [`set_stopped_t`](../set_stopped.md)`()&amp;gt;`
+ - `run-loop-sender`インスタンスは、関連付けられた[`run_loop`](../run_loop.md)インスタンスの生存期間(lifetime)終了まで有効。
+ - 説明用の式`sndr`の型を`run-loop-sender`、`CS`が上記[`completion_signatures`](../completion_signatures.md)の特殊化であるとき[`receiver_of`](../receiver_of.md)`&amp;lt;decltype((rcvr)), CS&amp;gt;`が`true`となる式`rcvr`としたとき、
+     - 式[`connect`](../connect.md)`(sndr, rcvr)`の型は[`run-loop-opstate`](run-loop-opstate.md)`&amp;lt;`[`decay_t`](/reference/type_traits/decay.md)`&amp;lt;decltype((rcvr))&amp;gt;&amp;gt;`であり、潜在的な例外送出(potentially-throwing)は式`(void(sndr), auto(rcvr))`に従う。
+@@ -34,3 +34,4 @@ class run-loop-sender;  // exposition only
+ 
+ ## 参照
+ - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
++- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>schedule_from -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/schedule_from.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/schedule_from.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/schedule_from.md b/reference/execution/execution/schedule_from.md
+index 7b07f0cfe..b76689c3f 100644
+--- a/reference/execution/execution/schedule_from.md
++++ b/reference/execution/execution/schedule_from.md
+@@ -45,6 +45,9 @@ namespace std::execution {
+     static constexpr auto get-attrs = see below;
+     static constexpr auto get-state = see below;
+     static constexpr auto complete = see below;
++
++    template&amp;lt;class Sndr, class... Env&amp;gt;
++    static consteval void check-types();
+   };
+ }
+ ```
+@@ -135,6 +138,19 @@ namespace std::execution {
+ * exception_ptr[link /reference/exception/exception_ptr.md]
+ * current_exception()[link /reference/exception/current_exception.md]
+ 
++メンバ関数`impls-for&amp;lt;schedule_from_t&amp;gt;::check-types`の効果は下記の通り。
++
++```cpp
++get_completion_signatures&amp;lt;schedule_result_t&amp;lt;data-type&amp;lt;Sndr&amp;gt;&amp;gt;, FWD-ENV-T(Env)...&amp;gt;();
++auto cs = get_completion_signatures&amp;lt;child-type&amp;lt;Sndr&amp;gt;, FWD-ENV-T(Env)...&amp;gt;();
++decay-copyable-result-datums(cs);
++```
++* get_completion_signatures[link get_completion_signatures.md]
++* schedule_result_t[link schedule_result_t.md]
++* data-type[link data-type.md]
++* FWD-ENV-T[link ../forwarding_query.md]
++* decay-copyable-result-datums[link decay-copyable-result-datums.md]
++
+ 
+ ## 説明専用エンティティ
+ 説明専用のクラス`receiver-type`を下記の通り定義する。
+@@ -211,5 +227,6 @@ Senderアルゴリズム構築時および[Receiver](receiver.md)接続時に、
+ - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
+ - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+ - [P3396R1 std::execution wording fixes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html)
++- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+ - [LWG 4198. `schedule_from` isn&amp;#39;t starting the schedule sender if decay-copying results throws](https://cplusplus.github.io/LWG/issue4198)
+ - [LWG 4203. Constraints on `get-state` functions are incorrect](https://cplusplus.github.io/LWG/issue4203)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>scheduler -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/scheduler.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/scheduler.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/scheduler.md b/reference/execution/execution/scheduler.md
+index b7f645acc..5c0fd70dc 100644
+--- a/reference/execution/execution/scheduler.md
++++ b/reference/execution/execution/scheduler.md
+@@ -45,28 +45,7 @@ namespace std::execution {
+ 
+ 
+ ## モデル
+-説明専用のエイリアステンプレート`value-signature`, コンセプト`sender-in-of`を下記の通り定義する。
+-
+-```cpp
+-namespace std::execution {
+-  template&amp;lt;class... As&amp;gt;
+-  using value-signature = set_value_t(As...);
+-
+-  template&amp;lt;class Sndr, class Env, class... Values&amp;gt;
+-  concept sender-in-of =
+-    sender_in&amp;lt;Sndr, Env&amp;gt; &amp;amp;&amp;amp;
+-    MATCHING-SIG(
+-      set_value_t(Values...),
+-      value_types_of_t&amp;lt;Sndr, Env, value-signature, type_identity_t&amp;gt;);
+-}
+-```
+-* set_value_t[link set_value.md]
+-* sender_in[link sender_in.md]
+-* MATCHING-SIG[link get_completion_signatures.md]
+-* value_types_of_t[link value_types_of_t.md]
+-* type_identity_t[link /reference/type_traits/true_type.md]
+-
+-型`Sch`を`scheduler`の型、型`Env`を[`sender_in`](sender_in.md)`&amp;lt;`[`schedule_result_t`](schedule_result_t.md)`&amp;lt;Sch&amp;gt;, Env&amp;gt;`を満たす実行環境の型としたとき、`sender-in-of&amp;lt;`[`schedule_result_t`](schedule_result_t.md)`&amp;lt;Sch&amp;gt;, Env&amp;gt;`のモデルとなること。
++型`Sch`を`scheduler`の型、型`Env`を[`sender_in`](sender_in.md)`&amp;lt;`[`schedule_result_t`](schedule_result_t.md)`&amp;lt;Sch&amp;gt;, Env&amp;gt;`を満たす実行環境の型としたとき、[`sender-in-of`](sender-in-of.md)`&amp;lt;`[`schedule_result_t`](schedule_result_t.md)`&amp;lt;Sch&amp;gt;, Env&amp;gt;`のモデルとなること。
+ 
+ [`copyable`](/reference/concepts/copyable.md)`&amp;lt;remove_cvref_t&amp;lt;Sch&amp;gt;&amp;gt;`および[`equality_comparable`](/reference/concepts/equality_comparable.md)`&amp;lt;remove_cvref_t&amp;lt;Sch&amp;gt;&amp;gt;`により要求される操作は、例外で終了してはならない。
+ これらの操作やScheduler型の[`schedule`](schedule.md)関数は、異なるスレッドから同時に操作を呼び出す可能性がある場合でも、データ競合を引き起こしてはならない。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>sender-in-of -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/sender-in-of.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/sender-in-of.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/sender-in-of.md b/reference/execution/execution/sender-in-of.md
+new file mode 100644
+index 000000000..c80d82c58
+--- /dev/null
++++ b/reference/execution/execution/sender-in-of.md
+@@ -0,0 +1,63 @@
++# sender-in-of
++* execution[meta header]
++* concept[meta id-type]
++* std::execution[meta namespace]
++* cpp26[meta cpp]
++
++```cpp
++namespace std::execution {
++  template&amp;lt;class Sndr, class Env, class... Values&amp;gt;
++  concept sender-in-of = see below;
++
++  template&amp;lt;class Sndr, class... Values&amp;gt;
++  concept sender-of = see below;
++}
++```
++
++## 概要
++`sender-in-of`および`sender-of`は、実行制御ライブラリの仕様定義で用いられる説明専用のコンセプトである。
++
++説明用のエイリアステンプレート`value-signature`, コンセプト`sender-in-of-impl`, `sender-in-of`, `sender-of`を下記の通り定義する。
++
++```cpp
++namespace std::execution {
++  template&amp;lt;class... As&amp;gt;
++  using value-signature = set_value_t(As...);  // exposition only
++
++  template&amp;lt;class Sndr, class SetValue, class... Env&amp;gt;
++  concept sender-in-of-impl =  // exposition only
++    sender_in&amp;lt;Sndr, Env&amp;gt; &amp;amp;&amp;amp;
++    MATCHING-SIG(SetValue,
++                 gather-signatures&amp;lt;set_value_t,
++                                  completion_signatures_of_t&amp;lt;Sndr, Env...&amp;gt;,
++                                  value-signature,
++                                  type_identity_t&amp;gt;);
++
++  template&amp;lt;class Sndr, class Env, class... Values&amp;gt;
++  concept sender-in-of =  // exposition only
++    sender-in-of-impl&amp;lt;Sndr, set_value_t(Values...), Env&amp;gt;;
++
++  template&amp;lt;class Sndr, class... Values&amp;gt;
++  concept sender-of =  // exposition only
++    sender-in-of-impl&amp;lt;Sndr, set_value_t(Values...)&amp;gt;;
++}
++```
++* set_value_t[link set_value.md]
++* sender_in[link sender_in.md]
++* MATCHING-SIG[link get_completion_signatures.md]
++* gather-signatures[link gather-signatures.md]
++* completion_signatures_of_t[link completion_signatures_of_t.md]
++* type_identity_t[link /reference/type_traits/true_type.md]
++
++
++## バージョン
++### 言語
++- C++26
++
++
++## 関連項目
++- [`execution::scheduler`](scheduler.md)
++
++
++## 参照
++- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>sender_in -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/sender_in.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/sender_in.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/sender_in.md b/reference/execution/execution/sender_in.md
+index e587de234..44c57fd8f 100644
+--- a/reference/execution/execution/sender_in.md
++++ b/reference/execution/execution/sender_in.md
+@@ -6,25 +6,28 @@
+ 
+ ```cpp
+ namespace std::execution {
+-  template&amp;lt;class Sndr, class Env = env&amp;lt;&amp;gt;&amp;gt;
++  template&amp;lt;class Sndr, class... Env&amp;gt;
+   concept sender_in =
+     sender&amp;lt;Sndr&amp;gt; &amp;amp;&amp;amp;
+-    queryable&amp;lt;Env&amp;gt; &amp;amp;&amp;amp;
+-    requires (Sndr&amp;amp;&amp;amp; sndr, Env&amp;amp;&amp;amp; env) {
+-      { get_completion_signatures(std::forward&amp;lt;Sndr&amp;gt;(sndr), std::forward&amp;lt;Env&amp;gt;(env)) }
+-        -&amp;gt; valid-completion-signatures;
+-    };
++    (sizeof...(Env) &amp;lt;= 1) &amp;amp;&amp;amp;
++    (queryable&amp;lt;Env&amp;gt; &amp;amp;&amp;amp; ...) &amp;amp;&amp;amp;
++    is-constant&amp;lt;get_completion_signatures&amp;lt;Sndr, Env...&amp;gt;()&amp;gt;;
+ }
+ ```
+-* env&amp;lt;&amp;gt;[link env.md]
+ * sender[link sender.md]
+ * queryable[link ../queryable.md]
+ * get_completion_signatures[link get_completion_signatures.md]
+-* valid-completion-signatures[link completion_signatures.md]
+ 
+ ## 概要
+ `sender_in`は、[Sender型](sender.md)`Sndr`が[環境](../queryable.md)`Env`において非同期操作を作成できることを表すコンセプトである。
+ 
++説明用のコンセプト`is-constant`を下記の通り定義する。
++
++```cpp
++template &amp;lt;auto&amp;gt;
++concept is-constant = true;  // exposition only
++```
++
+ 
+ ## モデル
+ 説明用に`sndr`を`decltype((sndr))`が`Sndr`型となる式、`rcvr`を環境`Env`に関連付けられた[Receiver](receiver.md)とする。
+@@ -42,13 +45,12 @@ namespace ex = std::execution;
+ int main()
+ {
+   ex::sender auto sndr = ex::just(42);
+-  static_assert(ex::sender_in&amp;lt;decltype(sndr), ex::env&amp;lt;&amp;gt;&amp;gt;);
++  static_assert(ex::sender_in&amp;lt;decltype(sndr)&amp;gt;);
+ }
+ ```
+ * ex::sender_in[color ff0000]
+ * ex::sender[link sender.md]
+ * ex::just[link just.md]
+-* ex::env&amp;lt;&amp;gt;[link env.md]
+ 
+ ### 出力
+ ```
+@@ -73,3 +75,4 @@ int main()
+ 
+ ## 参照
+ - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
++- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>single-sender-value-type -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/single-sender-value-type.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/single-sender-value-type.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/single-sender-value-type.md b/reference/execution/execution/single-sender-value-type.md
+index 4dcf2637e..bf0254881 100644
+--- a/reference/execution/execution/single-sender-value-type.md
++++ b/reference/execution/execution/single-sender-value-type.md
+@@ -5,19 +5,21 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-template&amp;lt;class Sndr, class Env&amp;gt;
++template&amp;lt;class Sndr, class... Env&amp;gt;
+ using single-sender-value-type = see below;  // exposition only
+ ```
+ 
+ ## 概要
+ `single-sender-value-type`は、実行制御ライブラリの仕様定義で用いられる説明専用のエイリアステンプレートである。
+ 
+-型`Sndr`と`Env`に対して、`single-sender-value-type&amp;lt;Sndr, Env&amp;gt;`は下記のエイリアスとなる。
++型`Sndr`と型パック`Env`に対して、`CS`を[`completion_signatures_of_t`](completion_signatures_of_t.md)`&amp;lt;Sndr, Env...&amp;gt;`とする。`CS`が不適格または`sizeof...(Env) &amp;gt; 1`のとき、`single-sender-value-type&amp;lt;Sndr, Env...&amp;gt;`は不適格となる。
+ 
+-- [`value_types_of_t`](value_types_of_t.md)`&amp;lt;Sndr, Env,` [`decay_t`](/reference/type_traits/decay.md)`,` [`type_identity_t`](/reference/type_traits/type_identity.md)`&amp;gt;`が適格であるならば、その型。
+-- そうではなく、[`value_types_of_t`](value_types_of_t.md)`&amp;lt;Sndr, Env,` [`tuple`](/reference/tuple/tuple.md)`,` [`variant`](/reference/variant/variant.md)`&amp;gt;`が`variant&amp;lt;tuple&amp;lt;&amp;gt;&amp;gt;`もしくは`variant&amp;lt;&amp;gt;`ならば、`void`型。
+-- [`value_types_of_t`](value_types_of_t.md)`&amp;lt;Sndr, Env,` [`decayed-tuple`](decayed-tuple.md)`,` [`type_identity_t`](/reference/type_traits/type_identity.md)`&amp;gt;`が適格であるならば、その型。
+-- そうでなければ、`single-sender-value-type&amp;lt;Sndr, Env&amp;gt;`は不適格。
++そうでなければ、`single-sender-value-type&amp;lt;Sndr, Env...&amp;gt;`は下記のエイリアスとなる。
++
++- [`gather-signatures`](gather-signatures.md)`&amp;lt;`[`set_value_t`](set_value.md)`, CS,` [`decay_t`](/reference/type_traits/decay.md)`,` [`type_identity_t`](/reference/type_traits/type_identity.md)`&amp;gt;`が適格であるならば、その型。
++- そうではなく、[`gather-signatures`](gather-signatures.md)`&amp;lt;`[`set_value_t`](set_value.md)`, CS,` [`tuple`](/reference/tuple/tuple.md)`,` [`variant`](/reference/variant/variant.md)`&amp;gt;`が`variant&amp;lt;tuple&amp;lt;&amp;gt;&amp;gt;`もしくは`variant&amp;lt;&amp;gt;`ならば、`void`型。
++- そうではなく、[`gather-signatures`](gather-signatures.md)`&amp;lt;`[`set_value_t`](set_value.md)`, CS,` [`decayed-tuple`](decayed-tuple.md)`,` [`type_identity_t`](/reference/type_traits/type_identity.md)`&amp;gt;`が適格であるならば、その型。
++- そうでなければ、`single-sender-value-type&amp;lt;Sndr, Env...&amp;gt;`は不適格。
+ 
+ 
+ ## バージョン
+@@ -32,3 +34,4 @@ using single-sender-value-type = see below;  // exposition only
+ 
+ ## 参照
+ - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
++- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>single-sender -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/single-sender.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/single-sender.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/single-sender.md b/reference/execution/execution/single-sender.md
+index b1e724288..ce983b79e 100644
+--- a/reference/execution/execution/single-sender.md
++++ b/reference/execution/execution/single-sender.md
+@@ -5,10 +5,10 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-template&amp;lt;class Sndr, class Env&amp;gt;
+-concept single-sender = sender_in&amp;lt;Sndr, Env&amp;gt; &amp;amp;&amp;amp;
++template&amp;lt;class Sndr, class... Env&amp;gt;
++concept single-sender = sender_in&amp;lt;Sndr, Env...&amp;gt; &amp;amp;&amp;amp;
+   requires {
+-    typename single-sender-value-type&amp;lt;Sndr, Env&amp;gt;;
++    typename single-sender-value-type&amp;lt;Sndr, Env...&amp;gt;;
+   };
+ ```
+ * sender_in[link sender_in.md]
+@@ -29,3 +29,4 @@ concept single-sender = sender_in&amp;lt;Sndr, Env&amp;gt; &amp;amp;&amp;amp;
+ 
+ ## 参照
+ - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
++- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>stopped_as_optional -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/stopped_as_optional.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/stopped_as_optional.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/stopped_as_optional.md b/reference/execution/execution/stopped_as_optional.md
+index dc28ba07a..15fc81c4d 100644
+--- a/reference/execution/execution/stopped_as_optional.md
++++ b/reference/execution/execution/stopped_as_optional.md
+@@ -30,7 +30,33 @@ transform_sender(get-domain-early(sndr), make-sender(stopped_as_optional, {}, sn
+ 
+ 
+ ### Senderアルゴリズムタグ `stopped_as_optional`
+-説明用の式`sndr`と`env`に対して、型`Sndr`を`decltype((sndr))`、型`Env`を`decltype((env))`とする。[`sender-for`](sender-for.md)`&amp;lt;Sndr, stopped_as_optional_t&amp;gt; == false`、もしくは[`single-sender-value-type`](single-sender-value-type.md)`&amp;lt;`[`child-type`](child-type.md)`&amp;lt;Sndr&amp;gt;,` [`FWD-ENV-T`](../forwarding_query.md)`(Env)&amp;gt;`が不適格または`void`のとき、式`stopped_as_optional.transform_sender(sndr, env)`は不適格となる。
++Senderアルゴリズム動作説明用のクラステンプレート[`impls-for`](impls-for.md)に対して、下記の特殊化が定義される。
++
++```cpp
++namespace std::execution {
++  template&amp;lt;&amp;gt;
++  struct impls-for&amp;lt;stopped_as_optional_t&amp;gt; : default-impls {
++    template&amp;lt;class Sndr, class... Env&amp;gt;
++    static consteval void check-types() {
++      default-impls::check-types&amp;lt;Sndr, Env...&amp;gt;();
++      if constexpr (!requires {
++        requires (!same_as&amp;lt;void, single-sender-value-type&amp;lt;child-type&amp;lt;Sndr&amp;gt;, FWD-ENV-T(Env)...&amp;gt;&amp;gt;); })
++        throw unspecified-exception();
++      }
++  };
++}
++```
++* impls-for[link impls-for.md]
++* default-impls[link impls-for.md]
++* single-sender-value-type[link single-sender-value-type.md]
++* child-type[link child-type.md]
++* FWD-ENV-T[link ../forwarding_query.md]
++
++`unspecified-exception`は[`exception`](/reference/exception/exception.md)から派生した型となる。
++
++説明用の式`sndr`と`env`に対して、型`Sndr`を`decltype((sndr))`、型`Env`を`decltype((env))`とする。[`sender-for`](sender-for.md)`&amp;lt;Sndr, stopped_as_optional_t&amp;gt; == false`のとき、式`stopped_as_optional.transform_sender(sndr, env)`は不適格となる。
++
++そうではなく、[`sender_in`](sender_in.md)`&amp;lt;`[`child-type`](child-type.md)`&amp;lt;Sndr&amp;gt;,` [`FWD-ENV-T`](../forwarding_query.md)`(Env)&amp;gt; == false`のとき、式`stopped_as_optional.transform_sender(sndr, env)`は[`not-a-sender()`](not-a-sender.md)と等価。
+ 
+ そうでなければ、式`stopped_as_optional.transform_sender(sndr, env)`は下記と等価。
+ 
+@@ -166,4 +192,5 @@ stopped
+ ## 参照
+ - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
+ - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
++- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+ - [LWG 4203. Constraints on `get-state` functions are incorrect](https://cplusplus.github.io/LWG/issue4203)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>then -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/then.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/then.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/then.md b/reference/execution/execution/then.md
+index 3ec21dcda..5bc0f8c38 100644
+--- a/reference/execution/execution/then.md
++++ b/reference/execution/execution/then.md
+@@ -48,6 +48,9 @@ namespace std::execution {
+             Tag()(std::move(rcvr), std::forward&amp;lt;Args&amp;gt;(args)...);
+           }
+         };
++
++    template&amp;lt;class Sndr, class... Env&amp;gt;
++    static consteval void check-types();
+   };
+ }
+ ```
+@@ -59,6 +62,24 @@ namespace std::execution {
+ * invoke[link /reference/functional/invoke.md]
+ * std::move[link /reference/utility/move.md]
+ 
++メンバ関数`impls-for&amp;lt;decayed-typeof&amp;lt;then&amp;gt;&amp;gt;::check-types`の効果は下記の通り。
++
++```cpp
++auto cs = get_completion_signatures&amp;lt;child-type&amp;lt;Sndr&amp;gt;, FWD-ENV-T(Env)...&amp;gt;();
++auto fn = []&amp;lt;class... Ts&amp;gt;(set_value_t(*)(Ts...)) {
++  if constexpr (!invocable&amp;lt;remove_cvref_t&amp;lt;data-type&amp;lt;Sndr&amp;gt;&amp;gt;, Ts...&amp;gt;)
++    throw unspecified-exception();
++};
++cs.for-each(overload-set{fn, [](auto){}});
++```
++* get_completion_signatures[link get_completion_signatures.md]
++* child-type[link child-type.md]
++* FWD-ENV-T[link ../forwarding_query.md]
++* set_value_t[link set_value.md]
++* data-type[link data-type.md]
++
++`unspecified-exception`は[`exception`](/reference/exception/exception.md)から派生した型となる。
++
+ 
+ ## カスタマイゼーションポイント
+ Senderアルゴリズム構築時および[Receiver](receiver.md)接続時に、関連付けられた実行ドメインに対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
+@@ -130,3 +151,4 @@ C++
+ ## 参照
+ - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
+ - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
++- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>when_all -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/when_all.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/when_all.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/when_all.md b/reference/execution/execution/when_all.md
+index 47fa9b2ec..911622cfe 100644
+--- a/reference/execution/execution/when_all.md
++++ b/reference/execution/execution/when_all.md
+@@ -24,7 +24,7 @@ namespace std::execution {
+ 
+ 
+ ## 効果
+-説明用のパック`sndrs`に対してパック`Sndrs`を`decltype((sndrs))...`としたとき、型`CD`を[`common_type_t`](/reference/type_traits/common_type.md)`&amp;lt;decltype(`[`get-domain-early`](get-domain-early.md)`(sndrs))...&amp;gt;`とする。
++説明用のパック`sndrs`に対してパック`Sndrs`を`decltype((sndrs))...`としたとき、型`CD`を[`common_type_t`](/reference/type_traits/common_type.md)`&amp;lt;decltype(`[`get-domain-early`](get-domain-early.md)`(sndrs))...&amp;gt;`とする。型`CD`が適格ならば型`CD2`を`CD`とし、そうでなければ[`default_domain`](default_domain.md)とする。
+ 
+ 下記いずれかが`true`となるとき、呼び出し式`when_all(sndrs...)`は不適格となる。
+ 
+@@ -35,7 +35,7 @@ namespace std::execution {
+ そうでなければ、呼び出し式`when_all(sndrs...)`は下記と等価。
+ 
+ ```cpp
+-transform_sender(CD(), make-sender(when_all, {}, sndrs...))
++transform_sender(CD2(), make-sender(when_all, {}, sndrs...))
+ ```
+ * transform_sender[link transform_sender.md]
+ * make-sender[link make-sender.md]
+@@ -53,6 +53,9 @@ namespace std::execution {
+     static constexpr auto get-state = see below;
+     static constexpr auto start = see below;
+     static constexpr auto complete = see below;
++
++    template&amp;lt;class Sndr, class... Env&amp;gt;
++    static consteval void check-types();
+   };
+ }
+ ```
+@@ -79,15 +82,10 @@ namespace std::execution {
+ 
+ ```cpp
+ []&amp;lt;class State, class Rcvr&amp;gt;(auto&amp;amp;&amp;amp;, State&amp;amp; state, const Receiver&amp;amp; rcvr) noexcept {
+-  return see below;
++  return make-when-all-env(state.stop-src, get_env(rcvr))
+ }
+ ```
+-
+-ラムダ式は下記を満たすオブジェクト`e`を返す。
+-
+-- `decltype(e)`が[`queryable`](../queryable.md)のモデル、かつ
+-- 式`e.query(`[`get_stop_token`](../get_stop_token.md)`)`が`state.stop-src.`[`get_token()`](/reference/stop_token/inplace_stop_source/get_token.md)と等価、かつ
+-- [`get_stop_token`](../get_stop_token.md)以外かつ[`forwarding-query`](../forwarding-query.md)を満たす[クエリオブジェクト](../queryable.md)`q`に対して、式`e.query(q)`は[`get_env`](get_env.md)`(rcvr).query(q)`と等価。
++* get_env[link get_env.md]
+ 
+ `impls-for&amp;lt;when_all_t&amp;gt;::get-state`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
+ 
+@@ -191,17 +189,47 @@ try {
+ * emplace[link /reference/optional/optional/emplace.md]
+ * current_exception()[link /reference/exception/current_exception.md]
+ 
++メンバ関数`impls-for&amp;lt;when_all_t&amp;gt;::check-types`の効果は下記の通り。
++説明用のパック`Is`を、[`indices-for`](basic-sender.md)`&amp;lt;Sndr&amp;gt;`で導入される[`integer_sequence`](/reference/utility/integer_sequence.md)クラス特殊化の整数テンプレート引数とする。
++
++```cpp
++auto fn = []&amp;lt;class Child&amp;gt;() {
++  auto cs = get_completion_signatures&amp;lt;Child, when-all-env&amp;lt;Env&amp;gt;...&amp;gt;();
++  if constexpr (cs.count-of(set_value) &amp;gt;= 2)
++    throw unspecified-exception();
++  decay-copyable-result-datums(cs);
++};
++(fn.template operator()&amp;lt;child-type&amp;lt;Sndr, Is&amp;gt;&amp;gt;(), ...);
++```
++* get_completion_signatures[link get_completion_signatures.md]
++* count-of[link completion_signatures.md]
++* set_value[link set_value.md]
++* decay-copyable-result-datums[link decay-copyable-result-datums.md]
++* child-type[link child-type.md]
++
++`unspecified-exception`は[`exception`](/reference/exception/exception.md)から派生した型となる。
++型`CD`が不適格な場合、[`exception`](/reference/exception/exception.md)から派生した未規定な型を例外として送出する。
++
+ 
+ ## 説明専用エンティティ
+-### コンセプト`max-1-sender-in`
++### 関数テンプレート`make-when-all-env`
+ ```cpp
+-template&amp;lt;class Sndr, class Env&amp;gt;
+-concept max-1-sender-in = sender_in&amp;lt;Sndr, Env&amp;gt; &amp;amp;&amp;amp;  // exposition only
+-  (tuple_size_v&amp;lt;value_types_of_t&amp;lt;Sndr, Env, tuple, tuple&amp;gt;&amp;gt; &amp;lt;= 1);
++template&amp;lt;class Env&amp;gt;
++constexpr auto make-when-all-env(inplace_stop_source&amp;amp; stop_src,  // exposition only
++                                 Env&amp;amp;&amp;amp; env) noexcept {
++  return see below;
++}
+ ```
+-* sender_in[link sender_in.md]
+-* value_types_of_t[link value_types_of_t.md]
+-* tuple_size_v[link /reference/tuple/tuple_size.md]
++* inplace_stop_source[link /reference/stop_token/inplace_stop_source.md]
++
++下記を満たすオブジェクト`e`を返す。
++
++- `decltype(e)`が[`queryable`](../queryable.md)のモデル、かつ
++- 式`e.query(`[`get_stop_token`](../get_stop_token.md)`)`が`state.stop-src.`[`get_token()`](/reference/stop_token/inplace_stop_source/get_token.md)と等価、かつ
++- [`get_stop_token`](../get_stop_token.md)以外かつ[`forwarding-query`](../forwarding-query.md)を満たす[クエリオブジェクト](../queryable.md)`q`に対して、式`e.query(q)`は[`get_env`](get_env.md)`(rcvr).query(q)`と等価。
++
++### エイリアステンプレート`when-all-env`
++`when-all-env&amp;lt;Env&amp;gt;`は`decltype(make-when-all-env(declval&amp;lt;`[`inplace_stop_source`](/reference/stop_token/inplace_stop_source.md)`&amp;amp;&amp;gt;(), declval&amp;lt;Env&amp;gt;()))`となる。
+ 
+ ### 列挙型`disposition`
+ ```cpp
+@@ -212,7 +240,7 @@ enum class disposition { started, error, stopped };  // exposition only
+ ```cpp
+ template&amp;lt;class Rcvr&amp;gt;
+ struct make-state {
+-  template&amp;lt;max-1-sender-in&amp;lt;FWD-ENV-T(env_of_t&amp;lt;Rcvr&amp;gt;)&amp;gt;... Sndrs&amp;gt;
++  template&amp;lt;class... Sndrs&amp;gt;
+   auto operator()(auto, auto, Sndrs&amp;amp;&amp;amp;... sndrs) const {
+     using values_tuple = see below;
+     using errors_variant = see below;
+@@ -239,7 +267,6 @@ struct make-state {
+   }
+ };
+ ```
+-* FWD-ENV-T[link ../forwarding_query.md]
+ * env_of_t[link env_of_t.md]
+ * stop_token_of_t[link ../stop_token_of_t.md]
+ * on-stop-request[link on-stop-request.md]
+@@ -479,5 +506,6 @@ error=-2
+ - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
+ - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+ - [P3396R1 std::execution wording fixes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html)
++- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+ - [LWG 4203. Constraints on `get-state` functions are incorrect](https://cplusplus.github.io/LWG/issue4203)
+ - [LWG 4227. Missing `noexcept` operator in [exec.when.all]](https://cplusplus.github.io/LWG/issue4227)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>when_all_with_variant -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/when_all_with_variant.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/when_all_with_variant.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/when_all_with_variant.md b/reference/execution/execution/when_all_with_variant.md
+index 1329f52b6..5f7fcf041 100644
+--- a/reference/execution/execution/when_all_with_variant.md
++++ b/reference/execution/execution/when_all_with_variant.md
+@@ -24,7 +24,7 @@ namespace std::execution {
+ 
+ 
+ ## 効果
+-説明用のパック`sndrs`に対してパック`Sndrs`を`decltype((sndrs))...`としたとき、型`CD`を[`common_type_t`](/reference/type_traits/common_type.md)`&amp;lt;decltype(`[`get-domain-early`](get-domain-early.md)`(sndrs))...&amp;gt;`とする。
++説明用のパック`sndrs`に対してパック`Sndrs`を`decltype((sndrs))...`としたとき、型`CD`を[`common_type_t`](/reference/type_traits/common_type.md)`&amp;lt;decltype(`[`get-domain-early`](get-domain-early.md)`(sndrs))...&amp;gt;`とする。型`CD`が適格ならば型`CD2`を`CD`とし、そうでなければ[`default_domain`](default_domain.md)とする。
+ 
+ 下記いずれかが`true`となるとき、呼び出し式`when_all_with_variant(sndrs...)`は不適格となる。
+ 
+@@ -35,7 +35,7 @@ namespace std::execution {
+ そうでなければ、呼び出し式`when_all_with_variant(sndrs...)`は下記と等価。
+ 
+ ```cpp
+-transform_sender(CD(), make-sender(when_all_with_variant, {}, sndrs...))
++transform_sender(CD2(), make-sender(when_all_with_variant, {}, sndrs...))
+ ```
+ * transform_sender[link transform_sender.md]
+ * make-sender[link make-sender.md]
+@@ -184,3 +184,4 @@ int main()
+ ## 参照
+ - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
+ - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
++- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>write-env -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/write-env.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/write-env.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/write-env.md b/reference/execution/execution/write-env.md
+index f53008768..14d3765b0 100644
+--- a/reference/execution/execution/write-env.md
++++ b/reference/execution/execution/write-env.md
+@@ -30,19 +30,29 @@ Senderアルゴリズム動作説明用のクラステンプレート[`impls-for
+ ```cpp
+ template&amp;lt;&amp;gt;
+ struct impls-for&amp;lt;write-env-t&amp;gt; : default-impls {
++  static constexpr auto join-env(const auto&amp;amp; state, const auto&amp;amp; env) noexcept {
++    return see below;
++  }
++
+   static constexpr auto get-env =
+     [](auto, const auto&amp;amp; state, const auto&amp;amp; rcvr) noexcept {
+-      return see below;
++      return join-env(state, FWD-ENV(get_env(rcvr)));
+     };
++
++  template&amp;lt;class Sndr, class... Env&amp;gt;
++  static consteval void check-types();
+ };
+ ```
+ * impls-for[link impls-for.md]
+ * default-impls[link impls-for.md]
++* FWD-ENV[link ../forwarding_query.md]
++* get_env[link get_env.md]
+ 
+-`impls-for&amp;lt;write-env-t&amp;gt;::get-env`メンバの呼び出しは下記を満たすオブジェクト`e`を返す。
++`impls-for&amp;lt;write-env-t&amp;gt;::join-env`メンバの呼び出しは下記を満たすオブジェクト`e`を返す。
+ 
+ - 型`decltype(e)`が[`queryable`](../queryable.md)のモデルであり、かつ
+-- 与えられた[クエリオブジェクト](../queryable.md)`q`に対して、式`e.query(q)`は式`state.query(q)`が有効ならばその式と等価。そうでなければ、式`e.query(q)`は[`get_env`](get_env.md)`(rcvr).query(q)`と等価。
++- 与えられた[クエリオブジェクト](../queryable.md)`q`に対して、式`e.query(q)`は式`state.query(q)`が有効ならばその式と等価。そうでなければ、式`e.query(q)`は`env.query(q)`と等価。
++- 型`Sndr`と型パック`Env`に対して、型`State`を[`data-type`](data-type.md)`&amp;lt;Sndr&amp;gt;`とし、パック`JoinEnv`を`decltype(join-env(declval&amp;lt;State&amp;gt;(),` [`FWD-ENV`](../forwarding_query.md)`(declval&amp;lt;Env&amp;gt;())))`とする。式`impls-for&amp;lt;write-env-t&amp;gt;::check-types&amp;lt;Sndr, Env...&amp;gt;()`は[`get_completion_signatures`](get_completion_signatures.md)`&amp;lt;`[`child-type`](child-type.md)`&amp;lt;Sndr&amp;gt;, JoinEnv...&amp;gt;()`と等価。
+ 
+ 
+ ## バージョン
+@@ -57,3 +67,4 @@ struct impls-for&amp;lt;write-env-t&amp;gt; : default-impls {
+ ## 参照
+ - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+ - [P3396R1 std::execution wording fixes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html)
++- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>is-awaitable -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/is-awaitable.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/is-awaitable.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/is-awaitable.md b/reference/execution/is-awaitable.md
+index a14bb68d8..0db175a0b 100644
+--- a/reference/execution/is-awaitable.md
++++ b/reference/execution/is-awaitable.md
+@@ -5,7 +5,7 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-template&amp;lt;class C, class Promise&amp;gt;
++template&amp;lt;class C, class... Promise&amp;gt;
+ concept is-awaitable;
+ ```
+ 
+@@ -19,15 +19,17 @@ concept is-awaitable;
+ - （有効ならば）Promise型の`await_transform`メンバ関数を適用
+ - （有効ならば）`co_await`演算子オーバーロードを適用
+ 
++`await_transform`メンバ関数を持たず[`coroutine_handle`](/reference/coroutine/coroutine_handle.md)`&amp;lt;none-such&amp;gt;`が`coroutine_handle&amp;lt;void&amp;gt;`と同様に振る舞う未規定の空のクラス`none-such`の左辺値`p`を用いて、説明用の式`GET-AWAITER(c)`は`GET-AWAITER(c, p)`と等価とする。
++
+ また、説明用のコンセプト`await-suspend-result`, `is-awaiter`を以下のように定義する。
+ 
+ ```cpp
+ template&amp;lt;class T&amp;gt;
+ concept await-suspend-result = see below;
+ 
+-template&amp;lt;class A, class Promise&amp;gt;
++template&amp;lt;class A, class... Promise&amp;gt;
+ concept is-awaiter =
+-  requires (A&amp;amp; a, coroutine_handle&amp;lt;Promise&amp;gt; h) {
++  requires (A&amp;amp; a, coroutine_handle&amp;lt;Promise...&amp;gt; h) {
+     a.await_ready() ? 1 : 0;
+     { a.await_suspend(h) } -&amp;gt; await-suspend-result;
+     a.await_resume();
+@@ -44,10 +46,10 @@ concept is-awaiter =
+ `is-awaitable`コンセプトは、以下のように定義される。
+ 
+ ```cpp
+-template&amp;lt;class C, class Promise&amp;gt;
++template&amp;lt;class C, class... Promise&amp;gt;
+ concept is-awaitable =
+-  requires (C (*fc)() noexcept, Promise&amp;amp; p) {
+-    { GET-AWAITER(fc(), p) } -&amp;gt; is-awaiter&amp;lt;Promise&amp;gt;;
++  requires (C (*fc)() noexcept, Promise&amp;amp;... p) {
++    { GET-AWAITER(fc(), p...) } -&amp;gt; is-awaiter&amp;lt;Promise...&amp;gt;;
+   };
+ ```
+ * GET-AWAITER[italic]
+@@ -64,3 +66,4 @@ concept is-awaitable =
+ 
+ ## 参照
+ - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
++- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>sync_wait -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/this_thread/sync_wait.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/this_thread/sync_wait.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/this_thread/sync_wait.md b/reference/execution/this_thread/sync_wait.md
+index d80039fd1..06a2b6cd3 100644
+--- a/reference/execution/this_thread/sync_wait.md
++++ b/reference/execution/this_thread/sync_wait.md
+@@ -24,9 +24,7 @@ namespace std::this_thread {
+ ## 効果
+ 説明用の`sndr`を`decltype((sndr))`が`Sndr`型となる式とする。
+ 
+-[`sender_in`](../execution/sender_in.md)`&amp;lt;Sndr,` [`sync-wait-env`](sync-wait-env.md)`&amp;gt; == false`のとき、呼び出し式`this_thread::sync_wait(sndr)`は不適格となる。
+-
+-そうでなければ、呼び出し式`this_thread::sync_wait(sndr)`は`sndr`が1回だけ評価されることを除いて、下記と等価。
++呼び出し式`this_thread::sync_wait(sndr)`は`sndr`が1回だけ評価されることを除いて、下記と等価。
+ 
+ ```cpp
+ apply_sender(get-domain-early(sndr), sync_wait, sndr)
+@@ -34,6 +32,7 @@ apply_sender(get-domain-early(sndr), sync_wait, sndr)
+ * apply_sender[link ../execution/apply_sender.md]
+ * get-domain-early[link ../execution/get-domain-early.md]
+ 
++- [`sender_in`](../execution/sender_in.md)`&amp;lt;Sndr,` [`sync-wait-env`](sync-wait-env.md)`&amp;gt; == true`であること。
+ - 型`sync-wait-result-type&amp;lt;Sndr&amp;gt;`が適格であること。
+ - 上記の`apply_sender`式を`e`としたとき、[`same_as`](/reference/concepts/same_as.md)`&amp;lt;decltype(e), sync-wait-result-type&amp;lt;Sndr&amp;gt;&amp;gt; == true`であること。
+ 
+@@ -145,3 +144,4 @@ result=(100, X)
+ 
+ ## 参照
+ - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
++- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>sync_wait_with_variant -- execution: C++26 P3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/this_thread/sync_wait_with_variant.html"/>
+      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/this_thread/sync_wait_with_variant.md</id>
+      <updated>2025-08-16T21:31:08+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/this_thread/sync_wait_with_variant.md b/reference/execution/this_thread/sync_wait_with_variant.md
+index d23cf6018..d67ec4321 100644
+--- a/reference/execution/this_thread/sync_wait_with_variant.md
++++ b/reference/execution/this_thread/sync_wait_with_variant.md
+@@ -25,9 +25,7 @@ namespace std::this_thread {
+ ## 効果
+ 説明用の`sndr`を`decltype(`[`into_variant`](../execution/into_variant.md)`(sndr))`が`Sndr`型となる式とする。
+ 
+-[`sender_in`](../execution/sender_in.md)`&amp;lt;Sndr,` [`sync-wait-env`](sync-wait-env.md)`&amp;gt; == false`のとき、呼び出し式`this_thread::sync_wait_with_variant(sndr)`は不適格となる。
+-
+-そうでなければ、呼び出し式`this_thread::sync_wait_with_variant(sndr)`は`sndr`が1回だけ評価されることを除いて、下記と等価。
++呼び出し式`this_thread::sync_wait_with_variant(sndr)`は`sndr`が1回だけ評価されることを除いて、下記と等価。
+ 
+ ```cpp
+ apply_sender(get-domain-early(sndr), sync_wait_with_variant, sndr)
+@@ -35,6 +33,7 @@ apply_sender(get-domain-early(sndr), sync_wait_with_variant, sndr)
+ * apply_sender[link ../execution/apply_sender.md]
+ * get-domain-early[link ../execution/get-domain-early.md]
+ 
++- [`sender_in`](../execution/sender_in.md)`&amp;lt;Sndr,` [`sync-wait-env`](sync-wait-env.md)`&amp;gt; == true`であること。
+ - 型`sync-wait-with-variant-result-type&amp;lt;Sndr&amp;gt;`が適格であること。
+ - 上記の`apply_sender`式を`e`としたとき、[`same_as`](/reference/concepts/same_as.md)`&amp;lt;decltype(e), sync-wait-with-variant-result-type&amp;lt;Sndr&amp;gt;&amp;gt; == true`であること。
+ 
+@@ -58,9 +57,7 @@ namespace std::this_thread {
+ ### Senderアルゴリズムタグ `sync_wait_with_variant`
+ 説明用の`sndr`を`decltype(`[`into_variant`](../execution/into_variant.md)`(sndr))`が`Sndr`型となる式とする。
+ 
+-[`callable`](/reference/functional/callable.md)`&amp;lt;`[`sync_wait_t`](sync_wait.md)`, Sndr&amp;gt; == false`のとき、式`sync_wait_with_variant.apply_sender(sndr)`は不適格となる。
+-
+-そうでなければ、式`sync_wait_with_variant.apply_sender(sndr)`は下記と等価。
++式`sync_wait_with_variant.apply_sender(sndr)`は下記と等価。
+ 
+ ```cpp
+ using result_type = sync-wait-with-variant-result-type&amp;lt;Sndr&amp;gt;;
+@@ -138,3 +135,4 @@ result=(100, &amp;#39;X&amp;#39;)
+ 
+ ## 参照
+ - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
++- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>execution -- execution: P3557R3 remove transform_completion_signatures(_of)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution.html"/>
+      <id>d29d225cd07cf1094a32f27d27e8283edc3abdd7:reference/execution/execution.md</id>
+      <updated>2025-08-16T10:47:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution.md b/reference/execution/execution.md
+index 634592a36..a9eda1dc8 100644
+--- a/reference/execution/execution.md
++++ b/reference/execution/execution.md
+@@ -142,8 +142,6 @@ Senderコンシューマは名前空間 `std::this_thread` で定義される。
+ | 名前 | 説明 | 対応バージョン |
+ |------|------|----------------|
+ | [`execution::completion_signatures`](execution/completion_signatures.md) | 完了シグネチャ集合を表現する型 (class template) | C++26 |
+-| [`execution::transform_completion_signatures`](execution/transform_completion_signatures.md) | 完了シグネチャ集合を変換 (alias template) | C++26 |
+-| [`execution::transform_completion_signatures_of`](execution/transform_completion_signatures_of.md) | Senderの完了シグネチャ集合を変換 (alias template) | C++26 |
+ | [`execution::run_loop`](execution/run_loop.md) | 単一スレッド上でのループ実行 (class) | C++26 |
+ 
+ ### コルーチンユーティリティ
+@@ -162,4 +160,5 @@ Senderコンシューマは名前空間 `std::this_thread` で定義される。
+ ## 参照
+ - [P0024R2 The Parallelism TS Should be Standardized](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0024r2.html)
+ - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
++- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+ - [P3682R0 Remove `std::execution::split`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3682r0.pdf)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>gather-signatures -- execution: P3557R3 remove transform_completion_signatures(_of)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/gather-signatures.html"/>
+      <id>d29d225cd07cf1094a32f27d27e8283edc3abdd7:reference/execution/execution/gather-signatures.md</id>
+      <updated>2025-08-16T10:47:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/gather-signatures.md b/reference/execution/execution/gather-signatures.md
+index 40a8ea3e9..9d41f78b4 100644
+--- a/reference/execution/execution/gather-signatures.md
++++ b/reference/execution/execution/gather-signatures.md
+@@ -37,7 +37,6 @@ using gather-signatures = see below;
+ - [`execution::value_types_of_t`](value_types_of_t.md)
+ - [`execution::error_types_of_t`](error_types_of_t.md)
+ - [`execution::sends_stopped`](sends_stopped.md)
+-- [`execution::transform_completion_signatures`](transform_completion_signatures.md)
+ 
+ 
+ ## 参照
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>transform_completion_signatures.md -- execution: P3557R3 remove transform_completion_signatures(_of)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/transform_completion_signatures.html"/>
+      <id>d29d225cd07cf1094a32f27d27e8283edc3abdd7:reference/execution/execution/transform_completion_signatures.md</id>
+      <updated>2025-08-16T10:47:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/transform_completion_signatures.md b/reference/execution/execution/transform_completion_signatures.md
+deleted file mode 100644
+index 6f590e348..000000000
+--- a/reference/execution/execution/transform_completion_signatures.md
++++ /dev/null
+@@ -1,86 +0,0 @@
+-# transform_completion_signatures
+-* execution[meta header]
+-* std::execution[meta namespace]
+-* type-alias[meta id-type]
+-* cpp26[meta cpp]
+-
+-```cpp
+-namespace std::execution {
+-  template&amp;lt;
+-    valid-completion-signatures InputSignatures,
+-    valid-completion-signatures AdditionalSignatures = completion_signatures&amp;lt;&amp;gt;,
+-    template&amp;lt;class...&amp;gt; class SetValue = default-set-value,
+-    template&amp;lt;class&amp;gt; class SetError = default-set-error,
+-    valid-completion-signatures SetStopped = completion_signatures&amp;lt;set_stopped_t()&amp;gt;&amp;gt;
+-  using transform_completion_signatures = completion_signatures&amp;lt;see below&amp;gt;;
+-}
+-```
+-* valid-completion-signatures[link completion_signatures.md]
+-* completion_signatures[link completion_signatures.md]
+-* set_stopped_t()[link set_stopped.md]
+-
+-## 概要
+-[完了シグネチャ集合](completion_signatures.md)から別の完了シグネチャ集合へ変換するエイリアステンプレート。
+-
+-テンプレートパラメータとして完了シグネチャ集合と、各完了シグネチャに対して型変更を適用する複数のテンプレート引数をとり、[`completion_signatures`](completion_signatures.md)の新しい特殊化を生成する。
+-
+-- `InputSignatures` : 変換元の入力完了シグネチャ集合
+-- `AdditionalSignatures` : 追加される完了シグネチャ集合（下記3種の変換適用後に追加される）
+-- `SetValue` : [値完了シグネチャ](set_value.md)集合に適用する型変換メタ操作
+-- `SetError` : [エラー完了シグネチャ](set_value.md)集合に適用する型変換メタ操作
+-- `SetStopped` : [停止完了シグネチャ](set_stopped.md)を置換する完了シグネチャ集合
+-
+-
+-### 詳細仕様
+-説明専用のエイリアステンプレート`default-set-value`, `default-set-error`を次の通り定義する。
+-```cpp
+-template&amp;lt;class... As&amp;gt;
+-using default-set-value =
+-  completion_signatures&amp;lt;set_value_t(As...)&amp;gt;;
+-
+-template&amp;lt;class Err&amp;gt;
+-using default-set-error =
+-  completion_signatures&amp;lt;set_error_t(Err)&amp;gt;;
+-```
+-* completion_signatures[link completion_signatures.md]
+-* set_value_t[link set_value.md]
+-* set_error_t[link set_error.md]
+-
+-説明用のパック型`As`に対して、エイリアステンプレート`SetValue&amp;lt;As...&amp;gt;`を不適格、もしくは[`valid-completion-signatures`](completion_signatures.md)`&amp;lt;SetValue&amp;lt;As...&amp;gt;&amp;gt;`を満たす型とする。
+-説明用の型`Err`に対して、エイリアステンプレート`SetError&amp;lt;Err&amp;gt;`を不適格、もしくは[`valid-completion-signatures`](completion_signatures.md)`&amp;lt;SetError&amp;lt;Error&amp;gt;&amp;gt;`を満たす型とする。
+-
+-説明用のパック`Vs`を、[`gather-signatures`](gather-signatures.md)`&amp;lt;`[`set_value_t`](set_value.md)`, InputSignatures, SetValue,` [`type-list`](type-list.md)`&amp;gt;`で得られる`type-list`の型パラメータパックとする。
+-
+-説明用のパック`Es`を、[`gather-signatures`](gather-signatures.md)`&amp;lt;`[`set_error_t`](set_error.md)`, InputSignatures,` [`type_identity_t`](/reference/type_traits/type_identity.md)`, error-list&amp;gt;`で得られる[`type-list`](type-list.md)の型パラメータパックとする。ここでエイリアステンプレート`error-list&amp;lt;Ts...&amp;gt;`は`type-list&amp;lt;SetError&amp;lt;Ts&amp;gt;...&amp;gt;`とする。
+-
+-[`gather-signatures`](gather-signatures.md)`&amp;lt;`[`set_stopped_t`](set_stopped.md)`, InputSignatures, type-list, type-list&amp;gt;`が[`type-list&amp;lt;&amp;gt;`](type-list.md)となるならば、説明用のパック`Ss`を[`completion_signatures&amp;lt;&amp;gt;`](completion_signatures.md)とする。そうでなければ、`Ss`を`SetStopped`とする。
+-
+-上記いずれかの型が不適格となる場合、下記は不適格となる。
+-
+-```cpp
+-transform_completion_signatures&amp;lt;
+-  InputSignatures, AdditionalSignatures,
+-  SetValue, SetError, SetStopped&amp;gt;
+-```
+-
+-そうでなければ、集合`AdditionalSignatures`, `Vs...`, `Es...`, `Ss`に含まれる[`completion_signatures`](completion_signatures.md)特殊化のテンプレート引数型の一意な集合を`Sig...`としたとき、`transform_completion_signatures`は[`completion_signatures`](completion_signatures.md)`&amp;lt;Sigs...&amp;gt;`のエイリアスとなる。
+-
+-
+-## バージョン
+-### 言語
+-- C++26
+-
+-### 処理系
+-- [Clang](/implementation.md#clang): ??
+-- [GCC](/implementation.md#gcc): ??
+-- [ICC](/implementation.md#icc): ??
+-- [Visual C++](/implementation.md#visual_cpp): ??
+-
+-
+-## 関連項目
+-- [`execution::completion_signatures`](completion_signatures.md)
+-- [`execution::transform_completion_signatures_of`](transform_completion_signatures_of.md)
+-
+-
+-## 参照
+-- [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>transform_completion_signatures_of.md -- execution: P3557R3 remove transform_completion_signatures(_of)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/transform_completion_signatures_of.html"/>
+      <id>d29d225cd07cf1094a32f27d27e8283edc3abdd7:reference/execution/execution/transform_completion_signatures_of.md</id>
+      <updated>2025-08-16T10:47:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/transform_completion_signatures_of.md b/reference/execution/execution/transform_completion_signatures_of.md
+deleted file mode 100644
+index 74f43325d..000000000
+--- a/reference/execution/execution/transform_completion_signatures_of.md
++++ /dev/null
+@@ -1,53 +0,0 @@
+-# transform_completion_signatures_of
+-* execution[meta header]
+-* std::execution[meta namespace]
+-* type-alias[meta id-type]
+-* cpp26[meta cpp]
+-
+-```cpp
+-namespace std::execution {
+-  template&amp;lt;
+-    sender Sndr,
+-    class Env = env&amp;lt;&amp;gt;,
+-    valid-completion-signatures AdditionalSignatures = completion_signatures&amp;lt;&amp;gt;,
+-    template&amp;lt;class...&amp;gt; class SetValue = see below,
+-    template&amp;lt;class&amp;gt; class SetError = see below,
+-    valid-completion-signatures SetStopped = completion_signatures&amp;lt;set_stopped_t()&amp;gt;&amp;gt;
+-      requires sender_in&amp;lt;Sndr, Env&amp;gt;
+-  using transform_completion_signatures_of =
+-    transform_completion_signatures&amp;lt;
+-      completion_signatures_of_t&amp;lt;Sndr, Env&amp;gt;,
+-      AdditionalSignatures, SetValue, SetError, SetStopped&amp;gt;;
+-}
+-```
+-* sender[link sender.md]
+-* env&amp;lt;&amp;gt;[link env.md]
+-* valid-completion-signatures[link completion_signatures.md]
+-* completion_signatures[link completion_signatures.md]
+-* set_stopped_t()[link set_stopped.md]
+-* sender_in[link sender_in.md]
+-* transform_completion_signatures[link transform_completion_signatures.md]
+-* completion_signatures_of_t[link completion_signatures_of_t.md]
+-
+-## 概要
+-[Sender型](sender.md)`Sndr`が[環境](../queryable.md)`Env`において非同期操作を作成できるとき、Senderの[完了シグネチャ集合](get_completion_signatures.md)から別の完了シグネチャ集合へ変換するエイリアステンプレート。
+-
+-
+-## バージョン
+-### 言語
+-- C++26
+-
+-### 処理系
+-- [Clang](/implementation.md#clang): ??
+-- [GCC](/implementation.md#gcc): ??
+-- [ICC](/implementation.md#icc): ??
+-- [Visual C++](/implementation.md#visual_cpp): ??
+-
+-
+-## 関連項目
+-- [`execution::get_completion_signatures`](get_completion_signatures.md)
+-- [`execution::transform_completion_signatures`](transform_completion_signatures.md)
+-
+-
+-## 参照
+-- [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>type-list -- execution: P3557R3 remove transform_completion_signatures(_of)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/type-list.html"/>
+      <id>d29d225cd07cf1094a32f27d27e8283edc3abdd7:reference/execution/execution/type-list.md</id>
+      <updated>2025-08-16T10:47:50+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/type-list.md b/reference/execution/execution/type-list.md
+index be6b38550..d54a46203 100644
+--- a/reference/execution/execution/type-list.md
++++ b/reference/execution/execution/type-list.md
+@@ -20,7 +20,6 @@ struct type-list;  // exposition only
+ 
+ ## 関連項目
+ - [`execution::sends_stopped`](sends_stopped.md)
+-- [`execution::transform_completion_signatures`](transform_completion_signatures.md)
+ 
+ 
+ ## 参照
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>変数の型推論のためのauto [N1984] -- 言語機能 : 関連項目を追加</title>
+      <link href="https://cpprefjp.github.io/lang/cpp11/auto.html"/>
+      <id>6b2d8651f702d3e56a7e170b2400f2403c4eabc8:lang/cpp11/auto.md</id>
+      <updated>2025-08-14T13:38:40+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp11/auto.md b/lang/cpp11/auto.md
+index bf7a66bb4..fc234c660 100644
+--- a/lang/cpp11/auto.md
++++ b/lang/cpp11/auto.md
+@@ -372,6 +372,7 @@ std::pair&amp;lt;T, U&amp;gt;&amp;amp; p = foo();
+ - [C++14 `decltype(auto)`](../cpp14/decltype_auto.md)
+ - [C++14 後置戻り値型をプレースホルダーにすることを許可](../cpp14/placeholder_type_in_trailing_return_type.md)
+ - [C++14 通常関数の戻り値型推論（ユーザ定義変換関数の型推論を含む）](../cpp14/return_type_deduction_for_normal_functions.md)
++- [C++17 単一要素の波カッコ初期化を非配列とする](../cpp17/new_rules_for_auto_deduction_from_braced-init-list.md)
+ 
+ 
+ ## 参照
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>constexpr ラムダ [P0170R1] -- 言語機能 : 関連項目を追加</title>
+      <link href="https://cpprefjp.github.io/lang/cpp17/constexpr_lambda.html"/>
+      <id>6b2d8651f702d3e56a7e170b2400f2403c4eabc8:lang/cpp17/constexpr_lambda.md</id>
+      <updated>2025-08-14T13:38:40+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp17/constexpr_lambda.md b/lang/cpp17/constexpr_lambda.md
+index e4d3a09e3..066519ed9 100644
+--- a/lang/cpp17/constexpr_lambda.md
++++ b/lang/cpp17/constexpr_lambda.md
+@@ -198,6 +198,9 @@ C++14まではラムダ式がコンパイル時に呼び出せないため、
+ 
+ (執筆中)
+ 
++## &amp;lt;a id=&amp;#34;relative-page&amp;#34; href=&amp;#34;#relative-page&amp;#34;&amp;gt;関連項目&amp;lt;/a&amp;gt;
++- [C++11 `constexpr`](/lang/cpp11/constexpr.md)
++
+ ## 参照
+ 
+ (執筆中)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>単一要素の波カッコ初期化を非配列とする [N3922] -- 言語機能 : 関連項目を追加</title>
+      <link href="https://cpprefjp.github.io/lang/cpp17/new_rules_for_auto_deduction_from_braced-init-list.html"/>
+      <id>6b2d8651f702d3e56a7e170b2400f2403c4eabc8:lang/cpp17/new_rules_for_auto_deduction_from_braced-init-list.md</id>
+      <updated>2025-08-14T13:38:40+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp17/new_rules_for_auto_deduction_from_braced-init-list.md b/lang/cpp17/new_rules_for_auto_deduction_from_braced-init-list.md
+index 658b2b6e0..d03542320 100644
+--- a/lang/cpp17/new_rules_for_auto_deduction_from_braced-init-list.md
++++ b/lang/cpp17/new_rules_for_auto_deduction_from_braced-init-list.md
+@@ -93,6 +93,7 @@ i
+ 
+ ## &amp;lt;a id=&amp;#34;relative-page&amp;#34; href=&amp;#34;#relative-page&amp;#34;&amp;gt;関連項目&amp;lt;/a&amp;gt;
+ 
++* [C++11 変数の型推論のための`auto`](/lang/cpp11/auto.md)
+ * [C++11 初期化リスト](/lang/cpp11/initializer_lists.md)
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>constexpr関数内でのtry-catchブロックを許可 [P1002R1] -- 言語機能 : 関連項目を追加</title>
+      <link href="https://cpprefjp.github.io/lang/cpp20/try-catch_blocks_in_constexpr_functions.html"/>
+      <id>6b2d8651f702d3e56a7e170b2400f2403c4eabc8:lang/cpp20/try-catch_blocks_in_constexpr_functions.md</id>
+      <updated>2025-08-14T13:38:40+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp20/try-catch_blocks_in_constexpr_functions.md b/lang/cpp20/try-catch_blocks_in_constexpr_functions.md
+index 3427b6717..ca7103a88 100644
+--- a/lang/cpp20/try-catch_blocks_in_constexpr_functions.md
++++ b/lang/cpp20/try-catch_blocks_in_constexpr_functions.md
+@@ -30,6 +30,7 @@ constexpr int f(int x) {
+ 
+ 
+ ## &amp;lt;a id=&amp;#34;relative-page&amp;#34; href=&amp;#34;#relative-page&amp;#34;&amp;gt;関連項目&amp;lt;/a&amp;gt;
++- [C++11 `constexpr`](/lang/cpp11/constexpr.md)
+ - [C++20 可変サイズをもつコンテナの`constexpr`化](more_constexpr_containers.md)
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>constexpr関数が定数実行できない場合でも適格とする [P2448R2] -- 言語機能 : 関連項目を追加</title>
+      <link href="https://cpprefjp.github.io/lang/cpp23/relaxing_some_constexpr_restrictions.html"/>
+      <id>6b2d8651f702d3e56a7e170b2400f2403c4eabc8:lang/cpp23/relaxing_some_constexpr_restrictions.md</id>
+      <updated>2025-08-14T13:38:40+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp23/relaxing_some_constexpr_restrictions.md b/lang/cpp23/relaxing_some_constexpr_restrictions.md
+index cb4d14ba4..a715c2943 100644
+--- a/lang/cpp23/relaxing_some_constexpr_restrictions.md
++++ b/lang/cpp23/relaxing_some_constexpr_restrictions.md
+@@ -115,8 +115,9 @@ void f(std::optional&amp;lt;T&amp;gt;&amp;amp; opt)
+ 
+ ## &amp;lt;a id=&amp;#34;relative-page&amp;#34; href=&amp;#34;#relative-page&amp;#34;&amp;gt;関連項目&amp;lt;/a&amp;gt;
+ 
+-- [C++20 - constexpr関数内でのtry-catchブロックを許可](/lang/cpp20/try-catch_blocks_in_constexpr_functions.md)
+-- [C++20 - constexpr関数内で未評価のインラインアセンブリを許可することによる組み込み関数のconstexpr有効化](/lang/cpp20/enabling_constexpr_intrinsics_by_permitting_unevaluated_inline-assembly_in_constexpr_functions.md)
++- [C++11 `constexpr`](/lang/cpp11/constexpr.md)
++- [C++20 `constexpr`関数内での`try-catch`ブロックを許可](/lang/cpp20/try-catch_blocks_in_constexpr_functions.md)
++- [C++20 `constexpr`関数内で未評価のインラインアセンブリを許可することによる組み込み関数の`constexpr`有効化](/lang/cpp20/enabling_constexpr_intrinsics_by_permitting_unevaluated_inline-assembly_in_constexpr_functions.md)
+ 
+ ## 参照
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>static_assertの診断メッセージにユーザーが生成した文字列の指定を許可 [P2741R3] -- 言語機能 : 関連項目を追加</title>
+      <link href="https://cpprefjp.github.io/lang/cpp26/user-generated_static_assert_messages.html"/>
+      <id>6b2d8651f702d3e56a7e170b2400f2403c4eabc8:lang/cpp26/user-generated_static_assert_messages.md</id>
+      <updated>2025-08-14T13:38:40+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp26/user-generated_static_assert_messages.md b/lang/cpp26/user-generated_static_assert_messages.md
+index 1cf9ea1a2..3e2bdefa7 100644
+--- a/lang/cpp26/user-generated_static_assert_messages.md
++++ b/lang/cpp26/user-generated_static_assert_messages.md
+@@ -53,6 +53,7 @@ static_assert(定数式, 診断メッセージ);
+ 
+ ## &amp;lt;a id=&amp;#34;relative-page&amp;#34; href=&amp;#34;#relative-page&amp;#34;&amp;gt;関連項目&amp;lt;/a&amp;gt;
+ - [C++11 コンパイル時アサート](/lang/cpp11/static_assert.md)
++- [C++17 `static_assert`のメッセージ省略を許可](/lang/cpp17/extending_static_assert.md)
+ 
+ 
+ ## 参照
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コード内容の仮定をコンパイラに伝える`assume`属性 [P1774R8] -- C++23 assume属性 : C++11属性構文へのリンクを関連項目に追加 #1488</title>
+      <link href="https://cpprefjp.github.io/lang/cpp23/portable_assumptions.html"/>
+      <id>5895eedd8280c661fcb3952589f442e8fe88f6de:lang/cpp23/portable_assumptions.md</id>
+      <updated>2025-08-13T12:12:09+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp23/portable_assumptions.md b/lang/cpp23/portable_assumptions.md
+index 66c560d08..2a9a6ebbd 100644
+--- a/lang/cpp23/portable_assumptions.md
++++ b/lang/cpp23/portable_assumptions.md
+@@ -65,6 +65,7 @@ int f(int y)
+ 
+ 
+ ## &amp;lt;a id=&amp;#34;relative-page&amp;#34; href=&amp;#34;#relative-page&amp;#34;&amp;gt;関連項目&amp;lt;/a&amp;gt;
++- [C++11 属性構文](/lang/cpp11/attributes.md)
+ - [C++20 `[[likely]]`, `[[unlikely]]`属性](/lang/cpp20/likely_and_unlikely_attributes.md)
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>属性構文 [N2761] -- Merge pull request #1488 from TumoiYorozu/assume</title>
+      <link href="https://cpprefjp.github.io/lang/cpp11/attributes.html"/>
+      <id>07813202ff92303e96b6b12fc4178d9a29e94714:lang/cpp11/attributes.md</id>
+      <updated>2025-08-13T12:02:09+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp11/attributes.md b/lang/cpp11/attributes.md
+index 162f7330a..84d3ad7b0 100644
+--- a/lang/cpp11/attributes.md
++++ b/lang/cpp11/attributes.md
+@@ -177,6 +177,7 @@ C++11で採用されたもの以外で検討された以下の機能は、属性
+ - [C++20 `[[likely]]`, `[[unlikely]]`属性](/lang/cpp20/likely_and_unlikely_attributes.md)
+ - [C++20 属性の名前空間を予約](/lang/cpp20/reserving_attribute_namespaces_for_future_use.md)
+ - [C++23 ラムダ式に対する属性](/lang/cpp23/attributes_on_lambda_expressions.md)
++- [C++23 コード内容の仮定をコンパイラに伝える`assume`属性](/lang/cpp23/portable_assumptions.md)
+ - [C++26 構造化束縛への属性を許可](/lang/cpp26/attributes_for_structured_bindings.md)
+ - [C++26 未初期化変数の読み取りをエラー性動作とする (`[[indeterminate]]`属性)](/lang/cpp26/erroneous_behavior_for_uninitialized_reads.md)
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>

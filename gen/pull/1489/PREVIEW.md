@@ -1,0 +1,44 @@
+# PR [\#1489](https://github.com/cpprefjp/site/pull/1489) プレビュー
+- &#x231a; 更新時刻: 2025-08-16 22:07:35 JST
+- &#x1f50d; [プレビュー (HTML)](https://cpprefjp.github.io/site/gen/pull/1489)
+- &#x1f4c8; [プレビュー生成記録](https://github.com/cpprefjp/site/actions?query=event%3Apull_request_target+branch%3Ap3557r3)
+- **&#x2AEF;** ソースの変更: [`c1128ce..e04feaa`](https://github.com/cpprefjp/site/compare/c1128ceedac0dd58735948c117fcb6f79f095490..e04feaaee34d512c506d9f896dd38c5ae46f090d)
+
+## 変更記事一覧 (36件)
+
+- &#x1f4dd; [`reference/execution/execution`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution.html)
+- &#x1f4dd; [`reference/execution/execution/basic-operation`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/basic-operation.html)
+- &#x1f4dd; [`reference/execution/execution/basic-sender`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/basic-sender.html)
+- &#x1f4dd; [`reference/execution/execution/bulk`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/bulk.html)
+- &#x1f4dd; [`reference/execution/execution/child-type`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/child-type.html)
+- &#x1f4dd; [`reference/execution/execution/completion_signatures`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/completion_signatures.html)
+- &#x1f4dd; [`reference/execution/execution/completion_signatures_of_t`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/completion_signatures_of_t.html)
+- &#x1f4dd; [`reference/execution/execution/connect`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/connect.html)
+- &#x1f4dd; [`reference/execution/execution/data-type`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/data-type.html) &#x2728;
+- &#x1f4dd; [`reference/execution/execution/decay-copyable-result-datums`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/decay-copyable-result-datums.html) &#x2728;
+- &#x1f4dd; [`reference/execution/execution/dependent_sender`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/dependent_sender.html) &#x2728;
+- &#x1f4dd; [`reference/execution/execution/dependent_sender_error`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/dependent_sender_error.html) &#x2728;
+- &#x1f4dd; [`reference/execution/execution/get_completion_signatures`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/get_completion_signatures.html)
+- &#x1f4dd; [`reference/execution/execution/impls-for`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/impls-for.html)
+- &#x1f4dd; [`reference/execution/execution/into_variant`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/into_variant.html)
+- &#x1f4dd; [`reference/execution/execution/let_value`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/let_value.html)
+- &#x1f4dd; [`reference/execution/execution/make-sender`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/make-sender.html)
+- &#x1f4dd; [`reference/execution/execution/not-a-sender`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/not-a-sender.html) &#x2728;
+- &#x1f4dd; [`reference/execution/execution/on`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/on.html)
+- &#x1f4dd; [`reference/execution/execution/overload-set`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/overload-set.html) &#x2728;
+- &#x1f4dd; [`reference/execution/execution/read_env`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/read_env.html)
+- &#x1f4dd; [`reference/execution/execution/run_loop/run-loop-sender`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/run_loop/run-loop-sender.html)
+- &#x1f4dd; [`reference/execution/execution/schedule_from`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/schedule_from.html)
+- &#x1f4dd; [`reference/execution/execution/scheduler`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/scheduler.html)
+- &#x1f4dd; [`reference/execution/execution/sender-in-of`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/sender-in-of.html) &#x2728;
+- &#x1f4dd; [`reference/execution/execution/sender_in`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/sender_in.html)
+- &#x1f4dd; [`reference/execution/execution/single-sender-value-type`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/single-sender-value-type.html)
+- &#x1f4dd; [`reference/execution/execution/single-sender`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/single-sender.html)
+- &#x1f4dd; [`reference/execution/execution/stopped_as_optional`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/stopped_as_optional.html)
+- &#x1f4dd; [`reference/execution/execution/then`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/then.html)
+- &#x1f4dd; [`reference/execution/execution/when_all`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/when_all.html)
+- &#x1f4dd; [`reference/execution/execution/when_all_with_variant`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/when_all_with_variant.html)
+- &#x1f4dd; [`reference/execution/execution/write-env`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/write-env.html)
+- &#x1f4dd; [`reference/execution/is-awaitable`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/is-awaitable.html)
+- &#x1f4dd; [`reference/execution/this_thread/sync_wait`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/this_thread/sync_wait.html)
+- &#x1f4dd; [`reference/execution/this_thread/sync_wait_with_variant`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/this_thread/sync_wait_with_variant.html)
