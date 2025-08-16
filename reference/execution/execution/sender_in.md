@@ -6,24 +6,27 @@
 
 ```cpp
 namespace std::execution {
-  template<class Sndr, class Env = env<>>
+  template<class Sndr, class... Env>
   concept sender_in =
     sender<Sndr> &&
-    queryable<Env> &&
-    requires (Sndr&& sndr, Env&& env) {
-      { get_completion_signatures(std::forward<Sndr>(sndr), std::forward<Env>(env)) }
-        -> valid-completion-signatures;
-    };
+    (sizeof...(Env) <= 1) &&
+    (queryable<Env> && ...) &&
+    is-constant<get_completion_signatures<Sndr, Env...>()>;
 }
 ```
-* env<>[link env.md]
 * sender[link sender.md]
 * queryable[link ../queryable.md]
 * get_completion_signatures[link get_completion_signatures.md]
-* valid-completion-signatures[link completion_signatures.md]
 
 ## 概要
 `sender_in`は、[Sender型](sender.md)`Sndr`が[環境](../queryable.md)`Env`において非同期操作を作成できることを表すコンセプトである。
+
+説明用のコンセプト`is-constant`を下記の通り定義する。
+
+```cpp
+template <auto>
+concept is-constant = true;  // exposition only
+```
 
 
 ## モデル
@@ -42,13 +45,12 @@ namespace ex = std::execution;
 int main()
 {
   ex::sender auto sndr = ex::just(42);
-  static_assert(ex::sender_in<decltype(sndr), ex::env<>>);
+  static_assert(ex::sender_in<decltype(sndr)>);
 }
 ```
 * ex::sender_in[color ff0000]
 * ex::sender[link sender.md]
 * ex::just[link just.md]
-* ex::env<>[link env.md]
 
 ### 出力
 ```
@@ -73,3 +75,4 @@ int main()
 
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)

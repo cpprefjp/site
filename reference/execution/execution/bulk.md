@@ -44,6 +44,9 @@ namespace std::execution {
   template<>
   struct impls-for<bulk_t> : default-impls {
     static constexpr auto complete = see below;
+
+    template<class Sndr, class... Env>
+    static consteval void check-types();
   };
 }
 ```
@@ -74,6 +77,26 @@ namespace std::execution {
 * std::move[link /reference/utility/move.md]
 
 型`Tag`が[`set_value_t`](set_value.md)以外の型であるとき、もしくは式`f(auto(shape), args...)`が適格なときに限って、上記ラムダ式のrequires節が満たされる。
+
+メンバ関数`impls-for<bulk_t>::check-types`の効果は下記の通り。
+
+```cpp
+auto cs = get_completion_signatures<child-type<Sndr>, FWD-ENV-T(Env)...>();
+auto fn = []<class... Ts>(set_value_t(*)(Ts...)) {
+  if constexpr (!invocable<remove_cvref_t<data-type<Sndr>>, Ts&...>)
+    throw unspecified-exception();
+};
+cs.for-each(overload-set{fn, [](auto){}});
+```
+* get_completion_signatures[link get_completion_signatures.md]
+* child-type[link child-type.md]
+* FWD-ENV-T[link ../forwarding_query.md]
+* set_value_t[link set_value.md]
+* data-type[link data-type.md]
+* for-each[link completion_signatures.md]
+* overload-set[link overload-set.md]
+
+`unspecified-exception`は[`exception`](/reference/exception/exception.md)から派生した型となる。
 
 
 ## カスタマイゼーションポイント
@@ -133,3 +156,4 @@ int main()
 ## 参照
 - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)

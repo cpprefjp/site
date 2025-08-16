@@ -1,35 +1,55 @@
 # get_completion_signatures
 * execution[meta header]
-* cpo[meta id-type]
+* function template[meta id-type]
 * std::execution[meta namespace]
 * cpp26[meta cpp]
 
 ```cpp
 namespace std::execution {
-  struct get_completion_signatures_t;
-  inline constexpr get_completion_signatures_t get_completion_signatures{};
+  template<class Sndr, class... Env>
+  consteval auto get_completion_signatures() -> valid-completion-signatures auto;
 }
 ```
+* valid-completion-signatures[link completion_signatures.md]
 
 ## 概要
-`get_completion_signatures`は、[Sender](sender.md)の[完了シグネチャ集合](completion_signatures.md)を取得するカスタマイゼーションポイントオブジェクトである。
+`get_completion_signatures`は、[Sender](sender.md)の[完了シグネチャ集合](completion_signatures.md)を取得する関数テンプレートである。
+
+説明用の式`except`を、[`move_constructible`](/reference/concepts/move_constructible.md)`<Except> &&` [`derived_from`](/reference/concepts/derived_from.md)`<Except,` [`exception`](/reference/exception/exception.md)`>`が`true`となる未規定なクラス`Except`の右辺値とする。`e`がコア定数式かつその型が[`valid-completion-signatures`](completion_signatures.md)を満たすならば、式`CHECKED-COMPLSIGS(e)`を`e`とする。そうでなければ下記の式となる。
+
+```cpp
+(e, throw except, completion_signatures())
+```
+* completion_signatures[link completion_signatures.md]
+
+説明用の式`get-complsigs<Sndr, Env...>()`を、[`remove_reference_t`](/reference/type_traits/remove_reference.md)`<Sndr>::template get_completion_signatures<Sndr, Env...>()`と等価な式とする。
+
+`sizeof...(Env) == 0`が`true`ならば、説明用の型`NewSndr`を`Sndr`とする。そうでなければ、下記の通り定義される式`s`を用いて`decltype(s)`とする。
+
+```cpp
+transform_sender(
+  get-domain-late(declval<Sndr>(), declval<Env>()...),
+  declval<Sndr>(),
+  declval<Env>()...)
+```
+* transform_sender[link transform_sender.md]
+* get-domain-late[link get-domain-late.md]
+
+
+## テンプレートパラメータ制約
+`sizeof...(Env) <= 1`
 
 
 ## 効果
-説明用の`sndr`を`decltype((sndr))`が`Sndr`型となる式、`env`を`decltype((env))`が`Env`型となる式とする。
-式`new_sndr`を[`transform_sender`](transform_sender.md)`(decltype(`[`get-domain-late`](get-domain-late.md)`(sndr, env)){}, sndr, env)`とし、型`NewSndr`を`decltype((new_sndr))`とする。
+下記の通り定義される式`e`を用いて、`return e;`と等価。
 
-式`get_completion_signatures(sndr, env)`は、`void(sndr)`と`void(env)`が不定順で序列化(indeterminately sequenced)されることを除いて`(void(sndr), void(env), CS())`と等価である。
-
-ここで、説明用の型`CS`は下記の通り定義される。
-
-- 型が適格であるならば、`decltype(new_sndr.get_completion_signatures(env))`
-- そうではなく、型が適格であるならば[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<NewSndr>::completion_signatures`
-- そうではなく、[`is-awaitable`](../is-awaitable.md)`<NewSndr,` [`env-promise`](env-promise.md)`<Env>> == true`ならば
+- 式`get-complsigs<NewSndr, Env...>()`が適格であるならば、`CHECKED-COMPLSIGS(get-complsigs<NewSndr, Env...>())`
+- そうではなく、式`get-complsigs<NewSndr>()`が適格であるならば、`CHECKED-COMPLSIGS(get-complsigs<NewSndr>())`
+- そうではなく、[`is-awaitable`](../is-awaitable.md)`<NewSndr,` [`env-promise`](env-promise.md)`<Env>...> == true`ならば
 
     ```cpp
     completion_signatures<
-      SET-VALUE-SIG(await-result-type<NewSndr, env-promise<Env>>),
+      SET-VALUE-SIG(await-result-type<NewSndr, env-promise<Env>...>),
       set_error_t(exception_ptr),
       set_stopped_t()>
     ```
@@ -41,12 +61,9 @@ namespace std::execution {
     * exception_ptr[link /reference/exception/exception_ptr.md]
     * set_stopped_t[link set_stopped.md]
 
-- そうでなければ、`CS`は不適格となる。
-
-
-## カスタマイゼーションポイント
-- Sender`sndr`[変換後](transform_sender.md)の`new_sndr`に対して、`new_sndr.get_completion_signatures(env)`が返す型。
-- 変換後Senderの型`NewSndr`に対して、メンバ型`NewSndr::completion_signatures`
+- そうではなく、`sizeof...(Env) == 0`ならば、`(throw dependent-sender-error(),` [`completion_signatures()`](completion_signatures.md)`)`
+    - 型`dependent-sender-error`は、[`dependent_sender_error`](dependent_sender_error.md)もしくは`dependent_sender_error`から曖昧さなく公開派生された未規定の型とする。
+- そうでなければ、`(throw except,` [`completion_signatures()`](completion_signatures.md)`)`
 
 説明用の式`rcvr`を[`receiver`](receiver.md)のモデルである型`Rcvr`の右辺値、型`Sndr`を[`sender_in`](sender_in.md)`<Sndr,` [`env_of_t`](env_of_t.md)`<Rcvr>> == true`となる型とする。
 `Sigs...`を[`completion_signatures_of_t`](completion_signatures_of_t.md)`<Sndr,` [`env_of_t`](env_of_t.md)`<Rcvr>>`による[`completion_signatures`](completion_signatures.md)特殊化のテンプレートパラメータと定義する。
@@ -75,7 +92,7 @@ int main()
   ex::sender auto sndr = ex::just(42);
 
   // 値完了シグネチャ set_value_t(int)
-  auto sigs = ex::get_completion_signatures(sndr, ex::env<>{});
+  auto sigs = ex::get_completion_signatures(sndr);
   static_assert(std::same_as<decltype(sigs),
     ex::completion_signatures<ex::set_value_t(int)>>);
 }
@@ -84,7 +101,6 @@ int main()
 * ex::sender[link sender.md]
 * ex::just[link just.md]
 * ex::completion_signatures[link completion_signatures.md]
-* ex::env<>[link env.md]
 * ex::set_value_t[link set_value.md]
 
 ### 出力
@@ -105,7 +121,9 @@ int main()
 
 ## 関連項目
 - [`execution::sender`](sender.md)
+- [`execution::dependent_sender`](dependent_sender.md)
 
 
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)

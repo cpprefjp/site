@@ -5,10 +5,10 @@
 * cpp26[meta cpp]
 
 ```cpp
-template<class Sndr, class Env>
-concept single-sender = sender_in<Sndr, Env> &&
+template<class Sndr, class... Env>
+concept single-sender = sender_in<Sndr, Env...> &&
   requires {
-    typename single-sender-value-type<Sndr, Env>;
+    typename single-sender-value-type<Sndr, Env...>;
   };
 ```
 * sender_in[link sender_in.md]
@@ -29,3 +29,4 @@ concept single-sender = sender_in<Sndr, Env> &&
 
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)

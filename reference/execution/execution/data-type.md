@@ -1,4 +1,4 @@
-# child-type
+# data-type
 * execution[meta header]
 * std::execution[meta namespace]
 * type-alias[meta id-type]
@@ -6,14 +6,14 @@
 
 ```cpp
 namespace std::execution {
-  template<class Sndr, size_t I = 0>
-  using child-type = decltype(declval<Sndr>().template get<I+2>());  // exposition only
+  template<class Sndr>
+  using data-type = decltype(declval<Sndr>().template get<1>());  // exposition only
 }
 ```
 * template get[link product-type.md]
 
 ## 概要
-[Senderアルゴリズム型](basic-sender.md)`Sndr`の子Sender型を取得する説明専用のエイリアステンプレート。
+[Senderアルゴリズム型](basic-sender.md)`Sndr`のデータ型を取得する説明専用のエイリアステンプレート。
 
 
 ## バージョン
@@ -21,12 +21,11 @@ namespace std::execution {
 - C++26
 
 ## 関連項目
+- [`execution::read_env`](read_env.md)
 - [`execution::schedule_from`](schedule_from.md)
-- [`execution::let_value`](let_value.md)
-- [`execution::into_variant`](into_variant.md)
-- [`execution::stopped_as_optional`](stopped_as_optional.md)
 - [`write-env`](write-env.md)
 
 
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)

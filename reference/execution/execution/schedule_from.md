@@ -45,6 +45,9 @@ namespace std::execution {
     static constexpr auto get-attrs = see below;
     static constexpr auto get-state = see below;
     static constexpr auto complete = see below;
+
+    template<class Sndr, class... Env>
+    static consteval void check-types();
   };
 }
 ```
@@ -135,6 +138,19 @@ namespace std::execution {
 * exception_ptr[link /reference/exception/exception_ptr.md]
 * current_exception()[link /reference/exception/current_exception.md]
 
+メンバ関数`impls-for<schedule_from_t>::check-types`の効果は下記の通り。
+
+```cpp
+get_completion_signatures<schedule_result_t<data-type<Sndr>>, FWD-ENV-T(Env)...>();
+auto cs = get_completion_signatures<child-type<Sndr>, FWD-ENV-T(Env)...>();
+decay-copyable-result-datums(cs);
+```
+* get_completion_signatures[link get_completion_signatures.md]
+* schedule_result_t[link schedule_result_t.md]
+* data-type[link data-type.md]
+* FWD-ENV-T[link ../forwarding_query.md]
+* decay-copyable-result-datums[link decay-copyable-result-datums.md]
+
 
 ## 説明専用エンティティ
 説明専用のクラス`receiver-type`を下記の通り定義する。
@@ -211,5 +227,6 @@ Senderアルゴリズム構築時および[Receiver](receiver.md)接続時に、
 - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3396R1 std::execution wording fixes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html)
+- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
 - [LWG 4198. `schedule_from` isn't starting the schedule sender if decay-copying results throws](https://cplusplus.github.io/LWG/issue4198)
 - [LWG 4203. Constraints on `get-state` functions are incorrect](https://cplusplus.github.io/LWG/issue4203)
