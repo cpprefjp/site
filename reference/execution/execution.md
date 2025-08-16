@@ -142,8 +142,6 @@ Senderコンシューマは名前空間 `std::this_thread` で定義される。
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`execution::completion_signatures`](execution/completion_signatures.md) | 完了シグネチャ集合を表現する型 (class template) | C++26 |
-| [`execution::transform_completion_signatures`](execution/transform_completion_signatures.md) | 完了シグネチャ集合を変換 (alias template) | C++26 |
-| [`execution::transform_completion_signatures_of`](execution/transform_completion_signatures_of.md) | Senderの完了シグネチャ集合を変換 (alias template) | C++26 |
 | [`execution::run_loop`](execution/run_loop.md) | 単一スレッド上でのループ実行 (class) | C++26 |
 
 ### コルーチンユーティリティ
@@ -162,4 +160,5 @@ Senderコンシューマは名前空間 `std::this_thread` で定義される。
 ## 参照
 - [P0024R2 The Parallelism TS Should be Standardized](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0024r2.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
 - [P3682R0 Remove `std::execution::split`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3682r0.pdf)

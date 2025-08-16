@@ -20,7 +20,6 @@ struct type-list;  // exposition only
 
 ## 関連項目
 - [`execution::sends_stopped`](sends_stopped.md)
-- [`execution::transform_completion_signatures`](transform_completion_signatures.md)
 
 
 ## 参照
