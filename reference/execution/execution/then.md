@@ -48,6 +48,9 @@ namespace std::execution {
             Tag()(std::move(rcvr), std::forward<Args>(args)...);
           }
         };
+
+    template<class Sndr, class... Env>
+    static consteval void check-types();
   };
 }
 ```
@@ -58,6 +61,24 @@ namespace std::execution {
 * TRY-SET-VALUE[link set_value.md]
 * invoke[link /reference/functional/invoke.md]
 * std::move[link /reference/utility/move.md]
+
+メンバ関数`impls-for<decayed-typeof<then>>::check-types`の効果は下記の通り。
+
+```cpp
+auto cs = get_completion_signatures<child-type<Sndr>, FWD-ENV-T(Env)...>();
+auto fn = []<class... Ts>(set_value_t(*)(Ts...)) {
+  if constexpr (!invocable<remove_cvref_t<data-type<Sndr>>, Ts...>)
+    throw unspecified-exception();
+};
+cs.for-each(overload-set{fn, [](auto){}});
+```
+* get_completion_signatures[link get_completion_signatures.md]
+* child-type[link child-type.md]
+* FWD-ENV-T[link ../forwarding_query.md]
+* set_value_t[link set_value.md]
+* data-type[link data-type.md]
+
+`unspecified-exception`は[`exception`](/reference/exception/exception.md)から派生した型となる。
 
 
 ## カスタマイゼーションポイント
@@ -130,3 +151,4 @@ C++
 ## 参照
 - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)

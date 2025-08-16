@@ -39,6 +39,7 @@ namespace std::execution {
 ```
 * operation_state_t[link operation_state.md]
 * tag_of_t[link tag_of_t.md]
+* indices-for[link basic-sender.md]
 * impls-for[link impls-for.md]
 * std::move[link /reference/utility/move.md]
 
@@ -60,6 +61,7 @@ is_nothrow_constructible_v<basic-state<Self, Rcvr>, Self, Rcvr> &&
 noexcept(connect-all(this, std::forward<Sndr>(sndr), indices-for<Sndr>()))
 ```
 * is_nothrow_constructible_v[link /reference/type_traits/is_nothrow_constructible.md]
+* indices-for[link basic-sender.md]
 
 `basic-state`コンストラクタ`noexcept`節の式は下記の通り。
 
@@ -101,13 +103,11 @@ constexpr auto connect-all = see below;  // exposition only
 template<class Sndr, class Rcvr>
 using connect-all-result = call-result-t<  // exposition only
   decltype(connect-all), basic-state<Sndr, Rcvr>*, Sndr, indices-for<Sndr>>;
-
-template<class Sndr>
-using indices-for = remove_reference_t<Sndr>::indices-for;  // exposition only 
 ```
 * call-result-t[link /reference/functional/call-result-t.md]
 * impls-for[link impls-for.md]
 * tag_of_t[link tag_of_t.md]
+* indices-for[link basic-sender.md]
 
 説明専用の定数`connect-all`は、下記ラムダ式と等価な関数呼び出し可能なオブジェクトとして初期化される。
 

@@ -24,7 +24,7 @@ namespace std::execution {
 
 
 ## 効果
-説明用のパック`sndrs`に対してパック`Sndrs`を`decltype((sndrs))...`としたとき、型`CD`を[`common_type_t`](/reference/type_traits/common_type.md)`<decltype(`[`get-domain-early`](get-domain-early.md)`(sndrs))...>`とする。
+説明用のパック`sndrs`に対してパック`Sndrs`を`decltype((sndrs))...`としたとき、型`CD`を[`common_type_t`](/reference/type_traits/common_type.md)`<decltype(`[`get-domain-early`](get-domain-early.md)`(sndrs))...>`とする。型`CD`が適格ならば型`CD2`を`CD`とし、そうでなければ[`default_domain`](default_domain.md)とする。
 
 下記いずれかが`true`となるとき、呼び出し式`when_all_with_variant(sndrs...)`は不適格となる。
 
@@ -35,7 +35,7 @@ namespace std::execution {
 そうでなければ、呼び出し式`when_all_with_variant(sndrs...)`は下記と等価。
 
 ```cpp
-transform_sender(CD(), make-sender(when_all_with_variant, {}, sndrs...))
+transform_sender(CD2(), make-sender(when_all_with_variant, {}, sndrs...))
 ```
 * transform_sender[link transform_sender.md]
 * make-sender[link make-sender.md]
@@ -184,3 +184,4 @@ int main()
 ## 参照
 - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
