@@ -12,7 +12,7 @@ import random
 urllib3.disable_warnings()
 
 def retry_sleep():
-    sec = random.uniform(20, 30);
+    sec = random.uniform(20, 30)
     time.sleep(sec)
 
 def check_url(url: str, retry: int = 5) -> tuple[bool, str]:

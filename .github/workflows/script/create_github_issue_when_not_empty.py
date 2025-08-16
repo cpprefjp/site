@@ -23,7 +23,7 @@ def main():
     }
     try:
         with open(file_name, 'r') as file:
-            data = file.read();
+            data = file.read()
             if len(data) == 0:
                 return
             body = f"The commit hash was: {commit_hash}\n\n" + data
