@@ -27,7 +27,7 @@ def remove_forbidden_characters(p) -> bool:
         return False
         
     except Exception as e:
-        print(f"Error processing {file_path}: {e}")
+        print(f"Error processing {p}: {e}")
         return False
 
 if __name__ == '__main__':
