@@ -3,7 +3,7 @@ import os
 import sys
 import re
 
-def find_header_or_module(line: str) -> (re.Match, str):
+def find_header_or_module(line: str) -> tuple[re.Match[str] | None, str]:
     m = re.fullmatch(r'[\*-] (.*?)\[meta header\]', line, re.MULTILINE)
     if m:
         return m, "header"

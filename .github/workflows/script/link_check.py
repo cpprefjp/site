@@ -15,7 +15,7 @@ def retry_sleep():
     sec = random.uniform(20, 30);
     time.sleep(sec)
 
-def check_url(url: str, retry: int = 5) -> (bool, str):
+def check_url(url: str, retry: int = 5) -> tuple[bool, str]:
     try:
         headers = {'User-agent': 'Mozilla/5.0'}
         res = requests.head(url, headers=headers, verify=False, timeout=60.0)
@@ -75,7 +75,7 @@ def is_ignore_link(link: str) -> bool:
     return False
 
 
-def find_all_links(text: str, is_global: bool) -> (list, set):
+def find_all_links(text: str, is_global: bool) -> tuple[list, set[str]]:
     inner_links = []
     outer_links = set()
 

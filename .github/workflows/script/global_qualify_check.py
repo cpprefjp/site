@@ -7,7 +7,7 @@ import sys
 import re
 
 def convrert_qualify_list(qualify_list: str) -> list:
-    ls: list(str, str) = []
+    ls: list[tuple[str, str]] = []
     for line in qualify_list.split("\n"):
         stripped_line = line.strip()
         if not stripped_line or stripped_line.startswith("#"):
