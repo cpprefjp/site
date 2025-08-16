@@ -24,7 +24,7 @@ namespace std::execution {
 
 
 ## 効果
-説明用のパック`sndrs`に対してパック`Sndrs`を`decltype((sndrs))...`としたとき、型`CD`を[`common_type_t`](/reference/type_traits/common_type.md)`<decltype(`[`get-domain-early`](get-domain-early.md)`(sndrs))...>`とする。
+説明用のパック`sndrs`に対してパック`Sndrs`を`decltype((sndrs))...`としたとき、型`CD`を[`common_type_t`](/reference/type_traits/common_type.md)`<decltype(`[`get-domain-early`](get-domain-early.md)`(sndrs))...>`とする。型`CD`が適格ならば型`CD2`を`CD`とし、そうでなければ[`default_domain`](default_domain.md)とする。
 
 下記いずれかが`true`となるとき、呼び出し式`when_all(sndrs...)`は不適格となる。
 
@@ -35,7 +35,7 @@ namespace std::execution {
 そうでなければ、呼び出し式`when_all(sndrs...)`は下記と等価。
 
 ```cpp
-transform_sender(CD(), make-sender(when_all, {}, sndrs...))
+transform_sender(CD2(), make-sender(when_all, {}, sndrs...))
 ```
 * transform_sender[link transform_sender.md]
 * make-sender[link make-sender.md]
@@ -53,6 +53,9 @@ namespace std::execution {
     static constexpr auto get-state = see below;
     static constexpr auto start = see below;
     static constexpr auto complete = see below;
+
+    template<class Sndr, class... Env>
+    static consteval void check-types();
   };
 }
 ```
@@ -79,15 +82,10 @@ namespace std::execution {
 
 ```cpp
 []<class State, class Rcvr>(auto&&, State& state, const Receiver& rcvr) noexcept {
-  return see below;
+  return make-when-all-env(state.stop-src, get_env(rcvr))
 }
 ```
-
-ラムダ式は下記を満たすオブジェクト`e`を返す。
-
-- `decltype(e)`が[`queryable`](../queryable.md)のモデル、かつ
-- 式`e.query(`[`get_stop_token`](../get_stop_token.md)`)`が`state.stop-src.`[`get_token()`](/reference/stop_token/inplace_stop_source/get_token.md)と等価、かつ
-- [`get_stop_token`](../get_stop_token.md)以外かつ[`forwarding-query`](../forwarding-query.md)を満たす[クエリオブジェクト](../queryable.md)`q`に対して、式`e.query(q)`は[`get_env`](get_env.md)`(rcvr).query(q)`と等価。
+* get_env[link get_env.md]
 
 `impls-for<when_all_t>::get-state`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
 
@@ -191,17 +189,47 @@ try {
 * emplace[link /reference/optional/optional/emplace.md]
 * current_exception()[link /reference/exception/current_exception.md]
 
+メンバ関数`impls-for<when_all_t>::check-types`の効果は下記の通り。
+説明用のパック`Is`を、[`indices-for`](basic-sender.md)`<Sndr>`で導入される[`integer_sequence`](/reference/utility/integer_sequence.md)クラス特殊化の整数テンプレート引数とする。
+
+```cpp
+auto fn = []<class Child>() {
+  auto cs = get_completion_signatures<Child, when-all-env<Env>...>();
+  if constexpr (cs.count-of(set_value) >= 2)
+    throw unspecified-exception();
+  decay-copyable-result-datums(cs);
+};
+(fn.template operator()<child-type<Sndr, Is>>(), ...);
+```
+* get_completion_signatures[link get_completion_signatures.md]
+* count-of[link completion_signatures.md]
+* set_value[link set_value.md]
+* decay-copyable-result-datums[link decay-copyable-result-datums.md]
+* child-type[link child-type.md]
+
+`unspecified-exception`は[`exception`](/reference/exception/exception.md)から派生した型となる。
+型`CD`が不適格な場合、[`exception`](/reference/exception/exception.md)から派生した未規定な型を例外として送出する。
+
 
 ## 説明専用エンティティ
-### コンセプト`max-1-sender-in`
+### 関数テンプレート`make-when-all-env`
 ```cpp
-template<class Sndr, class Env>
-concept max-1-sender-in = sender_in<Sndr, Env> &&  // exposition only
-  (tuple_size_v<value_types_of_t<Sndr, Env, tuple, tuple>> <= 1);
+template<class Env>
+constexpr auto make-when-all-env(inplace_stop_source& stop_src,  // exposition only
+                                 Env&& env) noexcept {
+  return see below;
+}
 ```
-* sender_in[link sender_in.md]
-* value_types_of_t[link value_types_of_t.md]
-* tuple_size_v[link /reference/tuple/tuple_size.md]
+* inplace_stop_source[link /reference/stop_token/inplace_stop_source.md]
+
+下記を満たすオブジェクト`e`を返す。
+
+- `decltype(e)`が[`queryable`](../queryable.md)のモデル、かつ
+- 式`e.query(`[`get_stop_token`](../get_stop_token.md)`)`が`state.stop-src.`[`get_token()`](/reference/stop_token/inplace_stop_source/get_token.md)と等価、かつ
+- [`get_stop_token`](../get_stop_token.md)以外かつ[`forwarding-query`](../forwarding-query.md)を満たす[クエリオブジェクト](../queryable.md)`q`に対して、式`e.query(q)`は[`get_env`](get_env.md)`(rcvr).query(q)`と等価。
+
+### エイリアステンプレート`when-all-env`
+`when-all-env<Env>`は`decltype(make-when-all-env(declval<`[`inplace_stop_source`](/reference/stop_token/inplace_stop_source.md)`&>(), declval<Env>()))`となる。
 
 ### 列挙型`disposition`
 ```cpp
@@ -212,7 +240,7 @@ enum class disposition { started, error, stopped };  // exposition only
 ```cpp
 template<class Rcvr>
 struct make-state {
-  template<max-1-sender-in<FWD-ENV-T(env_of_t<Rcvr>)>... Sndrs>
+  template<class... Sndrs>
   auto operator()(auto, auto, Sndrs&&... sndrs) const {
     using values_tuple = see below;
     using errors_variant = see below;
@@ -239,7 +267,6 @@ struct make-state {
   }
 };
 ```
-* FWD-ENV-T[link ../forwarding_query.md]
 * env_of_t[link env_of_t.md]
 * stop_token_of_t[link ../stop_token_of_t.md]
 * on-stop-request[link on-stop-request.md]
@@ -479,5 +506,6 @@ error=-2
 - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3396R1 std::execution wording fixes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html)
+- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
 - [LWG 4203. Constraints on `get-state` functions are incorrect](https://cplusplus.github.io/LWG/issue4203)
 - [LWG 4227. Missing `noexcept` operator in [exec.when.all]](https://cplusplus.github.io/LWG/issue4227)

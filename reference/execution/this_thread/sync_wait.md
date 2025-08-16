@@ -24,9 +24,7 @@ namespace std::this_thread {
 ## 効果
 説明用の`sndr`を`decltype((sndr))`が`Sndr`型となる式とする。
 
-[`sender_in`](../execution/sender_in.md)`<Sndr,` [`sync-wait-env`](sync-wait-env.md)`> == false`のとき、呼び出し式`this_thread::sync_wait(sndr)`は不適格となる。
-
-そうでなければ、呼び出し式`this_thread::sync_wait(sndr)`は`sndr`が1回だけ評価されることを除いて、下記と等価。
+呼び出し式`this_thread::sync_wait(sndr)`は`sndr`が1回だけ評価されることを除いて、下記と等価。
 
 ```cpp
 apply_sender(get-domain-early(sndr), sync_wait, sndr)
@@ -34,6 +32,7 @@ apply_sender(get-domain-early(sndr), sync_wait, sndr)
 * apply_sender[link ../execution/apply_sender.md]
 * get-domain-early[link ../execution/get-domain-early.md]
 
+- [`sender_in`](../execution/sender_in.md)`<Sndr,` [`sync-wait-env`](sync-wait-env.md)`> == true`であること。
 - 型`sync-wait-result-type<Sndr>`が適格であること。
 - 上記の`apply_sender`式を`e`としたとき、[`same_as`](/reference/concepts/same_as.md)`<decltype(e), sync-wait-result-type<Sndr>> == true`であること。
 
@@ -145,3 +144,4 @@ result=(100, X)
 
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)

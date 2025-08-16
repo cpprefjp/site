@@ -15,6 +15,9 @@ namespace std::execution {
     static constexpr auto get-state = see below;  // exposition only
     static constexpr auto start = see below;      // exposition only
     static constexpr auto complete = see below;   // exposition only
+
+    template<class Sndr, class... Env>
+    static consteval void check-types();
   };
 }
 ```
@@ -111,6 +114,24 @@ namespace std::execution {
 * callable[link /reference/functional/callable.md]
 * std::move[link /reference/utility/move.md]
 
+### `check-types`メンバ関数
+
+```cpp
+template<class Sndr, class... Env>
+static consteval void default-impls::check-types();
+```
+
+説明用のパック`Is`を、[`indices-for`](basic-sender.md)`<Sndr>`で導入される[`integer_sequence`](/reference/utility/integer_sequence.md)クラス特殊化の整数テンプレート引数とする。
+
+効果：下記と等価。
+
+```cpp
+(get_completion_signatures<child-type<Sndr, Is>, FWD-ENV-T(Env)...>(), ...);
+```
+* get_completion_signatures[link get_completion_signatures.md]
+* child-type[link child-type.md]
+* FWD-ENV-T[link ../forwarding_query.md]
+
 
 ## バージョン
 ### 言語
@@ -125,3 +146,4 @@ namespace std::execution {
 
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)

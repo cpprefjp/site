@@ -22,11 +22,8 @@ namespace std::execution {
       return {std::forward<Self>(self), std::move(rcvr)};
     }
 
-    template<decays-to<basic-sender> Self, class Env>
-    auto get_completion_signatures(this Self&& self, Env&& env) noexcept
-      -> completion-signatures-for<Self, Env> {
-      return {};
-    }
+    template<decays-to<basic-sender> Self, class... Env>
+    static constexpr auto get_completion_signatures();
   };
 }
 ```
@@ -62,19 +59,35 @@ is_nothrow_constructible_v<basic-operation<Self, Rcvr>, Self, Rcvr>
 * is_nothrow_constructible_v[link /reference/type_traits/is_nothrow_constructible.md]
 * basic-operation[link basic-operation.md]
 
-説明専用のエイリアステンプレート`completion-signatures-for`は、下記の通り定義される。
-
+### `get_completion_signatures`メンバ関数
 ```cpp
-template<class Sndr, class Env>
-using completion-signatures-for = see below;  // exposition only
+template<class Tag, class Data, class... Child>
+template<class Sndr, class... Env>
+constexpr auto basic-sender<Tag, Data, Child...>::get_completion_signatures();
 ```
 
-説明用の`sndr`を`decltype((sndr))`が`Sndr`型となる式、`rcvr`を[`sender_in`](sender_in.md)`<Sndr, Env> == true`となる[環境](../queryable.md)`Env`に関連付けられた[`Receiver`](receiver.md)とする。
+型`E`をリスト`Env...,` [`env<>`](env.md)における先頭の型としたとき、[環境](../queryable.md)`E`をもつ[Receiver](receiver.md)型を`Rcvr`とする。式`CHECK-TYPE()`を[`impls-for`](impls-for.md)`<Tag>::template check-types<Sndr, E>()`とし、型`CS`を下記の通り定義する。
 
-`completion-signatures-for<Sndr, Env>`は[`completion_signatures`](completion_signatures.md)の特殊化であり、そのテンプレート引数は `sndr`と`rcvr`との[接続(connect)](connect.md)結果[Operation State](operation_state.md)を[開始(start)](start.md)して得られる可能性のある結果の完了シグネチャ集合となる。
+- `CHECK-TYPE()`がコア定数式のとき、`op`を[`connect_result_t`](connect_result_t.md)`<Sndr, Rcvr>`型の左辺値とする。`CS`は[`completion_signatures`](completion_signatures.md)の特殊化となり、そのテンプレート引数の集合は評価`op.`[`start()`](start.md)の結果結果として得られる完了操作の集合に対応する。
+- そうでなければ、`CS`は[`completion_signatures<>`](completion_signatures.md)となる。
 
-[`sender_in`](sender_in.md)`<Sndr, Env> == false`となる場合、`completion-signatures-for<Sndr, Env>`は[`completion_signatures`](completion_signatures.md)の特殊化ではない別の型となる。
- 処理系（標準ライブラリ実装者）は、この型を用いてユーザにエラー理由を通知することが推奨される。
+テンプレートパラメータ制約 : 式`CHECK-TYPES()`が適格であること。
+
+効果：下記と等価。
+
+```cpp
+CHECK-TYPES();
+return CS();
+```
+
+
+## 説明専用エンティティ
+説明専用のエイリアステンプレート`indices-for`を下記の通り定義する。
+
+```cpp
+template<class Sndr>
+using indices-for = remove_reference_t<Sndr>::indices-for;  // exposition only 
+```
 
 
 ## バージョン
@@ -91,3 +104,4 @@ using completion-signatures-for = see below;  // exposition only
 ## 参照
 - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)

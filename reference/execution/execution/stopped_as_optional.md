@@ -30,7 +30,33 @@ transform_sender(get-domain-early(sndr), make-sender(stopped_as_optional, {}, sn
 
 
 ### Senderアルゴリズムタグ `stopped_as_optional`
-説明用の式`sndr`と`env`に対して、型`Sndr`を`decltype((sndr))`、型`Env`を`decltype((env))`とする。[`sender-for`](sender-for.md)`<Sndr, stopped_as_optional_t> == false`、もしくは[`single-sender-value-type`](single-sender-value-type.md)`<`[`child-type`](child-type.md)`<Sndr>,` [`FWD-ENV-T`](../forwarding_query.md)`(Env)>`が不適格または`void`のとき、式`stopped_as_optional.transform_sender(sndr, env)`は不適格となる。
+Senderアルゴリズム動作説明用のクラステンプレート[`impls-for`](impls-for.md)に対して、下記の特殊化が定義される。
+
+```cpp
+namespace std::execution {
+  template<>
+  struct impls-for<stopped_as_optional_t> : default-impls {
+    template<class Sndr, class... Env>
+    static consteval void check-types() {
+      default-impls::check-types<Sndr, Env...>();
+      if constexpr (!requires {
+        requires (!same_as<void, single-sender-value-type<child-type<Sndr>, FWD-ENV-T(Env)...>>); })
+        throw unspecified-exception();
+      }
+  };
+}
+```
+* impls-for[link impls-for.md]
+* default-impls[link impls-for.md]
+* single-sender-value-type[link single-sender-value-type.md]
+* child-type[link child-type.md]
+* FWD-ENV-T[link ../forwarding_query.md]
+
+`unspecified-exception`は[`exception`](/reference/exception/exception.md)から派生した型となる。
+
+説明用の式`sndr`と`env`に対して、型`Sndr`を`decltype((sndr))`、型`Env`を`decltype((env))`とする。[`sender-for`](sender-for.md)`<Sndr, stopped_as_optional_t> == false`のとき、式`stopped_as_optional.transform_sender(sndr, env)`は不適格となる。
+
+そうではなく、[`sender_in`](sender_in.md)`<`[`child-type`](child-type.md)`<Sndr>,` [`FWD-ENV-T`](../forwarding_query.md)`(Env)> == false`のとき、式`stopped_as_optional.transform_sender(sndr, env)`は[`not-a-sender()`](not-a-sender.md)と等価。
 
 そうでなければ、式`stopped_as_optional.transform_sender(sndr, env)`は下記と等価。
 
@@ -166,4 +192,5 @@ stopped
 ## 参照
 - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
 - [LWG 4203. Constraints on `get-state` functions are incorrect](https://cplusplus.github.io/LWG/issue4203)
