@@ -9,6 +9,7 @@ NGWORD_LIST = [
     ("", "acccess", "access"),
     ("", "ALING", "ALIGN"),
     ("", "alloacte", "allocate"),
+    ("", "alocator", "allocator"),
     ("", "asssert", "assert"),
     ("", "asssume", "assume"),
     ("", "algined", "aligned"),
