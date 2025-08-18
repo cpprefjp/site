@@ -38,7 +38,7 @@ namespace std::ranges {
 - (2): `E`および`F`を式、型`T`を[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<`[`decltype`](/lang/cpp11/decltype.md)`((E))>`、型`D`を[`range_difference_t`](range_difference_t.md)`<`[`decltype`](/lang/cpp11/decltype.md)`((E))>`とする。式`views::drop(E, F)`の効果は以下の通り
     - [`decltype`](/lang/cpp11/decltype.md)`((F))`が[`convertible_to`](/reference/concepts/convertible_to.md)`<D>`のモデルでなければ、呼び出しは不適格
     - `T`が[`ranges::empty_view`](empty_view.md)の特殊化であれば、`((void) F, `[`decay-copy`](/reference/exposition-only/decay-copy.md)`(E))`と等しい。ただし、`E`と`F`の評価順序は不定順で序列化(indeterminately sequenced)される
-    - `T`が[`random_access_range`](random_access_range.md)および[`sized_range`](sized_range.md)のモデルであり、かつ次のいずれかの特殊化であるとき、`T(`[`ranges::begin`](begin.md)`(E) + `[`min`](/reference/algorithm/min.md)`<D>(`[`ranges::size`](size.md)`(E), F), `[`ranges::end`](begin.md)`(E))`と等しい。ただし、`E`は1度だけ評価される
+    - `T`が[`random_access_range`](random_access_range.md)および[`sized_range`](sized_range.md)のモデルであり、かつ次のいずれかの特殊化であるとき、`T(`[`ranges::begin`](begin.md)`(E) + `[`min`](/reference/algorithm/min.md)`<D>(`[`ranges::size`](size.md)`(E), F), `[`ranges::end`](end.md)`(E))`と等しい。ただし、`E`は1度だけ評価される
         - [`span`](/reference/span/span.md) (ただし、`T::extent == `[`dynamic_extent`](/reference/span/dynamic_extent.md)であること)
         - [`basic_string_view`](/reference/string_view/basic_string_view.md)
         - [`ranges::iota_view`](iota_view.md)
