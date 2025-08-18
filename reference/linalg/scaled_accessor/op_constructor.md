@@ -25,7 +25,7 @@ constexpr scaled_accessor(const ScalingFactor& s, const NestedAccessor& a); // (
 
 
 ## テンプレートパラメータ制約
-- (2) : [`is_constructible_v`](/reference/type_traits/is_convertible.md)`<NestedAccessor, const OtherNestedAccessor&> == true`
+- (2) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<NestedAccessor, const OtherNestedAccessor&> == true`
 
 
 ## 効果

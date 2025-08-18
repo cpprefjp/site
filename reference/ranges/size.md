@@ -21,7 +21,7 @@ Rangeの要素数を取得する関数オブジェクト。
 1. `T`が配列型であれば、[`decay-copy`](/reference/exposition-only/decay-copy.md)`(`[`extent_v`](/reference/type_traits/extent.md)`<T>)`に等しい(expression‑equivalent)。ただし、要素数不明の配列であれば、呼び出しは不適格。
 2. [`disable_sized_range`](disable_sized_range.md)`<`[`remove_cv_t`](/reference/type_traits/remove_cv.md)`<T>>`が`false`、かつ[`decay-copy`](/reference/exposition-only/decay-copy.md)`(t.size())`が整数型(integer-like)の有効な式であれば、[`decay-copy`](/reference/exposition-only/decay-copy.md)`(t.size())`と等しい。
 3. `T`がクラス型または列挙体であって、[`disable_sized_range`](disable_sized_range.md)`<`[`remove_cv_t`](/reference/type_traits/remove_cv.md)`<T>>`が`false`、かつ`size`がADLで見つかり、[`decay-copy`](/reference/exposition-only/decay-copy.md)`(size(t))`が整数型の有効な式であれば、[`decay-copy`](/reference/exposition-only/decay-copy.md)`(size(t))`と等しい。
-4. `to-unsigned-like(`[`ranges::end`](end.md)`(t) - `[`ranges::begin`](begin.md)`(t))`が有効な式で、[`ranges::begin`](begin.md)の型`I`、[`ranges::end`](end.md)の型`S`が[`sized_sentinel_for`](/reference/iterator/disable_sized_sentinel_for.md)`<S, I>`と[`forward_iterator`](/reference/iterator/forward_iterator.md)のモデルであれば、`to-unsigned-like(`[`ranges::end`](end.md)`(t) - `[`ranges::begin`](begin.md)`(t))`と等しい。
+4. `to-unsigned-like(`[`ranges::end`](end.md)`(t) - `[`ranges::begin`](begin.md)`(t))`が有効な式で、[`ranges::begin`](begin.md)の型`I`、[`ranges::end`](end.md)の型`S`が[`sized_sentinel_for`](/reference/iterator/sized_sentinel_for.md)`<S, I>`と[`forward_iterator`](/reference/iterator/forward_iterator.md)のモデルであれば、`to-unsigned-like(`[`ranges::end`](end.md)`(t) - `[`ranges::begin`](begin.md)`(t))`と等しい。
 
 どれにも当てはまらないとき、呼び出しは不適格。
 
