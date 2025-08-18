@@ -37,7 +37,7 @@
 | [`ctype_byname`](locale/ctype_byname.md) | 名前による文字の分類(class template) | |
 | [`codecvt_base`](locale/codecvt_base.md) | 文字コード変換のための基底クラス(class) | |
 | [`codecvt`](locale/codecvt.md) | 文字コード変換(class template) | |
-| [`codevt_byname`](locale/codecvt_byname.md) | 名前による文字コード変換(class template) | |
+| [`codecvt_byname`](locale/codecvt_byname.md) | 名前による文字コード変換(class template) | |
 
 
 ## 数値
