@@ -15,7 +15,7 @@ namespace std {
 
 ## `thread`クラスとの違い
 
-- 停止要求のサポート: `jthread`は自身と関連付けられたスレッドに対する停止要求を扱う仕組みを提供する。このために[`<stop_token>`](/reference/stop_token/stop_token.md)ヘッダに定義されたクラスを利用する。
+- 停止要求のサポート: `jthread`は自身と関連付けられたスレッドに対する停止要求を扱う仕組みを提供する。このために[`<stop_token>`](/reference/stop_token.md)ヘッダに定義されたクラスを利用する。
 - 自動join機能: `jthread`はデストラクタやムーブ代入演算子が呼び出されたとき、もし自身に関連付けられたスレッドが存在する場合は、スレッドの停止要求を作成し、その後[`join()`](jthread/join.md)を呼び出してスレッドの終了を待機する。そのため`thread`クラスと異なり、[`joinable()`](jthread/joinable.md) `==` `true` であってもデストラクタやムーブ代入演算子を呼び出し可能であり、[`std::terminate()`](/reference/exception/terminate.md)は呼び出されない。
 
 ## メンバ関数
