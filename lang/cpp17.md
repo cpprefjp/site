@@ -323,7 +323,7 @@ C++17以降、言語の策定にship train modelというリリース体制が�
     - [`not1()`](/reference/functional/negators.md)関数
     - [`not2()`](/reference/functional/negators.md)関数
     - [`unary_negate`](/reference/functional/negators.md)クラス
-    - [`binary_nagate`](/reference/functional/negators.md)クラス
+    - [`binary_negate`](/reference/functional/negators.md)クラス
     - 標準関数オブジェクトの`result_type`、`argument_type`、`first_argument_type`、`second_argument_type`型
 - デバッグ用途にしか使用しない、[`shared_ptr`](/reference/memory/shared_ptr.md)`::`[`unique()`](/reference/memory/shared_ptr/unique.md)を非推奨化
 - [`result_of`](/reference/type_traits/result_of.md)を非推奨化。代わりに[`invoke_result`](/reference/type_traits/invoke_result.md)を使用すること
