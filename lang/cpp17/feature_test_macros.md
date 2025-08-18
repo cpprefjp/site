@@ -57,7 +57,7 @@ SD-6 は C++17 の機能について以下のテストマクロを定義する�
 | `__cpp_lib_any`                               | `201606` | [`std::any`](/reference/any/any.md) | [`<any>`](/reference/any.md) |
 | `__cpp_lib_variant`                           | `201606` | [`std::variant`](/reference/variant/variant.md) | [`<variant>`](/reference/variant.md) |
 | `__cpp_lib_memory_resource`                   | `201603` | [`std::memory_resource`](/reference/memory_resource/memory_resource.md)と関連する機能 | [`<memory_resource>`](/reference/memory_resource.md) |
-| `__cpp_lib_boyer_moore_searcher`              | `201603` | [`std::boyer_morre_searcher`](/reference/functional/boyer_moore_searcher.md)と関連する機能 | [`<functional>`](/reference/functional.md) |
+| `__cpp_lib_boyer_moore_searcher`              | `201603` | [`std::boyer_moore_searcher`](/reference/functional/boyer_moore_searcher.md)と関連する機能 | [`<functional>`](/reference/functional.md) |
 | `__cpp_lib_string_view`                       | `201606` | [`std::string_view`](/reference/string_view/basic_string_view.md) | [`<string_view>`](/reference/string_view.md) |
 | `__cpp_lib_sample`                            | `201603` | [`std::sample()`](/reference/algorithm/sample.md) | [`<algorithm>`](/reference/algorithm.md) |
 | `__cpp_lib_addressof_constexpr`               | `201603` | [`std::addressof()`](/reference/memory/addressof.md) | [`<memory>`](/reference/memory.md) |
