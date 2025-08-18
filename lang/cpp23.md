@@ -155,7 +155,7 @@ C++23とは、2023年中に改訂され、ISO/IEC 14882:2024で標準規格化�
 
 
 ### アルゴリズム
-- [`<algorithm>`](/reference/algorithm.md)に、範囲の先頭が指定した範囲と合致するかを判定する[`std::starts_with()`](/reference/algorithm/ranges_starts_with.md)、範囲の末尾が指定した範囲と合致するかを判定する[`std::ends_with()`](/reference/algorithm/ranges_ends_with.md)を追加
+- [`<algorithm>`](/reference/algorithm.md)に、範囲の先頭が指定した範囲と合致するかを判定する[`std::ranges::starts_with()`](/reference/algorithm/ranges_starts_with.md)、範囲の末尾が指定した範囲と合致するかを判定する[`std::ranges::ends_with()`](/reference/algorithm/ranges_ends_with.md)を追加
 - [`<algorithm>`](/reference/algorithm.md)に、要素を左シフトさせるRangeアルゴリズム[`std::ranges::shift_left()`](/reference/algorithm/ranges_shift_left.md)、要素を右シフトさせるRangeアルゴリズム[`std::ranges::shift_right()`](/reference/algorithm/ranges_shift_right.md)を追加
 - [`<algorithm>`](/reference/algorithm.md)に、範囲の末尾から要素を検索する以下のアルゴリズムを追加：
     - [`std::ranges::find_last()`](/reference/algorithm/ranges_find_last.md)
