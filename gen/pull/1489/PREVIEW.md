@@ -1,10 +1,10 @@
 # PR [\#1489](https://github.com/cpprefjp/site/pull/1489) プレビュー
-- &#x231a; 更新時刻: 2025-08-16 22:07:35 JST
+- &#x231a; 更新時刻: 2025-08-19 21:03:51 JST
 - &#x1f50d; [プレビュー (HTML)](https://cpprefjp.github.io/site/gen/pull/1489)
 - &#x1f4c8; [プレビュー生成記録](https://github.com/cpprefjp/site/actions?query=event%3Apull_request_target+branch%3Ap3557r3)
-- **&#x2AEF;** ソースの変更: [`c1128ce..e04feaa`](https://github.com/cpprefjp/site/compare/c1128ceedac0dd58735948c117fcb6f79f095490..e04feaaee34d512c506d9f896dd38c5ae46f090d)
+- **&#x2AEF;** ソースの変更: [`715c5f9..157a932`](https://github.com/cpprefjp/site/compare/715c5f996ee4be5e568e0b28bd2b5edb4a4008a7..157a932f88b6387f24817b254ecfdd41b9273622)
 
-## 変更記事一覧 (36件)
+## 変更記事一覧 (38件)
 
 - &#x1f4dd; [`reference/execution/execution`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution.html)
 - &#x1f4dd; [`reference/execution/execution/basic-operation`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/basic-operation.html)
@@ -36,6 +36,8 @@
 - &#x1f4dd; [`reference/execution/execution/single-sender`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/single-sender.html)
 - &#x1f4dd; [`reference/execution/execution/stopped_as_optional`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/stopped_as_optional.html)
 - &#x1f4dd; [`reference/execution/execution/then`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/then.html)
+- &#x1f4dd; [`reference/execution/execution/upon_error`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/upon_error.html)
+- &#x1f4dd; [`reference/execution/execution/upon_stopped`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/upon_stopped.html)
 - &#x1f4dd; [`reference/execution/execution/when_all`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/when_all.html)
 - &#x1f4dd; [`reference/execution/execution/when_all_with_variant`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/when_all_with_variant.html)
 - &#x1f4dd; [`reference/execution/execution/write-env`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/write-env.html)

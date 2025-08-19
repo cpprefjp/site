@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-06-11T14:15:20">
-        2025年06月11日 14時15分20秒
+      <span itemprop="datePublished" content="2025-08-18T09:48:42">
+        2025年08月18日 09時48分42秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -343,7 +343,7 @@
 <h3><code>std::allocator/std::allocator_traits</code></h3>
 <p>標準ライブラリのコンテナ等は<code>new/delete</code>式を直接利用するわけではなく、<code>std::allocator_traits</code>を介して<code>std::allocator</code>を使用してメモリ確保・解放とオブジェクト構築・破棄を行う。<code>std::allocator/std::allocator_traits</code>も見かけ上はポインタの再解釈を必要とせずにそれを行うため、<code>std::allocator/std::allocator_traits</code>によるメモリ確保周りの機能もまた、コンパイル時の動的メモリ確保・解放の方法として許可される。</p>
 <p><code>std::allocator/std::allocator_traits</code>では<code>new/delete</code>式とは異なり、メモリの確保・解放（<code><a href="../../reference/memory/allocator/allocate.html">allocate</a></code>/<code><a href="../../reference/memory/allocator/deallocate.html">deallocate</a></code>）とその領域へのオブジェクト構築・破棄（<code><a href="../../reference/memory/allocator_traits/construct.html">construct</a></code>/<code><a href="../../reference/memory/allocator_traits/destroy.html">destroy</a></code>）の操作が複合していない。オブジェクト構築・破棄においては<em>placement new</em>と<em>pseudo-destructor call</em>が必要となるが、<em>placement new</em>はポインタの再解釈が必要となることから許可されず、そのために不必要であるので<em>pseudo-destructor call</em>も許可されない。</p>
-<p>代わりに、<em>placement new</em>を行うライブラリ機能である<code><span href="https://cpprefjp.github.io/reference/memory/construct.md.nolink">construct_at</span></code>を追加し、<em>pseudo-destructor call</em>を行う<code><a href="../../reference/memory/destroy_at.html">destroy_at</a></code>と共に<code>constexpr</code>を付加し定数式で使用可能とする。これらの関数は<code>void*</code>ではなく<code>T*</code>を取るため、これによってポインタ再解釈を回避しつつ<em>placement new</em>と<em>pseudo-destructor call</em>が定数式で使用可能となる。</p>
+<p>代わりに、<em>placement new</em>を行うライブラリ機能である<code><a href="../../reference/memory/construct_at.html">construct_at</a></code>を追加し、<em>pseudo-destructor call</em>を行う<code><a href="../../reference/memory/destroy_at.html">destroy_at</a></code>と共に<code>constexpr</code>を付加し定数式で使用可能とする。これらの関数は<code>void*</code>ではなく<code>T*</code>を取るため、これによってポインタ再解釈を回避しつつ<em>placement new</em>と<em>pseudo-destructor call</em>が定数式で使用可能となる。</p>
 <p>そして、<code>std::allocator_traits</code>の<code>construct</code>と<code>destroy</code>は<code>construct_at/destroy_at</code>を呼び出して処理を行うように変更される。なお、これによって実行時の振る舞いが変化することはない。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="kt">int</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
   <span class="n"><a href="../../reference/memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">alloc</span><span class="p">{};</span>

@@ -2,14 +2,286 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-08-16T13:07:34.753958</updated>
-  <id>0f5b5e87-8440-49ae-8e56-2fa8a223a321</id>
+  <updated>2025-08-19T12:03:49.843389</updated>
+  <id>c84a09c9-f3ad-4e57-9969-cfdb2ba22c67</id>
 
+  
+    <entry>
+      <title>let_value -- execution/then,upon_{error,stopped}: 効果説明をthenに統合</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/let_value.html"/>
+      <id>157a932f88b6387f24817b254ecfdd41b9273622:reference/execution/execution/let_value.md</id>
+      <updated>2025-08-19T20:31:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/let_value.md b/reference/execution/execution/let_value.md
+index 7ada68818..823c2ef78 100644
+--- a/reference/execution/execution/let_value.md
++++ b/reference/execution/execution/let_value.md
+@@ -17,7 +17,7 @@ namespace std::execution {
+ 
+ `let_value`は[パイプ可能Senderアダプタオブジェクト](sender_adaptor_closure.md)であり、パイプライン記法をサポートする。
+ 
+-本ページにてSenderアルゴリズム`let_value`／[`let_error`](let_error.md)／[`let_stopped`](let_stopped.md)の動作仕様を包括的に説明するため、以降のセクションにおいては、`let-cpo`, `set-cpo`をそれぞれ下記の通りとする。
++本ページにてSenderアルゴリズム`let_value`／[`let_error`](let_error.md)／[`let_stopped`](let_stopped.md)の動作仕様を包括的に説明するため、以降のセクションにおいては`let-cpo`, `set-cpo`をそれぞれ下記の通りとする。
+ 
+ | `let-cpo` | `set-cpo` |
+ |----|----|
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>then -- execution/then,upon_{error,stopped}: 効果説明をthenに統合</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/then.html"/>
+      <id>157a932f88b6387f24817b254ecfdd41b9273622:reference/execution/execution/then.md</id>
+      <updated>2025-08-19T20:31:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/then.md b/reference/execution/execution/then.md
+index 5bc0f8c38..b5590646f 100644
+--- a/reference/execution/execution/then.md
++++ b/reference/execution/execution/then.md
+@@ -17,31 +17,39 @@ namespace std::execution {
+ 
+ `then`は[パイプ可能Senderアダプタオブジェクト](sender_adaptor_closure.md)であり、パイプライン記法をサポートする。
+ 
++本ページにてSenderアルゴリズム`then`／[`upon_error`](upon_error.md)／[`upon_stopped`](upon_stopped.md)の動作仕様を包括的に説明するため、以降のセクションにおいては`then-cpo`, `set-cpo`をそれぞれ下記の通りとする。
++
++| `then-cpo` | `set-cpo` |
++|----|----|
++| `then` | [`set_value`](set_value.md) |
++| [`upon_error`](upon_error.md) | [`set_error`](set_error.md) |
++| [`upon_stopped`](upon_stopped.md) | [`set_stopped`](set_stopped.md) |
++
+ 
+ ## 効果
+-説明用の式`sndr`と`f`に対して、`decltype((sndr))`が[`sender`](sender.md)を満たさない、もしくは`decltype((f))`が[`movable-value`](../movable-value.md)を満たさないとき、呼び出し式`then(sndr, f)`は不適格となる。
++説明用の式`sndr`と`f`に対して、`decltype((sndr))`が[`sender`](sender.md)を満たさない、もしくは`decltype((f))`が[`movable-value`](../movable-value.md)を満たさないとき、呼び出し式`then-cpo(sndr, f)`は不適格となる。
+ 
+-そうでなければ、呼び出し式`then(sndr, f)`は`sndr`が1回だけ評価されることを除いて、下記と等価。
++そうでなければ、呼び出し式`then-cpo(sndr, f)`は`sndr`が1回だけ評価されることを除いて、下記と等価。
+ 
+ ```cpp
+-transform_sender(get-domain-early(sndr), make-sender(then, f, sndr))
++transform_sender(get-domain-early(sndr), make-sender(then-cpo, f, sndr))
+ ```
+ * transform_sender[link transform_sender.md]
+ * get-domain-early[link get-domain-early.md]
+ * make-sender[link make-sender.md]
+ 
+ 
+-### Senderアルゴリズムタグ `then`
++### Senderアルゴリズムタグ `then-cpo`
+ Senderアルゴリズム動作説明用のクラステンプレート[`impls-for`](impls-for.md)に対して、下記の特殊化が定義される。
+ 
+ ```cpp
+ namespace std::execution {
+   template&amp;lt;&amp;gt;
+-  struct impls-for&amp;lt;decayed-typeof&amp;lt;then&amp;gt;&amp;gt; : default-impls {
++  struct impls-for&amp;lt;decayed-typeof&amp;lt;then-cpo&amp;gt;&amp;gt; : default-impls {
+     static constexpr auto complete =
+       []&amp;lt;class Tag, class... Args&amp;gt;
+         (auto, auto&amp;amp; fn, auto&amp;amp; rcvr, Tag, Args&amp;amp;&amp;amp;... args) noexcept -&amp;gt; void {
+-          if constexpr (same_as&amp;lt;Tag, decayed-typeof&amp;lt;set_value&amp;gt;&amp;gt;) {
++          if constexpr (same_as&amp;lt;Tag, decayed-typeof&amp;lt;set-cpo&amp;gt;&amp;gt;) {
+             TRY-SET-VALUE(rcvr,
+                           invoke(std::move(fn), std::forward&amp;lt;Args&amp;gt;(args)...));
+           } else {
+@@ -57,12 +65,11 @@ namespace std::execution {
+ * decayed-typeof[link /reference/functional/decayed-typeof.md]
+ * impls-for[link impls-for.md]
+ * default-impls[link impls-for.md]
+-* set_value[link set_value.md]
+ * TRY-SET-VALUE[link set_value.md]
+ * invoke[link /reference/functional/invoke.md]
+ * std::move[link /reference/utility/move.md]
+ 
+-メンバ関数`impls-for&amp;lt;decayed-typeof&amp;lt;then&amp;gt;&amp;gt;::check-types`の効果は下記の通り。
++メンバ関数`impls-for&amp;lt;decayed-typeof&amp;lt;then-cpo&amp;gt;&amp;gt;::check-types`の効果は下記の通り。
+ 
+ ```cpp
+ auto cs = get_completion_signatures&amp;lt;child-type&amp;lt;Sndr&amp;gt;, FWD-ENV-T(Env)...&amp;gt;();
+@@ -85,10 +92,10 @@ cs.for-each(overload-set{fn, [](auto){}});
+ Senderアルゴリズム構築時および[Receiver](receiver.md)接続時に、関連付けられた実行ドメインに対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
+ [デフォルト実行ドメイン](default_domain.md)では無変換。
+ 
+-戻り値の[Sender](sender.md)`out_sndr`が下記を満たさない場合、呼び出し式`then(sndr, f)`の動作は未定義となる。
++戻り値の[Sender](sender.md)`out_sndr`が下記を満たさない場合、呼び出し式`then-cpo(sndr, f)`の動作は未定義となる。
+ 
+-- `then`に対する`sndr`の値結果データで`f`またはそのコピーを呼び出し、`out_sndr`の値完了として`f`の結果値を用いること。
+-- 他の完了操作では変更なしに転送すること。
++- `then-cpo`に対する`sndr`の`set-cpo`結果データで`f`またはそのコピーを呼び出し、`out_sndr`の値完了として`f`の結果値を用いること。
++- 上記以外の完了操作では変更なしに転送すること。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>upon_error -- execution/then,upon_{error,stopped}: 効果説明をthenに統合</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/upon_error.html"/>
+      <id>157a932f88b6387f24817b254ecfdd41b9273622:reference/execution/execution/upon_error.md</id>
+      <updated>2025-08-19T20:31:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/upon_error.md b/reference/execution/execution/upon_error.md
+index 0dce0ce7e..7303d018e 100644
+--- a/reference/execution/execution/upon_error.md
++++ b/reference/execution/execution/upon_error.md
+@@ -18,56 +18,7 @@ namespace std::execution {
+ `upon_error`は[パイプ可能Senderアダプタオブジェクト](sender_adaptor_closure.md)であり、パイプライン記法をサポートする。
+ 
+ 
+-## 効果
+-説明用の式`sndr`と`f`に対して、`decltype((sndr))`が[`sender`](sender.md)を満たさない、もしくは`decltype((f))`が[`movable-value`](../movable-value.md)を満たさないとき、呼び出し式`upon_error(sndr, f)`は不適格となる。
+-
+-そうでなければ、呼び出し式`upon_error(sndr, f)`は`sndr`が1回だけ評価されることを除いて、下記と等価。
+-
+-```cpp
+-transform_sender(get-domain-early(sndr), make-sender(upon_error, f, sndr))
+-```
+-* transform_sender[link transform_sender.md]
+-* get-domain-early[link get-domain-early.md]
+-* make-sender[link make-sender.md]
+-
+-
+-### Senderアルゴリズムタグ `upon_error`
+-Senderアルゴリズム動作説明用のクラステンプレート[`impls-for`](impls-for.md)に対して、下記の特殊化が定義される。
+-
+-```cpp
+-namespace std::execution {
+-  template&amp;lt;&amp;gt;
+-  struct impls-for&amp;lt;decayed-typeof&amp;lt;upon_error&amp;gt;&amp;gt; : default-impls {
+-    static constexpr auto complete =
+-      []&amp;lt;class Tag, class... Args&amp;gt;
+-        (auto, auto&amp;amp; fn, auto&amp;amp; rcvr, Tag, Args&amp;amp;&amp;amp;... args) noexcept -&amp;gt; void {
+-          if constexpr (same_as&amp;lt;Tag, decayed-typeof&amp;lt;set_error&amp;gt;&amp;gt;) {
+-            TRY-SET-VALUE(rcvr,
+-                          invoke(std::move(fn), std::forward&amp;lt;Args&amp;gt;(args)...));
+-          } else {
+-            Tag()(std::move(rcvr), std::forward&amp;lt;Args&amp;gt;(args)...);
+-          }
+-        };
+-  };
+-}
+-```
+-* decayed-typeof[link /reference/functional/decayed-typeof.md]
+-* impls-for[link impls-for.md]
+-* default-impls[link impls-for.md]
+-* set_error[link set_error.md]
+-* TRY-SET-VALUE[link set_value.md]
+-* invoke[link /reference/functional/invoke.md]
+-* std::move[link /reference/utility/move.md]
+-
+-
+-## カスタマイゼーションポイント
+-Senderアルゴリズム構築時および[Receiver](receiver.md)接続時に、関連付けられた実行ドメインに対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
+-[デフォルト実行ドメイン](default_domain.md)では無変換。
+-
+-戻り値の[Sender](sender.md)`out_sndr`が下記を満たさない場合、呼び出し式`upon_error(sndr, f)`の動作は未定義となる。
+-
+-- `upon_error`に対する`sndr`のエラー結果データで`f`またはそのコピーを呼び出し、`out_sndr`の値完了として`f`の結果値を用いること。
+-- 他の完了操作では変更なしに転送すること。
++Senderアルゴリズム`upon_error`の仕様は、[`then`](then.md)ページを参照のこと。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>upon_stopped -- execution/then,upon_{error,stopped}: 効果説明をthenに統合</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/upon_stopped.html"/>
+      <id>157a932f88b6387f24817b254ecfdd41b9273622:reference/execution/execution/upon_stopped.md</id>
+      <updated>2025-08-19T20:31:32+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/upon_stopped.md b/reference/execution/execution/upon_stopped.md
+index 6e2a712f0..2dc21cde4 100644
+--- a/reference/execution/execution/upon_stopped.md
++++ b/reference/execution/execution/upon_stopped.md
+@@ -17,57 +17,7 @@ namespace std::execution {
+ 
+ `upon_stopped`は[パイプ可能Senderアダプタオブジェクト](sender_adaptor_closure.md)であり、パイプライン記法をサポートする。
+ 
+-
+-## 効果
+-説明用の式`sndr`と`f`に対して、`decltype((sndr))`が[`sender`](sender.md)を満たさない、もしくは`decltype((f))`が[`movable-value`](../movable-value.md)を満たさないとき、呼び出し式`upon_stopped(sndr, f)`は不適格となる。
+-
+-そうでなければ、呼び出し式`upon_stopped(sndr, f)`は`sndr`が1回だけ評価されることを除いて、下記と等価。
+-
+-```cpp
+-transform_sender(get-domain-early(sndr), make-sender(upon_stopped, f, sndr))
+-```
+-* transform_sender[link transform_sender.md]
+-* get-domain-early[link get-domain-early.md]
+-* make-sender[link make-sender.md]
+-
+-
+-### Senderアルゴリズムタグ `upon_stopped`
+-Senderアルゴリズム動作説明用のクラステンプレート[`impls-for`](impls-for.md)に対して、下記の特殊化が定義される。
+-
+-```cpp
+-namespace std::execution {
+-  template&amp;lt;&amp;gt;
+-  struct impls-for&amp;lt;decayed-typeof&amp;lt;upon_stopped&amp;gt;&amp;gt; : default-impls {
+-    static constexpr auto complete =
+-      []&amp;lt;class Tag, class... Args&amp;gt;
+-        (auto, auto&amp;amp; fn, auto&amp;amp; rcvr, Tag, Args&amp;amp;&amp;amp;... args) noexcept -&amp;gt; void {
+-          if constexpr (same_as&amp;lt;Tag, decayed-typeof&amp;lt;set_stopped&amp;gt;&amp;gt;) {
+-            TRY-SET-VALUE(rcvr,
+-                          invoke(std::move(fn), std::forward&amp;lt;Args&amp;gt;(args)...));
+-          } else {
+-            Tag()(std::move(rcvr), std::forward&amp;lt;Args&amp;gt;(args)...);
+-          }
+-        };
+-  };
+-}
+-```
+-* decayed-typeof[link /reference/functional/decayed-typeof.md]
+-* impls-for[link impls-for.md]
+-* default-impls[link impls-for.md]
+-* set_stopped[link set_stopped.md]
+-* TRY-SET-VALUE[link set_value.md]
+-* invoke[link /reference/functional/invoke.md]
+-* std::move[link /reference/utility/move.md]
+-
+-
+-## カスタマイゼーションポイント
+-Senderアルゴリズム構築時および[Receiver](receiver.md)接続時に、関連付けられた実行ドメインに対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
+-[デフォルト実行ドメイン](default_domain.md)では無変換。
+-
+-戻り値の[Sender](sender.md)`out_sndr`が下記を満たさない場合、呼び出し式`upon_stopped(sndr, f)`の動作は未定義となる。
+-
+-- `upon_stopped`に対する`sndr`の停止結果データで`f`またはそのコピーを呼び出し、`out_sndr`の値完了として`f`の結果値を用いること。
+-- 他の完了操作では変更なしに転送すること。
++Senderアルゴリズム`upon_stopped`の仕様は、[`then`](then.md)ページを参照のこと。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>execution -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/execution.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/execution.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution.md b/reference/execution/execution.md
@@ -48,7 +320,7 @@ index a9eda1dc8..48a57ff2e 100644
     <entry>
       <title>basic-operation -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/execution/basic-operation.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/basic-operation.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/execution/basic-operation.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/basic-operation.md b/reference/execution/execution/basic-operation.md
@@ -97,7 +369,7 @@ index 44f7fa083..865e8143b 100644
     <entry>
       <title>basic-sender -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/execution/basic-sender.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/basic-sender.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/execution/basic-sender.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/basic-sender.md b/reference/execution/execution/basic-sender.md
@@ -177,7 +449,7 @@ index 049660125..4ddea44f6 100644
     <entry>
       <title>bulk -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/execution/bulk.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/bulk.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/execution/bulk.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/bulk.md b/reference/execution/execution/bulk.md
@@ -237,7 +509,7 @@ index 96ed1cf01..fc2f1cad1 100644
     <entry>
       <title>child-type -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/execution/child-type.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/child-type.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/execution/child-type.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/child-type.md b/reference/execution/execution/child-type.md
@@ -266,7 +538,7 @@ index 07ed69cdb..96124dc1d 100644
     <entry>
       <title>completion_signatures -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/execution/completion_signatures.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/completion_signatures.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/execution/completion_signatures.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/completion_signatures.md b/reference/execution/execution/completion_signatures.md
@@ -324,7 +596,7 @@ index 731f2795e..36c97e73e 100644
     <entry>
       <title>completion_signatures_of_t -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/execution/completion_signatures_of_t.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/completion_signatures_of_t.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/execution/completion_signatures_of_t.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/completion_signatures_of_t.md b/reference/execution/execution/completion_signatures_of_t.md
@@ -367,7 +639,7 @@ index 94616cf72..e1bae9396 100644
     <entry>
       <title>connect -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/execution/connect.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/connect.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/execution/connect.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/connect.md b/reference/execution/execution/connect.md
@@ -420,7 +692,7 @@ index 484c5208c..5d4d76807 100644
     <entry>
       <title>data-type -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/execution/data-type.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/data-type.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/execution/data-type.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/data-type.md b/reference/execution/execution/data-type.md
@@ -471,7 +743,7 @@ index 000000000..2c1e44abe
     <entry>
       <title>decay-copyable-result-datums -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/execution/decay-copyable-result-datums.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/decay-copyable-result-datums.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/execution/decay-copyable-result-datums.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/decay-copyable-result-datums.md b/reference/execution/execution/decay-copyable-result-datums.md
@@ -530,7 +802,7 @@ index 000000000..ab8807748
     <entry>
       <title>dependent_sender -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/execution/dependent_sender.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/dependent_sender.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/execution/dependent_sender.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/dependent_sender.md b/reference/execution/execution/dependent_sender.md
@@ -603,7 +875,7 @@ index 000000000..0324296f0
     <entry>
       <title>dependent_sender_error -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/execution/dependent_sender_error.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/dependent_sender_error.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/execution/dependent_sender_error.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/dependent_sender_error.md b/reference/execution/execution/dependent_sender_error.md
@@ -657,7 +929,7 @@ index 000000000..ca1b4f329
     <entry>
       <title>get_completion_signatures -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/execution/get_completion_signatures.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/get_completion_signatures.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/execution/get_completion_signatures.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/get_completion_signatures.md b/reference/execution/execution/get_completion_signatures.md
@@ -787,7 +1059,7 @@ index 1461fb267..5fc96a34e 100644
     <entry>
       <title>impls-for -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/execution/impls-for.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/impls-for.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/execution/impls-for.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/impls-for.md b/reference/execution/execution/impls-for.md
@@ -845,11 +1117,11 @@ index ecc998fac..f875fb8a3 100644
     <entry>
       <title>into_variant -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/execution/into_variant.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/into_variant.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/execution/into_variant.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/into_variant.md b/reference/execution/execution/into_variant.md
-index 2e290b3ba..b518ff19a 100644
+index 193dc66b4..1ca31e9c6 100644
 --- a/reference/execution/execution/into_variant.md
 +++ b/reference/execution/execution/into_variant.md
 @@ -40,11 +40,21 @@ namespace std::execution {
@@ -891,7 +1163,7 @@ index 2e290b3ba..b518ff19a 100644
     <entry>
       <title>let_value -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/execution/let_value.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/let_value.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/execution/let_value.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/let_value.md b/reference/execution/execution/let_value.md
@@ -962,7 +1234,7 @@ index 90a4eb318..7ada68818 100644
     <entry>
       <title>make-sender -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/execution/make-sender.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/make-sender.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/execution/make-sender.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/make-sender.md b/reference/execution/execution/make-sender.md
@@ -1010,7 +1282,7 @@ index d57037be0..d0c93010a 100644
     <entry>
       <title>not-a-sender -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/execution/not-a-sender.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/not-a-sender.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/execution/not-a-sender.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/not-a-sender.md b/reference/execution/execution/not-a-sender.md
@@ -1069,7 +1341,7 @@ index 000000000..78020fec3
     <entry>
       <title>on -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/execution/on.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/on.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/execution/on.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/on.md b/reference/execution/execution/on.md
@@ -1120,7 +1392,7 @@ index 464753baf..41061fa9f 100644
     <entry>
       <title>overload-set -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/execution/overload-set.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/overload-set.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/execution/overload-set.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/overload-set.md b/reference/execution/execution/overload-set.md
@@ -1170,7 +1442,7 @@ index 000000000..ae04ed5bd
     <entry>
       <title>read_env -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/execution/read_env.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/read_env.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/execution/read_env.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/read_env.md b/reference/execution/execution/read_env.md
@@ -1213,7 +1485,7 @@ index dd01a8ca6..0f8bf7826 100644
     <entry>
       <title>run-loop-sender -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/execution/run_loop/run-loop-sender.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/run_loop/run-loop-sender.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/execution/run_loop/run-loop-sender.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/run_loop/run-loop-sender.md b/reference/execution/execution/run_loop/run-loop-sender.md
@@ -1245,7 +1517,7 @@ index 65937e3ef..059a36fb9 100644
     <entry>
       <title>schedule_from -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/execution/schedule_from.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/schedule_from.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/execution/schedule_from.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/schedule_from.md b/reference/execution/execution/schedule_from.md
@@ -1300,7 +1572,7 @@ index 7b07f0cfe..b76689c3f 100644
     <entry>
       <title>scheduler -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/execution/scheduler.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/scheduler.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/execution/scheduler.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/scheduler.md b/reference/execution/execution/scheduler.md
@@ -1348,7 +1620,7 @@ index b7f645acc..5c0fd70dc 100644
     <entry>
       <title>sender-in-of -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/execution/sender-in-of.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/sender-in-of.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/execution/sender-in-of.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/sender-in-of.md b/reference/execution/execution/sender-in-of.md
@@ -1431,7 +1703,7 @@ index 000000000..c80d82c58
     <entry>
       <title>sender_in -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/execution/sender_in.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/sender_in.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/execution/sender_in.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/sender_in.md b/reference/execution/execution/sender_in.md
@@ -1506,7 +1778,7 @@ index e587de234..44c57fd8f 100644
     <entry>
       <title>single-sender-value-type -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/execution/single-sender-value-type.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/single-sender-value-type.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/execution/single-sender-value-type.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/single-sender-value-type.md b/reference/execution/execution/single-sender-value-type.md
@@ -1557,7 +1829,7 @@ index 4dcf2637e..bf0254881 100644
     <entry>
       <title>single-sender -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/execution/single-sender.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/single-sender.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/execution/single-sender.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/single-sender.md b/reference/execution/execution/single-sender.md
@@ -1594,7 +1866,7 @@ index b1e724288..ce983b79e 100644
     <entry>
       <title>stopped_as_optional -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/execution/stopped_as_optional.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/stopped_as_optional.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/execution/stopped_as_optional.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/stopped_as_optional.md b/reference/execution/execution/stopped_as_optional.md
@@ -1653,7 +1925,7 @@ index dc28ba07a..15fc81c4d 100644
     <entry>
       <title>then -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/execution/then.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/then.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/execution/then.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/then.md b/reference/execution/execution/then.md
@@ -1711,7 +1983,7 @@ index 3ec21dcda..5bc0f8c38 100644
     <entry>
       <title>when_all -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/execution/when_all.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/when_all.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/execution/when_all.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/when_all.md b/reference/execution/execution/when_all.md
@@ -1854,7 +2126,7 @@ index 47fa9b2ec..911622cfe 100644
     <entry>
       <title>when_all_with_variant -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/execution/when_all_with_variant.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/when_all_with_variant.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/execution/when_all_with_variant.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/when_all_with_variant.md b/reference/execution/execution/when_all_with_variant.md
@@ -1895,7 +2167,7 @@ index 1329f52b6..5f7fcf041 100644
     <entry>
       <title>write-env -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/execution/write-env.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/execution/write-env.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/execution/write-env.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/write-env.md b/reference/execution/execution/write-env.md
@@ -1951,7 +2223,7 @@ index f53008768..14d3765b0 100644
     <entry>
       <title>is-awaitable -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/is-awaitable.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/is-awaitable.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/is-awaitable.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/is-awaitable.md b/reference/execution/is-awaitable.md
@@ -2017,7 +2289,7 @@ index a14bb68d8..0db175a0b 100644
     <entry>
       <title>sync_wait -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/this_thread/sync_wait.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/this_thread/sync_wait.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/this_thread/sync_wait.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/this_thread/sync_wait.md b/reference/execution/this_thread/sync_wait.md
@@ -2059,7 +2331,7 @@ index d80039fd1..06a2b6cd3 100644
     <entry>
       <title>sync_wait_with_variant -- execution: C++26 P3557R3対応</title>
       <link href="https://cpprefjp.github.io/reference/execution/this_thread/sync_wait_with_variant.html"/>
-      <id>e04feaaee34d512c506d9f896dd38c5ae46f090d:reference/execution/this_thread/sync_wait_with_variant.md</id>
+      <id>eb824e26f41a1c9550beb8a84781a1a07baf886c:reference/execution/this_thread/sync_wait_with_variant.md</id>
       <updated>2025-08-16T21:31:08+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/this_thread/sync_wait_with_variant.md b/reference/execution/this_thread/sync_wait_with_variant.md
@@ -2110,476 +2382,307 @@ index d23cf6018..d67ec4321 100644
     </entry>
   
     <entry>
-      <title>execution -- execution: P3557R3 remove transform_completion_signatures(_of)</title>
-      <link href="https://cpprefjp.github.io/reference/execution/execution.html"/>
-      <id>d29d225cd07cf1094a32f27d27e8283edc3abdd7:reference/execution/execution.md</id>
-      <updated>2025-08-16T10:47:50+09:00</updated>
+      <title>into_variant -- リンクを修正</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/into_variant.html"/>
+      <id>715c5f996ee4be5e568e0b28bd2b5edb4a4008a7:reference/execution/execution/into_variant.md</id>
+      <updated>2025-08-19T20:49:01+09:00</updated>
       
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution.md b/reference/execution/execution.md
-index 634592a36..a9eda1dc8 100644
---- a/reference/execution/execution.md
-+++ b/reference/execution/execution.md
-@@ -142,8 +142,6 @@ Senderコンシューマは名前空間 `std::this_thread` で定義される。
- | 名前 | 説明 | 対応バージョン |
- |------|------|----------------|
- | [`execution::completion_signatures`](execution/completion_signatures.md) | 完了シグネチャ集合を表現する型 (class template) | C++26 |
--| [`execution::transform_completion_signatures`](execution/transform_completion_signatures.md) | 完了シグネチャ集合を変換 (alias template) | C++26 |
--| [`execution::transform_completion_signatures_of`](execution/transform_completion_signatures_of.md) | Senderの完了シグネチャ集合を変換 (alias template) | C++26 |
- | [`execution::run_loop`](execution/run_loop.md) | 単一スレッド上でのループ実行 (class) | C++26 |
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/into_variant.md b/reference/execution/execution/into_variant.md
+index 2e290b3ba..193dc66b4 100644
+--- a/reference/execution/execution/into_variant.md
++++ b/reference/execution/execution/into_variant.md
+@@ -48,7 +48,7 @@ namespace std::execution {
  
- ### コルーチンユーティリティ
-@@ -162,4 +160,5 @@ Senderコンシューマは名前空間 `std::this_thread` で定義される。
- ## 参照
- - [P0024R2 The Parallelism TS Should be Standardized](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0024r2.html)
- - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
-+- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
- - [P3682R0 Remove `std::execution::split`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3682r0.pdf)
+ `impls-for&amp;lt;into_variant_t&amp;gt;::get-state`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
+ 
+-- 子[Sender](sender.md)の[値完了シグネチャを集約](value_types_of_t.md)した[`variant`](/reference/variant/variant.md)`&amp;lt;`[`tuple`](/reference/variant/variant.md)`&amp;lt;...&amp;gt;, ...&amp;gt;`型を[`type_identity`](/reference/type_traits/type_identity.md)クラステンプレートのパラメータに格納して返す。
++- 子[Sender](sender.md)の[値完了シグネチャを集約](value_types_of_t.md)した[`variant`](/reference/variant/variant.md)`&amp;lt;`[`tuple`](/reference/tuple/tuple.md)`&amp;lt;...&amp;gt;, ...&amp;gt;`型を[`type_identity`](/reference/type_traits/type_identity.md)クラステンプレートのパラメータに格納して返す。
+ 
+ ```cpp
+ []&amp;lt;class Sndr, class Rcvr&amp;gt;(Sndr&amp;amp;&amp;amp; sndr, Rcvr&amp;amp; rcvr) noexcept
+@@ -64,7 +64,7 @@ namespace std::execution {
+ 
+ `impls-for&amp;lt;into_variant_t&amp;gt;::complete`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
+ 
+-- `State`として渡される前述`get-state`メンバ戻り値型([`type_identity`](/reference/type_traits/type_identity.md))から、`into_varinat`の送信値となる[`variant`](/reference/variant/variant.md)`&amp;lt;`[`tuple`](/reference/variant/variant.md)`&amp;lt;...&amp;gt;, ...&amp;gt;`型情報を取り出す。
++- `State`として渡される前述`get-state`メンバ戻り値型([`type_identity`](/reference/type_traits/type_identity.md))から、`into_varinat`の送信値となる[`variant`](/reference/variant/variant.md)`&amp;lt;`[`tuple`](/reference/tuple/tuple.md)`&amp;lt;...&amp;gt;, ...&amp;gt;`型情報を取り出す。
+ - [値完了](set_value.md)の場合、引数パック`args...`から送信値を構築して接続先[Receiver](receiver.md)の[値完了関数](set_value.md)を呼び出す。
+ - [エラー完了](set_error.md)または[停止完了](set_stopped.md)の場合、接続先[Receiver](receiver.md)の同種完了関数に全引数を転送する。
+ 
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
       </author>
     </entry>
   
     <entry>
-      <title>gather-signatures -- execution: P3557R3 remove transform_completion_signatures(_of)</title>
-      <link href="https://cpprefjp.github.io/reference/execution/execution/gather-signatures.html"/>
-      <id>d29d225cd07cf1094a32f27d27e8283edc3abdd7:reference/execution/execution/gather-signatures.md</id>
-      <updated>2025-08-16T10:47:50+09:00</updated>
+      <title>AccessorPolicy -- リンクを修正</title>
+      <link href="https://cpprefjp.github.io/reference/mdspan/AccessorPolicy.html"/>
+      <id>715c5f996ee4be5e568e0b28bd2b5edb4a4008a7:reference/mdspan/AccessorPolicy.md</id>
+      <updated>2025-08-19T20:49:01+09:00</updated>
       
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/gather-signatures.md b/reference/execution/execution/gather-signatures.md
-index 40a8ea3e9..9d41f78b4 100644
---- a/reference/execution/execution/gather-signatures.md
-+++ b/reference/execution/execution/gather-signatures.md
-@@ -37,7 +37,6 @@ using gather-signatures = see below;
- - [`execution::value_types_of_t`](value_types_of_t.md)
- - [`execution::error_types_of_t`](error_types_of_t.md)
- - [`execution::sends_stopped`](sends_stopped.md)
--- [`execution::transform_completion_signatures`](transform_completion_signatures.md)
- 
- 
- ## 参照
-&lt;/code&gt;&lt;/pre&gt;</summary>
+        <content type="html">&lt;div class=&#34;identifier-type&#34;&gt;named requirement&lt;/div&gt;&lt;div class=&#34;header&#34;&gt;&amp;lt;mdspan&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;namespace&#34; title=&#34;namespace &#34;&gt;::&lt;/span&gt;&lt;span class=&#34;token&#34;&gt;AccessorPolicy&lt;/span&gt;&lt;span class=&#34;cpp cpp23&#34; title=&#34;C++23で追加&#34;&gt;(C++23)&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;h2&gt;概要&lt;/h2&gt;
+&lt;p&gt;AccessorPolicyは、多次元配列ビュー&lt;code&gt;&lt;a href=&#34;mdspan.html&#34;&gt;mdspan&lt;/a&gt;&lt;/code&gt;を介した要素アクセス動作を定義するクラスが満たすべき要件である。&lt;/p&gt;
+&lt;h2&gt;要件&lt;/h2&gt;
+&lt;p&gt;AccessorPolicyを満たす型&lt;code&gt;A&lt;/code&gt;は&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;A&lt;/code&gt;は&lt;code&gt;&lt;a href=&#34;../concepts/copyable.html&#34;&gt;copyable&lt;/a&gt;&lt;/code&gt;のモデルであり、かつ&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../type_traits/is_nothrow_move_constructible.html&#34;&gt;is_nothrow_move_constructible_v&lt;/a&gt;&amp;lt;A&amp;gt;&lt;/code&gt;は&lt;code&gt;true&lt;/code&gt;であり、かつ&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../type_traits/is_nothrow_move_assignable.html&#34;&gt;is_nothrow_move_assignable_v&lt;/a&gt;&amp;lt;A&amp;gt;&lt;/code&gt;は&lt;code&gt;true&lt;/code&gt;であり、かつ&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../type_traits/is_nothrow_swappable.html&#34;&gt;is_nothrow_swappable_v&lt;/a&gt;&amp;lt;A&amp;gt;&lt;/code&gt;は&lt;code&gt;true&lt;/code&gt;であること&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;型&lt;code&gt;A&lt;/code&gt;は下記のメンバ型を持つこと&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;A::element_type&lt;/code&gt; : 要素型&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;A::data_handle_type&lt;/code&gt; : メモリブロックのポインタ型&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;A::reference&lt;/code&gt; : 要素への参照型&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;A::offset_policy&lt;/code&gt; : &lt;code&gt;offset&lt;/code&gt;適用後のアクセサポリシー&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;説明用の変数&lt;code&gt;a&lt;/code&gt;を&lt;code&gt;(const) A&lt;/code&gt;の値、&lt;code&gt;p&lt;/code&gt;を&lt;code&gt;(const) A::data_handle_type&lt;/code&gt;の値、&lt;code&gt;i&lt;/code&gt;を&lt;code&gt;size_t&lt;/code&gt;の値としたとき、下記の式が妥当であること&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;a.access(p, i)&lt;/code&gt; : &lt;code&gt;A::reference&lt;/code&gt;を返す&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;a.offset(p, i)&lt;/code&gt; : &lt;code&gt;A::offset_policy::data_handle_type&lt;/code&gt;を返す&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;&lt;code&gt;AccessorPolicy&lt;/code&gt;に該当する型&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../mdspan.html&#34;&gt;&amp;lt;mdspan&amp;gt;&lt;/a&gt;&lt;/code&gt;ヘッダ&lt;ul&gt;
+&lt;li&gt;C++23 &lt;code&gt;&lt;a href=&#34;default_accessor.html&#34;&gt;default_accessor&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;C++26 &lt;code&gt;&lt;a href=&#34;aligned_accessor.html&#34;&gt;aligned_accessor&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;../linalg.html&#34;&gt;&amp;lt;linalg&amp;gt;&lt;/a&gt;&lt;/code&gt;ヘッダ&lt;ul&gt;
+&lt;li&gt;C++26 &lt;code&gt;&lt;a href=&#34;../linalg/scaled_accessor.html&#34;&gt;scaled_accessor&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;C++26 &lt;code&gt;&lt;a href=&#34;../linalg/conjugated_accessor.html&#34;&gt;conjugated_accessor&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;バージョン&lt;/h2&gt;
+&lt;h3&gt;言語&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;C++23&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;関連項目&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;mdspan.html&#34;&gt;mdspan&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;参照&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0009r18.html&#34; target=&#34;_blank&#34;&gt;P0009R18 MDSPAN&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2604r0.html&#34; target=&#34;_blank&#34;&gt;P2604R0 &lt;code&gt;mdspan&lt;/code&gt;: rename &lt;code&gt;pointer&lt;/code&gt; and &lt;code&gt;contiguous&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</content>
       
       <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
       </author>
     </entry>
   
     <entry>
-      <title>transform_completion_signatures.md -- execution: P3557R3 remove transform_completion_signatures(_of)</title>
-      <link href="https://cpprefjp.github.io/reference/execution/execution/transform_completion_signatures.html"/>
-      <id>d29d225cd07cf1094a32f27d27e8283edc3abdd7:reference/execution/execution/transform_completion_signatures.md</id>
-      <updated>2025-08-16T10:47:50+09:00</updated>
+      <title>LayoutMapping -- リンクを修正</title>
+      <link href="https://cpprefjp.github.io/reference/mdspan/LayoutMapping.html"/>
+      <id>715c5f996ee4be5e568e0b28bd2b5edb4a4008a7:reference/mdspan/LayoutMapping.md</id>
+      <updated>2025-08-19T20:49:01+09:00</updated>
       
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/transform_completion_signatures.md b/reference/execution/execution/transform_completion_signatures.md
-deleted file mode 100644
-index 6f590e348..000000000
---- a/reference/execution/execution/transform_completion_signatures.md
-+++ /dev/null
-@@ -1,86 +0,0 @@
--# transform_completion_signatures
--* execution[meta header]
--* std::execution[meta namespace]
--* type-alias[meta id-type]
--* cpp26[meta cpp]
--
--```cpp
--namespace std::execution {
--  template&amp;lt;
--    valid-completion-signatures InputSignatures,
--    valid-completion-signatures AdditionalSignatures = completion_signatures&amp;lt;&amp;gt;,
--    template&amp;lt;class...&amp;gt; class SetValue = default-set-value,
--    template&amp;lt;class&amp;gt; class SetError = default-set-error,
--    valid-completion-signatures SetStopped = completion_signatures&amp;lt;set_stopped_t()&amp;gt;&amp;gt;
--  using transform_completion_signatures = completion_signatures&amp;lt;see below&amp;gt;;
--}
--```
--* valid-completion-signatures[link completion_signatures.md]
--* completion_signatures[link completion_signatures.md]
--* set_stopped_t()[link set_stopped.md]
--
--## 概要
--[完了シグネチャ集合](completion_signatures.md)から別の完了シグネチャ集合へ変換するエイリアステンプレート。
--
--テンプレートパラメータとして完了シグネチャ集合と、各完了シグネチャに対して型変更を適用する複数のテンプレート引数をとり、[`completion_signatures`](completion_signatures.md)の新しい特殊化を生成する。
--
--- `InputSignatures` : 変換元の入力完了シグネチャ集合
--- `AdditionalSignatures` : 追加される完了シグネチャ集合（下記3種の変換適用後に追加される）
--- `SetValue` : [値完了シグネチャ](set_value.md)集合に適用する型変換メタ操作
--- `SetError` : [エラー完了シグネチャ](set_value.md)集合に適用する型変換メタ操作
--- `SetStopped` : [停止完了シグネチャ](set_stopped.md)を置換する完了シグネチャ集合
--
--
--### 詳細仕様
--説明専用のエイリアステンプレート`default-set-value`, `default-set-error`を次の通り定義する。
--```cpp
--template&amp;lt;class... As&amp;gt;
--using default-set-value =
--  completion_signatures&amp;lt;set_value_t(As...)&amp;gt;;
--
--template&amp;lt;class Err&amp;gt;
--using default-set-error =
--  completion_signatures&amp;lt;set_error_t(Err)&amp;gt;;
--```
--* completion_signatures[link completion_signatures.md]
--* set_value_t[link set_value.md]
--* set_error_t[link set_error.md]
--
--説明用のパック型`As`に対して、エイリアステンプレート`SetValue&amp;lt;As...&amp;gt;`を不適格、もしくは[`valid-completion-signatures`](completion_signatures.md)`&amp;lt;SetValue&amp;lt;As...&amp;gt;&amp;gt;`を満たす型とする。
--説明用の型`Err`に対して、エイリアステンプレート`SetError&amp;lt;Err&amp;gt;`を不適格、もしくは[`valid-completion-signatures`](completion_signatures.md)`&amp;lt;SetError&amp;lt;Error&amp;gt;&amp;gt;`を満たす型とする。
--
--説明用のパック`Vs`を、[`gather-signatures`](gather-signatures.md)`&amp;lt;`[`set_value_t`](set_value.md)`, InputSignatures, SetValue,` [`type-list`](type-list.md)`&amp;gt;`で得られる`type-list`の型パラメータパックとする。
--
--説明用のパック`Es`を、[`gather-signatures`](gather-signatures.md)`&amp;lt;`[`set_error_t`](set_error.md)`, InputSignatures,` [`type_identity_t`](/reference/type_traits/type_identity.md)`, error-list&amp;gt;`で得られる[`type-list`](type-list.md)の型パラメータパックとする。ここでエイリアステンプレート`error-list&amp;lt;Ts...&amp;gt;`は`type-list&amp;lt;SetError&amp;lt;Ts&amp;gt;...&amp;gt;`とする。
--
--[`gather-signatures`](gather-signatures.md)`&amp;lt;`[`set_stopped_t`](set_stopped.md)`, InputSignatures, type-list, type-list&amp;gt;`が[`type-list&amp;lt;&amp;gt;`](type-list.md)となるならば、説明用のパック`Ss`を[`completion_signatures&amp;lt;&amp;gt;`](completion_signatures.md)とする。そうでなければ、`Ss`を`SetStopped`とする。
--
--上記いずれかの型が不適格となる場合、下記は不適格となる。
--
--```cpp
--transform_completion_signatures&amp;lt;
--  InputSignatures, AdditionalSignatures,
--  SetValue, SetError, SetStopped&amp;gt;
--```
--
--そうでなければ、集合`AdditionalSignatures`, `Vs...`, `Es...`, `Ss`に含まれる[`completion_signatures`](completion_signatures.md)特殊化のテンプレート引数型の一意な集合を`Sig...`としたとき、`transform_completion_signatures`は[`completion_signatures`](completion_signatures.md)`&amp;lt;Sigs...&amp;gt;`のエイリアスとなる。
--
--
--## バージョン
--### 言語
--- C++26
--
--### 処理系
--- [Clang](/implementation.md#clang): ??
--- [GCC](/implementation.md#gcc): ??
--- [ICC](/implementation.md#icc): ??
--- [Visual C++](/implementation.md#visual_cpp): ??
--
--
--## 関連項目
--- [`execution::completion_signatures`](completion_signatures.md)
--- [`execution::transform_completion_signatures_of`](transform_completion_signatures_of.md)
--
--
--## 参照
--- [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/mdspan/LayoutMapping.md b/reference/mdspan/LayoutMapping.md
+index 2b4266579..49f5ebc01 100644
+--- a/reference/mdspan/LayoutMapping.md
++++ b/reference/mdspan/LayoutMapping.md
+@@ -52,7 +52,7 @@ std::mdspan&amp;lt;int, Extents&amp;gt; mat3x2{a};
+ LayoutMappingを満たす型`M`は
+ 
+ - `M`は[`copyable`](/reference/concepts/copyable.md)および[`equality_comparable`](/reference/concepts/equality_comparable.md)のモデルであり、かつ
+-- [`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_constructible.md)`&amp;lt;M&amp;gt;`は`true`であり、かつ
++- [`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`&amp;lt;M&amp;gt;`は`true`であり、かつ
+ - [`is_nothrow_move_assignable_v`](/reference/type_traits/is_nothrow_move_assignable.md)`&amp;lt;M&amp;gt;`は`true`であり、かつ
+ - [`is_nothrow_swappable_v`](/reference/type_traits/is_nothrow_swappable.md)`&amp;lt;M&amp;gt;`は`true`であること
+ 
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
       </author>
     </entry>
   
     <entry>
-      <title>transform_completion_signatures_of.md -- execution: P3557R3 remove transform_completion_signatures(_of)</title>
-      <link href="https://cpprefjp.github.io/reference/execution/execution/transform_completion_signatures_of.html"/>
-      <id>d29d225cd07cf1094a32f27d27e8283edc3abdd7:reference/execution/execution/transform_completion_signatures_of.md</id>
-      <updated>2025-08-16T10:47:50+09:00</updated>
+      <title>DECIMAL_DIG -- typo修正</title>
+      <link href="https://cpprefjp.github.io/reference/cfloat/decimal_dig.html"/>
+      <id>63c44c02a889475441bab04904d1543be52f7ce5:reference/cfloat/decimal_dig.md</id>
+      <updated>2025-08-19T20:48:46+09:00</updated>
       
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/transform_completion_signatures_of.md b/reference/execution/execution/transform_completion_signatures_of.md
-deleted file mode 100644
-index 74f43325d..000000000
---- a/reference/execution/execution/transform_completion_signatures_of.md
-+++ /dev/null
-@@ -1,53 +0,0 @@
--# transform_completion_signatures_of
--* execution[meta header]
--* std::execution[meta namespace]
--* type-alias[meta id-type]
--* cpp26[meta cpp]
--
--```cpp
--namespace std::execution {
--  template&amp;lt;
--    sender Sndr,
--    class Env = env&amp;lt;&amp;gt;,
--    valid-completion-signatures AdditionalSignatures = completion_signatures&amp;lt;&amp;gt;,
--    template&amp;lt;class...&amp;gt; class SetValue = see below,
--    template&amp;lt;class&amp;gt; class SetError = see below,
--    valid-completion-signatures SetStopped = completion_signatures&amp;lt;set_stopped_t()&amp;gt;&amp;gt;
--      requires sender_in&amp;lt;Sndr, Env&amp;gt;
--  using transform_completion_signatures_of =
--    transform_completion_signatures&amp;lt;
--      completion_signatures_of_t&amp;lt;Sndr, Env&amp;gt;,
--      AdditionalSignatures, SetValue, SetError, SetStopped&amp;gt;;
--}
--```
--* sender[link sender.md]
--* env&amp;lt;&amp;gt;[link env.md]
--* valid-completion-signatures[link completion_signatures.md]
--* completion_signatures[link completion_signatures.md]
--* set_stopped_t()[link set_stopped.md]
--* sender_in[link sender_in.md]
--* transform_completion_signatures[link transform_completion_signatures.md]
--* completion_signatures_of_t[link completion_signatures_of_t.md]
--
--## 概要
--[Sender型](sender.md)`Sndr`が[環境](../queryable.md)`Env`において非同期操作を作成できるとき、Senderの[完了シグネチャ集合](get_completion_signatures.md)から別の完了シグネチャ集合へ変換するエイリアステンプレート。
--
--
--## バージョン
--### 言語
--- C++26
--
--### 処理系
--- [Clang](/implementation.md#clang): ??
--- [GCC](/implementation.md#gcc): ??
--- [ICC](/implementation.md#icc): ??
--- [Visual C++](/implementation.md#visual_cpp): ??
--
--
--## 関連項目
--- [`execution::get_completion_signatures`](get_completion_signatures.md)
--- [`execution::transform_completion_signatures`](transform_completion_signatures.md)
--
--
--## 参照
--- [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>type-list -- execution: P3557R3 remove transform_completion_signatures(_of)</title>
-      <link href="https://cpprefjp.github.io/reference/execution/execution/type-list.html"/>
-      <id>d29d225cd07cf1094a32f27d27e8283edc3abdd7:reference/execution/execution/type-list.md</id>
-      <updated>2025-08-16T10:47:50+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/type-list.md b/reference/execution/execution/type-list.md
-index be6b38550..d54a46203 100644
---- a/reference/execution/execution/type-list.md
-+++ b/reference/execution/execution/type-list.md
-@@ -20,7 +20,6 @@ struct type-list;  // exposition only
- 
- ## 関連項目
- - [`execution::sends_stopped`](sends_stopped.md)
--- [`execution::transform_completion_signatures`](transform_completion_signatures.md)
- 
- 
- ## 参照
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>変数の型推論のためのauto [N1984] -- 言語機能 : 関連項目を追加</title>
-      <link href="https://cpprefjp.github.io/lang/cpp11/auto.html"/>
-      <id>6b2d8651f702d3e56a7e170b2400f2403c4eabc8:lang/cpp11/auto.md</id>
-      <updated>2025-08-14T13:38:40+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp11/auto.md b/lang/cpp11/auto.md
-index bf7a66bb4..fc234c660 100644
---- a/lang/cpp11/auto.md
-+++ b/lang/cpp11/auto.md
-@@ -372,6 +372,7 @@ std::pair&amp;lt;T, U&amp;gt;&amp;amp; p = foo();
- - [C++14 `decltype(auto)`](../cpp14/decltype_auto.md)
- - [C++14 後置戻り値型をプレースホルダーにすることを許可](../cpp14/placeholder_type_in_trailing_return_type.md)
- - [C++14 通常関数の戻り値型推論（ユーザ定義変換関数の型推論を含む）](../cpp14/return_type_deduction_for_normal_functions.md)
-+- [C++17 単一要素の波カッコ初期化を非配列とする](../cpp17/new_rules_for_auto_deduction_from_braced-init-list.md)
- 
- 
- ## 参照
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>constexpr ラムダ [P0170R1] -- 言語機能 : 関連項目を追加</title>
-      <link href="https://cpprefjp.github.io/lang/cpp17/constexpr_lambda.html"/>
-      <id>6b2d8651f702d3e56a7e170b2400f2403c4eabc8:lang/cpp17/constexpr_lambda.md</id>
-      <updated>2025-08-14T13:38:40+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp17/constexpr_lambda.md b/lang/cpp17/constexpr_lambda.md
-index e4d3a09e3..066519ed9 100644
---- a/lang/cpp17/constexpr_lambda.md
-+++ b/lang/cpp17/constexpr_lambda.md
-@@ -198,6 +198,9 @@ C++14まではラムダ式がコンパイル時に呼び出せないため、
- 
- (執筆中)
- 
-+## &amp;lt;a id=&amp;#34;relative-page&amp;#34; href=&amp;#34;#relative-page&amp;#34;&amp;gt;関連項目&amp;lt;/a&amp;gt;
-+- [C++11 `constexpr`](/lang/cpp11/constexpr.md)
-+
- ## 参照
- 
- (執筆中)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>単一要素の波カッコ初期化を非配列とする [N3922] -- 言語機能 : 関連項目を追加</title>
-      <link href="https://cpprefjp.github.io/lang/cpp17/new_rules_for_auto_deduction_from_braced-init-list.html"/>
-      <id>6b2d8651f702d3e56a7e170b2400f2403c4eabc8:lang/cpp17/new_rules_for_auto_deduction_from_braced-init-list.md</id>
-      <updated>2025-08-14T13:38:40+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp17/new_rules_for_auto_deduction_from_braced-init-list.md b/lang/cpp17/new_rules_for_auto_deduction_from_braced-init-list.md
-index 658b2b6e0..d03542320 100644
---- a/lang/cpp17/new_rules_for_auto_deduction_from_braced-init-list.md
-+++ b/lang/cpp17/new_rules_for_auto_deduction_from_braced-init-list.md
-@@ -93,6 +93,7 @@ i
- 
- ## &amp;lt;a id=&amp;#34;relative-page&amp;#34; href=&amp;#34;#relative-page&amp;#34;&amp;gt;関連項目&amp;lt;/a&amp;gt;
- 
-+* [C++11 変数の型推論のための`auto`](/lang/cpp11/auto.md)
- * [C++11 初期化リスト](/lang/cpp11/initializer_lists.md)
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cfloat/decimal_dig.md b/reference/cfloat/decimal_dig.md
+index aa2c61239..ab376685f 100644
+--- a/reference/cfloat/decimal_dig.md
++++ b/reference/cfloat/decimal_dig.md
+@@ -33,7 +33,7 @@ $b$ や $p$ については [`&amp;lt;cfloat&amp;gt;`](../cfloat.md) のモデルも参照。
+ - `DECIMAL_DIG` は DECIMAL DIGits（decimal：10進数、digit：桁）に由来する。
+ - 各型毎の桁数を示すマクロも定義されている
+     - [`DBL_DECIMAL_DIG`](dbl_decimal_dig.md)
+-    - [`FLT_DECILAL_DIG`](flt_decimal_dig.md)
++    - [`FLT_DECIMAL_DIG`](flt_decimal_dig.md)
+     - [`LDBL_DECIMAL_DIG`](ldbl_decimal_dig.md)
  
  
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
       </author>
     </entry>
   
     <entry>
-      <title>constexpr関数内でのtry-catchブロックを許可 [P1002R1] -- 言語機能 : 関連項目を追加</title>
-      <link href="https://cpprefjp.github.io/lang/cpp20/try-catch_blocks_in_constexpr_functions.html"/>
-      <id>6b2d8651f702d3e56a7e170b2400f2403c4eabc8:lang/cpp20/try-catch_blocks_in_constexpr_functions.md</id>
-      <updated>2025-08-14T13:38:40+09:00</updated>
+      <title>C++国際標準規格 -- C++26のWorking Draftを更新 #1491</title>
+      <link href="https://cpprefjp.github.io/international-standard.html"/>
+      <id>0712ced43f1c245d85b081c3130d68999456f790:international-standard.md</id>
+      <updated>2025-08-19T13:15:52+09:00</updated>
       
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp20/try-catch_blocks_in_constexpr_functions.md b/lang/cpp20/try-catch_blocks_in_constexpr_functions.md
-index 3427b6717..ca7103a88 100644
---- a/lang/cpp20/try-catch_blocks_in_constexpr_functions.md
-+++ b/lang/cpp20/try-catch_blocks_in_constexpr_functions.md
-@@ -30,6 +30,7 @@ constexpr int f(int x) {
- 
- 
- ## &amp;lt;a id=&amp;#34;relative-page&amp;#34; href=&amp;#34;#relative-page&amp;#34;&amp;gt;関連項目&amp;lt;/a&amp;gt;
-+- [C++11 `constexpr`](/lang/cpp11/constexpr.md)
- - [C++20 可変サイズをもつコンテナの`constexpr`化](more_constexpr_containers.md)
- 
- 
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>constexpr関数が定数実行できない場合でも適格とする [P2448R2] -- 言語機能 : 関連項目を追加</title>
-      <link href="https://cpprefjp.github.io/lang/cpp23/relaxing_some_constexpr_restrictions.html"/>
-      <id>6b2d8651f702d3e56a7e170b2400f2403c4eabc8:lang/cpp23/relaxing_some_constexpr_restrictions.md</id>
-      <updated>2025-08-14T13:38:40+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp23/relaxing_some_constexpr_restrictions.md b/lang/cpp23/relaxing_some_constexpr_restrictions.md
-index cb4d14ba4..a715c2943 100644
---- a/lang/cpp23/relaxing_some_constexpr_restrictions.md
-+++ b/lang/cpp23/relaxing_some_constexpr_restrictions.md
-@@ -115,8 +115,9 @@ void f(std::optional&amp;lt;T&amp;gt;&amp;amp; opt)
- 
- ## &amp;lt;a id=&amp;#34;relative-page&amp;#34; href=&amp;#34;#relative-page&amp;#34;&amp;gt;関連項目&amp;lt;/a&amp;gt;
- 
--- [C++20 - constexpr関数内でのtry-catchブロックを許可](/lang/cpp20/try-catch_blocks_in_constexpr_functions.md)
--- [C++20 - constexpr関数内で未評価のインラインアセンブリを許可することによる組み込み関数のconstexpr有効化](/lang/cpp20/enabling_constexpr_intrinsics_by_permitting_unevaluated_inline-assembly_in_constexpr_functions.md)
-+- [C++11 `constexpr`](/lang/cpp11/constexpr.md)
-+- [C++20 `constexpr`関数内での`try-catch`ブロックを許可](/lang/cpp20/try-catch_blocks_in_constexpr_functions.md)
-+- [C++20 `constexpr`関数内で未評価のインラインアセンブリを許可することによる組み込み関数の`constexpr`有効化](/lang/cpp20/enabling_constexpr_intrinsics_by_permitting_unevaluated_inline-assembly_in_constexpr_functions.md)
- 
- ## 参照
- 
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>static_assertの診断メッセージにユーザーが生成した文字列の指定を許可 [P2741R3] -- 言語機能 : 関連項目を追加</title>
-      <link href="https://cpprefjp.github.io/lang/cpp26/user-generated_static_assert_messages.html"/>
-      <id>6b2d8651f702d3e56a7e170b2400f2403c4eabc8:lang/cpp26/user-generated_static_assert_messages.md</id>
-      <updated>2025-08-14T13:38:40+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp26/user-generated_static_assert_messages.md b/lang/cpp26/user-generated_static_assert_messages.md
-index 1cf9ea1a2..3e2bdefa7 100644
---- a/lang/cpp26/user-generated_static_assert_messages.md
-+++ b/lang/cpp26/user-generated_static_assert_messages.md
-@@ -53,6 +53,7 @@ static_assert(定数式, 診断メッセージ);
- 
- ## &amp;lt;a id=&amp;#34;relative-page&amp;#34; href=&amp;#34;#relative-page&amp;#34;&amp;gt;関連項目&amp;lt;/a&amp;gt;
- - [C++11 コンパイル時アサート](/lang/cpp11/static_assert.md)
-+- [C++17 `static_assert`のメッセージ省略を許可](/lang/cpp17/extending_static_assert.md)
- 
- 
- ## 参照
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>コード内容の仮定をコンパイラに伝える`assume`属性 [P1774R8] -- C++23 assume属性 : C++11属性構文へのリンクを関連項目に追加 #1488</title>
-      <link href="https://cpprefjp.github.io/lang/cpp23/portable_assumptions.html"/>
-      <id>5895eedd8280c661fcb3952589f442e8fe88f6de:lang/cpp23/portable_assumptions.md</id>
-      <updated>2025-08-13T12:12:09+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp23/portable_assumptions.md b/lang/cpp23/portable_assumptions.md
-index 66c560d08..2a9a6ebbd 100644
---- a/lang/cpp23/portable_assumptions.md
-+++ b/lang/cpp23/portable_assumptions.md
-@@ -65,6 +65,7 @@ int f(int y)
- 
- 
- ## &amp;lt;a id=&amp;#34;relative-page&amp;#34; href=&amp;#34;#relative-page&amp;#34;&amp;gt;関連項目&amp;lt;/a&amp;gt;
-+- [C++11 属性構文](/lang/cpp11/attributes.md)
- - [C++20 `[[likely]]`, `[[unlikely]]`属性](/lang/cpp20/likely_and_unlikely_attributes.md)
- 
- 
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>属性構文 [N2761] -- Merge pull request #1488 from TumoiYorozu/assume</title>
-      <link href="https://cpprefjp.github.io/lang/cpp11/attributes.html"/>
-      <id>07813202ff92303e96b6b12fc4178d9a29e94714:lang/cpp11/attributes.md</id>
-      <updated>2025-08-13T12:02:09+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp11/attributes.md b/lang/cpp11/attributes.md
-index 162f7330a..84d3ad7b0 100644
---- a/lang/cpp11/attributes.md
-+++ b/lang/cpp11/attributes.md
-@@ -177,6 +177,7 @@ C++11で採用されたもの以外で検討された以下の機能は、属性
- - [C++20 `[[likely]]`, `[[unlikely]]`属性](/lang/cpp20/likely_and_unlikely_attributes.md)
- - [C++20 属性の名前空間を予約](/lang/cpp20/reserving_attribute_namespaces_for_future_use.md)
- - [C++23 ラムダ式に対する属性](/lang/cpp23/attributes_on_lambda_expressions.md)
-+- [C++23 コード内容の仮定をコンパイラに伝える`assume`属性](/lang/cpp23/portable_assumptions.md)
- - [C++26 構造化束縛への属性を許可](/lang/cpp26/attributes_for_structured_bindings.md)
- - [C++26 未初期化変数の読み取りをエラー性動作とする (`[[indeterminate]]`属性)](/lang/cpp26/erroneous_behavior_for_uninitialized_reads.md)
- 
-&lt;/code&gt;&lt;/pre&gt;</summary>
+        <content type="html">&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;C++国際標準規格&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;h2&gt;&lt;a href=&#34;#summary&#34; id=&#34;summary&#34;&gt;概要&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;C++ の標準規格の実例として ISO/IEC による&lt;strong&gt;国際標準規格&lt;/strong&gt; (international standard) がある。
+最新の国際標準規格は「ISO/IEC 14882:2020 Programming Languages -- C++」(通称 C++20) である。
+C++ の標準規格は、他にも各国の規格化団体によって国際標準規格に等価なものが定められている。
+日本では日本工業標準調査会 (JISC) により「JIS X 3014:2003 プログラム言語C++」が定められているが古い (C++03 相当)。
+ここでは特に国際標準規格について取り扱う。&lt;/p&gt;
+&lt;h2&gt;&lt;a href=&#34;#list-of-iso-cpp&#34; id=&#34;list-of-iso-cpp&#34;&gt;国際標準規格の一覧&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;通称&lt;sup&gt;&lt;a href=&#34;#note-t1-1&#34; id=&#34;note_ref-t1-1&#34;&gt;†1&lt;/a&gt;&lt;/sup&gt;&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;名称&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;参照する規格案&lt;sup&gt;&lt;a href=&#34;#note-t1-2&#34; id=&#34;note_ref-t1-2&#34;&gt;†2&lt;/a&gt;&lt;/sup&gt;&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;規格案・原案&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;&lt;code&gt;__cplusplus&lt;/code&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;lang/cpp26.html&#34;&gt;C++26&lt;/a&gt; (C++2c)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ISO/IEC 14882:2026 (予定)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N5014(&lt;a href=&#34;https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/n5014.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;/&lt;a href=&#34;https://timsong-cpp.github.io/cppwp/&#34; target=&#34;_blank&#34;&gt;HTML&lt;/a&gt;)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N5014 N5008 N5001 N4993 N4986 N4981 N4971 N4964 N4958&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;--&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;lang/cpp23.html&#34;&gt;C++23&lt;/a&gt; (C++2b)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ISO/IEC 14882:2024&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N4950(&lt;a href=&#34;https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/n4950.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;/&lt;a href=&#34;https://timsong-cpp.github.io/cppwp/n4950/&#34; target=&#34;_blank&#34;&gt;HTML&lt;/a&gt;)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N4950 N4944 N4928 N4917 N4910 N4901 N4892 N4885 N4878&lt;br /&gt;N4868 N4861&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;202302L&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;lang/cpp20.html&#34;&gt;C++20&lt;/a&gt; (C++2a)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ISO/IEC 14882:2020&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N4861&lt;sup&gt;&lt;a href=&#34;#note-t1-3&#34; id=&#34;note_ref-t1-3&#34;&gt;†3&lt;/a&gt;&lt;/sup&gt;(&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/n4861.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;/&lt;a href=&#34;https://timsong-cpp.github.io/cppwp/n4861/&#34; target=&#34;_blank&#34;&gt;HTML&lt;/a&gt;)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N4860 N4849 N4842 N4835 N4830&lt;br /&gt;N4820 N4810 N4800 N4791 &lt;del&gt;N4788&lt;/del&gt;&lt;sup&gt;&lt;a href=&#34;#note-t1-4&#34; id=&#34;note_ref-t1-4&#34;&gt;†4&lt;/a&gt;&lt;/sup&gt;&lt;br /&gt;N4778 N4762 N4750 N4741 N4727&lt;br /&gt;N4713 N4700 N4687&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;202002L&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;lang/cpp17.html&#34;&gt;C++17&lt;/a&gt; (C++1z)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ISO/IEC 14882:2017&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N4659(&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4659.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;/&lt;a href=&#34;https://timsong-cpp.github.io/cppwp/n4659/&#34; target=&#34;_blank&#34;&gt;HTML&lt;/a&gt;)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N4660 N4659 N4640 N4618 N4606&lt;br /&gt;N4594 N4582 N4567 N4527 N4431&lt;br /&gt;N4296&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;201703L&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;lang/cpp14.html&#34;&gt;C++14&lt;/a&gt; (C++1y)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ISO/IEC 14882:2014&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N4140(&lt;a href=&#34;https://github.com/cplusplus/draft/blob/master/papers/n4140.pdf?raw=true&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;/&lt;a href=&#34;https://timsong-cpp.github.io/cppwp/n4140/&#34; target=&#34;_blank&#34;&gt;HTML&lt;/a&gt;)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N4141 N4140 N3937 N3936 N3797&lt;br /&gt;N3691 N3690 N3485 N3376 N3337&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;201402L&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;lang/cpp11.html&#34;&gt;C++11&lt;/a&gt; (C++0x)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ISO/IEC 14882:2011&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N3337&lt;sup&gt;&lt;a href=&#34;#note-t1-5&#34; id=&#34;note_ref-t1-5&#34;&gt;†5&lt;/a&gt;&lt;/sup&gt;(&lt;a href=&#34;https://wg21.link/std11&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;/&lt;a href=&#34;https://timsong-cpp.github.io/cppwp/n3337/&#34; target=&#34;_blank&#34;&gt;HTML&lt;/a&gt;)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N3291 N3290 N3242 N3225 N3126&lt;br /&gt;N3090 N3035 N3000 N2960 N2914&lt;br /&gt;N2857 N2798 N2723 N2691 N2606&lt;br /&gt;N2588 N2521 N2461 N2369 N2315&lt;br /&gt;N2284 N2134 N2009 N1905 N1804&lt;br /&gt;N1733 N1655&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;201103L&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;C++03&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ISO/IEC 14882:2003&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N1577&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N1577 ?&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;199711L&lt;/code&gt;&lt;br /&gt;(C++98 と同じ)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;C++98&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ISO/IEC 14882:1998&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;199711L&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;#note_ref-t1-1&#34; id=&#34;note-t1-1&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; カッコ内は策定時・標準化前に一時的に用いられた通称&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#note_ref-t1-2&#34; id=&#34;note-t1-2&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; 最終国際規格案はPDFやHTMLなどの形で一般公開されていないため、それにほぼ同一の内容の規格案を参照する。&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#note_ref-t1-3&#34; id=&#34;note-t1-3&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; N4861 は、C++20 DISであるN4860に対するデザインレベルの差とC++17との相互参照がない以外の差はないため、事実上 N4861 が C++20 を参照する時に用いられる。&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#note_ref-t1-4&#34; id=&#34;note-t1-4&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; N4788 は政治的事情により撤回された (参照 N4792)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#note_ref-t1-5&#34; id=&#34;note-t1-5&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; N3337 は、C++11規格に対する編集レベルの修正のみが適用された仕様案であるため、事実上 N3337 が C++11 を参照する時に用いられる。C++11規格からN3337への変更点は、&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3338.html&#34; target=&#34;_blank&#34;&gt;N3338&lt;/a&gt;を参照。&lt;br /&gt;
+(それより前の公開されているC++11向け仕様案であるN3242からC++11規格に対しては、機能的な変更がいくつかあるため、C++11規格として参照するには適さない)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;最新のDraftのHTML版は以下で公開されている。&lt;br /&gt;
+&lt;a href=&#34;https://timsong-cpp.github.io/cppwp/&#34; target=&#34;_blank&#34;&gt;Draft C++ Standard: Contents&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;標準規格の文章はtexで書かれており、そのソースコードは以下で2011年8月16日以降のものについて(つまりN3291より後、N3337より前)公開されている。&lt;br /&gt;
+&lt;a href=&#34;https://github.com/cplusplus/draft&#34; target=&#34;_blank&#34;&gt;cplusplus/draft: C++ standards drafts&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;a href=&#34;#iso-cpp-committee&#34; id=&#34;iso-cpp-committee&#34;&gt;用語: 国際標準規格を定める組織&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;C++標準化委員会&lt;/strong&gt; (C++ Standards Committee): C++ の国際標準規格を策定する団体。
+  組織としての位置づけはISO/IEC JTC1/SC22/WG21になる。
+  &lt;strong&gt;国際標準化機構&lt;/strong&gt; (ISO; international organization for standardization) および&lt;strong&gt;国際電気標準会議&lt;/strong&gt; (IEC; International Electronics Commission) はそれぞれ様々な規格の標準化団体である。
+  &lt;strong&gt;第一合同技術委員会&lt;/strong&gt; (JTC1; Joint Technical Committee 1) は ISO/IEC の下で情報技術の標準化を行う団体である。
+  下部組織の SC22 はプログラム言語の標準化を行う&lt;strong&gt;副委員会&lt;/strong&gt; (SC; subcommittee) である。
+  C++標準化委員会は WG21 という&lt;strong&gt;作業グループ&lt;/strong&gt; (WG; working group) である。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CWG&lt;/strong&gt; (Core working group): C++標準化委員会の内、コア言語機能の策定を行う作業グループ&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LWG&lt;/strong&gt; (Library working group): C++標準化委員会の内、標準ライブラリ機能の策定を行う作業グループ&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;NB&lt;/strong&gt; (national body) または&lt;strong&gt;MB/NC&lt;/strong&gt; (member body/national committee): C++標準化委員会の正会員つまり各国から派遣される団体のこと。本来は member body は ISO での名称で、national committee は IEC での名称。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;&lt;a href=&#34;#iso-cpp-documents&#34; id=&#34;iso-cpp-documents&#34;&gt;用語: 国際標準規格の文書&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;提案文書&lt;/strong&gt; (proposal paper): 標準規格の変更についての提案文書&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;問題&lt;/strong&gt; (issue): C++標準規格の問題や課題のこと&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;欠陥&lt;/strong&gt; (defect): C++標準規格に含まれるいわば &#34;バグ&#34; のこと&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;DR&lt;/strong&gt; (defect report, defect resolution): 委員会で承認された欠陥の報告または欠陥の修正のこと&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;NAD&lt;/strong&gt; (not a defect): 委員会により標準規格の欠陥ではないとされた問題のこと&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DRWP&lt;/strong&gt;: 最新の規格原案に取り込み済みの DR のこと&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;WD&lt;/strong&gt; (working draft): 作業原案&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CD&lt;/strong&gt; (committee draft): 委員会原案&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;FCD&lt;/strong&gt; (final committee draft): 最終委員会原案&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DIS&lt;/strong&gt; (draft international standard): 国際規格案&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;FDIS&lt;/strong&gt; (final draft international standard): 最終国際規格案&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;IS&lt;/strong&gt; (international standard): 国際規格&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;TR&lt;/strong&gt; (technical report): 技術報告書。用例: TR1&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;TS&lt;/strong&gt; (technical specifications): 技術仕様書。用例: Concepts TS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;参照&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;標準規格&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.iso.org/standard/83626.html&#34; target=&#34;_blank&#34;&gt;ISO/IEC 14882:2024 - Programming languages — C++&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.iso.org/standard/79358.html&#34; target=&#34;_blank&#34;&gt;ISO/IEC 14882:2020 - Programming languages — C++&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.iso.org/standard/68564.html&#34; target=&#34;_blank&#34;&gt;ISO/IEC 14882:2017 - Programming languages -- C++&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.iso.org/standard/64029.html&#34; target=&#34;_blank&#34;&gt;ISO/IEC 14882:2014 - Information technology -- Programming languages -- C++&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.iso.org/standard/50372.html&#34; target=&#34;_blank&#34;&gt;ISO/IEC 14882:2011 - Information technology -- Programming languages -- C++&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.iso.org/standard/38110.html&#34; target=&#34;_blank&#34;&gt;ISO/IEC 14882:2003 - Programming languages -- C++&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.iso.org/standard/25845.html&#34; target=&#34;_blank&#34;&gt;ISO/IEC 14882:1998 - Programming languages -- C++&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://webdesk.jsa.or.jp/books/W11M0090/index/?bunsyo_id=JIS%20X%203014:2003&#34; target=&#34;_blank&#34;&gt;JIS X 3014:2003 プログラム言語Ｃ＋＋／Information Technology -- Programming languages -- C++ 日本規格協会 JSA Webdesk&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://en.cppreference.com/w/cpp/experimental&#34; target=&#34;_blank&#34;&gt;Experimental C++ Features - cppreference.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/29115656/which-draft-is-closest-to-the-c14-standard&#34; target=&#34;_blank&#34;&gt;c++ - Which draft is closest to the C++14 standard? - Stack Overflow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/81656/where-do-i-find-the-current-c-or-c-standard-documents&#34; target=&#34;_blank&#34;&gt;Where do I find the current C or C++ standard documents? - Stack Overflow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/11053960/how-are-the-cplusplus-directive-defined-in-various-compilers&#34; target=&#34;_blank&#34;&gt;c++ - How are the __cplusplus directive defined in various compilers? - Stack Overflow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/&#34; target=&#34;_blank&#34;&gt;ISO/IEC JTC1/SC22/WG21 - The C++ Standards Committee - ISOCPP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ja.wikipedia.org/wiki/%E5%9B%BD%E9%9A%9B%E6%A8%99%E6%BA%96%E5%8C%96%E6%A9%9F%E6%A7%8B&#34; target=&#34;_blank&#34;&gt;国際標準化機構 - Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ja.wikipedia.org/wiki/%E5%9B%BD%E9%9A%9B%E9%9B%BB%E6%B0%97%E6%A8%99%E6%BA%96%E4%BC%9A%E8%AD%B0&#34; target=&#34;_blank&#34;&gt;国際電気標準会議 - Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ja.wikipedia.org/wiki/ISO/IEC_JTC_1&#34; target=&#34;_blank&#34;&gt;ISO/IEC JTC 1 - Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ja.wikipedia.org/wiki/ISO/IEC_JTC_1/SC_22&#34; target=&#34;_blank&#34;&gt;ISO/IEC JTC 1/SC 22 - Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</content>
       
       <author>
         <name>Akira Takahashi</name>

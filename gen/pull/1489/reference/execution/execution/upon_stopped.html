@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-08T05:30:48">
-        2025年08月08日 05時30分48秒
+      <span itemprop="datePublished" content="2025-08-19T11:31:32">
+        2025年08月19日 11時31分32秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -234,39 +234,7 @@
 <h2>概要</h2>
 <p><code>upon_stopped</code>は、入力<a href="sender.html">Sender</a>の<a href="set_stopped.html">停止完了操作</a>の継続として関数呼び出しをアタッチし、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>データを<a href="set_value.html">正常完了</a>として送信するSenderアダプタである。</p>
 <p><code>upon_stopped</code>は<a href="sender_adaptor_closure.html">パイプ可能Senderアダプタオブジェクト</a>であり、パイプライン記法をサポートする。</p>
-<h2>効果</h2>
-<p>説明用の式<code>sndr</code>と<code>f</code>に対して、<code>decltype((sndr))</code>が<code><a href="sender.html">sender</a></code>を満たさない、もしくは<code>decltype((f))</code>が<code><a href="../movable-value.html">movable-value</a></code>を満たさないとき、呼び出し式<code>upon_stopped(sndr, f)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
-<p>そうでなければ、呼び出し式<code>upon_stopped(sndr, f)</code>は<code>sndr</code>が1回だけ評価されることを除いて、下記と等価。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="transform_sender.html">transform_sender</a></span><span class="p">(</span><span class="n"><a href="get-domain-early.html">get-domain-early</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span> <span class="n"><a href="make-sender.html">make-sender</a></span><span class="p">(</span><span class="n">upon_stopped</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">sndr</span><span class="p">))</span>
-</code></pre></div>
-</p>
-<h3>Senderアルゴリズムタグ <code>upon_stopped</code></h3>
-<p>Senderアルゴリズム動作説明用のクラステンプレート<code><a href="impls-for.html">impls-for</a></code>に対して、下記の特殊化が定義される。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;&gt;</span>
-  <span class="k">struct</span> <span class="n"><a href="impls-for.html">impls-for</a></span><span class="o">&lt;</span><span class="n"><a href="../../functional/decayed-typeof.html">decayed-typeof</a></span><span class="o">&lt;</span><span class="n">upon_stopped</span><span class="o">&gt;&gt;</span> <span class="o">:</span> <span class="n"><a href="impls-for.html">default-impls</a></span> <span class="p">{</span>
-    <span class="k">static</span> <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">complete</span> <span class="o">=</span>
-      <span class="p">[]</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Tag</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-        <span class="p">(</span><span class="k">auto</span><span class="p">,</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">fn</span><span class="p">,</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">rcvr</span><span class="p">,</span> <span class="n">Tag</span><span class="p">,</span> <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">void</span> <span class="p">{</span>
-          <span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span><span class="n"><a href="../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n">Tag</span><span class="p">,</span> <span class="n"><a href="../../functional/decayed-typeof.html">decayed-typeof</a></span><span class="o">&lt;</span><span class="n"><a href="set_stopped.html">set_stopped</a></span><span class="o">&gt;&gt;</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n"><a href="set_value.html">TRY-SET-VALUE</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">,</span>
-                          <span class="n"><a href="../../functional/invoke.html">invoke</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">fn</span><span class="p">),</span> <span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...));</span>
-          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="n">Tag</span><span class="p">()(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">),</span> <span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
-          <span class="p">}</span>
-        <span class="p">};</span>
-  <span class="p">};</span>
-<span class="p">}</span>
-</code></pre></div>
-</p>
-<h2>カスタマイゼーションポイント</h2>
-<p>Senderアルゴリズム構築時および<a href="receiver.html">Receiver</a>接続時に、関連付けられた実行ドメインに対して<code><a href="transform_sender.html">execution::transform_sender</a></code>経由でSender変換が行われる。
-<a href="default_domain.html">デフォルト実行ドメイン</a>では無変換。</p>
-<p><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の<a href="sender.html">Sender</a><code>out_sndr</code>が下記を満たさない場合、呼び出し式<code>upon_stopped(sndr, f)</code>の<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../../implementation-compliance.html#dfn-undefined-behavior">動作は未定義</a>となる。</p>
-<ul>
-<li><code>upon_stopped</code>に対する<code>sndr</code>の停止結果データで<code>f</code>またはそのコピーを呼び出し、<code>out_sndr</code>の値完了として<code>f</code>の結果値を用いること。</li>
-<li>他の完了操作では変更なしに転送すること。</li>
-</ul>
+<p>Senderアルゴリズム<code>upon_stopped</code>の仕様は、<code><a href="then.html">then</a></code>ページを参照のこと。</p>
 <h2>例</h2>
 <p><div class="yata" id="c56ba90f6e89a3cd14c35d3a0741cb196f7e0dce"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../print.html">&lt;print&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>

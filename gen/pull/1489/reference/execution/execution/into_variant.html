@@ -259,7 +259,7 @@
 </p>
 <p><code>impls-for&lt;into_variant_t&gt;::get-state</code>メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。</p>
 <ul>
-<li>子<a href="sender.html">Sender</a>の<a href="value_types_of_t.html">値完了シグネチャを集約</a>した<code><a href="../../variant/variant.html">variant</a>&lt;<a href="../../variant/variant.html">tuple</a>&lt;...&gt;, ...&gt;</code>型を<code><a href="../../type_traits/type_identity.html">type_identity</a></code>クラステンプレートのパラメータに格納して返す。</li>
+<li>子<a href="sender.html">Sender</a>の<a href="value_types_of_t.html">値完了シグネチャを集約</a>した<code><a href="../../variant/variant.html">variant</a>&lt;<a href="../../tuple/tuple.html">tuple</a>&lt;...&gt;, ...&gt;</code>型を<code><a href="../../type_traits/type_identity.html">type_identity</a></code>クラステンプレートのパラメータに格納して返す。</li>
 </ul>
 <p><div class="codehilite"><pre><span></span><code><span class="p">[]</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Rcvr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Sndr</span><span class="o">&amp;&amp;</span> <span class="n">sndr</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&amp;</span> <span class="n">rcvr</span><span class="p">)</span> <span class="k">noexcept</span>
   <span class="o">-&gt;</span> <span class="n"><a href="../../type_traits/type_identity.html">type_identity</a></span><span class="o">&lt;</span><span class="n"><a href="value_types_of_t.html">value_types_of_t</a></span><span class="o">&lt;</span><span class="n"><a href="child-type.html">child-type</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">,</span> <span class="n"><a href="../forwarding_query.html">FWD-ENV-T</a></span><span class="p">(</span><span class="n"><a href="env_of_t.html">env_of_t</a></span><span class="o">&lt;</span><span class="n">Rcvr</span><span class="o">&gt;</span><span class="p">)</span><span class="o">&gt;&gt;</span> <span class="p">{</span>
@@ -269,7 +269,7 @@
 </p>
 <p><code>impls-for&lt;into_variant_t&gt;::complete</code>メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。</p>
 <ul>
-<li><code>State</code>として渡される前述<code>get-state</code>メンバ<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型(<code><a href="../../type_traits/type_identity.html">type_identity</a></code>)から、<code>into_varinat</code>の送信値となる<code><a href="../../variant/variant.html">variant</a>&lt;<a href="../../variant/variant.html">tuple</a>&lt;...&gt;, ...&gt;</code>型情報を取り出す。</li>
+<li><code>State</code>として渡される前述<code>get-state</code>メンバ<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型(<code><a href="../../type_traits/type_identity.html">type_identity</a></code>)から、<code>into_varinat</code>の送信値となる<code><a href="../../variant/variant.html">variant</a>&lt;<a href="../../tuple/tuple.html">tuple</a>&lt;...&gt;, ...&gt;</code>型情報を取り出す。</li>
 <li><a href="set_value.html">値完了</a>の場合、引数パック<code>args...</code>から送信値を構築して接続先<a href="receiver.html">Receiver</a>の<a href="set_value.html">値完了関数</a>を呼び出す。</li>
 <li><a href="set_error.html">エラー完了</a>または<a href="set_stopped.html">停止完了</a>の場合、接続先<a href="receiver.html">Receiver</a>の同種完了関数に全引数を転送する。</li>
 </ul>
