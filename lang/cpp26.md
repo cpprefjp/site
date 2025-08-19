@@ -75,11 +75,14 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 
 | 言語機能 | 説明 |
 |----------|------|
+| [静的リフレクション](/lang/cpp26/reflection.md.nolink) | リフレクション演算子`^^`と`std::meta::info`型によりコンパイル時にさまざまな型情報を取得できる |
+| [コンパイル時のタプルやリストを展開処理する`template for`文](/lang/cpp26/expansion_statements.md.nolink) | クラス・タプル・Range・パラメータパックなどを展開してすべての要素をコンパイル時の処理する`template for`文を追加 |
 | [定数式での`void*`からポインタ型へのキャストを許可](/lang/cpp26/constexpr_cast_from_voidptr.md) | 型消去のために`void*`からポインタ型へのキャストを許可する |
 | [`static_assert`の診断メッセージにユーザーが生成した文字列の指定を許可](/lang/cpp26/user-generated_static_assert_messages.md) | `constexpr`な`S.size()`と`S.data()`メンバ関数をもつオブジェクトをコンパイル時文字列として指定できるようにする |
 | [`constexpr`配置`new`](/lang/cpp26/constexpr_placement_new.md) | 定数式の文脈での配置`new`を許可 |
 | [`constexpr`構造化束縛の許可と、`constexpr`参照の制限緩和](/lang/cpp26/constexpr_structured_bindings_and_references_to_constexpr_variables.md) | 定数式に対する構造化束縛を許可し、関連して`constexpr`参照の制限を緩和して自動変数も参照できるようにする |
 | [定数評価での例外送出を許可](/lang/cpp26/allowing_exception_throwing_in_constant-evaluation.md) | 定数式の文脈での例外の送出と捕捉を許可 |
+| [`constexpr`仮想継承を許可](/lang/cpp26/constexpr_virtual_inheritance.md.nolink) | 定数式の文脈での仮想継承を許可 |
 
 
 ### プリプロセッサ
@@ -87,6 +90,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 | 言語機能 | 説明 |
 |----------|------|
 | [ファイルを読み込む`#embed`命令を追加](/lang/cpp26/embed.md) | バイナリファイルをインクルードするメカニズム。`#include`とちがって読み出しサイズなどの柔軟な指定ができる |
+| [プリプロセッサ仕様での「未定義動作」を不適格または診断不要に変更](/lang/cpp26/preprocessing_is_never_undefined.md.nolink) | プリプロセッサとレキサーの文脈での「未定義動作」用語を不適格または診断不要に変更 |
 
 
 ### ソースコード
@@ -101,6 +105,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 | 言語機能 | 説明 |
 |----------|------|
 | [モジュール宣言でのモジュール名のマクロ展開を禁止する](/lang/cpp26/module_declarations_shouldnt_be_macros.md) | `export module MACRO_NAME;`を禁止 |
+| [`main`関数をグローバルモジュールに含められるようにする](/lang/cpp26/allow_attaching_main_to_the_global_module.md.nolink) | `main`関数に`extern "C++"`を指定できるようにすることで名前付きモジュールに含められるようにする |
 
 
 ### 機能の非推奨化
