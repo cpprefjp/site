@@ -17,31 +17,39 @@ namespace std::execution {
 
 `then`は[パイプ可能Senderアダプタオブジェクト](sender_adaptor_closure.md)であり、パイプライン記法をサポートする。
 
+本ページにてSenderアルゴリズム`then`／[`upon_error`](upon_error.md)／[`upon_stopped`](upon_stopped.md)の動作仕様を包括的に説明するため、以降のセクションにおいては`then-cpo`, `set-cpo`をそれぞれ下記の通りとする。
+
+| `then-cpo` | `set-cpo` |
+|----|----|
+| `then` | [`set_value`](set_value.md) |
+| [`upon_error`](upon_error.md) | [`set_error`](set_error.md) |
+| [`upon_stopped`](upon_stopped.md) | [`set_stopped`](set_stopped.md) |
+
 
 ## 効果
-説明用の式`sndr`と`f`に対して、`decltype((sndr))`が[`sender`](sender.md)を満たさない、もしくは`decltype((f))`が[`movable-value`](../movable-value.md)を満たさないとき、呼び出し式`then(sndr, f)`は不適格となる。
+説明用の式`sndr`と`f`に対して、`decltype((sndr))`が[`sender`](sender.md)を満たさない、もしくは`decltype((f))`が[`movable-value`](../movable-value.md)を満たさないとき、呼び出し式`then-cpo(sndr, f)`は不適格となる。
 
-そうでなければ、呼び出し式`then(sndr, f)`は`sndr`が1回だけ評価されることを除いて、下記と等価。
+そうでなければ、呼び出し式`then-cpo(sndr, f)`は`sndr`が1回だけ評価されることを除いて、下記と等価。
 
 ```cpp
-transform_sender(get-domain-early(sndr), make-sender(then, f, sndr))
+transform_sender(get-domain-early(sndr), make-sender(then-cpo, f, sndr))
 ```
 * transform_sender[link transform_sender.md]
 * get-domain-early[link get-domain-early.md]
 * make-sender[link make-sender.md]
 
 
-### Senderアルゴリズムタグ `then`
+### Senderアルゴリズムタグ `then-cpo`
 Senderアルゴリズム動作説明用のクラステンプレート[`impls-for`](impls-for.md)に対して、下記の特殊化が定義される。
 
 ```cpp
 namespace std::execution {
   template<>
-  struct impls-for<decayed-typeof<then>> : default-impls {
+  struct impls-for<decayed-typeof<then-cpo>> : default-impls {
     static constexpr auto complete =
       []<class Tag, class... Args>
         (auto, auto& fn, auto& rcvr, Tag, Args&&... args) noexcept -> void {
-          if constexpr (same_as<Tag, decayed-typeof<set_value>>) {
+          if constexpr (same_as<Tag, decayed-typeof<set-cpo>>) {
             TRY-SET-VALUE(rcvr,
                           invoke(std::move(fn), std::forward<Args>(args)...));
           } else {
@@ -57,12 +65,11 @@ namespace std::execution {
 * decayed-typeof[link /reference/functional/decayed-typeof.md]
 * impls-for[link impls-for.md]
 * default-impls[link impls-for.md]
-* set_value[link set_value.md]
 * TRY-SET-VALUE[link set_value.md]
 * invoke[link /reference/functional/invoke.md]
 * std::move[link /reference/utility/move.md]
 
-メンバ関数`impls-for<decayed-typeof<then>>::check-types`の効果は下記の通り。
+メンバ関数`impls-for<decayed-typeof<then-cpo>>::check-types`の効果は下記の通り。
 
 ```cpp
 auto cs = get_completion_signatures<child-type<Sndr>, FWD-ENV-T(Env)...>();
@@ -85,10 +92,10 @@ cs.for-each(overload-set{fn, [](auto){}});
 Senderアルゴリズム構築時および[Receiver](receiver.md)接続時に、関連付けられた実行ドメインに対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
 [デフォルト実行ドメイン](default_domain.md)では無変換。
 
-戻り値の[Sender](sender.md)`out_sndr`が下記を満たさない場合、呼び出し式`then(sndr, f)`の動作は未定義となる。
+戻り値の[Sender](sender.md)`out_sndr`が下記を満たさない場合、呼び出し式`then-cpo(sndr, f)`の動作は未定義となる。
 
-- `then`に対する`sndr`の値結果データで`f`またはそのコピーを呼び出し、`out_sndr`の値完了として`f`の結果値を用いること。
-- 他の完了操作では変更なしに転送すること。
+- `then-cpo`に対する`sndr`の`set-cpo`結果データで`f`またはそのコピーを呼び出し、`out_sndr`の値完了として`f`の結果値を用いること。
+- 上記以外の完了操作では変更なしに転送すること。
 
 
 ## 例

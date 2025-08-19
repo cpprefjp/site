@@ -17,7 +17,7 @@ namespace std::execution {
 
 `let_value`は[パイプ可能Senderアダプタオブジェクト](sender_adaptor_closure.md)であり、パイプライン記法をサポートする。
 
-本ページにてSenderアルゴリズム`let_value`／[`let_error`](let_error.md)／[`let_stopped`](let_stopped.md)の動作仕様を包括的に説明するため、以降のセクションにおいては、`let-cpo`, `set-cpo`をそれぞれ下記の通りとする。
+本ページにてSenderアルゴリズム`let_value`／[`let_error`](let_error.md)／[`let_stopped`](let_stopped.md)の動作仕様を包括的に説明するため、以降のセクションにおいては`let-cpo`, `set-cpo`をそれぞれ下記の通りとする。
 
 | `let-cpo` | `set-cpo` |
 |----|----|
