@@ -1,0 +1,378 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>vector_sum_of_squares - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,linalg,function template,std::linalg,cpp26
+">
+        <meta name="title" content="vector_sum_of_squares - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="vector_sum_of_squares - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="vector_sum_of_squares - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/linalg/vector_sum_of_squares.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="アンダーフローとオーバーフローが起きないようスケールされた、ベクトルの成分の2乗和を計算する。すなわち、戻り値を`result`とし、説明用の関数" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="vector_sum_of_squares - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/linalg/vector_sum_of_squares.html" />
+        <meta name="twitter:description" content="アンダーフローとオーバーフローが起きないようスケールされた、ベクトルの成分の2乗和を計算する。すなわち、戻り値を`result`とし、説明用の関数" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=4e72de3088f20b2f0177531c42a1fa9d0d822e93">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=4e72de3088f20b2f0177531c42a1fa9d0d822e93">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=4e72de3088f20b2f0177531c42a1fa9d0d822e93">
+<link rel="manifest" href="../../manifest.json?cachebust=4e72de3088f20b2f0177531c42a1fa9d0d822e93">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=4e72de3088f20b2f0177531c42a1fa9d0d822e93">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [ ['$','$'] ],
+        displayMath: [ ['$$','$$'] ],
+        processEscapes: true
+      },
+      chtml: {
+        displayAlign: 'left',
+        displayIndent: '2.0em',
+      },
+    };
+    </script>
+    <!-- IEはサポートしないので https://polyfill.io/v3/polyfill.min.js?features=es6 は読み込まない -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=4e72de3088f20b2f0177531c42a1fa9d0d822e93" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=4e72de3088f20b2f0177531c42a1fa9d0d822e93" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=4e72de3088f20b2f0177531c42a1fa9d0d822e93" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=4e72de3088f20b2f0177531c42a1fa9d0d822e93" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=4e72de3088f20b2f0177531c42a1fa9d0d822e93"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=4e72de3088f20b2f0177531c42a1fa9d0d822e93"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;linalg&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;namespace&#34;: [&#34;std::linalg&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;92566891ac18118b8144db15ef6e35389a6588ac&#34;, &#34;source&#34;: &#34;#include &lt;array&gt;\n#include &lt;cmath&gt;\n#include &lt;execution&gt;\n#include &lt;iostream&gt;\n#include &lt;linalg&gt;\n#include &lt;mdspan&gt;\n\n\ntemplate&lt;class Scalar&gt;\nScalar get_sum_of_squares(std::linalg::sum_of_squares_result&lt;Scalar&gt; result) {\n  return std::pow(result.scaling_factor, 2) * result.scaled_sum_of_squares;\n}\n\n\nint main()\n{\n  constexpr size_t N = 4;\n\n  std::array&lt;double, N&gt; vec;\n\n  std::mdspan v(vec.data(), N);\n\n  for(int i = 0; i &lt; v.extent(0); ++i) {\n    v[i] = std::pow(-1.0, i) / (i + 1);\n  }\n\n  auto init = std::linalg::sum_of_squares_result&lt;double&gt;{.scaling_factor = 1.0 / 5,\n                                                         .scaled_sum_of_squares = 1.0};\n\n  std::cout &lt;&lt; get_sum_of_squares(\n                std::linalg::vector_sum_of_squares(v, init))                              // (1)\n            &lt;&lt; get_sum_of_squares(\n                std::linalg::vector_sum_of_squares(std::execution::par, v, init)) &lt;&lt; &#39;\\n&#39; // (2)\n            &lt;&lt; get_sum_of_squares(\n                std::linalg::vector_sum_of_squares(v)) &lt;&lt; &#39;\\n&#39;                            // (3)\n            &lt;&lt; get_sum_of_squares(\n                std::linalg::vector_sum_of_squares(std::execution::par, v)) &lt;&lt; &#39;\\n&#39;;      // (4)\n\n  return 0;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;linalg&#34;, &#34;vector_sum_of_squares&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/linalg.html" itemprop="url">
+              
+                <span itemprop="name">linalg</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">vector_sum_of_squares</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2024-08-08T08:22:01">
+        2024年08月08日 08時22分01秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yoh</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/linalg/vector_sum_of_squares.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/linalg/vector_sum_of_squares.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function template</div><div class="header">&lt;linalg&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::linalg">std::linalg::</span><span class="token">vector_sum_of_squares</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">linalg</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="inout-vector.html">in-vector</a></span> <span class="n">InVec</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Scalar</span><span class="o">&gt;</span>
+  <span class="n"><a href="sum_of_squares_result.html">sum_of_squares_result</a></span><span class="o">&lt;</span><span class="n">Scalar</span><span class="o">&gt;</span> <span class="n">vector_sum_of_squares</span><span class="p">(</span>
+    <span class="n">InVec</span> <span class="n">v</span><span class="p">,</span>
+    <span class="n"><a href="sum_of_squares_result.html">sum_of_squares_result</a></span><span class="o">&lt;</span><span class="n">Scalar</span><span class="o">&gt;</span> <span class="n">init</span><span class="p">);</span> <span class="c1">// (1)</span>
+
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="p">,</span>
+           <span class="n"><a href="inout-vector.html">in-vector</a></span> <span class="n">InVec</span><span class="p">,</span>
+           <span class="k">class</span> <span class="nc">Scalar</span><span class="o">&gt;</span>
+  <span class="n"><a href="sum_of_squares_result.html">sum_of_squares_result</a></span><span class="o">&lt;</span><span class="n">Scalar</span><span class="o">&gt;</span> <span class="n">vector_sum_of_squares</span><span class="p">(</span>
+    <span class="n"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="o">&amp;&amp;</span> <span class="n">exec</span><span class="p">,</span>
+    <span class="n">InVec</span> <span class="n">v</span><span class="p">,</span>
+    <span class="n"><a href="sum_of_squares_result.html">sum_of_squares_result</a></span><span class="o">&lt;</span><span class="n">Scalar</span><span class="o">&gt;</span> <span class="n">init</span><span class="p">);</span> <span class="c1">// (2)</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>アンダーフローとオーバーフローが起きないようスケールされた、ベクトルの成分の2乗和を計算する。すなわち、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を<code>result</code>とし、説明用の関数</p>
+<p><div class="codehilite"><pre><span></span><code>  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Scalar</span><span class="o">&gt;</span>
+  <span class="n">Scalar</span> <span class="n">get_sum_of_squares</span><span class="p">(</span><span class="n"><a href="sum_of_squares_result.html">sum_of_squares_result</a></span><span class="o">&lt;</span><span class="n">Scalar</span><span class="o">&gt;</span> <span class="n">result</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">pow</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">scaling_factor</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">result</span><span class="p">.</span><span class="n">scaled_sum_of_squares</span><span class="p">;</span>
+  <span class="p">}</span>
+</code></pre></div>
+</p>
+<p>を定義すると、以下の式が成り立つように計算する。</p>
+<p>$$
+\verb|get_sum_of_squares(result)| = \sum_{i = 0}^{n - 1} |\verb|v[|i\verb|]||^2 + \verb|get_sum_of_squares(init)|
+$$</p>
+<p>ただし、<code>n</code>は<code>v</code>の次元である。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Mandates。満たさなければプログラムが不適格となる要件。この要件は、オーバーロード解決によって選択された関数内での`static_assert`の定数条件式や、関数に対するdelete宣言などで表現できる">適格要件</a></h2>
+<ul>
+<li>(1), (2): <code>decltype(<a href="abs-if-needed.html">abs-if-needed</a>(declval&lt;typename InVec::value_type&gt;()))</code>が<code>Scalar</code>に変換可能。</li>
+<li>(2): <code><a href="../execution/is_execution_policy.html">is_execution_policy</a>&lt;ExecutionPolicy&gt;::value</code>が<code>true</code></li>
+</ul>
+<h2>効果</h2>
+<ul>
+<li>(1): 以下の条件を満たす<code><a href="sum_of_squares_result.html">sum_of_squares_result</a>&lt;Scalar&gt;</code>型の値<code>result</code>を返す。<ul>
+<li><code>result.scaling_factor</code>が<code>init.scaling_factor</code>と$\max_{i = 0, \dots, n - 1}|\verb|v[|i\verb|]||$の最大値。ただし、<code>n</code>は<code>v</code>の次元である。</li>
+<li>概要に記載した式を満たす。</li>
+</ul>
+</li>
+<li>(2): (1)の並列アルゴリズム版。</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p><code><a href="sum_of_squares_result.html">sum_of_squares_result</a>&lt;Scalar&gt;</code></p>
+<h2>備考</h2>
+<ul>
+<li><code>init.scaled_sum_of_squares</code>は0以上でなければならない。</li>
+<li>もし<code>InVec::value_type</code>と<code>Scalar</code>がどちらも浮動小数点数型または<code><a href="../complex/complex.html">std::complex</a></code>の特殊化で、<code>Scalar</code>が<code>InVec::value_type</code>より精度が高い場合、和の各項は<code>Scalar</code>またはより高い精度の型が使われる。</li>
+</ul>
+<h2>例</h2>
+<p><strong>[注意] 処理系にあるコンパイラで確認していないため、間違っているかもしれません。</strong></p>
+<p><div class="yata" id="92566891ac18118b8144db15ef6e35389a6588ac"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../array.html">&lt;array&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../cmath.html">&lt;cmath&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../linalg.html">&lt;linalg&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../mdspan.html">&lt;mdspan&gt;</a></span><span class="cp"></span>
+
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Scalar</span><span class="o">&gt;</span>
+<span class="n">Scalar</span> <span class="n">get_sum_of_squares</span><span class="p">(</span><span class="n"><a href="sum_of_squares_result.html">std::linalg::sum_of_squares_result</a></span><span class="o">&lt;</span><span class="n">Scalar</span><span class="o">&gt;</span> <span class="n">result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">pow</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">scaling_factor</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">result</span><span class="p">.</span><span class="n">scaled_sum_of_squares</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">constexpr</span> <span class="kt">size_t</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+
+  <span class="n"><a href="../array/array.html">std::array</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span> <span class="n">N</span><span class="o">&gt;</span> <span class="n">vec</span><span class="p">;</span>
+
+  <span class="n"><a href="../mdspan/mdspan.html">std::mdspan</a></span> <span class="nf">v</span><span class="p">(</span><span class="n">vec</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span> <span class="n">N</span><span class="p">);</span>
+
+  <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">v</span><span class="p">.</span><span class="n">extent</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">pow</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">auto</span> <span class="n">init</span> <span class="o">=</span> <span class="n"><a href="sum_of_squares_result.html">std::linalg::sum_of_squares_result</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">{.</span><span class="n">scaling_factor</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mi">5</span><span class="p">,</span>
+                                                         <span class="p">.</span><span class="n">scaled_sum_of_squares</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">};</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">get_sum_of_squares</span><span class="p">(</span>
+                <span class="n"><span style="color:#ff0000">std::linalg::vector_sum_of_squares</span></span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">init</span><span class="p">))</span>                              <span class="c1">// (1)</span>
+            <span class="o">&lt;&lt;</span> <span class="n">get_sum_of_squares</span><span class="p">(</span>
+                <span class="n"><span style="color:#ff0000">std::linalg::vector_sum_of_squares</span></span><span class="p">(</span><span class="n"><a href="../execution/execution/execution_policy.html">std::execution::par</a></span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">init</span><span class="p">))</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span> <span class="c1">// (2)</span>
+            <span class="o">&lt;&lt;</span> <span class="n">get_sum_of_squares</span><span class="p">(</span>
+                <span class="n"><span style="color:#ff0000">std::linalg::vector_sum_of_squares</span></span><span class="p">(</span><span class="n">v</span><span class="p">))</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span>                            <span class="c1">// (3)</span>
+            <span class="o">&lt;&lt;</span> <span class="n">get_sum_of_squares</span><span class="p">(</span>
+                <span class="n"><span style="color:#ff0000">std::linalg::vector_sum_of_squares</span></span><span class="p">(</span><span class="n"><a href="../execution/execution/execution_policy.html">std::execution::par</a></span><span class="p">,</span> <span class="n">v</span><span class="p">))</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>      <span class="c1">// (4)</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>1.46361
+1.46361
+1.42361
+1.42361
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++26</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="../execution.html">execution</a></code></li>
+<li><code><a href="../mdspan.html">mdspan</a></code></li>
+<li><code><a href="sum_of_squares_result.html">sum_of_squares_result</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p1673r13.html" target="_blank">P1673R13 A free function linear algebra interface based on the BLAS</a></li>
+<li><a href="https://netlib.org/lapack/explore-html/d8/d76/group__lassq_gab70baa330cb7a13111b72aef0734e26d.html#gab70baa330cb7a13111b72aef0734e26d" target="_blank">LAPACK: classq</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
