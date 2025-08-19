@@ -33,7 +33,7 @@ $b$ や $p$ については [`<cfloat>`](../cfloat.md) のモデルも参照。
 - `DECIMAL_DIG` は DECIMAL DIGits（decimal：10進数、digit：桁）に由来する。
 - 各型毎の桁数を示すマクロも定義されている
     - [`DBL_DECIMAL_DIG`](dbl_decimal_dig.md)
-    - [`FLT_DECILAL_DIG`](flt_decimal_dig.md)
+    - [`FLT_DECIMAL_DIG`](flt_decimal_dig.md)
     - [`LDBL_DECIMAL_DIG`](ldbl_decimal_dig.md)
 
 
