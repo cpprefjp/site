@@ -142,6 +142,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 
 ### コンテナ
 - [`std::mdspan`](/reference/mdspan/mdspan.md)から部分ビューを取り出す[`std::submdspan()`](/reference/mdspan/submdspan.md)を追加
+- [`std::mdspan`](/reference/mdspan/mdspan.md)に、インデックスを指定して要素を取り出す[`at()`](/reference/mdspan/mdspan/at.md.nolink)メンバ関数を追加
 - [`std::mdspan`](/reference/mdspan/mdspan.md)に対する[`std::dextents`](/reference/mdspan/extents.md)指定の冗長さを解決する[`std::dims`](/reference/mdspan/extents.md)を追加
 - [`std::mdspan`](/reference/mdspan/mdspan.md)のレイアウトとして、[`std::layout_left_padded`](/reference/mdspan/layout_left_padded.md)と[`std::layout_right_padded`](/reference/mdspan/layout_right_padded.md)を追加
 - [`<mdspan>`](/reference/mdspan.md)に、要素アクセスにアライメント保証を与える[`std::aligned_accessor`](/reference/mdspan/aligned_accessor.md)を追加
@@ -200,6 +201,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 
 
 ### アルゴリズム
+- [`<algorithm>`](/reference/algorithm.md)と[`<memory>`](/reference/memory.md)のアルゴリズムを並列実行に対応
 - [`<algorithm>`](/reference/algorithm.md)の以下のアルゴリズムを`constexpr`に対応
     - [`std::stable_sort()`](/reference/algorithm/stable_sort.md) / [`std::ranges::stable_sort()`](/reference/algorithm/ranges_stable_sort.md)
     - [`std::stable_partition()`](/reference/algorithm/stable_partition.md) / [`std::ranges::stable_partition()`](/reference/algorithm/ranges_stable_partition.md)
@@ -260,6 +262,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - ポインタ出力のサポートを追加
     - 幅と精度を動的に指定した場合でも型の検証がコンパイル時に行われるよう仕様を見直し
     - コンパイル時の書式文字列だけでなく、実行時の書式文字列を渡せるよう仕様修正
+- [`std::basic_string`](/reference/string/basic_string.md)クラスと[`std::basic_string_view`](/reference/string_view/basic_string_view.md)クラスに、部分文字列を[`std::basic_string_view`](/reference/string_view/basic_string_view.md)として取得するメンバ関数`subview()`を追加
 - [`std::basic_string`](/reference/string/basic_string.md)と[`std::basic_string_view`](/reference/string_view/basic_string_view.md)を[`std::basic_string`](/reference/string/basic_string.md)として連結させる`operator+`を追加
 
 
@@ -289,6 +292,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 - 動的確保したオブジェクトに値の意味論をもたせてディープコピーさせるユーティリティクラスとして、[`<memory>`](/reference/memory.md)に[`std::indirect`](/reference/memory/indirect.md.nolink)クラスと[`std::polymorphic`](/reference/memory/polymorphic.md.nolink)クラスを追加
 - [`std::weak_ptr`](/reference/memory/weak_ptr.md)を非順序連想コンテナのキーとして使用できるよう、[`<memory>`](/reference/memory.md)に所有権ベースのハッシュ値を取得する関数オブジェクト[`std::owner_hash`](/reference/memory/owner_hash.md.nolink)、および所有権ベースの等値比較を行う関数オブジェクト[`std::owner_equal`](/reference/memory/owner_equal.md.nolink)を追加
     - 関連して、[`std::shared_ptr`](/reference/memory/shared_ptr.md)クラスと[`std::weak_ptr`](/reference/memory/weak_ptr.md)クラスのメンバ関数として、`owner_hash()`と`owner_equal()`を追加
+- [`std::shared_ptr`](/reference/memory/shared_ptr.md)クラスとその関連機能を`constexpr`対応
 
 
 ### 日付・時間
@@ -390,6 +394,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - `const_iterator`型
     - [`begin()`](/reference/optional/optional/begin.md.nolink)メンバ関数
     - [`end()`](/reference/optional/optional/end.md.nolink)メンバ関数
+- [`std::optional`](/reference/optional/optional.md)に、参照を保持するための`T&`の部分特殊化を追加
 - [`std::ignore`](/reference/tuple/ignore.md)をファーストクラス・オブジェクトとして型を詳細に定義
 - [`std::bitset`](/reference/bitset/bitset.md)に、[`std::basic_string_view`](/reference/string_view/basic_string_view.md)を受け取るコンストラクタを追加
 - [`<ratio>`](/reference/ratio.md)に、新たなSI接頭辞として、以下を追加
@@ -433,7 +438,8 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - [`<format>`](/reference/format.md)ヘッダの以下の機能
         - [`std::format_error`](/reference/format/format_error.md)
 - [`<memory>`](/reference/memory.md)に、ポインタのアライメントを判定する[`std::is_sufficiently_aligned()`](/reference/memory/is_sufficiently_aligned.md)関数を追加。
-- [`<utility>`](/reference/utility.md)に、タイムトラベル最適化を抑止するための観測可能ポイントとして[`std::observable()`](/reference/utility/observable.md.nolink)を追加
+- [`<utility>`](/reference/utility.md)に、タイムトラベル最適化を抑止するための観測可能ポイントとして[`std::observable_checkpoint()`](/reference/utility/observable_checkpoint.md.nolink)を追加
+- [`std::exception_ptr`](/reference/exception/exception_ptr.md)を指定した例外型にキャストする[`std::exception_ptr_cast()`](/reference/exception/exception_ptr_cast.md.nolink)関数を追加
 
 
 ### デバッグ
@@ -482,3 +488,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - [`std::atomic_compare_exchange_weak_explicit`](/reference/memory/shared_ptr/atomic_compare_exchange_weak_explicit.md)
     - [`std::atomic_compare_exchange_strong_explicit`](/reference/memory/shared_ptr/atomic_compare_exchange_strong_explicit.md)
 - C++23から非推奨となっていた、[`std::allocator`](/reference/memory/allocator.md)のメンバ型`is_always_equal`を削除
+
+
+## 取り決め
+- C言語の参照をC17からC23に更新
