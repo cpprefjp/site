@@ -328,7 +328,7 @@
 | P2996R13: [静的リフレクション](/lang/cpp26/reflection.md.nolink) | リフレクション演算子`^^`と`std::meta::info`型によりコンパイル時にさまざまな情報を取得できる | | | | |
 | P1306R5: [コンパイル時のタプルやリストを展開処理する`template for`文](/lang/cpp26/expansion_statements.md.nolink) | クラス・タプル・Range・パラメータパックなどを展開してすべての要素をコンパイル時の処理する`template for`文を追加 | 16 | | | |
 | P3533R2: [`constexpr`仮想継承を許可](/lang/cpp26/constexpr_virtual_inheritance.md.nolink) | 定数式の文脈での仮想継承を許可 | 16 | | | |
-| P2843R3: [プリプロセッサ仕様での「未定義動作」を不適格または診断不要に変更](/lang/cpp26/preprocessing_is_never_undefined.md.nolink) | プリプロセッサとレキサーの文脈での「未定義動作」用語を不適格または診断不要に変更 | 16 | | | |
+| P2843R3: [プリプロセッサ仕様での「未定義動作」を不適格 (診断不要) に変更](/lang/cpp26/preprocessing_is_never_undefined.md.nolink) | プリプロセッサとレキサーの文脈での「未定義動作」用語を不適格 (診断不要) に変更 | 16 | | | |
 
 
 各処理系のC++26実装状況ページ：
