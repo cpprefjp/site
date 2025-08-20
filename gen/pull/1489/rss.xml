@@ -2,9 +2,181 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-08-20T09:38:28.371154</updated>
-  <id>76272200-eba0-4858-851d-9607759c112c</id>
+  <updated>2025-08-20T09:56:55.600974</updated>
+  <id>eb07816c-646d-4fde-89a3-03e4ddfafbdf</id>
 
+  
+    <entry>
+      <title>into_variant -- execution: 例示コードをP3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/into_variant.html"/>
+      <id>7b6fa9eb17daa9372e76934b7d84a5c2fd01ae94:reference/execution/execution/into_variant.md</id>
+      <updated>2025-08-20T18:48:11+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/into_variant.md b/reference/execution/execution/into_variant.md
+index 1ca31e9c6..57c78e6c2 100644
+--- a/reference/execution/execution/into_variant.md
++++ b/reference/execution/execution/into_variant.md
+@@ -117,6 +117,11 @@ struct FizzBuzzSender {
+     ex::set_value_t(int),
+     ex::set_value_t(std::string)
+   &amp;gt;;
++  template &amp;lt;typename Self&amp;gt;
++  static consteval auto get_completion_signatures()
++  {
++    return completion_signatures{};
++  }
+ 
+   // Operation State型
+   template &amp;lt;typename Rcvr&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>stopped_as_error -- execution: 例示コードをP3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/stopped_as_error.html"/>
+      <id>7b6fa9eb17daa9372e76934b7d84a5c2fd01ae94:reference/execution/execution/stopped_as_error.md</id>
+      <updated>2025-08-20T18:48:11+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/stopped_as_error.md b/reference/execution/execution/stopped_as_error.md
+index 92c680eee..e48be987c 100644
+--- a/reference/execution/execution/stopped_as_error.md
++++ b/reference/execution/execution/stopped_as_error.md
+@@ -70,10 +70,16 @@ namespace ex = std::execution;
+ //   停止完了 set_stopped()
+ struct MySender {
+   using sender_concept = ex::sender_t;
++
+   using completion_signatures = ex::completion_signatures&amp;lt;
+     ex::set_value_t(int),
+     ex::set_stopped_t()
+   &amp;gt;;
++  template &amp;lt;typename Self&amp;gt;
++  static consteval auto get_completion_signatures()
++  {
++    return completion_signatures{};
++  }
+ 
+   template &amp;lt;typename Rcvr&amp;gt;
+   struct state {
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>stopped_as_optional -- execution: 例示コードをP3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/stopped_as_optional.html"/>
+      <id>7b6fa9eb17daa9372e76934b7d84a5c2fd01ae94:reference/execution/execution/stopped_as_optional.md</id>
+      <updated>2025-08-20T18:48:11+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/stopped_as_optional.md b/reference/execution/execution/stopped_as_optional.md
+index 15fc81c4d..b47597b8f 100644
+--- a/reference/execution/execution/stopped_as_optional.md
++++ b/reference/execution/execution/stopped_as_optional.md
+@@ -99,10 +99,16 @@ namespace ex = std::execution;
+ //   停止完了 set_stopped()
+ struct MySender {
+   using sender_concept = ex::sender_t;
++
+   using completion_signatures = ex::completion_signatures&amp;lt;
+     ex::set_value_t(int),
+     ex::set_stopped_t()
+   &amp;gt;;
++  template &amp;lt;typename Self&amp;gt;
++  static consteval auto get_completion_signatures()
++  {
++    return completion_signatures{};
++  }
+ 
+   template &amp;lt;typename Rcvr&amp;gt;
+   struct state {
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>when_all -- execution: 例示コードをP3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/when_all.html"/>
+      <id>7b6fa9eb17daa9372e76934b7d84a5c2fd01ae94:reference/execution/execution/when_all.md</id>
+      <updated>2025-08-20T18:48:11+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/when_all.md b/reference/execution/execution/when_all.md
+index 5cc7c708c..77723717c 100644
+--- a/reference/execution/execution/when_all.md
++++ b/reference/execution/execution/when_all.md
+@@ -398,11 +398,17 @@ namespace ex = std::execution;
+ //   停止完了   set_stopped()
+ struct MySender {
+   using sender_concept = ex::sender_t;
++
+   using completion_signatures = ex::completion_signatures&amp;lt;
+     ex::set_value_t(std::string),
+     ex::set_error_t(int),
+     ex::set_stopped_t()
+   &amp;gt;;
++  template &amp;lt;typename Self&amp;gt;
++  static consteval auto get_completion_signatures()
++  {
++    return completion_signatures{};
++  }
+ 
+   template &amp;lt;typename Rcvr&amp;gt;
+   struct state {
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>when_all_with_variant -- execution: 例示コードをP3557R3対応</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/when_all_with_variant.html"/>
+      <id>7b6fa9eb17daa9372e76934b7d84a5c2fd01ae94:reference/execution/execution/when_all_with_variant.md</id>
+      <updated>2025-08-20T18:48:11+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/when_all_with_variant.md b/reference/execution/execution/when_all_with_variant.md
+index 99a19fe5f..92c0516f7 100644
+--- a/reference/execution/execution/when_all_with_variant.md
++++ b/reference/execution/execution/when_all_with_variant.md
+@@ -73,11 +73,17 @@ namespace ex = std::execution;
+ //   エラー完了 set_error(int)
+ struct MySender {
+   using sender_concept = ex::sender_t;
++
+   using completion_signatures = ex::completion_signatures&amp;lt;
+     ex::set_value_t(int),
+     ex::set_value_t(std::string),
+     ex::set_error_t(int)
+   &amp;gt;;
++  template &amp;lt;typename Self&amp;gt;
++  static consteval auto get_completion_signatures()
++  {
++    return completion_signatures{};
++  }
+ 
+   template &amp;lt;typename Rcvr&amp;gt;
+   struct state {
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>execution -- execution: C++26 P3557R3対応(cont.)</title>
@@ -2952,33 +3124,6 @@ index 2b4266579..49f5ebc01 100644
 +- [`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`&amp;lt;M&amp;gt;`は`true`であり、かつ
  - [`is_nothrow_move_assignable_v`](/reference/type_traits/is_nothrow_move_assignable.md)`&amp;lt;M&amp;gt;`は`true`であり、かつ
  - [`is_nothrow_swappable_v`](/reference/type_traits/is_nothrow_swappable.md)`&amp;lt;M&amp;gt;`は`true`であること
- 
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Raclamusi</name>
-        <email>raclamusi@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>DECIMAL_DIG -- typo修正</title>
-      <link href="https://cpprefjp.github.io/reference/cfloat/decimal_dig.html"/>
-      <id>63c44c02a889475441bab04904d1543be52f7ce5:reference/cfloat/decimal_dig.md</id>
-      <updated>2025-08-19T20:48:46+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cfloat/decimal_dig.md b/reference/cfloat/decimal_dig.md
-index aa2c61239..ab376685f 100644
---- a/reference/cfloat/decimal_dig.md
-+++ b/reference/cfloat/decimal_dig.md
-@@ -33,7 +33,7 @@ $b$ や $p$ については [`&amp;lt;cfloat&amp;gt;`](../cfloat.md) のモデルも参照。
- - `DECIMAL_DIG` は DECIMAL DIGits（decimal：10進数、digit：桁）に由来する。
- - 各型毎の桁数を示すマクロも定義されている
-     - [`DBL_DECIMAL_DIG`](dbl_decimal_dig.md)
--    - [`FLT_DECILAL_DIG`](flt_decimal_dig.md)
-+    - [`FLT_DECIMAL_DIG`](flt_decimal_dig.md)
-     - [`LDBL_DECIMAL_DIG`](ldbl_decimal_dig.md)
- 
  
 &lt;/code&gt;&lt;/pre&gt;</summary>
       

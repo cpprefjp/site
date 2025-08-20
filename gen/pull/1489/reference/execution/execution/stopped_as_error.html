@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;execution&#34;], &#34;id-type&#34;: [&#34;cpo&#34;], &#34;namespace&#34;: [&#34;std::execution&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;f8f70450e92bfb08db1251702167200928bac479&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;execution&gt;\nnamespace ex = std::execution;\n\n// MySender\u306f\u4e0b\u8a18\u3044\u305a\u308c\u304b\u306e\u5b8c\u4e86\u64cd\u4f5c\u3092\u884c\u3046\n//   \u5024\u5b8c\u4e86   set_value(int)\n//   \u505c\u6b62\u5b8c\u4e86 set_stopped()\nstruct MySender {\n  using sender_concept = ex::sender_t;\n  using completion_signatures = ex::completion_signatures&lt;\n    ex::set_value_t(int),\n    ex::set_stopped_t()\n  &gt;;\n\n  template &lt;typename Rcvr&gt;\n  struct state {\n    using operation_state_concept = ex::operation_state_t;\n\n    state(Rcvr rcvr, int val)\n      : rcvr_{std::move(rcvr)}, val_{val} {}\n\n    void start() noexcept {\n      if (0 &lt; val_) {\n        ex::set_value(std::move(rcvr_), val_);\n      } else {\n        ex::set_stopped(std::move(rcvr_));\n      }\n    }\n\n    Rcvr rcvr_;\n    int val_;\n  };\n\n  template &lt;typename Rcvr&gt;\n  auto connect(Rcvr rcvr) noexcept {\n    return state{std::move(rcvr), val_};\n  }\n\n  int val_;\n};\n\nint main()\n{\n  { // \u95a2\u6570\u547c\u3073\u51fa\u3057\n    ex::sender auto snd0 = MySender{-1};\n    ex::sender auto snd1 = ex::stopped_as_error(snd0, MyStoppedError{});\n    try {\n      auto [result] = std::this_thread::sync_wait(snd1).value();\n      std::println(\&#34;(int) {}\&#34;, result);\n    } catch (MyStoppedError) {\n      std::println(\&#34;stopped\&#34;);\n    }\n  }\n\n  { // \u30d1\u30a4\u30d7\u30e9\u30a4\u30f3\u8a18\u6cd5\n    ex::sender auto sndr =\n      MySender{-1}\n      | ex::stopped_as_error(MyStoppedError{});\n    try {\n      auto [result] = std::this_thread::sync_wait(sndr).value();\n      std::println(\&#34;(int) {}\&#34;, result);\n    } catch (MyStoppedError) {\n      std::println(\&#34;stopped\&#34;);\n    }\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;execution&#34;, &#34;execution&#34;, &#34;stopped_as_error&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;execution&#34;], &#34;id-type&#34;: [&#34;cpo&#34;], &#34;namespace&#34;: [&#34;std::execution&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;56b013479d07c89c7175ae333b0092338a1ab99b&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;execution&gt;\nnamespace ex = std::execution;\n\n// MySender\u306f\u4e0b\u8a18\u3044\u305a\u308c\u304b\u306e\u5b8c\u4e86\u64cd\u4f5c\u3092\u884c\u3046\n//   \u5024\u5b8c\u4e86   set_value(int)\n//   \u505c\u6b62\u5b8c\u4e86 set_stopped()\nstruct MySender {\n  using sender_concept = ex::sender_t;\n\n  using completion_signatures = ex::completion_signatures&lt;\n    ex::set_value_t(int),\n    ex::set_stopped_t()\n  &gt;;\n  template &lt;typename Self&gt;\n  static consteval auto get_completion_signatures()\n  {\n    return completion_signatures{};\n  }\n\n  template &lt;typename Rcvr&gt;\n  struct state {\n    using operation_state_concept = ex::operation_state_t;\n\n    state(Rcvr rcvr, int val)\n      : rcvr_{std::move(rcvr)}, val_{val} {}\n\n    void start() noexcept {\n      if (0 &lt; val_) {\n        ex::set_value(std::move(rcvr_), val_);\n      } else {\n        ex::set_stopped(std::move(rcvr_));\n      }\n    }\n\n    Rcvr rcvr_;\n    int val_;\n  };\n\n  template &lt;typename Rcvr&gt;\n  auto connect(Rcvr rcvr) noexcept {\n    return state{std::move(rcvr), val_};\n  }\n\n  int val_;\n};\n\nint main()\n{\n  { // \u95a2\u6570\u547c\u3073\u51fa\u3057\n    ex::sender auto snd0 = MySender{-1};\n    ex::sender auto snd1 = ex::stopped_as_error(snd0, MyStoppedError{});\n    try {\n      auto [result] = std::this_thread::sync_wait(snd1).value();\n      std::println(\&#34;(int) {}\&#34;, result);\n    } catch (MyStoppedError) {\n      std::println(\&#34;stopped\&#34;);\n    }\n  }\n\n  { // \u30d1\u30a4\u30d7\u30e9\u30a4\u30f3\u8a18\u6cd5\n    ex::sender auto sndr =\n      MySender{-1}\n      | ex::stopped_as_error(MyStoppedError{});\n    try {\n      auto [result] = std::this_thread::sync_wait(sndr).value();\n      std::println(\&#34;(int) {}\&#34;, result);\n    } catch (MyStoppedError) {\n      std::println(\&#34;stopped\&#34;);\n    }\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;execution&#34;, &#34;execution&#34;, &#34;stopped_as_error&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-06-03T14:36:23">
-        2025年06月03日 14時36分23秒
+      <span itemprop="datePublished" content="2025-08-20T09:48:11">
+        2025年08月20日 09時48分11秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -258,7 +258,7 @@
 <p><a href="receiver.html">Receiver</a>との<a href="connect.html">接続(connect)</a>時に、<a href="get-domain-late.html">関連付けられた実行ドメイン</a>に対して<code><a href="transform_sender.html">execution::transform_sender</a></code>経由でSender変換が行われる。
 <a href="default_domain.html">デフォルト実行ドメイン</a>では<code>stopped_as_error.transform_sender(sndr, env)</code>が呼ばれ、前述仕様通りのSenderへと変換される。</p>
 <h2>例</h2>
-<p><div class="yata" id="f8f70450e92bfb08db1251702167200928bac479"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="56b013479d07c89c7175ae333b0092338a1ab99b"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>
 <span class="k">namespace</span> <span class="n">ex</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span><span class="p">;</span>
 
@@ -267,10 +267,16 @@
 <span class="c1">//   停止完了 set_stopped()</span>
 <span class="k">struct</span> <span class="n">MySender</span> <span class="p">{</span>
   <span class="k">using</span> <span class="n">sender_concept</span> <span class="o">=</span> <span class="n"><a href="sender.html">ex::sender_t</a></span><span class="p">;</span>
+
   <span class="k">using</span> <span class="n">completion_signatures</span> <span class="o">=</span> <span class="n"><a href="completion_signatures.html">ex::completion_signatures</a></span><span class="o">&lt;</span>
     <span class="n"><a href="set_value.html">ex::set_value_t</a></span><span class="p">(</span><span class="kt">int</span><span class="p">),</span>
     <span class="n"><a href="set_stopped.html">ex::set_stopped_t</a></span><span class="p">()</span>
   <span class="o">&gt;</span><span class="p">;</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Self</span><span class="o">&gt;</span>
+  <span class="k">static</span> <span class="n">consteval</span> <span class="k">auto</span> <span class="n">get_completion_signatures</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">completion_signatures</span><span class="p">{};</span>
+  <span class="p">}</span>
 
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Rcvr</span><span class="o">&gt;</span>
   <span class="k">struct</span> <span class="n">state</span> <span class="p">{</span>

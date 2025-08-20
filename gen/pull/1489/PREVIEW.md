@@ -1,10 +1,10 @@
 # PR [\#1489](https://github.com/cpprefjp/site/pull/1489) プレビュー
-- &#x231a; 更新時刻: 2025-08-20 18:38:29 JST
+- &#x231a; 更新時刻: 2025-08-20 18:56:56 JST
 - &#x1f50d; [プレビュー (HTML)](https://cpprefjp.github.io/site/gen/pull/1489)
 - &#x1f4c8; [プレビュー生成記録](https://github.com/cpprefjp/site/actions?query=event%3Apull_request_target+branch%3Ap3557r3)
-- **&#x2AEF;** ソースの変更: [`715c5f9..2121599`](https://github.com/cpprefjp/site/compare/715c5f996ee4be5e568e0b28bd2b5edb4a4008a7..2121599ff8b2fb00a5ef1029f3d4bd257cec757e)
+- **&#x2AEF;** ソースの変更: [`715c5f9..7b6fa9e`](https://github.com/cpprefjp/site/compare/715c5f996ee4be5e568e0b28bd2b5edb4a4008a7..7b6fa9eb17daa9372e76934b7d84a5c2fd01ae94)
 
-## 変更記事一覧 (39件)
+## 変更記事一覧 (40件)
 
 - &#x1f4dd; [`reference/execution/execution`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution.html)
 - &#x1f4dd; [`reference/execution/execution/basic-operation`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/basic-operation.html)
@@ -35,6 +35,7 @@
 - &#x1f4dd; [`reference/execution/execution/sender_in`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/sender_in.html)
 - &#x1f4dd; [`reference/execution/execution/single-sender-value-type`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/single-sender-value-type.html)
 - &#x1f4dd; [`reference/execution/execution/single-sender`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/single-sender.html)
+- &#x1f4dd; [`reference/execution/execution/stopped_as_error`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/stopped_as_error.html)
 - &#x1f4dd; [`reference/execution/execution/stopped_as_optional`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/stopped_as_optional.html)
 - &#x1f4dd; [`reference/execution/execution/then`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/then.html)
 - &#x1f4dd; [`reference/execution/execution/upon_error`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/upon_error.html)
