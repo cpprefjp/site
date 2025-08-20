@@ -41,7 +41,7 @@ static constexpr T min() noexcept; // C++11
 | [`int_fast32_t`](/reference/cstdint/int_fast32_t.md)   | [`INT_FAST32_MIN`](/reference/cstdint/int_fast32_min.md) |
 | [`int_fast64_t`](/reference/cstdint/int_fast64_t.md)   | [`INT_FAST64_MIN`](/reference/cstdint/int_fast64_min.md) |
 | [`int_least8_t`](/reference/cstdint/int_least8_t.md)   | [`INT_LEAST8_MIN`](/reference/cstdint/int_least8_min.md) |
-| [`int_least16_t`](/reference/cstdint/int_least32_t.md) | [`INT_LEAST16_MIN`](/reference/cstdint/int_least16_min.md) |
+| [`int_least16_t`](/reference/cstdint/int_least16_t.md) | [`INT_LEAST16_MIN`](/reference/cstdint/int_least16_min.md) |
 | [`int_least32_t`](/reference/cstdint/int_least32_t.md) | [`INT_LEAST32_MIN`](/reference/cstdint/int_least32_min.md) |
 | [`int_least64_t`](/reference/cstdint/int_least64_t.md) | [`INT_LEAST64_MIN`](/reference/cstdint/int_least64_min.md) |
 | [`intmax_t`](/reference/cstdint/intmax_t.md)           | [`INTMAX_MIN`](/reference/cstdint/intmax_min.md) |
