@@ -127,25 +127,12 @@ transform_sender(
     * set_value_t[link set_value.md]
     * get_env[link get_env.md]
     * query-with-default[link query-with-default.md]
+    * not-a-sender[link not-a-sender.md]
     * write-env[link write-env.md]
     * SCHED-ENV[link scheduler.md]
     * std::move[link /reference/utility/move.md]
 
-説明専用のクラス`not-a-scheduler`を未規定な空のクラス型、`not-a-sender`を下記の通り定義する。
-
-```cpp
-struct not-a-sender {
-  using sender_concept = sender_t;
-
-  auto get_completion_signatures(auto&&) const {
-    return see below;
-  }
-};
-```
-* sender_t[link sender.md]
-
-メンバ関数`get_completion_signatures`は[`completion_signatures`](completion_signatures.md)クラステンプレートの特殊化とは異なる型のオブジェクトを返す。
-処理系（標準ライブラリ実装者）は、この型を用いてユーザにエラー理由を通知することが推奨される。
+説明専用のクラス`not-a-scheduler`を未規定な空のクラス型とする。
 
 
 ## カスタマイゼーションポイント
@@ -328,3 +315,4 @@ val=42
 ## 参照
 - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)

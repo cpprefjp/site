@@ -5,7 +5,7 @@
 * cpp26[meta cpp]
 
 ```cpp
-template<class C, class Promise>
+template<class C, class... Promise>
 concept is-awaitable;
 ```
 
@@ -19,15 +19,17 @@ concept is-awaitable;
 - （有効ならば）Promise型の`await_transform`メンバ関数を適用
 - （有効ならば）`co_await`演算子オーバーロードを適用
 
+`await_transform`メンバ関数を持たず[`coroutine_handle`](/reference/coroutine/coroutine_handle.md)`<none-such>`が`coroutine_handle<void>`と同様に振る舞う未規定の空のクラス`none-such`の左辺値`p`を用いて、説明用の式`GET-AWAITER(c)`は`GET-AWAITER(c, p)`と等価とする。
+
 また、説明用のコンセプト`await-suspend-result`, `is-awaiter`を以下のように定義する。
 
 ```cpp
 template<class T>
 concept await-suspend-result = see below;
 
-template<class A, class Promise>
+template<class A, class... Promise>
 concept is-awaiter =
-  requires (A& a, coroutine_handle<Promise> h) {
+  requires (A& a, coroutine_handle<Promise...> h) {
     a.await_ready() ? 1 : 0;
     { a.await_suspend(h) } -> await-suspend-result;
     a.await_resume();
@@ -44,10 +46,10 @@ concept is-awaiter =
 `is-awaitable`コンセプトは、以下のように定義される。
 
 ```cpp
-template<class C, class Promise>
+template<class C, class... Promise>
 concept is-awaitable =
-  requires (C (*fc)() noexcept, Promise& p) {
-    { GET-AWAITER(fc(), p) } -> is-awaiter<Promise>;
+  requires (C (*fc)() noexcept, Promise&... p) {
+    { GET-AWAITER(fc(), p...) } -> is-awaiter<Promise...>;
   };
 ```
 * GET-AWAITER[italic]
@@ -64,3 +66,4 @@ concept is-awaitable =
 
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)

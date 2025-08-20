@@ -82,9 +82,8 @@ namespace std::execution {
 | [`execution::default_domain`](execution/default_domain.md) | デフォルト実行ドメイン (class) | C++26 |
 | [`execution::sender`](execution/sender.md) | Sender型 (concept) | C++26 |
 | [`execution::sender_in`](execution/sender_in.md) | 指定環境で有効なSender (concept) | C++26 |
+| [`execution::dependent_sender`](execution/dependent_sender.md) | 依存Sender (concept) | C++26 |
 | [`execution::sender_to`](execution/sender_to.md) | 指定Receiverに接続可能なSender (concept) | C++26 |
-| [`execution::get_completion_signatures`](execution/get_completion_signatures.md) | Senderの完了シグネチャ集合を取得 (customization point object) | C++26 |
-| [`execution::completion_signatures_of_t`](execution/completion_signatures_of_t.md) | Senderの完了シグネチャ集合を取得 (alias template) | C++26 |
 | [`execution::value_types_of_t`](execution/value_types_of_t.md) | Senderの値完了シグネチャ集合から指定操作で型を生成 (alias template) | C++26 |
 | [`execution::error_types_of_t`](execution/error_types_of_t.md) | Senderのエラー完了シグネチャ集合から指定操作で型を生成 (alias template) | C++26 |
 | [`execution::sends_stopped`](execution/sends_stopped.md) | Senderが停止完了を送信しうるか否か (variable template) | C++26 |
@@ -142,6 +141,9 @@ Senderコンシューマは名前空間 `std::this_thread` で定義される。
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`execution::completion_signatures`](execution/completion_signatures.md) | 完了シグネチャ集合を表現する型 (class template) | C++26 |
+| [`execution::dependent_sender_error`](execution/dependent_sender_error.md) | 依存Senderを表す例外クラス(class) | C++26 |
+| [`execution::get_completion_signatures`](execution/get_completion_signatures.md) | Senderの完了シグネチャ集合を取得 (function template) | C++26 |
+| [`execution::completion_signatures_of_t`](execution/completion_signatures_of_t.md) | Senderの完了シグネチャ集合を取得 (alias template) | C++26 |
 | [`execution::run_loop`](execution/run_loop.md) | 単一スレッド上でのループ実行 (class) | C++26 |
 
 ### コルーチンユーティリティ
