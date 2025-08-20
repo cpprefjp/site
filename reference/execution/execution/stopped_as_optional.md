@@ -99,10 +99,16 @@ namespace ex = std::execution;
 //   停止完了 set_stopped()
 struct MySender {
   using sender_concept = ex::sender_t;
+
   using completion_signatures = ex::completion_signatures<
     ex::set_value_t(int),
     ex::set_stopped_t()
   >;
+  template <typename Self>
+  static consteval auto get_completion_signatures()
+  {
+    return completion_signatures{};
+  }
 
   template <typename Rcvr>
   struct state {

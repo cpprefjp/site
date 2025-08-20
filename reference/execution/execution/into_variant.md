@@ -117,6 +117,11 @@ struct FizzBuzzSender {
     ex::set_value_t(int),
     ex::set_value_t(std::string)
   >;
+  template <typename Self>
+  static consteval auto get_completion_signatures()
+  {
+    return completion_signatures{};
+  }
 
   // Operation State型
   template <typename Rcvr>

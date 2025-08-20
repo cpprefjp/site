@@ -73,11 +73,17 @@ namespace ex = std::execution;
 //   エラー完了 set_error(int)
 struct MySender {
   using sender_concept = ex::sender_t;
+
   using completion_signatures = ex::completion_signatures<
     ex::set_value_t(int),
     ex::set_value_t(std::string),
     ex::set_error_t(int)
   >;
+  template <typename Self>
+  static consteval auto get_completion_signatures()
+  {
+    return completion_signatures{};
+  }
 
   template <typename Rcvr>
   struct state {
