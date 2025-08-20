@@ -176,8 +176,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-20T04:24:43">
-        2025年08月20日 04時24分43秒
+      <span itemprop="datePublished" content="2025-08-20T06:02:22">
+        2025年08月20日 06時02分22秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -516,6 +516,7 @@
 <h3>コンテナ</h3>
 <ul>
 <li><code><a href="../reference/mdspan/mdspan.html">std::mdspan</a></code>から部分ビューを取り出す<code><a href="../reference/mdspan/submdspan.html">std::submdspan()</a></code>を追加</li>
+<li><code><a href="../reference/mdspan/mdspan.html">std::mdspan</a></code>に、インデックスを指定して要素を取り出す<code><span href="https://cpprefjp.github.io/reference/mdspan/mdspan/at.md.nolink">at()</span></code>メンバ関数を追加</li>
 <li><code><a href="../reference/mdspan/mdspan.html">std::mdspan</a></code>に対する<code><a href="../reference/mdspan/extents.html">std::dextents</a></code>指定の冗長さを解決する<code><a href="../reference/mdspan/extents.html">std::dims</a></code>を追加</li>
 <li><code><a href="../reference/mdspan/mdspan.html">std::mdspan</a></code>のレイアウトとして、<code><a href="../reference/mdspan/layout_left_padded.html">std::layout_left_padded</a></code>と<code><a href="../reference/mdspan/layout_right_padded.html">std::layout_right_padded</a></code>を追加</li>
 <li><code><a href="../reference/mdspan.html">&lt;mdspan&gt;</a></code>に、要素アクセスにアライメント保証を与える<code><a href="../reference/mdspan/aligned_accessor.html">std::aligned_accessor</a></code>を追加</li>
@@ -594,6 +595,7 @@
 </ul>
 <h3>アルゴリズム</h3>
 <ul>
+<li><code><a href="../reference/algorithm.html">&lt;algorithm&gt;</a></code>と<code><a href="../reference/memory.html">&lt;memory&gt;</a></code>のアルゴリズムを並列実行に対応</li>
 <li><code><a href="../reference/algorithm.html">&lt;algorithm&gt;</a></code>の以下のアルゴリズムを<code>constexpr</code>に対応<ul>
 <li><code><a href="../reference/algorithm/stable_sort.html">std::stable_sort()</a></code> / <code><a href="../reference/algorithm/ranges_stable_sort.html">std::ranges::stable_sort()</a></code></li>
 <li><code><a href="../reference/algorithm/stable_partition.html">std::stable_partition()</a></code> / <code><a href="../reference/algorithm/ranges_stable_partition.html">std::ranges::stable_partition()</a></code></li>
@@ -666,6 +668,7 @@
 <li>コンパイル時の書式文字列だけでなく、実行時の書式文字列を渡せるよう仕様修正</li>
 </ul>
 </li>
+<li><code><a href="../reference/string/basic_string.html">std::basic_string</a></code>クラスと<code><a href="../reference/string_view/basic_string_view.html">std::basic_string_view</a></code>クラスに、部分文字列を<code><a href="../reference/string_view/basic_string_view.html">std::basic_string_view</a></code>として取得するメンバ関数<code>subview()</code>を追加</li>
 <li><code><a href="../reference/string/basic_string.html">std::basic_string</a></code>と<code><a href="../reference/string_view/basic_string_view.html">std::basic_string_view</a></code>を<code><a href="../reference/string/basic_string.html">std::basic_string</a></code>として連結させる<code>operator+</code>を追加</li>
 </ul>
 <h3>ファイル</h3>
@@ -699,6 +702,7 @@
 <li>関連して、<code><a href="../reference/memory/shared_ptr.html">std::shared_ptr</a></code>クラスと<code><a href="../reference/memory/weak_ptr.html">std::weak_ptr</a></code>クラスのメンバ関数として、<code>owner_hash()</code>と<code>owner_equal()</code>を追加</li>
 </ul>
 </li>
+<li><code><a href="../reference/memory/shared_ptr.html">std::shared_ptr</a></code>クラスとその関連機能を<code>constexpr</code>対応</li>
 </ul>
 <h3>日付・時間</h3>
 <ul>
@@ -810,6 +814,7 @@
 <li><code><span href="https://cpprefjp.github.io/reference/optional/optional/end.md.nolink">end()</span></code>メンバ関数</li>
 </ul>
 </li>
+<li><code><a href="../reference/optional/optional.html">std::optional</a></code>に、参照を保持するための<code>T&amp;</code>の部分特殊化を追加</li>
 <li><code><a href="../reference/tuple/ignore.html">std::ignore</a></code>をファーストクラス・オブジェクトとして型を詳細に定義</li>
 <li><code><a href="../reference/bitset/bitset.html">std::bitset</a></code>に、<code><a href="../reference/string_view/basic_string_view.html">std::basic_string_view</a></code>を受け取るコンストラクタを追加</li>
 <li><code><a href="../reference/ratio.html">&lt;ratio&gt;</a></code>に、新たなSI接頭辞として、以下を追加<ul>
@@ -873,7 +878,8 @@
 </ul>
 </li>
 <li><code><a href="../reference/memory.html">&lt;memory&gt;</a></code>に、ポインタのアライメントを判定する<code><a href="../reference/memory/is_sufficiently_aligned.html">std::is_sufficiently_aligned()</a></code>関数を追加。</li>
-<li><code><a href="../reference/utility.html">&lt;utility&gt;</a></code>に、タイムトラベル最適化を抑止するための観測可能ポイントとして<code><span href="https://cpprefjp.github.io/reference/utility/observable.md.nolink">std::observable()</span></code>を追加</li>
+<li><code><a href="../reference/utility.html">&lt;utility&gt;</a></code>に、タイムトラベル最適化を抑止するための観測可能ポイントとして<code><span href="https://cpprefjp.github.io/reference/utility/observable_checkpoint.md.nolink">std::observable_checkpoint()</span></code>を追加</li>
+<li><code><a href="../reference/exception/exception_ptr.html">std::exception_ptr</a></code>を指定した<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>型にキャストする<code><span href="https://cpprefjp.github.io/reference/exception/exception_ptr_cast.md.nolink">std::exception_ptr_cast()</span></code>関数を追加</li>
 </ul>
 <h3>デバッグ</h3>
 <ul>
@@ -928,6 +934,10 @@
 </ul>
 </li>
 <li>C++23から非推奨となっていた、<code><a href="../reference/memory/allocator.html">std::allocator</a></code>のメンバ型<code>is_always_equal</code>を削除</li>
+</ul>
+<h2>取り決め</h2>
+<ul>
+<li>C言語の参照をC17からC23に更新</li>
 </ul></div>
 
       </div>
