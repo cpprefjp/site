@@ -90,7 +90,7 @@ int main()
 
 
 ## 関連項目
-- [`execution::receiver`](receiver.md)
+- [`execution::get_completion_signatures`](get_completion_signatures.md)
 - [`execution::set_value_t`](set_value.md)
 - [`execution::set_error_t`](set_error.md)
 - [`execution::set_stopped_t`](set_stopped.md)

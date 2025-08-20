@@ -29,8 +29,7 @@ namespace std::execution {
 下記いずれかが`true`となるとき、呼び出し式`when_all_with_variant(sndrs...)`は不適格となる。
 
 - `sizeof...(sndrs) == 0`、または
-- `(`[`sender`](sender.md)`<Sndrs> && ...) == false`、または
-- 型`CD`が不適格
+- `(`[`sender`](sender.md)`<Sndrs> && ...) == false`
 
 そうでなければ、呼び出し式`when_all_with_variant(sndrs...)`は下記と等価。
 

@@ -26,7 +26,7 @@ namespace std::execution {
 
   template<class Sndr, class SetValue, class... Env>
   concept sender-in-of-impl =  // exposition only
-    sender_in<Sndr, Env> &&
+    sender_in<Sndr, Env...> &&
     MATCHING-SIG(SetValue,
                  gather-signatures<set_value_t,
                                   completion_signatures_of_t<Sndr, Env...>,

@@ -68,6 +68,8 @@ namespace std::execution {
 * TRY-SET-VALUE[link set_value.md]
 * invoke[link /reference/functional/invoke.md]
 * std::move[link /reference/utility/move.md]
+* then-cpo[italic]
+* set-cpo[italic]
 
 メンバ関数`impls-for<decayed-typeof<then-cpo>>::check-types`の効果は下記の通り。
 
@@ -84,6 +86,8 @@ cs.for-each(overload-set{fn, [](auto){}});
 * FWD-ENV-T[link ../forwarding_query.md]
 * set_value_t[link set_value.md]
 * data-type[link data-type.md]
+* for-each[link completion_signatures.md]
+* overload-set[link overload-set.md]
 
 `unspecified-exception`は[`exception`](/reference/exception/exception.md)から派生した型となる。
 

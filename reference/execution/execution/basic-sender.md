@@ -97,6 +97,7 @@ using indices-for = remove_reference_t<Sndr>::indices-for;  // exposition only
 
 ## 関連項目
 - [`make-sender`](make-sender.md)
+- [`impls-for`](impls-for.md)
 - [`basic-operation`](basic-operation.md)
 - [`execution::sender`](sender.md)
 

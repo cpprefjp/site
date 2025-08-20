@@ -15,7 +15,7 @@ namespace std::execution {
 * bool_constant[link /reference/type_traits/bool_constant.md]
 
 ## 概要
-`dependent_sender`は、[Sender型](sender.md)`Sndr`が依存Senderであることを表すコンセプトである。
+`dependent_sender`は、[Sender型](sender.md)`Sndr`が[非依存Sender](get_completion_signatures.md)か否かを判定するコンセプトである。
 
 説明用の変数テンプレート`is-dependent-sender-helper`を下記の通り定義する。
 

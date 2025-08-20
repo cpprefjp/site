@@ -141,7 +141,7 @@ Senderコンシューマは名前空間 `std::this_thread` で定義される。
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`execution::completion_signatures`](execution/completion_signatures.md) | 完了シグネチャ集合を表現する型 (class template) | C++26 |
-| [`execution::dependent_sender_error`](execution/dependent_sender_error.md) | 依存Sender例外(class) | C++26 |
+| [`execution::dependent_sender_error`](execution/dependent_sender_error.md) | 依存Senderを表す例外クラス(class) | C++26 |
 | [`execution::get_completion_signatures`](execution/get_completion_signatures.md) | Senderの完了シグネチャ集合を取得 (function template) | C++26 |
 | [`execution::completion_signatures_of_t`](execution/completion_signatures_of_t.md) | Senderの完了シグネチャ集合を取得 (alias template) | C++26 |
 | [`execution::run_loop`](execution/run_loop.md) | 単一スレッド上でのループ実行 (class) | C++26 |

@@ -15,6 +15,17 @@ namespace std::execution {
 ## 概要
 `get_completion_signatures`は、[Sender](sender.md)の[完了シグネチャ集合](completion_signatures.md)を取得する関数テンプレートである。
 
+### 非依存Sender
+[環境](../queryable.md)に依存することなく完了シグネチャ集合が決定するSenderは、非依存Sender(non-dependent sender)と呼ばれる。
+
+型`Sndr`に対して[`sender`](sender.md)`<Sndr> == true`かつ[`dependent_sender`](dependent_sender.md)`<Sndr> == false`の場合、`Sndr`は非依存Senderである。
+
+
+## テンプレートパラメータ制約
+`sizeof...(Env) <= 1`
+
+
+## 効果
 説明用の式`except`を、[`move_constructible`](/reference/concepts/move_constructible.md)`<Except> &&` [`derived_from`](/reference/concepts/derived_from.md)`<Except,` [`exception`](/reference/exception/exception.md)`>`が`true`となる未規定なクラス`Except`の右辺値とする。`e`がコア定数式かつその型が[`valid-completion-signatures`](completion_signatures.md)を満たすならば、式`CHECKED-COMPLSIGS(e)`を`e`とする。そうでなければ下記の式となる。
 
 ```cpp
@@ -35,12 +46,6 @@ transform_sender(
 * transform_sender[link transform_sender.md]
 * get-domain-late[link get-domain-late.md]
 
-
-## テンプレートパラメータ制約
-`sizeof...(Env) <= 1`
-
-
-## 効果
 下記の通り定義される式`e`を用いて、`return e;`と等価。
 
 - 式`get-complsigs<NewSndr, Env...>()`が適格であるならば、`CHECKED-COMPLSIGS(get-complsigs<NewSndr, Env...>())`
@@ -92,7 +97,7 @@ int main()
   ex::sender auto sndr = ex::just(42);
 
   // 値完了シグネチャ set_value_t(int)
-  auto sigs = ex::get_completion_signatures(sndr);
+  auto sigs = ex::get_completion_signatures<decltype(sndr)>();
   static_assert(std::same_as<decltype(sigs),
     ex::completion_signatures<ex::set_value_t(int)>>);
 }

@@ -13,6 +13,7 @@ constexpr void decay-copyable-result-datums(auto cs) {
 }
 ```
 * for-each[link completion_signatures.md]
+* is_constructible_v[link /reference/type_traits/is_constructible.md]
 
 ## 概要
 `decay-copyable-result-datums`は、Senderアルゴリズム動作仕様定義で用いられる説明専用の関数テンプレートである。
@@ -33,6 +34,8 @@ constexpr void decay-copyable-result-datums(auto cs) {
 
 ## 関連項目
 - [`execution::schedule_from`](schedule_from.md)
+- [`execution::when_all`](when_all.md)
+- [`execution::into_variant`](into_variant.md)
 
 
 ## 参照

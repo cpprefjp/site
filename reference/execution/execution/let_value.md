@@ -147,12 +147,12 @@ cs.for-each(overload-set(fn, [](auto){}));
 * set-cpo[italic]
 
 `unspecified-exception`は[`exception`](/reference/exception/exception.md)から派生した型となる。
-変数`is-valid-let-sender`は下記を全て満たす時に限って`true`となる。
+説明用の変数`is-valid-let-sender`は下記を全て満たす時に限って`true`となる。
 
 - `(`[`constructible_from`](/reference/concepts/constructible_from.md)`<decay_t<Ts>, Ts> &&...)`
-- `invocable<LetFn, decay_t<Ts>&...>`
-- [`sender`](sender.md)`<invoke_result_t<LetFn, decay_t<Ts>&...>>`
-- パック`env-t`を`decltype(let-cpo.transform_env(declval<Sndr>(), declval<Env>()))`としたとき、`sizeof...(Env) == 0 ||` [`sender_in`](sender_in.md)`<invoke_result_t<LetFn, decay_t<Ts>&...>, env-t...>`
+- [`invocable`](/reference/concepts/invocable.md)`<LetFn, decay_t<Ts>&...>`
+- [`sender`](sender.md)`<`[`invoke_result_t`](/reference/type_traits/invoke_result.md)`<LetFn, decay_t<Ts>&...>>`
+- パック`env-t`を`decltype(let-cpo.transform_env(declval<Sndr>(), declval<Env>()))`としたとき、`sizeof...(Env) == 0 ||` [`sender_in`](sender_in.md)`<`[`invoke_result_t`](/reference/type_traits/invoke_result.md)`<LetFn, decay_t<Ts>&...>, env-t...>`
 
 説明用の式`sndr`と`env`に対して、型`Sndr`を`decltype((sndr))`とする。[`sender-for`](sender-for.md)`<Sndr,` [`decayed-typeof`](/reference/functional/decayed-typeof.md)`<let-cpo>> == false`のとき、式`let-cpo.transform_env(sndr, env)`は不適格となる。
 

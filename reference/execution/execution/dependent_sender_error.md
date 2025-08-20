@@ -12,7 +12,7 @@ namespace std::execution {
 * exception[link /reference/exception/exception.md]
 
 ## 概要
-`dependent_sender_error`は、[依存Sender](dependent_sender.md)に対する[完了シグネチャ集合取得](get_completion_signatures.md)時に送出される例外クラスである。
+`dependent_sender_error`は、[依存Sender](dependent_sender.md)に対して[環境](../queryable.md)を指定せずに[完了シグネチャ集合取得](get_completion_signatures.md)を行った際に送出される例外クラスである。
 
 
 ## バージョン
@@ -29,6 +29,7 @@ namespace std::execution {
 ## 関連項目
 - [`execution::dependent_sender`](dependent_sender.md)
 - [`execution::get_completion_signatures`](get_completion_signatures.md)
+
 
 ## 参照
 - [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
