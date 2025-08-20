@@ -1,10 +1,10 @@
 # PR [\#1489](https://github.com/cpprefjp/site/pull/1489) プレビュー
-- &#x231a; 更新時刻: 2025-08-19 21:03:51 JST
+- &#x231a; 更新時刻: 2025-08-20 18:38:29 JST
 - &#x1f50d; [プレビュー (HTML)](https://cpprefjp.github.io/site/gen/pull/1489)
 - &#x1f4c8; [プレビュー生成記録](https://github.com/cpprefjp/site/actions?query=event%3Apull_request_target+branch%3Ap3557r3)
-- **&#x2AEF;** ソースの変更: [`715c5f9..157a932`](https://github.com/cpprefjp/site/compare/715c5f996ee4be5e568e0b28bd2b5edb4a4008a7..157a932f88b6387f24817b254ecfdd41b9273622)
+- **&#x2AEF;** ソースの変更: [`715c5f9..2121599`](https://github.com/cpprefjp/site/compare/715c5f996ee4be5e568e0b28bd2b5edb4a4008a7..2121599ff8b2fb00a5ef1029f3d4bd257cec757e)
 
-## 変更記事一覧 (38件)
+## 変更記事一覧 (39件)
 
 - &#x1f4dd; [`reference/execution/execution`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution.html)
 - &#x1f4dd; [`reference/execution/execution/basic-operation`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/basic-operation.html)
@@ -27,6 +27,7 @@
 - &#x1f4dd; [`reference/execution/execution/on`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/on.html)
 - &#x1f4dd; [`reference/execution/execution/overload-set`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/overload-set.html) &#x2728;
 - &#x1f4dd; [`reference/execution/execution/read_env`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/read_env.html)
+- &#x1f4dd; [`reference/execution/execution/run_loop/get_scheduler`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/run_loop/get_scheduler.html)
 - &#x1f4dd; [`reference/execution/execution/run_loop/run-loop-sender`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/run_loop/run-loop-sender.html)
 - &#x1f4dd; [`reference/execution/execution/schedule_from`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/schedule_from.html)
 - &#x1f4dd; [`reference/execution/execution/scheduler`](https://cpprefjp.github.io/site/gen/pull/1489/reference/execution/execution/scheduler.html)

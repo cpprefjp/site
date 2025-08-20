@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-16T12:31:08">
-        2025年08月16日 12時31分08秒
+      <span itemprop="datePublished" content="2025-08-20T09:30:57">
+        2025年08月20日 09時30分57秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -233,6 +233,12 @@
 </p>
 <h2>概要</h2>
 <p><code>get_completion_signatures</code>は、<a href="sender.html">Sender</a>の<a href="completion_signatures.html">完了シグネチャ集合</a>を取得する関数テンプレートである。</p>
+<h3>非依存Sender</h3>
+<p><a href="../queryable.html">環境</a>に依存することなく完了シグネチャ集合が決定するSenderは、非依存Sender(non-dependent sender)と呼ばれる。</p>
+<p>型<code>Sndr</code>に対して<code><a href="sender.html">sender</a>&lt;Sndr&gt; == true</code>かつ<code><a href="dependent_sender.html">dependent_sender</a>&lt;Sndr&gt; == false</code>の場合、<code>Sndr</code>は非依存Senderである。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
+<p><code>sizeof...(Env) &lt;= 1</code></p>
+<h2>効果</h2>
 <p>説明用の式<code>except</code>を、<code><a href="../../concepts/move_constructible.html">move_constructible</a>&lt;Except&gt; &amp;&amp; <a href="../../concepts/derived_from.html">derived_from</a>&lt;Except, <a href="../../exception/exception.html">exception</a>&gt;</code>が<code>true</code>となる<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>なクラス<code>Except</code>の右辺値とする。<code>e</code>がコア定数式かつその型が<code><a href="completion_signatures.html">valid-completion-signatures</a></code>を満たすならば、式<code>CHECKED-COMPLSIGS(e)</code>を<code>e</code>とする。そうでなければ下記の式となる。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="k">throw</span> <span class="n">except</span><span class="p">,</span> <span class="n"><a href="completion_signatures.html">completion_signatures</a></span><span class="p">())</span>
 </code></pre></div>
@@ -245,9 +251,6 @@
   <span class="n"><a href="../../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">Env</span><span class="o">&gt;</span><span class="p">()...)</span>
 </code></pre></div>
 </p>
-<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
-<p><code>sizeof...(Env) &lt;= 1</code></p>
-<h2>効果</h2>
 <p>下記の通り定義される式<code>e</code>を用いて、<code>return e;</code>と等価。</p>
 <ul>
 <li>式<code>get-complsigs&lt;NewSndr, Env...&gt;()</code>が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>であるならば、<code>CHECKED-COMPLSIGS(get-complsigs&lt;NewSndr, Env...&gt;())</code></li>
@@ -288,7 +291,7 @@
   <span class="n"><a href="sender.html">ex::sender</a></span> <span class="k">auto</span> <span class="n">sndr</span> <span class="o">=</span> <span class="n"><a href="just.html">ex::just</a></span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
 
   <span class="c1">// 値完了シグネチャ set_value_t(int)</span>
-  <span class="k">auto</span> <span class="n">sigs</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">ex::get_completion_signatures</span></span><span class="p">(</span><span class="n">sndr</span><span class="p">);</span>
+  <span class="k">auto</span> <span class="n">sigs</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">ex::get_completion_signatures</span></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">sndr</span><span class="p">)</span><span class="o">&gt;</span><span class="p">();</span>
   <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">sigs</span><span class="p">),</span>
     <span class="n"><a href="completion_signatures.html">ex::completion_signatures</a></span><span class="o">&lt;</span><span class="n"><a href="set_value.html">ex::set_value_t</a></span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;&gt;</span><span class="p">);</span>
 <span class="p">}</span>

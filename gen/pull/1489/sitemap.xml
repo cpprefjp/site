@@ -17468,7 +17468,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/execution/execution.html</loc>
-      <lastmod>2025-08-16T21:31:08+09:00</lastmod>
+      <lastmod>2025-08-20T18:30:57+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -17713,7 +17713,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/execution/execution/when_all_with_variant.html</loc>
-      <lastmod>2025-08-16T21:31:08+09:00</lastmod>
+      <lastmod>2025-08-20T18:30:57+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -17762,7 +17762,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/execution/execution/then.html</loc>
-      <lastmod>2025-08-19T20:31:32+09:00</lastmod>
+      <lastmod>2025-08-20T18:30:57+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -17776,28 +17776,28 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/execution/execution/decay-copyable-result-datums.html</loc>
-      <lastmod>2025-08-16T21:31:08+09:00</lastmod>
+      <lastmod>2025-08-20T18:30:57+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/execution/execution/when_all.html</loc>
-      <lastmod>2025-08-16T21:31:08+09:00</lastmod>
+      <lastmod>2025-08-20T18:30:57+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/execution/execution/sender-in-of.html</loc>
-      <lastmod>2025-08-16T21:31:08+09:00</lastmod>
+      <lastmod>2025-08-20T18:30:57+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/execution/execution/let_value.html</loc>
-      <lastmod>2025-08-19T20:31:32+09:00</lastmod>
+      <lastmod>2025-08-20T18:30:57+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -17832,7 +17832,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/execution/execution/basic-sender.html</loc>
-      <lastmod>2025-08-16T21:31:08+09:00</lastmod>
+      <lastmod>2025-08-20T18:30:57+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -17930,14 +17930,14 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/execution/execution/data-type.html</loc>
-      <lastmod>2025-08-16T21:31:08+09:00</lastmod>
+      <lastmod>2025-08-20T18:30:57+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/execution/execution/dependent_sender_error.html</loc>
-      <lastmod>2025-08-16T21:31:08+09:00</lastmod>
+      <lastmod>2025-08-20T18:30:57+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -17986,7 +17986,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/execution/execution/get_completion_signatures.html</loc>
-      <lastmod>2025-08-16T21:31:08+09:00</lastmod>
+      <lastmod>2025-08-20T18:30:57+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -18021,7 +18021,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/execution/execution/dependent_sender.html</loc>
-      <lastmod>2025-08-16T21:31:08+09:00</lastmod>
+      <lastmod>2025-08-20T18:30:57+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -18035,7 +18035,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/execution/execution/completion_signatures.html</loc>
-      <lastmod>2025-08-16T21:31:08+09:00</lastmod>
+      <lastmod>2025-08-20T18:30:57+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -18273,7 +18273,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/execution/execution/run_loop/get_scheduler.html</loc>
-      <lastmod>2025-07-22T23:37:52+09:00</lastmod>
+      <lastmod>2025-08-20T18:30:57+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.5</priority>
     </url>

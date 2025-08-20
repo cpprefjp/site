@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-16T12:31:08">
-        2025年08月16日 12時31分08秒
+      <span itemprop="datePublished" content="2025-08-20T09:30:57">
+        2025年08月20日 09時30分57秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -227,7 +227,7 @@
   <div class="identifier-type">function template</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">decay-copyable-result-datums</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="kt">void</span> <span class="n">decay</span><span class="o">-</span><span class="n">copyable</span><span class="o">-</span><span class="n">result</span><span class="o">-</span><span class="n">datums</span><span class="p">(</span><span class="k">auto</span> <span class="n">cs</span><span class="p">)</span> <span class="p">{</span>
   <span class="n">cs</span><span class="p">.</span><span class="n"><a href="completion_signatures.html">for-each</a></span><span class="p">([]</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Tag</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Ts</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Tag</span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="n">Ts</span><span class="p">...))</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">is_constructible_v</span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/decay.html">decay_t</a></span><span class="o">&lt;</span><span class="n">Ts</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">Ts</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span><span class="p">...))</span>
+    <span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n"><a href="../../type_traits/is_constructible.html">is_constructible_v</a></span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/decay.html">decay_t</a></span><span class="o">&lt;</span><span class="n">Ts</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">Ts</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span><span class="p">...))</span>
       <span class="k">throw</span> <span class="n">unspecified</span><span class="o">-</span><span class="n">exception</span><span class="p">();</span>
   <span class="p">});</span>
 <span class="p">}</span>
@@ -251,6 +251,8 @@
 <h2>関連項目</h2>
 <ul>
 <li><code><a href="schedule_from.html">execution::schedule_from</a></code></li>
+<li><code><a href="when_all.html">execution::when_all</a></code></li>
+<li><code><a href="into_variant.html">execution::into_variant</a></code></li>
 </ul>
 <h2>参照</h2>
 <ul>

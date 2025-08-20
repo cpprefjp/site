@@ -2,9 +2,463 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-08-19T12:03:49.843389</updated>
-  <id>c84a09c9-f3ad-4e57-9969-cfdb2ba22c67</id>
+  <updated>2025-08-20T09:38:28.371154</updated>
+  <id>76272200-eba0-4858-851d-9607759c112c</id>
 
+  
+    <entry>
+      <title>execution -- execution: C++26 P3557R3対応(cont.)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution.html"/>
+      <id>2121599ff8b2fb00a5ef1029f3d4bd257cec757e:reference/execution/execution.md</id>
+      <updated>2025-08-20T18:30:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution.md b/reference/execution/execution.md
+index 48a57ff2e..fed87792a 100644
+--- a/reference/execution/execution.md
++++ b/reference/execution/execution.md
+@@ -141,7 +141,7 @@ Senderコンシューマは名前空間 `std::this_thread` で定義される。
+ | 名前 | 説明 | 対応バージョン |
+ |------|------|----------------|
+ | [`execution::completion_signatures`](execution/completion_signatures.md) | 完了シグネチャ集合を表現する型 (class template) | C++26 |
+-| [`execution::dependent_sender_error`](execution/dependent_sender_error.md) | 依存Sender例外(class) | C++26 |
++| [`execution::dependent_sender_error`](execution/dependent_sender_error.md) | 依存Senderを表す例外クラス(class) | C++26 |
+ | [`execution::get_completion_signatures`](execution/get_completion_signatures.md) | Senderの完了シグネチャ集合を取得 (function template) | C++26 |
+ | [`execution::completion_signatures_of_t`](execution/completion_signatures_of_t.md) | Senderの完了シグネチャ集合を取得 (alias template) | C++26 |
+ | [`execution::run_loop`](execution/run_loop.md) | 単一スレッド上でのループ実行 (class) | C++26 |
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>basic-sender -- execution: C++26 P3557R3対応(cont.)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/basic-sender.html"/>
+      <id>2121599ff8b2fb00a5ef1029f3d4bd257cec757e:reference/execution/execution/basic-sender.md</id>
+      <updated>2025-08-20T18:30:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/basic-sender.md b/reference/execution/execution/basic-sender.md
+index 4ddea44f6..fdc4fba0c 100644
+--- a/reference/execution/execution/basic-sender.md
++++ b/reference/execution/execution/basic-sender.md
+@@ -97,6 +97,7 @@ using indices-for = remove_reference_t&amp;lt;Sndr&amp;gt;::indices-for;  // exposition only
+ 
+ ## 関連項目
+ - [`make-sender`](make-sender.md)
++- [`impls-for`](impls-for.md)
+ - [`basic-operation`](basic-operation.md)
+ - [`execution::sender`](sender.md)
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>completion_signatures -- execution: C++26 P3557R3対応(cont.)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/completion_signatures.html"/>
+      <id>2121599ff8b2fb00a5ef1029f3d4bd257cec757e:reference/execution/execution/completion_signatures.md</id>
+      <updated>2025-08-20T18:30:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/completion_signatures.md b/reference/execution/execution/completion_signatures.md
+index 36c97e73e..3340499dd 100644
+--- a/reference/execution/execution/completion_signatures.md
++++ b/reference/execution/execution/completion_signatures.md
+@@ -90,7 +90,7 @@ int main()
+ 
+ 
+ ## 関連項目
+-- [`execution::receiver`](receiver.md)
++- [`execution::get_completion_signatures`](get_completion_signatures.md)
+ - [`execution::set_value_t`](set_value.md)
+ - [`execution::set_error_t`](set_error.md)
+ - [`execution::set_stopped_t`](set_stopped.md)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>data-type -- execution: C++26 P3557R3対応(cont.)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/data-type.html"/>
+      <id>2121599ff8b2fb00a5ef1029f3d4bd257cec757e:reference/execution/execution/data-type.md</id>
+      <updated>2025-08-20T18:30:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/data-type.md b/reference/execution/execution/data-type.md
+index 2c1e44abe..1c88b695a 100644
+--- a/reference/execution/execution/data-type.md
++++ b/reference/execution/execution/data-type.md
+@@ -23,6 +23,9 @@ namespace std::execution {
+ ## 関連項目
+ - [`execution::read_env`](read_env.md)
+ - [`execution::schedule_from`](schedule_from.md)
++- [`execution::then`](then.md)
++- [`execution::let_value`](let_value.md)
++- [`execution::bulk`](bulk.md)
+ - [`write-env`](write-env.md)
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>decay-copyable-result-datums -- execution: C++26 P3557R3対応(cont.)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/decay-copyable-result-datums.html"/>
+      <id>2121599ff8b2fb00a5ef1029f3d4bd257cec757e:reference/execution/execution/decay-copyable-result-datums.md</id>
+      <updated>2025-08-20T18:30:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/decay-copyable-result-datums.md b/reference/execution/execution/decay-copyable-result-datums.md
+index ab8807748..56d244f5f 100644
+--- a/reference/execution/execution/decay-copyable-result-datums.md
++++ b/reference/execution/execution/decay-copyable-result-datums.md
+@@ -13,6 +13,7 @@ constexpr void decay-copyable-result-datums(auto cs) {
+ }
+ ```
+ * for-each[link completion_signatures.md]
++* is_constructible_v[link /reference/type_traits/is_constructible.md]
+ 
+ ## 概要
+ `decay-copyable-result-datums`は、Senderアルゴリズム動作仕様定義で用いられる説明専用の関数テンプレートである。
+@@ -33,6 +34,8 @@ constexpr void decay-copyable-result-datums(auto cs) {
+ 
+ ## 関連項目
+ - [`execution::schedule_from`](schedule_from.md)
++- [`execution::when_all`](when_all.md)
++- [`execution::into_variant`](into_variant.md)
+ 
+ 
+ ## 参照
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>dependent_sender -- execution: C++26 P3557R3対応(cont.)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/dependent_sender.html"/>
+      <id>2121599ff8b2fb00a5ef1029f3d4bd257cec757e:reference/execution/execution/dependent_sender.md</id>
+      <updated>2025-08-20T18:30:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/dependent_sender.md b/reference/execution/execution/dependent_sender.md
+index 0324296f0..d1c0d0433 100644
+--- a/reference/execution/execution/dependent_sender.md
++++ b/reference/execution/execution/dependent_sender.md
+@@ -15,7 +15,7 @@ namespace std::execution {
+ * bool_constant[link /reference/type_traits/bool_constant.md]
+ 
+ ## 概要
+-`dependent_sender`は、[Sender型](sender.md)`Sndr`が依存Senderであることを表すコンセプトである。
++`dependent_sender`は、[Sender型](sender.md)`Sndr`が[非依存Sender](get_completion_signatures.md)か否かを判定するコンセプトである。
+ 
+ 説明用の変数テンプレート`is-dependent-sender-helper`を下記の通り定義する。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>dependent_sender_error -- execution: C++26 P3557R3対応(cont.)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/dependent_sender_error.html"/>
+      <id>2121599ff8b2fb00a5ef1029f3d4bd257cec757e:reference/execution/execution/dependent_sender_error.md</id>
+      <updated>2025-08-20T18:30:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/dependent_sender_error.md b/reference/execution/execution/dependent_sender_error.md
+index ca1b4f329..619ec920d 100644
+--- a/reference/execution/execution/dependent_sender_error.md
++++ b/reference/execution/execution/dependent_sender_error.md
+@@ -12,7 +12,7 @@ namespace std::execution {
+ * exception[link /reference/exception/exception.md]
+ 
+ ## 概要
+-`dependent_sender_error`は、[依存Sender](dependent_sender.md)に対する[完了シグネチャ集合取得](get_completion_signatures.md)時に送出される例外クラスである。
++`dependent_sender_error`は、[依存Sender](dependent_sender.md)に対して[環境](../queryable.md)を指定せずに[完了シグネチャ集合取得](get_completion_signatures.md)を行った際に送出される例外クラスである。
+ 
+ 
+ ## バージョン
+@@ -30,5 +30,6 @@ namespace std::execution {
+ - [`execution::dependent_sender`](dependent_sender.md)
+ - [`execution::get_completion_signatures`](get_completion_signatures.md)
+ 
++
+ ## 参照
+ - [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>get_completion_signatures -- execution: C++26 P3557R3対応(cont.)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/get_completion_signatures.html"/>
+      <id>2121599ff8b2fb00a5ef1029f3d4bd257cec757e:reference/execution/execution/get_completion_signatures.md</id>
+      <updated>2025-08-20T18:30:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/get_completion_signatures.md b/reference/execution/execution/get_completion_signatures.md
+index 5fc96a34e..9f68387ec 100644
+--- a/reference/execution/execution/get_completion_signatures.md
++++ b/reference/execution/execution/get_completion_signatures.md
+@@ -15,6 +15,17 @@ namespace std::execution {
+ ## 概要
+ `get_completion_signatures`は、[Sender](sender.md)の[完了シグネチャ集合](completion_signatures.md)を取得する関数テンプレートである。
+ 
++### 非依存Sender
++[環境](../queryable.md)に依存することなく完了シグネチャ集合が決定するSenderは、非依存Sender(non-dependent sender)と呼ばれる。
++
++型`Sndr`に対して[`sender`](sender.md)`&amp;lt;Sndr&amp;gt; == true`かつ[`dependent_sender`](dependent_sender.md)`&amp;lt;Sndr&amp;gt; == false`の場合、`Sndr`は非依存Senderである。
++
++
++## テンプレートパラメータ制約
++`sizeof...(Env) &amp;lt;= 1`
++
++
++## 効果
+ 説明用の式`except`を、[`move_constructible`](/reference/concepts/move_constructible.md)`&amp;lt;Except&amp;gt; &amp;amp;&amp;amp;` [`derived_from`](/reference/concepts/derived_from.md)`&amp;lt;Except,` [`exception`](/reference/exception/exception.md)`&amp;gt;`が`true`となる未規定なクラス`Except`の右辺値とする。`e`がコア定数式かつその型が[`valid-completion-signatures`](completion_signatures.md)を満たすならば、式`CHECKED-COMPLSIGS(e)`を`e`とする。そうでなければ下記の式となる。
+ 
+ ```cpp
+@@ -35,12 +46,6 @@ transform_sender(
+ * transform_sender[link transform_sender.md]
+ * get-domain-late[link get-domain-late.md]
+ 
+-
+-## テンプレートパラメータ制約
+-`sizeof...(Env) &amp;lt;= 1`
+-
+-
+-## 効果
+ 下記の通り定義される式`e`を用いて、`return e;`と等価。
+ 
+ - 式`get-complsigs&amp;lt;NewSndr, Env...&amp;gt;()`が適格であるならば、`CHECKED-COMPLSIGS(get-complsigs&amp;lt;NewSndr, Env...&amp;gt;())`
+@@ -92,7 +97,7 @@ int main()
+   ex::sender auto sndr = ex::just(42);
+ 
+   // 値完了シグネチャ set_value_t(int)
+-  auto sigs = ex::get_completion_signatures(sndr);
++  auto sigs = ex::get_completion_signatures&amp;lt;decltype(sndr)&amp;gt;();
+   static_assert(std::same_as&amp;lt;decltype(sigs),
+     ex::completion_signatures&amp;lt;ex::set_value_t(int)&amp;gt;&amp;gt;);
+ }
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>let_value -- execution: C++26 P3557R3対応(cont.)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/let_value.html"/>
+      <id>2121599ff8b2fb00a5ef1029f3d4bd257cec757e:reference/execution/execution/let_value.md</id>
+      <updated>2025-08-20T18:30:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/let_value.md b/reference/execution/execution/let_value.md
+index 823c2ef78..a92609bdc 100644
+--- a/reference/execution/execution/let_value.md
++++ b/reference/execution/execution/let_value.md
+@@ -147,12 +147,12 @@ cs.for-each(overload-set(fn, [](auto){}));
+ * set-cpo[italic]
+ 
+ `unspecified-exception`は[`exception`](/reference/exception/exception.md)から派生した型となる。
+-変数`is-valid-let-sender`は下記を全て満たす時に限って`true`となる。
++説明用の変数`is-valid-let-sender`は下記を全て満たす時に限って`true`となる。
+ 
+ - `(`[`constructible_from`](/reference/concepts/constructible_from.md)`&amp;lt;decay_t&amp;lt;Ts&amp;gt;, Ts&amp;gt; &amp;amp;&amp;amp;...)`
+-- `invocable&amp;lt;LetFn, decay_t&amp;lt;Ts&amp;gt;&amp;amp;...&amp;gt;`
+-- [`sender`](sender.md)`&amp;lt;invoke_result_t&amp;lt;LetFn, decay_t&amp;lt;Ts&amp;gt;&amp;amp;...&amp;gt;&amp;gt;`
+-- パック`env-t`を`decltype(let-cpo.transform_env(declval&amp;lt;Sndr&amp;gt;(), declval&amp;lt;Env&amp;gt;()))`としたとき、`sizeof...(Env) == 0 ||` [`sender_in`](sender_in.md)`&amp;lt;invoke_result_t&amp;lt;LetFn, decay_t&amp;lt;Ts&amp;gt;&amp;amp;...&amp;gt;, env-t...&amp;gt;`
++- [`invocable`](/reference/concepts/invocable.md)`&amp;lt;LetFn, decay_t&amp;lt;Ts&amp;gt;&amp;amp;...&amp;gt;`
++- [`sender`](sender.md)`&amp;lt;`[`invoke_result_t`](/reference/type_traits/invoke_result.md)`&amp;lt;LetFn, decay_t&amp;lt;Ts&amp;gt;&amp;amp;...&amp;gt;&amp;gt;`
++- パック`env-t`を`decltype(let-cpo.transform_env(declval&amp;lt;Sndr&amp;gt;(), declval&amp;lt;Env&amp;gt;()))`としたとき、`sizeof...(Env) == 0 ||` [`sender_in`](sender_in.md)`&amp;lt;`[`invoke_result_t`](/reference/type_traits/invoke_result.md)`&amp;lt;LetFn, decay_t&amp;lt;Ts&amp;gt;&amp;amp;...&amp;gt;, env-t...&amp;gt;`
+ 
+ 説明用の式`sndr`と`env`に対して、型`Sndr`を`decltype((sndr))`とする。[`sender-for`](sender-for.md)`&amp;lt;Sndr,` [`decayed-typeof`](/reference/functional/decayed-typeof.md)`&amp;lt;let-cpo&amp;gt;&amp;gt; == false`のとき、式`let-cpo.transform_env(sndr, env)`は不適格となる。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>get_scheduler -- execution: C++26 P3557R3対応(cont.)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/run_loop/get_scheduler.html"/>
+      <id>2121599ff8b2fb00a5ef1029f3d4bd257cec757e:reference/execution/execution/run_loop/get_scheduler.md</id>
+      <updated>2025-08-20T18:30:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/run_loop/get_scheduler.md b/reference/execution/execution/run_loop/get_scheduler.md
+index 17a4ca094..cf45a1648 100644
+--- a/reference/execution/execution/run_loop/get_scheduler.md
++++ b/reference/execution/execution/run_loop/get_scheduler.md
+@@ -34,8 +34,8 @@ int main()
+   ex::sender auto sndr = ex::schedule(sch);
+ 
+   // スケジュールSenderの完了シグネチャ集合を確認
+-  auto sigs = ex::get_completion_signatures(sndr);
+-  static_assert(std::same_as&amp;lt;decltype(sigs),
++  using Sigs = ex::completion_signatures_of_t&amp;lt;decltype(sndr)&amp;gt;;
++  static_assert(std::same_as&amp;lt;Sigs,
+     ex::completion_signatures&amp;lt;ex::set_value_t(),
+                               ex::set_error_t(std::exception_ptr),
+                               ex::set_stopped_t()&amp;gt;&amp;gt;);
+@@ -50,7 +50,7 @@ int main()
+ * ex::scheduler[link ../scheduler.md]
+ * ex::sender[link ../sender.md]
+ * ex::schedule[link ../schedule.md]
+-* ex::get_completion_signatures[link ../get_completion_signatures.md]
++* ex::completion_signatures_of_t[link ../completion_signatures_of_t.md]
+ * ex::completion_signatures[link ../completion_signatures.md]
+ * ex::set_value_t[link ../set_value.md]
+ * ex::set_error_t[link ../set_error.md]
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>sender-in-of -- execution: C++26 P3557R3対応(cont.)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/sender-in-of.html"/>
+      <id>2121599ff8b2fb00a5ef1029f3d4bd257cec757e:reference/execution/execution/sender-in-of.md</id>
+      <updated>2025-08-20T18:30:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/sender-in-of.md b/reference/execution/execution/sender-in-of.md
+index c80d82c58..50fbb1aff 100644
+--- a/reference/execution/execution/sender-in-of.md
++++ b/reference/execution/execution/sender-in-of.md
+@@ -26,7 +26,7 @@ namespace std::execution {
+ 
+   template&amp;lt;class Sndr, class SetValue, class... Env&amp;gt;
+   concept sender-in-of-impl =  // exposition only
+-    sender_in&amp;lt;Sndr, Env&amp;gt; &amp;amp;&amp;amp;
++    sender_in&amp;lt;Sndr, Env...&amp;gt; &amp;amp;&amp;amp;
+     MATCHING-SIG(SetValue,
+                  gather-signatures&amp;lt;set_value_t,
+                                   completion_signatures_of_t&amp;lt;Sndr, Env...&amp;gt;,
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>then -- execution: C++26 P3557R3対応(cont.)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/then.html"/>
+      <id>2121599ff8b2fb00a5ef1029f3d4bd257cec757e:reference/execution/execution/then.md</id>
+      <updated>2025-08-20T18:30:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/then.md b/reference/execution/execution/then.md
+index b5590646f..9d2ed1c67 100644
+--- a/reference/execution/execution/then.md
++++ b/reference/execution/execution/then.md
+@@ -68,6 +68,8 @@ namespace std::execution {
+ * TRY-SET-VALUE[link set_value.md]
+ * invoke[link /reference/functional/invoke.md]
+ * std::move[link /reference/utility/move.md]
++* then-cpo[italic]
++* set-cpo[italic]
+ 
+ メンバ関数`impls-for&amp;lt;decayed-typeof&amp;lt;then-cpo&amp;gt;&amp;gt;::check-types`の効果は下記の通り。
+ 
+@@ -84,6 +86,8 @@ cs.for-each(overload-set{fn, [](auto){}});
+ * FWD-ENV-T[link ../forwarding_query.md]
+ * set_value_t[link set_value.md]
+ * data-type[link data-type.md]
++* for-each[link completion_signatures.md]
++* overload-set[link overload-set.md]
+ 
+ `unspecified-exception`は[`exception`](/reference/exception/exception.md)から派生した型となる。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>when_all -- execution: C++26 P3557R3対応(cont.)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/when_all.html"/>
+      <id>2121599ff8b2fb00a5ef1029f3d4bd257cec757e:reference/execution/execution/when_all.md</id>
+      <updated>2025-08-20T18:30:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/when_all.md b/reference/execution/execution/when_all.md
+index 911622cfe..5cc7c708c 100644
+--- a/reference/execution/execution/when_all.md
++++ b/reference/execution/execution/when_all.md
+@@ -29,8 +29,7 @@ namespace std::execution {
+ 下記いずれかが`true`となるとき、呼び出し式`when_all(sndrs...)`は不適格となる。
+ 
+ - `sizeof...(sndrs) == 0`、または
+-- `(`[`sender`](sender.md)`&amp;lt;Sndrs&amp;gt; &amp;amp;&amp;amp; ...) == false`、または
+-- 型`CD`が不適格
++- `(`[`sender`](sender.md)`&amp;lt;Sndrs&amp;gt; &amp;amp;&amp;amp; ...) == false`
+ 
+ そうでなければ、呼び出し式`when_all(sndrs...)`は下記と等価。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>when_all_with_variant -- execution: C++26 P3557R3対応(cont.)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/when_all_with_variant.html"/>
+      <id>2121599ff8b2fb00a5ef1029f3d4bd257cec757e:reference/execution/execution/when_all_with_variant.md</id>
+      <updated>2025-08-20T18:30:57+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/when_all_with_variant.md b/reference/execution/execution/when_all_with_variant.md
+index 5f7fcf041..99a19fe5f 100644
+--- a/reference/execution/execution/when_all_with_variant.md
++++ b/reference/execution/execution/when_all_with_variant.md
+@@ -29,8 +29,7 @@ namespace std::execution {
+ 下記いずれかが`true`となるとき、呼び出し式`when_all_with_variant(sndrs...)`は不適格となる。
+ 
+ - `sizeof...(sndrs) == 0`、または
+-- `(`[`sender`](sender.md)`&amp;lt;Sndrs&amp;gt; &amp;amp;&amp;amp; ...) == false`、または
+-- 型`CD`が不適格
++- `(`[`sender`](sender.md)`&amp;lt;Sndrs&amp;gt; &amp;amp;&amp;amp; ...) == false`
+ 
+ そうでなければ、呼び出し式`when_all_with_variant(sndrs...)`は下記と等価。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>let_value -- execution/then,upon_{error,stopped}: 効果説明をthenに統合</title>
@@ -2531,162 +2985,6 @@ index aa2c61239..ab376685f 100644
       <author>
         <name>Raclamusi</name>
         <email>raclamusi@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>C++国際標準規格 -- C++26のWorking Draftを更新 #1491</title>
-      <link href="https://cpprefjp.github.io/international-standard.html"/>
-      <id>0712ced43f1c245d85b081c3130d68999456f790:international-standard.md</id>
-      <updated>2025-08-19T13:15:52+09:00</updated>
-      
-        <content type="html">&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;C++国際標準規格&lt;/span&gt;&lt;/h1&gt;
-&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;h2&gt;&lt;a href=&#34;#summary&#34; id=&#34;summary&#34;&gt;概要&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;C++ の標準規格の実例として ISO/IEC による&lt;strong&gt;国際標準規格&lt;/strong&gt; (international standard) がある。
-最新の国際標準規格は「ISO/IEC 14882:2020 Programming Languages -- C++」(通称 C++20) である。
-C++ の標準規格は、他にも各国の規格化団体によって国際標準規格に等価なものが定められている。
-日本では日本工業標準調査会 (JISC) により「JIS X 3014:2003 プログラム言語C++」が定められているが古い (C++03 相当)。
-ここでは特に国際標準規格について取り扱う。&lt;/p&gt;
-&lt;h2&gt;&lt;a href=&#34;#list-of-iso-cpp&#34; id=&#34;list-of-iso-cpp&#34;&gt;国際標準規格の一覧&lt;/a&gt;&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th align=&#34;left&#34;&gt;通称&lt;sup&gt;&lt;a href=&#34;#note-t1-1&#34; id=&#34;note_ref-t1-1&#34;&gt;†1&lt;/a&gt;&lt;/sup&gt;&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;名称&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;参照する規格案&lt;sup&gt;&lt;a href=&#34;#note-t1-2&#34; id=&#34;note_ref-t1-2&#34;&gt;†2&lt;/a&gt;&lt;/sup&gt;&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;規格案・原案&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;&lt;code&gt;__cplusplus&lt;/code&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;lang/cpp26.html&#34;&gt;C++26&lt;/a&gt; (C++2c)&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;ISO/IEC 14882:2026 (予定)&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;N5014(&lt;a href=&#34;https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/n5014.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;/&lt;a href=&#34;https://timsong-cpp.github.io/cppwp/&#34; target=&#34;_blank&#34;&gt;HTML&lt;/a&gt;)&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;N5014 N5008 N5001 N4993 N4986 N4981 N4971 N4964 N4958&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;--&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;lang/cpp23.html&#34;&gt;C++23&lt;/a&gt; (C++2b)&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;ISO/IEC 14882:2024&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;N4950(&lt;a href=&#34;https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/n4950.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;/&lt;a href=&#34;https://timsong-cpp.github.io/cppwp/n4950/&#34; target=&#34;_blank&#34;&gt;HTML&lt;/a&gt;)&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;N4950 N4944 N4928 N4917 N4910 N4901 N4892 N4885 N4878&lt;br /&gt;N4868 N4861&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;code&gt;202302L&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;lang/cpp20.html&#34;&gt;C++20&lt;/a&gt; (C++2a)&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;ISO/IEC 14882:2020&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;N4861&lt;sup&gt;&lt;a href=&#34;#note-t1-3&#34; id=&#34;note_ref-t1-3&#34;&gt;†3&lt;/a&gt;&lt;/sup&gt;(&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/n4861.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;/&lt;a href=&#34;https://timsong-cpp.github.io/cppwp/n4861/&#34; target=&#34;_blank&#34;&gt;HTML&lt;/a&gt;)&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;N4860 N4849 N4842 N4835 N4830&lt;br /&gt;N4820 N4810 N4800 N4791 &lt;del&gt;N4788&lt;/del&gt;&lt;sup&gt;&lt;a href=&#34;#note-t1-4&#34; id=&#34;note_ref-t1-4&#34;&gt;†4&lt;/a&gt;&lt;/sup&gt;&lt;br /&gt;N4778 N4762 N4750 N4741 N4727&lt;br /&gt;N4713 N4700 N4687&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;code&gt;202002L&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;lang/cpp17.html&#34;&gt;C++17&lt;/a&gt; (C++1z)&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;ISO/IEC 14882:2017&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;N4659(&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4659.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;/&lt;a href=&#34;https://timsong-cpp.github.io/cppwp/n4659/&#34; target=&#34;_blank&#34;&gt;HTML&lt;/a&gt;)&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;N4660 N4659 N4640 N4618 N4606&lt;br /&gt;N4594 N4582 N4567 N4527 N4431&lt;br /&gt;N4296&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;code&gt;201703L&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;lang/cpp14.html&#34;&gt;C++14&lt;/a&gt; (C++1y)&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;ISO/IEC 14882:2014&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;N4140(&lt;a href=&#34;https://github.com/cplusplus/draft/blob/master/papers/n4140.pdf?raw=true&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;/&lt;a href=&#34;https://timsong-cpp.github.io/cppwp/n4140/&#34; target=&#34;_blank&#34;&gt;HTML&lt;/a&gt;)&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;N4141 N4140 N3937 N3936 N3797&lt;br /&gt;N3691 N3690 N3485 N3376 N3337&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;code&gt;201402L&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;lang/cpp11.html&#34;&gt;C++11&lt;/a&gt; (C++0x)&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;ISO/IEC 14882:2011&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;N3337&lt;sup&gt;&lt;a href=&#34;#note-t1-5&#34; id=&#34;note_ref-t1-5&#34;&gt;†5&lt;/a&gt;&lt;/sup&gt;(&lt;a href=&#34;https://wg21.link/std11&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;/&lt;a href=&#34;https://timsong-cpp.github.io/cppwp/n3337/&#34; target=&#34;_blank&#34;&gt;HTML&lt;/a&gt;)&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;N3291 N3290 N3242 N3225 N3126&lt;br /&gt;N3090 N3035 N3000 N2960 N2914&lt;br /&gt;N2857 N2798 N2723 N2691 N2606&lt;br /&gt;N2588 N2521 N2461 N2369 N2315&lt;br /&gt;N2284 N2134 N2009 N1905 N1804&lt;br /&gt;N1733 N1655&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;code&gt;201103L&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;C++03&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;ISO/IEC 14882:2003&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;N1577&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;N1577 ?&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;code&gt;199711L&lt;/code&gt;&lt;br /&gt;(C++98 と同じ)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;C++98&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;ISO/IEC 14882:1998&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;code&gt;199711L&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;#note_ref-t1-1&#34; id=&#34;note-t1-1&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; カッコ内は策定時・標準化前に一時的に用いられた通称&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#note_ref-t1-2&#34; id=&#34;note-t1-2&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; 最終国際規格案はPDFやHTMLなどの形で一般公開されていないため、それにほぼ同一の内容の規格案を参照する。&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#note_ref-t1-3&#34; id=&#34;note-t1-3&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; N4861 は、C++20 DISであるN4860に対するデザインレベルの差とC++17との相互参照がない以外の差はないため、事実上 N4861 が C++20 を参照する時に用いられる。&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#note_ref-t1-4&#34; id=&#34;note-t1-4&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; N4788 は政治的事情により撤回された (参照 N4792)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#note_ref-t1-5&#34; id=&#34;note-t1-5&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; N3337 は、C++11規格に対する編集レベルの修正のみが適用された仕様案であるため、事実上 N3337 が C++11 を参照する時に用いられる。C++11規格からN3337への変更点は、&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3338.html&#34; target=&#34;_blank&#34;&gt;N3338&lt;/a&gt;を参照。&lt;br /&gt;
-(それより前の公開されているC++11向け仕様案であるN3242からC++11規格に対しては、機能的な変更がいくつかあるため、C++11規格として参照するには適さない)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;最新のDraftのHTML版は以下で公開されている。&lt;br /&gt;
-&lt;a href=&#34;https://timsong-cpp.github.io/cppwp/&#34; target=&#34;_blank&#34;&gt;Draft C++ Standard: Contents&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;標準規格の文章はtexで書かれており、そのソースコードは以下で2011年8月16日以降のものについて(つまりN3291より後、N3337より前)公開されている。&lt;br /&gt;
-&lt;a href=&#34;https://github.com/cplusplus/draft&#34; target=&#34;_blank&#34;&gt;cplusplus/draft: C++ standards drafts&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;&lt;a href=&#34;#iso-cpp-committee&#34; id=&#34;iso-cpp-committee&#34;&gt;用語: 国際標準規格を定める組織&lt;/a&gt;&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;C++標準化委員会&lt;/strong&gt; (C++ Standards Committee): C++ の国際標準規格を策定する団体。
-  組織としての位置づけはISO/IEC JTC1/SC22/WG21になる。
-  &lt;strong&gt;国際標準化機構&lt;/strong&gt; (ISO; international organization for standardization) および&lt;strong&gt;国際電気標準会議&lt;/strong&gt; (IEC; International Electronics Commission) はそれぞれ様々な規格の標準化団体である。
-  &lt;strong&gt;第一合同技術委員会&lt;/strong&gt; (JTC1; Joint Technical Committee 1) は ISO/IEC の下で情報技術の標準化を行う団体である。
-  下部組織の SC22 はプログラム言語の標準化を行う&lt;strong&gt;副委員会&lt;/strong&gt; (SC; subcommittee) である。
-  C++標準化委員会は WG21 という&lt;strong&gt;作業グループ&lt;/strong&gt; (WG; working group) である。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;CWG&lt;/strong&gt; (Core working group): C++標準化委員会の内、コア言語機能の策定を行う作業グループ&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;LWG&lt;/strong&gt; (Library working group): C++標準化委員会の内、標準ライブラリ機能の策定を行う作業グループ&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;NB&lt;/strong&gt; (national body) または&lt;strong&gt;MB/NC&lt;/strong&gt; (member body/national committee): C++標準化委員会の正会員つまり各国から派遣される団体のこと。本来は member body は ISO での名称で、national committee は IEC での名称。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;&lt;a href=&#34;#iso-cpp-documents&#34; id=&#34;iso-cpp-documents&#34;&gt;用語: 国際標準規格の文書&lt;/a&gt;&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;提案文書&lt;/strong&gt; (proposal paper): 標準規格の変更についての提案文書&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;問題&lt;/strong&gt; (issue): C++標準規格の問題や課題のこと&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;欠陥&lt;/strong&gt; (defect): C++標準規格に含まれるいわば &#34;バグ&#34; のこと&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;DR&lt;/strong&gt; (defect report, defect resolution): 委員会で承認された欠陥の報告または欠陥の修正のこと&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;NAD&lt;/strong&gt; (not a defect): 委員会により標準規格の欠陥ではないとされた問題のこと&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;DRWP&lt;/strong&gt;: 最新の規格原案に取り込み済みの DR のこと&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;WD&lt;/strong&gt; (working draft): 作業原案&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;CD&lt;/strong&gt; (committee draft): 委員会原案&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;FCD&lt;/strong&gt; (final committee draft): 最終委員会原案&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;DIS&lt;/strong&gt; (draft international standard): 国際規格案&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;FDIS&lt;/strong&gt; (final draft international standard): 最終国際規格案&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;IS&lt;/strong&gt; (international standard): 国際規格&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;TR&lt;/strong&gt; (technical report): 技術報告書。用例: TR1&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;TS&lt;/strong&gt; (technical specifications): 技術仕様書。用例: Concepts TS&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;参照&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;標準規格&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.iso.org/standard/83626.html&#34; target=&#34;_blank&#34;&gt;ISO/IEC 14882:2024 - Programming languages — C++&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.iso.org/standard/79358.html&#34; target=&#34;_blank&#34;&gt;ISO/IEC 14882:2020 - Programming languages — C++&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.iso.org/standard/68564.html&#34; target=&#34;_blank&#34;&gt;ISO/IEC 14882:2017 - Programming languages -- C++&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.iso.org/standard/64029.html&#34; target=&#34;_blank&#34;&gt;ISO/IEC 14882:2014 - Information technology -- Programming languages -- C++&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.iso.org/standard/50372.html&#34; target=&#34;_blank&#34;&gt;ISO/IEC 14882:2011 - Information technology -- Programming languages -- C++&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.iso.org/standard/38110.html&#34; target=&#34;_blank&#34;&gt;ISO/IEC 14882:2003 - Programming languages -- C++&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.iso.org/standard/25845.html&#34; target=&#34;_blank&#34;&gt;ISO/IEC 14882:1998 - Programming languages -- C++&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://webdesk.jsa.or.jp/books/W11M0090/index/?bunsyo_id=JIS%20X%203014:2003&#34; target=&#34;_blank&#34;&gt;JIS X 3014:2003 プログラム言語Ｃ＋＋／Information Technology -- Programming languages -- C++ 日本規格協会 JSA Webdesk&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://en.cppreference.com/w/cpp/experimental&#34; target=&#34;_blank&#34;&gt;Experimental C++ Features - cppreference.com&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/29115656/which-draft-is-closest-to-the-c14-standard&#34; target=&#34;_blank&#34;&gt;c++ - Which draft is closest to the C++14 standard? - Stack Overflow&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/81656/where-do-i-find-the-current-c-or-c-standard-documents&#34; target=&#34;_blank&#34;&gt;Where do I find the current C or C++ standard documents? - Stack Overflow&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/11053960/how-are-the-cplusplus-directive-defined-in-various-compilers&#34; target=&#34;_blank&#34;&gt;c++ - How are the __cplusplus directive defined in various compilers? - Stack Overflow&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/&#34; target=&#34;_blank&#34;&gt;ISO/IEC JTC1/SC22/WG21 - The C++ Standards Committee - ISOCPP&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://ja.wikipedia.org/wiki/%E5%9B%BD%E9%9A%9B%E6%A8%99%E6%BA%96%E5%8C%96%E6%A9%9F%E6%A7%8B&#34; target=&#34;_blank&#34;&gt;国際標準化機構 - Wikipedia&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://ja.wikipedia.org/wiki/%E5%9B%BD%E9%9A%9B%E9%9B%BB%E6%B0%97%E6%A8%99%E6%BA%96%E4%BC%9A%E8%AD%B0&#34; target=&#34;_blank&#34;&gt;国際電気標準会議 - Wikipedia&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://ja.wikipedia.org/wiki/ISO/IEC_JTC_1&#34; target=&#34;_blank&#34;&gt;ISO/IEC JTC 1 - Wikipedia&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://ja.wikipedia.org/wiki/ISO/IEC_JTC_1/SC_22&#34; target=&#34;_blank&#34;&gt;ISO/IEC JTC 1/SC 22 - Wikipedia&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/div&gt;</content>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
       </author>
     </entry>
   
