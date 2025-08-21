@@ -20,9 +20,12 @@ constexpr auto make-sender(Tag tag, Data&& data, Child&&... child);
 
 
 ## 適格要件
-- [`semiregular`](/reference/concepts/semiregular.md)`<Tag> == true`
-- [`movable-value`](../movable-value.md)`<Data> == true`
-- `(`[`sender`](sender.md)`<Child> && ...) == true`
+下記の式が全て`true`であること。
+
+- [`semiregular`](/reference/concepts/semiregular.md)`<Tag>`
+- [`movable-value`](../movable-value.md)`<Data>`
+- `(`[`sender`](sender.md)`<Child> && ...)`
+- 型`Sndr`を[`basic-sender`](basic-sender.md)`<Tag, Data, Child...>`としたとき、[`dependent_sender`](dependent_sender.md)`<Sndr> ||` [`sender_in`](sender_in.md)`<Sndr>`
 
 
 ## 戻り値
@@ -31,6 +34,8 @@ constexpr auto make-sender(Tag tag, Data&& data, Child&&... child);
 
 ## 備考
 テンプレートパラメータ`Data`のデフォルト引数は、[`semiregular`](/reference/concepts/semiregular.md)のモデルである空のトリビアルにコピー可能な未規定なクラス型。
+
+[`sender_in`](sender_in.md)`<Sndr>`の評価結果が[`get_completion_signatures`](get_completion_signatures.md)`<Sndr>()`から送出された例外の場合、処理系（標準ライブラリ実装者）はエラーメッセージにその例外に関する情報を含めることが推奨される。
 
 
 ## バージョン
@@ -45,3 +50,4 @@ constexpr auto make-sender(Tag tag, Data&& data, Child&&... child);
 ## 参照
 - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)

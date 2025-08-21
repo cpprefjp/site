@@ -25,9 +25,7 @@ namespace std::this_thread {
 ## 効果
 説明用の`sndr`を`decltype(`[`into_variant`](../execution/into_variant.md)`(sndr))`が`Sndr`型となる式とする。
 
-[`sender_in`](../execution/sender_in.md)`<Sndr,` [`sync-wait-env`](sync-wait-env.md)`> == false`のとき、呼び出し式`this_thread::sync_wait_with_variant(sndr)`は不適格となる。
-
-そうでなければ、呼び出し式`this_thread::sync_wait_with_variant(sndr)`は`sndr`が1回だけ評価されることを除いて、下記と等価。
+呼び出し式`this_thread::sync_wait_with_variant(sndr)`は`sndr`が1回だけ評価されることを除いて、下記と等価。
 
 ```cpp
 apply_sender(get-domain-early(sndr), sync_wait_with_variant, sndr)
@@ -35,6 +33,7 @@ apply_sender(get-domain-early(sndr), sync_wait_with_variant, sndr)
 * apply_sender[link ../execution/apply_sender.md]
 * get-domain-early[link ../execution/get-domain-early.md]
 
+- [`sender_in`](../execution/sender_in.md)`<Sndr,` [`sync-wait-env`](sync-wait-env.md)`> == true`であること。
 - 型`sync-wait-with-variant-result-type<Sndr>`が適格であること。
 - 上記の`apply_sender`式を`e`としたとき、[`same_as`](/reference/concepts/same_as.md)`<decltype(e), sync-wait-with-variant-result-type<Sndr>> == true`であること。
 
@@ -58,9 +57,7 @@ namespace std::this_thread {
 ### Senderアルゴリズムタグ `sync_wait_with_variant`
 説明用の`sndr`を`decltype(`[`into_variant`](../execution/into_variant.md)`(sndr))`が`Sndr`型となる式とする。
 
-[`callable`](/reference/functional/callable.md)`<`[`sync_wait_t`](sync_wait.md)`, Sndr> == false`のとき、式`sync_wait_with_variant.apply_sender(sndr)`は不適格となる。
-
-そうでなければ、式`sync_wait_with_variant.apply_sender(sndr)`は下記と等価。
+式`sync_wait_with_variant.apply_sender(sndr)`は下記と等価。
 
 ```cpp
 using result_type = sync-wait-with-variant-result-type<Sndr>;
@@ -138,3 +135,4 @@ result=(100, 'X')
 
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)

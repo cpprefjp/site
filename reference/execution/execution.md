@@ -82,9 +82,8 @@ namespace std::execution {
 | [`execution::default_domain`](execution/default_domain.md) | デフォルト実行ドメイン (class) | C++26 |
 | [`execution::sender`](execution/sender.md) | Sender型 (concept) | C++26 |
 | [`execution::sender_in`](execution/sender_in.md) | 指定環境で有効なSender (concept) | C++26 |
+| [`execution::dependent_sender`](execution/dependent_sender.md) | 依存Sender (concept) | C++26 |
 | [`execution::sender_to`](execution/sender_to.md) | 指定Receiverに接続可能なSender (concept) | C++26 |
-| [`execution::get_completion_signatures`](execution/get_completion_signatures.md) | Senderの完了シグネチャ集合を取得 (customization point object) | C++26 |
-| [`execution::completion_signatures_of_t`](execution/completion_signatures_of_t.md) | Senderの完了シグネチャ集合を取得 (alias template) | C++26 |
 | [`execution::value_types_of_t`](execution/value_types_of_t.md) | Senderの値完了シグネチャ集合から指定操作で型を生成 (alias template) | C++26 |
 | [`execution::error_types_of_t`](execution/error_types_of_t.md) | Senderのエラー完了シグネチャ集合から指定操作で型を生成 (alias template) | C++26 |
 | [`execution::sends_stopped`](execution/sends_stopped.md) | Senderが停止完了を送信しうるか否か (variable template) | C++26 |
@@ -111,6 +110,8 @@ namespace std::execution {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`execution::sender_adaptor_closure`](execution/sender_adaptor_closure.md) | パイプライン記法をサポートするSenderアダプタ実装補助 (class template) | C++26 |
+| [`execution::write_env`](execution/write_env.md) | Receiver環境を書き換える (customization point object) | C++26 |
+| [`execution::unstoppable`](execution/unstoppable.md) | 停止要求を遮断する (customization point object) | C++26 |
 | [`execution::starts_on`](execution/starts_on.md) | 指定Scheduler上で開始する (customization point object) | C++26 |
 | [`execution::continues_on`](execution/continues_on.md) | 指定Scheduler上で継続する (customization point object) | C++26 |
 | [`execution::on`](execution/on.md) | 指定Senderのみ別Scheduler上で実行する (customization point object) | C++26 |
@@ -142,6 +143,9 @@ Senderコンシューマは名前空間 `std::this_thread` で定義される。
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`execution::completion_signatures`](execution/completion_signatures.md) | 完了シグネチャ集合を表現する型 (class template) | C++26 |
+| [`execution::dependent_sender_error`](execution/dependent_sender_error.md) | 依存Senderを表す例外クラス(class) | C++26 |
+| [`execution::get_completion_signatures`](execution/get_completion_signatures.md) | Senderの完了シグネチャ集合を取得 (function template) | C++26 |
+| [`execution::completion_signatures_of_t`](execution/completion_signatures_of_t.md) | Senderの完了シグネチャ集合を取得 (alias template) | C++26 |
 | [`execution::run_loop`](execution/run_loop.md) | 単一スレッド上でのループ実行 (class) | C++26 |
 
 ### コルーチンユーティリティ
@@ -160,5 +164,6 @@ Senderコンシューマは名前空間 `std::this_thread` で定義される。
 ## 参照
 - [P0024R2 The Parallelism TS Should be Standardized](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0024r2.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P3284R4 `write_env` and `unstoppable` Sender Adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3284r4.html)
 - [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
 - [P3682R0 Remove `std::execution::split`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3682r0.pdf)

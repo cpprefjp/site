@@ -45,28 +45,7 @@ namespace std::execution {
 
 
 ## モデル
-説明専用のエイリアステンプレート`value-signature`, コンセプト`sender-in-of`を下記の通り定義する。
-
-```cpp
-namespace std::execution {
-  template<class... As>
-  using value-signature = set_value_t(As...);
-
-  template<class Sndr, class Env, class... Values>
-  concept sender-in-of =
-    sender_in<Sndr, Env> &&
-    MATCHING-SIG(
-      set_value_t(Values...),
-      value_types_of_t<Sndr, Env, value-signature, type_identity_t>);
-}
-```
-* set_value_t[link set_value.md]
-* sender_in[link sender_in.md]
-* MATCHING-SIG[link get_completion_signatures.md]
-* value_types_of_t[link value_types_of_t.md]
-* type_identity_t[link /reference/type_traits/true_type.md]
-
-型`Sch`を`scheduler`の型、型`Env`を[`sender_in`](sender_in.md)`<`[`schedule_result_t`](schedule_result_t.md)`<Sch>, Env>`を満たす実行環境の型としたとき、`sender-in-of<`[`schedule_result_t`](schedule_result_t.md)`<Sch>, Env>`のモデルとなること。
+型`Sch`を`scheduler`の型、型`Env`を[`sender_in`](sender_in.md)`<`[`schedule_result_t`](schedule_result_t.md)`<Sch>, Env>`を満たす実行環境の型としたとき、[`sender-in-of`](sender-in-of.md)`<`[`schedule_result_t`](schedule_result_t.md)`<Sch>, Env>`のモデルとなること。
 
 [`copyable`](/reference/concepts/copyable.md)`<remove_cvref_t<Sch>>`および[`equality_comparable`](/reference/concepts/equality_comparable.md)`<remove_cvref_t<Sch>>`により要求される操作は、例外で終了してはならない。
 これらの操作やScheduler型の[`schedule`](schedule.md)関数は、異なるスレッドから同時に操作を呼び出す可能性がある場合でも、データ競合を引き起こしてはならない。

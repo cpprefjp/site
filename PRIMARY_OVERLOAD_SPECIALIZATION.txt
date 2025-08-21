@@ -16,8 +16,8 @@
     # memoryでオーバーロードされている
 * std::atomic_compare_exchange_weak_explicit[link /reference/atomic/atomic_compare_exchange_weak_explicit.md]
 * std::atomic_compare_exchange_weak[link /reference/atomic/atomic_compare_exchange_weak.md]
-* std::atomic_exchange[link /reference/atomic/atomic_exchange.md]
 * std::atomic_exchange_explicit[link /reference/atomic/atomic_exchange_explicit.md]
+* std::atomic_exchange[link /reference/atomic/atomic_exchange.md]
 * std::atomic_is_lock_free[link /reference/atomic/atomic_is_lock_free.md]
 * std::atomic_load_explicit[link /reference/atomic/atomic_load_explicit.md]
 * std::atomic_load[link /reference/atomic/atomic_load.md]
@@ -42,7 +42,8 @@
     # valarrayでオーバーロードされている
 * std::atanh[link /reference/cmath/atanh.md]
     # complexでオーバーロードされている
-* std::atan (valarrayとcomplexでオーバーロードされている。プライマリはcmath)
+* std::atan[link /reference/cmath/atan.md]
+    # valarrayとcomplexでオーバーロードされている
 * std::ceil[link /reference/cmath/ceil.md]
     # chronoでオーバーロードされている
 * std::cosh[link /reference/cmath/cosh.md]
@@ -85,10 +86,10 @@
     # exceptionにもある。先に登録されたのはそちらだが、すでに機能削除されている
 
 # header <format>
-* std::formatter[link]
-    # いろんなところで特殊化されている。プライマリはformat
 * std::enable_nonlocking_formatter_optimization[link]
     # chronoで特殊化されている。プライマリはformat
+* std::formatter[link]
+    # いろんなところで特殊化されている。プライマリはformat
 
 # header <istream>
 * operator>>[link /reference/istream/basic_istream/op_istream_free.md]
@@ -111,9 +112,9 @@
     # ostreamでオーバーロードされている
 * std::print[link /reference/print/print.md]
     # ostreamでオーバーロードされている
+* std::vprint_nonunicode[link /reference/print/vprint_nonunicode.md]
 * std::vprint_unicode[link /reference/print/vprint_unicode.md]
     # ostreamでオーバーロードされている
-* std::vprint_nonunicode[link /reference/print/vprint_nonunicode.md]
 
 # header <system_error>
 * is_error_code_enum[link /reference/system_error/is_error_code_enum.md]
@@ -124,12 +125,12 @@
     # futureでオーバーロードされている
 
 # header <tuple>
-* std::tuple_size[link /reference/tuple/tuple_size.md]
-    # std::arrayとstd::complexが特殊化している
-* std::tuple_element[link /reference/tuple/tuple_element.md]
-    # std::arrayとstd::complexが特殊化している
 * std::get[link /reference/tuple/tuple/get.md]
     # std::arrayとstd::complexとstd::variantがオーバーロードしている
+* std::tuple_element[link /reference/tuple/tuple_element.md]
+    # std::arrayとstd::complexが特殊化している
+* std::tuple_size[link /reference/tuple/tuple_size.md]
+    # std::arrayとstd::complexが特殊化している
 
 # header <type_traits>
 * std::basic_common_reference[link /reference/type_traits/basic_common_reference.md]
@@ -142,13 +143,6 @@
 * std::swap[link /reference/utility/swap.md]
 
 # header none
-* operator==[link]
-* operator!=[link]
-* operator<=>[link]
-* operator<=[link]
-* operator<[link]
-* operator>=[link]
-* operator>[link]
 * std::erase_if[link]
     # dequeとflat_mapとflat_setとforward_listとlistとmapとsetとstringとunordered_mapとunordered_setとvectorでオーバーロードされている
 * std::erase[link]
@@ -159,3 +153,10 @@
     # flat_mapとflat_setにある
 * std::this_thread[link]
     # executionとthreadにある
+* operator!=[link]
+* operator<=>[link]
+* operator<=[link]
+* operator<[link]
+* operator==[link]
+* operator>=[link]
+* operator>[link]

@@ -40,15 +40,25 @@ namespace std::execution {
   struct impls-for<into_variant_t> : default-impls {
     static constexpr auto get-state = see below;
     static constexpr auto complete = see below;
+
+    template<class Sndr, class... Env>
+    static consteval void check-types() {
+      auto cs = get_completion_signatures<child-type<Sndr>, FWD-ENV-T(Env)...>();
+      decay-copyable-result-datums(cs);
+    }
   };
 }
 ```
 * impls-for[link impls-for.md]
 * default-impls[link impls-for.md]
+* get_completion_signatures[link get_completion_signatures.md]
+* child-type[link child-type.md]
+* FWD-ENV-T[link ../forwarding_query.md]
+* decay-copyable-result-datums[link decay-copyable-result-datums.md]
 
 `impls-for<into_variant_t>::get-state`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
 
-- 子[Sender](sender.md)の[値完了シグネチャを集約](value_types_of_t.md)した[`variant`](/reference/variant/variant.md)`<`[`tuple`](/reference/variant/variant.md)`<...>, ...>`型を[`type_identity`](/reference/type_traits/type_identity.md)クラステンプレートのパラメータに格納して返す。
+- 子[Sender](sender.md)の[値完了シグネチャを集約](value_types_of_t.md)した[`variant`](/reference/variant/variant.md)`<`[`tuple`](/reference/tuple/tuple.md)`<...>, ...>`型を[`type_identity`](/reference/type_traits/type_identity.md)クラステンプレートのパラメータに格納して返す。
 
 ```cpp
 []<class Sndr, class Rcvr>(Sndr&& sndr, Rcvr& rcvr) noexcept
@@ -64,7 +74,7 @@ namespace std::execution {
 
 `impls-for<into_variant_t>::complete`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
 
-- `State`として渡される前述`get-state`メンバ戻り値型([`type_identity`](/reference/type_traits/type_identity.md))から、`into_varinat`の送信値となる[`variant`](/reference/variant/variant.md)`<`[`tuple`](/reference/variant/variant.md)`<...>, ...>`型情報を取り出す。
+- `State`として渡される前述`get-state`メンバ戻り値型([`type_identity`](/reference/type_traits/type_identity.md))から、`into_varinat`の送信値となる[`variant`](/reference/variant/variant.md)`<`[`tuple`](/reference/tuple/tuple.md)`<...>, ...>`型情報を取り出す。
 - [値完了](set_value.md)の場合、引数パック`args...`から送信値を構築して接続先[Receiver](receiver.md)の[値完了関数](set_value.md)を呼び出す。
 - [エラー完了](set_error.md)または[停止完了](set_stopped.md)の場合、接続先[Receiver](receiver.md)の同種完了関数に全引数を転送する。
 
@@ -107,6 +117,11 @@ struct FizzBuzzSender {
     ex::set_value_t(int),
     ex::set_value_t(std::string)
   >;
+  template <typename Self>
+  static consteval auto get_completion_signatures()
+  {
+    return completion_signatures{};
+  }
 
   // Operation State型
   template <typename Rcvr>
@@ -206,4 +221,5 @@ int main()
 ## 参照
 - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
 - [LWG 4203. Constraints on `get-state` functions are incorrect](https://cplusplus.github.io/LWG/issue4203)
