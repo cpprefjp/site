@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-21T14:04:00">
-        2025年08月21日 14時04分00秒
+      <span itemprop="datePublished" content="2025-08-21T14:12:10">
+        2025年08月21日 14時12分10秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -221,6 +221,8 @@
 <h2>概要</h2>
 <p>ストリームに<code>count</code>個の<code>size</code>バイトのデータを書き込む。</p>
 <p>ストリーム内の位置は、書き込まれたバイトだけ進む。</p>
+<p>書き込み時にエラーが発生した場合、ストリーム内の位置は不定である。</p>
+<p>また、書き込みには内部的に<code><a href="fputc.html">fputc</a></code>を使用する。</p>
 <h2>要件</h2>
 <ul>
 <li><code>buffer</code>は有効なポインタであること。</li>
