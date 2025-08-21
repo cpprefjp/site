@@ -75,11 +75,14 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 
 | 言語機能 | 説明 |
 |----------|------|
+| [静的リフレクション](/lang/cpp26/reflection.md.nolink) | リフレクション演算子`^^`と`std::meta::info`型によりコンパイル時にさまざまな情報を取得できる |
+| [コンパイル時のタプルやリストを展開処理する`template for`文](/lang/cpp26/expansion_statements.md.nolink) | クラス・タプル・Range・パラメータパックなどを展開してすべての要素をコンパイル時の処理する`template for`文を追加 |
 | [定数式での`void*`からポインタ型へのキャストを許可](/lang/cpp26/constexpr_cast_from_voidptr.md) | 型消去のために`void*`からポインタ型へのキャストを許可する |
 | [`static_assert`の診断メッセージにユーザーが生成した文字列の指定を許可](/lang/cpp26/user-generated_static_assert_messages.md) | `constexpr`な`S.size()`と`S.data()`メンバ関数をもつオブジェクトをコンパイル時文字列として指定できるようにする |
 | [`constexpr`配置`new`](/lang/cpp26/constexpr_placement_new.md) | 定数式の文脈での配置`new`を許可 |
 | [`constexpr`構造化束縛の許可と、`constexpr`参照の制限緩和](/lang/cpp26/constexpr_structured_bindings_and_references_to_constexpr_variables.md) | 定数式に対する構造化束縛を許可し、関連して`constexpr`参照の制限を緩和して自動変数も参照できるようにする |
 | [定数評価での例外送出を許可](/lang/cpp26/allowing_exception_throwing_in_constant-evaluation.md) | 定数式の文脈での例外の送出と捕捉を許可 |
+| [`constexpr`仮想継承を許可](/lang/cpp26/constexpr_virtual_inheritance.md.nolink) | 定数式の文脈での仮想継承を許可 |
 
 
 ### プリプロセッサ
@@ -87,6 +90,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 | 言語機能 | 説明 |
 |----------|------|
 | [ファイルを読み込む`#embed`命令を追加](/lang/cpp26/embed.md) | バイナリファイルをインクルードするメカニズム。`#include`とちがって読み出しサイズなどの柔軟な指定ができる |
+| [プリプロセッサ仕様での「未定義動作」を不適格 (診断不要) に変更](/lang/cpp26/preprocessing_is_never_undefined.md.nolink) | プリプロセッサとレキサーの文脈での「未定義動作」用語を不適格 (診断不要) に変更 |
 
 
 ### ソースコード
@@ -101,6 +105,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 | 言語機能 | 説明 |
 |----------|------|
 | [モジュール宣言でのモジュール名のマクロ展開を禁止する](/lang/cpp26/module_declarations_shouldnt_be_macros.md) | `export module MACRO_NAME;`を禁止 |
+| [`main`関数をグローバルモジュールに含められるようにする](/lang/cpp26/allow_attaching_main_to_the_global_module.md.nolink) | `main`関数に`extern "C++"`を指定できるようにすることで名前付きモジュールに含められるようにする |
 
 
 ### 機能の非推奨化
@@ -137,6 +142,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 
 ### コンテナ
 - [`std::mdspan`](/reference/mdspan/mdspan.md)から部分ビューを取り出す[`std::submdspan()`](/reference/mdspan/submdspan.md)を追加
+- [`std::mdspan`](/reference/mdspan/mdspan.md)に、インデックスを指定して要素を取り出す[`at()`](/reference/mdspan/mdspan/at.md.nolink)メンバ関数を追加
 - [`std::mdspan`](/reference/mdspan/mdspan.md)に対する[`std::dextents`](/reference/mdspan/extents.md)指定の冗長さを解決する[`std::dims`](/reference/mdspan/extents.md)を追加
 - [`std::mdspan`](/reference/mdspan/mdspan.md)のレイアウトとして、[`std::layout_left_padded`](/reference/mdspan/layout_left_padded.md)と[`std::layout_right_padded`](/reference/mdspan/layout_right_padded.md)を追加
 - [`<mdspan>`](/reference/mdspan.md)に、要素アクセスにアライメント保証を与える[`std::aligned_accessor`](/reference/mdspan/aligned_accessor.md)を追加
@@ -172,6 +178,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - 各viewクラスに`reserve_hint()`メンバ関数を追加
     - [`std::ranges::reserve_hint()`](/reference/ranges/reserve_hint.md.nolink)関数を追加
     - [`std::ranges::approximately_sized_range`](/reference/ranges/approximately_sized_range.md.nolink)コンセプトを追加
+- インデックス列を生成する[`std::views::indices`](/reference/ranges/indices.md.nolink)を追加
 - 連続イテレータのコンセプト[`contiguous_iterator`](/reference/iterator/contiguous_iterator.md)に、ポインタに変換できることを要件として追加
 - 以下のコンテナを`constexpr`に対応
     - [`std::deque`](/reference/deque/deque.md)
@@ -195,6 +202,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 
 
 ### アルゴリズム
+- [`<algorithm>`](/reference/algorithm.md)と[`<memory>`](/reference/memory.md)のアルゴリズムを並列実行に対応
 - [`<algorithm>`](/reference/algorithm.md)の以下のアルゴリズムを`constexpr`に対応
     - [`std::stable_sort()`](/reference/algorithm/stable_sort.md) / [`std::ranges::stable_sort()`](/reference/algorithm/ranges_stable_sort.md)
     - [`std::stable_partition()`](/reference/algorithm/stable_partition.md) / [`std::ranges::stable_partition()`](/reference/algorithm/ranges_stable_partition.md)
@@ -255,6 +263,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - ポインタ出力のサポートを追加
     - 幅と精度を動的に指定した場合でも型の検証がコンパイル時に行われるよう仕様を見直し
     - コンパイル時の書式文字列だけでなく、実行時の書式文字列を渡せるよう仕様修正
+- [`std::basic_string`](/reference/string/basic_string.md)クラスと[`std::basic_string_view`](/reference/string_view/basic_string_view.md)クラスに、部分文字列を[`std::basic_string_view`](/reference/string_view/basic_string_view.md)として取得するメンバ関数`subview()`を追加
 - [`std::basic_string`](/reference/string/basic_string.md)と[`std::basic_string_view`](/reference/string_view/basic_string_view.md)を[`std::basic_string`](/reference/string/basic_string.md)として連結させる`operator+`を追加
 
 
@@ -262,18 +271,60 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 - ファイルのネイティブハンドルを取得できるよう、[`std::basic_filebuf`](/reference/fstream/basic_filebuf.md)、[`std::basic_ifstream`](/reference/fstream/basic_ifstream.md)、[`std::basic_ofstream`](/reference/fstream/basic_ofstream.md)、[`std::basic_fstream`](/reference/fstream/basic_fstream.md)クラスに、以下のメンバを追加
     - `native_handle_type`型
     - `native_handle()`
-- [`std::filesystem::path`](/reference/filesystem/path.md)に、文字列フォーマットのサポートを追加
+- [`std::filesystem::path`](/reference/filesystem/path.md)クラスに、文字列フォーマットのサポートを追加
+- [`std::filesystem::path`](/reference/filesystem/path.md)クラスに、出力用の文字列を取得するための、以下のメンバ関数を追加
+    - [`display_string()`](/reference/filesystem/path/display_string.md.nolink)
+    - [`system_encoded_string()`](/reference/filesystem/path/system_encoded_string.md.nolink)
+    - [`generic_display_string()`](/reference/filesystem/path/generic_display_string.md.nolink)
+    - [`generic_system_encoded_string()`](/reference/filesystem/path/generic_system_encoded_string.md.nolink)
 
 
 ### 入出力
 - [`std::print()`](/reference/print/print.md)と[`std::println()`](/reference/print/println.md)に、ロックを取得せず高速に書き出す最適化を許可
 - [`std::println()`](/reference/print/println.md)に、改行のみを出力するオーバーロードを追加
 - [`std::print()`](/reference/print/print.md)と[`std::println()`](/reference/print/println.md)をより高速にできる最適化が可能か判定する[`std::enable_nonlocking_formatter_optimization`](/reference/format/enable_nonlocking_formatter_optimization.md)を追加
+- [`std::basic_istream`](/reference/istream/basic_istream.md)`::`[`ignore()`](/reference/istream/basic_istream/ignore.md)メンバ関数に、区切り文字として`char`型をとるオーバーロードを追加
 
 
 ### 並行・並列・非同期処理
 - [`<execution>`](/reference/execution.md)に汎用的な非同期実行を管理するフレームワークを追加
-- [`std::atomic`](/reference/atomic/atomic.md)オブジェクトに対する2つの値の最大値・最小値を取得する関数として、メンバ関数[`fetch_max()`](/reference/atomic/atomic/fetch_max.md)と[`fetch_min()`](/reference/atomic/atomic/fetch_min.md)、非メンバ関数として[`std::atomic_fetch_max`](/reference/atomic/atomic_fetch_max.md)、[`std::atomic_fetch_max_explicit`](/reference/atomic/atomic_fetch_max_explicit.md)、[`std::atomic_fetch_min`](/reference/atomic/atomic_fetch_min.md)、[`std::atomic_fetch_min_explicit`](/reference/atomic/atomic_fetch_min_explicit.md)を追加
+- [`std::atomic`](/reference/atomic/atomic.md)オブジェクトに対する2つの値の最大値・最小値を取得する関数として、以下を追加
+    - メンバ関数
+        - [`fetch_max()`](/reference/atomic/atomic/fetch_max.md)
+        - [`fetch_min()`](/reference/atomic/atomic/fetch_min.md)
+        - [`fetch_fmaximum()`](/reference/atomic/atomic/fetch_fmaximum.md.nolink) (浮動小数点数用)
+        - [`fetch_fminimum()`](/reference/atomic/atomic/fetch_fminimum.md.nolink) (浮動小数点数用)
+        - [`fetch_fmaximum_num()`](/reference/atomic/atomic/fetch_fmaximum_num.md.nolink) (浮動小数点数用)
+        - [`fetch_fminimum_num()`](/reference/atomic/atomic/fetch_fminimum_num.md.nolink) (浮動小数点数用)
+    - 非メンバ関数として
+        - [`std::atomic_fetch_max()`](/reference/atomic/atomic_fetch_max.md)
+        - [`std::atomic_fetch_max_explicit()`](/reference/atomic/atomic_fetch_max_explicit.md)
+        - [`std::atomic_fetch_min()`](/reference/atomic/atomic_fetch_min.md)
+        - [`std::atomic_fetch_min_explicit()`](/reference/atomic/atomic_fetch_min_explicit.md)
+- [`std::atomic`](/reference/atomic/atomic.md)クラスと[`std::atomic_ref`](/reference/atomic/atomic_ref.md)クラスに、現在の値を読み込まず (fetchせず) に加算などをする高速な縮約用の操作として、以下を追加
+    - メンバ関数
+        - [`store_add()`](/reference/atomic/atomic/store_add.md.nolink)
+        - [`store_sub()`](/reference/atomic/atomic/store_sub.md.nolink)
+        - [`store_and()`](/reference/atomic/atomic/store_and.md.nolink)
+        - [`store_or()`](/reference/atomic/atomic/store_or.md.nolink)
+        - [`store_xor()`](/reference/atomic/atomic/store_xor.md.nolink)
+        - [`store_max()`](/reference/atomic/atomic/store_max.md.nolink)
+        - [`store_min()`](/reference/atomic/atomic/store_min.md.nolink)
+    - 非メンバ関数
+        - [`std::atomic_store_add()`](/reference/atomic/atomic_store_add.md.nolink)
+        - [`std::atomic_store_add_explicit()`](/reference/atomic/atomic_store_add_explicit.md.nolink)
+        - [`std::atomic_store_sub()`](/reference/atomic/atomic_store_sub.md.nolink)
+        - [`std::atomic_store_sub_explicit()`](/reference/atomic/atomic_store_sub_explicit.md.nolink)
+        - [`std::atomic_store_and()`](/reference/atomic/atomic_store_and.md.nolink)
+        - [`std::atomic_store_and_explicit()`](/reference/atomic/atomic_store_and_explicit.md.nolink)
+        - [`std::atomic_store_or()`](/reference/atomic/atomic_store_or.md.nolink)
+        - [`std::atomic_store_or_explicit()`](/reference/atomic/atomic_store_or_explicit.md.nolink)
+        - [`std::atomic_store_xor()`](/reference/atomic/atomic_store_xor.md.nolink)
+        - [`std::atomic_store_xor_explicit()`](/reference/atomic/atomic_store_xor_explicit.md.nolink)
+        - [`std::atomic_store_max()`](/reference/atomic/atomic_store_max.md.nolink)
+        - [`std::atomic_store_max_explicit()`](/reference/atomic/atomic_store_max_explicit.md.nolink)
+        - [`std::atomic_store_min()`](/reference/atomic/atomic_store_min.md.nolink)
+        - [`std::atomic_store_min_explicit()`](/reference/atomic/atomic_store_min_explicit.md.nolink)
 - [`std::atomic_ref`](/reference/atomic/atomic_ref.md)クラスに、参照するオブジェクトのアドレスを取得する[`address()`](/reference/atomic/atomic_ref/address.md)メンバ関数を追加
 - [`std::atomic`](/reference/atomic/atomic.md)クラスのテンプレートパラメータとしてCV修飾された型を禁止
 - [`std::atomic_ref`](/reference/atomic/atomic_ref.md)クラスのテンプレートパラメータとして、CV修飾された型を受け取れるようにした (内部でCV修飾が外される)
@@ -284,6 +335,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 - 動的確保したオブジェクトに値の意味論をもたせてディープコピーさせるユーティリティクラスとして、[`<memory>`](/reference/memory.md)に[`std::indirect`](/reference/memory/indirect.md.nolink)クラスと[`std::polymorphic`](/reference/memory/polymorphic.md.nolink)クラスを追加
 - [`std::weak_ptr`](/reference/memory/weak_ptr.md)を非順序連想コンテナのキーとして使用できるよう、[`<memory>`](/reference/memory.md)に所有権ベースのハッシュ値を取得する関数オブジェクト[`std::owner_hash`](/reference/memory/owner_hash.md.nolink)、および所有権ベースの等値比較を行う関数オブジェクト[`std::owner_equal`](/reference/memory/owner_equal.md.nolink)を追加
     - 関連して、[`std::shared_ptr`](/reference/memory/shared_ptr.md)クラスと[`std::weak_ptr`](/reference/memory/weak_ptr.md)クラスのメンバ関数として、`owner_hash()`と`owner_equal()`を追加
+- [`std::shared_ptr`](/reference/memory/shared_ptr.md)クラスとその関連機能を`constexpr`対応
 
 
 ### 日付・時間
@@ -385,6 +437,10 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - `const_iterator`型
     - [`begin()`](/reference/optional/optional/begin.md.nolink)メンバ関数
     - [`end()`](/reference/optional/optional/end.md.nolink)メンバ関数
+- [`std::optional`](/reference/optional/optional.md)に、参照を保持するための`T&`の部分特殊化を追加
+- [`std::tuple`](/reference/tuple/apply.md)の戻り値型推論をやめて、戻り値型用の[`std::apply_result`](/reference/tuple/apply_result.md.nolink)クラスを追加し、関連する以下の機能を追加
+    - [`std::is_applicable`](/reference/type_traits/is_applicable.md.nolink)型特性
+    - [`std::is_nothrow_applicable`](/reference/type_traits/is_nothrow_applicable.md.nolink)型特性
 - [`std::ignore`](/reference/tuple/ignore.md)をファーストクラス・オブジェクトとして型を詳細に定義
 - [`std::bitset`](/reference/bitset/bitset.md)に、[`std::basic_string_view`](/reference/string_view/basic_string_view.md)を受け取るコンストラクタを追加
 - [`<ratio>`](/reference/ratio.md)に、新たなSI接頭辞として、以下を追加
@@ -428,7 +484,9 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - [`<format>`](/reference/format.md)ヘッダの以下の機能
         - [`std::format_error`](/reference/format/format_error.md)
 - [`<memory>`](/reference/memory.md)に、ポインタのアライメントを判定する[`std::is_sufficiently_aligned()`](/reference/memory/is_sufficiently_aligned.md)関数を追加。
-- [`<utility>`](/reference/utility.md)に、タイムトラベル最適化を抑止するための観測可能ポイントとして[`std::observable()`](/reference/utility/observable.md.nolink)を追加
+- [`<utility>`](/reference/utility.md)に、タイムトラベル最適化を抑止するための観測可能ポイントとして[`std::observable_checkpoint()`](/reference/utility/observable_checkpoint.md.nolink)を追加
+- [`std::exception_ptr`](/reference/exception/exception_ptr.md)を指定した例外型にキャストする[`std::exception_ptr_cast()`](/reference/exception/exception_ptr_cast.md.nolink)関数を追加
+- [`<compare>`](/reference/compare.md)に、型の順序を取得する[`std::type_order`](/reference/compare/type_order.md.nolink)クラスを追加
 
 
 ### デバッグ
@@ -438,6 +496,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 ### 型特性
 - [`<type_traits>`](/reference/type_traits.md)に、共用体の指定されたメンバがアクティブかを定数式で判定するための関数として[`std::is_within_lifetime()`](/reference/type_traits/is_within_lifetime.md)を追加
 - [`<type_traits>`](/reference/type_traits.md)に、仮想継承の関係を判定する[`std::is_virtual_base_of`](/reference/type_traits/is_virtual_base_of.md)を追加
+- [`<type_traits>`](/reference/type_traits.md)に、[`std::integral_constant`](/reference/type_traits/integral_constant.md)クラスを置き換える定数ラッパーとして[`std::constant_wrapper`](/reference/type_traits/constant_wrapper.md.nolink)クラスを追加
 
 
 ### 制約
@@ -454,6 +513,9 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 - [`<type_traits>`](/reference/type_traits.md)の[`std::is_trivial`](/reference/type_traits/is_trivial.md)を非推奨化
     - これは[`std::is_trivially_copyable`](/reference/type_traits/is_trivially_copyable.md)と[`std::is_trivially_default_constructible`](/reference/type_traits/is_trivially_default_constructible.md)の2つが合わさったものであるが、それらは異なる状況で必要になるものであった
 - [`std::memory_order::consume`](/reference/atomic/memory_order.md)と、それに関連して[`std::kill_dependency()`](/reference/atomic/kill_dependency.md)を非推奨化し、[`[[carries_dependency]]`](/lang/cpp11/attributes.md)属性を削除
+- [`std::filesystem::path`](/reference/filesystem/path.md)クラスの以下のメンバ関数を非推奨化
+    - [`string()`](/reference/filesystem/path/string.md)
+    - [`generic_string()`](/reference/filesystem/path/generic_string.md)
 
 
 ### 非推奨の取り消し
@@ -477,3 +539,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - [`std::atomic_compare_exchange_weak_explicit`](/reference/memory/shared_ptr/atomic_compare_exchange_weak_explicit.md)
     - [`std::atomic_compare_exchange_strong_explicit`](/reference/memory/shared_ptr/atomic_compare_exchange_strong_explicit.md)
 - C++23から非推奨となっていた、[`std::allocator`](/reference/memory/allocator.md)のメンバ型`is_always_equal`を削除
+
+
+## 取り決め
+- C言語の参照をC17からC23に更新
