@@ -2,9 +2,49 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-08-21T14:28:10.636745</updated>
-  <id>20a5bb02-ec12-4185-a589-38ae7d437b25</id>
+  <updated>2025-08-21T14:44:17.660546</updated>
+  <id>e99ac29f-53f8-472d-8f56-04424d2fa765</id>
 
+  
+    <entry>
+      <title>fwrite -- unified expressions in fwrite</title>
+      <link href="https://cpprefjp.github.io/reference/cstdio/fwrite.html"/>
+      <id>222f890ab68f8f6d78ad0332a3abef3751ce1d63:reference/cstdio/fwrite.md</id>
+      <updated>2025-08-21T23:39:47+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/fwrite.md b/reference/cstdio/fwrite.md
+index 5267294aa..444b0f005 100644
+--- a/reference/cstdio/fwrite.md
++++ b/reference/cstdio/fwrite.md
+@@ -10,7 +10,7 @@ namespace std {
+ ```
+ 
+ ## 概要
+-ストリームに`count`個の`size`バイトのデータを書き込む。
++ストリームに`count`個の`size`バイトの要素を書き込む。
+ 
+ ストリーム内の位置は、書き込まれたバイトだけ進む。
+ 
+@@ -23,10 +23,10 @@ namespace std {
+ - `stream`は有効なファイルストリームであること。
+ 
+ ## 戻り値
+-正常に書き込むことのできた項目の数を返す。
++正常に書き込むことのできた要素の数を返す。
+ 
+ ## 効果
+-`buffer`が指すメモリから`count`個の`size`バイトのデータを`stream`に書き込む。
++`buffer`が指すメモリから`count`個の`size`バイトの要素を`stream`に書き込む。
+ 
+ 書き込みエラーが生じなければ、書き込むデータの大きさは`count * size`バイトである。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>fwrite -- deleted extra information</title>
@@ -16478,36 +16518,6 @@ index 460a8c282..c5b1449e7 100644
  ## 要件
  - `buffer`は有効なポインタであること。
  - `stream`は有効なファイルストリームであること。
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>rotarymars</name>
-        <email>s.goto2050@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>fwrite -- Update reference/cstdio/fwrite.md</title>
-      <link href="https://cpprefjp.github.io/reference/cstdio/fwrite.html"/>
-      <id>4ac817784650144e839da20adc5a10b984fdc4d5:reference/cstdio/fwrite.md</id>
-      <updated>2025-08-21T23:04:00+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/fwrite.md b/reference/cstdio/fwrite.md
-index fefe620bd..460a8c282 100644
---- a/reference/cstdio/fwrite.md
-+++ b/reference/cstdio/fwrite.md
-@@ -10,9 +10,9 @@ namespace std {
- ```
- 
- ## 概要
--ファイルに`count`個の`size`バイトのデータを書き込む。
-+ストリームに`count`個の`size`バイトのデータを書き込む。
- 
--ファイル内の位置は、書き込まれたバイトだけ進む。
-+ストリーム内の位置は、書き込まれたバイトだけ進む。
- 
- ## 要件
- - `buffer`は有効なポインタであること。
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
