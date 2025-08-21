@@ -2,9 +2,121 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-08-21T14:44:17.660546</updated>
-  <id>e99ac29f-53f8-472d-8f56-04424d2fa765</id>
+  <updated>2025-08-21T14:55:36.176185</updated>
+  <id>11447eee-f325-479d-9d58-05e8d17a886e</id>
 
+  
+    <entry>
+      <title>fgets -- added appropriate explanations for function with `restrict`</title>
+      <link href="https://cpprefjp.github.io/reference/cstdio/fgets.html"/>
+      <id>f596c4c80a11d09c624780bc20fec2a91fb5463d:reference/cstdio/fgets.md</id>
+      <updated>2025-08-21T23:51:20+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/fgets.md b/reference/cstdio/fgets.md
+index 459603dd1..354af131a 100644
+--- a/reference/cstdio/fgets.md
++++ b/reference/cstdio/fgets.md
+@@ -16,6 +16,11 @@ namespace std {
+ 
+ また、改行にたどり着くとそこで読み込みを終了する(末尾に改行文字を含める)。
+ 
++## 要件
++- `str`は有効なポインタであること。
++- `stream`は有効なファイルストリームであること。
++- `str`が指すメモリ領域と`stream`が指すファイルストリームの内部バッファが重複していないこと。
++
+ ## 戻り値
+ 成功すれば読み込まれた文字列を、そうでなければ`NULL`を返す。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>fputs -- added appropriate explanations for function with `restrict`</title>
+      <link href="https://cpprefjp.github.io/reference/cstdio/fputs.html"/>
+      <id>f596c4c80a11d09c624780bc20fec2a91fb5463d:reference/cstdio/fputs.md</id>
+      <updated>2025-08-21T23:51:20+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/fputs.md b/reference/cstdio/fputs.md
+index c00edfd84..7d79856ae 100644
+--- a/reference/cstdio/fputs.md
++++ b/reference/cstdio/fputs.md
+@@ -12,6 +12,11 @@ namespace std {
+ ## 概要
+ ファイルに渡された文字列を出力する。
+ 
++## 要件
++- `str`は有効なポインタであること。
++- `stream`は有効なファイルストリームであること。
++- `str`が指すメモリ領域と`stream`が指すファイルストリームの内部バッファが重複していないこと。
++
+ ## 戻り値
+ 正常終了した場合は`0`を、そうでなければ[`EOF`](/reference/cstdio/eof.md)を返す。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>fread -- added appropriate explanations for function with `restrict`</title>
+      <link href="https://cpprefjp.github.io/reference/cstdio/fread.html"/>
+      <id>f596c4c80a11d09c624780bc20fec2a91fb5463d:reference/cstdio/fread.md</id>
+      <updated>2025-08-21T23:51:20+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/fread.md b/reference/cstdio/fread.md
+index a2918cf22..116b601c9 100644
+--- a/reference/cstdio/fread.md
++++ b/reference/cstdio/fread.md
+@@ -17,6 +17,7 @@ namespace std {
+ ## 要件
+ - `buffer`は有効なポインタであること。
+ - `stream`は有効なファイルストリームであること。
++- `buffer`が指すメモリ領域と`stream`が指すファイルストリームの内部バッファが重複していないこと。
+ 
+ ## 戻り値
+ 正常に読み込むことのできた項目の数を返す。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>fwrite -- added appropriate explanations for function with `restrict`</title>
+      <link href="https://cpprefjp.github.io/reference/cstdio/fwrite.html"/>
+      <id>f596c4c80a11d09c624780bc20fec2a91fb5463d:reference/cstdio/fwrite.md</id>
+      <updated>2025-08-21T23:51:20+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/fwrite.md b/reference/cstdio/fwrite.md
+index 444b0f005..b07ad0c4b 100644
+--- a/reference/cstdio/fwrite.md
++++ b/reference/cstdio/fwrite.md
+@@ -21,6 +21,7 @@ namespace std {
+ ## 要件
+ - `buffer`は有効なポインタであること。
+ - `stream`は有効なファイルストリームであること。
++- `buffer`が指すメモリ領域と`stream`が指すファイルストリームの内部バッファが重複していないこと。
+ 
+ ## 戻り値
+ 正常に書き込むことのできた要素の数を返す。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>fwrite -- unified expressions in fwrite</title>
@@ -16489,35 +16601,6 @@ index fe8d38cc9..188715c1e 100644
 +| [`swap`](swap_free.md)                                 | 内容の交換（非メンバ関数） |
  | [`allocator`](/reference/memory/allocator.md)            | デフォルトのアロケータ |
  | [`allocator_traits`](/reference/memory/allocator_traits.md) | アロケータのトレイツ |
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>rotarymars</name>
-        <email>s.goto2050@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>fwrite -- added precise description in fwrite</title>
-      <link href="https://cpprefjp.github.io/reference/cstdio/fwrite.html"/>
-      <id>8be421316ab3130e11f39a2acb9b50b42ecbcd68:reference/cstdio/fwrite.md</id>
-      <updated>2025-08-21T23:12:10+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/fwrite.md b/reference/cstdio/fwrite.md
-index 460a8c282..c5b1449e7 100644
---- a/reference/cstdio/fwrite.md
-+++ b/reference/cstdio/fwrite.md
-@@ -14,6 +14,10 @@ namespace std {
- 
- ストリーム内の位置は、書き込まれたバイトだけ進む。
- 
-+書き込み時にエラーが発生した場合、ストリーム内の位置は不定である。
-+
-+また、書き込みには内部的に[`fputc`](/reference/cstdio/fputc.md)を使用する。
-+
- ## 要件
- - `buffer`は有効なポインタであること。
- - `stream`は有効なファイルストリームであること。
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>

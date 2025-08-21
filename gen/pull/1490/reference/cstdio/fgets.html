@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-10T01:16:39">
-        2025年07月10日 01時16分39秒
+      <span itemprop="datePublished" content="2025-08-21T14:51:20">
+        2025年08月21日 14時51分20秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Koichi Murase</span>
+        <span itemprop="name">rotarymars</span>
       </span>
       が更新
     </small></p>
@@ -222,6 +222,12 @@
 <p>指定されたファイルストリームから、指定されたバッファに指定された最大文字数までの文字を読み込む。</p>
 <p>読まれる文字はcount-1文字まで、終端にはヌル文字が追加される。</p>
 <p>また、改行にたどり着くとそこで読み込みを終了する(末尾に改行文字を含める)。</p>
+<h2>要件</h2>
+<ul>
+<li><code>str</code>は有効なポインタであること。</li>
+<li><code>stream</code>は有効なファイルストリームであること。</li>
+<li><code>str</code>が指すメモリ領域と<code>stream</code>が指すファイルストリームの内部バッファが重複していないこと。</li>
+</ul>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p>成功すれば読み込まれた文字列を、そうでなければ<code>NULL</code>を返す。</p>
 <h2>例</h2>
