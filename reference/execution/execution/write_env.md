@@ -1,30 +1,29 @@
-# write-env
+# write_env
 * execution[meta header]
-* function template[meta id-type]
+* cpo[meta id-type]
 * std::execution[meta namespace]
 * cpp26[meta cpp]
 
 ```cpp
-template<sender Sndr, queryable Env>
-constexpr auto write-env(Sndr&& sndr, Env&& env);  // exposition only
+namespace std::execution {
+  inline constexpr unspecified write_env{};
+}
 ```
+* unspecified[italic]
 
 ## 概要
-`write-env`は、Senderアルゴリズム動作仕様定義で用いられる説明専用のSenderアダプタである。
-
-[クエリ可能オブジェクト](../queryable.md)`env`と接続先[Receiver](receiver.md)の環境を合成した、新たなクエリ可能オブジェクトに関連付けれられたSenderを生成する。
+`write_env`は、入力[Sender](sender.md)と[クエリ可能オブジェクト](../queryable.md)を受け取り、[Receiver](receiver.md)`rcvr`と[接続(connect)](connect.md)される際に、クエリ可能オブジェクトと[`get_env`](get_env.md)`(rcvr)`を合成した環境に関連付けられたReceiverと接続されるSenderを生成するSenderアダプタである。
 
 
-## 戻り値
-説明専用の`write-env-t`を空のクラスとしたとき、下記を返す。
+## 効果
+説明用の式`sndr`と`env`に対して、`decltype((sndr))`が[`sender`](sender.md)を満たさない、もしくは`decltype((env))`が[`queryable`](../queryable.md)を満たさないとき、呼び出し式`write_env(sndr, env)`は不適格となる。
 
-```cpp
-make-sender(write-env-t(), std::forward<Env>(env), std::forward<Sndr>(sndr))
-```
-* make-sender[link make-sender.md]
+そうでなければ、呼び出し式`write_env(sndr, env)`は式[`make-sender`](make-sender.md)`(write_env, env, sndr)`と等価。
 
 
 ### Senderアルゴリズムタグ
+説明用の`write-env-t`を`decltype(auto(write_env))`とする。
+
 Senderアルゴリズム動作説明用のクラステンプレート[`impls-for`](impls-for.md)に対して、下記の特殊化が定義される。
 
 ```cpp
@@ -59,12 +58,20 @@ struct impls-for<write-env-t> : default-impls {
 ### 言語
 - C++26
 
+### 処理系
+- [Clang](/implementation.md#clang): ??
+- [GCC](/implementation.md#gcc): ??
+- [ICC](/implementation.md#icc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
+
 
 ## 関連項目
 - [`execution::on`](on.md)
+- [`execution::unstoppable`](unstoppable.md)
 
 
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3396R1 std::execution wording fixes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html)
 - [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+- [P3284R4 `write_env` and `unstoppable` Sender Adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3284r4.html)

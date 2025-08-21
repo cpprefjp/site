@@ -108,11 +108,11 @@ transform_sender(
       if constexpr (same_as<decltype(orig_sch), not-a-scheduler>) {
         return not-a-sender{};
       } else {
-        return write-env(
+        return write_env(
           continues_on(
             std::forward_like<OutSndr>(closure)(
               continues_on(
-                write-env(std::forward_like<OutSndr>(child), SCHED-ENV(orig_sch)),
+                write_env(std::forward_like<OutSndr>(child), SCHED-ENV(orig_sch)),
                 sch)),
             orig_sch),
           SCHED-ENV(sch));
@@ -128,7 +128,7 @@ transform_sender(
     * get_env[link get_env.md]
     * query-with-default[link query-with-default.md]
     * not-a-sender[link not-a-sender.md]
-    * write-env[link write-env.md]
+    * write_env[link write_env.md]
     * SCHED-ENV[link scheduler.md]
     * std::move[link /reference/utility/move.md]
 

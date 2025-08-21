@@ -110,6 +110,8 @@ namespace std::execution {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`execution::sender_adaptor_closure`](execution/sender_adaptor_closure.md) | パイプライン記法をサポートするSenderアダプタ実装補助 (class template) | C++26 |
+| [`execution::write_env`](execution/write_env.md) | Receiver環境を書き換える (customization point object) | C++26 |
+| [`execution::unstoppable`](execution/unstoppable.md) | 停止要求を遮断する (customization point object) | C++26 |
 | [`execution::starts_on`](execution/starts_on.md) | 指定Scheduler上で開始する (customization point object) | C++26 |
 | [`execution::continues_on`](execution/continues_on.md) | 指定Scheduler上で継続する (customization point object) | C++26 |
 | [`execution::on`](execution/on.md) | 指定Senderのみ別Scheduler上で実行する (customization point object) | C++26 |
@@ -162,5 +164,6 @@ Senderコンシューマは名前空間 `std::this_thread` で定義される。
 ## 参照
 - [P0024R2 The Parallelism TS Should be Standardized](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0024r2.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P3284R4 `write_env` and `unstoppable` Sender Adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3284r4.html)
 - [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
 - [P3682R0 Remove `std::execution::split`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3682r0.pdf)
