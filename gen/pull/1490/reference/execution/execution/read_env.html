@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-10T01:26:30">
-        2025年07月10日 01時26分30秒
+      <span itemprop="datePublished" content="2025-08-16T12:31:08">
+        2025年08月16日 12時31分08秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Koichi Murase</span>
+        <span itemprop="name">yoh</span>
       </span>
       が更新
     </small></p>
@@ -245,10 +245,15 @@
       <span class="p">[](</span><span class="k">auto</span> <span class="n">query</span><span class="p">,</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">rcvr</span><span class="p">)</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">void</span> <span class="p">{</span>
         <span class="n"><a href="set_value.html">TRY-SET-VALUE</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">,</span> <span class="n">query</span><span class="p">(</span><span class="n"><a href="get_env.html">get_env</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">)));</span>
       <span class="p">};</span>
+
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Env</span><span class="o">&gt;</span>
+    <span class="k">static</span> <span class="n">consteval</span> <span class="kt">void</span> <span class="n">check</span><span class="o">-</span><span class="n">types</span><span class="p">();</span>
   <span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
+<p>型<code>Q</code>を<code><a href="../../type_traits/decay.html">decay_t</a>&lt;<a href="data-type.html">data-type</a>&lt;Sndr&gt;&gt;</code>とする。
+<code>Env</code>型の左辺値<code>env</code>に対して式<code>Q()(env)</code>が<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>もしくは<code>void</code>型をもつとき、メンバ関数<code>check-types</code>は<code><a href="../../exception/exception.html">exception</a></code>から派生した<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>の型を<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>として送出する。</p>
 <h2>備考</h2>
 <p><code>read_env</code>の<a href="tag_of_t.html">Senderアルゴリズムタグ型</a>は<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>とされる。</p>
 <h2>例</h2>
@@ -290,6 +295,7 @@
 <h2>参照</h2>
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html" target="_blank">P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions</a></li>
 </ul></div>
 
       </div>

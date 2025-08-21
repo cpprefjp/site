@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-16T01:47:50">
-        2025年08月16日 01時47分50秒
+      <span itemprop="datePublished" content="2025-08-21T11:27:10">
+        2025年08月21日 11時27分10秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -459,18 +459,13 @@
 <td>C++26</td>
 </tr>
 <tr>
+<td><code><a href="execution/dependent_sender.html">execution::dependent_sender</a></code></td>
+<td>依存Sender (concept)</td>
+<td>C++26</td>
+</tr>
+<tr>
 <td><code><a href="execution/sender_to.html">execution::sender_to</a></code></td>
 <td>指定Receiverに接続可能なSender (concept)</td>
-<td>C++26</td>
-</tr>
-<tr>
-<td><code><a href="execution/get_completion_signatures.html">execution::get_completion_signatures</a></code></td>
-<td>Senderの完了シグネチャ集合を取得 (customization point object)</td>
-<td>C++26</td>
-</tr>
-<tr>
-<td><code><a href="execution/completion_signatures_of_t.html">execution::completion_signatures_of_t</a></code></td>
-<td>Senderの完了シグネチャ集合を取得 (alias template)</td>
 <td>C++26</td>
 </tr>
 <tr>
@@ -575,6 +570,16 @@
 <tr>
 <td><code><a href="execution/sender_adaptor_closure.html">execution::sender_adaptor_closure</a></code></td>
 <td>パイプライン記法をサポートするSenderアダプタ実装補助 (class template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/write_env.html">execution::write_env</a></code></td>
+<td>Receiver環境を書き換える (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/unstoppable.html">execution::unstoppable</a></code></td>
+<td>停止要求を遮断する (customization point object)</td>
 <td>C++26</td>
 </tr>
 <tr>
@@ -698,6 +703,21 @@
 <td>C++26</td>
 </tr>
 <tr>
+<td><code><a href="execution/dependent_sender_error.html">execution::dependent_sender_error</a></code></td>
+<td>依存Senderを表す<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>クラス(class)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/get_completion_signatures.html">execution::get_completion_signatures</a></code></td>
+<td>Senderの完了シグネチャ集合を取得 (function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/completion_signatures_of_t.html">execution::completion_signatures_of_t</a></code></td>
+<td>Senderの完了シグネチャ集合を取得 (alias template)</td>
+<td>C++26</td>
+</tr>
+<tr>
 <td><code><a href="execution/run_loop.html">execution::run_loop</a></code></td>
 <td>単一スレッド上でのループ実行 (class)</td>
 <td>C++26</td>
@@ -736,6 +756,7 @@
 <ul>
 <li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0024r2.html" target="_blank">P0024R2 The Parallelism TS Should be Standardized</a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3284r4.html" target="_blank">P3284R4 <code>write_env</code> and <code>unstoppable</code> Sender Adaptors</a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html" target="_blank">P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions</a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3682r0.pdf" target="_blank">P3682R0 Remove <code>std::execution::split</code></a></li>
 </ul></div>

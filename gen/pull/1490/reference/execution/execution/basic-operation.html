@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-14T14:04:00">
-        2025年07月14日 14時04分00秒
+      <span itemprop="datePublished" content="2025-08-16T12:31:08">
+        2025年08月16日 12時31分08秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Koichi Murase</span>
+        <span itemprop="name">yoh</span>
       </span>
       が更新
     </small></p>
@@ -237,7 +237,7 @@
 
     <span class="n">basic</span><span class="o">-</span><span class="n">operation</span><span class="p">(</span><span class="n">Sndr</span><span class="o">&amp;&amp;</span> <span class="n">sndr</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&amp;&amp;</span> <span class="n">rcvr</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">)</span>  <span class="c1">// exposition only</span>
       <span class="o">:</span> <span class="n">basic</span><span class="o">-</span><span class="n">state</span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">)),</span>
-        <span class="n">inner</span><span class="o">-</span><span class="n">ops</span><span class="p">(</span><span class="n">connect</span><span class="o">-</span><span class="n">all</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span> <span class="n">indices</span><span class="o">-</span><span class="k">for</span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">()))</span>
+        <span class="n">inner</span><span class="o">-</span><span class="n">ops</span><span class="p">(</span><span class="n">connect</span><span class="o">-</span><span class="n">all</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span> <span class="n"><a href="basic-sender.html">indices-for</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">()))</span>
     <span class="p">{}</span>
 
     <span class="kt">void</span> <span class="n">start</span><span class="p">()</span> <span class="o">&amp;</span> <span class="k">noexcept</span> <span class="p">{</span>
@@ -269,7 +269,7 @@
 <h2>クラス仕様</h2>
 <p><code>basic-operation</code>コンストラクタ<code>noexcept</code>節の式は下記の通り。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../type_traits/is_nothrow_constructible.html">is_nothrow_constructible_v</a></span><span class="o">&lt;</span><span class="n">basic</span><span class="o">-</span><span class="n">state</span><span class="o">&lt;</span><span class="n">Self</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">Self</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
-<span class="k">noexcept</span><span class="p">(</span><span class="n">connect</span><span class="o">-</span><span class="n">all</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span> <span class="n">indices</span><span class="o">-</span><span class="k">for</span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">()))</span>
+<span class="k">noexcept</span><span class="p">(</span><span class="n">connect</span><span class="o">-</span><span class="n">all</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span> <span class="n"><a href="basic-sender.html">indices-for</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">()))</span>
 </code></pre></div>
 </p>
 <p><code>basic-state</code>コンストラクタ<code>noexcept</code>節の式は下記の通り。</p>
@@ -296,10 +296,7 @@
 
 <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Rcvr</span><span class="o">&gt;</span>
 <span class="k">using</span> <span class="n">connect</span><span class="o">-</span><span class="n">all</span><span class="o">-</span><span class="n">result</span> <span class="o">=</span> <span class="n"><a href="../../functional/call-result-t.html">call-result-t</a></span><span class="o">&lt;</span>  <span class="c1">// exposition only</span>
-  <span class="k">decltype</span><span class="p">(</span><span class="n">connect</span><span class="o">-</span><span class="n">all</span><span class="p">),</span> <span class="n">basic</span><span class="o">-</span><span class="n">state</span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&gt;*</span><span class="p">,</span> <span class="n">Sndr</span><span class="p">,</span> <span class="n">indices</span><span class="o">-</span><span class="k">for</span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;&gt;</span><span class="p">;</span>
-
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="o">&gt;</span>
-<span class="k">using</span> <span class="n">indices</span><span class="o">-</span><span class="k">for</span> <span class="o">=</span> <span class="n"><a href="../../type_traits/remove_reference.html">remove_reference_t</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;::</span><span class="n">indices</span><span class="o">-</span><span class="k">for</span><span class="p">;</span>  <span class="c1">// exposition only </span>
+  <span class="k">decltype</span><span class="p">(</span><span class="n">connect</span><span class="o">-</span><span class="n">all</span><span class="p">),</span> <span class="n">basic</span><span class="o">-</span><span class="n">state</span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&gt;*</span><span class="p">,</span> <span class="n">Sndr</span><span class="p">,</span> <span class="n"><a href="basic-sender.html">indices-for</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;&gt;</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <p>説明専用の定数<code>connect-all</code>は、下記ラムダ式と等価な関数呼び出し可能なオブジェクトとして初期化される。</p>

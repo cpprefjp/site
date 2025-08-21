@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-14T14:04:00">
-        2025年07月14日 14時04分00秒
+      <span itemprop="datePublished" content="2025-08-21T11:27:10">
+        2025年08月21日 11時27分10秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Koichi Murase</span>
+        <span itemprop="name">yoh</span>
       </span>
       が更新
     </small></p>
@@ -288,7 +288,7 @@
     <span class="n"><a href="query-with-default.html">query-with-default</a></span><span class="p">(</span><span class="n"><a href="get_scheduler.html">get_scheduler</a></span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">not</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="n"><a href="scheduler.html">scheduler</a></span><span class="p">());</span>
 
   <span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span><span class="n"><a href="../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">orig_sch</span><span class="p">),</span> <span class="n">not</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="n"><a href="scheduler.html">scheduler</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">not</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="n">sender</span><span class="p">{};</span>
+    <span class="k">return</span> <span class="n"><a href="not-a-sender.html">not-a-sender</a></span><span class="p">{};</span>
   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n"><a href="continues_on.html">continues_on</a></span><span class="p">(</span>
       <span class="n"><a href="starts_on.html">starts_on</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward_like.html">std::forward_like</a></span><span class="o">&lt;</span><span class="n">OutSndr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n"><a href="../../utility/forward_like.html">std::forward_like</a></span><span class="o">&lt;</span><span class="n">OutSndr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">child</span><span class="p">)),</span>
@@ -302,13 +302,13 @@
     <span class="n"><a href="query-with-default.html">query-with-default</a></span><span class="p">(</span><span class="n"><a href="get_scheduler.html">get_scheduler</a></span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="n">not</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="n"><a href="scheduler.html">scheduler</a></span><span class="p">()));</span>
 
   <span class="k">if</span> <span class="nf">constexpr</span> <span class="p">(</span><span class="n"><a href="../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">orig_sch</span><span class="p">),</span> <span class="n">not</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="n"><a href="scheduler.html">scheduler</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">not</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="n">sender</span><span class="p">{};</span>
+    <span class="k">return</span> <span class="n"><a href="not-a-sender.html">not-a-sender</a></span><span class="p">{};</span>
   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n"><a href="write-env.html">write-env</a></span><span class="p">(</span>
+    <span class="k">return</span> <span class="n"><a href="write_env.html">write_env</a></span><span class="p">(</span>
       <span class="n"><a href="continues_on.html">continues_on</a></span><span class="p">(</span>
         <span class="n"><a href="../../utility/forward_like.html">std::forward_like</a></span><span class="o">&lt;</span><span class="n">OutSndr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">closure</span><span class="p">)(</span>
           <span class="n"><a href="continues_on.html">continues_on</a></span><span class="p">(</span>
-            <span class="n"><a href="write-env.html">write-env</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward_like.html">std::forward_like</a></span><span class="o">&lt;</span><span class="n">OutSndr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">child</span><span class="p">),</span> <span class="n"><a href="scheduler.html">SCHED-ENV</a></span><span class="p">(</span><span class="n">orig_sch</span><span class="p">)),</span>
+            <span class="n"><a href="write_env.html">write_env</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward_like.html">std::forward_like</a></span><span class="o">&lt;</span><span class="n">OutSndr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">child</span><span class="p">),</span> <span class="n"><a href="scheduler.html">SCHED-ENV</a></span><span class="p">(</span><span class="n">orig_sch</span><span class="p">)),</span>
             <span class="n">sch</span><span class="p">)),</span>
         <span class="n">orig_sch</span><span class="p">),</span>
       <span class="n"><a href="scheduler.html">SCHED-ENV</a></span><span class="p">(</span><span class="n">sch</span><span class="p">));</span>
@@ -318,18 +318,7 @@
 </p>
 </li>
 </ul>
-<p>説明専用のクラス<code>not-a-scheduler</code>を<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>な空のクラス型、<code>not-a-sender</code>を下記の通り定義する。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">not</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="n">sender</span> <span class="p">{</span>
-  <span class="k">using</span> <span class="n">sender_concept</span> <span class="o">=</span> <span class="n"><a href="sender.html">sender_t</a></span><span class="p">;</span>
-
-  <span class="k">auto</span> <span class="nf">get_completion_signatures</span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n"><i>see below</i></span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">};</span>
-</code></pre></div>
-</p>
-<p>メンバ関数<code>get_completion_signatures</code>は<code><a href="completion_signatures.html">completion_signatures</a></code>クラステンプレートの特殊化とは異なる型のオブジェクトを返す。
-処理系（標準ライブラリ実装者）は、この型を用いてユーザにエラー理由を通知することが推奨される。</p>
+<p>説明専用のクラス<code>not-a-scheduler</code>を<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>な空のクラス型とする。</p>
 <h2>カスタマイゼーションポイント</h2>
 <p>Senderアルゴリズム構築時に、関連付けられた実行ドメインに対して<code><a href="transform_sender.html">execution::transform_sender</a></code>経由でSender変換が行われる。
 <a href="default_domain.html">デフォルト実行ドメイン</a>では無変換。</p>
@@ -475,6 +464,7 @@ val=42
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html" target="_blank">P2999R3 Sender Algorithm Customization</a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html" target="_blank">P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions</a></li>
 </ul></div>
 
       </div>

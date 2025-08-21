@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-05-29T09:44:42">
-        2025年05月29日 09時44分42秒
+      <span itemprop="datePublished" content="2025-08-16T12:31:08">
+        2025年08月16日 12時31分08秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -238,12 +238,12 @@
 <p>入力Senderの値完了シグネチャが<code><a href="../execution/set_value.html">set_value_t</a>(Ts0...)</code>, ..., <code><a href="../execution/set_value.html">set_value_t</a>(TsN...)</code>のとき、<code>sync_wait_with_variant</code>の結果型は<code><a href="../../optional/optional.html">optional</a>&lt;<a href="../../variant/variant.html">variant</a>&lt;<a href="../../tuple/tuple.html">tuple</a>&lt;Ts0...&gt;, ..., <a href="../../tuple/tuple.html">tuple</a>&lt;TsN...&gt;&gt;</code>となる。</p>
 <h2>効果</h2>
 <p>説明用の<code>sndr</code>を<code>decltype(<a href="../execution/into_variant.html">into_variant</a>(sndr))</code>が<code>Sndr</code>型となる式とする。</p>
-<p><code><a href="../execution/sender_in.html">sender_in</a>&lt;Sndr, <a href="sync-wait-env.html">sync-wait-env</a>&gt; == false</code>のとき、呼び出し式<code>this_thread::sync_wait_with_variant(sndr)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
-<p>そうでなければ、呼び出し式<code>this_thread::sync_wait_with_variant(sndr)</code>は<code>sndr</code>が1回だけ評価されることを除いて、下記と等価。</p>
+<p>呼び出し式<code>this_thread::sync_wait_with_variant(sndr)</code>は<code>sndr</code>が1回だけ評価されることを除いて、下記と等価。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../execution/apply_sender.html">apply_sender</a></span><span class="p">(</span><span class="n"><a href="../execution/get-domain-early.html">get-domain-early</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span> <span class="n">sync_wait_with_variant</span><span class="p">,</span> <span class="n">sndr</span><span class="p">)</span>
 </code></pre></div>
 </p>
 <ul>
+<li><code><a href="../execution/sender_in.html">sender_in</a>&lt;Sndr, <a href="sync-wait-env.html">sync-wait-env</a>&gt; == true</code>であること。</li>
 <li>型<code>sync-wait-with-variant-result-type&lt;Sndr&gt;</code>が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>であること。</li>
 <li>上記の<code>apply_sender</code>式を<code>e</code>としたとき、<code><a href="../../concepts/same_as.html">same_as</a>&lt;decltype(e), sync-wait-with-variant-result-type&lt;Sndr&gt;&gt; == true</code>であること。</li>
 </ul>
@@ -258,8 +258,7 @@
 </p>
 <h3>Senderアルゴリズムタグ <code>sync_wait_with_variant</code></h3>
 <p>説明用の<code>sndr</code>を<code>decltype(<a href="../execution/into_variant.html">into_variant</a>(sndr))</code>が<code>Sndr</code>型となる式とする。</p>
-<p><code><a href="../../functional/callable.html">callable</a>&lt;<a href="sync_wait.html">sync_wait_t</a>, Sndr&gt; == false</code>のとき、式<code>sync_wait_with_variant.apply_sender(sndr)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
-<p>そうでなければ、式<code>sync_wait_with_variant.apply_sender(sndr)</code>は下記と等価。</p>
+<p>式<code>sync_wait_with_variant.apply_sender(sndr)</code>は下記と等価。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="k">using</span> <span class="n">result_type</span> <span class="o">=</span> <span class="n">sync</span><span class="o">-</span><span class="n">wait</span><span class="o">-</span><span class="n">with</span><span class="o">-</span><span class="n">variant</span><span class="o">-</span><span class="n">result</span><span class="o">-</span><span class="n">type</span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">;</span>
 <span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="n">opt_value</span> <span class="o">=</span> <span class="n"><a href="sync_wait.html">sync_wait</a></span><span class="p">(</span><span class="n"><a href="../execution/into_variant.html">into_variant</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">)))</span> <span class="p">{</span>
   <span class="k">return</span> <span class="n">result_type</span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n"><a href="../../tuple/tuple/get.html">get&lt;0&gt;</a></span><span class="p">(</span><span class="o">*</span><span class="n">opt_value</span><span class="p">)));</span>
@@ -321,6 +320,7 @@
 <h2>参照</h2>
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html" target="_blank">P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions</a></li>
 </ul></div>
 
       </div>

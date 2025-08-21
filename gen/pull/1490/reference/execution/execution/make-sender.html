@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-14T14:04:00">
-        2025年07月14日 14時04分00秒
+      <span itemprop="datePublished" content="2025-08-16T12:31:08">
+        2025年08月16日 12時31分08秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Koichi Murase</span>
+        <span itemprop="name">yoh</span>
       </span>
       が更新
     </small></p>
@@ -238,15 +238,18 @@
 <li><code>Child</code> : 子Senderのリスト。Senderファクトリでは0個、Senderアダプタでは通常1個の子Senderを保持する。</li>
 </ul>
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Mandates。満たさなければプログラムが不適格となる要件。この要件は、オーバーロード解決によって選択された関数内での`static_assert`の定数条件式や、関数に対するdelete宣言などで表現できる">適格要件</a></h2>
+<p>下記の式が全て<code>true</code>であること。</p>
 <ul>
-<li><code><a href="../../concepts/semiregular.html">semiregular</a>&lt;Tag&gt; == true</code></li>
-<li><code><a href="../movable-value.html">movable-value</a>&lt;Data&gt; == true</code></li>
-<li><code>(<a href="sender.html">sender</a>&lt;Child&gt; &amp;&amp; ...) == true</code></li>
+<li><code><a href="../../concepts/semiregular.html">semiregular</a>&lt;Tag&gt;</code></li>
+<li><code><a href="../movable-value.html">movable-value</a>&lt;Data&gt;</code></li>
+<li><code>(<a href="sender.html">sender</a>&lt;Child&gt; &amp;&amp; ...)</code></li>
+<li>型<code>Sndr</code>を<code><a href="basic-sender.html">basic-sender</a>&lt;Tag, Data, Child...&gt;</code>としたとき、<code><a href="dependent_sender.html">dependent_sender</a>&lt;Sndr&gt; || <a href="sender_in.html">sender_in</a>&lt;Sndr&gt;</code></li>
 </ul>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p>転送された各引数により<a class="cpprefjp-defined-word" data-desc="direct-non-list-initialization。リスト初期化ではない直接初期化">直接非リスト初期化</a>された型<code><a href="basic-sender.html">basic-sender</a>&lt;Tag, <a href="../../type_traits/decay.html">decay_t</a>&lt;Data&gt;, <a href="../../type_traits/decay.html">decay_t</a>&lt;Child&gt;...&gt;</code>のprvalueを返す。</p>
 <h2>備考</h2>
 <p>テンプレートパラメータ<code>Data</code>のデフォルト引数は、<code><a href="../../concepts/semiregular.html">semiregular</a></code>のモデルである空のトリビアルにコピー可能な<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>なクラス型。</p>
+<p><code><a href="sender_in.html">sender_in</a>&lt;Sndr&gt;</code>の評価結果が<code><a href="get_completion_signatures.html">get_completion_signatures</a>&lt;Sndr&gt;()</code>から送出された<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>の場合、処理系（標準ライブラリ実装者）はエラーメッセージにその<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>に関する情報を含めることが推奨される。</p>
 <h2>バージョン</h2>
 <h3>言語</h3>
 <ul>
@@ -260,6 +263,7 @@
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html" target="_blank">P2999R3 Sender Algorithm Customization</a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html" target="_blank">P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions</a></li>
 </ul></div>
 
       </div>

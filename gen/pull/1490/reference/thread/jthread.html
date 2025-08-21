@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-09T08:52:14">
-        2025年07月09日 08時52分14秒
+      <span itemprop="datePublished" content="2025-08-18T09:51:23">
+        2025年08月18日 09時51分23秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -222,7 +222,7 @@
 <p>クラス<code>jthread</code>は、<code><a href="thread.html">thread</a></code>と同じく、新しい実行のスレッド(thread of execution)（以下、単にスレッドとする）の作成／待機／その他操作を行う機構を提供する。このクラスはさらに、実行しているスレッドに対する停止要求を扱う機能や、自動で<code><a href="jthread/join.html">join</a></code>操作を行う機能を提供する。</p>
 <h2><code>thread</code>クラスとの違い</h2>
 <ul>
-<li>停止要求のサポート: <code>jthread</code>は自身と関連付けられたスレッドに対する停止要求を扱う仕組みを提供する。このために<code><a href="../stop_token/stop_token.html">&lt;stop_token&gt;</a></code>ヘッダに定義されたクラスを利用する。</li>
+<li>停止要求のサポート: <code>jthread</code>は自身と関連付けられたスレッドに対する停止要求を扱う仕組みを提供する。このために<code><a href="../stop_token.html">&lt;stop_token&gt;</a></code>ヘッダに定義されたクラスを利用する。</li>
 <li>自動join機能: <code>jthread</code>はデストラクタやムーブ代入演算子が呼び出されたとき、もし自身に関連付けられたスレッドが存在する場合は、スレッドの停止要求を作成し、その後<code><a href="jthread/join.html">join()</a></code>を呼び出してスレッドの終了を待機する。そのため<code>thread</code>クラスと異なり、<code><a href="jthread/joinable.html">joinable()</a> == true</code> であってもデストラクタやムーブ代入演算子を呼び出し可能であり、<code><a href="../exception/terminate.html">std::terminate()</a></code>は呼び出されない。</li>
 </ul>
 <h2>メンバ関数</h2>

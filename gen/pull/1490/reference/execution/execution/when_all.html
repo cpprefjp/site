@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-31T13:41:23">
-        2025年07月31日 13時41分23秒
+      <span itemprop="datePublished" content="2025-08-20T09:48:11">
+        2025年08月20日 09時48分11秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -241,15 +241,14 @@
 <li>いずれかが停止完了のとき、停止完了操作を行う。このとき停止要求が作成される。</li>
 </ul>
 <h2>効果</h2>
-<p>説明用のパック<code>sndrs</code>に対してパック<code>Sndrs</code>を<code>decltype((sndrs))...</code>としたとき、型<code>CD</code>を<code><a href="../../type_traits/common_type.html">common_type_t</a>&lt;decltype(<a href="get-domain-early.html">get-domain-early</a>(sndrs))...&gt;</code>とする。</p>
+<p>説明用のパック<code>sndrs</code>に対してパック<code>Sndrs</code>を<code>decltype((sndrs))...</code>としたとき、型<code>CD</code>を<code><a href="../../type_traits/common_type.html">common_type_t</a>&lt;decltype(<a href="get-domain-early.html">get-domain-early</a>(sndrs))...&gt;</code>とする。型<code>CD</code>が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>ならば型<code>CD2</code>を<code>CD</code>とし、そうでなければ<code><a href="default_domain.html">default_domain</a></code>とする。</p>
 <p>下記いずれかが<code>true</code>となるとき、呼び出し式<code>when_all(sndrs...)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
 <ul>
 <li><code>sizeof...(sndrs) == 0</code>、または</li>
-<li><code>(<a href="sender.html">sender</a>&lt;Sndrs&gt; &amp;&amp; ...) == false</code>、または</li>
-<li>型<code>CD</code>が<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a></li>
+<li><code>(<a href="sender.html">sender</a>&lt;Sndrs&gt; &amp;&amp; ...) == false</code></li>
 </ul>
 <p>そうでなければ、呼び出し式<code>when_all(sndrs...)</code>は下記と等価。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="transform_sender.html">transform_sender</a></span><span class="p">(</span><span class="n">CD</span><span class="p">(),</span> <span class="n"><a href="make-sender.html">make-sender</a></span><span class="p">(</span><span class="n">when_all</span><span class="p">,</span> <span class="p">{},</span> <span class="n">sndrs</span><span class="p">...))</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="transform_sender.html">transform_sender</a></span><span class="p">(</span><span class="n">CD2</span><span class="p">(),</span> <span class="n"><a href="make-sender.html">make-sender</a></span><span class="p">(</span><span class="n">when_all</span><span class="p">,</span> <span class="p">{},</span> <span class="n">sndrs</span><span class="p">...))</span>
 </code></pre></div>
 </p>
 <h3>Senderアルゴリズムタグ <code>when_all</code></h3>
@@ -262,6 +261,9 @@
     <span class="k">static</span> <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">get</span><span class="o">-</span><span class="n">state</span> <span class="o">=</span> <span class="n"><i>see below</i></span><span class="p">;</span>
     <span class="k">static</span> <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">start</span> <span class="o">=</span> <span class="n"><i>see below</i></span><span class="p">;</span>
     <span class="k">static</span> <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">complete</span> <span class="o">=</span> <span class="n"><i>see below</i></span><span class="p">;</span>
+
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Env</span><span class="o">&gt;</span>
+    <span class="k">static</span> <span class="n">consteval</span> <span class="kt">void</span> <span class="n">check</span><span class="o">-</span><span class="n">types</span><span class="p">();</span>
   <span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -278,16 +280,10 @@
 </p>
 <p><code>impls-for&lt;when_all_t&gt;::get-env</code>メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="p">[]</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">State</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Rcvr</span><span class="o">&gt;</span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="p">,</span> <span class="n">State</span><span class="o">&amp;</span> <span class="n">state</span><span class="p">,</span> <span class="k">const</span> <span class="n">Receiver</span><span class="o">&amp;</span> <span class="n">rcvr</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="n"><i>see below</i></span><span class="p">;</span>
+  <span class="k">return</span> <span class="n">make</span><span class="o">-</span><span class="n">when</span><span class="o">-</span><span class="n">all</span><span class="o">-</span><span class="n">env</span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">stop</span><span class="o">-</span><span class="n">src</span><span class="p">,</span> <span class="n"><a href="get_env.html">get_env</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">))</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
-<p>ラムダ式は下記を満たすオブジェクト<code>e</code>を返す。</p>
-<ul>
-<li><code>decltype(e)</code>が<code><a href="../queryable.html">queryable</a></code>のモデル、かつ</li>
-<li>式<code>e.query(<a href="../get_stop_token.html">get_stop_token</a>)</code>が<code>state.stop-src.<a href="../../stop_token/inplace_stop_source/get_token.html">get_token()</a></code>と等価、かつ</li>
-<li><code><a href="../get_stop_token.html">get_stop_token</a></code>以外かつ<code><a href="../forwarding-query.html">forwarding-query</a></code>を満たす<a href="../queryable.html">クエリオブジェクト</a><code>q</code>に対して、式<code>e.query(q)</code>は<code><a href="get_env.html">get_env</a>(rcvr).query(q)</code>と等価。</li>
-</ul>
 <p><code>impls-for&lt;when_all_t&gt;::get-state</code>メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="p">[]</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Rcvr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Sndr</span><span class="o">&amp;&amp;</span> <span class="n">sndr</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&amp;</span> <span class="n">rcvr</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">(</span><span class="k">noexcept</span><span class="p">(</span><span class="n">e</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="k">decltype</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="n">e</span><span class="p">;</span>
@@ -355,13 +351,36 @@
 <span class="p">}</span>
 </code></pre></div>
 </p>
-<h2>説明専用エンティティ</h2>
-<h3>コンセプト<code>max-1-sender-in</code></h3>
-<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Env</span><span class="o">&gt;</span>
-<span class="n">concept</span> <span class="n">max</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">sender</span><span class="o">-</span><span class="n">in</span> <span class="o">=</span> <span class="n"><a href="sender_in.html">sender_in</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">Env</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>  <span class="c1">// exposition only</span>
-  <span class="p">(</span><span class="n"><a href="../../tuple/tuple_size.html">tuple_size_v</a></span><span class="o">&lt;</span><span class="n"><a href="value_types_of_t.html">value_types_of_t</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">Env</span><span class="p">,</span> <span class="n"><a href="../../tuple/tuple.html">tuple</a></span><span class="p">,</span> <span class="n"><a href="../../tuple/tuple.html">tuple</a></span><span class="o">&gt;&gt;</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">);</span>
+<p>メンバ関数<code>impls-for&lt;when_all_t&gt;::check-types</code>の効果は下記の通り。
+説明用のパック<code>Is</code>を、<code><a href="basic-sender.html">indices-for</a>&lt;Sndr&gt;</code>で導入される<code><a href="../../utility/integer_sequence.html">integer_sequence</a></code>クラス特殊化の整数テンプレート引数とする。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="n">fn</span> <span class="o">=</span> <span class="p">[]</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Child</span><span class="o">&gt;</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">auto</span> <span class="n">cs</span> <span class="o">=</span> <span class="n"><a href="get_completion_signatures.html">get_completion_signatures</a></span><span class="o">&lt;</span><span class="n">Child</span><span class="p">,</span> <span class="n">when</span><span class="o">-</span><span class="n">all</span><span class="o">-</span><span class="n">env</span><span class="o">&lt;</span><span class="n">Env</span><span class="o">&gt;</span><span class="p">...</span><span class="o">&gt;</span><span class="p">();</span>
+  <span class="k">if</span> <span class="nf">constexpr</span> <span class="p">(</span><span class="n">cs</span><span class="p">.</span><span class="n"><a href="completion_signatures.html">count-of</a></span><span class="p">(</span><span class="n"><a href="set_value.html">set_value</a></span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">throw</span> <span class="n">unspecified</span><span class="o">-</span><span class="n">exception</span><span class="p">();</span>
+  <span class="n"><a href="decay-copyable-result-datums.html">decay-copyable-result-datums</a></span><span class="p">(</span><span class="n">cs</span><span class="p">);</span>
+<span class="p">};</span>
+<span class="p">(</span><span class="n">fn</span><span class="p">.</span><span class="k">template</span> <span class="k">operator</span><span class="p">()</span><span class="o">&lt;</span><span class="n"><a href="child-type.html">child-type</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">Is</span><span class="o">&gt;&gt;</span><span class="p">(),</span> <span class="p">...);</span>
 </code></pre></div>
 </p>
+<p><code>unspecified-exception</code>は<code><a href="../../exception/exception.html">exception</a></code>から派生した型となる。
+型<code>CD</code>が<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>な場合、<code><a href="../../exception/exception.html">exception</a></code>から派生した<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>な型を<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>として送出する。</p>
+<h2>説明専用エンティティ</h2>
+<h3>関数テンプレート<code>make-when-all-env</code></h3>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Env</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="k">auto</span> <span class="n">make</span><span class="o">-</span><span class="n">when</span><span class="o">-</span><span class="n">all</span><span class="o">-</span><span class="n">env</span><span class="p">(</span><span class="n"><a href="../../stop_token/inplace_stop_source.html">inplace_stop_source</a></span><span class="o">&amp;</span> <span class="n">stop_src</span><span class="p">,</span>  <span class="c1">// exposition only</span>
+                                 <span class="n">Env</span><span class="o">&amp;&amp;</span> <span class="n">env</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n"><i>see below</i></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>下記を満たすオブジェクト<code>e</code>を返す。</p>
+<ul>
+<li><code>decltype(e)</code>が<code><a href="../queryable.html">queryable</a></code>のモデル、かつ</li>
+<li>式<code>e.query(<a href="../get_stop_token.html">get_stop_token</a>)</code>が<code>state.stop-src.<a href="../../stop_token/inplace_stop_source/get_token.html">get_token()</a></code>と等価、かつ</li>
+<li><code><a href="../get_stop_token.html">get_stop_token</a></code>以外かつ<code><a href="../forwarding-query.html">forwarding-query</a></code>を満たす<a href="../queryable.html">クエリオブジェクト</a><code>q</code>に対して、式<code>e.query(q)</code>は<code><a href="get_env.html">get_env</a>(rcvr).query(q)</code>と等価。</li>
+</ul>
+<h3>エイリアステンプレート<code>when-all-env</code></h3>
+<p><code>when-all-env&lt;Env&gt;</code>は<code>decltype(make-when-all-env(declval&lt;<a href="../../stop_token/inplace_stop_source.html">inplace_stop_source</a>&amp;&gt;(), declval&lt;Env&gt;()))</code>となる。</p>
 <h3>列挙型<code>disposition</code></h3>
 <p><div class="codehilite"><pre><span></span><code><span class="k">enum</span> <span class="k">class</span> <span class="nc">disposition</span> <span class="p">{</span> <span class="n">started</span><span class="p">,</span> <span class="n">error</span><span class="p">,</span> <span class="n">stopped</span> <span class="p">};</span>  <span class="c1">// exposition only</span>
 </code></pre></div>
@@ -369,7 +388,7 @@
 <h3>クラステンプレート<code>make-state</code></h3>
 <p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Rcvr</span><span class="o">&gt;</span>
 <span class="k">struct</span> <span class="n">make</span><span class="o">-</span><span class="n">state</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="n">max</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">sender</span><span class="o">-</span><span class="n">in</span><span class="o">&lt;</span><span class="n"><a href="../forwarding_query.html">FWD-ENV-T</a></span><span class="p">(</span><span class="n"><a href="env_of_t.html">env_of_t</a></span><span class="o">&lt;</span><span class="n">Rcvr</span><span class="o">&gt;</span><span class="p">)</span><span class="o">&gt;</span><span class="p">...</span> <span class="n">Sndrs</span><span class="o">&gt;</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Sndrs</span><span class="o">&gt;</span>
   <span class="k">auto</span> <span class="k">operator</span><span class="p">()(</span><span class="k">auto</span><span class="p">,</span> <span class="k">auto</span><span class="p">,</span> <span class="n">Sndrs</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">sndrs</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
     <span class="k">using</span> <span class="n">values_tuple</span> <span class="o">=</span> <span class="n"><i>see below</i></span><span class="p">;</span>
     <span class="k">using</span> <span class="n">errors_variant</span> <span class="o">=</span> <span class="n"><i>see below</i></span><span class="p">;</span>
@@ -485,11 +504,17 @@
 <span class="c1">//   停止完了   set_stopped()</span>
 <span class="k">struct</span> <span class="n">MySender</span> <span class="p">{</span>
   <span class="k">using</span> <span class="n">sender_concept</span> <span class="o">=</span> <span class="n"><a href="sender.html">ex::sender_t</a></span><span class="p">;</span>
+
   <span class="k">using</span> <span class="n">completion_signatures</span> <span class="o">=</span> <span class="n"><a href="completion_signatures.html">ex::completion_signatures</a></span><span class="o">&lt;</span>
     <span class="n"><a href="set_value.html">ex::set_value_t</a></span><span class="p">(</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="p">),</span>
     <span class="n"><a href="set_error.html">ex::set_error_t</a></span><span class="p">(</span><span class="kt">int</span><span class="p">),</span>
     <span class="n"><a href="set_stopped.html">ex::set_stopped_t</a></span><span class="p">()</span>
   <span class="o">&gt;</span><span class="p">;</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Self</span><span class="o">&gt;</span>
+  <span class="k">static</span> <span class="n">consteval</span> <span class="k">auto</span> <span class="n">get_completion_signatures</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">completion_signatures</span><span class="p">{};</span>
+  <span class="p">}</span>
 
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Rcvr</span><span class="o">&gt;</span>
   <span class="k">struct</span> <span class="n">state</span> <span class="p">{</span>
@@ -575,6 +600,7 @@ error=-2
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html" target="_blank">P2999R3 Sender Algorithm Customization</a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html" target="_blank">P3396R1 std::execution wording fixes</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html" target="_blank">P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions</a></li>
 <li><a href="https://cplusplus.github.io/LWG/issue4203" target="_blank">LWG 4203. Constraints on <code>get-state</code> functions are incorrect</a></li>
 <li><a href="https://cplusplus.github.io/LWG/issue4227" target="_blank">LWG 4227. Missing <code>noexcept</code> operator in [exec.when.all]</a></li>
 </ul></div>

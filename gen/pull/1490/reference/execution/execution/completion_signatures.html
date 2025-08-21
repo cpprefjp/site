@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-14T14:04:00">
-        2025年07月14日 14時04分00秒
+      <span itemprop="datePublished" content="2025-08-20T09:30:57">
+        2025年08月20日 09時30分57秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Koichi Murase</span>
+        <span itemprop="name">yoh</span>
       </span>
       が更新
     </small></p>
@@ -227,18 +227,27 @@
   <div class="identifier-type">class template</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">completion_signatures</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
   <span class="k">template</span><span class="o">&lt;</span><span class="n">completion</span><span class="o">-</span><span class="n">signature</span><span class="p">...</span> <span class="n">Fns</span><span class="o">&gt;</span>
-  <span class="k">struct</span> <span class="n">completion_signatures</span> <span class="p">{};</span>
+  <span class="k">struct</span> <span class="n">completion_signatures</span> <span class="p">{</span>
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Tag</span><span class="o">&gt;</span>
+    <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">size_t</span> <span class="n">count</span><span class="o">-</span><span class="n">of</span><span class="p">(</span><span class="n">Tag</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n"><i>see below</i></span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Fn</span><span class="o">&gt;</span>
+    <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">void</span> <span class="k">for</span><span class="o">-</span><span class="n">each</span><span class="p">(</span><span class="n">Fn</span><span class="o">&amp;&amp;</span> <span class="n">fn</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// exposition only</span>
+      <span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Fn</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fn</span><span class="p">)(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">Fns</span><span class="o">*&gt;</span><span class="p">(</span><span class="k">nullptr</span><span class="p">)),</span> <span class="p">...);</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
 <p><code>completion_signatures</code>クラステンプレートは、完了シグネチャの集合をテンプレートパラメータとして表現する。</p>
-<p>実行制御ライブラリ仕様定義では、説明専用のコンセプト<code>valid-completion-signatures</code>を利用する。</p>
+<p>式<code>tag</code>の<a href="../../type_traits/decay.html">decayed</a>型を<code>Tag</code>としたとき、説明専用のメンバ関数<code>count-of</code>は<code>Fns</code>中の<code>Tag(Ts...)</code>形式で表される関数型の個数を返す。</p>
+<h3>説明専用のコンセプト <code>valid-completion-signatures</code></h3>
 <p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sigs</span><span class="o">&gt;</span>
 <span class="n">concept</span> <span class="n">valid</span><span class="o">-</span><span class="n">completion</span><span class="o">-</span><span class="n">signatures</span> <span class="o">=</span> <span class="n"><i>see below</i></span><span class="p">;</span>
 </code></pre></div>
 </p>
-<p><code>Sigs</code>が<code><a href="">completion_signatures</a></code>クラステンプレートの特殊化であるとき、<code>Sigs</code>は説明専用コンセプト<code>valid-completion-signatures</code>のモデルである。</p>
+<p><code>Sigs</code>が<code>completion_signatures</code>クラステンプレートの特殊化であるとき、<code>Sigs</code>は説明専用コンセプト<code>valid-completion-signatures</code>のモデルである。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
 <p><code>Fns</code>の各要素<code>Fn</code>が、下記の説明専用コンセプト<code>completion-signature</code>を満たすこと。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Fn</span><span class="o">&gt;</span>
@@ -286,7 +295,7 @@
 </ul>
 <h2>関連項目</h2>
 <ul>
-<li><code><a href="receiver.html">execution::receiver</a></code></li>
+<li><code><a href="get_completion_signatures.html">execution::get_completion_signatures</a></code></li>
 <li><code><a href="set_value.html">execution::set_value_t</a></code></li>
 <li><code><a href="set_error.html">execution::set_error_t</a></code></li>
 <li><code><a href="set_stopped.html">execution::set_stopped_t</a></code></li>
@@ -294,6 +303,7 @@
 <h2>参照</h2>
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html" target="_blank">P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions</a></li>
 </ul></div>
 
       </div>

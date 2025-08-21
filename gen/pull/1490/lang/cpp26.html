@@ -176,12 +176,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-11T17:16:44">
-        2025年07月11日 17時16分44秒
+      <span itemprop="datePublished" content="2025-08-21T11:53:21">
+        2025年08月21日 11時53分21秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Koichi Murase</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -376,6 +376,14 @@
 </thead>
 <tbody>
 <tr>
+<td><span href="https://cpprefjp.github.io/lang/cpp26/reflection.md.nolink">静的リフレクション</span></td>
+<td>リフレクション演算子<code>^^</code>と<code>std::meta::info</code>型によりコンパイル時にさまざまな情報を取得できる</td>
+</tr>
+<tr>
+<td><span href="https://cpprefjp.github.io/lang/cpp26/expansion_statements.md.nolink">コンパイル時のタプルやリストを展開処理する<code>template for</code>文</span></td>
+<td>クラス・タプル・Range・パラメータパックなどを展開してすべての要素をコンパイル時の処理する<code>template for</code>文を追加</td>
+</tr>
+<tr>
 <td><a href="cpp26/constexpr_cast_from_voidptr.html">定数式での<code>void*</code>からポインタ型へのキャストを許可</a></td>
 <td>型消去のために<code>void*</code>からポインタ型へのキャストを許可する</td>
 </tr>
@@ -395,6 +403,10 @@
 <td><a href="cpp26/allowing_exception_throwing_in_constant-evaluation.html">定数評価での例外送出を許可</a></td>
 <td>定数式の文脈での<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>の送出と捕捉を許可</td>
 </tr>
+<tr>
+<td><span href="https://cpprefjp.github.io/lang/cpp26/constexpr_virtual_inheritance.md.nolink"><code>constexpr</code>仮想継承を許可</span></td>
+<td>定数式の文脈での仮想継承を許可</td>
+</tr>
 </tbody>
 </table>
 <h3>プリプロセッサ</h3>
@@ -409,6 +421,10 @@
 <tr>
 <td><a href="cpp26/embed.html">ファイルを読み込む<code>#embed</code>命令を追加</a></td>
 <td>バイナリファイルをインクルードするメカニズム。<code>#include</code>とちがって読み出しサイズなどの柔軟な指定ができる</td>
+</tr>
+<tr>
+<td><span href="https://cpprefjp.github.io/lang/cpp26/preprocessing_is_never_undefined.md.nolink">プリプロセッサ仕様での「未定義動作」を不適格 (診断不要) に変更</span></td>
+<td>プリプロセッサとレキサーの文脈での「<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>」用語を<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../implementation-compliance.html#dfn-ill-formed">不適格</a> (<a class="cpprefjp-defined-word" data-desc="処理系は規則違反に対してエラーメッセージや警告を出さないかもしれない" href="../implementation-compliance.html#dfn-no-diagnostic-required">診断不要</a>) に変更</td>
 </tr>
 </tbody>
 </table>
@@ -439,6 +455,10 @@
 <tr>
 <td><a href="cpp26/module_declarations_shouldnt_be_macros.html">モジュール宣言でのモジュール名のマクロ展開を禁止する</a></td>
 <td><code>export module MACRO_NAME;</code>を禁止</td>
+</tr>
+<tr>
+<td><span href="https://cpprefjp.github.io/lang/cpp26/allow_attaching_main_to_the_global_module.md.nolink"><code>main</code>関数をグローバルモジュールに含められるようにする</span></td>
+<td><code>main</code>関数に<code>extern "C++"</code>を指定できるようにすることで名前付きモジュールに含められるようにする</td>
 </tr>
 </tbody>
 </table>
@@ -496,6 +516,7 @@
 <h3>コンテナ</h3>
 <ul>
 <li><code><a href="../reference/mdspan/mdspan.html">std::mdspan</a></code>から部分ビューを取り出す<code><a href="../reference/mdspan/submdspan.html">std::submdspan()</a></code>を追加</li>
+<li><code><a href="../reference/mdspan/mdspan.html">std::mdspan</a></code>に、インデックスを指定して要素を取り出す<code><span href="https://cpprefjp.github.io/reference/mdspan/mdspan/at.md.nolink">at()</span></code>メンバ関数を追加</li>
 <li><code><a href="../reference/mdspan/mdspan.html">std::mdspan</a></code>に対する<code><a href="../reference/mdspan/extents.html">std::dextents</a></code>指定の冗長さを解決する<code><a href="../reference/mdspan/extents.html">std::dims</a></code>を追加</li>
 <li><code><a href="../reference/mdspan/mdspan.html">std::mdspan</a></code>のレイアウトとして、<code><a href="../reference/mdspan/layout_left_padded.html">std::layout_left_padded</a></code>と<code><a href="../reference/mdspan/layout_right_padded.html">std::layout_right_padded</a></code>を追加</li>
 <li><code><a href="../reference/mdspan.html">&lt;mdspan&gt;</a></code>に、要素アクセスにアライメント保証を与える<code><a href="../reference/mdspan/aligned_accessor.html">std::aligned_accessor</a></code>を追加</li>
@@ -549,6 +570,7 @@
 <li><code><span href="https://cpprefjp.github.io/reference/ranges/approximately_sized_range.md.nolink">std::ranges::approximately_sized_range</span></code>コンセプトを追加</li>
 </ul>
 </li>
+<li>インデックス列を生成する<code><span href="https://cpprefjp.github.io/reference/ranges/indices.md.nolink">std::views::indices</span></code>を追加</li>
 <li>連続イテレータのコンセプト<code><a href="../reference/iterator/contiguous_iterator.html">contiguous_iterator</a></code>に、ポインタに変換できることを要件として追加</li>
 <li>以下のコンテナを<code>constexpr</code>に対応<ul>
 <li><code><a href="../reference/deque/deque.html">std::deque</a></code></li>
@@ -574,6 +596,7 @@
 </ul>
 <h3>アルゴリズム</h3>
 <ul>
+<li><code><a href="../reference/algorithm.html">&lt;algorithm&gt;</a></code>と<code><a href="../reference/memory.html">&lt;memory&gt;</a></code>のアルゴリズムを並列実行に対応</li>
 <li><code><a href="../reference/algorithm.html">&lt;algorithm&gt;</a></code>の以下のアルゴリズムを<code>constexpr</code>に対応<ul>
 <li><code><a href="../reference/algorithm/stable_sort.html">std::stable_sort()</a></code> / <code><a href="../reference/algorithm/ranges_stable_sort.html">std::ranges::stable_sort()</a></code></li>
 <li><code><a href="../reference/algorithm/stable_partition.html">std::stable_partition()</a></code> / <code><a href="../reference/algorithm/ranges_stable_partition.html">std::ranges::stable_partition()</a></code></li>
@@ -646,6 +669,7 @@
 <li>コンパイル時の書式文字列だけでなく、実行時の書式文字列を渡せるよう仕様修正</li>
 </ul>
 </li>
+<li><code><a href="../reference/string/basic_string.html">std::basic_string</a></code>クラスと<code><a href="../reference/string_view/basic_string_view.html">std::basic_string_view</a></code>クラスに、部分文字列を<code><a href="../reference/string_view/basic_string_view.html">std::basic_string_view</a></code>として取得するメンバ関数<code>subview()</code>を追加</li>
 <li><code><a href="../reference/string/basic_string.html">std::basic_string</a></code>と<code><a href="../reference/string_view/basic_string_view.html">std::basic_string_view</a></code>を<code><a href="../reference/string/basic_string.html">std::basic_string</a></code>として連結させる<code>operator+</code>を追加</li>
 </ul>
 <h3>ファイル</h3>
@@ -655,18 +679,74 @@
 <li><code>native_handle()</code></li>
 </ul>
 </li>
-<li><code><a href="../reference/filesystem/path.html">std::filesystem::path</a></code>に、文字列フォーマットのサポートを追加</li>
+<li><code><a href="../reference/filesystem/path.html">std::filesystem::path</a></code>クラスに、文字列フォーマットのサポートを追加</li>
+<li><code><a href="../reference/filesystem/path.html">std::filesystem::path</a></code>クラスに、出力用の文字列を取得するための、以下のメンバ関数を追加<ul>
+<li><code><span href="https://cpprefjp.github.io/reference/filesystem/path/display_string.md.nolink">display_string()</span></code></li>
+<li><code><span href="https://cpprefjp.github.io/reference/filesystem/path/system_encoded_string.md.nolink">system_encoded_string()</span></code></li>
+<li><code><span href="https://cpprefjp.github.io/reference/filesystem/path/generic_display_string.md.nolink">generic_display_string()</span></code></li>
+<li><code><span href="https://cpprefjp.github.io/reference/filesystem/path/generic_system_encoded_string.md.nolink">generic_system_encoded_string()</span></code></li>
+</ul>
+</li>
 </ul>
 <h3>入出力</h3>
 <ul>
 <li><code><a href="../reference/print/print.html">std::print()</a></code>と<code><a href="../reference/print/println.html">std::println()</a></code>に、ロックを取得せず高速に書き出す最適化を許可</li>
 <li><code><a href="../reference/print/println.html">std::println()</a></code>に、改行のみを出力する<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を追加</li>
 <li><code><a href="../reference/print/print.html">std::print()</a></code>と<code><a href="../reference/print/println.html">std::println()</a></code>をより高速にできる最適化が可能か判定する<code><a href="../reference/format/enable_nonlocking_formatter_optimization.html">std::enable_nonlocking_formatter_optimization</a></code>を追加</li>
+<li><code><a href="../reference/istream/basic_istream.html">std::basic_istream</a>::<a href="../reference/istream/basic_istream/ignore.html">ignore()</a></code>メンバ関数に、区切り文字として<code>char</code>型をとる<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を追加</li>
 </ul>
 <h3>並行・並列・非同期処理</h3>
 <ul>
 <li><code><a href="../reference/execution.html">&lt;execution&gt;</a></code>に汎用的な非同期実行を管理するフレームワークを追加</li>
-<li><code><a href="../reference/atomic/atomic.html">std::atomic</a></code>オブジェクトに対する2つの値の最大値・最小値を取得する関数として、メンバ関数<code><a href="../reference/atomic/atomic/fetch_max.html">fetch_max()</a></code>と<code><a href="../reference/atomic/atomic/fetch_min.html">fetch_min()</a></code>、非メンバ関数として<code><a href="../reference/atomic/atomic_fetch_max.html">std::atomic_fetch_max</a></code>、<code><a href="../reference/atomic/atomic_fetch_max_explicit.html">std::atomic_fetch_max_explicit</a></code>、<code><a href="../reference/atomic/atomic_fetch_min.html">std::atomic_fetch_min</a></code>、<code><a href="../reference/atomic/atomic_fetch_min_explicit.html">std::atomic_fetch_min_explicit</a></code>を追加</li>
+<li><code><a href="../reference/atomic/atomic.html">std::atomic</a></code>オブジェクトに対する2つの値の最大値・最小値を取得する関数として、以下を追加<ul>
+<li>メンバ関数<ul>
+<li><code><a href="../reference/atomic/atomic/fetch_max.html">fetch_max()</a></code></li>
+<li><code><a href="../reference/atomic/atomic/fetch_min.html">fetch_min()</a></code></li>
+<li><code><span href="https://cpprefjp.github.io/reference/atomic/atomic/fetch_fmaximum.md.nolink">fetch_fmaximum()</span></code> (浮動小数点数用)</li>
+<li><code><span href="https://cpprefjp.github.io/reference/atomic/atomic/fetch_fminimum.md.nolink">fetch_fminimum()</span></code> (浮動小数点数用)</li>
+<li><code><span href="https://cpprefjp.github.io/reference/atomic/atomic/fetch_fmaximum_num.md.nolink">fetch_fmaximum_num()</span></code> (浮動小数点数用)</li>
+<li><code><span href="https://cpprefjp.github.io/reference/atomic/atomic/fetch_fminimum_num.md.nolink">fetch_fminimum_num()</span></code> (浮動小数点数用)</li>
+</ul>
+</li>
+<li>非メンバ関数として<ul>
+<li><code><a href="../reference/atomic/atomic_fetch_max.html">std::atomic_fetch_max()</a></code></li>
+<li><code><a href="../reference/atomic/atomic_fetch_max_explicit.html">std::atomic_fetch_max_explicit()</a></code></li>
+<li><code><a href="../reference/atomic/atomic_fetch_min.html">std::atomic_fetch_min()</a></code></li>
+<li><code><a href="../reference/atomic/atomic_fetch_min_explicit.html">std::atomic_fetch_min_explicit()</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code><a href="../reference/atomic/atomic.html">std::atomic</a></code>クラスと<code><a href="../reference/atomic/atomic_ref.html">std::atomic_ref</a></code>クラスに、現在の値を読み込まず (fetchせず) に加算などをする高速な縮約用の操作として、以下を追加<ul>
+<li>メンバ関数<ul>
+<li><code><span href="https://cpprefjp.github.io/reference/atomic/atomic/store_add.md.nolink">store_add()</span></code></li>
+<li><code><span href="https://cpprefjp.github.io/reference/atomic/atomic/store_sub.md.nolink">store_sub()</span></code></li>
+<li><code><span href="https://cpprefjp.github.io/reference/atomic/atomic/store_and.md.nolink">store_and()</span></code></li>
+<li><code><span href="https://cpprefjp.github.io/reference/atomic/atomic/store_or.md.nolink">store_or()</span></code></li>
+<li><code><span href="https://cpprefjp.github.io/reference/atomic/atomic/store_xor.md.nolink">store_xor()</span></code></li>
+<li><code><span href="https://cpprefjp.github.io/reference/atomic/atomic/store_max.md.nolink">store_max()</span></code></li>
+<li><code><span href="https://cpprefjp.github.io/reference/atomic/atomic/store_min.md.nolink">store_min()</span></code></li>
+</ul>
+</li>
+<li>非メンバ関数<ul>
+<li><code><span href="https://cpprefjp.github.io/reference/atomic/atomic_store_add.md.nolink">std::atomic_store_add()</span></code></li>
+<li><code><span href="https://cpprefjp.github.io/reference/atomic/atomic_store_add_explicit.md.nolink">std::atomic_store_add_explicit()</span></code></li>
+<li><code><span href="https://cpprefjp.github.io/reference/atomic/atomic_store_sub.md.nolink">std::atomic_store_sub()</span></code></li>
+<li><code><span href="https://cpprefjp.github.io/reference/atomic/atomic_store_sub_explicit.md.nolink">std::atomic_store_sub_explicit()</span></code></li>
+<li><code><span href="https://cpprefjp.github.io/reference/atomic/atomic_store_and.md.nolink">std::atomic_store_and()</span></code></li>
+<li><code><span href="https://cpprefjp.github.io/reference/atomic/atomic_store_and_explicit.md.nolink">std::atomic_store_and_explicit()</span></code></li>
+<li><code><span href="https://cpprefjp.github.io/reference/atomic/atomic_store_or.md.nolink">std::atomic_store_or()</span></code></li>
+<li><code><span href="https://cpprefjp.github.io/reference/atomic/atomic_store_or_explicit.md.nolink">std::atomic_store_or_explicit()</span></code></li>
+<li><code><span href="https://cpprefjp.github.io/reference/atomic/atomic_store_xor.md.nolink">std::atomic_store_xor()</span></code></li>
+<li><code><span href="https://cpprefjp.github.io/reference/atomic/atomic_store_xor_explicit.md.nolink">std::atomic_store_xor_explicit()</span></code></li>
+<li><code><span href="https://cpprefjp.github.io/reference/atomic/atomic_store_max.md.nolink">std::atomic_store_max()</span></code></li>
+<li><code><span href="https://cpprefjp.github.io/reference/atomic/atomic_store_max_explicit.md.nolink">std::atomic_store_max_explicit()</span></code></li>
+<li><code><span href="https://cpprefjp.github.io/reference/atomic/atomic_store_min.md.nolink">std::atomic_store_min()</span></code></li>
+<li><code><span href="https://cpprefjp.github.io/reference/atomic/atomic_store_min_explicit.md.nolink">std::atomic_store_min_explicit()</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><code><a href="../reference/atomic/atomic_ref.html">std::atomic_ref</a></code>クラスに、参照するオブジェクトのアドレスを取得する<code><a href="../reference/atomic/atomic_ref/address.html">address()</a></code>メンバ関数を追加</li>
 <li><code><a href="../reference/atomic/atomic.html">std::atomic</a></code>クラスのテンプレートパラメータとして<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>された型を禁止</li>
 <li><code><a href="../reference/atomic/atomic_ref.html">std::atomic_ref</a></code>クラスのテンプレートパラメータとして、<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>された型を受け取れるようにした (内部で<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>が外される)</li>
@@ -679,6 +759,7 @@
 <li>関連して、<code><a href="../reference/memory/shared_ptr.html">std::shared_ptr</a></code>クラスと<code><a href="../reference/memory/weak_ptr.html">std::weak_ptr</a></code>クラスのメンバ関数として、<code>owner_hash()</code>と<code>owner_equal()</code>を追加</li>
 </ul>
 </li>
+<li><code><a href="../reference/memory/shared_ptr.html">std::shared_ptr</a></code>クラスとその関連機能を<code>constexpr</code>対応</li>
 </ul>
 <h3>日付・時間</h3>
 <ul>
@@ -790,6 +871,12 @@
 <li><code><span href="https://cpprefjp.github.io/reference/optional/optional/end.md.nolink">end()</span></code>メンバ関数</li>
 </ul>
 </li>
+<li><code><a href="../reference/optional/optional.html">std::optional</a></code>に、参照を保持するための<code>T&amp;</code>の部分特殊化を追加</li>
+<li><code><a href="../reference/tuple/apply.html">std::tuple</a></code>の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型推論をやめて、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型用の<code><span href="https://cpprefjp.github.io/reference/tuple/apply_result.md.nolink">std::apply_result</span></code>クラスを追加し、関連する以下の機能を追加<ul>
+<li><code><span href="https://cpprefjp.github.io/reference/type_traits/is_applicable.md.nolink">std::is_applicable</span></code>型特性</li>
+<li><code><span href="https://cpprefjp.github.io/reference/type_traits/is_nothrow_applicable.md.nolink">std::is_nothrow_applicable</span></code>型特性</li>
+</ul>
+</li>
 <li><code><a href="../reference/tuple/ignore.html">std::ignore</a></code>をファーストクラス・オブジェクトとして型を詳細に定義</li>
 <li><code><a href="../reference/bitset/bitset.html">std::bitset</a></code>に、<code><a href="../reference/string_view/basic_string_view.html">std::basic_string_view</a></code>を受け取るコンストラクタを追加</li>
 <li><code><a href="../reference/ratio.html">&lt;ratio&gt;</a></code>に、新たなSI接頭辞として、以下を追加<ul>
@@ -853,7 +940,9 @@
 </ul>
 </li>
 <li><code><a href="../reference/memory.html">&lt;memory&gt;</a></code>に、ポインタのアライメントを判定する<code><a href="../reference/memory/is_sufficiently_aligned.html">std::is_sufficiently_aligned()</a></code>関数を追加。</li>
-<li><code><a href="../reference/utility.html">&lt;utility&gt;</a></code>に、タイムトラベル最適化を抑止するための観測可能ポイントとして<code><span href="https://cpprefjp.github.io/reference/utility/observable.md.nolink">std::observable()</span></code>を追加</li>
+<li><code><a href="../reference/utility.html">&lt;utility&gt;</a></code>に、タイムトラベル最適化を抑止するための観測可能ポイントとして<code><span href="https://cpprefjp.github.io/reference/utility/observable_checkpoint.md.nolink">std::observable_checkpoint()</span></code>を追加</li>
+<li><code><a href="../reference/exception/exception_ptr.html">std::exception_ptr</a></code>を指定した<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>型にキャストする<code><span href="https://cpprefjp.github.io/reference/exception/exception_ptr_cast.md.nolink">std::exception_ptr_cast()</span></code>関数を追加</li>
+<li><code><a href="../reference/compare.html">&lt;compare&gt;</a></code>に、型の順序を取得する<code><span href="https://cpprefjp.github.io/reference/compare/type_order.md.nolink">std::type_order</span></code>クラスを追加</li>
 </ul>
 <h3>デバッグ</h3>
 <ul>
@@ -863,6 +952,7 @@
 <ul>
 <li><code><a href="../reference/type_traits.html">&lt;type_traits&gt;</a></code>に、共用体の指定されたメンバがアクティブかを定数式で判定するための関数として<code><a href="../reference/type_traits/is_within_lifetime.html">std::is_within_lifetime()</a></code>を追加</li>
 <li><code><a href="../reference/type_traits.html">&lt;type_traits&gt;</a></code>に、仮想継承の関係を判定する<code><a href="../reference/type_traits/is_virtual_base_of.html">std::is_virtual_base_of</a></code>を追加</li>
+<li><code><a href="../reference/type_traits.html">&lt;type_traits&gt;</a></code>に、<code><a href="../reference/type_traits/integral_constant.html">std::integral_constant</a></code>クラスを置き換える定数ラッパーとして<code><span href="https://cpprefjp.github.io/reference/type_traits/constant_wrapper.md.nolink">std::constant_wrapper</span></code>クラスを追加</li>
 </ul>
 <h3>制約</h3>
 <ul>
@@ -883,6 +973,11 @@
 </ul>
 </li>
 <li><code><a href="../reference/atomic/memory_order.html">std::memory_order::consume</a></code>と、それに関連して<code><a href="../reference/atomic/kill_dependency.html">std::kill_dependency()</a></code>を非推奨化し、<code><a href="cpp11/attributes.html">[[carries_dependency]]</a></code>属性を削除</li>
+<li><code><a href="../reference/filesystem/path.html">std::filesystem::path</a></code>クラスの以下のメンバ関数を非推奨化<ul>
+<li><code><a href="../reference/filesystem/path/string.html">string()</a></code></li>
+<li><code><a href="../reference/filesystem/path/generic_string.html">generic_string()</a></code></li>
+</ul>
+</li>
 </ul>
 <h3>非推奨の取り消し</h3>
 <ul>
@@ -908,6 +1003,10 @@
 </ul>
 </li>
 <li>C++23から非推奨となっていた、<code><a href="../reference/memory/allocator.html">std::allocator</a></code>のメンバ型<code>is_always_equal</code>を削除</li>
+</ul>
+<h2>取り決め</h2>
+<ul>
+<li>C言語の参照をC17からC23に更新</li>
 </ul></div>
 
       </div>

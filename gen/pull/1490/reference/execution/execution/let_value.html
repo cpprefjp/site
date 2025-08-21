@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-31T13:41:23">
-        2025年07月31日 13時41分23秒
+      <span itemprop="datePublished" content="2025-08-20T09:30:57">
+        2025年08月20日 09時30分57秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -234,7 +234,7 @@
 <h2>概要</h2>
 <p><code>let_value</code>は、新しいSenderを返す関数呼び出し可能なオブジェクトに引き渡すことで、入力<a href="sender.html">Sender</a>の<a href="set_value.html">値完了</a>結果から入れ子の非<a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a>へと変換するSenderアダプタである。</p>
 <p><code>let_value</code>は<a href="sender_adaptor_closure.html">パイプ可能Senderアダプタオブジェクト</a>であり、パイプライン記法をサポートする。</p>
-<p>本ページにてSenderアルゴリズム<code>let_value</code>／<code><a href="let_error.html">let_error</a></code>／<code><a href="let_stopped.html">let_stopped</a></code>の動作仕様を包括的に説明するため、以降のセクションにおいては、<code>let-cpo</code>, <code>set-cpo</code>をそれぞれ下記の通りとする。</p>
+<p>本ページにてSenderアルゴリズム<code>let_value</code>／<code><a href="let_error.html">let_error</a></code>／<code><a href="let_stopped.html">let_stopped</a></code>の動作仕様を包括的に説明するため、以降のセクションにおいては<code>let-cpo</code>, <code>set-cpo</code>をそれぞれ下記の通りとする。</p>
 <table border="1" bordercolor="#888" style="border-collapse:collapse">
 <thead>
 <tr>
@@ -270,6 +270,9 @@
   <span class="k">struct</span> <span class="n"><a href="impls-for.html">impls-for</a></span><span class="o">&lt;</span><span class="n"><a href="../../functional/decayed-typeof.html">decayed-typeof</a></span><span class="o">&lt;</span><span class="n"><i>let-cpo</i></span><span class="o">&gt;&gt;</span> <span class="o">:</span> <span class="n"><a href="impls-for.html">default-impls</a></span> <span class="p">{</span>
     <span class="k">static</span> <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">get</span><span class="o">-</span><span class="n">state</span> <span class="o">=</span> <span class="n"><i>see below</i></span><span class="p">;</span>
     <span class="k">static</span> <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">complete</span> <span class="o">=</span> <span class="n"><i>see below</i></span><span class="p">;</span>
+
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Env</span><span class="o">&gt;</span>
+    <span class="k">static</span> <span class="n">consteval</span> <span class="kt">void</span> <span class="n">check</span><span class="o">-</span><span class="n">types</span><span class="p">();</span>
   <span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -335,6 +338,24 @@
   <span class="p">}</span>
 </code></pre></div>
 </p>
+<p>メンバ関数<code>impls-for&lt;decayed-typeof&lt;let-cpo&gt;&gt;::check-types</code>の効果は下記の通り。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">using</span> <span class="n">LetFn</span> <span class="o">=</span> <span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n"><a href="data-type.html">data-type</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+<span class="k">auto</span> <span class="n">cs</span> <span class="o">=</span> <span class="n"><a href="get_completion_signatures.html">get_completion_signatures</a></span><span class="o">&lt;</span><span class="n"><a href="child-type.html">child-type</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">,</span> <span class="n"><a href="../forwarding_query.html">FWD-ENV-T</a></span><span class="p">(</span><span class="n">Env</span><span class="p">)...</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="k">auto</span> <span class="n">fn</span> <span class="o">=</span> <span class="p">[]</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Ts</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../functional/decayed-typeof.html">decayed-typeof</a></span><span class="o">&lt;</span><span class="n"><i>set-cpo</i></span><span class="o">&gt;</span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="n">Ts</span><span class="p">...))</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span><span class="o">!</span><span class="n">is</span><span class="o">-</span><span class="n">valid</span><span class="o">-</span><span class="n">let</span><span class="o">-</span><span class="n">sender</span><span class="p">)</span> 　<span class="c1">// <i>see below</i></span>
+    <span class="k">throw</span> <span class="n">unspecified</span><span class="o">-</span><span class="n">exception</span><span class="p">();</span>
+<span class="p">};</span>
+<span class="n">cs</span><span class="p">.</span><span class="n"><a href="completion_signatures.html">for-each</a></span><span class="p">(</span><span class="n"><a href="overload-set.html">overload-set</a></span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="p">[](</span><span class="k">auto</span><span class="p">){}));</span>
+</code></pre></div>
+</p>
+<p><code>unspecified-exception</code>は<code><a href="../../exception/exception.html">exception</a></code>から派生した型となる。
+説明用の変数<code>is-valid-let-sender</code>は下記を全て満たす時に限って<code>true</code>となる。</p>
+<ul>
+<li><code>(<a href="../../concepts/constructible_from.html">constructible_from</a>&lt;decay_t&lt;Ts&gt;, Ts&gt; &amp;&amp;...)</code></li>
+<li><code><a href="../../concepts/invocable.html">invocable</a>&lt;LetFn, decay_t&lt;Ts&gt;&amp;...&gt;</code></li>
+<li><code><a href="sender.html">sender</a>&lt;<a href="../../type_traits/invoke_result.html">invoke_result_t</a>&lt;LetFn, decay_t&lt;Ts&gt;&amp;...&gt;&gt;</code></li>
+<li>パック<code>env-t</code>を<code>decltype(let-cpo.transform_env(declval&lt;Sndr&gt;(), declval&lt;Env&gt;()))</code>としたとき、<code>sizeof...(Env) == 0 || <a href="sender_in.html">sender_in</a>&lt;<a href="../../type_traits/invoke_result.html">invoke_result_t</a>&lt;LetFn, decay_t&lt;Ts&gt;&amp;...&gt;, env-t...&gt;</code></li>
+</ul>
 <p>説明用の式<code>sndr</code>と<code>env</code>に対して、型<code>Sndr</code>を<code>decltype((sndr))</code>とする。<code><a href="sender-for.html">sender-for</a>&lt;Sndr, <a href="../../functional/decayed-typeof.html">decayed-typeof</a>&lt;let-cpo&gt;&gt; == false</code>のとき、式<code>let-cpo.transform_env(sndr, env)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
 <p>そうでなければ、式<code>let-cpo.transform_env(sndr, env)</code>は下記と等価。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="k">auto</span><span class="o">&amp;</span> <span class="p">[</span><span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">child</span><span class="p">]</span> <span class="o">=</span> <span class="n">sndr</span><span class="p">;</span>
@@ -570,6 +591,7 @@
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html" target="_blank">P2999R3 Sender Algorithm Customization</a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html" target="_blank">P3396R1 std::execution wording fixes</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html" target="_blank">P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions</a></li>
 <li><a href="https://cplusplus.github.io/LWG/issue4203" target="_blank">LWG 4203. Constraints on <code>get-state</code> functions are incorrect</a></li>
 <li><a href="https://cplusplus.github.io/LWG/issue4204" target="_blank">LWG 4204. specification of <code>as-sndr2(Sig)</code> in [exec.let] is incomplete</a></li>
 <li><a href="https://cplusplus.github.io/LWG/issue4205" target="_blank">LWG 4205. <code>let_[*].transform_env</code> is specified in terms of the <code>let_*</code> sender itself instead of its child</a></li>

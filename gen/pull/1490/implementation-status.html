@@ -164,12 +164,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-11T17:16:44">
-        2025年07月11日 17時16分44秒
+      <span itemprop="datePublished" content="2025-08-21T11:53:21">
+        2025年08月21日 11時53分21秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Koichi Murase</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -2067,6 +2067,46 @@
 <td>P1967R14: <a href="lang/cpp26/embed.html">ファイルを読み込む<code>#embed</code>命令を追加</a></td>
 <td>バイナリファイルをインクルードするメカニズム。<code>#include</code>とちがって読み出しサイズなどの柔軟な指定ができる</td>
 <td>15</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P3618R0: <span href="https://cpprefjp.github.io/lang/cpp26/allow_attaching_main_to_the_global_module.md.nolink"><code>main</code>関数をグローバルモジュールに含められるようにする</span></td>
+<td><code>main</code>関数に<code>extern "C++"</code>を指定できるようにすることで名前付きモジュールに含められるようにする</td>
+<td>16</td>
+<td>21</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P2996R13: <span href="https://cpprefjp.github.io/lang/cpp26/reflection.md.nolink">静的リフレクション</span></td>
+<td>リフレクション演算子<code>^^</code>と<code>std::meta::info</code>型によりコンパイル時にさまざまな情報を取得できる</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P1306R5: <span href="https://cpprefjp.github.io/lang/cpp26/expansion_statements.md.nolink">コンパイル時のタプルやリストを展開処理する<code>template for</code>文</span></td>
+<td>クラス・タプル・Range・パラメータパックなどを展開してすべての要素をコンパイル時の処理する<code>template for</code>文を追加</td>
+<td>16</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P3533R2: <span href="https://cpprefjp.github.io/lang/cpp26/constexpr_virtual_inheritance.md.nolink"><code>constexpr</code>仮想継承を許可</span></td>
+<td>定数式の文脈での仮想継承を許可</td>
+<td>16</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P2843R3: <span href="https://cpprefjp.github.io/lang/cpp26/preprocessing_is_never_undefined.md.nolink">プリプロセッサ仕様での「未定義動作」を不適格 (診断不要) に変更</span></td>
+<td>プリプロセッサとレキサーの文脈での「<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>」用語を<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="implementation-compliance.html#dfn-ill-formed">不適格</a> (<a class="cpprefjp-defined-word" data-desc="処理系は規則違反に対してエラーメッセージや警告を出さないかもしれない" href="implementation-compliance.html#dfn-no-diagnostic-required">診断不要</a>) に変更</td>
+<td>16</td>
 <td></td>
 <td></td>
 <td></td>

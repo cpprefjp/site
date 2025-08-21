@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:33:39">
-        2025年07月08日 15時33分39秒
+      <span itemprop="datePublished" content="2025-08-16T12:31:08">
+        2025年08月16日 12時31分08秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">yoh</span>
       </span>
       が更新
     </small></p>
@@ -257,21 +257,7 @@
 <li>コピー可能かつ同値比較可能</li>
 </ul>
 <h2>モデル</h2>
-<p>説明専用のエイリアステンプレート<code>value-signature</code>, コンセプト<code>sender-in-of</code>を下記の通り定義する。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">As</span><span class="o">&gt;</span>
-  <span class="k">using</span> <span class="n">value</span><span class="o">-</span><span class="n">signature</span> <span class="o">=</span> <span class="n"><a href="set_value.html">set_value_t</a></span><span class="p">(</span><span class="n">As</span><span class="p">...);</span>
-
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Env</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Values</span><span class="o">&gt;</span>
-  <span class="n">concept</span> <span class="n">sender</span><span class="o">-</span><span class="n">in</span><span class="o">-</span><span class="n">of</span> <span class="o">=</span>
-    <span class="n"><a href="sender_in.html">sender_in</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">Env</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
-    <span class="n"><a href="get_completion_signatures.html">MATCHING-SIG</a></span><span class="p">(</span>
-      <span class="n"><a href="set_value.html">set_value_t</a></span><span class="p">(</span><span class="n">Values</span><span class="p">...),</span>
-      <span class="n"><a href="value_types_of_t.html">value_types_of_t</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">Env</span><span class="p">,</span> <span class="n">value</span><span class="o">-</span><span class="n">signature</span><span class="p">,</span> <span class="n"><a href="../../type_traits/true_type.html">type_identity_t</a></span><span class="o">&gt;</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
-</p>
-<p>型<code>Sch</code>を<code>scheduler</code>の型、型<code>Env</code>を<code><a href="sender_in.html">sender_in</a>&lt;<a href="schedule_result_t.html">schedule_result_t</a>&lt;Sch&gt;, Env&gt;</code>を満たす実行環境の型としたとき、<code>sender-in-of&lt;<a href="schedule_result_t.html">schedule_result_t</a>&lt;Sch&gt;, Env&gt;</code>のモデルとなること。</p>
+<p>型<code>Sch</code>を<code>scheduler</code>の型、型<code>Env</code>を<code><a href="sender_in.html">sender_in</a>&lt;<a href="schedule_result_t.html">schedule_result_t</a>&lt;Sch&gt;, Env&gt;</code>を満たす実行環境の型としたとき、<code><a href="sender-in-of.html">sender-in-of</a>&lt;<a href="schedule_result_t.html">schedule_result_t</a>&lt;Sch&gt;, Env&gt;</code>のモデルとなること。</p>
 <p><code><a href="../../concepts/copyable.html">copyable</a>&lt;remove_cvref_t&lt;Sch&gt;&gt;</code>および<code><a href="../../concepts/equality_comparable.html">equality_comparable</a>&lt;remove_cvref_t&lt;Sch&gt;&gt;</code>により要求される操作は、<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>で終了してはならない。
 これらの操作やScheduler型の<code><a href="schedule.html">schedule</a></code>関数は、異なるスレッドから同時に操作を呼び出す可能性がある場合でも、データ競合を引き起こしてはならない。</p>
 <p>あるScheduler型<code>Sch</code>の2つの値<code>sch1</code>と<code>sch2</code>に対して、<code>sch1</code>と<code>sch2</code>が同じ実行リソースを共有する場合に限って、<code>sch1 == sch2</code>は<code>true</code>となる。</p>

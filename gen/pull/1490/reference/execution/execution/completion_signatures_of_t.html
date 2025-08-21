@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-05-29T09:44:42">
-        2025年05月29日 09時44分42秒
+      <span itemprop="datePublished" content="2025-08-16T12:31:08">
+        2025年08月16日 12時31分08秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -226,9 +226,9 @@
         
   <div class="identifier-type">type-alias</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">completion_signatures_of_t</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Env</span> <span class="o">=</span> <span class="n"><a href="env.html">env&lt;&gt;</a></span><span class="o">&gt;</span>
-    <span class="n">requires</span> <span class="n"><a href="sender_in.html">sender_in</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">Env</span><span class="o">&gt;</span>
-  <span class="k">using</span> <span class="n">completion_signatures_of_t</span> <span class="o">=</span> <span class="n"><a href="../../functional/call-result-t.html">call-result-t</a></span><span class="o">&lt;</span><span class="n"><a href="get_completion_signatures.html">get_completion_signatures_t</a></span><span class="p">,</span> <span class="n">Sndr</span><span class="p">,</span> <span class="n">Env</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Env</span><span class="o">&gt;</span>
+    <span class="n">requires</span> <span class="n"><a href="sender_in.html">sender_in</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">Env</span><span class="p">...</span><span class="o">&gt;</span>
+  <span class="k">using</span> <span class="n">completion_signatures_of_t</span> <span class="o">=</span> <span class="k">decltype</span><span class="p">(</span><span class="n"><a href="get_completion_signatures.html">get_completion_signatures</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">Env</span><span class="p">...</span><span class="o">&gt;</span><span class="p">());</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -253,6 +253,7 @@
 <h2>参照</h2>
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html" target="_blank">P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions</a></li>
 </ul></div>
 
       </div>

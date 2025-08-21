@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;execution&#34;], &#34;id-type&#34;: [&#34;concept&#34;], &#34;namespace&#34;: [&#34;std::execution&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;58aaf739f2d7552ac9c0e8ea9cf2a725d10a5843&#34;, &#34;source&#34;: &#34;#include &lt;execution&gt;\nnamespace ex = std::execution;\n\nint main()\n{\n  ex::sender auto sndr = ex::just(42);\n  static_assert(ex::sender_in&lt;decltype(sndr), ex::env&lt;&gt;&gt;);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;execution&#34;, &#34;execution&#34;, &#34;sender_in&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;execution&#34;], &#34;id-type&#34;: [&#34;concept&#34;], &#34;namespace&#34;: [&#34;std::execution&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;43faf527bce557fe8b3aa7f75555f3ecae279baa&#34;, &#34;source&#34;: &#34;#include &lt;execution&gt;\nnamespace ex = std::execution;\n\nint main()\n{\n  ex::sender auto sndr = ex::just(42);\n  static_assert(ex::sender_in&lt;decltype(sndr)&gt;);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;execution&#34;, &#34;execution&#34;, &#34;sender_in&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-05-02T08:14:47">
-        2025年05月02日 08時14分47秒
+      <span itemprop="datePublished" content="2025-08-16T12:31:08">
+        2025年08月16日 12時31分08秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -226,31 +226,34 @@
         
   <div class="identifier-type">concept</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">sender_in</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
-  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Env</span> <span class="o">=</span> <span class="n"><a href="env.html">env&lt;&gt;</a></span><span class="o">&gt;</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Env</span><span class="o">&gt;</span>
   <span class="n">concept</span> <span class="n">sender_in</span> <span class="o">=</span>
     <span class="n"><a href="sender.html">sender</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
-    <span class="n"><a href="../queryable.html">queryable</a></span><span class="o">&lt;</span><span class="n">Env</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
-    <span class="n">requires</span> <span class="p">(</span><span class="n">Sndr</span><span class="o">&amp;&amp;</span> <span class="n">sndr</span><span class="p">,</span> <span class="n">Env</span><span class="o">&amp;&amp;</span> <span class="n">env</span><span class="p">)</span> <span class="p">{</span>
-      <span class="p">{</span> <span class="n"><a href="get_completion_signatures.html">get_completion_signatures</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span> <span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Env</span><span class="o">&gt;</span><span class="p">(</span><span class="n">env</span><span class="p">))</span> <span class="p">}</span>
-        <span class="o">-&gt;</span> <span class="n"><a href="completion_signatures.html">valid-completion-signatures</a></span><span class="p">;</span>
-    <span class="p">};</span>
+    <span class="p">(</span><span class="k">sizeof</span><span class="p">...(</span><span class="n">Env</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+    <span class="p">(</span><span class="n"><a href="../queryable.html">queryable</a></span><span class="o">&lt;</span><span class="n">Env</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span> <span class="p">...)</span> <span class="o">&amp;&amp;</span>
+    <span class="n">is</span><span class="o">-</span><span class="n">constant</span><span class="o">&lt;</span><span class="n"><a href="get_completion_signatures.html">get_completion_signatures</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">Env</span><span class="p">...</span><span class="o">&gt;</span><span class="p">()</span><span class="o">&gt;</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
 <p><code>sender_in</code>は、<a href="sender.html">Sender型</a><code>Sndr</code>が<a href="../queryable.html">環境</a><code>Env</code>において非<a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a>を作成できることを表すコンセプトである。</p>
+<p>説明用のコンセプト<code>is-constant</code>を下記の通り定義する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">auto</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">is</span><span class="o">-</span><span class="n">constant</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>  <span class="c1">// exposition only</span>
+</code></pre></div>
+</p>
 <h2>モデル</h2>
 <p>説明用に<code>sndr</code>を<code>decltype((sndr))</code>が<code>Sndr</code>型となる式、<code>rcvr</code>を環境<code>Env</code>に関連付けられた<a href="receiver.html">Receiver</a>とする。</p>
 <p>ある完了操作の完了シグネチャが<code><a href="completion_signatures_of_t.html">completion_signatures_of_t</a>&lt;Sndr, Env&gt;</code>で取得される<code><a href="completion_signatures.html">completion_signatures</a></code>リストに含まれるとき、<code>Sndr</code>と<code>Env</code>における許容可能完了(permissible completion)となる。</p>
 <p><code>sndr</code>と<code>rcvr</code>の<a href="connect.html">接続(connect)</a>後に<a href="operation_state.html">Operation State</a>を開始することで評価されうる完了操作が、全て許容可能完了(permissible completion)である場合、<code>Sndr</code>と<code>Env</code>は<code>sender_in&lt;Sndr, Env&gt;</code>のモデルとなる。</p>
 <h2>例</h2>
-<p><div class="yata" id="58aaf739f2d7552ac9c0e8ea9cf2a725d10a5843"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="43faf527bce557fe8b3aa7f75555f3ecae279baa"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>
 <span class="k">namespace</span> <span class="n">ex</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span><span class="p">;</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
   <span class="n"><a href="sender.html">ex::sender</a></span> <span class="k">auto</span> <span class="n">sndr</span> <span class="o">=</span> <span class="n"><a href="just.html">ex::just</a></span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
-  <span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">ex::sender_in</span></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span> <span class="n"><a href="env.html">ex::env&lt;&gt;</a></span><span class="o">&gt;</span><span class="p">);</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">ex::sender_in</span></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">sndr</span><span class="p">)</span><span class="o">&gt;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -276,6 +279,7 @@
 <h2>参照</h2>
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html" target="_blank">P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions</a></li>
 </ul></div>
 
       </div>

@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-06-03T09:13:45">
-        2025年06月03日 09時13分45秒
+      <span itemprop="datePublished" content="2025-08-20T09:30:57">
+        2025年08月20日 09時30分57秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -234,38 +234,74 @@
 <h2>概要</h2>
 <p><code>then</code>は、入力<a href="sender.html">Sender</a>の<a href="set_value.html">値完了操作</a>の継続として関数呼び出しをアタッチするSenderアダプタである。</p>
 <p><code>then</code>は<a href="sender_adaptor_closure.html">パイプ可能Senderアダプタオブジェクト</a>であり、パイプライン記法をサポートする。</p>
+<p>本ページにてSenderアルゴリズム<code>then</code>／<code><a href="upon_error.html">upon_error</a></code>／<code><a href="upon_stopped.html">upon_stopped</a></code>の動作仕様を包括的に説明するため、以降のセクションにおいては<code>then-cpo</code>, <code>set-cpo</code>をそれぞれ下記の通りとする。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th><code>then-cpo</code></th>
+<th><code>set-cpo</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>then</code></td>
+<td><code><a href="set_value.html">set_value</a></code></td>
+</tr>
+<tr>
+<td><code><a href="upon_error.html">upon_error</a></code></td>
+<td><code><a href="set_error.html">set_error</a></code></td>
+</tr>
+<tr>
+<td><code><a href="upon_stopped.html">upon_stopped</a></code></td>
+<td><code><a href="set_stopped.html">set_stopped</a></code></td>
+</tr>
+</tbody>
+</table>
 <h2>効果</h2>
-<p>説明用の式<code>sndr</code>と<code>f</code>に対して、<code>decltype((sndr))</code>が<code><a href="sender.html">sender</a></code>を満たさない、もしくは<code>decltype((f))</code>が<code><a href="../movable-value.html">movable-value</a></code>を満たさないとき、呼び出し式<code>then(sndr, f)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
-<p>そうでなければ、呼び出し式<code>then(sndr, f)</code>は<code>sndr</code>が1回だけ評価されることを除いて、下記と等価。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="transform_sender.html">transform_sender</a></span><span class="p">(</span><span class="n"><a href="get-domain-early.html">get-domain-early</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span> <span class="n"><a href="make-sender.html">make-sender</a></span><span class="p">(</span><span class="n">then</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">sndr</span><span class="p">))</span>
+<p>説明用の式<code>sndr</code>と<code>f</code>に対して、<code>decltype((sndr))</code>が<code><a href="sender.html">sender</a></code>を満たさない、もしくは<code>decltype((f))</code>が<code><a href="../movable-value.html">movable-value</a></code>を満たさないとき、呼び出し式<code>then-cpo(sndr, f)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
+<p>そうでなければ、呼び出し式<code>then-cpo(sndr, f)</code>は<code>sndr</code>が1回だけ評価されることを除いて、下記と等価。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="transform_sender.html">transform_sender</a></span><span class="p">(</span><span class="n"><a href="get-domain-early.html">get-domain-early</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span> <span class="n"><a href="make-sender.html">make-sender</a></span><span class="p">(</span><span class="n">then</span><span class="o">-</span><span class="n">cpo</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">sndr</span><span class="p">))</span>
 </code></pre></div>
 </p>
-<h3>Senderアルゴリズムタグ <code>then</code></h3>
+<h3>Senderアルゴリズムタグ <code>then-cpo</code></h3>
 <p>Senderアルゴリズム動作説明用のクラステンプレート<code><a href="impls-for.html">impls-for</a></code>に対して、下記の特殊化が定義される。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
   <span class="k">template</span><span class="o">&lt;&gt;</span>
-  <span class="k">struct</span> <span class="n"><a href="impls-for.html">impls-for</a></span><span class="o">&lt;</span><span class="n"><a href="../../functional/decayed-typeof.html">decayed-typeof</a></span><span class="o">&lt;</span><span class="n">then</span><span class="o">&gt;&gt;</span> <span class="o">:</span> <span class="n"><a href="impls-for.html">default-impls</a></span> <span class="p">{</span>
+  <span class="k">struct</span> <span class="n"><a href="impls-for.html">impls-for</a></span><span class="o">&lt;</span><span class="n"><a href="../../functional/decayed-typeof.html">decayed-typeof</a></span><span class="o">&lt;</span><span class="n"><i>then-cpo</i></span><span class="o">&gt;&gt;</span> <span class="o">:</span> <span class="n"><a href="impls-for.html">default-impls</a></span> <span class="p">{</span>
     <span class="k">static</span> <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">complete</span> <span class="o">=</span>
       <span class="p">[]</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Tag</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
         <span class="p">(</span><span class="k">auto</span><span class="p">,</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">fn</span><span class="p">,</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">rcvr</span><span class="p">,</span> <span class="n">Tag</span><span class="p">,</span> <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="kt">void</span> <span class="p">{</span>
-          <span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span><span class="n"><a href="../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n">Tag</span><span class="p">,</span> <span class="n"><a href="../../functional/decayed-typeof.html">decayed-typeof</a></span><span class="o">&lt;</span><span class="n"><a href="set_value.html">set_value</a></span><span class="o">&gt;&gt;</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span><span class="n"><a href="../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n">Tag</span><span class="p">,</span> <span class="n"><a href="../../functional/decayed-typeof.html">decayed-typeof</a></span><span class="o">&lt;</span><span class="n"><i>set-cpo</i></span><span class="o">&gt;&gt;</span><span class="p">)</span> <span class="p">{</span>
             <span class="n"><a href="set_value.html">TRY-SET-VALUE</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">,</span>
                           <span class="n"><a href="../../functional/invoke.html">invoke</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">fn</span><span class="p">),</span> <span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...));</span>
           <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
             <span class="n">Tag</span><span class="p">()(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">),</span> <span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
           <span class="p">}</span>
         <span class="p">};</span>
+
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Env</span><span class="o">&gt;</span>
+    <span class="k">static</span> <span class="n">consteval</span> <span class="kt">void</span> <span class="n">check</span><span class="o">-</span><span class="n">types</span><span class="p">();</span>
   <span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
+<p>メンバ関数<code>impls-for&lt;decayed-typeof&lt;then-cpo&gt;&gt;::check-types</code>の効果は下記の通り。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="n">cs</span> <span class="o">=</span> <span class="n"><a href="get_completion_signatures.html">get_completion_signatures</a></span><span class="o">&lt;</span><span class="n"><a href="child-type.html">child-type</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">,</span> <span class="n"><a href="../forwarding_query.html">FWD-ENV-T</a></span><span class="p">(</span><span class="n">Env</span><span class="p">)...</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="k">auto</span> <span class="n">fn</span> <span class="o">=</span> <span class="p">[]</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Ts</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="set_value.html">set_value_t</a></span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="n">Ts</span><span class="p">...))</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span><span class="o">!</span><span class="n"><a href="../../concepts/invocable.html">invocable</a></span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n"><a href="data-type.html">data-type</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="n">Ts</span><span class="p">...</span><span class="o">&gt;</span><span class="p">)</span>
+    <span class="k">throw</span> <span class="n">unspecified</span><span class="o">-</span><span class="n">exception</span><span class="p">();</span>
+<span class="p">};</span>
+<span class="n">cs</span><span class="p">.</span><span class="n"><a href="completion_signatures.html">for-each</a></span><span class="p">(</span><span class="n"><a href="overload-set.html">overload-set</a></span><span class="p">{</span><span class="n">fn</span><span class="p">,</span> <span class="p">[](</span><span class="k">auto</span><span class="p">){}});</span>
+</code></pre></div>
+</p>
+<p><code>unspecified-exception</code>は<code><a href="../../exception/exception.html">exception</a></code>から派生した型となる。</p>
 <h2>カスタマイゼーションポイント</h2>
 <p>Senderアルゴリズム構築時および<a href="receiver.html">Receiver</a>接続時に、関連付けられた実行ドメインに対して<code><a href="transform_sender.html">execution::transform_sender</a></code>経由でSender変換が行われる。
 <a href="default_domain.html">デフォルト実行ドメイン</a>では無変換。</p>
-<p><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の<a href="sender.html">Sender</a><code>out_sndr</code>が下記を満たさない場合、呼び出し式<code>then(sndr, f)</code>の<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../../implementation-compliance.html#dfn-undefined-behavior">動作は未定義</a>となる。</p>
+<p><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の<a href="sender.html">Sender</a><code>out_sndr</code>が下記を満たさない場合、呼び出し式<code>then-cpo(sndr, f)</code>の<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../../implementation-compliance.html#dfn-undefined-behavior">動作は未定義</a>となる。</p>
 <ul>
-<li><code>then</code>に対する<code>sndr</code>の値結果データで<code>f</code>またはそのコピーを呼び出し、<code>out_sndr</code>の値完了として<code>f</code>の結果値を用いること。</li>
-<li>他の完了操作では変更なしに転送すること。</li>
+<li><code>then-cpo</code>に対する<code>sndr</code>の<code>set-cpo</code>結果データで<code>f</code>またはそのコピーを呼び出し、<code>out_sndr</code>の値完了として<code>f</code>の結果値を用いること。</li>
+<li>上記以外の完了操作では変更なしに転送すること。</li>
 </ul>
 <h2>例</h2>
 <p><div class="yata" id="3342a808f21fec19582d7cf3c381408864d5d44e"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../print.html">&lt;print&gt;</a></span><span class="cp"></span>
@@ -320,6 +356,7 @@ C++
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html" target="_blank">P2999R3 Sender Algorithm Customization</a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html" target="_blank">P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions</a></li>
 </ul></div>
 
       </div>

@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-05-30T14:37:05">
-        2025年05月30日 14時37分05秒
+      <span itemprop="datePublished" content="2025-08-16T12:31:08">
+        2025年08月16日 12時31分08秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,10 +225,10 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">type-alias</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">single-sender</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Env</span><span class="o">&gt;</span>
-<span class="n">concept</span> <span class="n">single</span><span class="o">-</span><span class="n">sender</span> <span class="o">=</span> <span class="n"><a href="sender_in.html">sender_in</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">Env</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Env</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">single</span><span class="o">-</span><span class="n">sender</span> <span class="o">=</span> <span class="n"><a href="sender_in.html">sender_in</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">Env</span><span class="p">...</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
   <span class="n">requires</span> <span class="p">{</span>
-    <span class="k">typename</span> <span class="n"><a href="single-sender-value-type.html">single-sender-value-type</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">Env</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="k">typename</span> <span class="n"><a href="single-sender-value-type.html">single-sender-value-type</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">Env</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span>
   <span class="p">};</span>
 </code></pre></div>
 </p>
@@ -246,6 +246,7 @@
 <h2>参照</h2>
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html" target="_blank">P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions</a></li>
 </ul></div>
 
       </div>
