@@ -30,7 +30,7 @@ SD-6 は C++14 の機能について以下のテストマクロを定義する�
 | `__cpp_lib_is_final`                     | `201402` | [`std::is_final`](/reference/type_traits/is_final.md)               | [`<type_traits>`](/reference/type_traits.md) |
 | `__cpp_lib_is_null_pointer`              | `201309` | [`std::is_null_pointer`](/reference/type_traits/is_null_pointer.md) | [`<type_traits>`](/reference/type_traits.md) |
 | `__cpp_lib_make_reverse_iterator`        | `201402` | [`std::make_reverse_iterator`](/reference/iterator/make_reverse_iterator.md) | [`<iterator>`](/reference/iterator.md) |
-| `__cpp_lib_make_unique`                  | `201304` | [`std::make_unique`](/reference/memory/make_unique.md) | [`<memory>`](/reference/memory/make_unique.md)
+| `__cpp_lib_make_unique`                  | `201304` | [`std::make_unique`](/reference/memory/make_unique.md) | [`<memory>`](/reference/memory.md)
 | `__cpp_lib_null_iterators`               | `201304` | ヌル前方向イテレータ | [`<iterator>`](/reference/iterator.md) |
 | `__cpp_lib_quoted_string_io`             | `201304` | [`std::quoted`](/reference/iomanip/quoted.md) | [`<iomanip>`](/reference/iomanip.md)
 | `__cpp_lib_result_of_sfinae`             | `201210` | [`std::result_of`](/reference/type_traits/result_of.md) と SFINAE | [`<type_traits>`](/reference/type_traits.md) |

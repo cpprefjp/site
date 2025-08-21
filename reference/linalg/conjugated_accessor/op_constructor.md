@@ -25,7 +25,7 @@ constexpr conjugated_accessor(const NestedAccessor& acc); // (3)
 
 
 ## テンプレートパラメータ制約
-- (2) : [`is_constructible_v`](/reference/type_traits/is_convertible.md)`<NestedAccessor, const OtherNestedAccessor&> == true`
+- (2) : [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<NestedAccessor, const OtherNestedAccessor&> == true`
 
 
 ## 効果

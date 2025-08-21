@@ -33,6 +33,9 @@ namespace std::execution {
       [](auto query, auto& rcvr) noexcept -> void {
         TRY-SET-VALUE(rcvr, query(get_env(rcvr)));
       };
+
+    template<class Sndr, class Env>
+    static consteval void check-types();
   };
 }
 ```
@@ -41,6 +44,9 @@ namespace std::execution {
 * default-impls[link impls-for.md]
 * TRY-SET-VALUE[link set_value.md]
 * get_env[link get_env.md]
+
+型`Q`を[`decay_t`](/reference/type_traits/decay.md)`<`[`data-type`](data-type.md)`<Sndr>>`とする。
+`Env`型の左辺値`env`に対して式`Q()(env)`が不適格もしくは`void`型をもつとき、メンバ関数`check-types`は[`exception`](/reference/exception/exception.md)から派生した未規定の型を例外として送出する。
 
 
 ## 備考
@@ -96,3 +102,4 @@ int main()
 
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)

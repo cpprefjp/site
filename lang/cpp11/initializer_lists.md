@@ -24,7 +24,7 @@ std::vector<int> v2 {1, 2, 3};
 v2 = {4, 5, 6};
 ```
 
-ユーザー定義型に対してリスト初期化を許可するためには、[`<initializer_list>`](/reference/initializer_list/initializer_list.md)ヘッダで定義される[`std::initializer_list`](/reference/initializer_list/initializer_list.md)クラスのオブジェクトをパラメータとして、コンストラクタや代入演算子をオーバーロードする：
+ユーザー定義型に対してリスト初期化を許可するためには、[`<initializer_list>`](/reference/initializer_list.md)ヘッダで定義される[`std::initializer_list`](/reference/initializer_list/initializer_list.md)クラスのオブジェクトをパラメータとして、コンストラクタや代入演算子をオーバーロードする：
 
 ```cpp example
 #include <vector>

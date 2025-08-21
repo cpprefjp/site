@@ -34,8 +34,8 @@ int main()
   ex::sender auto sndr = ex::schedule(sch);
 
   // スケジュールSenderの完了シグネチャ集合を確認
-  auto sigs = ex::get_completion_signatures(sndr);
-  static_assert(std::same_as<decltype(sigs),
+  using Sigs = ex::completion_signatures_of_t<decltype(sndr)>;
+  static_assert(std::same_as<Sigs,
     ex::completion_signatures<ex::set_value_t(),
                               ex::set_error_t(std::exception_ptr),
                               ex::set_stopped_t()>>);
@@ -50,7 +50,7 @@ int main()
 * ex::scheduler[link ../scheduler.md]
 * ex::sender[link ../sender.md]
 * ex::schedule[link ../schedule.md]
-* ex::get_completion_signatures[link ../get_completion_signatures.md]
+* ex::completion_signatures_of_t[link ../completion_signatures_of_t.md]
 * ex::completion_signatures[link ../completion_signatures.md]
 * ex::set_value_t[link ../set_value.md]
 * ex::set_error_t[link ../set_error.md]

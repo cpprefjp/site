@@ -17,7 +17,7 @@ namespace std::execution {
 
 `let_value`は[パイプ可能Senderアダプタオブジェクト](sender_adaptor_closure.md)であり、パイプライン記法をサポートする。
 
-本ページにてSenderアルゴリズム`let_value`／[`let_error`](let_error.md)／[`let_stopped`](let_stopped.md)の動作仕様を包括的に説明するため、以降のセクションにおいては、`let-cpo`, `set-cpo`をそれぞれ下記の通りとする。
+本ページにてSenderアルゴリズム`let_value`／[`let_error`](let_error.md)／[`let_stopped`](let_stopped.md)の動作仕様を包括的に説明するため、以降のセクションにおいては`let-cpo`, `set-cpo`をそれぞれ下記の通りとする。
 
 | `let-cpo` | `set-cpo` |
 |----|----|
@@ -48,6 +48,9 @@ namespace std::execution {
   struct impls-for<decayed-typeof<let-cpo>> : default-impls {
     static constexpr auto get-state = see below;
     static constexpr auto complete = see below;
+
+    template<class Sndr, class... Env>
+    static consteval void check-types();
   };
 }
 ```
@@ -122,6 +125,34 @@ namespace std::execution {
 * TRY-EVAL[link set_value.md]
 * std::move[link /reference/utility/move.md]
 * set-cpo[italic]
+
+メンバ関数`impls-for<decayed-typeof<let-cpo>>::check-types`の効果は下記の通り。
+
+```cpp
+using LetFn = remove_cvref_t<data-type<Sndr>>;
+auto cs = get_completion_signatures<child-type<Sndr>, FWD-ENV-T(Env)...>();
+auto fn = []<class... Ts>(decayed-typeof<set-cpo>(*)(Ts...)) {
+  if constexpr (!is-valid-let-sender) 　// see below
+    throw unspecified-exception();
+};
+cs.for-each(overload-set(fn, [](auto){}));
+```
+* data-type[link data-type.md]
+* get_completion_signatures[link get_completion_signatures.md]
+* child-type[link child-type.md]
+* FWD-ENV-T[link ../forwarding_query.md]
+* decayed-typeof[link /reference/functional/decayed-typeof.md]
+* for-each[link completion_signatures.md]
+* overload-set[link overload-set.md]
+* set-cpo[italic]
+
+`unspecified-exception`は[`exception`](/reference/exception/exception.md)から派生した型となる。
+説明用の変数`is-valid-let-sender`は下記を全て満たす時に限って`true`となる。
+
+- `(`[`constructible_from`](/reference/concepts/constructible_from.md)`<decay_t<Ts>, Ts> &&...)`
+- [`invocable`](/reference/concepts/invocable.md)`<LetFn, decay_t<Ts>&...>`
+- [`sender`](sender.md)`<`[`invoke_result_t`](/reference/type_traits/invoke_result.md)`<LetFn, decay_t<Ts>&...>>`
+- パック`env-t`を`decltype(let-cpo.transform_env(declval<Sndr>(), declval<Env>()))`としたとき、`sizeof...(Env) == 0 ||` [`sender_in`](sender_in.md)`<`[`invoke_result_t`](/reference/type_traits/invoke_result.md)`<LetFn, decay_t<Ts>&...>, env-t...>`
 
 説明用の式`sndr`と`env`に対して、型`Sndr`を`decltype((sndr))`とする。[`sender-for`](sender-for.md)`<Sndr,` [`decayed-typeof`](/reference/functional/decayed-typeof.md)`<let-cpo>> == false`のとき、式`let-cpo.transform_env(sndr, env)`は不適格となる。
 
@@ -407,6 +438,7 @@ catch 0
 - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3396R1 std::execution wording fixes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html)
+- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
 - [LWG 4203. Constraints on `get-state` functions are incorrect](https://cplusplus.github.io/LWG/issue4203)
 - [LWG 4204. specification of `as-sndr2(Sig)` in [exec.let] is incomplete](https://cplusplus.github.io/LWG/issue4204)
 - [LWG 4205. `let_[*].transform_env` is specified in terms of the `let_*` sender itself instead of its child](https://cplusplus.github.io/LWG/issue4205)

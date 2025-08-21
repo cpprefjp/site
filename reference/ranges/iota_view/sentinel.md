@@ -13,7 +13,7 @@
 
 このクラスの名前は規定されておらず、振る舞いのみが規定されている。
 
-このクラスの型を取得したい場合、[`sentinel_t`](../iterator_t.md)を使用できる。
+このクラスの型を取得したい場合、[`sentinel_t`](../sentinel_t.md)を使用できる。
 
 なお、[`iota_view`](../iota_view.md)の番兵型は、無限長のときは[`unreachable_sentinel_t`](/reference/iterator/unreachable_sentinel_t.md)、有限長で[`common_range`](../common_range.md)のときは[`iterator`](iterator.md)である。
 

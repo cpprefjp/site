@@ -7,21 +7,31 @@
 ```cpp
 namespace std::execution {
   template<completion-signature... Fns>
-  struct completion_signatures {};
+  struct completion_signatures {
+    template<class Tag>
+    static constexpr size_t count-of(Tag) { return see below; }
+
+    template<class Fn>
+    static constexpr void for-each(Fn&& fn) {  // exposition only
+      (std::forward<Fn>(fn)(static_cast<Fns*>(nullptr)), ...);
+    }
+  };
 }
 ```
 
 ## 概要
 `completion_signatures`クラステンプレートは、完了シグネチャの集合をテンプレートパラメータとして表現する。
 
-実行制御ライブラリ仕様定義では、説明専用のコンセプト`valid-completion-signatures`を利用する。
+式`tag`の[decayed](/reference/type_traits/decay.md)型を`Tag`としたとき、説明専用のメンバ関数`count-of`は`Fns`中の`Tag(Ts...)`形式で表される関数型の個数を返す。
 
+
+### 説明専用のコンセプト `valid-completion-signatures`
 ```cpp
 template<class Sigs>
 concept valid-completion-signatures = see below;
 ```
 
-`Sigs`が[`completion_signatures`](completion_signatures.md)クラステンプレートの特殊化であるとき、`Sigs`は説明専用コンセプト`valid-completion-signatures`のモデルである。
+`Sigs`が`completion_signatures`クラステンプレートの特殊化であるとき、`Sigs`は説明専用コンセプト`valid-completion-signatures`のモデルである。
 
 
 ## テンプレートパラメータ制約
@@ -80,7 +90,7 @@ int main()
 
 
 ## 関連項目
-- [`execution::receiver`](receiver.md)
+- [`execution::get_completion_signatures`](get_completion_signatures.md)
 - [`execution::set_value_t`](set_value.md)
 - [`execution::set_error_t`](set_error.md)
 - [`execution::set_stopped_t`](set_stopped.md)
@@ -88,3 +98,4 @@ int main()
 
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)

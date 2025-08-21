@@ -52,7 +52,7 @@ std::mdspan<int, Extents> mat3x2{a};
 LayoutMappingを満たす型`M`は
 
 - `M`は[`copyable`](/reference/concepts/copyable.md)および[`equality_comparable`](/reference/concepts/equality_comparable.md)のモデルであり、かつ
-- [`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_constructible.md)`<M>`は`true`であり、かつ
+- [`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<M>`は`true`であり、かつ
 - [`is_nothrow_move_assignable_v`](/reference/type_traits/is_nothrow_move_assignable.md)`<M>`は`true`であり、かつ
 - [`is_nothrow_swappable_v`](/reference/type_traits/is_nothrow_swappable.md)`<M>`は`true`であること
 
