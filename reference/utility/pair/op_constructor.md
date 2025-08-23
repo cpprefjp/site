@@ -94,7 +94,7 @@ constexpr pair(piecewise_construct_t,
     - [`is_constructible`](/reference/type_traits/is_constructible.md)`<first_type, U&&>::value &&` [`is_constructible`](/reference/type_traits/is_constructible.md)`<second_type, V&&>::value`であること
     - C++14まで : `U`が`first_type`に暗黙変換可能でない場合、もしくは`V`が`second_type`に暗黙変換可能でない場合、この関数はオーバーロード解決から除外される
 - (6)-(10) :
-    - C++23 : `FWD(u)`を`static_cast<deccltype(u)>(u)`と定義して、[`is_constructible_v`](/reference/type_traits/is_constructible.md)`<first_type, decltype(`[`get`](/reference/utility/pair/get.md)`<0>(FWD(p)))> &&` [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<second_type, decltype(`[`get`](/reference/utility/pair/get.md)`<1>(FWD(p)))>`であること
+    - C++23 : `FWD(u)`を`static_cast<decltype(u)>(u)`と定義して、[`is_constructible_v`](/reference/type_traits/is_constructible.md)`<first_type, decltype(`[`get`](/reference/utility/pair/get.md)`<0>(FWD(p)))> &&` [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<second_type, decltype(`[`get`](/reference/utility/pair/get.md)`<1>(FWD(p)))>`であること
 - (7) :
     - [`is_constructible`](/reference/type_traits/is_constructible.md)`<first_type, const U&>::value &&` [`is_constructible`](/reference/type_traits/is_constructible.md)`<second_type, const V&>::value`であること
     - C++14まで : `const U&`が`first_type`に暗黙変換可能でない場合、もしくは`const V&`が`second_type`に暗黙変換可能でない場合、この関数はオーバーロード解決から除外される

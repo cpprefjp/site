@@ -27,7 +27,7 @@ namespace std {
 * ValOrProxy[italic]
 
 ## 概要
-`valarray`において、左辺が右辺以上を判定する。
+`valarray`において、左辺が右辺以上かを判定する。
 
 - (1) : `xs`の各要素が、`ys`の各要素以上かを判定する。
 - (2) : `xs`の各要素が、`y`以上かを判定する。
