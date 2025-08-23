@@ -43,7 +43,7 @@ namespace std {
 - C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
     - `x = ±0` の場合、`±0` を返す。
     - `x = ±∞` の場合、`±∞` を返す。
-- C99 では、丸めモードの設定時には `#pragma STDC FENV_ACCESS ON` でなければなければならないと記載されているが、C++ には該当する記載を見つけることができなかった。  
+- C99 では、丸めモードの設定時には `#pragma STDC FENV_ACCESS ON` でなければならないと記載されているが、C++ には該当する記載を見つけることができなかった。  
     なお、C99 でも `FENV_ACCESS` のデフォルトは処理系定義である。
 - 丸めモード [`FE_TONEAREST`](../cfenv/fe_tonearest.md) は単なる四捨五入ではないことに注意。
 - C++23では、(1), (2), (3)が(4)に統合され、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された

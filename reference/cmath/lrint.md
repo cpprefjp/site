@@ -41,7 +41,7 @@ namespace std {
 - C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
     - 丸めの結果が `long` で表現不可能な場合、無効演算の浮動小数点例外（[`FE_INVALID`](../cfenv/fe_invalid.md)）が発生する。
     - 他の例外が発生しておらず、引数 `x` が戻り値と異なってる場合、不正確結果の浮動小数点例外（[`FE_INEXACT`](../cfenv/fe_inexact.md)）が発生する。
-- C99 では、丸めモードや浮動小数点例外へのアクセスには `#pragma STDC FENV_ACCESS ON` でなければなければならないと記載されているが、C++ には該当する記載を見つけることができなかった。  
+- C99 では、丸めモードや浮動小数点例外へのアクセスには `#pragma STDC FENV_ACCESS ON` でなければならないと記載されているが、C++ には該当する記載を見つけることができなかった。  
     なお、C99 でも `FENV_ACCESS` のデフォルトは処理系定義である。
 - 丸めモード [`FE_TONEAREST`](../cfenv/fe_tonearest.md) は単なる四捨五入ではないことに注意。  
     四捨五入が必要であれば、[`lround`](lround.md) を使用すること。（ただし、[`lround`](lround.md) は本関数と異なり、ISO IEC 60559 に準拠していても [`FE_INEXACT`](../cfenv/fe_inexact.md) が発生するか否かは処理系定義である）  

@@ -13,7 +13,7 @@ namespace std {
 ## 概要
 ファイルの位置を保持するための型。
 
-[`fgetpos()`](/reference/cstdio/fgetpos.md.nolink)関数や[`fsetpos()`](/reference/cstdio/fsetpos.md.nolink)関数で用いられる。これらの関数は[`fseek()`](/reference/cstdio/fseek.md.nolink)関数や[`ftell()`](/reference/cstdio/ftell.md.nolink)関数と違い、巨大なファイルやマルチバイトファイルに対しても適切に動作するすることを目的に設計された。
+[`fgetpos()`](/reference/cstdio/fgetpos.md.nolink)関数や[`fsetpos()`](/reference/cstdio/fsetpos.md.nolink)関数で用いられる。これらの関数は[`fseek()`](/reference/cstdio/fseek.md.nolink)関数や[`ftell()`](/reference/cstdio/ftell.md.nolink)関数と違い、巨大なファイルやマルチバイトファイルに対しても適切に動作することを目的に設計された。
 
 ## 例
 ```cpp example

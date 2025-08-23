@@ -9,7 +9,7 @@
 * integer-constant-expression[italic]
 
 ## 概要
-浮動小数点数が `NaN` であることを表すを表す整数定数式。
+浮動小数点数が `NaN` であることを表す整数定数式。
 
 
 ## 備考

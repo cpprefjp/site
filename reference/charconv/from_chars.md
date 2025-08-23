@@ -287,7 +287,7 @@ int main()
     const char str[] = "00000123456789 is decimal";
 
     //(1) 10進数文字列からintへ変換
-    //変換変換の成否判定に`operator bool`を使用
+    //変換の成否判定に`operator bool`を使用
     if (int value{}; std::from_chars(std::begin(str), std::end(str), value)) {
       std::cout << value << std::endl;
     }

@@ -181,7 +181,7 @@ C++11では、参照するC言語の規格がC89からC99に変更となり、C9
 - 関数ポインタと関数オブジェクトを統一的に扱えるクラス[`std::function`](/reference/functional/function.md)を追加
 - 関数の引数を束縛して部分適用する関数[`std::bind()`](/reference/functional/bind.md)を追加
 - メンバ関数ポインタを関数オブジェクトにアダプトする関数[`std::mem_fn()`](/reference/functional/mem_fn.md)を追加
-- テンプレートに、明示的に左辺値参照を渡すための渡すためのクラス[`std::reference_wrapper`](/reference/functional/reference_wrapper.md)と、そのヘルパ関数である[`std::ref()`](/reference/functional/ref.md)と[`std::cref()`](/reference/functional/cref.md)を追加
+- テンプレートに、明示的に左辺値参照を渡すためのクラス[`std::reference_wrapper`](/reference/functional/reference_wrapper.md)と、そのヘルパ関数である[`std::ref()`](/reference/functional/ref.md)と[`std::cref()`](/reference/functional/cref.md)を追加
 - ハッシュ表コンテナの追加にともない、オブジェクトのハッシュ値を計算する関数オブジェクト[`std::hash`](/reference/functional/hash.md)クラスを追加
 - ビット演算の関数オブジェクトとして、[`std::bit_and`](/reference/functional/bit_and.md)、[`std::bit_or`](/reference/functional/bit_or.md)、[`std::bit_xor`](/reference/functional/bit_xor.md)を追加
 - 従来の関数オブジェクトアダプタ`std::unary_function`、`std::binary_function`、`std::mem_fun()`、`std::mem_fun_ref()`等を非推奨とする
