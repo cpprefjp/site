@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2025-08-23T08:52:26.566140</updated>
+  <id>f8a04381-beb2-422f-a853-dbd71a85af12</id>
+
+  
+    <entry>
+      <title>コンストラクタ -- いくつかの誤字を修正</title>
+      <link href="https://cpprefjp.github.io/reference/utility/pair/op_constructor.html"/>
+      <id>f8a8a06349c9b6ec87a1795cd171065689a1d9aa:reference/utility/pair/op_constructor.md</id>
+      <updated>2025-08-23T17:41:29+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/utility/pair/op_constructor.md b/reference/utility/pair/op_constructor.md
+index 84f94e188..3b558b7fa 100644
+--- a/reference/utility/pair/op_constructor.md
++++ b/reference/utility/pair/op_constructor.md
+@@ -94,7 +94,7 @@ constexpr pair(piecewise_construct_t,
+     - [`is_constructible`](/reference/type_traits/is_constructible.md)`&amp;lt;first_type, U&amp;amp;&amp;amp;&amp;gt;::value &amp;amp;&amp;amp;` [`is_constructible`](/reference/type_traits/is_constructible.md)`&amp;lt;second_type, V&amp;amp;&amp;amp;&amp;gt;::value`であること
+     - C++14まで : `U`が`first_type`に暗黙変換可能でない場合、もしくは`V`が`second_type`に暗黙変換可能でない場合、この関数はオーバーロード解決から除外される
+ - (6)-(10) :
+-    - C++23 : `FWD(u)`を`static_cast&amp;lt;deccltype(u)&amp;gt;(u)`と定義して、[`is_constructible_v`](/reference/type_traits/is_constructible.md)`&amp;lt;first_type, decltype(`[`get`](/reference/utility/pair/get.md)`&amp;lt;0&amp;gt;(FWD(p)))&amp;gt; &amp;amp;&amp;amp;` [`is_constructible_v`](/reference/type_traits/is_constructible.md)`&amp;lt;second_type, decltype(`[`get`](/reference/utility/pair/get.md)`&amp;lt;1&amp;gt;(FWD(p)))&amp;gt;`であること
++    - C++23 : `FWD(u)`を`static_cast&amp;lt;decltype(u)&amp;gt;(u)`と定義して、[`is_constructible_v`](/reference/type_traits/is_constructible.md)`&amp;lt;first_type, decltype(`[`get`](/reference/utility/pair/get.md)`&amp;lt;0&amp;gt;(FWD(p)))&amp;gt; &amp;amp;&amp;amp;` [`is_constructible_v`](/reference/type_traits/is_constructible.md)`&amp;lt;second_type, decltype(`[`get`](/reference/utility/pair/get.md)`&amp;lt;1&amp;gt;(FWD(p)))&amp;gt;`であること
+ - (7) :
+     - [`is_constructible`](/reference/type_traits/is_constructible.md)`&amp;lt;first_type, const U&amp;amp;&amp;gt;::value &amp;amp;&amp;amp;` [`is_constructible`](/reference/type_traits/is_constructible.md)`&amp;lt;second_type, const V&amp;amp;&amp;gt;::value`であること
+     - C++14まで : `const U&amp;amp;`が`first_type`に暗黙変換可能でない場合、もしくは`const V&amp;amp;`が`second_type`に暗黙変換可能でない場合、この関数はオーバーロード解決から除外される
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Shunya</name>
+        <email>hrjp00@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&gt;&gt;= -- いくつかの誤字を修正</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/gslice_array/op_right_shift_assign.html"/>
+      <id>f8a8a06349c9b6ec87a1795cd171065689a1d9aa:reference/valarray/gslice_array/op_right_shift_assign.md</id>
+      <updated>2025-08-23T17:41:29+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/gslice_array/op_right_shift_assign.md b/reference/valarray/gslice_array/op_right_shift_assign.md
+index c1e924f8b..e4120f2ce 100644
+--- a/reference/valarray/gslice_array/op_right_shift_assign.md
++++ b/reference/valarray/gslice_array/op_right_shift_assign.md
+@@ -14,7 +14,7 @@ void operator&amp;gt;&amp;gt;=(const ValOrProxy&amp;lt;T&amp;gt;&amp;amp; xs) const;
+ 
+ 
+ ## 効果
+-元となる [`valarray`](../valarray.md) オブジェクトから参照によって抽出した各要素を、`xs` の各要素の値だけ左シフトする。
++元となる [`valarray`](../valarray.md) オブジェクトから参照によって抽出した各要素を、`xs` の各要素の値だけ右シフトする。
+ 
+ 
+ ## 戻り値
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Shunya</name>
+        <email>hrjp00@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&gt;&gt;= -- いくつかの誤字を修正</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/indirect_array/op_right_shift_assign.html"/>
+      <id>f8a8a06349c9b6ec87a1795cd171065689a1d9aa:reference/valarray/indirect_array/op_right_shift_assign.md</id>
+      <updated>2025-08-23T17:41:29+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/indirect_array/op_right_shift_assign.md b/reference/valarray/indirect_array/op_right_shift_assign.md
+index e8e0f77fd..1a3f2d1c9 100644
+--- a/reference/valarray/indirect_array/op_right_shift_assign.md
++++ b/reference/valarray/indirect_array/op_right_shift_assign.md
+@@ -14,7 +14,7 @@ void operator&amp;gt;&amp;gt;=(const ValOrProxy&amp;lt;T&amp;gt;&amp;amp; xs) const;
+ 
+ 
+ ## 効果
+-元となる [`valarray`](../valarray.md) オブジェクトから参照によって抽出した各要素を、`xs` の各要素の値だけ左シフトする。
++元となる [`valarray`](../valarray.md) オブジェクトから参照によって抽出した各要素を、`xs` の各要素の値だけ右シフトする。
+ 
+ 
+ ## 戻り値
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Shunya</name>
+        <email>hrjp00@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&gt;&gt;= -- いくつかの誤字を修正</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/mask_array/op_right_shift_assign.html"/>
+      <id>f8a8a06349c9b6ec87a1795cd171065689a1d9aa:reference/valarray/mask_array/op_right_shift_assign.md</id>
+      <updated>2025-08-23T17:41:29+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/mask_array/op_right_shift_assign.md b/reference/valarray/mask_array/op_right_shift_assign.md
+index 87400f7dd..6a41061a1 100644
+--- a/reference/valarray/mask_array/op_right_shift_assign.md
++++ b/reference/valarray/mask_array/op_right_shift_assign.md
+@@ -14,7 +14,7 @@ void operator&amp;gt;&amp;gt;=(const ValOrProxy&amp;lt;T&amp;gt;&amp;amp; xs) const;
+ 
+ 
+ ## 効果
+-元となる [`valarray`](../valarray.md) オブジェクトから参照によって抽出した各要素を、`xs` の各要素の値だけ左シフトする。
++元となる [`valarray`](../valarray.md) オブジェクトから参照によって抽出した各要素を、`xs` の各要素の値だけ右シフトする。
+ 
+ 
+ ## 戻り値
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Shunya</name>
+        <email>hrjp00@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&gt;&gt;= -- いくつかの誤字を修正</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/slice_array/op_right_shift_assign.html"/>
+      <id>f8a8a06349c9b6ec87a1795cd171065689a1d9aa:reference/valarray/slice_array/op_right_shift_assign.md</id>
+      <updated>2025-08-23T17:41:29+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/slice_array/op_right_shift_assign.md b/reference/valarray/slice_array/op_right_shift_assign.md
+index 1b899e0d0..80c3af5fc 100644
+--- a/reference/valarray/slice_array/op_right_shift_assign.md
++++ b/reference/valarray/slice_array/op_right_shift_assign.md
+@@ -14,7 +14,7 @@ void operator&amp;gt;&amp;gt;=(const ValOrProxy&amp;lt;T&amp;gt;&amp;amp; xs) const;
+ 
+ 
+ ## 効果
+-元となる [`valarray`](../valarray.md) オブジェクトから参照によって抽出した各要素を、`xs` の各要素の値だけ左シフトする。
++元となる [`valarray`](../valarray.md) オブジェクトから参照によって抽出した各要素を、`xs` の各要素の値だけ右シフトする。
+ 
+ 
+ ## 戻り値
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Shunya</name>
+        <email>hrjp00@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&gt;= -- いくつかの誤字を修正</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/valarray/op_greater_equal.html"/>
+      <id>f8a8a06349c9b6ec87a1795cd171065689a1d9aa:reference/valarray/valarray/op_greater_equal.md</id>
+      <updated>2025-08-23T17:41:29+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/valarray/op_greater_equal.md b/reference/valarray/valarray/op_greater_equal.md
+index d88ff7f8f..cc8e1fc98 100644
+--- a/reference/valarray/valarray/op_greater_equal.md
++++ b/reference/valarray/valarray/op_greater_equal.md
+@@ -27,7 +27,7 @@ namespace std {
+ * ValOrProxy[italic]
+ 
+ ## 概要
+-`valarray`において、左辺が右辺以上を判定する。
++`valarray`において、左辺が右辺以上かを判定する。
+ 
+ - (1) : `xs`の各要素が、`ys`の各要素以上かを判定する。
+ - (2) : `xs`の各要素が、`y`以上かを判定する。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Shunya</name>
+        <email>hrjp00@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>swap -- いくつかの誤字を修正</title>
+      <link href="https://cpprefjp.github.io/reference/valarray/valarray/swap.html"/>
+      <id>f8a8a06349c9b6ec87a1795cd171065689a1d9aa:reference/valarray/valarray/swap.md</id>
+      <updated>2025-08-23T17:41:29+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/valarray/valarray/swap.md b/reference/valarray/valarray/swap.md
+index 67bcee9d6..ea74562b4 100644
+--- a/reference/valarray/valarray/swap.md
++++ b/reference/valarray/valarray/swap.md
+@@ -14,7 +14,7 @@ void swap(valarray&amp;amp; v) noexcept;
+ 
+ 
+ ## 効果
+-`*this`の内容を`x`と交換する。
++`*this`の内容を`v`と交換する。
+ 
+ 
+ ## 計算量
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Shunya</name>
+        <email>hrjp00@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>cpprefjp - C++日本語リファレンス -- スポンサー更新 #1524</title>
+      <link href="https://cpprefjp.github.io/index.html"/>
+      <id>8cc1753c4e72f4ab7b0f439e8841654fa7ace689:index.md</id>
+      <updated>2025-08-22T10:31:39+09:00</updated>
+      
+        <content type="html">&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;cpprefjp - C++日本語リファレンス&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;本サイトcpprefjpは、プログラミング言語C++のリファレンスを提供するWebサイトです。&lt;/p&gt;
+&lt;p&gt;最新C++バージョンのリファレンスを提供していきます。&lt;/p&gt;
+&lt;h2&gt;運営方針&lt;/h2&gt;
+&lt;p&gt;本リファレンスサイトは、C++言語の最新のリファレンスを常に提供し続けることを目標にしています。&lt;/p&gt;
+&lt;p&gt;各クラス、関数にはそれぞれ1つ以上のサンプルコードを付けていく方針です。&lt;/p&gt;
+&lt;p&gt;本サイトでは、他サイトおよび規格書の直接的な翻訳ではなく、編集者の調査と考えに基づいた解説を提供していきます。&lt;/p&gt;
+&lt;h2&gt;HTMLデータのダウンロード&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/cpprefjp/cpprefjp.github.io/archive/refs/heads/master.zip&#34; target=&#34;_blank&#34;&gt;cpprefjp.github.io-master.zip&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ローカルで閲覧できるHTMLを用意しています。&lt;/p&gt;
+&lt;h2&gt;スポンサーシップ&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://opencollective.com/cpprefjp&#34; target=&#34;_blank&#34;&gt;cpprefjp - Open Collective&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;このプロジェクトは、持続的な活動のため、ユーザーの方々からのご支援をお待ちしております。上記Open Collectiveのプロジェクトでスポンサーシップの募集をしております。&lt;/p&gt;
+&lt;p&gt;ご支援いただくユーザーの方々には、以下の特典があります。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;本ページ (cpprefjpサイトのトップページ) に1年間、金額順でロゴを表示させていただきます (金額が同じ場合は登録順)&lt;/li&gt;
+&lt;li&gt;シルバースポンサー以上の方は、&lt;a href=&#34;https://github.com/cpprefjp/site&#34; target=&#34;_blank&#34;&gt;cpprefjp/site&lt;/a&gt;リポジトリのissueとして、採用情報を投稿できます (一週間ほどで閉じます)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ご支援いただいた資金は、貢献度に応じてコントリビューターに分配させていただきます。&lt;/p&gt;
+&lt;p&gt;また、スポンサーシップの入金方法として、Open Collectiveのほかに銀行振込も対応しております。&lt;/p&gt;
+&lt;p&gt;銀行振込に関して、またはそれ以外でスポンサーシップの相談に関しては、以下のメールアドレスにお問い合わせください。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;メールアドレス : &lt;a href=&#34;mailto:cpprefjp_org@googlegroups.com&#34;&gt;cpprefjp_org@googlegroups.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;宛名 : cpprefjp管理者&lt;ul&gt;
+&lt;li&gt;代表として、主に高橋晶 (Akira Takahashi) がご対応させていただきます&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;参加方法&lt;/h2&gt;
+&lt;p&gt;本サイトは、多くのユーザの手によって書かれています。&lt;/p&gt;
+&lt;p&gt;あなたがこの cpprefjp プロジェクトに参加したいのであれば、私達はそれをとても歓迎します。&lt;/p&gt;
+&lt;p&gt;cpprefjp プロジェクトに参加する方法は簡単です。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/cpprefjp/site/issues?state=open&#34; target=&#34;_blank&#34;&gt;cpprefjp の Issues&lt;/a&gt; にアクセスし、&lt;/li&gt;
+&lt;li&gt;あなたが手伝えそうな、まだ誰にもアサインされていないタスクを見つけ、&lt;/li&gt;
+&lt;li&gt;その Issue のコメントに「このタスクやります」と書く&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;これだけです。&lt;/p&gt;
+&lt;p&gt;あとは、そのタスクを完了させて pull request を送れば、あなたも cpprefjp のコミッタになれます。&lt;/p&gt;
+&lt;h2&gt;編集者向けのさらなる情報&lt;/h2&gt;
+&lt;p&gt;本サイトは、GitHubのリポジトリ上で、Markdown形式でリファレンスを記載し、GitHub Pagesに自動反映するという形をとっています。本サイトのMarkdownソースは、以下のリポジトリにあります。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/cpprefjp/site&#34; target=&#34;_blank&#34;&gt;https://github.com/cpprefjp/site&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;上記リポジトリのREADMEに、コアメンバの一覧を記載してありますので、何かありましたらそのうちの誰か、もしくはリポジトリへのIssueという形でご相談ください。&lt;/p&gt;
+&lt;p&gt;本サイトの編集方法については、以下のドキュメントを参照してください。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;start_editing.html&#34;&gt;cpprefjpを編集するには&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;本サイトのコンテンツを作成、編集するにあたり、仕様を熟知し、一人で完璧に正しい内容を書くことは要求しません。&lt;/p&gt;
+&lt;p&gt;たとえ間違ったことを記載した場合や、不安の残る内容を記載した場合でも、それに気づいた誰かが修正してくれます。&lt;/p&gt;
+&lt;h2&gt;その他参考情報&lt;/h2&gt;
+&lt;p&gt;以下のWebサイトから転載許可をいただいています。&lt;/p&gt;
+&lt;p&gt;翻訳や解説などで活用してください：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://web.archive.org/web/20190112041213/http://episteme.wankuma.com/stlprog/index.html&#34; target=&#34;_blank&#34;&gt;Standard Template Library プログラミング on the Web&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;スポンサー&lt;/h2&gt;
+&lt;p&gt;cpprefjpプロジェクトは、以下の方々にスポンサーになっていただいております。&lt;/p&gt;
+&lt;h3&gt;ゴールドスポンサー&lt;/h3&gt;
+&lt;p&gt;&lt;div style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://www.cocotone.jp&#34; target=&#34;_blank&#34;&gt;&lt;img alt=&#34;cocotone様&#34; src=&#34;static/image/sponsors/cocotone/cocotone.png&#34; title=&#34;cocotone様&#34; width=&#34;560&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://www.cube-soft.jp/&#34; target=&#34;_blank&#34;&gt;&lt;img alt=&#34;CubeSoft様&#34; src=&#34;https://raw.githubusercontent.com/cube-soft/cube.assets/master/home/banner/large.png&#34; title=&#34;CubeSoft様&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;h3&gt;シルバースポンサー&lt;/h3&gt;
+&lt;p&gt;&lt;div style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://acerola-software.jp/&#34; target=&#34;_blank&#34;&gt;&lt;img alt=&#34;Acerola Software様&#34; src=&#34;static/image/sponsors/Acerola/as_logo.png&#34; title=&#34;Acerola Software様&#34; width=&#34;400&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://www.fixstars.com/&#34; target=&#34;_blank&#34;&gt;&lt;img alt=&#34;Fixstars様&#34; src=&#34;static/image/sponsors/Fixstars/fixstars-logo.png&#34; title=&#34;Fixstars様&#34; width=&#34;400&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://www.pegasys-inc.com/&#34; target=&#34;_blank&#34;&gt;&lt;img alt=&#34;pegasys様&#34; src=&#34;https://tmpgenc.pegasys-inc.com/images/pegasys_logo.png&#34; title=&#34;pegasys様&#34; width=&#34;320&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://vaporoid.com/sys/&#34; target=&#34;_blank&#34;&gt;&lt;img alt=&#34;vaporoid様&#34; src=&#34;static/image/sponsors/vaporoid/cpprefjp-400x150.png&#34; title=&#34;vaporoid様&#34; width=&#34;400&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://mkohana.github.io/&#34; target=&#34;_blank&#34;&gt;&lt;img alt=&#34;M.Kohana様&#34; src=&#34;static/image/sponsors/m_kohana/m_kohana.jpg&#34; title=&#34;M.Kohana様&#34; width=&#34;320&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://www.techarts.co.jp/&#34; target=&#34;_blank&#34;&gt;&lt;img alt=&#34;有限会社テクニカルアーツ様&#34; src=&#34;static/image/sponsors/technical_arts/TechnicalArtsLogo3.png&#34; title=&#34;有限会社テクニカルアーツ様&#34; width=&#34;400&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;ul&gt;&lt;li&gt;T.Kishu様&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;
+&lt;h3&gt;ブロンズスポンサー&lt;/h3&gt;
+&lt;p&gt;&lt;div style=&#34;text-align: center&#34;&gt;&lt;img alt=&#34;Azaika様&#34; src=&#34;static/image/sponsors/Azaika/Azaika.jpg&#34; title=&#34;Azaika様&#34; width=&#34;256&#34; /&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;ul&gt;&lt;li&gt;イシハラユウヤ様&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;&lt;ul&gt;&lt;li&gt;&lt;a href=&#34;https://opencollective.com/meg_nakagami&#34; target=&#34;_blank&#34;&gt;Megumi Nakagami様&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://github.com/minachun/minachun&#34; target=&#34;_blank&#34;&gt;&lt;img alt=&#34;minachun / J.Minami様&#34; src=&#34;https://raw.githubusercontent.com/minachun/minachun/main/banner.png&#34; title=&#34;minachun / J.Minami様&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://gravatar.com/overthestardust&#34; target=&#34;_blank&#34;&gt;&lt;img alt=&#34;星くず彼方に&#34; src=&#34;static/image/sponsors/overthestardust/overthestardust.png&#34; title=&#34;星くず彼方に&#34; width=&#34;256&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://github.com/zonuexe&#34; target=&#34;_blank&#34;&gt;&lt;img alt=&#34;USAMI Kenta&#34; src=&#34;https://gravatar.com/userimage/33138763/7af48baae61cde116bd8d28a5158946e.jpeg?size=256&#34; title=&#34;USAMI Kenta&#34; width=&#34;256&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://github.com/soramimi&#34; target=&#34;_blank&#34;&gt;&lt;img alt=&#34;soramimi&#34; src=&#34;https://www.soramimi.jp/avater.jpg&#34; title=&#34;soramimi&#34; width=&#34;256&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;ul&gt;&lt;li&gt;Agate Pris様&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://x.com/HappyLuckyAkira&#34; target=&#34;_blank&#34;&gt;&lt;img alt=&#34;Akira Kubo様&#34; src=&#34;static/image/sponsors/HappyLuckyAkira/HappyLuckyAkira.jpg&#34; title=&#34;Akira Kubo様&#34; width=&#34;256&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://profile.bocchi-master.net/&#34; target=&#34;_blank&#34;&gt;&lt;img alt=&#34;ぼっちマスター様&#34; src=&#34;static/image/sponsors/bocchi-master/my-icon.png&#34; title=&#34;ぼっちマスター様&#34; width=&#34;320&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;ul&gt;&lt;li&gt;甲斐智丈&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;スポンサーシップについては、以下のページを参照ください。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://opencollective.com/cpprefjp&#34; target=&#34;_blank&#34;&gt;cpprefjp - Open Collective&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;連絡先が不明なスポンサー様は、ロゴの表示が現在できておりません。Open Collectiveの問い合わせフォームから、表示するロゴ画像とリンク先URLについてご連絡いただきたいです。&lt;/p&gt;
+&lt;h2&gt;プライバシーポリシー&lt;/h2&gt;
+&lt;p&gt;本サイトは、サイトの改善のためにGoogleアナリティクスを使用しています。本サイトをご利用中のブラウザは、Googleに特定の情報を自動的に送信します。本サイトは、この分析のためにCookieを使用します。利用者は、本サイトを利用することで、この目的においてCookieを使用することを許可したものとみなします。&lt;/p&gt;
+&lt;p&gt;Googleによるデータ使用の詳細は、以下のURLで確認することができます。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.google.com/intl/ja/policies/privacy/partners/&#34; target=&#34;_blank&#34;&gt;https://www.google.com/intl/ja/policies/privacy/partners/&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;ライセンスについて&lt;/h2&gt;
+&lt;p&gt;本サイトの情報は、&lt;a href=&#34;https://creativecommons.org/licenses/by/4.0/&#34; target=&#34;_blank&#34;&gt;クリエイティブ・コモンズ 表示 4.0 非移植 ライセンス(CC BY)&lt;/a&gt;の下に提供しています。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;&#34; src=&#34;https://i.creativecommons.org/l/by/4.0/88x31.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;cpprefjpサイトのアイコン・ロゴ画像は、&lt;a href=&#34;https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ja&#34; target=&#34;_blank&#34;&gt;クリエイティブ・コモンズ 表示 - 非営利 - 改変禁止 4.0 国際 (CC BY-NC-ND 4.0)&lt;/a&gt;の下に提供しています。&lt;/p&gt;
+&lt;p&gt;高解像度画像データ： &lt;a href=&#34;https://github.com/cpprefjp/image/tree/master/cpprefjp/icon&#34; target=&#34;_blank&#34;&gt;cpprefjp/image&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;&#34; src=&#34;https://licensebuttons.net/l/by-nc-nd/4.0/88x31.png&#34; /&gt;&lt;/p&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>close -- Merge pull request #1523 from hrjp/fix/basic_ifstream</title>
+      <link href="https://cpprefjp.github.io/reference/fstream/basic_fstream/close.html"/>
+      <id>907c49edc1907ae5bbb1c71a7be4f2255882ba0b:reference/fstream/basic_fstream/close.md</id>
+      <updated>2025-08-22T10:11:44+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/fstream/basic_fstream/close.md b/reference/fstream/basic_fstream/close.md
+index 64a0dc607..c84a75926 100644
+--- a/reference/fstream/basic_fstream/close.md
++++ b/reference/fstream/basic_fstream/close.md
+@@ -14,7 +14,7 @@ void close();
+ 
+ ## 効果
+ 
+-[`rdbuf()-&amp;gt;close()`](/reference/fstream/basic_filebuf/close.md)を呼び出す。その戻り値が戻り値がヌルポインタだった場合、[`setstate(failbit)`](/reference/ios/basic_ios/setstate.md)を呼び出す。
++[`rdbuf()-&amp;gt;close()`](/reference/fstream/basic_filebuf/close.md)を呼び出す。その戻り値がヌルポインタだった場合、[`setstate(failbit)`](/reference/ios/basic_ios/setstate.md)を呼び出す。
+ 
+ ## 例
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>close -- Merge pull request #1523 from hrjp/fix/basic_ifstream</title>
+      <link href="https://cpprefjp.github.io/reference/fstream/basic_ifstream/close.html"/>
+      <id>907c49edc1907ae5bbb1c71a7be4f2255882ba0b:reference/fstream/basic_ifstream/close.md</id>
+      <updated>2025-08-22T10:11:44+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/fstream/basic_ifstream/close.md b/reference/fstream/basic_ifstream/close.md
+index e9eabef8d..bf0ecf641 100644
+--- a/reference/fstream/basic_ifstream/close.md
++++ b/reference/fstream/basic_ifstream/close.md
+@@ -14,7 +14,7 @@ void close();
+ 
+ ## 効果
+ 
+-[`rdbuf()-&amp;gt;close()`](/reference/fstream/basic_filebuf/close.md)を呼び出す。その戻り値が戻り値がヌルポインタだった場合、[`setstate(failbit)`](/reference/ios/basic_ios/setstate.md)を呼び出す。
++[`rdbuf()-&amp;gt;close()`](/reference/fstream/basic_filebuf/close.md)を呼び出す。その戻り値がヌルポインタだった場合、[`setstate(failbit)`](/reference/ios/basic_ios/setstate.md)を呼び出す。
+ 
+ ## 例
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>close -- Merge pull request #1523 from hrjp/fix/basic_ifstream</title>
+      <link href="https://cpprefjp.github.io/reference/fstream/basic_ofstream/close.html"/>
+      <id>907c49edc1907ae5bbb1c71a7be4f2255882ba0b:reference/fstream/basic_ofstream/close.md</id>
+      <updated>2025-08-22T10:11:44+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/fstream/basic_ofstream/close.md b/reference/fstream/basic_ofstream/close.md
+index 30a146070..64bad9b65 100644
+--- a/reference/fstream/basic_ofstream/close.md
++++ b/reference/fstream/basic_ofstream/close.md
+@@ -14,7 +14,7 @@ void close();
+ 
+ ## 効果
+ 
+-[`rdbuf()-&amp;gt;close()`](/reference/fstream/basic_filebuf/close.md)を呼び出す。その戻り値が戻り値がヌルポインタだった場合、[`setstate(failbit)`](/reference/ios/basic_ios/setstate.md)を呼び出す。
++[`rdbuf()-&amp;gt;close()`](/reference/fstream/basic_filebuf/close.md)を呼び出す。その戻り値がヌルポインタだった場合、[`setstate(failbit)`](/reference/ios/basic_ios/setstate.md)を呼び出す。
+ 
+ ## 例
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>close -- 同様の誤字を修正</title>
+      <link href="https://cpprefjp.github.io/reference/fstream/basic_fstream/close.html"/>
+      <id>a9711d6ded91d4b7e1749f5ca7e8d8b583c82708:reference/fstream/basic_fstream/close.md</id>
+      <updated>2025-08-21T22:08:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/fstream/basic_fstream/close.md b/reference/fstream/basic_fstream/close.md
+index 64a0dc607..c84a75926 100644
+--- a/reference/fstream/basic_fstream/close.md
++++ b/reference/fstream/basic_fstream/close.md
+@@ -14,7 +14,7 @@ void close();
+ 
+ ## 効果
+ 
+-[`rdbuf()-&amp;gt;close()`](/reference/fstream/basic_filebuf/close.md)を呼び出す。その戻り値が戻り値がヌルポインタだった場合、[`setstate(failbit)`](/reference/ios/basic_ios/setstate.md)を呼び出す。
++[`rdbuf()-&amp;gt;close()`](/reference/fstream/basic_filebuf/close.md)を呼び出す。その戻り値がヌルポインタだった場合、[`setstate(failbit)`](/reference/ios/basic_ios/setstate.md)を呼び出す。
+ 
+ ## 例
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Shunya Hara</name>
+        <email>hrjp00@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>close -- 同様の誤字を修正</title>
+      <link href="https://cpprefjp.github.io/reference/fstream/basic_ofstream/close.html"/>
+      <id>a9711d6ded91d4b7e1749f5ca7e8d8b583c82708:reference/fstream/basic_ofstream/close.md</id>
+      <updated>2025-08-21T22:08:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/fstream/basic_ofstream/close.md b/reference/fstream/basic_ofstream/close.md
+index 30a146070..64bad9b65 100644
+--- a/reference/fstream/basic_ofstream/close.md
++++ b/reference/fstream/basic_ofstream/close.md
+@@ -14,7 +14,7 @@ void close();
+ 
+ ## 効果
+ 
+-[`rdbuf()-&amp;gt;close()`](/reference/fstream/basic_filebuf/close.md)を呼び出す。その戻り値が戻り値がヌルポインタだった場合、[`setstate(failbit)`](/reference/ios/basic_ios/setstate.md)を呼び出す。
++[`rdbuf()-&amp;gt;close()`](/reference/fstream/basic_filebuf/close.md)を呼び出す。その戻り値がヌルポインタだった場合、[`setstate(failbit)`](/reference/ios/basic_ios/setstate.md)を呼び出す。
+ 
+ ## 例
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Shunya Hara</name>
+        <email>hrjp00@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>close -- fix: basic_ifstream::closeの誤字修正</title>
+      <link href="https://cpprefjp.github.io/reference/fstream/basic_ifstream/close.html"/>
+      <id>b2562a3e85f09d5a15d8f7428fcd7f980381b58b:reference/fstream/basic_ifstream/close.md</id>
+      <updated>2025-08-21T22:06:01+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/fstream/basic_ifstream/close.md b/reference/fstream/basic_ifstream/close.md
+index e9eabef8d..bf0ecf641 100644
+--- a/reference/fstream/basic_ifstream/close.md
++++ b/reference/fstream/basic_ifstream/close.md
+@@ -14,7 +14,7 @@ void close();
+ 
+ ## 効果
+ 
+-[`rdbuf()-&amp;gt;close()`](/reference/fstream/basic_filebuf/close.md)を呼び出す。その戻り値が戻り値がヌルポインタだった場合、[`setstate(failbit)`](/reference/ios/basic_ios/setstate.md)を呼び出す。
++[`rdbuf()-&amp;gt;close()`](/reference/fstream/basic_filebuf/close.md)を呼び出す。その戻り値がヌルポインタだった場合、[`setstate(failbit)`](/reference/ios/basic_ios/setstate.md)を呼び出す。
+ 
+ ## 例
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Shunya Hara</name>
+        <email>hrjp00@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>
