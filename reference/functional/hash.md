@@ -194,11 +194,11 @@ found : 3
 | [`<filesystem>`](/reference/filesystem.md) | [`std::filesystem::path`](/reference/filesystem/path.md) |
 | [`<optional>`](/reference/optional.md) | [`std::optional`](/reference/optional/optional.md) |
 | [`<memory>`](/reference/memory.md) | [`std::shared_ptr`](/reference/memory/shared_ptr.md), [`std::unique_ptr`](/reference/memory/unique_ptr.md) |
-| [`<stacktrace>`](/reference/stacktrace.md) | [`std::basic_backtrace`](/reference/stacktrace/basic_stacktrace.md), [`std::stacktrace_entry`](/reference/stacktrace/stacktrace_entry.md) |
+| [`<stacktrace>`](/reference/stacktrace.md) | [`std::basic_stacktrace`](/reference/stacktrace/basic_stacktrace.md), [`std::stacktrace_entry`](/reference/stacktrace/stacktrace_entry.md) |
 | [`<string>`](/reference/string.md) | `std::string`など |
 | [`<string_view>`](/reference/string_view.md) | `std::string_view`など |
 | [`<system_error>`](/reference/system_error.md) | [`std::error_code`](/reference/system_error/error_code.md), [`std::error_condition`](/reference/system_error/error_condition.md) |
-| [`<thread>`](/reference/thread.md) | [`std::thread:id`](/reference/thread/thread.md) |
+| [`<thread>`](/reference/thread.md) | [`std::thread::id`](/reference/thread/thread/id.md) |
 | [`<typeindex>`](/reference/typeindex.md) | [`std::type_index`](/reference/typeindex/type_index.md) |
 | [`<variant>`](/reference/variant.md) | [`std::variant`](/reference/variant/variant.md), [`std::monostate`](/reference/variant/monostate.md) |
 | [`<vector>`](/reference/vector.md) | [`std::vector<bool>`](/reference/vector/vector.md) |

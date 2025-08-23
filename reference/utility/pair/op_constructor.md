@@ -80,7 +80,7 @@ constexpr pair(piecewise_construct_t,
 - (7) : 変換可能な他の[`pair`](../pair.md)オブジェクトから構築
 - (8) : 変換可能な他の[`pair`](../pair.md)オブジェクトからムーブ構築
 - (9) : 変換可能な他の[`pair`](../pair.md)オブジェクトから構築
-- (10) : [`pair-like`](/reference/tuple/tuple-like.md)なオブジェクトから構築
+- (10) : [`pair-like`](/reference/tuple/pair-like.md)なオブジェクトから構築
 - (11) : `first`と`second`のコンストラクタ引数を`std::tuple`に詰めて受け取り、`first_args`と`second_args`内のそれぞれの要素を転送して`first`と`second`を直接構築
     - 転送は、`std::tuple`オブジェクト（`first_args`/`second_args`）内の要素`x`とその型`U`（`Args1...`/`Args2...`に含まれる型）によって、`std::forward<U>(x)`のようにしてコンストラクタに渡される
 
@@ -301,7 +301,7 @@ p8 : (X(1 2 3),Y(4 5))
 - [P1951R1 Default Arguments for `pair`'s Forwarding Constructor](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1951r1.html)
     - C++23での`{}`完全転送への対応
 - [P2165R4 Compatibility between `tuple`, `pair` and *tuple-like* objects](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2165r4.pdf)
-    - [`pair-like`](/reference/tuple/tuple-like.md)なオブジェクトからの構築
+    - [`pair-like`](/reference/tuple/pair-like.md)なオブジェクトからの構築
 - [P2255R2 A type trait to detect reference binding to temporary](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2255r2.html)
     - 参照型を要素に持つ場合にダングリング参照が容易に作成できていたのを不適格にする
 - [P2321R2 `zip`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2321r2.html#pair)

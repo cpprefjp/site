@@ -26,11 +26,11 @@ constexpr reference operator[](const array<OtherIndexType, rank()>& indices) con
 ## テンプレートパラメータ制約
 - (1) :
     - `(`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<OtherIndexTypes, index_type> && ...)`が`true`、かつ
-    - `(`[`is_nothrow_constructible_v`](/reference/type_traits/is_nothrow_convertible.md)`<index_type, OtherIndexTypes> && ...)`が`true`、かつ
+    - `(`[`is_nothrow_constructible_v`](/reference/type_traits/is_nothrow_constructible.md)`<index_type, OtherIndexTypes> && ...)`が`true`、かつ
     - `sizeof...(OtherIndexTypes) ==` [`rank()`](rank.md)が`true`であること
 - (2), (3) :
     - `(`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const OtherIndexTypes&, index_type> && ...)`が`true`、かつ
-    - `(`[`is_nothrow_constructible_v`](/reference/type_traits/is_nothrow_convertible.md)`<index_type, const OtherIndexTypes&> && ...)`が`true`であること
+    - `(`[`is_nothrow_constructible_v`](/reference/type_traits/is_nothrow_constructible.md)`<index_type, const OtherIndexTypes&> && ...)`が`true`であること
 
 
 ## 事前条件

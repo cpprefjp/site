@@ -15,7 +15,7 @@ template<tuple-like TTuple, tuple-like UTuple,
 * tuple-like[link ../tuple-like.md]
 
 ## 概要
-[`tuple`](../tuple.md)と[`tuple-like`](../tuple-like.md)なオブジェクについて、[`common_reference`](/reference/type_traits/common_reference.md)で共通の参照型を取得できるようにアダプトする[`basic_common_reference`](/reference/type_traits/common_reference.md)の特殊化である。
+[`tuple`](../tuple.md)と[`tuple-like`](../tuple-like.md)なオブジェクについて、[`common_reference`](/reference/type_traits/common_reference.md)で共通の参照型を取得できるようにアダプトする[`basic_common_reference`](/reference/type_traits/basic_common_reference.md)の特殊化である。
 
 ユーザーが直接この特殊化を利用する必要はない。[`common_reference`](/reference/type_traits/common_reference.md)を使用すること。
 
