@@ -59,7 +59,7 @@ namespace std {
 返された`future`オブジェクトの`get()`もしくは`wait()`を呼び出すことにより、非同期実行の完了を待機する。
 
 ## 要件
-- 関数オブジェクト`F`および`Args...`の各型が、[`is_move_construcitble`](/reference/type_traits/is_move_constructible.md)`<T>::value == true`であること。
+- 関数オブジェクト`F`および`Args...`の各型が、[`is_move_constructible`](/reference/type_traits/is_move_constructible.md)`<T>::value == true`であること。
 - [`INVOKE`](/reference/concepts/Invoke.md)`(DECAY_COPY(std::`[`forward`](/reference/utility/forward.md)`<F>(f)), DECAY_COPY(std::`[`forward`](/reference/utility/forward.md)`<Args>(args))...)`が可能であること。
 
 ## 効果
