@@ -17,6 +17,7 @@ NGWORD_LIST = [
     ("", "condtion", "condition"),
     ("", "contraint", "constraint"),
     ("", "Dimentional", "Dimensional"),
+    ("", "deccltype", "decltype"),
     ("", "Doamin", "Domain"),
     ("", "eror", "error"),
     ("", "enumrate", "enumerate"),

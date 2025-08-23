@@ -110,7 +110,7 @@ constexpr pair(piecewise_construct_t,
 
 - (5) : [`reference_constructs_from_temporary_v`](/reference/type_traits/reference_constructs_from_temporary.md)`<first_type, U1&&> ||` [`reference_constructs_from_temporary_v`](/reference/type_traits/reference_constructs_from_temporary.md)`<second_type, U2&&>`である場合、このコンストラクタは削除定義される
 - (6)-(10) :
-    - `FWD(u)`を`static_cast<deccltype(u)>(u)`と定義して
+    - `FWD(u)`を`static_cast<decltype(u)>(u)`と定義して
     - [`reference_constructs_from_temporary_v`](/reference/type_traits/reference_constructs_from_temporary.md)`<first_type, decltype(`[`get`](/reference/utility/pair/get.md)`<0>(FWD(p)))> ||` [`reference_constructs_from_temporary_v`](/reference/type_traits/reference_constructs_from_temporary.md)`<second_type, decltype(`[`get`](/reference/utility/pair/get.md)`<1>(FWD(p)))>`である場合、このコンストラクタは削除定義される
 - (11) : 要素型（`T1, T2`のどちらかもしくは両方）が参照型であり、初期化によって一時オブジェクトを束縛することになる場合、このコンストラクタは削除定義される
     - 上記のコンストラクタと同様に、[`reference_constructs_from_temporary`](/reference/type_traits/reference_constructs_from_temporary.md)を使用して判定される
@@ -124,7 +124,7 @@ constexpr pair(piecewise_construct_t,
 - (5) :
     - C++17 : `!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<U1, first_type> || !`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<U2, second_type>`である場合、`explicit`指定される
 - (6)-(10) :
-    - `FWD(u)`を`static_cast<deccltype(u)>(u)`と定義して
+    - `FWD(u)`を`static_cast<decltype(u)>(u)`と定義して
     - C++23 : `!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<decltype(`[`get`](/reference/utility/pair/get.md)`<0>(FWD(p))), first_type> || !`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<decltype(`[`get`](/reference/utility/pair/get.md)`<1>(FWD(p))), second_type>`である場合、`explicit`指定される
 - (7) :
     - C++17 : `!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const U1&, first_type> || !`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const U2&, second_type>`である場合、`explicit`指定される
