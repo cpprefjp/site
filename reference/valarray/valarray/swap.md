@@ -14,7 +14,7 @@ void swap(valarray& v) noexcept;
 
 
 ## 効果
-`*this`の内容を`x`と交換する。
+`*this`の内容を`v`と交換する。
 
 
 ## 計算量

@@ -14,7 +14,7 @@ void operator>>=(const ValOrProxy<T>& xs) const;
 
 
 ## 効果
-元となる [`valarray`](../valarray.md) オブジェクトから参照によって抽出した各要素を、`xs` の各要素の値だけ左シフトする。
+元となる [`valarray`](../valarray.md) オブジェクトから参照によって抽出した各要素を、`xs` の各要素の値だけ右シフトする。
 
 
 ## 戻り値
