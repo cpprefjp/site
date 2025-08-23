@@ -45,6 +45,7 @@ namespace std::execution {
 | [`execution::forward_progress_guarantee`](execution/forward_progress_guarantee.md) | 前方進行保証 (enum) | C++26 |
 | [`execution::get_forward_progress_guarantee`](execution/get_forward_progress_guarantee.md) | 前方進行保証取得のクエリオブジェクト (customization point object) | C++26 |
 | [`execution::get_completion_scheduler`](execution/get_completion_scheduler.md) | 完了Scheduler取得のクエリオブジェクト (customization point object) | C++26 |
+| [`execution::get_await_completion_adaptor`](execution/get_await_completion_adaptor.md) | Awaitable完了アダプタ取得のクエリオブジェクト (customization point object) | C++26 |
 | [`execution::get_env`](execution/get_env.md) | 環境取得のクエリオブジェクト (customization point object) | C++26 |
 | [`execution::env_of_t`](execution/env_of_t.md) | 指定型から環境型を取得 (alias template) | C++26 |
 | [`execution::prop`](execution/prop.md) | Key/Valueペアによる[クエリ可能オブジェクト](queryable.md) (class template) | C++26 |
@@ -166,4 +167,5 @@ Senderコンシューマは名前空間 `std::this_thread` で定義される。
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3284R4 `write_env` and `unstoppable` Sender Adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3284r4.html)
 - [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+- [P3570R2 optional variants in sender/receiver](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3570r2.html)
 - [P3682R0 Remove `std::execution::split`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3682r0.pdf)

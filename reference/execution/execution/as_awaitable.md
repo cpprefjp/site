@@ -18,7 +18,9 @@ namespace std::execution {
 Promise型`p`をもつコルーチンにおいて、Await式`co_await as_awaitable(expr, p)`は下記のように動作する。
 
 - 式`expr.as_awaitable(p)`が有効ならば、同式が返すAwaitableオブジェクトに対してAwait式を実行する。
-- `expr`が[単一の値を送信するSender](single-sender.md)であり、Promise型が停止完了ハンドラを定義するならば、下記動作を行う。
+- `expr`が[Sender型](sender.md)かつ[`get_await_completion_adaptor`](get_await_completion_adaptor.md)問い合わせに対応する場合、同問い合わせが返すSenderアダプタを`expr`に適用した結果を`adapted-expr`とする。
+
+- `expr`（または上記ステップの`adapted-expr`）が[単一の値を送信するSender](single-sender.md)であり、Promise型が停止完了ハンドラを定義するならば、下記動作を行う。
     - Senderを[接続(connect)](connect.md)し、結果[Operation State](operation_state.md)をAwaitableオブジェクトに格納する。
     - コルーチンを中断し、Operation Stateを[開始(start)](start.md)する。
     - [クエリオブジェクト](../queryable.md)による[Receiver](receiver.md)環境への問い合わせは、Promise型に関連付けられた環境(`get_env`)へと転送される。
@@ -37,6 +39,7 @@ Promise型`p`をもつコルーチンにおいて、Await式`co_await as_awaitab
     - 適格要件 : 同式の型を`A`としたとき、[`is-awaitable`](../is-awaitable.md)`<A, Promise> == true`であるべき。
 - そうではなく、説明用の型`U`を`Promise`とは異なりかつ`await_transform`メンバ関数を持たない未規定の型としたとき、[`is-awaitable`](../is-awaitable.md)`<Expr, U> == true`ならば、式`(void(p), expr)`
     - 事前条件 : [`is-awaitable`](../is-awaitable.md)`<Expr, Promise> == true`、かつPromise型`U`のコルーチンにおける式`co_await expr`がPromise型`Promise`のコルーチンにおける同式と等しさを保持すること。
+- そうではなく、説明用の式`adapted-expr`を`expr`が1回だけ評価されることを除いて[`get_await_completion_adaptor`](get_await_completion_adaptor.md)`(`[`get_env`](get_env.md)`(expr))(expr)`としたとき、`has-queryable-await-completion-adaptor<Expr>`と`awaitable-sender<decltype((adapted-expr)), Promise>`が共に満たされるならば、式`sender-awaitable{adapted-expr, p}`
 - そうではなく、`awaitable-sender<Expr, Promise>`ならば、式`sender-awaitable{expr, p}`
 - そうでなければ、式`(void(p), expr)`
 
@@ -58,6 +61,21 @@ namespace std::execution {
 * env_of_t[link env_of_t.md]
 * sender_to[link sender_to.md]
 * coroutine_handle<>[link /reference/coroutine/coroutine_handle.md]
+
+### コンセプト`has-queryable-await-completion-adaptor`
+```cpp
+namespace std::execution {
+  template<class Sndr>
+  concept has-queryable-await-completion-adaptor =  // exposition only
+    sender<Sndr>
+    && requires(Sndr&& sender) {
+      get_await_completion_adaptor(get_env(sender));
+    };
+}
+```
+* sender[link sender.md]
+* get_await_completion_adaptor[link get_await_completion_adaptor.md]
+* get_env[link get_env.md]
 
 ### クラステンプレート`sender-awaitable`
 ```cpp
@@ -196,6 +214,8 @@ value-type await_resume();
 ## カスタマイゼーションポイント
 `expr`に対して、適格であるならば式`expr.as_awaitable(p)`が呼び出される。
 
+`expr`が[Sender型](sender.md)かつ関連付けられた[属性](../queryable.md)がクエリオブジェクト[`get_await_completion_adaptor`](get_await_completion_adaptor.md)に対応するとき、`expr`に対して同クエリオブジェクトが返すSenderアダプタを適用してからAwaitableオブジェクトへ変換する。
+
 
 ## バージョン
 ### 言語
@@ -210,9 +230,11 @@ value-type await_resume();
 
 ## 関連項目
 - [`execution::with_awaitable_senders`](with_awaitable_senders.md)
+- [`execution::get_await_completion_adaptor`](get_await_completion_adaptor.md)
 - [C++20 コルーチン](/lang/cpp20/coroutines.md)
 
 
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3396R1 std::execution wording fixes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html)
+- [P3570R2 optional variants in sender/receiver](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3570r2.html)
