@@ -1,4 +1,4 @@
-# bulk
+# bulk_unchunked
 * execution[meta header]
 * cpo[meta id-type]
 * std::execution[meta namespace]
@@ -6,32 +6,32 @@
 
 ```cpp
 namespace std::execution {
-  struct bulk_t { unspecified };
-  inline constexpr bulk_t bulk{};
+  struct bulk_unchunked_t { unspecified };
+  inline constexpr bulk_unchunked_t bulk_unchunked{};
 }
 ```
 * unspecified[italic]
 
 ## 概要
-`bulk`は、インデクス空間の各インデクスに対してタスクを反復実行するSenderアダプタである。
+`bulk_unchunked`は、インデクス空間の各インデクスに対してタスクを反復実行するSenderアダプタである。
 
-`bulk`は[パイプ可能Senderアダプタオブジェクト](sender_adaptor_closure.md)であり、パイプライン記法をサポートする。
+`bulk_unchunked`は[パイプ可能Senderアダプタオブジェクト](sender_adaptor_closure.md)であり、パイプライン記法をサポートする。
 
 
 ## 効果
-説明用の式`sndr`, `policy`, `shape`, `f`に対して、型`Policy`を[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<decltype(policy)>`、型`Shape`を`decltype(auto(shape))`、型`Func`を[`decay_t`](/reference/type_traits/decay.md)`<decltype((f))>`とする。下記いずれかの条件をみたすとき、呼び出し式`bulk(sndr, policy, shape, f)`は不適格となる。
+説明用の式`sndr`, `policy`, `shape`, `f`に対して、型`Policy`を[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<decltype(policy)>`、型`Shape`を`decltype(auto(shape))`、型`Func`を[`decay_t`](/reference/type_traits/decay.md)`<decltype((f))>`とする。下記いずれかの条件をみたすとき、呼び出し式`bulk_unchunked(sndr, policy, shape, f)`は不適格となる。
 
 - `decltype((sndr))`が[`sender`](sender.md)を満たさない、もしくは
 - [`is_execution_policy_v`](../is_execution_policy.md)`<Policy> == false`、もしくは
 - `Shape`が[`integral`](/reference/concepts/integral.md)を満たさない、もしくは
 - `Func`が[`copy_constructible`](/reference/concepts/copy_constructible.md)のモデルでないとき。
 
-そうでなければ、呼び出し式`bulk(sndr, policy, shape, f)`は`sndr`が1回だけ評価されることを除いて、下記と等価。
+そうでなければ、呼び出し式`bulk_unchunked(sndr, policy, shape, f)`は`sndr`が1回だけ評価されることを除いて、下記と等価。
 
 ```cpp
 transform_sender(
   get-domain-early(sndr),
-  make-sender(bulk, product-type<see below, Shape, Func>{policy, shape, f}, sndr))
+  make-sender(bulk_unchunked, product-type<see below, Shape, Func>{policy, shape, f}, sndr))
 ```
 * transform_sender[link transform_sender.md]
 * get-domain-early[link get-domain-early.md]
@@ -41,29 +41,52 @@ transform_sender(
 `product-type`の第1テンプレート引数は、`Policy`が[`copy_constructible`](/reference/concepts/copy_constructible.md)のモデルであるとき`Policy`となる。そうでなければ、`const Policy&`となる。
 
 
-### Senderアルゴリズムタグ `bulk_t`
-説明用の式`sndr`と`env`に対して、型`Sndr`を`decltype((sndr))`とする。[`sender-for`](sender-for.md)`<Sndr, bulk_t> == false`のとき、式`bulk.transform_sender(sndr, env)`は不適格となる。
-
-そうでなければ、式`bulk.transform_sender(sndr, env)`は下記と等価。
+### Senderアルゴリズムタグ `bulk_unchunked_t`
+Senderアルゴリズム動作説明用のクラステンプレート[`impls-for`](impls-for.md)に対して、下記の特殊化が定義される。
 
 ```cpp
-auto [_, data, child] = sndr;
-auto& [policy, shape, f] = data;
-auto new_f = [func = std::move(f)](Shape begin, Shape end, auto&&... vs)
-    noexcept(noexcept(f(begin, vs...))) {
-  while (begin != end) func(begin++, vs...);
+namespace std::execution {
+  template<>
+  struct impls-for<bulk_unchunked_t> : default-impls {
+    static constexpr auto complete = see below;
+  };
 }
-return bulk_chunked(std::move(child), policy, shape, std::move(new_f));
 ```
-* bulk_chunked[link bulk_chunked.md]
+* impls-for[link impls-for.md]
+* default-impls[link impls-for.md]
+
+`impls-for<bulk_unchunked_t>::complete`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
+
+```cpp
+[]<class Index, class State, class Rcvr, class Tag, class... Args>
+  (Index, State& state, Rcvr& rcvr, Tag, Args&&... args) noexcept
+  -> void requires see below {
+    if constexpr (same_as<Tag, set_value_t>) {
+      auto& [shape, f] = state;
+      constexpr bool nothrow = noexcept(f(auto(shape), args...));
+      TRY-EVAL(rcvr, [&]() noexcept(nothrow) {
+        for (decltype(auto(shape)) i = 0; i < shape; ++i) {
+          f(auto(i), args...);
+        }
+        Tag()(std::move(rcvr), std::forward<Args>(args)...);
+      }());
+    } else {
+      Tag()(std::move(rcvr), std::forward<Args>(args)...);
+    }
+  }
+```
+* set_value_t[link set_value.md]
+* TRY-EVAL[link set_value.md]
 * std::move[link /reference/utility/move.md]
+
+型`Tag`が[`set_value_t`](set_value.md)以外の型であるとき、もしくは式`f(auto(shape), args...)`が適格なときに限って、上記ラムダ式のrequires節が満たされる。
 
 
 ## カスタマイゼーションポイント
 Senderアルゴリズム構築時および[Receiver](receiver.md)接続時に、関連付けられた実行ドメインに対して[`execution::transform_sender`](transform_sender.md)経由でSender変換が行われる。
 [デフォルト実行ドメイン](default_domain.md)では無変換。
 
-説明用の式`out_sndr`を`bulk(sndr, policy, shape, f)`の戻り値[Sender](sender.md)とし、式`rcvr`を式[`connect`](connect.md)`(out_sndr, rcvr)`が適格となる[Receiver](receiver.md)とする。式[`connect`](connect.md)`(out_sndr, rcvr)`は[開始(start)](start.md)時に下記を満たす非同期操作を生成しない場合、動作は未定義となる。
+説明用の式`out_sndr`を`bulk_unchunked(sndr, policy, shape, f)`の戻り値[Sender](sender.md)とし、式`rcvr`を式[`connect`](connect.md)`(out_sndr, rcvr)`が適格となる[Receiver](receiver.md)とする。式[`connect`](connect.md)`(out_sndr, rcvr)`は[開始(start)](start.md)時に下記を満たす非同期操作を生成しない場合、動作は未定義となる。
 
 - 説明用の`args`を`sndr`の値完了結果を参照する左辺値式のパック、または[`copy_constructible`](/reference/concepts/copy_constructible.md)のモデルであるならばそれらの値のdecayコピーのパックとする。`sndr`が値完了したとき、
     - `out_sndr`もまた値完了するとき、`0`から`shape`までの型`Shape`の全ての`i`に対して`f(i, args...)`を呼び出す。
@@ -76,10 +99,6 @@ Senderアルゴリズム構築時および[Receiver](receiver.md)接続時に、
 - パラメータ`policy`は、アルゴリズムに対応した非同期操作の実行を並列化する方法、および`f`に適用する方法を規程する。並列アルゴリズム要素アクセス関数に対する権限と要件は`f`に適用される。
 
 
-## 備考
-`bulk`アルゴリズムを直接カスタマイズしない実行ドメインであっても、`bulk`の動作は[Receiver](receiver.md)接続時に変換される[`bulk_chunked`](bulk_chunked.md)へ委譲される。
-
-
 ## 例
 ```cpp example
 #include <print>
@@ -90,13 +109,13 @@ int main()
 {
   ex::sender auto sndr =
     ex::just()
-    | ex::bulk(3, ex::seq, [](int i) {
+    | ex::bulk_unchunked(3, ex::seq, [](int i) {
         std::println("{}", i);
       });
   std::this_thread::sync_wait(sndr);
 }
 ```
-* ex::bulk[color ff0000]
+* ex::bulk_unchunked[color ff0000]
 * ex::sender[link sender.md]
 * ex::just[link just.md]
 * ex::seq[link execution_policy.md]
@@ -122,12 +141,9 @@ int main()
 
 
 ## 関連項目
+- [`execution::bulk`](bulk.md)
 - [`execution::bulk_chunked`](bulk_chunked.md)
-- [`execution::bulk_unchunked`](bulk_unchunked.md)
 
 
 ## 参照
-- [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
-- [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3481R5 `std::execution::bulk()` issues](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3481r5.html)
-- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)

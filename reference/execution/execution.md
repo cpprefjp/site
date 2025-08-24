@@ -124,6 +124,8 @@ namespace std::execution {
 | [`execution::let_error`](execution/let_error.md) | エラー完了結果から入れ子の非同期操作へ変換 (customization point object) | C++26 |
 | [`execution::let_stopped`](execution/let_stopped.md) | 停止完了を入れ子の非同期操作へ変換 (customization point object) | C++26 |
 | [`execution::bulk`](execution/bulk.md) | インデクス空間上で指定関数を反復実行 (customization point object) | C++26 |
+| [`execution::bulk_chunked`](execution/bulk_chunked.md) | インデクス空間を分割チャンク単位で指定関数を反復実行 (customization point object) | C++26 |
+| [`execution::bulk_unchunked`](execution/bulk_unchunked.md) | インデクス空間の各インデクス単位で指定関数を反復実行 (customization point object) | C++26 |
 | [`execution::when_all`](execution/when_all.md) | 全ての入力Sender完了を待機 (customization point object) | C++26 |
 | [`execution::when_all_with_variant`](execution/when_all_with_variant.md) | 複数の値完了シグネチャをもつ全ての入力Sender完了を待機 (customization point object) | C++26 |
 | [`execution::into_variant`](execution/into_variant.md) | 複数の値完了シグネチャを単一[`variant`](/reference/variant/variant.md)型の値完了シグネチャに変換 (customization point object) | C++26 |
@@ -166,6 +168,7 @@ Senderコンシューマは名前空間 `std::this_thread` で定義される。
 - [P0024R2 The Parallelism TS Should be Standardized](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0024r2.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3284R4 `write_env` and `unstoppable` Sender Adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3284r4.html)
+- [P3481R5 `std::execution::bulk()` issues](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3481r5.html)
 - [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
 - [P3570R2 optional variants in sender/receiver](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3570r2.html)
 - [P3682R0 Remove `std::execution::split`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3682r0.pdf)
