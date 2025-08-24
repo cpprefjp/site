@@ -14,7 +14,7 @@ basic_string_view<CharT, Traits> view() const noexcept;
 
 ## 戻り値
 バッファが初期化されている場合、[`gptr()`](/reference/streambuf/basic_streambuf/gptr.md)と[`egptr()`](/reference/streambuf/basic_streambuf/egptr.md)の間の文字列を指す`basic_string_view`オブジェクトを返す。  
-それ以外の場合、[`pbase()`](/reference/streambuf/basic_streambuf/pbase.md)と[`epptr()`](/reference/streambuf/basic_streambuf/pptr.md)の間の文字列を指す`basic_string_view`オブジェクトを返す。
+それ以外の場合、[`pbase()`](/reference/streambuf/basic_streambuf/pbase.md)と[`epptr()`](/reference/streambuf/basic_streambuf/epptr.md)の間の文字列を指す`basic_string_view`オブジェクトを返す。
 
 ## 例
 ```cpp example

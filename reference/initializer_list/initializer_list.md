@@ -19,7 +19,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------------------|----------------|-------|
-| [`constructor`](initializer_list/op_constructor.md) | コンストラクタ | C++11 |
+| [`(constructor)`](initializer_list/op_constructor.md) | コンストラクタ | C++11 |
 | `~initializer_list() = default;`                      | デストラクタ | C++11 |
 | [`size`](initializer_list/size.md)                  | 要素数を取得する | C++11 |
 | [`begin`](initializer_list/begin.md)                | 先頭要素へのポインタを取得する | C++11 |

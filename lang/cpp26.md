@@ -438,7 +438,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - [`begin()`](/reference/optional/optional/begin.md.nolink)メンバ関数
     - [`end()`](/reference/optional/optional/end.md.nolink)メンバ関数
 - [`std::optional`](/reference/optional/optional.md)に、参照を保持するための`T&`の部分特殊化を追加
-- [`std::tuple`](/reference/tuple/apply.md)の戻り値型推論をやめて、戻り値型用の[`std::apply_result`](/reference/tuple/apply_result.md.nolink)クラスを追加し、関連する以下の機能を追加
+- [`std::apply`](/reference/tuple/apply.md)の戻り値型推論をやめて、戻り値型用の[`std::apply_result`](/reference/tuple/apply_result.md.nolink)クラスを追加し、関連する以下の機能を追加
     - [`std::is_applicable`](/reference/type_traits/is_applicable.md.nolink)型特性
     - [`std::is_nothrow_applicable`](/reference/type_traits/is_nothrow_applicable.md.nolink)型特性
 - [`std::ignore`](/reference/tuple/ignore.md)をファーストクラス・オブジェクトとして型を詳細に定義

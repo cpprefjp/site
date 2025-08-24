@@ -146,7 +146,7 @@ constexpr basic_string&
 - (6) C++03 まで：[`size`](size.md)`() >= npos -` [`distance`](/reference/iterator/distance.md)`(first, last)` の場合、`length_error` が送出される。  
     C++11 から：[`size`](size.md)`() +` [`distance`](/reference/iterator/distance.md)`(first, last) >` [`max_size`](max_size.md)`()` の場合、`length_error` が送出される。
 
-- (7) [`size`](size.md)`() + il.`[`size`](/reference/initializer_list/initializer_list.md)`() >` [`max_size`](max_size.md)`()` の場合、`length_error` が送出される。
+- (7) [`size`](size.md)`() + il.`[`size`](/reference/initializer_list/initializer_list/size.md)`() >` [`max_size`](max_size.md)`()` の場合、`length_error` が送出される。
 
 
 ## 備考

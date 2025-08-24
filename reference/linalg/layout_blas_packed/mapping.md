@@ -36,7 +36,7 @@ namespace std::linalg {
     - `extents_type::static_extent(0) ==` [`dynamic_extent`](/reference/span/dynamic_extent.md)または
     - `extents_type::static_extent(1) ==` [`dynamic_extent`](/reference/span/dynamic_extent.md)または
     - `extents_type::static_extent(0) == extents_type::static_extent(1)`
-- [`Extents::rank_dynamic()`](/reference/mdspan/extents/rank.md) `== 0`のとき、`Ns`を[`Extents::static_extent`](/reference/mdspan/extents/static_extent.md)`(0)`としたとき値`Ns * (Ns + 1)`を`index_type`型で表現できること。
+- [`Extents::rank_dynamic()`](/reference/mdspan/extents/rank_dynamic.md) `== 0`のとき、`Ns`を[`Extents::static_extent`](/reference/mdspan/extents/static_extent.md)`(0)`としたとき値`Ns * (Ns + 1)`を`index_type`型で表現できること。
 
 
 ## メンバ関数
