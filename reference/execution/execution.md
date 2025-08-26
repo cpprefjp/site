@@ -158,6 +158,14 @@ Senderコンシューマは名前空間 `std::this_thread` で定義される。
 | [`execution::as_awaitable`](execution/as_awaitable.md) | Senderを[Awaitable型](/lang/cpp20/coroutines.md)へ変換 (customization point object) | C++26 |
 | [`execution::with_awaitable_senders`](execution/with_awaitable_senders.md) | [Promise型](/lang/cpp20/coroutines.md)の基底クラス (class template) | C++26 |
 
+### 並列スケジューラ
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`execution::parallel_scheduler`](execution/parallel_scheduler.md.nolink) | 並列スケジューラ (class) | C++26 |
+| [`execution::get_parallel_scheduler`](execution/get_parallel_scheduler.md.nolink) | 並列スケジューラを取得 (function) | C++26 |
+| [`execution::system_context_replaceability`](execution/system_context_replaceability.md) | `parallel_scheduler`動作カスタマイズ用の名前空間 (namespace) | C++26 |
+
 
 ## バージョン
 ### 言語
@@ -167,6 +175,7 @@ Senderコンシューマは名前空間 `std::this_thread` で定義される。
 ## 参照
 - [P0024R2 The Parallelism TS Should be Standardized](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0024r2.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P2079R10 Parallel scheduler](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2079r10.html)
 - [P3284R4 `write_env` and `unstoppable` Sender Adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3284r4.html)
 - [P3481R5 `std::execution::bulk()` issues](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3481r5.html)
 - [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
