@@ -78,8 +78,8 @@ int main()
 ```
 * tie[color ff0000]
 * std::istream[link ../../istream/basic_istream.md]
-* std::ifstream[link ../../fstream/basic_ifilestream.md.nolink]
-* std::ofstream[link ../../fstream/basic_ofilestream.md.nolink]
+* std::ifstream[link ../../fstream/basic_ifstream.md]
+* std::ofstream[link ../../fstream/basic_ofstream.md]
 * clear()[link clear.md]
 * rdstate[link rdstate.md]
 * std::ios_base[link ../ios_base.md]

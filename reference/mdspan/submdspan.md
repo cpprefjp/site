@@ -77,7 +77,7 @@ return mdspan(src.accessor().offset(src.data_handle(), sub_map_offset.offset),
 * mdspan[link mdspan.md]
 * sub_map_offset[link submdspan_mapping_result.md]
 * src.mapping()[link mdspan/mapping.md]
-* src.data_handle()[link mdspan/mapping.md]
+* src.data_handle()[link mdspan/data_handle.md]
 * src.accessor()[link mdspan/accessor.md]
 * AccessorPolicy::offset_policy[link AccessorPolicy.md]
 

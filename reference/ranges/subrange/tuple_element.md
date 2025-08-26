@@ -52,7 +52,7 @@ int main()
 ```
 * std::tuple_element_t[link /reference/tuple/tuple_element.md]
 * std::ranges::subrange[link /reference/ranges/subrange.md]
-* std::same_as[link /reference/ranges/subrange.md]
+* std::same_as[link /reference/concepts/same_as.md]
 * std::ranges::iterator_t[link /reference/ranges/iterator_t.md]
 * std::ranges::sentinel_t[link /reference/ranges/sentinel_t.md]
 * std::views::empty[link /reference/ranges/empty_view.md]

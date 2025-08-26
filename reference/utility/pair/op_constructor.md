@@ -66,7 +66,7 @@ constexpr pair(piecewise_construct_t,
                tuple<Args2...> second_args);                  // (11) C++20
 ```
 * EXPLICIT[italic]
-* pair-like[link /reference/tuple/tuple-like.md]
+* pair-like[link /reference/tuple/pair-like.md]
 
 ## 概要
 [`pair`](../pair.md)オブジェクトを構築する。

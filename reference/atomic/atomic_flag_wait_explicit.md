@@ -106,8 +106,8 @@ int main()
 }
 ```
 * std::atomic_flag_wait_explicit[color ff0000]
-* std::atomic_flag_test_and_set_explicit[link atomic_flag_test_and_set.md]
-* std::atomic_flag_clear_explicit[link atomic_flag_clear.md]
+* std::atomic_flag_test_and_set_explicit[link atomic_flag_test_and_set_explicit.md]
+* std::atomic_flag_clear_explicit[link atomic_flag_clear_explicit.md]
 * std::atomic_flag_notify_one[link /reference/atomic/atomic_flag_notify_one.md]
 * ATOMIC_FLAG_INIT[link /reference/atomic/atomic_flag_init.md]
 * std::memory_order[link /reference/atomic/memory_order.md]

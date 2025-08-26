@@ -35,7 +35,7 @@ int main()
 }
 ```
 * std::unexpect[color ff0000]
-* ETIMEDOUT[link /reference/system_error/errc.md]
+* ETIMEDOUT[link /reference/cerrno.md]
 
 ### 出力
 ```

@@ -234,7 +234,7 @@ int main()
 * data_handle()[link data_handle.md]
 * mapping()[link mapping.md]
 * size()[link size.md]
-* std::layout_stride::mapping[link ../layout_stride/mapping.md]]
+* std::layout_stride::mapping[link ../layout_stride/mapping.md]
 * std::layout_stride[link ../layout_stride.md]
 * std::layout_left::mapping[link ../layout_left/mapping.md]
 * std::default_accessor[link ../default_accessor.md]

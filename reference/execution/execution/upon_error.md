@@ -50,7 +50,7 @@ int main()
 ```
 * ex::upon_error[color ff0000]
 * ex::sender[link sender.md]
-* ex::just_error[link just.md]
+* ex::just_error[link just_error.md]
 * std::this_thread::sync_wait[link ../this_thread/sync_wait.md]
 * value()[link /reference/optional/optional/value.md]
 

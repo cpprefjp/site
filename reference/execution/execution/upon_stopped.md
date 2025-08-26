@@ -49,7 +49,7 @@ int main()
 ```
 * ex::upon_stopped[color ff0000]
 * ex::sender[link sender.md]
-* ex::just_stopped[link just.md]
+* ex::just_stopped[link just_stopped.md]
 * std::this_thread::sync_wait[link ../this_thread/sync_wait.md]
 * value()[link /reference/optional/optional/value.md]
 

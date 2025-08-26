@@ -40,7 +40,7 @@ int main()
 }
 ```
 * std::make_error_condition[color ff0000]
-* std::error_condition[link error_code.md]
+* std::error_condition[link error_condition.md]
 * std::errc::invalid_argument[link errc.md]
 * econd.category()[link error_condition/category.md]
 * name()[link error_category/name.md]

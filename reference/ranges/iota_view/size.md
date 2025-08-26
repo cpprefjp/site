@@ -9,7 +9,7 @@
 constexpr auto size() const
   requires (same_as<W, Bound> && advanceable<W>) || (integral<W> && integral<Bound>) || sized_sentinel_for<Bound, W>;
 ```
-* integral[link /reference/concepts/same_as.md]
+* integral[link /reference/concepts/integral.md]
 * advanceable[italic][link iterator.md]
 * sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
 
