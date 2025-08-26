@@ -41,7 +41,7 @@ transform_sender(
 `product-type`の第1テンプレート引数は、`Policy`が[`copy_constructible`](/reference/concepts/copy_constructible.md)のモデルであるとき`Policy`となる。そうでなければ、`const Policy&`となる。
 
 
-### Senderアルゴリズムタグ `bulk_chunked_t`
+### Senderアルゴリズムタグ `bulk_chunked`
 Senderアルゴリズム動作説明用のクラステンプレート[`impls-for`](impls-for.md)に対して、下記の特殊化が定義される。
 
 ```cpp
@@ -171,4 +171,7 @@ int main()
 
 
 ## 参照
+- [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
+- [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3481R5 `std::execution::bulk()` issues](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3481r5.html)
+- [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)

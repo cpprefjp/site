@@ -41,7 +41,7 @@ transform_sender(
 `product-type`の第1テンプレート引数は、`Policy`が[`copy_constructible`](/reference/concepts/copy_constructible.md)のモデルであるとき`Policy`となる。そうでなければ、`const Policy&`となる。
 
 
-### Senderアルゴリズムタグ `bulk_unchunked_t`
+### Senderアルゴリズムタグ `bulk_unchunked`
 Senderアルゴリズム動作説明用のクラステンプレート[`impls-for`](impls-for.md)に対して、下記の特殊化が定義される。
 
 ```cpp
@@ -90,6 +90,7 @@ Senderアルゴリズム構築時および[Receiver](receiver.md)接続時に、
 
 - 説明用の`args`を`sndr`の値完了結果を参照する左辺値式のパック、または[`copy_constructible`](/reference/concepts/copy_constructible.md)のモデルであるならばそれらの値のdecayコピーのパックとする。`sndr`が値完了したとき、
     - `out_sndr`もまた値完了するとき、`0`から`shape`までの型`Shape`の全ての`i`に対して`f(i, args...)`を呼び出す。
+        - スケジューラ実装者は、各イテレーションを独立した実行エージェント上で実行することが推奨される。
     - `out_sndr`が[`set_error`](set_error.md)`(rcvr, eptr)`で完了するとき、エラー完了ハンドラが呼び出される前に非同期操作は`f`呼び出しのサブセットを呼び出す可能性があり、`eptr`は下記いずれかを指す[`exception_ptr`](/reference/exception/exception_ptr.md)となる。
         - `f`呼び出しから送出された例外、または
         - 処理系が要求リソースの確保に失敗したときは[`bad_alloc`](/reference/new/bad_alloc.md)例外、または
@@ -146,4 +147,6 @@ int main()
 
 
 ## 参照
+- [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
+- [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3481R5 `std::execution::bulk()` issues](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3481r5.html)
