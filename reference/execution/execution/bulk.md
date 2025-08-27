@@ -13,9 +13,14 @@ namespace std::execution {
 * unspecified[italic]
 
 ## 概要
-`bulk`は、インデクス空間の各インデクスに対してタスクを反復実行するSenderアダプタである。
+`bulk`は、インデクス空間の各インデクスに対してタスクを一括実行するSenderアダプタである。
 
 `bulk`は[パイプ可能Senderアダプタオブジェクト](sender_adaptor_closure.md)であり、パイプライン記法をサポートする。
+
+実行制御ライブラリのデフォルト動作では、`bulk`は[`bulk_chukned`](bulk_chunked.md)に変換され、下記のように振る舞う。
+
+- [並列Scheduler](parallel_scheduler.md)上では、インデクス空間を区間分割されたチャンク単位で並列実行される。
+- 明示的にカスタマイズされていなければ、各インデクスに対する処理は逐次実行される。
 
 
 ## 効果

@@ -107,6 +107,7 @@ int main()
 ## 関連項目
 - [`execution::schedule`](schedule.md)
 - [`execution::get_completion_scheduler`](get_completion_scheduler.md)
+- [`execution::get_parallel_scheduler`](get_parallel_scheduler.md)
 
 
 ## 参照

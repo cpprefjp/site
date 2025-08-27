@@ -13,9 +13,14 @@ namespace std::execution {
 * unspecified[italic]
 
 ## 概要
-`bulk_unchunked`は、インデクス空間の各インデクスに対してタスクを反復実行するSenderアダプタである。
+`bulk_unchunked`は、インデクス空間の各インデクスに対してタスクを一括実行するSenderアダプタである。
 
 `bulk_unchunked`は[パイプ可能Senderアダプタオブジェクト](sender_adaptor_closure.md)であり、パイプライン記法をサポートする。
+
+実行制御ライブラリのデフォルト動作では、下記のように振る舞う。
+
+- [並列Scheduler](parallel_scheduler.md)上では、各インデクスに対する処理は個別の実行エージェント上で並列実行される。
+- 明示的にカスタマイズされていなければ、各インデクスに対する処理は逐次実行される。
 
 
 ## 効果
@@ -90,7 +95,7 @@ Senderアルゴリズム構築時および[Receiver](receiver.md)接続時に、
 
 - 説明用の`args`を`sndr`の値完了結果を参照する左辺値式のパック、または[`copy_constructible`](/reference/concepts/copy_constructible.md)のモデルであるならばそれらの値のdecayコピーのパックとする。`sndr`が値完了したとき、
     - `out_sndr`もまた値完了するとき、`0`から`shape`までの型`Shape`の全ての`i`に対して`f(i, args...)`を呼び出す。
-        - スケジューラ実装者は、各イテレーションを独立した実行エージェント上で実行することが推奨される。
+        - [Scheduler](scheduler.md)実装者は、各イテレーションを独立した実行エージェント上で実行することが推奨される。
     - `out_sndr`が[`set_error`](set_error.md)`(rcvr, eptr)`で完了するとき、エラー完了ハンドラが呼び出される前に非同期操作は`f`呼び出しのサブセットを呼び出す可能性があり、`eptr`は下記いずれかを指す[`exception_ptr`](/reference/exception/exception_ptr.md)となる。
         - `f`呼び出しから送出された例外、または
         - 処理系が要求リソースの確保に失敗したときは[`bad_alloc`](/reference/new/bad_alloc.md)例外、または
@@ -144,9 +149,11 @@ int main()
 ## 関連項目
 - [`execution::bulk`](bulk.md)
 - [`execution::bulk_chunked`](bulk_chunked.md)
+- [`execution::parallel_scheduler`](parallel_scheduler.md)
 
 
 ## 参照
 - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P2079R10 Parallel scheduler](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2079r10.html)
 - [P3481R5 `std::execution::bulk()` issues](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3481r5.html)

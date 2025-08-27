@@ -123,9 +123,9 @@ namespace std::execution {
 | [`execution::let_value`](execution/let_value.md) | 値完了結果から入れ子の非同期操作へ変換 (customization point object) | C++26 |
 | [`execution::let_error`](execution/let_error.md) | エラー完了結果から入れ子の非同期操作へ変換 (customization point object) | C++26 |
 | [`execution::let_stopped`](execution/let_stopped.md) | 停止完了を入れ子の非同期操作へ変換 (customization point object) | C++26 |
-| [`execution::bulk`](execution/bulk.md) | インデクス空間上で指定関数を反復実行 (customization point object) | C++26 |
-| [`execution::bulk_chunked`](execution/bulk_chunked.md) | インデクス空間を分割チャンク単位で指定関数を反復実行 (customization point object) | C++26 |
-| [`execution::bulk_unchunked`](execution/bulk_unchunked.md) | インデクス空間の各インデクス単位で指定関数を反復実行 (customization point object) | C++26 |
+| [`execution::bulk`](execution/bulk.md) | インデクス空間上で指定関数を一括実行 (customization point object) | C++26 |
+| [`execution::bulk_chunked`](execution/bulk_chunked.md) | インデクス空間を分割チャンク単位で指定関数を一括実行 (customization point object) | C++26 |
+| [`execution::bulk_unchunked`](execution/bulk_unchunked.md) | インデクス空間の各インデクス単位で指定関数を一括実行 (customization point object) | C++26 |
 | [`execution::when_all`](execution/when_all.md) | 全ての入力Sender完了を待機 (customization point object) | C++26 |
 | [`execution::when_all_with_variant`](execution/when_all_with_variant.md) | 複数の値完了シグネチャをもつ全ての入力Sender完了を待機 (customization point object) | C++26 |
 | [`execution::into_variant`](execution/into_variant.md) | 複数の値完了シグネチャを単一[`variant`](/reference/variant/variant.md)型の値完了シグネチャに変換 (customization point object) | C++26 |
@@ -158,12 +158,12 @@ Senderコンシューマは名前空間 `std::this_thread` で定義される。
 | [`execution::as_awaitable`](execution/as_awaitable.md) | Senderを[Awaitable型](/lang/cpp20/coroutines.md)へ変換 (customization point object) | C++26 |
 | [`execution::with_awaitable_senders`](execution/with_awaitable_senders.md) | [Promise型](/lang/cpp20/coroutines.md)の基底クラス (class template) | C++26 |
 
-### 並列スケジューラ
+### 並列Scheduler
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`execution::parallel_scheduler`](execution/parallel_scheduler.md.nolink) | 並列スケジューラ (class) | C++26 |
-| [`execution::get_parallel_scheduler`](execution/get_parallel_scheduler.md.nolink) | 並列スケジューラを取得 (function) | C++26 |
+| [`execution::parallel_scheduler`](execution/parallel_scheduler.md) | 並列Scheduler (class) | C++26 |
+| [`execution::get_parallel_scheduler`](execution/get_parallel_scheduler.md) | 並列Schedulerを取得 (function) | C++26 |
 | [`execution::system_context_replaceability`](execution/system_context_replaceability.md) | `parallel_scheduler`動作カスタマイズ用の名前空間 (namespace) | C++26 |
 
 

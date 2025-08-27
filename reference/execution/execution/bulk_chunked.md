@@ -13,9 +13,14 @@ namespace std::execution {
 * unspecified[italic]
 
 ## 概要
-`bulk_chunked`は、インデクス空間を区間分割したチャンク単位でタスクを反復実行するSenderアダプタである。
+`bulk_chunked`は、インデクス空間を区間分割したチャンク単位でタスクを一括実行するSenderアダプタである。
 
 `bulk_chunked`は[パイプ可能Senderアダプタオブジェクト](sender_adaptor_closure.md)であり、パイプライン記法をサポートする。
+
+実行制御ライブラリのデフォルト動作では、下記のように振る舞う。
+
+- [並列Scheduler](parallel_scheduler.md)上では、インデクス空間を区間分割されたチャンク単位で並列実行される。
+- 明示的にカスタマイズされていなければ、各インデクスに対する処理は逐次実行される。
 
 
 ## 効果
@@ -168,10 +173,12 @@ int main()
 ## 関連項目
 - [`execution::bulk`](bulk.md)
 - [`execution::bulk_unchunked`](bulk_unchunked.md)
+- [`execution::parallel_scheduler`](parallel_scheduler.md)
 
 
 ## 参照
 - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P2079R10 Parallel scheduler](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2079r10.html)
 - [P3481R5 `std::execution::bulk()` issues](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3481r5.html)
 - [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
