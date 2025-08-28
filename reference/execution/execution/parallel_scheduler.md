@@ -12,13 +12,17 @@ namespace std::execution {
 * unspecified[italic]
 
 ## 概要
-`parallel_scheduler`は、実行制御ライブラリ上で並列処理を実現する並列Schedulerクラスである。
+`parallel_scheduler`は、実行制御ライブラリ上でタスクの並列実行を可能とする並列[Scheduler](scheduler.md)である。
 
-次のSenderアルゴリズムに対してカスタマイズ実装を提供することで、インデクス空間の各要素に対する処理を並列実行する。
+`parallel_scheduler`はシステムグローバルなスレッドプール（実行リソース）に関連付けられ、[`schedule`](schedule.md)操作により得られる[Sender](sender.md)はスレッドプールに属する任意のスレッド（実行エージェント）上で実行される。
 
-- [`execution::bulk`](bulk.md) : 既定動作では`bulk_chunked`へ変換
-- [`execution::bulk_chunked`](bulk_chunked.md) : チャンク単位で並列実行
-- [`execution::bulk_unchunked`](bulk_unchunked.md) : 要素単位で並列実行
+下記のSenderアルゴリズムに対してカスタマイズ実装を提供することで、タスクの一括(bulk)実行をスレッドプールを利用したタスク並列(parallel)実行に変換する。
+
+- [`execution::bulk`](bulk.md) : `bulk_chunked`に変換してタスク並列実行
+- [`execution::bulk_chunked`](bulk_chunked.md) : インデクス範囲をチャンク単位でタスク並列実行
+- [`execution::bulk_unchunked`](bulk_unchunked.md) : インデクス範囲を要素単位でタスク並列実行
+
+[`execution::system_context_replaceability`](system_context_replaceability.md) 名前空間で定義されるインタフェースを介して、スレッドプール実装をユーザ定義の並列Schedulerバックエンドに置き換えることもできる。
 
 
 ## クラス仕様
@@ -44,6 +48,8 @@ namespace std::execution {
 呼び出し可能オブジェクト`f`と引数`arg`を持つ`rcvr`のバルク非チャンク化プロキシ(bulk unchunked proxy)は、基底
 [`system_context_replaceability::bulk_item_receiver_proxy`](system_context_replaceability/bulk_item_receiver_proxy.md.nolink)を持つ`rcvr`のプロキシ`r`であり、インデクス`i`に対する`r.execute(i, i + 1)`は`f(i, args...)`と同じ効果を持つ。
 
+
+### `schedule` ファクトリ
 説明用の`b`を`BACKEND-OF(sch)`、`sndr`を[`schedule`](schedule.md)`(sch)`が返すオブジェクト、`rcvr`を[Receiver](receiver.md)とする。`rcvr`が`sndr`に[接続(connect)](connect.md)され、結果の[Operation State](operation_state.md)が[開始(start)](start.md)されたとき、
 
 - `sndr`が値完了するならば、[`b.schedule`](system_context_replaceability/parallel_scheduler_backend/schedule.md.nolink)`(r, s)`が呼ばれる。このとき、
@@ -51,6 +57,8 @@ namespace std::execution {
     - `s`は`r`に対する事前確保バックエンドストレージである。
 - 他の全ての完了操作は、変更なしに転送される。
 
+
+### `bulk_chunked` アダプタ
 `parallel_scheduler`は[`bulk_chunked`](bulk_chunked.md)アルゴリズムのカスタマイズ実装を提供する。[Receiver](receiver.md)`rcvr`が`bulk_chunked(sndr, pol, shape, f)`が返す[Sender](sender.md)に[接続(connect)](connect.md)され、結果の[Operation State](operation_state.md)が[開始(start)](start.md)されたとき、
 
 - `sndr`が値`vals`で値完了するならば、`args`を`vals`を指す左辺値式のパックとして、[`b.schedule_bulk_chunked`](system_context_replaceability/parallel_scheduler_backend/schedule_bulk_chunked.md.nolink)`(shape, r, s)`が呼ばれる。このとき、
@@ -58,6 +66,7 @@ namespace std::execution {
     - `s`は`r`に対する事前確保バックエンドストレージである。
 - 他の全ての完了操作は、変更なしに転送される。
 
+### `bulk_unchunked` アダプタ
 `parallel_scheduler`は[`bulk_unchunked`](bulk_unchunked.md)アルゴリズムのカスタマイズ実装を提供する。[Receiver](receiver.md)`rcvr`が`bulk_unchunked(sndr, pol, shape, f)`が返す[Sender](sender.md)に[接続(connect)](connect.md)され、結果の[Operation State](operation_state.md)が[開始(start)](start.md)されたとき、
 
 - `sndr`が値`vals`で値完了するならば、`args`を`vals`を指す左辺値式のパックとして、[`b.schedule_bulk_unchunked`](system_context_replaceability/parallel_scheduler_backend/schedule_bulk_unchunked.md.nolink)`(shape, r, s)`が呼ばれる。このとき、
