@@ -16,7 +16,7 @@ namespace std::execution {
 
 
 ## 効果
-説明用の`eb`を[`system_context_replaceability::query_parallel_scheduler_backend()`](system_context_replaceability/query_parallel_scheduler_backend.md.nolink)の結果とする。
+説明用の`eb`を[`system_context_replaceability::query_parallel_scheduler_backend()`](system_context_replaceability/query_parallel_scheduler_backend.md)の結果とする。
 
 もし`eb == nullptr`ならば、[`terminate`](/reference/exception/terminate.md)を呼び出す。そうでなければ、`eb`に関連付けられた[`parallel_scheduler`](parallel_scheduler.md)オブジェクトを返す。
 
