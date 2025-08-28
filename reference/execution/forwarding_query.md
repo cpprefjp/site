@@ -49,6 +49,7 @@ namespace std {
 - [`execution::get_scheduler`](execution/get_scheduler.md)
 - [`execution::get_delegation_scheduler`](execution/get_delegation_scheduler.md)
 - [`execution::get_completion_scheduler`](execution/get_completion_scheduler.md)
+- [`execution::get_await_completion_adaptor`](execution/get_await_completion_adaptor.md)
 
 下記[クエリオブジェクト](queryable.md)に対する問い合わせは、`FWD-ENV`経由で転送されない。
 
