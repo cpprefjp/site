@@ -11,7 +11,7 @@ namespace std::execution::system_context_replaceability {
 ```
 
 ## 概要
-[並列Scheduler](../parallel_scheduler.md)バックエンドのインタフェース（純粋仮想関数）を定義するクラス。
+`parallel_scheduler_backend`は、[並列Scheduler](../parallel_scheduler.md)バックエンド実装者向けのインタフェースを定義する。
 
 
 ## メンバ関数

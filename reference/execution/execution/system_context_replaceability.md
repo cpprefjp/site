@@ -14,8 +14,8 @@ namespace std::execution::system_context_replaceability {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`receiver_proxy`](system_context_replaceability/receiver_proxy.md.nolink) | バックエンド実装用のReceiverプロキシ (class) | C++26 |
-| [`bulk_item_receiver_proxy`](system_context_replaceability/bulk_item_receiver_proxy.md.nolink) | バックエンド実装用のバルク処理Receiverプロキシ (class) | C++26 |
+| [`receiver_proxy`](system_context_replaceability/receiver_proxy.md) | バックエンド実装用のReceiverプロキシ (class) | C++26 |
+| [`bulk_item_receiver_proxy`](system_context_replaceability/bulk_item_receiver_proxy.md) | バックエンド実装用のバルク処理Receiverプロキシ (class) | C++26 |
 | [`parallel_scheduler_backend`](system_context_replaceability/parallel_scheduler_backend.md) | 並列Schedulerバックエンド (class) | C++26 |
 | [`query_parallel_scheduler_backend`](system_context_replaceability/query_parallel_scheduler_backend.md) | 並列Schedulerバックエンドを問い合わせ (function) | C++26 |
 

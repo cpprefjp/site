@@ -34,7 +34,7 @@ namespace std::execution {
 
 説明用の`sch2`を`parallel_scheduler`型のオブジェクトとしたとき、`BACKEND-OF(sch)`と`BACKEND-OF(sch2)`が同一オブジェクトを指す場合に限って、2つのオブジェクト`sch`と`sch2`は等しい。
 
-`rcvr`を[Receiver](receiver.md)としたとき、基底`B`を持つ`rcvr`のプロキシ(proxy for `rcvr` with base `B`)は下記を満たす`B`型の左辺値`r`となる。
+`rcvr`を[Receiver](receiver.md)としたとき、基底`B`を持つ`rcvr`のプロキシは下記を満たす`B`型の左辺値`r`となる。
 
 - `r.set_value()`は、[`set_value`](set_value.md)`(std::move(rcvr))`と同じ効果。
 - `r.set_error(e)`は、`e`を[`exception_ptr`](/reference/exception/exception_ptr.md)として、[`set_error`](set_error.md)`(std::move(rcvr), std::move(e))`と同じ効果。
@@ -43,22 +43,22 @@ namespace std::execution {
 プロキシ`r`に対する事前確保バックエンドストレージ(preallocated backend storage)は、[`span`](/reference/span/span.md)`<`[`byte`](/reference/cstddef/byte.md)`>`型のオブジェクト`s`であり、`r`に対して[`set_value`](set_value.md)／[`set_error`](set_error.md)／[`set_stopped`](set_stopped.md)いずれかが呼び出されるまで範囲`s`は有効かつ上書き可能である。
 
 呼び出し可能オブジェクト`f`と引数`arg`を持つ`rcvr`のバルクチャンク化プロキシ(bulk chunked proxy)は、基底
-[`system_context_replaceability::bulk_item_receiver_proxy`](system_context_replaceability/bulk_item_receiver_proxy.md.nolink)を持つ`rcvr`のプロキシ`r`であり、インデクス`i`, `j`に対する`r.execute(i, j)`は`f(i, j, args...)`と同じ効果を持つ。
+[`system_context_replaceability::bulk_item_receiver_proxy`](system_context_replaceability/bulk_item_receiver_proxy.md)を持つ`rcvr`のプロキシ`r`であり、インデクス`i`, `j`に対する`r.execute(i, j)`は`f(i, j, args...)`と同じ効果を持つ。
 
 呼び出し可能オブジェクト`f`と引数`arg`を持つ`rcvr`のバルク非チャンク化プロキシ(bulk unchunked proxy)は、基底
-[`system_context_replaceability::bulk_item_receiver_proxy`](system_context_replaceability/bulk_item_receiver_proxy.md.nolink)を持つ`rcvr`のプロキシ`r`であり、インデクス`i`に対する`r.execute(i, i + 1)`は`f(i, args...)`と同じ効果を持つ。
+[`system_context_replaceability::bulk_item_receiver_proxy`](system_context_replaceability/bulk_item_receiver_proxy.md)を持つ`rcvr`のプロキシ`r`であり、インデクス`i`に対する`r.execute(i, i + 1)`は`f(i, args...)`と同じ効果を持つ。
 
 
-### `schedule` ファクトリ
+### `schedule`アルゴリズム
 説明用の`b`を`BACKEND-OF(sch)`、`sndr`を[`schedule`](schedule.md)`(sch)`が返すオブジェクト、`rcvr`を[Receiver](receiver.md)とする。`rcvr`が`sndr`に[接続(connect)](connect.md)され、結果の[Operation State](operation_state.md)が[開始(start)](start.md)されたとき、
 
 - `sndr`が値完了するならば、[`b.schedule`](system_context_replaceability/parallel_scheduler_backend/schedule.md)`(r, s)`が呼ばれる。このとき、
-    - `r`は基底[`system_context_replaceability::receiver_proxy`](system_context_replaceability/receiver_proxy.md.nolink)を持つ`rcvr`のプロキシであり、かつ
+    - `r`は基底[`system_context_replaceability::receiver_proxy`](system_context_replaceability/receiver_proxy.md)を持つ`rcvr`のプロキシであり、かつ
     - `s`は`r`に対する事前確保バックエンドストレージである。
 - 他の全ての完了操作は、変更なしに転送される。
 
 
-### `bulk_chunked` アダプタ
+### `bulk_chunked`アルゴリズム
 `parallel_scheduler`は[`bulk_chunked`](bulk_chunked.md)アルゴリズムのカスタマイズ実装を提供する。[Receiver](receiver.md)`rcvr`が`bulk_chunked(sndr, pol, shape, f)`が返す[Sender](sender.md)に[接続(connect)](connect.md)され、結果の[Operation State](operation_state.md)が[開始(start)](start.md)されたとき、
 
 - `sndr`が値`vals`で値完了するならば、`args`を`vals`を指す左辺値式のパックとして、[`b.schedule_bulk_chunked`](system_context_replaceability/parallel_scheduler_backend/schedule_bulk_chunked.md)`(shape, r, s)`が呼ばれる。このとき、
@@ -67,7 +67,7 @@ namespace std::execution {
 - 他の全ての完了操作は、変更なしに転送される。
 
 
-### `bulk_unchunked` アダプタ
+### `bulk_unchunked`アルゴリズム
 `parallel_scheduler`は[`bulk_unchunked`](bulk_unchunked.md)アルゴリズムのカスタマイズ実装を提供する。[Receiver](receiver.md)`rcvr`が`bulk_unchunked(sndr, pol, shape, f)`が返す[Sender](sender.md)に[接続(connect)](connect.md)され、結果の[Operation State](operation_state.md)が[開始(start)](start.md)されたとき、
 
 - `sndr`が値`vals`で値完了するならば、`args`を`vals`を指す左辺値式のパックとして、[`b.schedule_bulk_unchunked`](system_context_replaceability/parallel_scheduler_backend/schedule_bulk_unchunked.md)`(shape, r, s)`が呼ばれる。このとき、

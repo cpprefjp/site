@@ -8,7 +8,8 @@
 ```cpp
 virtual void schedule(receiver_proxy& r, span<byte> s) noexcept = 0;
 ```
-* receiver_proxy[link ../receiver_proxy.md.nolink]
+* receiver_proxy[link ../receiver_proxy.md]
+* span[link /reference/span/span.md]
 * byte[link /reference/cstddef/byte.md]
 
 ## 概要
@@ -23,9 +24,9 @@ virtual void schedule(receiver_proxy& r, span<byte> s) noexcept = 0;
 派生クラスでは、この関数を下記のように実装すべきである。
 
 - 下記いずれかの式が評価される
-    - エラーが発生せず作業が成功したとき、`r.set_value()`
-    - エラーが発生したとき、`eptr`を[`exception_ptr`](/reference/exception/exception_ptr.md)型のオブジェクトとして、`r.set_error(eptr)`
-    - 作業がキャンセルされたとき、`r.set_stopped()`
+    - エラーが発生せず作業が成功したとき、[`r.set_value()`](../receiver_proxy.md)
+    - エラーが発生したとき、`eptr`を[`exception_ptr`](/reference/exception/exception_ptr.md)型のオブジェクトとして、[`r.set_error`](../receiver_proxy.md)`(eptr)`
+    - 作業がキャンセルされたとき、[`r.set_stopped()`](../receiver_proxy.md)
 - 任意の`r.set_value()`呼び出しは、`*this`で表される実行コンテキストの実行エージェント上で発生する。
 
 

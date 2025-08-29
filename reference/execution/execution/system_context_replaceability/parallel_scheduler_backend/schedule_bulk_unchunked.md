@@ -6,10 +6,12 @@
 * cpp26[meta cpp]
 
 ```cpp
-virtual void schedule_bulk_unchunked(size_t n, bulk_item_receiver_proxy& r,
+virtual void schedule_bulk_unchunked(size_t n,
+                                     bulk_item_receiver_proxy& r,
                                      span<byte> s) noexcept = 0;
 ```
-* bulk_item_receiver_proxy[link ../bulk_item_receiver_proxy.md.nolink]
+* bulk_item_receiver_proxy[link ../bulk_item_receiver_proxy.md]
+* span[link /reference/span/span.md]
 * byte[link /reference/cstddef/byte.md]
 
 ## 概要
@@ -24,11 +26,11 @@ virtual void schedule_bulk_unchunked(size_t n, bulk_item_receiver_proxy& r,
 派生クラスでは、この関数を下記のように実装すべきである。
 
 - 下記いずれかの式が評価される
-    - エラーが発生せず作業が成功したとき、`r.set_value()`
-    - エラーが発生したとき、`eptr`を[`exception_ptr`](/reference/exception/exception_ptr.md)型のオブジェクトとして、`r.set_error(eptr)`
-    - 作業がキャンセルされたとき、`r.set_stopped()`
-- `r.execute(b, e)`が呼ばれたとき、`b`は範囲`[0, n)`内かつ`e`は`b + 1`に等しい。`[0, n)`の各`i`について、`r.execute(i, i + 1)`の呼び出しが最大で1つだけ存在する。
-- `r.set_value()`が呼び出されたとき、`[0, n)`の各`i`に対して、`r.execute(i, i + 1)`の呼び出しが正確に1つだけ存在する。
+    - エラーが発生せず作業が成功したとき、[`r.set_value()`](../receiver_proxy.md)
+    - エラーが発生したとき、`eptr`を[`exception_ptr`](/reference/exception/exception_ptr.md)型のオブジェクトとして、[`r.set_error`](../receiver_proxy.md)`(eptr)`
+    - 作業がキャンセルされたとき、[`r.set_stopped()`](../receiver_proxy.md)
+- [`r.execute`](../bulk_item_receiver_proxy.md)`(b, e)`が呼ばれたとき、`b`は範囲`[0, n)`内かつ`e`は`b + 1`に等しい。`[0, n)`の各`i`について、[`r.execute`](../bulk_item_receiver_proxy.md)`(i, i + 1)`の呼び出しが最大で1つだけ存在する。
+- `r.set_value()`が呼び出されたとき、`[0, n)`の各`i`に対して、[`r.execute`](../bulk_item_receiver_proxy.md)`(i, i + 1)`の呼び出しが正確に1つだけ存在する。
 - `r`上での全ての`execute`呼び出しは、`r`上での`set_value`／`set_error`／`set_stopped`いずれかの呼び出しよりも前に発生する。
 - `r`上での全ての`execute`および`set_value`呼び出しは、`*this`で表される実行コンテキストの実行エージェント上で行われる。
 
