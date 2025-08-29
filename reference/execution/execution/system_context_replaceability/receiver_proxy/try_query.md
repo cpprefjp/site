@@ -24,8 +24,8 @@ optional<P> try_query(Query q) noexcept;
 説明用の`env`を`*this`が表現する[Receiver](../../receiver.md)の環境とする。
 下記を満たす場合は[`nullopt`](/reference/optional/nullopt_t.md)を返す。そうでなければ、`q(env)`を返す。
 
-- `Query`が実装定義のサポートされたクエリ集合のメンバではない、または
-- `P`が実装定義のサポートされた`Query`の結果型集合のメンバではない、または
+- `Query`が実装定義でサポートされるクエリ集合のメンバではない、または
+- `P`が実装定義でサポートされる`Query`の結果型集合のメンバではない、または
 - 式`q(env)`が適格でないか、cv修飾された`P`型を持たない。
 
 
@@ -34,7 +34,7 @@ optional<P> try_query(Query q) noexcept;
 
 
 ## 備考
-[`get_stop_token_t`](../../../get_stop_token.md)は実装定義のサポートされたクエリ集合に含まれ、[`inplace_stop_token`](/reference/stop_token/inplace_stop_token.md)は`get_stop_token_t`の実装定義のサポートされた結果型集合のメンバである。
+[`get_stop_token_t`](../../../get_stop_token.md)は実装定義でサポートるクエリ集合に含まれ、[`inplace_stop_token`](/reference/stop_token/inplace_stop_token.md)は`get_stop_token_t`の実装定義でサポートされる結果型集合のメンバである。
 
 
 ## バージョン
@@ -50,7 +50,7 @@ optional<P> try_query(Query q) noexcept;
 
 ## 関連項目
 - [`execution::parallel_scheduler`](../../parallel_scheduler.md)
-- [`execution::parallel_scheduler_backend::parallel_scheduler_backend`](../parallel_scheduler_backend.md)
+- [`execution::system_context_replaceability::parallel_scheduler_backend`](../parallel_scheduler_backend.md)
 
 
 ## 参照

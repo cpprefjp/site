@@ -12,6 +12,12 @@ namespace std::execution::system_context_replaceability {
 }
 ```
 
+[並列Scheduler](parallel_scheduler.md)をユーザ実装で置き換える場合、下記が必要となる。
+
+- [`system_context_replaceability::parallel_scheduler_backend`](system_context_replaceability/parallel_scheduler_backend.md)インターフェースをバックエンドにもつ並列Schedulerを実装する。
+- 処理系の手順に従って、[`system_context_replaceability::query_parallel_scheduler_backend`](system_context_replaceability/query_parallel_scheduler_backend.md)シンボルを自前バックエンド実装を返す関数で置き換える。
+
+
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`receiver_proxy`](system_context_replaceability/receiver_proxy.md) | バックエンド実装用のReceiverプロキシ (class) | C++26 |

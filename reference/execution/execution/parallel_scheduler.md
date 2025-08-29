@@ -76,6 +76,27 @@ namespace std::execution {
 - 他の全ての完了操作は、変更なしに転送される。
 
 
+## 例
+```cpp example
+#include <concepts>
+#include <execution>
+namespace ex = std::execution;
+
+int main()
+{
+　ex::scheduler auto sch = ex::get_parallel_scheduler();
+  static_assert(std::same_as<decltype(sch), ex::parallel_scheduler>);
+}
+```
+* ex::parallel_scheduler[color ff0000]
+* ex::scheduler[link scheduler.md]
+* ex::get_parallel_scheduler()[link get_parallel_scheduler.md]
+
+### 出力
+```
+```
+
+
 ## バージョン
 ### 言語
 - C++26
