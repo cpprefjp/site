@@ -14,7 +14,7 @@ static constexpr result_type max();
 
 
 ## 戻り値
-最大値である`2`<sup>`w`</sup>` -1`を返す。
+最大値である<code>2<sup>w</sup> - 1</code>を返す。
 
 
 ## 計算量
