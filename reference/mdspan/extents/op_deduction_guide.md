@@ -16,7 +16,7 @@ namespace std {
 
 
 ## テンプレートパラメータ制約
-[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<Integrals, size_t> && ...)`が`true`であること。
+`(`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<Integrals, size_t> && ...)`が`true`であること。
 
 
 ## 例

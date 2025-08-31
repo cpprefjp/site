@@ -79,7 +79,7 @@ constexpr explicit(extent != dynamic_extent)
         - [`std::is_convertible_v`](/reference/type_traits/is_convertible.md)`<End, size_t>` が `false`であること
 - (4), (5), (6) :
     - `extent ==` [`dynamic_extent`](/reference/span/dynamic_extent.md) `|| N == extent`が`true`であること
-    - [`remove_pointer_t`](/reference/type_traits/remove_pointer.md)`<decltype(`[`data`](/reference/iterator/data.md)`(arr)))>`を型`U`であるとして、
+    - [`remove_pointer_t`](/reference/type_traits/remove_pointer.md)`<decltype(`[`data`](/reference/iterator/data.md)`(arr))>`を型`U`であるとして、
         - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<U(*)[], element_type(*)[]>`が`true`であること (この制約の意図は、配列の要素型から`element_type`へ、修飾の変換のみを許可すること)
 - (7) :
     - 型 `U` を [`std::remove_reference_t`](/reference/type_traits/remove_reference.md)`<`[`std::iter_reference_t`](/reference/iterator/iter_reference_t.md)`<R>>`とするとき

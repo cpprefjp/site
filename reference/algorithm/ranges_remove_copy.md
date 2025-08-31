@@ -85,7 +85,7 @@ namespace std::ranges {
 - (2): Rangeを直接指定する
 
 ## 事前条件
-- `[first,last)` と `[result,result + (last - first)` は重なってはならない。
+- `[first,last)` と `[result,result + (last - first))` は重なってはならない。
 
 ## 効果
 `[first,last)` 内にあるイテレータ `i` について、[`invoke`](/reference/functional/invoke.md)`(proj, *i) == value` でない要素を `result` へコピーする

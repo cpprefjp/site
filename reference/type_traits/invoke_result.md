@@ -30,7 +30,7 @@ namespace std {
 メンバ型`type`が定義される場合、以下と同じ型となる：
 
 ```cpp
-decltype(std::invoke(std::declval<F>(), std::declval<ArgsTypes>()...)
+decltype(std::invoke(std::declval<F>(), std::declval<ArgsTypes>()...))
 ```
 
 ## 備考

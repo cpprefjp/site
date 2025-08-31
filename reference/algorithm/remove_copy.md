@@ -62,7 +62,7 @@ namespace std {
 
 
 ## 事前条件
-- `[first,last)` と `[result,result + (last - first)` は重なってはならない。
+- `[first,last)` と `[result,result + (last - first))` は重なってはならない。
 
 
 ## 効果

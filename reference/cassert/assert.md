@@ -30,7 +30,7 @@
     - C++03 : パラメータの式を評価し、
     - C++26 : 可変引数パラメータ`__VA_ARGS__`を`bool`に変換し、
     - 真に評価された場合は、なにもしない
-    - そうでない場合（`0`と等しい場合）、式をテキスト化したもの、（[`std::source_location`](/reference/source_location/source_location.md)`::`[`current()`](/reference/source_location/source_location/current.md)で取得できるような) ソースファイル名、行番号、関数名を標準エラー出力に処理系定義の書式で書き込み、[`abort()`](/reference/cstdlib/abort.md)関数を呼び出してプログラムを異常終了させる
+    - そうでない場合（`0`と等しい場合）、式をテキスト化したもの、（[`std::source_location`](/reference/source_location/source_location.md)`::`[`current()`](/reference/source_location/source_location/current.md)で取得できるような）ソースファイル名、行番号、関数名を標準エラー出力に処理系定義の書式で書き込み、[`abort()`](/reference/cstdlib/abort.md)関数を呼び出してプログラムを異常終了させる
 - 無効な場合:
     - パラメータの式は評価はされず、なにもしない
 

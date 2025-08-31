@@ -43,7 +43,7 @@ namespace std::ranges {
 - (2): Rangeを直接指定する
 
 ## 事前条件
-- `[first,last)` と `[result,result + (last - first)` は重なってはならない。
+- `[first,last)` と `[result,result + (last - first))` は重なってはならない。
 
 
 ## 効果

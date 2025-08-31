@@ -75,7 +75,7 @@ private:
 ## 戻り値(C++20)
 結果オブジェクト`g`に対する関数呼び出し式の引数パック`call_args`としたとき
 
-- (1) : `fd`を[`std::forward`](/reference/utility/forward.md)`<F>(f))`で直接非リスト初期化した`FD`型のオブジェクトに対して
+- (1) : `fd`を[`std::forward`](/reference/utility/forward.md)`<F>(f)`で直接非リスト初期化した`FD`型のオブジェクトに対して
     - 関数呼び出し式の結果が`!`[`invoke`](invoke.md)`(fd, call_args...)`に等しい、完全転送呼び出しラッパー(perfect forwarding call wrapper)オブジェクトを返す。
 - (2) :
     - 関数呼び出し式の結果が`!`[`invoke`](invoke.md)`(f, call_args...)`に等しい、状態を持たない完全転送呼び出しラッパー(perfect forwarding call wrapper)オブジェクトを返す。
