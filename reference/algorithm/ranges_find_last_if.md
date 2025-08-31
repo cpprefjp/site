@@ -34,7 +34,7 @@ namespace std::ranges {
 
 
 ## 戻り値
-`[first,last)` あるいは `r` 内のイテレータ `i` について、[`invoke`](/reference/functional/invoke.md)`(pred, `[`invoke`](/reference/functional/invoke.md)`(proj, *i)) != false` である最後のイテレータ `i` を `ranges::subrange<I>{i, last}` として返す。そのようなイテレータが見つからなかった場合は `ranges::subrange<I>{last, last}` を返す。
+`[first,last)` あるいは `r` 内のイテレータ `i` について、[`invoke`](/reference/functional/invoke.md)`(pred,` [`invoke`](/reference/functional/invoke.md)`(proj, *i)) != false` である最後のイテレータ `i` を `ranges::subrange<I>{i, last}` として返す。そのようなイテレータが見つからなかった場合は `ranges::subrange<I>{last, last}` を返す。
 
 
 ## 計算量

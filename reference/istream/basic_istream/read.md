@@ -22,7 +22,7 @@ basic_istream<CharT, Traits>& read(char_type* s, streamsize n);
 1. [`good`](../../ios/basic_ios/good.md)`()`メンバ関数を呼び出して`false`であったら、[`setstate`](../../ios/basic_ios/setstate.md)`(`[`failbit`](../../ios/ios_base/type-iostate.md)`)`を呼び出して終了する。
 1. 以下のいずれかを満たすまで、文字を入力して書き込む。
     - 実引数で指定された`n`文字まで入力した。
-    - EOFに達した。この場合、[`setstate`](../../ios/basic_ios/setstate.md)`(`[`failbit`](../../ios/ios_base/type-iostate.md)` | `[`eofbit`](../../ios/ios_base/type-iostate.md)`)`を呼び出す。
+    - EOFに達した。この場合、[`setstate`](../../ios/basic_ios/setstate.md)`(`[`failbit`](../../ios/ios_base/type-iostate.md) `|` [`eofbit`](../../ios/ios_base/type-iostate.md)`)`を呼び出す。
 
 ## 戻り値
 `*this`

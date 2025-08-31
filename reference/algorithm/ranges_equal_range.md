@@ -79,7 +79,7 @@ namespace std::ranges {
 
 
 ## 戻り値
-`{`[`ranges::lower_bound`](ranges_lower_bound.md)`(first, last, value, comp, proj), `[`ranges::upper_bound`](ranges_upper_bound.md)`(first, last, value, comp, proj)}`
+`{`[`ranges::lower_bound`](ranges_lower_bound.md)`(first, last, value, comp, proj),` [`ranges::upper_bound`](ranges_upper_bound.md)`(first, last, value, comp, proj)}`
 
 
 ## 計算量

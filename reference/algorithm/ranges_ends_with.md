@@ -55,9 +55,9 @@ namespace std::ranges {
 * (1): 
     * `N1 = last1 - first1`, `N2 = last2 - first2` とする。
     * `N1 < N2` のとき、`false`
-    * それ以外のとき、[`ranges::equal`](ranges_equal.md)`(`[`std::move`](/reference/utility/move.md)`(first1) + (N1 - N2), last1, `[`std::move`](/reference/utility/move.md)`(first2), last2, pred, proj1, proj2)`
+    * それ以外のとき、[`ranges::equal`](ranges_equal.md)`(`[`std::move`](/reference/utility/move.md)`(first1) + (N1 - N2), last1,` [`std::move`](/reference/utility/move.md)`(first2), last2, pred, proj1, proj2)`
 * (2): 
-    * `N1 = `[`ranges::distance`](/reference/iterator/ranges_distance.md)`(r1)`, `N2 = `[`ranges::distance`](/reference/iterator/ranges_distance.md)`(r2)` とする。
+    * `N1 =` [`ranges::distance`](/reference/iterator/ranges_distance.md)`(r1)`, `N2 =` [`ranges::distance`](/reference/iterator/ranges_distance.md)`(r2)` とする。
     * `N1 < N2` のとき、`false`
     * それ以外のとき、[`ranges::equal`](ranges_equal.md)`(`[`ranges::drop_view`](/reference/ranges/drop_view.md)`(`[`ranges::ref_view`](/reference/ranges/ref_view.md)`(r1), N1 - N2), r2, pred, proj1, proj2)`
 

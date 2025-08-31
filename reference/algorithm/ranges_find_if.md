@@ -35,7 +35,7 @@ namespace std::ranges {
 
 
 ## 戻り値
-`[first,last)` あるいは `r` 内のイテレータ `i` について、[`invoke`](/reference/functional/invoke.md)`(pred, `[`invoke`](/reference/functional/invoke.md)`(proj, *i)) != false` である最初のイテレータを返す。そのようなイテレータが見つからなかった場合は `last` を返す。
+`[first,last)` あるいは `r` 内のイテレータ `i` について、[`invoke`](/reference/functional/invoke.md)`(pred,` [`invoke`](/reference/functional/invoke.md)`(proj, *i)) != false` である最初のイテレータを返す。そのようなイテレータが見つからなかった場合は `last` を返す。
 
 
 ## 計算量

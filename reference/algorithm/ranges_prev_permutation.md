@@ -41,7 +41,7 @@ namespace std::ranges {
 ## 効果
 `[first, last)`の範囲を前の順列に変換する。
 
-比較 [`invoke`](/reference/functional/invoke.md)`(comp, `[`invoke`](/reference/functional/invoke.md)`(proj, *i), `[`invoke`](/reference/functional/invoke.md)`(proj, *j))` によって辞書順に並んでいる全ての順列の集合があると仮定すると、前の順列が発見される。
+比較 [`invoke`](/reference/functional/invoke.md)`(comp,` [`invoke`](/reference/functional/invoke.md)`(proj, *i),` [`invoke`](/reference/functional/invoke.md)`(proj, *j))` によって辞書順に並んでいる全ての順列の集合があると仮定すると、前の順列が発見される。
 
 ## 戻り値
 ```cpp

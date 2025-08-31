@@ -37,7 +37,7 @@ namespace std::ranges {
 
 
 ## 効果
-`[first,last)` 内にあるイテレータ `i` について、[`invoke`](/reference/functional/invoke.md)`(pred, `[`invoke`](/reference/functional/invoke.md)`(proj, *i))` である要素を取り除き、有効な要素を範囲の前に寄せる。
+`[first,last)` 内にあるイテレータ `i` について、[`invoke`](/reference/functional/invoke.md)`(pred,` [`invoke`](/reference/functional/invoke.md)`(proj, *i))` である要素を取り除き、有効な要素を範囲の前に寄せる。
 
 
 ## 戻り値

@@ -38,7 +38,7 @@ namespace std::ranges {
 
 
 ## 戻り値
-比較 [`invoke`](/reference/functional/invoke.md)`(comp, `[`invoke`](/reference/functional/invoke.md)`(proj, *i), `[`invoke`](/reference/functional/invoke.md)`(proj, *j))` によって最小と判断された最初の要素を指すイテレータ
+比較 [`invoke`](/reference/functional/invoke.md)`(comp,` [`invoke`](/reference/functional/invoke.md)`(proj, *i),` [`invoke`](/reference/functional/invoke.md)`(proj, *j))` によって最小と判断された最初の要素を指すイテレータ
 
 
 ## 計算量

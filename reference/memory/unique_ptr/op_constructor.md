@@ -72,9 +72,9 @@ unique_ptr(const unique_ptr&) = delete;      // (9) 単一オブジェクト、�
 ### C++17 共通
 
 - (1), (2), (6) : 以下のいずれかの条件を満たす場合、オーバーロード解決に参加しない。
-    - [`is_pointer_v<deleter_type>`](/reference/type_traits/is_pointer.md)` == true`である（デリータがポインタである）
+    - [`is_pointer_v<deleter_type>`](/reference/type_traits/is_pointer.md) `== true`である（デリータがポインタである）
     - [`is_default_constructible_v<deleter_type>`](/reference/type_traits/is_default_constructible.md) `== false`である（デリータがデフォルト構築できない）
-- (3), (4) : [`is_constructible_v<D, decltype(d)>`](/reference/type_traits/is_constructible.md)` == true`の（`d`からコピー/ムーブ構築可能な）場合にのみオーバーロード解決に参加する。
+- (3), (4) : [`is_constructible_v<D, decltype(d)>`](/reference/type_traits/is_constructible.md) `== true`の（`d`からコピー/ムーブ構築可能な）場合にのみオーバーロード解決に参加する。
 - (3), (4), (6) : [クラステンプレートの実引数推定](/lang/cpp17/type_deduction_for_class_templates.md)によってこれらのコンストラクタが選択される場合、コンパイルエラーとなる。
 
 ### C++17 配列版

@@ -20,7 +20,7 @@ constexpr iterator begin();
 
 ## 戻り値
 
-`{*this, `[`ranges::find_if`](/reference/algorithm/ranges_find_if.md)`(base_, `[`ref`](/reference/functional/ref.md)`(*pred_))}`
+`{*this,` [`ranges::find_if`](/reference/algorithm/ranges_find_if.md)`(base_,` [`ref`](/reference/functional/ref.md)`(*pred_))}`
 
 [`range`](../range.md)のモデルとなるためにはこの関数が償却定数時間で実行できなければならないため、値はキャッシュされる。
 

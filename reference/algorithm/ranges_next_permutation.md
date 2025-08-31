@@ -41,7 +41,7 @@ namespace std::ranges {
 
 ## 効果
 `[first, last)`の範囲を次の順列に変換する。
-比較 [`invoke`](/reference/functional/invoke.md)`(comp, `[`invoke`](/reference/functional/invoke.md)`(proj, *i), `[`invoke`](/reference/functional/invoke.md)`(proj, *j))` によって辞書順に並んでいる全ての順列の集合があると仮定すると、次の順列が発見される。
+比較 [`invoke`](/reference/functional/invoke.md)`(comp,` [`invoke`](/reference/functional/invoke.md)`(proj, *i),` [`invoke`](/reference/functional/invoke.md)`(proj, *j))` によって辞書順に並んでいる全ての順列の集合があると仮定すると、次の順列が発見される。
 
 順列の辞書順とは、同じ長さ`N`の順列`a, b`があった時、その最上位の項から見た時に`ai != bi`となる最初の`i`番目の項について、`ai < bi`（もしくは`comp(ai, bi) == true`）となる時に`a < b`とするように定めた順序のことである。例えばこれは、各項（`ai, bi`）が`0 ~ 9`の数であるとすれば、それらをそのまま並べて構成した数の通常の大小関係に等しい。
 

@@ -26,7 +26,7 @@ namespace std {
 テンプレートパラメータの意味は以下の通り:
 
 * `UIntType`: 生成する符号なし整数の型。
-* `w`: ワードサイズ。`0 < w <= `[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<UIntType>::`[`digits`](/reference/limits/numeric_limits/digits.md) でなければならない。
+* `w`: ワードサイズ。`0 < w <=` [`std::numeric_limits`](/reference/limits/numeric_limits.md)`<UIntType>::`[`digits`](/reference/limits/numeric_limits/digits.md) でなければならない。
 * `s`: 短いラグ。`0 < s < r` でなければならない。
 * `r`: 長いラグ。
 

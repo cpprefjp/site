@@ -47,7 +47,7 @@ namespace std {
 *integer-class*型`I`について[`numeric_limits<I>`](/reference/limits/numeric_limits.md)の特殊化は次のような値を示す。
 
 - `numeric_limits<I>::is_specialized == true`
-- [`numeric_limits<I>::is_signed`](/reference/limits/numeric_limits/is_signed.md)` == true`
+- [`numeric_limits<I>::is_signed`](/reference/limits/numeric_limits/is_signed.md) `== true`
     - `I`が*signed-integer-class*型の場合のみ
 - [`numeric_limits<I>::digits`](/reference/limits/numeric_limits/digits.md)は`I`の幅と等しい
 - [`numeric_limits<I>::digits10`](/reference/limits/numeric_limits/digits10.md)は`static_cast<int>(digits * log10(2))`と等しい

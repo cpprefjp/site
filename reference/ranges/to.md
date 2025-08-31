@@ -42,15 +42,15 @@ Rangeの各要素を要素とするコンテナを構築する。
 
 (1) Rangeの各要素を要素とするコンテナCのオブジェクトを以下の通りに構築して返す。
 
-`C`が[`input_range`](input_range.md)ではないか、[`convertible_to`](/reference/concepts/convertible_to.md)`<`[`range_reference_t`](range_reference_t.md)`<R>, `[`range_value_t`](range_value_t.md)`<C>>` である(`R`の要素への参照が`C`の要素に変換できる)場合:
+`C`が[`input_range`](input_range.md)ではないか、[`convertible_to`](/reference/concepts/convertible_to.md)`<`[`range_reference_t`](range_reference_t.md)`<R>,` [`range_value_t`](range_value_t.md)`<C>>` である(`R`の要素への参照が`C`の要素に変換できる)場合:
 
 1. [`constructible_from`](/reference/concepts/constructible_from.md)`<C, R, Args...>`である(`C`が`R`と残りの引数で構築できる)場合
-    - `C(`[`std::forward`](/reference/utility/forward.md)`<R>(r), `[`std::forward`](/reference/utility/forward.md)`<Args>(args)...)`
-2. [`constructible_from`](/reference/concepts/constructible_from.md)`<C, `[`from_range_t`](from_range_t.md)`, R, Args...>`である(`C`が[`from_range_t`](from_range_t.md)、`R`、残りの引数で構築できる)場合
-    - `C(`[`from_range`](from_range_t.md)`, `[`std::forward`](/reference/utility/forward.md)`<R>(r), `[`std::forward`](/reference/utility/forward.md)`<Args>(args)...)`
-3. [`common_range`](common_range.md)`<R>`が`true`で、[`iterator_traits`](/reference/iterator/iterator_traits.md)`<`[`iterator_t`](iterator_t.md)`<R>>::iterator_category`が `input_iterator_tag` から派生する有効な型であり、[`constructible_from`](/reference/concepts/constructible_from.md)`<C, `[`iterator_t`](iterator_t.md)`<R>, `[`sentinel_t`](sentinel_t.md)`<R>, Args...>`である(`C`が`R`のイテレータおよび番兵と残りの引数で構築できる)場合
-    - `C(`[`ranges::begin(r)`](begin.md)`, `[`ranges::end(r)`](end.md)`, `[`std::forward`](/reference/utility/forward.md)`<Args>(args)...)`
-4. [`constructible_from`](/reference/concepts/constructible_from.md)`<C, Args...>`が`true`で、`container-insertable<C, `[`range_reference_t`](range_reference_t.md)`<R>>`が`true`である場合
+    - `C(`[`std::forward`](/reference/utility/forward.md)`<R>(r),` [`std::forward`](/reference/utility/forward.md)`<Args>(args)...)`
+2. [`constructible_from`](/reference/concepts/constructible_from.md)`<C,` [`from_range_t`](from_range_t.md)`, R, Args...>`である(`C`が[`from_range_t`](from_range_t.md)、`R`、残りの引数で構築できる)場合
+    - `C(`[`from_range`](from_range_t.md)`,` [`std::forward`](/reference/utility/forward.md)`<R>(r),` [`std::forward`](/reference/utility/forward.md)`<Args>(args)...)`
+3. [`common_range`](common_range.md)`<R>`が`true`で、[`iterator_traits`](/reference/iterator/iterator_traits.md)`<`[`iterator_t`](iterator_t.md)`<R>>::iterator_category`が `input_iterator_tag` から派生する有効な型であり、[`constructible_from`](/reference/concepts/constructible_from.md)`<C,` [`iterator_t`](iterator_t.md)`<R>,` [`sentinel_t`](sentinel_t.md)`<R>, Args...>`である(`C`が`R`のイテレータおよび番兵と残りの引数で構築できる)場合
+    - `C(`[`ranges::begin(r)`](begin.md)`,` [`ranges::end(r)`](end.md)`,` [`std::forward`](/reference/utility/forward.md)`<Args>(args)...)`
+4. [`constructible_from`](/reference/concepts/constructible_from.md)`<C, Args...>`が`true`で、`container-insertable<C,` [`range_reference_t`](range_reference_t.md)`<R>>`が`true`である場合
     - 以下のコードで初期化する
 
 ```cpp
@@ -95,12 +95,12 @@ struct input-iterator {
 
 また、`DEDUCE_EXPR` を次のように定義する。
 
-1. 有効な式ならば、`C(`[`declval`](/reference/utility/declval.md)`<R>(), `[`declval`](/reference/utility/declval.md)`<Args>()...)`
-2. 有効な式ならば、`C(`[`from_range`](from_range_t.md)`, `[`declval`](/reference/utility/declval.md)`<R>(), `[`declval`](/reference/utility/declval.md)`<Args>()...)`
-3. 有効な式ならば、`C(`[`declval`](/reference/utility/declval.md)`<input-iterator>(), `[`declval`](/reference/utility/declval.md)`<input-iterator>(), `[`declval`](/reference/utility/declval.md)`<Args>()...)`
+1. 有効な式ならば、`C(`[`declval`](/reference/utility/declval.md)`<R>(),` [`declval`](/reference/utility/declval.md)`<Args>()...)`
+2. 有効な式ならば、`C(`[`from_range`](from_range_t.md)`,` [`declval`](/reference/utility/declval.md)`<R>(),` [`declval`](/reference/utility/declval.md)`<Args>()...)`
+3. 有効な式ならば、`C(`[`declval`](/reference/utility/declval.md)`<input-iterator>(),` [`declval`](/reference/utility/declval.md)`<input-iterator>(),` [`declval`](/reference/utility/declval.md)`<Args>()...)`
 4. 1-3が有効でなければ、ill-formed
 
-このとき、戻り値は `to<`[`decltype`](/lang/cpp11/decltype.md)`(DEDUCE_EXPR)>(`[`std::forward`](/reference/utility/forward.md)`<R>(r), `[`std::forward`](/reference/utility/forward.md)`<Args>(args)...)`
+このとき、戻り値は `to<`[`decltype`](/lang/cpp11/decltype.md)`(DEDUCE_EXPR)>(`[`std::forward`](/reference/utility/forward.md)`<R>(r),` [`std::forward`](/reference/utility/forward.md)`<Args>(args)...)`
 
 (3), (4): 次の性質をもつ完全転送呼び出しラッパー(*perfect forwarding call wrapper*)であるようなRangeアダプタクロージャオブジェクト`f`を返す。
 

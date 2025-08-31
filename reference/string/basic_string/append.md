@@ -69,7 +69,7 @@ constexpr basic_string&
 ## テンプレートパラメータ制約
 
 - (8), (9) : 以下の両方を満たしていること
-    - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const T&, `[`basic_string_view`](/reference/string_view/basic_string_view.md)`<charT, traits>> == true`
+    - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const T&,` [`basic_string_view`](/reference/string_view/basic_string_view.md)`<charT, traits>> == true`
     - [`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const T&, const charT*> == false`
 
 ## 要件
@@ -113,7 +113,7 @@ constexpr basic_string&
     ```
 
 - (9) 対象オブジェクトの末尾に、[`basic_string_view`](/reference/string_view/basic_string_view.md)`<charT, traits>`に変換可能な`t`の指定された範囲の文字列が追加される。
-    * 文字列の長さ `rlen` は、`n` と [`sv.size()`](/reference/string_view/basic_string_view/size.md)` - pos` の小さい方である。  
+    * 文字列の長さ `rlen` は、`n` と [`sv.size()`](/reference/string_view/basic_string_view/size.md) `- pos` の小さい方である。  
 以下と等価。
     ```cpp
     basic_string_view<charT, traits> sv = t;

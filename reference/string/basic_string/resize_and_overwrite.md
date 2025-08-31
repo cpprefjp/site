@@ -33,8 +33,8 @@ constexpr void resize_and_overwrite(size_type n, Operation op); // C++23
 
 
 ## 効果
-1. 関数実行前に `[`[`data()`](data.md)`, `[`data()`](data.md)` + n)` が有効範囲でないなら、領域の確保が行われる（[`reserve(n)`](reserve.md) 相当）。新たな領域は初期化されないことに注意。
-1. `std::move(op)(data(), n)` が呼ばれる。`op` 内では、`[`[`data()`](data.md)`, `[`data()`](data.md)` + n)` の範囲に対して任意の初期化を行う。
+1. 関数実行前に `[`[`data()`](data.md)`,` [`data()`](data.md) `+ n)` が有効範囲でないなら、領域の確保が行われる（[`reserve(n)`](reserve.md) 相当）。新たな領域は初期化されないことに注意。
+1. `std::move(op)(data(), n)` が呼ばれる。`op` 内では、`[`[`data()`](data.md)`,` [`data()`](data.md) `+ n)` の範囲に対して任意の初期化を行う。
 1. `op` の戻り値を `r` とすると、サイズを `r` に変更する。
 
 

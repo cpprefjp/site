@@ -21,7 +21,7 @@ Rangeが空かどうかを判定する関数オブジェクト。
 1. `T`が要素数不明の配列型であれば、呼び出しは不適格。
 2. `bool(t.empty())`が有効な式であれば、`bool(t.empty())`と等しい。
 3. [`ranges::size`](size.md)`(t) == 0`が有効な式であれば、`(`[`ranges::size`](size.md)`(t) == 0)`と等しい。
-4. `bool(`[`ranges::begin`](begin.md)`(t) == `[`ranges::end`](end.md)`(t))`が有効な式で、[`ranges::begin`](begin.md)`(t)`の型が[`forward_iterator`](/reference/iterator/forward_iterator.md)のモデルであれば、`bool(`[`ranges::begin`](begin.md)`(t) == `[`ranges::end`](end.md)`(t))`と等しい。
+4. `bool(`[`ranges::begin`](begin.md)`(t) ==` [`ranges::end`](end.md)`(t))`が有効な式で、[`ranges::begin`](begin.md)`(t)`の型が[`forward_iterator`](/reference/iterator/forward_iterator.md)のモデルであれば、`bool(`[`ranges::begin`](begin.md)`(t) ==` [`ranges::end`](end.md)`(t))`と等しい。
 
 どれにも当てはまらないとき、呼び出しは不適格。
 

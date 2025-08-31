@@ -43,8 +43,8 @@ namespace std::ranges {
 ## 効果
 
 - (2): 式 `views::adjacent_transform<N>(E, F)` の効果は以下の通り。
-    - `N` > 0 のとき、`adjacent_transform_view<`[`views::all_t`](all.md)`<decltype((E))>, `[`decay_t`](/reference/type_traits/decay.md)`<decltype((F))>, N>(E, F)` と等しい
-    - `N` = 0 のとき、`((void)E, `[`views::zip_transform`](zip_transform_view.md)`(F))` と等しい(ただし`E`と`F`の評価順は不定)
+    - `N` > 0 のとき、`adjacent_transform_view<`[`views::all_t`](all.md)`<decltype((E))>,` [`decay_t`](/reference/type_traits/decay.md)`<decltype((F))>, N>(E, F)` と等しい
+    - `N` = 0 のとき、`((void)E,` [`views::zip_transform`](zip_transform_view.md)`(F))` と等しい(ただし`E`と`F`の評価順は不定)
 
 ## 備考
 

@@ -25,7 +25,7 @@ constexpr const_reference operator[](size_type n) const; // (2) C++20
 
 
 ## 備考
-- `vector`型のオブジェクト`v`に対して、`v[n]` と `*(v.`[`begin()`](begin.md)` + n)` は同じ結果になる
+- `vector`型のオブジェクト`v`に対して、`v[n]` と `*(v.`[`begin()`](begin.md) `+ n)` は同じ結果になる
 - `n >=` [`size()`](size.md)の場合、未定義動作を引き起こす
 - この関数は、[`at()`](at.md)メンバ関数とちがって境界チェックを行うことが規定されない。標準ライブラリの実装によっては[`assert`](/reference/cassert/assert.md)`(n <` [`size()`](size.md)`)`による境界チェックが行われる場合がある
 

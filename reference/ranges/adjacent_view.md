@@ -43,7 +43,7 @@ namespace std::ranges {
 
 - (2): 式`views::adjacent<N>(E)`の効果は次の通り
     - `N` > 0 のとき、`adjacent_view<`[`views::all_t`](all.md)`<decltype((E))>, N>(E)` と等しい
-    - `N` = 0 のとき、`auto((void)E, `[`views::empty`](empty_view.md)`<`[`tuple`](/reference/tuple/tuple.md)`<>>))` と等しい
+    - `N` = 0 のとき、`auto((void)E,` [`views::empty`](empty_view.md)`<`[`tuple`](/reference/tuple/tuple.md)`<>>))` と等しい
 
 
 ## メンバ関数

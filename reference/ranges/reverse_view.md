@@ -37,7 +37,7 @@ namespace std::ranges {
 
 - (2): 式`views::reverse(E)`の効果は次の通り
     - `E`の型が`reverse_view`の特殊化であれば、`E.base()`と等しい (CV修飾されている場合を含む)
-    - イテレータ型`I`、[`subrange_kind`](subrange_kind.md)の値`K`に対し、`E`の型がCV修飾された[`subrange`](subrange.md)`<`[`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<I>, `[`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<I>, K>`であるとする。このとき、`E`は一度しか評価されないとして、
+    - イテレータ型`I`、[`subrange_kind`](subrange_kind.md)の値`K`に対し、`E`の型がCV修飾された[`subrange`](subrange.md)`<`[`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<I>,` [`reverse_iterator`](/reference/iterator/reverse_iterator.md)`<I>, K>`であるとする。このとき、`E`は一度しか評価されないとして、
         - `K`が[`subrange_kind::sized`](subrange_kind.md)であれば、[`subrange`](subrange.md)`<I, I, K>(E.end().base(), E.begin().base(), E.size())`と等しい
         - それ以外のとき、[`subrange`](subrange.md)`<I, I, K>(E.end().base(), E.begin().base())`と等しい
     - それ以外のとき、`reverse_view{E}`と等しい

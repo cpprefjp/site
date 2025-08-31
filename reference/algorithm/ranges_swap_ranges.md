@@ -55,7 +55,7 @@ swap_ranges_result {
 ```
 * swap_ranges_result[link ranges_in_in_result.md]
 
-ただし、`M = `[`min`](ranges_min.md)`(last1 - first1, last2 - first2)` とする。
+ただし、`M =` [`min`](ranges_min.md)`(last1 - first1, last2 - first2)` とする。
 
 
 ## 計算量

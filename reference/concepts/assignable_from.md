@@ -27,7 +27,7 @@ namespace std {
 
 これらの`lhs, rhs, lcopy, rcopy`について、以下の条件を満たす場合に限って、型`LHS, RHS`は`assignable_from`のモデルである。
 
-- [`addressof`](/reference/memory/addressof.md)`(lhs = rhs) == `[`addressof`](/reference/memory/addressof.md)`(lcopy)`となる
+- [`addressof`](/reference/memory/addressof.md)`(lhs = rhs) ==` [`addressof`](/reference/memory/addressof.md)`(lcopy)`となる
 - `lhs = rhs;`という式の評価の後で以下のことが成り立っている
     - `rhs`が`lcopy`を参照する非`const` *xvalue*でない（ムーブが起こる自己代入ではない）場合
         - `lhs`は`rcopy`と等値である

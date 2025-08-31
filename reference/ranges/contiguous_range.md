@@ -23,7 +23,7 @@ namespace std::ranges {
 
 ## モデル
 `decltype((t))`が`T&`であるような式`t`があるとする。
-`T`が`contiguous_range`のモデルとなるのは、[`to_address`](/reference/memory/to_address.md)`(`[`ranges::begin`](begin.md)`(t)) == `[`ranges::data`](data.md)`(t)`が`true`となる場合である。
+`T`が`contiguous_range`のモデルとなるのは、[`to_address`](/reference/memory/to_address.md)`(`[`ranges::begin`](begin.md)`(t)) ==` [`ranges::data`](data.md)`(t)`が`true`となる場合である。
 
 ## 例
 ```cpp example
