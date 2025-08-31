@@ -194,7 +194,7 @@ final-suspend :
 
 Promise型のスコープにおいて、非修飾な`return_void`および`return_value`の探索が行われる。両方が見つかった場合、プログラムは不適格となる。
 
-コルーチン呼び出しのglvalue結果またはprvalue結果オブジェクトを初期化するために、式 _promise_`.get_return_object()`が使われる。
+コルーチン呼び出しのglvalue結果またはprvalue結果オブジェクトを初期化するために、式 <code>_promise_</code>`.get_return_object()`が使われる。
 `get_return_object`呼び出しは高々1回であり、`initial_suspend`呼び出しよりも前に順序付けられる。
 
 中断状態にあるコルーチンは、そのコルーチンを指すコルーチンハンドルの再開メンバ関数呼び出しによって、継続実行を再開できる。
@@ -280,9 +280,9 @@ int main() {
 パラメータのコピーの生存期間は、パラメータPromiseオブジェクトの終了直後で終了する。
 （コルーチンが参照渡しのパラメータを持つ場合、そのパラメータにより参照されるエンティティ生存期間終了後のコルーチン再開は未定義動作を引き起こしやすい。）
 
-式 _promise_`.unhandled_exception()`の評価が例外で終了した場合、コルーチンは最終サスペンドポイントで中断したとみなされる。
+式 <code>_promise_</code>`.unhandled_exception()`の評価が例外で終了した場合、コルーチンは最終サスペンドポイントで中断したとみなされる。
 
-式 `co_await ` _promise_`.final_suspend()` は例外送出してはならない。
+式 `co_await` <code>_promise_</code>`.final_suspend()` は例外送出してはならない。
 
 ### Await式
 `co_await`式は、そのオペランド式で表される計算の完了を待機しているあいだ、コルーチン評価をサスペンド(中断)するために用いる。
@@ -303,7 +303,7 @@ Await式の評価では、次のような補助的な型、式、オブジェク
 - _p_ を同Await式を含むコルーチンのPromiseオブジェクトの左辺値名とし、`P`を同オブジェクトの型とする。
 - _a_ (Awaitable) を下記のように定義する：
     - Await式がYield式または初期サスペンドポイントまたは最終サスペンドポイントにより暗黙に生成された場合、_a_ をその _cast-expression_ とする。
-    - `P`のスコープで非修飾な`await_transform`の探索により一つ以上の名前がみつかった場合は、 _a_ を _p_`.await_transform(` _cast-expression_ `)`とする。
+    - `P`のスコープで非修飾な`await_transform`の探索により一つ以上の名前がみつかった場合は、 _a_ を <code>_p_</code>`.await_transform(` <code>_cast-expression_</code> `)`とする。
     - それ以外では _a_ を _cast-expression_ とする。
 - _o_ (Awaiter) を下記のように定義する。_o_ がprvalueの場合は[Temporary materialization conversion](https://cpprefjp.github.io/lang/cpp17/guaranteed_copy_elision.html)が行われる：
     - 実引数 _a_ に対して適用可能な`operator co_await`関数を列挙し、_o_ をオーバーロード解決により選択された関数呼び出しとする。
@@ -311,9 +311,9 @@ Await式の評価では、次のような補助的な型、式、オブジェク
     - オーバーロード解決が曖昧な場合、プログラムは不適格となる。
 - _e_ を、_o_ の評価結果を参照する左辺値とする。
 - _h_ を、同Await式を含むコルーチンを参照する[`std::coroutine_handle<P>`](/reference/coroutine/coroutine_handle.md)型のオブジェクトとする。
-- _await-ready_ を、`bool`に変換されうる式 _e_`.await_ready()`とする。
-- _await-suspend_ を、式 _e_`.await_suspend(` _h_ `)`とする。この式（の結果）は`void`であるか、`bool`または任意の型`Z`に対する[`std::coroutine_handle<Z>`](/reference/coroutine/coroutine_handle.md)型のprvalueであるべき。
-- _await-resume_ を、式 _e_`.await_resume()`とする。
+- _await-ready_ を、`bool`に変換されうる式 <code>_e_</code>`.await_ready()`とする。
+- _await-suspend_ を、式 <code>_e_</code>`.await_suspend(` <code>_h_</code> `)`とする。この式（の結果）は`void`であるか、`bool`または任意の型`Z`に対する[`std::coroutine_handle<Z>`](/reference/coroutine/coroutine_handle.md)型のprvalueであるべき。
+- _await-resume_ を、式 <code>_e_</code>`.await_resume()`とする。
 
 Await式は式 _await-resume_ と同じ型、同じ値カテゴリを持つ。
 
@@ -377,7 +377,7 @@ co_yield braced-init-list
 * braced-init-list[italic]
 
 Yield式は関数の中断コンテキストにのみ出現してよい。
-_e_ をYield式のオペランド、_p_ を同式を含むコルーチンのPromiseオブジェクトのlvalue名としたとき、Yield式は式`co_await` _p_`.yield_value(` _e_ `)`と等価である。
+_e_ をYield式のオペランド、_p_ を同式を含むコルーチンのPromiseオブジェクトのlvalue名としたとき、Yield式は式`co_await` <code>_p_</code>`.yield_value(` <code>_e_</code> `)`と等価である。
 
 ```cpp
 template <typename T>
@@ -441,10 +441,10 @@ _p_ をコルーチンPromiseオブジェクトのlvalue名とすると、`co_re
 
 ここで _final-suspend_ はコルーチン動作説明用の最終サスペンドポイントラベル名であり、_S_ は次の通り定義される：
 
-- オペランドが _braced-init-list_ または非`void`型の式の場合、_S_ を _p_`.return_value(` _expr-or-braced-init-list_ `)`とする。式 _S_ は `void`型のprvalueであるべき。
-- そうでなければ、_S_ を複合文 `{` _expression_ _opt_ `;` _p_`.return_void(); }`とする。式 _p_`.return_void()`は`void`型のprvalueであるべき。
+- オペランドが _braced-init-list_ または非`void`型の式の場合、_S_ を <code>_p_</code>`.return_value(` <code>_expr-or-braced-init-list_</code> `)`とする。式 _S_ は `void`型のprvalueであるべき。
+- そうでなければ、_S_ を複合文 `{` <code>_expression<sub>opt</sub>_</code> `;` <code>_p_</code>`.return_void(); }`とする。式 <code>_p_</code>`.return_void()`は`void`型のprvalueであるべき。
 
-_p_`.return_void()`が有効な式のとき、コルーチン本体の終端到達はオペランド無し`co_return`と等価である。
+<code>_p_</code>`.return_void()`が有効な式のとき、コルーチン本体の終端到達はオペランド無し`co_return`と等価である。
 そうでなければ、コルーチン本体の終端到達は未定義の動作を引き起こす。
 
 
