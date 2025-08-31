@@ -8,7 +8,7 @@
 namespace std::ranges {
   template<input_range... Views>
   requires (view<Views> && ...) && (sizeof...(Views) > 0)
-  class zip_view : public view_interface<zip_view<Views...>> {…… }; // (1)
+  class zip_view : public view_interface<zip_view<Views...>> { …… }; // (1)
 
   namespace views {
     inline constexpr /*unspecified*/ zip = /*unspecified*/;      // (2)

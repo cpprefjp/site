@@ -10,7 +10,7 @@ namespace std::ranges {
     requires (view<Views> && ...) && (sizeof...(Views) > 0) && is_object_v<F> &&
               regular_invocable<F&, range_reference_t<Views>...> &&
               can-reference<invoke_result_t<F&, range_reference_t<Views>...>>
-  class zip_transform_view : public view_interface<zip_transform_view<F, Views...>> {…… }; // (1)
+  class zip_transform_view : public view_interface<zip_transform_view<F, Views...>> { …… }; // (1)
 
   namespace views {
     inline constexpr /*unspecified*/ zip_transform = /*unspecified*/;      // (2)

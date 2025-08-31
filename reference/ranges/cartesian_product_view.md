@@ -8,7 +8,7 @@
 namespace std::ranges {
   template<input_range First, forward_range... Vs>
     requires (view<First> && ... && view<Vs>)
-  class cartesian_product_view : public view_interface<cartesian_product_view<First, Vs...>> {…… }; // (1)
+  class cartesian_product_view : public view_interface<cartesian_product_view<First, Vs...>> { …… }; // (1)
 
   namespace views {
     inline constexpr /*unspecified*/ cartesian_product = /*unspecified*/;      // (2)

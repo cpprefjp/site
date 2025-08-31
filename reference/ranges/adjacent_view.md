@@ -8,7 +8,7 @@
 namespace std::ranges {
   template<forward_range V, size_t N>
     requires view<V> && (N > 0)
-  class adjacent_view : public view_interface<adjacent_view<V, N>> {…… }; // (1)
+  class adjacent_view : public view_interface<adjacent_view<V, N>> { …… }; // (1)
 
   namespace views {
     template<std::size_t N>

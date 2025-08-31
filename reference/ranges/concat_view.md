@@ -8,7 +8,7 @@
 namespace std::ranges {
   template<input_range... Views>
   requires (view<Views> && ...) && (sizeof...(Views) > 0) && concatable<Views...>
-  class concat_view : public view_interface<concat_view<Views...>> {…… }; // (1)
+  class concat_view : public view_interface<concat_view<Views...>> { …… }; // (1)
 
   namespace views {
     inline constexpr /*unspecified*/ concat = /*unspecified*/;      // (2)
