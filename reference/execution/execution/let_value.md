@@ -134,7 +134,7 @@ namespace std::execution {
 using LetFn = remove_cvref_t<data-type<Sndr>>;
 auto cs = get_completion_signatures<child-type<Sndr>, FWD-ENV-T(Env)...>();
 auto fn = []<class... Ts>(decayed-typeof<set-cpo>(*)(Ts...)) {
-  if constexpr (!is-valid-let-sender) 　// see below
+  if constexpr (!is-valid-let-sender) // see below
     throw unspecified-exception();
 };
 cs.for-each(overload-set(fn, [](auto){}));

@@ -84,7 +84,7 @@ namespace ex = std::execution;
 
 int main()
 {
-　ex::scheduler auto sch = ex::get_parallel_scheduler();
+  ex::scheduler auto sch = ex::get_parallel_scheduler();
   static_assert(std::same_as<decltype(sch), ex::parallel_scheduler>);
 }
 ```
