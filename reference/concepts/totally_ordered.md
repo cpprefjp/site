@@ -36,7 +36,7 @@ namespace std {
     - `bool(a <= b) == !bool(b < a)`が`true`であること
     - `bool(a >= b) == !bool(a < b)`が`true`であること
 
-- (2) :　`const remove_reference_t<T>, const remove_reference_t<U>`型の左辺値`t, u`及び`C = common_reference_t<const remove_reference_t<T>&, const remove_reference_t<U>&>`について次の条件を満たす場合に限って、型`T, U`は`totally_ordered_with`のモデルである。
+- (2) : `const remove_reference_t<T>, const remove_reference_t<U>`型の左辺値`t, u`及び`C = common_reference_t<const remove_reference_t<T>&, const remove_reference_t<U>&>`について次の条件を満たす場合に限って、型`T, U`は`totally_ordered_with`のモデルである。
     - `bool(t <  u) == bool(C(t) <  C(u))`が`true`であること
     - `bool(t >  u) == bool(C(t) >  C(u))`が`true`であること
     - `bool(t >= u) == bool(C(t) >= C(u))`が`true`であること

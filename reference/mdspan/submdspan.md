@@ -235,7 +235,7 @@ int main()
   // 3 4
   // 5 6
 
-  // 行優先レイアウト std::layout_right　を維持
+  // 行優先レイアウト std::layout_right を維持
   auto row0 = std::submdspan(mat, 0, std::full_extent);
   // 1 2
   auto row12 = std::submdspan(mat, std::pair{1,3}, std::full_extent);

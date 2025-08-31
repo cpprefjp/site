@@ -49,8 +49,8 @@ public:
 int main() {
     dummy_buf buf{};
     std::cout << buf.in_avail() << std::endl;  // 残2文字
-    buf.sbumpc();  //　1文字進める
-    buf.sbumpc();  //　1文字進める
+    buf.sbumpc();  // 1文字進める
+    buf.sbumpc();  // 1文字進める
     std::cout << buf.in_avail() << std::endl;  // 残0文字。in_avail()からshowmanyc()が呼ばれる
 }
 ```

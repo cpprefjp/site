@@ -36,7 +36,7 @@ void swap(unordered_multiset& x)
 
 
 ## 例外
-コンテナの `key_equal` と　`hasher` のオブジェクト（それぞれ [`key_eq`](key_eq.md)`()` と [`hash_function`](hash_function.md)`()` が返すオブジェクト）の [`swap`](/reference/utility/swap.md)`()` が例外を投げなければ、例外を投げない。
+コンテナの `key_equal` と `hasher` のオブジェクト（それぞれ [`key_eq`](key_eq.md)`()` と [`hash_function`](hash_function.md)`()` が返すオブジェクト）の [`swap`](/reference/utility/swap.md)`()` が例外を投げなければ、例外を投げない。
 
 
 ## 計算量

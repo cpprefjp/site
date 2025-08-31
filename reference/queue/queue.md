@@ -59,7 +59,7 @@ namespace std {
 
 ## メンバ型
 
-| 名前 | 説明 |　対応バージョン |
+| 名前 | 説明 | 対応バージョン |
 |-------------------|------------------------------|-------|
 | `value_type`      | `Container::value_type`      | |
 | `reference`       | `Container::reference`       | C++11 |

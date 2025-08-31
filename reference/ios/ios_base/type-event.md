@@ -9,7 +9,7 @@ enum event { erase_event, imbue_event, copyfmt_event };
 ```
 
 ## 概要
-`event` は　[`register_callback`](register_callback.md) で登録した [`event_callback`](type-event_callback.md) 型のコールバック関数を呼び出す際に、当該関数を呼び出すきっかけとなったイベントの種類を表すための列挙型である。  
+`event` は [`register_callback`](register_callback.md) で登録した [`event_callback`](type-event_callback.md) 型のコールバック関数を呼び出す際に、当該関数を呼び出すきっかけとなったイベントの種類を表すための列挙型である。  
 `event` には以下の表のような列挙子値が存在する。
 
 | 列挙子          | 発生したイベント |

@@ -62,7 +62,7 @@ concept equality_comparable_with =
 - (1) : `T`のオブジェクト`a, b`について次の条件を満たす場合に限って、型`T`は`equality_comparable`のモデルである。
     - `bool(a == b)`は`a, b`の値が等値である場合に`true`となり、それ以外の場合は`false`となる
 
-- (2) :　`const remove_reference_t<T>, const remove_reference_t<U>`型の左辺値`t, u`及び`C = common_reference_t<const remove_reference_t<T>&, const remove_reference_t<U>&>`について次の条件を満たす場合に限って、型`T, U`は`equality_comparable_with`のモデルである。
+- (2) : `const remove_reference_t<T>, const remove_reference_t<U>`型の左辺値`t, u`及び`C = common_reference_t<const remove_reference_t<T>&, const remove_reference_t<U>&>`について次の条件を満たす場合に限って、型`T, U`は`equality_comparable_with`のモデルである。
     - `bool(t == u) == bool(C(t) == C(u))`が`true`であること
 
 - `weakly-equality-comparable-with` : `const remove_reference_t<T>, const remove_reference_t<U>`型の左辺値`t, u`について次の条件を満たす場合に限って、型`T, U`は`weakly-equality-comparable-with`のモデルである。
