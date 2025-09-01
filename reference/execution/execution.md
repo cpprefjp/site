@@ -131,6 +131,8 @@ namespace std::execution {
 | [`execution::into_variant`](execution/into_variant.md) | 複数の値完了シグネチャを単一[`variant`](/reference/variant/variant.md)型の値完了シグネチャに変換 (customization point object) | C++26 |
 | [`execution::stopped_as_optional`](execution/stopped_as_optional.md) | 入力Senderの停止完了を空の[`optional`](/reference/optional/optional.md)値完了に変換 (customization point object) | C++26 |
 | [`execution::stopped_as_error`](execution/stopped_as_error.md) | 入力Senderの停止完了をエラー完了に変換 (customization point object) | C++26 |
+| [`execution::associate`](execution/associate.md.nolink) | 非同期スコープへの関連付け (customization point object) | C++26 |
+| [`execution::spawn_future`](execution/spawn_future.md.nolink) | 非同期操作を早期開始 (customization point object) | C++26 |
 
 ### Senderコンシューマ
 
@@ -138,8 +140,9 @@ namespace std::execution {
 |------|------|----------------|
 | [`this_thread::sync_wait`](this_thread/sync_wait.md) | 現在のスレッド上でSender完了を待機 (customization point object) | C++26 |
 | [`this_thread::sync_wait_with_variant`](this_thread/sync_wait_with_variant.md) | 現在のスレッド上でSender完了を待機 (customization point object) | C++26 |
+| [`execution::spawn`](execution/spawn.md.nolink) | 非同期操作を早期開始 (customization point object) | C++26 |
 
-Senderコンシューマは名前空間 `std::this_thread` で定義される。
+Senderコンシューマは名前空間 `std::this_thread` および名前空間 `std::execution` で定義される。
 
 ### Sender/Receiverユーティリティ
 
@@ -157,6 +160,14 @@ Senderコンシューマは名前空間 `std::this_thread` で定義される。
 |------|------|----------------|
 | [`execution::as_awaitable`](execution/as_awaitable.md) | Senderを[Awaitable型](/lang/cpp20/coroutines.md)へ変換 (customization point object) | C++26 |
 | [`execution::with_awaitable_senders`](execution/with_awaitable_senders.md) | [Promise型](/lang/cpp20/coroutines.md)の基底クラス (class template) | C++26 |
+
+### 実行スコープユーティリティ
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`execution::scope_token`](execution/scope_token.md) | 非同期スコープトークン (concept) | C++26 |
+| [`execution::simple_counting_scope`](execution/simple_counting_scope.md) | カウント式非同期スコープ (class) | C++26 |
+| [`execution::counting_scope`](execution/counting_scope.md) | 停止要求可能なカウント式非同期スコープ (class) | C++26 |
 
 ### 並列Scheduler
 
@@ -176,6 +187,7 @@ Senderコンシューマは名前空間 `std::this_thread` で定義される。
 - [P0024R2 The Parallelism TS Should be Standardized](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0024r2.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P2079R10 Parallel scheduler](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2079r10.html)
+- [P3149R11 `async_scope` - Creating scopes for non-sequential concurrency](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3149r11.html)
 - [P3284R4 `write_env` and `unstoppable` Sender Adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3284r4.html)
 - [P3481R5 `std::execution::bulk()` issues](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3481r5.html)
 - [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
