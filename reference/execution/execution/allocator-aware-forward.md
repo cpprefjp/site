@@ -39,4 +39,4 @@ decltype(auto) allocator-aware-forward(T&& obj, Context&& context);
 
 
 ## 参照
-- [P3433R1 Allocator Support for Operation States](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3433r1.pdf0)
+- [P3433R1 Allocator Support for Operation States](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3433r1.pdf)
