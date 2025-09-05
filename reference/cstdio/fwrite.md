@@ -42,7 +42,7 @@ int main() {
     return 1;
   }
 
-  const char data[] = "Hello, World!";
+  const char data[] = "Hello, World!\n";
   /*
   厳密には、sizeof(char)は1バイトであることが保証されているため、
   sizeof(data) - 1は、文字列の長さ（ヌル終端文字を除く）と等しくなる。
