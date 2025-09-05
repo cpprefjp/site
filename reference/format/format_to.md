@@ -138,7 +138,7 @@ wstring format_to(Out out, const locale& loc, wformat_string<Args...> fmt, const
 * wformat_string[link basic_format_string.md]
 * str[italic]
 * basic_format_context[link basic_format_context.md]
-* vformat_to[link vformat.md]
+* vformat_to[link vformat_to.md]
 * make_format_args[link make_format_args.md]
 * locale[link /reference/locale/locale.md]
 

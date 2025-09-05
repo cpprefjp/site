@@ -37,7 +37,7 @@ namespace std::ranges {
 
 
 ## 戻り値
-比較 [`invoke`](/reference/functional/invoke.md)`(comp, `[`invoke`](/reference/functional/invoke.md)`(proj, *i), `[`invoke`](/reference/functional/invoke.md)`(proj, *j))` によって最大と判断された最初の要素を指すイテレータ
+比較 [`invoke`](/reference/functional/invoke.md)`(comp,` [`invoke`](/reference/functional/invoke.md)`(proj, *i),` [`invoke`](/reference/functional/invoke.md)`(proj, *j))` によって最大と判断された最初の要素を指すイテレータ
 
 ## 計算量
 [`max`](max.md)`((last - first) - 1, 0)`回の比較を行う

@@ -15,7 +15,7 @@ template<tuple-like TTuple, tuple-like UTuple,
 * tuple-like[link ../tuple-like.md]
 
 ## 概要
-[`tuple`](../tuple.md)と[`tuple-like`](../tuple-like.md)なオブジェクについて、[`common_reference`](/reference/type_traits/common_reference.md)で共通の参照型を取得できるようにアダプトする[`basic_common_reference`](/reference/type_traits/common_reference.md)の特殊化である。
+[`tuple`](../tuple.md)と[`tuple-like`](../tuple-like.md)なオブジェクについて、[`common_reference`](/reference/type_traits/common_reference.md)で共通の参照型を取得できるようにアダプトする[`basic_common_reference`](/reference/type_traits/basic_common_reference.md)の特殊化である。
 
 ユーザーが直接この特殊化を利用する必要はない。[`common_reference`](/reference/type_traits/common_reference.md)を使用すること。
 
@@ -26,7 +26,7 @@ template<tuple-like TTuple, tuple-like UTuple,
 
 ## 要件
 - `TTuple`か`UTuple`のどちらかが[`tuple`](../tuple.md)の特殊化であること。
-- `TTuple`と`UTuple`のそれぞれについて、（次の`T`を置き換える形で）[`is_same_v`](/reference/type_traits/is_same.md)`<T, `[`decay_t`](/reference/type_traits/decay.md)`<T>>`であること。
+- `TTuple`と`UTuple`のそれぞれについて、（次の`T`を置き換える形で）[`is_same_v`](/reference/type_traits/is_same.md)`<T,` [`decay_t`](/reference/type_traits/decay.md)`<T>>`であること。
     - 実質的には`TTuple`と`Utuple`について、参照型ではなく、最上位の`const`/`volatile`修飾も持っていないこと要求する。
 - `TTuple`と`UTuple`の要素数が一致していること。
     - 具体的には、[`tuple_size_v`](../tuple_size.md)`<TTuple> ==` [`tuple_size_v`](../tuple_size.md)`<UTuple>`であること。

@@ -40,7 +40,7 @@ int main()
                               ex::set_error_t(std::exception_ptr),
                               ex::set_stopped_t()>>);
 
-  // スケジュールSender属性の値完了スケジューラを確認
+  // スケジュールSender属性の値完了Schedulerを確認
   auto compl_sch = ex::get_completion_scheduler<ex::set_value_t>(ex::get_env(sndr));
   assert(compl_sch == sch);
 }

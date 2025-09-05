@@ -28,7 +28,7 @@ return *this;
 * base[link base.md]
 
 - 後置インクリメント `operator++(int)`：
-    - `Iterator`が[`forward_iterator`](/reference/iterator/iterator_tag.md)のモデルとなる場合、以下と等価
+    - `Iterator`が[`forward_iterator`](/reference/iterator/forward_iterator.md)のモデルとなる場合、以下と等価
         ```cpp
         move_iterator tmp = *this;
         ++base();

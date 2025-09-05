@@ -75,9 +75,10 @@ namespace std::execution {
 ```cpp
 []<class Sndr, class Rcvr>(Sndr&& sndr, Rcvr& rcvr) noexcept -> decltype(auto) {
   auto& [_, data, ...child] = sndr;
-  return std::forward_like<Sndr>(data);
+  return allocator-aware-forward(std::forward_like<Sndr>(data), rcvr);
 }
 ```
+* allocator-aware-forward[link allocator-aware-forward.md]
 
 ### `start`メンバ
 `start`は、[`basic-operation`](basic-operation.md)実装における[開始(start)](start.md)のカスタマイゼーションポイントとして機能する。
@@ -146,4 +147,5 @@ static consteval void default-impls::check-types();
 
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P3433R1 Allocator Support for Operation States](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3433r1.pdf)
 - [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)

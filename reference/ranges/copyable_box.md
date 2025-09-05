@@ -11,7 +11,7 @@
 `copyable-box<T>` は、[`std::optional`](/reference/optional/optional.md)`<T>`とほとんど同じであるものの、以下の差分がある。
 
 ### 差分1
-テンプレートパラメーター制約 [`copy_constructible`](/reference/concepts/copy_constructible.md)`<T> && `[`is_object_v`](/reference/type_traits/is_object.md)`<T>` をもつ。
+テンプレートパラメーター制約 [`copy_constructible`](/reference/concepts/copy_constructible.md)`<T> &&` [`is_object_v`](/reference/type_traits/is_object.md)`<T>` をもつ。
 
 ### 差分2
 `T`が[`copyable`](/reference/concepts/copyable.md)のモデルでない場合、コピー代入演算子は以下のように定義される。
@@ -52,7 +52,7 @@ constexpr copyable-box& operator=(copyable-box&& that) noexcept(is_nothrow_move_
 以下のことが推奨される。
 
 - [`copy_constructible`](/reference/concepts/copy_constructible.md)`<T>` なら、`movable-box<T>` は
-`T` が [`copyable`](/reference/concepts/copyable.md)のモデルであるか、[`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<T> && `[`is_nothrow_copy_constructible_v`](/reference/type_traits/is_nothrow_copy_constructible.md)`<T>`を満たす場合のみ値を保持する。
+`T` が [`copyable`](/reference/concepts/copyable.md)のモデルであるか、[`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<T> &&` [`is_nothrow_copy_constructible_v`](/reference/type_traits/is_nothrow_copy_constructible.md)`<T>`を満たす場合のみ値を保持する。
 
 ## 備考
 

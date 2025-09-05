@@ -67,13 +67,13 @@ template<class OtherElementType, class OtherExtents,
     - [`is_default_constructible_v`](/reference/type_traits/is_default_constructible.md)`<accessor_type>`が`true`
 - (4) : `N`を`sizeof...(OtherIndexTypes)`としたとき
     - `(`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<OtherIndexTypes, index_type> && ...)`が`true`
-    - `(`[`is_nothrow_constructible_v`](/reference/type_traits/is_nothrow_convertible.md)`<index_type, OtherIndexTypes> && ...)`が`true`
+    - `(`[`is_nothrow_constructible_v`](/reference/type_traits/is_nothrow_constructible.md)`<index_type, OtherIndexTypes> && ...)`が`true`
     - `N ==` [`rank()`](rank.md) `|| N ==` [`rank_dynamic()`](rank_dynamic.md)が`true`
     - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<mapping_type, extents_type>`が`true`
     - [`is_default_constructible_v`](/reference/type_traits/is_default_constructible.md)`<accessor_type>`が`true`
 - (5), (6) :
     - `(`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const OtherIndexTypes&, index_type> && ...)`が`true`
-    - `(`[`is_nothrow_constructible_v`](/reference/type_traits/is_nothrow_convertible.md)`<index_type, const OtherIndexTypes&> && ...)`が`true`
+    - `(`[`is_nothrow_constructible_v`](/reference/type_traits/is_nothrow_constructible.md)`<index_type, const OtherIndexTypes&> && ...)`が`true`
     - `N ==` [`rank()`](rank.md) `|| N ==` [`rank_dynamic()`](rank_dynamic.md)が`true`
     - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<mapping_type, extents_type>`が`true`
     - [`is_default_constructible_v`](/reference/type_traits/is_default_constructible.md)`<accessor_type>`が`true`
@@ -234,7 +234,7 @@ int main()
 * data_handle()[link data_handle.md]
 * mapping()[link mapping.md]
 * size()[link size.md]
-* std::layout_stride::mapping[link ../layout_stride/mapping.md]]
+* std::layout_stride::mapping[link ../layout_stride/mapping.md]
 * std::layout_stride[link ../layout_stride.md]
 * std::layout_left::mapping[link ../layout_left/mapping.md]
 * std::default_accessor[link ../default_accessor.md]

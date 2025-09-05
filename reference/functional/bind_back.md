@@ -37,7 +37,7 @@ namespace std {
 - (2) : `F`を`f`の型として
     - `(`[`is_constructible_v`](/reference/type_traits/is_constructible.md)`<BoundArgs, Args> && ...)`が`true`、かつ
     - `(`[`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<BoundArgs> && ...)`が`true`、かつ
-    - もし[`is_poinetr_v`](/reference/type_traits/is_pointer.md)`<F> ||` [`is_member_poinetr_v`](/reference/type_traits/is_member_pointer.md)`<F>`が`true`ならば、`f != nullptr`であること
+    - もし[`is_pointer_v`](/reference/type_traits/is_pointer.md)`<F> ||` [`is_member_pointer_v`](/reference/type_traits/is_member_pointer.md)`<F>`が`true`ならば、`f != nullptr`であること
 
 
 ## 戻り値

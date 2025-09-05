@@ -19,7 +19,7 @@ namespace std::execution {
 
 
 ## 効果
-説明用の式`sndr`と`err`に対して、型`Sndr`を`decltype((sndr))`、型`Err`を`decltype((err))`とする。`Sndr`が[`sender`](sender.md)を満たさない、もしくは`Err`が[`moveable-value`](../movable-value.md)を満たさないとき、呼び出し式`stopped_as_error(sndr, err)`は不適格となる。
+説明用の式`sndr`と`err`に対して、型`Sndr`を`decltype((sndr))`、型`Err`を`decltype((err))`とする。`Sndr`が[`sender`](sender.md)を満たさない、もしくは`Err`が[`movable-value`](../movable-value.md)を満たさないとき、呼び出し式`stopped_as_error(sndr, err)`は不適格となる。
 
 そうでなければ、呼び出し式`stopped_as_error(sndr, err)`は`sndr`が1回だけ評価されることを除いて、下記と等価。
 

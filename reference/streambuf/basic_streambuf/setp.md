@@ -20,7 +20,7 @@ namespace std {
 出力部分列の各ポインタを設定する。
 
 ## 事後条件
-`pbeg == `[`pbase()`](pbase.md) および `pbeg == `[`pptr()`](pptr.md) および `pend == `[`epptr()`](epptr.md)。
+`pbeg ==` [`pbase()`](pbase.md) および `pbeg ==` [`pptr()`](pptr.md) および `pend ==` [`epptr()`](epptr.md)。
 
 ## 例
 ```cpp example

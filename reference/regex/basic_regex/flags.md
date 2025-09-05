@@ -26,7 +26,7 @@ flag_type flags() const;
 #include <iostream>
 #include <regex>
 
-#define PRINTFLAG(f, FLAG) (std::cout << #FLAG " is " << (f & std::regex_constants::FLAG ? "set" : "n
+#define PRINTFLAG(f, FLAG) (std::cout << #FLAG " is " << (f & std::regex_constants::FLAG ? "set" : "not set") << std::endl)
 
 void print(std::regex_constants::syntax_option_type f)
 {

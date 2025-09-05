@@ -47,7 +47,7 @@ std::ranges::copy(words | views::as_rvalue, std::back_inserter(new_words));
 ## 効果
 
 - (2): 式`views::as_rvalue(E)`はRangeアダプタオブジェクトを表し、その効果は次の通り
-    - 要素がすでに右辺値参照であれば(`T = decltype((E))`として、[`same_as`](/reference/concepts/same_as.md)`<`[`range_rvalue_reference_t`](range_rvalue_reference_t.md)`<T>, `[`range_reference_t`](range_reference_t.md)`<T>>`)、[`views::all`](all.md)`(E)`と等しい
+    - 要素がすでに右辺値参照であれば(`T = decltype((E))`として、[`same_as`](/reference/concepts/same_as.md)`<`[`range_rvalue_reference_t`](range_rvalue_reference_t.md)`<T>,` [`range_reference_t`](range_reference_t.md)`<T>>`)、[`views::all`](all.md)`(E)`と等しい
     - それ以外のとき、`as_rvalue_view{E}`と等しい
 
 ## メンバ関数

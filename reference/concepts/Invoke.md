@@ -34,10 +34,10 @@ C++における関数呼び出しという性質を抽象化しまとめた、�
 
 ## 要件（C++17）
 1. 仮想操作 *INVOKE*`(f, t1, t2, ..., tN)` を次のように定義する。
-	- `f` が型 `T` のメンバ関数へのポインタであり、[`is_base_of_v`](/reference/type_traits/is_base_of.md)`<T, `[`decay_t`](/reference/type_traits/decay.md)`<decltype(t1)>> == true`（`t1` が `T` または `T` を継承した型のオブジェクト/参照）であるとき、 `(t1.*f)(t2, ..., tN)` と同じ効果を持つ。
+	- `f` が型 `T` のメンバ関数へのポインタであり、[`is_base_of_v`](/reference/type_traits/is_base_of.md)`<T,` [`decay_t`](/reference/type_traits/decay.md)`<decltype(t1)>> == true`（`t1` が `T` または `T` を継承した型のオブジェクト/参照）であるとき、 `(t1.*f)(t2, ..., tN)` と同じ効果を持つ。
 	- `f` が型 `T` のメンバ関数へのポインタであり、[`decay_t`](/reference/type_traits/decay.md)`<decltype(t1)>`が[`reference_wrapper<T>`](/reference/functional/reference_wrapper.md)（`t1`が[`reference_wrapper`](/reference/functional/reference_wrapper.md)の特殊化）であるとき、 `(t1.get().*f)(t2, ..., tN)` と同じ効果を持つ。
 	- `f` が型 `T` のメンバ関数へのポインタであり、 `t1` が上記の条件に当てはまらない場合（例えば、t1が`T`のポインタ）、`((*t1).*f)(t2, ..., tN)` と同じ効果を持つ。
-	- `N == 1` で、`f` が型 `T` のメンバオブジェクトへのポインタであり、[`is_base_of_v`](/reference/type_traits/is_base_of.md)`<T, `[`decay_t`](/reference/type_traits/decay.md)`<decltype(t1)>> == true`（`t1` が `T` または `T` を継承した型のオブジェクト/参照）であるとき、 `t1.*f` と同じ効果を持つ。
+	- `N == 1` で、`f` が型 `T` のメンバオブジェクトへのポインタであり、[`is_base_of_v`](/reference/type_traits/is_base_of.md)`<T,` [`decay_t`](/reference/type_traits/decay.md)`<decltype(t1)>> == true`（`t1` が `T` または `T` を継承した型のオブジェクト/参照）であるとき、 `t1.*f` と同じ効果を持つ。
 	- `N == 1` で、`f` が型 `T` のメンバオブジェクトへのポインタであり、[`decay_t`](/reference/type_traits/decay.md)`<decltype(t1)>`が[`reference_wrapper<T>`](/reference/functional/reference_wrapper.md)（`t1`が[`reference_wrapper`](/reference/functional/reference_wrapper.md)の特殊化）であるとき、 `t1.get().*f` と同じ効果を持つ。
 	- `N == 1` で、`f` が型 `T` のメンバオブジェクトへのポインタであり、`t1` が上記の条件に当てはまらない場合（例えば、t1が`T`のポインタ）、 `(*t1).*f` と同じ効果を持つ。
 	- 上記の条件のどれにも当てはまらない場合、 `f(t1, t2, ..., tN)` と同じ効果を持つ。
@@ -48,10 +48,10 @@ C++における関数呼び出しという性質を抽象化しまとめた、�
 
 ## 要件（C++20）
 1. 仮想操作 *INVOKE*`(f, t1, t2, ..., tN)` を次のように定義する。
-	- `f` が型 `T` のメンバ関数へのポインタであり、[`is_base_of_v`](/reference/type_traits/is_base_of.md)`<T, `[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<decltype(t1)>> == true`（`t1` が `T` または `T` を継承した型のオブジェクト/参照）であるとき、 `(t1.*f)(t2, ..., tN)` と同じ効果を持つ。
+	- `f` が型 `T` のメンバ関数へのポインタであり、[`is_base_of_v`](/reference/type_traits/is_base_of.md)`<T,` [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<decltype(t1)>> == true`（`t1` が `T` または `T` を継承した型のオブジェクト/参照）であるとき、 `(t1.*f)(t2, ..., tN)` と同じ効果を持つ。
 	- `f` が型 `T` のメンバ関数へのポインタであり、[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<decltype(t1)>`が[`reference_wrapper<T>`](/reference/functional/reference_wrapper.md)（`t1`が[`reference_wrapper`](/reference/functional/reference_wrapper.md)の特殊化）であるとき、 `(t1.get().*f)(t2, ..., tN)` と同じ効果を持つ。
 	- `f` が型 `T` のメンバ関数へのポインタであり、 `t1` が上記の条件に当てはまらない場合（例えば、t1が`T`のポインタ）、`((*t1).*f)(t2, ..., tN)` と同じ効果を持つ。
-	- `N == 1` で、`f` が型 `T` のメンバオブジェクトへのポインタであり、[`is_base_of_v`](/reference/type_traits/is_base_of.md)`<T, `[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<decltype(t1)>> == true`（`t1` が `T` または `T` を継承した型のオブジェクト/参照）であるとき、 `t1.*f` と同じ効果を持つ。
+	- `N == 1` で、`f` が型 `T` のメンバオブジェクトへのポインタであり、[`is_base_of_v`](/reference/type_traits/is_base_of.md)`<T,` [`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<decltype(t1)>> == true`（`t1` が `T` または `T` を継承した型のオブジェクト/参照）であるとき、 `t1.*f` と同じ効果を持つ。
 	- `N == 1` で、`f` が型 `T` のメンバオブジェクトへのポインタであり、[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<decltype(t1)>`が[`reference_wrapper<T>`](/reference/functional/reference_wrapper.md)（`t1`が[`reference_wrapper`](/reference/functional/reference_wrapper.md)の特殊化）であるとき、 `t1.get().*f` と同じ効果を持つ。
 	- `N == 1` で、`f` が型 `T` のメンバオブジェクトへのポインタであり、`t1` が上記の条件に当てはまらない場合（例えば、t1が`T`のポインタ）、 `(*t1).*f` と同じ効果を持つ。
 	- 上記の条件のどれにも当てはまらない場合、 `f(t1, t2, ..., tN)` と同じ効果を持つ。

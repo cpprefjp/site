@@ -77,7 +77,7 @@ return mdspan(src.accessor().offset(src.data_handle(), sub_map_offset.offset),
 * mdspan[link mdspan.md]
 * sub_map_offset[link submdspan_mapping_result.md]
 * src.mapping()[link mdspan/mapping.md]
-* src.data_handle()[link mdspan/mapping.md]
+* src.data_handle()[link mdspan/data_handle.md]
 * src.accessor()[link mdspan/accessor.md]
 * AccessorPolicy::offset_policy[link AccessorPolicy.md]
 
@@ -235,7 +235,7 @@ int main()
   // 3 4
   // 5 6
 
-  // 行優先レイアウト std::layout_right　を維持
+  // 行優先レイアウト std::layout_right を維持
   auto row0 = std::submdspan(mat, 0, std::full_extent);
   // 1 2
   auto row12 = std::submdspan(mat, std::pair{1,3}, std::full_extent);

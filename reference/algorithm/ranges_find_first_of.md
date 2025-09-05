@@ -47,7 +47,7 @@ namespace std::ranges {
 
 
 ## 戻り値
-`[first1,last1 - (last2 - first2))` 内のイテレータ `i` があるとき、`[first2,last2)` 内のイテレータ `j` について、どれかが [`invoke`](/reference/functional/invoke.md)`(pred, `[`invoke`](/reference/functional/invoke.md)`(proj1, *i), `[`invoke`](/reference/functional/invoke.md)`(proj2, *j)) == true` であるような最初のイテレータを返す。
+`[first1,last1 - (last2 - first2))` 内のイテレータ `i` があるとき、`[first2,last2)` 内のイテレータ `j` について、どれかが [`invoke`](/reference/functional/invoke.md)`(pred,` [`invoke`](/reference/functional/invoke.md)`(proj1, *i),` [`invoke`](/reference/functional/invoke.md)`(proj2, *j)) == true` であるような最初のイテレータを返す。
 
 そのようなイテレータが見つからない、もしくは `[first2,last2)` が空である場合は `last1` を返す。
 

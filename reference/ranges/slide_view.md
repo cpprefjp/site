@@ -8,7 +8,7 @@
 namespace std::ranges {
   template<view V>
     requires input_range<V>
-  class slide_view : public view_interface<slide_view<V>> {…… }; // (1)
+  class slide_view : public view_interface<slide_view<V>> { …… }; // (1)
 
   namespace views {
     inline constexpr /*unspecified*/ slide = /*unspecified*/;      // (2)

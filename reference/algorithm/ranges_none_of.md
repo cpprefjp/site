@@ -42,7 +42,7 @@ namespace std::ranges {
     - `Pred`は`R`のイテレータを`Proj`で射影した値を受け取る[単項述語](/reference/iterator/indirect_unary_predicate.md)である
 
 ## 戻り値
-`[first,last)` あるいは `r` が空であったり、範囲内の全てのイテレータ `i` について [`invoke`](/reference/functional/invoke.md)`(pred, `[`invoke`](/reference/functional/invoke.md)`(proj, *i))` が `false` である場合は `true` を返し、そうでない場合は `false` を返す。
+`[first,last)` あるいは `r` が空であったり、範囲内の全てのイテレータ `i` について [`invoke`](/reference/functional/invoke.md)`(pred,` [`invoke`](/reference/functional/invoke.md)`(proj, *i))` が `false` である場合は `true` を返し、そうでない場合は `false` を返す。
 
 
 ## 計算量

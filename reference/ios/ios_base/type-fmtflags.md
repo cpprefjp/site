@@ -34,7 +34,7 @@ using fmtflags = T1;
 | `uppercase` | 特定の小文字の出力を大文字の出力にする。（`scientific` の `E` や <code>hex &#124; showbase</code> の `0X` など） |
 
 
-また、上記に加えて、[`setf`](setf.md)`()` の第 2 引数や　[`unsetf`](unsetf.md)`()` の引数に使用するため、 以下のように組み合わせた定数も [`ios_base`](../ios_base.md) の静的メンバ定数として定義されている。
+また、上記に加えて、[`setf`](setf.md)`()` の第 2 引数や [`unsetf`](unsetf.md)`()` の引数に使用するため、 以下のように組み合わせた定数も [`ios_base`](../ios_base.md) の静的メンバ定数として定義されている。
 
 | 定数 | 値 |
 |------|----------------------|

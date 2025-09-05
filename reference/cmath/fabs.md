@@ -51,7 +51,7 @@ namespace std {
 
 ## 備考
 - $$ f(x) = | x | $$
-- C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)` != false`）、以下の規定が追加される。
+- C++11 以降では、処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md) `!= false`）、以下の規定が追加される。
 - `value = ±0` の場合、戻り値は `+0` となる。
 - `value = ±∞` の場合、戻り値は `+∞` となる。
 - 戻り値は正確で、現在の丸め方式には依存しない。

@@ -226,7 +226,7 @@ chrono::year_month_day unix_time_to_ymd(std::time_t unixtime) {
 
 int main()
 {
-  // UNIX時間での現在日時を取得　
+  // UNIX時間での現在日時を取得
   std::time_t now = std::time(nullptr);
   chrono::year_month_day date = unix_time_to_ymd(now);
 

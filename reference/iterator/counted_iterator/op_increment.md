@@ -22,7 +22,7 @@ constexpr counted_iterator operator++(int)
 
 ## 事前条件
 
-- (1), (2) : [`count()`](count.md)` > 0`
+- (1), (2) : [`count()`](count.md) `> 0`
 
 ## 効果
 

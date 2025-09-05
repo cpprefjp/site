@@ -59,7 +59,7 @@ inline constexpr bool enable_sender = enable-sender<Sndr>;
 ```cpp
 template<class Sndr>
 concept sender =
-  enable_sender<remove_cvref_t<Sndr>>) &&
+  enable_sender<remove_cvref_t<Sndr>> &&
   requires (const remove_cvref_t<Sndr>& sndr) {
     { get_env(sndr) } -> queryable;
   } &&

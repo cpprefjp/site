@@ -57,7 +57,7 @@ namespace std::ranges {
 
 - `j`が範囲`[first2, last2)`に含まれており、
 - `!(*i == *j)` もしくは
-- [`invoke`](/reference/functional/invoke.md)`(pred, `[`invoke`](/reference/functional/invoke.md)`(proj1, *i), `[`invoke`](/reference/functional/invoke.md)`(proj2, *j)) == false` であるような、最初のイテレータのペア [`mismatch_result`](ranges_in_in_result.md)`{ .in1 = i, .in2 = j }` を返す。
+- [`invoke`](/reference/functional/invoke.md)`(pred,` [`invoke`](/reference/functional/invoke.md)`(proj1, *i),` [`invoke`](/reference/functional/invoke.md)`(proj2, *j)) == false` であるような、最初のイテレータのペア [`mismatch_result`](ranges_in_in_result.md)`{ .in1 = i, .in2 = j }` を返す。
 
 そのようなイテレータが見つからなかった場合は [`mismatch_result`](ranges_in_in_result.md)`{ .in1 = last1, .in2 = first2 + (last1 - first1)}` を返す。
 

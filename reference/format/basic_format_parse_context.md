@@ -110,7 +110,7 @@ namespace std {
   };
 }
 ```
-* format_error[link /reference/string_view/basic_string_view.md]
+* format_error[link /reference/format/format_error.md]
 
 ## バージョン
 ### 言語

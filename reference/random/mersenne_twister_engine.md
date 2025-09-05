@@ -51,7 +51,7 @@ namespace std {
 * `s <= w`
 * `t <= w`
 * `l <= w`
-* `w <= `[`std::numeric_limits`](/reference/limits/numeric_limits.md)`<UIntType>::`[`digits`](/reference/limits/numeric_limits/digits.md)
+* `w <=` [`std::numeric_limits`](/reference/limits/numeric_limits.md)`<UIntType>::`[`digits`](/reference/limits/numeric_limits/digits.md)
 * `a <= (1u << w) - 1u`
 * `b <= (1u << w) - 1u`
 * `c <= (1u << w) - 1u`

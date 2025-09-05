@@ -66,7 +66,7 @@ constexpr pair(piecewise_construct_t,
                tuple<Args2...> second_args);                  // (11) C++20
 ```
 * EXPLICIT[italic]
-* pair-like[link /reference/tuple/tuple-like.md]
+* pair-like[link /reference/tuple/pair-like.md]
 
 ## 概要
 [`pair`](../pair.md)オブジェクトを構築する。
@@ -80,7 +80,7 @@ constexpr pair(piecewise_construct_t,
 - (7) : 変換可能な他の[`pair`](../pair.md)オブジェクトから構築
 - (8) : 変換可能な他の[`pair`](../pair.md)オブジェクトからムーブ構築
 - (9) : 変換可能な他の[`pair`](../pair.md)オブジェクトから構築
-- (10) : [`pair-like`](/reference/tuple/tuple-like.md)なオブジェクトから構築
+- (10) : [`pair-like`](/reference/tuple/pair-like.md)なオブジェクトから構築
 - (11) : `first`と`second`のコンストラクタ引数を`std::tuple`に詰めて受け取り、`first_args`と`second_args`内のそれぞれの要素を転送して`first`と`second`を直接構築
     - 転送は、`std::tuple`オブジェクト（`first_args`/`second_args`）内の要素`x`とその型`U`（`Args1...`/`Args2...`に含まれる型）によって、`std::forward<U>(x)`のようにしてコンストラクタに渡される
 
@@ -94,7 +94,7 @@ constexpr pair(piecewise_construct_t,
     - [`is_constructible`](/reference/type_traits/is_constructible.md)`<first_type, U&&>::value &&` [`is_constructible`](/reference/type_traits/is_constructible.md)`<second_type, V&&>::value`であること
     - C++14まで : `U`が`first_type`に暗黙変換可能でない場合、もしくは`V`が`second_type`に暗黙変換可能でない場合、この関数はオーバーロード解決から除外される
 - (6)-(10) :
-    - C++23 : `FWD(u)`を`static_cast<deccltype(u)>(u)`と定義して、[`is_constructible_v`](/reference/type_traits/is_constructible.md)`<first_type, decltype(`[`get`](/reference/utility/pair/get.md)`<0>(FWD(p)))> &&` [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<second_type, decltype(`[`get`](/reference/utility/pair/get.md)`<1>(FWD(p)))>`であること
+    - C++23 : `FWD(u)`を`static_cast<decltype(u)>(u)`と定義して、[`is_constructible_v`](/reference/type_traits/is_constructible.md)`<first_type, decltype(`[`get`](/reference/utility/pair/get.md)`<0>(FWD(p)))> &&` [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<second_type, decltype(`[`get`](/reference/utility/pair/get.md)`<1>(FWD(p)))>`であること
 - (7) :
     - [`is_constructible`](/reference/type_traits/is_constructible.md)`<first_type, const U&>::value &&` [`is_constructible`](/reference/type_traits/is_constructible.md)`<second_type, const V&>::value`であること
     - C++14まで : `const U&`が`first_type`に暗黙変換可能でない場合、もしくは`const V&`が`second_type`に暗黙変換可能でない場合、この関数はオーバーロード解決から除外される
@@ -110,7 +110,7 @@ constexpr pair(piecewise_construct_t,
 
 - (5) : [`reference_constructs_from_temporary_v`](/reference/type_traits/reference_constructs_from_temporary.md)`<first_type, U1&&> ||` [`reference_constructs_from_temporary_v`](/reference/type_traits/reference_constructs_from_temporary.md)`<second_type, U2&&>`である場合、このコンストラクタは削除定義される
 - (6)-(10) :
-    - `FWD(u)`を`static_cast<deccltype(u)>(u)`と定義して
+    - `FWD(u)`を`static_cast<decltype(u)>(u)`と定義して
     - [`reference_constructs_from_temporary_v`](/reference/type_traits/reference_constructs_from_temporary.md)`<first_type, decltype(`[`get`](/reference/utility/pair/get.md)`<0>(FWD(p)))> ||` [`reference_constructs_from_temporary_v`](/reference/type_traits/reference_constructs_from_temporary.md)`<second_type, decltype(`[`get`](/reference/utility/pair/get.md)`<1>(FWD(p)))>`である場合、このコンストラクタは削除定義される
 - (11) : 要素型（`T1, T2`のどちらかもしくは両方）が参照型であり、初期化によって一時オブジェクトを束縛することになる場合、このコンストラクタは削除定義される
     - 上記のコンストラクタと同様に、[`reference_constructs_from_temporary`](/reference/type_traits/reference_constructs_from_temporary.md)を使用して判定される
@@ -124,7 +124,7 @@ constexpr pair(piecewise_construct_t,
 - (5) :
     - C++17 : `!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<U1, first_type> || !`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<U2, second_type>`である場合、`explicit`指定される
 - (6)-(10) :
-    - `FWD(u)`を`static_cast<deccltype(u)>(u)`と定義して
+    - `FWD(u)`を`static_cast<decltype(u)>(u)`と定義して
     - C++23 : `!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<decltype(`[`get`](/reference/utility/pair/get.md)`<0>(FWD(p))), first_type> || !`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<decltype(`[`get`](/reference/utility/pair/get.md)`<1>(FWD(p))), second_type>`である場合、`explicit`指定される
 - (7) :
     - C++17 : `!`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const U1&, first_type> || !`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const U2&, second_type>`である場合、`explicit`指定される
@@ -301,7 +301,7 @@ p8 : (X(1 2 3),Y(4 5))
 - [P1951R1 Default Arguments for `pair`'s Forwarding Constructor](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1951r1.html)
     - C++23での`{}`完全転送への対応
 - [P2165R4 Compatibility between `tuple`, `pair` and *tuple-like* objects](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2165r4.pdf)
-    - [`pair-like`](/reference/tuple/tuple-like.md)なオブジェクトからの構築
+    - [`pair-like`](/reference/tuple/pair-like.md)なオブジェクトからの構築
 - [P2255R2 A type trait to detect reference binding to temporary](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2255r2.html)
     - 参照型を要素に持つ場合にダングリング参照が容易に作成できていたのを不適格にする
 - [P2321R2 `zip`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2321r2.html#pair)

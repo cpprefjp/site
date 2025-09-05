@@ -47,7 +47,7 @@ minmax_element_result {
 ```
 * minmax_element_result[link ranges_min_max_result.md]
 
-それぞれ、比較 [`invoke`](/reference/functional/invoke.md)`(comp, `[`invoke`](/reference/functional/invoke.md)`(proj, *i), `[`invoke`](/reference/functional/invoke.md)`(proj, *j))` によって判断し、同じ値の要素が複数ある場合は、最小の要素は最初の要素、最大の要素は最後の要素となる。
+それぞれ、比較 [`invoke`](/reference/functional/invoke.md)`(comp,` [`invoke`](/reference/functional/invoke.md)`(proj, *i),` [`invoke`](/reference/functional/invoke.md)`(proj, *j))` によって判断し、同じ値の要素が複数ある場合は、最小の要素は最初の要素、最大の要素は最後の要素となる。
 
 ## 計算量
 `n` を範囲の要素数とする場合、[`max`](max.md)`(floor(3(n - 1) / 2), 0)` 回の述語適用を行う。

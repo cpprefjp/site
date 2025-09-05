@@ -58,7 +58,7 @@ namespace std::ranges {
 - (2): Rangeを直接指定する
 
 ## 効果
-`N = `[`min`](/reference/algorithm/min.md)`(last - first, result_last - result_first)` とする。
+`N =` [`min`](/reference/algorithm/min.md)`(last - first, result_last - result_first)` とする。
 
 `[first,last)` にある要素の中から、`N` 個の要素をソート済みの状態で `[result_first,result_first + N)` に配置する。
 

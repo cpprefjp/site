@@ -91,7 +91,7 @@ beta(2, 4)      = 0.05
 ### 備考
 #### GCC (libstdc++)
 GCC 7.1.0–8.0.0 では `beta` は [`exp`](exp.md) と [`lgamma`](lgamma.md) を用いて
-$ |\mathrm{B}(x, y)| = \exp(\ln |\Gamma(x) \Gamma(y) / \Gamma(x + y)|)) $
+$ |\mathrm{B}(x, y)| = \exp(\ln |\Gamma(x) \Gamma(y) / \Gamma(x + y)|) $
 を計算する。
 `x < 0 || y < 0` でも定義域エラーを報告せずに値を返すが、戻り値は必ず正になる。
 

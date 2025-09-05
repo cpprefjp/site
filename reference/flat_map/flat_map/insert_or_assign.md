@@ -84,9 +84,9 @@ iterator
     - `k`と等価なキーをもつ要素`e`が存在している場合、[`std::forward`](/reference/utility/forward.md)`<M>(obj)`を`e.second`に代入する
     - そうでなければ、以下と等価：
     ```cpp
-    try_emplace_hint(hint, std::forward<decltype(k)>(k), std::forward<M>(obj));
+    try_emplace(hint, std::forward<decltype(k)>(k), std::forward<M>(obj));
     ```
-    * try_emplace_hint[link try_emplace.md]
+    * try_emplace[link try_emplace.md]
 
 
 ## 戻り値

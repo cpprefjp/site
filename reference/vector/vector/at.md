@@ -29,7 +29,7 @@ constexpr const_reference at(size_type n) const; // (2) C++20
 
 
 ## 備考
-`at(n)` は `*(`[`begin()`](begin.md)` + n)` と同じ結果となるが、イテレータを使用したランダムアクセスや[`operator[]`](op_at.md)と違い、コンテナの要素数に対して境界チェックを行う。
+`at(n)` は `*(`[`begin()`](begin.md) `+ n)` と同じ結果となるが、イテレータを使用したランダムアクセスや[`operator[]`](op_at.md)と違い、コンテナの要素数に対して境界チェックを行う。
 
 
 ## 例

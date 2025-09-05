@@ -35,8 +35,8 @@ Rangeを挿入し、コンテナを拡張する。
     * c.values[link containers.md]
     * end()[link /reference/vector/vector/end.md]
     * insert[link /reference/vector/vector/insert.md]
-    * first[link /reference/utility/pair.md]
-    * second[link /reference/utility/pair.md]
+    * first[link /reference/utility/pair/first.md]
+    * second[link /reference/utility/pair/second.md]
 
     - 次に、新しく挿入された要素の範囲を`value_comp()`を基準にソートする
     - 次に、ソートされた結果の範囲と、既存の要素のソートされた範囲をひとつのソートされた範囲にマージする

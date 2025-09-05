@@ -8,7 +8,7 @@
 namespace std::ranges {
   template<input_range V>
     requires view<V>
-  class stride_view : public view_interface<stride_view<V>> {…… }; // (1)
+  class stride_view : public view_interface<stride_view<V>> { …… }; // (1)
 
   namespace views {
     inline constexpr /*unspecified*/ stride = /*unspecified*/;      // (2)

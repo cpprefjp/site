@@ -28,7 +28,7 @@ namespace std {
 2. `std::weak_order`（本関数オブジェクト）の宣言を含まないコンテキストで、[`weak_ordering`](weak_ordering.md)`(weak_order(a, b))`が呼び出し可能ならば`weak_ordering(weak_order(a, b))`
 
 3. [`decay`](/reference/type_traits/decay.md)を通した`a, b`の型`T`が浮動小数点型の場合、`T`の組み込みの比較演算子および[`strong_order`](strong_order.md)による順序と一貫する[`weak_ordering`](weak_ordering.md)の値を返す。  
-   さらに、[`numeric_limits<T>::is_iec559`](/reference/limits/numeric_limits/is_iec559.md)` == true`の場合、追加で以下の同値類の順序に従った順序付けを行う。
+   さらに、[`numeric_limits<T>::is_iec559`](/reference/limits/numeric_limits/is_iec559.md) `== true`の場合、追加で以下の同値類の順序に従った順序付けを行う。
 
     1. 全ての`-NaN`
     2. `-Inf`
@@ -87,7 +87,7 @@ namespace std {
 
 ## 備考
 
-[`numeric_limits<T>::is_iec559`](/reference/limits/numeric_limits/is_iec559.md)` == true`の場合の浮動小数点数の比較において、各同値類間の順序は以下のようになる。
+[`numeric_limits<T>::is_iec559`](/reference/limits/numeric_limits/is_iec559.md) `== true`の場合の浮動小数点数の比較において、各同値類間の順序は以下のようになる。
 
 {全ての`-NaN`} ` < ` {`-Inf`} ` < ` {負の正規化数} ` < ` {負の非正規化数} ` < ` {`±0.0`} ` < ` {正の非正規化数} ` < ` {正の正規化数} ` < ` {`+Inf`} ` < ` {全ての`+NaN`}
 

@@ -61,6 +61,7 @@ Senderアダプタ[`continues_on`](continues_on.md)は[`schedule_from`](schedule
 ## 関連項目
 - [`execution::connect`](connect.md)
 - [`execution::continues_on`](continues_on.md)
+- [`execution::get_completion_signatures`](get_completion_signatures.md)
 
 
 ## 参照

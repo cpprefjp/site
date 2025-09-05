@@ -47,7 +47,7 @@ namespace std::ranges {
 
 ## 戻り値
 
-[`ranges::mismatch`](ranges_mismatch.md)`(`[`std::move`](/reference/utility/move.md)`(first1), last1, `[`std::move`](/reference/utility/move.md)`(first2), last2, pred, proj1, proj2).in2 == last2`
+[`ranges::mismatch`](ranges_mismatch.md)`(`[`std::move`](/reference/utility/move.md)`(first1), last1,` [`std::move`](/reference/utility/move.md)`(first2), last2, pred, proj1, proj2).in2 == last2`
 
 ## 計算量
 最大で `min(last1 - first1, last2 - first2)` 回の対応する述語が適用される。

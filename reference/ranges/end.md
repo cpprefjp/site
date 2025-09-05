@@ -20,7 +20,7 @@ Rangeから最後尾要素の次を指すイテレータもしくは番兵を取
 このとき、式`ranges::begin(E)`の効果は以下の通り。
 
 1. `E`がrvalueかつ[`enable_borrowed_range`](enable_borrowed_range.md)`<`[`remove_cv_t`](/reference/type_traits/remove_cv.md)`<T>>`が`false`であれば、呼び出しは不適格。
-2. `T`が配列型であれば、`t + `[`extent_v`](/reference/type_traits/extent.md)`<T>`に等しい(expression‑equivalent)。ただし、要素数不明の配列か、[`remove_all_extents_t`](/reference/type_traits/remove_all_extents.md)`<T>`が不完全型であれば、呼び出しは不適格(診断不要)。
+2. `T`が配列型であれば、`t +` [`extent_v`](/reference/type_traits/extent.md)`<T>`に等しい(expression‑equivalent)。ただし、要素数不明の配列か、[`remove_all_extents_t`](/reference/type_traits/remove_all_extents.md)`<T>`が不完全型であれば、呼び出しは不適格(診断不要)。
 3. [`decay-copy`](/reference/exposition-only/decay-copy.md)`(t.end())`が有効な式でその型が[`sentinel_for`](/reference/iterator/sentinel_for.md)`<`[`iterator_t`](iterator_t.md)`<T>>`のモデルであれば、[`decay-copy`](/reference/exposition-only/decay-copy.md)`(t.end())`と等しい。
 4. `T`がクラス型または列挙体であって、`end`がADLで見つかり、[`decay-copy`](/reference/exposition-only/decay-copy.md)`(end(t))`が有効な式でその型が[`sentinel_for`](/reference/iterator/sentinel_for.md)`<`[`iterator_t`](iterator_t.md)`<T>>`のモデルであれば、[`decay-copy`](/reference/exposition-only/decay-copy.md)`(end(t))`と等しい。
 

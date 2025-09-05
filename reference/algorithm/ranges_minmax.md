@@ -56,7 +56,7 @@ minmax_result {
 ```
 * minmax_result[link ranges_min_max_result.md]
 
-それぞれ、比較 [`invoke`](/reference/functional/invoke.md)`(comp, `[`invoke`](/reference/functional/invoke.md)`(proj, *i), `[`invoke`](/reference/functional/invoke.md)`(proj, *j))` によって判断された最初の値となる。
+それぞれ、比較 [`invoke`](/reference/functional/invoke.md)`(comp,` [`invoke`](/reference/functional/invoke.md)`(proj, *i),` [`invoke`](/reference/functional/invoke.md)`(proj, *j))` によって判断された最初の値となる。
 
 ## 計算量
 - 2値比較バージョンは1操作。

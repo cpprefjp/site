@@ -11,7 +11,7 @@ using event_callback = void(*)(event ev, ios_base& str, int index);
 * ios_base[link ../ios_base.md]
 
 ## 概要
-`event_callback` は　[`register_callback`](register_callback.md) で登録するコールバック関数を表す型である。  
+`event_callback` は [`register_callback`](register_callback.md) で登録するコールバック関数を表す型である。  
 イベントが発生して当該関数が呼ばれる際には、`ev` には発生したイベントの種類（[`event`](type-event.md)）が、`str` にはイベントが発生したストリームが、`index` には [`register_callback`](register_callback.md) での登録時に指定した値がそれぞれ渡される。
 
 

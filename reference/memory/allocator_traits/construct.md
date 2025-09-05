@@ -18,9 +18,9 @@ static constexpr void construct(Alloc& a, T* p, Args&&... args);    // C++20 か
 
 ## 効果
 - C++17 まで
-	`a.construct(p, `[`forward`](/reference/utility/forward.md)`<Args>(args)...)` という式が有効ならそれを呼び出し、そうでなければデフォルト実装として `::new(static_cast<void*>(p)) T(`[`forward`](/reference/utility/forward.md)`<Args>(args)...)` を呼び出す。
+	`a.construct(p,` [`forward`](/reference/utility/forward.md)`<Args>(args)...)` という式が有効ならそれを呼び出し、そうでなければデフォルト実装として `::new(static_cast<void*>(p)) T(`[`forward`](/reference/utility/forward.md)`<Args>(args)...)` を呼び出す。
 - C++20 から
-	`a.construct(p, `[`forward`](/reference/utility/forward.md)`<Args>(args)...)` という式が有効ならそれを呼び出し、そうでなければデフォルト実装として [`construct_at`](../construct_at.md)`(p,` [`forward`](/reference/utility/forward.md)`<Args>(args)...)`を呼び出す。
+	`a.construct(p,` [`forward`](/reference/utility/forward.md)`<Args>(args)...)` という式が有効ならそれを呼び出し、そうでなければデフォルト実装として [`construct_at`](../construct_at.md)`(p,` [`forward`](/reference/utility/forward.md)`<Args>(args)...)`を呼び出す。
 
 
 ## 戻り値

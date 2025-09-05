@@ -161,7 +161,7 @@ string_view hello = sv.substr(0, 5); // 先頭5文字を抽出する
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`(op_deduction_guide)`](basic_string_view/op_deduction_guide.md) | クラステンプレートの推論補助 | C++20 |
+| [`(deduction_guide)`](basic_string_view/op_deduction_guide.md) | クラステンプレートの推論補助 | C++20 |
 
 
 ### リテラル

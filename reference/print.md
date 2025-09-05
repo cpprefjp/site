@@ -12,7 +12,7 @@
 | [`print`](print/print.md) | 書式指定で出力する (function template) | C++23 |
 | [`println`](print/println.md) | 書式指定で出力する。末尾改行付き (function template) | C++23 |
 | [`vprint_unicode`](print/vprint_unicode.md) | 書式指定でUnicode出力する (function) | C++23 |
-| [`vprint_unicode_buffered`](print/vprint_nonunicode_buffered.md) | 確保した文字列バッファに書式指定の出力を作ってからUnicode出力する (function) | C++26 |
+| [`vprint_unicode_buffered`](print/vprint_unicode_buffered.md) | 確保した文字列バッファに書式指定の出力を作ってからUnicode出力する (function) | C++26 |
 | [`vprint_nonunicode`](print/vprint_nonunicode.md) | 書式指定で非Unicode出力する (function) | C++23 |
 | [`vprint_nonunicode_buffered`](print/vprint_nonunicode_buffered.md) | 確保した文字列バッファに書式指定の出力を作ってから非Unicode出力する (function) | C++26 |
 

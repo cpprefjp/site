@@ -47,7 +47,7 @@ namespace std::execution {
 * MATCHING-SIG[link get_completion_signatures.md]
 * gather-signatures[link gather-signatures.md]
 * completion_signatures_of_t[link completion_signatures_of_t.md]
-* type_identity_t[link /reference/type_traits/true_type.md]
+* type_identity_t[link /reference/type_traits/type_identity.md]
 
 
 ## バージョン

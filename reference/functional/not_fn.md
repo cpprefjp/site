@@ -29,7 +29,7 @@ namespace std {
 - (1) : [`decay_t`](/reference/type_traits/decay.md)`<F>`を適用した型を`FD`として、
     - [`is_constructible_v`](/reference/type_traits/is_constructible.md)`<FD, F>`が`true`、かつ
     - [`is_move_constructible_v`](/reference/type_traits/is_move_constructible.md)`<FD>`が`true`であること
-- (2) : `F`を`f`の型として、もし[`is_poinetr_v`](/reference/type_traits/is_pointer.md)`<F> ||` [`is_member_poinetr_v`](/reference/type_traits/is_member_pointer.md)`<F>`が`true`ならば、`f != nullptr`であること
+- (2) : `F`を`f`の型として、もし[`is_pointer_v`](/reference/type_traits/is_pointer.md)`<F> ||` [`is_member_pointer_v`](/reference/type_traits/is_member_pointer.md)`<F>`が`true`ならば、`f != nullptr`であること
 
 
 ## 効果(C++17)
@@ -75,7 +75,7 @@ private:
 ## 戻り値(C++20)
 結果オブジェクト`g`に対する関数呼び出し式の引数パック`call_args`としたとき
 
-- (1) : `fd`を[`std::forward`](/reference/utility/forward.md)`<F>(f))`で直接非リスト初期化した`FD`型のオブジェクトに対して
+- (1) : `fd`を[`std::forward`](/reference/utility/forward.md)`<F>(f)`で直接非リスト初期化した`FD`型のオブジェクトに対して
     - 関数呼び出し式の結果が`!`[`invoke`](invoke.md)`(fd, call_args...)`に等しい、完全転送呼び出しラッパー(perfect forwarding call wrapper)オブジェクトを返す。
 - (2) :
     - 関数呼び出し式の結果が`!`[`invoke`](invoke.md)`(f, call_args...)`に等しい、状態を持たない完全転送呼び出しラッパー(perfect forwarding call wrapper)オブジェクトを返す。

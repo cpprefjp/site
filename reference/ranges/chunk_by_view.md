@@ -8,7 +8,7 @@
 namespace std::ranges {
   template<forward_range V, indirect_binary_predicate<iterator_t<V>, iterator_t<V>> Pred>
     requires view<V> && is_object_v<Pred>
-  class chunk_by_view : public view_interface<chunk_by_view<V, Pred>> {…… }; // (1)
+  class chunk_by_view : public view_interface<chunk_by_view<V, Pred>> { …… }; // (1)
 
   namespace views {
     inline constexpr /*unspecified*/ chunk_by = /*unspecified*/;      // (2)

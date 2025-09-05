@@ -89,7 +89,7 @@ int main()
 {
   int arr[] = {1, 2, 3, 4, 5, 6};
 
-  { // (1) :　1次元配列型から型推論
+  { // (1) : 1次元配列型から型推論
     std::mdspan m1{arr};
     static_assert(m1.rank() == 1 && m1.rank_dynamic() == 0);
     static_assert(m1.static_extent(0) == 6);

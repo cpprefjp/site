@@ -368,7 +368,7 @@ int main()
   // snd1,snd2両方の完了を待機するSender
   ex::sender auto sndr = ex::when_all(snd1, snd2);
 
-　auto result = std::this_thread::sync_wait(sndr);
+  auto result = std::this_thread::sync_wait(sndr);
   // result := optional<tuple<string,int,char>>型
   std::println("result={}", result.value());
 }

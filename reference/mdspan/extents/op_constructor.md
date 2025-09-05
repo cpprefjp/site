@@ -41,11 +41,11 @@ constexpr explicit(N != rank_dynamic())
     - `((OtherExtents == dynamic_extent || Extents == dynamic_extent || OtherExtents == Extents) && ...)`が`true`であること
 - (3) : `N`を`sizeof...(OtherIndexTypes)`、`exts_arr`を[`array`](/reference/array/array.md)`<index_type, N>{static_cast<index_type>(std::move(exts))...}`としたとき
     - `(`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<OtherIndexTypes, index_type> && ...)`が`true`、かつ
-    - `(`[`is_nothrow_constructible_v`](/reference/type_traits/is_nothrow_convertible.md)`<index_type, OtherIndexTypes> && ...)`が`true`、かつ
+    - `(`[`is_nothrow_constructible_v`](/reference/type_traits/is_nothrow_constructible.md)`<index_type, OtherIndexTypes> && ...)`が`true`、かつ
     - `N ==` [`rank_dynamic()`](rank_dynamic.md) `|| N ==` [`rank()`](rank.md)が`true`であること
 - (4), (5) :
     - `(`[`is_convertible_v`](/reference/type_traits/is_convertible.md)`<const OtherIndexTypes&, index_type> && ...)`が`true`、かつ
-    - `(`[`is_nothrow_constructible_v`](/reference/type_traits/is_nothrow_convertible.md)`<index_type, const OtherIndexTypes&> && ...)`が`true`、かつ
+    - `(`[`is_nothrow_constructible_v`](/reference/type_traits/is_nothrow_constructible.md)`<index_type, const OtherIndexTypes&> && ...)`が`true`、かつ
     - `N ==` [`rank_dynamic()`](rank_dynamic.md) `|| N ==` [`rank()`](rank.md)が`true`であること
 
 

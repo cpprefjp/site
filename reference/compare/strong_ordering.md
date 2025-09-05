@@ -22,7 +22,7 @@ namespace std {
   //静的メンバ定数の定義（初期化している値は説明のためのもの）
   inline constexpr strong_ordering strong_ordering::less(-1);
   inline constexpr strong_ordering strong_ordering::equal(0);
-  inline constexpr strong_ordering strong_ordering::equivalent(0));
+  inline constexpr strong_ordering strong_ordering::equivalent(0);
   inline constexpr strong_ordering strong_ordering::greater(1);
 }
 ```

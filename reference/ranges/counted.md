@@ -32,7 +32,7 @@ namespace std::ranges::views {
 - [`decltype`](/lang/cpp11/decltype.md)`((F))`が[`convertible_to`](/reference/concepts/convertible_to.md)`<D>`のモデルでなければ、呼び出しは不適格。
 - `T`が[`contiguous_iterator`](/reference/iterator/contiguous_iterator.md)のモデルであれば、[`span`](/reference/span/span.md)`(`[`to_address`](/reference/memory/to_address.md)`(E), static_cast<D>(F))`と等しい。
 - `T`が[`random_access_iterator`](/reference/iterator/random_access_iterator.md)のモデルであれば、[`subrange`](subrange.md)`(E, E + static_cast<D>(F))`と等しい。
-- それ以外のとき、[`subrange`](subrange.md)`(`[`counted_iterator`](/reference/iterator/counted_iterator.md)`(E, F), `[`default_sentinel`](/reference/iterator/default_sentinel_t.md)`)`と等しい。
+- それ以外のとき、[`subrange`](subrange.md)`(`[`counted_iterator`](/reference/iterator/counted_iterator.md)`(E, F),` [`default_sentinel`](/reference/iterator/default_sentinel_t.md)`)`と等しい。
 
 ## 例
 ```cpp example

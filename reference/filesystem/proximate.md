@@ -24,8 +24,8 @@ namespace std::filesystem {
 
 ## 戻り値
 - (1) : `return proximate(p,` [`current_path()`](current_path.md)`, ec);`
-- (2) : `return` [`weakly_canonical`](weakly_canonical.md)`(p).`[`lexically_proximate`](path/lexically_relative.md)`(`[`weakly_canonical`](weakly_canonical.md)`(base));`
-- (3) : `return` [`weakly_canonical`](weakly_canonical.md)`(p, ec).`[`lexically_proximate`](path/lexically_relative.md)`(`[`weakly_canonical`](weakly_canonical.md)`(base, ec));`
+- (2) : `return` [`weakly_canonical`](weakly_canonical.md)`(p).`[`lexically_proximate`](path/lexically_proximate.md)`(`[`weakly_canonical`](weakly_canonical.md)`(base));`
+- (3) : `return` [`weakly_canonical`](weakly_canonical.md)`(p, ec).`[`lexically_proximate`](path/lexically_proximate.md)`(`[`weakly_canonical`](weakly_canonical.md)`(base, ec));`
 
 (1)と(3)でエラーが発生した場合、`ec`にエラー情報が書き込まれ、`path()`が返る。
 

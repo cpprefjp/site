@@ -48,7 +48,7 @@ namespace std::ranges {
 この他にFunは[`copy_constructible`](/reference/concepts/copy_constructible.md)のモデルであることが要求される。
 
 ## 効果
-`[first,last)` 内の全てのイテレータ `i` に [`invoke`](/reference/functional/invoke.md)`(f, `[`invoke`](/reference/functional/invoke.md)`(proj, *i))` という操作を行う。`first` から順番に処理し、`last - 1` まで行う。
+`[first,last)` 内の全てのイテレータ `i` に [`invoke`](/reference/functional/invoke.md)`(f,` [`invoke`](/reference/functional/invoke.md)`(proj, *i))` という操作を行う。`first` から順番に処理し、`last - 1` まで行う。
 
 このアルゴリズムはその他のアルゴリズムと違い、[`invoke`](/reference/functional/invoke.md)`(proj, *i)` が書き換え可能な参照であれば、関数 `f` の内部でその値を書き換えても構わない。
 

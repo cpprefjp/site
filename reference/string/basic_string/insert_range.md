@@ -15,7 +15,7 @@ Rangeの各要素を任意の位置に挿入する。
 
 
 ## 効果
-`return ` [`insert`](insert.md)`(pos, basic_string(`[`from_range`](../../ranges/from_range_t.md)`, `[`forward`](../../utility/forward.md)`<R>(rg), `[`get_allocator()`](get_allocator.md)`));`
+`return ` [`insert`](insert.md)`(pos, basic_string(`[`from_range`](../../ranges/from_range_t.md)`,` [`forward`](../../utility/forward.md)`<R>(rg),` [`get_allocator()`](get_allocator.md)`));`
 
 
 ## 戻り値

@@ -49,7 +49,7 @@ namespace std::ranges {
 ## 戻り値
 2つの範囲の長さを定数時間で求められ、もし `last1 - first1 != last2 - first2` であれば、`false` を返す。
 
-そうでない場合、`[first1,last1)` 内のイテレータ `i` について、[`invoke`](/reference/functional/invoke.md)`(pred, `[`invoke`](/reference/functional/invoke.md)`(proj1, *i), `[`invoke`](/reference/functional/invoke.md)`(proj2, *(first2 + (i - first1)))) != false` が全てのイテレータ `i` について満たされているのであれば `true` を返す。  
+そうでない場合、`[first1,last1)` 内のイテレータ `i` について、[`invoke`](/reference/functional/invoke.md)`(pred,` [`invoke`](/reference/functional/invoke.md)`(proj1, *i),` [`invoke`](/reference/functional/invoke.md)`(proj2, *(first2 + (i - first1)))) != false` が全てのイテレータ `i` について満たされているのであれば `true` を返す。  
 そうでない場合は `false` を返す。
 
 ## 計算量

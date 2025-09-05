@@ -83,9 +83,11 @@ namespace std::execution {
     args_variant_t args;  // exposition only
     ops2_variant_t ops2;  // exposition only
   };
-  return state-type{std::forward_like<Sndr>(fn), let-env(child), {}, {}};
+  return state-type{allocator-aware-forward(std::forward_like<Sndr>(fn), rcvr),
+                    let-env(child), {}, {}};
 }
 ```
+* allocator-aware-forward[link allocator-aware-forward.md]
 
 - 説明用のパック`Sigs`を[`completion_signatures_of_t`](completion_signatures_of_t.md)`<`[`child-type`](child-type.md)`<Sndr>,` [`FWD-ENV-T`](../forwarding_query.md)`(`[`env_of_t`](env_of_t.md)`<Rcvr>)>`による[`completion_signatures`](completion_signatures.md)特殊化のテンプレートパラメータとし、パック`LetSigs`を`Sigs`に含まれる型のうち戻り値型が[`decayed-typeof`](/reference/functional/decayed-typeof.md)`<set-cpo>`に等しいものと定義する。説明用のエイリアステンプレート`as-tuple<Tag(Args...)>`を[`decayed-tuple`](decayed-tuple.md)`<Args...>`と定義する。型`args_variant_t`は下記定義において重複削除した型となる。
 
@@ -132,7 +134,7 @@ namespace std::execution {
 using LetFn = remove_cvref_t<data-type<Sndr>>;
 auto cs = get_completion_signatures<child-type<Sndr>, FWD-ENV-T(Env)...>();
 auto fn = []<class... Ts>(decayed-typeof<set-cpo>(*)(Ts...)) {
-  if constexpr (!is-valid-let-sender) 　// see below
+  if constexpr (!is-valid-let-sender) // see below
     throw unspecified-exception();
 };
 cs.for-each(overload-set(fn, [](auto){}));
@@ -438,6 +440,7 @@ catch 0
 - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3396R1 std::execution wording fixes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html)
+- [P3433R1 Allocator Support for Operation States](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3433r1.pdf)
 - [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
 - [LWG 4203. Constraints on `get-state` functions are incorrect](https://cplusplus.github.io/LWG/issue4203)
 - [LWG 4204. specification of `as-sndr2(Sig)` in [exec.let] is incomplete](https://cplusplus.github.io/LWG/issue4204)

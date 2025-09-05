@@ -39,7 +39,7 @@ namespace std::ranges {
 
 
 ## 戻り値
-`[first,last)` 内のイテレータ `i` について、[`invoke`](/reference/functional/invoke.md)`(pred, `[`invoke`](/reference/functional/invoke.md)`(proj, *i)) != false` であるイテレータの数を返す
+`[first,last)` 内のイテレータ `i` について、[`invoke`](/reference/functional/invoke.md)`(pred,` [`invoke`](/reference/functional/invoke.md)`(proj, *i)) != false` であるイテレータの数を返す
 
 
 ## 計算量

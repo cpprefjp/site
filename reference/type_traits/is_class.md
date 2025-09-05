@@ -75,7 +75,7 @@ int main(){}
 - [Visual C++](/implementation.md#visual_cpp): 2008 (std::tr1) [mark verified], 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
 #### 備考
-上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 2010 は [`integral_constant`](integral_constant.md) が `operator bool()` を持っていないためエラーになる。また、GCC 4.3.4, Visual C++ 2010 は `enum class` に対応していたいためにエラーになる。
+上の例でコンパイラによってはエラーになる。GCC 4.3.4, 4.5.3, Visual C++ 2010 は [`integral_constant`](integral_constant.md) が `operator bool()` を持っていないためエラーになる。また、GCC 4.3.4, Visual C++ 2010 は `enum class` に対応していないためエラーになる。
 
 
 ## 参照

@@ -44,7 +44,7 @@ namespace std::ranges {
 - [`input_range`](input_range.md)`<V>`
 - [`view`](view.md)`<V>`
 - [`is_object_v`](/reference/type_traits/is_object.md)`<Pred>`
-- [`indirect_unary_predicate`](/reference/iterator/indirect_unary_predicate.md)`<Pred, `[`iterator_t`](iterator_t.md)`<V>>`
+- [`indirect_unary_predicate`](/reference/iterator/indirect_unary_predicate.md)`<Pred,` [`iterator_t`](iterator_t.md)`<V>>`
 
 ## 効果
 

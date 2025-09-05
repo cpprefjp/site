@@ -38,7 +38,7 @@ namespace std::ranges {
 
 
 ## 戻り値
-`[first,last)` あるいは `r` 内のイテレータ `i` について [`invoke`](/reference/functional/invoke.md)`(pred, `[`invoke`](/reference/functional/invoke.md)`(proj, *i))` が `true` になるような要素があれば`true`を返し、そうでなければ`false`を返す。
+`[first,last)` あるいは `r` 内のイテレータ `i` について [`invoke`](/reference/functional/invoke.md)`(pred,` [`invoke`](/reference/functional/invoke.md)`(proj, *i))` が `true` になるような要素があれば`true`を返し、そうでなければ`false`を返す。
 `[first,last)` あるいは `r` の範囲が空の場合は`false`を返す。
 
 ## 計算量

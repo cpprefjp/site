@@ -8,7 +8,7 @@
 namespace std::ranges {
   template<view V>
     requires input_range<V>
-  class chunk_view : public view_interface<chunk_view<V>> {…… }; // (1)
+  class chunk_view : public view_interface<chunk_view<V>> { …… }; // (1)
 
   namespace views {
     inline constexpr /*unspecified*/ chunk = /*unspecified*/;      // (2)

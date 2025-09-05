@@ -204,7 +204,7 @@ std::generator<int> ints()
 
 int main()
 {
-  for (int n : ints())) {
+  for (int n : ints()) {
     std::cout << n << ' ';
   }
 }

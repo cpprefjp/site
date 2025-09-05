@@ -33,7 +33,7 @@ namespace std::ranges {
 `n >= 0`
 
 ## 効果
-イテレータ範囲`[first, first + n)` 内の全てのイテレータ `i` に [`invoke`](/reference/functional/invoke.md)`(f, `[`invoke`](/reference/functional/invoke.md)`(proj, *i))` という操作を行う。
+イテレータ範囲`[first, first + n)` 内の全てのイテレータ `i` に [`invoke`](/reference/functional/invoke.md)`(f,` [`invoke`](/reference/functional/invoke.md)`(proj, *i))` という操作を行う。
 
 このアルゴリズムはその他のアルゴリズムと違い、[`invoke`](/reference/functional/invoke.md)`(proj, *i)` が書き換え可能な参照であれば、関数 `f` の内部でその値を書き換えても構わない。
 

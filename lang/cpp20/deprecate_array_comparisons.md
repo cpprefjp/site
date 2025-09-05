@@ -17,7 +17,7 @@
 ```cpp
 int arr1[5];
 int arr2[5];
-bool same = arr1 == arr2; // C++20で非推奨。&arr[0] == &arr[1]と同じ。
+bool same = arr1 == arr2; // C++20で非推奨。&arr1[0] == &arr2[0]と同じ。
                           // 配列の要素は比較されない
 auto cmp = arr1 <=> arr2; // エラー！
 ```

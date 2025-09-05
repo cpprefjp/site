@@ -30,11 +30,11 @@ constexpr auto end() const
     - `zip-is-common<Views...>`が`false`の場合：
         - `return sentinel<false>(tuple-transform(ranges::end, views_));`
     - `(random_access_range<Views> && ...) && (sized_range<Views> && ...)`が`true`の場合：
-        - `return begin() + `[`iter_difference_t`](/reference/iterator/iter_difference_t.md)`<iterator<false>>(size());`
+        - `return begin() +` [`iter_difference_t`](/reference/iterator/iter_difference_t.md)`<iterator<false>>(size());`
     - それ以外の場合：
         - `return iterator<false>(tuple-transform(ranges::end, views_));`
 
-- (2) : `return begin() + `[`iter_difference_t`](/reference/iterator/iter_difference_t.md)`<iterator<true>>(size());`
+- (2) : `return begin() +` [`iter_difference_t`](/reference/iterator/iter_difference_t.md)`<iterator<true>>(size());`
 
 - (3) : 
 ```cpp

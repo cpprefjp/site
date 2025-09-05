@@ -20,7 +20,7 @@ namespace std {
 
 2つの型`T, U`は以下の全ての条件を満たす場合にのみ、共通の参照型を持つ。
 
-- `C = `[`common_reference_t<T, U>`](/reference/type_traits/common_reference.md)が有効な型である
+- `C =` [`common_reference_t<T, U>`](/reference/type_traits/common_reference.md)が有効な型である
 - 型`T, C`は、[`convertible_to<T, C>`](/reference/concepts/convertible_to.md)のモデルである
 - 型`U, C`は、[`convertible_to<U, C>`](/reference/concepts/convertible_to.md)のモデルである
 
