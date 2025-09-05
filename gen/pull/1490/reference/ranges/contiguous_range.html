@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:33:39">
-        2025年07月08日 15時33分39秒
+      <span itemprop="datePublished" content="2025-08-31T10:06:36">
+        2025年08月31日 10時06分36秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -227,7 +227,7 @@
 <p><code>contiguous_range</code>であるRangeは、要素がメモリ上で連続して配置されており、<code><a href="data.html">ranges::data</a></code>や<code><a href="cdata.html">ranges::cdata</a></code>で要素のポインタを取得できる。</p>
 <h2>モデル</h2>
 <p><code>decltype((t))</code>が<code>T&amp;</code>であるような式<code>t</code>があるとする。
-<code>T</code>が<code>contiguous_range</code>のモデルとなるのは、<code><a href="../memory/to_address.html">to_address</a>(<a href="begin.html">ranges::begin</a>(t)) ==<a href="data.html">ranges::data</a>(t)</code>が<code>true</code>となる場合である。</p>
+<code>T</code>が<code>contiguous_range</code>のモデルとなるのは、<code><a href="../memory/to_address.html">to_address</a>(<a href="begin.html">ranges::begin</a>(t)) == <a href="data.html">ranges::data</a>(t)</code>が<code>true</code>となる場合である。</p>
 <h2>例</h2>
 <p><div class="yata" id="6b2ea5a0e16fbbe111f9454c96d0efecb90d76b0"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>

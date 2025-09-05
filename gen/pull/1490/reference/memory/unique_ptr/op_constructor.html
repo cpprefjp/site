@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:33:39">
-        2025年07月08日 15時33分39秒
+      <span itemprop="datePublished" content="2025-08-31T10:06:36">
+        2025年08月31日 10時06分36秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -293,11 +293,11 @@
 <h3>C++17 共通</h3>
 <ul>
 <li>(1), (2), (6) : 以下のいずれかの条件を満たす場合、<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>に参加しない。<ul>
-<li><code><a href="../../type_traits/is_pointer.html">is_pointer_v&lt;deleter_type&gt;</a>== true</code>である（デリータがポインタである）</li>
+<li><code><a href="../../type_traits/is_pointer.html">is_pointer_v&lt;deleter_type&gt;</a> == true</code>である（デリータがポインタである）</li>
 <li><code><a href="../../type_traits/is_default_constructible.html">is_default_constructible_v&lt;deleter_type&gt;</a> == false</code>である（デリータが<a class="cpprefjp-defined-word" data-desc="デフォルト初期化。`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト構築</a>できない）</li>
 </ul>
 </li>
-<li>(3), (4) : <code><a href="../../type_traits/is_constructible.html">is_constructible_v&lt;D, decltype(d)&gt;</a>== true</code>の（<code>d</code>からコピー/ムーブ構築可能な）場合にのみ<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>に参加する。</li>
+<li>(3), (4) : <code><a href="../../type_traits/is_constructible.html">is_constructible_v&lt;D, decltype(d)&gt;</a> == true</code>の（<code>d</code>からコピー/ムーブ構築可能な）場合にのみ<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>に参加する。</li>
 <li>(3), (4), (6) : <a href="../../../lang/cpp17/type_deduction_for_class_templates.html">クラステンプレートの実引数推定</a>によってこれらのコンストラクタが選択される場合、コンパイルエラーとなる。</li>
 </ul>
 <h3>C++17 配列版</h3>

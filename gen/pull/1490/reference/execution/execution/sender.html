@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-31T12:34:14">
-        2025年07月31日 12時34分14秒
+      <span itemprop="datePublished" content="2025-08-31T12:36:04">
+        2025年08月31日 12時36分04秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">yoh</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -269,7 +269,7 @@
 <p><code>sender</code>コンセプトは、以下のように定義される。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="o">&gt;</span>
 <span class="n">concept</span> <span class="n">sender</span> <span class="o">=</span>
-  <span class="n">enable_sender</span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;&gt;</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+  <span class="n">enable_sender</span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;&gt;</span> <span class="o">&amp;&amp;</span>
   <span class="n">requires</span> <span class="p">(</span><span class="k">const</span> <span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;&amp;</span> <span class="n">sndr</span><span class="p">)</span> <span class="p">{</span>
     <span class="p">{</span> <span class="n"><a href="get_env.html">get_env</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">)</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="../queryable.html">queryable</a></span><span class="p">;</span>
   <span class="p">}</span> <span class="o">&amp;&amp;</span>

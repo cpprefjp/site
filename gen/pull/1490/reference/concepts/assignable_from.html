@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:33:39">
-        2025年07月08日 15時33分39秒
+      <span itemprop="datePublished" content="2025-08-31T10:06:36">
+        2025年08月31日 10時06分36秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -230,7 +230,7 @@
 <p>まず、<code>lhs</code>を<code>decltype((lhs))</code>が<code>LHS</code>であるような<code>lcopy</code>オブジェクトを参照する左辺値（参照）、<code>rhs</code>を<code>decltype((rhs))</code>が<code>RHS</code>であるような式、<code>rcopy</code>を<code>rhs</code>と等値な別のオブジェクトとして定義する。</p>
 <p>これらの<code>lhs, rhs, lcopy, rcopy</code>について、以下の条件を満たす場合に限って、型<code>LHS, RHS</code>は<code>assignable_from</code>のモデルである。</p>
 <ul>
-<li><code><a href="../memory/addressof.html">addressof</a>(lhs = rhs) ==<a href="../memory/addressof.html">addressof</a>(lcopy)</code>となる</li>
+<li><code><a href="../memory/addressof.html">addressof</a>(lhs = rhs) == <a href="../memory/addressof.html">addressof</a>(lcopy)</code>となる</li>
 <li><code>lhs = rhs;</code>という式の評価の後で以下のことが成り立っている<ul>
 <li><code>rhs</code>が<code>lcopy</code>を参照する非<code>const</code> <em>xvalue</em>でない（ムーブが起こる自己代入ではない）場合<ul>
 <li><code>lhs</code>は<code>rcopy</code>と等値である</li>

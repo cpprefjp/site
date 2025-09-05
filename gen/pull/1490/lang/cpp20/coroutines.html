@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:33:39">
-        2025年07月08日 15時33分39秒
+      <span itemprop="datePublished" content="2025-08-31T08:35:30">
+        2025年08月31日 08時35分30秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -380,7 +380,7 @@
 </li>
 </ul>
 <p>Promise型のスコープにおいて、非修飾な<code>return_void</code>および<code>return_value</code>の探索が行われる。両方が見つかった場合、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
-<p>コルーチン呼び出しのglvalue結果またはprvalue結果オブジェクトを初期化するために、式 <em>promise</em><code>.get_return_object()</code>が使われる。
+<p>コルーチン呼び出しのglvalue結果またはprvalue結果オブジェクトを初期化するために、式 <code><em>promise</em>.get_return_object()</code>が使われる。
 <code>get_return_object</code>呼び出しは高々1回であり、<code>initial_suspend</code>呼び出しよりも前に順序付けられる。</p>
 <p>中断状態にあるコルーチンは、そのコルーチンを指すコルーチンハンドルの再開メンバ関数呼び出しによって、継続実行を再開できる。
 再開メンバ関数を呼び出した関数は、再開元(resumer)と呼ばれる。
@@ -449,8 +449,8 @@
 パラメータのコピーの初期化は、コルーチンPromiseコンストラクタの呼び出しより前に順序付けられ、それぞれは互いに非決定順で順序付けられる。
 パラメータのコピーの生存期間は、パラメータPromiseオブジェクトの終了直後で終了する。
 （コルーチンが参照渡しのパラメータを持つ場合、そのパラメータにより参照されるエンティティ生存期間終了後のコルーチン再開は<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こしやすい。）</p>
-<p>式 <em>promise</em><code>.unhandled_exception()</code>の評価が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>で終了した場合、コルーチンは最終サスペンドポイントで中断したとみなされる。</p>
-<p>式 <code>co_await</code> <em>promise</em><code>.final_suspend()</code> は<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出してはならない。</p>
+<p>式 <code><em>promise</em>.unhandled_exception()</code>の評価が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>で終了した場合、コルーチンは最終サスペンドポイントで中断したとみなされる。</p>
+<p>式 <code>co_await <em>promise</em>.final_suspend()</code> は<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出してはならない。</p>
 <h3>Await式</h3>
 <p><code>co_await</code>式は、そのオペランド式で表される計算の完了を待機しているあいだ、コルーチン評価をサスペンド(中断)するために用いる。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="n">co_await</span> <span class="n"><i>cast-expression</i></span>
@@ -466,7 +466,7 @@ Await式は、静的記憶域もしくは<a href="../cpp11/thread_local_storage.
 <li><em>p</em> を同Await式を含むコルーチンのPromiseオブジェクトの左辺値名とし、<code>P</code>を同オブジェクトの型とする。</li>
 <li><em>a</em> (Awaitable) を下記のように定義する：<ul>
 <li>Await式がYield式または初期サスペンドポイントまたは最終サスペンドポイントにより暗黙に生成された場合、<em>a</em> をその <em>cast-expression</em> とする。</li>
-<li><code>P</code>のスコープで非修飾な<code>await_transform</code>の探索により一つ以上の名前がみつかった場合は、 <em>a</em> を <em>p</em><code>.await_transform(</code> <em>cast-expression</em> <code>)</code>とする。</li>
+<li><code>P</code>のスコープで非修飾な<code>await_transform</code>の探索により一つ以上の名前がみつかった場合は、 <em>a</em> を <code><em>p</em>.await_transform( <em>cast-expression</em> )</code>とする。</li>
 <li>それ以外では <em>a</em> を <em>cast-expression</em> とする。</li>
 </ul>
 </li>
@@ -478,9 +478,9 @@ Await式は、静的記憶域もしくは<a href="../cpp11/thread_local_storage.
 </li>
 <li><em>e</em> を、<em>o</em> の評価結果を参照する左辺値とする。</li>
 <li><em>h</em> を、同Await式を含むコルーチンを参照する<code><a href="../../reference/coroutine/coroutine_handle.html">std::coroutine_handle&lt;P&gt;</a></code>型のオブジェクトとする。</li>
-<li><em>await-ready</em> を、<code>bool</code>に変換されうる式 <em>e</em><code>.await_ready()</code>とする。</li>
-<li><em>await-suspend</em> を、式 <em>e</em><code>.await_suspend(</code> <em>h</em> <code>)</code>とする。この式（の結果）は<code>void</code>であるか、<code>bool</code>または任意の型<code>Z</code>に対する<code><a href="../../reference/coroutine/coroutine_handle.html">std::coroutine_handle&lt;Z&gt;</a></code>型のprvalueであるべき。</li>
-<li><em>await-resume</em> を、式 <em>e</em><code>.await_resume()</code>とする。</li>
+<li><em>await-ready</em> を、<code>bool</code>に変換されうる式 <code><em>e</em>.await_ready()</code>とする。</li>
+<li><em>await-suspend</em> を、式 <code><em>e</em>.await_suspend( <em>h</em> )</code>とする。この式（の結果）は<code>void</code>であるか、<code>bool</code>または任意の型<code>Z</code>に対する<code><a href="../../reference/coroutine/coroutine_handle.html">std::coroutine_handle&lt;Z&gt;</a></code>型のprvalueであるべき。</li>
+<li><em>await-resume</em> を、式 <code><em>e</em>.await_resume()</code>とする。</li>
 </ul>
 <p>Await式は式 <em>await-resume</em> と同じ型、同じ値カテゴリを持つ。</p>
 <p>Await式は式 <em>o</em> と式 <em>await-ready</em> を評価し、続いて：</p>
@@ -538,7 +538,7 @@ Await式は、静的記憶域もしくは<a href="../cpp11/thread_local_storage.
 </code></pre></div>
 </p>
 <p>Yield式は関数の中断コンテキストにのみ出現してよい。
-<em>e</em> をYield式のオペランド、<em>p</em> を同式を含むコルーチンのPromiseオブジェクトのlvalue名としたとき、Yield式は式<code>co_await</code> <em>p</em><code>.yield_value(</code> <em>e</em> <code>)</code>と等価である。</p>
+<em>e</em> をYield式のオペランド、<em>p</em> を同式を含むコルーチンのPromiseオブジェクトのlvalue名としたとき、Yield式は式<code>co_await <em>p</em>.yield_value( <em>e</em> )</code>と等価である。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
 <span class="k">struct</span> <span class="n">generator</span> <span class="p">{</span>
   <span class="k">struct</span> <span class="n">promise_type</span> <span class="p">{</span>
@@ -586,10 +586,10 @@ Await式は、静的記憶域もしくは<a href="../cpp11/thread_local_storage.
 </p>
 <p>ここで <em>final-suspend</em> はコルーチン動作説明用の最終サスペンドポイントラベル名であり、<em>S</em> は次の通り定義される：</p>
 <ul>
-<li>オペランドが <em>braced-init-list</em> または非<code>void</code>型の式の場合、<em>S</em> を <em>p</em><code>.return_value(</code> <em>expr-or-braced-init-list</em> <code>)</code>とする。式 <em>S</em> は <code>void</code>型のprvalueであるべき。</li>
-<li>そうでなければ、<em>S</em> を複合文 <code>{</code> <em>expression</em> <em>opt</em> <code>;</code> <em>p</em><code>.return_void(); }</code>とする。式 <em>p</em><code>.return_void()</code>は<code>void</code>型のprvalueであるべき。</li>
+<li>オペランドが <em>braced-init-list</em> または非<code>void</code>型の式の場合、<em>S</em> を <code><em>p</em>.return_value( <em>expr-or-braced-init-list</em> )</code>とする。式 <em>S</em> は <code>void</code>型のprvalueであるべき。</li>
+<li>そうでなければ、<em>S</em> を複合文 <code>{ <em>expression<sub>opt</sub></em> ; <em>p</em>.return_void(); }</code>とする。式 <code><em>p</em>.return_void()</code>は<code>void</code>型のprvalueであるべき。</li>
 </ul>
-<p><em>p</em><code>.return_void()</code>が有効な式のとき、コルーチン本体の終端到達はオペランド無し<code>co_return</code>と等価である。
+<p><code><em>p</em>.return_void()</code>が有効な式のとき、コルーチン本体の終端到達はオペランド無し<code>co_return</code>と等価である。
 そうでなければ、コルーチン本体の終端到達は<a class="cpprefjp-defined-word" data-desc="処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義の動作</a>を引き起こす。</p>
 <h2>例</h2>
 <p><div class="yata" id="80c27bc07134b1355581a556e71f241e432142a1"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>

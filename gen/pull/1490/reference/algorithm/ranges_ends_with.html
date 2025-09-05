@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:33:39">
-        2025年07月08日 15時33分39秒
+      <span itemprop="datePublished" content="2025-08-31T10:06:36">
+        2025年08月31日 10時06分36秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -261,11 +261,11 @@
 <li>(1): <ul>
 <li><code>N1 = last1 - first1</code>, <code>N2 = last2 - first2</code> とする。</li>
 <li><code>N1 &lt; N2</code> のとき、<code>false</code></li>
-<li>それ以外のとき、<code><a href="ranges_equal.html">ranges::equal</a>(<a href="../utility/move.html">std::move</a>(first1) + (N1 - N2), last1,<a href="../utility/move.html">std::move</a>(first2), last2, pred, proj1, proj2)</code></li>
+<li>それ以外のとき、<code><a href="ranges_equal.html">ranges::equal</a>(<a href="../utility/move.html">std::move</a>(first1) + (N1 - N2), last1, <a href="../utility/move.html">std::move</a>(first2), last2, pred, proj1, proj2)</code></li>
 </ul>
 </li>
 <li>(2): <ul>
-<li><code>N1 =<a href="../iterator/ranges_distance.html">ranges::distance</a>(r1)</code>, <code>N2 =<a href="../iterator/ranges_distance.html">ranges::distance</a>(r2)</code> とする。</li>
+<li><code>N1 = <a href="../iterator/ranges_distance.html">ranges::distance</a>(r1)</code>, <code>N2 = <a href="../iterator/ranges_distance.html">ranges::distance</a>(r2)</code> とする。</li>
 <li><code>N1 &lt; N2</code> のとき、<code>false</code></li>
 <li>それ以外のとき、<code><a href="ranges_equal.html">ranges::equal</a>(<a href="../ranges/drop_view.html">ranges::drop_view</a>(<a href="../ranges/ref_view.html">ranges::ref_view</a>(r1), N1 - N2), r2, pred, proj1, proj2)</code></li>
 </ul>

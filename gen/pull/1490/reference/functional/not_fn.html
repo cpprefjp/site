@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-10T01:26:30">
-        2025年07月10日 01時26分30秒
+      <span itemprop="datePublished" content="2025-08-31T12:36:04">
+        2025年08月31日 12時36分04秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Koichi Murase</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -237,7 +237,7 @@
 <li><code><a href="../type_traits/is_move_constructible.html">is_move_constructible_v</a>&lt;FD&gt;</code>が<code>true</code>であること</li>
 </ul>
 </li>
-<li>(2) : <code>F</code>を<code>f</code>の型として、もし<code><a href="../type_traits/is_pointer.html">is_poinetr_v</a>&lt;F&gt; || <a href="../type_traits/is_member_pointer.html">is_member_poinetr_v</a>&lt;F&gt;</code>が<code>true</code>ならば、<code>f != nullptr</code>であること</li>
+<li>(2) : <code>F</code>を<code>f</code>の型として、もし<code><a href="../type_traits/is_pointer.html">is_pointer_v</a>&lt;F&gt; || <a href="../type_traits/is_member_pointer.html">is_member_pointer_v</a>&lt;F&gt;</code>が<code>true</code>ならば、<code>f != nullptr</code>であること</li>
 </ul>
 <h2>効果(C++17)</h2>
 <p>説明用の関数オブジェクト<code>call_wrapper</code>があるものとして、<code>call_wrapper(<a href="../utility/forward.html">std::forward</a>&lt;F&gt;(f))</code>を返す。</p>
@@ -277,7 +277,7 @@
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>(C++20)</h2>
 <p>結果オブジェクト<code>g</code>に対する関数呼び出し式の引数パック<code>call_args</code>としたとき</p>
 <ul>
-<li>(1) : <code>fd</code>を<code><a href="../utility/forward.html">std::forward</a>&lt;F&gt;(f))</code>で<a class="cpprefjp-defined-word" data-desc="direct-non-list-initialization。リスト初期化ではない直接初期化">直接非リスト初期化</a>した<code>FD</code>型のオブジェクトに対して<ul>
+<li>(1) : <code>fd</code>を<code><a href="../utility/forward.html">std::forward</a>&lt;F&gt;(f)</code>で<a class="cpprefjp-defined-word" data-desc="direct-non-list-initialization。リスト初期化ではない直接初期化">直接非リスト初期化</a>した<code>FD</code>型のオブジェクトに対して<ul>
 <li>関数呼び出し式の結果が<code>!<a href="invoke.html">invoke</a>(fd, call_args...)</code>に等しい、完全転送呼び出しラッパー(perfect forwarding call wrapper)オブジェクトを返す。</li>
 </ul>
 </li>

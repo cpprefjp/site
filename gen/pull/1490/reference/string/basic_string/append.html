@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:33:39">
-        2025年07月08日 15時33分39秒
+      <span itemprop="datePublished" content="2025-08-31T10:06:36">
+        2025年08月31日 10時06分36秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -287,7 +287,7 @@
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
 <ul>
 <li>(8), (9) : 以下の両方を満たしていること<ul>
-<li><code><a href="../../type_traits/is_convertible.html">is_convertible_v</a>&lt;const T&amp;,<a href="../../string_view/basic_string_view.html">basic_string_view</a>&lt;charT, traits&gt;&gt; == true</code></li>
+<li><code><a href="../../type_traits/is_convertible.html">is_convertible_v</a>&lt;const T&amp;, <a href="../../string_view/basic_string_view.html">basic_string_view</a>&lt;charT, traits&gt;&gt; == true</code></li>
 <li><code><a href="../../type_traits/is_convertible.html">is_convertible_v</a>&lt;const T&amp;, const charT*&gt; == false</code></li>
 </ul>
 </li>
@@ -360,7 +360,7 @@
 <li>
 <p>(9) 対象オブジェクトの末尾に、<code><a href="../../string_view/basic_string_view.html">basic_string_view</a>&lt;charT, traits&gt;</code>に変換可能な<code>t</code>の指定された範囲の文字列が追加される。</p>
 <ul>
-<li>文字列の長さ <code>rlen</code> は、<code>n</code> と <code><a href="../../string_view/basic_string_view/size.html">sv.size()</a>- pos</code> の小さい方である。<br />
+<li>文字列の長さ <code>rlen</code> は、<code>n</code> と <code><a href="../../string_view/basic_string_view/size.html">sv.size()</a> - pos</code> の小さい方である。<br />
 以下と等価。
 
 <div class="codehilite"><pre><span></span><code><span class="n"><a href="../../string_view/basic_string_view.html">basic_string_view</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;</span> <span class="n">sv</span> <span class="o">=</span> <span class="n">t</span><span class="p">;</span>
@@ -400,7 +400,7 @@
     C++11 から：<code><a href="size.html">size</a>() + <a href="../../iterator/distance.html">distance</a>(first, last) &gt; <a href="max_size.html">max_size</a>()</code> の場合、<code>length_error</code> が送出される。</p>
 </li>
 <li>
-<p>(7) <code><a href="size.html">size</a>() + il.<a href="../../initializer_list/initializer_list.html">size</a>() &gt; <a href="max_size.html">max_size</a>()</code> の場合、<code>length_error</code> が送出される。</p>
+<p>(7) <code><a href="size.html">size</a>() + il.<a href="../../initializer_list/initializer_list/size.html">size</a>() &gt; <a href="max_size.html">max_size</a>()</code> の場合、<code>length_error</code> が送出される。</p>
 </li>
 </ul>
 <h2>備考</h2>

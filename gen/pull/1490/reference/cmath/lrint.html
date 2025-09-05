@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-13T04:07:37">
-        2025年07月13日 04時07分37秒
+      <span itemprop="datePublished" content="2025-08-23T16:55:29">
+        2025年08月23日 16時55分29秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Koichi Murase</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -248,7 +248,7 @@
 <li>他の<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が発生しておらず、引数 <code>x</code> が<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>と異なってる場合、不正確結果の浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>（<code><a href="../cfenv/fe_inexact.html">FE_INEXACT</a></code>）が発生する。</li>
 </ul>
 </li>
-<li>C99 では、丸めモードや浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>へのアクセスには <code>#pragma STDC FENV_ACCESS ON</code> でなければなければならないと記載されているが、C++ には該当する記載を見つけることができなかった。<br />
+<li>C99 では、丸めモードや浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>へのアクセスには <code>#pragma STDC FENV_ACCESS ON</code> でなければならないと記載されているが、C++ には該当する記載を見つけることができなかった。<br />
     なお、C99 でも <code>FENV_ACCESS</code> のデフォルトは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>である。</li>
 <li>丸めモード <code><a href="../cfenv/fe_tonearest.html">FE_TONEAREST</a></code> は単なる四捨五入ではないことに注意。<br />
     四捨五入が必要であれば、<code><a href="lround.html">lround</a></code> を使用すること。（ただし、<code><a href="lround.html">lround</a></code> は本関数と異なり、ISO IEC 60559 に準拠していても <code><a href="../cfenv/fe_inexact.html">FE_INEXACT</a></code> が発生するか否かは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>である）  </li>

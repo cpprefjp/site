@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2024-08-25T03:50:25">
-        2024年08月25日 03時50分25秒
+      <span itemprop="datePublished" content="2025-08-31T10:06:36">
+        2025年08月31日 10時06分36秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">suomesta</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -247,8 +247,8 @@
 </ul>
 <h2>効果</h2>
 <ol>
-<li>関数実行前に <code>[<a href="data.html">data()</a>,<a href="data.html">data()</a>+ n)</code> が有効範囲でないなら、領域の確保が行われる（<code><a href="reserve.html">reserve(n)</a></code> 相当）。新たな領域は初期化されないことに注意。</li>
-<li><code>std::move(op)(data(), n)</code> が呼ばれる。<code>op</code> 内では、<code>[<a href="data.html">data()</a>,<a href="data.html">data()</a>+ n)</code> の範囲に対して任意の初期化を行う。</li>
+<li>関数実行前に <code>[<a href="data.html">data()</a>, <a href="data.html">data()</a> + n)</code> が有効範囲でないなら、領域の確保が行われる（<code><a href="reserve.html">reserve(n)</a></code> 相当）。新たな領域は初期化されないことに注意。</li>
+<li><code>std::move(op)(data(), n)</code> が呼ばれる。<code>op</code> 内では、<code>[<a href="data.html">data()</a>, <a href="data.html">data()</a> + n)</code> の範囲に対して任意の初期化を行う。</li>
 <li><code>op</code> の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を <code>r</code> とすると、サイズを <code>r</code> に変更する。</li>
 </ol>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>

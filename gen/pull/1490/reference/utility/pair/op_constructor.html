@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-14T14:04:00">
-        2025年07月14日 14時04分00秒
+      <span itemprop="datePublished" content="2025-08-26T09:12:52">
+        2025年08月26日 09時12分52秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Koichi Murase</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -273,7 +273,7 @@
 <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">U</span><span class="p">,</span> <span class="k">class</span> <span class="nc">V</span><span class="o">&gt;</span>
 <span class="k">explicit</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">)</span> <span class="k">constexpr</span> <span class="n"><a href="../pair.html">pair</a></span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../pair.html">pair</a></span><span class="o">&lt;</span><span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="o">&gt;&amp;&amp;</span> <span class="n">p</span><span class="p">);</span>     <span class="c1">// (9) C++23</span>
 
-<span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../../tuple/tuple-like.html">pair-like</a></span> <span class="n">P</span><span class="o">&gt;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../../tuple/pair-like.html">pair-like</a></span> <span class="n">P</span><span class="o">&gt;</span>
 <span class="k">explicit</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">)</span> <span class="k">constexpr</span> <span class="n"><a href="../pair.html">pair</a></span><span class="p">(</span><span class="n">P</span><span class="o">&amp;&amp;</span> <span class="n">p</span><span class="p">);</span>                    <span class="c1">// (10) C++23</span>
 
 <span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args1</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args2</span><span class="o">&gt;</span>
@@ -298,7 +298,7 @@
 <li>(7) : 変換可能な他の<code><a href="../pair.html">pair</a></code>オブジェクトから構築</li>
 <li>(8) : 変換可能な他の<code><a href="../pair.html">pair</a></code>オブジェクトからムーブ構築</li>
 <li>(9) : 変換可能な他の<code><a href="../pair.html">pair</a></code>オブジェクトから構築</li>
-<li>(10) : <code><a href="../../tuple/tuple-like.html">pair-like</a></code>なオブジェクトから構築</li>
+<li>(10) : <code><a href="../../tuple/pair-like.html">pair-like</a></code>なオブジェクトから構築</li>
 <li>(11) : <code>first</code>と<code>second</code>のコンストラクタ引数を<code>std::tuple</code>に詰めて受け取り、<code>first_args</code>と<code>second_args</code>内のそれぞれの要素を転送して<code>first</code>と<code>second</code>を直接構築<ul>
 <li>転送は、<code>std::tuple</code>オブジェクト（<code>first_args</code>/<code>second_args</code>）内の要素<code>x</code>とその型<code>U</code>（<code>Args1...</code>/<code>Args2...</code>に含まれる型）によって、<code>std::forward&lt;U&gt;(x)</code>のようにしてコンストラクタに渡される</li>
 </ul>
@@ -320,7 +320,7 @@
 </ul>
 </li>
 <li>(6)-(10) :<ul>
-<li>C++23 : <code>FWD(u)</code>を<code>static_cast&lt;deccltype(u)&gt;(u)</code>と定義して、<code><a href="../../type_traits/is_constructible.html">is_constructible_v</a>&lt;first_type, decltype(<a href="get.html">get</a>&lt;0&gt;(FWD(p)))&gt; &amp;&amp; <a href="../../type_traits/is_constructible.html">is_constructible_v</a>&lt;second_type, decltype(<a href="get.html">get</a>&lt;1&gt;(FWD(p)))&gt;</code>であること</li>
+<li>C++23 : <code>FWD(u)</code>を<code>static_cast&lt;decltype(u)&gt;(u)</code>と定義して、<code><a href="../../type_traits/is_constructible.html">is_constructible_v</a>&lt;first_type, decltype(<a href="get.html">get</a>&lt;0&gt;(FWD(p)))&gt; &amp;&amp; <a href="../../type_traits/is_constructible.html">is_constructible_v</a>&lt;second_type, decltype(<a href="get.html">get</a>&lt;1&gt;(FWD(p)))&gt;</code>であること</li>
 </ul>
 </li>
 <li>(7) :<ul>
@@ -344,7 +344,7 @@
 <ul>
 <li>(5) : <code><a href="../../type_traits/reference_constructs_from_temporary.html">reference_constructs_from_temporary_v</a>&lt;first_type, U1&amp;&amp;&gt; || <a href="../../type_traits/reference_constructs_from_temporary.html">reference_constructs_from_temporary_v</a>&lt;second_type, U2&amp;&amp;&gt;</code>である場合、このコンストラクタは削除定義される</li>
 <li>(6)-(10) :<ul>
-<li><code>FWD(u)</code>を<code>static_cast&lt;deccltype(u)&gt;(u)</code>と定義して</li>
+<li><code>FWD(u)</code>を<code>static_cast&lt;decltype(u)&gt;(u)</code>と定義して</li>
 <li><code><a href="../../type_traits/reference_constructs_from_temporary.html">reference_constructs_from_temporary_v</a>&lt;first_type, decltype(<a href="get.html">get</a>&lt;0&gt;(FWD(p)))&gt; || <a href="../../type_traits/reference_constructs_from_temporary.html">reference_constructs_from_temporary_v</a>&lt;second_type, decltype(<a href="get.html">get</a>&lt;1&gt;(FWD(p)))&gt;</code>である場合、このコンストラクタは削除定義される</li>
 </ul>
 </li>
@@ -368,7 +368,7 @@
 </ul>
 </li>
 <li>(6)-(10) :<ul>
-<li><code>FWD(u)</code>を<code>static_cast&lt;deccltype(u)&gt;(u)</code>と定義して</li>
+<li><code>FWD(u)</code>を<code>static_cast&lt;decltype(u)&gt;(u)</code>と定義して</li>
 <li>C++23 : <code>!<a href="../../type_traits/is_convertible.html">is_convertible_v</a>&lt;decltype(<a href="get.html">get</a>&lt;0&gt;(FWD(p))), first_type&gt; || !<a href="../../type_traits/is_convertible.html">is_convertible_v</a>&lt;decltype(<a href="get.html">get</a>&lt;1&gt;(FWD(p))), second_type&gt;</code>である場合、<code>explicit</code>指定される</li>
 </ul>
 </li>
@@ -563,7 +563,7 @@ p8 : (X(1 2 3),Y(4 5))
 </ul>
 </li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2165r4.pdf" target="_blank">P2165R4 Compatibility between <code>tuple</code>, <code>pair</code> and <em>tuple-like</em> objects</a><ul>
-<li><code><a href="../../tuple/tuple-like.html">pair-like</a></code>なオブジェクトからの構築</li>
+<li><code><a href="../../tuple/pair-like.html">pair-like</a></code>なオブジェクトからの構築</li>
 </ul>
 </li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2255r2.html" target="_blank">P2255R2 A type trait to detect reference binding to temporary</a><ul>

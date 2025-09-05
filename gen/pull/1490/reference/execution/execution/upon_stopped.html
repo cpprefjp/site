@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-19T11:31:32">
-        2025年08月19日 11時31分32秒
+      <span itemprop="datePublished" content="2025-08-26T09:12:52">
+        2025年08月26日 09時12分52秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">yoh</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -243,7 +243,7 @@
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
   <span class="p">{</span> <span class="c1">// 関数呼び出し</span>
-    <span class="n"><a href="sender.html">ex::sender</a></span> <span class="k">auto</span> <span class="n">snd0</span> <span class="o">=</span> <span class="n"><a href="just.html">ex::just_stopped</a></span><span class="p">();</span>
+    <span class="n"><a href="sender.html">ex::sender</a></span> <span class="k">auto</span> <span class="n">snd0</span> <span class="o">=</span> <span class="n"><a href="just_stopped.html">ex::just_stopped</a></span><span class="p">();</span>
     <span class="n"><a href="sender.html">ex::sender</a></span> <span class="k">auto</span> <span class="n">snd1</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">ex::upon_stopped</span></span><span class="p">(</span><span class="n">snd0</span><span class="p">,</span> <span class="p">[]()</span> <span class="p">{</span>
       <span class="k">return</span> <span class="mi">42</span><span class="p">;</span>
     <span class="p">});</span>
@@ -252,7 +252,7 @@
   <span class="p">}</span>
 
   <span class="p">{</span> <span class="c1">// パイプライン記法</span>
-    <span class="n"><a href="sender.html">ex::sender</a></span> <span class="k">auto</span> <span class="n">sndr</span> <span class="o">=</span> <span class="n"><a href="just.html">ex::just_stopped</a></span><span class="p">()</span>
+    <span class="n"><a href="sender.html">ex::sender</a></span> <span class="k">auto</span> <span class="n">sndr</span> <span class="o">=</span> <span class="n"><a href="just_stopped.html">ex::just_stopped</a></span><span class="p">()</span>
       <span class="o">|</span> <span class="n"><span style="color:#ff0000">ex::upon_stopped</span></span><span class="p">([]()</span> <span class="p">{</span>
           <span class="k">return</span> <span class="mi">42</span><span class="p">;</span>
         <span class="p">});</span>

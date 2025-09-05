@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-06-04T04:13:47">
-        2025年06月04日 04時13分47秒
+      <span itemprop="datePublished" content="2025-08-31T10:06:36">
+        2025年08月31日 10時06分36秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -218,7 +218,7 @@
     <span class="n">requires</span> <span class="p">(</span><span class="n"><a href="view.html">view</a></span><span class="o">&lt;</span><span class="n">Views</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span> <span class="p">...)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="k">sizeof</span><span class="p">...(</span><span class="n">Views</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n"><a href="../type_traits/is_object.html">is_object_v</a></span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
               <span class="n"><a href="../concepts/invocable.html">regular_invocable</a></span><span class="o">&lt;</span><span class="n">F</span><span class="o">&amp;</span><span class="p">,</span> <span class="n"><a href="range_reference_t.html">range_reference_t</a></span><span class="o">&lt;</span><span class="n">Views</span><span class="o">&gt;</span><span class="p">...</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
               <span class="n"><a href="../iterator/dereferenceable.html">can-reference</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/invoke_result.html">invoke_result_t</a></span><span class="o">&lt;</span><span class="n">F</span><span class="o">&amp;</span><span class="p">,</span> <span class="n"><a href="range_reference_t.html">range_reference_t</a></span><span class="o">&lt;</span><span class="n">Views</span><span class="o">&gt;</span><span class="p">...</span><span class="o">&gt;&gt;</span>
-  <span class="k">class</span> <span class="nc">zip_transform_view</span> <span class="o">:</span> <span class="k">public</span> <span class="n"><a href="view_interface.html">view_interface</a></span><span class="o">&lt;</span><span class="n">zip_transform_view</span><span class="o">&lt;</span><span class="n">F</span><span class="p">,</span> <span class="n">Views</span><span class="p">...</span><span class="o">&gt;&gt;</span> <span class="p">{</span><span class="err">……</span> <span class="p">};</span> <span class="c1">// (1)</span>
+  <span class="k">class</span> <span class="nc">zip_transform_view</span> <span class="o">:</span> <span class="k">public</span> <span class="n"><a href="view_interface.html">view_interface</a></span><span class="o">&lt;</span><span class="n">zip_transform_view</span><span class="o">&lt;</span><span class="n">F</span><span class="p">,</span> <span class="n">Views</span><span class="p">...</span><span class="o">&gt;&gt;</span> <span class="p">{</span> <span class="err">……</span> <span class="p">};</span> <span class="c1">// (1)</span>
 
   <span class="k">namespace</span> <span class="n">views</span> <span class="p">{</span>
     <span class="kr">inline</span> <span class="k">constexpr</span> <span class="cm">/*unspecified*/</span> <span class="n">zip_transform</span> <span class="o">=</span> <span class="cm">/*unspecified*/</span><span class="p">;</span>      <span class="c1">// (2)</span>
@@ -275,7 +275,7 @@
 <li>(2): <code>F</code>を部分式、<code>Es...</code>を部分式のパックとする。式 <code>views::zip_transform(F, Es...)</code> の効果は以下の通り。<ul>
 <li><code>Es</code> が空でないとき、<code>zip_transform_view(F, Es...)</code> と等しい</li>
 <li><code>Es</code> が空のとき、 <code>FD</code> を <code><a href="../type_traits/decay.html">decay_t</a>&lt;decltype((F))&gt;</code>として、<code>((void)F, auto(<a href="empty_view.html">views::empty</a>&lt;<a href="../type_traits/decay.html">decay_t</a>&lt;<a href="../type_traits/invoke_result.html">invoke_result_t</a>&lt;FD&amp;&gt;&gt;&gt;))</code> と等しい<ul>
-<li>ただし、 <code><a href="../concepts/move_constructible.html">move_constructible</a>&lt;FD&gt; &amp;&amp;<a href="../concepts/invocable.html">regular_invocable</a>&lt;FD&amp;&gt;</code> が <code>false</code>、または <code><a href="../type_traits/decay.html">decay_t</a>&lt;<a href="../type_traits/invoke_result.html">invoke_result_t</a>&lt;FD&amp;&gt;&gt;</code> がオブジェクト型でないとき、ill-formed</li>
+<li>ただし、 <code><a href="../concepts/move_constructible.html">move_constructible</a>&lt;FD&gt; &amp;&amp; <a href="../concepts/invocable.html">regular_invocable</a>&lt;FD&amp;&gt;</code> が <code>false</code>、または <code><a href="../type_traits/decay.html">decay_t</a>&lt;<a href="../type_traits/invoke_result.html">invoke_result_t</a>&lt;FD&amp;&gt;&gt;</code> がオブジェクト型でないとき、ill-formed</li>
 </ul>
 </li>
 </ul>

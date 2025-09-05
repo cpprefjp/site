@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-18T12:06:08">
-        2025年08月18日 12時06分08秒
+      <span itemprop="datePublished" content="2025-08-31T10:06:36">
+        2025年08月31日 10時06分36秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -273,9 +273,9 @@
 <ul>
 <li>(2): <code>E</code>および<code>F</code>を式、型<code>T</code>を<code><a href="../type_traits/remove_cvref.html">remove_cvref_t</a>&lt;<a href="../../lang/cpp11/decltype.html">decltype</a>((E))&gt;</code>、型<code>D</code>を<code><a href="range_difference_t.html">range_difference_t</a>&lt;<a href="../../lang/cpp11/decltype.html">decltype</a>((E))&gt;</code>とする。式<code>views::drop(E, F)</code>の効果は以下の通り<ul>
 <li><code><a href="../../lang/cpp11/decltype.html">decltype</a>((F))</code>が<code><a href="../concepts/convertible_to.html">convertible_to</a>&lt;D&gt;</code>のモデルでなければ、呼び出しは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a></li>
-<li><code>T</code>が<code><a href="empty_view.html">ranges::empty_view</a></code>の特殊化であれば、<code>((void) F,<a href="../exposition-only/decay-copy.html">decay-copy</a>(E))</code>と等しい。ただし、<code>E</code>と<code>F</code>の評価順序は不定順で序列化(indeterminately sequenced)される</li>
-<li><code>T</code>が<code><a href="random_access_range.html">random_access_range</a></code>および<code><a href="sized_range.html">sized_range</a></code>のモデルであり、かつ次のいずれかの特殊化であるとき、<code>T(<a href="begin.html">ranges::begin</a>(E) +<a href="../algorithm/min.html">min</a>&lt;D&gt;(<a href="size.html">ranges::size</a>(E), F),<a href="end.html">ranges::end</a>(E))</code>と等しい。ただし、<code>E</code>は1度だけ評価される<ul>
-<li><code><a href="../span/span.html">span</a></code> (ただし、<code>T::extent ==<a href="../span/dynamic_extent.html">dynamic_extent</a></code>であること)</li>
+<li><code>T</code>が<code><a href="empty_view.html">ranges::empty_view</a></code>の特殊化であれば、<code>((void) F, <a href="../exposition-only/decay-copy.html">decay-copy</a>(E))</code>と等しい。ただし、<code>E</code>と<code>F</code>の評価順序は不定順で序列化(indeterminately sequenced)される</li>
+<li><code>T</code>が<code><a href="random_access_range.html">random_access_range</a></code>および<code><a href="sized_range.html">sized_range</a></code>のモデルであり、かつ次のいずれかの特殊化であるとき、<code>T(<a href="begin.html">ranges::begin</a>(E) + <a href="../algorithm/min.html">min</a>&lt;D&gt;(<a href="size.html">ranges::size</a>(E), F), <a href="end.html">ranges::end</a>(E))</code>と等しい。ただし、<code>E</code>は1度だけ評価される<ul>
+<li><code><a href="../span/span.html">span</a></code> (ただし、<code>T::extent == <a href="../span/dynamic_extent.html">dynamic_extent</a></code>であること)</li>
 <li><code><a href="../string_view/basic_string_view.html">basic_string_view</a></code></li>
 <li><code><a href="iota_view.html">ranges::iota_view</a></code></li>
 <li><code><a href="subrange.html">ranges::subrange</a></code></li>

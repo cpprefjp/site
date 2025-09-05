@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:33:39">
-        2025年07月08日 15時33分39秒
+      <span itemprop="datePublished" content="2025-08-31T10:06:36">
+        2025年08月31日 10時06分36秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -255,7 +255,7 @@
 <p>2つの範囲の要素数および各要素が等値であった場合、<code>true</code>を返す。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p>2つの範囲の長さを定数時間で求められ、もし <code>last1 - first1 != last2 - first2</code> であれば、<code>false</code> を返す。</p>
-<p>そうでない場合、<code>[first1,last1)</code> 内のイテレータ <code>i</code> について、<code><a href="../functional/invoke.html">invoke</a>(pred,<a href="../functional/invoke.html">invoke</a>(proj1, *i),<a href="../functional/invoke.html">invoke</a>(proj2, *(first2 + (i - first1)))) != false</code> が全てのイテレータ <code>i</code> について満たされているのであれば <code>true</code> を返す。<br />
+<p>そうでない場合、<code>[first1,last1)</code> 内のイテレータ <code>i</code> について、<code><a href="../functional/invoke.html">invoke</a>(pred, <a href="../functional/invoke.html">invoke</a>(proj1, *i), <a href="../functional/invoke.html">invoke</a>(proj2, *(first2 + (i - first1)))) != false</code> が全てのイテレータ <code>i</code> について満たされているのであれば <code>true</code> を返す。<br />
 そうでない場合は <code>false</code> を返す。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></h2>
 <p>最大で <code>min(last1 - first1, last2 - first2)</code> 回の<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>が適用される。ただし、2つの範囲の長さを定数時間で求められ、かつ、長さが異なる場合、1 度も<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>は適用されない。</p>

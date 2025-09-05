@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:33:39">
-        2025年07月08日 15時33分39秒
+      <span itemprop="datePublished" content="2025-08-31T10:06:36">
+        2025年08月31日 10時06分36秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -245,21 +245,21 @@
 </ul>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p>(1) Rangeの各要素を要素とするコンテナCのオブジェクトを以下の通りに構築して返す。</p>
-<p><code>C</code>が<code><a href="input_range.html">input_range</a></code>ではないか、<code><a href="../concepts/convertible_to.html">convertible_to</a>&lt;<a href="range_reference_t.html">range_reference_t</a>&lt;R&gt;,<a href="range_value_t.html">range_value_t</a>&lt;C&gt;&gt;</code> である(<code>R</code>の要素への参照が<code>C</code>の要素に変換できる)場合:</p>
+<p><code>C</code>が<code><a href="input_range.html">input_range</a></code>ではないか、<code><a href="../concepts/convertible_to.html">convertible_to</a>&lt;<a href="range_reference_t.html">range_reference_t</a>&lt;R&gt;, <a href="range_value_t.html">range_value_t</a>&lt;C&gt;&gt;</code> である(<code>R</code>の要素への参照が<code>C</code>の要素に変換できる)場合:</p>
 <ol>
 <li><code><a href="../concepts/constructible_from.html">constructible_from</a>&lt;C, R, Args...&gt;</code>である(<code>C</code>が<code>R</code>と残りの引数で構築できる)場合<ul>
-<li><code>C(<a href="../utility/forward.html">std::forward</a>&lt;R&gt;(r),<a href="../utility/forward.html">std::forward</a>&lt;Args&gt;(args)...)</code></li>
+<li><code>C(<a href="../utility/forward.html">std::forward</a>&lt;R&gt;(r), <a href="../utility/forward.html">std::forward</a>&lt;Args&gt;(args)...)</code></li>
 </ul>
 </li>
-<li><code><a href="../concepts/constructible_from.html">constructible_from</a>&lt;C,<a href="from_range_t.html">from_range_t</a>, R, Args...&gt;</code>である(<code>C</code>が<code><a href="from_range_t.html">from_range_t</a></code>、<code>R</code>、残りの引数で構築できる)場合<ul>
-<li><code>C(<a href="from_range_t.html">from_range</a>,<a href="../utility/forward.html">std::forward</a>&lt;R&gt;(r),<a href="../utility/forward.html">std::forward</a>&lt;Args&gt;(args)...)</code></li>
+<li><code><a href="../concepts/constructible_from.html">constructible_from</a>&lt;C, <a href="from_range_t.html">from_range_t</a>, R, Args...&gt;</code>である(<code>C</code>が<code><a href="from_range_t.html">from_range_t</a></code>、<code>R</code>、残りの引数で構築できる)場合<ul>
+<li><code>C(<a href="from_range_t.html">from_range</a>, <a href="../utility/forward.html">std::forward</a>&lt;R&gt;(r), <a href="../utility/forward.html">std::forward</a>&lt;Args&gt;(args)...)</code></li>
 </ul>
 </li>
-<li><code><a href="common_range.html">common_range</a>&lt;R&gt;</code>が<code>true</code>で、<code><a href="../iterator/iterator_traits.html">iterator_traits</a>&lt;<a href="iterator_t.html">iterator_t</a>&lt;R&gt;&gt;::iterator_category</code>が <code>input_iterator_tag</code> から派生する有効な型であり、<code><a href="../concepts/constructible_from.html">constructible_from</a>&lt;C,<a href="iterator_t.html">iterator_t</a>&lt;R&gt;,<a href="sentinel_t.html">sentinel_t</a>&lt;R&gt;, Args...&gt;</code>である(<code>C</code>が<code>R</code>のイテレータおよび番兵と残りの引数で構築できる)場合<ul>
-<li><code>C(<a href="begin.html">ranges::begin(r)</a>,<a href="end.html">ranges::end(r)</a>,<a href="../utility/forward.html">std::forward</a>&lt;Args&gt;(args)...)</code></li>
+<li><code><a href="common_range.html">common_range</a>&lt;R&gt;</code>が<code>true</code>で、<code><a href="../iterator/iterator_traits.html">iterator_traits</a>&lt;<a href="iterator_t.html">iterator_t</a>&lt;R&gt;&gt;::iterator_category</code>が <code>input_iterator_tag</code> から派生する有効な型であり、<code><a href="../concepts/constructible_from.html">constructible_from</a>&lt;C, <a href="iterator_t.html">iterator_t</a>&lt;R&gt;, <a href="sentinel_t.html">sentinel_t</a>&lt;R&gt;, Args...&gt;</code>である(<code>C</code>が<code>R</code>のイテレータおよび番兵と残りの引数で構築できる)場合<ul>
+<li><code>C(<a href="begin.html">ranges::begin(r)</a>, <a href="end.html">ranges::end(r)</a>, <a href="../utility/forward.html">std::forward</a>&lt;Args&gt;(args)...)</code></li>
 </ul>
 </li>
-<li><code><a href="../concepts/constructible_from.html">constructible_from</a>&lt;C, Args...&gt;</code>が<code>true</code>で、<code>container-insertable&lt;C,<a href="range_reference_t.html">range_reference_t</a>&lt;R&gt;&gt;</code>が<code>true</code>である場合<ul>
+<li><code><a href="../concepts/constructible_from.html">constructible_from</a>&lt;C, Args...&gt;</code>が<code>true</code>で、<code>container-insertable&lt;C, <a href="range_reference_t.html">range_reference_t</a>&lt;R&gt;&gt;</code>が<code>true</code>である場合<ul>
 <li>以下のコードで初期化する</li>
 </ul>
 </li>
@@ -295,12 +295,12 @@
 </p>
 <p>また、<code>DEDUCE_EXPR</code> を次のように定義する。</p>
 <ol>
-<li>有効な式ならば、<code>C(<a href="../utility/declval.html">declval</a>&lt;R&gt;(),<a href="../utility/declval.html">declval</a>&lt;Args&gt;()...)</code></li>
-<li>有効な式ならば、<code>C(<a href="from_range_t.html">from_range</a>,<a href="../utility/declval.html">declval</a>&lt;R&gt;(),<a href="../utility/declval.html">declval</a>&lt;Args&gt;()...)</code></li>
-<li>有効な式ならば、<code>C(<a href="../utility/declval.html">declval</a>&lt;input-iterator&gt;(),<a href="../utility/declval.html">declval</a>&lt;input-iterator&gt;(),<a href="../utility/declval.html">declval</a>&lt;Args&gt;()...)</code></li>
+<li>有効な式ならば、<code>C(<a href="../utility/declval.html">declval</a>&lt;R&gt;(), <a href="../utility/declval.html">declval</a>&lt;Args&gt;()...)</code></li>
+<li>有効な式ならば、<code>C(<a href="from_range_t.html">from_range</a>, <a href="../utility/declval.html">declval</a>&lt;R&gt;(), <a href="../utility/declval.html">declval</a>&lt;Args&gt;()...)</code></li>
+<li>有効な式ならば、<code>C(<a href="../utility/declval.html">declval</a>&lt;input-iterator&gt;(), <a href="../utility/declval.html">declval</a>&lt;input-iterator&gt;(), <a href="../utility/declval.html">declval</a>&lt;Args&gt;()...)</code></li>
 <li>1-3が有効でなければ、ill-formed</li>
 </ol>
-<p>このとき、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>は <code>to&lt;<a href="../../lang/cpp11/decltype.html">decltype</a>(DEDUCE_EXPR)&gt;(<a href="../utility/forward.html">std::forward</a>&lt;R&gt;(r),<a href="../utility/forward.html">std::forward</a>&lt;Args&gt;(args)...)</code></p>
+<p>このとき、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>は <code>to&lt;<a href="../../lang/cpp11/decltype.html">decltype</a>(DEDUCE_EXPR)&gt;(<a href="../utility/forward.html">std::forward</a>&lt;R&gt;(r), <a href="../utility/forward.html">std::forward</a>&lt;Args&gt;(args)...)</code></p>
 <p>(3), (4): 次の性質をもつ完全転送呼び出しラッパー(<em>perfect forwarding call wrapper</em>)であるようなRangeアダプタクロージャオブジェクト<code>f</code>を返す。</p>
 <ul>
 <li>ターゲットオブジェクトを持たない</li>

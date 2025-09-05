@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-14T14:04:00">
-        2025年07月14日 14時04分00秒
+      <span itemprop="datePublished" content="2025-08-23T06:06:34">
+        2025年08月23日 06時06分34秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Koichi Murase</span>
+        <span itemprop="name">yoh</span>
       </span>
       が更新
     </small></p>
@@ -236,7 +236,12 @@
 <p>Promise型<code>p</code>をもつコルーチンにおいて、Await式<code>co_await as_awaitable(expr, p)</code>は下記のように動作する。</p>
 <ul>
 <li>式<code>expr.as_awaitable(p)</code>が有効ならば、同式が返すAwaitableオブジェクトに対してAwait式を実行する。</li>
-<li><code>expr</code>が<a href="single-sender.html">単一の値を送信するSender</a>であり、Promise型が停止完了ハンドラを定義するならば、下記動作を行う。<ul>
+<li>
+<p><code>expr</code>が<a href="sender.html">Sender型</a>かつ<code><a href="get_await_completion_adaptor.html">get_await_completion_adaptor</a></code>問い合わせに対応する場合、同問い合わせが返すSenderアダプタを<code>expr</code>に適用した結果を<code>adapted-expr</code>とする。</p>
+</li>
+<li>
+<p><code>expr</code>（または上記ステップの<code>adapted-expr</code>）が<a href="single-sender.html">単一の値を送信するSender</a>であり、Promise型が停止完了ハンドラを定義するならば、下記動作を行う。</p>
+<ul>
 <li>Senderを<a href="connect.html">接続(connect)</a>し、結果<a href="operation_state.html">Operation State</a>をAwaitableオブジェクトに格納する。</li>
 <li>コルーチンを中断し、Operation Stateを<a href="start.html">開始(start)</a>する。</li>
 <li><a href="../queryable.html">クエリオブジェクト</a>による<a href="receiver.html">Receiver</a>環境への問い合わせは、Promise型に関連付けられた環境(<code>get_env</code>)へと転送される。</li>
@@ -259,6 +264,7 @@
 <li><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a> : <code><a href="../is-awaitable.html">is-awaitable</a>&lt;Expr, Promise&gt; == true</code>、かつPromise型<code>U</code>のコルーチンにおける式<code>co_await expr</code>がPromise型<code>Promise</code>のコルーチンにおける同式と等しさを保持すること。</li>
 </ul>
 </li>
+<li>そうではなく、説明用の式<code>adapted-expr</code>を<code>expr</code>が1回だけ評価されることを除いて<code><a href="get_await_completion_adaptor.html">get_await_completion_adaptor</a>(<a href="get_env.html">get_env</a>(expr))(expr)</code>としたとき、<code>has-queryable-await-completion-adaptor&lt;Expr&gt;</code>と<code>awaitable-sender&lt;decltype((adapted-expr)), Promise&gt;</code>が共に満たされるならば、式<code>sender-awaitable{adapted-expr, p}</code></li>
 <li>そうではなく、<code>awaitable-sender&lt;Expr, Promise&gt;</code>ならば、式<code>sender-awaitable{expr, p}</code></li>
 <li>そうでなければ、式<code>(void(p), expr)</code></li>
 </ul>
@@ -271,6 +277,17 @@
     <span class="n"><a href="sender_to.html">sender_to</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">awaitable</span><span class="o">-</span><span class="n">receiver</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>  <span class="c1">// <i>see below</i></span>
     <span class="n">requires</span> <span class="p">(</span><span class="n">Promise</span><span class="o">&amp;</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
       <span class="p">{</span> <span class="n">p</span><span class="p">.</span><span class="n">unhandled_stopped</span><span class="p">()</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="../../concepts/convertible_to.html">convertible_to</a></span><span class="o">&lt;</span><span class="n"><a href="../../coroutine/coroutine_handle.html">coroutine_handle&lt;&gt;</a></span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h3>コンセプト<code>has-queryable-await-completion-adaptor</code></h3>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="o">&gt;</span>
+  <span class="n">concept</span> <span class="n">has</span><span class="o">-</span><span class="n">queryable</span><span class="o">-</span><span class="n">await</span><span class="o">-</span><span class="n">completion</span><span class="o">-</span><span class="n">adaptor</span> <span class="o">=</span>  <span class="c1">// exposition only</span>
+    <span class="n"><a href="sender.html">sender</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span>
+    <span class="o">&amp;&amp;</span> <span class="n">requires</span><span class="p">(</span><span class="n">Sndr</span><span class="o">&amp;&amp;</span> <span class="n"><a href="sender.html">sender</a></span><span class="p">)</span> <span class="p">{</span>
+      <span class="n"><a href="get_await_completion_adaptor.html">get_await_completion_adaptor</a></span><span class="p">(</span><span class="n"><a href="get_env.html">get_env</a></span><span class="p">(</span><span class="n"><a href="sender.html">sender</a></span><span class="p">));</span>
     <span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -376,6 +393,7 @@
 </ul>
 <h2>カスタマイゼーションポイント</h2>
 <p><code>expr</code>に対して、<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>であるならば式<code>expr.as_awaitable(p)</code>が呼び出される。</p>
+<p><code>expr</code>が<a href="sender.html">Sender型</a>かつ関連付けられた<a href="../queryable.html">属性</a>がクエリオブジェクト<code><a href="get_await_completion_adaptor.html">get_await_completion_adaptor</a></code>に対応するとき、<code>expr</code>に対して同クエリオブジェクトが返すSenderアダプタを適用してからAwaitableオブジェクトへ変換する。</p>
 <h2>バージョン</h2>
 <h3>言語</h3>
 <ul>
@@ -391,12 +409,14 @@
 <h2>関連項目</h2>
 <ul>
 <li><code><a href="with_awaitable_senders.html">execution::with_awaitable_senders</a></code></li>
+<li><code><a href="get_await_completion_adaptor.html">execution::get_await_completion_adaptor</a></code></li>
 <li><a href="../../../lang/cpp20/coroutines.html">C++20 コルーチン</a></li>
 </ul>
 <h2>参照</h2>
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html" target="_blank">P3396R1 std::execution wording fixes</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3570r2.html" target="_blank">P3570R2 optional variants in sender/receiver</a></li>
 </ul></div>
 
       </div>

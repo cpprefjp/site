@@ -28,11 +28,11 @@
         <meta property="og:url" content="https://cpprefjp.github.io/reference/set.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
-        <meta property="og:description" content="&amp;lt;set&amp;gt;set &amp;lt;set&amp;gt;ヘッダは、集合を表す連想コンテナ、setとmultisetを定義する。 setはキーの重複を許可しないが、multisetはキーの重複を許可する。   連想コンテナは特にそれらキーによる要素アクセスが効率的になるようよう設計されたコンテナである（要素への相対位置または絶対位置によるアクセスが効率的であるシーケンシャルコンテナとは異なる）。  内部" />
+        <meta property="og:description" content="&amp;lt;set&amp;gt;set &amp;lt;set&amp;gt;ヘッダは、集合を表す連想コンテナ、setとmultisetを定義する。 setはキーの重複を許可しないが、multisetはキーの重複を許可する。   連想コンテナは特にそれらキーによる要素アクセスが効率的になるよう設計されたコンテナである（要素への相対位置または絶対位置によるアクセスが効率的であるシーケンシャルコンテナとは異なる）。  内部的に" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="set - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/set.html" />
-        <meta name="twitter:description" content="&amp;lt;set&amp;gt;set &amp;lt;set&amp;gt;ヘッダは、集合を表す連想コンテナ、setとmultisetを定義する。 setはキーの重複を許可しないが、multisetはキーの重複を許可する。   連想コンテナは特にそれらキーによる要素アクセスが効率的になるようよう設計されたコンテナである（要素への相対位置または絶対位置によるアクセスが効率的であるシーケンシャルコンテナとは異なる）。  内部" />
+        <meta name="twitter:description" content="&amp;lt;set&amp;gt;set &amp;lt;set&amp;gt;ヘッダは、集合を表す連想コンテナ、setとmultisetを定義する。 setはキーの重複を許可しないが、multisetはキーの重複を許可する。   連想コンテナは特にそれらキーによる要素アクセスが効率的になるよう設計されたコンテナである（要素への相対位置または絶対位置によるアクセスが効率的であるシーケンシャルコンテナとは異なる）。  内部的に" />
 
         
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
@@ -176,12 +176,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2020-11-19T05:42:25">
-        2020年11月19日 05時42分25秒
+      <span itemprop="datePublished" content="2025-08-23T16:55:29">
+        2025年08月23日 16時55分29秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -203,7 +203,7 @@
   <div class="header">&lt;set&gt;</div><h1 itemprop="name"><span class="token">set</span></h1>
 <div itemprop="articleBody"><p><code>&lt;set&gt;</code>ヘッダは、集合を表す連想コンテナ、<code>set</code>と<code>multiset</code>を定義する。<br />
 <code>set</code>はキーの重複を許可しないが、<code>multiset</code>はキーの重複を許可する。  </p>
-<p>連想コンテナは特にそれらキーによる要素アクセスが効率的になるようよう設計されたコンテナである（要素への相対位置または絶対位置によるアクセスが効率的であるシーケンシャルコンテナとは異なる）。 
+<p>連想コンテナは特にそれらキーによる要素アクセスが効率的になるよう設計されたコンテナである（要素への相対位置または絶対位置によるアクセスが効率的であるシーケンシャルコンテナとは異なる）。 
 内部的には、<code>set</code> 内の要素は、コンテナの構築時に設定された<a href="algorithm.html#strict-weak-ordering">狭義の弱順序</a>基準に従って小さいものから大きいものへとソートされる。 </p>
 <p><code>set</code>と<code>multiset</code>は一般的に、二分木として実装される。従って、連想コンテナである <code>set</code>や<code>multiset</code> の主な特性は以下の通りである。</p>
 <ul>

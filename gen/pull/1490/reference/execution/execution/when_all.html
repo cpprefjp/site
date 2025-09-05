@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;execution&#34;], &#34;id-type&#34;: [&#34;cpo&#34;], &#34;namespace&#34;: [&#34;std::execution&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;8ef67aed40a303a4cc0bc9761f9ec493f6f719df&#34;, &#34;source&#34;: &#34;#include &lt;print&gt;\n#include &lt;string&gt;\n#include &lt;execution&gt;\nnamespace ex = std::execution;\nusing namespace std::string_literals;\n\nint main()\n{\n  // string\u578b\u306e\u5024\u3092\u9001\u4fe1\u3059\u308bSender\n  ex::sender auto snd1 = ex::just(\&#34;C++\&#34;s);\n  // (int,char)\u578b\u306e\u5024\u3092\u9001\u4fe1\u3059\u308bSender\n  ex::sender auto snd2 = ex::just(123, &#39;X&#39;);\n  // snd1,snd2\u4e21\u65b9\u306e\u5b8c\u4e86\u3092\u5f85\u6a5f\u3059\u308bSender\n  ex::sender auto sndr = ex::when_all(snd1, snd2);\n\n\u3000auto result = std::this_thread::sync_wait(sndr);\n  // result := optional&lt;tuple&lt;string,int,char&gt;&gt;\u578b\n  std::println(\&#34;result={}\&#34;, result.value());\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;execution&#34;, &#34;execution&#34;, &#34;when_all&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;execution&#34;], &#34;id-type&#34;: [&#34;cpo&#34;], &#34;namespace&#34;: [&#34;std::execution&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;3cb5470dd573b44357dbc96f84d3726772ad2bca&#34;, &#34;source&#34;: &#34;#include &lt;print&gt;\n#include &lt;string&gt;\n#include &lt;execution&gt;\nnamespace ex = std::execution;\nusing namespace std::string_literals;\n\nint main()\n{\n  // string\u578b\u306e\u5024\u3092\u9001\u4fe1\u3059\u308bSender\n  ex::sender auto snd1 = ex::just(\&#34;C++\&#34;s);\n  // (int,char)\u578b\u306e\u5024\u3092\u9001\u4fe1\u3059\u308bSender\n  ex::sender auto snd2 = ex::just(123, &#39;X&#39;);\n  // snd1,snd2\u4e21\u65b9\u306e\u5b8c\u4e86\u3092\u5f85\u6a5f\u3059\u308bSender\n  ex::sender auto sndr = ex::when_all(snd1, snd2);\n\n  auto result = std::this_thread::sync_wait(sndr);\n  // result := optional&lt;tuple&lt;string,int,char&gt;&gt;\u578b\n  std::println(\&#34;result={}\&#34;, result.value());\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;execution&#34;, &#34;execution&#34;, &#34;when_all&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-20T09:48:11">
-        2025年08月20日 09時48分11秒
+      <span itemprop="datePublished" content="2025-08-31T12:40:16">
+        2025年08月31日 12時40分16秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">yoh</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -467,7 +467,7 @@
 <a href="default_domain.html">デフォルト実行ドメイン</a>では無変換。</p>
 <h2>例</h2>
 <h3>例1: 基本の使い方</h3>
-<p><div class="yata" id="8ef67aed40a303a4cc0bc9761f9ec493f6f719df"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../print.html">&lt;print&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="3cb5470dd573b44357dbc96f84d3726772ad2bca"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../print.html">&lt;print&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>
 <span class="k">namespace</span> <span class="n">ex</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span><span class="p">;</span>
@@ -482,7 +482,7 @@
   <span class="c1">// snd1,snd2両方の完了を待機するSender</span>
   <span class="n"><a href="sender.html">ex::sender</a></span> <span class="k">auto</span> <span class="n">sndr</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">ex::when_all</span></span><span class="p">(</span><span class="n">snd1</span><span class="p">,</span> <span class="n">snd2</span><span class="p">);</span>
 
-　<span class="k">auto</span> <span class="n">result</span> <span class="o">=</span> <span class="n"><a href="../this_thread/sync_wait.html">std::this_thread::sync_wait</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">);</span>
+  <span class="k">auto</span> <span class="n">result</span> <span class="o">=</span> <span class="n"><a href="../this_thread/sync_wait.html">std::this_thread::sync_wait</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">);</span>
   <span class="c1">// result := optional&lt;<a href="../../tuple/tuple.html">tuple</a>&lt;string,int,char&gt;&gt;型</span>
   <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"result={}"</span><span class="p">,</span> <span class="n">result</span><span class="p">.</span><span class="n"><a href="../../optional/optional/value.html">value()</a></span><span class="p">);</span>
 <span class="p">}</span>

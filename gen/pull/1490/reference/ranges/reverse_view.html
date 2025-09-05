@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:33:39">
-        2025年07月08日 15時33分39秒
+      <span itemprop="datePublished" content="2025-08-31T10:06:36">
+        2025年08月31日 10時06分36秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -272,7 +272,7 @@
 <ul>
 <li>(2): 式<code>views::reverse(E)</code>の効果は次の通り<ul>
 <li><code>E</code>の型が<code>reverse_view</code>の特殊化であれば、<code>E.base()</code>と等しい (<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>されている場合を含む)</li>
-<li>イテレータ型<code>I</code>、<code><a href="subrange_kind.html">subrange_kind</a></code>の値<code>K</code>に対し、<code>E</code>の型が<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>された<code><a href="subrange.html">subrange</a>&lt;<a href="../iterator/reverse_iterator.html">reverse_iterator</a>&lt;I&gt;,<a href="../iterator/reverse_iterator.html">reverse_iterator</a>&lt;I&gt;, K&gt;</code>であるとする。このとき、<code>E</code>は一度しか評価されないとして、<ul>
+<li>イテレータ型<code>I</code>、<code><a href="subrange_kind.html">subrange_kind</a></code>の値<code>K</code>に対し、<code>E</code>の型が<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>された<code><a href="subrange.html">subrange</a>&lt;<a href="../iterator/reverse_iterator.html">reverse_iterator</a>&lt;I&gt;, <a href="../iterator/reverse_iterator.html">reverse_iterator</a>&lt;I&gt;, K&gt;</code>であるとする。このとき、<code>E</code>は一度しか評価されないとして、<ul>
 <li><code>K</code>が<code><a href="subrange_kind.html">subrange_kind::sized</a></code>であれば、<code><a href="subrange.html">subrange</a>&lt;I, I, K&gt;(E.end().base(), E.begin().base(), E.size())</code>と等しい</li>
 <li>それ以外のとき、<code><a href="subrange.html">subrange</a>&lt;I, I, K&gt;(E.end().base(), E.begin().base())</code>と等しい</li>
 </ul>

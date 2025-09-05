@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:33:39">
-        2025年07月08日 15時33分39秒
+      <span itemprop="datePublished" content="2025-08-31T10:06:36">
+        2025年08月31日 10時06分36秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -217,7 +217,7 @@
 <p><code>movable-box</code> は、規格の文中に現れる説明専用のクラスである。</p>
 <p><code>movable-box&lt;T&gt;</code> は、<code><a href="../optional/optional.html">std::optional</a>&lt;T&gt;</code>とほとんど同じであるが、以下の差分をもつ。</p>
 <h3>差分1</h3>
-<p>テンプレートパラメーター制約 <code><a href="../concepts/move_constructible.html">move_constructible</a>&lt;T&gt; &amp;&amp;<a href="../type_traits/is_object.html">is_object_v</a>&lt;T&gt;</code> をもつ。</p>
+<p>テンプレートパラメーター制約 <code><a href="../concepts/move_constructible.html">move_constructible</a>&lt;T&gt; &amp;&amp; <a href="../type_traits/is_object.html">is_object_v</a>&lt;T&gt;</code> をもつ。</p>
 <h3>差分2</h3>
 <p><code>T</code>が<code><a href="../concepts/copyable.html">copyable</a></code>のモデルでない場合、コピー代入演算子は以下のように定義される。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="n"><i>movable-box</i></span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n"><i>movable-box</i></span><span class="o">&amp;</span> <span class="n">that</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">(</span><span class="n"><a href="../type_traits/is_nothrow_copy_constructible.html">is_nothrow_copy_constructible_v</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
@@ -244,7 +244,7 @@
 <p>以下のことが推奨される。</p>
 <ul>
 <li><code><a href="../concepts/copy_constructible.html">copy_constructible</a>&lt;T&gt;</code> なら、<code>movable-box&lt;T&gt;</code> は
-<code>T</code> が <code><a href="../concepts/copyable.html">copyable</a></code>のモデルであるか、<code><a href="../type_traits/is_nothrow_move_constructible.html">is_nothrow_move_constructible_v</a>&lt;T&gt; &amp;&amp;<a href="../type_traits/is_nothrow_copy_constructible.html">is_nothrow_copy_constructible_v</a>&lt;T&gt;</code>を満たす場合のみ値を保持する。</li>
+<code>T</code> が <code><a href="../concepts/copyable.html">copyable</a></code>のモデルであるか、<code><a href="../type_traits/is_nothrow_move_constructible.html">is_nothrow_move_constructible_v</a>&lt;T&gt; &amp;&amp; <a href="../type_traits/is_nothrow_copy_constructible.html">is_nothrow_copy_constructible_v</a>&lt;T&gt;</code>を満たす場合のみ値を保持する。</li>
 <li>そうでなければ、<code>movable-box&lt;T&gt;</code> は
 <code>T</code> が <code><a href="../concepts/movable.html">movable</a></code>のモデルであるか、<code><a href="../type_traits/is_nothrow_move_constructible.html">is_nothrow_move_constructible_v</a>&lt;T&gt;</code>を満たす場合のみ値を保持する。</li>
 </ul>

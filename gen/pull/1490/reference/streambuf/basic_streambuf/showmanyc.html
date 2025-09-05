@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;streambuf&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;basic_streambuf&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;41977bd2f1c8a9bf09196f3dc561c26b89b0d66e&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;streambuf&gt;\n\n// streambuf\u3092\u7d99\u627f\u3057\u305f\u30af\u30e9\u30b9\nclass dummy_buf : public std::streambuf {\n    char space_[10] = {};\npublic:\n    dummy_buf(void) {\n        // \u5165\u529b\u5217\u306b\u914d\u5217\u3092\u8a2d\u5b9a\n        setg(space_, space_, space_ + 2);\n    }\n    std::streamsize showmanyc(void) override {\n        std::cout &lt;&lt; \&#34;showmanyc\&#34; &lt;&lt; std::endl;\n        // \u30d9\u30fc\u30b9\u30af\u30e9\u30b9\u306eshowmanyc()\u3092\u547c\u3076\n        return std::streambuf::showmanyc();\n    }\n};\n\nint main() {\n    dummy_buf buf{};\n    std::cout &lt;&lt; buf.in_avail() &lt;&lt; std::endl;  // \u6b8b2\u6587\u5b57\n    buf.sbumpc();  //\u30001\u6587\u5b57\u9032\u3081\u308b\n    buf.sbumpc();  //\u30001\u6587\u5b57\u9032\u3081\u308b\n    std::cout &lt;&lt; buf.in_avail() &lt;&lt; std::endl;  // \u6b8b0\u6587\u5b57\u3002in_avail()\u304b\u3089showmanyc()\u304c\u547c\u3070\u308c\u308b\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;streambuf&#34;, &#34;basic_streambuf&#34;, &#34;showmanyc&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;streambuf&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;basic_streambuf&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;4854e17f31080d8b53750233932fea535cfac54c&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;streambuf&gt;\n\n// streambuf\u3092\u7d99\u627f\u3057\u305f\u30af\u30e9\u30b9\nclass dummy_buf : public std::streambuf {\n    char space_[10] = {};\npublic:\n    dummy_buf(void) {\n        // \u5165\u529b\u5217\u306b\u914d\u5217\u3092\u8a2d\u5b9a\n        setg(space_, space_, space_ + 2);\n    }\n    std::streamsize showmanyc(void) override {\n        std::cout &lt;&lt; \&#34;showmanyc\&#34; &lt;&lt; std::endl;\n        // \u30d9\u30fc\u30b9\u30af\u30e9\u30b9\u306eshowmanyc()\u3092\u547c\u3076\n        return std::streambuf::showmanyc();\n    }\n};\n\nint main() {\n    dummy_buf buf{};\n    std::cout &lt;&lt; buf.in_avail() &lt;&lt; std::endl;  // \u6b8b2\u6587\u5b57\n    buf.sbumpc();  // 1\u6587\u5b57\u9032\u3081\u308b\n    buf.sbumpc();  // 1\u6587\u5b57\u9032\u3081\u308b\n    std::cout &lt;&lt; buf.in_avail() &lt;&lt; std::endl;  // \u6b8b0\u6587\u5b57\u3002in_avail()\u304b\u3089showmanyc()\u304c\u547c\u3070\u308c\u308b\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;streambuf&#34;, &#34;basic_streambuf&#34;, &#34;showmanyc&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-10T00:58:01">
-        2025年07月10日 00時58分01秒
+      <span itemprop="datePublished" content="2025-08-31T12:46:41">
+        2025年08月31日 12時46分41秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Koichi Murase</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -243,7 +243,7 @@
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p><code>0</code>。</p>
 <h2>例</h2>
-<p><div class="yata" id="41977bd2f1c8a9bf09196f3dc561c26b89b0d66e"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="4854e17f31080d8b53750233932fea535cfac54c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../../streambuf.html">&lt;streambuf&gt;</a></span><span class="cp"></span>
 
 <span class="c1">// streambufを継承したクラス</span>
@@ -264,8 +264,8 @@
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="n">dummy_buf</span> <span class="n">buf</span><span class="p">{};</span>
     <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">buf</span><span class="p">.</span><span class="n">in_avail</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>  <span class="c1">// 残2文字</span>
-    <span class="n">buf</span><span class="p">.</span><span class="n">sbumpc</span><span class="p">();</span>  <span class="c1">//　1文字進める</span>
-    <span class="n">buf</span><span class="p">.</span><span class="n">sbumpc</span><span class="p">();</span>  <span class="c1">//　1文字進める</span>
+    <span class="n">buf</span><span class="p">.</span><span class="n">sbumpc</span><span class="p">();</span>  <span class="c1">// 1文字進める</span>
+    <span class="n">buf</span><span class="p">.</span><span class="n">sbumpc</span><span class="p">();</span>  <span class="c1">// 1文字進める</span>
     <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">buf</span><span class="p">.</span><span class="n">in_avail</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>  <span class="c1">// 残0文字。in_avail()からshowmanyc()が呼ばれる</span>
 <span class="p">}</span>
 </code></pre></div>

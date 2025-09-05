@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-14T14:04:00">
-        2025年07月14日 14時04分00秒
+      <span itemprop="datePublished" content="2025-08-23T16:37:25">
+        2025年08月23日 16時37分25秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Koichi Murase</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -260,13 +260,13 @@
 </li>
 <li>(3) : <code>N</code>を<code>sizeof...(OtherIndexTypes)</code>、<code>exts_arr</code>を<code><a href="../../array/array.html">array</a>&lt;index_type, N&gt;{static_cast&lt;index_type&gt;(std::move(exts))...}</code>としたとき<ul>
 <li><code>(<a href="../../type_traits/is_convertible.html">is_convertible_v</a>&lt;OtherIndexTypes, index_type&gt; &amp;&amp; ...)</code>が<code>true</code>、かつ</li>
-<li><code>(<a href="../../type_traits/is_nothrow_convertible.html">is_nothrow_constructible_v</a>&lt;index_type, OtherIndexTypes&gt; &amp;&amp; ...)</code>が<code>true</code>、かつ</li>
+<li><code>(<a href="../../type_traits/is_nothrow_constructible.html">is_nothrow_constructible_v</a>&lt;index_type, OtherIndexTypes&gt; &amp;&amp; ...)</code>が<code>true</code>、かつ</li>
 <li><code>N == <a href="rank_dynamic.html">rank_dynamic()</a> || N == <a href="rank.html">rank()</a></code>が<code>true</code>であること</li>
 </ul>
 </li>
 <li>(4), (5) :<ul>
 <li><code>(<a href="../../type_traits/is_convertible.html">is_convertible_v</a>&lt;const OtherIndexTypes&amp;, index_type&gt; &amp;&amp; ...)</code>が<code>true</code>、かつ</li>
-<li><code>(<a href="../../type_traits/is_nothrow_convertible.html">is_nothrow_constructible_v</a>&lt;index_type, const OtherIndexTypes&amp;&gt; &amp;&amp; ...)</code>が<code>true</code>、かつ</li>
+<li><code>(<a href="../../type_traits/is_nothrow_constructible.html">is_nothrow_constructible_v</a>&lt;index_type, const OtherIndexTypes&amp;&gt; &amp;&amp; ...)</code>が<code>true</code>、かつ</li>
 <li><code>N == <a href="rank_dynamic.html">rank_dynamic()</a> || N == <a href="rank.html">rank()</a></code>が<code>true</code>であること</li>
 </ul>
 </li>

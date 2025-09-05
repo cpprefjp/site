@@ -28,11 +28,11 @@
         <meta property="og:url" content="https://cpprefjp.github.io/reference/map.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
-        <meta property="og:description" content="&amp;lt;map&amp;gt;map mapとmultimapはユニークな要素を格納する連想コンテナの一種であり、キーとそれに対応する値を格納する。  mapはキーの重複を許さず、multimapはキーの重複を許す。 連想コンテナは特にそれらキーによる要素アクセスが効率的になるようよう設計されたコンテナである（要素への相対位置または絶対位置によるアクセスが効率的であるシーケンシャルコンテナとは異なる）。 " />
+        <meta property="og:description" content="&amp;lt;map&amp;gt;map mapとmultimapはユニークな要素を格納する連想コンテナの一種であり、キーとそれに対応する値を格納する。  mapはキーの重複を許さず、multimapはキーの重複を許す。 連想コンテナは特にそれらキーによる要素アクセスが効率的になるよう設計されたコンテナである（要素への相対位置または絶対位置によるアクセスが効率的であるシーケンシャルコンテナとは異なる）。  内" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="map - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/map.html" />
-        <meta name="twitter:description" content="&amp;lt;map&amp;gt;map mapとmultimapはユニークな要素を格納する連想コンテナの一種であり、キーとそれに対応する値を格納する。  mapはキーの重複を許さず、multimapはキーの重複を許す。 連想コンテナは特にそれらキーによる要素アクセスが効率的になるようよう設計されたコンテナである（要素への相対位置または絶対位置によるアクセスが効率的であるシーケンシャルコンテナとは異なる）。 " />
+        <meta name="twitter:description" content="&amp;lt;map&amp;gt;map mapとmultimapはユニークな要素を格納する連想コンテナの一種であり、キーとそれに対応する値を格納する。  mapはキーの重複を許さず、multimapはキーの重複を許す。 連想コンテナは特にそれらキーによる要素アクセスが効率的になるよう設計されたコンテナである（要素への相対位置または絶対位置によるアクセスが効率的であるシーケンシャルコンテナとは異なる）。  内" />
 
         
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
@@ -176,12 +176,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2020-11-19T05:42:25">
-        2020年11月19日 05時42分25秒
+      <span itemprop="datePublished" content="2025-08-23T16:55:29">
+        2025年08月23日 16時55分29秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -203,7 +203,7 @@
   <div class="header">&lt;map&gt;</div><h1 itemprop="name"><span class="token">map</span></h1>
 <div itemprop="articleBody"><p><code>map</code>と<code>multimap</code>はユニークな要素を格納する連想コンテナの一種であり、キーとそれに対応する値を格納する。 
 <code>map</code>はキーの重複を許さず、<code>multimap</code>はキーの重複を許す。
-連想コンテナは特にそれらキーによる要素アクセスが効率的になるようよう設計されたコンテナである（要素への相対位置または絶対位置によるアクセスが効率的であるシーケンシャルコンテナとは異なる）。 
+連想コンテナは特にそれらキーによる要素アクセスが効率的になるよう設計されたコンテナである（要素への相対位置または絶対位置によるアクセスが効率的であるシーケンシャルコンテナとは異なる）。 
 内部的には、<code>map</code> 内の要素は、コンテナの構築時に設定された<a href="algorithm.html#strict-weak-ordering">狭義の弱順序</a>基準に従って小さいものから大きいものへとソートされる。 </p>
 <p><code>map</code>と<code>multimap</code>は一般的に、二分木として実装される。従って、連想コンテナである <code>map</code>や<code>multimap</code> の主な特性は以下の通りである。</p>
 <ul>

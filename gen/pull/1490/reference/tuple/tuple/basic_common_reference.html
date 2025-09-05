@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2023-02-01T00:56:41">
-        2023年02月01日 00時56分41秒
+      <span itemprop="datePublished" content="2025-08-31T10:06:36">
+        2025年08月31日 10時06分36秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">tomolatoon</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -233,14 +233,14 @@
 </code></pre></div>
 </p>
 <h2>概要</h2>
-<p><code><a href="../tuple.html">tuple</a></code>と<code><a href="../tuple-like.html">tuple-like</a></code>なオブジェクについて、<code><a href="../../type_traits/common_reference.html">common_reference</a></code>で共通の参照型を取得できるようにアダプトする<code><a href="../../type_traits/common_reference.html">basic_common_reference</a></code>の特殊化である。</p>
+<p><code><a href="../tuple.html">tuple</a></code>と<code><a href="../tuple-like.html">tuple-like</a></code>なオブジェクについて、<code><a href="../../type_traits/common_reference.html">common_reference</a></code>で共通の参照型を取得できるようにアダプトする<code><a href="../../type_traits/basic_common_reference.html">basic_common_reference</a></code>の特殊化である。</p>
 <p>ユーザーが直接この特殊化を利用する必要はない。<code><a href="../../type_traits/common_reference.html">common_reference</a></code>を使用すること。</p>
 <h2>効果</h2>
 <p><code><a href="../tuple.html">tuple</a>&lt;<a href="../../type_traits/common_reference.html">common_reference_t</a>&lt;TQual&lt;TTypes&gt;, UQual&lt;UTypes&gt;&gt;...&gt;</code>によって得られた型をメンバ型<code>type</code>として定義する。</p>
 <h2>要件</h2>
 <ul>
 <li><code>TTuple</code>か<code>UTuple</code>のどちらかが<code><a href="../tuple.html">tuple</a></code>の特殊化であること。</li>
-<li><code>TTuple</code>と<code>UTuple</code>のそれぞれについて、（次の<code>T</code>を置き換える形で）<code><a href="../../type_traits/is_same.html">is_same_v</a>&lt;T,<a href="../../type_traits/decay.html">decay_t</a>&lt;T&gt;&gt;</code>であること。<ul>
+<li><code>TTuple</code>と<code>UTuple</code>のそれぞれについて、（次の<code>T</code>を置き換える形で）<code><a href="../../type_traits/is_same.html">is_same_v</a>&lt;T, <a href="../../type_traits/decay.html">decay_t</a>&lt;T&gt;&gt;</code>であること。<ul>
 <li>実質的には<code>TTuple</code>と<code>Utuple</code>について、参照型ではなく、最上位の<code>const</code>/<code>volatile</code>修飾も持っていないこと要求する。</li>
 </ul>
 </li>

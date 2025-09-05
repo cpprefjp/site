@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-06-04T03:16:17">
-        2025年06月04日 03時16分17秒
+      <span itemprop="datePublished" content="2025-08-31T07:38:54">
+        2025年08月31日 07時38分54秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -216,7 +216,7 @@
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span> <span class="p">{</span>
   <span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="forward_range.html">forward_range</a></span> <span class="n">V</span><span class="p">,</span> <span class="n"><a href="../iterator/indirect_binary_predicate.html">indirect_binary_predicate</a></span><span class="o">&lt;</span><span class="n"><a href="iterator_t.html">iterator_t</a></span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span><span class="p">,</span> <span class="n"><a href="iterator_t.html">iterator_t</a></span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;&gt;</span> <span class="n">Pred</span><span class="o">&gt;</span>
     <span class="n">requires</span> <span class="n"><a href="view.html">view</a></span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span> <span class="n"><a href="../type_traits/is_object.html">is_object_v</a></span><span class="o">&lt;</span><span class="n">Pred</span><span class="o">&gt;</span>
-  <span class="k">class</span> <span class="nc">chunk_by_view</span> <span class="o">:</span> <span class="k">public</span> <span class="n"><a href="view_interface.html">view_interface</a></span><span class="o">&lt;</span><span class="n">chunk_by_view</span><span class="o">&lt;</span><span class="n">V</span><span class="p">,</span> <span class="n">Pred</span><span class="o">&gt;&gt;</span> <span class="p">{</span><span class="err">……</span> <span class="p">};</span> <span class="c1">// (1)</span>
+  <span class="k">class</span> <span class="nc">chunk_by_view</span> <span class="o">:</span> <span class="k">public</span> <span class="n"><a href="view_interface.html">view_interface</a></span><span class="o">&lt;</span><span class="n">chunk_by_view</span><span class="o">&lt;</span><span class="n">V</span><span class="p">,</span> <span class="n">Pred</span><span class="o">&gt;&gt;</span> <span class="p">{</span> <span class="err">……</span> <span class="p">};</span> <span class="c1">// (1)</span>
 
   <span class="k">namespace</span> <span class="n">views</span> <span class="p">{</span>
     <span class="kr">inline</span> <span class="k">constexpr</span> <span class="cm">/*unspecified*/</span> <span class="n">chunk_by</span> <span class="o">=</span> <span class="cm">/*unspecified*/</span><span class="p">;</span>      <span class="c1">// (2)</span>

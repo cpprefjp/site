@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:33:39">
-        2025年07月08日 15時33分39秒
+      <span itemprop="datePublished" content="2025-08-31T10:06:36">
+        2025年08月31日 10時06分36秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -256,7 +256,7 @@
 </ul>
 <p>この他にFunは<code><a href="../concepts/copy_constructible.html">copy_constructible</a></code>のモデルであることが要求される。</p>
 <h2>効果</h2>
-<p><code>[first,last)</code> 内の全てのイテレータ <code>i</code> に <code><a href="../functional/invoke.html">invoke</a>(f,<a href="../functional/invoke.html">invoke</a>(proj, *i))</code> という操作を行う。<code>first</code> から順番に処理し、<code>last - 1</code> まで行う。</p>
+<p><code>[first,last)</code> 内の全てのイテレータ <code>i</code> に <code><a href="../functional/invoke.html">invoke</a>(f, <a href="../functional/invoke.html">invoke</a>(proj, *i))</code> という操作を行う。<code>first</code> から順番に処理し、<code>last - 1</code> まで行う。</p>
 <p>このアルゴリズムはその他のアルゴリズムと違い、<code><a href="../functional/invoke.html">invoke</a>(proj, *i)</code> が書き換え可能な参照であれば、関数 <code>f</code> の内部でその値を書き換えても構わない。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p><div class="codehilite"><pre><span></span><code><span class="n"><a href="ranges_in_fun_result.html">for_each_result</a></span> <span class="p">{</span>

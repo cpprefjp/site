@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2024-07-10T07:47:57">
-        2024年07月10日 07時47分57秒
+      <span itemprop="datePublished" content="2025-08-31T10:06:36">
+        2025年08月31日 10時06分36秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -234,7 +234,7 @@
 </li>
 <li>
 <p><code><a href="../type_traits/decay.html">decay</a></code>を通した<code>a, b</code>の型<code>T</code>が浮動小数点型の場合、<code>T</code>の組み込みの比較演算子および<code><a href="strong_order.html">strong_order</a></code>による順序と一貫する<code><a href="weak_ordering.html">weak_ordering</a></code>の値を返す。<br />
-   さらに、<code><a href="../limits/numeric_limits/is_iec559.html">numeric_limits&lt;T&gt;::is_iec559</a>== true</code>の場合、追加で以下の同値類の順序に従った順序付けを行う。</p>
+   さらに、<code><a href="../limits/numeric_limits/is_iec559.html">numeric_limits&lt;T&gt;::is_iec559</a> == true</code>の場合、追加で以下の同値類の順序に従った順序付けを行う。</p>
 <ol>
 <li>全ての<code>-NaN</code></li>
 <li><code>-Inf</code></li>
@@ -288,7 +288,7 @@
 </ol>
 <p>ただし、どのケースにおいてもその<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型は<code><a href="weak_ordering.html">weak_ordering</a></code>に変換可能でなければならない。</p>
 <h2>備考</h2>
-<p><code><a href="../limits/numeric_limits/is_iec559.html">numeric_limits&lt;T&gt;::is_iec559</a>== true</code>の場合の浮動小数点数の比較において、各同値類間の順序は以下のようになる。</p>
+<p><code><a href="../limits/numeric_limits/is_iec559.html">numeric_limits&lt;T&gt;::is_iec559</a> == true</code>の場合の浮動小数点数の比較において、各同値類間の順序は以下のようになる。</p>
 <p>{全ての<code>-NaN</code>} <code>&lt;</code> {<code>-Inf</code>} <code>&lt;</code> {負の正規化数} <code>&lt;</code> {負の非正規化数} <code>&lt;</code> {<code>±0.0</code>} <code>&lt;</code> {正の非正規化数} <code>&lt;</code> {正の正規化数} <code>&lt;</code> {<code>+Inf</code>} <code>&lt;</code> {全ての<code>+NaN</code>}</p>
 <p>それぞれの同値類における順序付けは通常の比較演算子の順序付けに従う。ただし、比較不能である場合はその値は同値として扱われる。すなわち、{<code>±0.0</code>}および{<code>±NaN</code>}のそれぞの同値類では全ての値が同値(<code>=</code>)として扱われる。</p>
 <h2>例</h2>

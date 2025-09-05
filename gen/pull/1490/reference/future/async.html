@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:33:39">
-        2025年07月08日 15時33分39秒
+      <span itemprop="datePublished" content="2025-08-23T15:26:21">
+        2025年08月23日 15時26分21秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -261,7 +261,7 @@
 <p>返された<code>future</code>オブジェクトの<code>get()</code>もしくは<code>wait()</code>を呼び出すことにより、非同期実行の完了を待機する。</p>
 <h2>要件</h2>
 <ul>
-<li>関数オブジェクト<code>F</code>および<code>Args...</code>の各型が、<code><a href="../type_traits/is_move_constructible.html">is_move_construcitble</a>&lt;T&gt;::value == true</code>であること。</li>
+<li>関数オブジェクト<code>F</code>および<code>Args...</code>の各型が、<code><a href="../type_traits/is_move_constructible.html">is_move_constructible</a>&lt;T&gt;::value == true</code>であること。</li>
 <li><code><a href="../concepts/Invoke.html">INVOKE</a>(DECAY_COPY(std::<a href="../utility/forward.html">forward</a>&lt;F&gt;(f)), DECAY_COPY(std::<a href="../utility/forward.html">forward</a>&lt;Args&gt;(args))...)</code>が可能であること。</li>
 </ul>
 <h2>効果</h2>

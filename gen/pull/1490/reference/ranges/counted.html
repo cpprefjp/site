@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2024-06-11T13:45:38">
-        2024年06月11日 13時45分38秒
+      <span itemprop="datePublished" content="2025-08-31T10:06:36">
+        2025年08月31日 10時06分36秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -262,7 +262,7 @@
 <li><code><a href="../../lang/cpp11/decltype.html">decltype</a>((F))</code>が<code><a href="../concepts/convertible_to.html">convertible_to</a>&lt;D&gt;</code>のモデルでなければ、呼び出しは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>。</li>
 <li><code>T</code>が<code><a href="../iterator/contiguous_iterator.html">contiguous_iterator</a></code>のモデルであれば、<code><a href="../span/span.html">span</a>(<a href="../memory/to_address.html">to_address</a>(E), static_cast&lt;D&gt;(F))</code>と等しい。</li>
 <li><code>T</code>が<code><a href="../iterator/random_access_iterator.html">random_access_iterator</a></code>のモデルであれば、<code><a href="subrange.html">subrange</a>(E, E + static_cast&lt;D&gt;(F))</code>と等しい。</li>
-<li>それ以外のとき、<code><a href="subrange.html">subrange</a>(<a href="../iterator/counted_iterator.html">counted_iterator</a>(E, F),<a href="../iterator/default_sentinel_t.html">default_sentinel</a>)</code>と等しい。</li>
+<li>それ以外のとき、<code><a href="subrange.html">subrange</a>(<a href="../iterator/counted_iterator.html">counted_iterator</a>(E, F), <a href="../iterator/default_sentinel_t.html">default_sentinel</a>)</code>と等しい。</li>
 </ul>
 <h2>例</h2>
 <p><div class="yata" id="ffab9f656cfa4ba7e5b76bf169d89c7bc0f8b8b9"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>

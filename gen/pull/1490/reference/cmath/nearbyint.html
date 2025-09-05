@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-13T04:07:37">
-        2025年07月13日 04時07分37秒
+      <span itemprop="datePublished" content="2025-08-24T16:54:17">
+        2025年08月24日 16時54分17秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Koichi Murase</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -243,14 +243,14 @@
 <p>引数 <code>x</code> を現在の丸めモードで整数値に丸めた値</p>
 <h2>備考</h2>
 <ul>
-<li>本関数と <code><a href="rint.html">rint</a></code> は<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>は同一であるが、本関数は引数 <code>x</code> が<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>と異なっていても <code><a href="../cfenv/fe_invalid.html">FE_INEXACT</a></code> は発生しないが、<code><a href="rint.html">rint</a></code> は発生する可能性がある点のみ動作が異なる。</li>
+<li>本関数と <code><a href="rint.html">rint</a></code> は<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>は同一であるが、本関数は引数 <code>x</code> が<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>と異なっていても <code><a href="../cfenv/fe_inexact.html">FE_INEXACT</a></code> は発生しないが、<code><a href="rint.html">rint</a></code> は発生する可能性がある点のみ動作が異なる。</li>
 <li>本関数は、C99 の規格にある <code>nearbyint</code>（より正確には <code>math.h</code> ヘッダの <code>nearbyint</code>、<code>nearbyintf</code>、<code>nearbyintl</code> の 3 つ。それぞれ C++ の <code>double</code>、<code>float</code>、<code>long double</code> バージョンに相当）と等価である。</li>
 <li>C++11 以降では、処理系が IEC 60559 に準拠している場合（<code><a href="../limits/numeric_limits.html">std::numeric_limits</a>&lt;T&gt;::<a href="../limits/numeric_limits/is_iec559.html">is_iec559</a>() != false</code>）、以下の規定が追加される。<ul>
 <li><code>x = ±0</code> の場合、<code>±0</code> を返す。</li>
 <li><code>x = ±∞</code> の場合、<code>±∞</code> を返す。</li>
 </ul>
 </li>
-<li>C99 では、丸めモードの設定時には <code>#pragma STDC FENV_ACCESS ON</code> でなければなければならないと記載されているが、C++ には該当する記載を見つけることができなかった。<br />
+<li>C99 では、丸めモードの設定時には <code>#pragma STDC FENV_ACCESS ON</code> でなければならないと記載されているが、C++ には該当する記載を見つけることができなかった。<br />
     なお、C99 でも <code>FENV_ACCESS</code> のデフォルトは<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>である。</li>
 <li>丸めモード <code><a href="../cfenv/fe_tonearest.html">FE_TONEAREST</a></code> は単なる四捨五入ではないことに注意。</li>
 <li>C++23では、(1), (2), (3)が(4)に統合され、<a class="cpprefjp-defined-word" data-desc="&lt;stdfloat&gt;で定義される内部表現の規定された浮動小数点数型" href="../stdfloat.html">拡張浮動小数点数型</a>を含む浮動小数点数型への<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>として定義された</li>

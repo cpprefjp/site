@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-18T14:46:35">
-        2025年08月18日 14時46分35秒
+      <span itemprop="datePublished" content="2025-08-31T10:06:36">
+        2025年08月31日 10時06分36秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -228,7 +228,7 @@
 <li><code>T</code>が配列型であれば、<code><a href="../exposition-only/decay-copy.html">decay-copy</a>(<a href="../type_traits/extent.html">extent_v</a>&lt;T&gt;)</code>に等しい(expression‑equivalent)。ただし、要素数不明の配列であれば、呼び出しは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>。</li>
 <li><code><a href="disable_sized_range.html">disable_sized_range</a>&lt;<a href="../type_traits/remove_cv.html">remove_cv_t</a>&lt;T&gt;&gt;</code>が<code>false</code>、かつ<code><a href="../exposition-only/decay-copy.html">decay-copy</a>(t.size())</code>が整数型(integer-like)の有効な式であれば、<code><a href="../exposition-only/decay-copy.html">decay-copy</a>(t.size())</code>と等しい。</li>
 <li><code>T</code>がクラス型または列挙体であって、<code><a href="disable_sized_range.html">disable_sized_range</a>&lt;<a href="../type_traits/remove_cv.html">remove_cv_t</a>&lt;T&gt;&gt;</code>が<code>false</code>、かつ<code>size</code>が<a class="cpprefjp-defined-word" data-desc="実引数依存の名前探索 (Argument Dependent Lookup)。引数の型が所属する名前空間の関数を探索する言語機能">ADL</a>で見つかり、<code><a href="../exposition-only/decay-copy.html">decay-copy</a>(size(t))</code>が整数型の有効な式であれば、<code><a href="../exposition-only/decay-copy.html">decay-copy</a>(size(t))</code>と等しい。</li>
-<li><code>to-unsigned-like(<a href="end.html">ranges::end</a>(t) -<a href="begin.html">ranges::begin</a>(t))</code>が有効な式で、<code><a href="begin.html">ranges::begin</a></code>の型<code>I</code>、<code><a href="end.html">ranges::end</a></code>の型<code>S</code>が<code><a href="../iterator/sized_sentinel_for.html">sized_sentinel_for</a>&lt;S, I&gt;</code>と<code><a href="../iterator/forward_iterator.html">forward_iterator</a></code>のモデルであれば、<code>to-unsigned-like(<a href="end.html">ranges::end</a>(t) -<a href="begin.html">ranges::begin</a>(t))</code>と等しい。</li>
+<li><code>to-unsigned-like(<a href="end.html">ranges::end</a>(t) - <a href="begin.html">ranges::begin</a>(t))</code>が有効な式で、<code><a href="begin.html">ranges::begin</a></code>の型<code>I</code>、<code><a href="end.html">ranges::end</a></code>の型<code>S</code>が<code><a href="../iterator/sized_sentinel_for.html">sized_sentinel_for</a>&lt;S, I&gt;</code>と<code><a href="../iterator/forward_iterator.html">forward_iterator</a></code>のモデルであれば、<code>to-unsigned-like(<a href="end.html">ranges::end</a>(t) - <a href="begin.html">ranges::begin</a>(t))</code>と等しい。</li>
 </ol>
 <p>どれにも当てはまらないとき、呼び出しは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>

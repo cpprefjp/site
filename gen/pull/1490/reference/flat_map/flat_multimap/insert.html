@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-07T13:38:46">
-        2025年07月07日 13時38分46秒
+      <span itemprop="datePublished" content="2025-08-25T07:10:00">
+        2025年08月25日 07時10分00秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">onihusube</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -322,10 +322,10 @@
 <li>
 <p>(7) : メンバ変数として保持しているコンテナ<code>c</code>に、以下のように挿入する：
   <br />
-<div class="codehilite"><pre><span></span><code><span class="k">for</span> <span class="p">(;</span> <span class="n"><a href="../../utility/pair.html">first</a></span> <span class="o">!=</span> <span class="n">last</span><span class="p">;</span> <span class="o">++</span><span class="n"><a href="../../utility/pair.html">first</a></span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">value_type</span> <span class="n">value</span> <span class="o">=</span> <span class="o">*</span><span class="n"><a href="../../utility/pair.html">first</a></span><span class="p">;</span>
-    <span class="n"><a href="containers.html">c.keys</a></span><span class="p">.</span><span class="n"><a href="../../vector/vector/insert.html">insert</a></span><span class="p">(</span><span class="n"><a href="containers.html">c.keys</a></span><span class="p">.</span><span class="n"><a href="../../vector/vector/end.html">end()</a></span><span class="p">,</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">value</span><span class="p">.</span><span class="n"><a href="../../utility/pair.html">first</a></span><span class="p">));</span>
-    <span class="n"><a href="containers.html">c.values</a></span><span class="p">.</span><span class="n"><a href="../../vector/vector/insert.html">insert</a></span><span class="p">(</span><span class="n"><a href="containers.html">c.values</a></span><span class="p">.</span><span class="n"><a href="../../vector/vector/end.html">end()</a></span><span class="p">,</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">value</span><span class="p">.</span><span class="n"><a href="../../utility/pair.html">second</a></span><span class="p">));</span>
+<div class="codehilite"><pre><span></span><code><span class="k">for</span> <span class="p">(;</span> <span class="n"><a href="../../utility/pair/first.html">first</a></span> <span class="o">!=</span> <span class="n">last</span><span class="p">;</span> <span class="o">++</span><span class="n"><a href="../../utility/pair/first.html">first</a></span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">value_type</span> <span class="n">value</span> <span class="o">=</span> <span class="o">*</span><span class="n"><a href="../../utility/pair/first.html">first</a></span><span class="p">;</span>
+    <span class="n"><a href="containers.html">c.keys</a></span><span class="p">.</span><span class="n"><a href="../../vector/vector/insert.html">insert</a></span><span class="p">(</span><span class="n"><a href="containers.html">c.keys</a></span><span class="p">.</span><span class="n"><a href="../../vector/vector/end.html">end()</a></span><span class="p">,</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">value</span><span class="p">.</span><span class="n"><a href="../../utility/pair/first.html">first</a></span><span class="p">));</span>
+    <span class="n"><a href="containers.html">c.values</a></span><span class="p">.</span><span class="n"><a href="../../vector/vector/insert.html">insert</a></span><span class="p">(</span><span class="n"><a href="containers.html">c.values</a></span><span class="p">.</span><span class="n"><a href="../../vector/vector/end.html">end()</a></span><span class="p">,</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">value</span><span class="p">.</span><span class="n"><a href="../../utility/pair/second.html">second</a></span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -337,10 +337,10 @@
 <li>
 <p>(8) : メンバ変数として保持しているコンテナ<code>c</code>に、以下のように挿入する：
   <br />
-<div class="codehilite"><pre><span></span><code><span class="k">for</span> <span class="p">(;</span> <span class="n"><a href="../../utility/pair.html">first</a></span> <span class="o">!=</span> <span class="n">last</span><span class="p">;</span> <span class="o">++</span><span class="n"><a href="../../utility/pair.html">first</a></span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">value_type</span> <span class="n">value</span> <span class="o">=</span> <span class="o">*</span><span class="n"><a href="../../utility/pair.html">first</a></span><span class="p">;</span>
-    <span class="n"><a href="containers.html">c.keys</a></span><span class="p">.</span><span class="n"><a href="../../vector/vector/insert.html">insert</a></span><span class="p">(</span><span class="n"><a href="containers.html">c.keys</a></span><span class="p">.</span><span class="n"><a href="../../vector/vector/end.html">end()</a></span><span class="p">,</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">value</span><span class="p">.</span><span class="n"><a href="../../utility/pair.html">first</a></span><span class="p">));</span>
-    <span class="n"><a href="containers.html">c.values</a></span><span class="p">.</span><span class="n"><a href="../../vector/vector/insert.html">insert</a></span><span class="p">(</span><span class="n"><a href="containers.html">c.values</a></span><span class="p">.</span><span class="n"><a href="../../vector/vector/end.html">end()</a></span><span class="p">,</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">value</span><span class="p">.</span><span class="n"><a href="../../utility/pair.html">second</a></span><span class="p">));</span>
+<div class="codehilite"><pre><span></span><code><span class="k">for</span> <span class="p">(;</span> <span class="n"><a href="../../utility/pair/first.html">first</a></span> <span class="o">!=</span> <span class="n">last</span><span class="p">;</span> <span class="o">++</span><span class="n"><a href="../../utility/pair/first.html">first</a></span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">value_type</span> <span class="n">value</span> <span class="o">=</span> <span class="o">*</span><span class="n"><a href="../../utility/pair/first.html">first</a></span><span class="p">;</span>
+    <span class="n"><a href="containers.html">c.keys</a></span><span class="p">.</span><span class="n"><a href="../../vector/vector/insert.html">insert</a></span><span class="p">(</span><span class="n"><a href="containers.html">c.keys</a></span><span class="p">.</span><span class="n"><a href="../../vector/vector/end.html">end()</a></span><span class="p">,</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">value</span><span class="p">.</span><span class="n"><a href="../../utility/pair/first.html">first</a></span><span class="p">));</span>
+    <span class="n"><a href="containers.html">c.values</a></span><span class="p">.</span><span class="n"><a href="../../vector/vector/insert.html">insert</a></span><span class="p">(</span><span class="n"><a href="containers.html">c.values</a></span><span class="p">.</span><span class="n"><a href="../../vector/vector/end.html">end()</a></span><span class="p">,</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">value</span><span class="p">.</span><span class="n"><a href="../../utility/pair/second.html">second</a></span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>

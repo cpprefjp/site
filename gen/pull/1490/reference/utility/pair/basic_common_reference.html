@@ -28,11 +28,11 @@
         <meta property="og:url" content="https://cpprefjp.github.io/reference/utility/pair/basic_common_reference.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
-        <meta property="og:description" content="[`pair`](../pair.md)について、[`common_reference`](/reference/type_traits/common_reference.md)で共通の参照型を取得できるようにアダプトする[`basic_common_reference`](/reference/type_traits/common_reference.md)の特殊化である。" />
+        <meta property="og:description" content="[`pair`](../pair.md)について、[`common_reference`](/reference/type_traits/common_reference.md)で共通の参照型を取得できるようにアダプトする[`basic_common_reference`](/reference/type_traits/basic_common_reference.md)の特殊化である。" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="basic_common_reference - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/utility/pair/basic_common_reference.html" />
-        <meta name="twitter:description" content="[`pair`](../pair.md)について、[`common_reference`](/reference/type_traits/common_reference.md)で共通の参照型を取得できるようにアダプトする[`basic_common_reference`](/reference/type_traits/common_reference.md)の特殊化である。" />
+        <meta name="twitter:description" content="[`pair`](../pair.md)について、[`common_reference`](/reference/type_traits/common_reference.md)で共通の参照型を取得できるようにアダプトする[`basic_common_reference`](/reference/type_traits/basic_common_reference.md)の特殊化である。" />
 
         
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:33:39">
-        2025年07月08日 15時33分39秒
+      <span itemprop="datePublished" content="2025-08-23T16:37:25">
+        2025年08月23日 16時37分25秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -236,7 +236,7 @@
 </code></pre></div>
 </p>
 <h2>概要</h2>
-<p><code><a href="../pair.html">pair</a></code>について、<code><a href="../../type_traits/common_reference.html">common_reference</a></code>で共通の参照型を取得できるようにアダプトする<code><a href="../../type_traits/common_reference.html">basic_common_reference</a></code>の特殊化である。</p>
+<p><code><a href="../pair.html">pair</a></code>について、<code><a href="../../type_traits/common_reference.html">common_reference</a></code>で共通の参照型を取得できるようにアダプトする<code><a href="../../type_traits/basic_common_reference.html">basic_common_reference</a></code>の特殊化である。</p>
 <p>ユーザーが直接この特殊化を利用する必要はない。<code><a href="../../type_traits/common_reference.html">common_reference</a></code>を使用すること。</p>
 <h2>効果</h2>
 <p><code><a href="../pair.html">pair</a>&lt;<a href="../../type_traits/common_reference.html">common_reference_t</a>&lt;TQual&lt;T1&gt;, UQual&lt;U1&gt;&gt;, <a href="../../type_traits/common_reference.html">common_reference_t</a>&lt;TQual&lt;T2&gt;, UQual&lt;U2&gt;&gt;&gt;</code>によって得られた型をメンバ型<code>type</code>として定義する。</p>

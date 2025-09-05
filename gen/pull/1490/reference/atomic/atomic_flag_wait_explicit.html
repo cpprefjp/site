@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-01-22T04:39:19">
-        2025年01月22日 04時39分19秒
+      <span itemprop="datePublished" content="2025-08-26T09:12:52">
+        2025年08月26日 09時12分52秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">yoh</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -272,13 +272,13 @@
   <span class="n">std</span><span class="o">::</span><span class="n">atomic_flag</span> <span class="n">state_</span> <span class="o">=</span> <span class="n"><a href="atomic_flag_init.html">ATOMIC_FLAG_INIT</a></span><span class="p">;</span> <span class="c1">// clear:unlock, set:lock</span>
 <span class="k">public</span><span class="o">:</span>
   <span class="kt">void</span> <span class="n">lock</span><span class="p">()</span> <span class="k">noexcept</span> <span class="p">{</span>
-    <span class="k">while</span> <span class="p">(</span><span class="n"><a href="atomic_flag_test_and_set.html">std::atomic_flag_test_and_set_explicit</a></span><span class="p">(</span><span class="o">&amp;</span><span class="n">state_</span><span class="p">,</span> <span class="n"><a href="memory_order.html">std::memory_order</a></span><span class="o">::</span><span class="n">acquire</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n"><a href="atomic_flag_test_and_set_explicit.html">std::atomic_flag_test_and_set_explicit</a></span><span class="p">(</span><span class="o">&amp;</span><span class="n">state_</span><span class="p">,</span> <span class="n"><a href="memory_order.html">std::memory_order</a></span><span class="o">::</span><span class="n">acquire</span><span class="p">))</span> <span class="p">{</span>
       <span class="n"><span style="color:#ff0000">std::atomic_flag_wait_explicit</span></span><span class="p">(</span><span class="o">&amp;</span><span class="n">state_</span><span class="p">,</span> <span class="nb">true</span><span class="p">,</span> <span class="n"><a href="memory_order.html">std::memory_order</a></span><span class="o">::</span><span class="n">relaxed</span><span class="p">);</span>
     <span class="p">}</span>
   <span class="p">}</span>
 
   <span class="kt">void</span> <span class="n">unlock</span><span class="p">()</span> <span class="k">noexcept</span> <span class="p">{</span>
-    <span class="n"><a href="atomic_flag_clear.html">std::atomic_flag_clear_explicit</a></span><span class="p">(</span><span class="o">&amp;</span><span class="n">state_</span><span class="p">,</span> <span class="n"><a href="memory_order.html">std::memory_order</a></span><span class="o">::</span><span class="n">release</span><span class="p">);</span>
+    <span class="n"><a href="atomic_flag_clear_explicit.html">std::atomic_flag_clear_explicit</a></span><span class="p">(</span><span class="o">&amp;</span><span class="n">state_</span><span class="p">,</span> <span class="n"><a href="memory_order.html">std::memory_order</a></span><span class="o">::</span><span class="n">release</span><span class="p">);</span>
     <span class="n"><a href="atomic_flag_notify_one.html">std::atomic_flag_notify_one</a></span><span class="p">(</span><span class="o">&amp;</span><span class="n">state_</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">};</span>

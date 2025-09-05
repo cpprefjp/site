@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:33:39">
-        2025年07月08日 15時33分39秒
+      <span itemprop="datePublished" content="2025-08-31T10:06:36">
+        2025年08月31日 10時06分36秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -253,7 +253,7 @@
 <li>(2): Rangeを直接指定する</li>
 </ul>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
-<p><code>[first1,last1 - (last2 - first2))</code> 内のイテレータ <code>i</code> があるとき、<code>[first2,last2)</code> 内のイテレータ <code>j</code> について、どれかが <code><a href="../functional/invoke.html">invoke</a>(pred,<a href="../functional/invoke.html">invoke</a>(proj1, *i),<a href="../functional/invoke.html">invoke</a>(proj2, *j)) == true</code> であるような最初のイテレータを返す。</p>
+<p><code>[first1,last1 - (last2 - first2))</code> 内のイテレータ <code>i</code> があるとき、<code>[first2,last2)</code> 内のイテレータ <code>j</code> について、どれかが <code><a href="../functional/invoke.html">invoke</a>(pred, <a href="../functional/invoke.html">invoke</a>(proj1, *i), <a href="../functional/invoke.html">invoke</a>(proj2, *j)) == true</code> であるような最初のイテレータを返す。</p>
 <p>そのようなイテレータが見つからない、もしくは <code>[first2,last2)</code> が空である場合は <code>last1</code> を返す。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></h2>
 <p>最大で <code>(last1 - first1) * (last2 - first2)</code> 回の、対応する比較もしくは<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>が適用される。</p>

@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:33:39">
-        2025年07月08日 15時33分39秒
+      <span itemprop="datePublished" content="2025-08-31T12:36:04">
+        2025年08月31日 12時36分04秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -230,7 +230,7 @@
 <p><a href="../concepts/Invoke.html"><em>INVOKE</em></a>要件に従った呼び出しの結果（<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>）となる型をメンバ型<code>type</code>として定義する。そのような呼び出しが出来ない（ill-formedな）場合、メンバ型<code>type</code>は定義されない。</p>
 <p>すなわち、関数呼び出し出来ない型と引数列の組み合わせが渡された場合、SFINAEが働く。</p>
 <p>メンバ型<code>type</code>が定義される場合、以下と同じ型となる：</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">decltype</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">invoke</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;</span><span class="p">(),</span> <span class="n">std</span><span class="o">::</span><span class="n"><a href="../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">ArgsTypes</span><span class="o">&gt;</span><span class="p">()...)</span>
+<p><div class="codehilite"><pre><span></span><code><span class="k">decltype</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">invoke</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;</span><span class="p">(),</span> <span class="n">std</span><span class="o">::</span><span class="n"><a href="../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">ArgsTypes</span><span class="o">&gt;</span><span class="p">()...))</span>
 </code></pre></div>
 </p>
 <h2>備考</h2>

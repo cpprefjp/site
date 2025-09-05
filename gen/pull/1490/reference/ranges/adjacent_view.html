@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-06-04T02:59:19">
-        2025年06月04日 02時59分19秒
+      <span itemprop="datePublished" content="2025-08-31T12:36:04">
+        2025年08月31日 12時36分04秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -216,7 +216,7 @@
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span> <span class="p">{</span>
   <span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="forward_range.html">forward_range</a></span> <span class="n">V</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">N</span><span class="o">&gt;</span>
     <span class="n">requires</span> <span class="n"><a href="view.html">view</a></span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">N</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
-  <span class="k">class</span> <span class="nc">adjacent_view</span> <span class="o">:</span> <span class="k">public</span> <span class="n"><a href="view_interface.html">view_interface</a></span><span class="o">&lt;</span><span class="n">adjacent_view</span><span class="o">&lt;</span><span class="n">V</span><span class="p">,</span> <span class="n">N</span><span class="o">&gt;&gt;</span> <span class="p">{</span><span class="err">……</span> <span class="p">};</span> <span class="c1">// (1)</span>
+  <span class="k">class</span> <span class="nc">adjacent_view</span> <span class="o">:</span> <span class="k">public</span> <span class="n"><a href="view_interface.html">view_interface</a></span><span class="o">&lt;</span><span class="n">adjacent_view</span><span class="o">&lt;</span><span class="n">V</span><span class="p">,</span> <span class="n">N</span><span class="o">&gt;&gt;</span> <span class="p">{</span> <span class="err">……</span> <span class="p">};</span> <span class="c1">// (1)</span>
 
   <span class="k">namespace</span> <span class="n">views</span> <span class="p">{</span>
     <span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">N</span><span class="o">&gt;</span>
@@ -276,7 +276,7 @@
 <ul>
 <li>(2): 式<code>views::adjacent&lt;N&gt;(E)</code>の効果は次の通り<ul>
 <li><code>N</code> &gt; 0 のとき、<code>adjacent_view&lt;<a href="all.html">views::all_t</a>&lt;decltype((E))&gt;, N&gt;(E)</code> と等しい</li>
-<li><code>N</code> = 0 のとき、<code>auto((void)E,<a href="empty_view.html">views::empty</a>&lt;<a href="../tuple/tuple.html">tuple</a>&lt;&gt;&gt;))</code> と等しい</li>
+<li><code>N</code> = 0 のとき、<code>auto((void)E, <a href="empty_view.html">views::empty</a>&lt;<a href="../tuple/tuple.html">tuple</a>&lt;&gt;&gt;)</code> と等しい</li>
 </ul>
 </li>
 </ul>

@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2024-06-11T13:45:38">
-        2024年06月11日 13時45分38秒
+      <span itemprop="datePublished" content="2025-08-31T12:36:04">
+        2025年08月31日 12時36分04秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -239,7 +239,7 @@
 <p><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>がスローされた場合、関数は効果がない。</p>
 <p>配列型<code>U</code>のオブジェクトが（同じ型の）<code>u</code>の初期値を持つように指定されている場合、これは、オブジェクトの各配列要素が初期値として<code>u</code>からの対応する要素を持つことを意味すると解釈される。</p>
 <p>配列タイプのオブジェクトがデフォルトの初期値を持つように指定されている場合、これはオブジェクトの各配列要素がデフォルトの初期値を持つ（<a class="cpprefjp-defined-word" data-desc="`T x{};`構文での初期化。組み込み型の場合はゼロ相当の値で、クラス型の場合はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的に値初期化される">値初期化</a>される）ことを意味すると解釈される。</p>
-<p>非配列型<code>U</code>の（サブ）オブジェクトが、<code>v</code>または<code>U(l ...)</code>の初期値を持つように指定されている場合(<code>l...</code>はコンストラクタ引数のリスト）、<code>make_shared</code>は、式<code>::new (pv) U(v)</code>または<code>::new (pv) U(l...)</code>を使用して、この（サブ）オブジェクトを初期化する。ここで、<code>pv</code>の型は<code>void*</code>であり、型<code>U</code>のオブジェクトを保持するのに適したストレージを指す。</p>
+<p>非配列型<code>U</code>の（サブ）オブジェクトが、<code>v</code>または<code>U(l ...)</code>の初期値を持つように指定されている場合（<code>l...</code>はコンストラクタ引数のリスト）、<code>make_shared</code>は、式<code>::new (pv) U(v)</code>または<code>::new (pv) U(l...)</code>を使用して、この（サブ）オブジェクトを初期化する。ここで、<code>pv</code>の型は<code>void*</code>であり、型<code>U</code>のオブジェクトを保持するのに適したストレージを指す。</p>
 <p>非配列型<code>U</code>の（サブ）オブジェクトがデフォルトの初期値を持つように指定されている場合、この関数は、式 <code>::new (pv) U()</code>を使用してこの（サブ）オブジェクトを初期化する。<code>void*</code>は型<code>U</code>のオブジェクトを保持するのに適したストレージを指す。</p>
 <p>配列要素は、アドレスの昇順で初期化される。</p>
 <p><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>によって管理されるオブジェクトの<code>lifetime</code>が終了するか、配列要素の初期化が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>をスローすると、初期化された要素は元の構造の逆の順序で破棄される。</p>

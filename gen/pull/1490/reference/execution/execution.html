@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-21T11:27:10">
-        2025年08月21日 11時27分10秒
+      <span itemprop="datePublished" content="2025-09-01T16:37:59">
+        2025年09月01日 16時37分59秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -332,6 +332,11 @@
 <tr>
 <td><code><a href="execution/get_completion_scheduler.html">execution::get_completion_scheduler</a></code></td>
 <td>完了Scheduler取得のクエリオブジェクト (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/get_await_completion_adaptor.html">execution::get_await_completion_adaptor</a></code></td>
+<td>Awaitable完了アダプタ取得のクエリオブジェクト (customization point object)</td>
 <td>C++26</td>
 </tr>
 <tr>
@@ -634,7 +639,17 @@
 </tr>
 <tr>
 <td><code><a href="execution/bulk.html">execution::bulk</a></code></td>
-<td>インデクス空間上で指定関数を反復実行 (customization point object)</td>
+<td>インデクス空間上で指定関数を一括実行 (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/bulk_chunked.html">execution::bulk_chunked</a></code></td>
+<td>インデクス空間を分割チャンク単位で指定関数を一括実行 (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/bulk_unchunked.html">execution::bulk_unchunked</a></code></td>
+<td>インデクス空間の各インデクス単位で指定関数を一括実行 (customization point object)</td>
 <td>C++26</td>
 </tr>
 <tr>
@@ -662,6 +677,16 @@
 <td>入力Senderの停止完了をエラー完了に変換 (customization point object)</td>
 <td>C++26</td>
 </tr>
+<tr>
+<td><code><span href="https://cpprefjp.github.io/reference/execution/execution/associate.md.nolink">execution::associate</span></code></td>
+<td>非同期スコープへの関連付け (customization point object)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><span href="https://cpprefjp.github.io/reference/execution/execution/spawn_future.md.nolink">execution::spawn_future</span></code></td>
+<td>非<a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a>を早期開始 (customization point object)</td>
+<td>C++26</td>
+</tr>
 </tbody>
 </table>
 <h3>Senderコンシューマ</h3>
@@ -684,9 +709,14 @@
 <td>現在のスレッド上でSender完了を待機 (customization point object)</td>
 <td>C++26</td>
 </tr>
+<tr>
+<td><code><span href="https://cpprefjp.github.io/reference/execution/execution/spawn.md.nolink">execution::spawn</span></code></td>
+<td>非<a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a>を早期開始 (customization point object)</td>
+<td>C++26</td>
+</tr>
 </tbody>
 </table>
-<p>Senderコンシューマは名前空間 <code>std::this_thread</code> で定義される。</p>
+<p>Senderコンシューマは名前空間 <code>std::this_thread</code> および名前空間 <code>std::execution</code> で定義される。</p>
 <h3>Sender/Receiverユーティリティ</h3>
 <table border="1" bordercolor="#888" style="border-collapse:collapse">
 <thead>
@@ -746,6 +776,60 @@
 </tr>
 </tbody>
 </table>
+<h3>実行スコープユーティリティ</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="execution/scope_token.html">execution::scope_token</a></code></td>
+<td>非同期スコープトークン (concept)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/simple_counting_scope.html">execution::simple_counting_scope</a></code></td>
+<td>カウント式非同期スコープ (class)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/counting_scope.html">execution::counting_scope</a></code></td>
+<td>停止要求可能なカウント式非同期スコープ (class)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h3>並列Scheduler</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="execution/parallel_scheduler.html">execution::parallel_scheduler</a></code></td>
+<td>並列Scheduler (class)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/get_parallel_scheduler.html">execution::get_parallel_scheduler</a></code></td>
+<td>並列Schedulerを取得 (function)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="execution/system_context_replaceability.html">execution::system_context_replaceability</a></code></td>
+<td><code>parallel_scheduler</code>動作カスタマイズ用の名前空間 (namespace)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
 <h2>バージョン</h2>
 <h3>言語</h3>
 <ul>
@@ -756,8 +840,12 @@
 <ul>
 <li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0024r2.html" target="_blank">P0024R2 The Parallelism TS Should be Standardized</a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2079r10.html" target="_blank">P2079R10 Parallel scheduler</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3149r11.html" target="_blank">P3149R11 <code>async_scope</code> - Creating scopes for non-sequential concurrency</a></li>
 <li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3284r4.html" target="_blank">P3284R4 <code>write_env</code> and <code>unstoppable</code> Sender Adaptors</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3481r5.html" target="_blank">P3481R5 <code>std::execution::bulk()</code> issues</a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html" target="_blank">P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3570r2.html" target="_blank">P3570R2 optional variants in sender/receiver</a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3682r0.pdf" target="_blank">P3682R0 Remove <code>std::execution::split</code></a></li>
 </ul></div>
 
