@@ -53,6 +53,7 @@ int main() {
 
 ```cpp example
 #include <cassert>
+#include <cstring>
 
 int g(bool b) {
   unsigned char c;

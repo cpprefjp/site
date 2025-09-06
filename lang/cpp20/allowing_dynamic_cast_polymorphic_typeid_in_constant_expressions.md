@@ -17,6 +17,9 @@ C++20より、`constexpr`関数内（定数式）で`dynamic_cast`および多�
 
 ## 例
 ```cpp example
+#include <iostream>
+#include <typeinfo>
+
 struct base {
   virtual int f() const = 0;
 };
