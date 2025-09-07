@@ -102,7 +102,7 @@ namespace std::ranges {
 
 
 ## 戻り値
-`{ .in = last, .out = result + (last - first)`
+`{ .in = last, .out = result + (last - first) }`
 
 
 ## 計算量
