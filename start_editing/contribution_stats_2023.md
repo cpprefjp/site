@@ -389,7 +389,7 @@
 
 | コミット | タグ | 説明 |
 |----------|------|------|
-| [40638a6 | cpprefjp/typo:1 | fix typo in constexpr_lambda.md |
+| [commit cpprefjp/site, 40638a6] | cpprefjp/typo:1 | fix typo in constexpr_lambda.md |
 
 
 ## [h-sao](https://github.com/h-sao)

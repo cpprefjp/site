@@ -7,7 +7,7 @@
 
 ```cpp
 namespace std {
-  [[nodiscard] constexpr allocation_result<T*>
+  [[nodiscard]] constexpr allocation_result<T*>
     allocate_at_least(size_t n); // (1) C++23
 }
 ```

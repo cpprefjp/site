@@ -6,7 +6,7 @@
 * cpp23[meta cpp]
 
 ```cpp
-[[nodiscard]
+[[nodiscard]]
 static constexpr
 allocation_result<pointer, size_type>
   allocate_at_least(Alloc& a, size_type n); // (1) C++23
