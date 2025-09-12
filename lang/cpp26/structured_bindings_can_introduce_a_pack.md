@@ -10,17 +10,27 @@
 <!-- last lang caution -->
 
 ## 概要
-C++26では、構造化束縛でタプルを分解する際に、パックで受け取れるようになる。
+C++26では、構造化束縛でタプルを分解する際に、パックで受け取れるようになる。この記法はテンプレート内でのみ利用できる。
 
 ```cpp
 std::tuple<X, Y, Z> f();
 
-auto [x, y, z] = f();          // C++23: OK, C++26: OK
-auto [...xs] = f();            // C++26: OK. パックxsは長さ3でX, Y, Zが含まれる
-auto [x, ...rest] = f();       // C++26: OK. xはX、パックrestは長さ2でYとZが含まれる
-auto [x, y, z, ...rest] = f(); // C++26: OK. restは空のパック
-auto [x, ...rest, z] = f();    // C++26: OK. xはX、パックrestは長さ1でYに対応、zはZ
-auto [...a, ...b] = f();       // NG: 複数のパックは指定できない
+template <class>
+void g()
+{
+  auto [x, y, z] = f();          // C++23: OK, C++26: OK
+  auto [...xs] = f();            // C++26: OK. パックxsは長さ3でX, Y, Zが含まれる
+  auto [x, ...rest] = f();       // C++26: OK. xはX、パックrestは長さ2でYとZが含まれる
+  auto [x, y, z, ...rest] = f(); // C++26: OK. restは空のパック
+  auto [x, ...rest, z] = f();    // C++26: OK. xはX、パックrestは長さ1でYに対応、zはZ
+  auto [...a, ...b] = f();       // NG: 複数のパックは指定できない
+}
+
+void h()
+{
+  auto [x, y, z] = f();          // C++23: OK, C++26: OK
+  auto [...xs] = f();            // NG: テンプレートの外では不適格となる
+}
 ```
 
 ### std::apply()の実装改善
