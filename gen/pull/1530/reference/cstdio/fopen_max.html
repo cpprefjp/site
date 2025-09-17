@@ -28,11 +28,11 @@
         <meta property="og:url" content="https://cpprefjp.github.io/reference/cstdio/fopen_max.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
-        <meta property="og:description" content="実装によって保証されるファイルを同時に開ける最低限の数を表すマクロ。" />
+        <meta property="og:description" content="処理系によって保証されるファイルを同時に開ける最低限の数を表すマクロ。" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="FOPEN_MAX - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/cstdio/fopen_max.html" />
-        <meta name="twitter:description" content="実装によって保証されるファイルを同時に開ける最低限の数を表すマクロ。" />
+        <meta name="twitter:description" content="処理系によって保証されるファイルを同時に開ける最低限の数を表すマクロ。" />
 
         
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cstdio&#34;], &#34;id-type&#34;: [&#34;macro&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;cf6097e7995541fdec381fe739364c3806975888&#34;, &#34;source&#34;: &#34;#include &lt;cstdio&gt;\n#include &lt;vector&gt;\n\nint main() {\n  // FOPEN_MAX\u306e\u5024\u3092\u8868\u793a\n  std::printf(\&#34;FOPEN_MAX = %d\\n\&#34;, FOPEN_MAX);\n\n  // \u8907\u6570\u306e\u30d5\u30a1\u30a4\u30eb\u3092\u958b\u3044\u3066\u307f\u308b\n  std::vector&lt;std::FILE*&gt; files;\n\n  for (int i = 0; i &lt; FOPEN_MAX; ++i) {\n    char filename[32];\n    std::sprintf(filename, \&#34;temp%d.txt\&#34;, i);\n    std::FILE* file = std::fopen(filename, \&#34;w\&#34;);\n    if (file) {\n      files.push_back(file);\n      std::fprintf(file, \&#34;File %d\\n\&#34;, i);\n    } else {\n      std::printf(\&#34;Failed to open file %d\\n\&#34;, i);\n      break;\n    }\n  }\n\n  std::printf(\&#34;Successfully opened %zu files\\n\&#34;, files.size());\n\n  // \u30d5\u30a1\u30a4\u30eb\u3092\u9589\u3058\u3066\u524a\u9664\n  for (std::FILE* file : files) {\n    std::fclose(file);\n  }\n\n  for (int i = 0; i &lt; static_cast&lt;int&gt;(files.size()); ++i) {\n    char filename[32];\n    std::sprintf(filename, \&#34;temp%d.txt\&#34;, i);\n    std::remove(filename);\n  }\n\n  return 0;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cstdio&#34;, &#34;fopen_max&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cstdio&#34;], &#34;id-type&#34;: [&#34;macro&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;e7c2b48c03c2e2ee128ec0d362ce758597bba745&#34;, &#34;source&#34;: &#34;#include &lt;cstdio&gt;\n#include &lt;vector&gt;\n#include &lt;filesystem&gt;\n#include &lt;format&gt;\n\nint main() {\n  // FOPEN_MAX\u306e\u5024\u3092\u8868\u793a\n  std::printf(\&#34;FOPEN_MAX = %d\\n\&#34;, FOPEN_MAX);\n\n  // \u4f5c\u696d\u7528\u30c7\u30a3\u30ec\u30af\u30c8\u30ea\u3092\u4f5c\u6210\n  std::filesystem::path work_dir = \&#34;temp_fopen_test\&#34;;\n  std::filesystem::create_directory(work_dir);\n\n  // \u8907\u6570\u306e\u30d5\u30a1\u30a4\u30eb\u3092\u958b\u3044\u3066\u307f\u308b\uff08\u6a19\u6e96\u30b9\u30c8\u30ea\u30fc\u30e03\u3064\u3092\u9664\u304f\uff09\n  std::vector&lt;std::FILE*&gt; files;\n  const int max_new_files = FOPEN_MAX - 3; // \u6a19\u6e96\u30b9\u30c8\u30ea\u30fc\u30e0\u5206\u3092\u9664\u304f\n\n  for (int i = 0; i &lt; max_new_files; ++i) {\n    auto filepath = work_dir / std::format(\&#34;temp{}.txt\&#34;, i);\n    std::FILE* file = std::fopen(filepath.string().c_str(), \&#34;w\&#34;);\n    if (file) {\n      files.push_back(file);\n      std::fprintf(file, \&#34;File %d\\n\&#34;, i);\n    } else {\n      std::printf(\&#34;Failed to open file %d\\n\&#34;, i);\n      break;\n    }\n  }\n\n  std::printf(\&#34;Successfully opened %zu files\\n\&#34;, files.size());\n\n  // \u30d5\u30a1\u30a4\u30eb\u3092\u9589\u3058\u308b\n  for (std::FILE* file : files) {\n    std::fclose(file);\n  }\n\n  // \u4f5c\u696d\u7528\u30c7\u30a3\u30ec\u30af\u30c8\u30ea\u3054\u3068\u524a\u9664\n  std::filesystem::remove_all(work_dir);\n\n  return 0;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cstdio&#34;, &#34;fopen_max&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-09-15T01:46:30">
-        2025年09月15日 01時46分30秒
+      <span itemprop="datePublished" content="2025-09-17T04:18:52">
+        2025年09月17日 04時18分52秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -217,25 +217,36 @@
 </code></pre></div>
 </p>
 <h2>概要</h2>
-<p>実装によって保証されるファイルを同時に開ける最低限の数を表すマクロ。</p>
+<p>処理系によって保証されるファイルを同時に開ける最低限の数を表すマクロ。</p>
 <p>このマクロは、プログラムが同時にオープンできるファイルの最低限の数を定義する。値は実装依存であり、最低でも8以上であることがC標準によって保証されている。実際の実装では、より大きな値（例：16、256など）が使用されることが多い。</p>
-<p>この値は実装の最低保証値であり、実際にはより多くのファイルを同時に開ける場合がある。ただし、システムのリソース制限により、この値より少ない数のファイルしか開けない場合もある。</p>
 <p>また、<code>FOPEN_MAX</code>は<code><span href="https://cpprefjp.github.io/reference/cstdio/tmp_max.md.nolink">TMP_MAX</span></code>と等しいかそれより大きいことが保証される。</p>
+<h2>備考</h2>
+<ul>
+<li>この値は最低限の保証値であり、実際にはより多くのファイルを開ける場合がある</li>
+<li>システムリソースやOS固有の制限により、この値未満しかファイルを開けない場合もある</li>
+<li><code>FOPEN_MAX</code>で開けるファイルの数は、標準で開かれている3つのストリームも含むため、実際に新たに開けるファイルの数は<code>FOPEN_MAX - 3</code>個となる</li>
+</ul>
 <h2>例</h2>
-<p><div class="yata" id="cf6097e7995541fdec381fe739364c3806975888"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cstdio.html">&lt;cstdio&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="e7c2b48c03c2e2ee128ec0d362ce758597bba745"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cstdio.html">&lt;cstdio&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../filesystem.html">&lt;filesystem&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../format.html">&lt;format&gt;</a></span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
   <span class="c1">// <span style="color:#ff0000">FOPEN_MAX</span>の値を表示</span>
   <span class="n"><a href="printf.html">std::printf</a></span><span class="p">(</span><span class="s">"<span style="color:#ff0000">FOPEN_MAX</span> = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n"><span style="color:#ff0000">FOPEN_MAX</span></span><span class="p">);</span>
 
-  <span class="c1">// 複数のファイルを開いてみる</span>
-  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">FILE</span><span class="o">*&gt;</span> <span class="n">files</span><span class="p">;</span>
+  <span class="c1">// 作業用ディレクトリを作成</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">filesystem</span><span class="o">::</span><span class="n">path</span> <span class="n">work_dir</span> <span class="o">=</span> <span class="s">"temp_fopen_test"</span><span class="p">;</span>
+  <span class="n"><a href="../filesystem/create_directory.html">std::filesystem::create_directory</a></span><span class="p">(</span><span class="n">work_dir</span><span class="p">);</span>
 
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n"><span style="color:#ff0000">FOPEN_MAX</span></span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">char</span> <span class="n">filename</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span>
-    <span class="n"><span href="https://cpprefjp.github.io/reference/cstdio/sprintf.md.nolink">std::sprintf</span></span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s">"temp%d.txt"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
-    <span class="n">std</span><span class="o">::</span><span class="kt">FILE</span><span class="o">*</span> <span class="n">file</span> <span class="o">=</span> <span class="n"><a href="fopen.html">std::fopen</a></span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s">"w"</span><span class="p">);</span>
+  <span class="c1">// 複数のファイルを開いてみる（標準ストリーム3つを除く）</span>
+  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">FILE</span><span class="o">*&gt;</span> <span class="n">files</span><span class="p">;</span>
+  <span class="k">const</span> <span class="kt">int</span> <span class="n">max_new_files</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">FOPEN_MAX</span></span> <span class="o">-</span> <span class="mi">3</span><span class="p">;</span> <span class="c1">// 標準ストリーム分を除く</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">max_new_files</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">auto</span> <span class="n">filepath</span> <span class="o">=</span> <span class="n">work_dir</span> <span class="o">/</span> <span class="n"><a href="../format/format.html">std::format</a></span><span class="p">(</span><span class="s">"temp{}.txt"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+    <span class="n">std</span><span class="o">::</span><span class="kt">FILE</span><span class="o">*</span> <span class="n">file</span> <span class="o">=</span> <span class="n"><a href="fopen.html">std::fopen</a></span><span class="p">(</span><span class="n">filepath</span><span class="p">.</span><span class="n">string</span><span class="p">().</span><span class="n">c_str</span><span class="p">(),</span> <span class="s">"w"</span><span class="p">);</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="p">{</span>
       <span class="n">files</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
       <span class="n"><a href="fprintf.html">std::fprintf</a></span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s">"File %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
@@ -247,16 +258,13 @@
 
   <span class="n"><a href="printf.html">std::printf</a></span><span class="p">(</span><span class="s">"Successfully opened %zu files</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">files</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
 
-  <span class="c1">// ファイルを閉じて削除</span>
+  <span class="c1">// ファイルを閉じる</span>
   <span class="k">for</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">FILE</span><span class="o">*</span> <span class="nl">file</span> <span class="p">:</span> <span class="n">files</span><span class="p">)</span> <span class="p">{</span>
     <span class="n"><a href="fclose.html">std::fclose</a></span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
   <span class="p">}</span>
 
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">files</span><span class="p">.</span><span class="n">size</span><span class="p">());</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">char</span> <span class="n">filename</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span>
-    <span class="n"><span href="https://cpprefjp.github.io/reference/cstdio/sprintf.md.nolink">std::sprintf</span></span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s">"temp%d.txt"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
-    <span class="n"><a href="remove.html">std::remove</a></span><span class="p">(</span><span class="n">filename</span><span class="p">);</span>
-  <span class="p">}</span>
+  <span class="c1">// 作業用ディレクトリごと削除</span>
+  <span class="n"><a href="../filesystem/remove_all.html">std::filesystem::remove_all</a></span><span class="p">(</span><span class="n">work_dir</span><span class="p">);</span>
 
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
@@ -264,13 +272,8 @@
 </div></p>
 <h3>出力例</h3>
 <p><pre><code>FOPEN_MAX = 20
-Successfully opened 20 files
+Successfully opened 17 files
 </code></pre></p>
-<h2>備考</h2>
-<ul>
-<li>この値は最低限の保証値であり、実際にはより多くのファイルを開ける場合がある</li>
-<li>システムリソースやOS固有の制限により、この値未満しかファイルを開けない場合もある</li>
-</ul>
 <h2>処理系</h2>
 <ul>
 <li><a href="../../implementation.html#clang">Clang</a>: ??</li>

@@ -2,9 +2,121 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-09-15T01:52:15.630306</updated>
-  <id>e052e043-56c3-49af-ad60-b2d1a87307b9</id>
+  <updated>2025-09-17T04:23:24.197889</updated>
+  <id>ce1a8022-2d2a-4331-82f9-8c2df20d3a2d</id>
 
+  
+    <entry>
+      <title>FOPEN_MAX -- Fixed wrong explanations in fopen_max</title>
+      <link href="https://cpprefjp.github.io/reference/cstdio/fopen_max.html"/>
+      <id>fc3bf3dedec9666549e22ae19dedd2344bfb3487:reference/cstdio/fopen_max.md</id>
+      <updated>2025-09-17T13:18:52+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdio/fopen_max.md b/reference/cstdio/fopen_max.md
+index 38b0aebc6..55241d20b 100644
+--- a/reference/cstdio/fopen_max.md
++++ b/reference/cstdio/fopen_max.md
+@@ -8,30 +8,39 @@
+ * unspecified[italic]
+ 
+ ## 概要
+-実装によって保証されるファイルを同時に開ける最低限の数を表すマクロ。
++処理系によって保証されるファイルを同時に開ける最低限の数を表すマクロ。
+ 
+ このマクロは、プログラムが同時にオープンできるファイルの最低限の数を定義する。値は実装依存であり、最低でも8以上であることがC標準によって保証されている。実際の実装では、より大きな値（例：16、256など）が使用されることが多い。
+ 
+-この値は実装の最低保証値であり、実際にはより多くのファイルを同時に開ける場合がある。ただし、システムのリソース制限により、この値より少ない数のファイルしか開けない場合もある。
+-
+ また、`FOPEN_MAX`は[`TMP_MAX`](/reference/cstdio/tmp_max.md.nolink)と等しいかそれより大きいことが保証される。
+ 
++## 備考
++- この値は最低限の保証値であり、実際にはより多くのファイルを開ける場合がある
++- システムリソースやOS固有の制限により、この値未満しかファイルを開けない場合もある
++- `FOPEN_MAX`で開けるファイルの数は、標準で開かれている3つのストリームも含むため、実際に新たに開けるファイルの数は`FOPEN_MAX - 3`個となる
++
+ ## 例
+ ```cpp example
+ #include &amp;lt;cstdio&amp;gt;
+ #include &amp;lt;vector&amp;gt;
++#include &amp;lt;filesystem&amp;gt;
++#include &amp;lt;format&amp;gt;
+ 
+ int main() {
+   // FOPEN_MAXの値を表示
+   std::printf(&amp;#34;FOPEN_MAX = %d\n&amp;#34;, FOPEN_MAX);
+ 
+-  // 複数のファイルを開いてみる
++  // 作業用ディレクトリを作成
++  std::filesystem::path work_dir = &amp;#34;temp_fopen_test&amp;#34;;
++  std::filesystem::create_directory(work_dir);
++
++  // 複数のファイルを開いてみる（標準ストリーム3つを除く）
+   std::vector&amp;lt;std::FILE*&amp;gt; files;
++  const int max_new_files = FOPEN_MAX - 3; // 標準ストリーム分を除く
+ 
+-  for (int i = 0; i &amp;lt; FOPEN_MAX; ++i) {
+-    char filename[32];
+-    std::sprintf(filename, &amp;#34;temp%d.txt&amp;#34;, i);
+-    std::FILE* file = std::fopen(filename, &amp;#34;w&amp;#34;);
++  for (int i = 0; i &amp;lt; max_new_files; ++i) {
++    auto filepath = work_dir / std::format(&amp;#34;temp{}.txt&amp;#34;, i);
++    std::FILE* file = std::fopen(filepath.string().c_str(), &amp;#34;w&amp;#34;);
+     if (file) {
+       files.push_back(file);
+       std::fprintf(file, &amp;#34;File %d\n&amp;#34;, i);
+@@ -43,38 +52,32 @@ int main() {
+ 
+   std::printf(&amp;#34;Successfully opened %zu files\n&amp;#34;, files.size());
+ 
+-  // ファイルを閉じて削除
++  // ファイルを閉じる
+   for (std::FILE* file : files) {
+     std::fclose(file);
+   }
+ 
+-  for (int i = 0; i &amp;lt; static_cast&amp;lt;int&amp;gt;(files.size()); ++i) {
+-    char filename[32];
+-    std::sprintf(filename, &amp;#34;temp%d.txt&amp;#34;, i);
+-    std::remove(filename);
+-  }
++  // 作業用ディレクトリごと削除
++  std::filesystem::remove_all(work_dir);
+ 
+   return 0;
+ }
+ ```
+ * FOPEN_MAX[color ff0000]
+ * std::printf[link /reference/cstdio/printf.md]
+-* std::sprintf[link /reference/cstdio/sprintf.md.nolink]
+ * std::fopen[link /reference/cstdio/fopen.md]
+ * std::fprintf[link /reference/cstdio/fprintf.md]
+ * std::fclose[link /reference/cstdio/fclose.md]
+-* std::remove[link /reference/cstdio/remove.md]
++* std::format[link /reference/format/format.md]
++* std::filesystem::create_directory[link /reference/filesystem/create_directory.md]
++* std::filesystem::remove_all[link /reference/filesystem/remove_all.md]
+ 
+ ### 出力例
+ ```
+ FOPEN_MAX = 20
+-Successfully opened 20 files
++Successfully opened 17 files
+ ```
+ 
+-## 備考
+-- この値は最低限の保証値であり、実際にはより多くのファイルを開ける場合がある
+-- システムリソースやOS固有の制限により、この値未満しかファイルを開けない場合もある
+-
+ ## 処理系
+ 
+ - [Clang](/implementation.md#clang): ??
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>cstdio -- Create page: fopen_max</title>
@@ -1184,33 +1296,6 @@ index 3ece42c40..d52a16cbd 100644
       <author>
         <name>Akira Takahashi</name>
         <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>replace_copy -- 対応しない波カッコを修正</title>
-      <link href="https://cpprefjp.github.io/reference/algorithm/ranges_replace_copy.html"/>
-      <id>a9216ac655dc2e79f922739b2d8214fe1c951dec:reference/algorithm/ranges_replace_copy.md</id>
-      <updated>2025-09-07T14:59:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/ranges_replace_copy.md b/reference/algorithm/ranges_replace_copy.md
-index a9ccb0443..6fe9ba293 100644
---- a/reference/algorithm/ranges_replace_copy.md
-+++ b/reference/algorithm/ranges_replace_copy.md
-@@ -102,7 +102,7 @@ namespace std::ranges {
- 
- 
- ## 戻り値
--`{ .in = last, .out = result + (last - first)`
-+`{ .in = last, .out = result + (last - first) }`
- 
- 
- ## 計算量
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Raclamusi</name>
-        <email>raclamusi@gmail.com</email>
       </author>
     </entry>
   
