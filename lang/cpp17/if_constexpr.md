@@ -161,7 +161,7 @@ struct Hoge {
 template <typename T>
 void f()
 {
-  if constexpr (std::is_same_v<T::type, int> || std::is_same_v<T::value_type, int>) {
+  if constexpr (std::is_same_v<typename T::type, int> || std::is_same_v<typename T::value_type, int>) {
     std::cout << "is int" << std::endl;
   }
 }
