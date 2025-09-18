@@ -362,12 +362,21 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 
 
 ### 数値
+- [`<cmath>`](/reference/cmath.md)に、浮動小数点数の最大値・最小値を求める以下の関数を追加
+    - [`std::fmaximum()`](/reference/cmath/fmaximum.md) (-0.0と+0.0では+0.0を返し、NaNと数値ではNaNを返す)
+    - [`std::fmaximum_num()`](/reference/cmath/fmaximum_num.md) (-0.0と+0.0では+0.0を返し、NaNと数値では数値を返す)
+    - [`std::fminimum()`](/reference/cmath/fminimum.md) (-0.0と+0.0では-0.0を返し、NaNと数値ではNaNを返す)
+    - [`std::fminimum_num()`](/reference/cmath/fminimum_num.md) (-0.0と-0.0では+0.0を返し、NaNと数値では数値を返す)
 - [`<numeric>`](/reference/numeric.md)に、飽和演算 (Saturation Arithmetic) として、型の表現可能な範囲で演算を行う以下の関数を追加
     - [`std::add_sat()`](/reference/numeric/add_sat.md)
     - [`std::sub_sat()`](/reference/numeric/sub_sat.md)
     - [`std::mul_sat()`](/reference/numeric/mul_sat.md)
     - [`std::div_sat()`](/reference/numeric/div_sat.md)
     - [`std::saturate_cast()`](/reference/numeric/saturate_cast.md)
+- [`std::complex`](/reference/complex/complex.md)を構造化束縛や、将来のパターンマッチで使用できるようタプルインタフェースの特殊化を追加
+- [`<random>`](/reference/random.md)の範囲`[0, 1)`の乱数を生成する[`std::generate_canonical()`](/reference/random/generate_canonical.md)を、望ましい統計的性質を保証するようアルゴリズムと制約を変更
+- [`<random>`](/reference/random.md)に、乱数列を生成する[`std::ranges::generate_random()`](/reference/random/generate_random.md)関数を追加
+- [`<random>`](/reference/random.md)に、乱数生成器は並列シミュレーションに効果的なカウンターベースのPhilox乱数生成器として、[`std::philox_engine`](/reference/random/philox_engine.md)クラス、およびその別名である[`std::philox4x32`](/reference/random/philox4x32.md)と[`std::philox4x64`](/reference/random/philox4x64.md)を追加
 - [`<cmath>`](/reference/cmath.md)の以下の関数を、`constexpr`に対応 (特殊関数と、グローバルの丸めモードに依存する丸め関数以外の全て)
     - [`std::cos()`](/reference/cmath/cos.md)
     - [`std::sin()`](/reference/cmath/sin.md)
@@ -423,10 +432,6 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - [`std::conj()`](/reference/complex/complex/conj.md) (算術型オーバーロード)
     - [`std::imag()`](/reference/complex/complex/imag_free.md) (算術型オーバーロード)
     - [`std::real()`](/reference/complex/complex/real_free.md) (算術型オーバーロード)
-- [`std::complex`](/reference/complex/complex.md)を構造化束縛や、将来のパターンマッチで使用できるようタプルインタフェースの特殊化を追加
-- [`<random>`](/reference/random.md)の範囲`[0, 1)`の乱数を生成する[`std::generate_canonical()`](/reference/random/generate_canonical.md)を、望ましい統計的性質を保証するようアルゴリズムと制約を変更
-- [`<random>`](/reference/random.md)に、乱数列を生成する[`std::ranges::generate_random()`](/reference/random/generate_random.md)関数を追加
-- [`<random>`](/reference/random.md)に、乱数生成器は並列シミュレーションに効果的なカウンターベースのPhilox乱数生成器として、[`std::philox_engine`](/reference/random/philox_engine.md)クラス、およびその別名である[`std::philox4x32`](/reference/random/philox4x32.md)と[`std::philox4x64`](/reference/random/philox4x64.md)を追加
 
 
 ### ユーティリティ

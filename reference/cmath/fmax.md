@@ -48,6 +48,13 @@ namespace std {
 - (6) : `float`型規定
 - (7) : `long double`型規定
 
+同じ目的のほかの関数との比較は以下。
+
+| 関数名 | -0.0 と +0.0 の比較 | NaN を含む場合の挙動 |
+|---|---|---|
+| [`fmax`](fmax.md)                 | 未規定      | NaN でない方を返す |
+| [`fmaximum`](fmaximum.md)         | +0.0 を返す | NaN を返す |
+| [`fmaximum_num`](fmaximum_num.md) | +0.0 を返す | NaN でない方を返す |
 
 ## 戻り値
 引数の最大値を返す。
@@ -57,7 +64,7 @@ namespace std {
 - 処理系が IEC 60559 に準拠している場合（[`std::numeric_limits`](../limits/numeric_limits.md)`<T>::`[`is_iec559`](../limits/numeric_limits/is_iec559.md)`() != false`）、以下の規定が追加される。
     - 引数の1つが NaN の場合 NaN でない方を返す。
     - 引数が2つとも NaN の場合 NaN を返す。
-- 理想的には `fmax(-0.0, +0.0)` は `+0` を返す。
+- `-0.0`と`+0.0`の比較としてどちらが返されるかは未規定
 - C++23では、(1), (2), (3)が(4)に統合され、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
 
 
@@ -133,6 +140,11 @@ namespace std {
 * std::enable_if[link ../type_traits/enable_if.md]
 * std::is_arithmetic[link ../type_traits/is_arithmetic.md]
 * std::common_type[link ../type_traits/common_type.md]
+
+
+## 関連項目
+- [`fmaximum`](fmaximum.md)
+- [`fmaximum_num`](fmaximum_num.md)
 
 
 ## 参照
