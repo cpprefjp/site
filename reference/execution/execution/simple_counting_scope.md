@@ -146,6 +146,7 @@ namespace std::execution {
 * connect[link connect.md]
 * start[link start.md]
 * data-type[link data-type.md]
+* start-join-sender[link simple_counting_scope/start-join-sender.md]
 * nothrow-callable[link /reference/functional/nothrow-callable.md]
 * is_nothrow_constructible_v[link /reference/type_traits/is_nothrow_constructible.md]
 * std::move[link /reference/utility/move.md]
@@ -155,25 +156,25 @@ namespace std::execution {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`(constructor)`](simple_counting_scope/op_constructor.md.nolink) | コンストラクタ | C++26 |
-| [`(destructor)`](simple_counting_scope/op_destructor.md.nolink) | デストラクタ | C++26 |
-| [`get_token`](simple_counting_scope/get_token.md.nolink) | 非同期スコープトークンを取得 | C++26 |
-| [`close`](simple_counting_scope/close.md.nolink) | 非同期スコープを閉じる | C++26 |
-| [`join`](simple_counting_scope/join.md.nolink) | 非同期スコープを合流する[Sender](sender.md)取得 | C++26 |
+| [`(constructor)`](simple_counting_scope/op_constructor.md) | コンストラクタ | C++26 |
+| [`(destructor)`](simple_counting_scope/op_destructor.md) | デストラクタ | C++26 |
+| [`get_token`](simple_counting_scope/get_token.md) | 非同期スコープトークンを取得 | C++26 |
+| [`close`](simple_counting_scope/close.md) | 非同期スコープを閉じる | C++26 |
+| [`join`](simple_counting_scope/join.md) | 非同期スコープを合流する[Sender](sender.md)取得 | C++26 |
 
 ### 説明専用メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`try-associate`](simple_counting_scope/try-associate.md.nolink) | 関連付けを試行 | C++26 |
-| [`disassociate`](simple_counting_scope/disassociate.md.nolink) | 関連付けを解除| C++26 |
-| [`start-join-sender`](simple_counting_scope/start-join-sender.md.nolink) | 合流[Sender](sender.md)を開始 | C++26 |
+| [`try-associate`](simple_counting_scope/try-associate.md) | 関連付けを試行 | C++26 |
+| [`disassociate`](simple_counting_scope/disassociate.md) | 関連付けを解除 | C++26 |
+| [`start-join-sender`](simple_counting_scope/start-join-sender.md) | 合流[Sender](sender.md)を開始 | C++26 |
 
 ## メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`token`](simple_counting_scope/token.md.nolink) | 非同期スコープトークン型 | C++26 |
+| [`token`](simple_counting_scope/token.md) | 非同期スコープトークン型 | C++26 |
 
 ## 静的メンバ変数
 
