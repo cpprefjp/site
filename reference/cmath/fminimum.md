@@ -32,7 +32,7 @@ namespace std {
 |---|---|---|---|
 | [`fmin`](fmin.md)                 | 未規定      | NaN でない方を返す | |
 | [`fminimum`](fminimum.md)         | -0.0 を返す | NaN を返す | エラー伝播を優先 |
-| [`fminimum_num`](fmaximum_num.md) | -0.0 を返す | NaN でない方を返す | 数値を優先 |
+| [`fminimum_num`](fminimum_num.md) | -0.0 を返す | NaN でない方を返す | 数値を優先 |
 
 
 ## 戻り値
