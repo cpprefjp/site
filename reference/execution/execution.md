@@ -131,7 +131,7 @@ namespace std::execution {
 | [`execution::into_variant`](execution/into_variant.md) | 複数の値完了シグネチャを単一[`variant`](/reference/variant/variant.md)型の値完了シグネチャに変換 (customization point object) | C++26 |
 | [`execution::stopped_as_optional`](execution/stopped_as_optional.md) | 入力Senderの停止完了を空の[`optional`](/reference/optional/optional.md)値完了に変換 (customization point object) | C++26 |
 | [`execution::stopped_as_error`](execution/stopped_as_error.md) | 入力Senderの停止完了をエラー完了に変換 (customization point object) | C++26 |
-| [`execution::associate`](execution/associate.md.nolink) | 非同期スコープへの関連付け (customization point object) | C++26 |
+| [`execution::associate`](execution/associate.md) | 非同期スコープへの関連付け (customization point object) | C++26 |
 | [`execution::spawn_future`](execution/spawn_future.md.nolink) | 非同期操作を早期開始 (customization point object) | C++26 |
 
 ### Senderコンシューマ
