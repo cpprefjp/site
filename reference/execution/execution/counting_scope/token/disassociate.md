@@ -1,22 +1,25 @@
-# wrap
+# disassociate
 * execution[meta header]
-* function template[meta id-type]
+* function[meta id-type]
 * std::execution[meta namespace]
-* simple_counting_scope::token[meta class]
+* counting_scope::token[meta class]
 * cpp26[meta cpp]
 
 ```cpp
-template<sender Sender>
-Sender&& wrap(Sender&& snd) const noexcept;
+void disassociate() const noexcept;
 ```
-* sender[link ../../sender.md]
 
 ## 概要
-入力[Sender](../../sender.md)を非同期スコープに関連付けたSenderを返す。
+非同期スコープとの関連付けを解除する。
 
 
-## 戻り値
-[`std::forward`](/reference/utility/forward.md)`<Sender>(snd)`
+## 効果
+下記と等価。
+
+```cpp
+scope->disassociate()
+```
+* disassociate[link ../disassociate.md]
 
 
 ## 例外

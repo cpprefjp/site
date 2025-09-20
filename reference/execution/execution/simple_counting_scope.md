@@ -26,7 +26,7 @@ namespace std::execution {
 ### 状態遷移
 説明専用の各種エンティティを下記の通り定義する。
 
-- `Scope`型 : `simple_counting_scope`または`counting_scope`のいずれか
+- `Scope`型 : `simple_counting_scope`または[`counting_scope`](counting_scope.md)のいずれか
 - `scope`オブジェクト : `Scope`型のオブジェクト
 - `tkn`オブジェクト : `scope.get_token()`が返す`Scope::token`型のオブジェクト
 - `jsndr` : `scope.join()`が返す[Sender](sender.md)
@@ -56,7 +56,7 @@ enum scope-state-type {  // exposition only
 
 
 ### Senderアルゴリズムタグ `scope-join-t`
-説明専用の[Senderアルゴリズムタグ型](tag_of_t.md)`scope-join-t`を定義する。
+[`join`](simple_counting_scope/join.md)メンバ関数が返す合流Sender動作仕様を記述するため、説明専用の[Senderアルゴリズムタグ型](tag_of_t.md)`scope-join-t`を定義する。
 
 ```cpp
 struct scope-join-t {};  // exposition only
@@ -80,9 +80,9 @@ namespace std::execution {
         }
 
         template<class E>
-          void set_error(E&& e) && noexcept {
-            execution::set_error(std::move(rcvr), std::forward<E>(e));
-          }
+        void set_error(E&& e) && noexcept {
+          execution::set_error(std::move(rcvr), std::forward<E>(e));
+        }
 
         void set_stopped() && noexcept {
           execution::set_stopped(std::move(rcvr));

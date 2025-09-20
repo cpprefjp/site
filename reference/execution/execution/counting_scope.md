@@ -14,22 +14,29 @@ namespace std::execution {
 `counting_scope`は、停止要求を作成可能なカウント式の非同期スコープを表現する。
 
 
+クラス動作説明用のメンバ変数として下記を保持する。詳細仕様は[`simple_counting_scope`](simple_counting_scope.md)を参照。
+
+- `count` : `size_t`型の関連付けカウント値
+- `state` : `scope-state-type`列挙型（後述）の状態
+-　`s_source` : [`inplace_stop_source`](/reference/stop_token/inplace_stop_source.md)型の停止要求管理オブジェクト
+
+
 ## メンバ関数
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`(constructor)`](counting_scope/op_constructor.md.nolink) | コンストラクタ | C++26 |
-| [`(destructor)`](counting_scope/op_destructor.md.nolink) | デストラクタ | C++26 |
-| [`get_token`](counting_scope/get_token.md.nolink) | 非同期スコープトークンを取得 | C++26 |
-| [`close`](counting_scope/close.md.nolink) | 非同期スコープを閉じる | C++26 |
-| [`join`](counting_scope/join.md.nolink) | 非同期スコープを合流する[Sender](sender.md)取得 | C++26 |
-| [`request_stop`](counting_scope/request_stop.md.nolink) | 停止要求を行う | C++26 |
+| [`(constructor)`](counting_scope/op_constructor.md) | コンストラクタ | C++26 |
+| [`(destructor)`](counting_scope/op_destructor.md) | デストラクタ | C++26 |
+| [`get_token`](counting_scope/get_token.md) | 非同期スコープトークンを取得 | C++26 |
+| [`close`](counting_scope/close.md) | 非同期スコープを閉じる | C++26 |
+| [`join`](counting_scope/join.md) | 非同期スコープを合流する[Sender](sender.md)取得 | C++26 |
+| [`request_stop`](counting_scope/request_stop.md) | 停止要求を作成する | C++26 |
 
 ## メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`token`](counting_scope/token.md.nolink) | 非同期スコープトークン型 | C++26 |
+| [`token`](counting_scope/token.md) | 非同期スコープトークン型 | C++26 |
 
 ## 静的メンバ変数
 

@@ -1,7 +1,7 @@
 # start-join-sender
 * execution[meta header]
 * std::execution[meta namespace]
-* simple_counting_scope[meta class]
+* counting_scope[meta class]
 * function template[meta id-type]
 * cpp26[meta cpp]
 

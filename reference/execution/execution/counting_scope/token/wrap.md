@@ -2,25 +2,29 @@
 * execution[meta header]
 * function template[meta id-type]
 * std::execution[meta namespace]
-* simple_counting_scope::token[meta class]
+* counting_scope::token[meta class]
 * cpp26[meta cpp]
 
 ```cpp
 template<sender Sender>
-Sender&& wrap(Sender&& snd) const noexcept;
+sender auto wrap(Sender&& snd) const
+  noexcept(is_nothrow_constructible_v<remove_cvref_t<Sender>, Sender>);
 ```
 * sender[link ../../sender.md]
+* is_nothrow_constructible_v[link /reference/type_traits/is_nothrow_constructible.md]
 
 ## 概要
 入力[Sender](../../sender.md)を非同期スコープに関連付けたSenderを返す。
 
 
-## 戻り値
-[`std::forward`](/reference/utility/forward.md)`<Sender>(snd)`
+## 効果
+下記と等価。
 
-
-## 例外
-投げない
+```cpp
+return stop-when(std::forward<Sender>(snd), scope->s_source.get_token());
+```
+* stop-when[link stop-when.md.nolink]
+* get_token()[link /reference/stop_token/stop_source/get_token.md]
 
 
 ## バージョン

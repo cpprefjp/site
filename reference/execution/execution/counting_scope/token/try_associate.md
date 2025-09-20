@@ -1,22 +1,25 @@
-# wrap
+# try_associate
 * execution[meta header]
-* function template[meta id-type]
+* function[meta id-type]
 * std::execution[meta namespace]
-* simple_counting_scope::token[meta class]
+* counting_scope::token[meta class]
 * cpp26[meta cpp]
 
 ```cpp
-template<sender Sender>
-Sender&& wrap(Sender&& snd) const noexcept;
+bool try_associate() const noexcept;
 ```
-* sender[link ../../sender.md]
 
 ## 概要
-入力[Sender](../../sender.md)を非同期スコープに関連付けたSenderを返す。
+非同期スコープとの関連付けを試行する。
 
 
-## 戻り値
-[`std::forward`](/reference/utility/forward.md)`<Sender>(snd)`
+## 効果
+下記と等価。
+
+```cpp
+return scope->try-associate();
+```
+* try-associate[link ../try-associate.md]
 
 
 ## 例外

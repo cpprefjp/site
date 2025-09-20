@@ -1,23 +1,23 @@
 # token
 * execution[meta header]
 * std::execution[meta namespace]
-* simple_counting_scope[meta class]
+* counting_scope[meta class]
 * class[meta id-type]
 * cpp26[meta cpp]
 
 ```cpp
 namespace std::execution {
-  class simple_counting_scope::token;
+  class counting_scope::token;
 }
 ```
 
 ## 概要
-`simple_counting_scope::token`は、カウント式非同期スコープの[非同期トークン](../scope_token.md)である。
+`counting_scope::token`は、カウント式非同期スコープの[非同期トークン](../scope_token.md)である。
 非同期トークンは非同期スコープを参照する軽量ハンドラとして振る舞う。
 
 クラス動作説明用のメンバ変数として下記を保持する。
 
-- `scope` : [`simple_counting_scope`](../simple_counting_scope.md)型の非同期スコープ
+- `scope` : [`counting_scope`](../counting_scope.md)型の非同期スコープ
 
 
 ## メンバ関数

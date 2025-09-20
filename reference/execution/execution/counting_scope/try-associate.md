@@ -1,7 +1,7 @@
 # try-associate
 * execution[meta header]
 * std::execution[meta namespace]
-* simple_counting_scope[meta class]
+* counting_scope[meta class]
 * function[meta id-type]
 * cpp26[meta cpp]
 
