@@ -5,7 +5,7 @@
 * cpp26[meta cpp]
 
 ```cpp
-mplate<class Source>
+template<class Source>
 concept stoppable-source =
   requires (Source& src, const Source csrc) {
     { csrc.get_token() } -> stoppable_token;
