@@ -11,7 +11,7 @@ namespace std::execution {
 ```
 * unspecified[italic]
 
-# 概要
+## 概要
 `stop-when`は、入力[Sender](sender.md)に追加の[停止トークン](/reference/stop_token/stop_token.md)を結合したSenderを返す、説明専用のSenderアダプタである。
 
 説明用の式`sndr`と`token`に対して、
