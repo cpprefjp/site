@@ -18,7 +18,7 @@ namespace std::execution {
 
 - `count` : `size_t`型の関連付けカウント値
 - `state` : `scope-state-type`列挙型（後述）の状態
--　`s_source` : [`inplace_stop_source`](/reference/stop_token/inplace_stop_source.md)型の停止要求管理オブジェクト
+- `s_source` : [`inplace_stop_source`](/reference/stop_token/inplace_stop_source.md)型の停止要求管理オブジェクト
 
 
 ## メンバ関数

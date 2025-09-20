@@ -23,7 +23,7 @@ sender auto wrap(Sender&& snd) const
 ```cpp
 return stop-when(std::forward<Sender>(snd), scope->s_source.get_token());
 ```
-* stop-when[link stop-when.md.nolink]
+* stop-when[link ../../stop-when.md]
 * get_token()[link /reference/stop_token/stop_source/get_token.md]
 
 
