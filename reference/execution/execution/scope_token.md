@@ -50,6 +50,7 @@ int main()
 ```
 * ex::scope_token[color ff0000]
 * ex::counting_scope[link counting_scope.md]
+* get_token()[link counting_scope/get_token.md]
 
 ### 出力
 ```

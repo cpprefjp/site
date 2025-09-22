@@ -18,6 +18,24 @@ namespace std::execution {
 
 `associate`は[パイプ可能Senderアダプタオブジェクト](sender_adaptor_closure.md)であり、パイプライン記法をサポートする。
 
+`associate`アルゴリズムが返す関連Sender(associate-sender)は、[非同期スコープトークン](scope_token.md)を介した関連付け試行(`try_associate`)の結果に応じてassociated／unassociatedいずれかの状態となり、入力Senderの動作を継承したうえで下記のように振る舞う。
+
+- associated状態
+    - 関連Senderは入力Senderと同じ完了シグネチャを持ち、関連Senderとの[接続(connect)](connect.md)や[開始(start)](start.md)によって入力Senderとの接続や開始が行われる。
+    - 関連Senderオブジェクトが破棄、もしくは接続後の[Operation State](operation_state.md)が破棄されたとき、関連付けを解除する。
+    - [非同期スコープトークン](scope_token.md)の`wrap`メンバ関数で追加される処理を行う。
+- unassociated状態 :
+    - 入力Senderは破棄され、[接続(connect)](connect.md)も[開始(start)](start.md)もされない。
+    - 関連Senderは[set_stopped](set_stopped.md)のみで完了する。
+
+associated状態の関連Senderに対する[接続(connect)](connect.md)操作は、下記いずれかの結果となる。
+
+- 右辺値接続(rvalue connected)のとき、入力Senderとの関連付けは[Operation State](operation_state.md)へ移動する。
+- 左辺値接続(lvalue connected)のとき、[Operation State](operation_state.md)は非同期スコープとの新たな関連付けを必要とするため、[非同期スコープトークン](scope_token.md)の`try_associate`を呼び出して下記のいずれかの結果となる。
+    - 新たな関連付けに成功する（戻り値が`true`）。
+    - 関連付けに失敗し（戻り値が`false`）、[Operation State](operation_state.md)はunassociated状態の関連Senderから構築されたかのように振る舞う（[開始(start)](start.md)操作により即時で[停止完了](set_stopped.md)する）。
+    - 例外送出によって接続操作に失敗する。
+
 
 ## 効果
 説明用の式`sndr`と`token`に対して、`decltype((sndr))`が[`sender`](sender.md)を満たさない、もしくは[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<decltype((token))>`が[`scope_token`](scope_token.md)を満たさないとき、呼び出し式`associate(sndr, token)`は不適格となる。
@@ -47,10 +65,10 @@ namespace std::execution {
     static constexpr auto start = see below;      // exposition only
 
     template<class Sndr, class... Env>
-      static consteval void check-types() {       // exposition only
-        using associate_data_t = remove_cvref_t<data-type<Sndr>>;
-        using child_type_t = typename associate_data_t::wrap-sender;
-        (void)get_completion_signatures<child_type_t, FWD-ENV-T(Env)...>();
+    static consteval void check-types() {         // exposition only
+      using associate_data_t = remove_cvref_t<data-type<Sndr>>;
+      using child_type_t = typename associate_data_t::wrap-sender;
+      (void)get_completion_signatures<child_type_t, FWD-ENV-T(Env)...>();
     }
   };
 }
@@ -190,6 +208,7 @@ namespace std::execution {
 * is_nothrow_copy_constructible_v[link /reference/type_traits/is_nothrow_copy_constructible.md]
 * is_nothrow_move_constructible_v[link /reference/type_traits/is_nothrow_move_constructible.md]
 * optional[link /reference/optional/optional.md]
+* reset()[link /reference/optional/optional/reset.md]
 
 `associate-data`型のオブジェクト`a`に対して、関連付けが正常に行われかつ`a`により所有される場合に限って、`a.sndr.`[`has_value()`](/reference/optional/optional/has_value.md)は`true`となる。
 
@@ -243,26 +262,39 @@ Senderアルゴリズム構築時および[Receiver](receiver.md)接続時に、
 ## 例
 ```cpp example
 #include <execution>
+#include <print>
 namespace ex = std::execution;
 
 int main()
 {
+  // 非同期スコープを定義
   ex::counting_scope scope;
+
+  // Senderと非同期スコープを関連付け
   ex::sender auto sndr =
     ex::just(42)
     | ex::associate(scope.get_token());
 
-  std::this_thread::sync_wait(sndr);
+  // タスク開始と完了待機
+  auto result = std::this_thread::sync_wait(std::move(sndr));
+  std::println("value={}", *result);
+
+  // 非同期スコープの合流待機
+  std::this_thread::sync_wait(scope.join());
 }
 ```
 * ex::associate[color ff0000]
-* ex::counting_scope[link counting_scope.md]
-* ex::just[link just.md]
 * ex::sender[link sender.md]
+* ex::just[link just.md]
+* ex::counting_scope[link counting_scope.md]
+* get_token()[link counting_scope/get_token.md]
+* join()[link counting_scope/join.md]
 * std::this_thread::sync_wait[link ../this_thread/sync_wait.md]
+* std::move[link /reference/utility/move.md]
 
 ### 出力
 ```
+value=42
 ```
 
 
