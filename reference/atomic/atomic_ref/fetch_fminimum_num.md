@@ -31,7 +31,7 @@ constexpr T
 ## 備考
 - この関数は、`atomic_ref`クラスの浮動小数点数型で定義される
 - 浮動小数点数型
-    - [`std::fminimum_num()`](/reference/cmath/fminimum.md)関数と同様の動作をする
+    - [`std::fminimum_num()`](/reference/cmath/fminimum_num.md)関数と同様の動作をする
 
 
 ## 例
@@ -42,13 +42,13 @@ constexpr T
 int main()
 {
   int x = 3;
-  int ret = std::atomic_ref{x}.fetch_fminimum(2);
+  int ret = std::atomic_ref{x}.fetch_fminimum_num(2);
 
   std::cout << ret << std::endl;
   std::cout << x << std::endl;
 }
 ```
-* fetch_fminimum[color ff0000]
+* fetch_fminimum_num[color ff0000]
 
 
 ### 出力
