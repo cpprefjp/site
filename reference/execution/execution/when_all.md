@@ -272,7 +272,7 @@ struct make-state {
 * atomic[link /reference/atomic/atomic.md]
 * stop_callback_for_t[link /reference/stop_token/stop_callback_for_t.md]
 * inplace_stop_source[link /reference/stop_token/inplace_stop_source.md]
-* stop_callback[link /reference/stop_token/stop_token.md]
+* stop_callback[link /reference/stop_token/stop_callback.md]
 * optional[link /reference/optional/optional.md]
 * nullopt[link /reference/optional/nullopt_t.md]
 
