@@ -19,12 +19,12 @@ namespace std::execution {
 式`start(op)`は、`op`が右辺値の場合は不適格となる。
 そうでなければ、`op.start()`と等価。
 
-`op.start()`が[Operation State](operation_state.md)に関連付けられた非同期操作を開始しない場合、式`start(op)`の動作は未定義となる。
-
 
 ## カスタマイゼーションポイント
 [Operation State](operation_state.md)`op`に対して式`op.start()`が呼び出される。
 このとき`noexcept(op.start()) == true`であること。
+
+`op.start()`が[Operation State](operation_state.md)に関連付けられた非同期操作を開始しない場合、式`start(op)`の動作は未定義となる。
 
 
 ## 備考
