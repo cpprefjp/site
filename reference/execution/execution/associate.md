@@ -144,7 +144,7 @@ namespace std::execution {
 * second[link /reference/utility/pair/second.md]
 * std::move[link /reference/utility/move.md]
 
-`impls-for<associate_t>::get-state`の`noexcept`節の式は下記の通り。
+`impls-for<associate_t>::get-state`の`noexcept`節の式は、型`wrap-sender`を[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<data-type<Sndr>>::wrap-sender`としたとき、下記の通り。
 
 ```cpp
 is_nothrow_constructible_v<remove_cvref_t<Sndr>, Sndr> &&
@@ -277,7 +277,8 @@ int main()
 
   // タスク開始と完了待機
   auto result = std::this_thread::sync_wait(std::move(sndr));
-  std::println("value={}", *result);
+  auto [val] = result.value(); 
+  std::println("value={}", val);
 
   // 非同期スコープの合流待機
   std::this_thread::sync_wait(scope.join());
@@ -290,6 +291,7 @@ int main()
 * get_token()[link counting_scope/get_token.md]
 * join()[link counting_scope/join.md]
 * std::this_thread::sync_wait[link ../this_thread/sync_wait.md]
+* value()[link /reference/optional/optional/value.md]
 * std::move[link /reference/utility/move.md]
 
 ### 出力
