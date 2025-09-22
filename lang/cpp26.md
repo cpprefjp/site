@@ -292,10 +292,10 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - メンバ関数
         - [`fetch_max()`](/reference/atomic/atomic/fetch_max.md)
         - [`fetch_min()`](/reference/atomic/atomic/fetch_min.md)
-        - [`fetch_fmaximum()`](/reference/atomic/atomic/fetch_fmaximum.md.nolink) (浮動小数点数用)
-        - [`fetch_fminimum()`](/reference/atomic/atomic/fetch_fminimum.md.nolink) (浮動小数点数用)
-        - [`fetch_fmaximum_num()`](/reference/atomic/atomic/fetch_fmaximum_num.md.nolink) (浮動小数点数用)
-        - [`fetch_fminimum_num()`](/reference/atomic/atomic/fetch_fminimum_num.md.nolink) (浮動小数点数用)
+        - [`fetch_fmaximum()`](/reference/atomic/atomic/fetch_fmaximum.md) (浮動小数点数用)
+        - [`fetch_fminimum()`](/reference/atomic/atomic/fetch_fminimum.md) (浮動小数点数用)
+        - [`fetch_fmaximum_num()`](/reference/atomic/atomic/fetch_fmaximum_num.md) (浮動小数点数用)
+        - [`fetch_fminimum_num()`](/reference/atomic/atomic/fetch_fminimum_num.md) (浮動小数点数用)
     - 非メンバ関数として
         - [`std::atomic_fetch_max()`](/reference/atomic/atomic_fetch_max.md)
         - [`std::atomic_fetch_max_explicit()`](/reference/atomic/atomic_fetch_max_explicit.md)

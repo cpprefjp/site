@@ -162,8 +162,8 @@ namespace std {
 | [`fetch_and`](atomic/fetch_and.md)        | AND演算        | C++11 |
 | [`fetch_or`](atomic/fetch_or.md)          | OR演算         | C++11 |
 | [`fetch_xor`](atomic/fetch_xor.md)        | XOR演算        | C++11 |
-| [`fetch_max`](atomic/fetch_max.md)        | 最大値取得     | C++26 |
-| [`fetch_min`](atomic/fetch_min.md)        | 最小値取得     | C++26 |
+| [`fetch_max`](atomic/fetch_max.md)        | 最大値を設定・取得     | C++26 |
+| [`fetch_min`](atomic/fetch_min.md)        | 最小値を設定・取得     | C++26 |
 | [`operator++`](atomic/op_increment.md)    | インクリメント | C++11 |
 | [`operator--`](atomic/op_decrement.md)    | デクリメント   | C++11 |
 | [`operator+=`](atomic/op_plus_assign.md)  | 加算           | C++11 |
@@ -184,10 +184,16 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`fetch_add`](atomic/fetch_add.md)        | 加算 | C++20 |
-| [`fetch_sub`](atomic/fetch_sub.md)        | 減算 | C++20 |
-| [`operator+=`](atomic/op_plus_assign.md)  | 加算 | C++20 |
-| [`operator-=`](atomic/op_minus_assign.md) | 減算 | C++20 |
+| [`fetch_add`](atomic/fetch_add.md)                   | 加算 | C++20 |
+| [`fetch_sub`](atomic/fetch_sub.md)                   | 減算 | C++20 |
+| [`fetch_max`](atomic/fetch_max.md)                   | 最大値を設定・取得    | C++26 |
+| [`fetch_min`](atomic/fetch_min.md)                   | 最小値を設定・取得     | C++26 |
+| [`fetch_fmaximum`](atomic/fetch_fmaximum.md)         | 最大値を設定・取得  (`-0.0`と`+0.0`では`+0.0`、NaNと値ではNaNを返す) | C++26 |
+| [`fetch_fminimum`](atomic/fetch_fminimum.md)         | 最小値を設定・取得  (`-0.0`と`+0.0`では`-0.0`、NaNと値ではNaNを返す) | C++26 |
+| [`fetch_fmaximum_num`](atomic/fetch_fmaximum_num.md) | 最大値を設定・取得  (`-0.0`と`+0.0`では`+0.0`、NaNと値では数値を返す) | C++26 |
+| [`fetch_fminimum_num`](atomic/fetch_fminimum_num.md) | 最小値を設定・取得  (`-0.0`と`+0.0`では`-0.0`、NaNと値では数値を返す) | C++26 |
+| [`operator+=`](atomic/op_plus_assign.md)             | 加算 | C++20 |
+| [`operator-=`](atomic/op_minus_assign.md)            | 減算 | C++20 |
 
 
 ### atomic&lt;floating-point&gt;専用メンバ型
@@ -203,8 +209,8 @@ namespace std {
 |------|------|----------------|
 | [`fetch_add`](atomic/fetch_add.md)        | 加算 | C++11 |
 | [`fetch_sub`](atomic/fetch_sub.md)        | 減算 | C++11 |
-| [`fetch_max`](atomic/fetch_max.md)        | 最大値取得     | C++26 |
-| [`fetch_min`](atomic/fetch_min.md)        | 最小値取得     | C++26 |
+| [`fetch_max`](atomic/fetch_max.md)        | 最大値を設定・取得     | C++26 |
+| [`fetch_min`](atomic/fetch_min.md)        | 最小値を設定・取得     | C++26 |
 | [`operator++`](atomic/op_increment.md)    | インクリメント | C++11 |
 | [`operator--`](atomic/op_decrement.md)    | デクリメント | C++11 |
 | [`operator+=`](atomic/op_plus_assign.md)  | 加算 | C++11 |
