@@ -143,7 +143,7 @@ int main()
 * v.extent[link /reference/mdspan/extents/extent.md]
 * y.extent[link /reference/mdspan/extents/extent.md]
 * std::complex[link /reference/complex/complex.md]
-* std::linalg::matrix_rank_1_update[color ff0000]
+* std::linalg::matrix_rank_1_update_c[color ff0000]
 
 
 ### 出力

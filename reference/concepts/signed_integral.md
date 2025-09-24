@@ -54,7 +54,7 @@ int main() {
   f<std::integral_constant<int, 1>>("std::integral_constant<int, 1>");
 }
 ```
-* std::integral[color ff0000]
+* std::signed_integral[color ff0000]
 
 ### 出力
 ```
