@@ -26,7 +26,8 @@ int main() {
   std::vector<int> vec = {1, 2, 3, 4, 5};
   
   // views::takeはcommon_rangeではない
-  auto taken = vec | std::views::take(3);
+  auto pred = [](int x) { return x <= 3; };
+  auto taken = vec | std::views::take_while(pred);
   
   // common_viewの型を明示的に指定する必要がない
   std::ranges::common_view cv{taken};
@@ -34,13 +35,13 @@ int main() {
   // 推論された型を確認
   static_assert(std::same_as<
     decltype(cv),
-    std::ranges::common_view<std::ranges::take_view<std::ranges::ref_view<std::vector<int>>>>
+    std::ranges::common_view<std::ranges::take_while_view<std::ranges::ref_view<std::vector<int>>, decltype(pred)>>
   >);
 }
 ```
 * std::ranges::common_view[color ff0000]
-* std::views::take[link ../take_view.md]
-* std::ranges::take_view[link ../take_view.md]
+* std::views::take_while[link ../take_while_view.md]
+* std::ranges::take_while_view[link ../take_while_view.md]
 
 ### 出力
 ```

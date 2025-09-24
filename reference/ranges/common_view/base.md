@@ -31,16 +31,17 @@ constexpr V base() &&;             // (2) C++20
 int main() {
   std::vector<int> vec = {1, 2, 3, 4, 5};
   
-  auto taken = vec | std::views::take(3);
+  auto pred = [](int x) { return x <= 3; };
+  auto taken = vec | std::views::take_while(pred);
   std::ranges::common_view cv(taken);
   
   // (1) コピーして取得
   auto base1 = cv.base();
-  static_assert(std::same_as<decltype(base1), std::ranges::take_view<std::ranges::ref_view<std::vector<int>>>>);
+  static_assert(std::same_as<decltype(base1), std::ranges::take_while_view<std::ranges::ref_view<std::vector<int>>, decltype(pred)>>);
   
   // (2) ムーブして取得
   auto base2 = std::move(cv).base();
-  static_assert(std::same_as<decltype(base2), std::ranges::take_view<std::ranges::ref_view<std::vector<int>>>>);
+  static_assert(std::same_as<decltype(base2), std::ranges::take_while_view<std::ranges::ref_view<std::vector<int>>, decltype(pred)>>);
   
   // 取得したviewを使用
   for (int n : base1) {
@@ -51,8 +52,8 @@ int main() {
 ```
 * base[color ff0000]
 * std::ranges::common_view[link ../common_view.md]
-* std::views::take[link ../take_view.md]
-* std::ranges::take_view[link ../take_view.md]
+* std::views::take_while[link ../take_while_view.md]
+* std::ranges::take_while_view[link ../take_while_view.md]
 
 ### 出力
 ```

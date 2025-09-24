@@ -36,7 +36,7 @@ int main() {
   std::ranges::common_view<std::ranges::empty_view<int>> cv1;
   
   // (2) 元となるRangeを受け取るコンストラクタ
-  auto taken = vec | std::views::take(3);
+  auto taken = vec | std::views::take_while([](int x) { return x <= 3; });
   std::ranges::common_view cv2(taken);
   
   for (int n : cv2) {
@@ -47,7 +47,7 @@ int main() {
 ```
 * std::ranges::common_view[color ff0000]
 * std::ranges::empty_view[link ../empty_view.md]
-* std::views::take[link ../take_view.md]
+* std::views::take_while[link ../take_while_view.md]
 
 ### 出力
 ```

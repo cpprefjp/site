@@ -24,14 +24,14 @@ constexpr auto size() const
 ## 例
 ```cpp example
 #include <ranges>
-#include <vector>
+#include <list>
 #include <iostream>
 
 int main() {
-  std::vector<int> vec = {1, 2, 3, 4, 5};
+  std::list<int> ls = {1, 2, 3, 4, 5};
   
   // sized_rangeなviewを作成
-  auto taken = vec | std::views::take(3);
+  auto taken = std::views::counted(ls.begin(), 3);
   static_assert(std::ranges::sized_range<decltype(taken)>);
   
   // common_viewでラップ
@@ -48,7 +48,7 @@ int main() {
 * size[color ff0000]
 * std::ranges::sized_range[link ../sized_range.md]
 * std::ranges::common_view[link ../common_view.md]
-* std::views::take[link ../take_view.md]
+* std::views::counted[link ../counted.md]
 
 ### 出力
 ```

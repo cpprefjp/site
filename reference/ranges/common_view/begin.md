@@ -43,7 +43,7 @@ int main() {
   std::vector<int> vec = {1, 2, 3, 4, 5};
   
   // common_rangeではないviewを作成
-  auto taken = vec | std::views::take(3);
+  auto taken = vec | std::views::take_while([](int x) { return x <= 3; });
   static_assert(!std::ranges::common_range<decltype(taken)>);
   
   // common_viewでラップ
@@ -66,7 +66,7 @@ int main() {
 * end[link end.md]
 * std::ranges::common_range[link ../common_range.md]
 * std::ranges::common_view[link ../common_view.md]
-* std::views::take[link ../take_view.md]
+* std::views::take_while[link ../take_while_view.md]
 
 ### 出力
 ```
