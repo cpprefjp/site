@@ -6,13 +6,13 @@
 * cpp20[meta cpp]
 
 ```cpp
-constexpr iterator& operator++() requires bidirectional_range<V>;      // (1)
+constexpr iterator& operator--() requires bidirectional_range<V>;      // (1)
 constexpr iterator operator--(int) requires bidirectional_range<V>;    // (2)
 ```
 
 ## 概要
 
-イテレータを1つ進める。
+イテレータを1つ後方に進める。
 
 ## 効果
 
@@ -28,7 +28,7 @@ return *this;
 
 と等しい。
 
-(3)は、
+(2)は、
 ```cpp
 auto tmp = *this;
 --*this;
@@ -41,6 +41,7 @@ return tmp;
 ```cpp example
 #include <ranges>
 #include <vector>
+#include <iostream>
 
 int main() {
   using std::ranges::filter_view;
@@ -50,21 +51,22 @@ int main() {
 
   filter_view fv{vec, [](int x){ return x % 2 == 0; }};
 
-  iterator_t<filter_view> i(fv, vec.begin());
+  iterator_t<decltype(fv)> i(fv, vec.begin());
+  std::advance(i, 2);
 
-  std::cout << *i << `\n`;
+  std::cout << *i << '\n';
   i--;
-  std::cout << *i << `\n`;
+  std::cout << *i << '\n';
   i--;
-  std::cout << *i << `\n`;
+  std::cout << *i << '\n';
 }
 ```
 
 ### 出力
 ```
-0
-2
 4
+2
+0
 ```
 
 ## バージョン
