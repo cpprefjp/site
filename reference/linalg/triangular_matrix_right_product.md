@@ -130,7 +130,7 @@ int main()
 
   // (1)
   std::cout << "(1)\n";
-  std::linalg::triangular_matrix_left_product(
+  std::linalg::triangular_matrix_right_product(
     A,
     std::linalg::upper_triangle,
     std::linalg::implicit_unit_diagonal,
@@ -140,7 +140,7 @@ int main()
   // (2)
   init_mat(C);
   std::cout << "(2)\n";
-  std::linalg::triangular_matrix_left_product(
+  std::linalg::triangular_matrix_right_product(
     std::execution::par,
     A,
     std::linalg::upper_triangle,
@@ -157,7 +157,7 @@ int main()
 * std::linalg::row_major_t[link /reference/linalg/row_major_t.md]
 * std::linalg::upper_triangle[link /reference/linalg/upper_triangle_t.md]
 * std::linalg::implicit_unit_diagonal[link /reference/linalg/implicit_unit_diagonal_t.md]
-* std::linalg::triangular_matrix_left_product[color ff0000]
+* std::linalg::triangular_matrix_right_product[color ff0000]
 
 
 ### 出力
