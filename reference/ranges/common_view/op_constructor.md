@@ -33,7 +33,7 @@ int main() {
   std::vector<int> vec = {1, 2, 3, 4, 5};
   
   // (1) デフォルトコンストラクタ
-  std::ranges::common_view<std::ranges::empty_view<int>> cv1;
+  std::ranges::common_view<std::ranges::iota_view<int>> cv1;
   
   // (2) 元となるRangeを受け取るコンストラクタ
   auto taken = vec | std::views::take_while([](int x) { return x <= 3; });
@@ -46,7 +46,7 @@ int main() {
 }
 ```
 * std::ranges::common_view[color ff0000]
-* std::ranges::empty_view[link ../empty_view.md]
+* std::ranges::iota_view[link ../iota_view.md]
 * std::views::take_while[link ../take_while_view.md]
 
 ### 出力

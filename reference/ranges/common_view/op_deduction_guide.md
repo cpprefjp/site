@@ -25,7 +25,7 @@ namespace std::ranges {
 int main() {
   std::vector<int> vec = {1, 2, 3, 4, 5};
   
-  // views::takeはcommon_rangeではない
+  // views::take_whileはcommon_rangeではない
   auto pred = [](int x) { return x <= 3; };
   auto taken = vec | std::views::take_while(pred);
   
