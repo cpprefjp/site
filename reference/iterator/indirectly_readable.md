@@ -57,6 +57,7 @@ concept indirectly_readable =
 #include <memory>
 #include <vector>
 #include <optional>
+#include <iterator>
 
 template<typename T>
 requires std::indirectly_readable<T>

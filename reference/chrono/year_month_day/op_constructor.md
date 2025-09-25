@@ -62,6 +62,7 @@ year_month_day(year_month_day&&) = default;                         // (7) C++20
 ### 例
 ```cpp example
 #include <cassert>
+#include <iostream>
 #include <chrono>
 
 namespace chrono = std::chrono;

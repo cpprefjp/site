@@ -23,6 +23,7 @@ namespace std {
 ## 例
 ```cpp example
 #include <iterator>
+#include <vector>
 
 int main() {
   static_assert(std::same_as<std::const_iterator<int*>, std::basic_const_iterator<int*>>);

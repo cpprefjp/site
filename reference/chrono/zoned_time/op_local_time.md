@@ -26,6 +26,7 @@ return get_local_time();
 ## 例
 ```cpp example
 #include <cassert>
+#include <iostream>
 #include <chrono>
 
 namespace chrono = std::chrono;

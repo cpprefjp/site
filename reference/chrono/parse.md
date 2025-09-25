@@ -111,6 +111,7 @@ namespace std::chrono {
 
 ## 例
 ```cpp example
+#include <iostream>
 #include <sstream>
 #include <chrono>
 

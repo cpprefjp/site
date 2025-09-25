@@ -50,6 +50,7 @@ const volatile T* start_lifetime_as_array(const volatile void* p, size_t n) noex
 ```cpp example
 #include <cstdint>
 #include <memory>
+#include <iostream>
 
 int main() {
   float f = 3.14f;

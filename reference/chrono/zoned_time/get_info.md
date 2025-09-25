@@ -26,6 +26,7 @@ return zone->get_info(tp);
 ## 例
 ```cpp example
 #include <cassert>
+#include <iostream>
 #include <chrono>
 
 namespace chrono = std::chrono;

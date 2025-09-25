@@ -49,6 +49,7 @@ const volatile T* start_lifetime_as(const volatile void* p) noexcept; // (4)
 ```cpp example
 #include <cstdint>
 #include <memory>
+#include <iostream>
 
 int main() {
   float f = 3.14f;

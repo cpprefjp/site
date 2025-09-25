@@ -60,6 +60,7 @@ CWG issue 1734は2013年8月9日に報告されている。つまりC++14に対�
 
 ```cpp example
 #include <type_traits>
+#include <concepts>
 template <typename T>
 concept trivially_copy_constructible = std::is_trivially_copy_constructible_v<T>;
 template <typename T>

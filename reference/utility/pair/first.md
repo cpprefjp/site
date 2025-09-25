@@ -14,6 +14,7 @@ T1 first;
 ## 例
 ```cpp example
 #include <utility>
+#include <iostream>
 
 int main() {
   std::pair<int, int> p(1, 2);
