@@ -27,15 +27,15 @@ constexpr V base() &&;             // (2) C++20
 
 ```cpp example
 #include <ranges>
-#include <string_view>
+#include <string>
 #include <iostream>
 
 int main() {
   using std::ranges::view;
   using namespace std::literals;
 
-  std::string_view text = "hello,world,split";
-  std::string_view delimiter = ",";
+  std::string text = "hello,world,split";
+  std::string delimiter = ",";
 
   std::ranges::split_view r{text, delimiter};
 
@@ -46,9 +46,9 @@ int main() {
   view auto b2 = std::move(r).base();
 
   // 得られるのは元のRangeではなく、あくまでview
-  static_assert(not std::same_as<decltype(b1), std::string_view>);
-  static_assert(    std::same_as<decltype(b1), std::ranges::ref_view<std::string_view>>);
-  static_assert(    std::same_as<decltype(b2), std::ranges::ref_view<std::string_view>>);
+  static_assert(not std::same_as<decltype(b1), std::string>);
+  static_assert(    std::same_as<decltype(b1), std::ranges::ref_view<std::string>>);
+  static_assert(    std::same_as<decltype(b2), std::ranges::ref_view<std::string>>);
 }
 ```
 * base[color ff0000]
