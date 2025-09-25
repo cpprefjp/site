@@ -34,14 +34,14 @@ int main() {
   
   static_assert(std::same_as<
     decltype(v1),
-    std::ranges::filter_view<std::ranges::ref_view<std::vector<int>>>
+    std::ranges::filter_view<std::ranges::ref_view<std::vector<int>>, decltype(pred)>
   >);
 
   std::ranges::filter_view v2{std::vector<int>{1, 2}, pred};
   
   static_assert(std::same_as<
     decltype(v2),
-    std::ranges::filter_view<std::ranges::owning_view<std::vector<int>>>
+    std::ranges::filter_view<std::ranges::owning_view<std::vector<int>>, decltype(pred)>
   >);
 }
 ```

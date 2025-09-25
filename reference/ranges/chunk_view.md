@@ -125,7 +125,7 @@ int main() {
   const auto table = std::views::istream<int>(iss)
     | std::views::chunk(w)
     | std::views::take(h) 
-    | std::ranges::to<std::vector<std::vector<int>>();
+    | std::ranges::to<std::vector<std::vector<int>>>();
 
   std::println("{}", table);
 }

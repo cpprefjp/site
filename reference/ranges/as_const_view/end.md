@@ -30,6 +30,7 @@ return ranges::cend(base_);
 #include <ranges>
 #include <vector>
 #include <iostream>
+#include <cassert>
 
 int main() {
   std::vector<int> vec = {1, 2, 3, 4, 5};
@@ -43,7 +44,7 @@ int main() {
 
   --se;
 
-  std::cout << *se << '\n'
+  std::cout << *se << '\n';
 }
 ```
 * end[color ff0000]

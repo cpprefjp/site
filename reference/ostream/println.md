@@ -90,9 +90,9 @@ Hello
 int main()
 {
   std::print(std::cout, "abc");
-  std::println(std::cout, ); // 改行コードのみを出力する
+  std::println(std::cout); // 改行コードのみを出力する
   std::print(std::cout, "{}", 123);
-  std::println(std::cout, );
+  std::println(std::cout);
 }
 ```
 * std::print[link print.md]

@@ -65,7 +65,7 @@ void print(const std::cmatch& m)
     for (std::size_t i = 0, n = m.size(); i < n; ++i) {
       std::cout << i << ":'" << m.str(i) << '\'' << std::endl;
     }
--    std::cout << "suffix:'" << m.suffix() << '\'' << std::endl;
+    std::cout << "suffix:'" << m.suffix() << '\'' << std::endl;
   }
   std::cout << std::endl;
 }
