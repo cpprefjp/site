@@ -89,14 +89,14 @@ int main()
   std::cout << std::boolalpha;
 
   auto it1 = um.emplace_hint(um.cend(), "e", 2.718281828);
-  std::cout << '{' << it1->first << ',' << it1->second << "} at " << std::distance(um.cbegin(), it1) << '\n';
+  std::cout << '{' << it1->first << ',' << it1->second << "} at " << std::distance(um.begin(), it1) << '\n';
   auto it2 = um.emplace_hint(um.cbegin(), "pi", 3.14159265);
-  std::cout << '{' << it2->first << ',' << it2->second << "} at " << std::distance(um.cbegin(), it2) << '\n';
+  std::cout << '{' << it2->first << ',' << it2->second << "} at " << std::distance(um.begin(), it2) << '\n';
   auto it3 = um.emplace_hint(um.cbegin(), "pi", 3);
-  std::cout << '{' << it3->first << ',' << it3->second << "} at " << std::distance(um.cbegin(), it3) << '\n';
+  std::cout << '{' << it3->first << ',' << it3->second << "} at " << std::distance(um.begin(), it3) << '\n';
 
   auto it4 = um.emplace_hint(std::next(um.cbegin(), 1), std::piecewise_construct, std::forward_as_tuple("i"), std::forward_as_tuple(0, 1));
-  std::cout << '{' << it4->first << ',' << it4->second << "} at " << std::distance(um.cbegin(), it4) << '\n';
+  std::cout << '{' << it4->first << ',' << it4->second << "} at " << std::distance(um.begin(), it4) << '\n';
 
   std::for_each(um.cbegin(), um.cend(), [](const decltype(um)::value_type& v) {
     std::cout << '{' << v.first << ',' << v.second << "}, ";
@@ -106,6 +106,7 @@ int main()
 ```
 * emplace_hint[color ff0000]
 * std::complex[link /reference/complex/complex.md]
+* um.begin()[link begin.md]
 * um.cbegin()[link cbegin.md]
 * um.cend()[link cend.md]
 * std::piecewise_construct[link /reference/utility/piecewise_construct_t.md]
