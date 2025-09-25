@@ -32,7 +32,7 @@ int main() {
   std::vector<int> v = {1, 2, 3};
   
   // (1) デフォルトコンストラクタ
-  std::ranges::to_input_view<std::views::all_t<std::vector<int>&>> view1{};
+  std::ranges::to_input_view<std::views::all_t<std::vector<int>>> view1{};
   
   // (2) ベースRangeを受け取るコンストラクタ
   std::ranges::to_input_view view2{v};
