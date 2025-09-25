@@ -13,7 +13,7 @@ namespace std::ranges {
   class adjacent_transform_view : public view_interface<adjacent_transform_view<V, F, N>> { …… }; // (1)
 
   namespace views {
-    inline constexpr /*unspecified*/ adjacent_transform_view = /*unspecified*/;      // (2)
+    inline constexpr /*unspecified*/ adjacent_transform = /*unspecified*/;      // (2)
   }
 }
 ```
@@ -87,13 +87,13 @@ namespace std::ranges {
 int main() {
   // 隣接する要素間の差を計算する
   std::vector v = {9, 2, 5, 3, 6, 7};
-  for (int x : v | std::views::adjacent_transform_view<2>(
+  for (int x : v | std::views::adjacent_transform<2>(
                      [](auto x, auto y) { return y - x; })) {
     std::cout << x << std::endl;
   }
 }
 ```
-* std::views::adjacent_transform_view[color ff0000]
+* std::views::adjacent_transform[color ff0000]
 
 ### 出力
 ```
