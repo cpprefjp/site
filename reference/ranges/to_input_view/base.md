@@ -31,11 +31,11 @@ int main() {
   std::ranges::to_input_view view{vec};
   
   // (1) コピーして取得
-  std::vector<int> v1 = view.base();
+  std::ranges::ref_view<std::vector<int>> v1 = view.base();
   
   // (2) ムーブして取得
   std::ranges::to_input_view view2{vec};
-  std::vector<int> v2 = std::move(view2).base();
+  std::ranges::ref_view<std::vector<int>> v2 = std::move(view2).base();
   
   std::cout << v1.size() << std::endl;
   std::cout << v2.size() << std::endl;
