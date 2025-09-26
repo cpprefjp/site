@@ -29,7 +29,7 @@ int main()
   auto now = chrono::system_clock::now();
 
   chrono::zoned_time zt1{"Asia/Tokyo", now};
-  chrono::time_zone* tz = zt1.get_time_zone();
+  const chrono::time_zone* tz = zt1.get_time_zone();
   assert(tz == chrono::locate_zone("Asia/Tokyo"));
 
   chrono::zoned_time zt2{"UTC", now};

@@ -47,16 +47,17 @@ int main()
 {
   auto now = chrono::system_clock::now();
   chrono::local_time local_now{now.time_since_epoch()};
+  chrono::local_time local_jst_now = local_now + chrono::hours{9};
 
-  chrono::zoned_time zt1{"Asia/Tokyo"};
+  chrono::zoned_time<decltype(now)::duration> zt1{"Asia/Tokyo"};
   zt1 = now;
   assert(zt1.get_sys_time() == now);
-  assert(zt1.get_local_time() == local_now);
+  assert(zt1.get_local_time() == local_jst_now);
 
-  chrono::zoned_time zt2{"Asia/Tokyo"};
-  zt2 = local_now;
-  assert(zt2.get_local_time() == local_now);
-  assert(zt2.get_sys_time() == sys_now);
+  chrono::zoned_time<decltype(now)::duration> zt2{"Asia/Tokyo"};
+  zt2 = local_jst_now;
+  assert(zt2.get_local_time() == local_jst_now);
+  assert(zt2.get_sys_time() == now);
 }
 ```
 * chrono::system_clock[link /reference/chrono/system_clock.md]

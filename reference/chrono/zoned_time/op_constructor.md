@@ -127,11 +127,11 @@ int main()
   auto now = chrono::system_clock::now();
   auto now_sec = chrono::floor<chrono::seconds>(now);
   chrono::local_time local_now{now.time_since_epoch()};
-  chrono::local_time local_jst_now = local_now - chrono::hours{9};
+  chrono::local_time local_jst_now = local_now + chrono::hours{9};
 
   // デフォルト構築
   chrono::zoned_time<chrono::seconds> zt1{};
-  assert(zt.get_time_zone() == chrono::locate_zone("UTC"));
+  assert(zt1.get_time_zone() == chrono::locate_zone("UTC"));
 
   // コピー構築
   chrono::zoned_time zt2 = zt1;

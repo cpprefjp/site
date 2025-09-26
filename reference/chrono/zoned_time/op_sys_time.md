@@ -33,17 +33,22 @@ int main()
 {
   auto now = chrono::system_clock::now();
   chrono::local_time local_now{now.time_since_epoch()};
+  chrono::local_time local_jst_now = local_now + chrono::hours{9};
 
   chrono::zoned_time zt1{"Asia/Tokyo", now};
-  assert(zt1 == now);
+  assert(zt1.get_sys_time() == now);
 
-  chrono::sys_time sys_now = zt1;
-  assert(sys_now == now);
+  chrono::sys_time<decltype(now)::duration> sys_now1 = zt1;
+  assert(sys_now1 == now);
 
-  chrono::zoned_time zt2{"Asia/Tokyo", local_now};
-  assert(zt2 == now);
+  chrono::zoned_time zt2{"Asia/Tokyo", local_jst_now};
+  assert(zt2.get_sys_time() == now);
+
+  chrono::sys_time<decltype(now)::duration> sys_now2 = zt2;
+  assert(sys_now2 == now);
 }
 ```
+* get_sys_time()[link get_sys_time.md]
 * chrono::local_time[link /reference/chrono/local_time.md]
 * time_since_epoch()[link /reference/chrono/time_point/time_since_epoch.md]
 * chrono::system_clock[link /reference/chrono/system_clock.md]

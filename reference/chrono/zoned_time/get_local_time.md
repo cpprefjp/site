@@ -38,15 +38,15 @@ int main()
 {
   auto now = chrono::system_clock::now();
   chrono::local_time local_now{now.time_since_epoch()};
-  chrono::local_time local_jst_now = now - chrono::hours{9};
+  chrono::local_time local_jst_now = local_now + chrono::hours{9};
 
   // UTCタイムゾーンのシステム時間から、Asia/Tokyoタイムゾーンのローカル時間に変換する
   chrono::zoned_time zt1{"Asia/Tokyo", now};
   chrono::local_time lt1 = zt1.get_local_time();
   assert(lt1 == local_jst_now);
 
-  // UTCタイムゾーンのローカル時間から、Asia/Tokyoタイムゾーンのローカル時間に変換する
-  chrono::zoned_time zt2{"Asia/Tokyo", local_now};
+  // Asia/Tokyoタイムゾーンのローカル時間から、Asia/Tokyoタイムゾーンのローカル時間に変換する
+  chrono::zoned_time zt2{"Asia/Tokyo", local_jst_now};
   chrono::local_time lt2 = zt2.get_local_time();
   assert(lt2 == local_jst_now);
 
@@ -54,7 +54,7 @@ int main()
   std::cout << "local now (UTC) : " << local_now << std::endl;
   std::cout << "local now (JST) : " << local_jst_now << std::endl;
   std::cout << "local now (JST) converted from system now (UTC) : " << lt1 << std::endl;
-  std::cout << "local now (JST) converted from local now (UTC) : " << lt2 << std::endl;
+  std::cout << "local now (JST) converted from local now (JST) : " << lt2 << std::endl;
 }
 ```
 * get_local_time()[color ff0000]
@@ -69,7 +69,7 @@ system now (UTC) : 2020-01-21 05:10:15
 local now (UTC) : 2020-01-21 05:10:15
 local now (JST) : 2020-01-21 14:10:15
 local now (JST) converted from system now (UTC) : 2020-01-21 14:10:15
-local now (JST) converted from local now (UTC) : 2020-01-21 14:10:15
+local now (JST) converted from local now (JST) : 2020-01-21 14:10:15
 ```
 
 ## バージョン

@@ -117,11 +117,11 @@ int main()
 
   static_assert(std::is_same_v<
     decltype(z4),
-    chrono::zoned_time<decltype(now)::duration, chrono::time_zone*>
+    chrono::zoned_time<decltype(now)::duration, const chrono::time_zone*>
   >);
   static_assert(std::is_same_v<
     decltype(z5),
-    chrono::zoned_time<decltype(now)::duration, chrono::time_zone*>
+    chrono::zoned_time<decltype(now)::duration, const chrono::time_zone*>
   >);
 }
 ```
