@@ -46,7 +46,7 @@ int main()
     ss << "Jan";
 
     chrono::month m;
-    chrono::from_stream(ss, m, "%b");
+    chrono::from_stream(ss, "%b", m);
     assert(m == chrono::January);
   }
   {
@@ -54,7 +54,7 @@ int main()
     ss << "January";
 
     chrono::month m;
-    chrono::from_stream(ss, m, "%b");
+    chrono::from_stream(ss, "%b", m);
     assert(m == chrono::January);
   }
 }

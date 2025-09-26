@@ -46,7 +46,7 @@ int main()
     ss << "Sun";
 
     chrono::weekday wd;
-    chrono::from_stream(ss, wd, "%a");
+    chrono::from_stream(ss, "%a", wd);
     assert(wd == chrono::Sunday);
   }
   {
@@ -54,7 +54,7 @@ int main()
     ss << "Sunday";
 
     chrono::weekday wd;
-    chrono::from_stream(ss, wd, "%a");
+    chrono::from_stream(ss, "%a", wd);
     assert(wd == chrono::Sunday);
   }
 }

@@ -46,7 +46,7 @@ int main()
     ss << "01";
 
     chrono::day d;
-    chrono::from_stream(ss, d, "%d");
+    chrono::from_stream(ss, "%d", d);
     assert(d == chrono::day{1});
   }
   {
@@ -54,7 +54,7 @@ int main()
     ss << "1";
 
     chrono::day d;
-    chrono::from_stream(ss, d, "%2d");
+    chrono::from_stream(ss, "%2d", d);
     assert(d == chrono::day{1});
   }
 }

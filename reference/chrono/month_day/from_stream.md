@@ -46,7 +46,7 @@ int main()
     ss << "Mar/1"; // "Mar/01"や"March/1"でもOK
 
     chrono::month_day md;
-    chrono::from_stream(ss, md, "%b/%d");
+    chrono::from_stream(ss, "%b/%d", md);
     assert(md == chrono::March/1);
   }
   {
@@ -54,7 +54,7 @@ int main()
     ss << "3月1日";
 
     chrono::month_day md;
-    chrono::from_stream(ss, md, "%m月%d日");
+    chrono::from_stream(ss, "%m月%d日", md);
     assert(md == chrono::March/1);
   }
 }

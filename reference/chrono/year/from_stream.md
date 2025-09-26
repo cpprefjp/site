@@ -46,7 +46,7 @@ int main()
     ss << "2020";
 
     chrono::year y;
-    chrono::from_stream(ss, y, "%y");
+    chrono::from_stream(ss, "%y", y);
     assert(y == chrono::year{2020});
   }
   {
@@ -54,7 +54,7 @@ int main()
     ss << "0123";
 
     chrono::year y;
-    chrono::from_stream(ss, y, "%4Y");
+    chrono::from_stream(ss, "%4Y", y);
     assert(y == chrono::year{123});
   }
 }

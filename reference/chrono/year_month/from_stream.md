@@ -47,7 +47,7 @@ int main()
     ss << "2020/Mar";
 
     chrono::year_month ym;
-    chrono::from_stream(ss, ym, "%Y/%b");
+    chrono::from_stream(ss, "%Y/%b", ym);
     assert(ym == 2020y/3);
   }
   {
@@ -55,7 +55,7 @@ int main()
     ss << "2020/03";
 
     chrono::year_month ym;
-    chrono::from_stream(ss, ym, "%Y/%m");
+    chrono::from_stream(ss, "%Y/%m", ym);
     assert(ym == 2020y/3);
   }
 }
