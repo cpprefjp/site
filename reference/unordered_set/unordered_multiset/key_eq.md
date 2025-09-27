@@ -42,7 +42,7 @@ int main()
 
   std::unordered_multiset<int> ums{ 1, 2, 3, 4, 5, 6, };
 
-  decltype(um)::key_equal eq{ ums.key_eq() };
+  decltype(ums)::key_equal eq{ ums.key_eq() };
 
   std::cout << "eq(1, 2) = " << eq(1, 2) << std::endl;
   std::cout << "eq(1, 1) = " << eq(1, 1) << std::endl;

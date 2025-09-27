@@ -30,7 +30,7 @@ streambuf_type* get_wrapped() const noexcept;
 int main()
 {
   std::osyncstream bout(std::cout);
-  bout1 << "Hello, ";
+  bout << "Hello, ";
   {
     // 通常、std::osyncstream::get_wrapped() から呼ばれる。
     std::osyncstream(bout.get_wrapped()) << "Goodbye, " << "Planet!" << '\n';

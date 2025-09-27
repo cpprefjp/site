@@ -145,7 +145,7 @@ struct Item {
 };
 
 int main() {
-  std::vector<Point> v = {
+  std::vector<Item> v = {
     {1, "foo"},
     {3, "bar"},
     {5, "foo"},

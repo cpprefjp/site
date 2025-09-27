@@ -41,7 +41,7 @@ int main()
   std::osyncstream aout{std::cout};
   aout << "Hello, ";
 
-  std::osyncstream bout;
+  std::osyncstream bout{std::cout};
   bout << "World!";
 
   aout.rdbuf()->swap(*bout.rdbuf());

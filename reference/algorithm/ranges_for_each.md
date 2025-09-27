@@ -79,7 +79,7 @@ for_each_result {
 #include <algorithm>
 
 int main() {
-  constexpr std::array v = { 3, 1, 4 };
+  std::array v = { 3, 1, 4 };
 
   // vの全ての要素にラムダ式を適用する
   std::ranges::for_each(v, [](int x) { std::cout << x << std::endl; });

@@ -55,7 +55,7 @@ namespace std {
 // GC負荷が大きい関数のダミー定義
 void some_operation_that_cause_gc() {}
 
-int* ptr = nullptr;
+intptr_t* ptr = nullptr;
 
 int main()
 {

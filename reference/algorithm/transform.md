@@ -136,7 +136,7 @@ int main() {
 
   // v1[n] の文字を v2[n] 回繰り返した文字列を返す
   std::transform(v1.begin(), v1.end(), v2.begin(), std::back_inserter(result),
-    [](char a, int b) { return std::to_string(b, a); });
+    [](char a, int b) { return std::string(b, a); });
 
   std::for_each(result.begin(), result.end(),
     [](const std::string& s) { std::cout << s << std::endl; });
@@ -145,7 +145,6 @@ int main() {
 * std::transform[color ff0000]
 * result.begin()[link /reference/vector/vector/begin.md]
 * result.end()[link /reference/vector/vector/end.md]
-* std::to_string[link /reference/string/to_string.md]
 
 ### 出力
 ```

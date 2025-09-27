@@ -160,7 +160,7 @@ return accum;
 #include <functional>
 #include <format>
 #include <vector>
-#include <iostream>
+#include <print>
 #include <concepts>
 
 using namespace std::ranges;
@@ -206,7 +206,7 @@ int main() {
 #include <functional>
 #include <format>
 #include <vector>
-#include <iostream>
+#include <print>
 #include <concepts>
 
 using namespace std::ranges;
@@ -253,7 +253,7 @@ init -> f -> e -> d -> c -> b -> a
 #include <functional>
 #include <format>
 #include <vector>
-#include <iostream>
+#include <print>
 #include <concepts>
 
 using namespace std::ranges;

@@ -46,7 +46,7 @@ void emit();
 
 int main()
 {
-  osyncstream bout(std::cout);
+  std::osyncstream bout(std::cout);
   bout << "Hello," << '\n';      // フラッシュしない
   bout.emit();                   // 文字は転送される。std::cout はフラッシュしない
   bout << "World!" << std::endl; // フラッシュしない。std::cout はフラッシュしない

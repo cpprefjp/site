@@ -66,19 +66,20 @@ namespace std::ranges {
 #include <iostream>
 #include <vector>
 #include <list>
+#include <ranges>
 
 int main() {
   std::vector<int> v = { 1,2,1,2,3 };
   std::list<int> ls = { 1,2 };
 
   // 1,2 と連続している最後のシーケンスを探す
-  subrange it = std::ranges::find_end(v, ls);
+  std::ranges::subrange sr = std::ranges::find_end(v, ls);
   // v[2] の位置を指すイテレータが見つかる。
   // v[0] の位置を指すイテレータではない。
-  if (it == v.end()) {
+  if (sr.empty()) {
     std::cout << "not found" << std::endl;
   } else {
-    std::cout << "found: index==" << std::distance(v.begin(), it) << std::endl;
+    std::cout << "found: index==" << std::distance(v.begin(), sr.begin()) << std::endl;
   }
 }
 ```

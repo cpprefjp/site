@@ -62,7 +62,7 @@ void f(int& x)
 
 int main()
 {
-  constexpr std::array<int> v = {3, 1, 4, 5, 2};
+  std::array v = {3, 1, 4, 5, 2};
 
   // コンテナvの先頭3要素に、関数f()を適用する。
   // 関数f()は要素の変更を行う

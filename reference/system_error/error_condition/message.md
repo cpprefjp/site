@@ -34,7 +34,7 @@ int main()
   std::error_condition econd(static_cast<int>(std::errc::invalid_argument),
                              std::generic_category());
 
-  std::cout << ec.message() << std::endl;
+  std::cout << econd.message() << std::endl;
 }
 ```
 * message()[color ff0000]

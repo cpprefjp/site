@@ -68,7 +68,7 @@ int main() {
   std::list ls = { 2,4,6,8 };
 
   // 2,4,6,8 のどれかと一致する最初の要素を返す
-  auto it = std::ranges::find_first_of(v, ls.begin(), ls.end());
+  auto it = std::ranges::find_first_of(v, ls);
   if (it == v.end()) {
     std::cout << "not found" << std::endl;
   } else {
@@ -77,8 +77,6 @@ int main() {
 }
 ```
 * std::ranges::find_first_of[color ff0000]
-* ls.begin()[link /reference/list/list/begin.md]
-* ls.end()[link /reference/list/list/end.md]
 
 ### 出力
 ```

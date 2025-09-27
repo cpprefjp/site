@@ -37,9 +37,9 @@ return x.start() == y.start() &&
 
 int main()
 {
-  std::slice s1{.start = 3, .length = 5, .stride = 7};
-  std::slice s2{.start = 3, .length = 5, .stride = 7};
-  std::slice s3{.start = 3, .length = 5, .stride = 6};
+  std::slice s1{3, 5, 7};
+  std::slice s2{3, 5, 7};
+  std::slice s3{3, 5, 6};
 
   assert(s1 == s2);
   assert(s1 != s3);

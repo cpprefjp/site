@@ -44,7 +44,7 @@ int main()
 {
   std::unordered_multiset<int> ums{ 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, };
 
-  decltype(um)::hasher hash{ ums.hash_function() };
+  decltype(ums)::hasher hash{ ums.hash_function() };
 
   std::cout << "hash(1) = " << hash(1) << std::endl;
   std::cout << "hash(2) = " << hash(2) << std::endl;

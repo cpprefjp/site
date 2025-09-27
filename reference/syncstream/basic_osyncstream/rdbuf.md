@@ -30,7 +30,7 @@ syncbuf_type* rdbuf() const noexcept;
 int main()
 {
   std::osyncstream bout(std::cout);
-  bout1 << "Hello, ";
+  bout << "Hello, ";
 
   auto syncbuf_ptr = bout.rdbuf();
   syncbuf_ptr->emit(); // 文字が転送される

@@ -172,7 +172,7 @@ int main() {
   std::vector<std::string> result;
 
   // v1[n] の文字を v2[n] 回繰り返した文字列を返す
-  std::ranges::transform(v1, v2, std::back_inserter(result), [](char a, int b) { return std::to_string(b, a); });
+  std::ranges::transform(v1, v2, std::back_inserter(result), [](char a, int b) { return std::string(b, a); });
 
   for (const std::string& s : result) {
     std::cout << s << std::endl;
@@ -180,7 +180,6 @@ int main() {
 }
 ```
 * std::ranges::transform[color ff0000]
-* std::to_string[link /reference/string/to_string.md]
 
 ### 出力
 ```
