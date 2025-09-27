@@ -55,9 +55,8 @@ int main()
 
 ### 出力例
 ```
+[[1951-09-08 15:00:00,32767-12-31 00:00:00,09:00:00,0min,JST]]
 ```
-
-(未検証)
 
 ## バージョン
 ### 言語
@@ -65,5 +64,5 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): 9.0 [mark noimpl]
-- [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
+- [GCC](/implementation.md#gcc): 9.2 [mark noimpl], 15.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]

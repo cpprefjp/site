@@ -109,9 +109,11 @@ int main()
 
 ### 出力例
 ```
+2016-11-06 01:30:00 is ambiguous.  It could be
+2016-11-06 01:30:00 EDT == 2016-11-06 05:30:00 UTC or
+2016-11-06 01:30:00 EST == 2016-11-06 06:30:00 UTC
+2016-11-06 06:30:00
 ```
-
-(未検証)
 
 ## バージョン
 ### 言語
@@ -119,7 +121,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): 9.0 [mark noimpl]
-- [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
+- [GCC](/implementation.md#gcc): 9.2 [mark noimpl], 15.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
 
 
