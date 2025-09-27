@@ -43,13 +43,13 @@ int main()
   // ここではlatestを指定することで、遅い時間 (06:30:00) を選択する
   chrono::local_time local_now = chrono::local_days{2016y/11/6} + 1h + 30min;
 
-  chrono::zoned_time zt{"America/New_York", local_now, choose::latest};
+  chrono::zoned_time zt{"America/New_York", local_now, chrono::choose::latest};
   chrono::sys_time st = zt.get_sys_time();
 
   std::cout << st << std::endl;
 }
 ```
-* choose::latest[color ff0000]
+* chrono::choose::latest[color ff0000]
 * chrono::local_days[link local_time.md]
 * chrono::local_time[link local_time.md]
 * 2016y[link year/op_y.md]

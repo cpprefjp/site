@@ -184,7 +184,7 @@ int main()
   std::cout << std::format("5 : %F", tp) << std::endl;
 
   // 時間だけ出力
-  std::cout << std::format("6 : %H時%M分%S秒", lt) << std::endl;
+  std::cout << std::format("6 : %H時%M分%S秒", tp) << std::endl;
   std::cout << std::format("7 : %T", tp) << std::endl;
 }
 ```

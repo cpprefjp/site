@@ -217,7 +217,7 @@ namespace chrono = std::chrono;
 int main()
 {
   chrono::system_clock::time_point now = chrono::system_clock::now();
-  chrono::sys_seconds now_sec = chrono::floor<chrono::seconds>(tp);
+  chrono::sys_seconds now_sec = chrono::floor<chrono::seconds>(now);
 
   // デフォルトフォーマット
   std::cout << std::format("1 : {}", now_sec) << std::endl;

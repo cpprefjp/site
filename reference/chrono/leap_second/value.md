@@ -24,15 +24,16 @@ constexpr seconds value() const noexcept; // (1) C++20
 ## 例
 ```cpp example
 #include <cassert>
+#include <iostream>
 #include <chrono>
 
 namespace chrono = std::chrono;
 
 int main()
 {
-  for (const chrono::leap_seconds date : chrono::get_tzdb().leap_seconds) {
+  for (const chrono::leap_second date : chrono::get_tzdb().leap_seconds) {
     chrono::seconds value = date.value();
-    std::cout << date.date() << << ": " << value << std::endl;
+    std::cout << date.date() << ": " << value << std::endl;
   }
 }
 ```

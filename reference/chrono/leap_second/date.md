@@ -21,13 +21,14 @@ constexpr sys_seconds date() const noexcept; // (1) C++20
 ## 例
 ```cpp example
 #include <cassert>
+#include <iostream>
 #include <chrono>
 
 namespace chrono = std::chrono;
 
 int main()
 {
-  for (const chrono::leap_seconds date : chrono::get_tzdb().leap_seconds) {
+  for (const chrono::leap_second date : chrono::get_tzdb().leap_seconds) {
     chrono::sys_seconds s = date.date();
     std::cout << s << std::endl;
   }

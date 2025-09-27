@@ -55,7 +55,7 @@ int main()
     std::cout << std::format("{:%Y/%m/%d %H:%M:%S %Z}", ltf) << std::endl;
   }
   {
-    auto ltf = chrono::local_time_format(lt, "JST", &si.abbrev, &si.offset);
+    auto ltf = chrono::local_time_format(lt, &si.abbrev, &si.offset);
     std::cout << std::format("{:%Y/%m/%d %H:%M:%S %Z%z}", ltf) << std::endl;
   }
 }

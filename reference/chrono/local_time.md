@@ -81,6 +81,7 @@ namespace std {
 #include <chrono>
 
 namespace chrono = std::chrono;
+using namespace std::chrono_literals;
 
 int main()
 {

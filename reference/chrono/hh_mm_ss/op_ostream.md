@@ -38,6 +38,7 @@ namespace std::chrono {
 #include <iostream>
 #include <chrono>
 
+namespace chrono = std::chrono;
 using std::chrono::last;
 using namespace std::chrono_literals;
 

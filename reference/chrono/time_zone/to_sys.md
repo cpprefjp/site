@@ -87,7 +87,7 @@ int main()
 
   // chooseを指定した場合は、早い時間か遅い時間のどちらかを返す。
   // ここではlatestを指定しているため、遅い方の時間を返す
-  chrono::sys_time edt_to_utc = edt->to_sys(edt_now, choose::latest);
+  chrono::sys_time edt_to_utc = edt->to_sys(edt_now, chrono::choose::latest);
   std::cout << edt_to_utc << std::endl;
 }
 ```
@@ -104,7 +104,7 @@ int main()
 * chrono::local_days[link /reference/chrono/local_time.md]
 * chrono::sys_time[link /reference/chrono/sys_time.md]
 * chrono::ambiguous_local_time[link /reference/chrono/ambiguous_local_time.md]
-* choose::latest[link /reference/chrono/choose.md]
+* chrono::choose::latest[link /reference/chrono/choose.md]
 * chrono::floor[link /reference/chrono/time_point/floor.md]
 
 ### 出力例
