@@ -32,9 +32,9 @@ using namespace std::chrono;
 int main()
 {
   auto u = utc_clock::from_sys(sys_days{July/1/2015});
-  sys_days t = utc_clock::to_sys(u);
+  sys_seconds t = utc_clock::to_sys(u);
 
-  auto leap_seconds = duration_cast<seconds>(u.time_since_epoch() - t.time_since_epoch());
+  auto leap_seconds = u.time_since_epoch() - t.time_since_epoch();
 
   std::cout << u << std::endl;
   std::cout << t << std::endl;
@@ -44,6 +44,7 @@ int main()
 * to_sys[color ff0000]
 * from_sys[link from_sys.md]
 * sys_days[link /reference/chrono/sys_time.md]
+* sys_seconds[link /reference/chrono/sys_time.md]
 * July[link /reference/chrono/month_constants.md]
 * time_since_epoch()[link /reference/chrono/time_point/time_since_epoch.md]
 
