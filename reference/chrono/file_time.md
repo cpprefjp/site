@@ -180,12 +180,12 @@ int main()
   std::cout << std::format("3 : {0:%Y/%m/%d %H:%M:%S}", tp) << std::endl;
 
   // 日付だけ出力
-  std::cout << std::format("4 : %Y年%m月%d日", tp) << std::endl;
-  std::cout << std::format("5 : %F", tp) << std::endl;
+  std::cout << std::format("4 : {:%Y年%m月%d日}", tp) << std::endl;
+  std::cout << std::format("5 : {:%F}", tp) << std::endl;
 
   // 時間だけ出力
-  std::cout << std::format("6 : %H時%M分%S秒", tp) << std::endl;
-  std::cout << std::format("7 : %T", tp) << std::endl;
+  std::cout << std::format("6 : {:%H時%M分%S秒}", tp) << std::endl;
+  std::cout << std::format("7 : {:%T}", tp) << std::endl;
 }
 ```
 * fs::file_time_type[link /reference/filesystem/file_time_type.md]

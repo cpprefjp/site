@@ -174,12 +174,12 @@ int main()
   std::cout << std::format("3 : {0:%Y/%m/%d %H:%M:%S %Z}", now_sec) << std::endl;
 
   // 日付だけ出力
-  std::cout << std::format("4 : %Y年%m月%d日", now_sec) << std::endl;
-  std::cout << std::format("5 : %F", now_sec) << std::endl;
+  std::cout << std::format("4 : {:%Y年%m月%d日}", now_sec) << std::endl;
+  std::cout << std::format("5 : {:%F}", now_sec) << std::endl;
 
   // 時間だけ出力
-  std::cout << std::format("6 : %H時%M分%S秒", now_sec) << std::endl;
-  std::cout << std::format("7 : %T", now_sec) << std::endl;
+  std::cout << std::format("6 : {:%H時%M分%S秒}", now_sec) << std::endl;
+  std::cout << std::format("7 : {:%T}", now_sec) << std::endl;
 }
 ```
 * chrono::utc_clock[link utc_clock.md]

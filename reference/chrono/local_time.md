@@ -196,12 +196,12 @@ int main()
   std::cout << std::format("3 : {0:%Y/%m/%d %H:%M:%S}", lt) << std::endl;
 
   // 日付だけ出力
-  std::cout << std::format("4 : %Y年%m月%d日", lt) << std::endl;
-  std::cout << std::format("5 : %F", lt) << std::endl;
+  std::cout << std::format("4 : {:%Y年%m月%d日}", lt) << std::endl;
+  std::cout << std::format("5 : {:%F}", lt) << std::endl;
 
   // 時間だけ出力
-  std::cout << std::format("6 : %H時%M分%S秒", lt) << std::endl;
-  std::cout << std::format("7 : %T", lt) << std::endl;
+  std::cout << std::format("6 : {:%H時%M分%S秒}", lt) << std::endl;
+  std::cout << std::format("7 : {:%T}", lt) << std::endl;
 
   // 12時間時計で出力
   // (%pでロケール固有の「午前」「午後」を出力するには、日本のロケールを指定する必要がある)
