@@ -55,8 +55,9 @@ using namespace std::chrono_literals;
 
 // うるう秒が挿入された日かを判定
 bool is_leap_second_day(chrono::year_month_day ymd) {
+  chrono::sys_days days = ymd;
   for (const chrono::leap_second& x : chrono::get_tzdb().leap_seconds) {
-    if (x == ymd) {
+    if (x == days) {
       return true;
     }
   }
@@ -70,8 +71,9 @@ int main()
   }
 }
 ```
-* x == ymd[color ff0000]
+* x == days[color ff0000]
 * chrono::year_month_day[link /reference/chrono/year_month_day.md]
+* chrono::sys_days[link /reference/chrono/sys_time.md]
 * chrono::get_tzdb()[link /reference/chrono/get_tzdb.md]
 * 1972y[link /reference/chrono/year/op_y.md]
 

@@ -53,12 +53,13 @@ int main()
 {
   // 2000年以下までにうるう秒が挿入された日を列挙する
   for (const chrono::leap_second& date : chrono::get_tzdb().leap_seconds) {
-    if (date <= 2000y/1/1)
+    if (date <= chrono::sys_days{2000y/1/1})
       std::cout << date.date() << std::endl;
   }
 }
 ```
 * chrono::get_tzdb()[link /reference/chrono/get_tzdb.md]
+* chrono::sys_days[link /reference/chrono/sys_time.md]
 * 2000y[link /reference/chrono/year/op_y.md]
 * date()[link date.md]
 
