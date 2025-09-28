@@ -36,7 +36,7 @@ int ch() { return 0x43; }
 
 int main()
 {
-  std::cout << std::invoke_r<char>(ch()) << std::endl;
+  std::cout << std::invoke_r<char>(ch) << std::endl;
 }
 ```
 * std::invoke_r[color ff0000]

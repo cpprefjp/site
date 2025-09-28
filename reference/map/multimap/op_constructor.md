@@ -133,7 +133,7 @@ int main()
 {
   std::pair<int,char> values[] = { std::make_pair(1,'a'), std::make_pair(2,'b'), std::make_pair(2,'b') };
   std::multimap<int,char> m1(values, values + 3);
-  std::multimap<int,char> m2(c1);
+  std::multimap<int,char> m2(m1);
 
   std::cout << "Size of m1: " << m1.size() << std::endl;
   std::cout << "Size of m2: " << m2.size() << std::endl;

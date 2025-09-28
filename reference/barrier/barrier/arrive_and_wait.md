@@ -55,7 +55,7 @@ int main()
   std::barrier<> sync{2};
 
   // ワーカスレッド起動
-  std::thread t1([&]{
+  std::thread t([&]{
     do_task("sub:  phase-1");
     sync.arrive_and_wait();
     do_task("sub:  phase-2");

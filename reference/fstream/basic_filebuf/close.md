@@ -40,7 +40,7 @@ put領域が存在する場合(ファイルを開いているなどして)、`ov
 
 int main()
 {
-  std::fstream fs();
+  std::fstream fs;
   std::filebuf* buf = fs.rdbuf();
 
   if (buf->open("foo", std::ios_base::out)) {

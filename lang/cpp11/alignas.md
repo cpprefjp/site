@@ -59,7 +59,7 @@ struct test {
 
 int distance(void *a, void *b)
 {
-  return reinterpret_cast<int>(a) - reinterpret_cast<int>(b);
+  return reinterpret_cast<char*>(a) - reinterpret_cast<char*>(b);
 }
 
 int main()

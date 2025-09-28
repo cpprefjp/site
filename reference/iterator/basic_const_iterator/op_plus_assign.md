@@ -31,6 +31,7 @@ return *this;
 ## 例
 ```cpp example
 #include <iostream>
+#include <vector>
 #include <iterator>
 
 int main() {

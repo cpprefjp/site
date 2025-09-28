@@ -130,18 +130,18 @@ int main()
 {
   std::pair<const int,char> values[] = { std::make_pair(1,'a'), std::make_pair(2,'b'), std::make_pair(2,'b') };
   std::map<int,char> m1(values, values + 3);
-  std::map<int,char> m2(c1);
+  std::map<int,char> m2(m1);
 
-  std::cout << "Size of c1: " << m1.size() << std::endl;
-  std::cout << "Size of c2: " << m2.size() << std::endl;
+  std::cout << "Size of m1: " << m1.size() << std::endl;
+  std::cout << "Size of m2: " << m2.size() << std::endl;
 }
 ```
 * size()[link size.md]
 
 ### 出力
 ```
-Size of c1: 2
-Size of c2: 2
+Size of m1: 2
+Size of m2: 2
 ```
 
 ### 処理系
