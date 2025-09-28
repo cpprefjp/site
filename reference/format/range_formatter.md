@@ -48,7 +48,7 @@ class MyVector {
 public:
   using base_type = std::vector<T>;
   using iterator = typename base_type::iterator;
-  using const_iterator = typename base_type::iterator;
+  using const_iterator = typename base_type::const_iterator;
   using value_type = typename base_type::value_type;
   using reference = typename base_type::reference;
   using const_reference = typename base_type::const_reference;
@@ -57,11 +57,11 @@ public:
   MyVector(std::initializer_list<T> init)
       : v_(init.begin(), init.end()) {}
 
-  iterator begin() { v_.begin(); }
-  const_iterator begin() const { v_.begin(); }
+  iterator begin() { return v_.begin(); }
+  const_iterator begin() const { return v_.begin(); }
 
-  iterator end() { v_.end(); }
-  const_iterator end() const { v_.end(); }
+  iterator end() { return v_.end(); }
+  const_iterator end() const { return v_.end(); }
 
   const std::vector<T>& base() const { return v_; }
 };
@@ -70,14 +70,14 @@ template <class T>
 constexpr std::range_format std::format_kind<MyVector<T>> = std::range_format::sequence;
 
 template <class T>
-class std::range_formatter<MyVector<T>> : public std::range_formatter<std::vector<T>> {
+class std::formatter<MyVector<T>> : public std::range_formatter<T> {
   bool is_colon = false;
-  using base_type = std::range_formatter<std::vector<T>>;
+  using base_type = std::range_formatter<T>;
 public:
 
   // コンパイル時の書式文字列の解析があるため、
   // constexprにする必要がある。
-  // この関数に渡されるパラメータは、{:%j}の%以降。
+  // この関数に渡されるパラメータは、{:c:02x}のc以降。
   // 解析がおわった場所を指すイテレータを返す。
   constexpr auto parse(std::format_parse_context& pctx) {
     auto it = pctx.begin();
@@ -105,7 +105,7 @@ public:
           ++out;
         }
         fctx.advance_to(out);
-        out = underlying().format(x, fctx);
+        out = this->underlying().format(x, fctx);
       }
       return out;
     }
@@ -117,7 +117,7 @@ public:
 
 int main()
 {
-  std::vector<std::uint8_t> v = {0xaa, 0xbb, 0xcc, 0xdd, 0xee, 0xff};
+  MyVector<std::uint8_t> v = {0xaa, 0xbb, 0xcc, 0xdd, 0xee, 0xff};
   std::cout << std::format("{:c:02x}", v) << std::endl;
 }
 ```
@@ -136,15 +136,13 @@ int main()
 aa:bb:cc:dd:ee:ff
 ```
 
-(動作確認はできていない)
-
 ## バージョン
 ### 言語
 - C++23
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
-- [GCC](/implementation.md#gcc): ??
+- [GCC](/implementation.md#gcc): 15.1 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
