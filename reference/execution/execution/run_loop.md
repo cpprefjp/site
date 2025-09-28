@@ -5,7 +5,7 @@
 * cpp26[meta cpp]
 
 ```cpp
-namespace std::execition {
+namespace std::execution {
   class run_loop;
 }
 ```

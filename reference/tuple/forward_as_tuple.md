@@ -5,7 +5,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-namespace {
+namespace std {
   template <class... Types>
   tuple<Types&&...> forward_as_tuple(Types&&...) noexcept;           // C++11
 

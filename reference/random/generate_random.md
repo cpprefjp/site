@@ -1,6 +1,6 @@
 # generate_random
 * random[meta header]
-* std[meta namespace]
+* std::ranges[meta namespace]
 * function template[meta id-type]
 * cpp26[meta cpp]
 

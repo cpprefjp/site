@@ -5,7 +5,7 @@
 * cpp23[meta cpp]
 
 ```cpp
-namespace ranges {
+namespace std::ranges {
   template <input_iterator I,
             sentinel_for<I> S,
             class T,
