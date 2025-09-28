@@ -136,6 +136,57 @@ int main()
 aa:bb:cc:dd:ee:ff
 ```
 
+
+### オリジナル書式を定義する例（`set_separator`と`set_brackets`を使う場合）
+```cpp example
+#include <iostream>
+#include <format>
+#include <vector>
+
+template <class T>
+struct MyVector : std::vector<T> {
+    using std::vector<T>::vector;
+};
+
+template <class T>
+constexpr std::range_format std::format_kind<MyVector<T>> = std::range_format::sequence;
+
+template <class T>
+class std::formatter<MyVector<T>> : public std::range_formatter<T> {
+  using base_type = std::range_formatter<T>;
+public:
+  constexpr auto parse(std::format_parse_context& pctx) {
+    auto it = pctx.begin();
+    if (*it == 'c') {
+      this->set_separator(":");  // 区切り文字を「:」に設定
+      this->set_brackets("", "");  // 囲み文字を空文字列に設定
+      ++it;
+    }
+    pctx.advance_to(it);
+    return base_type::parse(pctx);
+  }
+};
+
+#include <cstdint>
+
+int main()
+{
+  MyVector<std::uint8_t> v = {0xaa, 0xbb, 0xcc, 0xdd, 0xee, 0xff};
+  std::cout << std::format("{:c:02x}", v) << std::endl;
+}
+```
+* std::format_parse_context[link basic_format_parse_context.md]
+* pctx.begin()[link basic_format_parse_context/begin.md]
+* pctx.advance_to[link basic_format_parse_context/advance_to.md]
+* std::format[link format.md]
+
+
+#### 出力
+```
+aa:bb:cc:dd:ee:ff
+```
+
+
 ## バージョン
 ### 言語
 - C++23
