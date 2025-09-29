@@ -41,7 +41,7 @@ return stop-when(std::forward<Sender>(snd), scope->s_source.get_token());
 ## 関連項目
 - [`execution::associate`](../../associate.md)
 - [`execution::spawn_future`](../../spawn_future.md.nolink)
-- [`execution::spawn`](../../spawn.md.nolink)
+- [`execution::spawn`](../../spawn.md)
 
 
 ## 参照

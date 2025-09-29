@@ -140,7 +140,7 @@ namespace std::execution {
 |------|------|----------------|
 | [`this_thread::sync_wait`](this_thread/sync_wait.md) | 現在のスレッド上でSender完了を待機 (customization point object) | C++26 |
 | [`this_thread::sync_wait_with_variant`](this_thread/sync_wait_with_variant.md) | 現在のスレッド上でSender完了を待機 (customization point object) | C++26 |
-| [`execution::spawn`](execution/spawn.md.nolink) | 非同期操作を早期開始 (customization point object) | C++26 |
+| [`execution::spawn`](execution/spawn.md) | 非同期操作を早期開始 (customization point object) | C++26 |
 
 Senderコンシューマは名前空間 `std::this_thread` および名前空間 `std::execution` で定義される。
 
