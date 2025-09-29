@@ -13,7 +13,7 @@ namespace std::execution {
 * unspecified[italic]
 
 ## 概要
-`spawn`は、入力[Sender](sender.md)に対して[非同期トークンスコープ](scope_token.md))への関連付けを試み、成功時に入力Senderを早期開始(eagerly start)させるSenderコンシューマである。
+`spawn`は、入力[Sender](sender.md)に対して[非同期トークンスコープ](scope_token.md)への関連付けを試み、成功時に入力Senderを早期開始(eagerly start)させるSenderコンシューマである。
 
 
 ## 効果
@@ -68,7 +68,6 @@ namespace std::execution {
 説明専用のクラステンプレート`spawn-state`を下記の通り定義する。
 
 ```cpp
-🔗
 namespace std::execution {
   template<class Alloc, scope_token Token, sender Sender>
   struct spawn-state : spawn-state-base {                   // exposition only
