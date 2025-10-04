@@ -1,0 +1,908 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2025-10-04T10:19:43.312517</updated>
+  <id>f485cc14-9666-4b28-a39d-c5dc6b4b30f8</id>
+
+  
+    <entry>
+      <title>operator void* -- basic_ios::operator void*() に cpp11removed を追加</title>
+      <link href="https://cpprefjp.github.io/reference/ios/basic_ios/op_voidptr.html"/>
+      <id>40fb86521438e97ebab138cbe47c891bdd778dae:reference/ios/basic_ios/op_voidptr.md</id>
+      <updated>2025-10-04T18:21:15+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ios/basic_ios/op_voidptr.md b/reference/ios/basic_ios/op_voidptr.md
+index 44b8ae7b5..a0c358357 100644
+--- a/reference/ios/basic_ios/op_voidptr.md
++++ b/reference/ios/basic_ios/op_voidptr.md
+@@ -3,6 +3,7 @@
+ * std[meta namespace]
+ * basic_ios[meta class]
+ * function[meta id-type]
++* cpp11removed[meta cpp]
+ 
+ ```cpp
+ operator void*() const;
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>page_title (1行目の見出し1はページのタイトルです。修飾なしで記載してください) -- cpp11removed の説明を追加</title>
+      <link href="https://cpprefjp.github.io/start_editing/class_template_page.html"/>
+      <id>a14373f1ef279fa7a5e21cabd2089db253e379f2:start_editing/class_template_page.md</id>
+      <updated>2025-10-04T18:20:22+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/start_editing/class_template_page.md b/start_editing/class_template_page.md
+index e20675b4a..4b4e98ea2 100644
+--- a/start_editing/class_template_page.md
++++ b/start_editing/class_template_page.md
+@@ -24,6 +24,7 @@
+ &amp;lt;!--    `cpp23[meta cpp]` : C++23で追加された機能 --&amp;gt;
+ &amp;lt;!--    `cpp26[meta cpp]` : C++26で追加された機能 --&amp;gt;
+ &amp;lt;!--    `cpp11deprecated[meta cpp]` : C++11で非推奨になった機能 --&amp;gt;
++&amp;lt;!--    `cpp11removed[meta cpp]` : C++11で削除された機能 --&amp;gt;
+ &amp;lt;!--    `cpp14deprecated[meta cpp]` : C++14で非推奨になった機能 --&amp;gt;
+ &amp;lt;!--    `cpp14removed[meta cpp]` : C++14で削除された機能 --&amp;gt;
+ &amp;lt;!--    `cpp17deprecated[meta cpp]` : C++17で非推奨になった機能 --&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>page_title (1行目の見出し1はページのタイトルです。修飾なしで記載してください) -- cpp11removed の説明を追加</title>
+      <link href="https://cpprefjp.github.io/start_editing/comparison_operator_template_page.html"/>
+      <id>a14373f1ef279fa7a5e21cabd2089db253e379f2:start_editing/comparison_operator_template_page.md</id>
+      <updated>2025-10-04T18:20:22+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/start_editing/comparison_operator_template_page.md b/start_editing/comparison_operator_template_page.md
+index 112993dbd..7adae91ff 100644
+--- a/start_editing/comparison_operator_template_page.md
++++ b/start_editing/comparison_operator_template_page.md
+@@ -25,6 +25,7 @@
+ &amp;lt;!--    `cpp23[meta cpp]` : C++23で追加された機能 --&amp;gt;
+ &amp;lt;!--    `cpp26[meta cpp]` : C++26で追加された機能 --&amp;gt;
+ &amp;lt;!--    `cpp11deprecated[meta cpp]` : C++11で非推奨になった機能 --&amp;gt;
++&amp;lt;!--    `cpp11removed[meta cpp]` : C++11で削除された機能 --&amp;gt;
+ &amp;lt;!--    `cpp14deprecated[meta cpp]` : C++14で非推奨になった機能 --&amp;gt;
+ &amp;lt;!--    `cpp14removed[meta cpp]` : C++14で削除された機能 --&amp;gt;
+ &amp;lt;!--    `cpp17deprecated[meta cpp]` : C++17で非推奨になった機能 --&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>page_title (1行目の見出し1はページのタイトルです。修飾なしで記載してください) -- cpp11removed の説明を追加</title>
+      <link href="https://cpprefjp.github.io/start_editing/function_template_page.html"/>
+      <id>a14373f1ef279fa7a5e21cabd2089db253e379f2:start_editing/function_template_page.md</id>
+      <updated>2025-10-04T18:20:22+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/start_editing/function_template_page.md b/start_editing/function_template_page.md
+index 5f4de1fea..76400af2c 100644
+--- a/start_editing/function_template_page.md
++++ b/start_editing/function_template_page.md
+@@ -25,6 +25,7 @@
+ &amp;lt;!--    `cpp23[meta cpp]` : C++23で追加された機能 --&amp;gt;
+ &amp;lt;!--    `cpp26[meta cpp]` : C++26で追加された機能 --&amp;gt;
+ &amp;lt;!--    `cpp11deprecated[meta cpp]` : C++11で非推奨になった機能 --&amp;gt;
++&amp;lt;!--    `cpp11removed[meta cpp]` : C++11で削除された機能 --&amp;gt;
+ &amp;lt;!--    `cpp14deprecated[meta cpp]` : C++14で非推奨になった機能 --&amp;gt;
+ &amp;lt;!--    `cpp14removed[meta cpp]` : C++14で削除された機能 --&amp;gt;
+ &amp;lt;!--    `cpp17deprecated[meta cpp]` : C++17で非推奨になった機能 --&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>page_title (1行目の見出し1はページのタイトルです。修飾なしで記載してください) -- cpp11removed の説明を追加</title>
+      <link href="https://cpprefjp.github.io/start_editing/header_template_page.html"/>
+      <id>a14373f1ef279fa7a5e21cabd2089db253e379f2:start_editing/header_template_page.md</id>
+      <updated>2025-10-04T18:20:22+09:00</updated>
+      
+        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;header_name&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;page_title (1行目の見出し1はページのタイトルです。修飾なしで記載してください)&lt;/span&gt;&lt;span class=&#34;cpp cpp17&#34; title=&#34;C++17で追加&#34;&gt;(C++17)&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;(&lt;a href=&#34;../start_editing.html&#34;&gt;cpprefjpを編集するには&lt;/a&gt; および &lt;a href=&#34;markdown_cpprefjp.html&#34;&gt;cpprefjpでのMarkdown記法の制限と拡張&lt;/a&gt; を先に読んで下さい。)&lt;/p&gt;
+&lt;p&gt;(
+  サンプルコードは文章中のどの部分で書いても大丈夫です。閲覧者の理解を助けるために必要だと感じたところで入れてください。
+  その際拡張構文である&lt;code&gt;example&lt;/code&gt;タグをルールに従って付け、コンパイル・実行可能にすることを検討してください。
+)&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;(ここには、このヘッダファイル(ライブラリ)の概要を記述します。必須事項です。)&lt;/p&gt;
+&lt;p&gt;(必要な項目を省略する場合には、「(執筆中)」と書いておいてください。)&lt;/p&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;バージョン&lt;/h2&gt;
+&lt;h3&gt;言語&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;C++11&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;処理系&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;../implementation.html#clang&#34;&gt;Clang&lt;/a&gt;: 1.9 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 2.9 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 3.0 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 3.1 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 3.2 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 3.3 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../implementation.html#gcc&#34;&gt;GCC&lt;/a&gt;: 4.3.6 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 4.4.7 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 4.5.3 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 4.6.3 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 4.7.2 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 4.8.1 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../implementation.html#icc&#34;&gt;ICC&lt;/a&gt;: 10.1 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 11.0 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 11.1 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 12.0 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../implementation.html#visual_cpp&#34;&gt;Visual C++&lt;/a&gt;: 2003 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 2005 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 2008 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 2010 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 2012 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;(ここには、そのヘッダファイルが存在する言語のバージョンと、確認がとれたコンパイラとそのバージョンを記述します。)&lt;br /&gt;
+(これらの項目を削除した場合、C++03のあらゆる環境で使用できることを意味します。)&lt;/p&gt;
+&lt;h2&gt;関連項目&lt;/h2&gt;
+&lt;p&gt;(ここには、その機能と関連のあるcpprefjpサイト内の項目へのリンクを記述します。とくに必要がないと判断した場合、項目を削除してください。)&lt;/p&gt;
+&lt;h2&gt;参照&lt;/h2&gt;
+&lt;p&gt;(ここには、その関数・変数・定数を理解するにあたっての参考資料や、関連する機能へのリンクを記述します。とくに必要がないと判断した場合、項目を削除してください。)&lt;/p&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>page_title (1行目の見出し1はページのタイトルです。修飾なしで記載してください) -- cpp11removed の説明を追加</title>
+      <link href="https://cpprefjp.github.io/start_editing/lang_template_page.html"/>
+      <id>a14373f1ef279fa7a5e21cabd2089db253e379f2:start_editing/lang_template_page.md</id>
+      <updated>2025-10-04T18:20:22+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/start_editing/lang_template_page.md b/start_editing/lang_template_page.md
+index 6f41aad21..817d98009 100644
+--- a/start_editing/lang_template_page.md
++++ b/start_editing/lang_template_page.md
+@@ -17,6 +17,7 @@
+ &amp;lt;!--    `cpp23[meta cpp]` : C++23で追加された機能 --&amp;gt;
+ &amp;lt;!--    `cpp26[meta cpp]` : C++26で追加された機能 --&amp;gt;
+ &amp;lt;!--    `cpp11deprecated[meta cpp]` : C++11で非推奨になった機能 --&amp;gt;
++&amp;lt;!--    `cpp11removed[meta cpp]` : C++11で削除された機能 --&amp;gt;
+ &amp;lt;!--    `cpp14deprecated[meta cpp]` : C++14で非推奨になった機能 --&amp;gt;
+ &amp;lt;!--    `cpp14removed[meta cpp]` : C++14で削除された機能 --&amp;gt;
+ &amp;lt;!--    `cpp17deprecated[meta cpp]` : C++17で非推奨になった機能 --&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>cpprefjpでのMarkdown記法の制限と拡張 -- cpp11removed の説明を追加</title>
+      <link href="https://cpprefjp.github.io/start_editing/markdown_cpprefjp.html"/>
+      <id>a14373f1ef279fa7a5e21cabd2089db253e379f2:start_editing/markdown_cpprefjp.md</id>
+      <updated>2025-10-04T18:20:22+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/start_editing/markdown_cpprefjp.md b/start_editing/markdown_cpprefjp.md
+index cc1d5d942..19c1483c4 100644
+--- a/start_editing/markdown_cpprefjp.md
++++ b/start_editing/markdown_cpprefjp.md
+@@ -306,6 +306,7 @@ Warning: [nolinked editors_doc/specialized.md] href &amp;#34;/reference/foobar.md.nolink
+     * `* cpp20[meta cpp]` : C++20で追加された機能
+     * `* cpp23[meta cpp]` : C++23で追加された機能
+     * `* cpp11deprecated[meta cpp]` : C++11で非推奨になった機能
++    * `* cpp11removed[meta cpp]` : C++11で削除された機能
+     * `* cpp14deprecated[meta cpp]` : C++14で非推奨になった機能
+     * `* cpp14removed[meta cpp]` : C++14で削除された機能
+     * `* cpp17deprecated[meta cpp]` : C++17で非推奨になった機能
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>page_title (1行目の見出し1はページのタイトルです。修飾なしで記載してください) -- cpp11removed の説明を追加</title>
+      <link href="https://cpprefjp.github.io/start_editing/named_requirement_template_page.html"/>
+      <id>a14373f1ef279fa7a5e21cabd2089db253e379f2:start_editing/named_requirement_template_page.md</id>
+      <updated>2025-10-04T18:20:22+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/start_editing/named_requirement_template_page.md b/start_editing/named_requirement_template_page.md
+index fe39a9b0e..6688cb2e5 100644
+--- a/start_editing/named_requirement_template_page.md
++++ b/start_editing/named_requirement_template_page.md
+@@ -19,6 +19,7 @@
+ &amp;lt;!--    `cpp23[meta cpp]` : C++23で追加された機能 --&amp;gt;
+ &amp;lt;!--    `cpp26[meta cpp]` : C++26で追加された機能 --&amp;gt;
+ &amp;lt;!--    `cpp11deprecated[meta cpp]` : C++11で非推奨になった機能 --&amp;gt;
++&amp;lt;!--    `cpp11removed[meta cpp]` : C++11で削除された機能 --&amp;gt;
+ &amp;lt;!--    `cpp14deprecated[meta cpp]` : C++14で非推奨になった機能 --&amp;gt;
+ &amp;lt;!--    `cpp14removed[meta cpp]` : C++14で削除された機能 --&amp;gt;
+ &amp;lt;!--    `cpp17deprecated[meta cpp]` : C++17で非推奨になった機能 --&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>page_title (1行目の見出し1はページのタイトルです。修飾なしで記載してください) -- cpp11removed の説明を追加</title>
+      <link href="https://cpprefjp.github.io/start_editing/type-type_template_page.html"/>
+      <id>a14373f1ef279fa7a5e21cabd2089db253e379f2:start_editing/type-type_template_page.md</id>
+      <updated>2025-10-04T18:20:22+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/start_editing/type-type_template_page.md b/start_editing/type-type_template_page.md
+index b67913eb2..4054207ff 100644
+--- a/start_editing/type-type_template_page.md
++++ b/start_editing/type-type_template_page.md
+@@ -25,6 +25,7 @@
+ &amp;lt;!--    `cpp23[meta cpp]` : C++23で追加された機能 --&amp;gt;
+ &amp;lt;!--    `cpp26[meta cpp]` : C++26で追加された機能 --&amp;gt;
+ &amp;lt;!--    `cpp11deprecated[meta cpp]` : C++11で非推奨になった機能 --&amp;gt;
++&amp;lt;!--    `cpp11removed[meta cpp]` : C++11で削除された機能 --&amp;gt;
+ &amp;lt;!--    `cpp14deprecated[meta cpp]` : C++14で非推奨になった機能 --&amp;gt;
+ &amp;lt;!--    `cpp14removed[meta cpp]` : C++14で削除された機能 --&amp;gt;
+ &amp;lt;!--    `cpp17deprecated[meta cpp]` : C++17で非推奨になった機能 --&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>spawn -- Typo修正</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/spawn.html"/>
+      <id>9e1ab85cca54ead1770ff96999a7c3228d0fb273:reference/execution/execution/spawn.md</id>
+      <updated>2025-09-29T18:17:29+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/spawn.md b/reference/execution/execution/spawn.md
+index 60caee00a..4cba44ec7 100644
+--- a/reference/execution/execution/spawn.md
++++ b/reference/execution/execution/spawn.md
+@@ -13,7 +13,7 @@ namespace std::execution {
+ * unspecified[italic]
+ 
+ ## 概要
+-`spawn`は、入力[Sender](sender.md)に対して[非同期トークンスコープ](scope_token.md))への関連付けを試み、成功時に入力Senderを早期開始(eagerly start)させるSenderコンシューマである。
++`spawn`は、入力[Sender](sender.md)に対して[非同期トークンスコープ](scope_token.md)への関連付けを試み、成功時に入力Senderを早期開始(eagerly start)させるSenderコンシューマである。
+ 
+ 
+ ## 効果
+@@ -68,7 +68,6 @@ namespace std::execution {
+ 説明専用のクラステンプレート`spawn-state`を下記の通り定義する。
+ 
+ ```cpp
+-🔗
+ namespace std::execution {
+   template&amp;lt;class Alloc, scope_token Token, sender Sender&amp;gt;
+   struct spawn-state : spawn-state-base {                   // exposition only
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>execution -- execution: P3149R11 spawn(#1510)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution.html"/>
+      <id>d01bc0846d629899aefed6d163a9a437cec5c9c2:reference/execution/execution.md</id>
+      <updated>2025-09-29T10:45:27+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution.md b/reference/execution/execution.md
+index 74cc78afc..c4c0adc76 100644
+--- a/reference/execution/execution.md
++++ b/reference/execution/execution.md
+@@ -140,7 +140,7 @@ namespace std::execution {
+ |------|------|----------------|
+ | [`this_thread::sync_wait`](this_thread/sync_wait.md) | 現在のスレッド上でSender完了を待機 (customization point object) | C++26 |
+ | [`this_thread::sync_wait_with_variant`](this_thread/sync_wait_with_variant.md) | 現在のスレッド上でSender完了を待機 (customization point object) | C++26 |
+-| [`execution::spawn`](execution/spawn.md.nolink) | 非同期操作を早期開始 (customization point object) | C++26 |
++| [`execution::spawn`](execution/spawn.md) | 非同期操作を早期開始 (customization point object) | C++26 |
+ 
+ Senderコンシューマは名前空間 `std::this_thread` および名前空間 `std::execution` で定義される。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>disassociate -- execution: P3149R11 spawn(#1510)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/counting_scope/token/disassociate.html"/>
+      <id>d01bc0846d629899aefed6d163a9a437cec5c9c2:reference/execution/execution/counting_scope/token/disassociate.md</id>
+      <updated>2025-09-29T10:45:27+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/counting_scope/token/disassociate.md b/reference/execution/execution/counting_scope/token/disassociate.md
+index fc09036bb..8ebf594ea 100644
+--- a/reference/execution/execution/counting_scope/token/disassociate.md
++++ b/reference/execution/execution/counting_scope/token/disassociate.md
+@@ -40,7 +40,7 @@ scope-&amp;gt;disassociate()
+ ## 関連項目
+ - [`execution::associate`](../../associate.md)
+ - [`execution::spawn_future`](../../spawn_future.md.nolink)
+-- [`execution::spawn`](../../spawn.md.nolink)
++- [`execution::spawn`](../../spawn.md)
+ 
+ 
+ ## 参照
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>try_associate -- execution: P3149R11 spawn(#1510)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/counting_scope/token/try_associate.html"/>
+      <id>d01bc0846d629899aefed6d163a9a437cec5c9c2:reference/execution/execution/counting_scope/token/try_associate.md</id>
+      <updated>2025-09-29T10:45:27+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/counting_scope/token/try_associate.md b/reference/execution/execution/counting_scope/token/try_associate.md
+index 5bde327af..de9c2fd6c 100644
+--- a/reference/execution/execution/counting_scope/token/try_associate.md
++++ b/reference/execution/execution/counting_scope/token/try_associate.md
+@@ -40,7 +40,7 @@ return scope-&amp;gt;try-associate();
+ ## 関連項目
+ - [`execution::associate`](../../associate.md)
+ - [`execution::spawn_future`](../../spawn_future.md.nolink)
+-- [`execution::spawn`](../../spawn.md.nolink)
++- [`execution::spawn`](../../spawn.md)
+ 
+ 
+ ## 参照
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>wrap -- execution: P3149R11 spawn(#1510)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/counting_scope/token/wrap.html"/>
+      <id>d01bc0846d629899aefed6d163a9a437cec5c9c2:reference/execution/execution/counting_scope/token/wrap.md</id>
+      <updated>2025-09-29T10:45:27+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/counting_scope/token/wrap.md b/reference/execution/execution/counting_scope/token/wrap.md
+index 73588bf95..e69eef0d2 100644
+--- a/reference/execution/execution/counting_scope/token/wrap.md
++++ b/reference/execution/execution/counting_scope/token/wrap.md
+@@ -41,7 +41,7 @@ return stop-when(std::forward&amp;lt;Sender&amp;gt;(snd), scope-&amp;gt;s_source.get_token());
+ ## 関連項目
+ - [`execution::associate`](../../associate.md)
+ - [`execution::spawn_future`](../../spawn_future.md.nolink)
+-- [`execution::spawn`](../../spawn.md.nolink)
++- [`execution::spawn`](../../spawn.md)
+ 
+ 
+ ## 参照
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>scope_token -- execution: P3149R11 spawn(#1510)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/scope_token.html"/>
+      <id>d01bc0846d629899aefed6d163a9a437cec5c9c2:reference/execution/execution/scope_token.md</id>
+      <updated>2025-09-29T10:45:27+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/scope_token.md b/reference/execution/execution/scope_token.md
+index b48655383..5aca3cc40 100644
+--- a/reference/execution/execution/scope_token.md
++++ b/reference/execution/execution/scope_token.md
+@@ -71,7 +71,7 @@ int main()
+ ## 関連項目
+ - [`execution::associate`](associate.md)
+ - [`execution::spawn_future`](spawn_future.md.nolink)
+-- [`execution::spawn`](spawn.md.nolink)
++- [`execution::spawn`](spawn.md)
+ 
+ 
+ ## 参照
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>disassociate -- execution: P3149R11 spawn(#1510)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/simple_counting_scope/token/disassociate.html"/>
+      <id>d01bc0846d629899aefed6d163a9a437cec5c9c2:reference/execution/execution/simple_counting_scope/token/disassociate.md</id>
+      <updated>2025-09-29T10:45:27+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/simple_counting_scope/token/disassociate.md b/reference/execution/execution/simple_counting_scope/token/disassociate.md
+index 6aa05a177..9943b7882 100644
+--- a/reference/execution/execution/simple_counting_scope/token/disassociate.md
++++ b/reference/execution/execution/simple_counting_scope/token/disassociate.md
+@@ -40,7 +40,7 @@ scope-&amp;gt;disassociate()
+ ## 関連項目
+ - [`execution::associate`](../../associate.md)
+ - [`execution::spawn_future`](../../spawn_future.md.nolink)
+-- [`execution::spawn`](../../spawn.md.nolink)
++- [`execution::spawn`](../../spawn.md)
+ 
+ 
+ ## 参照
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>try_associate -- execution: P3149R11 spawn(#1510)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/simple_counting_scope/token/try_associate.html"/>
+      <id>d01bc0846d629899aefed6d163a9a437cec5c9c2:reference/execution/execution/simple_counting_scope/token/try_associate.md</id>
+      <updated>2025-09-29T10:45:27+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/simple_counting_scope/token/try_associate.md b/reference/execution/execution/simple_counting_scope/token/try_associate.md
+index 5b0f184c4..43631ed3d 100644
+--- a/reference/execution/execution/simple_counting_scope/token/try_associate.md
++++ b/reference/execution/execution/simple_counting_scope/token/try_associate.md
+@@ -40,7 +40,7 @@ return scope-&amp;gt;try-associate();
+ ## 関連項目
+ - [`execution::associate`](../../associate.md)
+ - [`execution::spawn_future`](../../spawn_future.md.nolink)
+-- [`execution::spawn`](../../spawn.md.nolink)
++- [`execution::spawn`](../../spawn.md)
+ 
+ 
+ ## 参照
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>wrap -- execution: P3149R11 spawn(#1510)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/simple_counting_scope/token/wrap.html"/>
+      <id>d01bc0846d629899aefed6d163a9a437cec5c9c2:reference/execution/execution/simple_counting_scope/token/wrap.md</id>
+      <updated>2025-09-29T10:45:27+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/simple_counting_scope/token/wrap.md b/reference/execution/execution/simple_counting_scope/token/wrap.md
+index 495fa0075..e29f11118 100644
+--- a/reference/execution/execution/simple_counting_scope/token/wrap.md
++++ b/reference/execution/execution/simple_counting_scope/token/wrap.md
+@@ -37,7 +37,7 @@ Sender&amp;amp;&amp;amp; wrap(Sender&amp;amp;&amp;amp; snd) const noexcept;
+ ## 関連項目
+ - [`execution::associate`](../../associate.md)
+ - [`execution::spawn_future`](../../spawn_future.md.nolink)
+-- [`execution::spawn`](../../spawn.md.nolink)
++- [`execution::spawn`](../../spawn.md)
+ 
+ 
+ ## 参照
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>spawn -- execution: P3149R11 spawn(#1510)</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/spawn.html"/>
+      <id>d01bc0846d629899aefed6d163a9a437cec5c9c2:reference/execution/execution/spawn.md</id>
+      <updated>2025-09-29T10:45:27+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/spawn.md b/reference/execution/execution/spawn.md
+new file mode 100644
+index 000000000..60caee00a
+--- /dev/null
++++ b/reference/execution/execution/spawn.md
+@@ -0,0 +1,221 @@
++# spawn
++* execution[meta header]
++* cpo[meta id-type]
++* std::execution[meta namespace]
++* cpp26[meta cpp]
++
++```cpp
++namespace std::execution {
++  struct spawn_t { unspecified };
++  inline constexpr spawn_t spawn{};
++}
++```
++* unspecified[italic]
++
++## 概要
++`spawn`は、入力[Sender](sender.md)に対して[非同期トークンスコープ](scope_token.md))への関連付けを試み、成功時に入力Senderを早期開始(eagerly start)させるSenderコンシューマである。
++
++
++## 効果
++説明用の式`sndr`, `token`, `env`に対して、下記の通り定義する。
++
++- `Sndr`型を`decltype((sndr))`、
++- `Token`型を[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`&amp;lt;decltype((token))&amp;gt;`、
++- `Env`型を[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`&amp;lt;decltype((env))&amp;gt;`とする。
++
++[`sender`](sender.md)`&amp;lt;Sndr&amp;gt;`, [`scope_token`](scope_token.md)`&amp;lt;Token&amp;gt;`, [`queryable`](../queryable.md)`&amp;lt;Env&amp;gt;`のいずれかを満たさないとき、呼び出し式`spawn(sndr, token, env)`は不適格となる。
++
++そうでなければ、呼び出し式`spawn(sndr, token, env)`に対して、説明用の式`new_sender`を[`token.wrap`](scope_token.md)`(sndr)`とし、`alloc`と`senv`を次の通りとする。
++
++- 式[`get_allocator`](../get_allocator.md)`(env)`が適格なとき、`alloc`を[`get_allocator`](../get_allocator.md)`(env)`の結果、`senv`を式`env`とする。
++- そうでなはく、式[`get_allocator`](../get_allocator.md)`(`[`get_env`](get_env.md)`(new_sender))`が適格なとき、`alloc`を[`get_allocator`](../get_allocator.md)`(`[`get_env`](get_env.md)`(new_sender))`の結果、`senv`を式[`JOIN-ENV`](../queryable.md)`(`[`prop`](prop.md)`(`[`get_allocator`](../get_allocator.md)`, alloc), env)`とする。
++- そうではないとき、`alloc`を[`allocator`](/reference/memory/allocator.md)`&amp;lt;void&amp;gt;()`、`senv`を式`env`とする。
++
++呼び出し式`spawn(sndr, token, env)`は`void`型であり、次の効果をもつ。
++
++- `alloc`を用いてメモリ確保し、`alloc`, [`write_env`](write_env.md)`(token.wrap(sndr), senv)`, `token`から特殊化された`spawn-state`型のオブジェクト`o`を構築し、`o.run()`を呼び出す。何らかのオブジェクト構築・破棄時に例外送出されたときは、確保されたメモリが解放される。
++
++式`spawn(sndr, token)`は、式`spawn(sndr, token,` [`execution::env&amp;lt;&amp;gt;`](env.md)`())`と等価である。
++
++
++## 説明専用エンティティ
++説明専用のクラス`spawn-state-base`を下記の通り定義する。
++
++```cpp
++namespace std::execution {
++  struct spawn-state-base {                // exposition only
++    virtual void complete() noexcept = 0;  // exposition only
++  };
++}
++```
++
++説明専用のクラス`spawn-receiver`を下記の通り定義する。
++
++```cpp
++namespace std::execution {
++  struct spawn-receiver {                  // exposition only
++    using receiver_concept = receiver_t;
++
++    spawn-state-base* state;               // exposition only
++    void set_value() &amp;amp;&amp;amp; noexcept { state-&amp;gt;complete(); }
++    void set_stopped() &amp;amp;&amp;amp; noexcept { state-&amp;gt;complete(); }
++  };
++}
++```
++* receiver_t[link receiver.md]
++* spawn-state-base[italic]
++
++説明専用のクラステンプレート`spawn-state`を下記の通り定義する。
++
++```cpp
++🔗
++namespace std::execution {
++  template&amp;lt;class Alloc, scope_token Token, sender Sender&amp;gt;
++  struct spawn-state : spawn-state-base {                   // exposition only
++    using op-t = connect_result_t&amp;lt;Sender, spawn-receiver&amp;gt;;  // exposition only
++
++    spawn-state(Alloc alloc, Sender&amp;amp;&amp;amp; sndr, Token token);   // exposition only
++    void complete() noexcept override;                      // exposition only
++    void run();                                             // exposition only
++
++  private:
++    using alloc-t =                                         // exposition only
++      typename allocator_traits&amp;lt;Alloc&amp;gt;::template rebind_alloc&amp;lt;spawn-state&amp;gt;;
++
++    alloc-t alloc;                                          // exposition only
++    op-t op;                                                // exposition only
++    Token token;                                            // exposition only
++
++    void destroy() noexcept;                                // exposition only
++  };
++}
++```
++* scope_token[link scope_token.md]
++* sender[link sender.md]
++* connect_result_t[link connect_result_t.md]
++* allocator_traits[link /reference/memory/allocator_traits.md]
++* spawn-state-base[italic]
++* spawn-receiver[italic]
++
++```cpp
++spawn-state(Alloc alloc, Sender&amp;amp;&amp;amp; sndr, Token token);
++```
++
++- 効果 : メンバ変数`alloc`を引数`alloc`で、メンバ変数`token`を引数`token`で、`op`を下記で初期化する。
++
++    ```cpp
++    connect(std::move(sndr), spawn-receiver(this))
++    ```
++    * connect[link connect.md]
++    * std::move[link /reference/utility/move.md]
++
++```cpp
++void run();
++```
++
++- 効果 : 下記と等価
++
++    ```cpp
++    if (token.try_associate())
++      start(op);
++    else
++      destroy();
++    ```
++    * start[link start.md]
++
++```cpp
++void complete() noexcept override;
++```
++
++- 効果 : 下記と等価
++
++    ```cpp
++    auto token = std::move(this-&amp;gt;token);
++
++    destroy();
++    token.disassociate();
++    ```
++    * std::move[link /reference/utility/move.md]
++
++```cpp
++void destroy() noexcept;
++```
++
++- 効果 ： 下記と等価
++
++    ```cpp
++    auto alloc = std::move(this-&amp;gt;alloc);
++
++    allocator_traits&amp;lt;alloc-t&amp;gt;::destroy(alloc, this);
++    allocator_traits&amp;lt;alloc-t&amp;gt;::deallocate(alloc, this, 1);
++    ```
++    * allocator_traits[link /reference/memory/allocator_traits.md]
++    * destroy[link /reference/memory/allocator_traits/destroy.md]
++    * deallocate[link /reference/memory/allocator_traits/deallocate.md]
++    * std::move[link /reference/utility/move.md]
++
++
++## 例
++```cpp example
++#include &amp;lt;print&amp;gt;
++#include &amp;lt;execution&amp;gt;
++namespace ex = std::execution;
++
++int main()
++{
++  // システムスレッドプール上の実行タスクを定義
++  ex::scheduler auto sch = ex::get_parallel_scheduler();
++  ex::sender auto sndr =
++    ex::schedule(sch)
++    | ex::then([](){ std::println(&amp;#34;hello async&amp;#34;); });
++
++  // 非同期スコープを定義
++  ex::counting_scope scope;
++
++  // タスクを早期開始させる
++  std::println(&amp;#34;spawn&amp;#34;);
++  ex::spawn(std::move(sndr), scope.get_token());
++
++  // 非同期スコープを合流
++  std::println(&amp;#34;sync_wait&amp;#34;);
++  std::this_thread::sync_wait(scope.join());
++}
++```
++* ex::spawn[color ff0000]
++* ex::scheduler[link scheduler.md]
++* ex::get_parallel_scheduler()[link get_parallel_scheduler.md]
++* ex::sender[link sender.md]
++* ex::schedule[link schedule.md]
++* ex::then[link then.md]
++* ex::counting_scope[link counting_scope.md]
++* get_token()[link counting_scope/get_token.md]
++* join()[link counting_scope/join.md]
++* std::this_thread::sync_wait[link ../this_thread/sync_wait.md]
++* std::move[link /reference/utility/move.md]
++
++### 出力
++```
++spawn
++hello async
++sync_wait
++```
++
++
++## バージョン
++### 言語
++- C++26
++
++### 処理系
++- [Clang](/implementation.md#clang): ??
++- [GCC](/implementation.md#gcc): ??
++- [ICC](/implementation.md#icc): ??
++- [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 関連項目
++- [`execution::scope_token`](scope_token.md)
++- [`execution::spawn_future`](spawn_future.md.nolink)
++
++
++## 参照
++- [P3149R11 `async_scope` - Creating scopes for non-sequential concurrency](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3149r11.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>yoh</name>
+        <email>kawasaki.liamg@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>contains -- 名前空間を修正</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/ranges_contains.html"/>
+      <id>7e196a7a2a821780b84375546499a7f070061f96:reference/algorithm/ranges_contains.md</id>
+      <updated>2025-09-29T02:15:25+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/ranges_contains.md b/reference/algorithm/ranges_contains.md
+index 2f3e2ded3..761004798 100644
+--- a/reference/algorithm/ranges_contains.md
++++ b/reference/algorithm/ranges_contains.md
+@@ -5,7 +5,7 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-namespace ranges {
++namespace std::ranges {
+   template &amp;lt;input_iterator I,
+             sentinel_for&amp;lt;I&amp;gt; S,
+             class T,
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>run_loop -- 名前空間を修正</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/run_loop.html"/>
+      <id>7e196a7a2a821780b84375546499a7f070061f96:reference/execution/execution/run_loop.md</id>
+      <updated>2025-09-29T02:15:25+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/run_loop.md b/reference/execution/execution/run_loop.md
+index df4115129..48b1f853c 100644
+--- a/reference/execution/execution/run_loop.md
++++ b/reference/execution/execution/run_loop.md
+@@ -5,7 +5,7 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
+-namespace std::execition {
++namespace std::execution {
+   class run_loop;
+ }
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>generate_random -- 名前空間を修正</title>
+      <link href="https://cpprefjp.github.io/reference/random/generate_random.html"/>
+      <id>7e196a7a2a821780b84375546499a7f070061f96:reference/random/generate_random.md</id>
+      <updated>2025-09-29T02:15:25+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/random/generate_random.md b/reference/random/generate_random.md
+index 8f6c41a7e..6b711fce4 100644
+--- a/reference/random/generate_random.md
++++ b/reference/random/generate_random.md
+@@ -1,6 +1,6 @@
+ # generate_random
+ * random[meta header]
+-* std[meta namespace]
++* std::ranges[meta namespace]
+ * function template[meta id-type]
+ * cpp26[meta cpp]
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>forward_as_tuple -- 名前空間を修正</title>
+      <link href="https://cpprefjp.github.io/reference/tuple/forward_as_tuple.html"/>
+      <id>7e196a7a2a821780b84375546499a7f070061f96:reference/tuple/forward_as_tuple.md</id>
+      <updated>2025-09-29T02:15:25+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/tuple/forward_as_tuple.md b/reference/tuple/forward_as_tuple.md
+index f78e4365e..8cb930eb0 100644
+--- a/reference/tuple/forward_as_tuple.md
++++ b/reference/tuple/forward_as_tuple.md
+@@ -5,7 +5,7 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-namespace {
++namespace std {
+   template &amp;lt;class... Types&amp;gt;
+   tuple&amp;lt;Types&amp;amp;&amp;amp;...&amp;gt; forward_as_tuple(Types&amp;amp;&amp;amp;...) noexcept;           // C++11
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>
