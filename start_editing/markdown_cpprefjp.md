@@ -306,6 +306,7 @@ Warning: [nolinked editors_doc/specialized.md] href "/reference/foobar.md.nolink
     * `* cpp20[meta cpp]` : C++20で追加された機能
     * `* cpp23[meta cpp]` : C++23で追加された機能
     * `* cpp11deprecated[meta cpp]` : C++11で非推奨になった機能
+    * `* cpp11removed[meta cpp]` : C++11で削除された機能
     * `* cpp14deprecated[meta cpp]` : C++14で非推奨になった機能
     * `* cpp14removed[meta cpp]` : C++14で削除された機能
     * `* cpp17deprecated[meta cpp]` : C++17で非推奨になった機能

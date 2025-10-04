@@ -3,6 +3,7 @@
 * std[meta namespace]
 * basic_ios[meta class]
 * function[meta id-type]
+* cpp11removed[meta cpp]
 
 ```cpp
 operator void*() const;
