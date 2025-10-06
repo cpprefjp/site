@@ -26,7 +26,7 @@ namespace std {
 
 - メモリ使用量と列挙速度において優位
 - 挿入速度と削除速度はほかの実装に劣る
-- 検索速度は、[`std::map`](/reference/map/map.md)より高速であることが期待できるが (計算量としては同じ対数時間だが、メモリアクセスが高速)、[`std::unordered_map`](/reference/unordered_map/unordered_map.md)よりは劣る
+- 検索速度は、[`std::map`](/reference/map/map.md)より高速であることが期待できるが (計算量としては同じ対数時間だが、メモリアクセスが高速)、サイズが大きいときは[`std::unordered_map`](/reference/unordered_map/unordered_map.md)に劣る
 
 また、このクラスは分類としては[`std::queue`](/reference/queue/queue.md)や[`std::stack`](/reference/stack/stack.md)と同様のコンテナアダプタに分類され、キーの配列と値の配列の2つを内部で持ち、それを[`std::ranges::zip_view`](/reference/ranges/zip_view.md)で綴じあわせて扱う実装となっている。
 

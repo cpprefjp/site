@@ -24,7 +24,7 @@ namespace std {
 
 - メモリ使用量と列挙速度において優位
 - 挿入速度と削除速度はほかの実装に劣る
-- 検索速度は、[`std::multiset`](/reference/set/multiset.md)より高速であることが期待できるが (計算量としては同じ対数時間だが、メモリアクセスが高速)、[`std::unordered_multiset`](/reference/unordered_set/unordered_multiset.md)よりは劣る
+- 検索速度は、[`std::multiset`](/reference/set/multiset.md)より高速であることが期待できるが (計算量としては同じ対数時間だが、メモリアクセスが高速)、サイズが大きいときは[`std::unordered_multiset`](/reference/unordered_set/unordered_multiset.md)に劣る
 
 また、このクラスは分類としては[`std::queue`](/reference/queue/queue.md)や[`std::stack`](/reference/stack/stack.md)と同様のコンテナアダプタに分類され、キーの配列をラップして扱う実装となっている。
 
