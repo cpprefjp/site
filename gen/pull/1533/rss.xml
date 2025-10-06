@@ -2,9 +2,117 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-10-03T04:26:26.309718</updated>
-  <id>a9061ebd-5d24-4677-a5c7-2d3fa1452380</id>
+  <updated>2025-10-06T08:56:35.929360</updated>
+  <id>13564790-2f79-46ff-a449-aa28fd70a345</id>
 
+  
+    <entry>
+      <title>flat_map -- unordered_mapとの比較文言を見直し</title>
+      <link href="https://cpprefjp.github.io/reference/flat_map/flat_map.html"/>
+      <id>564a211a19cc3e65bf164651813f2823480c81d0:reference/flat_map/flat_map.md</id>
+      <updated>2025-10-06T17:51:39+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_map/flat_map.md b/reference/flat_map/flat_map.md
+index 767f0fa32..b63924ae8 100644
+--- a/reference/flat_map/flat_map.md
++++ b/reference/flat_map/flat_map.md
+@@ -26,7 +26,7 @@ namespace std {
+ 
+ - メモリ使用量と列挙速度において優位
+ - 挿入速度と削除速度はほかの実装に劣る
+-- 検索速度は、[`std::map`](/reference/map/map.md)より高速であることが期待できるが (計算量としては同じ対数時間だが、メモリアクセスが高速)、[`std::unordered_map`](/reference/unordered_map/unordered_map.md)よりは劣る
++- 検索速度は、[`std::map`](/reference/map/map.md)より高速であることが期待できるが (計算量としては同じ対数時間だが、メモリアクセスが高速)、サイズが大きいときは[`std::unordered_map`](/reference/unordered_map/unordered_map.md)に劣る
+ 
+ また、このクラスは分類としては[`std::queue`](/reference/queue/queue.md)や[`std::stack`](/reference/stack/stack.md)と同様のコンテナアダプタに分類され、キーの配列と値の配列の2つを内部で持ち、それを[`std::ranges::zip_view`](/reference/ranges/zip_view.md)で綴じあわせて扱う実装となっている。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>flat_multimap -- unordered_mapとの比較文言を見直し</title>
+      <link href="https://cpprefjp.github.io/reference/flat_map/flat_multimap.html"/>
+      <id>564a211a19cc3e65bf164651813f2823480c81d0:reference/flat_map/flat_multimap.md</id>
+      <updated>2025-10-06T17:51:39+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_map/flat_multimap.md b/reference/flat_map/flat_multimap.md
+index 6f4310952..f857ebef2 100644
+--- a/reference/flat_map/flat_multimap.md
++++ b/reference/flat_map/flat_multimap.md
+@@ -26,7 +26,7 @@ namespace std {
+ 
+ - メモリ使用量と列挙速度において優位
+ - 挿入速度と削除速度はほかの実装に劣る
+-- 検索速度は、[`std::multimap`](/reference/map/multimap.md)より高速であることが期待できるが (計算量としては同じ対数時間だが、メモリアクセスが高速)、[`std::unordered_multimap`](/reference/unordered_map/unordered_multimap.md)よりは劣る
++- 検索速度は、[`std::multimap`](/reference/map/multimap.md)より高速であることが期待できるが (計算量としては同じ対数時間だが、メモリアクセスが高速)、サイズが大きいときは[`std::unordered_multimap`](/reference/unordered_map/unordered_multimap.md)に劣る
+ 
+ また、このクラスは分類としては[`std::queue`](/reference/queue/queue.md)や[`std::stack`](/reference/stack/stack.md)と同様のコンテナアダプタに分類され、キーの配列と値の配列の2つを内部で持ち、それを[`std::ranges::zip_view`](/reference/ranges/zip_view.md)で綴じあわせて扱う実装となっている。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>flat_multiset -- unordered_mapとの比較文言を見直し</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_multiset.html"/>
+      <id>564a211a19cc3e65bf164651813f2823480c81d0:reference/flat_set/flat_multiset.md</id>
+      <updated>2025-10-06T17:51:39+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_multiset.md b/reference/flat_set/flat_multiset.md
+index ca7e9f6f6..3c6c273be 100644
+--- a/reference/flat_set/flat_multiset.md
++++ b/reference/flat_set/flat_multiset.md
+@@ -24,7 +24,7 @@ namespace std {
+ 
+ - メモリ使用量と列挙速度において優位
+ - 挿入速度と削除速度はほかの実装に劣る
+-- 検索速度は、[`std::multiset`](/reference/set/multiset.md)より高速であることが期待できるが (計算量としては同じ対数時間だが、メモリアクセスが高速)、[`std::unordered_multiset`](/reference/unordered_set/unordered_multiset.md)よりは劣る
++- 検索速度は、[`std::multiset`](/reference/set/multiset.md)より高速であることが期待できるが (計算量としては同じ対数時間だが、メモリアクセスが高速)、サイズが大きいときは[`std::unordered_multiset`](/reference/unordered_set/unordered_multiset.md)に劣る
+ 
+ また、このクラスは分類としては[`std::queue`](/reference/queue/queue.md)や[`std::stack`](/reference/stack/stack.md)と同様のコンテナアダプタに分類され、キーの配列をラップして扱う実装となっている。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>flat_set -- unordered_mapとの比較文言を見直し</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set.html"/>
+      <id>564a211a19cc3e65bf164651813f2823480c81d0:reference/flat_set/flat_set.md</id>
+      <updated>2025-10-06T17:51:39+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set.md b/reference/flat_set/flat_set.md
+index a60bc1659..13d6dd089 100644
+--- a/reference/flat_set/flat_set.md
++++ b/reference/flat_set/flat_set.md
+@@ -24,7 +24,7 @@ namespace std {
+ 
+ - メモリ使用量と列挙速度において優位
+ - 挿入速度と削除速度はほかの実装に劣る
+-- 検索速度は、[`std::set`](/reference/set/set.md)より高速であることが期待できるが (計算量としては同じ対数時間だが、メモリアクセスが高速)、[`std::unordered_set`](/reference/unordered_set/unordered_set.md)よりは劣る
++- 検索速度は、[`std::set`](/reference/set/set.md)より高速であることが期待できるが (計算量としては同じ対数時間だが、メモリアクセスが高速)、サイズが大きいときは[`std::unordered_set`](/reference/unordered_set/unordered_set.md)に劣る
+ 
+ また、このクラスは分類としては[`std::queue`](/reference/queue/queue.md)や[`std::stack`](/reference/stack/stack.md)と同様のコンテナアダプタに分類され、キーの配列をラップして扱う実装となっている。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>flat_map -- flat_map : 速度比較として検索がmapより遅いと書かれていたのを修正 #1531</title>
@@ -729,347 +837,6 @@ index f78e4365e..8cb930eb0 100644
    template &amp;lt;class... Types&amp;gt;
    tuple&amp;lt;Types&amp;amp;&amp;amp;...&amp;gt; forward_as_tuple(Types&amp;amp;&amp;amp;...) noexcept;           // C++11
  
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Raclamusi</name>
-        <email>raclamusi@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>alignas [N2341] -- いくつかのコード例のコンパイルエラーを修正</title>
-      <link href="https://cpprefjp.github.io/lang/cpp11/alignas.html"/>
-      <id>a6d4fdb2ba58044e9a2dd2cd2d2f1f18885358f5:lang/cpp11/alignas.md</id>
-      <updated>2025-09-29T02:08:59+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp11/alignas.md b/lang/cpp11/alignas.md
-index fa86b3472..1d06bfb50 100644
---- a/lang/cpp11/alignas.md
-+++ b/lang/cpp11/alignas.md
-@@ -59,7 +59,7 @@ struct test {
- 
- int distance(void *a, void *b)
- {
--  return reinterpret_cast&amp;lt;int&amp;gt;(a) - reinterpret_cast&amp;lt;int&amp;gt;(b);
-+  return reinterpret_cast&amp;lt;char*&amp;gt;(a) - reinterpret_cast&amp;lt;char*&amp;gt;(b);
- }
- 
- int main()
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Raclamusi</name>
-        <email>raclamusi@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>atomic_flag_test_explicit -- いくつかのコード例のコンパイルエラーを修正</title>
-      <link href="https://cpprefjp.github.io/reference/atomic/atomic_flag_test_explicit.html"/>
-      <id>a6d4fdb2ba58044e9a2dd2cd2d2f1f18885358f5:reference/atomic/atomic_flag_test_explicit.md</id>
-      <updated>2025-09-29T02:08:59+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/atomic/atomic_flag_test_explicit.md b/reference/atomic/atomic_flag_test_explicit.md
-index d6e8d0b73..ba327e22f 100644
---- a/reference/atomic/atomic_flag_test_explicit.md
-+++ b/reference/atomic/atomic_flag_test_explicit.md
-@@ -55,12 +55,12 @@ int main()
-   std::atomic_flag x = ATOMIC_FLAG_INIT;
-   std::cout &amp;lt;&amp;lt; std::atomic_flag_test_explicit(&amp;amp;x, std::memory_order::acquire) &amp;lt;&amp;lt; std::endl;
- 
--  std::atomic_flag_test_and_set(&amp;amp;x, std::memory_order::release);
-+  std::atomic_flag_test_and_set_explicit(&amp;amp;x, std::memory_order::release);
-   std::cout &amp;lt;&amp;lt; std::atomic_flag_test_explicit(&amp;amp;x, std::memory_order::acquire) &amp;lt;&amp;lt; std::endl;
- }
- ```
- * std::atomic_flag_test_explicit[color ff0000]
--* std::atomic_flag_test_and_set[link atomic_flag_test_and_set.md]
-+* std::atomic_flag_test_and_set_explicit[link atomic_flag_test_and_set_explicit.md]
- * ATOMIC_FLAG_INIT[link /reference/atomic/atomic_flag_init.md]
- * memory_order[link /reference/atomic/memory_order.md]
- 
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Raclamusi</name>
-        <email>raclamusi@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>arrive_and_wait -- いくつかのコード例のコンパイルエラーを修正</title>
-      <link href="https://cpprefjp.github.io/reference/barrier/barrier/arrive_and_wait.html"/>
-      <id>a6d4fdb2ba58044e9a2dd2cd2d2f1f18885358f5:reference/barrier/barrier/arrive_and_wait.md</id>
-      <updated>2025-09-29T02:08:59+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/barrier/barrier/arrive_and_wait.md b/reference/barrier/barrier/arrive_and_wait.md
-index 40920a753..2e0b3c915 100644
---- a/reference/barrier/barrier/arrive_and_wait.md
-+++ b/reference/barrier/barrier/arrive_and_wait.md
-@@ -55,7 +55,7 @@ int main()
-   std::barrier&amp;lt;&amp;gt; sync{2};
- 
-   // ワーカスレッド起動
--  std::thread t1([&amp;amp;]{
-+  std::thread t([&amp;amp;]{
-     do_task(&amp;#34;sub:  phase-1&amp;#34;);
-     sync.arrive_and_wait();
-     do_task(&amp;#34;sub:  phase-2&amp;#34;);
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Raclamusi</name>
-        <email>raclamusi@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>close -- いくつかのコード例のコンパイルエラーを修正</title>
-      <link href="https://cpprefjp.github.io/reference/fstream/basic_filebuf/close.html"/>
-      <id>a6d4fdb2ba58044e9a2dd2cd2d2f1f18885358f5:reference/fstream/basic_filebuf/close.md</id>
-      <updated>2025-09-29T02:08:59+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/fstream/basic_filebuf/close.md b/reference/fstream/basic_filebuf/close.md
-index f97f54475..7db7604b2 100644
---- a/reference/fstream/basic_filebuf/close.md
-+++ b/reference/fstream/basic_filebuf/close.md
-@@ -40,7 +40,7 @@ put領域が存在する場合(ファイルを開いているなどして)、`ov
- 
- int main()
- {
--  std::fstream fs();
-+  std::fstream fs;
-   std::filebuf* buf = fs.rdbuf();
- 
-   if (buf-&amp;gt;open(&amp;#34;foo&amp;#34;, std::ios_base::out)) {
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Raclamusi</name>
-        <email>raclamusi@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>invoke_r -- いくつかのコード例のコンパイルエラーを修正</title>
-      <link href="https://cpprefjp.github.io/reference/functional/invoke_r.html"/>
-      <id>a6d4fdb2ba58044e9a2dd2cd2d2f1f18885358f5:reference/functional/invoke_r.md</id>
-      <updated>2025-09-29T02:08:59+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/functional/invoke_r.md b/reference/functional/invoke_r.md
-index c5d679bde..499543f03 100644
---- a/reference/functional/invoke_r.md
-+++ b/reference/functional/invoke_r.md
-@@ -36,7 +36,7 @@ int ch() { return 0x43; }
- 
- int main()
- {
--  std::cout &amp;lt;&amp;lt; std::invoke_r&amp;lt;char&amp;gt;(ch()) &amp;lt;&amp;lt; std::endl;
-+  std::cout &amp;lt;&amp;lt; std::invoke_r&amp;lt;char&amp;gt;(ch) &amp;lt;&amp;lt; std::endl;
- }
- ```
- * std::invoke_r[color ff0000]
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Raclamusi</name>
-        <email>raclamusi@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>operator-- -- いくつかのコード例のコンパイルエラーを修正</title>
-      <link href="https://cpprefjp.github.io/reference/iterator/basic_const_iterator/op_decrement.html"/>
-      <id>a6d4fdb2ba58044e9a2dd2cd2d2f1f18885358f5:reference/iterator/basic_const_iterator/op_decrement.md</id>
-      <updated>2025-09-29T02:08:59+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/basic_const_iterator/op_decrement.md b/reference/iterator/basic_const_iterator/op_decrement.md
-index 62bd96218..d80c64478 100644
---- a/reference/iterator/basic_const_iterator/op_decrement.md
-+++ b/reference/iterator/basic_const_iterator/op_decrement.md
-@@ -38,6 +38,7 @@ constexpr basic_const_iterator operator--(int) requires bidirectional_iterator&amp;lt;I
- ## 例
- ```cpp example
- #include &amp;lt;iostream&amp;gt;
-+#include &amp;lt;vector&amp;gt;
- #include &amp;lt;iterator&amp;gt;
- 
- int main() {
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Raclamusi</name>
-        <email>raclamusi@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>operator++ -- いくつかのコード例のコンパイルエラーを修正</title>
-      <link href="https://cpprefjp.github.io/reference/iterator/basic_const_iterator/op_increment.html"/>
-      <id>a6d4fdb2ba58044e9a2dd2cd2d2f1f18885358f5:reference/iterator/basic_const_iterator/op_increment.md</id>
-      <updated>2025-09-29T02:08:59+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/basic_const_iterator/op_increment.md b/reference/iterator/basic_const_iterator/op_increment.md
-index 5f6815497..d19824a5e 100644
---- a/reference/iterator/basic_const_iterator/op_increment.md
-+++ b/reference/iterator/basic_const_iterator/op_increment.md
-@@ -41,6 +41,7 @@ constexpr basic_const_iterator operator++(int) requires forward_iterator&amp;lt;Iterato
- ## 例
- ```cpp example
- #include &amp;lt;iostream&amp;gt;
-+#include &amp;lt;vector&amp;gt;
- #include &amp;lt;iterator&amp;gt;
- 
- int main() {
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Raclamusi</name>
-        <email>raclamusi@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>operator-= -- いくつかのコード例のコンパイルエラーを修正</title>
-      <link href="https://cpprefjp.github.io/reference/iterator/basic_const_iterator/op_minus_assign.html"/>
-      <id>a6d4fdb2ba58044e9a2dd2cd2d2f1f18885358f5:reference/iterator/basic_const_iterator/op_minus_assign.md</id>
-      <updated>2025-09-29T02:08:59+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/basic_const_iterator/op_minus_assign.md b/reference/iterator/basic_const_iterator/op_minus_assign.md
-index e541d9000..e1f7004b1 100644
---- a/reference/iterator/basic_const_iterator/op_minus_assign.md
-+++ b/reference/iterator/basic_const_iterator/op_minus_assign.md
-@@ -30,6 +30,7 @@ return *this;
- ## 例
- ```cpp example
- #include &amp;lt;iostream&amp;gt;
-+#include &amp;lt;vector&amp;gt;
- #include &amp;lt;iterator&amp;gt;
- 
- int main() {
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Raclamusi</name>
-        <email>raclamusi@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>operator+= -- いくつかのコード例のコンパイルエラーを修正</title>
-      <link href="https://cpprefjp.github.io/reference/iterator/basic_const_iterator/op_plus_assign.html"/>
-      <id>a6d4fdb2ba58044e9a2dd2cd2d2f1f18885358f5:reference/iterator/basic_const_iterator/op_plus_assign.md</id>
-      <updated>2025-09-29T02:08:59+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/iterator/basic_const_iterator/op_plus_assign.md b/reference/iterator/basic_const_iterator/op_plus_assign.md
-index 8a4b2da39..a1d87da61 100644
---- a/reference/iterator/basic_const_iterator/op_plus_assign.md
-+++ b/reference/iterator/basic_const_iterator/op_plus_assign.md
-@@ -31,6 +31,7 @@ return *this;
- ## 例
- ```cpp example
- #include &amp;lt;iostream&amp;gt;
-+#include &amp;lt;vector&amp;gt;
- #include &amp;lt;iterator&amp;gt;
- 
- int main() {
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Raclamusi</name>
-        <email>raclamusi@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>コンストラクタ -- いくつかのコード例のコンパイルエラーを修正</title>
-      <link href="https://cpprefjp.github.io/reference/map/map/op_constructor.html"/>
-      <id>a6d4fdb2ba58044e9a2dd2cd2d2f1f18885358f5:reference/map/map/op_constructor.md</id>
-      <updated>2025-09-29T02:08:59+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/map/map/op_constructor.md b/reference/map/map/op_constructor.md
-index 648874022..ab10b55cf 100644
---- a/reference/map/map/op_constructor.md
-+++ b/reference/map/map/op_constructor.md
-@@ -130,18 +130,18 @@ int main()
- {
-   std::pair&amp;lt;const int,char&amp;gt; values[] = { std::make_pair(1,&amp;#39;a&amp;#39;), std::make_pair(2,&amp;#39;b&amp;#39;), std::make_pair(2,&amp;#39;b&amp;#39;) };
-   std::map&amp;lt;int,char&amp;gt; m1(values, values + 3);
--  std::map&amp;lt;int,char&amp;gt; m2(c1);
-+  std::map&amp;lt;int,char&amp;gt; m2(m1);
- 
--  std::cout &amp;lt;&amp;lt; &amp;#34;Size of c1: &amp;#34; &amp;lt;&amp;lt; m1.size() &amp;lt;&amp;lt; std::endl;
--  std::cout &amp;lt;&amp;lt; &amp;#34;Size of c2: &amp;#34; &amp;lt;&amp;lt; m2.size() &amp;lt;&amp;lt; std::endl;
-+  std::cout &amp;lt;&amp;lt; &amp;#34;Size of m1: &amp;#34; &amp;lt;&amp;lt; m1.size() &amp;lt;&amp;lt; std::endl;
-+  std::cout &amp;lt;&amp;lt; &amp;#34;Size of m2: &amp;#34; &amp;lt;&amp;lt; m2.size() &amp;lt;&amp;lt; std::endl;
- }
- ```
- * size()[link size.md]
- 
- ### 出力
- ```
--Size of c1: 2
--Size of c2: 2
-+Size of m1: 2
-+Size of m2: 2
- ```
- 
- ### 処理系
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Raclamusi</name>
-        <email>raclamusi@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>コンストラクタ -- いくつかのコード例のコンパイルエラーを修正</title>
-      <link href="https://cpprefjp.github.io/reference/map/multimap/op_constructor.html"/>
-      <id>a6d4fdb2ba58044e9a2dd2cd2d2f1f18885358f5:reference/map/multimap/op_constructor.md</id>
-      <updated>2025-09-29T02:08:59+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/map/multimap/op_constructor.md b/reference/map/multimap/op_constructor.md
-index 60dbbc6cd..4a4ce3067 100644
---- a/reference/map/multimap/op_constructor.md
-+++ b/reference/map/multimap/op_constructor.md
-@@ -133,7 +133,7 @@ int main()
- {
-   std::pair&amp;lt;int,char&amp;gt; values[] = { std::make_pair(1,&amp;#39;a&amp;#39;), std::make_pair(2,&amp;#39;b&amp;#39;), std::make_pair(2,&amp;#39;b&amp;#39;) };
-   std::multimap&amp;lt;int,char&amp;gt; m1(values, values + 3);
--  std::multimap&amp;lt;int,char&amp;gt; m2(c1);
-+  std::multimap&amp;lt;int,char&amp;gt; m2(m1);
- 
-   std::cout &amp;lt;&amp;lt; &amp;#34;Size of m1: &amp;#34; &amp;lt;&amp;lt; m1.size() &amp;lt;&amp;lt; std::endl;
-   std::cout &amp;lt;&amp;lt; &amp;#34;Size of m2: &amp;#34; &amp;lt;&amp;lt; m2.size() &amp;lt;&amp;lt; std::endl;
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Raclamusi</name>
-        <email>raclamusi@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>piecewise_constant_distribution -- いくつかのコード例のコンパイルエラーを修正</title>
-      <link href="https://cpprefjp.github.io/reference/random/piecewise_constant_distribution.html"/>
-      <id>a6d4fdb2ba58044e9a2dd2cd2d2f1f18885358f5:reference/random/piecewise_constant_distribution.md</id>
-      <updated>2025-09-29T02:08:59+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/random/piecewise_constant_distribution.md b/reference/random/piecewise_constant_distribution.md
-index 8ce154306..cde6a6853 100644
---- a/reference/random/piecewise_constant_distribution.md
-+++ b/reference/random/piecewise_constant_distribution.md
-@@ -73,7 +73,7 @@ int main()
- 
-   // [0.0, 5.0)の値は、0.3の確率で出現する。
-   // [5.0, 10.0)の値は、0.5の確率で出現する。
--  std::array&amp;lt;double, 3&amp;gt; intervals = {0.0, 5.0, 10.0},
-+  std::array&amp;lt;double, 3&amp;gt; intervals = {0.0, 5.0, 10.0};
-   std::array&amp;lt;double, 2&amp;gt; densities = {0.3, 0.5};
- 
-   std::piecewise_constant_distribution&amp;lt;&amp;gt; dist(
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>

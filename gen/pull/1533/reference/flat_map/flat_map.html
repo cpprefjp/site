@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-10-03T04:21:17">
-        2025年10月03日 04時21分17秒
+      <span itemprop="datePublished" content="2025-10-06T08:51:39">
+        2025年10月06日 08時51分39秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -230,7 +230,7 @@
 <ul>
 <li>メモリ使用量と列挙速度において優位</li>
 <li>挿入速度と削除速度はほかの実装に劣る</li>
-<li>検索速度は、<code><a href="../map/map.html">std::map</a></code>より高速であることが期待できるが (<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a>としては同じ対数時間だが、メモリアクセスが高速)、<code><a href="../unordered_map/unordered_map.html">std::unordered_map</a></code>よりは劣る</li>
+<li>検索速度は、<code><a href="../map/map.html">std::map</a></code>より高速であることが期待できるが (<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a>としては同じ対数時間だが、メモリアクセスが高速)、サイズが大きいときは<code><a href="../unordered_map/unordered_map.html">std::unordered_map</a></code>に劣る</li>
 </ul>
 <p>また、このクラスは分類としては<code><a href="../queue/queue.html">std::queue</a></code>や<code><a href="../stack/stack.html">std::stack</a></code>と同様の<a class="cpprefjp-defined-word" data-desc="コンテナをラップしたクラス。一部のコンテナインタフェースをもたない場合がある">コンテナアダプタ</a>に分類され、キーの配列と値の配列の2つを内部で持ち、それを<code><a href="../ranges/zip_view.html">std::ranges::zip_view</a></code>で綴じあわせて扱う実装となっている。</p>
 <p>このコンテナクラスは、ランダムアクセスイテレータをサポートする。</p>
