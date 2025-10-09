@@ -34,7 +34,7 @@ namespace std {
 
 
 ## 効果
-`order`で指定されたメモリオーダーにしたがって、[`std::max()`](/reference/algorithm/max.md)アルゴリズムのように`*object`が保持する値と`operand`の最大値を求めて返す
+`order`で指定されたメモリオーダーにしたがって、[`std::max()`](/reference/algorithm/max.md)アルゴリズムのように`*object`が保持する値と`operand`の最大値を求め、アトミックにその値で置き換えて返す
 
 
 ## 例外

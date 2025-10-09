@@ -34,7 +34,7 @@ namespace std {
 
 
 ## 効果
-`order`で指定されたメモリオーダーにしたがって、[`std::min()`](/reference/algorithm/min.md)アルゴリズムのように`*object`が保持する値と`operand`の最小値を求めて返す
+`order`で指定されたメモリオーダーにしたがって、[`std::min()`](/reference/algorithm/min.md)アルゴリズムのように`*object`が保持する値と`operand`の最小値を求め、アトミックにその値で置き換えて返す
 
 
 ## 例外
