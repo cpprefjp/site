@@ -1,23 +1,23 @@
-# store_sub
+# store_add
 * atomic[meta header]
 * std[meta namespace]
-* atomic[meta class]
+* atomic_ref[meta class]
 * function[meta id-type]
 * cpp26[meta cpp]
 
 ```cpp
 constexpr void
-  store_sub(difference_type operand,
+  store_add(difference_type operand,
             memory_order order = memory_order_seq_cst
-            ) noexcept;                               // (1) C++26
+            ) const noexcept;                         // (1) C++26
 ```
 * memory_order[link /reference/atomic/memory_order.md]
 * memory_order_seq_cst[link /reference/atomic/memory_order.md]
 
 ## 概要
-値を読み込まずに減算を行う。
+値を読み込まずに加算を行う。
 
-この関数は、[`fetch_sub()`](fetch_sub.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。この関数はロックフリーに動作することが保証されているため、並列アルゴリズムで[`par_useq`](/reference/execution/execution/execution_policy.md)ポリシーを使う場合などに有用である。
+この関数は、[`fetch_add()`](fetch_add.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。この関数はロックフリーに動作することが保証されているため、並列アルゴリズムで[`par_useq`](/reference/execution/execution/execution_policy.md)ポリシーを使う場合などに有用である。
 
 
 ## テンプレートパラメータ制約
@@ -32,7 +32,7 @@ constexpr void
 
 
 ## 効果
-`order`で指定されたメモリオーダーにしたがって、現在の値に`operand`を減算した値でアトミックに置き換える
+`order`で指定されたメモリオーダーにしたがって、現在の値に`operand`を加算した値でアトミックに置き換える
 
 
 ## 戻り値
@@ -44,7 +44,7 @@ constexpr void
 
 
 ## 備考
-- この関数は、`atomic`クラスの整数型、浮動小数点数型、ポインタに対する特殊化で定義される
+- この関数は、`atomic_ref`クラスの整数型、浮動小数点数型、ポインタに対する特殊化で定義される
 - 整数型
     - 符号付き整数型に対しては、符号なし整数型に変換されたかのようにしたあと演算が行われ、結果は符号付き整数型になる。未定義動作はない
 - 浮動小数点数型
@@ -63,23 +63,22 @@ constexpr void
 
 int main()
 {
-  std::atomic<int> x(3);
+  int value = 3;
 
-  x.store_sub(2);
+  std::atomic_ref{value}.store_add(2);
 
-  std::println("{}", x.load());
+  std::println("{}", value);
 }
 ```
-* store_sub[color ff0000]
-* x.load()[link load.md]
+* store_add[color ff0000]
 
 
 #### 出力
 ```
-1
+5
 ```
 
-### 並列に減算する例
+### 並列に加算する例
 ```cpp example
 #include <print>
 #include <atomic>
@@ -88,22 +87,21 @@ int main()
 
 int main()
 {
-  std::atomic<int> x{100};
+  int x = 0;
   std::vector<int> v = {1, 2, 3, 4, 5};
 
   std::for_each(std::execution::par_unseq, v.begin(), v.end(), [&](int n){
-    x.store_sub(n);
+    std::atomic_ref{x}.store_add(n);
   });
 
-  std::println("{}", x.load());
+  std::println("{}", x);
 }
 ```
-* store_sub[color ff0000]
-* x.load()[link load.md]
+* store_add[color ff0000]
 
 #### 出力
 ```
-85
+15
 ```
 
 ## バージョン

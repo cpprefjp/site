@@ -1,7 +1,7 @@
 # store_sub
 * atomic[meta header]
 * std[meta namespace]
-* atomic[meta class]
+* atomic_ref[meta class]
 * function[meta id-type]
 * cpp26[meta cpp]
 
@@ -9,7 +9,7 @@
 constexpr void
   store_sub(difference_type operand,
             memory_order order = memory_order_seq_cst
-            ) noexcept;                               // (1) C++26
+            ) const noexcept;                         // (1) C++26
 ```
 * memory_order[link /reference/atomic/memory_order.md]
 * memory_order_seq_cst[link /reference/atomic/memory_order.md]
@@ -44,7 +44,7 @@ constexpr void
 
 
 ## 備考
-- この関数は、`atomic`クラスの整数型、浮動小数点数型、ポインタに対する特殊化で定義される
+- この関数は、`atomic_ref`クラスの整数型、浮動小数点数型、ポインタに対する特殊化で定義される
 - 整数型
     - 符号付き整数型に対しては、符号なし整数型に変換されたかのようにしたあと演算が行われ、結果は符号付き整数型になる。未定義動作はない
 - 浮動小数点数型
@@ -63,15 +63,14 @@ constexpr void
 
 int main()
 {
-  std::atomic<int> x(3);
+  int value = 3;
 
-  x.store_sub(2);
+  std::atomic_ref{value}.store_sub(2);
 
-  std::println("{}", x.load());
+  std::println("{}", value);
 }
 ```
 * store_sub[color ff0000]
-* x.load()[link load.md]
 
 
 #### 出力
@@ -88,18 +87,17 @@ int main()
 
 int main()
 {
-  std::atomic<int> x{100};
+  int x = 100;
   std::vector<int> v = {1, 2, 3, 4, 5};
 
   std::for_each(std::execution::par_unseq, v.begin(), v.end(), [&](int n){
-    x.store_sub(n);
+    std::atomic_ref{value}.store_sub(n);
   });
 
-  std::println("{}", x.load());
+  std::println("{}", value);
 }
 ```
 * store_sub[color ff0000]
-* x.load()[link load.md]
 
 #### 出力
 ```

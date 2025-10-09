@@ -1,7 +1,7 @@
 # store_min
 * atomic[meta header]
 * std[meta namespace]
-* atomic[meta class]
+* atomic_ref[meta class]
 * function[meta id-type]
 * cpp26[meta cpp]
 
@@ -9,7 +9,7 @@
 constexpr void
   store_min(difference_type operand,
             memory_order order = memory_order_seq_cst
-            ) noexcept;                               // (1) C++26
+            ) const noexcept;                         // (1) C++26
 ```
 * memory_order[link /reference/atomic/memory_order.md]
 * memory_order_seq_cst[link /reference/atomic/memory_order.md]
@@ -17,7 +17,7 @@ constexpr void
 ## 概要
 値を読み込まずに最小値を設定する。
 
-この関数は、`*this`が保持する値と`operand`の小さい方を求め、その値を`this`に保持させる。
+この関数は、`*this`が参照する値と`operand`の小さい方を求め、その値を`this`に参照させる。
 
 この関数は、[`fetch_min()`](fetch_min.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。この関数はロックフリーに動作することが保証されているため、並列アルゴリズムで[`par_useq`](/reference/execution/execution/execution_policy.md)ポリシーを使う場合などに有用である。
 
@@ -27,7 +27,7 @@ constexpr void
 
 
 ## 効果
-`order`で指定されたメモリオーダーにしたがって、[`std::min()`](/reference/algorithm/min.md)アルゴリズムのように`*this`が保持する値と`operand`の最小値を求めて、その値でアトミックに置き換える
+`order`で指定されたメモリオーダーにしたがって、[`std::min()`](/reference/algorithm/min.md)アルゴリズムのように`*this`が参照する値と`operand`の最小値を求めて、その値でアトミックに置き換える
 
 
 ## 戻り値
@@ -39,7 +39,7 @@ constexpr void
 
 
 ## 備考
-- この関数は、`atomic`クラスの整数型、浮動小数点数型、ポインタに対する特殊化で定義される
+- この関数は、`atomic_ref`クラスの整数型、浮動小数点数型、ポインタに対する特殊化で定義される
 - 浮動小数点数型
     - [`std::fminimum_num()`](/reference/cmath/fminimum_num.md)関数と同様の動作をするが、以下の点で異なる：
         - 両方のパラメータが`NaN`である場合、`this`が指す値は未規定のNaN値に置き換えられる
@@ -57,15 +57,14 @@ constexpr void
 
 int main()
 {
-  std::atomic<int> x(2);
+  int value = 2;
 
-  x.store_min(3);
+  std::atomic_ref{value}.store_min(3);
 
-  std::cout << x.load() << std::endl;
+  std::cout << value << std::endl;
 }
 ```
 * store_min[color ff0000]
-* load()[link load.md]
 
 ### 出力
 ```
