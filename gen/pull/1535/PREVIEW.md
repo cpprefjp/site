@@ -1,8 +1,8 @@
 # PR [\#1535](https://github.com/cpprefjp/site/pull/1535) プレビュー
-- &#x231a; 更新時刻: 2025-10-09 11:29:49 JST
+- &#x231a; 更新時刻: 2025-10-09 16:04:32 JST
 - &#x1f50d; [プレビュー (HTML)](https://cpprefjp.github.io/site/gen/pull/1535)
 - &#x1f4c8; [プレビュー生成記録](https://github.com/cpprefjp/site/actions?query=event%3Apull_request_target+branch%3Aatomic_reduction)
-- **&#x2AEF;** ソースの変更: [`261aa4e..0f11dfc`](https://github.com/cpprefjp/site/compare/261aa4ea914d3b0e3368954303e27c94ad616c57..0f11dfc1e3b949c0bf94fe438ca7bea1f11c759f)
+- **&#x2AEF;** ソースの変更: [`261aa4e..d28b143`](https://github.com/cpprefjp/site/compare/261aa4ea914d3b0e3368954303e27c94ad616c57..d28b14327d20759a554d98899d8b7bfb6235c1eb)
 
 ## 変更記事一覧 (31件)
 

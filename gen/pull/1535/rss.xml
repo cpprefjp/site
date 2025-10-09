@@ -2,9 +2,970 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-10-09T02:29:48.700584</updated>
-  <id>268ed0a8-28c3-4665-9ae0-60819a420c70</id>
+  <updated>2025-10-09T07:04:31.412854</updated>
+  <id>4a7d0ead-1ce2-424b-bc23-30ab596b4b00</id>
 
+  
+    <entry>
+      <title>store_add -- いろいろ間違ってた</title>
+      <link href="https://cpprefjp.github.io/reference/atomic/atomic/store_add.html"/>
+      <id>d28b14327d20759a554d98899d8b7bfb6235c1eb:reference/atomic/atomic/store_add.md</id>
+      <updated>2025-10-09T15:59:45+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/atomic/atomic/store_add.md b/reference/atomic/atomic/store_add.md
+index aa55c79f3..158c380c1 100644
+--- a/reference/atomic/atomic/store_add.md
++++ b/reference/atomic/atomic/store_add.md
+@@ -6,10 +6,15 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
++void
++  store_add(difference_type operand,
++            memory_order order = memory_order_seq_cst
++            ) volatile noexcept;                      // (1) C++26
++
+ constexpr void
+   store_add(difference_type operand,
+             memory_order order = memory_order_seq_cst
+-            ) noexcept;                               // (1) C++26
++            ) noexcept;                               // (2) C++26
+ ```
+ * memory_order[link /reference/atomic/memory_order.md]
+ * memory_order_seq_cst[link /reference/atomic/memory_order.md]
+@@ -17,11 +22,11 @@ constexpr void
+ ## 概要
+ 値を読み込まずに加算を行う。
+ 
+-この関数は、[`fetch_add()`](fetch_add.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。この関数はロックフリーに動作することが保証されているため、並列アルゴリズムで[`par_useq`](/reference/execution/execution/execution_policy.md)ポリシーを使う場合などに有用である。
++この関数は、[`fetch_add()`](fetch_add.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。
+ 
+ 
+ ## テンプレートパラメータ制約
+-- `atomic&amp;lt;T&amp;gt;::is_always_lock_free`が`true`であること
++- (1) : `atomic&amp;lt;T&amp;gt;::is_always_lock_free`が`true`であること
+ 
+ 
+ ## 事前条件
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>store_and -- いろいろ間違ってた</title>
+      <link href="https://cpprefjp.github.io/reference/atomic/atomic/store_and.html"/>
+      <id>d28b14327d20759a554d98899d8b7bfb6235c1eb:reference/atomic/atomic/store_and.md</id>
+      <updated>2025-10-09T15:59:45+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/atomic/atomic/store_and.md b/reference/atomic/atomic/store_and.md
+index d68e28f32..64616eec2 100644
+--- a/reference/atomic/atomic/store_and.md
++++ b/reference/atomic/atomic/store_and.md
+@@ -6,10 +6,15 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
++void
++  store_and(difference_type operand,
++            memory_order order = memory_order_seq_cst
++            ) volatile noexcept;                      // (1) C++26
++
+ constexpr void
+   store_and(difference_type operand,
+             memory_order order = memory_order_seq_cst
+-            ) noexcept;                               // (1) C++26
++            ) noexcept;                               // (2) C++26
+ ```
+ * memory_order[link /reference/atomic/memory_order.md]
+ * memory_order_seq_cst[link /reference/atomic/memory_order.md]
+@@ -17,11 +22,11 @@ constexpr void
+ ## 概要
+ 値を読み込まずにAND演算を行う。
+ 
+-この関数は、[`fetch_and()`](fetch_and.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。この関数はロックフリーに動作することが保証されているため、並列アルゴリズムで[`par_useq`](/reference/execution/execution/execution_policy.md)ポリシーを使う場合などに有用である。
++この関数は、[`fetch_and()`](fetch_and.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。
+ 
+ 
+ ## テンプレートパラメータ制約
+-- `atomic&amp;lt;T&amp;gt;::is_always_lock_free`が`true`であること
++- (1) : `atomic&amp;lt;T&amp;gt;::is_always_lock_free`が`true`であること
+ 
+ 
+ ## 事前条件
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>store_fmaximum -- いろいろ間違ってた</title>
+      <link href="https://cpprefjp.github.io/reference/atomic/atomic/store_fmaximum.html"/>
+      <id>d28b14327d20759a554d98899d8b7bfb6235c1eb:reference/atomic/atomic/store_fmaximum.md</id>
+      <updated>2025-10-09T15:59:45+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/atomic/atomic/store_fmaximum.md b/reference/atomic/atomic/store_fmaximum.md
+index d55c8725f..9f0a53664 100644
+--- a/reference/atomic/atomic/store_fmaximum.md
++++ b/reference/atomic/atomic/store_fmaximum.md
+@@ -6,10 +6,15 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
++void
++  store_fmaximum(difference_type operand,
++                 memory_order order = memory_order_seq_cst
++                 ) volatile noexcept;                      // (1) C++26
++
+ constexpr void
+   store_fmaximum(difference_type operand,
+                  memory_order order = memory_order_seq_cst
+-                 ) noexcept;                               // (1) C++26
++                 ) noexcept;                               // (2) C++26
+ ```
+ * memory_order[link /reference/atomic/memory_order.md]
+ * memory_order_seq_cst[link /reference/atomic/memory_order.md]
+@@ -19,7 +24,19 @@ constexpr void
+ 
+ この関数は、`*this`が保持する値と`operand`の大きい方を求め、その値を`this`に保持させる。
+ 
+-この関数は、[`fetch_fmaximum()`](fetch_fmaximum.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。この関数はロックフリーに動作することが保証されているため、並列アルゴリズムで[`par_useq`](/reference/execution/execution/execution_policy.md)ポリシーを使う場合などに有用である。
++この関数は、[`fetch_fmaximum()`](fetch_fmaximum.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。
++
++
++## テンプレートパラメータ制約
++- `std::atomic&amp;lt;T*&amp;gt;`の場合、型`T`がオブジェクト型であること。型`T`が`void*`や関数ポインタであってはならない
++- (1) : `atomic&amp;lt;T&amp;gt;::is_always_lock_free`が`true`であること
++
++
++## 事前条件
++- `order`は、以下のいずれかであること
++    - [`memory_order_relaxed`](/reference/atomic/memory_order.md)
++    - [`memory_order_release`](/reference/atomic/memory_order.md)
++    - [`memory_order_seq_cst`](/reference/atomic/memory_order.md)
+ 
+ 
+ ## 効果
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>store_fmaximum_num -- いろいろ間違ってた</title>
+      <link href="https://cpprefjp.github.io/reference/atomic/atomic/store_fmaximum_num.html"/>
+      <id>d28b14327d20759a554d98899d8b7bfb6235c1eb:reference/atomic/atomic/store_fmaximum_num.md</id>
+      <updated>2025-10-09T15:59:45+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/atomic/atomic/store_fmaximum_num.md b/reference/atomic/atomic/store_fmaximum_num.md
+index 578aab4a6..e84c41af4 100644
+--- a/reference/atomic/atomic/store_fmaximum_num.md
++++ b/reference/atomic/atomic/store_fmaximum_num.md
+@@ -6,10 +6,15 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
++void
++  store_fmaximum_num(difference_type operand,
++                     memory_order order = memory_order_seq_cst
++                     ) volatile noexcept;                      // (1) C++26
++
+ constexpr void
+   store_fmaximum_num(difference_type operand,
+                      memory_order order = memory_order_seq_cst
+-                     ) noexcept;                               // (1) C++26
++                     ) noexcept;                               // (2) C++26
+ ```
+ * memory_order[link /reference/atomic/memory_order.md]
+ * memory_order_seq_cst[link /reference/atomic/memory_order.md]
+@@ -19,7 +24,19 @@ constexpr void
+ 
+ この関数は、`*this`が保持する値と`operand`の大きい方を求め、その値を`this`に保持させる。
+ 
+-この関数は、[`fetch_fmaximum_num()`](fetch_fmaximum_num.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。この関数はロックフリーに動作することが保証されているため、並列アルゴリズムで[`par_useq`](/reference/execution/execution/execution_policy.md)ポリシーを使う場合などに有用である。
++この関数は、[`fetch_fmaximum_num()`](fetch_fmaximum_num.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。
++
++
++## テンプレートパラメータ制約
++- `std::atomic&amp;lt;T*&amp;gt;`の場合、型`T`がオブジェクト型であること。型`T`が`void*`や関数ポインタであってはならない
++- (1) : `atomic&amp;lt;T&amp;gt;::is_always_lock_free`が`true`であること
++
++
++## 事前条件
++- `order`は、以下のいずれかであること
++    - [`memory_order_relaxed`](/reference/atomic/memory_order.md)
++    - [`memory_order_release`](/reference/atomic/memory_order.md)
++    - [`memory_order_seq_cst`](/reference/atomic/memory_order.md)
+ 
+ 
+ ## 効果
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>store_fminimum -- いろいろ間違ってた</title>
+      <link href="https://cpprefjp.github.io/reference/atomic/atomic/store_fminimum.html"/>
+      <id>d28b14327d20759a554d98899d8b7bfb6235c1eb:reference/atomic/atomic/store_fminimum.md</id>
+      <updated>2025-10-09T15:59:45+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/atomic/atomic/store_fminimum.md b/reference/atomic/atomic/store_fminimum.md
+index a7bfda840..53b3e471b 100644
+--- a/reference/atomic/atomic/store_fminimum.md
++++ b/reference/atomic/atomic/store_fminimum.md
+@@ -6,10 +6,15 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
++void
++  store_fminimum(difference_type operand,
++                 memory_order order = memory_order_seq_cst
++                 ) volatile noexcept;                      // (1) C++26
++
+ constexpr void
+   store_fminimum(difference_type operand,
+                  memory_order order = memory_order_seq_cst
+-                 ) noexcept;                               // (1) C++26
++                 ) noexcept;                               // (2) C++26
+ ```
+ * memory_order[link /reference/atomic/memory_order.md]
+ * memory_order_seq_cst[link /reference/atomic/memory_order.md]
+@@ -19,7 +24,19 @@ constexpr void
+ 
+ この関数は、`*this`が保持する値と`operand`の小さい方を求め、その値を`this`に保持させる。
+ 
+-この関数は、[`fetch_fminimum()`](fetch_fminimum.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。この関数はロックフリーに動作することが保証されているため、並列アルゴリズムで[`par_useq`](/reference/execution/execution/execution_policy.md)ポリシーを使う場合などに有用である。
++この関数は、[`fetch_fminimum()`](fetch_fminimum.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。
++
++
++## テンプレートパラメータ制約
++- `std::atomic&amp;lt;T*&amp;gt;`の場合、型`T`がオブジェクト型であること。型`T`が`void*`や関数ポインタであってはならない
++- (1) : `atomic&amp;lt;T&amp;gt;::is_always_lock_free`が`true`であること
++
++
++## 事前条件
++- `order`は、以下のいずれかであること
++    - [`memory_order_relaxed`](/reference/atomic/memory_order.md)
++    - [`memory_order_release`](/reference/atomic/memory_order.md)
++    - [`memory_order_seq_cst`](/reference/atomic/memory_order.md)
+ 
+ 
+ ## 効果
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>store_fminimum_num -- いろいろ間違ってた</title>
+      <link href="https://cpprefjp.github.io/reference/atomic/atomic/store_fminimum_num.html"/>
+      <id>d28b14327d20759a554d98899d8b7bfb6235c1eb:reference/atomic/atomic/store_fminimum_num.md</id>
+      <updated>2025-10-09T15:59:45+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/atomic/atomic/store_fminimum_num.md b/reference/atomic/atomic/store_fminimum_num.md
+index 50e5e0cc0..d95cfec19 100644
+--- a/reference/atomic/atomic/store_fminimum_num.md
++++ b/reference/atomic/atomic/store_fminimum_num.md
+@@ -6,10 +6,15 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
++void
++  store_fminimum_num(difference_type operand,
++                     memory_order order = memory_order_seq_cst
++                     ) volatile noexcept;                      // (1) C++26
++
+ constexpr void
+   store_fminimum_num(difference_type operand,
+                      memory_order order = memory_order_seq_cst
+-                     ) noexcept;                               // (1) C++26
++                     ) noexcept;                               // (2) C++26
+ ```
+ * memory_order[link /reference/atomic/memory_order.md]
+ * memory_order_seq_cst[link /reference/atomic/memory_order.md]
+@@ -19,7 +24,19 @@ constexpr void
+ 
+ この関数は、`*this`が保持する値と`operand`の小さい方を求め、その値を`this`に保持させる。
+ 
+-この関数は、[`fetch_fminimum_num()`](fetch_fminimum_num.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。この関数はロックフリーに動作することが保証されているため、並列アルゴリズムで[`par_useq`](/reference/execution/execution/execution_policy.md)ポリシーを使う場合などに有用である。
++この関数は、[`fetch_fminimum_num()`](fetch_fminimum_num.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。
++
++
++## テンプレートパラメータ制約
++- `std::atomic&amp;lt;T*&amp;gt;`の場合、型`T`がオブジェクト型であること。型`T`が`void*`や関数ポインタであってはならない
++- (1) : `atomic&amp;lt;T&amp;gt;::is_always_lock_free`が`true`であること
++
++
++## 事前条件
++- `order`は、以下のいずれかであること
++    - [`memory_order_relaxed`](/reference/atomic/memory_order.md)
++    - [`memory_order_release`](/reference/atomic/memory_order.md)
++    - [`memory_order_seq_cst`](/reference/atomic/memory_order.md)
+ 
+ 
+ ## 効果
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>store_max -- いろいろ間違ってた</title>
+      <link href="https://cpprefjp.github.io/reference/atomic/atomic/store_max.html"/>
+      <id>d28b14327d20759a554d98899d8b7bfb6235c1eb:reference/atomic/atomic/store_max.md</id>
+      <updated>2025-10-09T15:59:45+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/atomic/atomic/store_max.md b/reference/atomic/atomic/store_max.md
+index e9fb6f168..f96a3e2ab 100644
+--- a/reference/atomic/atomic/store_max.md
++++ b/reference/atomic/atomic/store_max.md
+@@ -6,10 +6,15 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
++void
++  store_max(difference_type operand,
++            memory_order order = memory_order_seq_cst
++            ) volatile noexcept;                      // (1) C++26
++
+ constexpr void
+   store_max(difference_type operand,
+             memory_order order = memory_order_seq_cst
+-            ) noexcept;                               // (1) C++26
++            ) noexcept;                               // (2) C++26
+ ```
+ * memory_order[link /reference/atomic/memory_order.md]
+ * memory_order_seq_cst[link /reference/atomic/memory_order.md]
+@@ -19,11 +24,19 @@ constexpr void
+ 
+ この関数は、`*this`が保持する値と`operand`の大きい方を求め、その値を`this`に保持させる。
+ 
+-この関数は、[`fetch_max()`](fetch_max.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。この関数はロックフリーに動作することが保証されているため、並列アルゴリズムで[`par_useq`](/reference/execution/execution/execution_policy.md)ポリシーを使う場合などに有用である。
++この関数は、[`fetch_max()`](fetch_max.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。
+ 
+ 
+ ## テンプレートパラメータ制約
+-- (1) : `std::atomic&amp;lt;T*&amp;gt;`の場合、型`T`がオブジェクト型であること。型`T`が`void*`や関数ポインタであってはならない
++- `std::atomic&amp;lt;T*&amp;gt;`の場合、型`T`がオブジェクト型であること。型`T`が`void*`や関数ポインタであってはならない
++- (1) : `atomic&amp;lt;T&amp;gt;::is_always_lock_free`が`true`であること
++
++
++## 事前条件
++- `order`は、以下のいずれかであること
++    - [`memory_order_relaxed`](/reference/atomic/memory_order.md)
++    - [`memory_order_release`](/reference/atomic/memory_order.md)
++    - [`memory_order_seq_cst`](/reference/atomic/memory_order.md)
+ 
+ 
+ ## 効果
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>store_min -- いろいろ間違ってた</title>
+      <link href="https://cpprefjp.github.io/reference/atomic/atomic/store_min.html"/>
+      <id>d28b14327d20759a554d98899d8b7bfb6235c1eb:reference/atomic/atomic/store_min.md</id>
+      <updated>2025-10-09T15:59:45+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/atomic/atomic/store_min.md b/reference/atomic/atomic/store_min.md
+index 07024548c..e0f6ca8d5 100644
+--- a/reference/atomic/atomic/store_min.md
++++ b/reference/atomic/atomic/store_min.md
+@@ -6,10 +6,15 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
++void
++  store_min(difference_type operand,
++            memory_order order = memory_order_seq_cst
++            ) volatile noexcept;                      // (1) C++26
++
+ constexpr void
+   store_min(difference_type operand,
+             memory_order order = memory_order_seq_cst
+-            ) noexcept;                               // (1) C++26
++            ) noexcept;                               // (2) C++26
+ ```
+ * memory_order[link /reference/atomic/memory_order.md]
+ * memory_order_seq_cst[link /reference/atomic/memory_order.md]
+@@ -19,11 +24,19 @@ constexpr void
+ 
+ この関数は、`*this`が保持する値と`operand`の小さい方を求め、その値を`this`に保持させる。
+ 
+-この関数は、[`fetch_min()`](fetch_min.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。この関数はロックフリーに動作することが保証されているため、並列アルゴリズムで[`par_useq`](/reference/execution/execution/execution_policy.md)ポリシーを使う場合などに有用である。
++この関数は、[`fetch_min()`](fetch_min.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。
+ 
+ 
+ ## テンプレートパラメータ制約
+-- (1) : `std::atomic&amp;lt;T*&amp;gt;`の場合、型`T`がオブジェクト型であること。型`T`が`void*`や関数ポインタであってはならない
++- `std::atomic&amp;lt;T*&amp;gt;`の場合、型`T`がオブジェクト型であること。型`T`が`void*`や関数ポインタであってはならない
++- (1) : `atomic&amp;lt;T&amp;gt;::is_always_lock_free`が`true`であること
++
++
++## 事前条件
++- `order`は、以下のいずれかであること
++    - [`memory_order_relaxed`](/reference/atomic/memory_order.md)
++    - [`memory_order_release`](/reference/atomic/memory_order.md)
++    - [`memory_order_seq_cst`](/reference/atomic/memory_order.md)
+ 
+ 
+ ## 効果
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>store_or -- いろいろ間違ってた</title>
+      <link href="https://cpprefjp.github.io/reference/atomic/atomic/store_or.html"/>
+      <id>d28b14327d20759a554d98899d8b7bfb6235c1eb:reference/atomic/atomic/store_or.md</id>
+      <updated>2025-10-09T15:59:45+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/atomic/atomic/store_or.md b/reference/atomic/atomic/store_or.md
+index 61a182fd1..c432124cb 100644
+--- a/reference/atomic/atomic/store_or.md
++++ b/reference/atomic/atomic/store_or.md
+@@ -6,10 +6,15 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
++void
++  store_or(difference_type operand,
++            memory_order order = memory_order_seq_cst
++            ) volatile noexcept;                      // (1) C++26
++
+ constexpr void
+   store_or(difference_type operand,
+             memory_order order = memory_order_seq_cst
+-            ) noexcept;                               // (1) C++26
++            ) noexcept;                               // (2) C++26
+ ```
+ * memory_order[link /reference/atomic/memory_order.md]
+ * memory_order_seq_cst[link /reference/atomic/memory_order.md]
+@@ -17,11 +22,18 @@ constexpr void
+ ## 概要
+ 値を読み込まずにOR演算を行う。
+ 
+-この関数は、[`fetch_or()`](fetch_or.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。この関数はロックフリーに動作することが保証されているため、並列アルゴリズムで[`par_useq`](/reference/execution/execution/execution_policy.md)ポリシーを使う場合などに有用である。
++この関数は、[`fetch_or()`](fetch_or.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。
+ 
+ 
+ ## テンプレートパラメータ制約
+-- `atomic&amp;lt;T&amp;gt;::is_always_lock_free`が`true`であること
++- (1) : `atomic&amp;lt;T&amp;gt;::is_always_lock_free`が`true`であること
++
++
++## 事前条件
++- `order`は、以下のいずれかであること
++    - [`memory_order_relaxed`](/reference/atomic/memory_order.md)
++    - [`memory_order_release`](/reference/atomic/memory_order.md)
++    - [`memory_order_seq_cst`](/reference/atomic/memory_order.md)
+ 
+ 
+ ## 事前条件
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>store_sub -- いろいろ間違ってた</title>
+      <link href="https://cpprefjp.github.io/reference/atomic/atomic/store_sub.html"/>
+      <id>d28b14327d20759a554d98899d8b7bfb6235c1eb:reference/atomic/atomic/store_sub.md</id>
+      <updated>2025-10-09T15:59:45+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/atomic/atomic/store_sub.md b/reference/atomic/atomic/store_sub.md
+index 386e58c17..5ed38ccce 100644
+--- a/reference/atomic/atomic/store_sub.md
++++ b/reference/atomic/atomic/store_sub.md
+@@ -6,10 +6,15 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
++void
++  store_sub(difference_type operand,
++            memory_order order = memory_order_seq_cst
++            ) volatile noexcept;                      // (1) C++26
++
+ constexpr void
+   store_sub(difference_type operand,
+             memory_order order = memory_order_seq_cst
+-            ) noexcept;                               // (1) C++26
++            ) noexcept;                               // (2) C++26
+ ```
+ * memory_order[link /reference/atomic/memory_order.md]
+ * memory_order_seq_cst[link /reference/atomic/memory_order.md]
+@@ -17,11 +22,11 @@ constexpr void
+ ## 概要
+ 値を読み込まずに減算を行う。
+ 
+-この関数は、[`fetch_sub()`](fetch_sub.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。この関数はロックフリーに動作することが保証されているため、並列アルゴリズムで[`par_useq`](/reference/execution/execution/execution_policy.md)ポリシーを使う場合などに有用である。
++この関数は、[`fetch_sub()`](fetch_sub.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。
+ 
+ 
+ ## テンプレートパラメータ制約
+-- `atomic&amp;lt;T&amp;gt;::is_always_lock_free`が`true`であること
++- (1) : `atomic&amp;lt;T&amp;gt;::is_always_lock_free`が`true`であること
+ 
+ 
+ ## 事前条件
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>store_xor -- いろいろ間違ってた</title>
+      <link href="https://cpprefjp.github.io/reference/atomic/atomic/store_xor.html"/>
+      <id>d28b14327d20759a554d98899d8b7bfb6235c1eb:reference/atomic/atomic/store_xor.md</id>
+      <updated>2025-10-09T15:59:45+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/atomic/atomic/store_xor.md b/reference/atomic/atomic/store_xor.md
+index 5e9b69d19..c2e777ac5 100644
+--- a/reference/atomic/atomic/store_xor.md
++++ b/reference/atomic/atomic/store_xor.md
+@@ -6,10 +6,15 @@
+ * cpp26[meta cpp]
+ 
+ ```cpp
++void
++  store_xor(difference_type operand,
++            memory_order order = memory_order_seq_cst
++            ) volatile noexcept;                      // (1) C++26
++
+ constexpr void
+   store_xor(difference_type operand,
+             memory_order order = memory_order_seq_cst
+-            ) noexcept;                               // (1) C++26
++            ) noexcept;                               // (2) C++26
+ ```
+ * memory_order[link /reference/atomic/memory_order.md]
+ * memory_order_seq_cst[link /reference/atomic/memory_order.md]
+@@ -17,11 +22,11 @@ constexpr void
+ ## 概要
+ 値を読み込まずにXOR演算を行う。
+ 
+-この関数は、[`fetch_xor()`](fetch_xor.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。この関数はロックフリーに動作することが保証されているため、並列アルゴリズムで[`par_useq`](/reference/execution/execution/execution_policy.md)ポリシーを使う場合などに有用である。
++この関数は、[`fetch_xor()`](fetch_xor.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。
+ 
+ 
+ ## テンプレートパラメータ制約
+-- `atomic&amp;lt;T&amp;gt;::is_always_lock_free`が`true`であること
++- (1) : `atomic&amp;lt;T&amp;gt;::is_always_lock_free`が`true`であること
+ 
+ 
+ ## 事前条件
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>store_add -- いろいろ間違ってた</title>
+      <link href="https://cpprefjp.github.io/reference/atomic/atomic_ref/store_add.html"/>
+      <id>d28b14327d20759a554d98899d8b7bfb6235c1eb:reference/atomic/atomic_ref/store_add.md</id>
+      <updated>2025-10-09T15:59:45+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/atomic/atomic_ref/store_add.md b/reference/atomic/atomic_ref/store_add.md
+index 5c8e4d64c..4b7ff79b4 100644
+--- a/reference/atomic/atomic_ref/store_add.md
++++ b/reference/atomic/atomic_ref/store_add.md
+@@ -17,11 +17,7 @@ constexpr void
+ ## 概要
+ 値を読み込まずに加算を行う。
+ 
+-この関数は、[`fetch_add()`](fetch_add.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。この関数はロックフリーに動作することが保証されているため、並列アルゴリズムで[`par_useq`](/reference/execution/execution/execution_policy.md)ポリシーを使う場合などに有用である。
+-
+-
+-## テンプレートパラメータ制約
+-- `atomic&amp;lt;T&amp;gt;::is_always_lock_free`が`true`であること
++この関数は、[`fetch_add()`](fetch_add.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。
+ 
+ 
+ ## 事前条件
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>store_and -- いろいろ間違ってた</title>
+      <link href="https://cpprefjp.github.io/reference/atomic/atomic_ref/store_and.html"/>
+      <id>d28b14327d20759a554d98899d8b7bfb6235c1eb:reference/atomic/atomic_ref/store_and.md</id>
+      <updated>2025-10-09T15:59:45+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/atomic/atomic_ref/store_and.md b/reference/atomic/atomic_ref/store_and.md
+index 53194b015..9c1aad88b 100644
+--- a/reference/atomic/atomic_ref/store_and.md
++++ b/reference/atomic/atomic_ref/store_and.md
+@@ -17,11 +17,7 @@ constexpr void
+ ## 概要
+ 値を読み込まずにAND演算を行う。
+ 
+-この関数は、[`fetch_and()`](fetch_and.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。この関数はロックフリーに動作することが保証されているため、並列アルゴリズムで[`par_useq`](/reference/execution/execution/execution_policy.md)ポリシーを使う場合などに有用である。
+-
+-
+-## テンプレートパラメータ制約
+-- `atomic&amp;lt;T&amp;gt;::is_always_lock_free`が`true`であること
++この関数は、[`fetch_and()`](fetch_and.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。
+ 
+ 
+ ## 事前条件
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>store_fmaximum -- いろいろ間違ってた</title>
+      <link href="https://cpprefjp.github.io/reference/atomic/atomic_ref/store_fmaximum.html"/>
+      <id>d28b14327d20759a554d98899d8b7bfb6235c1eb:reference/atomic/atomic_ref/store_fmaximum.md</id>
+      <updated>2025-10-09T15:59:45+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/atomic/atomic_ref/store_fmaximum.md b/reference/atomic/atomic_ref/store_fmaximum.md
+index a0c5b98c9..58b03dbcb 100644
+--- a/reference/atomic/atomic_ref/store_fmaximum.md
++++ b/reference/atomic/atomic_ref/store_fmaximum.md
+@@ -19,7 +19,14 @@ constexpr void
+ 
+ この関数は、`*this`が参照する値と`operand`の大きい方を求め、その値を`this`に参照させる。
+ 
+-この関数は、[`fetch_fmaximum()`](fetch_fmaximum.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。この関数はロックフリーに動作することが保証されているため、並列アルゴリズムで[`par_useq`](/reference/execution/execution/execution_policy.md)ポリシーを使う場合などに有用である。
++この関数は、[`fetch_fmaximum()`](fetch_fmaximum.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。
++
++
++## 事前条件
++- `order`は、以下のいずれかであること
++    - [`memory_order_relaxed`](/reference/atomic/memory_order.md)
++    - [`memory_order_release`](/reference/atomic/memory_order.md)
++    - [`memory_order_seq_cst`](/reference/atomic/memory_order.md)
+ 
+ 
+ ## 効果
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>store_fmaximum_num -- いろいろ間違ってた</title>
+      <link href="https://cpprefjp.github.io/reference/atomic/atomic_ref/store_fmaximum_num.html"/>
+      <id>d28b14327d20759a554d98899d8b7bfb6235c1eb:reference/atomic/atomic_ref/store_fmaximum_num.md</id>
+      <updated>2025-10-09T15:59:45+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/atomic/atomic_ref/store_fmaximum_num.md b/reference/atomic/atomic_ref/store_fmaximum_num.md
+index 98b780925..34a44cfb4 100644
+--- a/reference/atomic/atomic_ref/store_fmaximum_num.md
++++ b/reference/atomic/atomic_ref/store_fmaximum_num.md
+@@ -19,7 +19,14 @@ constexpr void
+ 
+ この関数は、`*this`が参照する値と`operand`の大きい方を求め、その値を`this`に参照させる。
+ 
+-この関数は、[`fetch_fmaximum_num()`](fetch_fmaximum_num.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。この関数はロックフリーに動作することが保証されているため、並列アルゴリズムで[`par_useq`](/reference/execution/execution/execution_policy.md)ポリシーを使う場合などに有用である。
++この関数は、[`fetch_fmaximum_num()`](fetch_fmaximum_num.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。
++
++
++## 事前条件
++- `order`は、以下のいずれかであること
++    - [`memory_order_relaxed`](/reference/atomic/memory_order.md)
++    - [`memory_order_release`](/reference/atomic/memory_order.md)
++    - [`memory_order_seq_cst`](/reference/atomic/memory_order.md)
+ 
+ 
+ ## 効果
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>store_fminimum -- いろいろ間違ってた</title>
+      <link href="https://cpprefjp.github.io/reference/atomic/atomic_ref/store_fminimum.html"/>
+      <id>d28b14327d20759a554d98899d8b7bfb6235c1eb:reference/atomic/atomic_ref/store_fminimum.md</id>
+      <updated>2025-10-09T15:59:45+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/atomic/atomic_ref/store_fminimum.md b/reference/atomic/atomic_ref/store_fminimum.md
+index 3672a5221..f3ed9f965 100644
+--- a/reference/atomic/atomic_ref/store_fminimum.md
++++ b/reference/atomic/atomic_ref/store_fminimum.md
+@@ -19,7 +19,14 @@ constexpr void
+ 
+ この関数は、`*this`が参照する値と`operand`の小さい方を求め、その値を`this`に参照させる。
+ 
+-この関数は、[`fetch_fminimum()`](fetch_fminimum.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。この関数はロックフリーに動作することが保証されているため、並列アルゴリズムで[`par_useq`](/reference/execution/execution/execution_policy.md)ポリシーを使う場合などに有用である。
++この関数は、[`fetch_fminimum()`](fetch_fminimum.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。
++
++
++## 事前条件
++- `order`は、以下のいずれかであること
++    - [`memory_order_relaxed`](/reference/atomic/memory_order.md)
++    - [`memory_order_release`](/reference/atomic/memory_order.md)
++    - [`memory_order_seq_cst`](/reference/atomic/memory_order.md)
+ 
+ 
+ ## 効果
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>store_fminimum_num -- いろいろ間違ってた</title>
+      <link href="https://cpprefjp.github.io/reference/atomic/atomic_ref/store_fminimum_num.html"/>
+      <id>d28b14327d20759a554d98899d8b7bfb6235c1eb:reference/atomic/atomic_ref/store_fminimum_num.md</id>
+      <updated>2025-10-09T15:59:45+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/atomic/atomic_ref/store_fminimum_num.md b/reference/atomic/atomic_ref/store_fminimum_num.md
+index 1566c367f..cad900725 100644
+--- a/reference/atomic/atomic_ref/store_fminimum_num.md
++++ b/reference/atomic/atomic_ref/store_fminimum_num.md
+@@ -19,7 +19,14 @@ constexpr void
+ 
+ この関数は、`*this`が参照する値と`operand`の小さい方を求め、その値を`this`に参照させる。
+ 
+-この関数は、[`fetch_fminimum_num()`](fetch_fminimum_num.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。この関数はロックフリーに動作することが保証されているため、並列アルゴリズムで[`par_useq`](/reference/execution/execution/execution_policy.md)ポリシーを使う場合などに有用である。
++この関数は、[`fetch_fminimum_num()`](fetch_fminimum_num.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。
++
++
++## 事前条件
++- `order`は、以下のいずれかであること
++    - [`memory_order_relaxed`](/reference/atomic/memory_order.md)
++    - [`memory_order_release`](/reference/atomic/memory_order.md)
++    - [`memory_order_seq_cst`](/reference/atomic/memory_order.md)
+ 
+ 
+ ## 効果
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>store_max -- いろいろ間違ってた</title>
+      <link href="https://cpprefjp.github.io/reference/atomic/atomic_ref/store_max.html"/>
+      <id>d28b14327d20759a554d98899d8b7bfb6235c1eb:reference/atomic/atomic_ref/store_max.md</id>
+      <updated>2025-10-09T15:59:45+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/atomic/atomic_ref/store_max.md b/reference/atomic/atomic_ref/store_max.md
+index ed7e41ecc..da3c76269 100644
+--- a/reference/atomic/atomic_ref/store_max.md
++++ b/reference/atomic/atomic_ref/store_max.md
+@@ -19,13 +19,20 @@ constexpr void
+ 
+ この関数は、`*this`が参照する値と`operand`の大きい方を求め、その値を`this`に参照させる。
+ 
+-この関数は、[`fetch_max()`](fetch_max.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。この関数はロックフリーに動作することが保証されているため、並列アルゴリズムで[`par_useq`](/reference/execution/execution/execution_policy.md)ポリシーを使う場合などに有用である。
++この関数は、[`fetch_max()`](fetch_max.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。
+ 
+ 
+ ## テンプレートパラメータ制約
+ - (1) : `std::atomic&amp;lt;T*&amp;gt;`の場合、型`T`がオブジェクト型であること。型`T`が`void*`や関数ポインタであってはならない
+ 
+ 
++## 事前条件
++- `order`は、以下のいずれかであること
++    - [`memory_order_relaxed`](/reference/atomic/memory_order.md)
++    - [`memory_order_release`](/reference/atomic/memory_order.md)
++    - [`memory_order_seq_cst`](/reference/atomic/memory_order.md)
++
++
+ ## 効果
+ `order`で指定されたメモリオーダーにしたがって、[`std::max()`](/reference/algorithm/max.md)アルゴリズムのように`*this`が参照する値と`operand`の最大値を求めて、その値でアトミックに置き換える
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>store_min -- いろいろ間違ってた</title>
+      <link href="https://cpprefjp.github.io/reference/atomic/atomic_ref/store_min.html"/>
+      <id>d28b14327d20759a554d98899d8b7bfb6235c1eb:reference/atomic/atomic_ref/store_min.md</id>
+      <updated>2025-10-09T15:59:45+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/atomic/atomic_ref/store_min.md b/reference/atomic/atomic_ref/store_min.md
+index 941074862..ddf1daa2e 100644
+--- a/reference/atomic/atomic_ref/store_min.md
++++ b/reference/atomic/atomic_ref/store_min.md
+@@ -19,13 +19,20 @@ constexpr void
+ 
+ この関数は、`*this`が参照する値と`operand`の小さい方を求め、その値を`this`に参照させる。
+ 
+-この関数は、[`fetch_min()`](fetch_min.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。この関数はロックフリーに動作することが保証されているため、並列アルゴリズムで[`par_useq`](/reference/execution/execution/execution_policy.md)ポリシーを使う場合などに有用である。
++この関数は、[`fetch_min()`](fetch_min.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。
+ 
+ 
+ ## テンプレートパラメータ制約
+ - (1) : `std::atomic&amp;lt;T*&amp;gt;`の場合、型`T`がオブジェクト型であること。型`T`が`void*`や関数ポインタであってはならない
+ 
+ 
++## 事前条件
++- `order`は、以下のいずれかであること
++    - [`memory_order_relaxed`](/reference/atomic/memory_order.md)
++    - [`memory_order_release`](/reference/atomic/memory_order.md)
++    - [`memory_order_seq_cst`](/reference/atomic/memory_order.md)
++
++
+ ## 効果
+ `order`で指定されたメモリオーダーにしたがって、[`std::min()`](/reference/algorithm/min.md)アルゴリズムのように`*this`が参照する値と`operand`の最小値を求めて、その値でアトミックに置き換える
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>store_or -- いろいろ間違ってた</title>
+      <link href="https://cpprefjp.github.io/reference/atomic/atomic_ref/store_or.html"/>
+      <id>d28b14327d20759a554d98899d8b7bfb6235c1eb:reference/atomic/atomic_ref/store_or.md</id>
+      <updated>2025-10-09T15:59:45+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/atomic/atomic_ref/store_or.md b/reference/atomic/atomic_ref/store_or.md
+index 30a107aa0..116a80365 100644
+--- a/reference/atomic/atomic_ref/store_or.md
++++ b/reference/atomic/atomic_ref/store_or.md
+@@ -17,11 +17,7 @@ constexpr void
+ ## 概要
+ 値を読み込まずにOR演算を行う。
+ 
+-この関数は、[`fetch_or()`](fetch_or.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。この関数はロックフリーに動作することが保証されているため、並列アルゴリズムで[`par_useq`](/reference/execution/execution/execution_policy.md)ポリシーを使う場合などに有用である。
+-
+-
+-## テンプレートパラメータ制約
+-- `atomic&amp;lt;T&amp;gt;::is_always_lock_free`が`true`であること
++この関数は、[`fetch_or()`](fetch_or.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。
+ 
+ 
+ ## 事前条件
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>store_sub -- いろいろ間違ってた</title>
+      <link href="https://cpprefjp.github.io/reference/atomic/atomic_ref/store_sub.html"/>
+      <id>d28b14327d20759a554d98899d8b7bfb6235c1eb:reference/atomic/atomic_ref/store_sub.md</id>
+      <updated>2025-10-09T15:59:45+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/atomic/atomic_ref/store_sub.md b/reference/atomic/atomic_ref/store_sub.md
+index e0a21dc35..121f97540 100644
+--- a/reference/atomic/atomic_ref/store_sub.md
++++ b/reference/atomic/atomic_ref/store_sub.md
+@@ -17,11 +17,7 @@ constexpr void
+ ## 概要
+ 値を読み込まずに減算を行う。
+ 
+-この関数は、[`fetch_sub()`](fetch_sub.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。この関数はロックフリーに動作することが保証されているため、並列アルゴリズムで[`par_useq`](/reference/execution/execution/execution_policy.md)ポリシーを使う場合などに有用である。
+-
+-
+-## テンプレートパラメータ制約
+-- `atomic&amp;lt;T&amp;gt;::is_always_lock_free`が`true`であること
++この関数は、[`fetch_sub()`](fetch_sub.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。
+ 
+ 
+ ## 事前条件
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>store_xor -- いろいろ間違ってた</title>
+      <link href="https://cpprefjp.github.io/reference/atomic/atomic_ref/store_xor.html"/>
+      <id>d28b14327d20759a554d98899d8b7bfb6235c1eb:reference/atomic/atomic_ref/store_xor.md</id>
+      <updated>2025-10-09T15:59:45+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/atomic/atomic_ref/store_xor.md b/reference/atomic/atomic_ref/store_xor.md
+index 4d9f559f4..883ad242d 100644
+--- a/reference/atomic/atomic_ref/store_xor.md
++++ b/reference/atomic/atomic_ref/store_xor.md
+@@ -17,11 +17,7 @@ constexpr void
+ ## 概要
+ 値を読み込まずにXOR演算を行う。
+ 
+-この関数は、[`fetch_xor()`](fetch_xor.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。この関数はロックフリーに動作することが保証されているため、並列アルゴリズムで[`par_useq`](/reference/execution/execution/execution_policy.md)ポリシーを使う場合などに有用である。
+-
+-
+-## テンプレートパラメータ制約
+-- `atomic&amp;lt;T&amp;gt;::is_always_lock_free`が`true`であること
++この関数は、[`fetch_xor()`](fetch_xor.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。
+ 
+ 
+ ## 事前条件
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>store_add -- atomic_refをreductionに対応</title>
@@ -4200,280 +5161,6 @@ index 44b8ae7b5..a0c358357 100644
  
  ```cpp
  operator void*() const;
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Raclamusi</name>
-        <email>raclamusi@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>page_title (1行目の見出し1はページのタイトルです。修飾なしで記載してください) -- cpp11removed の説明を追加</title>
-      <link href="https://cpprefjp.github.io/start_editing/class_template_page.html"/>
-      <id>a14373f1ef279fa7a5e21cabd2089db253e379f2:start_editing/class_template_page.md</id>
-      <updated>2025-10-04T18:20:22+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/start_editing/class_template_page.md b/start_editing/class_template_page.md
-index e20675b4a..4b4e98ea2 100644
---- a/start_editing/class_template_page.md
-+++ b/start_editing/class_template_page.md
-@@ -24,6 +24,7 @@
- &amp;lt;!--    `cpp23[meta cpp]` : C++23で追加された機能 --&amp;gt;
- &amp;lt;!--    `cpp26[meta cpp]` : C++26で追加された機能 --&amp;gt;
- &amp;lt;!--    `cpp11deprecated[meta cpp]` : C++11で非推奨になった機能 --&amp;gt;
-+&amp;lt;!--    `cpp11removed[meta cpp]` : C++11で削除された機能 --&amp;gt;
- &amp;lt;!--    `cpp14deprecated[meta cpp]` : C++14で非推奨になった機能 --&amp;gt;
- &amp;lt;!--    `cpp14removed[meta cpp]` : C++14で削除された機能 --&amp;gt;
- &amp;lt;!--    `cpp17deprecated[meta cpp]` : C++17で非推奨になった機能 --&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Raclamusi</name>
-        <email>raclamusi@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>page_title (1行目の見出し1はページのタイトルです。修飾なしで記載してください) -- cpp11removed の説明を追加</title>
-      <link href="https://cpprefjp.github.io/start_editing/comparison_operator_template_page.html"/>
-      <id>a14373f1ef279fa7a5e21cabd2089db253e379f2:start_editing/comparison_operator_template_page.md</id>
-      <updated>2025-10-04T18:20:22+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/start_editing/comparison_operator_template_page.md b/start_editing/comparison_operator_template_page.md
-index 112993dbd..7adae91ff 100644
---- a/start_editing/comparison_operator_template_page.md
-+++ b/start_editing/comparison_operator_template_page.md
-@@ -25,6 +25,7 @@
- &amp;lt;!--    `cpp23[meta cpp]` : C++23で追加された機能 --&amp;gt;
- &amp;lt;!--    `cpp26[meta cpp]` : C++26で追加された機能 --&amp;gt;
- &amp;lt;!--    `cpp11deprecated[meta cpp]` : C++11で非推奨になった機能 --&amp;gt;
-+&amp;lt;!--    `cpp11removed[meta cpp]` : C++11で削除された機能 --&amp;gt;
- &amp;lt;!--    `cpp14deprecated[meta cpp]` : C++14で非推奨になった機能 --&amp;gt;
- &amp;lt;!--    `cpp14removed[meta cpp]` : C++14で削除された機能 --&amp;gt;
- &amp;lt;!--    `cpp17deprecated[meta cpp]` : C++17で非推奨になった機能 --&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Raclamusi</name>
-        <email>raclamusi@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>page_title (1行目の見出し1はページのタイトルです。修飾なしで記載してください) -- cpp11removed の説明を追加</title>
-      <link href="https://cpprefjp.github.io/start_editing/function_template_page.html"/>
-      <id>a14373f1ef279fa7a5e21cabd2089db253e379f2:start_editing/function_template_page.md</id>
-      <updated>2025-10-04T18:20:22+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/start_editing/function_template_page.md b/start_editing/function_template_page.md
-index 5f4de1fea..76400af2c 100644
---- a/start_editing/function_template_page.md
-+++ b/start_editing/function_template_page.md
-@@ -25,6 +25,7 @@
- &amp;lt;!--    `cpp23[meta cpp]` : C++23で追加された機能 --&amp;gt;
- &amp;lt;!--    `cpp26[meta cpp]` : C++26で追加された機能 --&amp;gt;
- &amp;lt;!--    `cpp11deprecated[meta cpp]` : C++11で非推奨になった機能 --&amp;gt;
-+&amp;lt;!--    `cpp11removed[meta cpp]` : C++11で削除された機能 --&amp;gt;
- &amp;lt;!--    `cpp14deprecated[meta cpp]` : C++14で非推奨になった機能 --&amp;gt;
- &amp;lt;!--    `cpp14removed[meta cpp]` : C++14で削除された機能 --&amp;gt;
- &amp;lt;!--    `cpp17deprecated[meta cpp]` : C++17で非推奨になった機能 --&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Raclamusi</name>
-        <email>raclamusi@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>page_title (1行目の見出し1はページのタイトルです。修飾なしで記載してください) -- cpp11removed の説明を追加</title>
-      <link href="https://cpprefjp.github.io/start_editing/header_template_page.html"/>
-      <id>a14373f1ef279fa7a5e21cabd2089db253e379f2:start_editing/header_template_page.md</id>
-      <updated>2025-10-04T18:20:22+09:00</updated>
-      
-        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;header_name&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;page_title (1行目の見出し1はページのタイトルです。修飾なしで記載してください)&lt;/span&gt;&lt;span class=&#34;cpp cpp17&#34; title=&#34;C++17で追加&#34;&gt;(C++17)&lt;/span&gt;&lt;/h1&gt;
-&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;(&lt;a href=&#34;../start_editing.html&#34;&gt;cpprefjpを編集するには&lt;/a&gt; および &lt;a href=&#34;markdown_cpprefjp.html&#34;&gt;cpprefjpでのMarkdown記法の制限と拡張&lt;/a&gt; を先に読んで下さい。)&lt;/p&gt;
-&lt;p&gt;(
-  サンプルコードは文章中のどの部分で書いても大丈夫です。閲覧者の理解を助けるために必要だと感じたところで入れてください。
-  その際拡張構文である&lt;code&gt;example&lt;/code&gt;タグをルールに従って付け、コンパイル・実行可能にすることを検討してください。
-)&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;(ここには、このヘッダファイル(ライブラリ)の概要を記述します。必須事項です。)&lt;/p&gt;
-&lt;p&gt;(必要な項目を省略する場合には、「(執筆中)」と書いておいてください。)&lt;/p&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;バージョン&lt;/h2&gt;
-&lt;h3&gt;言語&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;C++11&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;処理系&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;../implementation.html#clang&#34;&gt;Clang&lt;/a&gt;: 1.9 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 2.9 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 3.0 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 3.1 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 3.2 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 3.3 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;../implementation.html#gcc&#34;&gt;GCC&lt;/a&gt;: 4.3.6 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 4.4.7 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 4.5.3 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 4.6.3 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 4.7.2 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 4.8.1 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;../implementation.html#icc&#34;&gt;ICC&lt;/a&gt;: 10.1 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 11.0 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 11.1 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 12.0 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;../implementation.html#visual_cpp&#34;&gt;Visual C++&lt;/a&gt;: 2003 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 2005 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 2008 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 2010 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 2012 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;(ここには、そのヘッダファイルが存在する言語のバージョンと、確認がとれたコンパイラとそのバージョンを記述します。)&lt;br /&gt;
-(これらの項目を削除した場合、C++03のあらゆる環境で使用できることを意味します。)&lt;/p&gt;
-&lt;h2&gt;関連項目&lt;/h2&gt;
-&lt;p&gt;(ここには、その機能と関連のあるcpprefjpサイト内の項目へのリンクを記述します。とくに必要がないと判断した場合、項目を削除してください。)&lt;/p&gt;
-&lt;h2&gt;参照&lt;/h2&gt;
-&lt;p&gt;(ここには、その関数・変数・定数を理解するにあたっての参考資料や、関連する機能へのリンクを記述します。とくに必要がないと判断した場合、項目を削除してください。)&lt;/p&gt;&lt;/div&gt;</content>
-      
-      <author>
-        <name>Raclamusi</name>
-        <email>raclamusi@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>page_title (1行目の見出し1はページのタイトルです。修飾なしで記載してください) -- cpp11removed の説明を追加</title>
-      <link href="https://cpprefjp.github.io/start_editing/lang_template_page.html"/>
-      <id>a14373f1ef279fa7a5e21cabd2089db253e379f2:start_editing/lang_template_page.md</id>
-      <updated>2025-10-04T18:20:22+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/start_editing/lang_template_page.md b/start_editing/lang_template_page.md
-index 6f41aad21..817d98009 100644
---- a/start_editing/lang_template_page.md
-+++ b/start_editing/lang_template_page.md
-@@ -17,6 +17,7 @@
- &amp;lt;!--    `cpp23[meta cpp]` : C++23で追加された機能 --&amp;gt;
- &amp;lt;!--    `cpp26[meta cpp]` : C++26で追加された機能 --&amp;gt;
- &amp;lt;!--    `cpp11deprecated[meta cpp]` : C++11で非推奨になった機能 --&amp;gt;
-+&amp;lt;!--    `cpp11removed[meta cpp]` : C++11で削除された機能 --&amp;gt;
- &amp;lt;!--    `cpp14deprecated[meta cpp]` : C++14で非推奨になった機能 --&amp;gt;
- &amp;lt;!--    `cpp14removed[meta cpp]` : C++14で削除された機能 --&amp;gt;
- &amp;lt;!--    `cpp17deprecated[meta cpp]` : C++17で非推奨になった機能 --&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Raclamusi</name>
-        <email>raclamusi@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>cpprefjpでのMarkdown記法の制限と拡張 -- cpp11removed の説明を追加</title>
-      <link href="https://cpprefjp.github.io/start_editing/markdown_cpprefjp.html"/>
-      <id>a14373f1ef279fa7a5e21cabd2089db253e379f2:start_editing/markdown_cpprefjp.md</id>
-      <updated>2025-10-04T18:20:22+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/start_editing/markdown_cpprefjp.md b/start_editing/markdown_cpprefjp.md
-index cc1d5d942..19c1483c4 100644
---- a/start_editing/markdown_cpprefjp.md
-+++ b/start_editing/markdown_cpprefjp.md
-@@ -306,6 +306,7 @@ Warning: [nolinked editors_doc/specialized.md] href &amp;#34;/reference/foobar.md.nolink
-     * `* cpp20[meta cpp]` : C++20で追加された機能
-     * `* cpp23[meta cpp]` : C++23で追加された機能
-     * `* cpp11deprecated[meta cpp]` : C++11で非推奨になった機能
-+    * `* cpp11removed[meta cpp]` : C++11で削除された機能
-     * `* cpp14deprecated[meta cpp]` : C++14で非推奨になった機能
-     * `* cpp14removed[meta cpp]` : C++14で削除された機能
-     * `* cpp17deprecated[meta cpp]` : C++17で非推奨になった機能
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Raclamusi</name>
-        <email>raclamusi@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>page_title (1行目の見出し1はページのタイトルです。修飾なしで記載してください) -- cpp11removed の説明を追加</title>
-      <link href="https://cpprefjp.github.io/start_editing/named_requirement_template_page.html"/>
-      <id>a14373f1ef279fa7a5e21cabd2089db253e379f2:start_editing/named_requirement_template_page.md</id>
-      <updated>2025-10-04T18:20:22+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/start_editing/named_requirement_template_page.md b/start_editing/named_requirement_template_page.md
-index fe39a9b0e..6688cb2e5 100644
---- a/start_editing/named_requirement_template_page.md
-+++ b/start_editing/named_requirement_template_page.md
-@@ -19,6 +19,7 @@
- &amp;lt;!--    `cpp23[meta cpp]` : C++23で追加された機能 --&amp;gt;
- &amp;lt;!--    `cpp26[meta cpp]` : C++26で追加された機能 --&amp;gt;
- &amp;lt;!--    `cpp11deprecated[meta cpp]` : C++11で非推奨になった機能 --&amp;gt;
-+&amp;lt;!--    `cpp11removed[meta cpp]` : C++11で削除された機能 --&amp;gt;
- &amp;lt;!--    `cpp14deprecated[meta cpp]` : C++14で非推奨になった機能 --&amp;gt;
- &amp;lt;!--    `cpp14removed[meta cpp]` : C++14で削除された機能 --&amp;gt;
- &amp;lt;!--    `cpp17deprecated[meta cpp]` : C++17で非推奨になった機能 --&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Raclamusi</name>
-        <email>raclamusi@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>page_title (1行目の見出し1はページのタイトルです。修飾なしで記載してください) -- cpp11removed の説明を追加</title>
-      <link href="https://cpprefjp.github.io/start_editing/type-type_template_page.html"/>
-      <id>a14373f1ef279fa7a5e21cabd2089db253e379f2:start_editing/type-type_template_page.md</id>
-      <updated>2025-10-04T18:20:22+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/start_editing/type-type_template_page.md b/start_editing/type-type_template_page.md
-index b67913eb2..4054207ff 100644
---- a/start_editing/type-type_template_page.md
-+++ b/start_editing/type-type_template_page.md
-@@ -25,6 +25,7 @@
- &amp;lt;!--    `cpp23[meta cpp]` : C++23で追加された機能 --&amp;gt;
- &amp;lt;!--    `cpp26[meta cpp]` : C++26で追加された機能 --&amp;gt;
- &amp;lt;!--    `cpp11deprecated[meta cpp]` : C++11で非推奨になった機能 --&amp;gt;
-+&amp;lt;!--    `cpp11removed[meta cpp]` : C++11で削除された機能 --&amp;gt;
- &amp;lt;!--    `cpp14deprecated[meta cpp]` : C++14で非推奨になった機能 --&amp;gt;
- &amp;lt;!--    `cpp14removed[meta cpp]` : C++14で削除された機能 --&amp;gt;
- &amp;lt;!--    `cpp17deprecated[meta cpp]` : C++17で非推奨になった機能 --&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>

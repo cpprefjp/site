@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-10-09T02:24:59">
-        2025年10月09日 02時24分59秒
+      <span itemprop="datePublished" content="2025-10-09T06:59:45">
+        2025年10月09日 06時59分45秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -233,11 +233,7 @@
 </p>
 <h2>概要</h2>
 <p>値を読み込まずにXOR演算を行う。</p>
-<p>この関数は、<code><a href="fetch_xor.html">fetch_xor()</a></code>と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>として取得できない。この関数はロックフリーに動作することが保証されているため、並列アルゴリズムで<code><a href="../../execution/execution/execution_policy.html">par_useq</a></code>ポリシーを使う場合などに有用である。</p>
-<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
-<ul>
-<li><code>atomic&lt;T&gt;::is_always_lock_free</code>が<code>true</code>であること</li>
-</ul>
+<p>この関数は、<code><a href="fetch_xor.html">fetch_xor()</a></code>と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>として取得できない。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a></h2>
 <ul>
 <li><code>order</code>は、以下のいずれかであること<ul>

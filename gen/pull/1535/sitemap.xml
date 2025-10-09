@@ -21584,14 +21584,14 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/atomic/atomic/store_sub.html</loc>
-      <lastmod>2025-10-09T11:24:59+09:00</lastmod>
+      <lastmod>2025-10-09T15:59:45+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/atomic/atomic/store_fmaximum_num.html</loc>
-      <lastmod>2025-10-09T11:24:59+09:00</lastmod>
+      <lastmod>2025-10-09T15:59:45+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -21605,7 +21605,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/atomic/atomic/store_max.html</loc>
-      <lastmod>2025-10-09T11:24:59+09:00</lastmod>
+      <lastmod>2025-10-09T15:59:45+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -21619,7 +21619,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/atomic/atomic/store_xor.html</loc>
-      <lastmod>2025-10-09T11:24:59+09:00</lastmod>
+      <lastmod>2025-10-09T15:59:45+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -21661,14 +21661,14 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/atomic/atomic/store_fminimum.html</loc>
-      <lastmod>2025-10-09T11:24:59+09:00</lastmod>
+      <lastmod>2025-10-09T15:59:45+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/atomic/atomic/store_or.html</loc>
-      <lastmod>2025-10-09T11:24:59+09:00</lastmod>
+      <lastmod>2025-10-09T15:59:45+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -21710,7 +21710,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/atomic/atomic/store_and.html</loc>
-      <lastmod>2025-10-09T11:24:59+09:00</lastmod>
+      <lastmod>2025-10-09T15:59:45+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -21745,7 +21745,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/atomic/atomic/store_min.html</loc>
-      <lastmod>2025-10-09T11:24:59+09:00</lastmod>
+      <lastmod>2025-10-09T15:59:45+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -21766,7 +21766,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/atomic/atomic/store_fmaximum.html</loc>
-      <lastmod>2025-10-09T11:24:59+09:00</lastmod>
+      <lastmod>2025-10-09T15:59:45+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -21808,7 +21808,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/atomic/atomic/store_add.html</loc>
-      <lastmod>2025-10-09T11:24:59+09:00</lastmod>
+      <lastmod>2025-10-09T15:59:45+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -21843,7 +21843,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/atomic/atomic/store_fminimum_num.html</loc>
-      <lastmod>2025-10-09T11:24:59+09:00</lastmod>
+      <lastmod>2025-10-09T15:59:45+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -21871,14 +21871,14 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/atomic/atomic_ref/store_sub.html</loc>
-      <lastmod>2025-10-09T11:24:59+09:00</lastmod>
+      <lastmod>2025-10-09T15:59:45+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/atomic/atomic_ref/store_fmaximum_num.html</loc>
-      <lastmod>2025-10-09T11:24:59+09:00</lastmod>
+      <lastmod>2025-10-09T15:59:45+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -21892,7 +21892,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/atomic/atomic_ref/store_max.html</loc>
-      <lastmod>2025-10-09T11:24:59+09:00</lastmod>
+      <lastmod>2025-10-09T15:59:45+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -21906,7 +21906,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/atomic/atomic_ref/store_xor.html</loc>
-      <lastmod>2025-10-09T11:24:59+09:00</lastmod>
+      <lastmod>2025-10-09T15:59:45+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -21948,14 +21948,14 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/atomic/atomic_ref/store_fminimum.html</loc>
-      <lastmod>2025-10-09T11:24:59+09:00</lastmod>
+      <lastmod>2025-10-09T15:59:45+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
   
     <url>
       <loc>https://cpprefjp.github.io/reference/atomic/atomic_ref/store_or.html</loc>
-      <lastmod>2025-10-09T11:24:59+09:00</lastmod>
+      <lastmod>2025-10-09T15:59:45+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -21997,7 +21997,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/atomic/atomic_ref/store_and.html</loc>
-      <lastmod>2025-10-09T11:24:59+09:00</lastmod>
+      <lastmod>2025-10-09T15:59:45+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -22046,7 +22046,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/atomic/atomic_ref/store_min.html</loc>
-      <lastmod>2025-10-09T11:24:59+09:00</lastmod>
+      <lastmod>2025-10-09T15:59:45+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -22067,7 +22067,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/atomic/atomic_ref/store_fmaximum.html</loc>
-      <lastmod>2025-10-09T11:24:59+09:00</lastmod>
+      <lastmod>2025-10-09T15:59:45+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -22109,7 +22109,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/atomic/atomic_ref/store_add.html</loc>
-      <lastmod>2025-10-09T11:24:59+09:00</lastmod>
+      <lastmod>2025-10-09T15:59:45+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -22144,7 +22144,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/atomic/atomic_ref/store_fminimum_num.html</loc>
-      <lastmod>2025-10-09T11:24:59+09:00</lastmod>
+      <lastmod>2025-10-09T15:59:45+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>

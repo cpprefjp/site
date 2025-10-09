@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-10-09T02:24:59">
-        2025年10月09日 02時24分59秒
+      <span itemprop="datePublished" content="2025-10-09T06:59:45">
+        2025年10月09日 06時59分45秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,19 +225,34 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;atomic&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class atomic">atomic::</span><span class="token">store_min</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="kt">void</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">void</span>
   <span class="nf">store_min</span><span class="p">(</span><span class="n">difference_type</span> <span class="n">operand</span><span class="p">,</span>
             <span class="n"><a href="../memory_order.html">memory_order</a></span> <span class="n">order</span> <span class="o">=</span> <span class="n"><a href="../memory_order.html">memory_order_seq_cst</a></span>
-            <span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>                               <span class="c1">// (1) C++26</span>
+            <span class="p">)</span> <span class="k">volatile</span> <span class="k">noexcept</span><span class="p">;</span>                      <span class="c1">// (1) C++26</span>
+
+<span class="k">constexpr</span> <span class="kt">void</span>
+  <span class="nf">store_min</span><span class="p">(</span><span class="n">difference_type</span> <span class="n">operand</span><span class="p">,</span>
+            <span class="n"><a href="../memory_order.html">memory_order</a></span> <span class="n">order</span> <span class="o">=</span> <span class="n"><a href="../memory_order.html">memory_order_seq_cst</a></span>
+            <span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>                               <span class="c1">// (2) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
 <p>値を読み込まずに最小値を設定する。</p>
 <p>この関数は、<code>*this</code>が保持する値と<code>operand</code>の小さい方を求め、その値を<code>this</code>に保持させる。</p>
-<p>この関数は、<code><a href="fetch_min.html">fetch_min()</a></code>と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>として取得できない。この関数はロックフリーに動作することが保証されているため、並列アルゴリズムで<code><a href="../../execution/execution/execution_policy.html">par_useq</a></code>ポリシーを使う場合などに有用である。</p>
+<p>この関数は、<code><a href="fetch_min.html">fetch_min()</a></code>と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>として取得できない。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
 <ul>
-<li>(1) : <code>std::atomic&lt;T*&gt;</code>の場合、型<code>T</code>がオブジェクト型であること。型<code>T</code>が<code>void*</code>や関数ポインタであってはならない</li>
+<li><code>std::atomic&lt;T*&gt;</code>の場合、型<code>T</code>がオブジェクト型であること。型<code>T</code>が<code>void*</code>や関数ポインタであってはならない</li>
+<li>(1) : <code>atomic&lt;T&gt;::is_always_lock_free</code>が<code>true</code>であること</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a></h2>
+<ul>
+<li><code>order</code>は、以下のいずれかであること<ul>
+<li><code><a href="../memory_order.html">memory_order_relaxed</a></code></li>
+<li><code><a href="../memory_order.html">memory_order_release</a></code></li>
+<li><code><a href="../memory_order.html">memory_order_seq_cst</a></code></li>
+</ul>
+</li>
 </ul>
 <h2>効果</h2>
 <p><code>order</code>で指定されたメモリオーダーにしたがって、<code><a href="../../algorithm/min.html">std::min()</a></code>アルゴリズムのように<code>*this</code>が保持する値と<code>operand</code>の最小値を求めて、その値でアトミックに置き換える</p>
