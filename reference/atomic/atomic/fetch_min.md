@@ -9,7 +9,7 @@
 constexpr T
   fetch_min(difference_type operand,
             memory_order order = memory_order_seq_cst
-            ) const noexcept;                         // (1) C++26
+            ) noexcept;                              // (1) C++26
 ```
 * memory_order[link /reference/atomic/memory_order.md]
 * memory_order_seq_cst[link /reference/atomic/memory_order.md]

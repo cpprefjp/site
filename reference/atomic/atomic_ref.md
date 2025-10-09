@@ -92,6 +92,13 @@ C++26から、これらの特殊化はCV修飾された型に対しても行わ�
 | [`fetch_xor`](atomic_ref/fetch_xor.md)        | XOR演算        | C++20 |
 | [`fetch_max`](atomic_ref/fetch_max.md)        | 最大値を設定・取得     | C++26 |
 | [`fetch_min`](atomic_ref/fetch_min.md)        | 最小値を設定・取得     | C++26 |
+| [`store_add`](atomic_ref/store_add.md)        | 値を読み込まずに加算   | C++26 |
+| [`store_sub`](atomic_ref/store_sub.md)        | 値を読み込まずに減算   | C++26 |
+| [`store_and`](atomic_ref/store_and.md)        | 値を読み込まずにAND演算  | C++26 |
+| [`store_or`](atomic_ref/store_or.md)          | 値を読み込まずにOR演算   | C++26 |
+| [`store_xor`](atomic_ref/store_xor.md)        | 値を読み込まずにXOR演算  | C++26 |
+| [`store_max`](atomic_ref/store_max.md)        | 値を読み込まずに最大値を設定 | C++26 |
+| [`store_min`](atomic_ref/store_min.md)        | 値を読み込まずに最小値を設定 | C++26 |
 | [`operator++`](atomic_ref/op_increment.md)    | インクリメント | C++20 |
 | [`operator--`](atomic_ref/op_decrement.md)    | デクリメント   | C++20 |
 | [`operator+=`](atomic_ref/op_plus_assign.md)  | 加算           | C++20 |
@@ -120,6 +127,17 @@ C++26から、これらの特殊化はCV修飾された型に対しても行わ�
 | [`fetch_fminimum`](atomic_ref/fetch_fminimum.md)         | 最小値を設定・取得  (`-0.0`と`+0.0`では`-0.0`、NaNと値ではNaNを返す) | C++26 |
 | [`fetch_fmaximum_num`](atomic_ref/fetch_fmaximum_num.md) | 最大値を設定・取得  (`-0.0`と`+0.0`では`+0.0`、NaNと値では数値を返す) | C++26 |
 | [`fetch_fminimum_num`](atomic_ref/fetch_fminimum_num.md) | 最小値を設定・取得  (`-0.0`と`+0.0`では`-0.0`、NaNと値では数値を返す) | C++26 |
+| [`store_add`](atomic_ref/store_add.md)                   | 値を読み込まずに加算   | C++26 |
+| [`store_sub`](atomic_ref/store_sub.md)                   | 値を読み込まずに減算   | C++26 |
+| [`store_and`](atomic_ref/store_and.md)                   | 値を読み込まずにAND演算  | C++26 |
+| [`store_or`](atomic_ref/store_or.md)                     | 値を読み込まずにOR演算   | C++26 |
+| [`store_xor`](atomic_ref/store_xor.md)                   | 値を読み込まずにXOR演算  | C++26 |
+| [`store_max`](atomic_ref/store_max.md)                   | 値を読み込まずに最大値を設定 | C++26 |
+| [`store_min`](atomic_ref/store_min.md)                   | 値を読み込まずに最小値を設定 | C++26 |
+| [`store_fmaximum`](atomic_ref/store_fmaximum.md)         | 値を読み込まずに最大値を設定  (`-0.0`と`+0.0`では`+0.0`、NaNと値ではNaNを返す) | C++26 |
+| [`store_fminimum`](atomic_ref/store_fminimum.md)         | 値を読み込まずに最小値を設定  (`-0.0`と`+0.0`では`-0.0`、NaNと値ではNaNを返す) | C++26 |
+| [`store_fmaximum_num`](atomic_ref/store_fmaximum_num.md) | 値を読み込まずに最大値を設定  (`-0.0`と`+0.0`では`+0.0`、NaNと値では数値を返す) | C++26 |
+| [`store_fminimum_num`](atomic_ref/store_fminimum_num.md) | 値を読み込まずに最小値を設定  (`-0.0`と`+0.0`では`-0.0`、NaNと値では数値を返す) | C++26 |
 | [`operator+=`](atomic_ref/op_plus_assign.md)             | 加算 | C++20 |
 | [`operator-=`](atomic_ref/op_minus_assign.md)            | 減算 | C++20 |
 
@@ -139,6 +157,10 @@ C++26から、これらの特殊化はCV修飾された型に対しても行わ�
 | [`fetch_sub`](atomic_ref/fetch_sub.md)        | 減算 | C++20 |
 | [`fetch_max`](atomic_ref/fetch_max.md)        | 最大値を設定・取得     | C++26 |
 | [`fetch_min`](atomic_ref/fetch_min.md)        | 最小値を設定・取得     | C++26 |
+| [`store_add`](atomic_ref/store_add.md)        | 値を読み込まずに加算   | C++26 |
+| [`store_sub`](atomic_ref/store_sub.md)        | 値を読み込まずに減算   | C++26 |
+| [`store_max`](atomic_ref/store_max.md)        | 値を読み込まずに最大値を設定 | C++26 |
+| [`store_min`](atomic_ref/store_min.md)        | 値を読み込まずに最小値を設定 | C++26 |
 | [`operator++`](atomic_ref/op_increment.md)    | インクリメント | C++20 |
 | [`operator--`](atomic_ref/op_decrement.md)    | デクリメント | C++20 |
 | [`operator+=`](atomic_ref/op_plus_assign.md)  | 加算 | C++20 |

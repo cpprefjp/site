@@ -1,4 +1,4 @@
-# fetch_fmaximum_num
+# store_fmaximum_num
 * atomic[meta header]
 * std[meta namespace]
 * atomic[meta class]
@@ -6,8 +6,8 @@
 * cpp26[meta cpp]
 
 ```cpp
-constexpr T
-  fetch_fmaximum_num(difference_type operand,
+constexpr void
+  store_fmaximum_num(difference_type operand,
                      memory_order order = memory_order_seq_cst
                      ) noexcept;                               // (1) C++26
 ```
@@ -15,13 +15,19 @@ constexpr T
 * memory_order_seq_cst[link /reference/atomic/memory_order.md]
 
 ## 概要
-最大値を設定・取得する。
+値を読み込まずに最大値を設定する。
 
-この関数は、`*this`が保持する値と`operand`の大きい方を求め、その値を`this`に保持させた上でその値を返す。
+この関数は、`*this`が保持する値と`operand`の大きい方を求め、その値を`this`に保持させる。
+
+この関数は、[`fetch_fmaximum_num()`](fetch_fmaximum_num.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。
 
 
 ## 効果
-`order`で指定されたメモリオーダーにしたがって、`*this`が保持する値と`operand`の最大値を求めて、その値を`this`に保持させ、その値を返す
+`order`で指定されたメモリオーダーにしたがって、`*this`が保持する値と`operand`の最大値を求めて、その値でアトミックに置き換える
+
+
+## 戻り値
+なし
 
 
 ## 例外
@@ -43,20 +49,22 @@ int main()
 {
   std::atomic<int> x(2);
 
-  int ret = x.fetch_fmaximum_num(3);
+  x.store_fmaximum_num(3);
 
-  std::cout << ret << std::endl;
   std::cout << x.load() << std::endl;
 }
 ```
-* fetch_fmaximum_num[color ff0000]
+* store_fmaximum_num[color ff0000]
 * load()[link load.md]
 
 ### 出力
 ```
 3
-3
 ```
+
+## バージョン
+### 言語
+- C++26
 
 ## バージョン
 ### 言語
@@ -65,7 +73,8 @@ int main()
 ### 処理系
 - [Clang](/implementation.md#clang): 21 [mark noimpl]
 - [GCC](/implementation.md#gcc): 15 [mark noimpl]
+- [Visual C++](/implementation.md#visual_cpp): 2022 Update 13 [mark noimpl]
 
 
 ## 参照
-- [P3008R6 Atomic floating-point min/max](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3008r6.html)
+- [P3111R8 Atomic Reduction Operations](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3111r8.html)

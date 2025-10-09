@@ -164,6 +164,13 @@ namespace std {
 | [`fetch_xor`](atomic/fetch_xor.md)        | XOR演算        | C++11 |
 | [`fetch_max`](atomic/fetch_max.md)        | 最大値を設定・取得     | C++26 |
 | [`fetch_min`](atomic/fetch_min.md)        | 最小値を設定・取得     | C++26 |
+| [`store_add`](atomic/store_add.md)        | 値を読み込まずに加算   | C++26 |
+| [`store_sub`](atomic/store_sub.md)        | 値を読み込まずに減算   | C++26 |
+| [`store_and`](atomic/store_and.md)        | 値を読み込まずにAND演算  | C++26 |
+| [`store_or`](atomic/store_or.md)          | 値を読み込まずにOR演算   | C++26 |
+| [`store_xor`](atomic/store_xor.md)        | 値を読み込まずにXOR演算  | C++26 |
+| [`store_max`](atomic/store_max.md)        | 値を読み込まずに最大値を設定 | C++26 |
+| [`store_min`](atomic/store_min.md)        | 値を読み込まずに最小値を設定 | C++26 |
 | [`operator++`](atomic/op_increment.md)    | インクリメント | C++11 |
 | [`operator--`](atomic/op_decrement.md)    | デクリメント   | C++11 |
 | [`operator+=`](atomic/op_plus_assign.md)  | 加算           | C++11 |
@@ -192,6 +199,17 @@ namespace std {
 | [`fetch_fminimum`](atomic/fetch_fminimum.md)         | 最小値を設定・取得  (`-0.0`と`+0.0`では`-0.0`、NaNと値ではNaNを返す) | C++26 |
 | [`fetch_fmaximum_num`](atomic/fetch_fmaximum_num.md) | 最大値を設定・取得  (`-0.0`と`+0.0`では`+0.0`、NaNと値では数値を返す) | C++26 |
 | [`fetch_fminimum_num`](atomic/fetch_fminimum_num.md) | 最小値を設定・取得  (`-0.0`と`+0.0`では`-0.0`、NaNと値では数値を返す) | C++26 |
+| [`store_add`](atomic/store_add.md)                   | 値を読み込まずに加算   | C++26 |
+| [`store_sub`](atomic/store_sub.md)                   | 値を読み込まずに減算   | C++26 |
+| [`store_and`](atomic/store_and.md)                   | 値を読み込まずにAND演算  | C++26 |
+| [`store_or`](atomic/store_or.md)                     | 値を読み込まずにOR演算   | C++26 |
+| [`store_xor`](atomic/store_xor.md)                   | 値を読み込まずにXOR演算  | C++26 |
+| [`store_max`](atomic/store_max.md)                   | 値を読み込まずに最大値を設定 | C++26 |
+| [`store_min`](atomic/store_min.md)                   | 値を読み込まずに最小値を設定 | C++26 |
+| [`store_fmaximum`](atomic/store_fmaximum.md)         | 値を読み込まずに最大値を設定  (`-0.0`と`+0.0`では`+0.0`、NaNと値ではNaNを返す) | C++26 |
+| [`store_fminimum`](atomic/store_fminimum.md)         | 値を読み込まずに最小値を設定  (`-0.0`と`+0.0`では`-0.0`、NaNと値ではNaNを返す) | C++26 |
+| [`store_fmaximum_num`](atomic/store_fmaximum_num.md) | | 値を読み込まずに最大値を設定  (`-0.0`と`+0.0`では`+0.0`、NaNと値では数値を返す) | C++26 |
+| [`store_fminimum_num`](atomic/store_fminimum_num.md) | 値を読み込まずに最小値を設定  (`-0.0`と`+0.0`では`-0.0`、NaNと値では数値を返す) | C++26 |
 | [`operator+=`](atomic/op_plus_assign.md)             | 加算 | C++20 |
 | [`operator-=`](atomic/op_minus_assign.md)            | 減算 | C++20 |
 
@@ -211,6 +229,10 @@ namespace std {
 | [`fetch_sub`](atomic/fetch_sub.md)        | 減算 | C++11 |
 | [`fetch_max`](atomic/fetch_max.md)        | 最大値を設定・取得     | C++26 |
 | [`fetch_min`](atomic/fetch_min.md)        | 最小値を設定・取得     | C++26 |
+| [`store_add`](atomic/store_add.md)        | 値を読み込まずに加算   | C++26 |
+| [`store_sub`](atomic/store_sub.md)        | 値を読み込まずに減算   | C++26 |
+| [`store_max`](atomic/store_max.md)        | 値を読み込まずに最大値を設定 | C++26 |
+| [`store_min`](atomic/store_min.md)        | 値を読み込まずに最小値を設定 | C++26 |
 | [`operator++`](atomic/op_increment.md)    | インクリメント | C++11 |
 | [`operator--`](atomic/op_decrement.md)    | デクリメント | C++11 |
 | [`operator+=`](atomic/op_plus_assign.md)  | 加算 | C++11 |
