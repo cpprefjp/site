@@ -1,19 +1,23 @@
 # PR [\#1535](https://github.com/cpprefjp/site/pull/1535) プレビュー
-- &#x231a; 更新時刻: 2025-10-09 16:10:32 JST
+- &#x231a; 更新時刻: 2025-10-09 19:58:25 JST
 - &#x1f50d; [プレビュー (HTML)](https://cpprefjp.github.io/site/gen/pull/1535)
 - &#x1f4c8; [プレビュー生成記録](https://github.com/cpprefjp/site/actions?query=event%3Apull_request_target+branch%3Aatomic_reduction)
-- **&#x2AEF;** ソースの変更: [`261aa4e..46574a9`](https://github.com/cpprefjp/site/compare/261aa4ea914d3b0e3368954303e27c94ad616c57..46574a949df981f2794fc338ba6d406bff0223e2)
+- **&#x2AEF;** ソースの変更: [`261aa4e..846ba6d`](https://github.com/cpprefjp/site/compare/261aa4ea914d3b0e3368954303e27c94ad616c57..846ba6d82618bcd39a2765cb612eb01d94dd877d)
 
-## 変更記事一覧 (31件)
+## 変更記事一覧 (53件)
 
 - &#x1f4dd; [`lang/cpp26`](https://cpprefjp.github.io/site/gen/pull/1535/lang/cpp26.html)
+- &#x1f4dd; [`reference/atomic`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic.html)
 - &#x1f4dd; [`reference/atomic/atomic`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic.html)
+- &#x1f4dd; [`reference/atomic/atomic/fetch_and`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic/fetch_and.html)
 - &#x1f4dd; [`reference/atomic/atomic/fetch_fmaximum`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic/fetch_fmaximum.html)
 - &#x1f4dd; [`reference/atomic/atomic/fetch_fmaximum_num`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic/fetch_fmaximum_num.html)
 - &#x1f4dd; [`reference/atomic/atomic/fetch_fminimum`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic/fetch_fminimum.html)
 - &#x1f4dd; [`reference/atomic/atomic/fetch_fminimum_num`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic/fetch_fminimum_num.html)
 - &#x1f4dd; [`reference/atomic/atomic/fetch_max`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic/fetch_max.html)
 - &#x1f4dd; [`reference/atomic/atomic/fetch_min`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic/fetch_min.html)
+- &#x1f4dd; [`reference/atomic/atomic/fetch_or`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic/fetch_or.html)
+- &#x1f4dd; [`reference/atomic/atomic/fetch_xor`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic/fetch_xor.html)
 - &#x1f4dd; [`reference/atomic/atomic/store_add`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic/store_add.html) &#x2728;
 - &#x1f4dd; [`reference/atomic/atomic/store_and`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic/store_and.html) &#x2728;
 - &#x1f4dd; [`reference/atomic/atomic/store_fmaximum`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic/store_fmaximum.html) &#x2728;
@@ -25,6 +29,10 @@
 - &#x1f4dd; [`reference/atomic/atomic/store_or`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic/store_or.html) &#x2728;
 - &#x1f4dd; [`reference/atomic/atomic/store_sub`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic/store_sub.html) &#x2728;
 - &#x1f4dd; [`reference/atomic/atomic/store_xor`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic/store_xor.html) &#x2728;
+- &#x1f4dd; [`reference/atomic/atomic_fetch_max`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic_fetch_max.html)
+- &#x1f4dd; [`reference/atomic/atomic_fetch_max_explicit`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic_fetch_max_explicit.html)
+- &#x1f4dd; [`reference/atomic/atomic_fetch_min`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic_fetch_min.html)
+- &#x1f4dd; [`reference/atomic/atomic_fetch_min_explicit`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic_fetch_min_explicit.html)
 - &#x1f4dd; [`reference/atomic/atomic_ref`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic_ref.html)
 - &#x1f4dd; [`reference/atomic/atomic_ref/store_add`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic_ref/store_add.html) &#x2728;
 - &#x1f4dd; [`reference/atomic/atomic_ref/store_and`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic_ref/store_and.html) &#x2728;
@@ -37,3 +45,17 @@
 - &#x1f4dd; [`reference/atomic/atomic_ref/store_or`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic_ref/store_or.html) &#x2728;
 - &#x1f4dd; [`reference/atomic/atomic_ref/store_sub`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic_ref/store_sub.html) &#x2728;
 - &#x1f4dd; [`reference/atomic/atomic_ref/store_xor`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic_ref/store_xor.html) &#x2728;
+- &#x1f4dd; [`reference/atomic/atomic_store_add`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic_store_add.html) &#x2728;
+- &#x1f4dd; [`reference/atomic/atomic_store_add_explicit`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic_store_add_explicit.html) &#x2728;
+- &#x1f4dd; [`reference/atomic/atomic_store_and`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic_store_and.html) &#x2728;
+- &#x1f4dd; [`reference/atomic/atomic_store_and_explicit`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic_store_and_explicit.html) &#x2728;
+- &#x1f4dd; [`reference/atomic/atomic_store_max`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic_store_max.html) &#x2728;
+- &#x1f4dd; [`reference/atomic/atomic_store_max_explicit`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic_store_max_explicit.html) &#x2728;
+- &#x1f4dd; [`reference/atomic/atomic_store_min`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic_store_min.html) &#x2728;
+- &#x1f4dd; [`reference/atomic/atomic_store_min_explicit`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic_store_min_explicit.html) &#x2728;
+- &#x1f4dd; [`reference/atomic/atomic_store_or`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic_store_or.html) &#x2728;
+- &#x1f4dd; [`reference/atomic/atomic_store_or_explicit`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic_store_or_explicit.html) &#x2728;
+- &#x1f4dd; [`reference/atomic/atomic_store_sub`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic_store_sub.html) &#x2728;
+- &#x1f4dd; [`reference/atomic/atomic_store_sub_explicit`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic_store_sub_explicit.html) &#x2728;
+- &#x1f4dd; [`reference/atomic/atomic_store_xor`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic_store_xor.html) &#x2728;
+- &#x1f4dd; [`reference/atomic/atomic_store_xor_explicit`](https://cpprefjp.github.io/site/gen/pull/1535/reference/atomic/atomic_store_xor_explicit.html) &#x2728;

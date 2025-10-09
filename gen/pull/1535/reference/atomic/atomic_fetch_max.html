@@ -28,11 +28,11 @@
         <meta property="og:url" content="https://cpprefjp.github.io/reference/atomic/atomic_fetch_max.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
-        <meta property="og:description" content="アトミックに最大値を取得する" />
+        <meta property="og:description" content="アトミックに最大値を設定・取得する" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="atomic_fetch_max - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/atomic/atomic_fetch_max.html" />
-        <meta name="twitter:description" content="アトミックに最大値を取得する" />
+        <meta name="twitter:description" content="アトミックに最大値を設定・取得する" />
 
         
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2024-12-23T07:58:47">
-        2024年12月23日 07時58分47秒
+      <span itemprop="datePublished" content="2025-10-09T10:53:36">
+        2025年10月09日 10時53分36秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -214,12 +214,12 @@
         
   <div class="identifier-type">function template</div><div class="header">&lt;atomic&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">atomic_fetch_max</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">template</span> <span class="o">&lt;</span><span class="n">classT</span><span class="o">&gt;</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
   <span class="n">T</span>
     <span class="n">atomic_fetch_max</span><span class="p">(</span><span class="k">volatile</span> <span class="n"><a href="atomic.html">atomic</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">object</span><span class="p">,</span>
                      <span class="k">typename</span> <span class="n"><a href="atomic.html">atomic</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value_type</span> <span class="n">operand</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (1) C++26</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="n">classT</span><span class="o">&gt;</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
   <span class="k">constexpr</span> <span class="n">T</span>
     <span class="n">atomic_fetch_max</span><span class="p">(</span><span class="n"><a href="atomic.html">atomic</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;*</span> <span class="n">object</span><span class="p">,</span>
                      <span class="k">typename</span> <span class="n"><a href="atomic.html">atomic</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value_type</span> <span class="n">operand</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (2) C++26</span>
@@ -227,14 +227,14 @@
 </code></pre></div>
 </p>
 <h2>概要</h2>
-<p>アトミックに最大値を取得する</p>
+<p>アトミックに最大値を設定・取得する</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
 <ul>
 <li>(1), (2) : 型<code>T</code>がオブジェクト型であること。型<code>T</code>が<code>void*</code>や関数ポインタであってはならない</li>
 <li>(1) : <code>atomic&lt;T&gt;::is_always_lock_free</code>が<code>true</code>であること</li>
 </ul>
 <h2>効果</h2>
-<p><code><a href="memory_order.html">memory_order_seq_cst</a></code>のメモリオーダーにしたがって、<code><a href="../algorithm/max.html">std::max()</a></code>アルゴリズムのように<code>*object</code>が保持する値と<code>operand</code>の最大値を求めて返す</p>
+<p><code><a href="memory_order.html">memory_order_seq_cst</a></code>のメモリオーダーにしたがって、<code><a href="../algorithm/max.html">std::max()</a></code>アルゴリズムのように<code>*object</code>が保持する値と<code>operand</code>の最大値を求め、アトミックにその値で置き換えて返す</p>
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p>投げない</p>
 <h2>例</h2>

@@ -176,12 +176,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-25T10:26:24">
-        2025年07月25日 10時26分24秒
+      <span itemprop="datePublished" content="2025-10-09T10:53:36">
+        2025年10月09日 10時53分36秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">yoh</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -390,6 +390,7 @@
 </tbody>
 </table>
 <h2>アトミック型に対する算術操作</h2>
+<h3>値を読み込んで算術操作</h3>
 <table border="1" bordercolor="#888" style="border-collapse:collapse">
 <thead>
 <tr>
@@ -451,22 +452,104 @@
 </tr>
 <tr>
 <td><code><a href="atomic/atomic_fetch_max.html">atomic_fetch_max</a></code></td>
-<td>最大値取得(function template)</td>
+<td>最大値を設定・取得(function template)</td>
 <td>C++26</td>
 </tr>
 <tr>
 <td><code><a href="atomic/atomic_fetch_max_explicit.html">atomic_fetch_max_explicit</a></code></td>
-<td>メモリオーダーを指定して最大値取得(function template)</td>
+<td>メモリオーダーを指定して最大値を設定・取得(function template)</td>
 <td>C++26</td>
 </tr>
 <tr>
 <td><code><a href="atomic/atomic_fetch_min.html">atomic_fetch_min</a></code></td>
-<td>最小値取得(function template)</td>
+<td>最小値を設定・取得(function template)</td>
 <td>C++26</td>
 </tr>
 <tr>
 <td><code><a href="atomic/atomic_fetch_min_explicit.html">atomic_fetch_min_explicit</a></code></td>
-<td>メモリオーダーを指定して最小値取得(function template)</td>
+<td>メモリオーダーを指定して最小値を設定・取得(function template)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h3>値を読み込まずに算術操作</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="atomic/atomic_store_add.html">atomic_store_add</a></code></td>
+<td>値を読み込まずに加算(function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_store_add_explicit.html">atomic_store_add_explicit</a></code></td>
+<td>メモリオーダーを指定して値を読み込まずに加算(function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_store_sub.html">atomic_store_sub</a></code></td>
+<td>値を読み込まずに減算(function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_store_sub_explicit.html">atomic_store_sub_explicit</a></code></td>
+<td>メモリオーダーを指定して値を読み込まずに減算(function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_store_and.html">atomic_store_and</a></code></td>
+<td>値を読み込まずにAND演算(function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_store_and_explicit.html">atomic_store_and_explicit</a></code></td>
+<td>メモリオーダーを指定して値を読み込まずにAND演算(function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_store_or.html">atomic_store_or</a></code></td>
+<td>値を読み込まずにOR演算(function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_store_or_explicit.html">atomic_store_or_explicit</a></code></td>
+<td>メモリオーダーを指定して値を読み込まずにOR演算(function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_store_xor.html">atomic_store_xor</a></code></td>
+<td>値を読み込まずにXOR演算(function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_store_xor_explicit.html">atomic_store_xor_explicit</a></code></td>
+<td>メモリオーダーを指定して値を読み込まずにXOR演算(function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_store_max.html">atomic_store_max</a></code></td>
+<td>値を読み込まずに最大値を設定(function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_store_max_explicit.html">atomic_store_max_explicit</a></code></td>
+<td>メモリオーダーを指定して値を読み込まずに最大値を設定(function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_store_min.html">atomic_store_min</a></code></td>
+<td>値を読み込まずに最小値を設定(function template)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="atomic/atomic_store_min_explicit.html">atomic_store_min_explicit</a></code></td>
+<td>メモリオーダーを指定して値を読み込まずに最小値を設定(function template)</td>
 <td>C++26</td>
 </tr>
 </tbody>
