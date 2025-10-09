@@ -6,10 +6,15 @@
 * cpp26[meta cpp]
 
 ```cpp
+void
+  store_or(difference_type operand,
+            memory_order order = memory_order_seq_cst
+            ) volatile noexcept;                      // (1) C++26
+
 constexpr void
   store_or(difference_type operand,
             memory_order order = memory_order_seq_cst
-            ) noexcept;                               // (1) C++26
+            ) noexcept;                               // (2) C++26
 ```
 * memory_order[link /reference/atomic/memory_order.md]
 * memory_order_seq_cst[link /reference/atomic/memory_order.md]
@@ -17,11 +22,18 @@ constexpr void
 ## 概要
 値を読み込まずにOR演算を行う。
 
-この関数は、[`fetch_or()`](fetch_or.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。この関数はロックフリーに動作することが保証されているため、並列アルゴリズムで[`par_useq`](/reference/execution/execution/execution_policy.md)ポリシーを使う場合などに有用である。
+この関数は、[`fetch_or()`](fetch_or.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。
 
 
 ## テンプレートパラメータ制約
-- `atomic<T>::is_always_lock_free`が`true`であること
+- (1) : `atomic<T>::is_always_lock_free`が`true`であること
+
+
+## 事前条件
+- `order`は、以下のいずれかであること
+    - [`memory_order_relaxed`](/reference/atomic/memory_order.md)
+    - [`memory_order_release`](/reference/atomic/memory_order.md)
+    - [`memory_order_seq_cst`](/reference/atomic/memory_order.md)
 
 
 ## 事前条件

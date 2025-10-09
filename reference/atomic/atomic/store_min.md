@@ -6,10 +6,15 @@
 * cpp26[meta cpp]
 
 ```cpp
+void
+  store_min(difference_type operand,
+            memory_order order = memory_order_seq_cst
+            ) volatile noexcept;                      // (1) C++26
+
 constexpr void
   store_min(difference_type operand,
             memory_order order = memory_order_seq_cst
-            ) noexcept;                               // (1) C++26
+            ) noexcept;                               // (2) C++26
 ```
 * memory_order[link /reference/atomic/memory_order.md]
 * memory_order_seq_cst[link /reference/atomic/memory_order.md]
@@ -19,11 +24,19 @@ constexpr void
 
 この関数は、`*this`が保持する値と`operand`の小さい方を求め、その値を`this`に保持させる。
 
-この関数は、[`fetch_min()`](fetch_min.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。この関数はロックフリーに動作することが保証されているため、並列アルゴリズムで[`par_useq`](/reference/execution/execution/execution_policy.md)ポリシーを使う場合などに有用である。
+この関数は、[`fetch_min()`](fetch_min.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。
 
 
 ## テンプレートパラメータ制約
-- (1) : `std::atomic<T*>`の場合、型`T`がオブジェクト型であること。型`T`が`void*`や関数ポインタであってはならない
+- `std::atomic<T*>`の場合、型`T`がオブジェクト型であること。型`T`が`void*`や関数ポインタであってはならない
+- (1) : `atomic<T>::is_always_lock_free`が`true`であること
+
+
+## 事前条件
+- `order`は、以下のいずれかであること
+    - [`memory_order_relaxed`](/reference/atomic/memory_order.md)
+    - [`memory_order_release`](/reference/atomic/memory_order.md)
+    - [`memory_order_seq_cst`](/reference/atomic/memory_order.md)
 
 
 ## 効果

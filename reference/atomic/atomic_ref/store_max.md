@@ -19,11 +19,18 @@ constexpr void
 
 この関数は、`*this`が参照する値と`operand`の大きい方を求め、その値を`this`に参照させる。
 
-この関数は、[`fetch_max()`](fetch_max.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。この関数はロックフリーに動作することが保証されているため、並列アルゴリズムで[`par_useq`](/reference/execution/execution/execution_policy.md)ポリシーを使う場合などに有用である。
+この関数は、[`fetch_max()`](fetch_max.md)と異なり、現在の (古い) 値を読み込むことなく現在の値に演算を行うため、高速に動作する。ただし変更前の古い値は戻り値として取得できない。
 
 
 ## テンプレートパラメータ制約
 - (1) : `std::atomic<T*>`の場合、型`T`がオブジェクト型であること。型`T`が`void*`や関数ポインタであってはならない
+
+
+## 事前条件
+- `order`は、以下のいずれかであること
+    - [`memory_order_relaxed`](/reference/atomic/memory_order.md)
+    - [`memory_order_release`](/reference/atomic/memory_order.md)
+    - [`memory_order_seq_cst`](/reference/atomic/memory_order.md)
 
 
 ## 効果
