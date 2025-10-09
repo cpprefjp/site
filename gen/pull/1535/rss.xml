@@ -2,9 +2,41 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-10-09T07:04:31.412854</updated>
-  <id>4a7d0ead-1ce2-424b-bc23-30ab596b4b00</id>
+  <updated>2025-10-09T07:10:31.396773</updated>
+  <id>91cd7d7c-0298-43c7-be39-a657ae95b6bf</id>
 
+  
+    <entry>
+      <title>store_or -- 事前条件のダブりを削除</title>
+      <link href="https://cpprefjp.github.io/reference/atomic/atomic/store_or.html"/>
+      <id>46574a949df981f2794fc338ba6d406bff0223e2:reference/atomic/atomic/store_or.md</id>
+      <updated>2025-10-09T16:05:27+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/atomic/atomic/store_or.md b/reference/atomic/atomic/store_or.md
+index c432124cb..1f798560f 100644
+--- a/reference/atomic/atomic/store_or.md
++++ b/reference/atomic/atomic/store_or.md
+@@ -29,13 +29,6 @@ constexpr void
+ - (1) : `atomic&amp;lt;T&amp;gt;::is_always_lock_free`が`true`であること
+ 
+ 
+-## 事前条件
+-- `order`は、以下のいずれかであること
+-    - [`memory_order_relaxed`](/reference/atomic/memory_order.md)
+-    - [`memory_order_release`](/reference/atomic/memory_order.md)
+-    - [`memory_order_seq_cst`](/reference/atomic/memory_order.md)
+-
+-
+ ## 事前条件
+ - `order`は、以下のいずれかであること
+     - [`memory_order_relaxed`](/reference/atomic/memory_order.md)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>store_add -- いろいろ間違ってた</title>
@@ -5140,32 +5172,6 @@ index b67913eb2..4054207ff 100644
       <author>
         <name>Akira Takahashi</name>
         <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>operator void* -- basic_ios::operator void*() に cpp11removed を追加</title>
-      <link href="https://cpprefjp.github.io/reference/ios/basic_ios/op_voidptr.html"/>
-      <id>40fb86521438e97ebab138cbe47c891bdd778dae:reference/ios/basic_ios/op_voidptr.md</id>
-      <updated>2025-10-04T18:21:15+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ios/basic_ios/op_voidptr.md b/reference/ios/basic_ios/op_voidptr.md
-index 44b8ae7b5..a0c358357 100644
---- a/reference/ios/basic_ios/op_voidptr.md
-+++ b/reference/ios/basic_ios/op_voidptr.md
-@@ -3,6 +3,7 @@
- * std[meta namespace]
- * basic_ios[meta class]
- * function[meta id-type]
-+* cpp11removed[meta cpp]
- 
- ```cpp
- operator void*() const;
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Raclamusi</name>
-        <email>raclamusi@gmail.com</email>
       </author>
     </entry>
   
