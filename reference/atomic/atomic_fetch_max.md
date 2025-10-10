@@ -6,12 +6,12 @@
 
 ```cpp
 namespace std {
-  template <classT>
+  template <class T>
   T
     atomic_fetch_max(volatile atomic<T>* object,
                      typename atomic<T>::value_type operand) noexcept; // (1) C++26
 
-  template <classT>
+  template <class T>
   constexpr T
     atomic_fetch_max(atomic<T>* object,
                      typename atomic<T>::value_type operand) noexcept; // (2) C++26
@@ -21,7 +21,7 @@ namespace std {
 
 
 ## 概要
-アトミックに最大値を取得する
+アトミックに最大値を設定・取得する
 
 
 ## テンプレートパラメータ制約
@@ -30,7 +30,7 @@ namespace std {
 
 
 ## 効果
-[`memory_order_seq_cst`](memory_order.md)のメモリオーダーにしたがって、[`std::max()`](/reference/algorithm/max.md)アルゴリズムのように`*object`が保持する値と`operand`の最大値を求めて返す
+[`memory_order_seq_cst`](memory_order.md)のメモリオーダーにしたがって、[`std::max()`](/reference/algorithm/max.md)アルゴリズムのように`*object`が保持する値と`operand`の最大値を求め、アトミックにその値で置き換えて返す
 
 
 ## 例外

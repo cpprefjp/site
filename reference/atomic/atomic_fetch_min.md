@@ -6,12 +6,12 @@
 
 ```cpp
 namespace std {
-  template <classT>
+  template <class T>
   T
     atomic_fetch_min(volatile atomic<T>* object,
                      typename atomic<T>::value_type operand) noexcept; // (1) C++26
 
-  template <classT>
+  template <class T>
   constexpr T
     atomic_fetch_min(atomic<T>* object,
                      typename atomic<T>::value_type operand) noexcept; // (2) C++26
@@ -30,7 +30,7 @@ namespace std {
 
 
 ## 効果
-[`memory_order_seq_cst`](memory_order.md)のメモリオーダーにしたがって、[`std::min()`](/reference/algorithm/min.md)アルゴリズムのように`*object`が保持する値と`operand`の最小値を求めて返す
+[`memory_order_seq_cst`](memory_order.md)のメモリオーダーにしたがって、[`std::min()`](/reference/algorithm/min.md)アルゴリズムのように`*object`が保持する値と`operand`の最小値を求め、アトミックにその値で置き換えて返す
 
 
 ## 例外

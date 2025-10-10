@@ -63,6 +63,8 @@
 
 ## アトミック型に対する算術操作
 
+### 値を読み込んで算術操作
+
 | 名前 | 説明 | 対応バージョン |
 |----------------------------------------------------|-------------------------|-------|
 | [`atomic_fetch_add`](atomic/atomic_fetch_add.md) | 加算(function template) | C++11 |
@@ -75,10 +77,29 @@
 | [`atomic_fetch_or_explicit`](atomic/atomic_fetch_or_explicit.md) | メモリオーダーを指定してOR演算(function template) | C++11 |
 | [`atomic_fetch_xor`](atomic/atomic_fetch_xor.md) | XOR演算(function template) | C++11 |
 | [`atomic_fetch_xor_explicit`](atomic/atomic_fetch_xor_explicit.md) | メモリオーダーを指定してXOR演算(function template) | C++11 |
-| [`atomic_fetch_max`](atomic/atomic_fetch_max.md) | 最大値取得(function template) | C++26 |
-| [`atomic_fetch_max_explicit`](atomic/atomic_fetch_max_explicit.md) | メモリオーダーを指定して最大値取得(function template) | C++26 |
-| [`atomic_fetch_min`](atomic/atomic_fetch_min.md) | 最小値取得(function template) | C++26 |
-| [`atomic_fetch_min_explicit`](atomic/atomic_fetch_min_explicit.md) | メモリオーダーを指定して最小値取得(function template) | C++26 |
+| [`atomic_fetch_max`](atomic/atomic_fetch_max.md) | 最大値を設定・取得(function template) | C++26 |
+| [`atomic_fetch_max_explicit`](atomic/atomic_fetch_max_explicit.md) | メモリオーダーを指定して最大値を設定・取得(function template) | C++26 |
+| [`atomic_fetch_min`](atomic/atomic_fetch_min.md) | 最小値を設定・取得(function template) | C++26 |
+| [`atomic_fetch_min_explicit`](atomic/atomic_fetch_min_explicit.md) | メモリオーダーを指定して最小値を設定・取得(function template) | C++26 |
+
+### 値を読み込まずに算術操作
+
+| 名前 | 説明 | 対応バージョン |
+|----------------------------------------------------|-------------------------|-------|
+| [`atomic_store_add`](atomic/atomic_store_add.md) | 値を読み込まずに加算(function template) | C++26 |
+| [`atomic_store_add_explicit`](atomic/atomic_store_add_explicit.md) | メモリオーダーを指定して値を読み込まずに加算(function template) | C++26 |
+| [`atomic_store_sub`](atomic/atomic_store_sub.md) | 値を読み込まずに減算(function template) | C++26 |
+| [`atomic_store_sub_explicit`](atomic/atomic_store_sub_explicit.md) | メモリオーダーを指定して値を読み込まずに減算(function template) | C++26 |
+| [`atomic_store_and`](atomic/atomic_store_and.md) | 値を読み込まずにAND演算(function template) | C++26 |
+| [`atomic_store_and_explicit`](atomic/atomic_store_and_explicit.md) | メモリオーダーを指定して値を読み込まずにAND演算(function template) | C++26 |
+| [`atomic_store_or`](atomic/atomic_store_or.md) | 値を読み込まずにOR演算(function template) | C++26 |
+| [`atomic_store_or_explicit`](atomic/atomic_store_or_explicit.md) | メモリオーダーを指定して値を読み込まずにOR演算(function template) | C++26 |
+| [`atomic_store_xor`](atomic/atomic_store_xor.md) | 値を読み込まずにXOR演算(function template) | C++26 |
+| [`atomic_store_xor_explicit`](atomic/atomic_store_xor_explicit.md) | メモリオーダーを指定して値を読み込まずにXOR演算(function template) | C++26 |
+| [`atomic_store_max`](atomic/atomic_store_max.md) | 値を読み込まずに最大値を設定(function template) | C++26 |
+| [`atomic_store_max_explicit`](atomic/atomic_store_max_explicit.md) | メモリオーダーを指定して値を読み込まずに最大値を設定(function template) | C++26 |
+| [`atomic_store_min`](atomic/atomic_store_min.md) | 値を読み込まずに最小値を設定(function template) | C++26 |
+| [`atomic_store_min_explicit`](atomic/atomic_store_min_explicit.md) | メモリオーダーを指定して値を読み込まずに最小値を設定(function template) | C++26 |
 
 
 ## アトミック型に対するブロッキング同期操作
