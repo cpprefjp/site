@@ -33,7 +33,7 @@ namespace std::execution {
 
 
 ## 関連項目
-- [`execution::spawn_future`](spawn_future.md.nolink)
+- [`execution::spawn_future`](spawn_future.md)
 - [`execution::counting_scope::token::wrap`](counting_scope/token/wrap.md)
 
 

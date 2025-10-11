@@ -70,7 +70,7 @@ int main()
 
 ## 関連項目
 - [`execution::associate`](associate.md)
-- [`execution::spawn_future`](spawn_future.md.nolink)
+- [`execution::spawn_future`](spawn_future.md)
 - [`execution::spawn`](spawn.md)
 
 

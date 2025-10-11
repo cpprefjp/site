@@ -17,7 +17,7 @@ namespace std::execution {
 
 
 ## 効果
-説明用の式`sndr`, `token`, `env`に対して、下記の通り定義する。
+説明用の式`sndr`, `token`, `env`を下記の通り定義する。
 
 - `Sndr`型を`decltype((sndr))`、
 - `Token`型を[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<decltype((token))>`、
@@ -33,14 +33,13 @@ namespace std::execution {
 
 呼び出し式`spawn(sndr, token, env)`は`void`型であり、次の効果をもつ。
 
-- `alloc`を用いてメモリ確保し、`alloc`, [`write_env`](write_env.md)`(token.wrap(sndr), senv)`, `token`から特殊化された`spawn-state`型のオブジェクト`o`を構築し、`o.run()`を呼び出す。何らかのオブジェクト構築・破棄時に例外送出されたときは、確保されたメモリが解放される。
+- `alloc`を用いてメモリ確保し、`alloc`, [`write_env`](write_env.md)`(token.wrap(sndr), senv)`, `token`から特殊化された`spawn-state`型のオブジェクト`o`を構築し、`o.run()`を呼び出す。いずれかのオブジェクト構築・破棄時に例外送出されたときは、確保されたメモリが解放される。
 
-式`spawn(sndr, token)`は、式`spawn(sndr, token,` [`execution::env<>`](env.md)`())`と等価である。
+呼び出し式`spawn(sndr, token)`は、式`spawn(sndr, token,` [`execution::env<>`](env.md)`())`と等価である。
 
 
 ## 説明専用エンティティ
-説明専用のクラス`spawn-state-base`を下記の通り定義する。
-
+### クラス`spawn-state-base`
 ```cpp
 namespace std::execution {
   struct spawn-state-base {                // exposition only
@@ -49,8 +48,7 @@ namespace std::execution {
 }
 ```
 
-説明専用のクラス`spawn-receiver`を下記の通り定義する。
-
+### クラス`spawn-receiver`
 ```cpp
 namespace std::execution {
   struct spawn-receiver {                  // exposition only
@@ -65,8 +63,7 @@ namespace std::execution {
 * receiver_t[link receiver.md]
 * spawn-state-base[italic]
 
-説明専用のクラステンプレート`spawn-state`を下記の通り定義する。
-
+### クラステンプレート`spawn-state`
 ```cpp
 namespace std::execution {
   template<class Alloc, scope_token Token, sender Sender>
@@ -213,7 +210,7 @@ sync_wait
 
 ## 関連項目
 - [`execution::scope_token`](scope_token.md)
-- [`execution::spawn_future`](spawn_future.md.nolink)
+- [`execution::spawn_future`](spawn_future.md)
 
 
 ## 参照
