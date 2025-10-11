@@ -97,7 +97,7 @@ int main()
 ```
 Hello 123 World 45.67
 
-word1=Hello, num1=123, word3=World, num2=45.67
+word1="Hello", num1=123, word2="World", num2=45.67
 ```
 
 
