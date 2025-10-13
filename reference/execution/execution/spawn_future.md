@@ -199,7 +199,10 @@ namespace std::execution {
   };
 }
 ```
+* scope_token[link /reference/stop_token/stop_token.md]
+* sender[link sender.md]
 * completion_signatures_of_t[link completion_signatures_of_t.md]
+* receiver[link receiver.md]
 * connect_result_t[link connect_result_t.md]
 * connect[link connect.md]
 * write_env[link write_env.md]
