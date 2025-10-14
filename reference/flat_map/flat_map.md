@@ -20,7 +20,13 @@ namespace std {
 ## 概要
 `std::flat_map`は、重複しない要素を格納する連想コンテナの一種であり、キーとそれに対応する値を格納する。
 
-`std::flat_map`は、ノードベースで実装される[`std::map`](/reference/map/map.md)、ハッシュテーブルで実装される[`std::unordered_map`](/reference/unordered_map/unordered_map.md)とは異なり、ソート済み配列と二分探索の組み合わせで実装される。これはほかの実装と比較して、メモリ使用量と列挙速度において優位であり、一方で挿入速度と検索速度はほかの実装に劣る。
+`std::flat_map`は、ノードベースで実装される[`std::map`](/reference/map/map.md)、ハッシュテーブルで実装される[`std::unordered_map`](/reference/unordered_map/unordered_map.md)とは異なり、ソート済み配列と二分探索の組み合わせで実装される。
+
+ほかの連想コンテナとの比較としては、
+
+- メモリ使用量と列挙速度において優位
+- 挿入速度と削除速度はほかの実装に劣る
+- 検索速度は、[`std::map`](/reference/map/map.md)より高速であることが期待できるが (計算量としては同じ対数時間だが、メモリアクセスが高速)、サイズが大きいときは[`std::unordered_map`](/reference/unordered_map/unordered_map.md)に劣る
 
 また、このクラスは分類としては[`std::queue`](/reference/queue/queue.md)や[`std::stack`](/reference/stack/stack.md)と同様のコンテナアダプタに分類され、キーの配列と値の配列の2つを内部で持ち、それを[`std::ranges::zip_view`](/reference/ranges/zip_view.md)で綴じあわせて扱う実装となっている。
 

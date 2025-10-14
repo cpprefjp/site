@@ -18,7 +18,13 @@ namespace std {
 ## 概要
 `std::flat_multiset`は、重複する要素を許可する連想コンテナの一種であり、要素自身がキーとなる、集合を表すクラスである。
 
-`std::flat_multiset`は、ノードベースで実装される[`std::multiset`](/reference/set/multiset.md)、ハッシュテーブルで実装される[`std::unordered_multiset`](/reference/unordered_set/unordered_multiset.md)とは異なり、ソート済み配列と二分探索の組み合わせで実装される。これはほかの実装と比較して、メモリ使用量と列挙速度において優位であり、一方で挿入速度と検索速度はほかの実装に劣る。
+`std::flat_multiset`は、ノードベースで実装される[`std::multiset`](/reference/set/multiset.md)、ハッシュテーブルで実装される[`std::unordered_multiset`](/reference/unordered_set/unordered_multiset.md)とは異なり、ソート済み配列と二分探索の組み合わせで実装される。
+
+ほかの連想コンテナとの比較としては、
+
+- メモリ使用量と列挙速度において優位
+- 挿入速度と削除速度はほかの実装に劣る
+- 検索速度は、[`std::multiset`](/reference/set/multiset.md)より高速であることが期待できるが (計算量としては同じ対数時間だが、メモリアクセスが高速)、サイズが大きいときは[`std::unordered_multiset`](/reference/unordered_set/unordered_multiset.md)に劣る
 
 また、このクラスは分類としては[`std::queue`](/reference/queue/queue.md)や[`std::stack`](/reference/stack/stack.md)と同様のコンテナアダプタに分類され、キーの配列をラップして扱う実装となっている。
 
