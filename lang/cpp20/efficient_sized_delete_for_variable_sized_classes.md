@@ -202,7 +202,7 @@ public:
   inlined_fixed_string() = delete;
 
   auto size() const -> std::size_t {
-    return length;
+    return length - 1;
   }
 
   auto view() const -> std::string_view {
@@ -232,11 +232,11 @@ public:
     // 末尾領域の長さを取得
     const std::size_t full_size = sizeof(inlined_fixed_string) + p->length;
 
+    // char（トリビアルに破棄可能な）型はデストラクタ呼び出しを省略可能
+    std::ranges::destroy(reinterpret_cast<char*>(p + 1), reinterpret_cast<char*>(p + 1) + p->length);
+
     // デストラクタ呼び出し
     std::destroy_at(p);
-
-    // char（トリビアルに破棄可能な）型はデストラクタ呼び出しを省略可能
-    std::ranges::destroy(p + 1, p + 1 + p->length + 1);
 
     // メモリ解放
     ::operator delete(p, full_size);
