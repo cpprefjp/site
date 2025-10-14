@@ -141,7 +141,7 @@ namespace std::execution {
 * exception_ptr[link /reference/exception/exception_ptr.md]
 * current_exception()[link /reference/exception/current_exception.md]
 
-型`ssource-t`を[`stoppabe-source`](/reference/stop_token/stoppable-source.md)のモデルである未規定の型、`ssource`を型`ssource-t`の左辺値とする。
+型`ssource-t`を[`stoppable-source`](/reference/stop_token/stoppable-source.md)のモデルである未規定の型、`ssource`を型`ssource-t`の左辺値とする。
 型`stoken-t`を`decltype(ssource.get_token())`とする。
 
 ### エイリアステンプレート `future-spawned-sender`
@@ -199,7 +199,7 @@ namespace std::execution {
   };
 }
 ```
-* scope_token[link /reference/stop_token/stop_token.md]
+* scope_token[link scope_token.md]
 * sender[link sender.md]
 * completion_signatures_of_t[link completion_signatures_of_t.md]
 * receiver[link receiver.md]
