@@ -6,8 +6,12 @@
 * cpp11[meta cpp]
 
 ```cpp
-T* get() const noexcept;            // (1) C++11
-element_type* get() const noexcept; // (1) C++17
+T*
+  get() const noexcept; // (1) C++11
+element_type*
+  get() const noexcept; // (1) C++17
+constexpr element_type*
+  get() const noexcept; // (1) C++26
 ```
 
 ## 概要
@@ -56,3 +60,4 @@ int main()
 
 ## 参照
 - [P0414R1 Merging `shared_ptr` changes from Library Fundamentals to C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0414r1.html)
+- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)

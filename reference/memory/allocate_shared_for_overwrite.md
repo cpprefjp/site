@@ -7,10 +7,18 @@
 ```cpp
 namespace std {
   template<class T, class A>
-  shared_ptr<T> allocate_shared_for_overwrite(const A& a);           // (1)
+  shared_ptr<T>
+    allocate_shared_for_overwrite(const A& a);           // (1) C++20
+  template<class T, class A>
+  constexpr shared_ptr<T>
+    allocate_shared_for_overwrite(const A& a);           // (1) C++26
 
   template<class T, class A>
-  shared_ptr<T> allocate_shared_for_overwrite(const A& a, size_t N); // (2)
+  shared_ptr<T>
+    allocate_shared_for_overwrite(const A& a, size_t N); // (2) C++20
+  template<class T, class A>
+  constexpr shared_ptr<T>
+    allocate_shared_for_overwrite(const A& a, size_t N); // (2) C++26
 }
 ```
 * shared_ptr[link shared_ptr.md]
@@ -98,3 +106,4 @@ int main() {
 ## 参照
 - [P1020R1 Smart pointer creation with default initialization](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1020r1.html)
 - [P1973R1 Rename "_default_init" Functions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1973r1.pdf)
+- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)

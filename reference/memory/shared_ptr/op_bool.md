@@ -6,7 +6,10 @@
 * cpp11[meta cpp]
 
 ```cpp
-explicit operator bool() const noexcept;
+explicit
+  operator bool() const noexcept; // (1) C++11
+constexpr explicit
+  operator bool() const noexcept; // (1) C++26
 ```
 
 ## 概要
@@ -58,3 +61,4 @@ p has resource
 
 ## 参照
 - [N2435 Explicit bool for Smart Pointers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2435.htm)
+- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)

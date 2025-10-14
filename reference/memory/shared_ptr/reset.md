@@ -6,16 +6,43 @@
 * cpp11[meta cpp]
 
 ```cpp
-void reset() noexcept;                              // (1)
+void
+  reset() noexcept;             // (1) C++11
+constexpr void
+  reset() noexcept;             // (1) C++26
 
 template <class Y>
-void reset(Y* p);                                   // (2)
+void
+  reset(Y* p);                  // (2) C++11
+template <class Y>
+constexpr void
+  reset(Y* p);                  // (2) C++26
 
-template <class Y, class Deleter>
-void reset(Y* p, Deleter d);                        // (3)
+template <class Y,
+          class Deleter>
+void
+  reset(Y* p,
+        Deleter d);             // (3) C++11
+template <class Y,
+          class Deleter>
+constexpr void
+  reset(Y* p,
+        Deleter d);             // (3) C++26
 
-template <class Y, class Deleter, class Allocator>
-void reset(Y* p, Deleter d, Allocator a);           // (4)
+template <class Y,
+          class Deleter,
+          class Allocator>
+void
+  reset(Y* p,
+        Deleter d,
+        Allocator a);           // (4) C++11
+template <class Y,
+          class Deleter,
+          class Allocator>
+constexpr void
+  reset(Y* p,
+        Deleter d,
+        Allocator a);           // (4) C++26
 ```
 
 ## 概要
@@ -71,3 +98,7 @@ int main()
 - [Clang](/implementation.md#clang): 3.0 [mark verified]
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2008 (TR1) [mark verified], 2010 [mark verified], 2012 [mark verified], 2013 [mark verified]
+
+
+## 参照
+- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)

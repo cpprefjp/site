@@ -7,7 +7,10 @@
 
 ```cpp
 // 非配列版、非void版のみ
-T& operator*() const noexcept;
+T&
+  operator*() const noexcept; // (1) C++11
+constexpr T&
+  operator*() const noexcept; // (1) C++26
 ```
 
 ## 概要
@@ -64,3 +67,4 @@ int main()
 ## 参照
 - [LWG Issue 2572. The remarks for `shared_ptr::operator*` should apply to cv-qualified void as well](https://wg21.cmeerw.net/lwg/issue2572)
 - [P0414R1 Merging `shared_ptr` changes from Library Fundamentals to C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0414r1.html)
+- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)

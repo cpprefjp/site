@@ -6,8 +6,15 @@
 * cpp11[meta cpp]
 
 ```cpp
-shared_ptr<T> shared_from_this();
-shared_ptr<const T> shared_from_this() const;
+shared_ptr<T>
+  shared_from_this();             // (1) C++11
+constexpr shared_ptr<T>
+  shared_from_this();             // (1) C++26
+
+shared_ptr<const T>
+  shared_from_this() const;       // (2) C++11
+constexpr shared_ptr<const T>
+  shared_from_this() const;       // (2) C++26
 ```
 * shared_ptr[link /reference/memory/shared_ptr.md]
 
@@ -80,3 +87,4 @@ int main()
 ## 参照
 - [P0033R0 Re-enabling `shared_from_this`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0033r0.html)
 - [P0033R1 Re-enabling `shared_from_this` (revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0033r1.html)
+- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)

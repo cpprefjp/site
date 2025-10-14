@@ -7,10 +7,18 @@
 ```cpp
 namespace std {
   template <class T, class U>
-  shared_ptr<T> const_pointer_cast(const shared_ptr<U>& r) noexcept; // (1) C++11
+  shared_ptr<T>
+    const_pointer_cast(const shared_ptr<U>& r) noexcept; // (1) C++11
+  template <class T, class U>
+  constexpr shared_ptr<T>
+    const_pointer_cast(const shared_ptr<U>& r) noexcept; // (1) C++26
 
   template <class T, class U>
-  shared_ptr<T> const_pointer_cast(shared_ptr<U>&& r) noexcept;      // (2) C++20
+  shared_ptr<T>
+    const_pointer_cast(shared_ptr<U>&& r) noexcept;      // (2) C++20
+  template <class T, class U>
+  constexpr shared_ptr<T>
+    const_pointer_cast(shared_ptr<U>&& r) noexcept;      // (2) C++26
 }
 ```
 
@@ -75,3 +83,4 @@ int main()
 
 ## 参照
 - [LWG Issue 2996. Missing rvalue overloads for `shared_ptr` operations](https://wg21.cmeerw.net/lwg/issue2996)
+- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)

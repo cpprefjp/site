@@ -10,11 +10,19 @@ namespace std {
   strong_ordering
     operator<=>(const shared_ptr<T>& a,
                 const shared_ptr<U>& b) noexcept; // (1) C++20
+  template <class T, class U>
+  constexpr strong_ordering
+    operator<=>(const shared_ptr<T>& a,
+                const shared_ptr<U>& b) noexcept; // (1) C++26
 
   template <class T>
   strong_ordering
     operator<=>(const shared_ptr<T>& x,
                 nullptr_t) noexcept;              // (2) C++20
+  template <class T>
+  constexpr strong_ordering
+    operator<=>(const shared_ptr<T>& x,
+                nullptr_t) noexcept;              // (2) C++26
 }
 ```
 
@@ -90,3 +98,4 @@ p3 is nullptr
 ## 参照
 - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
+- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)

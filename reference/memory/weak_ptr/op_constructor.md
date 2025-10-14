@@ -6,19 +6,34 @@
 * cpp11[meta cpp]
 
 ```cpp
-constexpr weak_ptr() noexcept;             // (1)
-weak_ptr(const weak_ptr& r) noexcept;      // (2)
+constexpr
+weak_ptr() noexcept;                       // (1) C++11
+
+weak_ptr(const weak_ptr& r) noexcept;      // (2) C++11
+constexpr
+weak_ptr(const weak_ptr& r) noexcept;      // (2) C++26
 
 template <class Y>
-weak_ptr(const weak_ptr<Y>& r) noexcept;   // (3)
+weak_ptr(const weak_ptr<Y>& r) noexcept;   // (3) C++11
+template <class Y>
+constexpr
+weak_ptr(const weak_ptr<Y>& r) noexcept;   // (3) C++26
 
 template <class Y>
-weak_ptr(const shared_ptr<Y>& r) noexcept; // (4)
+weak_ptr(const shared_ptr<Y>& r) noexcept; // (4) C++11
+template <class Y>
+constexpr
+weak_ptr(const shared_ptr<Y>& r) noexcept; // (4) C++26
 
 weak_ptr(weak_ptr&& r) noexcept;           // (5) C++14
+constexpr
+weak_ptr(weak_ptr&& r) noexcept;           // (5) C++26
 
 template <class Y>
 weak_ptr(weak_ptr<Y>&& r) noexcept;        // (6) C++14
+template <class Y>
+constexpr
+weak_ptr(weak_ptr<Y>&& r) noexcept;        // (6) C++26
 ```
 * shared_ptr[link /reference/memory/shared_ptr.md]
 
@@ -139,3 +154,4 @@ int main()
 ## 参照
 - [LWG Issue 2315. `weak_ptr` should be movable](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2315)
 - [P0414R1 Merging `shared_ptr` changes from Library Fundamentals to C++17](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0414r1.html)
+- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)

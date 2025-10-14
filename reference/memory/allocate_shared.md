@@ -7,21 +7,43 @@
 ```cpp
 namespace std {
   template<class T, class Alloc, class... Args>
-  shared_ptr<T> allocate_shared(const Alloc& a, Args&&... args); // (1)
+  shared_ptr<T>
+    allocate_shared(const Alloc& a, Args&&... args); // (1) C++11
+  template<class T, class Alloc, class... Args>
+  constexpr shared_ptr<T>
+    allocate_shared(const Alloc& a, Args&&... args); // (1) C++26
 
   template<class T, class A>
-  shared_ptr<T> allocate_shared(const A& a, size_t N);           // (2) C++20 から
+  shared_ptr<T>
+    allocate_shared(const A& a, size_t N);           // (2) C++20
+  template<class T, class A>
+  constexpr shared_ptr<T>
+    allocate_shared(const A& a, size_t N);           // (2) C++26
 
   template<class T, class A>
-  shared_ptr<T> allocate_shared(const A& a);                     // (3) C++20 から
+  shared_ptr<T>
+    allocate_shared(const A& a);                     // (3) C++20
+  template<class T, class A>
+  constexpr shared_ptr<T>
+    allocate_shared(const A& a);                     // (3) C++26
 
   template<class T, class A>
-  shared_ptr<T> allocate_shared(const A& a, size_t N,
-                                const remove_extent_t<T>& u);    // (4) C++20 から
+  shared_ptr<T>
+    allocate_shared(const A& a, size_t N,
+                    const remove_extent_t<T>& u);    // (4) C++20
+  template<class T, class A>
+  constexpr shared_ptr<T>
+    allocate_shared(const A& a, size_t N,
+                    const remove_extent_t<T>& u);    // (4) C++26
 
   template<class T, class A>
-  shared_ptr<T> allocate_shared(const A& a,
-                                const remove_extent_t<T>& u);    // (5) C++20 から  
+  shared_ptr<T>
+    allocate_shared(const A& a,
+                    const remove_extent_t<T>& u);    // (5) C++20
+  template<class T, class A>
+  constexpr shared_ptr<T>
+    allocate_shared(const A& a,
+                    const remove_extent_t<T>& u);    // (5) C++26
 }
 ```
 * shared_ptr[link shared_ptr.md]
@@ -135,3 +157,4 @@ int main() {
 
 ## 参照
 - [P0674R1 Extending `make_shared` to support arrays](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0674r1.html)
+- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)

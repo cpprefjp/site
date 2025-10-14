@@ -6,7 +6,10 @@
 * cpp11[meta cpp]
 
 ```cpp
-shared_ptr<T> lock() const noexcept;
+shared_ptr<T>
+  lock() const noexcept; // (1) C++11
+constexpr shared_ptr<T>
+  lock() const noexcept; // (1) C++26
 ```
 * shared_ptr[link /reference/memory/shared_ptr.md]
 
@@ -96,3 +99,4 @@ int main()
 
 ## 参照
 - [LWG 2316 - weak_ptr::lock() should be atomic](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-active.html#2316)
+- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)

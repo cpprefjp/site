@@ -6,7 +6,10 @@
 * cpp11[meta cpp]
 
 ```cpp
-void swap(weak_ptr& r) noexcept;
+void
+  swap(weak_ptr& r) noexcept; // (1) C++11
+constexpr void
+  swap(weak_ptr& r) noexcept; // (1) C++26
 ```
 
 ## 概要
@@ -78,3 +81,7 @@ int main()
 - [Clang](/implementation.md#clang): 3.0 [mark verified]
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
+
+
+## 参照
+- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)

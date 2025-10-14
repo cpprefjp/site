@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-~shared_ptr();
+~shared_ptr();           // (1) C++11
+constexpr ~shared_ptr(); // (1) C++26
 ```
 
 ## `shared_ptr`オブジェクトの破棄
@@ -67,3 +68,7 @@ X dtor
 1
 Y dtor
 ```
+
+
+## 参照
+- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)

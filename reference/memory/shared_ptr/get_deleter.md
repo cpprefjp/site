@@ -7,7 +7,11 @@
 ```cpp
 namespace std {
   template <class D, class T>
-  D* get_deleter(const shared_ptr<T>& p) noexcept;
+  D*
+    get_deleter(const shared_ptr<T>& p) noexcept; // (1) C++11
+  template <class D, class T>
+  constexpr D*
+    get_deleter(const shared_ptr<T>& p) noexcept; // (1) C++26
 }
 ```
 
@@ -64,3 +68,7 @@ int main()
 - [GCC](/implementation.md#gcc): 4.3.6 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2008 (TR1) [mark verified], 2010 [mark verified], 2012 [mark verified], 2013 [mark verified]
+
+
+## 参照
+- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)

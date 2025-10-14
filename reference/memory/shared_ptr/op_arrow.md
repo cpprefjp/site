@@ -7,7 +7,10 @@
 
 ```cpp
 // 非配列版のみ
-T* operator->() const noexcept;
+T*
+  operator->() const noexcept; // (1) C++11
+constexpr T*
+  operator->() const noexcept; // (1) C++26
 ```
 
 ## 概要
@@ -58,3 +61,7 @@ hello
 - [Clang](/implementation.md#clang): 3.0 [mark verified]
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): 2008 (TR1) [mark verified], 2010 [mark verified], 2012 [mark verified], 2013 [mark verified]
+
+
+## 参照
+- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)

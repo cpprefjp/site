@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-~weak_ptr();
+~weak_ptr();           // (1) C++11
+constexpr ~weak_ptr(); // (1) C++26
 ```
 
 ## weak_ptrオブジェクトの破棄
@@ -22,3 +23,7 @@
 - [Clang](/implementation.md#clang): 3.0 [mark verified]
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
+
+
+## 参照
+- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)

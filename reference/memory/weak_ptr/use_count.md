@@ -6,7 +6,10 @@
 * cpp11[meta cpp]
 
 ```cpp
-long use_count() const noexcept;
+long
+  use_count() const noexcept; // (1) C++11
+constexpr long
+  use_count() const noexcept; // (1) C++26
 ```
 
 ## 概要
@@ -56,3 +59,7 @@ int main()
 - [Clang](/implementation.md#clang): 3.0 [mark verified]
 - [ICC](/implementation.md#icc): ?
 - [Visual C++](/implementation.md#visual_cpp): ?
+
+
+## 参照
+- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)

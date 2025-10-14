@@ -6,7 +6,8 @@
 * cpp23[meta cpp]
 
 ```cpp
-~out_ptr_t();
+~out_ptr_t();           // (1) C++23
+constexpr ~out_ptr_t(); // (1) C++26
 ```
 
 ## 概要
@@ -73,3 +74,4 @@
 
 ## 参照
 - [P1132R8 out_ptr - a scalable output pointer abstraction](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1132r8.html)
+- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)

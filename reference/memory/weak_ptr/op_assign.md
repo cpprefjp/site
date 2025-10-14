@@ -6,18 +6,36 @@
 * cpp11[meta cpp]
 
 ```cpp
-weak_ptr& operator=(const weak_ptr& r) noexcept;      // (1)
+weak_ptr&
+operator=(const weak_ptr& r) noexcept;      // (1) C++11
+constexpr weak_ptr&
+operator=(const weak_ptr& r) noexcept;      // (1) C++26
 
 template <class Y>
-weak_ptr& operator=(const weak_ptr<Y>& r) noexcept;   // (2)
+weak_ptr&
+operator=(const weak_ptr<Y>& r) noexcept;   // (2) C++11
+template <class Y>
+constexpr weak_ptr&
+operator=(const weak_ptr<Y>& r) noexcept;   // (2) C++26
 
 template <class Y>
-weak_ptr& operator=(const shared_ptr<Y>& r) noexcept; // (3)
+weak_ptr&
+operator=(const shared_ptr<Y>& r) noexcept; // (3) C++11
+template <class Y>
+constexpr weak_ptr&
+operator=(const shared_ptr<Y>& r) noexcept; // (3) C++26
 
-weak_ptr& operator=(weak_ptr&& r) noexcept;           // (4) C++14
+weak_ptr&
+operator=(weak_ptr&& r) noexcept;           // (4) C++14
+constexpr weak_ptr&
+operator=(weak_ptr&& r) noexcept;           // (4) C++26
 
 template <class Y>
-weak_ptr& operator=(weak_ptr<Y>&& r) noexcept;        // (5) C++14
+weak_ptr&
+operator=(weak_ptr<Y>&& r) noexcept;        // (5) C++14
+template <class Y>
+constexpr weak_ptr&
+operator=(weak_ptr<Y>&& r) noexcept;        // (5) C++26
 ```
 
 ## 概要
@@ -144,3 +162,4 @@ int main()
 
 ## 参照
 - [LWG Issue 2315. `weak_ptr` should be movable](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2315)
+- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)

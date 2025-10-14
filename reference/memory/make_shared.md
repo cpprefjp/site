@@ -7,19 +7,41 @@
 ```cpp
 namespace std {
   template <class T, class... Args>
-  shared_ptr<T> make_shared(Args&&... args);                        // (1)
+  shared_ptr<T>
+    make_shared(Args&&... args);              // (1) C++11
+  template <class T, class... Args>
+  constexpr shared_ptr<T>
+    make_shared(Args&&... args);              // (1) C++26
 
   template <class T>
-  shared_ptr<T> make_shared(size_t N);                              // (2) C++20 から
+  shared_ptr<T>
+    make_shared(size_t N);                    // (2) C++20
+  template <class T>
+  constexpr shared_ptr<T>
+    make_shared(size_t N);                    // (2) C++26
 
   template <class T>
-  shared_ptr<T> make_shared();                                      // (3) C++20 から
+  shared_ptr<T>
+    make_shared();                            // (3) C++20
+  template <class T>
+  constexpr shared_ptr<T>
+    make_shared();                            // (3) C++26
 
   template <class T>
-  shared_ptr<T> make_shared(size_t N, const remove_extent_t<T>& u); // (4) C++20 から
+  shared_ptr<T>
+    make_shared(size_t N,
+                const remove_extent_t<T>& u); // (4) C++20
+  template <class T>
+  constexpr shared_ptr<T>
+    make_shared(size_t N,
+                const remove_extent_t<T>& u); // (4) C++26
 
   template <class T>
-  shared_ptr<T> make_shared(const remove_extent_t<T>& u);           // (5) C++20 から
+  shared_ptr<T>
+    make_shared(const remove_extent_t<T>& u); // (5) C++20
+  template <class T>
+  constexpr shared_ptr<T>
+    make_shared(const remove_extent_t<T>& u); // (5) C++26
 }
 ```
 * shared_ptr[link shared_ptr.md]
@@ -122,3 +144,4 @@ int main() {
 - [N2351 Improving `shared_ptr` for C++0x, Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2351.htm)
 - [std::make_shared から private コンストラクタを呼び出す - 野良C++erの雑記帳](http://d.hatena.ne.jp/gintenlabo/20131211/1386771626)
 - [P0674R1 Extending `make_shared` to support arrays](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0674r1.html)
+- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)

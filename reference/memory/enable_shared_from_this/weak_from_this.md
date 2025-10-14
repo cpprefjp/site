@@ -6,8 +6,15 @@
 * cpp17[meta cpp]
 
 ```cpp
-weak_ptr<T> weak_from_this() noexcept;
-weak_ptr<const T> weak_from_this() const noexcept;
+weak_ptr<T>
+  weak_from_this() noexcept;       // (1) C++17
+constexpr weak_ptr<T>
+  weak_from_this() noexcept;       // (1) C++26
+
+weak_ptr<const T>
+  weak_from_this() const noexcept; // (2) C++17
+constexpr weak_ptr<const T>
+  weak_from_this() const noexcept; // (2) C++26
 ```
 * weak_ptr[link /reference/memory/weak_ptr.md]
 
@@ -64,3 +71,4 @@ int main()
 ## 参照
 - [P0033R0 Re-enabling `shared_from_this`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0033r0.html)
 - [P0033R1 Re-enabling `shared_from_this` (revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0033r1.html)
+- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)

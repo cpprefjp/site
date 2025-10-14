@@ -6,23 +6,42 @@
 * cpp11[meta cpp]
 
 ```cpp
-shared_ptr& operator=(const shared_ptr& r) noexcept;    // (1)
+shared_ptr&
+  operator=(const shared_ptr& r) noexcept;    // (1) C++11
+constexpr shared_ptr&
+  operator=(const shared_ptr& r) noexcept;    // (1) C++26
 
 template <class Y>
-shared_ptr& operator=(const shared_ptr<Y>& r) noexcept; // (2)
+shared_ptr&
+  operator=(const shared_ptr<Y>& r) noexcept; // (2) C++11
+template <class Y>
+constexpr shared_ptr&
+  operator=(const shared_ptr<Y>& r) noexcept; // (2) C++26
 
-shared_ptr& operator=(shared_ptr&& r) noexcept;         // (3)
+shared_ptr&
+  operator=(shared_ptr&& r) noexcept;         // (3) C++11
+constexpr shared_ptr&
+  operator=(shared_ptr&& r) noexcept;         // (3) C++26
 
 template <class Y>
-shared_ptr& operator=(shared_ptr<Y>&& r) noexcept;      // (4)
+shared_ptr&
+  operator=(shared_ptr<Y>&& r) noexcept;      // (4) C++11
+template <class Y>
+constexpr shared_ptr&
+  operator=(shared_ptr<Y>&& r) noexcept;      // (4) C++26
 
 template <class Y>
-shared_ptr& operator=(auto_ptr<Y>&& r);                 // (5)
-                                                        // C++11から非推奨
-                                                        // C++17で削除
+shared_ptr&
+  operator=(auto_ptr<Y>&& r);                 // (5)
+                                              // C++11から非推奨
+                                              // C++17で削除
 
 template <class Y, class D>
-shared_ptr& operator=(unique_ptr<Y, D>&& r);            // (6)
+shared_ptr&
+  operator=(unique_ptr<Y, D>&& r);            // (6) C++11
+template <class Y, class D>
+constexpr shared_ptr&
+  operator=(unique_ptr<Y, D>&& r);            // (6) C++26
 ```
 * unique_ptr[link /reference/memory/unique_ptr.md]
 
@@ -141,3 +160,4 @@ int main()
 
 ## 参照
 - [N4190 Removing `auto_ptr`, `random_shuffle()`, And Old `<functional>` Stuff](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4190.htm)
+- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)

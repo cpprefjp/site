@@ -7,7 +7,10 @@
 
 ```cpp
 // 配列版のみ
-element_type& operator[](ptrdiff_t i) const;
+element_type&
+  operator[](ptrdiff_t i) const; // (1) C++17
+constexpr element_type&
+  operator[](ptrdiff_t i) const; // (1) C++26
 ```
 * ptrdiff_t[link /reference/cstddef/ptrdiff_t.md]
 
@@ -62,3 +65,7 @@ int main()
 - [GCC](/implementation.md#gcc): 7.2 [mark verified]
 - [Clang](/implementation.md#clang):
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)

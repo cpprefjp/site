@@ -6,56 +6,111 @@
 * cpp11[meta cpp]
 
 ```cpp
-constexpr shared_ptr() noexcept;                         // (1)
+constexpr
+shared_ptr() noexcept;                       // (1) C++11
 
 template <class Y>
-explicit shared_ptr(Y* p);                               // (2)
+explicit
+shared_ptr(Y* p);                            // (2) C++11
+template <class Y>
+constexpr explicit
+shared_ptr(Y* p);                            // (2) C++26
 
 template <class Y, class Deleter>
-shared_ptr(Y* p, Deleter d);                             // (3)
+shared_ptr(Y* p,
+           Deleter d);                       // (3) C++11
+template <class Y, class Deleter>
+constexpr
+shared_ptr(Y* p,
+           Deleter d);                       // (3) C++26
 
 template <class Y, class Deleter, class Alloc>
-shared_ptr(Y* p, Deleter d, Alloc a);                    // (4)
+constexpr
+shared_ptr(Y* p,
+           Deleter d,
+           Alloc a);                         // (4) C++11
+template <class Y, class Deleter, class Alloc>
+shared_ptr(Y* p,
+           Deleter d,
+           Alloc a);                         // (4) C++26
 
 template <class Deleter>
-shared_ptr(nullptr_t p, Deleter d);                      // (5)
+shared_ptr(nullptr_t p,
+           Deleter d);                       // (5) C++11
+template <class Deleter>
+constexpr
+shared_ptr(nullptr_t p,
+           Deleter d);                       // (5) C++26
 
 template <class Deleter, class Alloc>
-shared_ptr(nullptr_t p, Deleter d, Alloc a);             // (6)
+shared_ptr(nullptr_t p,
+           Deleter d,
+           Alloc a);                         // (6) C++11
+template <class Deleter, class Alloc>
+constexpr
+shared_ptr(nullptr_t p,
+           Deleter d,
+           Alloc a);                         // (6) C++26
 
 template<class Y>
-shared_ptr(const shared_ptr<Y>& r, T* p) noexcept;            // (7) C++11
-
+shared_ptr(const shared_ptr<Y>& r,
+           T* p) noexcept;                   // (7) C++11
 template<class Y>
-shared_ptr(const shared_ptr<Y>& r, element_type* p) noexcept; // (7) C++17
+shared_ptr(const shared_ptr<Y>& r,
+           element_type* p) noexcept;        // (7) C++17
+template<class Y>
+constexpr
+shared_ptr(const shared_ptr<Y>& r,
+           element_type* p) noexcept;        // (7) C++26
 
-shared_ptr(const shared_ptr& r) noexcept;                // (8)
-
-template <class Y>
-shared_ptr(const shared_ptr<Y>& r) noexcept;             // (9)
-
-shared_ptr(shared_ptr&& r) noexcept;                     // (10)
-
-template <class Y>
-shared_ptr(shared_ptr<Y>&& r) noexcept;                  // (11)
-
-template <class Y>
-explicit shared_ptr(const weak_ptr<Y>& r);               // (12)
+shared_ptr(const shared_ptr& r) noexcept;    // (8) C++11
+constexpr
+shared_ptr(const shared_ptr& r) noexcept;    // (8) C++26
 
 template <class Y>
-shared_ptr(auto_ptr<Y>&& r);                             // (13)
-                                                         // C++11から非推奨
-                                                         // C++17で削除
+shared_ptr(const shared_ptr<Y>& r) noexcept; // (9) C++11
+template <class Y>
+constexpr
+shared_ptr(const shared_ptr<Y>& r) noexcept; // (9) C++26
+
+shared_ptr(shared_ptr&& r) noexcept;         // (10) C++11
+constexpr
+shared_ptr(shared_ptr&& r) noexcept;         // (10) C++26
+
+template <class Y>
+shared_ptr(shared_ptr<Y>&& r) noexcept;      // (11) C++11
+template <class Y>
+constexpr
+shared_ptr(shared_ptr<Y>&& r) noexcept;      // (11) C++26
+
+template <class Y>
+explicit
+shared_ptr(const weak_ptr<Y>& r);            // (12) C++11
+template <class Y>
+constexpr explicit
+shared_ptr(const weak_ptr<Y>& r);            // (12) C++26
+
+template <class Y>
+shared_ptr(auto_ptr<Y>&& r);                 // (13)
+                                             // C++11から非推奨
+                                             // C++17で削除
 
 template <class Y, class Deleter>
-shared_ptr(unique_ptr<Y, Deleter>&& r);                  // (14)
+shared_ptr(unique_ptr<Y, Deleter>&& r);      // (14) C++11
+template <class Y, class Deleter>
+constexpr
+shared_ptr(unique_ptr<Y, Deleter>&& r);      // (14) C++26
 
-constexpr shared_ptr(nullptr_t);                         // (15)  C++14
-
-constexpr shared_ptr(nullptr_t) noexcept;                // (15)  C++17
+constexpr shared_ptr(nullptr_t);             // (15)  C++14
+constexpr shared_ptr(nullptr_t) noexcept;    // (15)  C++17
 
 template <class Y>
-shared_ptr(shared_ptr<Y>&& r, element_type* p) noexcept; // (16) C++20
+shared_ptr(shared_ptr<Y>&& r,
+           element_type* p) noexcept;        // (16) C++20
+template <class Y>
+constexpr
+shared_ptr(shared_ptr<Y>&& r,
+           element_type* p) noexcept;        // (16) C++26
 ```
 * weak_ptr[link /reference/memory/weak_ptr.md]
 * unique_ptr[link /reference/memory/unique_ptr.md]
@@ -285,3 +340,4 @@ int main()
 - [P0497R0 Fixes to `shared_ptr` support for arrays](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0497r0.html)
 - [LWG Issue 2996. Missing rvalue overloads for `shared_ptr` operations](https://wg21.cmeerw.net/lwg/issue2996)
 - [LWG Issue 2365. Missing `noexcept` in `shared_ptr::shared_ptr(nullptr_t)`](https://wg21.cmeerw.net/lwg/issue2365)
+- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)

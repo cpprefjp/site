@@ -14,12 +14,19 @@ namespace std {
     typename unique_ptr<T1, D1>::pointer,
     typename unique_ptr<T2, D2>::pointer>
   operator<=>(const unique_ptr<T1, D1>& x, const unique_ptr<T2, D2>& y); // (1) C++20
+  template <class T1, class D1, class T2, class D2>
+    requires three_way_comparable_with<
+               typename unique_ptr<T1, D1>::pointer,
+               typename unique_ptr<T2, D2>::pointer>
+  constexpr compare_three_way_result_t<
+    typename unique_ptr<T1, D1>::pointer,
+    typename unique_ptr<T2, D2>::pointer>
+  operator<=>(const unique_ptr<T1, D1>& x, const unique_ptr<T2, D2>& y); // (1) C++26
 
   template <class T, class D>
     requires three_way_comparable_with<typename unique_ptr<T, D>::pointer>
   compare_three_way_result_t<typename unique_ptr<T, D>::pointer>
   operator<=>(const unique_ptr<T, D>& x, nullptr_t);                     // (2) C++20
-
   template <class T, class D>
     requires three_way_comparable_with<typename unique_ptr<T, D>::pointer>
   constexpr compare_three_way_result_t<typename unique_ptr<T, D>::pointer>
@@ -98,3 +105,4 @@ p2 is nullptr
     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
 - [LWG3426 `operator<=>(const unique_ptr<T, D>&, nullptr_t)` can't get no satisfaction](https://cplusplus.github.io/LWG/issue3426)
 - [P2273R3 Making `std::unique_ptr` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2273r3.pdf)
+- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)

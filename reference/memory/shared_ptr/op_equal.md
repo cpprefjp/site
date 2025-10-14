@@ -7,17 +7,32 @@
 ```cpp
 namespace std {
   template<class T, class U>
-  bool operator==(const shared_ptr<T>& a,
-                  const shared_ptr<U>& b) noexcept; // (1) C++11
+  bool
+    operator==(const shared_ptr<T>& a,
+               const shared_ptr<U>& b) noexcept; // (1) C++11
+  template<class T, class U>
+  constexpr bool
+    operator==(const shared_ptr<T>& a,
+               const shared_ptr<U>& b) noexcept; // (1) C++26
 
   template <class T>
-  bool operator==(const shared_ptr<T>& x,
-                  nullptr_t) noexcept;              // (2) C++11
+  bool
+    operator==(const shared_ptr<T>& x,
+               nullptr_t) noexcept;              // (2) C++11
+  template <class T>
+  constexpr bool
+    operator==(const shared_ptr<T>& x,
+               nullptr_t) noexcept;              // (2) C++26
 
   // (2)により、以下のオーバーロードが使用可能になる (C++20)
   template <class T>
-  bool operator==(nullptr_t,
-                  const shared_ptr<T>& x) noexcept; // (3) C++11
+  bool
+    operator==(nullptr_t,
+               const shared_ptr<T>& x) noexcept; // (3) C++11
+  template <class T>
+  constexpr bool
+    operator==(nullptr_t,
+               const shared_ptr<T>& x) noexcept; // (3) C++26
 }
 ```
 
@@ -81,3 +96,4 @@ p3 is nullptr
 ## 参照
 - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
+- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)

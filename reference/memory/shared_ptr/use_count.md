@@ -6,7 +6,10 @@
 * cpp11[meta cpp]
 
 ```cpp
-long use_count() const noexcept;
+long
+  use_count() const noexcept; // (1) C++11
+constexpr long
+  use_count() const noexcept; // (1) C++26
 ```
 
 ## 概要
@@ -61,3 +64,4 @@ int main()
 
 ## 参照
 - [P0521R0 Proposed Resolution for CA 14 (`shared_ptr` `use_count`/`unique`)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0521r0.html)
+- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)

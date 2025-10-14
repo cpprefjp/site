@@ -7,16 +7,24 @@
 
 ```cpp
 template <class U>
-bool owner_before(const shared_ptr<U>& b) const;          // (1) C++11
+bool
+  owner_before(const shared_ptr<U>& b) const;          // (1) C++11
+template <class U>
+bool
+  owner_before(const shared_ptr<U>& b) const noexcept; // (1) C++17
+template <class U>
+constexpr bool
+  owner_before(const shared_ptr<U>& b) const noexcept; // (1) C++17
 
 template <class U>
-bool owner_before(const shared_ptr<U>& b) const noexcept; // (1) C++17
-
+bool
+  owner_before(const weak_ptr<U>& b) const;            // (2) C++11
 template <class U>
-bool owner_before(const weak_ptr<U>& b) const;            // (2) C++11
-
+bool
+  owner_before(const weak_ptr<U>& b) const noexcept;   // (2) C++17
 template <class U>
-bool owner_before(const weak_ptr<U>& b) const noexcept;   // (2) C++17
+constexpr bool
+  owner_before(const weak_ptr<U>& b) const noexcept;   // (2) C++26
 ```
 * shared_ptr[link /reference/memory/shared_ptr.md]
 
@@ -82,3 +90,4 @@ false
 - [N2637 Revisiting std::shared_ptr comparison](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2637.pdf)
 - [LWG Issue 1406. Support hashing smart-pointers based on owner](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-active.html#1406)
 - [LWG Issue 2873. Add `noexcept` to several `shared_ptr` related functions](https://wg21.cmeerw.net/lwg/issue2873)
+- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)

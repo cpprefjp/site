@@ -6,7 +6,9 @@
 * cpp23[meta cpp]
 
 ```cpp
-operator Pointer*() const noexcept;
+operator Pointer*() const noexcept; // (1) C++23
+constexpr
+operator Pointer*() const noexcept; // (1) C++26
 ```
 
 ## 概要
@@ -42,3 +44,4 @@ operator Pointer*() const noexcept;
 
 ## 参照
 - [P1132R8 out_ptr - a scalable output pointer abstraction](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1132r8.html)
+- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)

@@ -6,8 +6,12 @@
 * cpp23[meta cpp]
 
 ```cpp
-explicit out_ptr_t(Smart& smart, Args... args);  // (1)
-out_ptr_t(const out_ptr_t&) = delete;  // (2)
+explicit
+out_ptr_t(Smart& smart, Args... args);  // (1) C++23
+constexpr explicit
+out_ptr_t(Smart& smart, Args... args);  // (1) C++26
+
+out_ptr_t(const out_ptr_t&) = delete;   // (2) C++23
 ```
 
 ## 概要
@@ -43,3 +47,4 @@ out_ptr_t(const out_ptr_t&) = delete;  // (2)
 
 ## 参照
 - [P1132R8 out_ptr - a scalable output pointer abstraction](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1132r8.html)
+- [P3037R6 `constexpr std::shared_ptr` and friends](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3037r6.pdf)
