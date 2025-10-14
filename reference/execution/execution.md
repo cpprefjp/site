@@ -160,6 +160,12 @@ Senderコンシューマは名前空間 `std::this_thread` および名前空間
 |------|------|----------------|
 | [`execution::as_awaitable`](execution/as_awaitable.md) | Senderを[Awaitable型](/lang/cpp20/coroutines.md)へ変換 (customization point object) | C++26 |
 | [`execution::with_awaitable_senders`](execution/with_awaitable_senders.md) | [Promise型](/lang/cpp20/coroutines.md)の基底クラス (class template) | C++26 |
+| [`execution::affine_on`](execution/affine_on.md.nolink) | (customization point object) | C++26 |
+| [`execution::inline_scheduler`](execution/inline_scheduler.md.nolink) | インラインScheduler (class) | C++26 |
+| [`execution::task_scheduler`](execution/task_scheduler.md.nolink) | 型消去タスクScheduler (class) | C++26 |
+| [`execution::with_error`](execution/with_error.md.nolink) | コルーチンからのエラー完了 (class template) | C++26 |
+| [`execution::change_coroutine_scheduler`](execution/change_coroutine_scheduler.md.nolink) | コルーチンのScheduler変更 (class template) | C++26 |
+| [`execution::task`](execution/task.md.nolink) | 非同期タスクコルーチン戻り値型 (class template) | C++26 |
 
 ### 実行スコープユーティリティ
 
@@ -190,6 +196,7 @@ Senderコンシューマは名前空間 `std::this_thread` および名前空間
 - [P3149R11 `async_scope` - Creating scopes for non-sequential concurrency](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3149r11.html)
 - [P3284R4 `write_env` and `unstoppable` Sender Adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3284r4.html)
 - [P3481R5 `std::execution::bulk()` issues](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3481r5.html)
+- [P3552R3 Add a Coroutine Task Type](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html)
 - [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
 - [P3570R2 optional variants in sender/receiver](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3570r2.html)
 - [P3682R0 Remove `std::execution::split`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3682r0.pdf)
