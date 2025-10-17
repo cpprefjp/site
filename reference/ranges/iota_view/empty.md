@@ -38,7 +38,7 @@ int main() {
   auto it = std::back_inserter(v);
   
   auto r = std::views::iota(it);
-  std::cout << r.empty() << "\n";
+  std::cout << std::boolalpha << r.empty() << "\n";
 }
 ```
 
