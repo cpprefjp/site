@@ -77,7 +77,7 @@ int main()
 * ums.bucket_count()[link bucket_count.md]
 * ums.bucket_size[link bucket_size.md]
 
-### 出力
+### 出力例
 ```
 bucket_count() = 11
 key = E, bucket = 6, bucket_size = 2

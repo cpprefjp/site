@@ -62,7 +62,7 @@ int main()
 * um.cbegin[link cbegin-size_type.md]
 * um.cend[link cend-size_type.md]
 
-### 出力
+### 出力例
 ```
 bucket_count() = 11
 bucket = 0, bucket_size = 1, keys = { B, }

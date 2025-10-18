@@ -67,7 +67,7 @@ int main()
 * us.begin()[link begin.md]
 * us.end()[link end.md]
 
-### 出力
+### 出力例
 ```
 9, 7, 5, 3, 1,
 count of 5:1

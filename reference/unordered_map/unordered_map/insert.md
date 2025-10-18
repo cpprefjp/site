@@ -220,7 +220,7 @@ int main()
 * fl.cbegin()[link /reference/forward_list/forward_list/cbegin.md]
 * fl.cend()[link /reference/forward_list/forward_list/cend.md]
 
-### 出力
+### 出力例
 ```
 true (6,6th) false (2,two)
 insert one element : (6,6th), (5,five), (4,four), (3,three), (2,two), (1,one), (0,zero), 

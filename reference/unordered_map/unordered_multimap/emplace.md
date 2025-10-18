@@ -101,7 +101,7 @@ int main()
 * um.cbegin[link cbegin.md]
 * um.cend[link cend.md]
 
-### 出力
+### 出力例
 ```
 (1,1st)
 (2,2nd)

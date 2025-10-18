@@ -67,7 +67,7 @@ int main()
 * key[link /reference/node_handle/node_handle/key.md]
 
 
-### 出力
+### 出力例
 ```
 m1 :
 [15, c]
@@ -76,6 +76,7 @@ m2 :
 [10, b]
 [10, a]
 ```
+
 
 ## バージョン
 ### 言語

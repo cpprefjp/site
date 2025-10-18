@@ -111,7 +111,7 @@ int main()
 * um.cend()[link cend.md]
 * std::piecewise_construct[link /reference/utility/piecewise_construct_t.md]
 
-### 出力
+### 出力例
 ```
 {e,(2.71828,0)} at 0
 {pi,(3.14159,0)} at 0

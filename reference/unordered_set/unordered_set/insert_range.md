@@ -57,7 +57,7 @@ int main ()
 ```
 * insert_range[color ff0000]
 
-### 出力
+### 出力例
 ```
 4 3 2 1 
 ```

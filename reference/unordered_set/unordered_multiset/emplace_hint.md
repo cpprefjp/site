@@ -139,7 +139,7 @@ int main()
 * ums.cend()[link cend.md]
 * ums.equal_range[link equal_range.md]
 
-### 出力
+### 出力例
 - libstdc++ の出力例（4.7.3 現在）  
 	追加した要素 (1,4th) はヒントを無視して (1,2nd) と (1,1st) よりも前に追加されている。
 

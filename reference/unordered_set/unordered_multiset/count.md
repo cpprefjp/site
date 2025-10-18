@@ -67,7 +67,7 @@ int main()
 * ums.begin()[link begin.md]
 * ums.end()[link end.md]
 
-### 出力
+### 出力例
 ```
 9, 9, 7, 7, 5, 5, 3, 3, 1, 1,
 count of 5:2

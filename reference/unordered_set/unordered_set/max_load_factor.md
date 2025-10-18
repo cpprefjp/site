@@ -103,7 +103,7 @@ int main()
 * load_factor()[link load_factor.md]
 * us.emplace[link emplace.md]
 
-### 出力
+### 出力例
 libstdc++ の出力例（4.7.2 時点）
 
 - [`load_factor`](load_factor.md)`() > z` の場合に、`max_load_factor()` に `z` を設定して [`load_factor`](load_factor.md)`() < max_load_factor()` となるようにリハッシュされている。

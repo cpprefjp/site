@@ -86,7 +86,7 @@ int main()
 * first[link /reference/utility/pair/first.md]
 * second[link /reference/utility/pair/second.md]
 
-### 出力
+### 出力例
 ```
 9, 7, 5, 3, 1,
 equal_range(5): [2, 3)

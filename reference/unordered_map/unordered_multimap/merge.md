@@ -67,7 +67,7 @@ int main()
 ```
 * merge[color ff0000]
 
-### 出力
+### 出力例
 ```
 m1 :
 

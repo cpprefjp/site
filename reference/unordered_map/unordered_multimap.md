@@ -245,7 +245,7 @@ int main()
 * um.erase[link unordered_multimap/erase.md]
 
 
-### 出力
+### 出力例
 ```
 {1st,1}, {3rd,3}, {2nd,2}, 
 {4th,4}, {1st,1}, {3rd,3}, {2nd,2}, 

@@ -129,7 +129,7 @@ int main()
 * us.cbegin()[link cbegin.md]
 * us.cend()[link cend.md]
 
-### 出力
+### 出力例
 ```
 (3,3rd), (2,2nd), (1,1st), 
 (4,4th)

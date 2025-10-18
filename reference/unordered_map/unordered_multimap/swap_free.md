@@ -76,7 +76,7 @@ int main()
 * std::swap[color ff0000]
 * insert[link insert.md]
 
-### 出力
+### 出力例
 ```
 um1 : {[5,d], [15,e], }
 um2 : {[10,a], [20,b], [30,c], [30,d], [30,e], }

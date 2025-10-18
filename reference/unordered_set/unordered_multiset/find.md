@@ -77,7 +77,7 @@ int main()
 * ums.begin()[link begin.md]
 * ums.end()[link end.md]
 
-### 出力
+### 出力例
 ```
 9, 9, 7, 7, 5, 5, 1, 1, 3, 3,
 found 5 at 4

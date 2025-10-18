@@ -45,7 +45,7 @@ int main()
 * cbegin()[color ff0000]
 * ums.cend()[link cend.md]
 
-### 出力
+### 出力例
 ```
 3 3 2 2 1 1
 ```

@@ -80,7 +80,7 @@ int main()
 * swap[color ff0000]
 * std::ostream[link /reference/ostream/basic_ostream.md]
 
-### 出力
+### 出力例
 ```
 ums1 before : 9 9 7 7 5 5 1 1 3 3
 ums2 before : 8 8 6 6 4 4 0 0 2 2

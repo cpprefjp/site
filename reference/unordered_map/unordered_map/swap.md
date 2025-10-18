@@ -83,7 +83,7 @@ int main()
 * c.cbegin()[link cbegin.md]
 * c.cend()[link cend.md]
 
-### 出力
+### 出力例
 ```
 um1 before : (9th, 9), (7th, 7), (5th, 5), (3rd, 3), (1st, 1), 
 um2 before : (8th, 8), (4th, 4), (6th, 6), (2nd, 2), (0th, 0), 

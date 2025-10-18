@@ -59,7 +59,7 @@ int main()
 * end()[color ff0000]
 * begin()[link begin.md]
 
-### 出力
+### 出力例
 ```
 {3rd,3}, {2nd,2}, {1st,1},
 {3rd,3}, {2nd,2}, {1st,1},

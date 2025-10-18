@@ -244,7 +244,7 @@ int main()
 * us.emplace[link unordered_set/emplace.md]
 * us.erase[link unordered_set/erase.md]
 
-### 出力
+### 出力例
 ```
 3rd element, 2nd element, 1st element, 
 4th element, 3rd element, 2nd element, 1st element, 

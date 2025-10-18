@@ -52,7 +52,7 @@ int main()
 ```
 * hash_function()[color ff0000]
 
-### 出力
+### 出力例
 ```
 hash(1) = 1
 hash(2) = 2

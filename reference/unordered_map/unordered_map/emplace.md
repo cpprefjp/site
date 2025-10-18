@@ -111,7 +111,7 @@ int main()
 * um.cbegin()[link cbegin.md]
 * um.cend()[link cend.md]
 
-### 出力
+### 出力例
 ```
 {e,(2.71828,0)} true
 {pi,(3.14159,0)} true

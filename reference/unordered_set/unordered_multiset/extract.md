@@ -112,7 +112,7 @@ int main()
 * value[link /reference/node_handle/node_handle/value.md]
 
 
-### 出力
+### 出力例
 ```
 s1 = { 15 }
 s2 = { 3, 1 }

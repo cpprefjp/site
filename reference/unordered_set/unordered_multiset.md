@@ -236,7 +236,7 @@ int main()
 * ums.insert[link unordered_multiset/insert.md]
 * ums.erase[link unordered_multiset/erase.md]
 
-### 出力
+### 出力例
 ```
 3rd element, 1st element, 2nd element, 
 4th element, 3rd element, 1st element, 2nd element, 2nd element, 

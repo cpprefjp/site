@@ -92,7 +92,7 @@ int main()
 * um.insert[link insert.md]
 * um.end()[link end.md]
 
-### 出力
+### 出力例
 ```
 --- ret
 a

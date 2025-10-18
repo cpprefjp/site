@@ -62,7 +62,7 @@ int main()
 * us.bucket_size[link bucket_size.md]
 * us.begin[link begin-size_type.md]
 
-### 出力
+### 出力例
 ```
 bucket_count() = 5
 bucket = 0, bucket_size = 1, keys = { E, }

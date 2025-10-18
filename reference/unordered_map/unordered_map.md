@@ -263,7 +263,7 @@ int main()
 * um["5th"][link unordered_map/op_at.md]
 
 
-### 出力
+### 出力例
 ```
 {2nd,2}, {3rd,3}, {1st,1},
 3rd:3

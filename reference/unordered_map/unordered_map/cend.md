@@ -53,7 +53,7 @@ int main()
 * cend()[color ff0000]
 * cbegin()[link cbegin.md]
 
-### 出力
+### 出力例
 ```
 {3rd,3}, {2nd,2}, {1st,1},
 ```

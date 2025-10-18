@@ -64,7 +64,7 @@ int main()
 * c.bucket_count()[link bucket_count.md]
 * us.insert[link insert.md]
 
-### 出力
+### 出力例
 ```
 9, 7, 5, 3, 1,
 size is 5, bucket_count is 5, load_factor is 1

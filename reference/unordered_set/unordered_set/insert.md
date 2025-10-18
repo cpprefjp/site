@@ -208,7 +208,7 @@ int main()
 * fl.cbegin()[link /reference/forward_list/forward_list/cbegin.md]
 * fl.cend()[link /reference/forward_list/forward_list/cend.md]
 
-### 出力
+### 出力例
 ```
 true 6 false 2
 insert one element : 6 5 4 3 2 1 0

@@ -76,7 +76,7 @@ int main()
 ```
 * std::ostream[link /reference/ostream/basic_ostream.md]
 
-### 出力
+### 出力例
 ```
 ums1:3, 3, 2, 2, 1, 1,
 ums2:6, 6, 5, 5, 4, 4,
