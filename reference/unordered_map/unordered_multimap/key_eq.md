@@ -50,7 +50,7 @@ int main()
   decltype(um)::key_equal eq{ um.key_eq() };
 
   std::cout << "eq(\"1st\", \"2nd\") = " << eq("1st", "2nd") << std::endl;
-  std::cout << "eq(\"1st\", \"2nd\") = " << eq("1st", "1st") << std::endl;
+  std::cout << "eq(\"1st\", \"1st\") = " << eq("1st", "1st") << std::endl;
 }
 ```
 * key_eq()[color ff0000]
@@ -58,7 +58,7 @@ int main()
 ### 出力
 ```
 eq("1st", "2nd") = false
-eq("1st", "2nd") = true
+eq("1st", "1st") = true
 ```
 
 ## バージョン
