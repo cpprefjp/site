@@ -75,8 +75,6 @@ int main() {
   f<std::list<int>::iterator>("std::list<int>::iterator");
   f<std::vector<int>::iterator>("std::vector<int>::iterator");
   f<std::vector<bool>::iterator>("std::vector<bool>::iterator");
-
-  std::cout << "\n";
 }
 ```
 * no_throw_forward_iterator[color ff0000]
