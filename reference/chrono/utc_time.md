@@ -95,7 +95,7 @@ int main()
 
 #### 出力例
 ```
-2019-10-24 11:15:10 UTC
+2019-10-24 11:15:10
 ```
 
 ### 入力の例
@@ -127,12 +127,12 @@ int main()
   // タイムゾーンとオフセットを含む入力
   {
     std::stringstream ss;
-    ss << "2019-10-24 20:15:10 UTC+0900";
+    ss << "2019-10-24 20:15:10 UTC +0900";
 
     chrono::utc_seconds tp;
     std::string abbrev;
     chrono::minutes offset{0};
-    chrono::from_stream(ss, "%Y-%m-%d %H:%M:%S %Z%z", tp, &abbrev, &offset);
+    chrono::from_stream(ss, "%Y-%m-%d %H:%M:%S %Z %z", tp, &abbrev, &offset);
 
     std::cout << tp << std::endl;
     std::cout << abbrev << std::endl;
@@ -189,7 +189,7 @@ int main()
 
 #### 出力例
 ```
-1 : 2019-12-20 10:05:05 UTC
+1 : 2019-12-20 10:05:05
 2 : 2019年12月20日 10時05分05秒
 3 : 2019/12/20 10:05:05 UTC
 4 : 2019年12月20日
@@ -204,7 +204,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): 9.0 [mark noimpl]
-- [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
+- [GCC](/implementation.md#gcc): 9.2 [mark noimpl], 15.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
 
 

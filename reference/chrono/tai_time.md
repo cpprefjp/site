@@ -104,7 +104,7 @@ int main()
 
 #### 出力例
 ```
-2019-10-24 11:15:37 TAI
+2019-10-24 11:15:37
 ```
 
 ### 入力の例
@@ -140,7 +140,7 @@ int main()
 
     chrono::tai_seconds tp;
     std::string abbrev;
-    chrono::from_stream(ss, "%Y-%m-%d %H:%M:%S %Z%z", tp, &abbrev);
+    chrono::from_stream(ss, "%Y-%m-%d %H:%M:%S %Z", tp, &abbrev);
 
     std::cout << tp << std::endl;
     std::cout << abbrev << std::endl;
@@ -194,7 +194,7 @@ int main()
 
 #### 出力例
 ```
-1 : 2019-12-20 10:05:05 TAI
+1 : 2019-12-20 10:05:05
 2 : 2019年12月20日 10時05分05秒
 3 : 2019/12/20 10:05:05 TAI
 4 : 2019年12月20日
@@ -209,7 +209,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): 9.0 [mark noimpl]
-- [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
+- [GCC](/implementation.md#gcc): 9.2 [mark noimpl], 15.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
 
 
