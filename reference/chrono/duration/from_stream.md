@@ -22,8 +22,8 @@ namespace std::chrono {
 
 
 ## 効果
-- パラメータ`fmt`で指定されたフォーマットフラグを使用して、入力を解析し、`tp`に代入する
-- いずれのフラグも`duration`に影響しないものである場合、`d`には値ゼロが代入される
+- パラメータ`fmt`で指定されたフォーマットフラグを使用して、入力を解析し、`d`に代入する
+- 有効な日付・時間の解析に失敗した場合、`is.`[`setstate`](/reference/ios/basic_ios/setstate.md)`(`[`ios_base::failbit`](/reference/ios/ios_base/type-iostate.md)`)`が呼び出され、パラメータ`d`は変更されない
 - タイムゾーンフォーマット`"%Z"`が指定され、解析が成功した場合、パラメータ`abbrev`が非ヌルである場合に`*abbrev`にタイムゾーン名が代入される
 - タイムゾーンとしてUTC時間からのオフセット時間 (日本なら`"+0900"`) を意味するフォーマット`"%z"`が指定され、解析が成功した場合、パラメータ`offset`が非ヌルである場合に`*offset`にその値が代入される
 
@@ -55,12 +55,12 @@ int main()
   }
   {
     std::stringstream ss;
-    ss << "+0900 JST";
+    ss << "0+0900 JST";
 
     chrono::seconds sec{3};
     std::string abbrev;
     chrono::minutes offset{0};
-    chrono::from_stream(ss, "%S", sec, &abbrev, &offset);
+    chrono::from_stream(ss, "%S%z %Z", sec, &abbrev, &offset);
 
     std::cout << sec << std::endl;
     std::cout << abbrev << std::endl;
@@ -85,7 +85,7 @@ JST
 
 ### 処理系
 - [Clang](/implementation.md#clang): 9.0 [mark noimpl]
-- [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
+- [GCC](/implementation.md#gcc): 9.2 [mark noimpl], 15.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
 
 
