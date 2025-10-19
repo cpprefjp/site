@@ -132,7 +132,7 @@ Mar/Sun[1]
 Mar/Sun[1]
 Mar/Sun[1]
 Mar/Sun[1]
-2020/03/01
+2020-03-01
 ```
 
 ## バージョン
@@ -141,7 +141,7 @@ Mar/Sun[1]
 
 ### 処理系
 - [Clang](/implementation.md#clang): 8.0 (出力ストリームなし) [mark verified]
-- [GCC](/implementation.md#gcc): 11.1 (出力ストリームなし) [mark verified]
+- [GCC](/implementation.md#gcc): 11.1 (出力ストリームなし) [mark verified], 15.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
 
 

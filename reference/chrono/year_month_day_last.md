@@ -147,7 +147,7 @@ int main()
 
 ### 出力
 ```
-2020/02/last
+2020/Feb/last
 29
 2020-02-29
 2020-02-29
@@ -160,7 +160,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): 8.0 (出力ストリームなし) [mark verified]
-- [GCC](/implementation.md#gcc): 11.1 (出力ストリームなし) [mark verified]
+- [GCC](/implementation.md#gcc): 11.1 (出力ストリームなし) [mark verified], 15.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
 
 

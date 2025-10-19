@@ -155,8 +155,8 @@ int main()
 
 #### 出力
 ```
-2019-10-24 20:15:45
-2019-10-24 20:15:45
+2019-10-24 20:15:27
+2019-10-24 20:15:27
 GPS
 ```
 
@@ -214,7 +214,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): 9.0 [mark noimpl]
-- [GCC](/implementation.md#gcc): 9.2 [mark noimpl], 14.1 [mark verified]
+- [GCC](/implementation.md#gcc): 9.2 [mark noimpl], 14.1 [mark verified], 15.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
 
 

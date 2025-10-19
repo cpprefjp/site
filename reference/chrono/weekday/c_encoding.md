@@ -64,13 +64,13 @@ int main()
 
 ### 出力
 ```
-Sunday : 0
-Monday : 1
-Tuesday : 2
-Wednesday : 3
-Thursday : 4
-Friday : 5
-Saturday : 6
+Sun : 0
+Mon : 1
+Tue : 2
+Wed : 3
+Thu : 4
+Fri : 5
+Sat : 6
 ```
 
 ## バージョン
@@ -79,7 +79,7 @@ Saturday : 6
 
 ### 処理系
 - [Clang](/implementation.md#clang): 10.0 [mark verified]
-- [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
+- [GCC](/implementation.md#gcc): 9.2 [mark noimpl], 15.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
 
 

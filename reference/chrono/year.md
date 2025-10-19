@@ -160,7 +160,7 @@ int main()
 ### 出力
 ```
 2023
-2020/Mar/01
+2020-03-01
 ```
 
 ## バージョン
@@ -169,7 +169,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): 8.0 (入出力ストリームなし) [mark verified]
-- [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
+- [GCC](/implementation.md#gcc): 9.2 [mark noimpl], 15.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
 
 

@@ -59,7 +59,7 @@ int main() {
 ### 出力
 ```
 1 : 2020/Feb/last
-2 : Feb/29/2020
+2 : 02/29/20
 3 : 2020-02-29
 4 : 02/29/20
 5 : 2020年02月29日
@@ -73,7 +73,7 @@ int main() {
 
 ### 処理系
 - [Clang](/implementation.md#clang): 9.0 [mark noimpl]
-- [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
+- [GCC](/implementation.md#gcc): 9.2 [mark noimpl], 15.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
 
 

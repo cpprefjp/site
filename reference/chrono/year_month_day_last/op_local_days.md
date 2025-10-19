@@ -43,7 +43,7 @@ int main()
 
 ### 出力
 ```
-2020-02-29 00:00:00
+2020-02-29
 ```
 
 ## バージョン
@@ -52,7 +52,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): 8.0 [mark verified]
-- [GCC](/implementation.md#gcc): 11.1 [mark verified]
+- [GCC](/implementation.md#gcc): 11.1 [mark verified], 15.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
 
 

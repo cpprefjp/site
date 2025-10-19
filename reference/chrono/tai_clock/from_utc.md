@@ -76,9 +76,9 @@ int main()
 
 ### 出力
 ```
+2019-10-24
 2019-10-24 00:00:00
-2019-10-24 00:00:00 UTC
-2019-10-24 00:00:37 TAI
+2019-10-24 00:00:37
 27
 ```
 
@@ -88,5 +88,5 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): 9.0 [mark noimpl]
-- [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
+- [GCC](/implementation.md#gcc): 9.2 [mark noimpl], 15.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]

@@ -50,9 +50,9 @@ int main()
 
 ### 出力
 ```
-2015-01-01 00:00:00 UTC
-2015-01-01
-26
+2015-07-01 00:00:00
+2015-07-01 00:00:00
+26s
 ```
 
 ## バージョン
@@ -61,7 +61,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): 9.0 [mark noimpl]
-- [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
+- [GCC](/implementation.md#gcc): 9.2 [mark noimpl], 15.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
 
 
