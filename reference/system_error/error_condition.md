@@ -46,7 +46,6 @@ Visual C++ 2010、GCC 4.6.1では[`generic_category()`](generic_category.md)と[
 | `bool operator<=(const error_condition&, const error_condition&) noexcept;` | 左辺が右辺以下か判定する (`operator<=>`により使用可能) | C++20 |
 | `bool operator>(const error_condition&, const error_condition&) noexcept;` | 左辺が右辺より大きいか判定する (`operator<=>`により使用可能) | C++20 |
 | `bool operator>=(const error_condition&, const error_condition&) noexcept;` | 左辺が右辺以上か判定する (`operator<=>`により使用可能) | C++20 |
-
 | [`make_error_condition`](make_error_condition.md) | `errc`から`error_condition`オブジェクトを生成する | C++11 |
 
 
