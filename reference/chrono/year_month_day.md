@@ -134,9 +134,9 @@ int main()
 
   // 年、月、月の最終日の組み合わせから、年、月、日に変換。
   // 以下はすべて2020年2月29日を表す
-  chrono::year_month_day date10 = 2020y/3/chrono::last;
-  chrono::year_month_day date11 = 3/chrono::last/2020;
-  chrono::year_month_day date12 = chrono::last/3/2020;
+  chrono::year_month_day date10 = 2020y/2/chrono::last;
+  chrono::year_month_day date11 = 2/chrono::last/2020;
+  chrono::year_month_day date12 = chrono::last/2/2020;
   std::cout << date12 << std::endl;
 
   // 日単位のシステム時間に変換
@@ -317,7 +317,7 @@ int main()
 
 ### 処理系
 - [Clang](/implementation.md#clang): 8.0 (入出力ストリームなし) [mark verified]
-- [GCC](/implementation.md#gcc): 9.2 [mark noimpl]
+- [GCC](/implementation.md#gcc): 9.2 [mark noimpl], 15.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 3 [mark noimpl]
 
 
