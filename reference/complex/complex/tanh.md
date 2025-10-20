@@ -56,11 +56,11 @@ int main()
 {
   std::complex<double> c(1.0, 2.0);
 
-  std::complex<double> result = std::atanh(c);
+  std::complex<double> result = std::tanh(c);
   std::cout << "tanh( " << c << " ) = " << result << std::endl;
 }
 ```
-* std::atanh[color ff0000]
+* std::tanh[color ff0000]
 
 ### 出力
 ```
