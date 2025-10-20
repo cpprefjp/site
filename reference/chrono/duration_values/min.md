@@ -45,7 +45,7 @@ int main()
 ```
 -9223372036854775808
 -2147483648
-2.22507e-308
+-1.79769e+308
 ```
 
 ## バージョン
@@ -53,7 +53,7 @@ int main()
 - C++11
 
 ### 処理系
-- [GCC](/implementation.md#gcc): 4.6.1 [mark verified]
+- [GCC](/implementation.md#gcc): 4.6.1 [mark verified], 15.1 [mark verified]
 - [Visual C++](/implementation.md#visual_cpp): 2012 [mark verified], 2013 [mark verified], 2015 [mark verified]
 
 
