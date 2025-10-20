@@ -75,8 +75,6 @@ int main()
 
 ### 出力
 ```
-true
-false
 ```
 
 ## バージョン
