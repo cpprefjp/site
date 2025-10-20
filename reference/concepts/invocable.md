@@ -71,6 +71,8 @@ int main() {
   f<invocable, int>("invocable(int)");
   f<invocable, int***>("invocable(int***)");
 
+  std::cout << "\n";
+
   // 内部状態を保ち、等しさを保持しない呼び出し可能な型
   f<decltype(mut_lambda), int>("mut_lambda(int)");
   f<std::mt19937>("std::mt19937()");
