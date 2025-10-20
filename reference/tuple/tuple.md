@@ -237,7 +237,6 @@ int main()
 		print("after  b", b);
 	}
 }
-
 ```
 
 #### 出力
@@ -246,7 +245,6 @@ before a: i=0, d=0
 before b: i=1, d=1
 after  a: i=1, d=1
 after  b: i=0, d=0
-
 ```
 
 ## バージョン

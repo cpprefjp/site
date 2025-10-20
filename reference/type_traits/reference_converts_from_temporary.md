@@ -58,7 +58,6 @@ int main() {
 
   std::cout << "2" << std::endl;
 }
-
 ```
 
 ### 出力
@@ -67,7 +66,6 @@ int main() {
 S construct
 S destruct
 2
-
 ```
 
 

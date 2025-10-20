@@ -182,7 +182,6 @@ int main()
 std::vector<bool>::iterator is indirectly writable bool
 ret_proxy_pair is indirectly writable std::pair<int, std::pair<int, int>>
 ret_proxy_tuple is indirectly writable std::tuple<int, std::tuple<int>>
-
 ```
 
 

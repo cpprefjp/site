@@ -62,7 +62,6 @@ int main()
 ```
 4
 out of range
-
 ```
 
 
