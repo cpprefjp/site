@@ -44,6 +44,7 @@ int main() {
   f<std::forward_list<int>::iterator>("std::forward_list<int>::iterator");
   f<std::list<int>::iterator>("std::list<int>::iterator");
   f<std::vector<int>::iterator>("std::vector<int>::iterator");
+  f<std::vector<std::unique_ptr<int>>::iterator>("std::vector<std::unique_ptr<int>>::iterator");
 
   std::cout << "\n";
   f<const int*>("const int*");

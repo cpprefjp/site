@@ -62,7 +62,7 @@ int main()
   // 停止状態が停止要求を受け取った場合は、
   // その後で stop_source が破棄されても stop_possible() == true のままになる
   assert(st1.stop_possible() == true);
-  assert(st2.stop_possible() == false);
+  assert(st2.stop_possible() == true);
   assert(st3.stop_possible() == false);
 }
 ```

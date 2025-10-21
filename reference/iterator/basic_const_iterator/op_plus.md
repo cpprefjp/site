@@ -41,7 +41,7 @@ return basic_const_iterator(i.current_ + n);
 int main() {
   std::vector vec = {1, 2, 3, 4, 5};
 
-  std::basic_const_iterator cit = vec.end();
+  std::basic_const_iterator cit = vec.begin();
 
   auto cit2 = cit + 3;
   auto cit3 = 4 + cit;
