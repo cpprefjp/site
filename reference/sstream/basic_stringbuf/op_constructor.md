@@ -129,13 +129,16 @@ int main()
   std::cout << buf1.str() << std::endl;
   
   // (3) 文字列を指定して構築
-  std::stringbuf buf2("initial");
+  std::stringbuf buf2("initial", std::ios_base::out | std::ios_base::app);
   buf2.sputc('!');
   std::cout << buf2.str() << std::endl;
 }
 ```
 * sputc[link /reference/streambuf/basic_streambuf/sputc.md]
 * str()[link str.md]
+* std::ios_base[link /reference/ios/ios_base.md]
+* out[link /reference/ios/ios_base/type-openmode.md]
+* app[link /reference/ios/ios_base/type-openmode.md]
 
 #### 出力
 ```

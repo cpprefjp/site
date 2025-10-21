@@ -78,7 +78,7 @@ int main()
   ch = buf.sbumpc();  // 'e'
   std::cout << "3: After reading 2 chars: " << buf.str() << std::endl;
   
-  // 書き込み（現在の位置から）
+  // 書き込み（読み取り位置と書き込み位置は別なので、先頭から書き込まれる）
   buf.sputc('X');
   buf.sputc('Y');
   std::cout << "4: After writing: " << buf.str() << std::endl;
@@ -97,7 +97,7 @@ int main()
 1: Hello, World!
 2: New content
 3: After reading 2 chars: Read/Write test
-4: After writing: ReXY/Write test
+4: After writing: XYad/Write test
 5: Empty? yes
 ```
 

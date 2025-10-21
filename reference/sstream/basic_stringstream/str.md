@@ -67,6 +67,7 @@ int main()
   std::cout << "1: " << ss.str() << std::endl;
   
   // ストリームに追記
+  ss.seekp(0, std::ios_base::end);
   ss << " + added";
   std::cout << "2: " << ss.str() << std::endl;
   
@@ -85,6 +86,9 @@ int main()
   std::cout << "5: Empty? " << (ss.str().empty() ? "yes" : "no") << std::endl;
 }
 ```
+* seekp[link /reference/ostream/basic_ostream/seekp.md]
+* std::ios_base[link /reference/ios/ios_base.md]
+* end[link /reference/ios/ios_base/type-seekdir.md]
 
 #### 出力
 ```

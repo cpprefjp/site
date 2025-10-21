@@ -121,12 +121,15 @@ int main()
   std::cout << s << std::endl;
   
   // (3) 文字列を指定して構築
-  std::stringstream ss2("initial value");
+  std::stringstream ss2("initial value", std::ios_base::out | std::ios_base::app);
   ss2 << " added";
   std::cout << ss2.str() << std::endl;
 }
 ```
 * str()[link str.md]
+* std::ios_base[link /reference/ios/ios_base.md]
+* out[link /reference/ios/ios_base/type-openmode.md]
+* app[link /reference/ios/ios_base/type-openmode.md]
 
 #### 出力
 ```

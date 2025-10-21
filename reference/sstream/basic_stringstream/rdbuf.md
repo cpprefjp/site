@@ -42,5 +42,5 @@ int main()
 ### 出力
 ```
 t
-est!
+!est
 ```
