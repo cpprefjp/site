@@ -96,11 +96,11 @@ int* is weakly incrementable
 const int* is weakly incrementable
 std::vector<int>::iterator is weakly incrementable
 std::ostream_iterator<double> is weakly incrementable
-sample_incrementable is weakly incrementable
+sample_weak_incrementable is weakly incrementable
 
 int* const is not weakly incrementable
 std::unique_ptr<int> is not weakly incrementable
-sample_not_incrementable is not weakly incrementable
+sample_not_weak_incrementable is not weakly incrementable
 ```
 
 ## バージョン

@@ -166,7 +166,7 @@ int main() {
 #### 出力
 ```
 count of label=="foo": 2
-count of id==1: 2
+count of id==1: 1
 ```
 
 

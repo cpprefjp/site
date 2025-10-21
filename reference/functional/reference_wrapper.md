@@ -132,7 +132,6 @@ my_struct& get_my_struct()
 ### 出力
 
 ```
-0
 ```
 
 ## バージョン

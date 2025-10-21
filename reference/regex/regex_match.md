@@ -178,7 +178,7 @@ int main()
 
 ### 出力
 ```
-(1) = true
+(1) true
 str = 'abc123def', position = 0
 (2) true
 str = 'abc123def', position = 0

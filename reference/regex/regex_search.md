@@ -179,7 +179,7 @@ int main()
 
 ### 出力
 ```
-(1) = true
+(1) true
 str = '123', position = 3
 (2) true
 str = '123', position = 3
