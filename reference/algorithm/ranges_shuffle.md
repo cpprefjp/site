@@ -58,6 +58,7 @@ namespace std::ranges {
 #include <numeric>
 #include <iterator>
 #include <random>
+#include <cstdint>
 
 int main() {
   std::vector<int> v(10);
@@ -69,7 +70,8 @@ int main() {
 
   // シャッフル
   std::random_device seed_gen;
-  std::mt19937 engine(seed_gen());
+  std::uint32_t seed = seed_gen();
+  std::mt19937 engine(seed);
   std::ranges::shuffle(v, engine);
 
   std::cout << " after: ";
@@ -92,6 +94,7 @@ before: 0123456789
 #include <iostream>
 #include <string>
 #include <random>
+#include <cstdint>
 
 int main() {
   std::string input = "0123456789abcdef";
@@ -100,7 +103,8 @@ int main() {
 
   // シャッフル
   std::random_device seed_gen;
-  std::mt19937 engine(seed_gen());
+  std::uint32_t seed = seed_gen();
+  std::mt19937 engine(seed);
   std::ranges::shuffle(input, engine);
 
   std::cout << " after: " << input << std::endl;

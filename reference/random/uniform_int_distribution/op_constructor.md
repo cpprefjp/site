@@ -35,11 +35,13 @@ explicit uniform_int_distribution(const param_type& parm);                     /
 ```cpp example
 #include <iostream>
 #include <random>
+#include <cstdint>
 
 int main()
 {
   std::random_device seed_gen;
-  std::default_random_engine engine(seed_gen());
+  std::uint32_t seed = seed_gen();
+  std::default_random_engine engine(seed);
 
   // (2) 範囲を指定する
   {

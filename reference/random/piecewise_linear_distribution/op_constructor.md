@@ -53,6 +53,7 @@ explicit piecewise_linear_distribution(const param_type& parm); // (5)
 #include <iostream>
 #include <random>
 #include <array>
+#include <cstdint>
 
 double always_one(double)
   { return 1.0; }
@@ -60,7 +61,8 @@ double always_one(double)
 int main()
 {
   std::random_device seed_gen;
-  std::default_random_engine engine(seed_gen());
+  std::uint32_t seed = seed_gen();
+  std::default_random_engine engine(seed);
 
   // (1)
   {

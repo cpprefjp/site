@@ -30,11 +30,13 @@ void reset();
 ```cpp example
 #include <iostream>
 #include <random>
+#include <cstdint>
 
 int main()
 {
   std::random_device seed_gen;
-  std::default_random_engine engine(seed_gen());
+  std::uint32_t seed = seed_gen();
+  std::default_random_engine engine(seed);
 
   std::binomial_distribution<> dist(3, 0.5);
 

@@ -31,11 +31,13 @@ result_type operator()(URBG& g, const param_type& parm); // (2)
 #include <iostream>
 #include <random>
 #include <array>
+#include <cstdint>
 
 int main()
 {
   std::random_device seed_gen;
-  std::default_random_engine engine(seed_gen());
+  std::uint32_t seed = seed_gen();
+  std::default_random_engine engine(seed);
 
   // [0.0, 0.5)の値は、確率0.3で出現する。
   // [0.5, 1.0)の値は、確率0.5で出現する。

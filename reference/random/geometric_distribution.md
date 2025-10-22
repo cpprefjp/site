@@ -78,11 +78,13 @@ namespace std {
 ```cpp example
 #include <iostream>
 #include <random>
+#include <cstdint>
 
 int main()
 {
   std::random_device seed_gen;
-  std::default_random_engine engine(seed_gen());
+  std::uint32_t seed = seed_gen();
+  std::default_random_engine engine(seed);
 
   // 成功確率0.5の事象を、成功するまで試行する
   std::geometric_distribution<> dist(0.5);

@@ -30,11 +30,13 @@ result_type operator()(URBG& g, const param_type& parm); // (2)
 ```cpp example
 #include <iostream>
 #include <random>
+#include <cstdint>
 
 int main()
 {
   std::random_device seed_gen;
-  std::mt19937 engine(seed_gen());
+  std::uint32_t seed = seed_gen();
+  std::mt19937 engine(seed);
 
   // (1)
   {

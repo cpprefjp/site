@@ -105,10 +105,11 @@ namespace std {
 int main()
 {
   std::random_device seed_gen;
+  std::uint32_t seed = seed_gen();
 
   // subtract_with_carry_engineのパラメータ設定済み別名であるranlux24_baseを使用する。
   // ランダムなシードを使用して初期化
-  std::ranlux24_base engine(seed_gen());
+  std::ranlux24_base engine(seed);
 
   for (int i = 0; i < 10; ++i) {
     // 乱数を生成

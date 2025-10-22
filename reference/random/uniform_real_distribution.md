@@ -70,11 +70,13 @@ namespace std {
 ```cpp example
 #include <random>
 #include <fstream>
+#include <cstdint>
 
 int main()
 {
   std::random_device seed_gen;
-  std::default_random_engine engine(seed_gen());
+  std::uint32_t seed = seed_gen();
+  std::default_random_engine engine(seed);
 
   // 0.0以上1.0未満の値を等確率で発生させる
   std::uniform_real_distribution<> dist(0.0, 1.0);

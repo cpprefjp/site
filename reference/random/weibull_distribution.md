@@ -77,11 +77,13 @@ $$ p(x \mid a, b) = \frac{a}{b} \cdot \left( \frac{x}{b} \right)^{a-1} \cdot \ex
 ```cpp example
 #include <random>
 #include <fstream>
+#include <cstdint>
 
 int main()
 {
   std::random_device seed_gen;
-  std::default_random_engine engine(seed_gen());
+  std::uint32_t seed = seed_gen();
+  std::default_random_engine engine(seed);
 
   // 形状パラメータ1.0、尺度パラメータ1.0で分布させる
   std::weibull_distribution<> dist1(1.0, 1.0);

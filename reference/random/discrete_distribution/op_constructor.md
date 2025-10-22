@@ -49,11 +49,13 @@ explicit discrete_distribution(const param_type& parm);           // (5)
 #include <iostream>
 #include <random>
 #include <vector>
+#include <cstdint>
 
 int main()
 {
   std::random_device seed_gen;
-  std::mt19937 engine(seed_gen());
+  std::uint32_t seed = seed_gen();
+  std::mt19937 engine(seed);
 
   // (1)
   {

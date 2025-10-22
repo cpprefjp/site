@@ -83,11 +83,13 @@ $$ p(x \mid \alpha, \beta) = \frac{e^{-x/\beta}}{\beta^{\alpha} \cdot \Gamma(\al
 ```cpp example
 #include <random>
 #include <fstream>
+#include <cstdint>
 
 int main()
 {
   std::random_device seed_gen;
-  std::default_random_engine engine(seed_gen());
+  std::uint32_t seed = seed_gen();
+  std::default_random_engine engine(seed);
 
   // 形状母数1.0、尺度母数1.0で分布させる
   std::gamma_distribution<> dist(1.0, 1.0);

@@ -82,11 +82,13 @@ $$ p(x \mid a, b) = \left( \pi b \left(1 + \left( \frac{x-a}{b} \right) ^2 \righ
 ```cpp example
 #include <fstream>
 #include <random>
+#include <cstdint>
 
 int main()
 {
   std::random_device seed_gen;
-  std::default_random_engine engine(seed_gen());
+  std::uint32_t seed = seed_gen();
+  std::default_random_engine engine(seed);
 
   // 位置母数0.0、尺度母数1.0で分布させる
   std::cauchy_distribution<> dist(0.0, 1.0);

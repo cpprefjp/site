@@ -51,13 +51,15 @@ t2.join();
 #include <iostream>
 #include <thread>
 #include <random>
+#include <cstdint>
 
 // 範囲[min_inclusive, max_inclusive]でランダム一様分布する整数を生成する。
 // スレッドごとに乱数の状態を持つ。
 int random_range(int min_inclusive, int max_inclusive)
 {
   std::random_device seed_gen;
-  thread_local std::mt19937 engine(seed_gen());
+  std::uint32_t seed = seed_gen();
+  thread_local std::mt19937 engine(seed);
   std::uniform_int_distribution<int> dist(min_inclusive, max_inclusive);
   return dist(engine);
 }

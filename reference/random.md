@@ -155,13 +155,15 @@
 ```cpp example
 #include <fstream>
 #include <random>
+#include <cstdint>
 
 int main()
 {
   // メルセンヌ・ツイスター法による擬似乱数生成器を、
   // ハードウェア乱数をシードにして初期化
   std::random_device seed_gen;
-  std::mt19937 engine(seed_gen());
+  std::uint32_t seed = seed_gen();
+  std::mt19937 engine(seed);
 
   // 一様実数分布
   // [-1.0f, 1.0f)の値の範囲で、等確率に実数を生成する

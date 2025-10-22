@@ -81,11 +81,13 @@ $$ p(x \mid n) = \frac{1}{\sqrt{n \pi}} \cdot \frac{\Gamma((n+1)/2)}{\Gamma(n/2)
 ```cpp example
 #include <random>
 #include <fstream>
+#include <cstdint>
 
 int main()
 {
   std::random_device seed_gen;
-  std::default_random_engine engine(seed_gen());
+  std::uint32_t seed = seed_gen();
+  std::default_random_engine engine(seed);
 
   // 自由度1.0で分布させる
   std::student_t_distribution<> dist(1.0);

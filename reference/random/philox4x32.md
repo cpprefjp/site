@@ -42,11 +42,13 @@ namespace std {
 ```cpp example
 #include <iostream>
 #include <random>
+#include <cstdint>
 
 int main()
 {
   std::random_device seed_gen;
-  std::philox4x32 engine{seed_gen()};
+  std::uint32_t seed = seed_gen();
+  std::philox4x32 engine{seed};
 
   for (int i = 0; i < 10; ++i) {
     std::uint32_t result = engine();

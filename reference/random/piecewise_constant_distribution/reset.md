@@ -29,11 +29,13 @@ void reset();
 #include <iostream>
 #include <random>
 #include <array>
+#include <cstdint>
 
 int main()
 {
   std::random_device seed_gen;
-  std::default_random_engine engine(seed_gen());
+  std::uint32_t seed = seed_gen();
+  std::default_random_engine engine(seed);
 
   std::array<double, 3> intervals = {0.0, 0.5, 1.0};
   std::array<double, 2> densities = {0.3, 0.5};

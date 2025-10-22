@@ -83,11 +83,13 @@ $$ p(x \mid \lambda) = \lambda e^{-\lambda x} $$
 ```cpp example
 #include <random>
 #include <fstream>
+#include <cstdint>
 
 int main()
 {
   std::random_device seed_gen;
-  std::default_random_engine engine(seed_gen());
+  std::uint32_t seed = seed_gen();
+  std::default_random_engine engine(seed);
 
   std::exponential_distribution<> dist(1.0);
 

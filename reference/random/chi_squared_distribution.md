@@ -83,11 +83,13 @@ $$ p(x \mid n) = \frac{x^{n/2 - 1} \cdot e^{-x/2}}{\Gamma (n/2) \cdot 2^{n/2}} $
 ```cpp example
 #include <fstream>
 #include <random>
+#include <cstdint>
 
 int main()
 {
   std::random_device seed_gen;
-  std::default_random_engine engine(seed_gen());
+  std::uint32_t seed = seed_gen();
+  std::default_random_engine engine(seed);
 
   // 自由度1で分布させる
   std::chi_squared_distribution<> dist(1.0);

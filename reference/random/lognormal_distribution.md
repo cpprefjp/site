@@ -82,11 +82,13 @@ $$ p(x \mid m, s) = \frac{1}{sx \sqrt{2 \pi} } \cdot \exp \left( - \frac{(\ln x 
 ```cpp example
 #include <random>
 #include <fstream>
+#include <cstdint>
 
 int main()
 {
   std::random_device seed_gen;
-  std::default_random_engine engine(seed_gen());
+  std::uint32_t seed = seed_gen();
+  std::default_random_engine engine(seed);
 
   // 平均3.141592、標準偏差1.0で分布させる
   std::lognormal_distribution<> dist(3.141592, 1.0);

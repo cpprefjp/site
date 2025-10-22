@@ -72,11 +72,13 @@ namespace std {
 ```cpp example
 #include <random>
 #include <fstream>
+#include <cstdint>
 
 int main()
 {
   std::random_device seed_gen;
-  std::default_random_engine engine(seed_gen());
+  std::uint32_t seed = seed_gen();
+  std::default_random_engine engine(seed);
 
   // 確率0.7でtrueを生成し、確率0.3(1.0 - 0.7)でfalseを生成する
   std::bernoulli_distribution dist(0.7);

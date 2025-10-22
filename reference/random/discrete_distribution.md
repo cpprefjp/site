@@ -71,11 +71,13 @@ namespace std {
 #include <random>
 #include <vector>
 #include <fstream>
+#include <cstdint>
 
 int main()
 {
   std::random_device seed_gen;
-  std::mt19937 engine(seed_gen());
+  std::uint32_t seed = seed_gen();
+  std::mt19937 engine(seed);
 
   // 確率列を定義
   // 浮動小数点数の範囲として定義する。合計値が1.0や10.0のような切りの良い数値である必要はない。

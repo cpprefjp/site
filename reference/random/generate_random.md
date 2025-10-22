@@ -112,11 +112,13 @@ for (auto& x : v) {
 #include <random>
 #include <print>
 #include <vector>
+#include <cstdint>
 
 int main()
 {
   std::random_device seed_gen;
-  std::mt19937 engine(seed_gen());
+  std::uint32_t seed = seed_gen();
+  std::mt19937 engine(seed);
   std::uniform_int_distribution<int> dist{0, 100};
 
   std::vector<int> v(10);

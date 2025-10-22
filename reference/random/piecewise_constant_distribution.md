@@ -65,11 +65,13 @@ namespace std {
 #include <fstream>
 #include <random>
 #include <array>
+#include <cstdint>
 
 int main()
 {
   std::random_device seed_gen;
-  std::default_random_engine engine(seed_gen());
+  std::uint32_t seed = seed_gen();
+  std::default_random_engine engine(seed);
 
   // [0.0, 5.0)の値は、0.3の確率で出現する。
   // [5.0, 10.0)の値は、0.5の確率で出現する。

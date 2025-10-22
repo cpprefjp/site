@@ -56,11 +56,13 @@ RANLUX法は、0から4までの贅沢さレベル(luxury level)が選択可能�
 ```cpp example
 #include <iostream>
 #include <random>
+#include <cstdint>
 
 int main()
 {
   std::random_device seed_gen;
-  std::ranlux24 engine(seed_gen());
+  std::uint32_t seed = seed_gen();
+  std::ranlux24 engine(seed);
 
   for (int i = 0; i < 10; ++i) {
     std::uint32_t result = engine();

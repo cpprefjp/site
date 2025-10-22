@@ -72,11 +72,13 @@ sizeof(uint_fast32_t)
 ```cpp example
 #include <iostream>
 #include <random>
+#include <cstdint>
 
 int main()
 {
   std::random_device seed_gen;
-  std::minstd_rand0 engine(seed_gen());
+  std::uint32_t seed = seed_gen();
+  std::minstd_rand0 engine(seed);
 
   for (int i = 0; i < 10; ++i) {
     std::uint32_t result = engine();

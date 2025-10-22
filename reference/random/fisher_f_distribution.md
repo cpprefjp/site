@@ -80,11 +80,13 @@ $$ p(x \mid m, n) = \frac{\Gamma ((m+n)/2)}{\Gamma (m/2) \Gamma (n/2)} \cdot \le
 ```cpp example
 #include <fstream>
 #include <random>
+#include <cstdint>
 
 int main()
 {
   std::random_device seed_gen;
-  std::default_random_engine engine(seed_gen());
+  std::uint32_t seed = seed_gen();
+  std::default_random_engine engine(seed);
 
   // 自由度5と10で分布させる
   std::fisher_f_distribution<> dist(5, 10);

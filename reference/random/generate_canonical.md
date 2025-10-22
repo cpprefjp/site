@@ -33,11 +33,13 @@ namespace std {
 ```cpp example
 #include <random>
 #include <iostream>
+#include <cstdint>
 
 int main()
 {
   std::random_device seed_gen;
-  std::mt19937 engine(seed_gen());
+  std::uint32_t seed = seed_gen();
+  std::mt19937 engine(seed);
 
   for(int i = 0; i < 10; ++i) {
     // floatの仮数部桁数で、範囲[0.0, 1.0)のランダムなfloat値を生成する

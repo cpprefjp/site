@@ -82,11 +82,13 @@ $$ p(x \mid a, b) = \frac{1}{b} \cdot \exp \left( \frac{a-x}{b} - \exp \left( \f
 ```cpp example
 #include <random>
 #include <fstream>
+#include <cstdint>
 
 int main()
 {
   std::random_device seed_gen;
-  std::default_random_engine engine(seed_gen());
+  std::uint32_t seed = seed_gen();
+  std::default_random_engine engine(seed);
 
   // 位置パラメータ0.0、尺度パラメータ1.0で分布させる
   std::extreme_value_distribution<> dist(0.0, 1.0);

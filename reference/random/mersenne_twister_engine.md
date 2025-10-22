@@ -126,14 +126,16 @@ namespace std {
 ```cpp example
 #include <iostream>
 #include <random>
+#include <cstdint>
 
 int main()
 {
   std::random_device seed_gen;
+  std::uint32_t seed = seed_gen();
 
   // mersenne_twister_engineのパラメータ設定済み別名であるmt19937を使用する。
   // ランダムなシードを使用して初期化
-  std::mt19937 engine(seed_gen());
+  std::mt19937 engine(seed);
 
   for (int i = 0; i < 10; ++i) {
     // 乱数を生成

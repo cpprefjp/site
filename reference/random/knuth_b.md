@@ -57,11 +57,13 @@ Donald Knuth氏の著書『The Art of Computer Programming, Second Edition, Volu
 ```cpp example
 #include <iostream>
 #include <random>
+#include <cstdint>
 
 int main()
 {
   std::random_device seed_gen;
-  std::knuth_b engine(seed_gen());
+  std::uint32_t seed = seed_gen();
+  std::knuth_b engine(seed);
 
   for (int i = 0; i < 10; ++i) {
     std::uint64_t result = engine();

@@ -101,14 +101,16 @@ C言語から引き継いだ標準ライブラリ関数[`std::rand()`](/referenc
 ```cpp example
 #include <iostream>
 #include <random>
+#include <cstdint>
 
 int main()
 {
   std::random_device seed_gen;
+  std::uint32_t seed = seed_gen();
 
   // linear_congruential_engineのパラメータ設定済み別名であるminstd_randを使用する。
   // ランダムなシードを使用して初期化
-  std::minstd_rand engine(seed_gen());
+  std::minstd_rand engine(seed);
 
   for (int i = 0; i < 10; ++i) {
     // 乱数を生成
