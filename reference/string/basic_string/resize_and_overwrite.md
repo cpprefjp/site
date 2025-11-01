@@ -29,7 +29,7 @@ constexpr void resize_and_overwrite(size_type n, Operation op); // C++23
 - 呼び出された `op` が例外を投げないこと。
 - `op` の呼び出しで、第1引数・第2引数ともに変更されないこと。
 - `r = std::move(op)(data(), n)` とすると、`0 <= r && r <= n` であること。
-- `[data(), data() + r)` の範囲に未初期化の要素がないこと。
+- `op`の呼び出し後、`[data(), data() + r)` の範囲に未初期化の要素がないこと。
 
 
 ## 効果
