@@ -107,7 +107,7 @@ int main()
   std::string result3 = std::string("hello").substr(5, 4);
 
   // C++20 : sから部分文字列のstringをコピーして作成、sは変更されない
-  // C++23 : sのリソースを再利用して部分文字列を保持するstringオブジェクトを作成、aは有効だが未規定な状態となる（C++23における動作変更）
+  // C++23 : sのリソースを再利用して部分文字列を保持するstringオブジェクトを作成、sは有効だが未規定な状態となる（C++23における動作変更）
   std::string result4 = std::move(s).substr(5, 4);
 }
 ```
