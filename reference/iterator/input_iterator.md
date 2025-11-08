@@ -29,8 +29,8 @@ namespace std {
 
 型`I`について、`std::iterator_traits<I>`がプライマリテンプレートの特殊化となる場合、`ITER_TRAITS(I)`を`I`とする。それ以外の場合（`std::iterator_traits<I>`の特殊化が存在する場合）、`ITER_TRAITS(I)`を`std::iterator_traits<I>`とする。
 
-1. `ITER_TRAITS(I)::itertor_concept`が有効で型名を示す場合、`ITER_CONCEPT(I)`は`ITER_TRAITS(I)::itertor_concept`
-2. `ITER_TRAITS(I)::itertor_category`が有効で型名を示す場合、`ITER_CONCEPT(I)`は`ITER_TRAITS(I)::itertor_category`
+1. `ITER_TRAITS(I)::iterator_concept`が有効で型名を示す場合、`ITER_CONCEPT(I)`は`ITER_TRAITS(I)::iterator_concept`
+2. `ITER_TRAITS(I)::iterator_category`が有効で型名を示す場合、`ITER_CONCEPT(I)`は`ITER_TRAITS(I)::iterator_category`
 3. `std::iterator_traits<I>`がプライマリテンプレートの特殊化となる場合、`ITER_CONCEPT(I)`は`random_access_iterator_tag`
 4. 上記いずれにも当てはまらない場合、`ITER_CONCEPT(I)`は型名を示さない
 
