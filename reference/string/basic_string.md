@@ -145,6 +145,7 @@ namespace std {
 | [`find_first_not_of`](basic_string/find_first_not_of.md)             | 先頭から、指定文字が見つからない位置を検索する |                |
 | [`find_last_not_of`](basic_string/find_last_not_of.md)               | 末尾から、指定文字が見つからない位置を検索する |                |
 | [`substr`](basic_string/substr.md)                                   | 部分文字列を取得する                           |                |
+| [`subview`](basic_string/subview.md)                                 | 部分文字列の[`std::basic_string_view`](/reference/string_view/basic_string_view.md)を構築する | C++26 |
 | [`compare`](basic_string/compare.md)                                 | 他の文字列との比較を行う                       |                |
 | [`starts_with`](basic_string/starts_with.md)                         | 指定の文字列で始まるかを判定する               | C++20          |
 | [`ends_with`](basic_string/ends_with.md)                             | 指定の文字列で終わるかを判定する               | C++20          |

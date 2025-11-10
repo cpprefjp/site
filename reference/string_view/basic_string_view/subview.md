@@ -1,17 +1,20 @@
-# substr
+# subview
 * string_view[meta header]
 * std[meta namespace]
 * basic_string_view[meta class]
 * function[meta id-type]
-* cpp17[meta cpp]
+* cpp26[meta cpp]
 
 ```cpp
-constexpr basic_string_view substr(size_type pos = 0, size_type n = npos) const;
+constexpr basic_string_view<charT, traits>
+  subview(size_type pos = 0,
+          size_type n = npos) const;
 ```
 
 ## 概要
 部分文字列を取得する。
 
+本関数は[`substr`](substr.md)と全く同じ動作である。[`std::string`](/reference/string/basic_string.md)とインターフェースを揃える目的で追加された。
 
 
 ## 戻り値
@@ -33,19 +36,19 @@ int main()
 {
   std::string_view sv = "This is a pen";
 
-  std::string_view ret1 = sv.substr(5);    // 5番目から最後までの文字列を取得
-  std::string_view ret2 = sv.substr(5, 2); // 5番目から2文字の文字列を取得
+  std::string_view ret1 = sv.subview(5);    // 5番目から最後までの文字列を取得
+  std::string_view ret2 = sv.subview(5, 2); // 5番目から2文字の文字列を取得
 
   std::cout << "1 : [" << ret1 << ']' << std::endl;
   std::cout << "2 : [" << ret2 << ']' << std::endl;
 
-  // substrはデータを切り取るのではなく、参照位置と参照サイズを変更するだけなので、
+  // subviewはデータを切り取るのではなく、参照位置と参照サイズを変更するだけなので、
   // 生ポインタを介せば全体の文字列を復元することはできる。
   const char* ret3 = ret1.data() - 5;
   std::cout << "3 : [" << ret3 << ']' << std::endl;
 }
 ```
-* substr[color ff0000]
+* subview[color ff0000]
 * ret1.data()[link data.md]
 
 ### 出力
@@ -58,14 +61,20 @@ int main()
 
 ## バージョン
 ### 言語
-- C++17
+- C++26
 
 ### 処理系
-- [Clang](/implementation.md#clang): 4.0 [mark verified]
-- [GCC](/implementation.md#gcc): 7.1 [mark verified]
+- [Clang](/implementation.md#clang): ??
+- [GCC](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
+## 参照
+
+- [P3044R2 sub-string_view from string](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3044r2.pdf)
+
+
 ## 関連項目
-- [`subview`](subview.md)
+- [`substr`](substr.md)
+- [`basic_string::subview`](/reference/string/basic_string/subview.md)
