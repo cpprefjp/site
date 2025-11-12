@@ -8,6 +8,15 @@
 namespace std {
   template <class T>
   class optional;
+
+
+  // viewコンセプトを有効化する (C++26)
+  template<class T>
+  constexpr bool ranges::enable_view<optional<T>> = true;
+
+  // std::formatによるフォーマットを無効化する (C++26)
+  template<class T>
+  constexpr auto format_kind<optional<T>> = range_format::disabled;
 }
 ```
 
@@ -66,6 +75,14 @@ namespace std {
 | [`reset`](optional/reset.md)         | 有効値を保持していない状態にする | C++17 |
 
 
+### イテレータ
+
+| 名前 | 説明 | 対応バージョン |
+|------|------|----------------|
+| [`begin`](optional/begin.md) | `optional`をrangeとした時の先頭要素を指すイテレータを取得する | C++26 |
+| [`end`](optional/end.md) | `optional`をrangeとした時の末尾要素の次を指すイテレータを取得する | C++26 |
+
+
 ### 値の観測
 
 | 名前 | 説明 | 対応バージョン |
@@ -92,6 +109,8 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | `value_type` | 要素型`T` | C++17 |
+| `iterator` | 実装定義のイテレータ型。[`contiguous_iterator`](/reference/iterator/contiguous_iterator.md)、[`random_access_iterator`](/reference/iterator/random_access_iterator.md)、constexprイテレータのモデルであり、コンテナのイテレータに対するすべての要件を満たす | C++26 |
+| `const_iterator` | 実装定義の読み取り専用イテレータ型。[`contiguous_iterator`](/reference/iterator/contiguous_iterator.md)、[`random_access_iterator`](/reference/iterator/random_access_iterator.md)、constexprイテレータのモデルであり、コンテナのイテレータに対するすべての要件を満たす | C++26 |
 
 
 ## 非メンバ関数
