@@ -1,0 +1,459 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>sort - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,algorithm,std,function template
+">
+        <meta name="title" content="sort - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="sort - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="sort - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/algorithm/sort.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="イテレータ範囲`[first, last)`を並べ替える" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="sort - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/algorithm/sort.html" />
+        <meta name="twitter:description" content="イテレータ範囲`[first, last)`を並べ替える" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="manifest" href="../../manifest.json?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;algorithm&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function template&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;90e7d0f769e21699ee66a9fc45bb0a29756e44b5&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;algorithm&gt;\n\nint main()\n{\n  std::vector&lt;int&gt; v = {3, 1, 4, 2, 5};\n\n  // \u6607\u9806\u306b\u4e26\u3079\u66ff\u3048\u308b\n  std::sort(v.begin(), v.end());\n\n  std::for_each(v.begin(), v.end(), [](int x) {\n    std::cout &lt;&lt; x &lt;&lt; std::endl;\n  });\n  std::cout &lt;&lt; std::endl;\n\n  // \u964d\u9806\u306b\u4e26\u3079\u66ff\u3048\u308b\n  std::sort(v.begin(), v.end(), [](int a, int b) {\n    return a &gt; b;\n  });\n  // \u3053\u3061\u3089\u3067\u3082\u3088\u3044\n  // std::sort(v.begin(), v.end(), std::greater&lt;int&gt;{});\n\n  std::for_each(v.begin(), v.end(), [](int x) {\n    std::cout &lt;&lt; x &lt;&lt; std::endl;\n  });\n}\n&#34;}, {&#34;id&#34;: &#34;8d295582c3095391f929c4224e858cde095c8ffa&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;string&gt;\n#include &lt;tuple&gt;\n#include &lt;algorithm&gt;\n\n// \u8981\u7d20\u304c\u3072\u3068\u3064\u306e\u5834\u5408\nstruct MyInt {\n  int value;\n};\n\nbool operator&lt;(const MyInt&amp; a, const MyInt&amp; b) noexcept {\n  return a.value &lt; b.value;\n}\n\n// \u8981\u7d20\u304c\u8907\u6570\u306e\u5834\u5408\nstruct Person {\n  int id;\n  int age;\n  std::string name;\n};\n\nstruct PersonLess { // \u5927\u5c0f\u6bd4\u8f03\u7528\u306e\u95a2\u6570\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3092\u5b9a\u7fa9\u3059\u308b\u3053\u3068\u3082\u3067\u304d\u308b\n  bool operator()(const Person&amp; a, const Person&amp; b) const noexcept {\n    // \u30ad\u30fc\u3068\u3057\u3066\u6bd4\u8f03\u3057\u305f\u3044\u8981\u7d20\u3092\u5217\u6319\u3059\u308b\n    return std::tie(a.id, a.age, a.name) &lt; std::tie(b.id, b.age, b.name);\n  }\n};\n\nint main() {\n  std::vector&lt;MyInt&gt; v1 {\n    MyInt{3},\n    MyInt{1},\n    MyInt{2},\n  };\n  std::sort(v1.begin(), v1.end());\n\n  std::vector&lt;Person&gt; v2 {\n    Person{3, 30, \&#34;Carol\&#34;},\n    Person{1, 18, \&#34;Alice\&#34;},\n    Person{2, 30, \&#34;Bob\&#34;},\n  };\n  std::sort(v2.begin(), v2.end(), PersonLess{});\n\n  for (const MyInt&amp; x : v1) {\n    std::cout &lt;&lt; x.value &lt;&lt; std::endl;\n  }\n  std::cout &lt;&lt; std::endl;\n\n  for (const Person&amp; x : v2) {\n    std::cout &lt;&lt; x.name &lt;&lt; std::endl;\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;6024c5412def5a3dbf8a5151d1fbbb506d20a5e8&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;string&gt;\n#include &lt;algorithm&gt;\n\n// \u8981\u7d20\u304c\u3072\u3068\u3064\u306e\u5834\u5408\nstruct MyInt {\n  int value;\n\n  friend auto operator&lt;=&gt;(const MyInt&amp;, const MyInt&amp;) = default;\n};\n\n// \u8981\u7d20\u304c\u8907\u6570\u306e\u5834\u5408\nstruct Person {\n  int id;\n  int age;\n  std::string name;\n\n  friend auto operator&lt;=&gt;(const Person&amp;, const Person&amp;) = default;\n};\n\nint main() {\n  std::vector&lt;MyInt&gt; v1 {\n    MyInt{3},\n    MyInt{1},\n    MyInt{2},\n  };\n  std::sort(v1.begin(), v1.end());\n\n  std::vector&lt;Person&gt; v2 {\n    Person{3, 30, \&#34;Carol\&#34;},\n    Person{1, 18, \&#34;Alice\&#34;},\n    Person{2, 30, \&#34;Bob\&#34;},\n  };\n  std::sort(v2.begin(), v2.end());\n\n  for (const MyInt&amp; x : v1) {\n    std::cout &lt;&lt; x.value &lt;&lt; std::endl;\n  }\n  std::cout &lt;&lt; std::endl;\n\n  for (const Person&amp; x : v2) {\n    std::cout &lt;&lt; x.name &lt;&lt; std::endl;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;algorithm&#34;, &#34;sort&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/algorithm.html" itemprop="url">
+              
+                <span itemprop="name">algorithm</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">sort</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-07-08T15:33:39">
+        2025年07月08日 15時33分39秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/algorithm/sort.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/algorithm/sort.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function template</div><div class="header">&lt;algorithm&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">sort</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">RandomAccessIterator</span><span class="o">&gt;</span>
+  <span class="kt">void</span> <span class="n">sort</span><span class="p">(</span><span class="n">RandomAccessIterator</span> <span class="n">first</span><span class="p">,</span>
+            <span class="n">RandomAccessIterator</span> <span class="n">last</span><span class="p">);</span>           <span class="c1">// (1) C++03</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">RandomAccessIterator</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="kt">void</span> <span class="n">sort</span><span class="p">(</span><span class="n">RandomAccessIterator</span> <span class="n">first</span><span class="p">,</span>
+                      <span class="n">RandomAccessIterator</span> <span class="n">last</span><span class="p">);</span> <span class="c1">// (1) C++20</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">RandomAccessIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Compare</span><span class="o">&gt;</span>
+  <span class="kt">void</span> <span class="n">sort</span><span class="p">(</span><span class="n">RandomAccessIterator</span> <span class="n">first</span><span class="p">,</span>
+            <span class="n">RandomAccessIterator</span> <span class="n">last</span><span class="p">,</span>
+            <span class="n">Compare</span> <span class="n">comp</span><span class="p">);</span>                        <span class="c1">// (2) C++03</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">RandomAccessIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Compare</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="kt">void</span> <span class="n">sort</span><span class="p">(</span><span class="n">RandomAccessIterator</span> <span class="n">first</span><span class="p">,</span>
+                      <span class="n">RandomAccessIterator</span> <span class="n">last</span><span class="p">,</span>
+                      <span class="n">Compare</span> <span class="n">comp</span><span class="p">);</span>              <span class="c1">// (2) C++20</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="p">,</span> <span class="k">class</span> <span class="nc">RandomAccessIterator</span><span class="o">&gt;</span>
+  <span class="kt">void</span> <span class="n">sort</span><span class="p">(</span><span class="n"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="o">&amp;&amp;</span> <span class="n">exec</span><span class="p">,</span>
+            <span class="n">RandomAccessIterator</span> <span class="n">first</span><span class="p">,</span>
+            <span class="n">RandomAccessIterator</span> <span class="n">last</span><span class="p">);</span>           <span class="c1">// (3) C++17</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="p">,</span> <span class="k">class</span> <span class="nc">RandomAccessIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Compare</span><span class="o">&gt;</span>
+  <span class="kt">void</span> <span class="n">sort</span><span class="p">(</span><span class="n"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="o">&amp;&amp;</span> <span class="n">exec</span><span class="p">,</span>
+            <span class="n">RandomAccessIterator</span> <span class="n">first</span><span class="p">,</span>
+            <span class="n">RandomAccessIterator</span> <span class="n">last</span><span class="p">,</span>
+            <span class="n">Compare</span> <span class="n">comp</span><span class="p">);</span>                        <span class="c1">// (4) C++17</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a><code>[first, last)</code>を並べ替える</p>
+<h2>要件</h2>
+<p><code>RandomAccessIterator</code> は <code>ValueSwappable</code> の要求を満たしている必要がある。<code>*first</code> の型は <code>MoveConstructible</code> と <code>MoveAssignable</code> の要件を満たしている必要がある。</p>
+<h2>効果</h2>
+<p><code>[first,last)</code> の範囲をソートする</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p>なし</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></h2>
+<ul>
+<li>C++03: 平均して約N log N (N == <code>last - first</code>) 回の比較</li>
+<li>C++11以降: O(N log N) (N == <code>last - first</code>) 回の比較</li>
+</ul>
+<h2>備考</h2>
+<ul>
+<li>この関数には、特定のアルゴリズムで実装すべきという規定はない</li>
+<li>実装のアルゴリズムとしては、クイックソートの改良版であるイントロソートが使われることが多い</li>
+<li>クイックソートは平均<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a>がO(N log N)だが、最悪<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a>がO(n<sup>2</sup>)である。そのため、C++03の<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a>要件には合致するが、C++11の要件には合致しない</li>
+</ul>
+<h2>例</h2>
+<h3>基本的な使い方</h3>
+<p><div class="yata" id="90e7d0f769e21699ee66a9fc45bb0a29756e44b5"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+
+  <span class="c1">// 昇順に並べ替える</span>
+  <span class="n"><span style="color:#ff0000">std::sort</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">);</span>
+
+  <span class="n"><a href="for_each.html">std::for_each</a></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">});</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// 降順に並べ替える</span>
+  <span class="n"><span style="color:#ff0000">std::sort</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">;</span>
+  <span class="p">});</span>
+  <span class="c1">// こちらでもよい</span>
+  <span class="c1">// <span style="color:#ff0000">std::sort</span>(<a href="../vector/vector/begin.html">v.begin()</a>, <a href="../vector/vector/end.html">v.end()</a>, std::greater&lt;int&gt;{});</span>
+
+  <span class="n"><a href="for_each.html">std::for_each</a></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>1
+2
+3
+4
+5
+
+5
+4
+3
+2
+1
+</code></pre></p>
+<h3><a class="cpprefjp-defined-word" data-desc="プログラム定義型。標準ライブラリの型を除く、ユーザー（プログラマ）によって定義された型のこと">ユーザー定義型</a>の配列を並べ替える (C++11)</h3>
+<p><div class="yata" id="8d295582c3095391f929c4224e858cde095c8ffa"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../tuple.html">&lt;tuple&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// 要素がひとつの場合</span>
+<span class="k">struct</span> <span class="n">MyInt</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">bool</span> <span class="k">operator</span><span class="o">&lt;</span><span class="p">(</span><span class="k">const</span> <span class="n">MyInt</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">MyInt</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">value</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 要素が複数の場合</span>
+<span class="k">struct</span> <span class="n">Person</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">id</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">name</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">PersonLess</span> <span class="p">{</span> <span class="c1">// 大小比較用の関数オブジェクトを定義することもできる</span>
+  <span class="kt">bool</span> <span class="k">operator</span><span class="p">()(</span><span class="k">const</span> <span class="n">Person</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">Person</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="p">{</span>
+    <span class="c1">// キーとして比較したい要素を列挙する</span>
+    <span class="k">return</span> <span class="n"><a href="../tuple/tie.html">std::tie</a></span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">id</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">age</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">name</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n"><a href="../tuple/tie.html">std::tie</a></span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">id</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">age</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">name</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">MyInt</span><span class="o">&gt;</span> <span class="n">v1</span> <span class="p">{</span>
+    <span class="n">MyInt</span><span class="p">{</span><span class="mi">3</span><span class="p">},</span>
+    <span class="n">MyInt</span><span class="p">{</span><span class="mi">1</span><span class="p">},</span>
+    <span class="n">MyInt</span><span class="p">{</span><span class="mi">2</span><span class="p">},</span>
+  <span class="p">};</span>
+  <span class="n"><span style="color:#ff0000">std::sort</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v1.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v1.end()</a></span><span class="p">);</span>
+
+  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span> <span class="n">v2</span> <span class="p">{</span>
+    <span class="n">Person</span><span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s">"Carol"</span><span class="p">},</span>
+    <span class="n">Person</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="s">"Alice"</span><span class="p">},</span>
+    <span class="n">Person</span><span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s">"Bob"</span><span class="p">},</span>
+  <span class="p">};</span>
+  <span class="n"><span style="color:#ff0000">std::sort</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v2.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v2.end()</a></span><span class="p">,</span> <span class="n">PersonLess</span><span class="p">{});</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="n">MyInt</span><span class="o">&amp;</span> <span class="nl">x</span> <span class="p">:</span> <span class="n">v1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span><span class="p">.</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="n">Person</span><span class="o">&amp;</span> <span class="nl">x</span> <span class="p">:</span> <span class="n">v2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span><span class="p">.</span><span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>1
+2
+3
+
+Alice
+Bob
+Carol
+</code></pre></p>
+<h3><a class="cpprefjp-defined-word" data-desc="プログラム定義型。標準ライブラリの型を除く、ユーザー（プログラマ）によって定義された型のこと">ユーザー定義型</a>の配列を並べ替える (C++20)</h3>
+<p><div class="yata" id="6024c5412def5a3dbf8a5151d1fbbb506d20a5e8"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// 要素がひとつの場合</span>
+<span class="k">struct</span> <span class="n">MyInt</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
+
+  <span class="k">friend</span> <span class="k">auto</span> <span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">MyInt</span><span class="o">&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="n">MyInt</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// 要素が複数の場合</span>
+<span class="k">struct</span> <span class="n">Person</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">id</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">name</span><span class="p">;</span>
+
+  <span class="k">friend</span> <span class="k">auto</span> <span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">Person</span><span class="o">&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="n">Person</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">MyInt</span><span class="o">&gt;</span> <span class="n">v1</span> <span class="p">{</span>
+    <span class="n">MyInt</span><span class="p">{</span><span class="mi">3</span><span class="p">},</span>
+    <span class="n">MyInt</span><span class="p">{</span><span class="mi">1</span><span class="p">},</span>
+    <span class="n">MyInt</span><span class="p">{</span><span class="mi">2</span><span class="p">},</span>
+  <span class="p">};</span>
+  <span class="n"><span style="color:#ff0000">std::sort</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v1.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v1.end()</a></span><span class="p">);</span>
+
+  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span> <span class="n">v2</span> <span class="p">{</span>
+    <span class="n">Person</span><span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s">"Carol"</span><span class="p">},</span>
+    <span class="n">Person</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="s">"Alice"</span><span class="p">},</span>
+    <span class="n">Person</span><span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s">"Bob"</span><span class="p">},</span>
+  <span class="p">};</span>
+  <span class="n"><span style="color:#ff0000">std::sort</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v2.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v2.end()</a></span><span class="p">);</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="n">MyInt</span><span class="o">&amp;</span> <span class="nl">x</span> <span class="p">:</span> <span class="n">v1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span><span class="p">.</span><span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="n">Person</span><span class="o">&amp;</span> <span class="nl">x</span> <span class="p">:</span> <span class="n">v2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span><span class="p">.</span><span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h2>関連項目</h2>
+<ul>
+<li><a href="../../lang/cpp20/consistent_comparison.html">C++20 <code>&lt;=&gt;</code>/<code>==</code>による比較演算子の自動定義</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#713" target="_blank">LWG Issue 713. <code>sort()</code> complexity is too lax</a><ul>
+<li>C++11で、イントロソートアルゴリズムを考慮して、<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a>の規定が見直された経緯のレポート</li>
+</ul>
+</li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0879r0.html" target="_blank">P0879R0 Constexpr for <code>swap</code> and <code>swap</code> related functions</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

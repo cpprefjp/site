@@ -1,0 +1,399 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>unordered_multimap::推論補助 - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,unordered_map,std,unordered_multimap,cpp17
+">
+        <meta name="title" content="unordered_multimap::推論補助 - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="unordered_multimap::推論補助 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="unordered_multimap::推論補助 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/op_deduction_guide.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`std::unordered_multimap`クラステンプレートの型推論補助。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="unordered_multimap::推論補助 - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/op_deduction_guide.html" />
+        <meta name="twitter:description" content="`std::unordered_multimap`クラステンプレートの型推論補助。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="manifest" href="../../../manifest.json?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;unordered_map&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;unordered_multimap&#34;], &#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;unordered_map&#34;, &#34;unordered_multimap&#34;, &#34;op_deduction_guide&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/unordered_map.html" itemprop="url">
+              
+                <span itemprop="name">unordered_map</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/unordered_map/unordered_multimap.html" itemprop="url">
+              
+                <span itemprop="name">unordered_multimap</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">推論補助</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-07-14T14:04:00">
+        2025年07月14日 14時04分00秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Koichi Murase</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/unordered_map/unordered_multimap/op_deduction_guide.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/unordered_map/unordered_multimap/op_deduction_guide.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="header">&lt;unordered_map&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class unordered_multimap">unordered_multimap::</span><span class="token">推論補助</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="c1">// 説明用の型</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
+  <span class="k">using</span> <span class="n">iter_key_t</span> <span class="o">=</span> <span class="n"><a href="../../type_traits/remove_const.html">remove_const_t</a></span><span class="o">&lt;</span><span class="k">typename</span> <span class="n"><a href="../../iterator/iterator_traits.html">iterator_traits</a></span><span class="o">&lt;</span><span class="n">InputIterator</span><span class="o">&gt;::</span><span class="n">value_type</span><span class="o">::</span><span class="n">first_type</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
+  <span class="k">using</span> <span class="n">iter_val_t</span> <span class="o">=</span> <span class="k">typename</span> <span class="n"><a href="../../iterator/iterator_traits.html">iterator_traits</a></span><span class="o">&lt;</span><span class="n">InputIterator</span><span class="o">&gt;::</span><span class="n">value_type</span><span class="o">::</span><span class="n">second_type</span><span class="p">;</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
+  <span class="k">using</span> <span class="n">iter_to_alloc_t</span> <span class="o">=</span> <span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/add_const.html">add_const_t</a></span><span class="o">&lt;</span><span class="k">typename</span> <span class="n"><a href="../../iterator/iterator_traits.html">iterator_traits</a></span><span class="o">&lt;</span><span class="n">InputIterator</span><span class="o">&gt;::</span><span class="n">value_type</span><span class="o">::</span><span class="n">first_type</span><span class="o">&gt;</span><span class="p">,</span>
+                               <span class="k">typename</span> <span class="n"><a href="../../iterator/iterator_traits.html">iterator_traits</a></span><span class="o">&lt;</span><span class="n">InputIterator</span><span class="o">&gt;::</span><span class="n">value_type</span><span class="o">::</span><span class="n">second_type</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../../ranges/input_range.html">ranges::input_range</a></span> <span class="n">Range</span><span class="o">&gt;</span>
+  <span class="k">using</span> <span class="n">range_key_t</span> <span class="o">=</span> <span class="n"><a href="../../type_traits/remove_const.html">remove_const_t</a></span><span class="o">&lt;</span><span class="k">typename</span> <span class="n"><a href="../../ranges/range_value_t.html">ranges::range_value_t</a></span><span class="o">&lt;</span><span class="n">Range</span><span class="o">&gt;::</span><span class="n">first_type</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../../ranges/input_range.html">ranges::input_range</a></span> <span class="n">Range</span><span class="o">&gt;</span>
+  <span class="k">using</span> <span class="n">range_val_t</span> <span class="o">=</span> <span class="k">typename</span> <span class="n"><a href="../../ranges/range_value_t.html">ranges::range_value_t</a></span><span class="o">&lt;</span><span class="n">Range</span><span class="o">&gt;::</span><span class="n">second_type</span><span class="p">;</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Hash</span> <span class="o">=</span> <span class="n"><a href="../../functional/hash.html">hash</a></span><span class="o">&lt;</span><span class="n">iter_key_t</span><span class="o">&lt;</span><span class="n">InputIterator</span><span class="o">&gt;&gt;</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Pred</span> <span class="o">=</span> <span class="n"><a href="../../functional/equal_to.html">equal_to</a></span><span class="o">&lt;</span><span class="n">iter_key_t</span><span class="o">&lt;</span><span class="n">InputIterator</span><span class="o">&gt;&gt;</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Allocator</span> <span class="o">=</span> <span class="n"><a href="../../memory/allocator.html">allocator</a></span><span class="o">&lt;</span><span class="n">iter_to_alloc_t</span><span class="o">&lt;</span><span class="n">InputIterator</span><span class="o">&gt;&gt;&gt;</span>
+  <span class="n">unordered_multimap</span><span class="p">(</span><span class="n">InputIterator</span><span class="p">,</span> <span class="n">InputIterator</span><span class="p">,</span> <span class="k">typename</span> <span class="n"><i>see below</i></span><span class="o">::</span><span class="n">size_type</span> <span class="o">=</span> <span class="n"><i>see below</i></span><span class="p">,</span>
+                <span class="n">Hash</span> <span class="o">=</span> <span class="n">Hash</span><span class="p">(),</span> <span class="n">Pred</span> <span class="o">=</span> <span class="n">Pred</span><span class="p">(),</span> <span class="n">Allocator</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">())</span>
+    <span class="o">-&gt;</span> <span class="n">unordered_multimap</span><span class="o">&lt;</span><span class="n">iter_key_t</span><span class="o">&lt;</span><span class="n">InputIterator</span><span class="o">&gt;</span><span class="p">,</span>
+                          <span class="n"><a href="../../iterator/iter_value_t.html">iter_value_t</a></span><span class="o">&lt;</span><span class="n">InputIterator</span><span class="o">&gt;</span><span class="p">,</span>
+                          <span class="n">Hash</span><span class="p">,</span> <span class="n">Pred</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;</span><span class="p">;</span>         <span class="c1">// (1)</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Key</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Hash</span> <span class="o">=</span> <span class="n"><a href="../../functional/hash.html">hash</a></span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Pred</span> <span class="o">=</span> <span class="n"><a href="../../functional/equal_to.html">equal_to</a></span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Allocator</span> <span class="o">=</span> <span class="n"><a href="../../memory/allocator.html">allocator</a></span><span class="o">&lt;</span><span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="k">const</span> <span class="n">Key</span><span class="p">,</span> <span class="n">T</span><span class="o">&gt;&gt;&gt;</span>
+  <span class="n">unordered_multimap</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span> <span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">,</span>
+                <span class="k">typename</span> <span class="n"><i>see below</i></span><span class="o">::</span><span class="n">size_type</span> <span class="o">=</span> <span class="n"><i>see below</i></span><span class="p">,</span>
+                <span class="n">Hash</span> <span class="o">=</span> <span class="n">Hash</span><span class="p">(),</span> <span class="n">Pred</span> <span class="o">=</span> <span class="n">Pred</span><span class="p">(),</span> <span class="n">Allocator</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">())</span>
+    <span class="o">-&gt;</span> <span class="n">unordered_multimap</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">Hash</span><span class="p">,</span> <span class="n">Pred</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// (2)</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
+  <span class="n">unordered_multimap</span><span class="p">(</span><span class="n">InputIterator</span><span class="p">,</span> <span class="n">InputIterator</span><span class="p">,</span> <span class="k">typename</span> <span class="n"><i>see below</i></span><span class="o">::</span><span class="n">size_type</span><span class="p">,</span> <span class="n">Allocator</span><span class="p">)</span>
+    <span class="o">-&gt;</span> <span class="n">unordered_multimap</span><span class="o">&lt;</span>
+           <span class="n">iter_key_t</span><span class="o">&lt;</span><span class="n">InputIterator</span><span class="o">&gt;</span><span class="p">,</span>
+           <span class="n">iter_val_t</span><span class="o">&lt;</span><span class="n">InputIterator</span><span class="o">&gt;</span><span class="p">,</span>
+           <span class="n"><a href="../../functional/hash.html">hash</a></span><span class="o">&lt;</span><span class="n">iter_key_t</span><span class="o">&lt;</span><span class="n">InputIterator</span><span class="o">&gt;&gt;</span><span class="p">,</span>
+           <span class="n"><a href="../../functional/equal_to.html">equal_to</a></span><span class="o">&lt;</span><span class="n">iter_key_t</span><span class="o">&lt;</span><span class="n">InputIterator</span><span class="o">&gt;&gt;</span><span class="p">,</span>
+           <span class="n">Allocator</span><span class="o">&gt;</span><span class="p">;</span>                                    <span class="c1">// (3)</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
+  <span class="n">unordered_multimap</span><span class="p">(</span><span class="n">InputIterator</span><span class="p">,</span> <span class="n">InputIterator</span><span class="p">,</span> <span class="n">Allocator</span><span class="p">)</span>
+    <span class="o">-&gt;</span> <span class="n">unordered_multimap</span><span class="o">&lt;</span>
+           <span class="n">iter_key_t</span><span class="o">&lt;</span><span class="n">InputIterator</span><span class="o">&gt;</span><span class="p">,</span>
+           <span class="n">iter_val_t</span><span class="o">&lt;</span><span class="n">InputIterator</span><span class="o">&gt;</span><span class="p">,</span>
+           <span class="n"><a href="../../functional/hash.html">hash</a></span><span class="o">&lt;</span><span class="n">iter_key_t</span><span class="o">&lt;</span><span class="n">InputIterator</span><span class="o">&gt;&gt;</span><span class="p">,</span>
+           <span class="n"><a href="../../functional/equal_to.html">equal_to</a></span><span class="o">&lt;</span><span class="n">iter_key_t</span><span class="o">&lt;</span><span class="n">InputIterator</span><span class="o">&gt;&gt;</span><span class="p">,</span>
+           <span class="n">Allocator</span><span class="o">&gt;</span><span class="p">;</span>                                    <span class="c1">// (4)</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Hash</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
+  <span class="n">unordered_multimap</span><span class="p">(</span><span class="n">InputIterator</span><span class="p">,</span> <span class="n">InputIterator</span><span class="p">,</span> <span class="k">typename</span> <span class="n"><i>see below</i></span><span class="o">::</span><span class="n">size_type</span><span class="p">,</span> <span class="n">Hash</span><span class="p">,</span> <span class="n">Allocator</span><span class="p">)</span>
+    <span class="o">-&gt;</span> <span class="n">unordered_multimap</span><span class="o">&lt;</span>
+           <span class="n">iter_key_t</span><span class="o">&lt;</span><span class="n">InputIterator</span><span class="o">&gt;</span><span class="p">,</span>
+           <span class="n">iter_val_t</span><span class="o">&lt;</span><span class="n">InputIterator</span><span class="o">&gt;</span><span class="p">,</span>
+           <span class="n">Hash</span><span class="p">,</span>
+           <span class="n"><a href="../../functional/equal_to.html">equal_to</a></span><span class="o">&lt;</span><span class="n">iter_key_t</span><span class="o">&lt;</span><span class="n">InputIterator</span><span class="o">&gt;&gt;</span><span class="p">,</span>
+           <span class="n">Allocator</span><span class="o">&gt;</span><span class="p">;</span>                                    <span class="c1">// (5)</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Key</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">Allocator</span><span class="o">&gt;</span>
+  <span class="n">unordered_multimap</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span> <span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="k">typename</span> <span class="n"><i>see below</i></span><span class="o">::</span><span class="n">size_type</span><span class="p">,</span> <span class="n">Allocator</span><span class="p">)</span>
+    <span class="o">-&gt;</span> <span class="n">unordered_multimap</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n"><a href="../../functional/hash.html">hash</a></span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;</span><span class="p">,</span>
+                          <span class="n"><a href="../../functional/equal_to.html">equal_to</a></span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;</span><span class="p">;</span>      <span class="c1">// (6)</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Key</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">Allocator</span><span class="o">&gt;</span>
+  <span class="n">unordered_multimap</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span> <span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="n">Allocator</span><span class="p">)</span>
+    <span class="o">-&gt;</span> <span class="n">unordered_multimap</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n"><a href="../../functional/hash.html">hash</a></span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;</span><span class="p">,</span>
+                          <span class="n"><a href="../../functional/equal_to.html">equal_to</a></span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;</span><span class="p">;</span>      <span class="c1">// (7)</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Key</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Hash</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
+  <span class="n">unordered_multimap</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span> <span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="k">typename</span> <span class="n"><i>see below</i></span><span class="o">::</span><span class="n">size_type</span><span class="p">,</span> <span class="n">Hash</span><span class="p">,</span> <span class="n">Allocator</span><span class="p">)</span>
+    <span class="o">-&gt;</span> <span class="n">unordered_multimap</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">Hash</span><span class="p">,</span>
+                          <span class="n"><a href="../../functional/equal_to.html">equal_to</a></span><span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;</span><span class="p">;</span>      <span class="c1">// (8)</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../../ranges/input_range.html">ranges::input_range</a></span> <span class="n">R</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Hash</span> <span class="o">=</span> <span class="n"><a href="../../functional/hash.html">hash</a></span><span class="o">&lt;</span><span class="n">range_key_t</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;&gt;</span><span class="p">,</span>
+           <span class="k">class</span> <span class="nc">Pred</span> <span class="o">=</span> <span class="n"><a href="../../functional/equal_to.html">equal_to</a></span><span class="o">&lt;</span><span class="n">range_key_t</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;&gt;</span><span class="p">,</span>
+           <span class="k">class</span> <span class="nc">Allocator</span> <span class="o">=</span> <span class="n"><a href="../../memory/allocator.html">allocator</a></span><span class="o">&lt;</span><span class="n"><a href="../../ranges/range.html">range</a></span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">alloc</span><span class="o">-</span><span class="n">type</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;&gt;&gt;</span>
+  <span class="n">unordered_multimap</span><span class="p">(</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span><span class="p">,</span> <span class="n">R</span><span class="o">&amp;&amp;</span><span class="p">,</span> <span class="k">typename</span> <span class="n"><i>see below</i></span><span class="o">::</span><span class="n">size_type</span> <span class="o">=</span> <span class="n"><i>see below</i></span><span class="p">,</span>
+                     <span class="n">Hash</span> <span class="o">=</span> <span class="n">Hash</span><span class="p">(),</span> <span class="n">Pred</span> <span class="o">=</span> <span class="n">Pred</span><span class="p">(),</span> <span class="n">Allocator</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">())</span>
+    <span class="o">-&gt;</span> <span class="n">unordered_multimap</span><span class="o">&lt;</span><span class="n">range_key_t</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">range_val_t</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">Hash</span><span class="p">,</span> <span class="n">Pred</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// (9) C++23から</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../../ranges/input_range.html">ranges::input_range</a></span> <span class="n">R</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
+  <span class="n">unordered_multimap</span><span class="p">(</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span><span class="p">,</span> <span class="n">R</span><span class="o">&amp;&amp;</span><span class="p">,</span> <span class="k">typename</span> <span class="n"><i>see below</i></span><span class="o">::</span><span class="n">size_type</span><span class="p">,</span> <span class="n">Allocator</span><span class="p">)</span>
+    <span class="o">-&gt;</span> <span class="n">unordered_multimap</span><span class="o">&lt;</span><span class="n">range_key_t</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">range_val_t</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span> <span class="n"><a href="../../functional/hash.html">hash</a></span><span class="o">&lt;</span><span class="n">range_key_t</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;&gt;</span><span class="p">,</span>
+                          <span class="n"><a href="../../functional/equal_to.html">equal_to</a></span><span class="o">&lt;</span><span class="n">range_key_t</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;</span><span class="p">;</span>                   <span class="c1">// (10) C++23から</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../../ranges/input_range.html">ranges::input_range</a></span> <span class="n">R</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
+  <span class="n">unordered_multimap</span><span class="p">(</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span><span class="p">,</span> <span class="n">R</span><span class="o">&amp;&amp;</span><span class="p">,</span> <span class="n">Allocator</span><span class="p">)</span>
+    <span class="o">-&gt;</span> <span class="n">unordered_multimap</span><span class="o">&lt;</span><span class="n">range_key_t</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">range_val_t</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span> <span class="n"><a href="../../functional/hash.html">hash</a></span><span class="o">&lt;</span><span class="n">range_key_t</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;&gt;</span><span class="p">,</span>
+                          <span class="n"><a href="../../functional/equal_to.html">equal_to</a></span><span class="o">&lt;</span><span class="n">range_key_t</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;</span><span class="p">;</span>                   <span class="c1">// (11) C++23から</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../../ranges/input_range.html">ranges::input_range</a></span> <span class="n">R</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Hash</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
+  <span class="n">unordered_multimap</span><span class="p">(</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span><span class="p">,</span> <span class="n">R</span><span class="o">&amp;&amp;</span><span class="p">,</span> <span class="k">typename</span> <span class="n"><i>see below</i></span><span class="o">::</span><span class="n">size_type</span><span class="p">,</span> <span class="n">Hash</span><span class="p">,</span> <span class="n">Allocator</span><span class="p">)</span>
+    <span class="o">-&gt;</span> <span class="n">unordered_multimap</span><span class="o">&lt;</span><span class="n">range_key_t</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">range_val_t</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">Hash</span><span class="p">,</span>
+                          <span class="n"><a href="../../functional/equal_to.html">equal_to</a></span><span class="o">&lt;</span><span class="n">range_key_t</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;</span><span class="p">;</span>                   <span class="c1">// (12) C++23から</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>std::unordered_multimap</code>クラステンプレートの型推論補助。</p>
+<ul>
+<li>(1) : <a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a>からの推論</li>
+<li>(2) : 初期化子リストからの推論</li>
+<li>(3) : <a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a>とバケット数、アロケータからの推論</li>
+<li>(4) : <a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a>とアロケータからの推論</li>
+<li>(5) : <a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a>とバケット数、ハッシュ関数、アロケータからの推論</li>
+<li>(6) : 初期化子リストとバケット数、アロケータからの推論</li>
+<li>(7) : 初期化子リストとアロケータからの推論</li>
+<li>(8) : 初期化子リストとバケット数、ハッシュ関数、アロケータからの推論</li>
+<li>(9) : Rangeからの推論</li>
+<li>(10) : Rangeとバケット数、アロケータからの推論</li>
+<li>(11) : Rangeとアロケータからの推論</li>
+<li>(12) : Rangeとバケット数、ハッシュ関数、アロケータからの推論</li>
+</ul>
+<h2>備考</h2>
+<ul>
+<li>メンバ型<code>size_type</code>は自動的に推論される</li>
+<li>C++17時点において、<code>unordered_multimap</code>の推論補助は使いにくい。これは<a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a>や組でのキーの型が<code>const Key</code>となっているためだ。この使いにくさは、将来の言語拡張で改良される可能性がある。
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="c1">// コンパイルエラー！ 初期化子リストからconst Keyを導出できない</span>
+<span class="n">unordered_multimap</span> <span class="n">m</span> <span class="o">=</span> <span class="p">{{</span><span class="s">"foo"</span><span class="p">,</span> <span class="mi">2</span><span class="p">},</span> <span class="p">{</span><span class="s">"bar"</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="p">{</span><span class="s">"baz"</span><span class="p">,</span> <span class="mi">4</span><span class="p">}};</span>
+
+<span class="c1">// OK</span>
+<span class="n">unordered_multimap</span> <span class="n">m2</span> <span class="o">=</span> <span class="n">initializer_list</span><span class="o">&lt;</span><span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="kt">char</span> <span class="k">const</span> <span class="o">*</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">({{</span><span class="s">"foo"</span><span class="p">,</span> <span class="mi">2</span><span class="p">},</span> <span class="p">{</span><span class="s">"bar"</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="p">{</span><span class="s">"baz"</span><span class="p">,</span> <span class="mi">4</span><span class="p">}});</span>
+</code></pre></div>
+</li>
+</ul>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++17</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>:</li>
+<li><a href="../../../implementation.html#gcc">GCC</a>:</li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><a href="../../../lang/cpp17/type_deduction_for_class_templates.html">C++17 クラステンプレートのテンプレート引数推論</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0433r2.html" target="_blank">P0433R2 Toward a resolution of US7 and US14: Integrating template deduction for class templates into the standard library</a></li>
+<li><a href="https://wg21.cmeerw.net/lwg/issue3025" target="_blank">LWG Issue 3025. Map-like container deduction guides should use <code>pair&lt;Key, T&gt;</code>, not <code>pair&lt;const Key, T&gt;</code></a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

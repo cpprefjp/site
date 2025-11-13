@@ -1,0 +1,450 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>equal - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,algorithm,std,function template
+">
+        <meta name="title" content="equal - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="equal - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="equal - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/algorithm/equal.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="2つのイテレータ範囲を等値比較する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="equal - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/algorithm/equal.html" />
+        <meta name="twitter:description" content="2つのイテレータ範囲を等値比較する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="manifest" href="../../manifest.json?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;algorithm&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function template&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;e11448478d59a803eab835e51d930796d7df1b10&#34;, &#34;source&#34;: &#34;#include &lt;algorithm&gt;\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;array&gt;\n#include &lt;iterator&gt;\n\nint main() {\n  std::vector&lt;int&gt;   v  = { 1,2,3,4,3,2 };\n  std::array&lt;int, 6&gt; v2 = { 1,2,3,4,2,1 };\n\n  // \u30b3\u30f3\u30c6\u30ca\u306e\u4e2d\u8eab\u304c\u540c\u3058\u304b\u3069\u3046\u304b\u8abf\u3079\u308b\n  bool result = std::equal(std::begin(v), std::end(v), std::begin(v2), std::end(v2));\n  std::cout &lt;&lt; std::boolalpha &lt;&lt; result &lt;&lt; std::endl;\n\n  // x\u00b11 \u306e\u8aa4\u5dee\u3092\u8a31\u3059\u3088\u3046\u306b\u3059\u308b\n  bool result2 = std::equal(std::begin(v), std::end(v), std::begin(v2), std::end(v2),\n                            [](int x, int y) { return x - 1 &lt;= y &amp;&amp; y &lt;= x + 1; });\n  std::cout &lt;&lt; std::boolalpha &lt;&lt; result2 &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;algorithm&#34;, &#34;equal&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/algorithm.html" itemprop="url">
+              
+                <span itemprop="name">algorithm</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">equal</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-07-13T04:07:37">
+        2025年07月13日 04時07分37秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Koichi Murase</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/algorithm/equal.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/algorithm/equal.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function template</div><div class="header">&lt;algorithm&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">equal</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">InputIterator2</span><span class="o">&gt;</span>
+  <span class="kt">bool</span> <span class="n">equal</span><span class="p">(</span><span class="n">InputIterator1</span> <span class="n">first1</span><span class="p">,</span>
+             <span class="n">InputIterator1</span> <span class="n">last1</span><span class="p">,</span>
+             <span class="n">InputIterator2</span> <span class="n">first2</span><span class="p">);</span>           <span class="c1">// (1) C++03</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">InputIterator2</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">equal</span><span class="p">(</span><span class="n">InputIterator1</span> <span class="n">first1</span><span class="p">,</span>
+                       <span class="n">InputIterator1</span> <span class="n">last1</span><span class="p">,</span>
+                       <span class="n">InputIterator2</span> <span class="n">first2</span><span class="p">);</span> <span class="c1">// (1) C++20</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">InputIterator2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">BinaryPredicate</span><span class="o">&gt;</span>
+  <span class="kt">bool</span> <span class="n">equal</span><span class="p">(</span><span class="n">InputIterator1</span> <span class="n">first1</span><span class="p">,</span>
+             <span class="n">InputIterator1</span> <span class="n">last1</span><span class="p">,</span>
+             <span class="n">InputIterator2</span> <span class="n">first2</span><span class="p">,</span>
+             <span class="n">BinaryPredicate</span> <span class="n">pred</span><span class="p">);</span>            <span class="c1">// (2) C++03</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">InputIterator2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">BinaryPredicate</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">equal</span><span class="p">(</span><span class="n">InputIterator1</span> <span class="n">first1</span><span class="p">,</span>
+                       <span class="n">InputIterator1</span> <span class="n">last1</span><span class="p">,</span>
+                       <span class="n">InputIterator2</span> <span class="n">first2</span><span class="p">,</span>
+                       <span class="n">BinaryPredicate</span> <span class="n">pred</span><span class="p">);</span>  <span class="c1">// (2) C++20</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">InputIterator2</span><span class="o">&gt;</span>
+  <span class="kt">bool</span> <span class="n">equal</span><span class="p">(</span><span class="n">InputIterator1</span> <span class="n">first1</span><span class="p">,</span>
+             <span class="n">InputIterator1</span> <span class="n">last1</span><span class="p">,</span>
+             <span class="n">InputIterator2</span> <span class="n">first2</span><span class="p">,</span>
+             <span class="n">InputIterator2</span> <span class="n">last2</span><span class="p">);</span>            <span class="c1">// (3) C++14</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">InputIterator2</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">equal</span><span class="p">(</span><span class="n">InputIterator1</span> <span class="n">first1</span><span class="p">,</span>
+                       <span class="n">InputIterator1</span> <span class="n">last1</span><span class="p">,</span>
+                       <span class="n">InputIterator2</span> <span class="n">first2</span><span class="p">,</span>
+                       <span class="n">InputIterator2</span> <span class="n">last2</span><span class="p">);</span>  <span class="c1">// (3) C++20</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">InputIterator2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">BinaryPredicate</span><span class="o">&gt;</span>
+  <span class="kt">bool</span> <span class="n">equal</span><span class="p">(</span><span class="n">InputIterator1</span> <span class="n">first1</span><span class="p">,</span>
+             <span class="n">InputIterator1</span> <span class="n">last1</span><span class="p">,</span>
+             <span class="n">InputIterator2</span> <span class="n">first2</span><span class="p">,</span>
+             <span class="n">InputIterator2</span> <span class="n">last2</span><span class="p">,</span>
+             <span class="n">BinaryPredicate</span> <span class="n">pred</span><span class="p">);</span>            <span class="c1">// (4) C++14</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">InputIterator2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">BinaryPredicate</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">equal</span><span class="p">(</span><span class="n">InputIterator1</span> <span class="n">first1</span><span class="p">,</span>
+                       <span class="n">InputIterator1</span> <span class="n">last1</span><span class="p">,</span>
+                       <span class="n">InputIterator2</span> <span class="n">first2</span><span class="p">,</span>
+                       <span class="n">InputIterator2</span> <span class="n">last2</span><span class="p">,</span>
+                       <span class="n">BinaryPredicate</span> <span class="n">pred</span><span class="p">);</span>  <span class="c1">// (4) C++20</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="p">,</span> <span class="k">class</span> <span class="nc">ForwardIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">ForwardIterator2</span><span class="o">&gt;</span>
+  <span class="kt">bool</span> <span class="n">equal</span><span class="p">(</span><span class="n"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="o">&amp;&amp;</span> <span class="n">exec</span><span class="p">,</span>
+             <span class="n">ForwardIterator1</span> <span class="n">first1</span><span class="p">,</span>
+             <span class="n">ForwardIterator1</span> <span class="n">last1</span><span class="p">,</span>
+             <span class="n">ForwardIterator2</span> <span class="n">first2</span><span class="p">);</span>         <span class="c1">// (5) C++17</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="p">,</span> <span class="k">class</span> <span class="nc">ForwardIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">ForwardIterator2</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">BinaryPredicate</span><span class="o">&gt;</span>
+  <span class="kt">bool</span> <span class="n">equal</span><span class="p">(</span><span class="n"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="o">&amp;&amp;</span> <span class="n">exec</span><span class="p">,</span>
+             <span class="n">ForwardIterator1</span> <span class="n">first1</span><span class="p">,</span>
+             <span class="n">ForwardIterator1</span> <span class="n">last1</span><span class="p">,</span>
+             <span class="n">ForwardIterator2</span> <span class="n">first2</span><span class="p">,</span>
+             <span class="n">BinaryPredicate</span> <span class="n">pred</span><span class="p">);</span>            <span class="c1">// (6) C++17</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="p">,</span> <span class="k">class</span> <span class="nc">ForwardIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">ForwardIterator2</span><span class="o">&gt;</span>
+  <span class="kt">bool</span> <span class="n">equal</span><span class="p">(</span><span class="n"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="o">&amp;&amp;</span> <span class="n">exec</span><span class="p">,</span>
+             <span class="n">ForwardIterator1</span> <span class="n">first1</span><span class="p">,</span>
+             <span class="n">ForwardIterator1</span> <span class="n">last1</span><span class="p">,</span>
+             <span class="n">ForwardIterator2</span> <span class="n">first2</span><span class="p">,</span>
+             <span class="n">ForwardIterator2</span> <span class="n">last2</span><span class="p">);</span>          <span class="c1">// (7) C++17</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="p">,</span> <span class="k">class</span> <span class="nc">ForwardIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">ForwardIterator2</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">BinaryPredicate</span><span class="o">&gt;</span>
+  <span class="kt">bool</span> <span class="n">equal</span><span class="p">(</span><span class="n"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="o">&amp;&amp;</span> <span class="n">exec</span><span class="p">,</span>
+             <span class="n">ForwardIterator1</span> <span class="n">first1</span><span class="p">,</span>
+             <span class="n">ForwardIterator1</span> <span class="n">last1</span><span class="p">,</span>
+             <span class="n">ForwardIterator2</span> <span class="n">first2</span><span class="p">,</span>
+             <span class="n">ForwardIterator2</span> <span class="n">last2</span><span class="p">,</span>
+             <span class="n">BinaryPredicate</span> <span class="n">pred</span><span class="p">);</span>            <span class="c1">// (8) C++17</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>2つの<a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a>を等値比較する。</p>
+<ul>
+<li>(1) : <a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a><code>[first1, last1)</code>と<a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a><code>[first2, first2 + (last1 - first1))</code>が等値かを判定する</li>
+<li>(2) : (1)の等値比較を任意の2引数関数オブジェクトで行う</li>
+<li>(3) : <a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a><code>[first1, last1)</code>と<a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a><code>[first2, last2)</code>が等値かを判定する</li>
+<li>(4) : (3)の等値比較を任意の2引数関数オブジェクトで行う</li>
+</ul>
+<p>2つの<a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a>が異なる要素数であった場合、<code>false</code>を返す。</p>
+<p>2つの<a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a>が要素数および各要素が等値であった場合、<code>true</code>を返す。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p><code>last2</code> が与えられている形式の場合、もし <code>last1 - first1 != last2 - first2</code> であれば、<code>false</code> を返す。<br />
+そうでない場合、<code>[first1,last1)</code> 内のイテレータ <code>i</code> について、<code>*i == *(first2 + (i - first1))</code> もしくは <code>pred(*i, *(first2 + (i - first1))) != false</code> が全てのイテレータ <code>i</code> について満たされているのであれば <code>true</code> を返す。<br />
+そうでない場合は <code>false</code> を返す。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></h2>
+<p><code>last2</code> が与えられていない形式では、<code>last2 = first2 + (last1 - first1)</code>であるとして説明する。</p>
+<ul>
+<li>(1), (2), (3), (4) : <code>InputIterator1</code> と <code>InputIterator2</code> が共にランダムアクセスイテレータの要件を満たす場合で、かつ、<code>last1 - first1 != last2 - first2</code> の場合、1 度も比較または<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>は適用されない。そうでない場合、最大で <code>min(last1 - first1, last2 - first2)</code> 回の比較または<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>が適用される。</li>
+<li>(5), (6), (7), (8) : <code>ForwardIterator1</code> と <code>ForwardIterator2</code> が共にランダムアクセスイテレータの要件を満たす場合で、かつ、<code>last1 - first1 != last2 - first2</code> の場合、1 度も比較または<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>は適用されない。そうでない場合、O(<code>min(last1 - first1, last2 - first2)</code>) 回の比較または<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>が適用される。</li>
+</ul>
+<h2>備考</h2>
+<ul>
+<li>ランダムアクセスイテレータの範囲を使用する場合、状況によっては(1), (2)のバージョンよりも、(3), (4)を使用する方が効率がよくなることが期待できる。ランダムアクセスイテレータはイテレータ同士の差を定数時間で求められるため、イテレーションを行うことなく2つの範囲の要素数が異なることを検出できるためである</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="e11448478d59a803eab835e51d930796d7df1b10"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../array.html">&lt;array&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iterator.html">&lt;iterator&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span>   <span class="n">v</span>  <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span> <span class="p">};</span>
+  <span class="n"><a href="../array/array.html">std::array</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">6</span><span class="o">&gt;</span> <span class="n">v2</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span> <span class="p">};</span>
+
+  <span class="c1">// コンテナの中身が同じかどうか調べる</span>
+  <span class="kt">bool</span> <span class="n">result</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::equal</span></span><span class="p">(</span><span class="n"><a href="../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n"><a href="../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">v2</span><span class="p">),</span> <span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">v2</span><span class="p">));</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ios/boolalpha.html">std::boolalpha</a></span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// x±1 の誤差を許すようにする</span>
+  <span class="kt">bool</span> <span class="n">result2</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::equal</span></span><span class="p">(</span><span class="n"><a href="../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n"><a href="../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">v2</span><span class="p">),</span> <span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">v2</span><span class="p">),</span>
+                            <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">y</span> <span class="o">&amp;&amp;</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="p">});</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ios/boolalpha.html">std::boolalpha</a></span> <span class="o">&lt;&lt;</span> <span class="n">result2</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>false
+true
+</code></pre></p>
+<h2>実装例</h2>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">InputIterator2</span><span class="o">&gt;</span>
+<span class="kt">bool</span> <span class="n">equal</span><span class="p">(</span><span class="n">InputIterator1</span> <span class="n">first1</span><span class="p">,</span> <span class="n">InputIterator1</span> <span class="n">last1</span><span class="p">,</span>
+           <span class="n">InputIterator2</span> <span class="n">first2</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span> <span class="p">;</span> <span class="n">first1</span> <span class="o">!=</span> <span class="n">last1</span><span class="p">;</span> <span class="o">++</span><span class="n">first1</span><span class="p">,</span> <span class="o">++</span><span class="n">first2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="kt">bool</span><span class="p">(</span><span class="o">*</span><span class="n">first1</span> <span class="o">==</span> <span class="o">*</span><span class="n">first2</span><span class="p">))</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">InputIterator2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">BinaryPredicate</span><span class="o">&gt;</span>
+<span class="kt">bool</span> <span class="n">equal</span><span class="p">(</span><span class="n">InputIterator1</span> <span class="n">first1</span><span class="p">,</span> <span class="n">InputIterator1</span> <span class="n">last1</span><span class="p">,</span>
+           <span class="n">InputIterator2</span> <span class="n">first2</span><span class="p">,</span> <span class="n">BinaryPredicate</span> <span class="n">pred</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span> <span class="p">;</span> <span class="n">first1</span> <span class="o">!=</span> <span class="n">last1</span><span class="p">;</span> <span class="o">++</span><span class="n">first1</span><span class="p">,</span> <span class="o">++</span><span class="n">first2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="kt">bool</span><span class="p">(</span><span class="n">pred</span><span class="p">(</span><span class="o">*</span><span class="n">first1</span><span class="p">,</span> <span class="o">*</span><span class="n">first2</span><span class="p">)))</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cp">#if __cplusplus &gt;= 201402L</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">RandomAccessIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">RandomAccessIterator2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">BinaryPredicate</span><span class="o">&gt;</span>
+<span class="kr">inline</span> <span class="kt">bool</span> <span class="n">equal_impl</span><span class="p">(</span><span class="n">RandomAccessIterator1</span> <span class="n">first1</span><span class="p">,</span> <span class="n">RandomAccessIterator1</span> <span class="n">last1</span><span class="p">,</span>
+                       <span class="n">RandomAccessIterator2</span> <span class="n">first2</span><span class="p">,</span> <span class="n">RandomAccessIterator2</span> <span class="n">last2</span><span class="p">,</span>
+                       <span class="n">BinaryPredicate</span> <span class="n">pred</span><span class="p">,</span>
+                       <span class="n">random_access_iterator_tag</span><span class="p">,</span> <span class="n">random_access_iterator_tag</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">last1</span> <span class="o">-</span> <span class="n">first1</span> <span class="o">!=</span> <span class="n">last2</span> <span class="o">-</span> <span class="n">first2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+  <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">equal</span><span class="p">(</span><span class="n">first1</span><span class="p">,</span> <span class="n">last1</span><span class="p">,</span> <span class="n">first2</span><span class="p">,</span> <span class="n">pred</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">InputIterator2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">BinaryPredicate</span><span class="o">&gt;</span>
+<span class="kt">bool</span> <span class="n">equal_impl</span><span class="p">(</span><span class="n">InputIterator1</span> <span class="n">first1</span><span class="p">,</span> <span class="n">InputIterator1</span> <span class="n">last1</span><span class="p">,</span>
+                <span class="n">InputIterator2</span> <span class="n">first2</span><span class="p">,</span> <span class="n">InputIterator2</span> <span class="n">last2</span><span class="p">,</span> <span class="n">BinaryPredicate</span> <span class="n">pred</span><span class="p">,</span>
+                <span class="n">input_iterator_tag</span><span class="p">,</span> <span class="n">input_iterator_tag</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span> <span class="p">;</span> <span class="n">first1</span> <span class="o">!=</span> <span class="n">last1</span> <span class="o">&amp;&amp;</span> <span class="n">first2</span> <span class="o">!=</span> <span class="n">last2</span><span class="p">;</span> <span class="o">++</span><span class="n">first1</span><span class="p">,</span> <span class="o">++</span><span class="n">first2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="kt">bool</span><span class="p">(</span><span class="n">pred</span><span class="p">(</span><span class="o">*</span><span class="n">first1</span><span class="p">,</span> <span class="o">*</span><span class="n">first2</span><span class="p">)))</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+  <span class="k">return</span> <span class="n">first1</span> <span class="o">==</span> <span class="n">last1</span> <span class="o">&amp;&amp;</span> <span class="n">first2</span> <span class="o">==</span> <span class="n">last2</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">InputIterator2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">BinaryPredicate</span><span class="o">&gt;</span>
+<span class="kr">inline</span> <span class="kt">bool</span> <span class="n">equal</span><span class="p">(</span><span class="n">InputIterator1</span> <span class="n">first1</span><span class="p">,</span> <span class="n">InputIterator1</span> <span class="n">last1</span><span class="p">,</span>
+                  <span class="n">InputIterator2</span> <span class="n">first2</span><span class="p">,</span> <span class="n">InputIterator2</span> <span class="n">last2</span><span class="p">,</span> <span class="n">BinaryPredicate</span> <span class="n">pred</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">equal_impl</span><span class="p">(</span><span class="n">first1</span><span class="p">,</span> <span class="n">last1</span><span class="p">,</span> <span class="n">first2</span><span class="p">,</span> <span class="n">last2</span><span class="p">,</span> <span class="n">pred</span><span class="p">,</span>
+                    <span class="k">typename</span> <span class="n"><a href="../iterator/iterator_traits.html">iterator_traits</a></span><span class="o">&lt;</span><span class="n">InputIterator1</span><span class="o">&gt;::</span><span class="n">iterator_category</span><span class="p">(),</span>
+                    <span class="k">typename</span> <span class="n"><a href="../iterator/iterator_traits.html">iterator_traits</a></span><span class="o">&lt;</span><span class="n">InputIterator2</span><span class="o">&gt;::</span><span class="n">iterator_category</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">InputIterator2</span><span class="o">&gt;</span>
+<span class="kr">inline</span> <span class="kt">bool</span> <span class="n">equal</span><span class="p">(</span><span class="n">InputIterator1</span> <span class="n">first1</span><span class="p">,</span> <span class="n">InputIterator1</span> <span class="n">last1</span><span class="p">,</span>
+                  <span class="n">InputIterator2</span> <span class="n">first2</span><span class="p">,</span> <span class="n">InputIterator2</span> <span class="n">last2</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">equal</span><span class="p">(</span><span class="n">first1</span><span class="p">,</span> <span class="n">last1</span><span class="p">,</span> <span class="n">first2</span><span class="p">,</span> <span class="n">last2</span><span class="p">,</span> <span class="n"><a href="../functional/equal_to.html">equal_to</a></span><span class="o">&lt;&gt;</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="cp">#endif</span>
+</code></pre></div>
+</p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++98</li>
+<li>C++14: 2つ目の終端のイテレータ<code>last2</code>を実引数に取る<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>の追加。</li>
+</ul>
+<h3>処理系(last2を受け取るバージョン)</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 3.4 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 4.9 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#icc">ICC</a>: ?</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2015 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3671.html" target="_blank">N3671 Making non-modifying sequence operations more robust: Revision 2</a><ul>
+<li>C++14から追加された、<code>last2</code>を受け取る<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>の提案文書</li>
+</ul>
+</li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html" target="_blank">P0202R3 Add Constexpr Modifiers to Functions in <code>&lt;algorithm&gt;</code> and <code>&lt;utility&gt;</code> Headers</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html" target="_blank">P0467R2 Iterator Concerns for Parallel Algorithms</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
