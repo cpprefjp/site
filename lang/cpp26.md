@@ -444,8 +444,8 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 - [`std::optional`](/reference/optional/optional.md)クラスに、0もしくは1要素のRangeとして扱えるようにするための拡張として、イテレータインタフェースを追加
     - `iterator`型
     - `const_iterator`型
-    - [`begin()`](/reference/optional/optional/begin.md.nolink)メンバ関数
-    - [`end()`](/reference/optional/optional/end.md.nolink)メンバ関数
+    - [`begin()`](/reference/optional/optional/begin.md)メンバ関数
+    - [`end()`](/reference/optional/optional/end.md)メンバ関数
 - [`std::optional`](/reference/optional/optional.md)に、参照を保持するための`T&`の部分特殊化を追加
 - [`std::apply`](/reference/tuple/apply.md)の戻り値型推論をやめて、戻り値型用の[`std::apply_result`](/reference/tuple/apply_result.md.nolink)クラスを追加し、関連する以下の機能を追加
     - [`std::is_applicable`](/reference/type_traits/is_applicable.md.nolink)型特性
