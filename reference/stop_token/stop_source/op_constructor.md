@@ -57,6 +57,7 @@ int main()
 * std::move[link /reference/utility/move.md]
 * std::stop_source[link ../stop_source.md]
 * std::nostopstate[link ../nostopstate.md]
+* stop_possible()[link stop_possible.md]
 * stop_requested()[link stop_requested.md]
 * request_stop()[link request_stop.md]
 
