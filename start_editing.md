@@ -353,9 +353,9 @@ cpprefjpおよびboostjpでの作業は、以下のように貢献ポイント�
 |-----|---------|------|
 | boostjp/typo     |  1 | 誤字・脱字の修正 (ページ単位) |
 | boostjp/link     |  2 | 関連項目・参照リンクなどの追加・修正、nolinkの解除 (ページ単位) |
-| boostjp/releases |  5 | Boostリリースノート1件追加 small : maintenance workなどの軽微で小さなリリースノート |
+| boostjp/releases |  5 | Boostリリースノート1件追加 small : maintenance workなどの軽微で小さなリリースノート。一件ごとのテスト済みコンパイラ |
 | boostjp/releasem | 10 | Boostリリースノート 1件追加 medium : タイトル含めず10行以下の中程度の大きさ。新ライブラリ。既知の問題 (ライブラリ単位) |
-| boostjp/releasel | 20 | Boostリリースノート 1件追加 large : mediumを超える大きさ |
+| boostjp/releasel | 20 | Boostリリースノート 1件追加 large : mediumを超える大きさ。テスト済みコンパイラの全記載 |
 | boostjp/fixs     |  2 | 既存ページへの修正 : small 軽微な修正、コード修飾追加 (ページ単位) |
 | boostjp/fixm     |  5 | 既存ページへの修正 : medium 追加説明、訳語追加 (ページ単位) |
 | boostjp/addrefs  | 10 | Boost逆引きリファレンス : small (1例追加) |
@@ -368,7 +368,7 @@ CIスクリプト、site_generator、kunaiなど。
 | タグ | ポイント | 説明 |
 |-----|---------|------|
 | tool/fixbug     | 30 | バグ修正 |
-| tool/improves   | 10 | コード改善 : small。typo検出テーブルへの追加 |
+| tool/improves   | 10 | コード改善 : small。typo検出テーブルへの追加。submodule更新 |
 | tool/improvem   | 30 | コード改善 : medium。git submodule / npm moduleのリリース作業 (package.jsonの更新) |
 | tool/improvel   | 50 | コード改善 : large |
 | tool/updatelib  | 20 | 外部依存ライブラリのアップデート (直接使用のライブラリ単位) |

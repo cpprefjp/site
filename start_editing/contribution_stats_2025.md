@@ -5,131 +5,146 @@
 
 | コミット | タグ | 説明 |
 |----------|------|------|
-| [commit cpprefjp/site, d779088, 8d7953c] | tool/improvem:2 | GLOBAL_DEFINED_WORDS: 適格要件の説明を改善 |
-| [commit cpprefjp/site, 952bb04, be4af49, 2273c72] | cpprefjp/fixs:51, tool/addm:39, tool/improves:13 | 表示崩れチェックCI : `*`ではじまる箇条書きをチェック #1367 |
-| [commit boostjp/site, c2e3992, 22d5473, bd1564c] | cpprefjp/fixs:4 | 1.87.0 : 目次を作成 |
-| [commit cpprefjp/site_generator, 39a6b5a] | cpprefjp/fixm:1 | update submodule |
+| [commit cpprefjp/site, d779088] | tool/improvem:1 | GLOBAL_DEFINED_WORDS: 適格要件の説明を改善 |
+| [commit cpprefjp/site, 8d7953c] | cpprefjp/fixm:1 | 用語: 述語を追加 |
+| [commit cpprefjp/site, 952bb04, be4af49, 2273c72] | cpprefjp/fixs:48, tool/addm:2 | 表示崩れチェックCI |
+| [commit boostjp/site, c2e3992, 22d5473, bd1564c, 191d498] | boostjp/link:1, boostjp/releases:5, boostjp/releasem:20, boostjp/releasel:6 | 1.87.0 |
+| [commit cpprefjp/site_generator, 39a6b5a] | tool/improves:1 | update submodule |
 | [commit cpprefjp/site, b956b77] | cpprefjp/link:2 | C++11 属性構文 : indeterminate属性の解説ページにリンク |
 | [commit cpprefjp/site, 073c4bc, 8cf3afd] | cpprefjp/fixs:3 | jthread: コード修飾ミスを修正 |
 | [commit cpprefjp/site, 46badd1] | cpprefjp/fixm:1 | Markdown拡張: 「箇条書きの前に空行が必要」「コードブロックのあとに空行が必要」の制限がなくなったので削除 #1362 |
-| [commit cpprefjp/site_generator, de3cf86] | cpprefjp/fixs:2 | 表示崩れを事前修正するMarkdown拡張を追加 |
-| [commit cpprefjp/markdown_to_html, e2af656] | cpprefjp/fixs:1 | 表示崩れを事前修正するMarkdown拡張を追加 (#8) |
-| [commit cpprefjp/site, 8918e77, 5cc3b9e] | cpprefjp/fixm:3, cpprefjp/fixs:1 | `common_type_t`へのリンクミスを修正 |
-| [commit cpprefjp/site, 000cd8f] | cpprefjp/fixm:1 | `philox_engine`のサンプル : ループ内でオブジェクトを作るよう修正 |
-| [commit cpprefjp/site, da031c5] | cpprefjp/fixs:1 | `philox_engine::set_counter` : シード値を状態として保持してないことを記載 |
-| [commit cpprefjp/site, 552254b, b329171, 5fcfad6] | cpprefjp/compiler:2, cpprefjp/fixm:2, cpprefjp/typo:1 | 処理系の見出しが消えてた |
-| [commit cpprefjp/site, 7b0c554, 1648169, 59ca584, 44b2409] | cpprefjp/fixl:15, cpprefjp/fixm:1, cpprefjp/fixs:3 | コメント修正忘れ |
-| [commit cpprefjp/site, 17ed872] | cpprefjp/fixs:3 | C++26: 2024-12 mailingの変更を記載 #1371 |
-| [commit cpprefjp/site, 44635eb] | tool/improves:1 | 用語: CV修飾を追加 |
-| [commit cpprefjp/site, af91af8] | cpprefjp/fixm:1 | C++26 Working Draft更新 #1371 |
+| [commit cpprefjp/site_generator, de3cf86] | tool/adds:1 | 表示崩れを事前修正するMarkdown拡張を追加 |
+| [commit cpprefjp/markdown_to_html, e2af656] | tool/addm:1, tool/improvem:7 | 表示崩れを事前修正するMarkdown拡張を追加 (#8) |
+| [commit cpprefjp/site, 8918e77] | cpprefjp/link:1 | `common_type_t`へのリンクミスを修正 |
+| [commit cpprefjp/site, 5cc3b9e] | cpprefjp/fixm:2 | gcd, lcmの実装例 : 仕様に合わせて絶対値をとるよう修正 |
+| [commit cpprefjp/site, 44b2409, 000cd8f, da031c5, 552254b, b329171, 5fcfad6, 7b0c554, 1648169, 59ca584, a628ac4] | cpprefjp/link:2, cpprefjp/addref:13 | `philox_engine` |
+| [commit cpprefjp/site, 17ed872] | cpprefjp/fixl:3 | C++26: 2024-12 mailingの変更を記載 #1371 |
+| [commit cpprefjp/site, 44635eb] | cpprefjp/fixm:1 | 用語: CV修飾を追加 |
+| [commit cpprefjp/site, af91af8] | cpprefjp/fixl:1 | C++26 Working Draft更新 #1371 |
 | [commit cpprefjp/site, 6f2372b] | cpprefjp/fixl:20 | C++26対応として、未初期化領域アルゴリズムをconstexpr対応 (close #1389) |
-| [commit cpprefjp/site, 5142d43, 08aed17] | cpprefjp/fixs:2 | グローバル修飾: pairを追加 |
-| [commit cpprefjp/site, a628ac4] | cpprefjp/fixm:2 | `philox_engine` : インデントを4 → 2スペースに修正 |
-| [commit cpprefjp/site, 5dbb07c] | cpprefjp/fixs:1 | グローバル修飾 : sleep_forを追加 |
-| [commit cpprefjp/site, 815f9db, 258038b, a0fc868, 27a5b41] | cpprefjp/fixm:1, cpprefjp/fixs:6 | `lock_guard`: 出力を更新してなかった |
-| [commit cpprefjp/site, 8def0da, d67d018] | cpprefjp/fixs:1, cpprefjp/typo:1 | fix typo |
-| [commit cpprefjp/site, fbc96a2, 4324757, d440b08, eef0639, 6477678] | cpprefjp/fixl:41, cpprefjp/fixs:98 | C++26対応として、`atomic`はCV修飾された型を禁止、`atomic_ref`はCV修飾された型を受け取れるようにした (close #1388) |
-| [commit boostjp/site, 191d498] | cpprefjp/fixs:1 | 1.87.0 : Optionalを追加 |
-| [commit cpprefjp/site, c2e5e06] | cpprefjp/fixs:1 | `string_view::op_sv` : ヌル終端に関する説明がわかりにくかったので追記 #1398 |
-| [commit cpprefjp/site, 0739bc9] | cpprefjp/fixs:2 | `is_trivial` : C++26で非推奨化 (close #1374) |
-| [commit cpprefjp/kunai, 4d86cb7] | cpprefjp/fixm:1 | crsearchを更新 |
-| [commit cpprefjp/kunai, 6ada321] | cpprefjp/fixm:1 | Revert "Revert "Local test fix"" |
-| [commit cpprefjp/kunai, 1c8fe21] | cpprefjp/fixs:1 | Revert "Revert "Embed instead"" |
-| [commit cpprefjp/kunai, 9265a16] | cpprefjp/fixm:1 | Revert "Revert "Update modules"" |
-| [commit cpprefjp/kunai, a1a9693] | cpprefjp/fixm:1 | Revert "Revert "Update actions"" |
-| [commit cpprefjp/kunai, 18853bb] | cpprefjp/fixm:1 | Revert "Update actions" |
-| [commit cpprefjp/kunai, 26c993d] | cpprefjp/fixm:1 | Revert "Update modules" |
-| [commit cpprefjp/kunai, ae6dcb2] | cpprefjp/fixs:1 | Revert "Embed instead" |
-| [commit cpprefjp/kunai, 961af71] | cpprefjp/fixm:1 | Revert "Local test fix" |
-| [commit cpprefjp/site, 63e8626] | cpprefjp/fixs:1 | リンク切れを解消 #1403 |
-| [commit cpprefjp/site, 7a572ea] | cpprefjp/fixs:5 | C++20 / C++23 : ページタイトルに提案文書の番号を追加 |
-| [commit cpprefjp/site, cce034a, 50250ae] | cpprefjp/fixs:3 | 見出しの表示崩れを修正 |
-| [commit cpprefjp/site, 15399ca] | cpprefjp/fixm:2 | C++20 非型テンプレートパラメータとしてクラス型を許可する : プレースホルダー型とリテラル演算子の例を追加 |
+| [commit cpprefjp/site, 5142d43] | cpprefjp/link:1 | グローバル修飾: pairを追加 |
+| [commit cpprefjp/site, 08aed17] | cpprefjp/link:7 | グローバル修飾: 固定幅の整数型を追加 |
+| [commit cpprefjp/site, 5dbb07c] | cpprefjp/link:1 | グローバル修飾 : sleep_forを追加 |
+| [commit cpprefjp/site, 258038b, 815f9db, a0fc868] | cpprefjp/fixm:1, cpprefjp/link:1 | `lock_guard`: サンプルコードを更新 |
+| [commit cpprefjp/site, 27a5b41] | cpprefjp/link:3 | 構造化束縛とlock_guard系クラスのページから、C++26変数名`_`のページにリンク |
+| [commit cpprefjp/site, 8def0da, d67d018] | cpprefjp/fixm:1 | C++26 宣言のみで使用しない変数の名前として`_`をサポート : ユースケースと仕様を追加 |
+| [commit cpprefjp/site, fbc96a2] | cpprefjp:link:1, cpprefjp/fixl:25 | C++26対応として、`atomic`はCV修飾された型を禁止、`atomic_ref`はCV修飾された型を受け取れるようにした (close #1388) |
+| [commit cpprefjp/site, 6477678] | cpprefjp/link:1, cpprefjp/fixl:1, cpprefjp/addref:1 | atomic_ref : C++26対応としてaddressメンバ関数を追加 |
+| [commit cpprefjp/site, eef0639, d440b08] | cpprefjp/link:1, cpprefjp/fixl:3, cpprefjp/addref:8 | C++26対応としてatomic(_ref)にfetch_max/minを追加 |
+| [commit cpprefjp/site, 4324757] | cpprefjp/fixl:96 | atomic : C++26のconstexpr対応 |
+| [commit cpprefjp/site, c2e5e06] | cpprefjp/fixm:1 | `string_view::op_sv` : ヌル終端に関する説明がわかりにくかったので追記 #1398 |
+| [commit cpprefjp/site, 0739bc9] | cpprefjp/fixl:2 | `is_trivial` : C++26で非推奨化 (close #1374) |
+| [commit cpprefjp/kunai, 4d86cb7] | tool/improves:2 | crsearchを更新 |
+| [commit cpprefjp/kunai, 6ada321] | | Revert "Revert "Local test fix"" |
+| [commit cpprefjp/kunai, 1c8fe21] | | Revert "Revert "Embed instead"" |
+| [commit cpprefjp/kunai, 9265a16] | | Revert "Revert "Update modules"" |
+| [commit cpprefjp/kunai, a1a9693] | | Revert "Revert "Update actions"" |
+| [commit cpprefjp/kunai, 18853bb] | | Revert "Update actions" |
+| [commit cpprefjp/kunai, 26c993d] | | Revert "Update modules" |
+| [commit cpprefjp/kunai, ae6dcb2] | | Revert "Embed instead" |
+| [commit cpprefjp/kunai, 961af71] | | Revert "Local test fix" |
+| [commit cpprefjp/site, 63e8626] | cpprefjp/link:1 | リンク切れを解消 #1403 |
+| [commit cpprefjp/site, 7a572ea, 50250ae] | cpprefjp/fixs:7 | C++20 / C++23 : ページタイトルに提案文書の番号を追加 |
+| [commit cpprefjp/site, cce034a] | cpprefjp/fixs:1 | 見出しの表示崩れを修正 |
+| [commit cpprefjp/site, 15399ca] | cpprefjp/fixm:1, cpprefjp/link:1 | C++20 非型テンプレートパラメータとしてクラス型を許可する : プレースホルダー型とリテラル演算子の例を追加 |
 | [commit cpprefjp/site, debf1bd] | cpprefjp/fixl:58 | C++26対応として、標準ライブラリのnodiscard指定を削除 (close #1386) |
 | [commit cpprefjp/site, 94b8b36] | cpprefjp/fixl:4 | `expected` : C++26対応として比較演算子の適格要件をテンプレートパラメータ制約に変更 (close #1379) |
-| [commit cpprefjp/site, 78f2291] | cpprefjp/fixl:2 | `path`: C++26対応としてformatterの特殊化を追加 (close #1336) |
-| [commit cpprefjp/site, 1bd673d, 8c2de7c] | cpprefjp/fixm:2 | スポンサー更新 #1411 |
+| [commit cpprefjp/site, 78f2291] | cpprefjp/fixl:1, cpprefjp/addref:1 | `path`: C++26対応としてformatterの特殊化を追加 (close #1336) |
+| [commit cpprefjp/site, 1bd673d, 8c2de7c] | | スポンサー更新 #1411 |
 | [commit cpprefjp/site, af40773] | cpprefjp/link:4 | `numeric_limits`: リンク切れしたページへの参照を削除 #1412 |
-| [commit cpprefjp/site, 586e0ff] | cpprefjp/fixm:1 | 国際標準規格 : C++26 Working Draftを更新 #1415 |
-| [commit cpprefjp/site, 5b55280, 0bbb13c, 518b6e2] | cpprefjp/fixs:5 | C++26: 2025-03 mailingのライブラリ機能を記載 #1415 |
-| [commit cpprefjp/site, a19e427] | tool/improves:1 | buildアクション: git sumoduleのパラメータ間違いを修正 |
-| [commit cpprefjp/site, 1813cc7, 7b99f1c] | cpprefjp/fixl:6 | `type_traits`: C++26対応として`is_within_lifetime`を追加 (close #1195) |
-| [commit cpprefjp/site, cd443ea] | cpprefjp/fixs:21 | `stdexcept`関係のconstexpr対応 (#1433) |
-| [commit cpprefjp/site, 90e27bd] | cpprefjp/fixl:46 | C++26対応として定数式での例外送出を許可 (#1432) |
-| [commit cpprefjp/site_generator, 7b54abb] | cpprefjp/fixs:1 | README: git submoduleの存在しない初期化付きオプションを修正 |
-| [commit boostjp/site, 0a35735] | tool/improves:1 | buildアクション: git submoduleの存在しない初期化付きオプションを修正 |
-| [commit boostjp/site, fe72e30] | cpprefjp/fixs:2 | 1.88.0のリリースノートを追加 |
-| [commit cpprefjp/site, 97d288b, e897a16] | cpprefjp/fixm:4, cpprefjp/fixs:1 | C++26: 「文字列リテラルの文字エンコーディング失敗を不適格とする」を追加 (close #1173) |
-| [commit cpprefjp/site, 43651f2, 57d9fce, 349b492] | cpprefjp/fixm:4, cpprefjp/fixs:4 | C++26 モジュール宣言でのモジュール名のマクロ展開を禁止する : C++23でOKじゃなかった |
-| [commit cpprefjp/site, ef98bb0, d7c766e] | cpprefjp/fixs:6 | コードブロックに言語指定 |
-| [commit boostjp/site, b6f0bed, 5b0e991] | cpprefjp/fixs:2 | 1.88.0: 新ライブラリを記載 |
-| [commit cpprefjp/site, d5b2bb2] | cpprefjp/fixm:4 | C++26: 「可変引数テンプレートでfriend宣言をできるようにする」を追加 (close #1329) |
+| [commit cpprefjp/site, 586e0ff] | cpprefjp/fixl:1 | 国際標準規格 : C++26 Working Draftを更新 #1415 |
+| [commit cpprefjp/site, 5b55280, 0bbb13c, 518b6e2] | cpprefjp/fixl:2 | C++26: 2025-03 mailingのライブラリ機能を記載 #1415 |
+| [commit cpprefjp/site, a19e427] | tool/fixbug:1 | buildアクション: git sumoduleのパラメータ間違いを修正 |
+| [commit cpprefjp/site, 1813cc7] | cpprefjp/fixl:1, cpprefjp/addref:1, cpprefjp/link:1 | `type_traits`: C++26対応として`is_within_lifetime`を追加 (close #1195) |
+| [commit cpprefjp/site, 7b99f1c] | cpprefjp/fixl:1, cpprefjp/addref:1, cpprefjp/link:1 | type_traits: C++26対応としてis_virtual_base_ofを追加 (close #1312) |
+| [commit cpprefjp/site, cd443ea] | cpprefjp/link:1, cpprefjp/fixl:7, cpprefjp/addref:12 | `stdexcept`関係のconstexpr対応 (#1433) |
+| [commit cpprefjp/site, 90e27bd] | cpprefjp/link:3, cpprefjp/addlang:1, cpprefjp/addref:26, cpprefjp/fixl:16 | C++26対応として定数式での例外送出を許可 (#1432) |
+| [commit cpprefjp/site_generator, 7b54abb] | tool/fixbug:1 | README: git submoduleの存在しない初期化付きオプションを修正 |
+| [commit boostjp/site, 0a35735] | tool/fixbug:1 | buildアクション: git submoduleの存在しない初期化付きオプションを修正 |
+| [commit boostjp/site, fe72e30, b6f0bed, 5b0e991] | boostjp/releases:9, boostjp/releasem:8, boostjp/releasel:6 | 1.88.0のリリースノートを追加 |
+| [commit cpprefjp/site, 97d288b, e897a16] | cpprefjp/link:2, cpprefjp/addlang:1 | C++26: 「文字列リテラルの文字エンコーディング失敗を不適格とする」を追加 (close #1173) |
+| [commit cpprefjp/site, 43651f2, 57d9fce] | cpprefjp/link:3, cpprefjp/addlang:1 | C++26 モジュール宣言でのモジュール名のマクロ展開を禁止する |
+| [commit cpprefjp/site, 349b492] | cpprefjp/link:2, cpprefjp/addlang:1 | C++26: 「空の無限ループは未定義動作ではないと規定」を追加 (close #1326) |
+| [commit cpprefjp/site, ef98bb0, d7c766e] | cpprefjp/link:3, cpprefjp/addlang:1 | C++26: 「構造化束縛でパックを導入できるようにする」を追加 (close #1376) |
 | [commit cpprefjp/site, 8b03a33] | tool/improves:1 | NGワードチェック: 以下のコミットのtypoを登録 |
 | [commit cpprefjp/site, b4cf7e4] | cpprefjp/link:1 | Markdownの外部解説サイトへのリンクを削除 |
 | [commit cpprefjp/site, 0c1871f] | cpprefjp/fixs:1 | C++26 embed: から → 空 |
-| [commit cpprefjp/site, 3465a39, fe93837] | cpprefjp/fixs:4 | C++26: 「先行するカンマのない省略記号を非推奨化」を追加 (close #1377) |
-| [commit cpprefjp/site, 6ab9b94, 4e37c0f, 786b39a, 82b627c, f91ef86, 02e8675] | cpprefjp/fixm:4, cpprefjp/fixs:11, cpprefjp/link:3 | fix link |
-| [commit cpprefjp/site, 4bee12d] | cpprefjp/fixs:1 | C++26: carries_dependency属性の削除を記載 |
-| [commit cpprefjp/site, 09b3c3e, 3c7eee6, 7473d6a, c8a99ed] | cpprefjp/fixm:7, cpprefjp/link:2 | fix link |
+| [commit cpprefjp/site, 3465a39, fe93837] | cpprefjp/link:2, cpprefjp/addlang:1 | C++26: 「先行するカンマのない省略記号を非推奨化」を追加 (close #1377) |
+| [commit cpprefjp/site, f91ef86] | cpprefjp/link:4, cpprefjp/addlang:1 | C++26: 「属性の無視性を見直し」を追加 (close #1175) |
+| [commit cpprefjp/site, 02e8675] | cpprefjp/link:1 | C++11 属性: 関連項目を追加 |
+| [commit cpprefjp/site, 82b627c] | cpprefjp/link:3, cpprefjp/addlang:1 | C++26: 「std::initializer_listの配列を静的記憶域に配置する」を追加 (close #1171) |
+| [commit, cpprefjp/site, 786b39a] | | C++26: 規格用語の整理だけだった「変換コンストラクタという用語を廃止する」を削除 |
+| [commit cpprefjp/site, 6ab9b94, 4e37c0f] | cpprefjp/link:3, cpprefjp/addlang:2 | C++20 / C++26 : 組み込み配列の比較の非推奨・削除を追加 (close #1375) |
+| [commit cpprefjp/site, 4bee12d] | | C++26: carries_dependency属性の削除を記載 |
+| [commit cpprefjp/site, 09b3c3e, 3c7eee6] | cpprefjp/link:1 | fix link |
+| [commit cpprefjp/site, c8a99ed] | cpprefjp/link:2, cpprefjp/addlang:1 | C++26: 「不完全型へのポインタに対するdeleteを不適格とする」を追加 (close #1306) |
 | [commit cpprefjp/site, f1c0d5d] | tool/improves:1 | 外部リンクチェック : https://www.gnu.org/ を無視リストに登録 #1444 |
-| [commit cpprefjp/site, 0de1d6d] | cpprefjp/fixs:1 | `is_clock` : Clock要件を記載 #1445 |
+| [commit cpprefjp/site, 0de1d6d] | cpprefjp/fixl:1 | `is_clock` : Clock要件を記載 #1445 |
 | [commit cpprefjp/site, a2c9f2f] | cpprefjp/typo:1 | fix typo: ディレクトティブ → ディレクティブ |
-| [commit cpprefjp/site, 5d83fd5, 43da478, 41a9acd] | cpprefjp/fixm:3, cpprefjp/fixs:2 | コンパイラの実装状況 : Clang 20対応 |
+| [commit cpprefjp/site, 5d83fd5, 43da478] | cpprefjp/compiler:4 | コンパイラの実装状況 : Clang 20, GCC 15対応 |
+| [commit cpprefjp/site, 41a9acd] | cpprefjp/link:2, cpprefjp/addlang:1 | C++26: 「返却された左辺値から暗黙変換された一時オブジェクトが参照に束縛されることを禁止する」を追加 (close #1322) |
 | [commit cpprefjp/site, 2d43dab] | cpprefjp/link:1 | `construct_at` : 関連項目を追加 |
-| [commit cpprefjp/site, ed90ef4] | cpprefjp/fixs:6 | C++26 : 「`constexpr`配置new」を追加 (close #1305) |
-| [commit cpprefjp/site, c0bc234, 93e79ef] | cpprefjp/fixm:1, cpprefjp/fixs:3 | NGワード修正 |
-| [commit cpprefjp/site, 40c3748, 8e8fa98, eb61e1a, 70977b4, aed6be4] | cpprefjp/fixm:6, cpprefjp/fixs:7 | コード修飾を追加 |
-| [commit cpprefjp/site, f529f5d] | cpprefjp/fixs:2 | `flat_set` / `flat_multiset` : 概要文章を追加 #1448 |
+| [commit cpprefjp/site, ed90ef4] | cpprefjp/fixl:2, cpprefjp/addlang:1, cpprefjp/link:3 | C++26 : 「`constexpr`配置new」を追加 (close #1305) |
+| [commit cpprefjp/site, 93e79ef] | cpprefjp/addlang:1, cpprefjp/link:2 | C++26 : 「要素数不明の配列を集成体初期化する規則を明確化」を追加 (close #1323) |
+| [commit cpprefjp/site, c0bc234] | cpprefjp/fixs:1 | NGワード修正 |
+| [commit cpprefjp/site, 8e8fa98] | cpprefjp/link:3, cpprefjp/addlang:1 | C++26 : 「パラメータパックへのインデックスアクセスを許可」を追加 (close #1230) |
+| [commit cpprefjp/site, eb61e1a] | cpprefjp/link:4, cpprefjp/addlang:1 | C++26: 「constexpr構造化束縛の許可と、constexpr参照の制限緩和」を追加 #1372 |
+| [commit cpprefjp/site, 70977b4] | cpprefjp/compiler:1 | コンパイラの実装状況 : GCC 15で「基本文字集合に@、$、\`を追加」は対応していた |
+| [commit cpprefjp/site, aed6be4] | | コンパイラの実装状況 : GCC 15は「constexpr構造化束縛の許可と、定数式への参照を定数式とする」を実装していなかった |
+| [commit cpprefjp/site, 40c3748] | cpprefjp/link:2 | コード修飾を追加 |
+| [commit cpprefjp/site, f529f5d, bfed2f0, 8043d35] | cpprefjp/fixl:4 | `flat_set` / `flat_multiset` / `flat_map` / `flat_multimap` : 概要文章を追加 #1448 |
 | [commit cpprefjp/site, fb9b7a8] | cpprefjp/fixs:2 | `set` / `multiset` : 「集合」という言葉がでてきていなかったので補足 |
-| [commit cpprefjp/site, bfed2f0] | cpprefjp/fixs:1 | `flat_multimap` : 概要文章を追加 #1448 |
-| [commit cpprefjp/site, f5e7d44, 7ec528e] | cpprefjp/fixs:3 | `map` / `multimap` : 概要の上にテンプレートパラメータの説明があったのを概要の下に移動 |
-| [commit cpprefjp/site, 8043d35] | cpprefjp/fixs:1 | `flat_map` : 概要文章を追加 #1448 |
-| [commit cpprefjp/site, 9c1556a, d26d535] | cpprefjp/fixm:1, cpprefjp/fixs:2 | Visual Studio 2022 Update 14: VC++バージョンと_MSC_VERを埋めた |
-| [commit cpprefjp/site, 302be0f] | cpprefjp/fixs:2 | `map::insert_or_assign` : C++26の異種混合ルックアップに対応 #1189 |
-| [commit cpprefjp/site, c057325] | cpprefjp/fixs:1 | `map::try_emplace` : C++26の異種混合ルックアップに対応 #1189 |
+| [commit cpprefjp/site, f5e7d44] | cpprefjp/fixs:2 | `map` / `multimap` : 概要の上にテンプレートパラメータの説明があったのを概要の下に移動 |
+| [commit cpprefjp/site, 7ec528e] | cpprefjp/fixs:1 | multimap : ユニーク → 同一キーの要素を複数格納できる |
+| [commit cpprefjp/site, 9c1556a, d26d535] | cpprefjp/compiler:6 | コンパイラの実装状況 : Visual Studio 2022 17.14に対応 |
+| [commit cpprefjp/site, 302be0f] | cpprefjp/fixs:1, cpprefjp/fixl:1 | `map::insert_or_assign` : C++26の異種混合ルックアップに対応 #1189 |
+| [commit cpprefjp/site, c057325, 3175722, 0036d1d] | cpprefjp/fixl:1 | `map::try_emplace` : C++26の異種混合ルックアップに対応 #1189 |
 | [commit cpprefjp/site, c036064] | cpprefjp/fixl:2 | `map::operator[ ]`と`at` : C++26対応として異種混合ルックアップに対応 #1189 |
-| [commit cpprefjp/site, 676aba0] | cpprefjp/fixl:3 | `ignore` : C++26対応として詳細な定義を追加し、例を追加 (close #1315) |
+| [commit cpprefjp/site, 676aba0] | cpprefjp/fixl:1, cpprefjp/link:2 | `ignore` : C++26対応として詳細な定義を追加し、例を追加 (close #1315) |
 | [commit cpprefjp/site, 2d81418] | cpprefjp/fixl:1 | `move_iterator::iterator_concept` : C++23対応 (close #1099) |
-| [commit cpprefjp/site, c698466, b1ce436] | cpprefjp/fixs:8 | リンクミスを修正 |
-| [commit cpprefjp/site, 344ed2d] | tool/improves:1 | 用語追加： コンテナアダプタ |
-| [commit cpprefjp/site, 3175722] | cpprefjp/fixs:1 | `map::try_emplace` : 要件を修正 #1189 |
-| [commit cpprefjp/site, 91f56d0] | cpprefjp/fixs:1 | `set::insert` : C++26の異種混合ルックアップに対応 #1189 |
-| [commit cpprefjp/site, 0036d1d] | cpprefjp/fixs:1 | `map::try_emplace` : 要件を整理 #1189 |
-| [commit cpprefjp/site, e8b37ef] | cpprefjp/fixm:1 | `unordered_map::try_emplace`: C++26の異種混合ルックアップに対応 #1189 |
-| [commit cpprefjp/site, e36b137] | cpprefjp/fixs:5 | コンテナの`std::erase` : C++26の波カッコ初期化対応 #1311 |
+| [commit cpprefjp/site, c698466, b1ce436] | cpprefjp/fixl:1, cpprefjp/addref:5, cpprefjp/link:1 | move_iterator : メンバ型の表を整理してバージョン差異があるものは個別ページを用意した |
+| [commit cpprefjp/site, 344ed2d] | cpprefjp/fixm:1 | 用語追加： コンテナアダプタ |
+| [commit cpprefjp/site, 91f56d0] | cpprefjp/fixl:1 | `set::insert` : C++26の異種混合ルックアップに対応 #1189 |
+| [commit cpprefjp/site, e8b37ef] | cpprefjp/fixl:1 | `unordered_map::try_emplace`: C++26の異種混合ルックアップに対応 #1189 |
+| [commit cpprefjp/site, e36b137] | cpprefjp/fixl:5 | コンテナの`std::erase` : C++26の波カッコ初期化対応 #1311 |
 | [commit cpprefjp/site, 80bd5f9] | cpprefjp/fixs:6 | `basic_string` : オーバーロードと説明の区切りを見直し |
-| [commit cpprefjp/site, 2cca94f] | cpprefjp/fixm:1 | `charconv/to_chars` : 「(6)～(13)」を「(6)-(13)」に修正 |
-| [commit cpprefjp/site, 2f17d2a] | cpprefjp/fixm:1 | `equal` : 「(1) (2)」を「(1), (2)」に修正 |
-| [commit cpprefjp/site, 096b6d8] | cpprefjp/fixm:8 | 全体 : 「(1)〜(4)」 (波ダッシュ)、「(1)～(4)」 (全角チルダ) を「(1)-(4)」に修正 |
+| [commit cpprefjp/site, 2cca94f] | cpprefjp/fixs:1 | `charconv/to_chars` : 「(6)～(13)」を「(6)-(13)」に修正 |
+| [commit cpprefjp/site, 2f17d2a] | cpprefjp/fixs:1 | `equal` : 「(1) (2)」を「(1), (2)」に修正 |
+| [commit cpprefjp/site, 096b6d8] | cpprefjp/fixs:8 | 全体 : 「(1)〜(4)」 (波ダッシュ)、「(1)～(4)」 (全角チルダ) を「(1)-(4)」に修正 |
 | [commit cpprefjp/site, 0436b33] | cpprefjp/fixs:1 | `basic_string::compare` : オーバーロードの区切りを見直し |
-| [commit cpprefjp/site, 003bb89] | cpprefjp/fixm:13 | 全体: オーバーロード番号の列挙を「(1),(2)」になっているものから「(1), (2)」の形式に変更 #1451 |
+| [commit cpprefjp/site, 003bb89] | cpprefjp/fixs:13 | 全体: オーバーロード番号の列挙を「(1),(2)」になっているものから「(1), (2)」の形式に変更 #1451 |
 | [commit cpprefjp/site, e34727d] | cpprefjp/fixs:108 | 全体: オーバーロード番号の区切りが「、」「, 」で表記揺れしていたため「, 」に統一 |
-| [commit cpprefjp/site, 9bcd535] | cpprefjp/fixm:2 | `unordered_(multi)set::bucket` : C++26の異種混合ルックアップに対応 #1189 |
-| [commit cpprefjp/site, 6216138, 0ff1c70, b809dbc, e350c4d] | cpprefjp/fixm:1, cpprefjp/fixs:4 | `unordered_set::insert` : C++26異種混合ルックアップに対応 #1189 |
-| [commit cpprefjp/site, 4d246b6] | cpprefjp/fixm:1 | `unordered_multimap::bucket` : C++26異種混合ルックアップに対応 #1189 |
-| [commit cpprefjp/site, 8378911, 567ae39] | cpprefjp/fixs:2 | `unordered_map::bucket` : オーバーロードの概要を記載 #1189 |
-| [commit cpprefjp/site, bd07d85] | cpprefjp/fixs:3 | `unordered_map` : `at`と`operator[]`をC++26異種混合ルックアップに対応 |
-| [commit cpprefjp/site, 6580bd9] | cpprefjp/fixm:1 | `unordered_map::insert_or_assign` : C++26の異種混合ルックアップに対応 #1189 |
-| [commit cpprefjp/site, 6b1650a] | cpprefjp/fixs:1 | `map::insert_or_assign` : オーバーロード番号を振り直し #1189 |
-| [commit cpprefjp/site, 047c55b, 0f3ab3a] | cpprefjp/fixs:7 | 不可視文字を削除 |
+| [commit cpprefjp/site, 9bcd535] | cpprefjp/fixl:2 | `unordered_(multi)set::bucket` : C++26の異種混合ルックアップに対応 #1189 |
+| [commit cpprefjp/site, e350c4d, b809dbc, 0ff1c70] | cpprefjp/fixm:1 | `unordered_set::insert` : オーバーロード番号を振り直し |
+| [commit cpprefjp/site, 6216138] | cpprefjp/fixs:1, cpprefjp/fixl:1 | `unordered_set::insert` : C++26異種混合ルックアップに対応 #1189 |
+| [commit cpprefjp/site, 4d246b6] | cpprefjp/fixl:1 | `unordered_multimap::bucket` : C++26異種混合ルックアップに対応 #1189 |
+| [commit cpprefjp/site, 8378911, 567ae39] | cpprefjp/fixl:1 | `unordered_map::bucket` : オーバーロードの概要を記載 #1189 |
+| [commit cpprefjp/site, bd07d857] | cpprefjp/fixl:2 | `unordered_map` : `at`と`operator[]`をC++26異種混合ルックアップに対応 |
+| [commit cpprefjp/site, 6580bd9] | cpprefjp/fixl:1 | `unordered_map::insert_or_assign` : C++26の異種混合ルックアップに対応 #1189 |
+| [commit cpprefjp/site, 6b1650a] | cpprefjp/fixm:1 | `map::insert_or_assign` : オーバーロード番号を振り直し #1189 |
+| [commit cpprefjp/site, 047c55b] | cpprefjp/fixs:1 | 不可視文字を削除 |
+| [commit cpprefjp/site, 0f3ab3a] | cpprefjp/link:2, cpprefjp/addref:4 | algorithm/`find` : C++26の波カッコ初期化対応 #1311 |
 | [commit cpprefjp/site, 16a3e80] | cpprefjp/fixs:37 | 全体 : オーバーロード番号の列挙「(1)(2)」を「(1), (2)」に変換 |
-| [commit cpprefjp/site, b810699] | cpprefjp/fixs:2 | algorithm/`remove` : C++26波カッコ初期化に対応 #1311 |
-| [commit cpprefjp/site, e463c2f] | cpprefjp/fixs:2 | algorithm/`fill_n` : C++26波カッコ初期化に対応 #1311 |
-| [commit cpprefjp/site, 319fdf9] | cpprefjp/fixs:2 | algorithm/`fill` : C++26波カッコ初期化に対応 #1311 |
-| [commit cpprefjp/site, a2bacbe, 4c8f465] | cpprefjp/fixs:4 | `ranges::replace_copy` : サンプルコードのミスを修正 #1311 |
-| [commit cpprefjp/site, 977a82a, 06f6cd4, 6fd6be3] | cpprefjp/fixs:10 | `replace(_if)` : 例のミスを修正 |
-| [commit cpprefjp/site, 1fe8918, c3e940c] | cpprefjp/fixs:8 | `count`, `find`, `search_n` : 例のイテレータ範囲ミスを修正 |
-| [commit cpprefjp/site, f6a62c4] | cpprefjp/fixs:2 | `algorithm/count` : C++26波カッコ初期化に対応 #1311 |
-| [commit cpprefjp/site, 9094beb] | cpprefjp/fixs:2 | `fold_left`, `fold_right` : 箇条書きの表示崩れを修正 |
+| [commit cpprefjp/site, b810699] | cpprefjp/fixl:2 | algorithm/`remove` : C++26波カッコ初期化に対応 #1311 |
+| [commit cpprefjp/site, e463c2f] | cpprefjp/fixl:2 | algorithm/`fill_n` : C++26波カッコ初期化に対応 #1311 |
+| [commit cpprefjp/site, 319fdf9] | cpprefjp/fixl:2 | algorithm/`fill` : C++26波カッコ初期化に対応 #1311 |
+| [commit cpprefjp/site, 4c8f465, a2bacbe, bd1ef79] | cpprefjp/fixl:3 | `replace_copy(_if)` : C++26波カッコ初期化に対応 #1311 |
+| [commit cpprefjp/site, 6fd6be3, 06f6cd4, 977a82a] | cpprefjp/fixl:4 | `replace(_if)` : C++26波カッコ初期化に対応 #1311 |
+| [commit cpprefjp/site, c3e940c, 1fe8918] | cpprefjp/fixl:2 | algorithm/`search_n` : C++26波カッコ初期化に対応 #1311 |
+| [commit cpprefjp/site, f6a62c4] | cpprefjp/fixl:2 | `algorithm/count` : C++26波カッコ初期化に対応 #1311 |
+| [commit cpprefjp/site, 18c5fd3, 9094beb] | cpprefjp/fixl:3 | `fold`関係 : C++26波カッコ初期化に対応 #1311 |
 | [commit cpprefjp/site, 1f87d6a] | cpprefjp/fixm:3 | `ranges::count`, `equal_range`, `lower_bound` : 射影変換の例を追加 |
 | [commit cpprefjp/site, 0dfcb84] | cpprefjp/fixm:1 | `ranges::find` : 射影変換の例を追加 |
-| [commit cpprefjp/site, 1350ce7] | cpprefjp/fixs:2 | `find_last`, `contains` : C++26波カッコ初期化に対応 #1311 |
-| [commit cpprefjp/site, 18c5fd3] | cpprefjp/fixs:3 | `fold`関係 : C++26波カッコ初期化に対応 #1311 |
-| [commit cpprefjp/site, 93b8c47] | cpprefjp/fixs:2 | `binary_search` : C++26波カッコ初期化に対応 #1311 |
-| [commit cpprefjp/site, 1a1278c] | cpprefjp/fixs:2 | `equal_range` : C++26波カッコ初期化に対応 #1311 |
-| [commit cpprefjp/site, 8eae9db] | cpprefjp/fixs:4 | `lower_bound` / `upper_bound` : C++26波カッコ初期化に対応 #1311 |
-| [commit cpprefjp/site, bd1ef79] | cpprefjp/fixm:2 | `replace_copy_if` : コンパイルエラー修正 #1311 |
-| [commit cpprefjp/site, 260bfc5] | cpprefjp/fixs:2 | algorithm/`remove_copy` : C++26波カッコ初期化に対応 #1311 |
+| [commit cpprefjp/site, 1350ce7] | cpprefjp/fixl:2 | `find_last`, `contains` : C++26波カッコ初期化に対応 #1311 |
+| [commit cpprefjp/site, 93b8c47] | cpprefjp/fixl:2 | `binary_search` : C++26波カッコ初期化に対応 #1311 |
+| [commit cpprefjp/site, 1a1278c] | cpprefjp/fixl:2 | `equal_range` : C++26波カッコ初期化に対応 #1311 |
+| [commit cpprefjp/site, 8eae9db] | cpprefjp/fixl:4 | `lower_bound` / `upper_bound` : C++26波カッコ初期化に対応 #1311 |
+| [commit cpprefjp/site, 260bfc5] | cpprefjp/fixl:2 | algorithm/`remove_copy` : C++26波カッコ初期化に対応 #1311 |
+
+以下、まだ。
+
+| コミット | タグ | 説明 |
+|----------|------|------|
 | [commit cpprefjp/site, cdd2573, 16242c5] | cpprefjp/fixs:8 | 表の表示崩れを修正 |
 | [commit cpprefjp/site, 8113c79, f462880] | cpprefjp/fixl:8, cpprefjp/fixs:1 | コード修飾ミスを修正 |
 | [commit cpprefjp/site, cdaf0f7] | cpprefjp/fixm:6 | fstream : サンプルコードのインデントを4 → 2スペースに修正 |
