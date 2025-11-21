@@ -106,7 +106,6 @@ int main()
 }
 ```
 * std::partition_copy[color ff0000]
-* is_even[link /reference/algorithm/is_partitioned.md]
 
 ### 出力
 ```
