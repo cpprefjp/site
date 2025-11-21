@@ -273,39 +273,52 @@
 
 | コミット | タグ | 説明 |
 |----------|------|------|
-| [commit cpprefjp/site, 5b5cd37] | cpprefjp/fixm:1 | added a sample implementation for `gcd` and `lcm` function |
-| [commit cpprefjp/site, dbd4b9d] | cpprefjp/fixs:1 | new sample code for `istringstream` |
-| [commit cpprefjp/site, 5090f49] | cpprefjp/fixm:1 | fixed wrong inner links |
-| [commit cpprefjp/site, 11b63ee] | cpprefjp/fixm:1 | fixed nolink |
-| [commit cpprefjp/site, f579e2f] | cpprefjp/fixs:1 | Added new documentation for P2169R4 |
-| [commit cpprefjp/site, 21abedc] | cpprefjp/fixs:1 | added sample program and explanation for `fstream` |
-| [commit cpprefjp/site, d153991] | cpprefjp/fixs:1 | Added verified version |
-| [commit cpprefjp/site, b4ff92e] | cpprefjp/fixs:1 | Added verified version |
-| [commit cpprefjp/site, d65e6a9] | cpprefjp/fixs:1 | new page for embed #1422 |
-| [commit cpprefjp/site, 2402f98] | cpprefjp/fixm:1 | Created version column for reference/algorithm/count.md |
-| [commit cpprefjp/site, 0b980b4] | cpprefjp/fixm:1 | Created version column for reference/algorithm/count_if.md |
-| [commit cpprefjp/site, ac45cea] | cpprefjp/fixm:1 | Created version column for reference/algorithm/copy.md |
-| [commit cpprefjp/site, 112bd29] | cpprefjp/fixm:1 | Created version column for reference/algorithm/copy_backward.md |
-| [commit cpprefjp/site, 1c1a876] | cpprefjp/fixm:1 | created version column for reference/algorithm/binary_search.md |
-| [commit cpprefjp/site, 5df1ae7] | cpprefjp/fixm:1 | created version column for reference/algorithm/adjacent_find.md |
-| [commit cpprefjp/site, bf61d03] | cpprefjp/fixm:1 | new clang version for reference/algorithm/ranges_all_of |
-| [commit cpprefjp/site, e822b00] | cpprefjp/fixs:1 | Rewrote lang/cpp26/embed.md |
-| [commit cpprefjp/site, 148bb8c] | cpprefjp/fixs:1 | lang/cpp26/contracts.md: Removed zero-width space |
-| [commit cpprefjp/site, 7b55ccc] | cpprefjp/fixm:1 | lang/cpp26/contracts.md: Fixed link |
-| [commit cpprefjp/site, 9d5321d] | cpprefjp/fixm:1 | lang/cpp26.md,lang/cpp26/contracts.md,implementation-status.md: Created article |
-| [commit cpprefjp/site, 28659ac] | cpprefjp/fixm:1 | reference/iterator/contiguous_iterator.md: Added information for contiguous_iterator |
-| [commit cpprefjp/site, 06d798b] | cpprefjp/fixs:1 | reference/cstddef/null.md: Created sample program |
-| [commit cpprefjp/site, 75705c0] | cpprefjp/fixs:1 | reference/cmath/float_t.md: Created sample program |
-| [commit cpprefjp/site, dbd3566] | cpprefjp/fixs:1 | reference/cmath/double_t.md: New sample program |
-| [commit cpprefjp/site, 93cfae5] | cpprefjp/fixm:1 | lang/cpp26/contracts.md: Fixed it correctly |
-| [commit cpprefjp/site, 586dfed] | cpprefjp/fixm:1 | reference/iterator/contiguous_iterator.md: Created new specification |
-| [commit cpprefjp/site, 312fc42] | cpprefjp/fixm:1 | reference/contracts/contract_violation.md: Removed wrong file |
-| [commit cpprefjp/site, d78efbc] | cpprefjp/fixm:1 | reference/contracts.md: Added and fixed things defined in contracts |
-| [commit cpprefjp/site, f9d79b2] | cpprefjp/fixm:1 | reference/contracts/contract_violation.md: Fixed meta header |
-| [commit cpprefjp/site, d394778] | cpprefjp/fixm:1 | reference/contracts.md,reference/contracts/contract_violation.md: Fixed link |
-| [commit cpprefjp/site, 31610ca] | cpprefjp/typo:1 | lang/future.md: Fixed typo |
-| [commit cpprefjp/site, a50761f] | cpprefjp/fixm:1 | lang/future.md: Fixed link |
-| [commit cpprefjp/site, 84f50ba] | cpprefjp/fixm:1 | reference.md,reference/contracts.md: Aded contracts |
+| [commit cpprefjp/site, 5b5cd37] | cpprefjp/fixm:2 | added a sample implementation for `gcd` and `lcm` function |
+| [commit cpprefjp/site, dbd4b9d] | cpprefjp/fixm:1 | new sample code for `istringstream` |
+| [commit cpprefjp/site, f579e2f, 11b63ee, 5090f49] | cpprefjp/fixs:1 | Added new documentation for P2169R4 |
+| [commit cpprefjp/site, 21abedc] | cpprefjp/link:2, cpprefjp/addlang:1 | added sample program and explanation for `fstream` |
+| [commit cpprefjp/site, d153991] | cpprefjp/compiler:1 | Added verified version |
+| [commit cpprefjp/site, b4ff92e] | cpprefjp/compiler:1 | Added verified version |
+| [commit cpprefjp/site, d65e6a9, e822b00] | cpprefjp/link:2, cpprefjp/addlang:1 | new page for embed #1422 |
+| [commit cpprefjp/site, 2402f98] | cpprefjp/compiler:1 | Created version column for reference/algorithm/count.md |
+| [commit cpprefjp/site, 0b980b4] | cpprefjp/compiler:1 | Created version column for reference/algorithm/count_if.md |
+| [commit cpprefjp/site, ac45cea] | cpprefjp/compiler:1 | Created version column for reference/algorithm/copy.md |
+| [commit cpprefjp/site, 112bd29] | cpprefjp/compiler:1 | Created version column for reference/algorithm/copy_backward.md |
+| [commit cpprefjp/site, 1c1a876] | cpprefjp/compiler:1 | created version column for reference/algorithm/binary_search.md |
+| [commit cpprefjp/site, 5df1ae7] | cpprefjp/compiler:1 | created version column for reference/algorithm/adjacent_find.md |
+| [commit cpprefjp/site, bf61d03] | cpprefjp/compiler:1 | new clang version for reference/algorithm/ranges_all_of |
+| [commit cpprefjp/site, 9d5321d, 7b55ccc, 148bb8c, 93cfae5] | cpprefjp/link:2, cpprefjp/addlang:1 | lang/cpp26.md,lang/cpp26/contracts.md,implementation-status.md: Created article |
+| [commit cpprefjp/site, 28659ac, 586dfed] | cpprefjp/fixl:1 | reference/iterator/contiguous_iterator.md: Added information for contiguous_iterator |
+| [commit cpprefjp/site, 06d798b] | cpprefjp/fixm:1 | reference/cstddef/null.md: Created sample program |
+| [commit cpprefjp/site, 75705c0] | cpprefjp/fixm:1 | reference/cmath/float_t.md: Created sample program |
+| [commit cpprefjp/site, dbd3566] | cpprefjp/fixm:1 | reference/cmath/double_t.md: New sample program |
+| [commit cpprefjp/site, 84f50ba, d394778, d78efbc] | cpprefjp/fixl:2 | reference.md,reference/contracts.md: Aded contracts |
+| [commit cpprefjp/site, 312fc42] | ignore | reference/contracts/contract_violation.md: Removed wrong file |
+| [commit cpprefjp/site, f9d79b2, 3227e21, 398fa68] | cpprefjp/fixl:1 | reference/contracts/contract_violation.md: Fixed meta header |
+| [commit cpprefjp/site, 0595a39] | ignore | reference/contracts.md: Added function |
+| [commit cpprefjp/site, 3181330] | ignore | reference/contracts.md: Removed nolink |
+| [commit cpprefjp/site, eaac109] | ignore | reference/contracts/contract_violation.md: Added reference column |
+| [commit cpprefjp/site, c3aa7d4] | ignore | reference/contracts/contract_violation.md: Added function description |
+| [commit cpprefjp/site, 8ece610] | ignore | reference/contracts.md: Fixed link typo |
+| [commit cpprefjp/site, 6494e10] | ignore | reference/contracts/contract_violation.md: Fixed typo and description |
+| [commit cpprefjp/site, 7d38e6e] | cpprefjp/addref:1 | new: Added page `evaluation_semantic` |
+| [commit cpprefjp/site, d18dc84] | ignore | fix: Removed nolink |
+| [commit cpprefjp/site, f82d563] | cpprefjp/addref:1 | new: Created page `assertion_kind` |
+| [commit cpprefjp/site, 77d4a16] | ignore | fix: Added version for contract_violation |
+| [commit cpprefjp/site, 91bc83e] | cpprefjp/addref:1 | new: New page `detection_mode` |
+| [commit cpprefjp/site, 3c65924] | ignore | removed nolink |
+| [commit cpprefjp/site, 7491d10] | cpprefjp/addref:1 | new page `invoke_default_contract_violation_handler.md` (#1419) |
+| [commit cpprefjp/site, 0821052] | ignore | fixed path |
+| [commit cpprefjp/site, a415706] | cpprefjp/addref:1 | new page `reference/contracts/contract_violation/semantic.md`(#1419) |
+| [commit cpprefjp/site, 8769b40] | cpprefjp/addref:1 | new page `reference/contracts/contract_violation/location.md`(#1419) |
+| [commit cpprefjp/site, 95dd140] | cpprefjp/addref:1 | new page `reference/contracts/contract_violation/kind.md`(#1419) |
+| [commit cpprefjp/site, 6ae9144] | cpprefjp/addref:1 | new page `reference/contracts/contract_violation/is_terminating.md`(#1419) |
+| [commit cpprefjp/site, 4cf5303] | cpprefjp/addref:1 | new page `reference/contracts/contract_violation/evaluation_exception.md`(#1419) |
+| [commit cpprefjp/site, c867da9] | ignore | removed .nolink |
+| [commit cpprefjp/site, a2f32bb] | cpprefjp/addref:1 | new page `reference/contracts/contract_violation/detection_mode.md`(#1419) |
+| [commit cpprefjp/site, 766f58a, d909f26] | cpprefjp/addref:1 | new page `reference/contracts/contract_violation` (#1419) |
+| [commit cpprefjp/site, 415b00e] | ignore | fixed link for contract_violation's member functions(#1419) |
+| [commit cpprefjp/site, 31610ca, a50761f] | cpprefjp/link:1 | lang/future.md: Fixed typo |
 | [commit cpprefjp/site, 28c1ed5] | cpprefjp/fixm:1 | reference/cstdint/int_fast64_t.md: Created sample program |
 | [commit cpprefjp/site, c476d9c] | cpprefjp/fixm:1 | reference/cstdint/int_fast64_min.md: Created sample program |
 | [commit cpprefjp/site, d571305] | cpprefjp/fixm:1 | reference/cstdint/int_fast64_max.md: Created sample program |
@@ -313,25 +326,19 @@
 | [commit cpprefjp/site, 4bc9af5] | cpprefjp/fixm:1 | reference/cstdint/int_fast32_min.md: Created sample program |
 | [commit cpprefjp/site, 84b6c73] | cpprefjp/fixm:1 | reference/cstdint/int_fast32_max.md: Created sample program |
 | [commit cpprefjp/site, 1f4ea48] | cpprefjp/fixm:1 | reference/cstdint/int_fast16_t.md: Create sample program |
-| [commit cpprefjp/site, 62e7c2f] | cpprefjp/fixm:1 | reference/cstdint/int_fast16_max.md: Removed reference column |
-| [commit cpprefjp/site, e5250dd] | cpprefjp/fixm:1 | reference/cstdint/int_fast16_max.md: Readded verified mark |
+| [commit cpprefjp/site, 62e7c2f] | ignore | reference/cstdint/int_fast16_max.md: Removed reference column |
+| [commit cpprefjp/site, e5250dd] | ignore | reference/cstdint/int_fast16_max.md: Readded verified mark |
 | [commit cpprefjp/site, 91b19c4] | cpprefjp/fixm:1 | reference/cstdint/int_fast8_max.md: Removed reference column |
-| [commit cpprefjp/site, 06d8c88] | cpprefjp/fixm:1 | reference/cstdint/int_fast8_max.md: Fixed version specification |
+| [commit cpprefjp/site, 06d8c88] | ignore | reference/cstdint/int_fast8_max.md: Fixed version specification |
 | [commit cpprefjp/site, d2cbe38] | cpprefjp/fixm:1 | reference/cstdint/int_fast16_min.md: Created sample program |
 | [commit cpprefjp/site, 6fcefb7] | cpprefjp/fixm:1 | reference/cstdint/int_fast16_max.md: Created sample program |
 | [commit cpprefjp/site, 8dc908b] | cpprefjp/fixm:1 | reference/cstdint/int_fast8_min.md: Created sample program |
 | [commit cpprefjp/site, 2a3d37a] | cpprefjp/fixm:1 | reference/cstdint/int_fast8_max.md: Created sample program |
 | [commit cpprefjp/site, 9d7b142] | cpprefjp/fixm:1 | reference/cstdint/int_fast8_t.md: Created sample code |
-| [commit cpprefjp/site, 3227e21] | cpprefjp/fixm:1 | reference/contracts/contract_violation.md: Added description |
-| [commit cpprefjp/site, 398fa68] | cpprefjp/fixm:1 | reference/contracts/contract_violation.md: Initialized page |
-| [commit cpprefjp/site, 0595a39] | cpprefjp/fixs:1 | reference/contracts.md: Added function |
-| [commit cpprefjp/site, 3181330] | cpprefjp/fixs:1 | reference/contracts.md: Removed nolink |
-| [commit cpprefjp/site, eaac109] | cpprefjp/fixm:1 | reference/contracts/contract_violation.md: Added reference column |
-| [commit cpprefjp/site, c3aa7d4] | cpprefjp/fixm:1 | reference/contracts/contract_violation.md: Added function description |
 | [commit cpprefjp/site, 665471d] | cpprefjp/fixm:1 | reference/cctype/toupper.md: Created sample implementation |
 | [commit cpprefjp/site, 3b77b17] | cpprefjp/fixm:1 | reference/cctype/tolower.md: Created sample implementation |
 | [commit cpprefjp/site, 365685e] | cpprefjp/fixm:1 | reference/cctype/isupper.md: Created sample implementation |
-| [commit cpprefjp/site, 3527568] | cpprefjp/fixm:1 | reference/cctype/isspace.md: Created sample implementation |
+| [commit cpprefjp/site, 3527568, 2750049] | ignore | reference/cctype/isspace.md: Created sample implementation |
 | [commit cpprefjp/site, 3ced67c] | cpprefjp/fixm:1 | reference/cctype/ispunct.md: Created sample implementation |
 | [commit cpprefjp/site, 0b90e93] | cpprefjp/fixm:1 | reference/cctype/islower.md: Created sample implementation |
 | [commit cpprefjp/site, 7f86fee] | cpprefjp/fixm:1 | reference/cctype/isgraph.md: Created sample implementation |
@@ -341,205 +348,149 @@
 | [commit cpprefjp/site, cd61c31] | cpprefjp/fixm:1 | reference/cctype/isalnum.md: Added sample implementation |
 | [commit cpprefjp/site, 3fd522f] | cpprefjp/fixs:1 | reference/cctype/isalnum.md: Added extra info |
 | [commit cpprefjp/site, b2f4405] | cpprefjp/fixm:1 | reference/barrier/barrier.md: Created sample program |
-| [commit cpprefjp/site, ef7008f] | cpprefjp/fixm:1 | reference/algorithm/ranges_unique.md: Fixed format |
+| [commit cpprefjp/site, ef7008f] | cpprefjp/fixs:1 | reference/algorithm/ranges_unique.md: Fixed format |
 | [commit cpprefjp/site, 9e1eb89] | cpprefjp/fixm:1 | reference/algorithm/unique.md: Fixed format |
-| [commit cpprefjp/site, 8ece610] | cpprefjp/typo:1 | reference/contracts.md: Fixed link typo |
-| [commit cpprefjp/site, 6494e10] | cpprefjp/typo:1 | reference/contracts/contract_violation.md: Fixed typo and description |
-| [commit cpprefjp/site, 46a42fe] | cpprefjp/fixm:1 | fix: Added proper info for tolower and toupper |
-| [commit cpprefjp/site, a094fce] | cpprefjp/fixm:1 | fix: Added information for isupper |
-| [commit cpprefjp/site, 2750049] | cpprefjp/fixm:1 | Revert "reference/cctype/isspace.md: Created sample implementation" |
-| [commit cpprefjp/site, 4097b49] | cpprefjp/fixm:1 | fix: Fixed wrong implementation code for islower() |
-| [commit cpprefjp/site, f9534c2] | cpprefjp/compiler:1 | fix: Fixed compiler version |
-| [commit cpprefjp/site, 7d38e6e] | cpprefjp/fixs:1 | new: Added page `evaluation_semantic` |
-| [commit cpprefjp/site, d18dc84] | cpprefjp/fixm:1 | fix: Removed nolink |
-| [commit cpprefjp/site, f82d563] | cpprefjp/fixs:1 | new: Created page `assertion_kind` |
-| [commit cpprefjp/site, 77d4a16] | cpprefjp/fixm:1 | fix: Added version for contract_violation |
-| [commit cpprefjp/site, 91bc83e] | cpprefjp/fixs:1 | new: New page `detection_mode` |
-| [commit cpprefjp/site, 3c65924] | cpprefjp/fixs:1 | removed nolink |
-| [commit cpprefjp/site, 7491d10] | cpprefjp/fixm:1 | new page `invoke_default_contract_violation_handler.md` (#1419) |
-| [commit cpprefjp/site, 1434e2d] | cpprefjp/fixs:1 | checked gcc version for std::ssize() |
-| [commit cpprefjp/site, 8316547] | cpprefjp/fixm:1 | fixed .nolink |
-| [commit cpprefjp/site, e1a0612] | cpprefjp/fixm:1 | fixed .nolink |
-| [commit cpprefjp/site, 48b9d77] | cpprefjp/fixm:1 | fixed a lot of .nolink |
-| [commit cpprefjp/site, 3f4fdd5] | cpprefjp/fixs:1 | new page `reference/cstdio/fscanf.md` |
-| [commit cpprefjp/site, 7e71dfc] | cpprefjp/compiler:1 | remvoed wired words and added compiler column |
-| [commit cpprefjp/site, b069a5b] | cpprefjp/fixs:1 | new page `reference/cstdio/fprintf.md` |
-| [commit cpprefjp/site, 2a94b63] | cpprefjp/fixm:1 | fixed highlighting keyword |
-| [commit cpprefjp/site, 196f954] | cpprefjp/fixs:1 | new page `reference/cstdio/stderr.md` |
-| [commit cpprefjp/site, 3e084fb] | cpprefjp/fixs:1 | new page `reference/cstdio/stdin.md` |
-| [commit cpprefjp/site, be1a625] | cpprefjp/fixm:1 | fixed meta id-type for stdout.md |
-| [commit cpprefjp/site, aeafc9c] | cpprefjp/fixs:1 | new page `reference/cstdio/stdout.md` |
-| [commit cpprefjp/site, 0821052] | cpprefjp/fixm:1 | fixed path |
-| [commit cpprefjp/site, a415706] | cpprefjp/fixm:1 | new page `reference/contracts/contract_violation/semantic.md`(#1419) |
-| [commit cpprefjp/site, 8769b40] | cpprefjp/fixm:1 | new page `reference/contracts/contract_violation/location.md`(#1419) |
-| [commit cpprefjp/site, 95dd140] | cpprefjp/fixm:1 | new page `reference/contracts/contract_violation/kind.md`(#1419) |
-| [commit cpprefjp/site, 6ae9144] | cpprefjp/fixm:1 | new page `reference/contracts/contract_violation/is_terminating.md`(#1419) |
-| [commit cpprefjp/site, 4cf5303] | cpprefjp/fixm:1 | new page `reference/contracts/contract_violation/evaluation_exception.md`(#1419) |
-| [commit cpprefjp/site, c867da9] | cpprefjp/fixs:1 | removed .nolink |
-| [commit cpprefjp/site, a2f32bb] | cpprefjp/fixm:1 | new page `reference/contracts/contract_violation/detection_mode.md`(#1419) |
-| [commit cpprefjp/site, d909f26] | cpprefjp/fixs:1 | added more description for `comment.md`(#1419) |
-| [commit cpprefjp/site, 766f58a] | cpprefjp/fixm:1 | new page `reference/contracts/contract_violation` (#1419) |
-| [commit cpprefjp/site, 415b00e] | cpprefjp/fixm:1 | fixed link for contract_violation's member functions(#1419) |
-| [commit cpprefjp/site, f266b0f] | cpprefjp/fixm:1 | new page `tmpnam.md` and fixed name for `cstdio.md` and removed nolink |
-| [commit cpprefjp/site, 472ef70] | cpprefjp/fixs:1 | new page `tmpfile.md` and removed nolink |
-| [commit cpprefjp/site, 84741e0] | cpprefjp/fixs:1 | new page `rename.md` and removed nolink |
-| [commit cpprefjp/site, 62c038c] | cpprefjp/fixs:1 | new page `remove.md` and removed nolink |
-| [commit cpprefjp/site, 09eb35e] | cpprefjp/fixs:1 | new page `filename_max.md` and removed nolink |
-| [commit cpprefjp/site, 3b792ce] | cpprefjp/fixs:1 | new page `eof.md` and removed nolink |
-| [commit cpprefjp/site, 3e6fdb5] | cpprefjp/fixm:1 | fixed explanation |
-| [commit cpprefjp/site, 3f7dfed] | cpprefjp/fixs:1 | new page `file.md` and removed .nolink |
-| [commit cpprefjp/site, b2b7126] | cpprefjp/fixs:1 | added nolink |
-| [commit cpprefjp/site, 1a6ace7] | cpprefjp/fixs:1 | added nolink |
-| [commit cpprefjp/site, 0470b06] | cpprefjp/fixs:1 | new page `fputc.md` and removed nolink |
-| [commit cpprefjp/site, a2e9bfc] | cpprefjp/fixs:1 | new page `fgets.md` |
-| [commit cpprefjp/site, 216a9c3] | cpprefjp/fixs:1 | new page `fgetc.md` and removed nolink |
-| [commit cpprefjp/site, cb305c1] | cpprefjp/fixm:1 | fixed inner-link errors |
-| [commit cpprefjp/site, ba2b72c] | cpprefjp/fixm:1 | fixed inner-link errors |
-| [commit cpprefjp/site, 19f065b] | cpprefjp/fixm:1 | fixed code_qualify errors |
-| [commit cpprefjp/site, 4d7a6b8] | cpprefjp/fixs:1 | added link for ranges_contains_subrange.md |
-| [commit cpprefjp/site, ee0aed9] | cpprefjp/fixs:1 | added link for ranges_clamp.md |
-| [commit cpprefjp/site, fa9dc4a] | cpprefjp/fixs:1 | added link for ranges_binary_search.md |
-| [commit cpprefjp/site, 155cbfc] | cpprefjp/fixs:1 | added link for ranges_any_of.md |
-| [commit cpprefjp/site, c7a59d6] | cpprefjp/fixs:1 | added link for ranges_all_of.md |
-| [commit cpprefjp/site, 736f548] | cpprefjp/fixs:1 | added link for ranges_adjacent_find.md |
-| [commit cpprefjp/site, f991a36] | cpprefjp/fixs:1 | added link for random_shuffle.md |
-| [commit cpprefjp/site, fb0cc44] | cpprefjp/fixs:1 | added link for push_heap.md |
-| [commit cpprefjp/site, 1c54923] | cpprefjp/fixs:1 | added link for prev_permutation |
-| [commit cpprefjp/site, 12233d7] | cpprefjp/fixs:1 | added link for pop_heap.md |
-| [commit cpprefjp/site, 463ba06] | cpprefjp/fixs:1 | added link for partition.md |
-| [commit cpprefjp/site, 17a48cd] | cpprefjp/fixs:1 | added link for partition_point.md |
-| [commit cpprefjp/site, fdb1677] | cpprefjp/fixs:1 | added link for partition_copy.md |
-| [commit cpprefjp/site, 5488d97] | cpprefjp/fixs:1 | added link for partial_sort.md |
-| [commit cpprefjp/site, 2daaf8c] | cpprefjp/fixs:1 | added link for parital_sort_copy.md |
-| [commit cpprefjp/site, f304c11] | cpprefjp/fixs:1 | added link for nth_element |
-| [commit cpprefjp/site, d4002e2] | cpprefjp/fixs:1 | added link for none_of.md |
-| [commit cpprefjp/site, c174221] | cpprefjp/fixs:1 | added link for next_permutation |
-| [commit cpprefjp/site, 4ec75f1] | cpprefjp/fixs:1 | added link for move.md |
-| [commit cpprefjp/site, e6d780c] | cpprefjp/fixs:1 | added link for move_backward.md |
-| [commit cpprefjp/site, 639493b] | cpprefjp/fixs:1 | added link for mismatch.md |
-| [commit cpprefjp/site, a0201a2] | cpprefjp/fixs:1 | added link for minmax.md |
-| [commit cpprefjp/site, 958aa28] | cpprefjp/fixs:1 | added link for minmax_element.md |
-| [commit cpprefjp/site, 3bac8d4] | cpprefjp/fixs:1 | added link for min.md |
-| [commit cpprefjp/site, bffea50] | cpprefjp/fixs:1 | added link for min_element.md |
-| [commit cpprefjp/site, 339a6f6] | cpprefjp/fixs:1 | added link for merge.md |
-| [commit cpprefjp/site, fe7d649] | cpprefjp/fixs:1 | added link for max.md |
-| [commit cpprefjp/site, a262ea3] | cpprefjp/fixs:1 | added link for max_element.md |
-| [commit cpprefjp/site, 29ef38b] | cpprefjp/fixs:1 | added link for make_heap.md |
-| [commit cpprefjp/site, cf458c7] | cpprefjp/fixs:1 | added link for lower_bound.md |
-| [commit cpprefjp/site, c668d08] | cpprefjp/fixs:1 | added link for lexicographical_compare.md |
-| [commit cpprefjp/site, 8ba9a70] | cpprefjp/fixm:1 | added link for lexicographical_compare_three_way.md |
-| [commit cpprefjp/site, f1b24b5] | cpprefjp/fixs:1 | added link for iter_swap.md |
-| [commit cpprefjp/site, a03646f] | cpprefjp/fixs:1 | added link for is_sorted.md |
-| [commit cpprefjp/site, 8756781] | cpprefjp/fixs:1 | added link for is_sorted_until.md |
-| [commit cpprefjp/site, f4b2f11] | cpprefjp/fixs:1 | added link for is_permutation.md |
-| [commit cpprefjp/site, 34b3a11] | cpprefjp/fixs:1 | added link for is_partitioned.md |
-| [commit cpprefjp/site, 9d3ab82] | cpprefjp/fixs:1 | added link for is_heap.md |
-| [commit cpprefjp/site, c0dd5e6] | cpprefjp/fixs:1 | added link for is_heap_until.md |
-| [commit cpprefjp/site, ea3bac4] | cpprefjp/fixs:1 | added link for inplace_merge.md |
-| [commit cpprefjp/site, d0181e4] | cpprefjp/fixs:1 | added link for includes.md |
-| [commit cpprefjp/site, 7332210] | cpprefjp/fixs:1 | added link for generate.md |
-| [commit cpprefjp/site, e3bd4b7] | cpprefjp/fixs:1 | added link for generate_n.md |
-| [commit cpprefjp/site, e3cd83c] | cpprefjp/fixs:1 | added link for for_each.md |
-| [commit cpprefjp/site, 3d4a2ef] | cpprefjp/fixs:1 | added link for for_each_n.md |
-| [commit cpprefjp/site, 85f63fe] | cpprefjp/fixs:1 | added link for find.md |
-| [commit cpprefjp/site, 95f352f] | cpprefjp/fixs:1 | added link for find_if.md |
-| [commit cpprefjp/site, 405e787] | cpprefjp/fixs:1 | added link for find_if_not.md |
-| [commit cpprefjp/site, e4bd888] | cpprefjp/fixs:1 | added link for find_first_of.md |
-| [commit cpprefjp/site, cbcfdb7] | cpprefjp/fixm:1 | fixed code_qualify error |
-| [commit cpprefjp/site, d129597] | cpprefjp/fixs:1 | added link for find_end.md |
-| [commit cpprefjp/site, 0034664] | cpprefjp/fixs:1 | added link for fill.md |
-| [commit cpprefjp/site, 25b9153] | cpprefjp/fixs:1 | added link for fill_n.md |
-| [commit cpprefjp/site, d169067] | cpprefjp/fixs:1 | added link for equal.md |
-| [commit cpprefjp/site, 484e4f4] | cpprefjp/fixs:1 | added link for equal_range.md |
-| [commit cpprefjp/site, 83b2464] | cpprefjp/fixs:1 | added link for count.md |
-| [commit cpprefjp/site, 00f3f8e] | cpprefjp/fixs:1 | added link for count_if.md |
-| [commit cpprefjp/site, f9ef82c] | cpprefjp/fixs:1 | added link for copy.md |
-| [commit cpprefjp/site, f38c489] | cpprefjp/fixs:1 | added link for copy_n.md |
-| [commit cpprefjp/site, 8194a2f] | cpprefjp/fixm:1 | fixed code_qualify error |
-| [commit cpprefjp/site, b2fbf78] | cpprefjp/fixs:1 | added link for copy_if.md |
-| [commit cpprefjp/site, 9a9bd35] | cpprefjp/fixs:1 | added link for copy_backward.md |
-| [commit cpprefjp/site, d4d4623] | cpprefjp/fixs:1 | added link for clamp.md |
-| [commit cpprefjp/site, 91e8c01] | cpprefjp/fixs:1 | added link for binary_search.md |
-| [commit cpprefjp/site, 477ae69] | cpprefjp/fixs:1 | added link for all_of.md and any_of.md |
-| [commit cpprefjp/site, 2705884] | cpprefjp/fixs:1 | added link for all_of.md |
-| [commit cpprefjp/site, 50c0e58] | cpprefjp/fixs:1 | defined items in cctype at GLOBAL_QUALIFY_LIST.txt |
-| [commit cpprefjp/site, efff886] | cpprefjp/fixs:1 | defined items in bit at GLOBAL_QUALIFY_LIST.txt |
-| [commit cpprefjp/site, 9631cc2] | cpprefjp/fixm:1 | defined items in barrier at GLOBAL_QUALIFY_LIST.txt |
-| [commit cpprefjp/site, 53c2993] | cpprefjp/fixs:1 | defined items in atomic at GLOBAL_QUALIFY_LIST |
-| [commit cpprefjp/site, a8b8808] | cpprefjp/fixs:1 | defined items for `<array>` at GLOBAL_QUALIFY_LIST |
-| [commit cpprefjp/site, 2b4608d] | cpprefjp/fixm:1 | added functions for any header at GLOBAL_QUALIFY_LIST.txt |
-| [commit cpprefjp/site, b23f7fd] | cpprefjp/fixm:1 | defined all functions for algorithm header at GLOBAL_QUALIFY_LIST.txt |
-| [commit cpprefjp/site, aabf375] | cpprefjp/fixs:1 | added link |
-| [commit cpprefjp/site, fb36b7c] | cpprefjp/fixm:1 | fixed failing test |
-| [commit cpprefjp/site, 850a54f] | cpprefjp/fixs:1 | added color for eof |
-| [commit cpprefjp/site, e424b2a] | cpprefjp/fixm:1 | Revert "defined all functions for `algorithm` header at GLOBAL_QUALIFY_LIST.txt" |
-| [commit cpprefjp/site, e4c1ff5] | cpprefjp/fixm:1 | Revert "added functions for any header at GLOBAL_QUALIFY_LIST.txt" |
-| [commit cpprefjp/site, 295b764] | cpprefjp/fixm:1 | Revert "defined items for `<array>` at GLOBAL_QUALIFY_LIST" |
-| [commit cpprefjp/site, a61a9f3] | cpprefjp/fixm:1 | Revert "defined items in `atomic` at GLOBAL_QUALIFY_LIST" |
-| [commit cpprefjp/site, 1234784] | cpprefjp/fixm:1 | Revert "defined items in `barrier` at GLOBAL_QUALIFY_LIST.txt" |
-| [commit cpprefjp/site, bcfccc6] | cpprefjp/fixm:1 | Revert "defined items in `bit` at GLOBAL_QUALIFY_LIST.txt" |
-| [commit cpprefjp/site, dfadaad] | cpprefjp/fixm:1 | Revert "defined items in `cctype` at GLOBAL_QUALIFY_LIST.txt" |
-| [commit cpprefjp/site, 5600030] | cpprefjp/fixm:1 | Revert "defined items in `cmath` at GLOBAL_QUALIFY_LIST.txt" |
-| [commit cpprefjp/site, c46d1e8] | cpprefjp/fixs:1 | defined items in cmath at GLOBAL_QUALIFY_LIST.txt |
-| [commit cpprefjp/site, fe03d64] | cpprefjp/fixm:1 | fixed inner link |
-| [commit cpprefjp/site, fbe54bd] | cpprefjp/fixm:1 | fixed word |
-| [commit cpprefjp/site, d900425] | cpprefjp/fixm:1 | fixed inner links |
-| [commit cpprefjp/site, 08bd977] | cpprefjp/fixs:1 | new page: `feof.md` and removed nolink |
-| [commit cpprefjp/site, 73a3b6d] | cpprefjp/fixs:1 | new page: fputs.md and removed nolink |
-| [commit cpprefjp/site, cb399db] | cpprefjp/fixs:1 | new page: fflush and removed nolink |
-| [commit cpprefjp/site, 0e0d859] | cpprefjp/fixs:1 | added link for reference |
-| [commit cpprefjp/site, 9098b9e] | cpprefjp/fixs:1 | new page: `fopen.md` and removed nolink |
-| [commit cpprefjp/site, 06970bf] | cpprefjp/fixs:1 | removed nolink |
-| [commit cpprefjp/site, c01cef2] | cpprefjp/fixs:1 | new page: `fclose.md` |
-| [commit cpprefjp/site, 9113be6] | cpprefjp/fixm:1 | fixed wrong link format |
-| [commit cpprefjp/site, 03ea10c] | cpprefjp/fixs:1 | new page `getchar.md` and removed nolink |
-| [commit cpprefjp/site, 77d79ae] | cpprefjp/fixs:1 | new page `puts.md` and removed nolink |
-| [commit cpprefjp/site, 47758af] | cpprefjp/fixs:1 | new page `getc.md` and removed nolink |
-| [commit cpprefjp/site, cfe94b3] | cpprefjp/fixm:1 | fixed function declaration |
-| [commit cpprefjp/site, f5be1db] | cpprefjp/fixm:1 | fixed nolink |
-| [commit cpprefjp/site, e1afb4c] | cpprefjp/fixs:1 | created scanf.md and removed nolink |
-| [commit cpprefjp/site, b80b117] | cpprefjp/fixs:1 | created printf.md and removed nolink |
-| [commit cpprefjp/site, 0ceee86] | cpprefjp/fixm:1 | fixed header for `first.md` and `second.md` |
-| [commit cpprefjp/site, cf4d78f] | cpprefjp/fixs:1 | new page `second.md` and removed nolink |
-| [commit cpprefjp/site, f387fd3] | cpprefjp/fixs:1 | new page `first.md` and removed nolink |
-| [commit cpprefjp/site, f11a9f1] | cpprefjp/fixm:1 | fixed nolink |
-| [commit cpprefjp/site, a51f736] | cpprefjp/fixs:1 | new page `ungetc.md` and removed nolink |
-| [commit cpprefjp/site, 07c43dc] | cpprefjp/fixs:1 | forgot to save putchar.md |
-| [commit cpprefjp/site, 64128e8] | cpprefjp/fixs:1 | new page `putchar.md` and removed nolink |
-| [commit cpprefjp/site, be3f3eb] | cpprefjp/fixs:1 | new page `putc.md` and removed nolink |
-| [commit cpprefjp/site, 05c1017] | cpprefjp/fixs:1 | removed brackets for function declaration |
-| [commit cpprefjp/site, 3a5b8ac] | cpprefjp/fixs:1 | new page `fread.md` |
-| [commit cpprefjp/site, f2c2262] | cpprefjp/fixs:1 | new page `fpos_t.md` |
-| [commit cpprefjp/site, 116c20a] | cpprefjp/fixm:1 | fixed inappropriate code in `tmpnam.md` |
-| [commit cpprefjp/site, c6a67d8] | cpprefjp/fixm:1 | fixed inappropriate code |
-| [commit cpprefjp/site, 942ab1a] | cpprefjp/fixm:1 | fixed declaration of `file.md` |
-| [commit cpprefjp/site, b645fd6] | cpprefjp/fixm:1 | fixed declaration of `fpos_t` |
-| [commit cpprefjp/site, 3f22e22] | cpprefjp/fixm:1 | fixed declaration of `fpos_t` |
-| [commit cpprefjp/site, d074e9f] | cpprefjp/fixm:1 | Update reference/cstdio/fread.md |
-| [commit cpprefjp/site, dd34ab2] | cpprefjp/fixm:1 | fixed explanation in fread.md |
-| [commit cpprefjp/site, 9702775] | cpprefjp/fixm:1 | fixed function declaration |
-| [commit cpprefjp/site, 121b46d] | cpprefjp/fixm:1 | chore: fixed script to detect broken code qualifiers using a raw string (#1469) |
-| [commit cpprefjp/site, be4f0eb] | cpprefjp/fixs:1 | removed /* */ for implementation-defined (#1473) |
-| [commit cpprefjp/site, 3aec3d6] | cpprefjp/fixm:1 | Update reference/cstdio/fpos_t.md |
-| [commit cpprefjp/site, 5050bbe] | cpprefjp/fixm:1 | Update reference/cstdio/fpos_t.md |
-| [commit cpprefjp/site, af2a99d] | cpprefjp/fixm:1 | fixed index in tmpnam.md |
-| [commit cpprefjp/site, 55f9df1] | cpprefjp/fixm:1 | fixed explanation for tmpnam |
-| [commit cpprefjp/site, 4124913] | cpprefjp/fixm:1 | fixed declaration of `fpos_t` |
-| [commit cpprefjp/site, c1261d3] | cpprefjp/fixm:1 | Update reference/cstdio/fpos_t.md |
-| [commit cpprefjp/site, cf58bef] | cpprefjp/fixs:1 | new page bufsiz.md |
-| [commit cpprefjp/site, fd7a507] | cpprefjp/fixs:1 | removed iostream from bufsiz |
-| [commit cpprefjp/site, 6104a9a] | cpprefjp/fixm:1 | Update reference/cstdio/bufsiz.md |
-| [commit cpprefjp/site, 8fa2653] | cpprefjp/fixs:1 | bufsiz.md implementation-defined -> unspecified |
-| [commit cpprefjp/site, 24dc108] | cpprefjp/fixs:1 | added info for bufsiz.md |
-| [commit cpprefjp/site, 2f35dc0] | cpprefjp/fixs:1 | new page: fwrite.md |
-| [commit cpprefjp/site, f596c4c] | cpprefjp/fixm:1 | added appropriate explanations for function with `restrict` |
-| [commit cpprefjp/site, 222f890] | cpprefjp/fixs:1 | unified expressions in fwrite |
-| [commit cpprefjp/site, 28435a2] | cpprefjp/fixs:1 | deleted extra information |
-| [commit cpprefjp/site, 8be4213] | cpprefjp/fixs:1 | added precise description in fwrite |
-| [commit cpprefjp/site, 4ac8177] | cpprefjp/fixm:1 | Update reference/cstdio/fwrite.md |
-| [commit cpprefjp/site, 4710078] | cpprefjp/fixs:1 | Added `\n` for fwrite.md |
-| [commit cpprefjp/site_generator, de24d69] | cpprefjp/fixs:1 | feat: Remove paired grave accents from titles |
-| [commit cpprefjp/site, b4f048f] | cpprefjp/addref:1 | Create page: fopen_max (#1530) |
+| [commit cpprefjp/site, 46a42fe] | ignore | fix: Added proper info for tolower and toupper |
+| [commit cpprefjp/site, a094fce] | ignore | fix: Added information for isupper |
+| [commit cpprefjp/site, 4097b49] | ignore | fix: Fixed wrong implementation code for `islower()` |
+| [commit cpprefjp/site, f9534c2] | ignore | fix: Fixed compiler version |
+| [commit cpprefjp/site, 1434e2d] | cpprefjp/compiler:1 | checked gcc version for `std::ssize()` |
+| [commit cpprefjp/site, b069a5b, 8316547] | cpprefjp/addref:1, cpprefjp/link:2 | new page `reference/cstdio/fprintf.md` |
+| [commit cpprefjp/site, 3f4fdd5] | cpprefjp/addref:1, cpprefjp/link:1 | new page `reference/cstdio/fscanf.md` |
+| [commit cpprefjp/site, e1a0612] | cpprefjp/link:2 | fixed .nolink |
+| [commit cpprefjp/site, aeafc9c, be1a625] | cpprefjp/addref:1, cpprefjp/link:1 | new page `reference/cstdio/stdout.md` |
+| [commit cpprefjp/site, 3e084fb] | cpprefjp/addref:1, cpprefjp/link:1 | new page `reference/cstdio/stdin.md` |
+| [commit cpprefjp/site, 196f954] | cpprefjp/addref:1, cpprefjp/link:1 | new page `reference/cstdio/stderr.md` |
+| [commit cpprefjp/site, 48b9d77] | cpprefjp/link:5, ignore:3 | fixed a lot of .nolink |
+| [commit cpprefjp/site, 7e71dfc] | ignore | remvoed wired words and added compiler column |
+| [commit cpprefjp/site, 2a94b63] | ignore | fixed highlighting keyword |
+| [commit cpprefjp/site, f266b0f] | cpprefjp/link:1, cpprefjp/addref:1 | new page `tmpnam.md` and fixed name for `cstdio.md` and removed nolink |
+| [commit cpprefjp/site, 472ef70] | cpprefjp/link:2, cpprefjp/addref:1 | new page `tmpfile.md` and removed nolink |
+| [commit cpprefjp/site, 84741e0] | cpprefjp/link:1, cpprefjp/addref:1 | new page `rename.md` and removed nolink |
+| [commit cpprefjp/site, 62c038c] | cpprefjp/link:1, cpprefjp/addref:1 | new page `remove.md` and removed nolink |
+| [commit cpprefjp/site, 09eb35e] | cpprefjp/link:1, cpprefjp/addref:1 | new page `filename_max.md` and removed nolink |
+| [commit cpprefjp/site, 3b792ce] | cpprefjp/link:2, cpprefjp/addref:1 | new page `eof.md` and removed nolink |
+| [commit cpprefjp/site, 3f7dfed, 3e6fdb5] | cpprefjp/addref:1, cpprefjp/link:9 | new page `file.md` and removed .nolink |
+| [commit cpprefjp/site, b2b7126] | ignore | added nolink |
+| [commit cpprefjp/site, 0470b06, 1a6ace7] | cpprefjp/link:2, cpprefjp/addref:1 | new page `fputc.md` and removed nolink |
+| [commit cpprefjp/site, a2e9bfc] | cpprefjp/link:1, cpprefjp/addref:1 | new page `fgets.md` |
+| [commit cpprefjp/site, 216a9c3] | cpprefjp/link:2, cpprefjp/addref:1 | new page `fgetc.md` and removed nolink |
+| [commit cpprefjp/site, fdb1677, cb305c1] | ignore | added link for partition_copy.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, 2705884] | ignore | added link for all_of.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, 477ae69] | ignore | added link for all_of.md and any_of.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, 91e8c01] | ignore | added link for binary_search.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, d4d4623] | ignore | added link for clamp.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, f38c489] | ignore | added link for copy_n.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, 9a9bd35, 8194a2f] | ignore | added link for copy_backward.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, b2fbf78] | cpprefjp/link:1 | added link for copy_if.md |
+| [commit cpprefjp/site, f9ef82c] | cpprefjp/link:1 | added link for copy.md |
+| [commit cpprefjp/site, 00f3f8e] | ignore | added link for count_if.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, 83b2464] | ignore | added link for count.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, 484e4f4] | ignore | added link for equal_range.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, d169067] | ignore | added link for equal.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, 25b9153] | ignore | added link for fill_n.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, 0034664] | ignore | added link for fill.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, d129597] | ignore | added link for find_end.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, cbcfdb7] | ignore | fixed code_qualify error |
+| [commit cpprefjp/site, e4bd888] | cpprefjp/link:1 | added link for find_first_of.md |
+| [commit cpprefjp/site, 405e787] | ignore | added link for find_if_not.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, 95f352f] | ignore | added link for find_if.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, 85f63fe] | ignore | added link for find.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, 3d4a2ef] | ignore | added link for for_each_n.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, e3cd83c] | ignore | added link for for_each.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, e3bd4b7] | ignore | added link for generate_n.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, 7332210] | ignore | added link for generate.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, d0181e4] | ignore | added link for includes.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, ea3bac4] | ignore | added link for inplace_merge.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, c0dd5e6] | ignore | added link for is_heap_until.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, 9d3ab82] | ignore | added link for is_heap.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, 34b3a11] | ignore | added link for is_partitioned.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, f4b2f11] | ignore | added link for is_permutation.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, 8756781] | ignore | added link for is_sorted_until.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, a03646f] | ignore | added link for is_sorted.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, f1b24b5] | ignore | added link for iter_swap.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, 8ba9a70] | cpprefjp/link:1 | added link for lexicographical_compare_three_way.md |
+| [commit cpprefjp/site, c668d08] | ignore | added link for lexicographical_compare.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, cf458c7] | ignore | added link for lower_bound.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, 29ef38b] | ignore | added link for make_heap.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, a262ea3] | ignore | added link for max_element.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, fe7d649] | ignore | added link for max.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, 339a6f6] | ignore | added link for merge.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, bffea50] | cpprefjp/link:1 | added link for min_element.md |
+| [commit cpprefjp/site, 3bac8d4] | ignore | added link for min.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, 958aa28] | cpprefjp/link:1 | added link for minmax_element.md |
+| [commit cpprefjp/site, a0201a2] | cpprefjp/link:1 | added link for minmax.md |
+| [commit cpprefjp/site, 639493b] | cpprefjp/link:1 | added link for mismatch.md |
+| [commit cpprefjp/site, e6d780c] | ignore | added link for move_backward.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, 4ec75f1] | ignore | added link for move.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, c174221] | ignore | added link for next_permutation (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, d4002e2] | ignore | added link for none_of.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, f304c11] | ignore | added link for nth_element (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, 2daaf8c] | ignore | added link for parital_sort_copy.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, 5488d97] | ignore | added link for partial_sort.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, 17a48cd] | ignore | added link for partition_point.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, 463ba06] | ignore | added link for partition.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, 12233d7] | ignore | added link for pop_heap.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, 1c54923] | ignore | added link for prev_permutation (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, fb0cc44] | ignore | added link for push_heap.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, f991a36] | ignore | added link for random_shuffle.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, 736f548] | ignore | added link for ranges_adjacent_find.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, c7a59d6] | ignore | added link for ranges_all_of.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, 155cbfc] | ignore | added link for ranges_any_of.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, fa9dc4a] | ignore | added link for ranges_binary_search.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, ee0aed9] | ignore | added link for ranges_clamp.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, 4d7a6b8] | ignore | added link for ranges_contains_subrange.md (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, 19f065b] | ignore | fixed code_qualify errors (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, ba2b72c] | ignore | fixed inner-link errors (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, 2b4608d, e4c1ff5] | ignore | added functions for any header at GLOBAL_QUALIFY_LIST.txt (取り消された) |
+| [commit cpprefjp/site, a8b8808, 295b764] | ignore | defined items for `<array>` at GLOBAL_QUALIFY_LIST (取り消された) |
+| [commit cpprefjp/site, 53c2993, a61a9f3] | ignore | defined items in atomic at GLOBAL_QUALIFY_LIST (取り消された) |
+| [commit cpprefjp/site, b23f7fd, e424b2a] | ignore | defined all functions for algorithm header at GLOBAL_QUALIFY_LIST.txt (取り消された) |
+| [commit cpprefjp/site, 50c0e58, dfadaad] | ignore | defined items in cctype at GLOBAL_QUALIFY_LIST.txt (取り消された) |
+| [commit cpprefjp/site, efff886, bcfccc6] | ignore | defined items in bit at GLOBAL_QUALIFY_LIST.txt (取り消された) |
+| [commit cpprefjp/site, 9631cc2, 1234784] | ignore | defined items in barrier at GLOBAL_QUALIFY_LIST.txt (取り消された) |
+| [commit cpprefjp/site, c46d1e8, 5600030] | ignore | defined items in cmath at GLOBAL_QUALIFY_LIST.txt (取り消された) |
+| [commit cpprefjp/site, aabf375] | ignore | added link (重複登録の削除によってこの変更は取り消された) |
+| [commit cpprefjp/site, fb36b7c] | ignore | fixed failing test (ほかの変更とポイント統合) |
+| [commit cpprefjp/site, 850a54f] | ignore | added color for eof (ほかの変更とポイント統合) |
+| [commit cpprefjp/site, 9098b9e, fe03d64] | cpprefjp/link:1, cpprefjp/addref:1 | new page: `fopen.md` and removed nolink |
+| [commit cpprefjp/site, c01cef2, 06970bf, fbe54bd] | cpprefjp/link:1 cpprefjp/addref:1 | new page: `fclose.md` |
+| [commit cpprefjp/site, 0e0d859] | ignore | added link for reference (ほかの変更とポイント統合) |
+| [commit cpprefjp/site, cb399db] | cpprefjp/addref:1, cpprefjp/link:1 | new page: fflush and removed nolink |
+| [commit cpprefjp/site, 73a3b6d] | cpprefjp/addref:1, cpprefjp/link:1 | new page: fputs.md and removed nolink |
+| [commit cpprefjp/site, 08bd977] | cpprefjp/addref:1, cpprefjp/link:1 | new page: `feof.md` and removed nolink |
+| [commit cpprefjp/site, d900425] | cpprefjp/link:3 | fixed inner links |
+| [commit cpprefjp/site, 47758af] | cpprefjp/link:2, cpprefjp/addref:1 | new page `getc.md` and removed nolink |
+| [commit cpprefjp/site, 77d79ae] | cpprefjp/link:3, cpprefjp/addref:1 | new page `puts.md` and removed nolink |
+| [commit cpprefjp/site, 03ea10c, 9113be6] | cpprefjp/link:2, cpprefjp/addref:1 | new page `getchar.md` and removed nolink |
+| [commit cpprefjp/site, b80b117] | cpprefjp/link:7, cpprefjp/addref:1 | created printf.md and removed nolink |
+| [commit cpprefjp/site, e1afb4c] | cpprefjp/addref:1, cpprefjp/link:1, ignore:1 | created scanf.md and removed nolink |
+| [commit cpprefjp/site, f5be1db] | cpprefjp/link:1, ignore:1 | fixed nolink |
+| [commit cpprefjp/site, cfe94b3] | ignore | fixed function declaration |
+| [commit cpprefjp/site, f387fd3] | cpprefjp/addref:1, cpprefjp/link:5 | new page `first.md` and removed nolink |
+| [commit cpprefjp/site, cf4d78f] | cpprefjp/addref:1, cpprefjp/link:5 | new page `second.md` and removed nolink |
+| [commit cpprefjp/site, 0ceee86] | ignore | fixed header for `first.md` and `second.md` |
+| [commit cpprefjp/site, 64128e8, 07c43dc, f11a9f1] | cpprefjp/addref:1, cpprefjp/link:4 | new page `putchar.md` and removed nolink |
+| [commit cpprefjp/site, 05c1017] | ignore | removed brackets for function declaration |
+| [commit cpprefjp/site, a51f736] | cpprefjp/link:2, cpprefjp/addref:1 | new page `ungetc.md` and removed nolink |
+| [commit cpprefjp/site, be3f3eb] | cpprefjp/addref:1, cpprefjp/link:4 | new page `putc.md` and removed nolink |
+| [commit cpprefjp/site, 3a5b8ac] | cpprefjp/addref:1, cpprefjp/link:1 | new page `fread.md` |
+| [commit cpprefjp/site, f2c2262, 3f22e22, b645fd6, 3aec3d6, 4124913, c1261d3, 5050bbe] | cpprefjp/addref:1, cpprefjp/link:1 | new page `fpos_t.md` |
+| [commit cpprefjp/site, be4f0eb] | ignore | removed /* */ for implementation-defined (#1473) |
+| [commit cpprefjp/site, 116c20a] | ignore | fixed inappropriate code in `tmpnam.md` |
+| [commit cpprefjp/site, c6a67d8] | ignore | fixed inappropriate code |
+| [commit cpprefjp/site, 942ab1a] | ignore | fixed declaration of `file.md` |
+| [commit cpprefjp/site, af2a99d] | ignore1 | fixed index in tmpnam.md |
+| [commit cpprefjp/site, 55f9df1] | ignore | fixed explanation for tmpnam |
+| [commit cpprefjp/site, d074e9f] | ignore | Update reference/cstdio/fread.md |
+| [commit cpprefjp/site, dd34ab2] | ignore | fixed explanation in fread.md |
+| [commit cpprefjp/site, 9702775] | ignore | fixed function declaration |
+| [commit cpprefjp/site, 121b46d] | tool/fixbug:1 | chore: fixed script to detect broken code qualifiers using a raw string (#1469) |
+| [commit cpprefjp/site, cf58bef, fd7a507, 6104a9a, 8fa2653, 24dc108] | cpprefjp/link:1, cpprefjp/addref:1 | new page bufsiz.md |
+| [commit cpprefjp/site, 2f35dc0, 222f890, 28435a2, 8be4213, 4ac8177, 4710078] | cpprefjp/addref:1, cpprefjp/link:1 | new page: fwrite.md |
+| [commit cpprefjp/site, f596c4c] | ignore | added appropriate explanations for function with `restrict` |
+| [commit cpprefjp/site_generator, de24d69] | tool/improvem:2 | feat: Remove paired grave accents from titles |
+| [commit cpprefjp/site, b4f048f] | cpprefjp/addref:1, cpprefjp/link:1 | Create page: fopen_max (#1530) |
 
 
 ## [yohhoy](https://github.com/yohhoy)
