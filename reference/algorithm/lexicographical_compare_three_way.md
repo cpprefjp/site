@@ -118,12 +118,12 @@ int main() {
 * std::isalpha[link /reference/cctype/isalpha.md]
 * std::tolower[link /reference/cctype/tolower.md]
 * weak_ordering[link /reference/compare/weak_ordering.md]
-* str1.begin[link /reference/string/string/begin.md.nolink]
-* str1.end[link /reference/string/string/end.md.nolink]
-* str2.begin[link /reference/string/string/begin.md.nolink]
-* str2.end[link /reference/string/string/end.md.nolink]
-* str3.begin[link /reference/string/string/begin.md.nolink]
-* str3.end[link /reference/string/string/end.md.nolink]
+* str1.begin[link /reference/string/basic_string/begin.md]
+* str1.end[link /reference/string/basic_string/end.md]
+* str2.begin[link /reference/string/basic_string/begin.md]
+* str2.end[link /reference/string/basic_string/end.md]
+* str3.begin[link /reference/string/basic_string/begin.md]
+* str3.end[link /reference/string/basic_string/end.md]
 
 ### 出力例
 ```

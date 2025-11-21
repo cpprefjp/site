@@ -53,7 +53,6 @@ int main() {
 }
 ```
 * std::count_if[color ff0000]
-* std::count_if[link /reference/algorithm/count_if.md]
 
 ### 出力
 ```cpp
