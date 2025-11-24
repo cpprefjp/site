@@ -498,172 +498,155 @@
 | コミット | タグ | 説明 |
 |----------|------|------|
 | [commit cpprefjp/site, ae69e81] | cpprefjp/typo:1 | mdspan/AccessorPolicy: fix typo |
-| [commit cpprefjp/site, 7675064] | cpprefjp/fixs:1 | mdspan/layout_{left,right}(_padded): P3355R1対応 |
-| [commit cpprefjp/site, 86f0c41] | cpprefjp/fixs:1 | chrono/{tai,gps}_clock: クラス説明を増補 |
-| [commit cpprefjp/site, 9e72237] | cpprefjp/fixs:1 | linalg/conjugated: R3050R2対応(#1383) |
-| [commit cpprefjp/site, abcc16f] | cpprefjp/fixs:1 | linalg/tranposed: P3222R0対応(#1382) |
+| [commit cpprefjp/site, 7675064] | cpprefjp/fixm:1, cpprefjp/fixl:4 | mdspan/layout_{left,right}(_padded): P3355R1対応 |
+| [commit cpprefjp/site, 86f0c41] | cpprefjp/fixm:2 | chrono/{tai,gps}_clock: クラス説明を増補 |
+| [commit cpprefjp/site, 9e72237] | cpprefjp/fixl:1 | linalg/conjugated: R3050R2対応(#1383) |
+| [commit cpprefjp/site, abcc16f] | cpprefjp/fixl:1 | linalg/tranposed: P3222R0対応(#1382) |
 | [commit cpprefjp/site, 10ebad2] | cpprefjp/fixm:1 | lang/cpp26: fix markup |
-| [commit cpprefjp/site, 7d79a5d] | cpprefjp/fixs:1 | mdspan: aligned_accessor概要 P2897R7(#1380) |
-| [commit cpprefjp/site, a4ffe7c] | cpprefjp/fixs:1 | memory: ヘッダ説明の微調整 |
-| [commit cpprefjp/site, b5dd43f] | cpprefjp/fixs:1 | memory: is_sufficiently_aligned P2897R7(#1380) |
-| [commit cpprefjp/site, 0353f38] | cpprefjp/fixs:1 | mdspan/aligned_accessor: 全メンバ P2897R7(#1380) |
-| [commit cpprefjp/site, afdc031] | cpprefjp/fixs:1 | atomic: wait系関数の事前条件を整理 |
-| [commit cpprefjp/site, 1e87d12] | cpprefjp/fixs:1 | rcu: C++26 RCUヘッダ概要(#1183) |
-| [commit cpprefjp/site, a4f1067] | cpprefjp/fixs:1 | cpp14/digit_separators: 言語仕様を補記 |
-| [commit cpprefjp/site, eda1e0c] | cpprefjp/fixs:1 | rcu: rcu_domain, rcu_obj_base (#1183) |
-| [commit cpprefjp/site, 9a152c2] | cpprefjp/fixs:1 | rcu: 非メンバ関数群 (#1183) |
-| [commit cpprefjp/site, c7a7c9d] | cpprefjp/fixs:1 | rcu: 微調整 (#1183) |
-| [commit cpprefjp/site, 7ae4be4] | cpprefjp/fixs:1 | functional: C++26 P2714R1 (#1200) |
-| [commit cpprefjp/site, 1dd1b04] | cpprefjp/fixs:1 | C++26 P3475R2 consume操作の非推奨化(#1420) |
-| [commit cpprefjp/site, 4f805fa] | cpprefjp/fixs:1 | stop_token: never_stop_token (#1384) |
-| [commit cpprefjp/site, fa3f23c] | cpprefjp/fixs:1 | stop_token: stop_callback_for_t (#1384) |
-| [commit cpprefjp/site, 7bf378e] | cpprefjp/fixs:1 | stop_token: (un)stoppable_token (#1384) |
-| [commit cpprefjp/site, 494c6d2] | cpprefjp/fixs:1 | C++26 std::executionエンティティ一覧(#1384) |
-| [commit cpprefjp/site, 7c7167b] | cpprefjp/fixs:1 | stop_token: inplace_stop_source (#1384) |
-| [commit cpprefjp/site, c75607b] | cpprefjp/fixs:1 | stop_token: inplace_stop_callback全メンバ (#1384) |
-| [commit cpprefjp/site, 3c66609] | cpprefjp/fixs:1 | stop_token: inplace_stop_token全メンバ (#1384) |
-| [commit cpprefjp/site, 3d75bda] | cpprefjp/fixs:1 | stop_token: inplace_stop_source全メンバ (#1384) |
-| [commit cpprefjp/site, a7e53ae] | cpprefjp/fixs:1 | execution: scheduler (#1384) |
-| [commit cpprefjp/site, 23cf8aa] | cpprefjp/fixs:1 | execution: operation_state (#1384) |
-| [commit cpprefjp/site, 2b4f515] | cpprefjp/fixs:1 | execution: completion_signatures(_of_t) (#1384) |
-| [commit cpprefjp/site, 3e8c7c7] | cpprefjp/fixs:1 | execution: receiver,receiver_of (#1384) |
-| [commit cpprefjp/site, efc1070] | cpprefjp/fixs:1 | execution/sender_*: 微調整 (#1384) |
-| [commit cpprefjp/site, c190380] | cpprefjp/fixs:1 | execution: sender,sender_in,sender_to (#1384) |
-| [commit cpprefjp/site, c22f556] | cpprefjp/fixs:1 | execution: is-awaitable (#1384) |
-| [commit cpprefjp/site, 4220eb1] | cpprefjp/fixs:1 | execution: set_value,set_error,set_stopped (#1384) |
-| [commit cpprefjp/site, 92a7237] | cpprefjp/fixm:1 | execution/env: fix ngword |
-| [commit cpprefjp/site, 2d92c9f] | cpprefjp/fixs:1 | execution: env,prop,queryable (#1384) |
-| [commit cpprefjp/site, 38bbbb9] | cpprefjp/fixs:1 | execution: get_env,env_of_t (#1384) |
-| [commit cpprefjp/site, 659e33c] | cpprefjp/fixs:1 | execution/queryable: クエリ可能オブジェクト説明 (#1384) |
-| [commit cpprefjp/site, 6137b03] | cpprefjp/fixm:1 | execution/env/query: refinement (#1384) |
-| [commit cpprefjp/site, 60b2958] | cpprefjp/fixs:1 | execution: get_completion_signatures (#1384) |
-| [commit cpprefjp/site, 6f4510e] | cpprefjp/fixm:1 | execuion/connect: small fixes |
-| [commit cpprefjp/site, 9cd16e0] | cpprefjp/fixs:1 | execution: get-domain-late,sender-for (#1384) |
-| [commit cpprefjp/site, 9bdfb06] | cpprefjp/fixs:1 | execution: with-await-transform (#1384) |
-| [commit cpprefjp/site, 252f026] | cpprefjp/fixs:1 | execution: connect,connect_result_t (#1384) |
-| [commit cpprefjp/site, d516cba] | cpprefjp/fixm:1 | execution: transform_{sender,env},apply_sender (#1384) |
-| [commit cpprefjp/site, 0ff48a6] | cpprefjp/fixs:1 | execution/default: remove forbid chars |
-| [commit cpprefjp/site, f156adb] | cpprefjp/fixs:1 | execution: default_domain (#1384) |
-| [commit cpprefjp/site, a4fbd16] | cpprefjp/fixs:1 | execution: schedule_result_t (#1384) |
-| [commit cpprefjp/site, 08365de] | cpprefjp/fixs:1 | execution: schedule (#1384) |
-| [commit cpprefjp/site, 7a43329] | cpprefjp/fixm:1 | execution/scheduler: fix inner link |
-| [commit cpprefjp/site, ac9fa1d] | cpprefjp/fixm:1 | execution/scheduler: refinement (#1384) |
-| [commit cpprefjp/site, 20a8d5e] | cpprefjp/fixm:1 | execution/start: fix defined word |
-| [commit cpprefjp/site, e4ffb85] | cpprefjp/fixs:1 | execution: start (#1384) |
-| [commit cpprefjp/site, e57a099] | cpprefjp/fixs:1 | execution: vaild-completion-signatures説明を移動 |
-| [commit cpprefjp/site, b74d3e8] | cpprefjp/fixs:1 | execution: get_allocator (#1384) |
-| [commit cpprefjp/site, d512f5b] | cpprefjp/fixs:1 | execution: get_stop_token,stop_token_of_t (#1384) |
-| [commit cpprefjp/site, 3785ecf] | cpprefjp/fixs:1 | execution: get_completion_scheduler (#1384) |
-| [commit cpprefjp/site, a285ffa] | cpprefjp/fixm:1 | execution: value_type_of_t,error_type_of_t,sends_stopped (#1384) |
-| [commit cpprefjp/site, ebdeeed] | cpprefjp/fixm:1 | execution: get_domain,get_(delegation_)scheduler (#1384) |
-| [commit cpprefjp/site, e6b7e2c] | cpprefjp/fixs:1 | execution/run_loop: 微調整 (#1384) |
-| [commit cpprefjp/site, 88bcec6] | cpprefjp/fixs:1 | execution: run_loop全メンバ (#1384) |
-| [commit cpprefjp/site, c1091ca] | cpprefjp/fixs:1 | execution: get-completion-domain (#1384) |
-| [commit cpprefjp/site, 7a7c220] | cpprefjp/fixs:1 | execution: run_loop/get_scheduler (#1384) |
-| [commit cpprefjp/site, 7aa4a3a] | cpprefjp/fixs:1 | execution/sync_wait(_with_variant): 微調整 (#1384) |
-| [commit cpprefjp/site, 2a210a5] | cpprefjp/fixs:1 | execution: sync_wait(_with_variant) (#1384) |
-| [commit cpprefjp/site, 5e7c6ee] | cpprefjp/fixm:1 | execution/basic-operation: fix inner links |
-| [commit cpprefjp/site, 885f6ee] | cpprefjp/fixs:1 | execution: just (#1384) |
-| [commit cpprefjp/site, 9ea31e8] | cpprefjp/fixm:1 | GLOBAL_QUALIFY_LIST: std::memory_order_consume削除 (#1420) |
-| [commit cpprefjp/site, 0e7abe9] | cpprefjp/fixs:1 | GLOBAL_QUALIFY_LIST: std::variant追加 |
-| [commit cpprefjp/site, b7bf5a1] | cpprefjp/fixs:1 | GLOBAL_QUALIFY_LIST: std::jthread追加 |
-| [commit cpprefjp/site, c629ec0] | cpprefjp/typo:1 | execution/run_loop: fix typos |
-| [commit cpprefjp/site, 7baad01] | cpprefjp/fixs:1 | execution/forwarding_query: remove forbid chars |
-| [commit cpprefjp/site, 1cb82c9] | cpprefjp/fixs:1 | execution: forwarding_query (#1384) |
-| [commit cpprefjp/site, cef1c67] | cpprefjp/fixm:1 | execution: decays-to,decayed-tuple,variant-or-empty (#1384) |
-| [commit cpprefjp/site, b653831] | cpprefjp/fixs:1 | execution: product-type (#1384) |
-| [commit cpprefjp/site, ff009c0] | cpprefjp/fixs:1 | execution: movable-value (#1384) |
-| [commit cpprefjp/site, f1e2743] | cpprefjp/fixs:1 | execution: tag_of_t (#1384) |
-| [commit cpprefjp/site, 63b19a3] | cpprefjp/fixm:1 | execution/then: fix example |
-| [commit cpprefjp/site, 628698f] | cpprefjp/fixs:1 | execution: then (#1384) |
-| [commit cpprefjp/site, b8c7c50] | cpprefjp/fixs:1 | execution: read_env (#1384) |
-| [commit cpprefjp/site, 7160b82] | cpprefjp/fixs:1 | execution: let_value (#1384) |
-| [commit cpprefjp/site, 331cc4e] | cpprefjp/fixs:1 | execution: starts_on (#1384) |
-| [commit cpprefjp/site, 1adf476] | cpprefjp/fixs:1 | execution/into_variant: 効果説明誤りを修正 (#1384) |
-| [commit cpprefjp/site, 248c362] | cpprefjp/fixm:1 | execution/into_variant: fix example |
-| [commit cpprefjp/site, e411c3d] | cpprefjp/fixs:1 | execution: into_variant (#1384) |
-| [commit cpprefjp/site, fd7bea7] | cpprefjp/fixs:1 | execution/let_value: 効果に補足説明を追記 (#1384) |
-| [commit cpprefjp/site, 034b8e6] | cpprefjp/fixs:1 | execution: 例示コードを改善 (#1384) |
-| [commit cpprefjp/site, ee11fa0] | cpprefjp/fixs:1 | execution/write-env: remove forbid chars |
-| [commit cpprefjp/site, b15f55f] | cpprefjp/fixs:1 | execution: 微調整 (#1384) |
-| [commit cpprefjp/site, ed4cd68] | cpprefjp/fixs:1 | execution: on (#1384) |
-| [commit cpprefjp/site, 3f41dc9] | cpprefjp/fixs:1 | execution: continues_on,schedule_from (#1384) |
-| [commit cpprefjp/site, 047e119] | cpprefjp/fixs:1 | execution: when_all (#1384) |
-| [commit cpprefjp/site, 78b4c31] | cpprefjp/fixs:1 | execution: when_all_with_variant (#1384) |
-| [commit cpprefjp/site, ae2af90] | cpprefjp/fixs:1 | execution: split (#1384) |
-| [commit cpprefjp/site, 876474c] | cpprefjp/fixs:1 | execution: bulk (#1384) |
-| [commit cpprefjp/site, d6addf6] | cpprefjp/fixs:1 | execution: sender_adaptor_closure (#1384) |
-| [commit cpprefjp/site, f27450b] | cpprefjp/fixs:1 | functional: C++26 std::execution説明用エンティティ (#1384) |
-| [commit cpprefjp/site, 82881a7] | cpprefjp/fixs:1 | execution: 微調整 (#1384) |
-| [commit cpprefjp/site, d134ea8] | cpprefjp/fixs:1 | execution: just_error,just_stopped (#1384) |
-| [commit cpprefjp/site, 2705e5a] | cpprefjp/fixs:1 | execution: as_awaitable (#1384) |
-| [commit cpprefjp/site, 24f1d81] | cpprefjp/fixs:1 | GLOBAL_QUALIFY_LIST: std::exchange追加 |
-| [commit cpprefjp/site, a1eaff0] | cpprefjp/fixm:1 | execution/with_awaitable_senders: remove forbid chars |
-| [commit cpprefjp/site, a6d6258] | cpprefjp/fixs:1 | execution: with_awaitable_senders (#1384) |
-| [commit cpprefjp/site, c658129] | cpprefjp/fixs:1 | execution/stopped_as_error: 効果を修正 (#1384) |
-| [commit cpprefjp/site, b272152] | cpprefjp/fixs:1 | execution: stopped_as_{error,optional} (#1384) |
-| [commit cpprefjp/site, 1a6cd9c] | cpprefjp/fixs:1 | execution/as_awaitable: 概要増補 (#1384) |
-| [commit cpprefjp/site, 8253efa] | cpprefjp/fixs:1 | execution: 説明専用エンティティ (#1384) |
-| [commit cpprefjp/site, deaaa16] | cpprefjp/fixs:1 | execution: get_forward_progress_guarantee (#1384) |
-| [commit cpprefjp/site, d4f0317] | cpprefjp/fixm:1 | execution/transform_completion_signatures_of: fix markup |
-| [commit cpprefjp/site, 4ae7b92] | cpprefjp/fixm:1 | execution: transform_completion_signatures(_of) (#1384) |
-| [commit cpprefjp/site, d512d56] | cpprefjp/fixs:1 | functional: 実行制御ライブラリへの内部リンク付与 (#1384) |
-| [commit cpprefjp/site, 0141068] | cpprefjp/fixs:1 | execution: let_error,let_stopped (#1384) |
-| [commit cpprefjp/site, aa4f065] | cpprefjp/fixs:1 | execution: upon_error,upon_stopped (#1384) |
-| [commit cpprefjp/site, 4f5dd2a] | cpprefjp/fixm:1 | execution: fix spelling query-or-default (#1384) |
-| [commit cpprefjp/site, 30c8531] | cpprefjp/fixs:1 | execution: 影響箇所へP3396R1参照追記 (#1384) |
-| [commit cpprefjp/site, 1142f79] | cpprefjp/fixs:1 | iterator/projected_value_t: add inner link |
-| [commit cpprefjp/site, 97ddfcb] | cpprefjp/fixm:1 | stop_token: fix inner links |
-| [commit cpprefjp/site, 128604d] | cpprefjp/fixs:1 | execution/execution_policy: add inner link |
-| [commit cpprefjp/site, 8d56403] | cpprefjp/fixs:1 | execution/read_env: 概要説明の微調整 |
-| [commit cpprefjp/site, b7c5b24] | cpprefjp/fixs:1 | iterator: C++26 P2997R1対応(#1309) |
-| [commit cpprefjp/site, 2930095] | cpprefjp/fixs:1 | cpp26/embed: remove redundant ';' |
-| [commit cpprefjp/site, f047133] | cpprefjp/fixs:1 | cstdlib/system: POISX規格への参照 |
-| [commit cpprefjp/site, a24d776] | cpprefjp/fixs:1 | atomic/atomic_flag: LWG3659対応 |
-| [commit cpprefjp/site, 30b7ea6] | cpprefjp/fixs:1 | execution/schedule_from: LWG4198 |
-| [commit cpprefjp/site, 9fee4b5] | cpprefjp/fixs:1 | executuon: LWG4203 |
-| [commit cpprefjp/site, 664d069] | cpprefjp/fixs:1 | execution/when_all: LWG4227 |
-| [commit cpprefjp/site, 0bf9ae6] | cpprefjp/fixs:1 | execution/with-await-transform: LWG4201 |
-| [commit cpprefjp/site, 2aa170e] | cpprefjp/fixs:1 | execution/operation_state: LWG4200 |
-| [commit cpprefjp/site, 86a0ae3] | cpprefjp/fixs:1 | execution/default_domain/transform_env: LWG4209 |
-| [commit cpprefjp/site, 46c87af] | cpprefjp/fixs:1 | execution/connect: LWG4208 |
-| [commit cpprefjp/site, 222e1a3] | cpprefjp/fixs:1 | execution/let_value: LWG4204, LWG4205 |
-| [commit cpprefjp/site, 2798af6] | cpprefjp/fixs:1 | execution/sender: LWG4202 |
-| [commit cpprefjp/site, 7e7cde1] | cpprefjp/typo:1 | execution/upon_stopped: fix typo |
-| [commit cpprefjp/site, 0f7b8bc] | cpprefjp/fixs:1 | execution/split: P3682R0 remove split algorithm |
-| [commit cpprefjp/site, eb824e2] | cpprefjp/fixs:1 | execution: C++26 P3557R3対応 |
-| [commit cpprefjp/site, d29d225] | cpprefjp/fixm:1 | execution: P3557R3 remove transform_completion_signatures(_of) |
-| [commit cpprefjp/site, 157a932] | cpprefjp/fixs:1 | execution/then,upon_{error,stopped}: 効果説明をthenに統合 |
-| [commit cpprefjp/site, 7b6fa9e] | cpprefjp/fixs:1 | execution: 例示コードをP3557R3対応 |
-| [commit cpprefjp/site, 2121599] | cpprefjp/fixs:1 | execution: C++26 P3557R3対応(cont.) |
-| [commit cpprefjp/site, 403ba99] | cpprefjp/fixs:1 | execution: C++26 P3284R4 (#1501) |
-| [commit cpprefjp/site, a7d2844] | cpprefjp/fixs:1 | execution: C++26 P3570R2 (#1507) |
-| [commit cpprefjp/site, c08b3ef] | cpprefjp/fixs:1 | execution: C++26 P3481R5 (#1508) |
-| [commit cpprefjp/site, 050f14d] | cpprefjp/fixs:1 | execution: P2079R10 エンティティ列挙のみ (#1511) |
-| [commit cpprefjp/site, 5d1f2ce] | cpprefjp/fixs:1 | execution/bulk(_(un)chunked): 調整 (#1508) |
-| [commit cpprefjp/site, ab280be] | cpprefjp/fixs:1 | execution/parallel_scheduler: 説明増補(#1511) |
-| [commit cpprefjp/site, d53cd4c] | cpprefjp/fixm:1 | execution/forwarding_query: get_await_completion_adaptor追記(#1507) |
-| [commit cpprefjp/site, 61e0053] | cpprefjp/fixs:1 | execution: P2079R10 User facing API (#1511) |
-| [commit cpprefjp/site, bdd426b] | cpprefjp/fixs:1 | execution: P2079R10 調整(#1511) |
-| [commit cpprefjp/site, a4d3b95] | cpprefjp/fixs:1 | execution: P2079R10 Replaceability API (#1511) |
-| [commit cpprefjp/site, a516717] | cpprefjp/fixs:1 | execution: P2079R10 Replaceability API (#1511) |
-| [commit cpprefjp/site, b11575f] | cpprefjp/fixs:1 | execution: C++26 P3433R1 (#1509) |
-| [commit cpprefjp/site, 171949a] | cpprefjp/link:1 | execution/get-domain-{early,late}: 関連項目 |
-| [commit cpprefjp/site, a510758] | cpprefjp/fixs:1 | execution: P3149R11 scope_token(#1510) |
+| [commit cpprefjp/site, 7d79a5d] | cpprefjp/fixl:6, cpprefjp/link:1 | mdspan: aligned_accessor概要 P2897R7(#1380) |
+| [commit cpprefjp/site, b5dd43f] | cpprefjp/addref:1, cpprefjp/link:1 | memory: is_sufficiently_aligned P2897R7(#1380) |
+| [commit cpprefjp/site, a4ffe7c] | cpprefjp/fixl:1, ignore:1 | memory: ヘッダ説明の微調整 |
+| [commit cpprefjp/site, 0353f38] | cpprefjp/link:1, cpprefjp/addref:4 | mdspan/aligned_accessor: 全メンバ P2897R7(#1380) |
+| [commit cpprefjp/site, afdc031] | cpprefjp/fixm:7 | atomic: wait系関数の事前条件を整理 |
+| [commit cpprefjp/site, 1e87d12] | cpprefjp/link:2, cpprefjp/addref:1 | rcu: C++26 RCUヘッダ概要(#1183) |
+| [commit cpprefjp/site, a4f1067] | cpprefjp/fixm:1 | cpp14/digit_separators: 言語仕様を補記 |
+| [commit cpprefjp/site, eda1e0c] | cpprefjp/addref:9, cpprefjp/fixm:1, ignore:1 | rcu: rcu_domain, rcu_obj_base (#1183) |
+| [commit cpprefjp/site, 9a152c2] | cpprefjp/addref:3, ignore:5 | rcu: 非メンバ関数群 (#1183) |
+| [commit cpprefjp/site, c7a7c9d] | cpprefjp/link:1, ignore:5 | rcu: 微調整 (#1183) |
+| [commit cpprefjp/site, 7ae4be4] | cpprefjp/fixl:3 | functional: C++26 P2714R1 (#1200) |
+| [commit cpprefjp/site, 1dd1b04] | cpprefjp/fixl:8 | C++26 P3475R2 consume操作の非推奨化(#1420) |
+| [commit cpprefjp/site, 7bf378e] | cpprefjp/fixl:1, cpprefjp/addref:1 | stop_token: (un)stoppable_token (#1384) |
+| [commit cpprefjp/site, 4f805fa] | cpprefjp/fixl:1, cpprefjp/addref:1, ignore:2 | stop_token: never_stop_token (#1384) |
+| [commit cpprefjp/site, fa3f23c] | ignore:2, cpprefjp/addref:2, cpprefjp/fixl:4 | stop_token: stop_callback_for_t (#1384) |
+| [commit cpprefjp/site, 7c7167b] | ignore:1, cpprefjp/addref:2, cpprefjp/fixl:2 | stop_token: inplace_stop_source (#1384) |
+| [commit cpprefjp/site, 3d75bda] | cpprefjp/addref:5, cpprefjp/fixl:1, ignore:2 | stop_token: inplace_stop_source全メンバ (#1384) |
+| [commit cpprefjp/site, 3c66609] | ignore:4, cpprefjp/addref:6, cpprefjp/fixm:1, cpprefjp:fixl:2 | stop_token: inplace_stop_token全メンバ (#1384) |
+| [commit cpprefjp/site, c75607b] | ignore:1, cpprefjp/addref:4, cpprefjp/fixm:2, cpprefjp/fixl:1, cpprefjp/link:1 | stop_token: inplace_stop_callback全メンバ (#1384) |
+| [commit cpprefjp/site, 494c6d2] | cpprefjp/fixl:3, cpprefjp:ignore:1, cpprefjp/fixm:3 | C++26 std::executionエンティティ一覧(#1384) |
+| [commit cpprefjp/site, c190380] | cpprefjp/addref:3, ignore:1 | execution: sender,sender_in,sender_to (#1384) |
+| [commit cpprefjp/site, efc1070] | ignore | execution/sender_*: 微調整 (#1384) |
+| [commit cpprefjp/site, 3e8c7c7] | cpprefjp/addref:2, cpprefjp/fixm:1, ignore:3 | execution: receiver,receiver_of (#1384) |
+| [commit cpprefjp/site, 2b4f515] | cpprefjp/addref:2, ignore:4 | execution: completion_signatures(_of_t) (#1384) |
+| [commit cpprefjp/site, 23cf8aa] | cpprefjp/addref:1, cpprefjp/fixm:1, ignore:3 | execution: operation_state (#1384) |
+| [commit cpprefjp/site, a7e53ae] | cpprefjp/addref:1, ignore:2 | execution: scheduler (#1384) |
+| [commit cpprefjp/site, 4220eb1] | cpprefjp/addref:3, cpprefjp/fixm:2 | execution: set_value,set_error,set_stopped (#1384) |
+| [commit cpprefjp/site, c22f556] | cpprefjp/addref:1 | execution: is-awaitable (#1384) |
+| [commit cpprefjp/site, 92a7237] | ignore | execution/env: fix ngword |
+| [commit cpprefjp/site, 2d92c9f, 6137b03, 659e33c] | cpprefjp/addref:4, cpprefjp/fixm:1 | execution: env,prop,queryable (#1384) |
+| [commit cpprefjp/site, 38bbbb9] | cpprefjp/addref:2 | execution: get_env,env_of_t (#1384) |
+| [commit cpprefjp/site, f156adb] | cpprefjp/addref:4 | execution: default_domain (#1384) |
+| [commit cpprefjp/site, d516cba] | cpprefjp/addref:3 | execution: transform_{sender,env},apply_sender (#1384) |
+| [commit cpprefjp/site, 252f026] | cpprefjp/addref:2 | execution: connect,connect_result_t (#1384) |
+| [commit cpprefjp/site, 9bdfb06] | cpprefjp/addref:1 | execution: with-await-transform (#1384) |
+| [commit cpprefjp/site, 9cd16e0] | cpprefjp/addref:2 | execution: get-domain-late,sender-for (#1384) |
+| [commit cpprefjp/site, 60b2958] | cpprefjp/addref:2 | execution: get_completion_signatures (#1384) |
+| [commit cpprefjp/site, 6f4510e] | ignore | execuion/connect: small fixes |
+| [commit cpprefjp/site, 0ff48a6] | ignore | execution/default: remove forbid chars |
+| [commit cpprefjp/site, e4ffb85, 20a8d5e] | cpprefjp/addref:1 | execution: start (#1384) |
+| [commit cpprefjp/site, ac9fa1d] | ignore | execution/scheduler: refinement (#1384) |
+| [commit cpprefjp/site, 7a43329] | ignore | execution/scheduler: fix inner link |
+| [commit cpprefjp/site, 08365de] | cpprefjp/addref:1 | execution: schedule (#1384) |
+| [commit cpprefjp/site, a4fbd16] | cpprefjp/addref:1 | execution: schedule_result_t (#1384) |
+| [commit cpprefjp/site, 3785ecf] | cpprefjp/addref:1 | execution: get_completion_scheduler (#1384) |
+| [commit cpprefjp/site, d512f5b] | cpprefjp/addref:2 | execution: get_stop_token,stop_token_of_t (#1384) |
+| [commit cpprefjp/site, e57a099] | ignore | execution: vaild-completion-signatures説明を移動 |
+| [commit cpprefjp/site, b74d3e8] | cpprefjp/addref:1 | execution: get_allocator (#1384) |
+| [commit cpprefjp/site, ebdeeed] | cpprefjp/addref:3 | execution: get_domain,get_(delegation_)scheduler (#1384) |
+| [commit cpprefjp/site, a285ffa] | cpprefjp/addref:4 | execution: value_type_of_t,error_type_of_t,sends_stopped (#1384) |
+| [commit cpprefjp/site, 7a7c220] | cpprefjp/addref:6 | execution: run_loop/get_scheduler (#1384) |
+| [commit cpprefjp/site, c1091ca] | cpprefjp/addref:1 | execution: get-completion-domain (#1384) |
+| [commit cpprefjp/site, 88bcec6] | cpprefjp/addref:3 | execution: run_loop全メンバ (#1384) |
+| [commit cpprefjp/site, e6b7e2c] | ignore | execution/run_loop: 微調整 (#1384) |
+| [commit cpprefjp/site, 2a210a5, 7aa4a3a] | cpprefjp/addref:6 | execution: sync_wait(_with_variant) (#1384) |
+| [commit cpprefjp/site, 5e7c6ee] | ignore | execution/basic-operation: fix inner links |
+| [commit cpprefjp/site, 885f6ee] | cpprefjp/addref:5 | execution: just (#1384) |
+| [commit cpprefjp/site, 9ea31e8] | cpprefjp/link:2 | GLOBAL_QUALIFY_LIST: std::memory_order_consume削除 (#1420) |
+| [commit cpprefjp/site, 0e7abe9] | cpprefjp/link:3 | GLOBAL_QUALIFY_LIST: std::variant追加 |
+| [commit cpprefjp/site, b7bf5a1] | cpprefjp/link:6 | GLOBAL_QUALIFY_LIST: std::jthread追加 |
+| [commit cpprefjp/site, c629ec0] | ignore | execution/run_loop: fix typos |
+| [commit cpprefjp/site, f1e2743] | cpprefjp/addref:1 | execution: tag_of_t (#1384) |
+| [commit cpprefjp/site, ff009c0] | cpprefjp/addref:1 | execution: movable-value (#1384) |
+| [commit cpprefjp/site, b653831] | cpprefjp/addref:1 | execution: product-type (#1384) |
+| [commit cpprefjp/site, cef1c67] | cpprefjp/addref:3 | execution: decays-to,decayed-tuple,variant-or-empty (#1384) |
+| [commit cpprefjp/site, 1cb82c9, 7baad01] | cpprefjp/addref:1 | execution: forwarding_query (#1384) |
+| [commit cpprefjp/site, 628698f, 63b19a3] | cpprefjp/addref:2 | execution: then (#1384) |
+| [commit cpprefjp/site, b8c7c50] | cpprefjp/addref:1 | execution: read_env (#1384) |
+| [commit cpprefjp/site, e411c3d, 248c362, 1adf476] | cpprefjp/addref:2 | execution: into_variant (#1384) |
+| [commit cpprefjp/site, 331cc4e] | cpprefjp/addref:1 | execution: starts_on (#1384) |
+| [commit cpprefjp/site, 7160b82, fd7bea7] | cpprefjp/addref:2 | execution: let_value (#1384) |
+| [commit cpprefjp/site, 034b8e6] | ignore | execution: 例示コードを改善 (#1384) |
+| [commit cpprefjp/site, ed4cd68] | cpprefjp/addref:2 | execution: on (#1384) |
+| [commit cpprefjp/site, b15f55f, ee11fa0] | cpprefjp/addref:1 | execution: 微調整 (#1384) |
+| [commit cpprefjp/site, 3f41dc9] | cpprefjp/addref:2 | execution: continues_on,schedule_from (#1384) |
+| [commit cpprefjp/site, 047e119] | cpprefjp/addref:2 | execution: when_all (#1384) |
+| [commit cpprefjp/site, 78b4c31] | cpprefjp/addref:1 | execution: when_all_with_variant (#1384) |
+| [commit cpprefjp/site, ae2af90] | cpprefjp/addref:1 | execution: split (#1384) |
+| [commit cpprefjp/site, 876474c] | cpprefjp/addref:1 | execution: bulk (#1384) |
+| [commit cpprefjp/site, d134ea8] | cpprefjp/addref:2 | execution: just_error,just_stopped (#1384) |
+| [commit cpprefjp/site, 82881a7] | ignore | execution: 微調整 (#1384) |
+| [commit cpprefjp/site, f27450b] | cpprefjp/addref:4 | functional: C++26 std::execution説明用エンティティ (#1384) |
+| [commit cpprefjp/site, d6addf6] | cpprefjp/addref:1 | execution: sender_adaptor_closure (#1384) |
+| [commit cpprefjp/site, b272152, c658129] | cpprefjp/addref:2 | execution: stopped_as_{error,optional} (#1384) |
+| [commit cpprefjp/site, a6d6258, a1eaff0] | cpprefjp/addref:4 | execution: with_awaitable_senders (#1384) |
+| [commit cpprefjp/site, 24f1d81] | cpprefjp/link:9 | GLOBAL_QUALIFY_LIST: std::exchange追加 |
+| [commit cpprefjp/site, 2705e5a, 1a6cd9c] | cpprefjp/addref:4 | execution: as_awaitable (#1384) |
+| [commit cpprefjp/site, deaaa16] | cpprefjp/addref:2 | execution: get_forward_progress_guarantee (#1384) |
+| [commit cpprefjp/site, 8253efa] | ignore | execution: 説明専用エンティティ (#1384) |
+| [commit cpprefjp/site, 4ae7b92, d4f0317] | cpprefjp/addref:3 | execution: transform_completion_signatures(_of) (#1384) |
+| [commit cpprefjp/site, 4f5dd2a] | ignore | execution: fix spelling query-or-default (#1384) |
+| [commit cpprefjp/site, aa4f065] | cpprefjp/addref:2 | execution: upon_error,upon_stopped (#1384) |
+| [commit cpprefjp/site, 0141068] | cpprefjp/addref:2 | execution: let_error,let_stopped (#1384) |
+| [commit cpprefjp/site, d512d56] | ignore | functional: 実行制御ライブラリへの内部リンク付与 (#1384) |
+| [commit cpprefjp/site, 30c8531] | ignore | execution: 影響箇所へP3396R1参照追記 (#1384) |
+| [commit cpprefjp/site, 1142f79] | cpprefjp/link:1 | iterator/projected_value_t: add inner link |
+| [commit cpprefjp/site, 97ddfcb] | ignore | stop_token: fix inner links |
+| [commit cpprefjp/site, 128604d] | cpprefjp/link:1 | execution/execution_policy: add inner link |
+| [commit cpprefjp/site, 8d56403] | ignore | execution/read_env: 概要説明の微調整 |
+| [commit cpprefjp/site, b7c5b24] | cpprefjp/fixl:5 | iterator: C++26 P2997R1対応(#1309) |
+| [commit cpprefjp/site, 2930095] | cpprefjp/fixm:1 | cpp26/embed: remove redundant ';' |
+| [commit cpprefjp/site, f047133] | cpprefjp/link:1 | cstdlib/system: POISX規格への参照 |
+| [commit cpprefjp/site, a24d776] | cpprefjp/fixm:1, cpprefjp/fixl:3 | atomic/atomic_flag: LWG3659対応 |
+| [commit cpprefjp/site, 30b7ea6] | cpprefjp/fixl:1 | execution/schedule_from: LWG4198 |
+| [commit cpprefjp/site, 9fee4b5] | cpprefjp/fixl:6 | executuon: LWG4203 |
+| [commit cpprefjp/site, 664d069] | cpprefjp/fixl:1 | execution/when_all: LWG4227 |
+| [commit cpprefjp/site, 0bf9ae6] | cpprefjp/fixl:1 | execution/with-await-transform: LWG4201 |
+| [commit cpprefjp/site, 2aa170e] | cpprefjp/fixl:1 | execution/operation_state: LWG4200 |
+| [commit cpprefjp/site, 86a0ae3] | cpprefjp/fixl:1 | execution/default_domain/transform_env: LWG4209 |
+| [commit cpprefjp/site, 46c87af] | cpprefjp/fixl:1 | execution/connect: LWG4208 |
+| [commit cpprefjp/site, 222e1a3] | cpprefjp/fixl:1 | execution/let_value: LWG4204, LWG4205 |
+| [commit cpprefjp/site, 2798af6] | cpprefjp/fixl:1 | execution/sender: LWG4202 |
+| [commit cpprefjp/site, 7e7cde1] | ignore | execution/upon_stopped: fix typo |
+| [commit cpprefjp/site, 0f7b8bc] | cpprefjp/link:1, cpprefjp/fixl:2 | execution/split: P3682R0 remove split algorithm |
+| [commit cpprefjp/site, eb824e2, 7b6fa9e, 2121599] | cpprefjp/addref:7, cpprefjp/fixl:31 | execution: C++26 P3557R3対応 |
+| [commit cpprefjp/site, d29d225] | cpprefjp/link:2, cpprefjp/fixl:3 | execution: P3557R3 remove transform_completion_signatures(_of) |
+| [commit cpprefjp/site, 157a932] | ignore | execution/then,upon_{error,stopped}: 効果説明をthenに統合 |
+| [commit cpprefjp/site, 403ba99] | cpprefjp/link:2, cpprefjp/addref:1, cpprefjp/fixl:3 | execution: C++26 P3284R4 (#1501) |
+| [commit cpprefjp/site, a7d2844] | cpprefjp/fixl:2, cpprefjp/addref:1 | execution: C++26 P3570R2 (#1507) |
+| [commit cpprefjp/site, c08b3ef, 5d1f2ce] | cpprefjp/fixl:2, cpprefjp/addref:2 | execution: C++26 P3481R5 (#1508) |
+| [commit cpprefjp/site, 050f14d] | cpprefjp/fixl:1, cpprefjp/addref:1 | execution: P2079R10 (#1511) |
+| [commit cpprefjp/site, 61e0053] | cpprefjp/fixl:5, cpprefjp/addref:2 | execution: P2079R10 User facing API (#1511) |
+| [commit cpprefjp/site, ab280be] | ignore | execution/parallel_scheduler: 説明増補(#1511) |
+| [commit cpprefjp/site, a516717] | cpprefjp/addref:6 | execution: P2079R10 Replaceability API (#1511) |
+| [commit cpprefjp/site, a4d3b95] | cpprefjp/addref:3 | execution: P2079R10 Replaceability API (#1511) |
+| [commit cpprefjp/site, bdd426b] | ignore | execution: P2079R10 調整(#1511) |
+| [commit cpprefjp/site, d53cd4c] | cpprefjp/fixl:1 | execution/forwarding_query: get_await_completion_adaptor追記(#1507) |
+| [commit cpprefjp/site, b11575f] | cpprefjp/fixl:2, cpprefjp/addref:1 | execution: C++26 P3433R1 (#1509) |
+| [commit cpprefjp/site, 171949a] | ignore | execution/get-domain-{early,late}: 関連項目 |
 | [commit cpprefjp/site, 76555be] | cpprefjp/fixm:1 | cpp26/structured_bindings_can_introduce_a_pack: テンプレート内でのみ有効 (#1376) |
-| [commit cpprefjp/site, 1aa60a2] | cpprefjp/fixs:1 | execution: P3149R11 simple_counting_scope(#1510) |
-| [commit cpprefjp/site, df84025] | cpprefjp/fixm:1 | execution/stop-when: fix markup(#1510) |
-| [commit cpprefjp/site, 53db61c] | cpprefjp/fixs:1 | execution: P3149R11 stop-when(#1510) |
-| [commit cpprefjp/site, a93a451] | cpprefjp/fixs:1 | execution: P3149R11 counting_scope(#1510) |
-| [commit cpprefjp/site, 4fbde58] | cpprefjp/typo:1 | stop_token/stoppable-source: fix typo |
-| [commit cpprefjp/site, 5ee5356] | cpprefjp/fixs:1 | execution: P3149R11 associate(#1510) |
-| [commit cpprefjp/site, 911f1dc] | cpprefjp/fixs:1 | execution/start: 微調整 |
-| [commit cpprefjp/site, eed390c] | cpprefjp/fixs:1 | execution/associate: 調整 (#1510) |
-| [commit cpprefjp/site, e7aa9c8] | cpprefjp/fixm:1 | execution/associate: 説明増補,例示修正 (#1510) |
-| [commit cpprefjp/site, d01bc08] | cpprefjp/fixs:1 | execution: P3149R11 spawn(#1510) |
-| [commit cpprefjp/site, 19dfdd7] | cpprefjp/fixs:1 | execution: P3149R11 spawn_future(#1510) |
-| [commit cpprefjp/site, d528d34] | cpprefjp/fixs:1 | execution/spawn_future: 微調整 |
-| [commit cpprefjp/site, 85387aa] | cpprefjp/fixs:1 | execution: P3552R3 エンティティ列挙のみ (#1521) |
+| [commit cpprefjp/site, a510758] | cpprefjp/addref:3, cpprefjp/fixl:1, cpprefjp/fixm:1 | execution: P3149R11 scope_token(#1510) |
+| [commit cpprefjp/site, 1aa60a2] | cpprefjp/addref:12 | execution: P3149R11 simple_counting_scope(#1510) |
+| [commit cpprefjp/site, a93a451] | cpprefjp/addref:13 | execution: P3149R11 counting_scope(#1510) |
+| [commit cpprefjp/site, 53db61c] | cpprefjp/addref:1 | execution: P3149R11 stop-when(#1510) |
+| [commit cpprefjp/site, df84025] | ignore | execution/stop-when: fix markup(#1510) |
+| [commit cpprefjp/site, 5ee5356] | cpprefjp/addref:1 | execution: P3149R11 associate(#1510) |
+| [commit cpprefjp/site, e7aa9c8] | ignore | execution/associate: 説明増補,例示修正 (#1510) |
+| [commit cpprefjp/site, eed390c] | ignore | execution/associate: 調整 (#1510) |
+| [commit cpprefjp/site, d01bc08] | cpprefjp/addref:1 | execution: P3149R11 spawn(#1510) |
+| [commit cpprefjp/site, 19dfdd7] | cpprefjp/addref:1 | execution: P3149R11 spawn_future(#1510) |
+| [commit cpprefjp/site, d528d34] | ignore | execution/spawn_future: 微調整 |
+| [commit cpprefjp/site, 4fbde58] | ignore | stop_token/stoppable-source: fix typo |
+| [commit cpprefjp/site, 911f1dc] | ignore | execution/start: 微調整 |
+| [commit cpprefjp/site, 85387aa] | cpprefjp/fixl:1 | execution: P3552R3 エンティティ列挙のみ (#1521) |
 
 
 ## [Raclamusi](https://github.com/Raclamusi)
