@@ -14,6 +14,7 @@
 - [C++17 機能テストマクロ](/lang/cpp17/feature_test_macros.md)
 - [C++20 機能テストマクロ](/lang/cpp20/feature_test_macros.md)
 - [C++23 機能テストマクロ](/lang/cpp23/feature_test_macros.md)
+- [C++26 機能テストマクロ](/lang/cpp26/feature_test_macros.md)
 
 ## 参照
 - [P0754R2 `<version>`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0754r2.pdf)
