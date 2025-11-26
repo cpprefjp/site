@@ -983,29 +983,7 @@
 
 | コミット | タグ | 説明 |
 |----------|------|------|
-| [commit cpprefjp/site, 056967c] | cpprefjp/fixm:1 | fix: explanation |
-| [commit cpprefjp/site, 8e13685] | cpprefjp/fixm:1 | fix complexity of clear method |
-| [commit cpprefjp/site, 6f51ec9] | cpprefjp/fixs:1 | fix: minor fix |
-| [commit cpprefjp/site, 588262d] | cpprefjp/fixm:1 | fix: format |
-| [commit cpprefjp/site, 26ded1a] | cpprefjp/fixm:1 | fix: reflect issue conversation |
-| [commit cpprefjp/site, 202823f] | cpprefjp/fixs:1 | fix: minor fix |
-| [commit cpprefjp/site, bb394c1] | cpprefjp/fixm:1 | fix: order of topic |
-| [commit cpprefjp/site, 4c79551] | cpprefjp/fixm:1 | fix: apply suggestion |
-| [commit cpprefjp/site, af3a11d] | cpprefjp/fixm:1 | fix: order of factor |
-| [commit cpprefjp/site, 2a7fe57] | cpprefjp/fixm:1 | fix: 破棄->初期化 |
-| [commit cpprefjp/site, e6690f0] | cpprefjp/fixs:1 | reflect suggestions |
-| [commit cpprefjp/site, 3bb29a2] | cpprefjp/fixm:1 | fix: amend procedure |
-| [commit cpprefjp/site, b25ee37] | cpprefjp/fixs:1 | reflect suggestions |
-| [commit cpprefjp/site, 349f117] | cpprefjp/fixm:1 | fix: change statement |
-| [commit cpprefjp/site, 7f7b3ab] | cpprefjp/fixm:1 | fix: reflect suggestions |
-| [commit cpprefjp/site, 47cef6b] | cpprefjp/fixm:1 | fix: reflect discussions on the PR |
-| [commit cpprefjp/site, 5079252] | cpprefjp/fixm:1 | fix: markdown format |
-| [commit cpprefjp/site, 0107d7b] | cpprefjp/fixm:1 | fix: indent code block |
-| [commit cpprefjp/site, b7bc91c] | cpprefjp/fixm:1 | fix: reflect suggestions |
-| [commit cpprefjp/site, f572dab] | cpprefjp/fixm:1 | Update reference/unordered_map/unordered_map/clear.md |
-| [commit cpprefjp/site, bb0ffaf] | cpprefjp/fixs:1 | Apply suggestions from code review |
-| [commit cpprefjp/site, b13d269] | cpprefjp/fixs:1 | Apply suggestions from code review |
-| [commit cpprefjp/site, 457602e] | cpprefjp/fixs:1 | Apply suggestions from code review |
+| [commit cpprefjp/site, 8e13685, 056967c, 26ded1a, 588262d, 6f51ec9, f572dab, b25ee37, 3bb29a2, bb0ffaf, e6690f0, 2a7fe57, af3a11d, 4c79551, bb394c1, 202823f, b13d269, 7f7b3ab, 349f117, 47cef6b, 457602e, b7bc91c, 0107d7b, 5079252] | cpprefjp/fixm:4 | enh: ハッシュテーブルのclearメソッドの備考追加 #1450 |
 
 
 ## [onihusube](https://github.com/onihusube)
