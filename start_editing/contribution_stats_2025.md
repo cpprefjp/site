@@ -1036,14 +1036,14 @@
 
 | コミット | タグ | 説明 |
 |----------|------|------|
-| [commit cpprefjp/crsearch, d68b712] | cpprefjp/fixm:1 | Update more |
-| [commit cpprefjp/crsearch, 63740e0] | cpprefjp/fixs:1 | Add minimum CI |
-| [commit cpprefjp/crsearch, 2805b96] | cpprefjp/fixm:1 | npm audit fix |
-| [commit cpprefjp/kunai, f0544b9] | cpprefjp/fixm:1 | Update modules |
-| [commit cpprefjp/kunai, 1065351] | cpprefjp/fixm:1 | Update actions |
-| [commit cpprefjp/kunai, 0f3ba5e] | cpprefjp/fixm:1 | Local test fix |
-| [commit cpprefjp/kunai, a905031] | cpprefjp/fixs:1 | Embed instead |
-| [commit cpprefjp/crsearch, 9ca8b1f] | cpprefjp/fixm:1 | Fix marked names |
+| [commit cpprefjp/crsearch, 2805b96] | tool/security:1, tool/improvem:1 | npm audit fix |
+| [commit cpprefjp/crsearch, 63740e0] | tool/addm:1 | Add minimum CI |
+| [commit cpprefjp/crsearch, d68b712] | tool/updatelib:12, tool/improvel:4 | Update more |
+| [commit cpprefjp/kunai, 1065351] | tool/improvem:1 | Update actions |
+| [commit cpprefjp/kunai, f0544b9] | tool/updatelib:14, tool/improvel:1 | Update modules |
+| [commit cpprefjp/kunai, a905031] | tool/updatelib:3, tool/improvel:2 | Embed instead |
+| [commit cpprefjp/kunai, 0f3ba5e] | tool/updatelib:1, tool/improvel:1 | Local test fix |
+| [commit cpprefjp/crsearch, 9ca8b1f] | tool/improvem:1 | Fix marked names |
 
 
 ## [Gumichocopengin8](https://github.com/Gumichocopengin8)

@@ -372,6 +372,7 @@ CIスクリプト、site_generator、kunaiなど。
 | tool/improvem   | 30 | コード改善 : medium。git submodule / npm moduleのリリース作業 (package.jsonの更新) |
 | tool/improvel   | 50 | コード改善 : large |
 | tool/updatelib  | 20 | 外部依存ライブラリのアップデート (直接使用のライブラリ単位) |
+| tool/security   | 50 | セキュリティアップデート (npm audit) |
 | tool/updatelang | 10 | 使用言語のアップデート : small (とくにコード変更なく更新できた) |
 | tool/updatelang | 30 | 使用言語のアップデート : medium (多少のコード修正で更新できた) |
 | tool/updatelang | 50 | 使用言語のアップデート : large (大きいまたはむずかしいコード修正をして更新できた) |
