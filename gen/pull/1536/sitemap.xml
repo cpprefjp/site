@@ -31,7 +31,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/start_editing.html</loc>
-      <lastmod>2025-11-27T07:44:17+09:00</lastmod>
+      <lastmod>2025-11-27T08:00:17+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.9</priority>
     </url>
@@ -570,7 +570,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/version.html</loc>
-      <lastmod>2025-10-04T19:13:40+09:00</lastmod>
+      <lastmod>2025-11-27T08:00:17+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.8</priority>
     </url>
@@ -26204,7 +26204,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/algorithm/move.html</loc>
-      <lastmod>2025-10-04T19:13:40+09:00</lastmod>
+      <lastmod>2025-11-27T08:00:17+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -26932,7 +26932,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/algorithm/partition_copy.html</loc>
-      <lastmod>2025-10-04T19:13:40+09:00</lastmod>
+      <lastmod>2025-11-27T08:00:17+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -27100,7 +27100,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/algorithm/count_if.html</loc>
-      <lastmod>2025-10-04T19:13:40+09:00</lastmod>
+      <lastmod>2025-11-27T08:00:17+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -27303,7 +27303,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/algorithm/lexicographical_compare_three_way.html</loc>
-      <lastmod>2025-10-04T19:13:40+09:00</lastmod>
+      <lastmod>2025-11-27T08:00:17+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -31972,7 +31972,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/optional/optional/op_compare_3way.html</loc>
-      <lastmod>2025-10-04T19:13:40+09:00</lastmod>
+      <lastmod>2025-11-27T08:00:17+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -36809,7 +36809,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/stop_token/stop_source/op_constructor.html</loc>
-      <lastmod>2025-10-04T19:13:40+09:00</lastmod>
+      <lastmod>2025-11-27T08:00:17+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.6</priority>
     </url>
@@ -37397,7 +37397,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/memory/enable_shared_from_this.html</loc>
-      <lastmod>2025-10-04T19:13:40+09:00</lastmod>
+      <lastmod>2025-11-27T08:00:17+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -40581,6 +40581,13 @@
     </url>
   
     <url>
+      <loc>https://cpprefjp.github.io/lang/cpp26/feature_test_macros.html</loc>
+      <lastmod>2025-11-27T08:00:17+09:00</lastmod>
+      <changefreq>daily</changefreq>
+      <priority>0.7</priority>
+    </url>
+  
+    <url>
       <loc>https://cpprefjp.github.io/lang/cpp26/trivial_infinite_loops_are_not_undefined_behavior.html</loc>
       <lastmod>2025-10-04T19:13:40+09:00</lastmod>
       <changefreq>daily</changefreq>
@@ -42206,7 +42213,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/start_editing/contribution_stats_2025.html</loc>
-      <lastmod>2025-11-27T07:59:41+09:00</lastmod>
+      <lastmod>2025-11-27T08:00:17+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.8</priority>
     </url>

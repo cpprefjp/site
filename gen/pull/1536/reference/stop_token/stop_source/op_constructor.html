@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-11T17:16:44">
-        2025年07月11日 17時16分44秒
+      <span itemprop="datePublished" content="2025-11-18T06:51:48">
+        2025年11月18日 06時51分48秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Koichi Murase</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -226,7 +226,7 @@
         
   <div class="identifier-type">function</div><div class="header">&lt;stop_token&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class stop_source">stop_source::</span><span class="token">コンストラクタ</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">stop_source</span><span class="p">();</span>                                <span class="c1">// (1)</span>
-<span class="k">explicit</span> <span class="nf">stop_source</span><span class="p">(</span><span class="n">nostopstate_t</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (2)</span>
+<span class="k">explicit</span> <span class="nf">stop_source</span><span class="p">(</span><span class="n"><a href="../nostopstate.html">nostopstate_t</a></span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (2)</span>
 <span class="n">stop_source</span><span class="p">(</span><span class="k">const</span> <span class="n">stop_source</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (3)</span>
 <span class="n">stop_source</span><span class="p">(</span><span class="n">stop_source</span><span class="o">&amp;&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>      <span class="c1">// (4)</span>
 </code></pre></div>
@@ -263,10 +263,10 @@
   <span class="n"><a href="../stop_source.html">std::stop_source</a></span> <span class="n">ss3</span> <span class="o">=</span> <span class="n">ss1</span><span class="p">;</span>
   <span class="n"><a href="../stop_source.html">std::stop_source</a></span> <span class="n">ss4</span> <span class="o">=</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">ss1</span><span class="p">);</span>
 
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">ss1</span><span class="p">.</span><span class="n">stop_possible</span><span class="p">()</span> <span class="o">==</span> <span class="nb">false</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">ss2</span><span class="p">.</span><span class="n">stop_possible</span><span class="p">()</span> <span class="o">==</span> <span class="nb">false</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">ss3</span><span class="p">.</span><span class="n">stop_possible</span><span class="p">()</span> <span class="o">==</span> <span class="nb">true</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">ss4</span><span class="p">.</span><span class="n">stop_possible</span><span class="p">()</span> <span class="o">==</span> <span class="nb">true</span><span class="p">);</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">ss1</span><span class="p">.</span><span class="n"><a href="stop_possible.html">stop_possible()</a></span> <span class="o">==</span> <span class="nb">false</span><span class="p">);</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">ss2</span><span class="p">.</span><span class="n"><a href="stop_possible.html">stop_possible()</a></span> <span class="o">==</span> <span class="nb">false</span><span class="p">);</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">ss3</span><span class="p">.</span><span class="n"><a href="stop_possible.html">stop_possible()</a></span> <span class="o">==</span> <span class="nb">true</span><span class="p">);</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">ss4</span><span class="p">.</span><span class="n"><a href="stop_possible.html">stop_possible()</a></span> <span class="o">==</span> <span class="nb">true</span><span class="p">);</span>
 
   <span class="n">ss3</span><span class="p">.</span><span class="n"><a href="request_stop.html">request_stop()</a></span><span class="p">;</span>
 
