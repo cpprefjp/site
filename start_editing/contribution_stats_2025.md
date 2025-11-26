@@ -1023,14 +1023,13 @@
 
 | コミット | タグ | 説明 |
 |----------|------|------|
-| [commit cpprefjp/site, cafe530] | cpprefjp/fixm:1 | implementation.mdにVisual Studio 2022 version 17.12.3の情報を追記 |
-| [commit cpprefjp/site, 2f1a9df] | cpprefjp/fixm:1 | Visual Studio 2022 version 17.0.2の表記からUpdate 1を削除する |
-| [commit cpprefjp/site, b84a227] | cpprefjp/fixm:1 | タイポの修正 |
-| [commit cpprefjp/site, 034c367] | cpprefjp/fixs:1 | Visual Studio 2022 Version 17.12.4 追加 |
-| [commit cpprefjp/site, 8699511] | cpprefjp/fixs:1 | Visual Studio 2022 Version 17.13.0 追加 |
-| [commit cpprefjp/site, 336d8aa] | cpprefjp/fixs:1 | versionをVersionに変更 |
-| [commit cpprefjp/site, 0c3fe2f] | cpprefjp/fixs:1 | Visual Studio 2022についてversionをVersionに置き換える |
-| [commit boostjp/site, dd6d909] | cpprefjp/fixm:1 | リンク先の修正 |
+| [commit cpprefjp/site, cafe530] | cpprefjp/compiler:1 | implementation.mdにVisual Studio 2022 version 17.12.3の情報を追記 |
+| [commit cpprefjp/site, 2f1a9df] | cpprefjp/compiler:1 | Visual Studio 2022 version 17.0.2の表記からUpdate 1を削除する |
+| [commit cpprefjp/site, b84a227] | cpprefjp/typo:1 | タイポの修正 |
+| [commit cpprefjp/site, 034c367] | cpprefjp/compiler:1 | Visual Studio 2022 Version 17.12.4 追加 |
+| [commit cpprefjp/site, 8699511] | cpprefjp/compiler:1 | Visual Studio 2022 Version 17.13.0 追加 |
+| [commit cpprefjp/site, 336d8aa, 0c3fe2f] | cpprefjp/fixm:1 | Visual Studio 2022についてversionをVersionに置き換える |
+| [commit boostjp/site, dd6d909] | boostjp/link:1 | リンク先の修正 |
 
 
 ## [take-cheeze](https://github.com/take-cheeze)
