@@ -653,149 +653,149 @@
 
 | コミット | タグ | 説明 |
 |----------|------|------|
-| [commit cpprefjp/site, c763f14] | cpprefjp/fixs:1 | リンクテキストとリンクアドレスの文書番号の不一致を修正 |
-| [commit cpprefjp/site, 08bb4ea] | cpprefjp/fixs:1 | ヘッダのリンクのテキストとアドレスの不一致を修正 |
-| [commit cpprefjp/kunai, 8f8263b] | cpprefjp/fixs:1 | ページ推移後にキーボードで画面スクロールできるようにした #75 |
-| [commit cpprefjp/site, 1980594] | cpprefjp/fixs:1 | リンクを修正 |
-| [commit cpprefjp/kunai, 97b6378] | cpprefjp/fixs:1 | PlaygroundのC++バージョンをC++2cに変更 #157 |
-| [commit cpprefjp/kunai, 818d788] | cpprefjp/fixs:1 | postcssの color() を生のCSSの記法に変更 |
-| [commit boostjp/site, 7fa282f] | cpprefjp/typo:1 | Typo修正 |
-| [commit cpprefjp/site, 2107107] | cpprefjp/typo:1 | いくつかのtypoを修正 |
-| [commit cpprefjp/site, e5b2c4f] | cpprefjp/fixs:1 | C++26 属性の無視性を見直し : オブジェクトサイズの説明を修正 |
-| [commit cpprefjp/site, eed2bbf] | cpprefjp/fixs:1 | C++26 未初期化変数の読み取り : 表現を修正 |
-| [commit cpprefjp/site, e3e7d09] | cpprefjp/fixs:1 | C++26: 表を整理 |
-| [commit cpprefjp/site, 4a750d8] | cpprefjp/typo:1 | typo修正とNGワード追加 |
-| [commit boostjp/site, a88eb41] | cpprefjp/fixm:1 | アンカーの修正 |
-| [commit boostjp/site, 3340a14] | cpprefjp/fixm:1 | リンクの修正 |
-| [commit boostjp/site, 428d1f1] | cpprefjp/typo:1 | Typo修正 |
-| [commit boostjp/site, 3bee3b1] | cpprefjp/fixm:1 | リンクの修正 |
-| [commit boostjp/site, e884e46] | cpprefjp/typo:1 | Typo修正 |
-| [commit cpprefjp/site, d7d9887] | cpprefjp/typo:1 | typo修正とNGワード追加 |
-| [commit cpprefjp/site, ece3ce9] | cpprefjp/fixs:1 | 対応しない波カッコを修正 |
-| [commit cpprefjp/site, 919efc3] | cpprefjp/fixs:1 | クラス定義の後のセミコロン忘れを修正 |
-| [commit cpprefjp/site, 6a95cca] | cpprefjp/fixs:1 | グローバル修飾のリンクを修正 |
-| [commit cpprefjp/site, 64a6665] | cpprefjp/fixs:1 | C++ のコードブロックに cpp を追加 |
-| [commit cpprefjp/site, c601a46] | cpprefjp/fixs:1 | `get(const tuple&&)` の C++ バージョンを修正 |
-| [commit cpprefjp/site, 267a954] | cpprefjp/fixs:1 | `get()` に `const tuple&&` 版を追加 |
-| [commit cpprefjp/site, 22f113e] | cpprefjp/fixs:1 | コード例のエラーを修正 #1456 |
-| [commit cpprefjp/site, 1fb173f] | cpprefjp/fixs:1 | リンクを修正 |
-| [commit cpprefjp/site, 7e8b52e] | cpprefjp/typo:1 | Typoを修正 |
-| [commit cpprefjp/site, 0328c11] | cpprefjp/fixs:1 | クラス定義の後のセミコロン忘れを修正 |
-| [commit cpprefjp/site, 7fe1357] | cpprefjp/fixs:1 | `[meta id-type]` を修正 |
-| [commit cpprefjp/site, f5c719e] | cpprefjp/fixs:1 | `[meta class]` の抜けを修正 |
-| [commit cpprefjp/site, 4f4fdfb] | cpprefjp/fixs:1 | タイトルの間違いを修正 |
-| [commit cpprefjp/kunai, 010c092] | cpprefjp/fixs:1 | 同じ名前のページに対するサイドバーの挙動を修正 |
-| [commit cpprefjp/site, 87fe6ed] | cpprefjp/fixs:1 | 特殊化から `[meta class]` を削除 |
-| [commit cpprefjp/site, a8797d0] | cpprefjp/fixs:1 | 代入演算子のタイトルを `operator=` で統一 |
-| [commit cpprefjp/site, e579396] | cpprefjp/fixs:1 | タイトルと一致しないコードを修正 |
-| [commit cpprefjp/site, a47d09f] | cpprefjp/fixs:1 | ファイル名を修正 |
-| [commit cpprefjp/site, e408f41] | cpprefjp/fixs:1 | タイトルを修正 |
-| [commit cpprefjp/site, e05f8b5] | cpprefjp/fixs:1 | `[meta ...]` の書き方を修正 |
-| [commit cpprefjp/site_generator, fcdaac6] | cpprefjp/fixs:1 | type 判別のエラーメッセージに原因ファイルの情報を追加 |
-| [commit cpprefjp/site, 95459a7] | cpprefjp/fixs:1 | 自動リンクがつくようにスペースを挿入 |
-| [commit cpprefjp/site, dd16f31] | cpprefjp/fixs:1 | グローバル修飾に `<cctype>` を追加 |
-| [commit cpprefjp/site, 2d1d210] | cpprefjp/fixs:1 | コード中の非ASCII文字を修正 |
-| [commit cpprefjp/site, aa2056f] | cpprefjp/fixs:1 | タイトルを修正 |
-| [commit cpprefjp/site, 76f8ad6] | cpprefjp/fixs:1 | 型エイリアス定義の後のセミコロン忘れを修正 |
-| [commit cpprefjp/site, cfe1432] | cpprefjp/fixm:1 | implementation defined を implementation-defined に変更 |
-| [commit cpprefjp/site, b0adf47] | cpprefjp/fixs:1 | tempnam → tmpnam |
-| [commit cpprefjp/site, 700975a] | cpprefjp/fixs:1 | 名前空間を修正 std::range → std::ranges |
-| [commit cpprefjp/site, 408e16d] | cpprefjp/fixs:1 | インラインコードブロックの開き忘れ、閉じ忘れを修正 |
-| [commit cpprefjp/site, c1128ce] | cpprefjp/fixs:1 | スクリプトの不要なセミコロンを削除 |
-| [commit cpprefjp/site, 0c54fa4] | cpprefjp/fixs:1 | スクリプトの型アノテーションを修正 |
-| [commit cpprefjp/site, acbbb7b] | cpprefjp/fixs:1 | スクリプトの変数名を修正 |
-| [commit cpprefjp/site, f7662fe] | cpprefjp/fixs:1 | リンクを修正 |
-| [commit cpprefjp/site, 05fca6c] | cpprefjp/fixs:1 | リンクを修正 |
-| [commit cpprefjp/site, 17a8b4e] | cpprefjp/typo:1 | typo修正 |
-| [commit cpprefjp/site, 2c047fd] | cpprefjp/fixs:1 | ranges:: 抜けを修正 |
-| [commit cpprefjp/site, 24df3e1] | cpprefjp/typo:1 | typo修正 |
-| [commit cpprefjp/site, 35b3151] | cpprefjp/fixs:1 | リンクのカッコの閉じ忘れを修正 |
-| [commit cpprefjp/site, 68b6308] | cpprefjp/fixs:1 | ヘッダのリンクを修正 |
-| [commit cpprefjp/site, 5b73464] | cpprefjp/fixs:1 | リンクを修正 |
-| [commit cpprefjp/site, 309420a] | cpprefjp/typo:1 | typo修正とNGワード追加 |
-| [commit cpprefjp/site, 715c5f9] | cpprefjp/fixs:1 | リンクを修正 |
+| [commit cpprefjp/site, c763f14] | cpprefjp/link:30 | リンクテキストとリンクアドレスの文書番号の不一致を修正 |
+| [commit cpprefjp/site, 08bb4ea] | cpprefjp/link:1 | ヘッダのリンクのテキストとアドレスの不一致を修正 |
+| [commit cpprefjp/kunai, 8f8263b] | tool/improvem:2 | ページ推移後にキーボードで画面スクロールできるようにした #75 |
+| [commit cpprefjp/site, 1980594] | cpprefjp/link:1 | リンクを修正 |
+| [commit cpprefjp/kunai, 97b6378] | tool/improvem:1 | PlaygroundのC++バージョンをC++2cに変更 #157 |
+| [commit cpprefjp/kunai, 818d788] | tool/fixbug:6 | postcssの color() を生のCSSの記法に変更 |
+| [commit boostjp/site, 7fa282f] | boostjp/typo:1 | Typo修正 |
+| [commit cpprefjp/site, 2107107] | cpprefjp/typo:17 | いくつかのtypoを修正 |
+| [commit cpprefjp/site, e5b2c4f] | cpprefjp/fixm:1 | C++26 属性の無視性を見直し : オブジェクトサイズの説明を修正 |
+| [commit cpprefjp/site, eed2bbf] | cpprefjp/fixm:1 | C++26 未初期化変数の読み取り : 表現を修正 |
+| [commit cpprefjp/site, e3e7d09] | cpprefjp/fixm:1 | C++26: 表を整理 |
+| [commit cpprefjp/site, 4a750d8] | cpprefjp/typo:5, tool/improvem:1 | typo修正とNGワード追加 |
+| [commit boostjp/site, a88eb41] | boostjp/link:2 | アンカーの修正 |
+| [commit boostjp/site, 3340a14] | boostjp/link:1 | リンクの修正 |
+| [commit boostjp/site, 428d1f1] | boostjp/typo:15 | Typo修正 |
+| [commit boostjp/site, 3bee3b1] | boostjp/link:1 | リンクの修正 |
+| [commit boostjp/site, e884e46] | boostjp/typo:1, boostjp/fixm:4 | Typo修正 |
+| [commit cpprefjp/site, d7d9887] | cpprefjp/typo:4, tool/improvem:1 | typo修正とNGワード追加 |
+| [commit cpprefjp/site, ece3ce9] | cpprefjp/fixm:13 | 対応しない波カッコを修正 |
+| [commit cpprefjp/site, 919efc3] | cpprefjp/fixm:13 | クラス定義の後のセミコロン忘れを修正 |
+| [commit cpprefjp/site, 6a95cca] | cpprefjp/link:1 | グローバル修飾のリンクを修正 |
+| [commit cpprefjp/site, 64a6665] | cpprefjp/fixm:27 | C++ のコードブロックに cpp を追加 |
+| [commit cpprefjp/site, c601a46] | cpprefjp/fixm:1 | `get(const tuple&&)` の C++ バージョンを修正 |
+| [commit cpprefjp/site, 267a954] | cpprefjp/fixl:1 | `get()` に `const tuple&&` 版を追加 |
+| [commit cpprefjp/site, 22f113e] | cpprefjp/fixm:1 | コード例のエラーを修正 #1456 |
+| [commit cpprefjp/site, 1fb173f] | cpprefjp/link:2 | リンクを修正 |
+| [commit cpprefjp/site, 7e8b52e] | cpprefjp/fixm:1, cpprefjp/link:1 | Typoを修正 |
+| [commit cpprefjp/site, 0328c11] | cpprefjp/fixm:5 | クラス定義の後のセミコロン忘れを修正 |
+| [commit cpprefjp/site, 7fe1357] | cpprefjp/fixm:16 | `[meta id-type]` を修正 |
+| [commit cpprefjp/site, f5c719e] | cpprefjp/fixm:18 | `[meta class]` の抜けを修正 |
+| [commit cpprefjp/site, 4f4fdfb] | cpprefjp/fixm:3 | タイトルの間違いを修正 |
+| [commit cpprefjp/kunai, 010c092] | tool/fixbug:1 | 同じ名前のページに対するサイドバーの挙動を修正 |
+| [commit cpprefjp/site, 87fe6ed] | cpprefjp/fixm:1 | 特殊化から `[meta class]` を削除 |
+| [commit cpprefjp/site, a8797d0] | cpprefjp/fixm:2 | 代入演算子のタイトルを `operator=` で統一 |
+| [commit cpprefjp/site, e579396] | cpprefjp/fixm:5 | タイトルと一致しないコードを修正 |
+| [commit cpprefjp/site, a47d09f] | cpprefjp/link:2 | ファイル名を修正 |
+| [commit cpprefjp/site, e408f41] | cpprefjp/fixm:1 | タイトルを修正 |
+| [commit cpprefjp/site, e05f8b5] | cpprefjp/fixs:2 | `[meta ...]` の書き方を修正 |
+| [commit cpprefjp/site_generator, fcdaac6] | tool/improvem:1 | type 判別のエラーメッセージに原因ファイルの情報を追加 |
+| [commit cpprefjp/site, 95459a7] | cpprefjp/fixm:2 | 自動リンクがつくようにスペースを挿入 |
+| [commit cpprefjp/site, dd16f31] | cpprefjp/link:1 | グローバル修飾に `<cctype>` を追加 |
+| [commit cpprefjp/site, 2d1d210] | cpprefjp/fixm:2 | コード中の非ASCII文字を修正 |
+| [commit cpprefjp/site, aa2056f] | cpprefjp/fixm:2 | タイトルを修正 |
+| [commit cpprefjp/site, 76f8ad6] | cpprefjp/fixm:2 | 型エイリアス定義の後のセミコロン忘れを修正 |
+| [commit cpprefjp/site, cfe1432] | cpprefjp/fixm:3 | implementation defined を implementation-defined に変更 |
+| [commit cpprefjp/site, b0adf47] | cpprefjp/fixm:1 | tempnam → tmpnam |
+| [commit cpprefjp/site, 700975a] | cpprefjp/fixm:1 | 名前空間を修正 std::range → std::ranges |
+| [commit cpprefjp/site, 408e16d] | cpprefjp/fixm:2 | インラインコードブロックの開き忘れ、閉じ忘れを修正 |
+| [commit cpprefjp/site, c1128ce] | tool/improves:2 | スクリプトの不要なセミコロンを削除 |
+| [commit cpprefjp/site, 0c54fa4] | tool/improvem:3 | スクリプトの型アノテーションを修正 |
+| [commit cpprefjp/site, acbbb7b] | tool/fixbug:1 | スクリプトの変数名を修正 |
+| [commit cpprefjp/site, f7662fe] | cpprefjp/link:4 | リンクを修正 |
+| [commit cpprefjp/site, 05fca6c] | cpprefjp/link:2 | リンクを修正 |
+| [commit cpprefjp/site, 17a8b4e] | cpprefjp/link:3 | typo修正 |
+| [commit cpprefjp/site, 2c047fd] | cpprefjp/fixm:1 | ranges:: 抜けを修正 |
+| [commit cpprefjp/site, 24df3e1] | cpprefjp/link:1 | typo修正 |
+| [commit cpprefjp/site, 35b3151] | cpprefjp/link:2 | リンクのカッコの閉じ忘れを修正 |
+| [commit cpprefjp/site, 68b6308] | cpprefjp/link:3 | ヘッダのリンクを修正 |
+| [commit cpprefjp/site, 5b73464] | cpprefjp/link:1 | リンクを修正 |
+| [commit cpprefjp/site, 309420a] | cpprefjp/typo:1, tool/improves:1 | typo修正とNGワード追加 |
+| [commit cpprefjp/site, 715c5f9] | cpprefjp/link:3 | リンクを修正 |
 | [commit cpprefjp/site, 63c44c0] | cpprefjp/typo:1 | typo修正 |
 | [commit cpprefjp/site, 58451f0] | cpprefjp/typo:1 | typo修正 |
-| [commit cpprefjp/site, 48b1149] | cpprefjp/fixs:1 | リンクを修正 |
-| [commit cpprefjp/site, b0477cf] | cpprefjp/typo:1 | 繰り返しタイプのtypoの修正 |
+| [commit cpprefjp/site, 48b1149] | cpprefjp/link:3 | リンクを修正 |
+| [commit cpprefjp/site, b0477cf] | cpprefjp/fixs:16 | 繰り返しタイプのtypoの修正 |
 | [commit cpprefjp/site, 5426d39] | cpprefjp/typo:1 | typo修正 |
-| [commit cpprefjp/site, 7b6b879] | cpprefjp/fixs:1 | リンクを修正 |
-| [commit cpprefjp/site, 3bb11d9] | cpprefjp/typo:1 | typo修正とNGワード追加 |
-| [commit cpprefjp/site, bb595bc] | cpprefjp/typo:1 | typo修正とNGワード追加 |
-| [commit cpprefjp/site, 501a325] | cpprefjp/fixs:1 | メンバ関数名を修正 |
-| [commit cpprefjp/site, 9fbb233] | cpprefjp/fixs:1 | pair::first, pair::second のリンクを修正 |
-| [commit cpprefjp/site, 377b4a4] | cpprefjp/fixs:1 | リンクを修正 |
-| [commit cpprefjp/site, a34f426] | cpprefjp/fixs:1 | コード修飾のリンクを修正 |
+| [commit cpprefjp/site, 7b6b879] | cpprefjp/link:8 | リンクを修正 |
+| [commit cpprefjp/site, 3bb11d9] | cpprefjp/typo:5, tool/improvem:1 | typo修正とNGワード追加 |
+| [commit cpprefjp/site, bb595bc] | cpprefjp/typo:1, tool/improves:1 | typo修正とNGワード追加 |
+| [commit cpprefjp/site, 501a325] | cpprefjp/fixm:1 | メンバ関数名を修正 |
+| [commit cpprefjp/site, 9fbb233] | cpprefjp/link:4 | `pair::first`, `pair::second` のリンクを修正 |
+| [commit cpprefjp/site, 377b4a4] | cpprefjp/link:15 | リンクを修正 |
+| [commit cpprefjp/site, a34f426] | cpprefjp/link:18 | コード修飾のリンクを修正 |
 | [commit cpprefjp/site, 17da529] | cpprefjp/typo:1 | typo修正 |
-| [commit cpprefjp/site, b78f6ab] | cpprefjp/fixs:1 | 文章中やコメントの全角スペースを半角スペースに置換 |
-| [commit cpprefjp/site, d5e5ead] | cpprefjp/fixs:1 | コード中の全角スペースを修正 |
-| [commit cpprefjp/site, 66b0019] | cpprefjp/fixs:1 | 対応しない丸カッコを修正 |
-| [commit cpprefjp/site, b3855d8] | cpprefjp/fixs:1 | 欠けたコードを修正 |
+| [commit cpprefjp/site, b78f6ab] | cpprefjp/fixs:24 | 文章中やコメントの全角スペースを半角スペースに置換 |
+| [commit cpprefjp/site, d5e5ead] | cpprefjp/fixm:3 | コード中の全角スペースを修正 |
+| [commit cpprefjp/site, 66b0019] | cpprefjp/fixm:30 | 対応しない丸カッコを修正 |
+| [commit cpprefjp/site, b3855d8] | cpprefjp/fixm:1 | 欠けたコードを修正 |
 | [commit cpprefjp/site, 98dc272] | cpprefjp/fixm:1 | `<sup>` タグが正しく表示されるように修正 |
-| [commit cpprefjp/site, 1e90385] | cpprefjp/fixs:1 | 空白が消えないようにバッククォートを `<code>` に変更 |
-| [commit cpprefjp/site, e79ed6a] | cpprefjp/fixs:1 | インラインコードの先頭・末尾の空白を修正 |
-| [commit cpprefjp/site, b981b77] | cpprefjp/fixs:1 | cpp20/coroutines: コード中の斜体の変数を `<code>` で修飾 |
-| [commit cpprefjp/site, cd924cf] | cpprefjp/fixs:1 | 3点リーダの前にスペースを挿入 |
-| [commit cpprefjp/site, 2e2e084] | cpprefjp/fixs:1 | コード例の include の不足を修正 |
-| [commit cpprefjp/site, a9216ac] | cpprefjp/fixs:1 | 対応しない波カッコを修正 |
-| [commit cpprefjp/site, 0f3c342] | cpprefjp/fixs:1 | 対応しない角カッコを修正 |
-| [commit cpprefjp/site, 59a1086] | cpprefjp/fixs:1 | typename のつけ忘れを修正 |
-| [commit cpprefjp/site, 649d139] | cpprefjp/fixs:1 | リンクを修正 |
-| [commit cpprefjp/site, 246b785] | cpprefjp/fixs:1 | _num の抜けを修正 |
-| [commit cpprefjp/site, e970be3] | cpprefjp/fixs:1 | filter_view::iterator のコードと説明を修正 |
-| [commit cpprefjp/site, 7ad59de] | cpprefjp/fixs:1 | コード例を修正 |
-| [commit cpprefjp/site, 00f29aa] | cpprefjp/fixs:1 | コード修飾を修正 |
-| [commit cpprefjp/site, d5a10b5] | cpprefjp/fixs:1 | コード例を修正 |
-| [commit cpprefjp/site, 9b8ca47] | cpprefjp/fixs:1 | unordered_map::emplace_hint() のコードを修正 |
-| [commit cpprefjp/site, 7d0aa67] | cpprefjp/fixs:1 | いくつかのコード例を修正 |
-| [commit cpprefjp/site, ee5ed85] | cpprefjp/fixs:1 | to_input_view のコンストラクタのコードを修正 |
-| [commit cpprefjp/site, 71fc974] | cpprefjp/fixs:1 | 余分な _view を削除 |
-| [commit cpprefjp/site, 9a9e760] | cpprefjp/fixs:1 | to_input_view::base() のコードを修正 |
-| [commit cpprefjp/site, e19a059] | cpprefjp/fixs:1 | split_view::base() のコードを修正 |
-| [commit cpprefjp/site, 2f524bf] | cpprefjp/fixs:1 | common_view のコードを修正 |
-| [commit cpprefjp/site, b342e52] | cpprefjp/fixs:1 | zoned_time のコード例を修正 |
-| [commit cpprefjp/site, 0157304] | cpprefjp/fixs:1 | chrono::from_stream() のコード例の引数の順序を修正 |
-| [commit cpprefjp/site, 2b5b392] | cpprefjp/fixs:1 | コード例の include の不足を修正 |
-| [commit cpprefjp/site, 699900b] | cpprefjp/compiler:1 | 出力例、処理系の記載を追加 |
-| [commit cpprefjp/site, 55d0828] | cpprefjp/fixs:1 | コード例のフォーマット文字列を修正 |
-| [commit cpprefjp/site, 50237d0] | cpprefjp/fixs:1 | chrono のいくつかのコード例のコンパイルエラーを修正 |
-| [commit cpprefjp/site, ea3453a] | cpprefjp/fixs:1 | leap_second の比較演算子のコード例を修正 |
-| [commit cpprefjp/site, 292600c] | cpprefjp/fixs:1 | utc_clock::to_sys() のコード例を修正 |
-| [commit cpprefjp/site, 994a105] | cpprefjp/fixm:1 | range_formatter のコード例を追加 |
-| [commit cpprefjp/site, 5c792ff] | cpprefjp/compiler:2 | range_formatter のコード例の修正と動作確認 |
-| [commit cpprefjp/site, da5a5dc] | cpprefjp/fixs:1 | いくつかのコード例のコンパイルエラーを修正 |
+| [commit cpprefjp/site, 1e90385] | cpprefjp/fixm:1 | 空白が消えないようにバッククォートを `<code>` に変更 |
+| [commit cpprefjp/site, e79ed6a] | cpprefjp/fixs:85 | インラインコードの先頭・末尾の空白を修正 |
+| [commit cpprefjp/site, b981b77] | cpprefjp/fixm:1 | cpp20/coroutines: コード中の斜体の変数を `<code>` で修飾 |
+| [commit cpprefjp/site, cd924cf] | cpprefjp/fixs:9 | 3点リーダの前にスペースを挿入 |
+| [commit cpprefjp/site, 2e2e084] | cpprefjp/fixm:2 | コード例の include の不足を修正 |
+| [commit cpprefjp/site, a9216ac] | cpprefjp/fixm:1 | 対応しない波カッコを修正 |
+| [commit cpprefjp/site, 0f3c342] | cpprefjp/fixm:2 | 対応しない角カッコを修正 |
+| [commit cpprefjp/site, 59a1086] | cpprefjp/fixm:1 | `typename` のつけ忘れを修正 |
+| [commit cpprefjp/site, 649d139] | cpprefjp/link:1 | リンクを修正 |
+| [commit cpprefjp/site, 246b785] | cpprefjp/fixm:1 | `_num` の抜けを修正 |
+| [commit cpprefjp/site, e970be3] | cpprefjp/fixm:4 | `filter_view::iterator` のコードと説明を修正 |
+| [commit cpprefjp/site, 7ad59de] | cpprefjp/fixm:6 | コード例を修正 |
+| [commit cpprefjp/site, 00f29aa] | cpprefjp/link:1, cpprefjp/fixm:1 | コード修飾を修正 |
+| [commit cpprefjp/site, d5a10b5] | cpprefjp/fixm:1 | コード例を修正 |
+| [commit cpprefjp/site, 9b8ca47] | cpprefjp/fixm:1 | `unordered_map::emplace_hint()` のコードを修正 |
+| [commit cpprefjp/site, 7d0aa67] | cpprefjp/fixm:6 | いくつかのコード例を修正 |
+| [commit cpprefjp/site, ee5ed85] | cpprefjp/fixm:1 | `to_input_view` のコンストラクタのコードを修正 |
+| [commit cpprefjp/site, 71fc974] | cpprefjp/fixm:1 | 余分な `_view` を削除 |
+| [commit cpprefjp/site, 9a9e760] | cpprefjp/fixm:1 | `to_input_view::base()` のコードを修正 |
+| [commit cpprefjp/site, e19a059] | cpprefjp/fixm:1 | `split_view::base()` のコードを修正 |
+| [commit cpprefjp/site, 2f524bf] | cpprefjp/fixm:2 | `common_view` のコードを修正 |
+| [commit cpprefjp/site, b342e52] | cpprefjp/fixm:7 | `zoned_time` のコード例を修正 |
+| [commit cpprefjp/site, 0157304] | cpprefjp/fixm:7 | `chrono::from_stream()` のコード例の引数の順序を修正 |
+| [commit cpprefjp/site, 2b5b392] | cpprefjp/fixm:16 | コード例の include の不足を修正 |
+| [commit cpprefjp/site, 699900b] | cpprefjp/fixm:3 | 出力例、処理系の記載を追加 |
+| [commit cpprefjp/site, 55d0828] | cpprefjp/fixm:7 | コード例のフォーマット文字列を修正 |
+| [commit cpprefjp/site, 50237d0] | cpprefjp/fixm:13 | chrono のいくつかのコード例のコンパイルエラーを修正 |
+| [commit cpprefjp/site, ea3453a] | cpprefjp/fixm:5 | `leap_second` の比較演算子のコード例を修正 |
+| [commit cpprefjp/site, 292600c] | cpprefjp/fixm:1 | `utc_clock::to_sys()` のコード例を修正 |
+| [commit cpprefjp/site, 994a105] | cpprefjp/fixm:1 | `range_formatter` のコード例を追加 |
+| [commit cpprefjp/site, 5c792ff] | cpprefjp/fixm:1 | `range_formatter` のコード例の修正と動作確認 |
+| [commit cpprefjp/site, da5a5dc] | cpprefjp/fixm:19 | いくつかのコード例のコンパイルエラーを修正 |
 | [commit cpprefjp/site, 9e1ab85] | cpprefjp/typo:1 | Typo修正 |
-| [commit cpprefjp/site, 7e196a7] | cpprefjp/fixs:1 | 名前空間を修正 |
-| [commit cpprefjp/site, a6d4fdb] | cpprefjp/fixs:1 | いくつかのコード例のコンパイルエラーを修正 |
-| [commit cpprefjp/site, 40fb865] | cpprefjp/fixs:1 | `basic_ios::operator void*()` に cpp11removed を追加 |
-| [commit cpprefjp/site, a14373f] | cpprefjp/fixm:1 | cpp11removed の説明を追加 |
-| [commit cpprefjp/markdown_to_html, 962b439] | cpprefjp/fixs:1 | C++バージョンのバッジに「C++11で削除」を追加 |
-| [commit cpprefjp/markdown_to_html, 5603611] | cpprefjp/typo:1 | C++バージョンのバッジのtypoを修正 |
-| [commit cpprefjp/site, 71fab6a] | cpprefjp/fixs:1 | 可変長データを扱うクラスの効率的なdelete : コード例を修正 |
-| [commit cpprefjp/site, 4e673b3] | cpprefjp/typo:1 | execution::spawn_future : Typo、リンクを修正 |
-| [commit cpprefjp/site, 8960e70] | cpprefjp/fixs:1 | 出力に合わせてコード例に std::boolalpha を追加 |
-| [commit cpprefjp/site, c9ea776] | cpprefjp/fixs:1 | いくつかのコード例の出力を修正 |
-| [commit cpprefjp/site, 0d693ca] | cpprefjp/fixs:1 | コード例から不要な改行の出力を削除 |
-| [commit cpprefjp/site, 7727976] | cpprefjp/compiler:1 | unordered_(multi)(set | map) : 処理系依存な「出力」を「出力例」に変更 |
-| [commit cpprefjp/site, 4164601] | cpprefjp/fixs:1 | コード例を修正 |
-| [commit cpprefjp/site, e6ade2f] | cpprefjp/fixs:1 | 出力に合うようにコード例を修正 |
-| [commit cpprefjp/site, a312388] | cpprefjp/fixs:1 | コード例や出力の不要な空行を削除 |
-| [commit cpprefjp/site, 1cf611e] | cpprefjp/compiler:2 | chrono::year_month_day : コード例を修正、動作確認 |
-| [commit cpprefjp/site, bcf9dc7] | cpprefjp/compiler:2 | chrono::duration_values::min : 出力例を修正、動作確認 |
-| [commit cpprefjp/site, 4b23125] | cpprefjp/compiler:2 | chrono のいくつかの出力例を修正、動作確認 |
-| [commit cpprefjp/site, e38c847] | cpprefjp/fixs:1 | chrono のいくつかの出力例を修正 |
-| [commit cpprefjp/site, 0161d80] | cpprefjp/compiler:2 | chrono のいくつかの出力を修正、動作確認 |
-| [commit cpprefjp/site, a7f9e6c] | cpprefjp/compiler:2 | chrono::parse, (sys | tai | utc | file)_time : コード例と出力の修正、動作確認 |
-| [commit cpprefjp/site, 5ab35d5] | cpprefjp/fixs:1 | chrono::from_stream : 効果の説明とコード例の修正 |
-| [commit cpprefjp/site, ca5f1bd] | cpprefjp/compiler:2 | chrono::year : コード例を修正と動作確認 |
-| [commit cpprefjp/site, d707563] | cpprefjp/fixs:1 | いくつかのコード例の出力を修正 |
-| [commit cpprefjp/site, c012fa3] | cpprefjp/fixs:1 | いくつかのコード例を修正 |
-| [commit cpprefjp/site, 00f1187] | cpprefjp/fixs:1 | stringbuf : オーバーロードの番号を修正 |
-| [commit cpprefjp/site, 45eb8c1] | cpprefjp/fixs:1 | stringbuf, spanbuf : コード例や出力を修正 |
-| [commit cpprefjp/site, 8d6bfc9] | cpprefjp/fixs:1 | error_category : 出力を修正 |
-| [commit cpprefjp/site, 3c0b15e] | cpprefjp/fixs:1 | 表の表示崩れを修正 |
-| [commit cpprefjp/site, 04cdd84] | cpprefjp/fixs:1 | コード例の出力を修正 |
-| [commit cpprefjp/site, f55a642] | cpprefjp/fixs:1 | コード例を修正 |
+| [commit cpprefjp/site, 7e196a7] | cpprefjp/fixm:4 | 名前空間を修正 |
+| [commit cpprefjp/site, a6d4fdb] | cpprefjp/fixm:12 | いくつかのコード例のコンパイルエラーを修正 |
+| [commit cpprefjp/site, 40fb865] | cpprefjp/fixl:1 | `basic_ios::operator void*()` に cpp11removed を追加 |
+| [commit cpprefjp/site, a14373f] | cpprefjp/fixl:8 | cpp11removed の説明を追加 |
+| [commit cpprefjp/markdown_to_html, 962b439] | tool/improvem:1 | C++バージョンのバッジに「C++11で削除」を追加 |
+| [commit cpprefjp/markdown_to_html, 5603611] | tool/fixbug:1 | C++バージョンのバッジのtypoを修正 |
+| [commit cpprefjp/site, 71fab6a] | cpprefjp/fixm:1 | 可変長データを扱うクラスの効率的なdelete : コード例を修正 |
+| [commit cpprefjp/site, 4e673b3] | cpprefjp/link:1 | `execution::spawn_future` : Typo、リンクを修正 |
+| [commit cpprefjp/site, 8960e70] | cpprefjp/fixm:1 | 出力に合わせてコード例に `std::boolalpha` を追加 |
+| [commit cpprefjp/site, c9ea776] | cpprefjp/fixm:5 | いくつかのコード例の出力を修正 |
+| [commit cpprefjp/site, 0d693ca] | cpprefjp/fixm:2 | コード例から不要な改行の出力を削除 |
+| [commit cpprefjp/site, 7727976] | cpprefjp/fixm:75 | `unordered_(multi)(set | map)` : 処理系依存な「出力」を「出力例」に変更 |
+| [commit cpprefjp/site, 4164601] | cpprefjp/fixm:2 | コード例を修正 |
+| [commit cpprefjp/site, e6ade2f] | cpprefjp/fixm:1 | 出力に合うようにコード例を修正 |
+| [commit cpprefjp/site, a312388] | cpprefjp/fixm:8 | コード例や出力の不要な空行を削除 |
+| [commit cpprefjp/site, 1cf611e] | cpprefjp/fixm:1 | `chrono::year_month_day` : コード例を修正、動作確認 |
+| [commit cpprefjp/site, bcf9dc7] | cpprefjp/fixm:1 | `chrono::duration_values::min` : 出力例を修正、動作確認 |
+| [commit cpprefjp/site, 4b23125] | cpprefjp/fixm:5 | chrono のいくつかの出力例を修正、動作確認 |
+| [commit cpprefjp/site, e38c847] | cpprefjp/fixm:2 | chrono のいくつかの出力例を修正 |
+| [commit cpprefjp/site, 0161d80] | cpprefjp/fixm:20 | chrono のいくつかの出力を修正、動作確認 |
+| [commit cpprefjp/site, a7f9e6c] | cpprefjp/fixm:5 | `chrono::parse`, `(sys | tai | utc | file)_time` : コード例と出力の修正、動作確認 |
+| [commit cpprefjp/site, 5ab35d5] | cpprefjp/fixm:1 | `chrono::from_stream` : 効果の説明とコード例の修正 |
+| [commit cpprefjp/site, ca5f1bd] | cpprefjp/fixm:2 | `chrono::year` : コード例を修正と動作確認 |
+| [commit cpprefjp/site, d707563] | cpprefjp/fixm:11 | いくつかのコード例の出力を修正 |
+| [commit cpprefjp/site, c012fa3] | cpprefjp/fixm:3 | いくつかのコード例を修正 |
+| [commit cpprefjp/site, 00f1187] | cpprefjp/fixm:1 | `stringbuf` : オーバーロードの番号を修正 |
+| [commit cpprefjp/site, 45eb8c1] | cpprefjp/fixm:6 | `stringbuf`, `spanbuf` : コード例や出力を修正 |
+| [commit cpprefjp/site, 8d6bfc9] | cpprefjp/fixm:1 | `error_category` : 出力を修正 |
+| [commit cpprefjp/site, 3c0b15e] | cpprefjp/fixm:1 | 表の表示崩れを修正 |
+| [commit cpprefjp/site, 04cdd84] | cpprefjp/fixm:3 | コード例の出力を修正 |
+| [commit cpprefjp/site, f55a642] | cpprefjp/fixm:1 | コード例を修正 |
 
 
 ## [akinomyoga](https://github.com/akinomyoga)
