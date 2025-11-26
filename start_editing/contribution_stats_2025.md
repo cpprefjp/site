@@ -1072,77 +1072,76 @@
 
 | コミット | タグ | 説明 |
 |----------|------|------|
-| [commit cpprefjp/site, a983f3d] | cpprefjp/fixs:1 | 表記の統一 |
 | [commit cpprefjp/site, bb2acdf] | cpprefjp/fixm:1 | fix type |
-| [commit cpprefjp/site, 45569a7] | cpprefjp/fixs:1 | リンク: 定義の説明に用いられているコードにリンクを追加 |
+| [commit cpprefjp/site, a983f3d] | cpprefjp/fixm:1 | 表記の統一 |
+| [commit cpprefjp/site, 45569a7] | cpprefjp/link:1 | リンク: 定義の説明に用いられているコードにリンクを追加 |
 
 
 ## [ACUVE](https://github.com/ACUVE)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
-| [commit cpprefjp/site, 9576959] | cpprefjp/typo:1 | P2865R6: コメントの解説の誤植を修正 |
-| [commit cpprefjp/site, 1db2ef4] | cpprefjp/typo:1 | P1120R0: コメントの解説の誤植を修正 |
+| [commit cpprefjp/site, 9576959] | cpprefjp/fixm:1 | P2865R6: コメントの解説の誤植を修正 |
+| [commit cpprefjp/site, 1db2ef4] | cpprefjp/fixm:1 | P1120R0: コメントの解説の誤植を修正 |
 
 
 ## [hrjp](https://github.com/hrjp)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
-| [commit cpprefjp/site, a9711d6] | cpprefjp/typo:1 | 同様の誤字を修正 |
-| [commit cpprefjp/site, b2562a3] | cpprefjp/typo:1 | fix: `basic_ifstream::close`の誤字修正 |
-| [commit cpprefjp/site, f8a8a06] | cpprefjp/typo:1 | いくつかの誤字を修正 |
+| [commit cpprefjp/site, b2562a3, a9711d6] | cpprefjp/typo:3 | fix: `basic_ifstream::close`の誤字修正 |
+| [commit cpprefjp/site, f8a8a06] | cpprefjp/typo:2, cpprefjp/fixm:5 | いくつかの誤字を修正 |
 
 
 ## [yumetodo](https://github.com/yumetodo)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
-| [commit cpprefjp/kunai, 4569f72] | cpprefjp/fixm:1 | fix(ci): submodule初期化をactions/checkoutに行わせる |
-| [commit cpprefjp/site, 63eebbd] | cpprefjp/fixm:1 | fix: 参考にした記事はもとのタイトルをそのまま記述するべき (#1475) |
+| [commit cpprefjp/kunai, 4569f72] | tool/improvem:1 | fix(ci): submodule初期化をactions/checkoutに行わせる |
+| [commit cpprefjp/site, 63eebbd] | cpprefjp/link:1 | fix: 参考にした記事はもとのタイトルをそのまま記述するべき (#1475) |
 
 
 ## [0xbadfca11](https://github.com/0xbadfca11)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
-| [commit cpprefjp/site, 7e182d7] | cpprefjp/fixs:1 | P2564R3のMSVC対応を削除 |
-| [commit cpprefjp/site, b394b14] | cpprefjp/fixs:1 | P2223R2の解説を修正 (#1405) |
+| [commit cpprefjp/site, 7e182d7] | cpprefjp/compiler:1 | P2564R3のMSVC対応を削除 |
+| [commit cpprefjp/site, b394b14] | cpprefjp/fixm:1 | P2223R2の解説を修正 (#1405) |
 
 
 ## [TumoiYorozu](https://github.com/TumoiYorozu)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
-| [commit cpprefjp/site, d3227a7] | cpprefjp/fixs:1 | Add `assume` attributes to attributes.md |
+| [commit cpprefjp/site, d3227a7] | cpprefjp/link:1 | Add `assume` attributes to attributes.md |
 
 
 ## [kenichiice](https://github.com/kenichiice)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
-| [commit cpprefjp/site, 15541d7] | cpprefjp/fixs:1 | `type_info`へのリンクがあってほしいと思ったので追加 |
+| [commit cpprefjp/site, 15541d7] | cpprefjp/link:1 | `type_info`へのリンクがあってほしいと思ったので追加 |
 
 
 ## [k_satoda](https://github.com/k_satoda)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
-| [commit cpprefjp/site, a122f15] | cpprefjp/fixs:1 | `start_lifetime_as`: 戻り値について不正な「ポインタの値は `p`」を削除 |
+| [commit cpprefjp/site, a122f15] | cpprefjp/fixm:1 | `start_lifetime_as`: 戻り値について不正な「ポインタの値は `p`」を削除 |
 
 
 ## [50c0019uy](https://github.com/50c0019uy)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
-| [commit cpprefjp/site, 8acf79c] | cpprefjp/fixs:1 | ページタイトルを修正 |
+| [commit cpprefjp/site, 8acf79c] | cpprefjp/fixm:1 | ページタイトルを修正 |
 
 
 ## [tshino](https://github.com/tshino)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
-| [commit cpprefjp/site, 9bd9653] | cpprefjp/fixs:1 | 「定数とき」→「定数のとき」 |
+| [commit cpprefjp/site, 9bd9653] | cpprefjp/typo:1 | 「定数とき」→「定数のとき」 |
 
 
 ## [tetsurom](https://github.com/tetsurom)
@@ -1156,14 +1155,14 @@
 
 | コミット | タグ | 説明 |
 |----------|------|------|
-| [commit cpprefjp/site, c14bf1e] | cpprefjp/fixs:1 | std::format のポインタに対する書式 "P" の説明を修正 |
+| [commit cpprefjp/site, c14bf1e] | cpprefjp/fixm:1 | std::format のポインタに対する書式 "P" の説明を修正 |
 
 
 ## [komori-n](https://github.com/komori-n)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
-| [commit cpprefjp/site, c312d2f] | cpprefjp/fixs:1 | `try_lock`のコード例のコンパイルが通らない問題を修正 |
+| [commit cpprefjp/site, c312d2f] | cpprefjp/fixm:1 | `try_lock`のコード例のコンパイルが通らない問題を修正 |
 
 
 ## [Mugen2411](https://github.com/Mugen2411)
@@ -1184,11 +1183,11 @@
 
 | コミット | タグ | 説明 |
 |----------|------|------|
-| [commit cpprefjp/kunai, 9b421fa] | cpprefjp/fixs:1 | サイドバーの三角の角度を修正 |
+| [commit cpprefjp/kunai, 9b421fa] | tool/improvem:1 | サイドバーの三角の角度を修正 |
 
 
 ## [RyuYamamoto](https://github.com/RyuYamamoto)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
-| [commit boostjp/site, d27874c] | cpprefjp/typo:1 | fix typo |
+| [commit boostjp/site, d27874c] | boostjp/typo:1 | fix typo |
