@@ -802,95 +802,92 @@
 
 | コミット | タグ | 説明 |
 |----------|------|------|
-| [commit cpprefjp/crsearch, d5d194f] | cpprefjp/fixs:1 | bump 3.0.24 |
-| [commit cpprefjp/site, 600e913] | cpprefjp/fixs:1 | GLOBAL_DEFINED_WORDS: より一般的な語として「戻り値」「例外」も追加 |
-| [commit cpprefjp/site, be5f53f] | cpprefjp/fixs:1 | GLOBAL_DEFINED_WORDS: 関数などの意味論要素を適格要件の他にも追加 |
+| [commit cpprefjp/crsearch, d5d194f] | tool/updatelib:1 | bump 3.0.24 |
+| [commit cpprefjp/site, 600e913] | cpprefjp/fixm:2 | GLOBAL_DEFINED_WORDS: より一般的な語として「戻り値」「例外」も追加 |
+| [commit cpprefjp/site, be5f53f] | cpprefjp/fixm:10 | GLOBAL_DEFINED_WORDS: 関数などの意味論要素を適格要件の他にも追加 |
 | [commit cpprefjp/site, 50ed131] | cpprefjp/fixm:1 | cpp23/relaxing_some_constexpr_restrictions: 訳語表に基き "返り値" → "戻り値" に統一 |
-| [commit cpprefjp/site, 501d680] | cpprefjp/fixs:1 | function_template_page: 衍字除去 |
-| [commit cpprefjp/site, eaa3875] | cpprefjp/typo:1 | function_template_page: fix typo |
-| [commit cpprefjp/site, 91551a0] | cpprefjp/fixm:1 | function_template_page: 日本語修正 |
-| [commit cpprefjp/site, 116fbe8] | cpprefjp/fixs:1 | thread/this_thread: 「と同期しない」を定義語に一致するように書換 |
-| [commit cpprefjp/site, d960d16] | cpprefjp/fixm:1 | GLOBAL_DEFINED_WORDS: よりも前に発生する (happens before) / と同期する (synchronizes with) を追加 |
-| [commit cpprefjp/site, 8e59cd6] | cpprefjp/fixs:1 | GLOBAL_DEFINED_WORDS: 「同期操作」を追加・見出し「同期」を「同期操作」に変更 |
-| [commit cpprefjp/site, 176b16e] | cpprefjp/fixs:1 | working_style: 同期・評価順序に関連する訳語を追加 |
-| [commit cpprefjp/site, b609e21] | cpprefjp/fixs:1 | GLOBAL_DEFINED_WORDS: 表現を変更 "{と => に対して}同期する" |
-| [commit cpprefjp/site, 1956c49] | cpprefjp/fixm:1 | markdown_to_html.html_attribute 変更に伴う修正 |
-| [commit cpprefjp/site_generator, 8a9ca72] | cpprefjp/fixm:1 | markdown_to_html 更新 (html_attribute 修正) |
-| [commit cpprefjp/site, ebf8c8f] | cpprefjp/fixs:1 | 誤ったコードブロック後のコード修飾を修正 |
-| [commit cpprefjp/markdown_to_html, 941d376] | cpprefjp/fixs:1 | コード修飾の箇条書きは * であることを要請 |
-| [commit cpprefjp/markdown_to_html, 4332fb9] | cpprefjp/fixs:1 | コードブロック後の修飾の抽出を厳密化 |
-| [commit cpprefjp/site, 587d612] | cpprefjp/fixs:1 | 誤ったコードブロック後のコード修飾を修正 (v2) |
-| [commit cpprefjp/site, 2d8efa3] | cpprefjp/fixs:1 | GLOBAL_DEFINED_WORDS: 「ヌル終端」の解説の文字列リテラルを修正 |
-| [commit cpprefjp/site, 911478d] | cpprefjp/fixs:1 | GLOBAL_DEFINED_WORDS: ヌル終端を追加 |
-| [commit cpprefjp/site, 82dd7b3] | cpprefjp/fixm:1 | chore(workflows/build): image の actions/checkout のバージョンを更新 |
-| [commit cpprefjp/site, da059d7] | cpprefjp/fixm:1 | chore(workflows/build): 区別できるように各 checkout step に名前をつける |
-| [commit cpprefjp/site, 6fcc5a2] | cpprefjp/fixm:1 | chore(workflows/{build,outer_link_check}): Fork リポジトリでは定期実行しない |
-| [commit cpprefjp/site, cb5159b] | cpprefjp/fixs:1 | chore(workflows/preview_link): PR にプレビューリンクをコメントする |
-| [commit cpprefjp/site, dca7653] | cpprefjp/fixm:1 | chore(workflows/preview_build): PR の更新毎に gh-pages /gen/pull/`<番号>`/ にプレビューをアップロード |
-| [commit cpprefjp/site, 5b1731b] | cpprefjp/fixs:1 | chore(workflows/check): 各種 CI check の統合 |
-| [commit cpprefjp/site, 81806fc] | cpprefjp/fixm:1 | README,start_editing: 更新 |
-| [commit cpprefjp/site_generator, 7c8abda] | cpprefjp/fixs:1 | cpprefjp/robots.txt: Disallow /site/gen/ |
-| [commit cpprefjp/site, 181e033] | cpprefjp/fixm:1 | chore(workflows/preview_link): URLミス修正の修正忘れ |
-| [commit cpprefjp/site, 401c70d] | cpprefjp/fixm:1 | chore(workflows/preview_build): GitHub Pages デプロイを有効化 |
-| [commit cpprefjp/site, 7aba20a] | cpprefjp/fixm:1 | chore(workflows/preview_link): URLミス修正 |
-| [commit cpprefjp/site, baeb128] | cpprefjp/fixm:1 | chore(workflows/preview_link): ケアレスミス修正 |
-| [commit cpprefjp/site, 437ae62] | cpprefjp/fixm:1 | chore(workflows/preview_link): 差分を取るために両リポジトリを fetch |
-| [commit cpprefjp/site, 534d2e5] | cpprefjp/fixm:1 | chore(workflows/preview_clear): 古いプレビューを削除するワークフローを追加 |
-| [commit cpprefjp/site, a64d2ec] | cpprefjp/fixm:1 | chore(preview_build): "Author: github-actions[bot]" で gh-pages にコミット |
-| [commit cpprefjp/site, f8a10e3] | cpprefjp/fixm:1 | chore(preview_clear): 全てのプレビューがなくなる時 gh-pages ブランチを削除 |
-| [commit cpprefjp/crsearch, 77d6455] | cpprefjp/fixs:1 | kunai-config: handle Marked v1.0.0 tokens |
-| [commit cpprefjp/site, dc4de9c] | cpprefjp/fixs:1 | chore(preview_clear): filter-branch 終了ステータスの対処 |
-| [commit cpprefjp/site, 70e3b76] | cpprefjp/fixs:1 | chore(preview_clear): gh-pages にダミーのコミットを残す |
-| [commit cpprefjp/site, 04d3ab4] | cpprefjp/fixs:1 | コード修飾の修正 (fixup edf7962b6) |
-| [commit cpprefjp/site, 932634a] | cpprefjp/fixs:1 | cmath (tgamma): lgamma を使うべき場合について記述 |
-| [commit cpprefjp/site, 7f763a4] | cpprefjp/fixs:1 | cmath (tgamma): 階乗とガンマ関数の関係を式で明記 |
-| [commit cpprefjp/site, 52a3f10] | cpprefjp/fixs:1 | cmath (std::{tgamma,lgamma}): 相互リンク |
-| [commit cpprefjp/site, 9917280] | cpprefjp/fixs:1 | cmath (std::tgamma): ガンマ関数の定義式を追記 |
-| [commit cpprefjp/site, 8f99cf0] | cpprefjp/fixs:1 | cmath (std::legendre): ルジャンドル多項式の範囲外エラーについて記述 |
-| [commit cpprefjp/site, f4e42f3] | cpprefjp/fixs:1 | cmath (std::assoc_legendre): 負の m について計算する方法の記述 |
-| [commit cpprefjp/site, 7d498ef] | cpprefjp/fixm:1 | cmath (std::sph_legendre): C++20 円周率 std::numbers::pi を使用するように例を更新 |
-| [commit cpprefjp/site, 5800b64] | cpprefjp/fixs:1 | cmath (std::sph_legendre): 球面調和関数と使い方について記述 |
-| [commit cpprefjp/site, 785abde] | cpprefjp/fixs:1 | implementation: 製品バージョンの表記に対する註を追加 |
-| [commit cpprefjp/site, dbd9016] | cpprefjp/fixs:1 | cmath: 類似の丸め関数との相互リンク |
-| [commit cpprefjp/site, 2462479] | cpprefjp/fixs:1 | cmath: std::comp_ellint_1: 振り子周期のθの説明抜けを修正 |
-| [commit cpprefjp/site, 0c815fe] | cpprefjp/fixm:1 | chore(workflows/preview_link): CIログを汚さないように表示件数を早めに制限 (上限は100に戻す) |
-| [commit cpprefjp/site, 0500222] | cpprefjp/fixm:1 | chore(workflows/preview_link): 表示件数上限を100から50に削減、他体裁調整 |
-| [commit cpprefjp/site, d32a312] | cpprefjp/fixm:1 | chore(workflows/preview_link): github.event.pull_request.base が空の時の対策 |
-| [commit cpprefjp/site, 8f1f224] | cpprefjp/fixm:1 | chore(workflows/preview_link): 変更一覧の件数を制限し、変更一覧ページを別に生成 |
-| [commit cpprefjp/site, b3bdbe3] | cpprefjp/fixs:1 | style: "返り値" → "戻り値" |
-| [commit cpprefjp/site, a106306] | cpprefjp/fixm:1 | fix(reference/cstdlib/atoi): C99 がリンクされていたが 4.10.1.2 は C90 の節番号 |
-| [commit cpprefjp/site, 5e17cc5] | cpprefjp/fixm:1 | fix(reference/cstdlib/{calloc,atoi}): リンク削除 |
-| [commit cpprefjp/site, 403a76f] | cpprefjp/fixm:1 | fix(reference/cstdlib/{calloc,atoi,malloc}): 参照文献名の明示 |
-| [commit cpprefjp/site, fdf8064] | cpprefjp/fixm:1 | fix(reference/cstdlib/system): 訳の修正 |
-| [commit cpprefjp/site, 68aec4c] | cpprefjp/link:1 | fix(reference/cstdlib/calloc): リンク修正 |
-| [commit cpprefjp/site, 5ccd04f] | cpprefjp/fixm:1 | fix(reference/cstdlib/malloc): タイポ修正 |
-| [commit cpprefjp/site, f66abcb] | cpprefjp/fixs:1 | fix(reference/atomic/atomic_ref/address): 壊れたコード修飾の修正 |
-| [commit cpprefjp/site, ff932ef] | cpprefjp/fixm:1 | fix(reference/cstdio): 壊れたリンクの修正 |
-| [commit cpprefjp/site, 612c75f] | cpprefjp/fixs:1 | style(reference/{cstdio,cstdlib}): コーディングスタイルの統一 |
-| [commit cpprefjp/site, 993c9f8] | cpprefjp/fixs:1 | style(*): ファイル末尾に改行を追加 |
+| [commit cpprefjp/site, 91551a0, eaa3875, 501d680] | cpprefjp/fixm:1 | function_template_page: 日本語修正 |
+| [commit cpprefjp/site, 116fbe8] | cpprefjp/fixm:3 | thread/this_thread: 「と同期しない」を定義語に一致するように書換 |
+| [commit cpprefjp/site, d960d16] | cpprefjp/fixm:10 | GLOBAL_DEFINED_WORDS: よりも前に発生する (happens before) / と同期する (synchronizes with) を追加 |
+| [commit cpprefjp/site, 8e59cd6] | cpprefjp/fixm:13 | GLOBAL_DEFINED_WORDS: 「同期操作」を追加・見出し「同期」を「同期操作」に変更 |
+| [commit cpprefjp/site, 176b16e] | cpprefjp/fixm:5 | working_style: 同期・評価順序に関連する訳語を追加 |
+| [commit cpprefjp/site, b609e21] | cpprefjp/fixm:9 | GLOBAL_DEFINED_WORDS: 表現を変更 "{と => に対して}同期する" |
+| [commit cpprefjp/site, 1956c49] | cpprefjp/fixm:21 | markdown_to_html.html_attribute 変更に伴う修正 |
+| [commit cpprefjp/site_generator, 8a9ca72] | tool/improves:1, tool/improvem:1 | markdown_to_html 更新 (html_attribute 修正) |
+| [commit cpprefjp/site, ebf8c8f] | cpprefjp/link:7 | 誤ったコードブロック後のコード修飾を修正 |
+| [commit cpprefjp/markdown_to_html, 941d376] | tool/improvem:1 | コード修飾の箇条書きは * であることを要請 |
+| [commit cpprefjp/markdown_to_html, 4332fb9] | tool/improvel:1 | コードブロック後の修飾の抽出を厳密化 |
+| [commit cpprefjp/site, 587d612] | cpprefjp/fixm:6 | 誤ったコードブロック後のコード修飾を修正 (v2) |
+| [commit cpprefjp/site, 911478d, 2d8efa3] | cpprefjp/fixm:1 | GLOBAL_DEFINED_WORDS: ヌル終端を追加 |
+| [commit cpprefjp/site, 5b1731b] | tool/improvel:8 | chore(workflows/check): 各種 CI check の統合 |
+| [commit cpprefjp/site, dca7653] | tool/improvel:2 | chore(workflows/preview_build): PR の更新毎に gh-pages /gen/pull/`<番号>`/ にプレビューをアップロード |
+| [commit cpprefjp/site, cb5159b] | tool/improvel:1 | chore(workflows/preview_link): PR にプレビューリンクをコメントする |
+| [commit cpprefjp/site, 6fcc5a2] | tool/improvem:2 | chore(workflows/{build,outer_link_check}): Fork リポジトリでは定期実行しない |
+| [commit cpprefjp/site, da059d7] | tool/improvem:1 | chore(workflows/build): 区別できるように各 checkout step に名前をつける |
+| [commit cpprefjp/site, 82dd7b3] | tool/improvem:1 | chore(workflows/build): image の actions/checkout のバージョンを更新 |
+| [commit cpprefjp/site, 534d2e5] | tool/improvem:1, tool/improvel:1 | chore(workflows/preview_clear): 古いプレビューを削除するワークフローを追加 |
+| [commit cpprefjp/site, 81806fc] | tool/improvel:2 | README,start_editing: 更新 |
+| [commit cpprefjp/site_generator, 7c8abda] | tool/improvem:1 | cpprefjp/robots.txt: Disallow /site/gen/ |
+| [commit cpprefjp/site, 181e033] | ignore | chore(workflows/preview_link): URLミス修正の修正忘れ |
+| [commit cpprefjp/site, 401c70d] | tool/improvem:1 | chore(workflows/preview_build): GitHub Pages デプロイを有効化 |
+| [commit cpprefjp/site, 7aba20a] | ignore | chore(workflows/preview_link): URLミス修正 |
+| [commit cpprefjp/site, baeb128] | ignore | chore(workflows/preview_link): ケアレスミス修正 |
+| [commit cpprefjp/site, 437ae62] | ignore | chore(workflows/preview_link): 差分を取るために両リポジトリを fetch |
+| [commit cpprefjp/site, a64d2ec] | tool/improvem:1 | chore(preview_build): "Author: github-actions[bot]" で gh-pages にコミット |
+| [commit cpprefjp/site, f8a10e3] | tool/improvem:1 | chore(preview_clear): 全てのプレビューがなくなる時 gh-pages ブランチを削除 |
+| [commit cpprefjp/crsearch, 77d6455] | tool/fixbug:1 | kunai-config: handle Marked v1.0.0 tokens |
+| [commit cpprefjp/site, dc4de9c] | ignore | chore(preview_clear): filter-branch 終了ステータスの対処 |
+| [commit cpprefjp/site, 70e3b76] | ignore | chore(preview_clear): gh-pages にダミーのコミットを残す |
+| [commit cpprefjp/site, 04d3ab4] | cpprefjp/link:1 | コード修飾の修正 (fixup edf7962b6) |
+| [commit cpprefjp/site, 5800b64] | cpprefjp/fixm:1 | cmath (`std::sph_legendre`): 球面調和関数と使い方について記述 |
+| [commit cpprefjp/site, 7d498ef] | cpprefjp/fixm:1 | cmath (`std::sph_legendre`): C++20 円周率 `std::numbers::pi` を使用するように例を更新 |
+| [commit cpprefjp/site, f4e42f3] | cpprefjp/fixm:1 | cmath (`std::assoc_legendre`): 負の `m` について計算する方法の記述 |
+| [commit cpprefjp/site, 8f99cf0] | cpprefjp/fixm:1 | cmath (`std::legendre`): ルジャンドル多項式の範囲外エラーについて記述 |
+| [commit cpprefjp/site, 9917280] | cpprefjp/fixm:1 | cmath (`std::tgamma`): ガンマ関数の定義式を追記 |
+| [commit cpprefjp/site, 52a3f10] | cpprefjp/fixm:1, cpprefjp/link:1 | cmath (`std::{tgamma,lgamma}`): 相互リンク |
+| [commit cpprefjp/site, 7f763a4] | cpprefjp/fixm:1 | cmath (`tgamma`): 階乗とガンマ関数の関係を式で明記 |
+| [commit cpprefjp/site, 932634a] | cpprefjp/fixm:2 | cmath (`tgamma`): `lgamma` を使うべき場合について記述 |
+| [commit cpprefjp/site, 785abde] | cpprefjp/fixm:1 | implementation: 製品バージョンの表記に対する註を追加 |
+| [commit cpprefjp/site, dbd9016] | cpprefjp/link:10 | cmath: 類似の丸め関数との相互リンク |
+| [commit cpprefjp/site, 2462479] | cpprefjp/fixm:1 | cmath: `std::comp_ellint_1`: 振り子周期のθの説明抜けを修正 |
+| [commit cpprefjp/site, 0c815fe] | ignore | chore(workflows/preview_link): CIログを汚さないように表示件数を早めに制限 (上限は100に戻す) |
+| [commit cpprefjp/site, 0500222] | ignore | chore(workflows/preview_link): 表示件数上限を100から50に削減、他体裁調整 |
+| [commit cpprefjp/site, d32a312] | ignore | chore(workflows/preview_link): github.event.pull_request.base が空の時の対策 |
+| [commit cpprefjp/site, 8f1f224] | ignore | chore(workflows/preview_link): 変更一覧の件数を制限し、変更一覧ページを別に生成 |
+| [commit cpprefjp/site, b3bdbe3] | cpprefjp/fixm:3 | style: "返り値" → "戻り値" |
+| [commit cpprefjp/site, a106306] | cpprefjp/link:1 | fix(reference/cstdlib/`atoi`): C99 がリンクされていたが 4.10.1.2 は C90 の節番号 |
+| [commit cpprefjp/site, 5e17cc5] | cpprefjp/link:2 | fix(reference/cstdlib/{`calloc`,`atoi`}): リンク削除 |
+| [commit cpprefjp/site, 403a76f] | cpprefjp/link:3 | fix(reference/cstdlib/{`calloc`,`atoi`,`malloc`}): 参照文献名の明示 |
+| [commit cpprefjp/site, fdf8064] | cpprefjp/fixm:1 | fix(reference/cstdlib/`system`): 訳の修正 |
+| [commit cpprefjp/site, 68aec4c] | cpprefjp/link:1 | fix(reference/cstdlib/`calloc`): リンク修正 |
+| [commit cpprefjp/site, 5ccd04f] | cpprefjp/fixm:1 | fix(reference/cstdlib/`malloc`): タイポ修正 |
+| [commit cpprefjp/site, f66abcb] | cpprefjp/link:1 | fix(reference/atomic/atomic_ref/address): 壊れたコード修飾の修正 |
+| [commit cpprefjp/site, ff932ef] | cpprefjp/link:2 | fix(reference/cstdio): 壊れたリンクの修正 |
+| [commit cpprefjp/site, 612c75f] | cpprefjp/fixs:4 | style(reference/{cstdio,cstdlib}): コーディングスタイルの統一 |
+| [commit cpprefjp/site, 993c9f8] | cpprefjp/fixs:368 | style(*): ファイル末尾に改行を追加 |
 | [commit cpprefjp/site, 74fec0c] | cpprefjp/fixm:1 | fix(reference/cstdio/fputs): 記事名の修正 |
-| [commit cpprefjp/site, 562668e] | cpprefjp/fixs:1 | fix(reference/cstdlib): コード例のヘッダを修正 |
-| [commit cpprefjp/site, b7e97a5] | cpprefjp/fixm:1 | fix(reference/{cstdio,cstdlib}): C互換ヘッダの関数・型は std:: をつけなきゃダメ! |
-| [commit cpprefjp/site, 61a0b4d] | cpprefjp/fixm:1 | fix(reference/{cstdlib,streambuf}): C++では main(void) ではなく main() で良い |
-| [commit cpprefjp/site, 429ed48] | cpprefjp/fixm:1 | chore(workflows/preview_link): ケアレスミス修正 |
-| [commit cpprefjp/site, be1a7c3] | cpprefjp/fixs:1 | chore(workflows/preview_link): パイプエラー対策 |
+| [commit cpprefjp/site, 562668e] | cpprefjp/fixm:1 | fix(reference/cstdlib): コード例のヘッダを修正 |
+| [commit cpprefjp/site, b7e97a5] | cpprefjp/fixm:18 | fix(reference/{cstdio,cstdlib}): C互換ヘッダの関数・型は `std::` をつけなきゃダメ! |
+| [commit cpprefjp/site, 61a0b4d] | cpprefjp/fixm:33 | fix(reference/{cstdlib,streambuf}): C++では main(void) ではなく main() で良い |
+| [commit cpprefjp/site, 429ed48] | ignore | chore(workflows/preview_link): ケアレスミス修正 |
+| [commit cpprefjp/site, be1a7c3] | ignore | chore(workflows/preview_link): パイプエラー対策 |
 | [commit cpprefjp/site, 62d8393] | cpprefjp/fixm:1 | fix(reference/cstdio/printf): 出力の修正 |
-| [commit cpprefjp/site, ef9d91e] | cpprefjp/fixs:1 | style(*): 余分の末尾改行を削除 |
+| [commit cpprefjp/site, ef9d91e] | cpprefjp/fixs:1382 | style(*): 余分の末尾改行を削除 |
 | [commit cpprefjp/site, 561be1b] | cpprefjp/fixm:1 | feat(reference/cstdio/fputs): 出力例を追加 |
-| [commit cpprefjp/site, 73c9263] | cpprefjp/fixm:1 | fix(cmath): 条件付きで定義されるマクロについて #undef の場合も追記 |
-| [commit cpprefjp/site, da83049] | cpprefjp/compiler:1 | fix(c*): 処理系定義でないのに implementation-defined になっているものを修正 |
-| [commit cpprefjp/site, 99f1ebf] | cpprefjp/fixs:1 | fix(cpp11/variadic_macros): 言語指定 cpp を追加・コード修飾を追加 |
-| [commit cpprefjp/site, 3d433bb] | cpprefjp/fixs:1 | style(cstdlib,cstdio,format): メタ識別子は /**/ で囲まない |
-| [commit cpprefjp/site, f1add1c] | cpprefjp/fixm:1 | fix: 1d0cf2b によるプリプロセッサディレクティブ誤爆の修正 |
-| [commit cpprefjp/site, 7e1ca38] | cpprefjp/fixs:1 | style(utility,format): "see{[-_] =>  }below" の書き換え |
-| [commit cpprefjp/site, a754d24] | cpprefjp/fixs:1 | style: "/*see below*/ => see below" の書き換え |
-| [commit cpprefjp/site, cbe4f35] | cpprefjp/fixm:1 | fix(filesystem): 関数仕様の単純化 |
-| [commit cpprefjp/site, f92dedd] | cpprefjp/fixs:1 | style(algorithm,cmath): "## {使用 => }例" |
-| [commit cpprefjp/site, 2761b7c] | cpprefjp/fixs:1 | fix(cmath,cfenv): コード修飾を追加・修正 |
-| [commit cpprefjp/site, 7b47559] | cpprefjp/fixs:1 | chore: 個別コードブロックのコード修飾 "* see below[italic]" を削除 |
-| [commit cpprefjp/site, 503290d] | cpprefjp/fixs:1 | chore: "see below" を GLOBAL_QUALIFY_LIST.txt に登録 |
+| [commit cpprefjp/site, 73c9263] | cpprefjp/fixm:13 | fix(cmath): 条件付きで定義されるマクロについて #undef の場合も追記 |
+| [commit cpprefjp/site, da83049] | cpprefjp/fixm:32 | fix(c*): 処理系定義でないのに implementation-defined になっているものを修正 |
+| [commit cpprefjp/site, 99f1ebf] | cpprefjp/fixm:1 | fix(cpp11/variadic_macros): 言語指定 cpp を追加・コード修飾を追加 |
+| [commit cpprefjp/site, 3d433bb] | cpprefjp/fixm:5 | style(cstdlib,cstdio,format): メタ識別子は `/**/` で囲まない |
+| [commit cpprefjp/site, f1add1c] | cpprefjp/fixm:159 | fix: 1d0cf2b によるプリプロセッサディレクティブ誤爆の修正 |
+| [commit cpprefjp/site, 7e1ca38] | cpprefjp/fixm:2 | style(utility,format): "see{[-_] =>  }below" の書き換え |
+| [commit cpprefjp/site, a754d24] | cpprefjp/fixm:26 | style: "`/*see below*/` => `see below`" の書き換え |
+| [commit cpprefjp/site, cbe4f35] | cpprefjp/fixm:9 | fix(filesystem): 関数仕様の単純化 |
+| [commit cpprefjp/site, f92dedd] | cpprefjp/fixm:3 | style(algorithm,cmath): "## {使用 => }例" |
+| [commit cpprefjp/site, 2761b7c] | cpprefjp/fixm:3 | fix(cmath,cfenv): コード修飾を追加・修正 |
+| [commit cpprefjp/site, 7b47559] | cpprefjp/fixm:115 | chore: 個別コードブロックのコード修飾 "`* see below[italic]`" を削除 |
+| [commit cpprefjp/site, 503290d] | cpprefjp/fixm:1 | chore: "see below" を GLOBAL_QUALIFY_LIST.txt に登録 |
 | [commit cpprefjp/site, fbcad90] | cpprefjp/fixm:1 | fix(functional): 余分の /*see below*/ の削除 |
-| [commit cpprefjp/site_generator, d2e350b] | cpprefjp/fixs:1 | 出力先ディレクトリが既に存在しても無視する |
+| [commit cpprefjp/site_generator, d2e350b] | tool/improvem:1 | 出力先ディレクトリが既に存在しても無視する |
 
 
 ## [K10-K10](https://github.com/K10-K10)
