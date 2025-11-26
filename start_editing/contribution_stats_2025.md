@@ -1006,16 +1006,17 @@
 
 | コミット | タグ | 説明 |
 |----------|------|------|
-| [commit cpprefjp/site, 2ad32d5] | cpprefjp/fixm:1 | Update implementation-status for ICX |
-| [commit cpprefjp/site, dbfde23] | cpprefjp/fixm:1 | Update implementation-status.md for ICC |
-| [commit cpprefjp/site, eb770b5] | cpprefjp/fixm:1 | Update implementation-status.md for c++23 of Clang |
-| [commit cpprefjp/site, ec441a2] | cpprefjp/fixm:1 | Update implementation-status.md for C++26 of GCC |
-| [commit cpprefjp/site, 77cc071] | cpprefjp/fixm:1 | Deleted unnecessary link for MSVC C++23 on implementation-status.md |
-| [commit cpprefjp/site, 679bbe5] | cpprefjp/fixm:1 | Update implementation-status.md for MSVC supporting C++23/ Added ref link |
-| [commit cpprefjp/site, 3e6fab6] | cpprefjp/fixm:1 | Update implementation.md for checking of MSVC 17.13.2 |
-| [commit cpprefjp/site, 1af6cd4] | cpprefjp/fixm:1 | Update implementation-status for MSVC ver17.12 and 17.13 |
-| [commit cpprefjp/site, 883eeef] | cpprefjp/fixm:1 | Update implementation-status for MSVC ref link of C++23 |
-| [commit cpprefjp/site, 763ff88] | cpprefjp/fixm:1 | Update implementation-status for ICC |
+| [commit cpprefjp/site, 2ad32d5] | cpprefjp/compiler:2 | Update implementation-status for ICX |
+| [commit cpprefjp/site, dbfde23] | cpprefjp/compiler:1 | Update implementation-status.md for ICC |
+| [commit cpprefjp/site, 763ff88] | cpprefjp/compiler:2 | Update implementation-status for ICC |
+| [commit cpprefjp/site, 883eeef] | cpprefjp/link:1 | Update implementation-status for MSVC ref link of C++23 |
+| [commit cpprefjp/site, 1af6cd4] | cpprefjp/compiler:3 | Update implementation-status for MSVC ver17.12 and 17.13 |
+| [commit cpprefjp/site, 3e6fab6] | cpprefjp/compiler:1 | Update implementation.md for checking of MSVC 17.13.2 |
+| [commit cpprefjp/site, 679bbe5] | cpprefjp/compiler:1 | Update implementation-status.md for MSVC supporting C++23/ Added ref link |
+| [commit cpprefjp/site, 77cc071] | cpprefjp/link:1 | Deleted unnecessary link for MSVC C++23 on implementation-status.md |
+| [commit cpprefjp/site, ec441a2] | cpprefjp/compiler:3 | Update implementation-status.md for C++26 of GCC |
+| [commit cpprefjp/site, eb770b5] | cpprefjp/compiler:2 | Update implementation-status.md for c++23 of Clang |
+
 
 
 ## [y121516](https://github.com/y121516)
