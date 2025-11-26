@@ -923,65 +923,60 @@
 
 | コミット | タグ | 説明 |
 |----------|------|------|
-| [commit cpprefjp/site, 17433f4] | cpprefjp/fixs:1 | add meta cpp tag |
-| [commit cpprefjp/site, abe921f] | cpprefjp/fixs:1 | add cstring top page |
-| [commit cpprefjp/site, edf7962] | cpprefjp/fixs:1 | add extract() and replace() to flat_map (#1078) |
-| [commit cpprefjp/site, 9f13e4f] | cpprefjp/fixs:1 | flat_map : add uses_allocator (#1078) |
-| [commit cpprefjp/site, ca2c47c] | cpprefjp/fixs:1 | flat_map : add constructor (#1078) |
-| [commit cpprefjp/site, 1854555] | cpprefjp/fixm:1 | flat_map : add value_compare, key_comp() and value_comp() (#1078) |
-| [commit cpprefjp/site, c00bf89] | cpprefjp/fixm:1 | flat_map : add op_assign and improve op_constructor (#1078) |
-| [commit cpprefjp/site, 4fd9557] | cpprefjp/fixs:1 | flat_map : add keys() and values() (#1078) |
-| [commit cpprefjp/site, 9ee90cb] | cpprefjp/fixs:1 | flat_map : add flat_multimap (#1078) |
-| [commit cpprefjp/site, 9730e9e] | cpprefjp/fixs:1 | small improvements in flat_map |
-| [commit cpprefjp/site, 871cb81] | cpprefjp/fixm:1 | fix wrong inner links (#1079) |
-| [commit cpprefjp/site, 8f81c31] | cpprefjp/fixm:1 | fix wrong header tag (#1079) |
-| [commit cpprefjp/site, c135b44] | cpprefjp/fixs:1 | create flat_set folder and files (#1079) |
-| [commit cpprefjp/site, 2a1427f] | cpprefjp/fixm:1 | fix wrong URL |
-| [commit cpprefjp/site, 51bc70d] | cpprefjp/fixs:1 | small improvements in map |
-| [commit cpprefjp/site, 6972631] | cpprefjp/fixs:1 | some small improvements in flat_map and flat_set |
-| [commit cpprefjp/site, 85e901d] | cpprefjp/fixs:1 | add `<cstring>` to GLOBAL_QUALIFY_LIST |
+| [commit cpprefjp/site, 17433f4] | cpprefjp/fixm:3 | add meta cpp tag |
+| [commit cpprefjp/site, abe921f] | cpprefjp/addref:1, cpprefjp/link:1 | add cstring top page |
+| [commit cpprefjp/site, edf7962] | cpprefjp/addref:2, cpprefjp/fixm:1, cpprefjp/link:1 | add `extract()` and `replace()` to `flat_map` (#1078) |
+| [commit cpprefjp/site, 9f13e4f] | cpprefjp/addref:1, cpprefjp/link:1 | `flat_map` : add `uses_allocator` (#1078) |
+| [commit cpprefjp/site, ca2c47c] | cpprefjp/addref:1, cpprefjp/link:2 | `flat_map` : add constructor (#1078) |
+| [commit cpprefjp/site, c00bf89] | cpprefjp/addref:1, cpprefjp/link:1 | `flat_map` : add `op_assign` and improve `op_constructor` (#1078) |
+| [commit cpprefjp/site, 1854555] | cpprefjp/addref:3, cpprefjp/link:1 | `flat_map` : add `value_compare`, `key_comp()` and `value_comp()` (#1078) |
+| [commit cpprefjp/site, 4fd9557] | cpprefjp/addref:2, cpprefjp/link:1 | `flat_map` : add `keys()` and `values()` (#1078) |
+| [commit cpprefjp/site, 9730e9e] | ignore:2, cpprefjp/fixm:2 | small improvements in `flat_map` |
+| [commit cpprefjp/site, 9ee90cb] | cpprefjp/addref:41, cpprefjp/fixm:7, cpprefjp/fixl:1, cpprefjp/link:1 | `flat_map` : add `flat_multimap` (#1078) |
+| [commit cpprefjp/site, c135b44, 8f81c31, 871cb81] | cpprefjp/link:5, cpprefjp/addref:76 | create `flat_set` folder and files (#1079) |
+| [commit cpprefjp/site, 0b23a69] | cpprefjp/fixm:1 | fix namespace `std::get` for `std::tuple` |
 | [commit cpprefjp/site, a7d155c] | cpprefjp/fixm:1 | fix return value type in sample |
-| [commit cpprefjp/site, 0b23a69] | cpprefjp/fixm:1 | fix namespace std::get for std::tuple |
-| [commit cpprefjp/site, 304f099] | cpprefjp/fixs:1 | add swap_free.md to flat_set (#1079) |
-| [commit cpprefjp/site, f28cc8b] | cpprefjp/fixs:1 | add swap_free.md to flat_map (#1078) |
-| [commit cpprefjp/site, f7e7a97] | cpprefjp/fixs:1 | add op_deduction_guide to flat_set. (#1079) |
-| [commit cpprefjp/site, c55d9f2] | cpprefjp/fixs:1 | add op_deduction_guide to flat_map. (#1078) |
-| [commit cpprefjp/site, e449113] | cpprefjp/fixs:1 | add deduction guide with range to some containers. |
-| [commit cpprefjp/site, 8168531] | cpprefjp/fixm:1 | fix sample in flat_multiset |
-| [commit cpprefjp/site, 9b21060] | cpprefjp/fixm:1 | update istream_iterator constructor |
-| [commit cpprefjp/site, aa69763] | cpprefjp/fixm:1 | update istreambuf_iterator constructor |
-| [commit cpprefjp/site, cd9dbc2] | cpprefjp/fixm:1 | fix version number. C++11 -> C++20 |
-| [commit cpprefjp/site, 01eff31] | cpprefjp/fixs:1 | add is_implicit_lifetime to type_traits |
-| [commit cpprefjp/site, 05294b6] | cpprefjp/fixm:1 | add std::start_lifetime_as() and std::start_lifetime_as_array(). (#1409) |
-| [commit cpprefjp/site, 5907be1] | cpprefjp/fixm:1 | fix wrong numbers in unordered_map::insert() |
-| [commit cpprefjp/site, 1a53cfe] | cpprefjp/fixs:1 | add sample to std::ws |
-| [commit cpprefjp/site, d9fff1a] | cpprefjp/typo:1 | fix typo in basic_istream |
-| [commit cpprefjp/site, 8bd1a9a] | cpprefjp/fixs:1 | improve chrono::format |
-| [commit cpprefjp/site, 10d6131] | cpprefjp/fixs:1 | improve std::execution::read_env() |
-| [commit cpprefjp/site, a9d264c] | cpprefjp/fixs:1 | improve std::move_only_function |
-| [commit cpprefjp/site, 6cc5b6b] | cpprefjp/typo:1 | fix some typo |
-| [commit cpprefjp/site, 73ba330] | cpprefjp/fixm:1 | fix some versions |
-| [commit cpprefjp/site, 01869e0] | cpprefjp/fixm:1 | fix some versions |
-| [commit cpprefjp/site, 4e12116] | cpprefjp/fixm:1 | fix some links in code |
-| [commit cpprefjp/site, 88ba553] | cpprefjp/fixs:1 | improve std::vector::shrink_to_fit() |
-| [commit cpprefjp/site, be3b143] | cpprefjp/fixs:1 | improve `<charconv>` |
-| [commit cpprefjp/site, 5dd8cd8] | cpprefjp/fixs:1 | improve std::max_align_t |
-| [commit cpprefjp/site, 50d77b3] | cpprefjp/fixs:1 | remove duplicate line |
-| [commit cpprefjp/site, c0b01b0] | cpprefjp/fixs:1 | add meta version to flat_XXX operator== |
-| [commit cpprefjp/site, 9b4133c] | cpprefjp/fixm:1 | fix some English description |
-| [commit cpprefjp/site, 36ca2f5] | cpprefjp/typo:1 | fix some typo regarding to ranges |
-| [commit cpprefjp/site, 3f31163] | cpprefjp/fixs:1 | improve std::derived_from |
-| [commit cpprefjp/site, ef4e148] | cpprefjp/fixs:1 | add throw() to bad_typeid functions in C++03 |
-| [commit cpprefjp/site, 54a31ae] | cpprefjp/fixs:1 | remove std:: from macro |
-| [commit cpprefjp/site, 11888d8] | cpprefjp/typo:1 | fix typo in std::stod() |
-| [commit cpprefjp/site, 3747177] | cpprefjp/link:1 | fix link to first/second of std::pair |
-| [commit cpprefjp/site, 9402b83] | cpprefjp/fixm:1 | fix wrong link regarding `<spanstream>` (#1051) |
-| [commit cpprefjp/site, 077be88] | cpprefjp/fixs:1 | add `<spanstream>` library (#1051) |
-| [commit cpprefjp/site, d589652] | cpprefjp/typo:1 | fix typo about std::index_sequence |
-| [commit cpprefjp/site, 3c1eba5] | cpprefjp/typo:1 | fix typo in spanstream |
-| [commit cpprefjp/site, 63f0d13] | cpprefjp/typo:1 | fix typo |
-| [commit cpprefjp/site, b403dd0] | cpprefjp/fixm:1 | add basic_string::subview() and basic_string_view::subview(). (#1503) |
-| [commit cpprefjp/site, ba21342] | cpprefjp/fixs:1 | Add std::optional Range Support (#1431) |
+| [commit cpprefjp/site, 85e901d] | cpprefjp/link:1 | add `<cstring>` to GLOBAL_QUALIFY_LIST |
+| [commit cpprefjp/site, 6972631] | cpprefjp/fixm:4 | some small improvements in `flat_map` and `flat_set` |
+| [commit cpprefjp/site, 51bc70d] | cpprefjp/fixm:2 | small improvements in `map` |
+| [commit cpprefjp/site, 2a1427f] | ignore | fix wrong URL |
+| [commit cpprefjp/site, f28cc8b] | cpprefjp/addref:2, cpprefjp/link:2 | add swap_free.md to `flat_map` (#1078) |
+| [commit cpprefjp/site, 304f099] | cpprefjp/addref:2, cpprefjp/link:2 | add swap_free.md to `flat_set` (#1079) |
+| [commit cpprefjp/site, c55d9f2] | cpprefjp/addref:2, cpprefjp/link:2 | add op_deduction_guide to `flat_map`. (#1078) |
+| [commit cpprefjp/site, f7e7a97] | cpprefjp/addref:2, cpprefjp/link:2 | add op_deduction_guide to `flat_set`. (#1079) |
+| [commit cpprefjp/site, e449113] | cpprefjp/link:1, cpprefjp/fixl:16 | add deduction guide with range to some containers. |
+| [commit cpprefjp/site, 8168531] | ignore | fix sample in `flat_multiset` |
+| [commit cpprefjp/site, 9b21060] | cpprefjp/fixl:1 | update `istream_iterator` constructor |
+| [commit cpprefjp/site, aa69763, cd9dbc2] | cpprefjp/fixl:1 | update `istreambuf_iterator` constructor |
+| [commit cpprefjp/site, 01eff31] | cpprefjp/addref:1, cpprefjp/fixl:1, cpprefjp/link:3 | add `is_implicit_lifetime` to `type_traits` |
+| [commit cpprefjp/site, 05294b6] | cpprefjp/addref:2, cpprefjp/fixl:1, cpprefjp/link:3 | add `std::start_lifetime_as()` and `std::start_lifetime_as_array()`. (#1409) |
+| [commit cpprefjp/site, 5907be1] | cpprefjp/fixm:1 | fix wrong numbers in `unordered_map::insert()` |
+| [commit cpprefjp/site, d9fff1a] | cpprefjp/fixm:1 | fix typo in `basic_istream` |
+| [commit cpprefjp/site, 1a53cfe] | cpprefjp/fixm:1 | add sample to `std::ws` |
+| [commit cpprefjp/site, 8bd1a9a] | cpprefjp/fixm:1 | improve `chrono::format` |
+| [commit cpprefjp/site, 10d6131] | cpprefjp/link:1 | improve `std::execution::read_env()` |
+| [commit cpprefjp/site, a9d264c] | cpprefjp/fixm:1 | improve `std::move_only_function` |
+| [commit cpprefjp/site, 6cc5b6b] | cpprefjp/typo:18 | fix some typo |
+| [commit cpprefjp/site, 73ba330] | cpprefjp/fixm:10 | fix some versions |
+| [commit cpprefjp/site, 4e12116] | cpprefjp/fixm:2, cpprefjp/link:11 | fix some links in code |
+| [commit cpprefjp/site, 01869e0] | cpprefjp/fixm:5 | fix some versions |
+| [commit cpprefjp/site, 88ba553] | cpprefjp/fixm:1 | improve `std::vector::shrink_to_fit()` |
+| [commit cpprefjp/site, be3b143] | cpprefjp/compiler:3 | improve `<charconv>` |
+| [commit cpprefjp/site, 5dd8cd8] | cpprefjp/fixm:1 | improve `std::max_align_t` |
+| [commit cpprefjp/site, 50d77b3] | cpprefjp/compiler:2, cpprefjp/link:1 | remove duplicate line |
+| [commit cpprefjp/site, c0b01b0] | cpprefjp/fixm:1 | add meta version to flat_XXX `operator==` |
+| [commit cpprefjp/site, 9b4133c] | cpprefjp/fixm:6 | fix some English description |
+| [commit cpprefjp/site, 36ca2f5] | cpprefjp/fixm:2, cpprefjp/link:1 | fix some typo regarding to ranges |
+| [commit cpprefjp/site, 3f31163] | cpprefjp/fixm:1 | improve `std::derived_from` |
+| [commit cpprefjp/site, ef4e148] | cpprefjp/fixm:3 | add `throw()` to `bad_typeid` functions in C++03 |
+| [commit cpprefjp/site, 54a31ae] | cpprefjp/fixm:5 | remove `std::` from macro |
+| [commit cpprefjp/site, 11888d8] | cpprefjp/fixm:1 | fix typo in `std::stod()` |
+| [commit cpprefjp/site, 3747177] | cpprefjp/link:3 | fix link to `first`/`second` of `std::pair` |
+| [commit cpprefjp/site, 077be88, 9402b83, 3c1eba5] | cpprefjp/link:4, cpprefjp/addref:28 | add `<spanstream>` library (#1051) |
+| [commit cpprefjp/site, d589652] | cpprefjp/fixm:1 | fix typo about `std::index_sequence` |
+| [commit cpprefjp/site, 63f0d13] | cpprefjp/fixm:1 | fix typo |
+| [commit cpprefjp/site, b403dd0] | cpprefjp/addref:2, cpprefjp/fixl:2, cpprefjp/link:1 | add `basic_string::subview()` and `basic_string_view::subview()`. (#1503) |
+| [commit cpprefjp/site, ba21342] | cpprefjp/addref:2, cpprefjp/fixl:1 | Add `std::optional` Range Support (#1431) |
 
 
 ## [math-hiyoko](https://github.com/math-hiyoko)
