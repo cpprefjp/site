@@ -990,18 +990,15 @@
 
 | コミット | タグ | 説明 |
 |----------|------|------|
-| [commit cpprefjp/site, d609dd1] | cpprefjp/fixm:1 | 拡張浮動小数点数型の変換順位について修正と追記 |
-| [commit cpprefjp/site, a4a704d] | cpprefjp/fixs:1 | `<linalg>`: ハミルトニアン -> エルミート |
-| [commit cpprefjp/site, 81d50fd] | cpprefjp/link:1 | リンク修正 #1106 |
-| [commit cpprefjp/site, 2f8d201] | cpprefjp/fixs:1 | P0848R3: 概要まで |
-| [commit cpprefjp/site, 3025ea8] | cpprefjp/fixs:1 | P0848R3: 仕様と背景追加 #1106 |
-| [commit cpprefjp/site, e25e0cd] | cpprefjp/fixm:1 | 例を追加 #1106 |
-| [commit cpprefjp/site, c4d5bec] | cpprefjp/fixs:1 | unreachable_sentinel: 説明を修正 |
-| [commit cpprefjp/site, f3b78ac] | cpprefjp/fixm:1 | flat_xxx: eraseの計算量修正 |
-| [commit cpprefjp/site, 42b481a] | cpprefjp/fixs:1 | flatなコンテナのemplace/_hintの計算量追記 |
-| [commit cpprefjp/site, 39b99d1] | cpprefjp/fixm:1 | flatなコンテナのinsert()の計算量修正 |
-| [commit cpprefjp/site, b7d05c0] | cpprefjp/fixm:1 | deque::erase(): イテレータと参照の無効化について微修正 |
-| [commit cpprefjp/site, 0abb645] | cpprefjp/fixs:1 | resize_and_overwrite : 事前条件に微妙に追記 |
+| [commit cpprefjp/site, d609dd1] | cpprefjp/fixm:5 | 拡張浮動小数点数型の変換順位について修正と追記 |
+| [commit cpprefjp/site, a4a704d] | cpprefjp/fixm:1 | `<linalg>`: ハミルトニアン -> エルミート |
+| [commit cpprefjp/site, 2f8d201, 81d50fd, 3025ea8, e25e0cd] | cpprefjp/link:2, cpprefjp/addlang:1 | P0848R3 #1106 |
+| [commit cpprefjp/site, c4d5bec] | cpprefjp/fixm:1 | `unreachable_sentinel`: 説明を修正 |
+| [commit cpprefjp/site, f3b78ac] | cpprefjp/fixm:4 | flat_xxx: `erase`の計算量修正 |
+| [commit cpprefjp/site, 39b99d1] | cpprefjp/fixm:4 | flatなコンテナの`insert()`の計算量修正 |
+| [commit cpprefjp/site, 42b481a] | cpprefjp/fixm:8 | flatなコンテナの`emplace`/`_hint`の計算量追記 |
+| [commit cpprefjp/site, b7d05c0] | cpprefjp/fixm:1 | `deque::erase()`: イテレータと参照の無効化について微修正 |
+| [commit cpprefjp/site, 0abb645] | cpprefjp/fixm:1 | `resize_and_overwrite` : 事前条件に微妙に追記 |
 | [commit cpprefjp/site, 4aac573] | cpprefjp/typo:1 | Fix typo in iterator traits documentation |
 
 
