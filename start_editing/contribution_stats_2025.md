@@ -894,81 +894,29 @@
 
 | コミット | タグ | 説明 |
 |----------|------|------|
-| [commit cpprefjp/site, e2a8fdd] | cpprefjp/typo:1 | Fixed typo |
-| [commit cpprefjp/site, a56ee8c] | cpprefjp/fixm:1 | Fixed P2558R2 |
-| [commit cpprefjp/site, ca8e5ab] | cpprefjp/addref:1 | create page P2558R2 |
-| [commit cpprefjp/site, 78017b2] | cpprefjp/fixs:1 | reference_iostream_cin:出力例追加 |
-| [commit cpprefjp/site, c4eb917] | cpprefjp/fixs:1 | Updata cpp26/add |
-| [commit cpprefjp/site, 8c6d8f1] | cpprefjp/fixs:1 | 不要スペースの削除 |
-| [commit cpprefjp/site, e10856a] | cpprefjp/link:1 | cstdlib/atoi..:関連項目を追加 |
-| [commit cpprefjp/site, b6b5fd6] | cpprefjp/fixs:1 | cstdlib.md:add path to atof.md |
-| [commit cpprefjp/site, 1db6393] | cpprefjp/fixs:1 | add new page `cstdlib/atof` |
-| [commit cpprefjp/site, f7d4f26] | cpprefjp/fixs:1 | cstdlib/atoi..:バージョン表記に変更 |
-| [commit cpprefjp/site, 19b6ba2] | cpprefjp/fixs:1 | cstdlib/atoi..:add version |
-| [commit cpprefjp/site, 3f1903d] | cpprefjp/fixs:1 | charconv:add path to atol |
-| [commit cpprefjp/site, 2742bc7] | cpprefjp/fixs:1 | string/stoll:add path to atoll |
-| [commit cpprefjp/site, fb60138] | cpprefjp/fixs:1 | string/stouol:add path to atol |
-| [commit cpprefjp/site, e7e4334] | cpprefjp/fixs:1 | string/stol:add path to atol |
-| [commit cpprefjp/site, 60a1a63] | cpprefjp/fixs:1 | string/stoi.md: add path to atoi |
-| [commit cpprefjp/site, a086c7f] | cpprefjp/fixs:1 | 不要文字の削除 |
-| [commit cpprefjp/site, 69f3c46] | cpprefjp/fixm:1 | fix head size |
-| [commit cpprefjp/site, f970e6f] | cpprefjp/fixs:1 | add path atoi_atol_atoll.md in cstlib |
-| [commit cpprefjp/site, 7cd29af] | cpprefjp/fixs:1 | new page `cstdlib/atoi_atol_atoll` |
-| [commit cpprefjp/site, 84f93b2] | cpprefjp/fixs:1 | add path cstdlib/getenv in cstdlib.md |
-| [commit cpprefjp/site, 52760d2] | cpprefjp/fixs:1 | new page cstdlib/getenv |
-| [commit cpprefjp/site, fd567d5] | cpprefjp/fixm:1 | cstdlib/system:fixed text |
-| [commit cpprefjp/site, 2f9e3f4] | cpprefjp/fixm:1 | `cstdlib/system`: fix class header |
-| [commit cpprefjp/site, 54ee769] | cpprefjp/fixs:1 | added linl `cstdlib/system.md` |
-| [commit cpprefjp/site, 09de4c4] | cpprefjp/fixm:1 | fix cstdlib/system.md |
-| [commit cpprefjp/site, c2781ec] | cpprefjp/fixs:1 | new page `cstdlib/system.md` |
-| [commit cpprefjp/site, f93c17f] | cpprefjp/fixm:1 | Update atoi_atol_atoll.md |
-| [commit cpprefjp/site, a182dac] | cpprefjp/fixs:1 | add path to `cstdlib/aligined_alloc.md` |
-| [commit cpprefjp/site, 18a9e14] | cpprefjp/fixs:1 | add .nolink |
-| [commit cpprefjp/site, 5b0f8cb] | cpprefjp/fixs:1 | change path |
-| [commit cpprefjp/site, 1f5f23e] | cpprefjp/fixs:1 | 記述の変更 |
-| [commit cpprefjp/site, ff7570c] | cpprefjp/fixs:1 | 記述の変更(Github actions)にかからないよう |
-| [commit cpprefjp/site, 515cb5a] | cpprefjp/fixs:1 | add path to `calloc` |
-| [commit cpprefjp/site, a6b6cf7] | cpprefjp/fixs:1 | add path to `calloc` in cstdlib.md |
-| [commit cpprefjp/site, 9e68ff5] | cpprefjp/fixs:1 | new page `cstdlib/calloc` |
-| [commit cpprefjp/site, e1b31f5] | cpprefjp/fixs:1 | add .nolink in `time` path |
-| [commit cpprefjp/site, ce18c98] | cpprefjp/fixs:1 | add path to `RAND_MAX` |
-| [commit cpprefjp/site, 76d4ce8] | cpprefjp/fixs:1 | new page `cstdlib/RAND_MAX` |
-| [commit cpprefjp/site, 29f79cc] | cpprefjp/fixs:1 | delete `.nolink` in path to `cstdlib/rand` |
-| [commit cpprefjp/site, 129dc5c] | cpprefjp/fixs:1 | add path to `random`library |
-| [commit cpprefjp/site, 31d07e7] | cpprefjp/fixs:1 | add pat to `ramd.md` |
-| [commit cpprefjp/site, 5c0e2cc] | cpprefjp/fixm:1 | new page `cstdlib/rand` and add path in `cstdlib.md` |
-| [commit cpprefjp/site, d3e0d43] | cpprefjp/fixs:1 | add path to srand() in cstdlib.md |
-| [commit cpprefjp/site, 9529b81] | cpprefjp/fixs:1 | new page `cstdlib/srand` |
-| [commit cpprefjp/site, 5d24dd2] | cpprefjp/fixm:1 | Update getenv.md |
-| [commit cpprefjp/site, 1b8a7cd] | cpprefjp/fixs:1 | 出力結果−＞出力 |
-| [commit cpprefjp/site, 6ba8c53] | cpprefjp/fixs:1 | `free.md`のパスを修正 |
-| [commit cpprefjp/site, f189c22] | cpprefjp/fixm:1 | 文法の修正 |
-| [commit cpprefjp/site, f115096] | cpprefjp/fixm:1 | 文法の修正 |
-| [commit cpprefjp/site, 6eddf2f] | cpprefjp/fixs:1 | delete .nolink in `free` path |
-| [commit cpprefjp/site, c57731f] | cpprefjp/fixs:1 | add path to `free` in `cstdlib.md` |
-| [commit cpprefjp/site, 272f47f] | cpprefjp/fixm:1 | fixed `cstdlib/free` |
-| [commit cpprefjp/site, 8233b0a] | cpprefjp/fixs:1 | new page `cstdlib/free` |
-| [commit cpprefjp/site, 443e16e] | cpprefjp/fixs:1 | 文法を修正 |
-| [commit cpprefjp/site, fd6f46f] | cpprefjp/fixm:1 | fix path to `cstdlib/malloc` |
-| [commit cpprefjp/site, 2b759fa] | cpprefjp/fixs:1 | new page  and add path in |
-| [commit cpprefjp/site, b89a923] | cpprefjp/fixs:1 | add note |
-| [commit cpprefjp/site, 56437ce] | cpprefjp/fixm:1 | update |
-| [commit cpprefjp/site, 50d4d18] | cpprefjp/fixs:1 | delete .nolink to `realloc` |
-| [commit cpprefjp/site, cbd69c8] | cpprefjp/fixs:1 | add path to `realloc` |
-| [commit cpprefjp/site, f522458] | cpprefjp/fixs:1 | new page `cstdlib/realloc` |
-| [commit cpprefjp/site, 28dcdfa] | cpprefjp/fixs:1 | delete unnecessary space |
-| [commit cpprefjp/site, ed566fe] | cpprefjp/fixm:1 | コメントの追加、テーブルの修正 |
-| [commit cpprefjp/site, cf65ace] | cpprefjp/fixs:1 | new page `mb_cur_max` |
-| [commit cpprefjp/site, fbe0ff2] | cpprefjp/fixs:1 | :削除、:後にスペース追加 |
-| [commit cpprefjp/site, 0b04c50] | cpprefjp/fixs:1 | コード例変更後、出力例の反映し忘れを変更 |
-| [commit cpprefjp/site, 62352b3] | cpprefjp/fixs:1 | `namespace std`の削除、表記の変更 |
-| [commit cpprefjp/site, 2bc7cf6] | cpprefjp/fixs:1 | 不要な行の削除 |
-| [commit cpprefjp/site, ea1f776] | cpprefjp/fixs:1 | add path to `strto;.md` |
-| [commit cpprefjp/site, 090865f] | cpprefjp/fixs:1 | new page `strtol.md` |
-| [commit cpprefjp/site, 5b1c95f] | cpprefjp/fixs:1 | strtol:記述の変更 |
-| [commit cpprefjp/site, a3c4ce4] | cpprefjp/fixs:1 | strtol:記述の変更 |
-| [commit cpprefjp/site, 3e711d8] | cpprefjp/fixs:1 | add path to `strtol` |
-| [commit cpprefjp/site, a32b5ce] | cpprefjp/fixs:1 | ご指摘頂いた点を変更 |
+| [commit cpprefjp/site, 78017b2] | cpprefjp/fixm:1 | reference_iostream_cin:出力例追加 |
+| [commit cpprefjp/site, ca8e5ab, a56ee8c, e2a8fdd, c4eb917] | cpprefjp/addref:1, cpprefjp/link:2 | create page P2558R2 |
+| [commit cpprefjp/site, c2781ec, 09de4c4, 54ee769, 2f9e3f4, fd567d5] | cpprefjp/addref:1, cpprefjp/link:1 | new page `cstdlib/system.md` |
+| [commit cpprefjp/site, 52760d2, 84f93b2, 5d24dd2] | cpprefjp/addref:1, cpprefjp/link:1 | new page cstdlib/getenv |
+| [commit cpprefjp/site, 7cd29af, f970e6f, 69f3c46, a086c7f, 19b6ba2, f7d4f26, e10856a, f93c17f] | cpprefjp/addref:1, cpprefjp/link:1 | new page `cstdlib/atoi_atol_atoll` |
+| [commit cpprefjp/site, 60a1a63] | cpprefjp/link:1 | string/stoi.md: add path to atoi |
+| [commit cpprefjp/site, e7e4334] | cpprefjp/link:1 | string/stol:add path to atol |
+| [commit cpprefjp/site, fb60138] | cpprefjp/link:1 | string/stouol:add path to atol |
+| [commit cpprefjp/site, 2742bc7] | cpprefjp/link:1 | string/stoll:add path to atoll |
+| [commit cpprefjp/site, 3f1903d] | cpprefjp/link:1 | charconv:add path to atol |
+| [commit cpprefjp/site, 1db6393, b6b5fd6, 8c6d8f1] | cpprefjp/addref:1, cpprefjp/link:1 | add new page `cstdlib/atof` |
+| [commit cpprefjp/site, 9529b81, d3e0d43] | cpprefjp/addref:1, cpprefjp/link:1 | new page `cstdlib/srand` |
+| [commit cpprefjp/site, 5c0e2cc, 31d07e7, 129dc5c] | cpprefjp/addref:1, cpprefjp/link:2 | new page `cstdlib/rand` and add path in `cstdlib.md` |
+| [commit cpprefjp/site, 29f79cc] | cpprefjp/link:1 | delete `.nolink` in path to `cstdlib/rand` |
+| [commit cpprefjp/site, 76d4ce8, ce18c98, e1b31f5] | cpprefjp/addref:1, cpprefjp/link:3 | new page `cstdlib/RAND_MAX` |
+| [commit cpprefjp/site, 9e68ff5, a6b6cf7, 515cb5a, ff7570c, 1f5f23e, 5b0f8cb, b89a923, 443e16e, f115096, 28dcdfa] | cpprefjp/addref:1, cpprefjp/link:2 | new page `cstdlib/calloc` |
+| [commit cpprefjp/site, 18a9e14] | ignore | add .nolink |
+| [commit cpprefjp/site, a182dac] | cpprefjp/link:1 | add path to `cstdlib/aligined_alloc.md` |
+| [commit cpprefjp/site, 2b759fa, fd6f46f] | cpprefjp/addref:1, cpprefjp/link:2 | new page `malloc` and add path in |
+| [commit cpprefjp/site, 8233b0a, 272f47f, c57731f, 6eddf2f, f189c22, 6ba8c53, 1b8a7cd] | cpprefjp/addref:1, cpprefjp/link:2 | new page `cstdlib/free` |
+| [commit cpprefjp/site, f522458, cbd69c8, 50d4d18, 56437ce] | cpprefjp/addref:1, cpprefjp/link:2 | new page `cstdlib/realloc` |
+| [commit cpprefjp/site, cf65ace, ed566fe, 62352b3, 0b04c50, fbe0ff2] | cpprefjp/addref:1, cpprefjp/link:1 | new page `mb_cur_max` |
+| [commit cpprefjp/site, 090865f, ea1f776, 2bc7cf6, a32b5ce, 3e711d8, a3c4ce4, 5b1c95f] | cpprefjp/addref:1, cpprefjp/link:2 | new page `strtol.md` |
 
 
 ## [suomesta](https://github.com/suomesta)
