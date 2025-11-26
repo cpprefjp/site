@@ -1061,10 +1061,10 @@
 
 | コミット | タグ | 説明 |
 |----------|------|------|
-| [commit cpprefjp/site, eba553f] | cpprefjp/fixm:1 | add preconditions to member functions of std::future / remove UB from example |
-| [commit cpprefjp/site, f1ae4bc] | cpprefjp/fixs:1 | add comment about SEGV on libc++ |
+| [commit cpprefjp/site, 3bd8c4f] | cpprefjp/fixm:1 | add comment to clarify the state more |
 | [commit cpprefjp/site, 2a7c46f] | cpprefjp/fixm:1 | add example to see difference between `wait_for(0s) == ready` and `valid()` |
-| [commit cpprefjp/site, 3bd8c4f] | cpprefjp/fixs:1 | add comment to clarify the state more |
+| [commit cpprefjp/site, f1ae4bc] | cpprefjp/fixm:1 | add comment about SEGV on libc++ |
+| [commit cpprefjp/site, eba553f] | cpprefjp/fixm:4 | add preconditions to member functions of `std::future` / remove UB from example |
 | [commit cpprefjp/site, ba2b7c9] | cpprefjp/fixm:1 | fix statement position |
 
 
