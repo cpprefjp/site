@@ -1052,9 +1052,9 @@
 |----------|------|------|
 | [commit cpprefjp/site, 3fb56b8] | cpprefjp/fixm:1 | fix: remove unnecessary `std::move` in splice of `std::list` |
 | [commit cpprefjp/site, 614432a] | cpprefjp/fixm:1 | fix: remove unnecessary `std::move` in splice of `std::forward_list` |
-| [commit cpprefjp/site, 5cb7ad6] | cpprefjp/fixs:1 | chore: add `.gitignore` file |
-| [commit cpprefjp/site, eede276] | cpprefjp/fixm:1 | fix: use `replace with` instead of ` replace by` |
-| [commit cpprefjp/site, 5c5c709] | cpprefjp/fixm:1 | fix: missing `#include <mutex>` in `std::barrier` |
+| [commit cpprefjp/site, 5cb7ad6] | tool/addm:1 | chore: add `.gitignore` file |
+| [commit cpprefjp/site, eede276] | cpprefjp/fixm:4 | fix: use `replace with` instead of ` replace by` |
+| [commit cpprefjp/site, 5c5c709] | cpprefjp/fixm:4 | fix: missing `#include <mutex>` in `std::barrier` |
 
 
 ## [wx257osn2](https://github.com/wx257osn2)
