@@ -12,11 +12,11 @@ namespace std {
 
   template <class T>
   constexpr strong_ordering
-    operator<=>(const optional<T>&, nullopt_t) noexcept;     // (2) C++20
+    operator<=>(const optional<T>& x, nullopt_t) noexcept;   // (2) C++20
 
   template <class T, three_way_comparable_with<T> U>
   constexpr compare_three_way_result_t<T,U>
-    operator<=>(const optional<T>& x, const U& y);           // (3) C++20
+    operator<=>(const optional<T>& x, const U& v);           // (3) C++20
 }
 ```
 * nullopt_t[link /reference/optional/nullopt_t.md]

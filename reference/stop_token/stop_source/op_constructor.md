@@ -11,6 +11,7 @@ explicit stop_source(nostopstate_t) noexcept; // (2)
 stop_source(const stop_source& rhs) noexcept; // (3)
 stop_source(stop_source&& rhs) noexcept;      // (4)
 ```
+* nostopstate_t[link ../nostopstate.md]
 
 ## 概要
 - (1) : デフォルトコンストラクタ。停止状態を表すリソースを新たに確保して所有する。
@@ -56,6 +57,7 @@ int main()
 * std::move[link /reference/utility/move.md]
 * std::stop_source[link ../stop_source.md]
 * std::nostopstate[link ../nostopstate.md]
+* stop_possible()[link stop_possible.md]
 * stop_requested()[link stop_requested.md]
 * request_stop()[link request_stop.md]
 

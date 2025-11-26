@@ -83,6 +83,7 @@ int main()
 }
 ```
 * std::enable_shared_from_this[color ff0000]
+* shared_from_this()[link enable_shared_from_this/shared_from_this.md]
 
 ### 出力
 ```
