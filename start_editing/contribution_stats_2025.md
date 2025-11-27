@@ -277,7 +277,7 @@
 | [commit cpprefjp/site_generator, 278615b] | ignore | 貢献ポイント集計用のcommit構文を追加 |
 | [commit cpprefjp/markdown_to_html, 46c8876] | ignore | 貢献ポイント集計用のcommit構文を追加 |
 | [commit cpprefjp/site, 3d0a0ff, a56fca8] | ignore | 2024年貢献ポイントの集計作業 |
-| [commit cpprefjp/site, 9cf9bee, 9e28f66, 66d4cad, 5922358, aa98a7f, a853243, 012035a, 2664a69, d1aad3e, 25b6ab8, 81895c5, 0fb2f7d, de60c55, 548cd3e, 184015b, 45939b2, 961e061, 125fe4f] | ignore | 2025年貢献ポイントの集計作業 |
+| [commit cpprefjp/site, 9cf9bee, 9e28f66, 66d4cad, 5922358, aa98a7f, a853243, 012035a, 2664a69, d1aad3e, 25b6ab8, 81895c5, 0fb2f7d, de60c55, 548cd3e, 184015b, 45939b2, 961e061, 125fe4f, c607ba2] | ignore | 2025年貢献ポイントの集計作業 |
 
 
 ## [rotarymars](https://github.com/rotarymars)
@@ -875,7 +875,7 @@
 | [commit cpprefjp/site, f66abcb] | cpprefjp/link:1 | fix(reference/atomic/atomic_ref/address): 壊れたコード修飾の修正 |
 | [commit cpprefjp/site, ff932ef] | cpprefjp/link:2 | fix(reference/cstdio): 壊れたリンクの修正 |
 | [commit cpprefjp/site, 612c75f] | cpprefjp/fixs:4 | style(reference/{cstdio,cstdlib}): コーディングスタイルの統一 |
-| [commit cpprefjp/site, 993c9f8] | cpprefjp/fixs:368 | style(*): ファイル末尾に改行を追加 |
+| [commit cpprefjp/site, 993c9f8] | cpprefjp/fixm:1 | style(*): ファイル末尾に改行を追加 (機械的作業ということで作業者からの希望で低めのポイントにしてある) |
 | [commit cpprefjp/site, 74fec0c] | cpprefjp/fixm:1 | fix(reference/cstdio/fputs): 記事名の修正 |
 | [commit cpprefjp/site, 562668e] | cpprefjp/fixm:1 | fix(reference/cstdlib): コード例のヘッダを修正 |
 | [commit cpprefjp/site, b7e97a5] | cpprefjp/fixm:18 | fix(reference/{cstdio,cstdlib}): C互換ヘッダの関数・型は `std::` をつけなきゃダメ! |
@@ -883,19 +883,19 @@
 | [commit cpprefjp/site, 429ed48] | ignore | chore(workflows/preview_link): ケアレスミス修正 |
 | [commit cpprefjp/site, be1a7c3] | ignore | chore(workflows/preview_link): パイプエラー対策 |
 | [commit cpprefjp/site, 62d8393] | cpprefjp/fixm:1 | fix(reference/cstdio/printf): 出力の修正 |
-| [commit cpprefjp/site, ef9d91e] | cpprefjp/fixs:1382 | style(*): 余分の末尾改行を削除 |
+| [commit cpprefjp/site, ef9d91e] | cpprefjp/fixm:1 | style(*): 余分の末尾改行を削除 (機械的作業ということで作業者からの希望で低めのポイントにしてある) |
 | [commit cpprefjp/site, 561be1b] | cpprefjp/fixm:1 | feat(reference/cstdio/fputs): 出力例を追加 |
 | [commit cpprefjp/site, 73c9263] | cpprefjp/fixm:13 | fix(cmath): 条件付きで定義されるマクロについて #undef の場合も追記 |
 | [commit cpprefjp/site, da83049] | cpprefjp/fixm:32 | fix(c*): 処理系定義でないのに implementation-defined になっているものを修正 |
 | [commit cpprefjp/site, 99f1ebf] | cpprefjp/fixm:1 | fix(cpp11/variadic_macros): 言語指定 cpp を追加・コード修飾を追加 |
 | [commit cpprefjp/site, 3d433bb] | cpprefjp/fixm:5 | style(cstdlib,cstdio,format): メタ識別子は `/**/` で囲まない |
-| [commit cpprefjp/site, f1add1c] | cpprefjp/fixm:159 | fix: 1d0cf2b によるプリプロセッサディレクティブ誤爆の修正 |
+| [commit cpprefjp/site, f1add1c] | cpprefjp/fixm:1 | fix: [commit cpprefjp/site, 1d0cf2b] によるプリプロセッサディレクティブ誤爆の修正 (機械的作業ということで作業者からの希望で低めのポイントにしてある) |
 | [commit cpprefjp/site, 7e1ca38] | cpprefjp/fixm:2 | style(utility,format): "see{[-_] =>  }below" の書き換え |
 | [commit cpprefjp/site, a754d24] | cpprefjp/fixm:26 | style: "`/*see below*/` => `see below`" の書き換え |
 | [commit cpprefjp/site, cbe4f35] | cpprefjp/fixm:9 | fix(filesystem): 関数仕様の単純化 |
 | [commit cpprefjp/site, f92dedd] | cpprefjp/fixm:3 | style(algorithm,cmath): "## {使用 => }例" |
 | [commit cpprefjp/site, 2761b7c] | cpprefjp/fixm:3 | fix(cmath,cfenv): コード修飾を追加・修正 |
-| [commit cpprefjp/site, 7b47559] | cpprefjp/fixm:115 | chore: 個別コードブロックのコード修飾 "`* see below[italic]`" を削除 |
+| [commit cpprefjp/site, 7b47559] | cpprefjp/fixm:1 | chore: 個別コードブロックのコード修飾 "`* see below[italic]`" を削除 (機械的作業ということで作業者からの希望で低めのポイントにしてある) |
 | [commit cpprefjp/site, 503290d] | cpprefjp/fixm:1 | chore: "see below" を GLOBAL_QUALIFY_LIST.txt に登録 |
 | [commit cpprefjp/site, fbcad90] | cpprefjp/fixm:1 | fix(functional): 余分の /*see below*/ の削除 |
 | [commit cpprefjp/site_generator, d2e350b] | tool/improvem:1 | 出力先ディレクトリが既に存在しても無視する |
