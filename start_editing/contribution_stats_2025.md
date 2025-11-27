@@ -658,6 +658,7 @@
 | [commit cpprefjp/site, 4fbde58] | ignore | stop_token/stoppable-source: fix typo |
 | [commit cpprefjp/site, 911f1dc] | ignore | execution/start: 微調整 |
 | [commit cpprefjp/site, 85387aa] | cpprefjp/fixl:1 | execution: P3552R3 エンティティ列挙のみ (#1521) |
+| [commit cpprefjp/site, c2e5e06] | cpprefjp/fixm:1 | string_view::op_sv : ヌル終端に関する説明がわかりにくかったので追記 #1398 (Co-author) |
 
 
 ## [Raclamusi](https://github.com/Raclamusi)
@@ -900,6 +901,16 @@
 | [commit cpprefjp/site, fbcad90] | cpprefjp/fixm:1 | fix(functional): 余分の /*see below*/ の削除 |
 | [commit cpprefjp/site_generator, d2e350b] | tool/improvem:1 | 出力先ディレクトリが既に存在しても無視する |
 | [commit cpprefjp/markdown_to_html, 66b84e4] | tool/fixbug:1 | html_attribute: markdown.searialiers の内部変数を一時的に変更して実体参照を適切に処理 |
+| [commit cpprefjp/site, 4ac8177] | cpprefjp/fixm:1 | Update reference/cstdio/fwrite.md (Co-author) |
+| [commit cpprefjp/site, 6104a9a] | cpprefjp/fixm:1 | Update reference/cstdio/bufsiz.md (Co-author) |
+| [commit cpprefjp/site, c1261d3] | cpprefjp/fixm:1 | Update reference/cstdio/fpos_t.md (Co-author) |
+| [commit cpprefjp/site, 3aec3d6] | cpprefjp/fixm:1 | Update reference/cstdio/fpos_t.md (Co-author) |
+| [commit cpprefjp/site, 5050bbe] | cpprefjp/fixm:1 | Update reference/cstdio/fpos_t.md (Co-author) |
+| [commit cpprefjp/site, d074e9f] | cpprefjp/fixm:1 | Update reference/cstdio/fread.md (Co-author) |
+| [commit cpprefjp/site, 457602e] | cpprefjp/fixm:1 | Apply suggestions from code review (Co-author) |
+| [commit cpprefjp/site, b13d269] | cpprefjp/fixm:1 | Apply suggestions from code review (Co-author) |
+| [commit cpprefjp/site, bb0ffaf] | cpprefjp/fixm:1 | Apply suggestions from code review (Co-author) |
+| [commit cpprefjp/site, f572dab] | cpprefjp/fixm:1 | Update reference/unordered_map/unordered_map/clear.md (Co-author) |
 
 
 ## [K10-K10](https://github.com/K10-K10)
