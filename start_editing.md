@@ -340,7 +340,7 @@ cpprefjpおよびboostjpでの作業は、以下のように貢献ポイント�
 | cpprefjp/addlang  | 20 | 言語機能を1ページ追加 |
 | cpprefjp/addpage  | 20 | その他ページ追加 (articleや編集者向けページなど) |
 | cpprefjp/fixs     |  2 | 既存ページへの修正 : small 軽微な修正、コード修飾追加 (ページ単位)、スクリプトによる一括修正 (スクリプトはtool系で別途評価) |
-| cpprefjp/fixm     |  5 | 既存ページへの修正 : medium 追加説明、サンプルコード追加、訳語追加 (訳語単位)、用語追加 (用語単位)。誤字・説明の言い換えの範囲を超える間違い修正。サンプルコードや仕様での変数名の間違い修正 (ページ単位) |
+| cpprefjp/fixm     |  5 | 既存ページへの修正 : medium 追加説明、サンプルコード追加、訳語追加 (訳語単位)、用語追加 (用語単位)。誤字・説明の言い換えの範囲を超える間違い修正。サンプルコードや仕様での変数名の間違い修正。サンプルコードでのコンパイル・実行に影響のある変更 (ページ単位) |
 | cpprefjp/fixl     | 10 | 既存ページへの修正 : large 仕様変更への対応。仕様記述のバグ修正。関連項目ではない関数一覧の表に関数を足すことも対象。実装例の追加 (ページ単位) |
 | cpprefjp/compiler |  2 | 動作確認できたコンパイラバージョンの記載、および処理系のバージョン情報。ライブラリ機能はページ単位、言語機能は件数単位、処理系のバージョン情報は件数単位 |
 
@@ -353,9 +353,9 @@ cpprefjpおよびboostjpでの作業は、以下のように貢献ポイント�
 |-----|---------|------|
 | boostjp/typo     |  1 | 誤字・脱字の修正 (ページ単位) |
 | boostjp/link     |  2 | 関連項目・参照リンクなどの追加・修正、nolinkの解除 (ページ単位) |
-| boostjp/releases |  5 | Boostリリースノート1件追加 small : maintenance workなどの軽微で小さなリリースノート |
+| boostjp/releases |  5 | Boostリリースノート1件追加 small : maintenance workなどの軽微で小さなリリースノート。一件ごとのテスト済みコンパイラ |
 | boostjp/releasem | 10 | Boostリリースノート 1件追加 medium : タイトル含めず10行以下の中程度の大きさ。新ライブラリ。既知の問題 (ライブラリ単位) |
-| boostjp/releasel | 20 | Boostリリースノート 1件追加 large : mediumを超える大きさ |
+| boostjp/releasel | 20 | Boostリリースノート 1件追加 large : mediumを超える大きさ。テスト済みコンパイラの全記載 |
 | boostjp/fixs     |  2 | 既存ページへの修正 : small 軽微な修正、コード修飾追加 (ページ単位) |
 | boostjp/fixm     |  5 | 既存ページへの修正 : medium 追加説明、訳語追加 (ページ単位) |
 | boostjp/addrefs  | 10 | Boost逆引きリファレンス : small (1例追加) |
@@ -368,10 +368,11 @@ CIスクリプト、site_generator、kunaiなど。
 | タグ | ポイント | 説明 |
 |-----|---------|------|
 | tool/fixbug     | 30 | バグ修正 |
-| tool/improves   | 10 | コード改善 : small。typo検出テーブルへの追加 |
+| tool/improves   | 10 | コード改善 : small。typo検出テーブルへの追加。submodule更新 |
 | tool/improvem   | 30 | コード改善 : medium。git submodule / npm moduleのリリース作業 (package.jsonの更新) |
 | tool/improvel   | 50 | コード改善 : large |
 | tool/updatelib  | 20 | 外部依存ライブラリのアップデート (直接使用のライブラリ単位) |
+| tool/security   | 50 | セキュリティアップデート (npm audit) |
 | tool/updatelang | 10 | 使用言語のアップデート : small (とくにコード変更なく更新できた) |
 | tool/updatelang | 30 | 使用言語のアップデート : medium (多少のコード修正で更新できた) |
 | tool/updatelang | 50 | 使用言語のアップデート : large (大きいまたはむずかしいコード修正をして更新できた) |
@@ -379,7 +380,15 @@ CIスクリプト、site_generator、kunaiなど。
 | tool/addm       | 50 | 新たな仕組みの導入 medium |
 | tool/addl       | 100 | 新たな仕組みの導入 large : キーワード自動リンク、相対リンク対応など |
 
+### その他
+
+| タグ | ポイント | 説明 |
+|-----|---------|------|
+| ignore | 0 | 貢献ポイントの対象外 (ほかのコミットと合算するときなど) |
+
+
 ### 貢献ポイントの集計ページ
 
 - [2023年](start_editing/contribution_stats_2023.md)
 - [2024年](start_editing/contribution_stats_2024.md)
+- [2025年](start_editing/contribution_stats_2025.md)
