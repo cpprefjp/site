@@ -1204,7 +1204,7 @@
 | [commit cpprefjp/site, 7bd2d3d] | cpprefjp/typo:1 | fix typo（面場 -> メンバ） |
 
 
-## [zer0star.65535](https://github.com/zer0star.65535)
+## [zer0-star](https://github.com/zer0-star)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
