@@ -1148,7 +1148,7 @@
 | [commit cpprefjp/site, 15541d7] | cpprefjp/link:1 | `type_info`へのリンクがあってほしいと思ったので追加 |
 
 
-## [k_satoda](https://github.com/k_satoda)
+## [k-satoda](https://github.com/k-satoda)
 
 | コミット | タグ | 説明 |
 |----------|------|------|
