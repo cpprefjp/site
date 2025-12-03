@@ -44,7 +44,7 @@ Locale: ja_JP.UTF-8, MB_CUR_MAX: 6
 
 ## 関連項目
 - [`MB_LEN_MAX`](/reference/climits/mb_len_max.md): 全ロケールでのマルチバイト文字の最大バイト数
-- `setlocale`: ロケールを変更する
+- [`setlocale`](/reference/clocale/setlocale.md): ロケールを変更する
 
 ## 参照
 - [mb_cur_max(3) - Linux man page](https://linux.die.net/man/3/mb_cur_max)
