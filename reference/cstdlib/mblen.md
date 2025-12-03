@@ -51,24 +51,24 @@ int main() {
 #include <clocale>
 
 int count_chars_mblen(const char* s) {
-    std::setlocale(LC_ALL, "ja_JP.UTF-8");
-    int count = 0;
-    size_t i = 0;
-    while (s[i] != '\0') {
-        int len = std::mblen(&s[i], MB_CUR_MAX);
-        if (len < 0) {
-            len = 1;
-        }
-        i += len;
-        count++;
+  std::setlocale(LC_ALL, "ja_JP.UTF-8");
+  int count = 0;
+  size_t i = 0;
+  while (s[i] != '\0') {
+    int len = std::mblen(&s[i], MB_CUR_MAX);
+    if (len < 0) {
+      len = 1;
     }
-    return count;
+    i += len;
+    count++;
+  }
+  return count;
 }
 
 int main() {
-    const char* str = "こんにちは世界";
-    std::cout << "文字列: " << str << "\n";
-    std::cout << "文字数: " << count_chars_mblen(str) << "\n";
+  const char* str = "こんにちは世界";
+  std::cout << "文字列: " << str << "\n";
+  std::cout << "文字数: " << count_chars_mblen(str) << "\n";
 }
 ```
 
