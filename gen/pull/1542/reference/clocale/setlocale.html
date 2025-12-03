@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;clocale&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;3d2e2a51f3f4b9080159dc2e88eef78bd7b9aabb&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;clocale&gt;\n\nint main(){\n  // \u65e5\u672c\u8a9e\u30ed\u30b1\u30fc\u30eb\u306b\u8a2d\u5b9a\n  if (!std::setlocale(LC_ALL, \&#34;ja_JP.UTF-8\&#34;)) {\n    std::cerr &lt;&lt; \&#34;Failed to set locale\\n\&#34;;\n    return 1;\n  }\n\n  // \u73fe\u5728\u306e\u5168\u30ab\u30c6\u30b4\u30ea\u306e\u30ed\u30b1\u30fc\u30eb\u3092\u53d6\u5f97\n  std::cout &lt;&lt; \&#34;Current locale: \&#34; &lt;&lt; std::setlocale(LC_ALL, NULL) &lt;&lt; \&#34;\\n\&#34;;\n\n  // \u6570\u5024\u30ab\u30c6\u30b4\u30ea\u3060\u3051\u78ba\u8a8d\n  std::cout &lt;&lt; \&#34;Numeric locale: \&#34; &lt;&lt; std::setlocale(LC_NUMERIC, NULL) &lt;&lt; \&#34;\\n\&#34;;\n}\n\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;clocale&#34;, &#34;setlocale&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;clocale&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;c3e6e209366ae19fe0aa7b1d9c07fba68c52b14d&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;clocale&gt;\n\nint main() {\n  // \u65e5\u672c\u8a9e\u30ed\u30b1\u30fc\u30eb\u306b\u8a2d\u5b9a\n  if (!std::setlocale(LC_ALL, \&#34;ja_JP.UTF-8\&#34;)) {\n    std::cerr &lt;&lt; \&#34;Failed to set locale\\n\&#34;;\n    return 1;\n  }\n\n  // \u73fe\u5728\u306e\u5168\u30ab\u30c6\u30b4\u30ea\u306e\u30ed\u30b1\u30fc\u30eb\u3092\u53d6\u5f97\n  std::cout &lt;&lt; \&#34;Current locale: \&#34; &lt;&lt; std::setlocale(LC_ALL, NULL) &lt;&lt; \&#34;\\n\&#34;;\n\n  // \u6570\u5024\u30ab\u30c6\u30b4\u30ea\u3060\u3051\u78ba\u8a8d\n  std::cout &lt;&lt; \&#34;Numeric locale: \&#34; &lt;&lt; std::setlocale(LC_NUMERIC, NULL) &lt;&lt; \&#34;\\n\&#34;;\n}\n\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;clocale&#34;, &#34;setlocale&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-12-03T13:38:50">
-        2025年12月03日 13時38分50秒
+      <span itemprop="datePublished" content="2025-12-03T15:13:16">
+        2025年12月03日 15時13分16秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -214,30 +214,32 @@
         
   <div class="identifier-type">function</div><div class="header">&lt;clocale&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">setlocale</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-    <span class="kt">char</span><span class="o">*</span> <span class="n">setlocale</span><span class="p">(</span><span class="kt">int</span> <span class="n">category</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">locale</span><span class="p">);</span>
+  <span class="kt">char</span><span class="o">*</span> <span class="n">setlocale</span><span class="p">(</span><span class="kt">int</span> <span class="n">category</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">locale</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
 <p>指定したカテゴリのロケールを設定、または現在のロケールを取得する。</p>
-<p>指定できるロケール文字列は<a href="../../article/platform/locales.html">以下のページ</a>である。</p>
+<p>指定できる<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>のロケール文字列は<a href="../../article/platform/locales.html">使用できるロケール文字列</a>を参照のこと。</p>
 <h2>引数</h2>
 <ul>
 <li><code>category</code>：設定対象のカテゴリ。<code>LC_ALL</code>,<code>LC_CTYPE</code>などのマクロを使用。</li>
 <li><code>locale</code>：<ul>
-<li>"C"：標準のCロケール</li>
-<li>""：環境依存のデフォルトロケール</li>
+<li><code>"C"</code>：標準のCロケール</li>
+<li><code>""</code>：環境依存のデフォルトロケール</li>
 <li><code>NULL</code>：現在のロケールを取得するだけ</li>
 </ul>
 </li>
 </ul>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p>成功時は設定されたロケール名（文字列）、失敗時は<code>NULL</code>。</p>
+<p>返された文字列をプログラムで変更してはならない。</p>
+<p><code>setlocale()</code> を呼び出したスレッドが終了した後、もしくは更に次の <code>setlocale()</code> の呼び出しの後に返された文字列を使った時の<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">動作は未定義</a>である。</p>
 <h2>例</h2>
-<p><div class="yata" id="3d2e2a51f3f4b9080159dc2e88eef78bd7b9aabb"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="c3e6e209366ae19fe0aa7b1d9c07fba68c52b14d"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;clocale&gt;</span><span class="cp"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
   <span class="c1">// 日本語ロケールに設定</span>
   <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">setlocale</span><span class="p">(</span><span class="n">LC_ALL</span><span class="p">,</span> <span class="s">"ja_JP.UTF-8"</span><span class="p">))</span> <span class="p">{</span>
     <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">"Failed to set locale</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
@@ -258,7 +260,7 @@ Numeric locale: ja_JP.UTF-8
 </code></pre></p>
 <h2>関連項目</h2>
 <ul>
-<li><a href="../../article/platform/locales.html"> ロケール文字一覧 </a></li>
+<li><a href="../../article/platform/locales.html"> ロケール文字列一覧 </a></li>
 <li><a href="../locale/locale.html"> <code>std::locale</code> </a></li>
 </ul></div>
 
