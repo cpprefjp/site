@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-12-03T15:13:16">
-        2025年12月03日 15時13分16秒
+      <span itemprop="datePublished" content="2025-12-03T16:11:56">
+        2025年12月03日 16時11分56秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -221,6 +221,8 @@
 <h2>概要</h2>
 <p>指定したカテゴリのロケールを設定、または現在のロケールを取得する。</p>
 <p>指定できる<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>のロケール文字列は<a href="../../article/platform/locales.html">使用できるロケール文字列</a>を参照のこと。</p>
+<p>この関数の呼び出しは他スレッドにおける <code>setlocale()</code> または現在のロケールを使用する他の関数の呼び出しとデータ競合の可能性がある。</p>
+<p>プログラム開始時の現在のロケールは <code>std::setlocale(LC_ALL, "C");</code> が呼び出されたのと同じ状態に初期化される。</p>
 <h2>引数</h2>
 <ul>
 <li><code>category</code>：設定対象のカテゴリ。<code>LC_ALL</code>,<code>LC_CTYPE</code>などのマクロを使用。</li>
@@ -228,6 +230,7 @@
 <li><code>"C"</code>：標準のCロケール</li>
 <li><code>""</code>：環境依存のデフォルトロケール</li>
 <li><code>NULL</code>：現在のロケールを取得するだけ</li>
+<li>処置系定義の文字列</li>
 </ul>
 </li>
 </ul>
