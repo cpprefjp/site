@@ -1,0 +1,560 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>構造化束縛 [P0217R3] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp17
+">
+        <meta name="title" content="構造化束縛 [P0217R3] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="構造化束縛 [P0217R3] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="構造化束縛 [P0217R3] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp17/structured_bindings.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="「構造化束縛 (structured bindings)」は、組やタプル、配列や構造体を分解して各要素を取り出す機能である。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="構造化束縛 [P0217R3] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp17/structured_bindings.html" />
+        <meta name="twitter:description" content="「構造化束縛 (structured bindings)」は、組やタプル、配列や構造体を分解して各要素を取り出す機能である。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="manifest" href="../../manifest.json?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;af5e4dfa0e398f68b4cc4ee72f08b1d0de619687&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;utility&gt;\n#include &lt;tuple&gt;\n#include &lt;string&gt;\n\nstd::pair&lt;int, std::string&gt; f()\n{\n  return {3, \&#34;Hello\&#34;};\n}\n\nstd::tuple&lt;int, std::string, double&gt; g()\n{\n  return {1, \&#34;World\&#34;, 3.14};\n}\n\nstd::string global_message = \&#34;HELLO, WORLD\&#34;;\nstd::tuple&lt;int, std::string&amp;, double&gt; h()\n{\n  return std::forward_as_tuple(1, global_message, 3.14);\n}\n\nint main()\n{\n  // \u7d44\u3092\u5206\u89e3\u3059\u308b\n  {\n    // \u95a2\u6570f()\u306e\u623b\u308a\u5024\u3067\u3042\u308b\u6574\u6570\u3068\u6587\u5b57\u5217\u306e\u7d44\u3092\u5206\u89e3\u3059\u308b\u3002\n    // pair\u306efirst\u3092id\u5909\u6570\u306b\u4ee3\u5165\u3057\u3001second\u3092message\u5909\u6570\u306b\u4ee3\u5165\u3059\u308b\u3002\n    // id\u5909\u6570\u306e\u578b\u306ffirst\u306e\u578b(int)\u3068\u306a\u308a\u3001message\u5909\u6570\u306e\u578b\u306fsecond\u306e\u578b(string)\u3068\u306a\u308b\u3002\n    auto [id, message] = f();\n\n    std::cout &lt;&lt; id &lt;&lt; std::endl;\n    std::cout &lt;&lt; message &lt;&lt; std::endl;\n  }\n  std::cout &lt;&lt; std::endl;\n\n  // \u30bf\u30d7\u30eb\u3092\u5206\u89e3\u3059\u308b\n  {\n    auto [id, message, value] = g();\n\n    std::cout &lt;&lt; id &lt;&lt; std::endl;\n    std::cout &lt;&lt; message &lt;&lt; std::endl;\n    std::cout &lt;&lt; value &lt;&lt; std::endl;\n  }\n  std::cout &lt;&lt; std::endl;\n\n  // \u5404\u8981\u7d20\u3092\u53c2\u7167\u3059\u308b\n  {\n    std::tuple&lt;int, std::string, double&gt; t = g();\n    auto&amp; [id, message, value] = t;\n\n    // t\u306e1\u756a\u76ee\u306e\u8981\u7d20\u3092\u66f8\u304d\u63db\u3048\u308b\n    message = \&#34;My World\&#34;;\n\n    std::cout &lt;&lt; std::get&lt;0&gt;(t) &lt;&lt; std::endl;\n    std::cout &lt;&lt; std::get&lt;1&gt;(t) &lt;&lt; std::endl;\n    std::cout &lt;&lt; std::get&lt;2&gt;(t) &lt;&lt; std::endl;\n  }\n  std::cout &lt;&lt; std::endl;\n\n  // \u4e00\u90e8\u306e\u8981\u7d20\u304c\u53c2\u7167\u3060\u3063\u305f\u5834\u5408\n  {\n    auto [id, message, value] = h();\n\n    // message\u5909\u6570\u306e\u53c2\u7167\u5143\u3067\u3042\u308bglobal_message\u5909\u6570\u3092\u66f8\u304d\u63db\u3048\u308b\n    message = \&#34;hello, world\&#34;;\n\n    std::cout &lt;&lt; global_message &lt;&lt; std::endl;\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;5d2629201fb11ac184b82ee64c49a88c439326a0&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\nint main()\n{\n  {\n    int ar[] = {3, 1, 4};\n\n    // \u914d\u5217\u3092\u5206\u89e3\u3059\u308b\u3002\n    // ar[0]\u304ca\u306b\u4ee3\u5165\u3055\u308c\u3001\n    // ar[1]\u304cb\u306b\u4ee3\u5165\u3055\u308c\u3001\n    // ar[2]\u304cc\u306b\u4ee3\u5165\u3055\u308c\u308b\u3002\n    // \u5206\u89e3\u3059\u308b\u8981\u7d20\u6570\u306f\u3001\u914d\u5217\u306e\u8981\u7d20\u6570\u3068\u540c\u3058\u3067\u3042\u308b\u3053\u3068\n    auto [a, b, c] = ar;\n\n    std::cout &lt;&lt; a &lt;&lt; std::endl;\n    std::cout &lt;&lt; b &lt;&lt; std::endl;\n    std::cout &lt;&lt; c &lt;&lt; std::endl;\n  }\n  std::cout &lt;&lt; std::endl;\n\n  // \u53c2\u7167\u306e\u4f8b\n  {\n    int ar[] = {3, 1, 4};\n    auto&amp; [a, b, c] = ar;\n\n    // ar[1]\u3092\u50242\u306b\u66f8\u304d\u63db\u3048\u308b\n    b = 2;\n\n    std::cout &lt;&lt; ar[0] &lt;&lt; std::endl;\n    std::cout &lt;&lt; ar[1] &lt;&lt; std::endl;\n    std::cout &lt;&lt; ar[2] &lt;&lt; std::endl;\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;d5e9f665680d06a533fabe37dd3600a062f2e1d1&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;utility&gt;\n#include &lt;tuple&gt;\n#include &lt;string&gt;\n\nstruct X {\n  int id = 3;\n  std::string message = \&#34;Hello\&#34;;\n  double value = 3.14;\n\n  // \u9759\u7684\u30e1\u30f3\u30d0\u5909\u6570\u3084\u5b9a\u6570\u306f\u3001\u69cb\u9020\u5316\u675f\u7e1b\u5ba3\u8a00\u3067\u306f\u7121\u8996\u3055\u308c\u308b\n  static int static_value;\n  static const int constant_value = 456;\n\n  X()\n  {\n    static_value = 123;\n  }\n};\nint X::static_value;\n\nint main()\n{\n  auto [id, message, value] = X();\n\n  std::cout &lt;&lt; id &lt;&lt; std::endl;\n  std::cout &lt;&lt; message &lt;&lt; std::endl;\n  std::cout &lt;&lt; value &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;f6f4b518ee062407bdb6334ca112b401dc7dc155&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;map&gt;\n#include &lt;string&gt;\n\nint main()\n{\n  std::map&lt;std::string, int&gt; m = {\n    {\&#34;Alice\&#34;, 3},\n    {\&#34;Bob\&#34;, 1},\n    {\&#34;Carol\&#34;, 4}\n  };\n\n  // map\u306e\u5404\u8981\u7d20\u3092\u30ad\u30fc\u3068\u5024\u306b\u5206\u89e3\u3059\u308b\u3002\n  // const auto&amp;\u3067\u306f\u306a\u304fauto&amp;\u306b\u3057\u305f\u5834\u5408\u306f\u3001\n  // const std::string&amp;\u578b\u306ekey\u5909\u6570\u3068\u3001\n  // int&amp;\u578b\u306evalue\u5909\u6570\u306b\u5206\u89e3\u3055\u308c\u308b\u3002\n  for (const auto&amp; [key, value] : m) {\n    std::cout &lt;&lt; key &lt;&lt; \&#34; : \&#34; &lt;&lt; value &lt;&lt; std::endl;\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;d84ca2366ea2e35a3f189a69c15df22da3a5f0f6&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;map&gt;\n#include &lt;string&gt;\n\nint main()\n{\n  std::map&lt;std::string, int&gt; m;\n\n  // \u5358\u4e00\u8981\u7d20\u3092\u3068\u308bmap::insert()\u30e1\u30f3\u30d0\u95a2\u6570\u306f\u3001\n  // \u623b\u308a\u5024\u3068\u3057\u3066pair&lt;iterator, bool&gt;\u3092\u8fd4\u3059\u3002\n  // first\u306f\u6307\u5b9a\u3057\u305f\u30ad\u30fc\u3092\u4fdd\u6301\u3059\u308b\u8981\u7d20\u3078\u306e\u30a4\u30c6\u30ec\u30fc\u30bf\u3001\n  // second\u306f\u633f\u5165\u306b\u6210\u529f\u3057\u305f\u304b\u3092\u8868\u3059bool\u5024\u3002\n  m.insert({\&#34;Alice\&#34;, 3});\n  auto [it, inserted] = m.insert({\&#34;Alice\&#34;, 1}); // \u30ad\u30fc\u304c\u3059\u3067\u306b\u767b\u9332\u3055\u308c\u3066\u3044\u305f\u3089\u633f\u5165\u306b\u5931\u6557\u3059\u308b\n\n  std::cout &lt;&lt; it-&gt;second &lt;&lt; std::endl;\n  std::cout &lt;&lt; std::boolalpha &lt;&lt; inserted &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp17&#34;, &#34;structured_bindings&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp17.html" itemprop="url">
+              
+                <span itemprop="name">C++17</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">構造化束縛 [P0217R3]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-07-08T15:33:39">
+        2025年07月08日 15時33分39秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp17/structured_bindings.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp17/structured_bindings.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">構造化束縛 [P0217R3]</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++17に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>「構造化束縛 (structured bindings)」は、組やタプル、配列や構造体を分解して各要素を取り出す機能である。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">f</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="s">"Hello"</span><span class="p">};</span>
+<span class="p">}</span>
+
+<span class="c1">// 関数f()の戻り値である整数と文字列の組を分解する。</span>
+<span class="c1">// <a href="../../reference/utility/pair.html">pair</a>のfirstをid変数に代入し、secondをmessage変数に代入する。</span>
+<span class="c1">// id変数の型はfirstの型(int)となり、message変数の型はsecondの型(string)となる。</span>
+<span class="k">auto</span> <span class="p">[</span><span class="n">id</span><span class="p">,</span> <span class="n">message</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">();</span>
+
+<span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">id</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>      <span class="c1">// 「3」が出力される</span>
+<span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">message</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="c1">// 「Hello」が出力される</span>
+</code></pre></div>
+</p>
+<p>この機能は、他の言語では「多重代入 (Multiple assignment, Python言語やRuby言語)」や「分割代入 (Destructuring assignment, JavaScript言語)」といった名称で知られている。</p>
+<p>構造化束縛は、多値を返す関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を、受け取りやすくするための機能である。構造の各要素を受け取るための変数宣言と構造の分解を同時に行う。</p>
+<p>変数宣言は、<code>auto</code>を記述したあとに角カッコ内に変数名を列挙する。それぞれの変数に対する、型や修飾子の指定はできない。<code>auto</code>の部分を<code>const auto&amp;</code>のように、全体に対して<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>や参照を付加することはできる。それぞれの変数の型は、各要素を<code>decltype</code>したものとなる。</p>
+<h2>仕様</h2>
+<ul>
+<li>「構造化束縛 (structured binding)」は宣言(declaration)に分類される機能である</li>
+<li>
+<p>構文は以下のようになる：
+  <br />
+<pre><code>宣言子構文 :  記憶域クラス(opt) インライン指定(opt) CV修飾(opt) 型(autoのみ指定可能)
+
+構造化束縛宣言1 : 属性リスト(opt) 宣言子構文 参照修飾(opt) [識別子リスト] = 初期化子;
+構造化束縛宣言2 : 属性リスト(opt) 宣言子構文 参照修飾(opt) [識別子リスト] {初期化子};
+</code></pre></p>
+</li>
+<li>
+<p>識別子リストの変数には、左から右に順番に代入される。この順番は、構造体であれば宣言順、配列であれば要素順となる</p>
+</li>
+<li>右辺の型が配列である場合、識別子リストの要素数は、配列の要素と同じであること。配列の0番目の要素が識別子リストの0番目の要素に代入され、配列の1番目の要素が識別子の1番目の要素に代入され、それが配列の要素数 - 1の添字まで繰り返される</li>
+<li>右辺の型が式<code><a href="../../reference/tuple/tuple_size.html">std::tuple_size</a>&lt;T&gt;::value</code>が妥当である場合 (タプルとしてi番目の要素を参照できる型)、識別子の要素数はその式の値と同じであること</li>
+<li>右辺の型がメンバ関数<code>get()</code>を持っている場合は式<code>x.get&lt;i&gt;()</code>の呼び出しで<code>i</code>番目の要素が識別子リストの<code>i</code>番目の要素に代入される。そうでなければ、名前空間修飾なしの<code>get&lt;i&gt;(x)</code>呼び出しの結果が識別子リストの<code>i</code>番目の要素に代入され (<code>get</code>関数は<a class="cpprefjp-defined-word" data-desc="実引数依存の名前探索 (Argument Dependent Lookup)。引数の型が所属する名前空間の関数を探索する言語機能">ADL</a>によって関連名前空間で探索される)、それがタプルの要素数 - 1の添字まで繰り返される</li>
+<li>右辺の型がクラスで、非静的メンバ変数を直接持つ、あるいは非静的メンバ変数を曖昧さのない基底クラスが持つ場合、識別子リストの要素数は、非静的メンバ変数の数と同じであること。そのクラスは、無名共用体メンバを持ってはならない。そのクラスの非静的メンバ変数は、宣言順に識別子リストの変数に代入される<ul>
+<li>クラスの非静的メンバ変数がビットフィールドであった場合、分解された識別子の変数もまたビットフィールドとなる</li>
+</ul>
+</li>
+<li>右辺のオブジェクトの要素が参照である場合、宣言子全体が参照修飾されていない場合でも、対応する識別子の各変数は参照となる</li>
+</ul>
+<h2>備考</h2>
+<ul>
+<li>構造化束縛の導入に合わせて、<code><a href="../../reference/tuple/tuple_size.html">std::tuple_size</a></code>の仕様が見直され、SFINAEで使用できるよう改訂された。これにより、<code><a href="../../reference/tuple/tuple_size.html">std::tuple_size</a></code>に対して適用できない型が渡されても、直接的にコンパイルエラーにはならなくなった</li>
+</ul>
+<h2>例</h2>
+<h3>組・タプルを分解する例</h3>
+<p><div class="yata" id="af5e4dfa0e398f68b4cc4ee72f08b1d0de619687"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/tuple.html">&lt;tuple&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
+
+<span class="n"><a href="../../reference/utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">f</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="s">"Hello"</span><span class="p">};</span>
+<span class="p">}</span>
+
+<span class="n"><a href="../../reference/tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">g</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="s">"World"</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">};</span>
+<span class="p">}</span>
+
+<span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">global_message</span> <span class="o">=</span> <span class="s">"HELLO, WORLD"</span><span class="p">;</span>
+<span class="n"><a href="../../reference/tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&amp;</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">h</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="n"><a href="../../reference/tuple/forward_as_tuple.html">std::forward_as_tuple</a></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">global_message</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// 組を分解する</span>
+  <span class="p">{</span>
+    <span class="c1">// 関数f()の戻り値である整数と文字列の組を分解する。</span>
+    <span class="c1">// <a href="../../reference/utility/pair.html">pair</a>のfirstをid変数に代入し、secondをmessage変数に代入する。</span>
+    <span class="c1">// id変数の型はfirstの型(int)となり、message変数の型はsecondの型(string)となる。</span>
+    <span class="k">auto</span> <span class="p">[</span><span class="n">id</span><span class="p">,</span> <span class="n">message</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">();</span>
+
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">id</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">message</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// タプルを分解する</span>
+  <span class="p">{</span>
+    <span class="k">auto</span> <span class="p">[</span><span class="n">id</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">value</span><span class="p">]</span> <span class="o">=</span> <span class="n">g</span><span class="p">();</span>
+
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">id</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">message</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// 各要素を参照する</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../../reference/tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;</span> <span class="n">t</span> <span class="o">=</span> <span class="n">g</span><span class="p">();</span>
+    <span class="k">auto</span><span class="o">&amp;</span> <span class="p">[</span><span class="n">id</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">value</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span><span class="p">;</span>
+
+    <span class="c1">// tの1番目の要素を書き換える</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s">"My World"</span><span class="p">;</span>
+
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">get</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">get</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">get</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// 一部の要素が参照だった場合</span>
+  <span class="p">{</span>
+    <span class="k">auto</span> <span class="p">[</span><span class="n">id</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">value</span><span class="p">]</span> <span class="o">=</span> <span class="n">h</span><span class="p">();</span>
+
+    <span class="c1">// message変数の参照元であるglobal_message変数を書き換える</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s">"hello, world"</span><span class="p">;</span>
+
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">global_message</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>3
+Hello
+
+1
+World
+3.14
+
+1
+My World
+3.14
+
+hello, world
+</code></pre></p>
+<h3>配列を分解する</h3>
+<p><div class="yata" id="5d2629201fb11ac184b82ee64c49a88c439326a0"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">ar</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
+
+    <span class="c1">// 配列を分解する。</span>
+    <span class="c1">// ar[0]がaに代入され、</span>
+    <span class="c1">// ar[1]がbに代入され、</span>
+    <span class="c1">// ar[2]がcに代入される。</span>
+    <span class="c1">// 分解する要素数は、配列の要素数と同じであること</span>
+    <span class="k">auto</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">ar</span><span class="p">;</span>
+
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// 参照の例</span>
+  <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">ar</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
+    <span class="k">auto</span><span class="o">&amp;</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">ar</span><span class="p">;</span>
+
+    <span class="c1">// ar[1]を値2に書き換える</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">ar</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">ar</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">ar</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>3
+1
+4
+
+3
+2
+4
+</code></pre></p>
+<h3>非静的メンバ変数を持つクラスを分解する</h3>
+<p><div class="yata" id="d5e9f665680d06a533fabe37dd3600a062f2e1d1"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/tuple.html">&lt;tuple&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">message</span> <span class="o">=</span> <span class="s">"Hello"</span><span class="p">;</span>
+  <span class="kt">double</span> <span class="n">value</span> <span class="o">=</span> <span class="mf">3.14</span><span class="p">;</span>
+
+  <span class="c1">// 静的メンバ変数や定数は、構造化束縛宣言では無視される</span>
+  <span class="k">static</span> <span class="kt">int</span> <span class="n">static_value</span><span class="p">;</span>
+  <span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">constant_value</span> <span class="o">=</span> <span class="mi">456</span><span class="p">;</span>
+
+  <span class="n">X</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="n">static_value</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+<span class="kt">int</span> <span class="n">X</span><span class="o">::</span><span class="n">static_value</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">auto</span> <span class="p">[</span><span class="n">id</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">value</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="p">();</span>
+
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">id</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">message</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>3
+Hello
+3.14
+</code></pre></p>
+<h3>mapを範囲for文で走査する</h3>
+<p><div class="yata" id="f6f4b518ee062407bdb6334ca112b401dc7dc155"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/map.html">&lt;map&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../reference/map/map.html">std::map</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">m</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">{</span><span class="s">"Alice"</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">"Bob"</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">"Carol"</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="c1">// mapの各要素をキーと値に分解する。</span>
+  <span class="c1">// const auto&amp;ではなくauto&amp;にした場合は、</span>
+  <span class="c1">// const <a href="../../reference/string/basic_string.html">std::string</a>&amp;型のkey変数と、</span>
+  <span class="c1">// int&amp;型のvalue変数に分解される。</span>
+  <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="p">[</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">]</span> <span class="o">:</span> <span class="n">m</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">key</span> <span class="o">&lt;&lt;</span> <span class="s">" : "</span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>Alice : 3
+Bob : 1
+Carol : 4
+</code></pre></p>
+<h3>map::insert()の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を分解する</h3>
+<p><div class="yata" id="d84ca2366ea2e35a3f189a69c15df22da3a5f0f6"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/map.html">&lt;map&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../reference/map/map.html">std::map</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">m</span><span class="p">;</span>
+
+  <span class="c1">// 単一要素をとるmap::<a href="../../reference/map/map/insert.html">insert</a>()メンバ関数は、</span>
+  <span class="c1">// 戻り値として<a href="../../reference/utility/pair.html">pair</a>&lt;iterator, bool&gt;を返す。</span>
+  <span class="c1">// firstは指定したキーを保持する要素へのイテレータ、</span>
+  <span class="c1">// secondは挿入に成功したかを表すbool値。</span>
+  <span class="n">m</span><span class="p">.</span><span class="n"><a href="../../reference/map/map/insert.html">insert</a></span><span class="p">({</span><span class="s">"Alice"</span><span class="p">,</span> <span class="mi">3</span><span class="p">});</span>
+  <span class="k">auto</span> <span class="p">[</span><span class="n">it</span><span class="p">,</span> <span class="n">inserted</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="p">.</span><span class="n"><a href="../../reference/map/map/insert.html">insert</a></span><span class="p">({</span><span class="s">"Alice"</span><span class="p">,</span> <span class="mi">1</span><span class="p">});</span> <span class="c1">// キーがすでに登録されていたら挿入に失敗する</span>
+
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">second</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ios/boolalpha.html">std::boolalpha</a></span> <span class="o">&lt;&lt;</span> <span class="n">inserted</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>3
+false
+</code></pre></p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>従来の手法では、組を返す関数があった場合、以下のように<code><a href="../../reference/utility/pair.html">std::pair</a></code>型の変数を用意してから<code>first</code>と<code>second</code>それぞれに名前を付けるために変数を用意して代入したり、</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">p</span> <span class="o">=</span> <span class="n">f</span><span class="p">();</span>
+<span class="kt">int</span> <span class="n">id</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">first</span><span class="p">;</span>
+<span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">message</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">second</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<p>もう少し代入が簡単になるように、<code><a href="../../reference/tuple/tie.html">std::tie()</a></code>関数を使用したりしていた。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="n">id</span><span class="p">;</span>
+<span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">message</span><span class="p">;</span>
+<span class="n"><a href="../../reference/tuple/tie.html">std::tie</a></span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span> <span class="o">=</span> <span class="n">f</span><span class="p">();</span>
+</code></pre></div>
+</p>
+<p>これらの問題は、変数宣言と構造の分解が同時にできないことで、その間にバグが入り込む余地があったということである。また、分解対象の型に対して「デフォルトコンストラクタを持っていること」という余分な要求をしてしまう問題もあった。</p>
+<p>構造化束縛が導入されることで、変数宣言と構造の分解が同時になり、バグが混入する可能性が減るだろう。ただし、C++17時点での構造化束縛は、あらゆる状況のための完全な機能を備えてはいない。ひとつは、使用しない変数を指定する方法がない。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// 真ん中の変数は使用しない</span>
+<span class="k">auto</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">unused</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">();</span>
+</code></pre></div>
+</p>
+<p>C++17時点の構造化束縛では、使用しない変数もコピーあるいはムーブされ、新たな変数が作られてしまう。</p>
+<p>また、入れ子になった構造を同時に分解する機能も備えていないため、そのような状況では分解しにくいこともあるだろう。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/tuple/tuple.html">std::tuple</a></span><span class="o">&lt;</span><span class="n">T1</span><span class="p">,</span> <span class="n"><a href="../../reference/utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="n">T2</span><span class="p">,</span> <span class="n">T3</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">T4</span><span class="o">&gt;</span> <span class="n">f</span><span class="p">();</span>
+<span class="k">auto</span> <span class="p">{</span> <span class="n">w</span><span class="p">,</span> <span class="p">{</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">},</span> <span class="n">z</span> <span class="p">}</span> <span class="o">=</span> <span class="n">f</span><span class="p">();</span> <span class="c1">// このような、<a href="../../reference/tuple/tuple.html">tuple</a>内にある<a href="../../reference/utility/pair.html">pair</a>を同時に分解はできない</span>
+</code></pre></div>
+</p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><a href="../cpp20/allow_structured_bindings_to_accessible_members.html">C++20 friend指定された関数内から構造化束縛を使用して非公開メンバ変数にアクセスすることを許可</a></li>
+<li><a href="../cpp20/relaxing_the_structured_bindings_customization_point_finding_rules.html">C++20 構造化束縛がカスタマイゼーションポイントを見つけるルールを緩和</a></li>
+<li><a href="../cpp20/extending_structured_bindings_to_be_more_like_variable_declarations.html">C++20 構造化束縛を拡張して通常の変数宣言のように使用できるようにする</a></li>
+<li><a href="../cpp20/reference_capture_of_structured_bindings.html">C++20 構造化束縛した変数の参照キャプチャを許可</a></li>
+<li><a href="../cpp26/attributes_for_structured_bindings.html">C++26 構造化束縛への属性を許可</a></li>
+<li><a href="../cpp26/structured_binding_declaration_as_a_condition.html">C++26 条件式での構造化束縛の使用を許可</a></li>
+<li><a href="../cpp26/nice_placeholder_with_no_name.html">C++26 宣言のみで使用しない変数の名前として<code>_</code>をサポート</a></li>
+<li><a href="../cpp26/structured_bindings_can_introduce_a_pack.html">C++26 構造化束縛でパックを導入できるようにする</a></li>
+<li><a href="../cpp26/constexpr_structured_bindings_and_references_to_constexpr_variables.html">C++26 <code>constexpr</code>構造化束縛の許可と、<code>constexpr</code>参照の制限緩和</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0144r0.pdf" target="_blank">P0144R0 Structured Bindings</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0144r1.pdf" target="_blank">P0144R1 Structured Bindings</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0217r0.html" target="_blank">P0217R0 Proposed wording for structured bindings</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0217r1.html" target="_blank">P0217R1 Proposed wording for structured bindings</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0217r2.html" target="_blank">P0217R2 Proposed wording for structured bindings</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0217r3.html" target="_blank">P0217R3 Proposed wording for structured bindings</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0615r0.html" target="_blank">P0615R0 Renaming for structured bindings</a></li>
+<li><a href="http://wg21.cmeerw.net/lwg/issue2770" target="_blank">LWG DR2770 <code>tuple_size&lt;const T&gt;</code> specialization breaks decomposition declarations</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
