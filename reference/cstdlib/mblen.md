@@ -51,7 +51,6 @@ int main() {
 #include <clocale>
 
 int count_chars_mblen(const char* s) {
-  std::setlocale(LC_ALL, "ja_JP.UTF-8");
   int count = 0;
   size_t i = 0;
   while (s[i] != '\0') {
@@ -66,6 +65,8 @@ int count_chars_mblen(const char* s) {
 }
 
 int main() {
+  std::setlocale(LC_ALL, "ja_JP.UTF-8");
+
   const char* str = "こんにちは世界";
   std::cout << "文字列: " << str << "\n";
   std::cout << "文字数: " << count_chars_mblen(str) << "\n";
