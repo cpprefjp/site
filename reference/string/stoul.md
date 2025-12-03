@@ -48,7 +48,7 @@ namespace std {
 - Clang (libc++) 3.3では、この関数の呼び出し前後で`errno`の値は変化しない。
 
 ### グローバルロケールの影響
-この関数は、`setlocale()`関数により挙動が変化する。
+この関数は、[`setlocale()`](/reference/clocale/setlocale.md)関数により挙動が変化する。
 
 `strtoul()`関数での文字列先頭の空白を読み飛ばす処理に、`<cctype>`の`isspace()`関数が使用されるためである。
 
