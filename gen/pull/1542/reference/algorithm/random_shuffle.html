@@ -1,0 +1,333 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>random_shuffle - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,algorithm,std,function template,cpp14deprecated
+">
+        <meta name="title" content="random_shuffle - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="random_shuffle - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="random_shuffle - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/algorithm/random_shuffle.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="イテレータ範囲`[first,last)`のそれぞれの要素を同じ確率で並び替える。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="random_shuffle - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/algorithm/random_shuffle.html" />
+        <meta name="twitter:description" content="イテレータ範囲`[first,last)`のそれぞれの要素を同じ確率で並び替える。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="manifest" href="../../manifest.json?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;algorithm&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;cpp&#34;: [&#34;cpp14deprecated&#34;, &#34;cpp17removed&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;e8b759426565178c23a895c80843819719b4b89a&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;algorithm&gt;\n#include &lt;numeric&gt;\n#include &lt;iterator&gt;\n\nint main() {\n  std::vector&lt;int&gt; v(10);\n  std::iota(v.begin(), v.end(), 0); // 0\uff5e9 \u307e\u3067\u306e\u5024\u3092\u751f\u6210\n\n  std::cout &lt;&lt; \&#34;before: \&#34;;\n  std::copy(v.begin(), v.end(), std::ostream_iterator&lt;int&gt;(std::cout));\n  std::cout &lt;&lt; std::endl;\n\n  // \u30b7\u30e3\u30c3\u30d5\u30eb\n  std::random_shuffle(v.begin(), v.end());\n\n  std::cout &lt;&lt; \&#34; after: \&#34;;\n  std::copy(v.begin(), v.end(), std::ostream_iterator&lt;int&gt;(std::cout));\n  std::cout &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;algorithm&#34;, &#34;random_shuffle&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/algorithm.html" itemprop="url">
+              
+                <span itemprop="name">algorithm</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">random_shuffle</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-07-08T15:33:39">
+        2025年07月08日 15時33分39秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/algorithm/random_shuffle.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/algorithm/random_shuffle.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function template</div><div class="header">&lt;algorithm&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">random_shuffle</span><span class="cpp cpp14deprecated text-warning" title="C++14で非推奨">(C++14で非推奨)</span><span class="cpp cpp17removed text-danger" title="C++17で削除">(C++17で削除)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">RandomAccessIterator</span><span class="o">&gt;</span>
+  <span class="kt">void</span> <span class="n">random_shuffle</span><span class="p">(</span><span class="n">RandomAccessIterator</span> <span class="n">first</span><span class="p">,</span>
+                      <span class="n">RandomAccessIterator</span> <span class="n">last</span><span class="p">);</span>    <span class="c1">// (1)</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">RandomAccessIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">RandomNumberGenerator</span><span class="o">&gt;</span>
+  <span class="kt">void</span> <span class="n">random_shuffle</span><span class="p">(</span><span class="n">RandomAccessIterator</span> <span class="n">first</span><span class="p">,</span>
+                      <span class="n">RandomAccessIterator</span> <span class="n">last</span><span class="p">,</span>
+                      <span class="n">RandomNumberGenerator</span><span class="o">&amp;</span> <span class="n">rand</span><span class="p">);</span>  <span class="c1">// (2) C++03</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">RandomAccessIterator</span><span class="p">,</span> <span class="k">class</span> <span class="nc">RandomNumberGenerator</span><span class="o">&gt;</span>
+  <span class="kt">void</span> <span class="n">random_shuffle</span><span class="p">(</span><span class="n">RandomAccessIterator</span> <span class="n">first</span><span class="p">,</span>
+                      <span class="n">RandomAccessIterator</span> <span class="n">last</span><span class="p">,</span>
+                      <span class="n">RandomNumberGenerator</span><span class="o">&amp;&amp;</span> <span class="n">rand</span><span class="p">);</span> <span class="c1">// (2) C++11</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>この関数は、C++14から非推奨となり、C++17で削除された。代わりに<code><a href="shuffle.html">shuffle()</a></code>関数を使用すること。</p>
+<h2>概要</h2>
+<p><a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a><code>[first,last)</code>のそれぞれの要素を同じ確率で並び替える。</p>
+<h2>要件</h2>
+<ul>
+<li><code>RandomAccessIterator</code> は <code>ValueSwappable</code> の要件を満たしている必要がある。</li>
+<li>乱数生成関数オブジェクトである <code>rand</code> の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>は <code><a href="../iterator/iterator_traits.html">iterator_traits</a>&lt;RandomAccessIterator&gt;::difference_type</code> へ変換可能でなければならない。</li>
+<li>0 より大きい <code><a href="../iterator/iterator_traits.html">iterator_traits</a>&lt;RandomAccessIterator&gt;::difference_type</code> 型の <code>n</code> について、<code>rand(n)</code> という呼び出しは <code>[0,n)</code> の範囲から無作為に選ばれた値を返す必要がある。</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></h2>
+<p>正確に <code>(last - first) - 1</code> 回 swap する。</p>
+<h2>備考</h2>
+<p>最初の形式がC互換ライブラリの <code>std::rand()</code>関数を使うかどうかは実装依存である。</p>
+<h2>非推奨・削除の詳細(C++14)</h2>
+<p>C++14では、C互換ライブラリの乱数生成関数である<code>std::rand()</code>と<code>std::srand()</code>が非推奨となった。</p>
+<p>これらの関数には、以下のような問題があった：</p>
+<ul>
+<li>値の範囲が小さい。<code>RAND_MAX</code>の値が非常に小さく、範囲<code>[0, 32767]</code>の値しか生成できなかった。</li>
+<li>任意の範囲を取得するために、剰余演算が使われていた。これはMudulo biasという問題によって、生成確率が一様にならない。</li>
+<li>これらの関数は<code>static</code>な唯一の状態を持つため、複数の状態が必要な状況に対処できなかった。</li>
+</ul>
+<p>こういった問題により、多くのプロジェクトがこれらの関数を使用することを、明確に禁止していた。そのため、これらの関数が非推奨となった。</p>
+<p><code>std::random_shuffle()</code>関数は<code>std::rand()</code>に依存したアルゴリズムであるため、共に非推奨となった。</p>
+<p><code>std::rand()</code>と<code>std::srand()</code>の代わりに、<code><a href="../random.html">&lt;random&gt;</a></code>ヘッダで定義される乱数生成器と分布を使用すること。<code>std::random_shuffle()</code>関数の代わりに、<code><a href="shuffle.html">std::shuffle()</a></code>関数を使用すること。</p>
+<h2>例</h2>
+<p><div class="yata" id="e8b759426565178c23a895c80843819719b4b89a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../numeric.html">&lt;numeric&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iterator.html">&lt;iterator&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+  <span class="n"><a href="../numeric/iota.html">std::iota</a></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// 0～9 までの値を生成</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"before: "</span><span class="p">;</span>
+  <span class="n"><a href="copy.html">std::copy</a></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span> <span class="n"><a href="../iterator/ostream_iterator.html">std::ostream_iterator</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="p">));</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// シャッフル</span>
+  <span class="n"><span style="color:#ff0000">std::random_shuffle</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">);</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">" after: "</span><span class="p">;</span>
+  <span class="n"><a href="copy.html">std::copy</a></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span> <span class="n"><a href="../iterator/ostream_iterator.html">std::ostream_iterator</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../iostream/cout.html">std::cout</a></span><span class="p">));</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>before: 0123456789
+ after: 4378052169
+</code></pre></p>
+<h2>実装例</h2>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// [0,n) のどれかの値を返す内部関数</span>
+<span class="n">T</span> <span class="nf">get_random_number</span><span class="p">(</span><span class="n">T</span> <span class="n">n</span><span class="p">);</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">RandomAccessIterator</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">random_shuffle</span><span class="p">(</span><span class="n">RandomAccessIterator</span> <span class="n">first</span><span class="p">,</span> <span class="n">RandomAccessIterator</span> <span class="n">last</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">first</span> <span class="o">==</span> <span class="n">last</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">first</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">last</span><span class="p">;</span> <span class="o">++</span><span class="n">it</span><span class="p">)</span>
+    <span class="n"><a href="iter_swap.html">iter_swap</a></span><span class="p">(</span><span class="n">it</span><span class="p">,</span> <span class="n">first</span> <span class="o">+</span> <span class="n">get_random_number</span><span class="p">(</span><span class="n">it</span> <span class="o">-</span> <span class="n">first</span> <span class="o">+</span> <span class="mi">1</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">RandomAccessIterator</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">random_shuffle</span><span class="p">(</span><span class="n">RandomAccessIterator</span> <span class="n">first</span><span class="p">,</span> <span class="n">RandomAccessIterator</span> <span class="n">last</span><span class="p">,</span> <span class="n">RandomNumberGenerator</span><span class="o">&amp;&amp;</span> <span class="n">rand</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">first</span> <span class="o">==</span> <span class="n">last</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">first</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">last</span><span class="p">;</span> <span class="o">++</span><span class="n">it</span><span class="p">)</span>
+    <span class="n"><a href="iter_swap.html">iter_swap</a></span><span class="p">(</span><span class="n">it</span><span class="p">,</span> <span class="n">first</span> <span class="o">+</span> <span class="n">rand</span><span class="p">(</span><span class="n">it</span> <span class="o">-</span> <span class="n">first</span> <span class="o">+</span> <span class="mi">1</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>参照</h2>
+<ul>
+<li><a href="http://web.archive.org/web/20201123200831/https://channel9.msdn.com/Events/GoingNative/2013/rand-Considered-Harmful" target="_blank">rand() Considered Harmful - Going Native 2013</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3924.pdf" target="_blank">N3924 Discouraging rand() in C++14, v2</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4190.htm" target="_blank">N4190 Removing <code>auto_ptr</code>, <code>random_shuffle()</code>, And Old <code>&lt;functional&gt;</code> Stuff</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

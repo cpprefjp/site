@@ -1,0 +1,490 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>three_way_comparable - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,compare,std,concept,cpp20
+">
+        <meta name="title" content="three_way_comparable - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="three_way_comparable - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="three_way_comparable - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/compare/three_way_comparable.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`three_way_comparable`及び`three_way_comparable_with`は、指定された型`T`もしくは`T, U`の間で`&lt;=&gt;`による三方比較を使用可能であり、その戻り値型が指定した[比較カテゴリ型](/reference/compare.md)`Cat`に変換可能であることを表すコンセプトである。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="three_way_comparable - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/compare/three_way_comparable.html" />
+        <meta name="twitter:description" content="`three_way_comparable`及び`three_way_comparable_with`は、指定された型`T`もしくは`T, U`の間で`&lt;=&gt;`による三方比較を使用可能であり、その戻り値型が指定した[比較カテゴリ型](/reference/compare.md)`Cat`に変換可能であることを表すコンセプトである。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="manifest" href="../../manifest.json?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;compare&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;concept&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;bf861cfc0875ba3b0a41e7ef75711c38a969280d&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;compare&gt;\n\n//&lt;=&gt;\u304c\u4f7f\u7528\u53ef\u80fd\u306a\u3089\u305d\u308c\u3092\u4f7f\u7528\u3057\u3066\u6bd4\u8f03\u7d50\u679c\u3092\u51fa\u529b\ntemplate&lt;std::three_way_comparable T&gt;\nvoid print_is_less(const T&amp; t, const T&amp; u) {\n  std::cout &lt;&lt; \&#34;&lt;=&gt; : \&#34; &lt;&lt; ((t &lt;=&gt; u) &lt; 0) &lt;&lt; std::endl;\n}\n\n//&lt;=&gt;\u304c\u4f7f\u7528\u53ef\u80fd\u3067\u306a\u3044\u306a\u3089&lt;\u6f14\u7b97\u5b50\u3092\u4f7f\u7528\ntemplate&lt;typename T&gt;\nvoid print_is_less(const T&amp; t, const T&amp; u) {\n  std::cout &lt;&lt; \&#34;&lt;   : \&#34; &lt;&lt; (t &lt; u) &lt;&lt; std::endl;\n}\n\n\n//&lt;\u6f14\u7b97\u5b50\u3060\u3051\u304c\u4f7f\u7528\u53ef\u80fd\nstruct L {\n  int n;\n  friend bool operator&lt;(const L&amp; a, const L&amp; b) { return a.n &lt; b.n;}\n};\n\n//&lt;=&gt;\u6f14\u7b97\u5b50\u542b\u3081\u3001\u5168\u3066\u306e\u6bd4\u8f03\u6f14\u7b97\u304c\u53ef\u80fd\nstruct S {\n  int n;\n\n  friend auto operator&lt;=&gt;(const S&amp; a, const S&amp; b) = default;\n  //friend bool operator== (const S&amp; a, const S&amp; b) = default;\n};\n\n\nint main() {\n  std::cout &lt;&lt; std::boolalpha;\n  L l1{1}, l2{2};\n  S s1{1}, s2{2};\n\n  print_is_less(1, 2);\n  print_is_less(-0.0, +0.0);\n  print_is_less(l1, l2);\n  print_is_less(s1, s2);\n}\n&#34;}, {&#34;id&#34;: &#34;3b5dda13061bd16a71e087c192015ab23740b9d9&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;compare&gt;\n\n//&lt;=&gt;\u304c\u4f7f\u7528\u53ef\u80fd\u306a\u3089\u305d\u308c\u3092\u4f7f\u7528\u3057\u3066\u6bd4\u8f03\u7d50\u679c\u3092\u51fa\u529b\ntemplate&lt;typename T, typename U&gt;\nrequires std::three_way_comparable_with&lt;T, U&gt;\nvoid print_is_less(const T&amp; t, const U&amp; u) {\n  std::cout &lt;&lt; \&#34;&lt;=&gt; : \&#34; &lt;&lt; ((t &lt;=&gt; u) &lt; 0) &lt;&lt; std::endl;\n}\n\n//&lt;=&gt;\u304c\u4f7f\u7528\u53ef\u80fd\u3067\u306a\u3044\u306a\u3089&lt;\u6f14\u7b97\u5b50\u3092\u4f7f\u7528\ntemplate&lt;typename T, typename U&gt;\nvoid print_is_less(const T&amp; t, const U&amp; u) {\n  std::cout &lt;&lt; \&#34;&lt;   : \&#34; &lt;&lt; (t &lt; u) &lt;&lt; std::endl;\n}\n\n//\u5171\u901a\u306e\u53c2\u7167\u578b\u3092\u4f5c\u308b\u305f\u3081\u306b\u5fc5\u8981\nstruct B {\n  friend auto operator&lt;=&gt;(const B&amp;, const B&amp;) = default;\n  //friend bool operator== (const B&amp;, const B&amp;) = default;\n};\n\nstruct S1 : B {\n  std::size_t s;\n\n  friend auto operator&lt;=&gt;(const S1&amp;, const S1&amp;) = default;\n  //friend bool operator== (const S1&amp;, const S1&amp;) = default;\n};\n\nstruct S2 : B {\n  std::size_t s;\n\n  friend auto operator&lt;=&gt;(const S2&amp;, const S2&amp;) = default;\n  friend bool operator== (const S2&amp;, const S2&amp;) = default;  //\u3053\u306e\u5ba3\u8a00\u306f\u5fc5\u8981\n\n  friend bool operator== (const S1&amp; a, const S2&amp; b) { return a.s ==  b.s;}\n  friend auto operator&lt;=&gt;(const S1&amp; a, const S2&amp; b) { return a.s &lt;=&gt; b.s;}\n};\n\n//std::common_reference\u304a\u3088\u3073std::common_reference_with\u306b\u30a2\u30c0\u30d7\u30c8\u3059\u308b\nnamespace std {\n  template&lt;template&lt;class&gt; class TQual, template&lt;class&gt; class UQual&gt;\n  struct basic_common_reference&lt;S1, S2, TQual, UQual&gt; {\n    using type = const B&amp;;  //const\u5fc5\u9808\n  };\n\n  //\u5bfe\u79f0\u6027\u306e\u305f\u3081\u306b\u5f15\u6570\u9806\u3092\u9006\u306b\u3057\u305f\u3082\u306e\u3082\u5b9a\u7fa9\u3059\u308b\n  template&lt;template&lt;class&gt; class TQual, template&lt;class&gt; class UQual&gt;\n  struct basic_common_reference&lt;S2, S1, TQual, UQual&gt; {\n    using type = const B&amp;;  //const\u5fc5\u9808\n  };\n}\n\n\nint main() {\n  std::cout &lt;&lt; std::boolalpha;\n  S1 s1{{}, 0u};\n  S2 s2{{}, 2u};\n\n  print_is_less(s1, s2);\n  print_is_less(s2, s1);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;compare&#34;, &#34;three_way_comparable&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/compare.html" itemprop="url">
+              
+                <span itemprop="name">compare</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">three_way_comparable</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-07-14T14:12:05">
+        2025年07月14日 14時12分05秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Koichi Murase</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/compare/three_way_comparable.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/compare/three_way_comparable.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">concept</div><div class="header">&lt;compare&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">three_way_comparable</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Cat</span> <span class="o">=</span> <span class="n">partial_ordering</span><span class="o">&gt;</span>
+  <span class="n">concept</span> <span class="n"><a href="">three_way_comparable</a></span> <span class="o">=</span> <span class="n"><i>see below</i></span><span class="p">;</span>                <span class="c1">// (1)</span>
+
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Cat</span> <span class="o">=</span> <span class="n">partial_ordering</span><span class="o">&gt;</span>
+  <span class="n">concept</span> <span class="n"><a href="">three_way_comparable_with</a></span> <span class="o">=</span> <span class="n"><i>see below</i></span><span class="p">;</span>           <span class="c1">// (2)</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>three_way_comparable</code>及び<code>three_way_comparable_with</code>は、指定された型<code>T</code>もしくは<code>T, U</code>の間で<code>&lt;=&gt;</code>による三方比較を使用可能であり、その<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型が指定した<a href="../compare.html">比較カテゴリ型</a><code>Cat</code>に変換可能であることを表すコンセプトである。</p>
+<h2>要件</h2>
+<p>まず、説明専用のコンセプト<code>compares-as</code>及び<code>partially-ordered-with</code>を以下のように定義する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">//Catがvoidでないなら、TとCatは比較カテゴリ型でありTはCatへ変換可能である</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Cat</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">compares</span><span class="o">-</span><span class="n">as</span> <span class="o">=</span> <span class="n"><a href="../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n"><a href="common_comparison_category.html">common_comparison_category_t</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">Cat</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">Cat</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="c1">//順序付けの4種×2方向の比較演算子が使用可能であり、戻り値型が<a href="../concepts/boolean-testable.html">boolean-testable</a>コンセプトを満たす</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">partially</span><span class="o">-</span><span class="n">ordered</span><span class="o">-</span><span class="n">with</span> <span class="o">=</span>
+  <span class="n">requires</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../type_traits/remove_reference.html">remove_reference_t</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">t</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../type_traits/remove_reference.html">remove_reference_t</a></span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;</span> <span class="n">u</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">{</span> <span class="n">t</span> <span class="o">&lt;</span>  <span class="n">u</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="../concepts/boolean-testable.html">boolean-testable</a></span><span class="p">;</span>
+    <span class="p">{</span> <span class="n">t</span> <span class="o">&gt;</span>  <span class="n">u</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="../concepts/boolean-testable.html">boolean-testable</a></span><span class="p">;</span>
+    <span class="p">{</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="n">u</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="../concepts/boolean-testable.html">boolean-testable</a></span><span class="p">;</span>
+    <span class="p">{</span> <span class="n">t</span> <span class="o">&gt;=</span> <span class="n">u</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="../concepts/boolean-testable.html">boolean-testable</a></span><span class="p">;</span>
+    <span class="p">{</span> <span class="n">u</span> <span class="o">&lt;</span>  <span class="n">t</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="../concepts/boolean-testable.html">boolean-testable</a></span><span class="p">;</span>
+    <span class="p">{</span> <span class="n">u</span> <span class="o">&gt;</span>  <span class="n">t</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="../concepts/boolean-testable.html">boolean-testable</a></span><span class="p">;</span>
+    <span class="p">{</span> <span class="n">u</span> <span class="o">&lt;=</span> <span class="n">t</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="../concepts/boolean-testable.html">boolean-testable</a></span><span class="p">;</span>
+    <span class="p">{</span> <span class="n">u</span> <span class="o">&gt;=</span> <span class="n">t</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="../concepts/boolean-testable.html">boolean-testable</a></span><span class="p">;</span>
+  <span class="p">};</span>
+</code></pre></div>
+</p>
+<ul>
+<li>(1) : 以下のように定義される。</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Cat</span> <span class="o">=</span> <span class="n"><a href="partial_ordering.html">partial_ordering</a></span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n"><a href="">three_way_comparable</a></span> <span class="o">=</span>
+  <span class="n"><a href="../concepts/equality_comparable.html">weakly-equality-comparable-with</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
+  <span class="n">partially</span><span class="o">-</span><span class="n">ordered</span><span class="o">-</span><span class="n">with</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
+  <span class="n">requires</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../type_traits/remove_reference.html">remove_reference_t</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../type_traits/remove_reference.html">remove_reference_t</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">{</span> <span class="n">a</span> <span class="o">&lt;=&gt;</span> <span class="n">b</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n">compares</span><span class="o">-</span><span class="n">as</span><span class="o">&lt;</span><span class="n">Cat</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="p">};</span>
+</code></pre></div>
+</p>
+<ul>
+<li>(2) : 以下のように定義される。</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Cat</span> <span class="o">=</span> <span class="n"><a href="partial_ordering.html">partial_ordering</a></span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n"><a href="">three_way_comparable_with</a></span> <span class="o">=</span>
+  <span class="n"><a href="">three_way_comparable</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">Cat</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
+  <span class="n"><a href="">three_way_comparable</a></span><span class="o">&lt;</span><span class="n">U</span><span class="p">,</span> <span class="n">Cat</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
+  <span class="n"><a href="../concepts/common_reference_with.html">common_reference_with</a></span><span class="o">&lt;</span><span class="k">const</span> <span class="n"><a href="../type_traits/remove_reference.html">remove_reference_t</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../type_traits/remove_reference.html">remove_reference_t</a></span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;&gt;</span> <span class="o">&amp;&amp;</span>
+  <span class="n"><a href="">three_way_comparable</a></span><span class="o">&lt;</span>
+    <span class="n"><a href="../type_traits/common_reference.html">common_reference_t</a></span><span class="o">&lt;</span><span class="k">const</span> <span class="n"><a href="../type_traits/remove_reference.html">remove_reference_t</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../type_traits/remove_reference.html">remove_reference_t</a></span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;&gt;</span><span class="p">,</span> <span class="n">Cat</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
+  <span class="n"><a href="../concepts/equality_comparable.html">weakly-equality-comparable-with</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">U</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
+  <span class="n">partially</span><span class="o">-</span><span class="n">ordered</span><span class="o">-</span><span class="n">with</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">U</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
+  <span class="n">requires</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../type_traits/remove_reference.html">remove_reference_t</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">t</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../type_traits/remove_reference.html">remove_reference_t</a></span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;</span> <span class="n">u</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">{</span> <span class="n">t</span> <span class="o">&lt;=&gt;</span> <span class="n">u</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n">compares</span><span class="o">-</span><span class="n">as</span><span class="o">&lt;</span><span class="n">Cat</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="p">{</span> <span class="n">u</span> <span class="o">&lt;=&gt;</span> <span class="n">t</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n">compares</span><span class="o">-</span><span class="n">as</span><span class="o">&lt;</span><span class="n">Cat</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="p">};</span>
+</code></pre></div>
+</p>
+<h2>モデル</h2>
+<ul>
+<li>
+<p>(1) : <code>const remove_reference_t&lt;T&gt;</code>の左辺値<code>a, b</code>について次の条件を満たす場合に限って、型<code>T, Cat</code>は<code>three_way_comparable</code>のモデルである</p>
+<ul>
+<li><code>(a &lt;=&gt; b == 0) == bool(a == b)</code>が<code>true</code>であること</li>
+<li><code>(a &lt;=&gt; b != 0) == bool(a != b)</code>が<code>true</code>であること</li>
+<li><code>((a &lt;=&gt; b) &lt;=&gt; 0)</code>と<code>(0 &lt;=&gt; (a &lt;=&gt; b))</code>が等値</li>
+<li><code>(a &lt;=&gt; b &lt; 0) == bool(a &lt; b)</code>が<code>true</code>であること</li>
+<li><code>(a &lt;=&gt; b &gt; 0) == bool(a &gt; b)</code>が<code>true</code>であること</li>
+<li><code>(a &lt;=&gt; b &lt;= 0) == bool(a &lt;= b)</code>が<code>true</code>であること</li>
+<li><code>(a &lt;=&gt; b &gt;= 0) == bool(a &gt;= b)</code>が<code>true</code>であること</li>
+<li><code>Cat</code>が<code>strong_ordering</code>に変換可能ならば<ul>
+<li><code>T</code>は<code>totally_ordered</code>のモデルである</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>(2) : <code>const remove_reference_t&lt;T&gt;, const remove_reference_t&lt;U&gt;</code>の左辺値<code>t, u</code>、<code>C = common_reference_t&lt;const remove_reference_t&lt;T&gt;&amp;, const remove_reference_t&lt;U&gt;&amp;&gt;</code>について次の条件を満たす場合に限って、型<code>T, U, Cat</code>は<code>three_way_comparable_with</code>のモデルである</p>
+<ul>
+<li><code>t &lt;=&gt; u</code>と<code>u &lt;=&gt; t</code>が同じ<a href="../concepts.html">定義域</a>を持つ</li>
+<li><code>((t &lt;=&gt; u) &lt;=&gt; 0)</code>と<code>(0 &lt;=&gt; (t &lt;=&gt; u))</code>が等値</li>
+<li><code>(t &lt;=&gt; u == 0) == bool(t == u)</code>が<code>true</code>であること</li>
+<li><code>(t &lt;=&gt; u != 0) == bool(t != u)</code>が<code>true</code>であること</li>
+<li><code>Cat(t &lt;=&gt; u) == Cat(C(t) &lt;=&gt; C(u))</code>が<code>true</code>であること</li>
+<li><code>(t &lt;=&gt; u &lt; 0) == bool(t &lt; u)</code>が<code>true</code>であること</li>
+<li><code>(t &lt;=&gt; u &gt; 0) == bool(t &gt; u)</code>が<code>true</code>であること</li>
+<li><code>(t &lt;=&gt; u &lt;= 0) == bool(t &lt;= u)</code>が<code>true</code>であること</li>
+<li><code>(t &lt;=&gt; u &gt;= 0) == bool(t &gt;= u)</code>が<code>true</code>であること</li>
+<li><code>Cat</code>が<code>strong_ordering</code>に変換可能ならば<ul>
+<li><code>T, U</code>は<code>totally_ordered_with</code>のモデルである</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><code>partially-ordered-with</code> : <code>const remove_reference_t&lt;T&gt;, const remove_reference_t&lt;U&gt;</code>の左辺値<code>t, u</code>について次の条件を満たす場合に限って、型<code>T, U, Cat</code>は<code>partially-ordered-with</code>のモデルである</p>
+<ul>
+<li><code>t &lt; u, t &lt;= u, t &gt; u, t &gt;= u, u &lt; t, u &lt;= t, u &gt; t, u &gt;= t</code>が全て同じ<a href="../concepts.html">定義域</a>を持つ</li>
+<li><code>bool(t &lt; u) == bool(u &gt; t)</code>が<code>true</code>であること</li>
+<li><code>bool(u &lt; t) == bool(t &gt; u)</code>が<code>true</code>であること</li>
+<li><code>bool(t &lt;= u) == bool(u &gt;= t)</code>が<code>true</code>であること</li>
+<li><code>bool(u &lt;= t) == bool(t &gt;= u)</code>が<code>true</code>であること</li>
+</ul>
+</li>
+</ul>
+<h2>例</h2>
+<h3>three_way_comparable</h3>
+<p><div class="yata" id="bf861cfc0875ba3b0a41e7ef75711c38a969280d"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../compare.html">&lt;compare&gt;</a></span><span class="cp"></span>
+
+<span class="c1">//&lt;=&gt;が使用可能ならそれを使用して比較結果を出力</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::three_way_comparable</span></span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">print_is_less</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">t</span><span class="p">,</span> <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">u</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"&lt;=&gt; : "</span> <span class="o">&lt;&lt;</span> <span class="p">((</span><span class="n">t</span> <span class="o">&lt;=&gt;</span> <span class="n">u</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">//&lt;=&gt;が使用可能でないなら&lt;演算子を使用</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">print_is_less</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">t</span><span class="p">,</span> <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">u</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"&lt;   : "</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">t</span> <span class="o">&lt;</span> <span class="n">u</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="c1">//&lt;演算子だけが使用可能</span>
+<span class="k">struct</span> <span class="n">L</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+  <span class="k">friend</span> <span class="kt">bool</span> <span class="k">operator</span><span class="o">&lt;</span><span class="p">(</span><span class="k">const</span> <span class="n">L</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">L</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="n">n</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">n</span><span class="p">;}</span>
+<span class="p">};</span>
+
+<span class="c1">//&lt;=&gt;演算子含め、全ての比較演算が可能</span>
+<span class="k">struct</span> <span class="n">S</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+
+  <span class="k">friend</span> <span class="k">auto</span> <span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">S</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">S</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+  <span class="c1">//friend bool operator== (const S&amp; a, const S&amp; b) = default;</span>
+<span class="p">};</span>
+
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ios/boolalpha.html">std::boolalpha</a></span><span class="p">;</span>
+  <span class="n">L</span> <span class="n">l1</span><span class="p">{</span><span class="mi">1</span><span class="p">},</span> <span class="n">l2</span><span class="p">{</span><span class="mi">2</span><span class="p">};</span>
+  <span class="n">S</span> <span class="n">s1</span><span class="p">{</span><span class="mi">1</span><span class="p">},</span> <span class="n">s2</span><span class="p">{</span><span class="mi">2</span><span class="p">};</span>
+
+  <span class="n">print_is_less</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+  <span class="n">print_is_less</span><span class="p">(</span><span class="o">-</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">+</span><span class="mf">0.0</span><span class="p">);</span>
+  <span class="n">print_is_less</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">);</span>
+  <span class="n">print_is_less</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>&lt;=&gt; : true
+&lt;=&gt; : false
+&lt;   : true
+&lt;=&gt; : true
+</code></pre></p>
+<h3>three_way_comparable_with</h3>
+<p><div class="yata" id="3b5dda13061bd16a71e087c192015ab23740b9d9"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../compare.html">&lt;compare&gt;</a></span><span class="cp"></span>
+
+<span class="c1">//&lt;=&gt;が使用可能ならそれを使用して比較結果を出力</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">U</span><span class="o">&gt;</span>
+<span class="n">requires</span> <span class="n"><span style="color:#ff0000">std::three_way_comparable_with</span></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">U</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">print_is_less</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">t</span><span class="p">,</span> <span class="k">const</span> <span class="n">U</span><span class="o">&amp;</span> <span class="n">u</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"&lt;=&gt; : "</span> <span class="o">&lt;&lt;</span> <span class="p">((</span><span class="n">t</span> <span class="o">&lt;=&gt;</span> <span class="n">u</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">//&lt;=&gt;が使用可能でないなら&lt;演算子を使用</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">U</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">print_is_less</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">t</span><span class="p">,</span> <span class="k">const</span> <span class="n">U</span><span class="o">&amp;</span> <span class="n">u</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"&lt;   : "</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">t</span> <span class="o">&lt;</span> <span class="n">u</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">//共通の参照型を作るために必要</span>
+<span class="k">struct</span> <span class="n">B</span> <span class="p">{</span>
+  <span class="k">friend</span> <span class="k">auto</span> <span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">B</span><span class="o">&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="n">B</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+  <span class="c1">//friend bool operator== (const B&amp;, const B&amp;) = default;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="nl">S1</span> <span class="p">:</span> <span class="n">B</span> <span class="p">{</span>
+  <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">s</span><span class="p">;</span>
+
+  <span class="k">friend</span> <span class="k">auto</span> <span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">S1</span><span class="o">&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="n">S1</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+  <span class="c1">//friend bool operator== (const S1&amp;, const S1&amp;) = default;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="nl">S2</span> <span class="p">:</span> <span class="n">B</span> <span class="p">{</span>
+  <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">s</span><span class="p">;</span>
+
+  <span class="k">friend</span> <span class="k">auto</span> <span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">S2</span><span class="o">&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="n">S2</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+  <span class="k">friend</span> <span class="kt">bool</span> <span class="k">operator</span><span class="o">==</span> <span class="p">(</span><span class="k">const</span> <span class="n">S2</span><span class="o">&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="n">S2</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>  <span class="c1">//この宣言は必要</span>
+
+  <span class="k">friend</span> <span class="kt">bool</span> <span class="k">operator</span><span class="o">==</span> <span class="p">(</span><span class="k">const</span> <span class="n">S1</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">S2</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="n">s</span> <span class="o">==</span>  <span class="n">b</span><span class="p">.</span><span class="n">s</span><span class="p">;}</span>
+  <span class="k">friend</span> <span class="k">auto</span> <span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">S1</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">S2</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="n">s</span> <span class="o">&lt;=&gt;</span> <span class="n">b</span><span class="p">.</span><span class="n">s</span><span class="p">;}</span>
+<span class="p">};</span>
+
+<span class="c1">//std::common_referenceおよびstd::<a href="../concepts/common_reference_with.html">common_reference_with</a>にアダプトする</span>
+<span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">TQual</span><span class="p">,</span> <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">UQual</span><span class="o">&gt;</span>
+  <span class="k">struct</span> <span class="n"><a href="../type_traits/basic_common_reference.html">basic_common_reference</a></span><span class="o">&lt;</span><span class="n">S1</span><span class="p">,</span> <span class="n">S2</span><span class="p">,</span> <span class="n">TQual</span><span class="p">,</span> <span class="n">UQual</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="k">const</span> <span class="n">B</span><span class="o">&amp;</span><span class="p">;</span>  <span class="c1">//const必須</span>
+  <span class="p">};</span>
+
+  <span class="c1">//対称性のために引数順を逆にしたものも定義する</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">TQual</span><span class="p">,</span> <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">UQual</span><span class="o">&gt;</span>
+  <span class="k">struct</span> <span class="n"><a href="../type_traits/basic_common_reference.html">basic_common_reference</a></span><span class="o">&lt;</span><span class="n">S2</span><span class="p">,</span> <span class="n">S1</span><span class="p">,</span> <span class="n">TQual</span><span class="p">,</span> <span class="n">UQual</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="k">const</span> <span class="n">B</span><span class="o">&amp;</span><span class="p">;</span>  <span class="c1">//const必須</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ios/boolalpha.html">std::boolalpha</a></span><span class="p">;</span>
+  <span class="n">S1</span> <span class="n">s1</span><span class="p">{{},</span> <span class="mi">0u</span><span class="p">};</span>
+  <span class="n">S2</span> <span class="n">s2</span><span class="p">{{},</span> <span class="mi">2u</span><span class="p">};</span>
+
+  <span class="n">print_is_less</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">);</span>
+  <span class="n">print_is_less</span><span class="p">(</span><span class="n">s2</span><span class="p">,</span> <span class="n">s1</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>&lt;=&gt; : true
+&lt;=&gt; : false
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++20</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 10.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><a href="../../lang/cpp20/consistent_comparison.html">C++20 <code>&lt;=&gt;</code>/<code>==</code>による比較演算子の自動定義</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://wg21.link/p0768" target="_blank">P0768R1 Library support for the spaceship (comparison) operator</a></li>
+<li><a href="http://wg21.link/p1614" target="_blank">P1614R2 The Mothership has Landed (Adding &lt;=&gt; to the Library)</a></li>
+<li><a href="https://wg21.cmeerw.net/lwg/issue3360" target="_blank">LWG Issue 3360. <code>three_way_comparable_with</code> is inconsistent with similar concepts</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1964r2.html" target="_blank">P1964R2 Wording for <code>boolean-testable</code></a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
