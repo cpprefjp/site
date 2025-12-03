@@ -2,32 +2,60 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-12-03T02:06:48.634878</updated>
-  <id>71c1a548-b061-4dd2-ab63-acaae111a361</id>
+  <updated>2025-12-03T02:38:54.092558</updated>
+  <id>4deec914-f52d-4a68-9c12-86b87ead6827</id>
 
+  
+    <entry>
+      <title>mblen -- fix(cstdio/mblen): nullptr を指定した時の戻り値を修正</title>
+      <link href="https://cpprefjp.github.io/reference/cstdlib/mblen.html"/>
+      <id>5be326287421c777a7b0a9a8223950623687d8a9:reference/cstdlib/mblen.md</id>
+      <updated>2025-12-03T11:34:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/mblen.md b/reference/cstdlib/mblen.md
+index 92d48d4a7..f099de580 100644
+--- a/reference/cstdlib/mblen.md
++++ b/reference/cstdlib/mblen.md
+@@ -25,7 +25,7 @@ namespace std {
+ 
+ ## 戻り値
+ - 正常に動作する場合、文字の占めるバイト数を返す。
+-- `str`が`nullptr`の時、内部状態を初期化し`0`を返す。
++- `str`が`nullptr`の時、内部状態を初期化する。現在のエンコーディングが状態を持つ場合は非ゼロの値を返し、それ以外の場合は`0`を返す。
+ - 無効な文字列、または`n`が不足している場合、`-1`を返す。
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>mblen -- fix(cstdlib/mblen): 内部状態と std::mbrlen を言及</title>
       <link href="https://cpprefjp.github.io/reference/cstdlib/mblen.html"/>
-      <id>19e6007105abc63f99cc77fa449adfbc06bb4839:reference/cstdlib/mblen.md</id>
+      <id>37f204718ff35392356b1e175b13aff1697a6006:reference/cstdlib/mblen.md</id>
       <updated>2025-12-03T10:48:37+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/mblen.md b/reference/cstdlib/mblen.md
-index 384e04c58..6e5abd47e 100644
+index 384e04c58..92d48d4a7 100644
 --- a/reference/cstdlib/mblen.md
 +++ b/reference/cstdlib/mblen.md
-@@ -18,6 +18,10 @@ namespace std {
+@@ -18,6 +18,11 @@ namespace std {
  
  `n`は解析に使用する最大バイト数を指定する。
  
 +この関数は `std::mbstate_t` に等価な静的記憶域の内部状態を保持し、前回の `mblen` 関数呼び出しの続きとして処理を行う。
 +従って、この関数はスレッドセーフではない。
-+スレッドセーフに処理する場合は、`std::mbstate_t` を受け取る [`std::mbrlen`](../cwchar/mbrlen.md.nolink) (`&amp;lt;cwchar&amp;gt;`) を使い、呼び出し元でデコード状態の記録場所 `std::mbstate_t` を用意する。
++スレッドセーフに処理する場合は、`std::mbstate_t` を受け取る [`std::mbrlen`](../cwchar/mbrlen.md.nolink) (`&amp;lt;cwchar&amp;gt;`) を使い、呼び出し元でデコード状態の記録場所 `std::mbstate_t` を用意する必要がある。
++新しいコードでは、特に理由がない限り `std::mblen` ではなく `std::mbrlen` を用いるべきである。
 +
  ## 戻り値
  - 正常に動作する場合、文字の占めるバイト数を返す。
  - `str`が`nullptr`の時、内部状態を初期化し`0`を返す。
-@@ -77,8 +81,15 @@ int main() {
+@@ -77,8 +82,15 @@ int main() {
  }
  ```
  
@@ -148,63 +176,6 @@ index 838ee668b..4cdcd924d 100644
    const char* str = &amp;#34;こんにちは世界&amp;#34;;
    std::cout &amp;lt;&amp;lt; &amp;#34;文字列: &amp;#34; &amp;lt;&amp;lt; str &amp;lt;&amp;lt; &amp;#34;\n&amp;#34;;
    std::cout &amp;lt;&amp;lt; &amp;#34;文字数: &amp;#34; &amp;lt;&amp;lt; count_chars_mblen(str) &amp;lt;&amp;lt; &amp;#34;\n&amp;#34;;
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>mblen -- mblen : インデントを4から2に変更</title>
-      <link href="https://cpprefjp.github.io/reference/cstdlib/mblen.html"/>
-      <id>f73e9f6b98d891f84a1ba174e5243e41ed2ac897:reference/cstdlib/mblen.md</id>
-      <updated>2025-12-03T10:11:02+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/mblen.md b/reference/cstdlib/mblen.md
-index 3154cca3c..838ee668b 100644
---- a/reference/cstdlib/mblen.md
-+++ b/reference/cstdlib/mblen.md
-@@ -51,24 +51,24 @@ int main() {
- #include &amp;lt;clocale&amp;gt;
- 
- int count_chars_mblen(const char* s) {
--    std::setlocale(LC_ALL, &amp;#34;ja_JP.UTF-8&amp;#34;);
--    int count = 0;
--    size_t i = 0;
--    while (s[i] != &amp;#39;\0&amp;#39;) {
--        int len = std::mblen(&amp;amp;s[i], MB_CUR_MAX);
--        if (len &amp;lt; 0) {
--            len = 1;
--        }
--        i += len;
--        count++;
-+  std::setlocale(LC_ALL, &amp;#34;ja_JP.UTF-8&amp;#34;);
-+  int count = 0;
-+  size_t i = 0;
-+  while (s[i] != &amp;#39;\0&amp;#39;) {
-+    int len = std::mblen(&amp;amp;s[i], MB_CUR_MAX);
-+    if (len &amp;lt; 0) {
-+      len = 1;
-     }
--    return count;
-+    i += len;
-+    count++;
-+  }
-+  return count;
- }
- 
- int main() {
--    const char* str = &amp;#34;こんにちは世界&amp;#34;;
--    std::cout &amp;lt;&amp;lt; &amp;#34;文字列: &amp;#34; &amp;lt;&amp;lt; str &amp;lt;&amp;lt; &amp;#34;\n&amp;#34;;
--    std::cout &amp;lt;&amp;lt; &amp;#34;文字数: &amp;#34; &amp;lt;&amp;lt; count_chars_mblen(str) &amp;lt;&amp;lt; &amp;#34;\n&amp;#34;;
-+  const char* str = &amp;#34;こんにちは世界&amp;#34;;
-+  std::cout &amp;lt;&amp;lt; &amp;#34;文字列: &amp;#34; &amp;lt;&amp;lt; str &amp;lt;&amp;lt; &amp;#34;\n&amp;#34;;
-+  std::cout &amp;lt;&amp;lt; &amp;#34;文字数: &amp;#34; &amp;lt;&amp;lt; count_chars_mblen(str) &amp;lt;&amp;lt; &amp;#34;\n&amp;#34;;
- }
- ```
- 
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
