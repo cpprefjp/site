@@ -14,13 +14,13 @@ namespace std {
 
 先頭以外の文字に関するバイト数は計算されない。
 
-この関数は現在のロケールに依存してマルチバイト文字を解釈する。
+この関数は現在のロケールカテゴリー `LC_CTYPE` に依存してマルチバイト文字を解釈する。
 
 `n`は解析に使用する最大バイト数を指定する。
 
 ## 戻り値
 - 正常に動作する場合、文字の占めるバイト数を返す。
-- `str`が`nullptr`の時、内部状態を初期化し`0`を返す。
+- `str`が`nullptr`の時、内部状態を初期化する。現在のエンコーディングが状態を持つ場合は非ゼロの値を返し、それ以外の場合は`0`を返す。
 - 無効な文字列、または`n`が不足している場合、`-1`を返す。
 
 ## 例
@@ -51,8 +51,11 @@ int main() {
 #include <clocale>
 
 int count_chars_mblen(const char* s) {
+  // std::mblen 内部の std::mbstate_t を初期化する必要あり
+  std::mblen(nullptr, 0);
+
   int count = 0;
-  size_t i = 0;
+  std::size_t i = 0;
   while (s[i] != '\0') {
     int len = std::mblen(&s[i], MB_CUR_MAX);
     if (len < 0) {
