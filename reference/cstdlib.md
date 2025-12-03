@@ -96,7 +96,7 @@
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`MB_CUR_MAX`](cstdlib/mb_cur_max.md) | マルチバイト文字列の最大サイズを表す整数値マクロ (macro)|
-| `mblen` | マルチバイト文字の長さを取得する (function) | |
+| [`mblen`](cstdlib/mblen.md) | マルチバイト文字の長さを取得する (function) | |
 | `mbtowc` | マルチバイト文字を、ワイド文字に変換する (function) | |
 | `wctomb` | ワイド文字を、マルチバイト文字に変換する (function) | |
 | `mbstowcs` | マルチバイト文字列を、ワイド文字列に変換する (function) | |
