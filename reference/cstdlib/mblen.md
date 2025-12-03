@@ -26,14 +26,15 @@ namespace std {
 ## 例
 ### 基本的な使い方
 ```cpp example
-#include <iostream>
-#include <cstdlib>
 #include <clocale>
+#include <cstdlib>
+#include <cstring>
+#include <iostream>
 
 int main() {
   std::setlocale(LC_ALL, "ja_JP.UTF-8");
   const char *str = "こんにちは";
-  int result = std::mblen(str, MB_CUR_MAX);
+  int result = std::mblen(str, std::strlen(str));
   std::cout << result << std::endl;
   return 0;
 }
@@ -46,9 +47,10 @@ int main() {
 
 ### 文字列の文字数を計算する
 ```cpp example
-#include <iostream>
-#include <cstdlib>
 #include <clocale>
+#include <cstdlib>
+#include <cstring>
+#include <iostream>
 
 int count_chars_mblen(const char* s) {
   // std::mblen 内部の std::mbstate_t を初期化する必要あり
@@ -56,8 +58,9 @@ int count_chars_mblen(const char* s) {
 
   int count = 0;
   std::size_t i = 0;
-  while (s[i] != '\0') {
-    int len = std::mblen(&s[i], MB_CUR_MAX);
+  std::size_t bytes = std::strlen(s);
+  while (i < bytes) {
+    int len = std::mblen(&s[i], bytes - i);
     if (len < 0) {
       len = 1;
     }
