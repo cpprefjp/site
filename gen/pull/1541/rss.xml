@@ -2,18 +2,18 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-12-03T01:55:13.554825</updated>
-  <id>f48dd440-d74e-45dd-a658-6bb7fa2f074c</id>
+  <updated>2025-12-03T02:06:48.634878</updated>
+  <id>71c1a548-b061-4dd2-ab63-acaae111a361</id>
 
   
     <entry>
       <title>mblen -- fix(cstdlib/mblen): 内部状態と std::mbrlen を言及</title>
       <link href="https://cpprefjp.github.io/reference/cstdlib/mblen.html"/>
-      <id>51eb43c9d391f1a1f858628db7277c43ed27026a:reference/cstdlib/mblen.md</id>
+      <id>19e6007105abc63f99cc77fa449adfbc06bb4839:reference/cstdlib/mblen.md</id>
       <updated>2025-12-03T10:48:37+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/mblen.md b/reference/cstdlib/mblen.md
-index dc3fd0e85..af8cdaa2f 100644
+index 384e04c58..6e5abd47e 100644
 --- a/reference/cstdlib/mblen.md
 +++ b/reference/cstdlib/mblen.md
 @@ -18,6 +18,10 @@ namespace std {
@@ -27,15 +27,6 @@ index dc3fd0e85..af8cdaa2f 100644
  ## 戻り値
  - 正常に動作する場合、文字の占めるバイト数を返す。
  - `str`が`nullptr`の時、内部状態を初期化し`0`を返す。
-@@ -57,7 +61,7 @@ int count_chars_mblen(const char* s) {
-   int count = 0;
-   std::size_t i = 0;
-   std::size_t bytes = std::strlen(s);
--  while (s[i] != &amp;#39;\0&amp;#39;) {
-+  while (i &amp;lt; bytes) {
-     int len = std::mblen(&amp;amp;s[i], bytes - i);
-     if (len &amp;lt; 0) {
-       len = 1;
 @@ -77,8 +81,15 @@ int main() {
  }
  ```
@@ -61,16 +52,55 @@ index dc3fd0e85..af8cdaa2f 100644
     </entry>
   
     <entry>
+      <title>mblen -- fix(cstdlib/mblen): バッファオーバーランの修正</title>
+      <link href="https://cpprefjp.github.io/reference/cstdlib/mblen.html"/>
+      <id>bc2182d0a18880f72459fc285760deed0cfeb07f:reference/cstdlib/mblen.md</id>
+      <updated>2025-12-03T11:01:35+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/mblen.md b/reference/cstdlib/mblen.md
+index ad5bf5ae3..384e04c58 100644
+--- a/reference/cstdlib/mblen.md
++++ b/reference/cstdlib/mblen.md
+@@ -33,7 +33,7 @@ namespace std {
+ int main() {
+   std::setlocale(LC_ALL, &amp;#34;ja_JP.UTF-8&amp;#34;);
+   const char *str = &amp;#34;こんにちは&amp;#34;;
+-  int result = std::mblen(str, MB_CUR_MAX);
++  int result = std::mblen(str, std::strlen(s));
+   std::cout &amp;lt;&amp;lt; result &amp;lt;&amp;lt; std::endl;
+   return 0;
+ }
+@@ -56,8 +56,9 @@ int count_chars_mblen(const char* s) {
+ 
+   int count = 0;
+   std::size_t i = 0;
+-  while (s[i] != &amp;#39;\0&amp;#39;) {
+-    int len = std::mblen(&amp;amp;s[i], MB_CUR_MAX);
++  std::size_t bytes = std::strlen(s);
++  while (i &amp;lt; bytes) {
++    int len = std::mblen(&amp;amp;s[i], bytes - i);
+     if (len &amp;lt; 0) {
+       len = 1;
+     }
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
       <title>mblen -- fix(cstdlib/mblen): 文字数カウント例を諸々修正</title>
       <link href="https://cpprefjp.github.io/reference/cstdlib/mblen.html"/>
-      <id>8faf543b672f7861d03d2cb2480291dfaedf9296:reference/cstdlib/mblen.md</id>
+      <id>a4b0b474b15eb7a19d8abd27e599949bb1882240:reference/cstdlib/mblen.md</id>
       <updated>2025-12-03T10:28:57+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/mblen.md b/reference/cstdlib/mblen.md
-index 4cdcd924d..dc3fd0e85 100644
+index 4cdcd924d..ad5bf5ae3 100644
 --- a/reference/cstdlib/mblen.md
 +++ b/reference/cstdlib/mblen.md
-@@ -51,10 +51,14 @@ int main() {
+@@ -51,8 +51,11 @@ int main() {
  #include &amp;lt;clocale&amp;gt;
  
  int count_chars_mblen(const char* s) {
@@ -80,13 +110,9 @@ index 4cdcd924d..dc3fd0e85 100644
    int count = 0;
 -  size_t i = 0;
 +  std::size_t i = 0;
-+  std::size_t bytes = std::strlen(s);
    while (s[i] != &amp;#39;\0&amp;#39;) {
--    int len = std::mblen(&amp;amp;s[i], MB_CUR_MAX);
-+    int len = std::mblen(&amp;amp;s[i], bytes - i);
+     int len = std::mblen(&amp;amp;s[i], MB_CUR_MAX);
      if (len &amp;lt; 0) {
-       len = 1;
-     }
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
@@ -184,449 +210,6 @@ index 3154cca3c..838ee668b 100644
       <author>
         <name>Akira Takahashi</name>
         <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>cstdlib -- Merge pull request #1540 from cpprefjp/cstdlib/mblen</title>
-      <link href="https://cpprefjp.github.io/reference/cstdlib.html"/>
-      <id>574810afa90d74804d5caf51ee46f571d7356b7f:reference/cstdlib.md</id>
-      <updated>2025-12-03T10:03:48+09:00</updated>
-      
-        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;cstdlib&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;cstdlib&lt;/span&gt;&lt;/h1&gt;
-&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;cstdlib&amp;gt;&lt;/code&gt;ヘッダでは、一般的なユーティリティの関数を定義する。これらの機能は基本的には、&lt;code&gt;std&lt;/code&gt;名前空間に属することを除いてC言語の標準ライブラリ&lt;code&gt;&amp;lt;stdlib.h&amp;gt;&lt;/code&gt;ヘッダと同じである。&lt;/p&gt;
-&lt;p&gt;本ヘッダはフリースタンディング環境でも提供される。
-フリースタンディング環境の場合、少なくとも&lt;code&gt;abort&lt;/code&gt;, &lt;code&gt;atexit&lt;/code&gt;, &lt;code&gt;at_quick_exit&lt;/code&gt;, &lt;code&gt;exit&lt;/code&gt;, &lt;code&gt;quick_exit&lt;/code&gt;関数がサポートされる。&lt;/p&gt;
-&lt;p&gt;ただし、一部の機能には、&lt;code&gt;[[noreturn]]&lt;/code&gt;属性、&lt;code&gt;noexcept&lt;/code&gt;キーワード、スレッドローカルストレージのような、C++特有の言語機能に関する規定がある。&lt;/p&gt;
-&lt;h2&gt;数値変換&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/atoi_atol_atoll.html&#34;&gt;atoi&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;文字列を&lt;code&gt;int&lt;/code&gt;型に変換する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/atoi_atol_atoll.html&#34;&gt;atol&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;文字列を&lt;code&gt;long&lt;/code&gt;型に変換する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/atoi_atol_atoll.html&#34;&gt;atoll&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;文字列を&lt;code&gt;long long&lt;/code&gt;型に変換する (function)&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/atof.html&#34;&gt;atof&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;文字列を&lt;code&gt;double&lt;/code&gt;型に変換する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/strtol.html&#34;&gt;strtol&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;文字列を、基数を指定して&lt;code&gt;long&lt;/code&gt;型に変換する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;strtoll&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;文字列を、基数を指定して&lt;code&gt;long long&lt;/code&gt;型に変換する (function)&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;strtoul&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;文字列を、基数を指定して&lt;code&gt;unsigned long&lt;/code&gt;型に変換する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;strtoull&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;文字列を、基数を指定して&lt;code&gt;unsigned long long&lt;/code&gt;型に変換する (function)&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;strtof&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;文字列を、&lt;code&gt;float&lt;/code&gt;型に変換する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;strtod&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;文字列を、&lt;code&gt;double&lt;/code&gt;型に変換する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;strtold&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;文字列を、&lt;code&gt;long double&lt;/code&gt;型に変換する (function)&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;擬似乱数&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/rand_max.html&#34;&gt;RAND_MAX&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;rand&lt;/code&gt;関数によって生成される値域の最大値を表す整数値マクロ (macro)&lt;/td&gt;
-&lt;td&gt;C++14から非推奨&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/srand.html&#34;&gt;srand&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;rand&lt;/code&gt;関数によって生成される擬似乱数のシードを指定する (function)&lt;/td&gt;
-&lt;td&gt;C++14から非推奨&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/rand.html&#34;&gt;rand&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;srand&lt;/code&gt;で指定されたシードを元に、擬似乱数を生成する (function)&lt;/td&gt;
-&lt;td&gt;C++14から非推奨&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;メモリ管理&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/aligned_alloc.html&#34;&gt;aligned_alloc&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;指定したアライメントでメモリを確保する (function)&lt;/td&gt;
-&lt;td&gt;C++17&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/malloc.html&#34;&gt;malloc&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;メモリを確保する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/calloc.html&#34;&gt;calloc&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;メモリを確保し、領域をゼロ初期化する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/realloc.html&#34;&gt;realloc&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;メモリを再確保する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/free.html&#34;&gt;free&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;確保したメモリを解放する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;プログラムの開始と終了&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/exit_failure.html&#34;&gt;EXIT_FAILURE&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;プログラムが異常終了したことを表す整数値マクロ (macro)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/exit_success.html&#34;&gt;EXIT_SUCCESS&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;プログラムが正常終了したことを表す整数値マクロ (macro)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/abort.html&#34;&gt;abort&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;プログラムを異常終了させる (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/exit_.html&#34;&gt;_Exit&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;後処理をせずに、プログラムを終了させる (function)&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/exit.html&#34;&gt;exit&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;プログラムを終了させる (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/atexit.html&#34;&gt;atexit&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;プログラムが通常の方法で終了するときに呼ばれる関数を登録する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/quick_exit.html&#34;&gt;quick_exit&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;後処理をせずに、プログラムを終了させる (function)&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/at_quick_exit.html&#34;&gt;at_quick_exit&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;quick_exit&lt;/code&gt;関数でプログラムが終了するときに呼ばれる関数を登録する (function)&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;環境&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/getenv.html&#34;&gt;getenv&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;環境変数を取得する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/system.html&#34;&gt;system&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;システムコマンドを実行する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;検索と並び替え&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;bsearch&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;二分探索を行う (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;qsort&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;範囲の並べ替えを行う (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;整数に対する算術関数&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/abs.html&#34;&gt;abs&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;int&lt;/code&gt;の絶対値を取得する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/abs.html&#34;&gt;labs&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;long&lt;/code&gt;の絶対値を取得する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/abs.html&#34;&gt;llabs&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;long long&lt;/code&gt;の絶対値を取得する (function)&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/div_t.html&#34;&gt;div_t&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;div&lt;/code&gt;関数の戻り値型 (class)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/div.html&#34;&gt;div&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;int&lt;/code&gt;の除算と剰余算を行う (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/ldiv_t.html&#34;&gt;ldiv_t&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;ldiv&lt;/code&gt;関数の戻り値型 (class)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/div.html&#34;&gt;ldiv&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;long&lt;/code&gt;の除算と剰余算を行う (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/lldiv_t.html&#34;&gt;lldiv_t&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;lldiv&lt;/code&gt;関数の戻り値型 (class)&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/div.html&#34;&gt;lldiv&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;long long&lt;/code&gt;の除算と剰余算を行う (function)&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;マルチバイト文字とワイド文字の変換&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/mb_cur_max.html&#34;&gt;MB_CUR_MAX&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;マルチバイト文字列の最大サイズを表す整数値マクロ (macro)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstdlib/mblen.html&#34;&gt;mblen&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;マルチバイト文字の長さを取得する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;mbtowc&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;マルチバイト文字を、ワイド文字に変換する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;wctomb&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;ワイド文字を、マルチバイト文字に変換する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;mbstowcs&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;マルチバイト文字列を、ワイド文字列に変換する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;wcstombs&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;ワイド文字列を、マルチバイト文字列に変換する (function)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;&lt;/div&gt;</content>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>mblen -- Merge pull request #1540 from cpprefjp/cstdlib/mblen</title>
-      <link href="https://cpprefjp.github.io/reference/cstdlib/mblen.html"/>
-      <id>574810afa90d74804d5caf51ee46f571d7356b7f:reference/cstdlib/mblen.md</id>
-      <updated>2025-12-03T10:03:48+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/mblen.md b/reference/cstdlib/mblen.md
-new file mode 100644
-index 000000000..3154cca3c
---- /dev/null
-+++ b/reference/cstdlib/mblen.md
-@@ -0,0 +1,79 @@
-+# mblen
-+* cstdlib[meta header]
-+* std[meta namespace]
-+* function[meta id-type]
-+
-+```cpp
-+namespace std {
-+  int mblen(const char* str, size_t n);
-+}
-+```
-+
-+## 概要
-+マルチバイト文字列の先頭の文字が占めるバイト数を返す。
-+
-+先頭以外の文字に関するバイト数は計算されない。
-+
-+この関数は現在のロケールに依存してマルチバイト文字を解釈する。
-+
-+`n`は解析に使用する最大バイト数を指定する。
-+
-+## 戻り値
-+- 正常に動作する場合、文字の占めるバイト数を返す。
-+- `str`が`nullptr`の時、内部状態を初期化し`0`を返す。
-+- 無効な文字列、または`n`が不足している場合、`-1`を返す。
-+
-+## 例
-+### 基本的な使い方
-+```cpp example
-+#include &amp;lt;iostream&amp;gt;
-+#include &amp;lt;cstdlib&amp;gt;
-+#include &amp;lt;clocale&amp;gt;
-+
-+int main() {
-+  std::setlocale(LC_ALL, &amp;#34;ja_JP.UTF-8&amp;#34;);
-+  const char *str = &amp;#34;こんにちは&amp;#34;;
-+  int result = std::mblen(str, MB_CUR_MAX);
-+  std::cout &amp;lt;&amp;lt; result &amp;lt;&amp;lt; std::endl;
-+  return 0;
-+}
-+```
-+
-+#### 出力例
-+```
-+3
-+```
-+
-+### 文字列の文字数を計算する
-+```cpp example
-+#include &amp;lt;iostream&amp;gt;
-+#include &amp;lt;cstdlib&amp;gt;
-+#include &amp;lt;clocale&amp;gt;
-+
-+int count_chars_mblen(const char* s) {
-+    std::setlocale(LC_ALL, &amp;#34;ja_JP.UTF-8&amp;#34;);
-+    int count = 0;
-+    size_t i = 0;
-+    while (s[i] != &amp;#39;\0&amp;#39;) {
-+        int len = std::mblen(&amp;amp;s[i], MB_CUR_MAX);
-+        if (len &amp;lt; 0) {
-+            len = 1;
-+        }
-+        i += len;
-+        count++;
-+    }
-+    return count;
-+}
-+
-+int main() {
-+    const char* str = &amp;#34;こんにちは世界&amp;#34;;
-+    std::cout &amp;lt;&amp;lt; &amp;#34;文字列: &amp;#34; &amp;lt;&amp;lt; str &amp;lt;&amp;lt; &amp;#34;\n&amp;#34;;
-+    std::cout &amp;lt;&amp;lt; &amp;#34;文字数: &amp;#34; &amp;lt;&amp;lt; count_chars_mblen(str) &amp;lt;&amp;lt; &amp;#34;\n&amp;#34;;
-+}
-+```
-+
-+#### 出力例
-+```
-+文字列: こんにちは世界
-+文字数: 7
-+```
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
       </author>
     </entry>
   
