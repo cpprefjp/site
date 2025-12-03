@@ -1,0 +1,359 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>basic-operation - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,class template,std::execution,cpp26
+">
+        <meta name="title" content="basic-operation - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="basic-operation - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="basic-operation - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/execution/execution/basic-operation.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`basic-operation`および`basic-state`は、Senderアルゴリズム動作仕様定義で用いられる説明専用のクラステンプレートである。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="basic-operation - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/execution/execution/basic-operation.html" />
+        <meta name="twitter:description" content="`basic-operation`および`basic-state`は、Senderアルゴリズム動作仕様定義で用いられる説明専用のクラステンプレートである。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="manifest" href="../../../manifest.json?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;execution&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;namespace&#34;: [&#34;std::execution&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;execution&#34;, &#34;execution&#34;, &#34;basic-operation&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/execution.html" itemprop="url">
+              
+                <span itemprop="name">execution</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/execution/execution.html" itemprop="url">
+              
+                <span itemprop="name">execution</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">basic-operation</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-08-16T12:31:08">
+        2025年08月16日 12時31分08秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yoh</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/execution/execution/basic-operation.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/execution/execution/basic-operation.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">basic-operation</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Rcvr</span><span class="o">&gt;</span>
+    <span class="n">requires</span> <span class="n">valid</span><span class="o">-</span><span class="n">specialization</span><span class="o">&lt;</span><span class="n">state</span><span class="o">-</span><span class="n">type</span><span class="p">,</span> <span class="n">Sndr</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
+             <span class="n">valid</span><span class="o">-</span><span class="n">specialization</span><span class="o">&lt;</span><span class="n">connect</span><span class="o">-</span><span class="n">all</span><span class="o">-</span><span class="n">result</span><span class="p">,</span> <span class="n">Sndr</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&gt;</span>
+  <span class="k">struct</span> <span class="n">basic</span><span class="o">-</span><span class="nl">operation</span> <span class="p">:</span> <span class="n">basic</span><span class="o">-</span><span class="n">state</span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&gt;</span> <span class="p">{</span>  <span class="c1">// exposition only</span>
+    <span class="k">using</span> <span class="n">operation_state_concept</span> <span class="o">=</span> <span class="n"><a href="operation_state.html">operation_state_t</a></span><span class="p">;</span>
+    <span class="k">using</span> <span class="n">tag</span><span class="o">-</span><span class="n">t</span> <span class="o">=</span> <span class="n"><a href="tag_of_t.html">tag_of_t</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">;</span>                     <span class="c1">// exposition only</span>
+
+    <span class="n">connect</span><span class="o">-</span><span class="n">all</span><span class="o">-</span><span class="n">result</span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&gt;</span> <span class="n">inner</span><span class="o">-</span><span class="n">ops</span><span class="p">;</span>         <span class="c1">// exposition only</span>
+
+    <span class="n">basic</span><span class="o">-</span><span class="n">operation</span><span class="p">(</span><span class="n">Sndr</span><span class="o">&amp;&amp;</span> <span class="n">sndr</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&amp;&amp;</span> <span class="n">rcvr</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">)</span>  <span class="c1">// exposition only</span>
+      <span class="o">:</span> <span class="n">basic</span><span class="o">-</span><span class="n">state</span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">)),</span>
+        <span class="n">inner</span><span class="o">-</span><span class="n">ops</span><span class="p">(</span><span class="n">connect</span><span class="o">-</span><span class="n">all</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span> <span class="n"><a href="basic-sender.html">indices-for</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">()))</span>
+    <span class="p">{}</span>
+
+    <span class="kt">void</span> <span class="n">start</span><span class="p">()</span> <span class="o">&amp;</span> <span class="k">noexcept</span> <span class="p">{</span>
+      <span class="k">auto</span><span class="o">&amp;</span> <span class="p">[...</span><span class="n">ops</span><span class="p">]</span> <span class="o">=</span> <span class="n">inner</span><span class="o">-</span><span class="n">ops</span><span class="p">;</span>
+      <span class="n"><a href="impls-for.html">impls-for</a></span><span class="o">&lt;</span><span class="n">tag</span><span class="o">-</span><span class="n">t</span><span class="o">&gt;::</span><span class="n">start</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">state</span><span class="p">,</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">rcvr</span><span class="p">,</span> <span class="n">ops</span><span class="p">...);</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Rcvr</span><span class="o">&gt;</span>
+  <span class="k">struct</span> <span class="n">basic</span><span class="o">-</span><span class="n">state</span> <span class="p">{</span>             <span class="c1">// exposition only</span>
+    <span class="n">basic</span><span class="o">-</span><span class="n">state</span><span class="p">(</span><span class="n">Sndr</span><span class="o">&amp;&amp;</span> <span class="n">sndr</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&amp;&amp;</span> <span class="n">rcvr</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">)</span>
+      <span class="o">:</span> <span class="n">rcvr</span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">))</span>
+      <span class="p">,</span> <span class="n">state</span><span class="p">(</span><span class="n"><a href="impls-for.html">impls-for</a></span><span class="o">&lt;</span><span class="n"><a href="tag_of_t.html">tag_of_t</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;&gt;::</span><span class="n">get</span><span class="o">-</span><span class="n">state</span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span> <span class="n">rcvr</span><span class="p">))</span> <span class="p">{</span> <span class="p">}</span>
+
+    <span class="n">Rcvr</span> <span class="n">rcvr</span><span class="p">;</span>                     <span class="c1">// exposition only</span>
+    <span class="n">state</span><span class="o">-</span><span class="n">type</span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&gt;</span> <span class="n">state</span><span class="p">;</span>  <span class="c1">// exposition only</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>basic-operation</code>および<code>basic-state</code>は、Senderアルゴリズム動作仕様定義で用いられる説明専用のクラステンプレートである。</p>
+<p><code>basic-operation&lt;Sndr, Rcvr&gt;</code>は<code><a href="operation_state.html">operation_state</a></code>のモデルであり、<a href="basic-sender.html">Senderアルゴリズム</a>と<a href="receiver.html">Receiver</a>の<a href="connect.html">接続(connect)</a>結果型として利用される。</p>
+<ul>
+<li><code>rcvr</code> : 接続先Receiverオブジェクトを保持。Senderアルゴリズム同士を連結する場合は、親Senderアルゴリズム側の<a href="receiver.html">Receiver</a>が該当する。</li>
+<li><code>state</code> : Senderアルゴリズム構築時の引数リストを保持。（<code><a href="impls-for.html">impls-for</a></code>でカスタマイズ可能）</li>
+<li><code>inner-ops</code> : 子SenderリストとSenderアルゴリズムとの接続結果<a href="operation_state.html">Operation State</a>リストを保持。Senderファクトリでは0個、Senderアダプタでは通常1個の子Senderと接続される。</li>
+</ul>
+<h2>クラス仕様</h2>
+<p><code>basic-operation</code>コンストラクタ<code>noexcept</code>節の式は下記の通り。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../type_traits/is_nothrow_constructible.html">is_nothrow_constructible_v</a></span><span class="o">&lt;</span><span class="n">basic</span><span class="o">-</span><span class="n">state</span><span class="o">&lt;</span><span class="n">Self</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">Self</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
+<span class="k">noexcept</span><span class="p">(</span><span class="n">connect</span><span class="o">-</span><span class="n">all</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span> <span class="n"><a href="basic-sender.html">indices-for</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">()))</span>
+</code></pre></div>
+</p>
+<p><code>basic-state</code>コンストラクタ<code>noexcept</code>節の式は下記の通り。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../type_traits/is_nothrow_move_constructible.html">is_nothrow_move_constructible_v</a></span><span class="o">&lt;</span><span class="n">Rcvr</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
+<span class="n"><a href="../../functional/nothrow-callable.html">nothrow-callable</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n"><a href="impls-for.html">impls-for</a></span><span class="o">&lt;</span><span class="n"><a href="tag_of_t.html">tag_of_t</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;&gt;::</span><span class="n">get</span><span class="o">-</span><span class="n">state</span><span class="p">),</span> <span class="n">Sndr</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&amp;&gt;</span> <span class="o">&amp;&amp;</span>
+<span class="p">(</span><span class="n"><a href="../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n">state</span><span class="o">-</span><span class="n">type</span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">get</span><span class="o">-</span><span class="n">state</span><span class="o">-</span><span class="n">result</span><span class="o">&gt;</span> <span class="o">||</span>
+ <span class="n"><a href="../../type_traits/is_nothrow_constructible.html">is_nothrow_constructible_v</a></span><span class="o">&lt;</span><span class="n">state</span><span class="o">-</span><span class="n">type</span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">get</span><span class="o">-</span><span class="n">state</span><span class="o">-</span><span class="n">result</span><span class="o">&gt;</span><span class="p">)</span>
+</code></pre></div>
+</p>
+<p>ここで、説明用の型<code>get-state-result</code>は下記の通り定義される。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../functional/call-result-t.html">call-result-t</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n"><a href="impls-for.html">impls-for</a></span><span class="o">&lt;</span><span class="n"><a href="tag_of_t.html">tag_of_t</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;&gt;::</span><span class="n">get</span><span class="o">-</span><span class="n">state</span><span class="p">),</span> <span class="n">Sndr</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&amp;&gt;</span><span class="p">.</span>
+</code></pre></div>
+</p>
+<h2>説明専用エンティティ</h2>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">valid</span><span class="o">-</span><span class="n">specialization</span> <span class="o">=</span>  <span class="c1">// exposition only</span>
+  <span class="n">requires</span> <span class="p">{</span> <span class="k">typename</span> <span class="n">T</span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span> <span class="p">};</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Rcvr</span><span class="o">&gt;</span>  <span class="c1">// exposition only</span>
+<span class="k">using</span> <span class="n">state</span><span class="o">-</span><span class="n">type</span> <span class="o">=</span> <span class="n"><a href="../../type_traits/decay.html">decay_t</a></span><span class="o">&lt;</span><span class="n"><a href="../../functional/call-result-t.html">call-result-t</a></span><span class="o">&lt;</span>
+  <span class="k">decltype</span><span class="p">(</span><span class="n"><a href="impls-for.html">impls-for</a></span><span class="o">&lt;</span><span class="n"><a href="tag_of_t.html">tag_of_t</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;&gt;::</span><span class="n">get</span><span class="o">-</span><span class="n">state</span><span class="p">),</span> <span class="n">Sndr</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&amp;&gt;&gt;</span><span class="p">;</span>
+
+<span class="k">constexpr</span> <span class="k">auto</span> <span class="n">connect</span><span class="o">-</span><span class="n">all</span> <span class="o">=</span> <span class="n"><i>see below</i></span><span class="p">;</span>  <span class="c1">// exposition only</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Rcvr</span><span class="o">&gt;</span>
+<span class="k">using</span> <span class="n">connect</span><span class="o">-</span><span class="n">all</span><span class="o">-</span><span class="n">result</span> <span class="o">=</span> <span class="n"><a href="../../functional/call-result-t.html">call-result-t</a></span><span class="o">&lt;</span>  <span class="c1">// exposition only</span>
+  <span class="k">decltype</span><span class="p">(</span><span class="n">connect</span><span class="o">-</span><span class="n">all</span><span class="p">),</span> <span class="n">basic</span><span class="o">-</span><span class="n">state</span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&gt;*</span><span class="p">,</span> <span class="n">Sndr</span><span class="p">,</span> <span class="n"><a href="basic-sender.html">indices-for</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<p>説明専用の定数<code>connect-all</code>は、下記ラムダ式と等価な関数呼び出し可能なオブジェクトとして初期化される。</p>
+<ul>
+<li>全ての子Sender<code>child</code>とSenderアルゴリズム<code>sndr</code>の<a href="basic-receiver.html">Receiver</a>を<a href="connect.html">接続(connect)</a>し、結果の<a href="operation_state.html">Operation State</a>リストを<code><a href="product-type.html">product-type</a></code>型にまとめて返す。</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="p">[]</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Rcvr</span><span class="p">,</span> <span class="kt">size_t</span><span class="p">...</span> <span class="n">Is</span><span class="o">&gt;</span><span class="p">(</span>
+  <span class="n">basic</span><span class="o">-</span><span class="n">state</span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&gt;*</span> <span class="n">op</span><span class="p">,</span> <span class="n">Sndr</span><span class="o">&amp;&amp;</span> <span class="n">sndr</span><span class="p">,</span> <span class="n"><a href="../../utility/index_sequence.html">index_sequence</a></span><span class="o">&lt;</span><span class="n">Is</span><span class="p">...</span><span class="o">&gt;</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">)</span>
+    <span class="o">-&gt;</span> <span class="n"><a href="../../../lang/cpp14/decltype_auto.html">decltype(auto)</a></span> <span class="p">{</span>
+    <span class="k">auto</span><span class="o">&amp;</span> <span class="p">[</span><span class="n">_</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="p">...</span><span class="n">child</span><span class="p">]</span> <span class="o">=</span> <span class="n">sndr</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n"><a href="product-type.html">product-type</a></span><span class="p">{</span><span class="n"><a href="connect.html">connect</a></span><span class="p">(</span>
+      <span class="n"><a href="../../utility/forward_like.html">std::forward_like</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">child</span><span class="p">),</span>
+      <span class="n"><a href="basic-receiver.html">basic-receiver</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">Rcvr</span><span class="p">,</span> <span class="n"><a href="../../type_traits/integral_constant.html">integral_constant</a></span><span class="o">&lt;</span><span class="kt">size_t</span><span class="p">,</span> <span class="n">Is</span><span class="o">&gt;&gt;</span><span class="p">{</span><span class="n">op</span><span class="p">})...};</span>
+  <span class="p">}</span>
+</code></pre></div>
+</p>
+<ul>
+<li><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a> : ラムダ式中の<code>return</code>文の式が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>であること。</li>
+<li>ラムダ式中の<code>return</code>文の式が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出する可能性がある場合は、<code>noexcept(false)</code>となる。そうでなければ、<code>noexcept(true)</code>となる。</li>
+</ul>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++26</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="basic-sender.html">basic-sender</a></code></li>
+<li><code><a href="basic-receiver.html">basic-receiver</a></code></li>
+<li><code><a href="operation_state.html">execution::operation_state</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html" target="_blank">P3396R1 std::execution wording fixes</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

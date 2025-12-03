@@ -1,0 +1,358 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>subrange::コンストラクタ - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,ranges,std::ranges,subrange,function,cpp20
+">
+        <meta name="title" content="subrange::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="subrange::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="subrange::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/ranges/subrange/op_constructor.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="- (1) : 空の`subrange`を構築する(デフォルトコンストラクタ)" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="subrange::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/ranges/subrange/op_constructor.html" />
+        <meta name="twitter:description" content="- (1) : 空の`subrange`を構築する(デフォルトコンストラクタ)" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="manifest" href="../../../manifest.json?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;ranges&#34;], &#34;namespace&#34;: [&#34;std::ranges&#34;], &#34;class&#34;: [&#34;subrange&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;e38866c6127f95fe234bd4b0237f2773516b7039&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;ranges&gt;\n#include &lt;forward_list&gt;\n#include &lt;array&gt;\n\nint main()\n{\n  constexpr std::ranges::subrange&lt;int*, int*, std::ranges::subrange_kind::sized&gt; sub1;\n  static_assert(sub1.empty());\n\n  constexpr std::array arr= {1, 2, 3};\n  const std::ranges::subrange sub2(arr.begin(), arr.begin() + 1);\n  assert(sub2.size() == 1);\n\n  const std::forward_list fwl = {1, 2, 3};\n  const std::ranges::subrange sub3(fwl.begin(), ++fwl.begin(), 1);\n  // forward_list\u306fsized_range\u3067\u306f\u306a\u3044\u304c\u3001\u9577\u3055\u3092\u6307\u5b9a\u3057\u3066\u3044\u308b\u306e\u3067subrange\u306fsized_range\u3068\u306a\u308a\u3001size\u30e1\u30f3\u30d0\u95a2\u6570\u304c\u5b9a\u7fa9\u3055\u308c\u308b\n  static_assert(std::ranges::sized_range&lt;decltype(sub3)&gt;);\n  assert(sub3.size() == 1);\n\n  const std::ranges::subrange sub4 = arr;\n  assert(sub4.size() == 3);\n\n  const std::ranges::subrange sub5(fwl, 3);\n  // forward_list\u306fsized_range\u3067\u306f\u306a\u3044\u304c\u3001\u9577\u3055\u3092\u6307\u5b9a\u3057\u3066\u3044\u308b\u306e\u3067subrange\u306fsized_range\u3068\u306a\u308a\u3001size\u30e1\u30f3\u30d0\u95a2\u6570\u304c\u5b9a\u7fa9\u3055\u308c\u308b\n  static_assert(std::ranges::sized_range&lt;decltype(sub5)&gt;);\n  assert(sub5.size() == 3);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;ranges&#34;, &#34;subrange&#34;, &#34;op_constructor&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/ranges.html" itemprop="url">
+              
+                <span itemprop="name">ranges</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/ranges/subrange.html" itemprop="url">
+              
+                <span itemprop="name">subrange</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">コンストラクタ</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-07-08T15:33:39">
+        2025年07月08日 15時33分39秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/ranges/subrange/op_constructor.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/ranges/subrange/op_constructor.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;ranges&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::ranges">std::ranges::</span><span class="class" title="class subrange">subrange::</span><span class="token">コンストラクタ</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="c1">// (1)</span>
+<span class="n"><a href="../subrange.html">subrange</a></span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+
+<span class="c1">// (2)</span>
+<span class="k">constexpr</span> <span class="nf"><a href="../subrange.html">subrange</a></span><span class="p">(</span><span class="n"><a href="convertible-to-non-slicing.html">convertible-to-non-slicing</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span> <span class="k">auto</span> <span class="n">i</span><span class="p">,</span> <span class="n">S</span> <span class="n">s</span><span class="p">)</span> <span class="n">requires</span> <span class="p">(</span><span class="o">!</span><span class="n"><i>StoreSize</i></span><span class="p">);</span>
+
+<span class="c1">// (3)</span>
+<span class="k">constexpr</span> <span class="nf"><a href="../subrange.html">subrange</a></span><span class="p">(</span><span class="n"><a href="convertible-to-non-slicing.html">convertible-to-non-slicing</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span> <span class="k">auto</span> <span class="n">i</span><span class="p">,</span> <span class="n">S</span> <span class="n">s</span><span class="p">,</span> <span class="n"><a href="../../type_traits/make_unsigned.html">make-unsigned-like-t</a></span><span class="o">&lt;</span><span class="n"><a href="../../iterator/iter_difference_t.html">iter_difference_t</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">)</span>
+  <span class="n">requires</span> <span class="p">(</span><span class="n">K</span> <span class="o">==</span> <span class="n"><a href="../subrange_kind.html">subrange_kind</a></span><span class="o">::</span><span class="n">sized</span><span class="p">);</span>
+
+<span class="c1">// (4)</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../different-from.html">different-from</a></span><span class="o">&lt;</span><span class="n"><a href="../subrange.html">subrange</a></span><span class="o">&gt;</span> <span class="n">R</span><span class="o">&gt;</span>
+  <span class="n">requires</span> <span class="n"><a href="../borrowed_range.html">borrowed_range</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span> <span class="n"><a href="convertible-to-non-slicing.html">convertible-to-non-slicing</a></span><span class="o">&lt;</span><span class="n"><a href="../iterator_t.html">iterator_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">I</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span> <span class="n"><a href="../../concepts/convertible_to.html">convertible_to</a></span><span class="o">&lt;</span><span class="n"><a href="../sentinel_t.html">sentinel_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">S</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="n"><a href="../subrange.html">subrange</a></span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="n">requires</span> <span class="p">(</span><span class="o">!</span><span class="n"><i>StoreSize</i></span> <span class="o">||</span> <span class="n"><a href="../sized_range.html">sized_range</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">);</span>
+
+<span class="c1">// (5)</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../borrowed_range.html">borrowed_range</a></span> <span class="n">R</span><span class="o">&gt;</span>
+  <span class="n">requires</span> <span class="n"><a href="convertible-to-non-slicing.html">convertible-to-non-slicing</a></span><span class="o">&lt;</span><span class="n"><a href="../iterator_t.html">iterator_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">I</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span> <span class="n"><a href="../../concepts/convertible_to.html">convertible_to</a></span><span class="o">&lt;</span><span class="n"><a href="../sentinel_t.html">sentinel_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">S</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="n"><a href="../subrange.html">subrange</a></span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">,</span> <span class="n"><a href="../../type_traits/make_unsigned.html">make-unsigned-like-t</a></span><span class="o">&lt;</span><span class="n"><a href="../../iterator/iter_difference_t.html">iter_difference_t</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">)</span>
+  <span class="n">requires</span> <span class="p">(</span><span class="n">K</span> <span class="o">==</span> <span class="n"><a href="../subrange_kind.html">subrange_kind</a></span><span class="o">::</span><span class="n">sized</span><span class="p">)</span> <span class="o">:</span> <span class="n"><a href="../subrange.html">subrange</a></span><span class="p">{</span><span class="n"><a href="../begin.html">ranges::begin</a></span><span class="p">(</span><span class="n">r</span><span class="p">),</span> <span class="n"><a href="../end.html">ranges::end</a></span><span class="p">(</span><span class="n">r</span><span class="p">),</span> <span class="n">n</span><span class="p">}</span> <span class="p">{}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<ul>
+<li>(1) : 空の<code>subrange</code>を構築する(デフォルトコンストラクタ)</li>
+<li>(2) : イテレータ<code>i</code>と番兵<code>s</code>が表す<a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a><code>[i, s)</code>で初期化する</li>
+<li>(3) : イテレータ<code>i</code>と番兵<code>s</code>が表す<a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a><code>[i, s)</code>で初期化し、<code>subrange</code>の長さを<code>n</code>にする</li>
+<li>(4) : 範囲 <code>r</code> で初期化する</li>
+<li>(5) : 範囲 <code>r</code> で初期化し、<code>subrange</code>の長さを<code>n</code>にする ((3)へ委譲)</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
+<p><code>StoreSize</code>は次のように定義される説明専用メンバである。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">static</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n"><i>StoreSize</i></span> <span class="o">=</span> <span class="p">(</span><span class="n">K</span> <span class="o">==</span> <span class="n"><a href="../subrange_kind.html">subrange_kind</a></span><span class="o">::</span><span class="n">sized</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n"><a href="../../iterator/sized_sentinel_for.html">sized_sentinel_for</a></span><span class="o">&lt;</span><span class="n">S</span><span class="p">,</span> <span class="n">I</span><span class="o">&gt;</span><span class="p">);</span>
+</code></pre></div>
+</p>
+<p><code>StoreSize</code>は、元のRangeから長さを求められないが、長さを別に指定することで<code>subrange</code>を<code><a href="../sized_range.html">sized_range</a></code>にした場合に真となる。</p>
+<ul>
+<li>(1): <code>I</code>は<a class="cpprefjp-defined-word" data-desc="デフォルト初期化。`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト構築</a>可能であること</li>
+<li>(2), (4): <code>subrange</code>が<code>sized</code>ではない。または、元のRangeから長さを求められる</li>
+<li>(3), (5): <code>subrange</code>が<code>sized</code>であり、元のRangeから長さを求められない</li>
+<li>(4): 範囲は構築する<code>subrange</code>と同じ型ではない (つまり、(4)はムーブコンストラクタではない)</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a></h2>
+<ul>
+<li>(2): <code>[i, s)</code>は有効な<a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a>であること</li>
+<li>(3): <code>[i, s)</code>は有効な<a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a>であり、<code>n</code>はその範囲の長さ(<code><a href="../../iterator/ranges_distance.html">ranges::distance</a>(i, s)</code>)と等しいこと</li>
+<li>(4): <code>r</code>は有効な範囲であること</li>
+<li>(5): <code>r</code>は有効な範囲であり、<code>n</code>はその範囲の長さと等しいこと</li>
+</ul>
+<h2>効果</h2>
+<p><code>subrange</code>が内部で保持するイテレータと番兵を与えられた範囲で初期化する。
+さらに、<code>StoreSize</code>が真のときは大きさを与えられた値で初期化する。</p>
+<h2>備考</h2>
+<p><code>subrange</code>はコピー、ムーブ可能である。また、テンプレート引数が異なる<code>subrange</code>からは、(4)によって構築できる。</p>
+<h2>例</h2>
+<p><div class="yata" id="e38866c6127f95fe234bd4b0237f2773516b7039"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../forward_list.html">&lt;forward_list&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../array.html">&lt;array&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">constexpr</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n"><a href="../subrange.html">subrange</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">*</span><span class="p">,</span> <span class="kt">int</span><span class="o">*</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">subrange_kind</span><span class="o">::</span><span class="n">sized</span><span class="o">&gt;</span> <span class="n">sub1</span><span class="p">;</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n">sub1</span><span class="p">.</span><span class="n">empty</span><span class="p">());</span>
+
+  <span class="k">constexpr</span> <span class="n"><a href="../../array/array.html">std::array</a></span> <span class="n">arr</span><span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+  <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n"><a href="../subrange.html">subrange</a></span> <span class="n">sub2</span><span class="p">(</span><span class="n">arr</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">arr</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">sub2</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+
+  <span class="k">const</span> <span class="n"><a href="../../forward_list/forward_list.html">std::forward_list</a></span> <span class="n">fwl</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+  <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n"><a href="../subrange.html">subrange</a></span> <span class="n">sub3</span><span class="p">(</span><span class="n">fwl</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="o">++</span><span class="n">fwl</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="c1">// forward_listは<a href="../sized_range.html">sized_range</a>ではないが、長さを指定しているので<a href="../subrange.html">subrange</a>は<a href="../sized_range.html">sized_range</a>となり、sizeメンバ関数が定義される</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n"><a href="../sized_range.html">sized_range</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">sub3</span><span class="p">)</span><span class="o">&gt;</span><span class="p">);</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">sub3</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+
+  <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n"><a href="../subrange.html">subrange</a></span> <span class="n">sub4</span> <span class="o">=</span> <span class="n">arr</span><span class="p">;</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">sub4</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+
+  <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n"><a href="../subrange.html">subrange</a></span> <span class="n">sub5</span><span class="p">(</span><span class="n">fwl</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+  <span class="c1">// forward_listは<a href="../sized_range.html">sized_range</a>ではないが、長さを指定しているので<a href="../subrange.html">subrange</a>は<a href="../sized_range.html">sized_range</a>となり、sizeメンバ関数が定義される</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n"><a href="../sized_range.html">sized_range</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">sub5</span><span class="p">)</span><span class="o">&gt;</span><span class="p">);</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">sub5</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code></code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++20</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: 13.0.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: 10.1.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#icc">ICC</a>: ?</li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: 2019 Update 10 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://timsong-cpp.github.io/cppwp/n4861/ranges" target="_blank">N4861 24 Ranges library</a></li>
+<li><a href="https://techbookfest.org/product/5134506308665344" target="_blank">C++20 ranges</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2367r0.html" target="_blank">P2367R0 Remove misuses of list-initialization from Clause 24</a> (本提案文書はC++20に遡って適用されている)</li>
+<li><a href="https://cplusplus.github.io/LWG/issue3281" target="_blank">LWG 3281 Conversion from <code>pair-like</code> types to <code>subrange</code> is a silent semantic promotion</a></li>
+<li><a href="https://cplusplus.github.io/LWG/issue3282" target="_blank">LWG 3282 <code>subrange</code> converting constructor should disallow derived to base conversions</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

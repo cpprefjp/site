@@ -1,0 +1,423 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>mismatch - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,algorithm,std,function template
+">
+        <meta name="title" content="mismatch - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="mismatch - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="mismatch - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/algorithm/mismatch.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="2つのシーケンス`[first1, last1)`と`[first2, last2)`が一致していない位置を検索する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="mismatch - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/algorithm/mismatch.html" />
+        <meta name="twitter:description" content="2つのシーケンス`[first1, last1)`と`[first2, last2)`が一致していない位置を検索する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="manifest" href="../../manifest.json?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;algorithm&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function template&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;eafd9617905efcd20ffb1da2d352c487e85599ea&#34;, &#34;source&#34;: &#34;#include &lt;algorithm&gt;\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;array&gt;\n#include &lt;list&gt;\n#include &lt;iterator&gt; // for begin, end\n#include &lt;string&gt;   // for to_string\n\n// mismatch \u306e\u7d50\u679c\u3067\u5f97\u3089\u308c\u305f pair \u306b\u5bfe\u3059\u308b\u60c5\u5831\u3092\u51fa\u529b\u3059\u308b\ntemplate &lt;class Range1, class Range2, class Pair&gt;\nvoid print_mismatch_value(const Range1&amp; r1, const Range2&amp; r2, const Pair&amp; p) {\n  std::cout &lt;&lt; \&#34;mismatch index: \&#34; &lt;&lt; std::distance(std::begin(r1), p.first) &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;mismatch value: (\&#34; &lt;&lt; (std::end(r1) == p.first  ? \&#34;end\&#34; : std::to_string(*p.first)) &lt;&lt; \&#34;,\&#34;\n                                   &lt;&lt; (std::end(r2) == p.second ? \&#34;end\&#34; : std::to_string(*p.second)) &lt;&lt; \&#34;)\&#34;\n            &lt;&lt; std::endl;\n}\n\nint main() {\n  const std::vector&lt;int&gt;   v  = { 1,2,3,4,3,2 };\n  const std::array&lt;int, 6&gt; v2 = { 1,2,4,3,2,1 };\n  const std::list&lt;int&gt;     v3 = { 1,2,3,4,3, };\n\n  // v \u3068 v2 \u3067\u7570\u306a\u308b\u5834\u6240\u3092\u63a2\u3059\n  auto pair = std::mismatch(v.begin(), v.end(), v2.begin());\n  print_mismatch_value(v, v2, pair);\n\n  std::cout &lt;&lt; std::endl;\n\n  // v \u3068 v3 \u3067\u7570\u306a\u308b\u5834\u6240\u3092\u63a2\u3059\u3002\n  // v.size() &gt; v3.size() \u306a\u306e\u3067 mismatch(v.begin(), v.end(), v3.begin()) \u3068\u3084\u3063\u3066\u306f\u3044\u3051\u306a\u3044\u3002\n  auto pair2 = std::mismatch(v3.begin(), v3.end(), v.begin());\n  print_mismatch_value(v3, v, pair2);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;algorithm&#34;, &#34;mismatch&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/algorithm.html" itemprop="url">
+              
+                <span itemprop="name">algorithm</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">mismatch</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-07-11T02:59:14">
+        2025年07月11日 02時59分14秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">rotarymars</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/algorithm/mismatch.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/algorithm/mismatch.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function template</div><div class="header">&lt;algorithm&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">mismatch</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">InputIterator2</span><span class="o">&gt;</span>
+  <span class="n"><a href="../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">InputIterator1</span><span class="p">,</span> <span class="n">InputIterator2</span><span class="o">&gt;</span>
+    <span class="n">mismatch</span><span class="p">(</span><span class="n">InputIterator1</span> <span class="n">first1</span><span class="p">,</span> <span class="n">InputIterator1</span> <span class="n">last1</span><span class="p">,</span>
+             <span class="n">InputIterator2</span> <span class="n">first2</span><span class="p">);</span>                      <span class="c1">// (1) C++03</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">InputIterator2</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="n"><a href="../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">InputIterator1</span><span class="p">,</span> <span class="n">InputIterator2</span><span class="o">&gt;</span>
+    <span class="n">mismatch</span><span class="p">(</span><span class="n">InputIterator1</span> <span class="n">first1</span><span class="p">,</span> <span class="n">InputIterator1</span> <span class="n">last1</span><span class="p">,</span>
+             <span class="n">InputIterator2</span> <span class="n">first2</span><span class="p">);</span>                      <span class="c1">// (1) C++20</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">InputIterator2</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">BinaryPredicate</span><span class="o">&gt;</span>
+  <span class="n"><a href="../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">InputIterator1</span><span class="p">,</span> <span class="n">InputIterator2</span><span class="o">&gt;</span>
+  <span class="n">mismatch</span><span class="p">(</span><span class="n">InputIterator1</span> <span class="n">first1</span><span class="p">,</span> <span class="n">InputIterator1</span> <span class="n">last1</span><span class="p">,</span>
+           <span class="n">InputIterator2</span> <span class="n">first2</span><span class="p">,</span> <span class="n">BinaryPredicate</span> <span class="n">pred</span><span class="p">);</span>  <span class="c1">// (2) C++03</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">InputIterator2</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">BinaryPredicate</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="n"><a href="../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">InputIterator1</span><span class="p">,</span> <span class="n">InputIterator2</span><span class="o">&gt;</span>
+  <span class="n">mismatch</span><span class="p">(</span><span class="n">InputIterator1</span> <span class="n">first1</span><span class="p">,</span> <span class="n">InputIterator1</span> <span class="n">last1</span><span class="p">,</span>
+           <span class="n">InputIterator2</span> <span class="n">first2</span><span class="p">,</span> <span class="n">BinaryPredicate</span> <span class="n">pred</span><span class="p">);</span>  <span class="c1">// (2) C++20</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">InputIterator2</span><span class="o">&gt;</span>
+  <span class="n"><a href="../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">InputIterator1</span><span class="p">,</span> <span class="n">InputIterator2</span><span class="o">&gt;</span>
+  <span class="n">mismatch</span><span class="p">(</span><span class="n">InputIterator1</span> <span class="n">first1</span><span class="p">,</span> <span class="n">InputIterator1</span> <span class="n">last1</span><span class="p">,</span>
+           <span class="n">InputIterator2</span> <span class="n">first2</span><span class="p">,</span> <span class="n">InputIterator2</span> <span class="n">last2</span><span class="p">);</span>  <span class="c1">// (3) C++14</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">InputIterator2</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="n"><a href="../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">InputIterator1</span><span class="p">,</span> <span class="n">InputIterator2</span><span class="o">&gt;</span>
+  <span class="n">mismatch</span><span class="p">(</span><span class="n">InputIterator1</span> <span class="n">first1</span><span class="p">,</span> <span class="n">InputIterator1</span> <span class="n">last1</span><span class="p">,</span>
+           <span class="n">InputIterator2</span> <span class="n">first2</span><span class="p">,</span> <span class="n">InputIterator2</span> <span class="n">last2</span><span class="p">);</span>  <span class="c1">// (3) C++20</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">InputIterator2</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">BinaryPredicate</span><span class="o">&gt;</span>
+  <span class="n"><a href="../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">InputIterator1</span><span class="p">,</span> <span class="n">InputIterator2</span><span class="o">&gt;</span>
+  <span class="n">mismatch</span><span class="p">(</span><span class="n">InputIterator1</span> <span class="n">first1</span><span class="p">,</span> <span class="n">InputIterator1</span> <span class="n">last1</span><span class="p">,</span>
+           <span class="n">InputIterator2</span> <span class="n">first2</span><span class="p">,</span> <span class="n">InputIterator2</span> <span class="n">last2</span><span class="p">,</span>
+           <span class="n">BinaryPredicate</span> <span class="n">pred</span><span class="p">);</span>                         <span class="c1">// (4) C++14</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">InputIterator2</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">BinaryPredicate</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="n"><a href="../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">InputIterator1</span><span class="p">,</span> <span class="n">InputIterator2</span><span class="o">&gt;</span>
+  <span class="n">mismatch</span><span class="p">(</span><span class="n">InputIterator1</span> <span class="n">first1</span><span class="p">,</span> <span class="n">InputIterator1</span> <span class="n">last1</span><span class="p">,</span>
+           <span class="n">InputIterator2</span> <span class="n">first2</span><span class="p">,</span> <span class="n">InputIterator2</span> <span class="n">last2</span><span class="p">,</span>
+           <span class="n">BinaryPredicate</span> <span class="n">pred</span><span class="p">);</span>                         <span class="c1">// (4) C++20</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="p">,</span> <span class="k">class</span> <span class="nc">ForwardIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">ForwardIterator2</span><span class="o">&gt;</span>
+  <span class="n"><a href="../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">ForwardIterator1</span><span class="p">,</span> <span class="n">ForwardIterator2</span><span class="o">&gt;</span>
+    <span class="n">mismatch</span><span class="p">(</span><span class="n"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="o">&amp;&amp;</span> <span class="n">exec</span><span class="p">,</span>
+             <span class="n">ForwardIterator1</span> <span class="n">first1</span><span class="p">,</span>
+             <span class="n">ForwardIterator1</span> <span class="n">last1</span><span class="p">,</span>
+             <span class="n">ForwardIterator2</span> <span class="n">first2</span><span class="p">);</span>                    <span class="c1">// (5) C++17</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="p">,</span> <span class="k">class</span> <span class="nc">ForwardIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">ForwardIterator2</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">BinaryPredicate</span><span class="o">&gt;</span>
+  <span class="n"><a href="../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">ForwardIterator1</span><span class="p">,</span> <span class="n">ForwardIterator2</span><span class="o">&gt;</span>
+    <span class="n">mismatch</span><span class="p">(</span><span class="n"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="o">&amp;&amp;</span> <span class="n">exec</span><span class="p">,</span>
+             <span class="n">ForwardIterator1</span> <span class="n">first1</span><span class="p">,</span>
+             <span class="n">ForwardIterator1</span> <span class="n">last1</span><span class="p">,</span>
+             <span class="n">ForwardIterator2</span> <span class="n">first2</span><span class="p">,</span>
+             <span class="n">BinaryPredicate</span> <span class="n">pred</span><span class="p">);</span>                       <span class="c1">// (6) C++17</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="p">,</span> <span class="k">class</span> <span class="nc">ForwardIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">ForwardIterator2</span><span class="o">&gt;</span>
+  <span class="n"><a href="../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">ForwardIterator1</span><span class="p">,</span> <span class="n">ForwardIterator2</span><span class="o">&gt;</span>
+    <span class="n">mismatch</span><span class="p">(</span><span class="n"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="o">&amp;&amp;</span> <span class="n">exec</span><span class="p">,</span>
+             <span class="n">ForwardIterator1</span> <span class="n">first1</span><span class="p">,</span>
+             <span class="n">ForwardIterator1</span> <span class="n">last1</span><span class="p">,</span>
+             <span class="n">ForwardIterator2</span> <span class="n">first2</span><span class="p">,</span>
+             <span class="n">ForwardIterator2</span> <span class="n">last2</span><span class="p">);</span>                     <span class="c1">// (7) C++17</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="p">,</span> <span class="k">class</span> <span class="nc">ForwardIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">ForwardIterator2</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">BinaryPredicate</span><span class="o">&gt;</span>
+  <span class="n"><a href="../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">ForwardIterator1</span><span class="p">,</span> <span class="n">ForwardIterator2</span><span class="o">&gt;</span>
+    <span class="n">mismatch</span><span class="p">(</span><span class="n"><a href="../execution/execution/execution_policy.html">ExecutionPolicy</a></span><span class="o">&amp;&amp;</span> <span class="n">exec</span><span class="p">,</span>
+             <span class="n">ForwardIterator1</span> <span class="n">first1</span><span class="p">,</span>
+             <span class="n">ForwardIterator1</span> <span class="n">last1</span><span class="p">,</span>
+             <span class="n">ForwardIterator2</span> <span class="n">first2</span><span class="p">,</span>
+             <span class="n">ForwardIterator2</span> <span class="n">last2</span><span class="p">,</span>
+             <span class="n">BinaryPredicate</span> <span class="n">pred</span><span class="p">);</span>                       <span class="c1">// (8) C++17</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>2つのシーケンス<code>[first1, last1)</code>と<code>[first2, last2)</code>が一致していない位置を検索する。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p><code>last2</code>が渡されなかった場合は、<code>last2 = first2 + (last1 - first1)</code>とする。</p>
+<p><code>[first1,last1)</code> 内にあるイテレータ <code>i</code> と、<code>j == first2 + (i - first1)</code> であるイテレータ <code>j</code> について、</p>
+<ul>
+<li><code>j</code>が範囲<code>[first2, last2)</code>に含まれており、</li>
+<li><code>!(*i == *j)</code> もしくは</li>
+<li><code>pred(*i, *j) == false</code> であるような、最初のイテレータのペアを返す。</li>
+</ul>
+<p>そのようなイテレータが見つからなかった場合は <code>last1</code> と <code>first2 + (last1 - first1)</code> のペアを返す。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></h2>
+<p>最大で <code>last1 - first1</code> 回の対応する比較もしくは<a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>が適用される。</p>
+<h2>例</h2>
+<p><div class="yata" id="eafd9617905efcd20ffb1da2d352c487e85599ea"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../array.html">&lt;array&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../list.html">&lt;list&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iterator.html">&lt;iterator&gt;</a> // for begin, end</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a>   // for to_string</span><span class="cp"></span>
+
+<span class="c1">// mismatch の結果で得られた <a href="../utility/pair.html">pair</a> に対する情報を出力する</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Range1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Range2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Pair</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">print_mismatch_value</span><span class="p">(</span><span class="k">const</span> <span class="n">Range1</span><span class="o">&amp;</span> <span class="n">r1</span><span class="p">,</span> <span class="k">const</span> <span class="n">Range2</span><span class="o">&amp;</span> <span class="n">r2</span><span class="p">,</span> <span class="k">const</span> <span class="n">Pair</span><span class="o">&amp;</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"mismatch index: "</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../iterator/distance.html">std::distance</a></span><span class="p">(</span><span class="n"><a href="../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">r1</span><span class="p">),</span> <span class="n">p</span><span class="p">.</span><span class="n">first</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"mismatch value: ("</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">r1</span><span class="p">)</span> <span class="o">==</span> <span class="n">p</span><span class="p">.</span><span class="n">first</span>  <span class="o">?</span> <span class="s">"end"</span> <span class="o">:</span> <span class="n"><a href="../string/to_string.html">std::to_string</a></span><span class="p">(</span><span class="n"><a href="../utility/pair/first.html">*p.first</a></span><span class="p">))</span> <span class="o">&lt;&lt;</span> <span class="s">","</span>
+                                   <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">r2</span><span class="p">)</span> <span class="o">==</span> <span class="n">p</span><span class="p">.</span><span class="n">second</span> <span class="o">?</span> <span class="s">"end"</span> <span class="o">:</span> <span class="n"><a href="../string/to_string.html">std::to_string</a></span><span class="p">(</span><span class="n"><a href="../utility/pair/second.html">*p.second</a></span><span class="p">))</span> <span class="o">&lt;&lt;</span> <span class="s">")"</span>
+            <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">const</span> <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span>   <span class="n">v</span>  <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span> <span class="p">};</span>
+  <span class="k">const</span> <span class="n"><a href="../array/array.html">std::array</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">6</span><span class="o">&gt;</span> <span class="n">v2</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span> <span class="p">};</span>
+  <span class="k">const</span> <span class="n"><a href="../list/list.html">std::list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span>     <span class="n">v3</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="p">};</span>
+
+  <span class="c1">// v と v2 で異なる場所を探す</span>
+  <span class="k">auto</span> <span class="n"><a href="../utility/pair.html">pair</a></span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::mismatch</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/begin.html">v2.begin()</a></span><span class="p">);</span>
+  <span class="n">print_mismatch_value</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n"><a href="../utility/pair.html">pair</a></span><span class="p">);</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// v と v3 で異なる場所を探す。</span>
+  <span class="c1">// <a href="../vector/vector/size.html">v.size()</a> &gt; <a href="../vector/vector/size.html">v3.size()</a> なので mismatch(<a href="../vector/vector/begin.html">v.begin()</a>, <a href="../vector/vector/end.html">v.end()</a>, <a href="../vector/vector/begin.html">v3.begin()</a>) とやってはいけない。</span>
+  <span class="k">auto</span> <span class="n"><a href="../utility/pair.html">pair</a>2</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::mismatch</span></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v3.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v3.end()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">);</span>
+  <span class="n">print_mismatch_value</span><span class="p">(</span><span class="n">v3</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n"><a href="../utility/pair.html">pair</a>2</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>mismatch index: 2
+mismatch value: (3,4)
+
+mismatch index: 5
+mismatch value: (end,2)
+</code></pre></p>
+<h2>実装例</h2>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">InputIterator2</span><span class="o">&gt;</span>
+<span class="n"><a href="../utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="n">InputIterator1</span><span class="p">,</span> <span class="n">InputIterator2</span><span class="o">&gt;</span> <span class="n">mismatch</span><span class="p">(</span>
+  <span class="n">InputIterator1</span> <span class="n">first1</span><span class="p">,</span> <span class="n">InputIterator1</span> <span class="n">last1</span><span class="p">,</span> <span class="n">InputIterator2</span> <span class="n">first2</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span> <span class="p">;</span> <span class="n">first1</span> <span class="o">!=</span> <span class="n">last1</span><span class="p">;</span> <span class="o">++</span><span class="n">first1</span><span class="p">,</span> <span class="o">++</span><span class="n">first2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="kt">bool</span><span class="p">(</span><span class="o">*</span><span class="n">first1</span> <span class="o">==</span> <span class="o">*</span><span class="n">first2</span><span class="p">))</span>
+      <span class="k">return</span> <span class="n"><a href="../utility/make_pair.html">std::make_pair</a></span><span class="p">(</span><span class="n">first1</span><span class="p">,</span> <span class="n">first2</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nf"><a href="../utility/make_pair.html">std::make_pair</a></span><span class="p">(</span><span class="n">first1</span><span class="p">,</span> <span class="n">first2</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">InputIterator2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">BinaryPredicate</span><span class="o">&gt;</span>
+<span class="n"><a href="../utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="n">InputIterator1</span><span class="p">,</span> <span class="n">InputIterator2</span><span class="o">&gt;</span> <span class="n">mismatch</span><span class="p">(</span>
+  <span class="n">InputIterator1</span> <span class="n">first1</span><span class="p">,</span> <span class="n">InputIterator1</span> <span class="n">last1</span><span class="p">,</span> <span class="n">InputIterator2</span> <span class="n">first2</span><span class="p">,</span> <span class="n">BinaryPredicate</span> <span class="n">pred</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span> <span class="p">;</span> <span class="n">first1</span> <span class="o">!=</span> <span class="n">last1</span><span class="p">;</span> <span class="o">++</span><span class="n">first1</span><span class="p">,</span> <span class="o">++</span><span class="n">first2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="kt">bool</span><span class="p">(</span><span class="n">pred</span><span class="p">(</span><span class="o">*</span><span class="n">first1</span><span class="p">,</span> <span class="o">*</span><span class="n">first2</span><span class="p">)))</span>
+      <span class="k">return</span> <span class="n"><a href="../utility/make_pair.html">std::make_pair</a></span><span class="p">(</span><span class="n">first1</span><span class="p">,</span> <span class="n">first2</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nf"><a href="../utility/make_pair.html">std::make_pair</a></span><span class="p">(</span><span class="n">first1</span><span class="p">,</span> <span class="n">first2</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++98</li>
+<li>C++14: 2つ目の終端のイテレータ<code>last2</code>を実引数に取る<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>の追加。</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ?</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: ?</li>
+<li><a href="../../implementation.html#icc">ICC</a>: ?</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2005 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2008 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2010 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2012 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2013 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2015 <span aria-label="検証済" role="img" title="検証済">✅</span><ul>
+<li>C++14で追加された<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>は2015から実装されている。</li>
+</ul>
+</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3671.html" target="_blank">N3671 Making non-modifying sequence operations more robust: Revision 2</a><ul>
+<li>C++14から、<code>last2</code>を受け取る<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を追加。</li>
+</ul>
+</li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0202r3.html" target="_blank">P0202R3 Add Constexpr Modifiers to Functions in <code>&lt;algorithm&gt;</code> and <code>&lt;utility&gt;</code> Headers</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0467r2.html" target="_blank">P0467R2 Iterator Concerns for Parallel Algorithms</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

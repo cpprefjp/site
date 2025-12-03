@@ -1,0 +1,320 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>uniform_random_bit_generator - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,random,std,concept,cpp20
+">
+        <meta name="title" content="uniform_random_bit_generator - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="uniform_random_bit_generator - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="uniform_random_bit_generator - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/random/uniform_random_bit_generator.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="uniform_random_bit_generator - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/random/uniform_random_bit_generator.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="manifest" href="../../manifest.json?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;random&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;concept&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;ef237f038e33f11946d858c55b3280c73b5d487d&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;random&gt;\n\ntemplate&lt;std::uniform_random_bit_generator G&gt;\nvoid f(const char* name) {\n  std::cout &lt;&lt; name &lt;&lt; \&#34; is uniform random bit generator\&#34; &lt;&lt; std::endl;\n}\n\ntemplate&lt;typename G&gt;\nvoid f(const char* name) {\n  std::cout &lt;&lt; name &lt;&lt; \&#34; is not uniform random bit generator\&#34; &lt;&lt; std::endl;\n}\n\nint main() {\n  f&lt;std::mt19937&gt;(\&#34;std::mt19937\&#34;);\n  f&lt;std::minstd_rand&gt;(\&#34;std::minstd_rand\&#34;);\n  f&lt;std::ranlux48&gt;(\&#34;std::ranlux48\&#34;);\n  f&lt;std::knuth_b&gt;(\&#34;std::knuth_b\&#34;);\n  f&lt;std::random_device&gt;(\&#34;std::random_device\&#34;);\n\n  std::cout &lt;&lt; \&#34;\\n\&#34;;\n  f&lt;std::uniform_real_distribution&lt;&gt;&gt;(\&#34;std::uniform_real_distribution&lt;&gt;\&#34;);\n  f&lt;std::normal_distribution&lt;&gt;&gt;(\&#34;std::normal_distribution&lt;&gt;\&#34;);\n  f&lt;std::exponential_distribution&lt;&gt;&gt;(\&#34;std::exponential_distribution&lt;&gt;\&#34;);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;random&#34;, &#34;uniform_random_bit_generator&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/random.html" itemprop="url">
+              
+                <span itemprop="name">random</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">uniform_random_bit_generator</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-07-08T15:33:39">
+        2025年07月08日 15時33分39秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/random/uniform_random_bit_generator.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/random/uniform_random_bit_generator.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">concept</div><div class="header">&lt;random&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">uniform_random_bit_generator</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">G</span><span class="o">&gt;</span>
+  <span class="n">concept</span> <span class="n">uniform_random_bit_generator</span> <span class="o">=</span>
+    <span class="n"><a href="../concepts/invocable.html">invocable</a></span><span class="o">&lt;</span><span class="n">G</span><span class="o">&amp;&gt;</span> <span class="o">&amp;&amp;</span> <span class="n"><a href="../concepts/unsigned_integral.html">unsigned_integral</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/invoke_result.html">invoke_result_t</a></span><span class="o">&lt;</span><span class="n">G</span><span class="o">&amp;&gt;&gt;</span> <span class="o">&amp;&amp;</span>
+    <span class="n">requires</span> <span class="p">{</span>
+      <span class="p">{</span> <span class="n">G</span><span class="o">::</span><span class="n">min</span><span class="p">()</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/invoke_result.html">invoke_result_t</a></span><span class="o">&lt;</span><span class="n">G</span><span class="o">&amp;&gt;&gt;</span><span class="p">;</span>
+      <span class="p">{</span> <span class="n">G</span><span class="o">::</span><span class="n">max</span><span class="p">()</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/invoke_result.html">invoke_result_t</a></span><span class="o">&lt;</span><span class="n">G</span><span class="o">&amp;&gt;&gt;</span><span class="p">;</span>
+      <span class="n">requires</span> <span class="n"><a href="../type_traits/bool_constant.html">bool_constant</a></span><span class="o">&lt;</span><span class="p">(</span><span class="n">G</span><span class="o">::</span><span class="n">min</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">G</span><span class="o">::</span><span class="n">max</span><span class="p">())</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>uniform_random_bit_generator</code>は、任意の乱数生成器<code>G</code>が離散一様分布を示す（取り得る出力範囲における各値の出現確率が一定であり符号なし整数型を返す）関数オブジェクトであることを表すコンセプトである。</p>
+<h2>モデル</h2>
+<p>型<code>G</code>のオブジェクト<code>g</code>について以下の条件を満たす場合に限って、型<code>G</code>は<code>uniform_random_bit_generator</code>のモデルである</p>
+<ul>
+<li><code>G::min() &lt;= g()</code>であること</li>
+<li><code>g() &lt;= G::max()</code>であること</li>
+<li><code>g()</code>の時間/空間<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a>は償却定数であること</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="ef237f038e33f11946d858c55b3280c73b5d487d"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../random.html">&lt;random&gt;</a></span><span class="cp"></span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::uniform_random_bit_generator</span></span> <span class="n">G</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="s">" is uniform random bit generator"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">G</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="s">" is not uniform random bit generator"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">f</span><span class="o">&lt;</span><span class="n"><a href="mt19937.html">std::mt19937</a></span><span class="o">&gt;</span><span class="p">(</span><span class="s">"<a href="mt19937.html">std::mt19937</a>"</span><span class="p">);</span>
+  <span class="n">f</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">minstd_rand</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"std::minstd_rand"</span><span class="p">);</span>
+  <span class="n">f</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">ranlux48</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"std::ranlux48"</span><span class="p">);</span>
+  <span class="n">f</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">knuth_b</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"std::knuth_b"</span><span class="p">);</span>
+  <span class="n">f</span><span class="o">&lt;</span><span class="n"><a href="random_device.html">std::random_device</a></span><span class="o">&gt;</span><span class="p">(</span><span class="s">"<a href="random_device.html">std::random_device</a>"</span><span class="p">);</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+  <span class="n">f</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">uniform_real_distribution</span><span class="o">&lt;&gt;&gt;</span><span class="p">(</span><span class="s">"std::uniform_real_distribution&lt;&gt;"</span><span class="p">);</span>
+  <span class="n">f</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">normal_distribution</span><span class="o">&lt;&gt;&gt;</span><span class="p">(</span><span class="s">"std::normal_distribution&lt;&gt;"</span><span class="p">);</span>
+  <span class="n">f</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">exponential_distribution</span><span class="o">&lt;&gt;&gt;</span><span class="p">(</span><span class="s">"std::exponential_distribution&lt;&gt;"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code><a href="mt19937.html">std::mt19937</a> is uniform random bit generator
+std::minstd_rand is uniform random bit generator
+std::ranlux48 is uniform random bit generator
+std::knuth_b is uniform random bit generator
+<a href="random_device.html">std::random_device</a> is uniform random bit generator
+
+std::uniform_real_distribution&lt;&gt; is not uniform random bit generator
+std::normal_distribution&lt;&gt; is not uniform random bit generator
+std::exponential_distribution&lt;&gt; is not uniform random bit generator
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++20</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 10.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2019 Update 3 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><a href="../../lang/cpp20/concepts.html">C++20 コンセプト</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0898r3.pdf" target="_blank">P0898R3 Standard Library Concepts</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1754r1.pdf" target="_blank">P1754R1 Rename concepts to standard_case for C++20, while we still can</a></li>
+<li><a href="https://yohhoy.hatenadiary.jp/entry/20210307/p1" target="_blank">制約式<code>std::bool_constant&lt;cond&gt;::value</code> - yohhoyの日記</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

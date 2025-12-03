@@ -1,0 +1,1206 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>&lt;=&gt;/==による比較演算子の自動定義 [P0515R3] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp20
+">
+        <meta name="title" content="&lt;=&gt;/==による比較演算子の自動定義 [P0515R3] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="&lt;=&gt;/==による比較演算子の自動定義 [P0515R3] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="&lt;=&gt;/==による比較演算子の自動定義 [P0515R3] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp20/consistent_comparison.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="新しく三方比較演算子`&lt;=&gt;`が導入されることにより、順序付けと同値比較の6つの関係演算子（`&lt;`, `&lt;=`, `&gt;`, `&gt;=`, `==`, `!=`）を容易に実装することができるようになる。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="&lt;=&gt;/==による比較演算子の自動定義 [P0515R3] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp20/consistent_comparison.html" />
+        <meta name="twitter:description" content="新しく三方比較演算子`&lt;=&gt;`が導入されることにより、順序付けと同値比較の6つの関係演算子（`&lt;`, `&lt;=`, `&gt;`, `&gt;=`, `==`, `!=`）を容易に実装することができるようになる。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="manifest" href="../../manifest.json?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;a0566d908445668a1af8c1a83fec724865fd892a&#34;, &#34;source&#34;: &#34;#include &lt;compare&gt;  //&lt;=&gt;\u5229\u7528\u306e\u5834\u5408\u5fc5\u9808\n#include &lt;iostream&gt;\n\nstruct C {\n  int x;\n  int y;\n  double v;\n  char str[32];\n\n  //&lt;=&gt;\u3092public\u3067\u5b9a\u7fa9\u3057\u3066\u304a\u304f\u3053\u3068\u3067\u3001\u305d\u306e\u4ed6\u306e\u6f14\u7b97\u5b50\u304c\u5c0e\u51fa\u3055\u308c\u308b\n  auto operator&lt;=&gt;(const C&amp;) const = default;\n};\n\n\nint main() {\n  C c1 = {10, 20, 3.1415, \&#34;Three-way Comparison\&#34; };\n  C c2 = {10, 20, 3.1415, \&#34;Spaceship Operator\&#34; };\n\n  //\u4e09\u65b9\u6bd4\u8f03\u6f14\u7b97\u5b50\u305d\u306e\u3082\u306e\u306b\u3088\u308b\u6bd4\u8f03\n  std::cout &lt;&lt; ((c1 &lt;=&gt; c2) == 0) &lt;&lt; std::endl;\n  std::cout &lt;&lt; ((c1 &lt;=&gt; c2) &lt;  0) &lt;&lt; std::endl;\n  std::cout &lt;&lt; ((c1 &lt;=&gt; c2) &gt;  0) &lt;&lt; std::endl;\n\n  //\u30af\u30e9\u30b9C\u306f6\u3064\u306e\u6f14\u7b97\u5b50\u306b\u3088\u308b\u6bd4\u8f03\u304c\u53ef\u80fd\n  std::cout &lt;&lt; (c1 &lt;  c2) &lt;&lt; std::endl;\n  std::cout &lt;&lt; (c1 &lt;= c2) &lt;&lt; std::endl;\n  std::cout &lt;&lt; (c1 &gt;  c2) &lt;&lt; std::endl;\n  std::cout &lt;&lt; (c1 &gt;= c2) &lt;&lt; std::endl;\n  std::cout &lt;&lt; (c1 == c2) &lt;&lt; std::endl;\n  std::cout &lt;&lt; (c1 != c2) &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;5e10a49bbc4f514cdd29dc7609f7e35056270388&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;tuple&gt;\n\nstruct S  {\n  int x;\n  double d;\n  char str[4];\n\n  constexpr bool operator&lt;(const S&amp; rhs) const {\n    return std::tie(x, d, str[0], str[1], str[2], str[3])\n         &lt; std::tie(rhs.x, rhs.d, rhs.str[0], rhs.str[1], rhs.str[2], rhs.str[3]);\n  }\n\n  constexpr bool operator==(const S&amp; rhs) const {\n    return std::tie(x, d, str[0], str[1], str[2], str[3])\n        == std::tie(rhs.x, rhs.d, rhs.str[0], rhs.str[1], rhs.str[2], rhs.str[3]);\n  }\n\n  constexpr bool operator!=(const S&amp; rhs) const {\n    return !(*this == rhs);\n  }\n\n  constexpr bool operator&gt;(const S&amp; rhs) const {\n    return rhs &lt; *this;\n  }\n\n  constexpr bool operator&lt;=(const S&amp; rhs) const {\n    return !(*this &gt; rhs);\n  }\n\n  constexpr bool operator&gt;=(const S&amp; rhs) const {\n    return !(*this &lt; rhs);\n  }\n};\n\nint main()\n{\n  S s1 = {10, 0.1, \&#34;abc\&#34;};\n  S s2 = {10, 0.1, \&#34;ABC\&#34;};\n\n  std::cout &lt;&lt; std::boolalpha;\n\n  std::cout &lt;&lt; (s1 &lt;  s2) &lt;&lt; std::endl;\n  std::cout &lt;&lt; (s1 &lt;= s2) &lt;&lt; std::endl;\n  std::cout &lt;&lt; (s1 &gt;  s2) &lt;&lt; std::endl;\n  std::cout &lt;&lt; (s1 &gt;= s2) &lt;&lt; std::endl;\n  std::cout &lt;&lt; (s1 == s2) &lt;&lt; std::endl;\n  std::cout &lt;&lt; (s1 != s2) &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;976551b9151bbe3c280a2c86632d51ca346d88dc&#34;, &#34;source&#34;: &#34;#include &lt;compare&gt;\n#include &lt;iostream&gt;\n\nstruct S {\n  int x;\n  double d;\n  char str[4];\n\n  auto operator&lt;=&gt;(const S&amp;) const = default;\n};\n\nint main()\n{\n  S s1 = {10, 0.1, \&#34;abc\&#34;};\n  S s2 = {10, 0.1, \&#34;ABC\&#34;};\n\n  std::cout &lt;&lt; std::boolalpha;\n\n  std::cout &lt;&lt; (s1 &lt;  s2) &lt;&lt; std::endl;\n  std::cout &lt;&lt; (s1 &lt;= s2) &lt;&lt; std::endl;\n  std::cout &lt;&lt; (s1 &gt;  s2) &lt;&lt; std::endl;\n  std::cout &lt;&lt; (s1 &gt;= s2) &lt;&lt; std::endl;\n  std::cout &lt;&lt; (s1 == s2) &lt;&lt; std::endl;\n  std::cout &lt;&lt; (s1 != s2) &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp20&#34;, &#34;consistent_comparison&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp20.html" itemprop="url">
+              
+                <span itemprop="name">C++20</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">&lt;=&gt;/==による比較演算子の自動定義 [P0515R3]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-07-08T15:33:39">
+        2025年07月08日 15時33分39秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp20/consistent_comparison.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp20/consistent_comparison.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token"><code>&lt;=&gt;</code>/<code>==</code>による比較演算子の自動定義 [P0515R3]</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++20に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>新しく三方比較演算子<code>&lt;=&gt;</code>が導入されることにより、順序付けと同値比較の6つの関係演算子（<code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>==</code>, <code>!=</code>）を容易に実装することができるようになる。</p>
+<p><div class="yata" id="a0566d908445668a1af8c1a83fec724865fd892a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/compare.html">&lt;compare&gt;</a>  //&lt;=&gt;利用の場合必須</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">C</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">y</span><span class="p">;</span>
+  <span class="kt">double</span> <span class="n">v</span><span class="p">;</span>
+  <span class="kt">char</span> <span class="n">str</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span>
+
+  <span class="c1">//&lt;=&gt;をpublicで定義しておくことで、その他の演算子が導出される</span>
+  <span class="k">auto</span> <span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">C</span><span class="o">&amp;</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="p">};</span>
+
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">C</span> <span class="n">c1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mf">3.1415</span><span class="p">,</span> <span class="s">"Three-way Comparison"</span> <span class="p">};</span>
+  <span class="n">C</span> <span class="n">c2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mf">3.1415</span><span class="p">,</span> <span class="s">"Spaceship Operator"</span> <span class="p">};</span>
+
+  <span class="c1">//三方比較演算子そのものによる比較</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">((</span><span class="n">c1</span> <span class="o">&lt;=&gt;</span> <span class="n">c2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">((</span><span class="n">c1</span> <span class="o">&lt;=&gt;</span> <span class="n">c2</span><span class="p">)</span> <span class="o">&lt;</span>  <span class="mi">0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">((</span><span class="n">c1</span> <span class="o">&lt;=&gt;</span> <span class="n">c2</span><span class="p">)</span> <span class="o">&gt;</span>  <span class="mi">0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">//クラスCは6つの演算子による比較が可能</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">c1</span> <span class="o">&lt;</span>  <span class="n">c2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">c1</span> <span class="o">&lt;=</span> <span class="n">c2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">c1</span> <span class="o">&gt;</span>  <span class="n">c2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">c1</span> <span class="o">&gt;=</span> <span class="n">c2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">c1</span> <span class="o">==</span> <span class="n">c2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">c1</span> <span class="o">!=</span> <span class="n">c2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>この様に、あるクラスに対して三方比較演算子<code>&lt;=&gt;</code>を定義しておくことで最大6つの比較演算子を導出し使用することができる。<br />
+そして、そのような<code>&lt;=&gt;</code>は<code>default</code>実装で十分ならば実装を省略できる。</p>
+<p>この様な三方比較の事を一貫比較（Consistent comparison）と言い、この演算子は三方比較演算子（Three-way comparison operator）と呼ぶ。また、演算子の見た目から宇宙船演算子（Spaceship operator）と呼ばれることもある。</p>
+<p>この様に、三方比較演算子を用いれば比較演算子の定義が非常に容易になるため<code><a href="../../reference/utility/rel_ops.html">std::rel_ops</a></code>はその役割をほとんど失い、非推奨となった。</p>
+<h2>仕様</h2>
+<h3>三方比較</h3>
+<p>ある型の値<code>a, b</code>についての<code>a &lt;=&gt; b</code>による比較の結果は単純な<code>bool</code>ではなく、未満・等しい・超える、という3つの関係を同時に表す値を返す。<br />
+そこから<code>a, b</code>の関係を<code>bool</code>の形で得るには、<code>0</code>リテラルとの比較を用いる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+
+<span class="k">auto</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&lt;=&gt;</span> <span class="n">b</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">comp</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"a &lt; b"</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;</span> <span class="n">comp</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"a &gt; b"</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">comp</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"a = b"</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>この場合の結果は<code>a &lt; b</code>が出力される。</p>
+<p><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の値は左辺に対する右辺の関係を表すので、引数順を入れ替えると順序の方向も逆転する（上記の例の場合、<code>comp = b &lt;=&gt; a</code>とすると<code>comp &lt; 0 == false, 0 &lt; comp == true</code>となり、<code>a &gt; b</code>が出力される）。これは、数値型の場合は<code>左辺-右辺</code>の結果が<code>0</code>より大きいか？によって比較結果を表現していると見ることができる。</p>
+<p>なお、三方比較演算子の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の<code>0</code>リテラル以外との比較は<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>とされる。<code>1</code>だったり<code>0.0</code>であってはならない。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+
+<span class="k">auto</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&lt;=&gt;</span> <span class="n">b</span><span class="p">;</span>
+
+<span class="c1">//全て未定義動作</span>
+<span class="kt">bool</span> <span class="n">is_less</span> <span class="o">=</span> <span class="n">comp</span> <span class="o">==</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kt">bool</span> <span class="n">is_greater</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="n">comp</span>
+<span class="kt">bool</span> <span class="n">is_equal</span> <span class="o">=</span> <span class="n">comp</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<h3>比較カテゴリ型（Comparison category type）</h3>
+<p>三方比較演算子の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型は<code>int</code>などの整数型ではなく、比較カテゴリ型と呼ばれる専用の型である。<br />
+これは、比較対象となる型の満たしている同値や順序の関係についてを専用の型によって表明し、コンセプト等の機構によってその性質に応じた適切な処理へのディスパッチを行うことを出来るようにするためである（例えば、後で説明する<code>&lt;=&gt;</code>演算子の合成の際に利用されている。）。</p>
+<p>以下の3つの比較カテゴリ型が提供される。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th align="left">比較カテゴリ型</th>
+<th align="center">対応する数学的な関係</th>
+<th align="center">導出される演算子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code><a href="../../reference/compare/partial_ordering.html">partial_ordering</a></code></td>
+<td align="center">半順序</td>
+<td align="center"><code>== != &lt; &lt;= &gt; &gt;=</code></td>
+</tr>
+<tr>
+<td align="left"><code><a href="../../reference/compare/weak_ordering.html">weak_ordering</a></code></td>
+<td align="center">弱順序</td>
+<td align="center"><code>== != &lt; &lt;= &gt; &gt;=</code></td>
+</tr>
+<tr>
+<td align="left"><code><a href="../../reference/compare/strong_ordering.html">strong_ordering</a></code></td>
+<td align="center">全順序</td>
+<td align="center"><code>== != &lt; &lt;= &gt; &gt;=</code></td>
+</tr>
+</tbody>
+</table>
+<p>表にあるように3つの比較カテゴリ型はそれぞれ数学的な2項関係（順序関係）の一つと対応している。</p>
+<p>三方比較演算子による比較の結果となる値は、これら比較カテゴリ型のいずれかの<code>prvalue</code>オブジェクトとなる。<br />
+全てのカテゴリにおいてそのようなオブジェクトの<code>0</code>リテラル以外との比較は<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こす。</p>
+<p>これらの比較カテゴリ型は新しく追加される<code><a href="../../reference/compare.html">&lt;compare&gt;</a></code>ヘッダにて定義されるが、<code>&lt;=&gt;</code>をコード中で使用したとしても自動でインクルードされないため、<code>&lt;=&gt;</code>の使用も含めて比較カテゴリ型を利用する際は<code>&lt;compare&gt;</code>を明示的にインクルードする必要がある。</p>
+<h4>比較カテゴリ間の順序関係</h4>
+<p>各比較カテゴリ型はその条件の強いものから弱いものへの暗黙変換が定義される。この方向は各カテゴリに対応する数学的な関係の包含関係によって定義されている。  </p>
+<p><img alt="" src="../../static/image/lang/cpp20/consistent_comparison_01.png" /><br />
+図1 比較カテゴリ間の変換関係（<a href="http://wg21.link/p0515" target="_blank">P0515R3</a>より引用； 最終的なC++20仕様では<code>weak_equality</code>/<code>strong_equality</code>は<a href="http://wg21.link/p1959" target="_blank">削除されている</a>）</p>
+<p>クラス型に対するdefaultな三方比較演算子の様に複数の型が参加する三方比較の結果の比較カテゴリは、比較に参加するすべての型の<code>&lt;=&gt;</code>による比較の結果となるカテゴリ型から共通して変換できる最も強い型となる。そのような型を共通比較カテゴリ型（common comparison category type）と呼ぶ。</p>
+<p>比較に参加するすべての型の<code>&lt;=&gt;</code>による比較カテゴリ型をそれぞれ<code>Ti (0 &lt;= i &lt; N)</code>として、共通比較カテゴリ型<code>U</code>は以下のように決定される。</p>
+<ol>
+<li><code>Ti</code>の中に1つでも<code>partial_ordering</code>がある場合、<code>U = partial_ordering</code></li>
+<li>そうではなく、<code>Ti</code>の中に1つでも<code>weak_ordering</code>がある場合、<code>U = weak_ordering</code></li>
+<li>それ以外の場合、<code>U = strong_ordering</code>（<code>N == 0</code>の場合など）</li>
+</ol>
+<p>この共通比較カテゴリ型を求めるのは場合によっては困難なので、それを求めるために<code>&lt;compare&gt;</code>ヘッダにて<code><a href="../../reference/compare/common_comparison_category.html">common_comparison_category&lt;Ts...&gt;</a></code>というメタ関数が提供される。</p>
+<h3>operator==</h3>
+<p><code>&lt;=&gt;</code>を利用する事で最大6つの比較演算子が導出されると説明したが、実際には同値比較演算子（<code>== !=</code>）は<code>&lt;=&gt;</code>から導出されず、<code>==</code>は定義されている必要があり<code>!=</code>は<code>==</code>から導出される。<br />
+ただし、<code>&lt;=&gt;</code>をdefault宣言した場合は同じアクセス指定で<code>==</code>が暗黙的にdefault宣言され利用可能になる。また、明示的にdefaultで宣言することもできる。<br />
+そのようなdefaultの<code>==</code>の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型は<code>bool</code>であり、<code>!=</code>の導出に使用される<code>==</code>も<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型は<code>bool</code>でなければならない。</p>
+<p>このため、異種型間比較や特殊な比較を実装するために<code>&lt;=&gt;</code>を独自に定義する場合、6×2個の比較演算子全てを導出するためには<code>==</code>も独自に定義しなければならない。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">//&lt;=&gt;を独自実装し==を実装していない型、４種類の比較演算子による比較が可能</span>
+<span class="k">struct</span> <span class="n">not_eq_comparable</span> <span class="p">{</span>
+  <span class="kt">char</span> <span class="n">str</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+
+  <span class="k">auto</span> <span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">not_eq_comparable</span><span class="o">&amp;</span> <span class="n">that</span><span class="p">)</span> <span class="k">const</span> <span class="o">-&gt;</span> <span class="n">std</span><span class="o">::</span><span class="n">weak_ordering</span> <span class="p">{</span>
+    <span class="c1">//大文字小文字を同値として扱って比較</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">str</span><span class="p">);</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kt">char</span> <span class="n">l1</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">tolower</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+      <span class="kt">char</span> <span class="n">l2</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">tolower</span><span class="p">(</span><span class="n">that</span><span class="p">.</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">l1</span> <span class="o">!=</span> <span class="n">l2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">l1</span> <span class="o">&lt;=&gt;</span> <span class="n">l2</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">weak_ordering</span><span class="o">::</span><span class="n">equivalent</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="p">{</span>
+  <span class="n">not_eq_comparable</span> <span class="n">str1</span> <span class="o">=</span> <span class="p">{</span><span class="s">"test"</span><span class="p">},</span> <span class="n">str2</span> <span class="o">=</span> <span class="p">{</span><span class="s">"TEST"</span><span class="p">};</span>
+
+  <span class="c1">//&lt;=&gt;がdefaultでは無いので==は定義されていない</span>
+  <span class="kt">bool</span> <span class="n">eq1</span> <span class="o">=</span> <span class="n">str1</span> <span class="o">==</span> <span class="n">str2</span><span class="p">;</span>         <span class="c1">//error</span>
+  <span class="kt">bool</span> <span class="n">eq2</span> <span class="o">=</span> <span class="p">(</span><span class="n">str1</span> <span class="o">&lt;=&gt;</span> <span class="n">str2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//ok</span>
+  <span class="kt">bool</span> <span class="n">ne1</span> <span class="o">=</span> <span class="n">str1</span> <span class="o">!=</span> <span class="n">str2</span><span class="p">;</span>         <span class="c1">//error</span>
+  <span class="kt">bool</span> <span class="n">ne2</span> <span class="o">=</span> <span class="p">(</span><span class="n">str1</span> <span class="o">&lt;=&gt;</span> <span class="n">str2</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//ok</span>
+<span class="p">}</span>
+
+<span class="c1">//&lt;=&gt;と==両方実装をした型、6種類全ての比較演算子を使用可能</span>
+<span class="k">struct</span> <span class="n">eq_comparable</span> <span class="p">{</span>
+  <span class="kt">char</span> <span class="n">str</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+
+  <span class="k">auto</span> <span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">eq_comparable</span><span class="o">&amp;</span> <span class="n">that</span><span class="p">)</span> <span class="k">const</span> <span class="o">-&gt;</span> <span class="n">std</span><span class="o">::</span><span class="n">weak_ordering</span> <span class="p">{</span>
+    <span class="c1">//大文字小文字を同値として扱って比較</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">str</span><span class="p">);</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kt">char</span> <span class="n">l1</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">tolower</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+      <span class="kt">char</span> <span class="n">l2</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">tolower</span><span class="p">(</span><span class="n">that</span><span class="p">.</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">l1</span> <span class="o">!=</span> <span class="n">l2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">l1</span> <span class="o">&lt;=&gt;</span> <span class="n">l2</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">weak_ordering</span><span class="o">::</span><span class="n">equivalent</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kt">bool</span> <span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span> <span class="n">eq_comparable</span><span class="o">&amp;</span> <span class="n">that</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="c1">//大文字小文字を同値として扱って比較</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">str</span><span class="p">);</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">tolower</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">!=</span> <span class="n">std</span><span class="o">::</span><span class="n">tolower</span><span class="p">(</span><span class="n">that</span><span class="p">.</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="p">{</span>
+  <span class="n">eq_comparable</span> <span class="n">str1</span> <span class="o">=</span> <span class="p">{</span><span class="s">"test"</span><span class="p">},</span> <span class="n">str2</span> <span class="o">=</span> <span class="p">{</span><span class="s">"TEST"</span><span class="p">};</span>
+
+  <span class="c1">//==を定義してあるので同値比較演算子を使用可能</span>
+  <span class="kt">bool</span> <span class="n">eq1</span> <span class="o">=</span> <span class="n">str1</span> <span class="o">==</span> <span class="n">str2</span><span class="p">;</span>         <span class="c1">//ok</span>
+  <span class="kt">bool</span> <span class="n">eq2</span> <span class="o">=</span> <span class="p">(</span><span class="n">str1</span> <span class="o">&lt;=&gt;</span> <span class="n">str2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//ok</span>
+  <span class="kt">bool</span> <span class="n">ne1</span> <span class="o">=</span> <span class="n">str1</span> <span class="o">!=</span> <span class="n">str2</span><span class="p">;</span>         <span class="c1">//ok</span>
+  <span class="kt">bool</span> <span class="n">ne2</span> <span class="o">=</span> <span class="p">(</span><span class="n">str1</span> <span class="o">&lt;=&gt;</span> <span class="n">str2</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//ok</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>また、<code>default</code>な<code>&lt;=&gt;</code>を宣言したうえで異種型間比較のために<code>==</code>を定義してしまうと、暗黙に宣言されていた<code>default</code>の<code>==</code>は宣言されなくなってしまうので注意が必要である。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">enum</span> <span class="k">class</span> <span class="nc">category</span> <span class="p">{</span>
+  <span class="n">A</span><span class="p">,</span>
+  <span class="n">B</span><span class="p">,</span>
+  <span class="n">C</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">enum_wrap</span> <span class="p">{</span>
+  <span class="n">category</span> <span class="n">cat</span><span class="p">{};</span>
+
+  <span class="k">auto</span> <span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">enum_wrap</span><span class="o">&amp;</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+
+  <span class="c1">//この宣言が必要</span>
+  <span class="c1">//bool operator==(const enum_wrap&amp;) const = default;</span>
+
+  <span class="k">auto</span> <span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">category</span> <span class="n">other_cat</span><span class="p">)</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">cat</span> <span class="o">&lt;=&gt;</span> <span class="n">other_cat</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kt">bool</span> <span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span> <span class="n">category</span> <span class="n">other_cat</span><span class="p">)</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">cat</span> <span class="o">==</span> <span class="n">other_cat</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="n">enum_wrap</span> <span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="n">category</span><span class="o">::</span><span class="n">A</span><span class="p">};</span>
+<span class="n">enum_wrap</span> <span class="n">b</span> <span class="o">=</span> <span class="p">{</span><span class="n">category</span><span class="o">::</span><span class="n">B</span><span class="p">};</span>
+
+<span class="k">auto</span> <span class="n">comp1</span> <span class="n">a</span> <span class="o">&lt;=&gt;</span> <span class="n">b</span><span class="p">;</span>           <span class="c1">//ok</span>
+<span class="k">auto</span> <span class="n">comp2</span> <span class="n">a</span> <span class="o">&lt;=&gt;</span> <span class="n">category</span><span class="o">::</span><span class="n">C</span><span class="p">;</span> <span class="c1">//ok</span>
+<span class="kt">bool</span> <span class="n">eq1</span> <span class="o">=</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">;</span>            <span class="c1">//ng</span>
+<span class="kt">bool</span> <span class="n">eq2</span> <span class="o">=</span> <span class="n">a</span> <span class="o">==</span> <span class="n">category</span><span class="o">::</span><span class="n">C</span><span class="p">;</span>  <span class="c1">//ok</span>
+</code></pre></div>
+</p>
+<p>この場合でも、<code>default</code>の<code>==</code>を明示的に宣言することで利用可能となる。</p>
+<p>このような仕様になっているのは、<code>&lt;=&gt;</code>を用いた同値比較において発生しうるオーバーヘッドを回避するためである（詳細は後述の「検討されたほかの選択肢」を参照）。</p>
+<h3>演算子の導出と<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>候補</h3>
+<p><code>&lt;=&gt;</code>及び<code>==</code>から導出される演算子は暗黙的に宣言され実装されているわけではなく、それらの演算子を呼び出した際の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>候補に、<code>&lt;=&gt; ==</code>を利用して生成した候補を入れることによって導出される。このため、導出された比較演算子のアドレスを取ることは出来ない。</p>
+<p>詳細な手順は以下のようになる。</p>
+<p>任意の演算子<code>@</code>を任意の型<code>T1, T2</code>のオブジェクト<code>a, b</code>に対して<code>a @ b</code>のように呼び出したとき</p>
+<ol>
+<li><a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>候補に、<code>a @ b</code>を加える</li>
+<li><code>@</code>が三方比較演算子ならば、その<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>候補に<code>&lt;=&gt;</code>を使って生成した逆順の式<code>b &lt;=&gt; a</code>を加える</li>
+<li><code>@</code>が関係演算子（<code>&lt; &lt;= &gt; &gt;=</code>）ならば、その<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>候補に<code>&lt;=&gt;</code>を使って生成した2種類の式<code>a &lt;=&gt; b, b &lt;=&gt; a</code>を加える</li>
+<li><code>@</code>が<code>!=</code>ならば、その<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>候補に<code>==</code>を使って生成した2種類の式<code>a == b, b == a</code>を加える</li>
+<li><code>@</code>が<code>==</code>ならば、その<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>候補に<code>==</code>を使って生成した逆順の式<code>b == a</code>を加える</li>
+<li><a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>では使用可能なメンバ・非メンバ・組み込みの<code>@ &lt;=&gt; ==</code>が考慮され、<code>@</code>→正順の式→逆順の式 の順で優先される。また、選択された演算子に対して式の生成は行われない。</li>
+<li>それらの候補からの<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>の結果生成された候補が選択された場合、その候補に応じて以下のように最終的な式を生成する<ul>
+<li><code>@</code>が三方比較演算子ならば、<code>0 &lt;=&gt; (b &lt;=&gt; a)</code></li>
+<li><code>@</code>が関係演算子（<code>&lt; &lt;= &gt; &gt;=</code>）ならば、<code>(a &lt;=&gt; b) @ 0</code>もしくは<code>0 @ (b &lt;=&gt; a)</code></li>
+<li><code>@</code>が<code>!=</code>ならば、<code>!(a == b)</code>もしくは<code>!(b == a)</code></li>
+</ul>
+</li>
+<li>元の呼び出し<code>a @ b</code>を生成された式で書き換える（生成された式を元の呼び出し<code>a @ b</code>として実行する）</li>
+</ol>
+<p>結果、各演算子を呼び出したときに考慮される<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>候補は以下のようになる。  </p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th align="center">呼び出す演算子 <code>a @ b</code></th>
+<th align="center"><a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>候補</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>a &lt;=&gt; b</code></td>
+<td align="center"><code>a &lt;=&gt; b</code> <br /> <code>0 &lt;=&gt; (b &lt;=&gt; a)</code></td>
+</tr>
+<tr>
+<td align="center"><code>a == b</code></td>
+<td align="center"><code>a == b</code><br /><code>(b == a)</code></td>
+</tr>
+<tr>
+<td align="center"><code>a != b</code></td>
+<td align="center"><code>a != b</code><br /><code>!(a == b)</code><br /> <code>!(b == a)</code></td>
+</tr>
+<tr>
+<td align="center"><code>a &lt; b</code></td>
+<td align="center"><code>a &lt; b</code><br /><code>(a &lt;=&gt; b) &lt; 0</code><br /><code>0 &lt; (b &lt;=&gt; a)</code></td>
+</tr>
+<tr>
+<td align="center"><code>a &lt;= b</code></td>
+<td align="center"><code>a &lt;= b</code><br /><code>(a &lt;=&gt; b) &lt;= 0</code><br /><code>0 &lt;= (b &lt;=&gt; a)</code></td>
+</tr>
+<tr>
+<td align="center"><code>a &gt; b</code></td>
+<td align="center"><code>a &gt; b</code><br /><code>(a &lt;=&gt; b) &gt; 0</code><br /><code>0 &gt; (b &lt;=&gt; a)</code></td>
+</tr>
+<tr>
+<td align="center"><code>a &gt;= b</code></td>
+<td align="center"><code>a &gt;= b</code><br /><code>(a &lt;=&gt; b) &gt;= 0</code><br /><code>0 &gt;= (b &lt;=&gt; a)</code></td>
+</tr>
+</tbody>
+</table>
+<p>この様に、異種型間比較においても片方の<code>&lt;=&gt; ==</code>を定義しておけばその引数順を逆にした演算子も生成され、演算子の対称性が自動で補完される。</p>
+<p>ただし、この時使用される<code>==</code>は<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型が<code>bool</code>（<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>は可）でなければならず、<code>&lt;=&gt;</code>は結果として<code>@ 0</code>もしくは<code>0 @</code>を適用可能な型を返さなければならない。そうでない場合はコンパイルエラーとなる（上記手順7以降に発生するエラーはコンパイルエラーとなる）。<br />
+<code>== &lt;=&gt;</code>が使用可能ではない（定義されてない、曖昧、アクセスできない、削除されている）場合は、<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>の過程で候補から外されコンパイルエラーとはならない（上記手順6以前のエラーはコンパイルエラーとならない）。</p>
+<h3>default比較</h3>
+<p>ここまでにも説明せずに登場していたが、あるクラス型に対する<code>&lt;=&gt;</code>および<code>==</code>演算子は<code>default</code>指定することができる。<br />
+そうした場合、コンパイラによってそのクラスの基底及び全メンバの宣言順の辞書式比較を行う実装が暗黙に定義される。</p>
+<p>あるクラス<code>C</code>に対する<code>&lt;=&gt; ==</code>の<code>default</code>指定できる宣言は、<code>C</code>の関数テンプレートでないメンバとして宣言されていて、かつ<code>const C&amp;</code>型の1つの引数をもつ非静的<code>const</code>メンバ関数（<code>volatile</code>および参照修飾は許可されない）であるか、<code>const C&amp;</code>型か<code>C</code>型の2つの引数を持つ<code>C</code>の<code>friend</code>関数、である必要がある。<br />
+つまり以下の様な宣言が有効である。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">C</span> <span class="p">{</span>
+  <span class="c1">//有効な&lt;=&gt;のdefault宣言例</span>
+  <span class="k">auto</span> <span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">C</span><span class="o">&amp;</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+  <span class="k">friend</span> <span class="k">auto</span> <span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">C</span><span class="o">&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="n">C</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+  <span class="k">friend</span> <span class="k">auto</span> <span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+
+  <span class="c1">//有効な==のdefault宣言例</span>
+  <span class="kt">bool</span> <span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span> <span class="n">C</span><span class="o">&amp;</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+  <span class="k">friend</span> <span class="kt">bool</span> <span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span> <span class="n">C</span><span class="o">&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="n">C</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+  <span class="k">friend</span> <span class="kt">bool</span> <span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+
+  <span class="c1">//クラス外で定義することもできる</span>
+  <span class="k">auto</span> <span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">C</span><span class="o">&amp;</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+  <span class="kt">bool</span> <span class="k">operator</span><span class="o">==</span> <span class="p">(</span><span class="k">const</span> <span class="n">C</span><span class="o">&amp;</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+  <span class="k">friend</span> <span class="k">auto</span> <span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">C</span><span class="o">&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="n">C</span><span class="o">&amp;</span><span class="p">);</span>
+  <span class="k">friend</span> <span class="kt">bool</span> <span class="k">operator</span><span class="o">==</span> <span class="p">(</span><span class="k">const</span> <span class="n">C</span><span class="o">&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="n">C</span><span class="o">&amp;</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="c1">//クラス外定義は別の翻訳単位にあってもok</span>
+<span class="k">auto</span> <span class="n">C</span><span class="o">::</span><span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">C</span><span class="o">&amp;</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="kt">bool</span> <span class="n">C</span><span class="o">::</span><span class="k">operator</span><span class="o">==</span> <span class="p">(</span><span class="k">const</span> <span class="n">C</span><span class="o">&amp;</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="kr">inline</span> <span class="k">auto</span> <span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">C</span><span class="o">&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="n">C</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="kr">inline</span> <span class="kt">bool</span> <span class="k">operator</span><span class="o">==</span> <span class="p">(</span><span class="k">const</span> <span class="n">C</span><span class="o">&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="n">C</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<p>このような<code>default</code>宣言はその定義が<code>constexpr</code>関数の要件を満たしていれば暗黙的に<code>constexpr</code>指定され、呼び出す演算子が全て<code>noexcept</code>であるならば暗黙的に<code>noexcept</code>である。これらの指定（および<code>virtual, consteval</code>）は明示的に指定しておくこともできるが、明示的に<code>constexpr(consteval)</code>指定する場合は本体が<code>constexpr</code>関数の要件を満たしていなければコンパイルエラーとなる。また、あるクラスに対する最初の<code>default</code>宣言がクラス内部で行われている場合は暗黙的に<code>inline</code>指定される。</p>
+<p><code>default</code>指定された三方比較演算子の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型は基底クラス及び全メンバの<code>&lt;=&gt;</code>の結果型の共通比較カテゴリ型となるが、その中に比較カテゴリ型を返さない<code>&lt;=&gt;</code>による比較がある場合は暗黙的に<code>delete</code>される。</p>
+<p><code>delete</code>されていない全ての<code>default</code>比較演算子は、通常の特殊メンバ関数と同様にODR使用された時あるいは定数式で評価された時に、最初の<code>default</code>宣言の位置で暗黙的に定義される（詳細は<a href="less_eager_instantiation_of_constexpr_functions.html">「評価されない文脈での定数式評価によって特殊メンバ関数がインスタンス化されることを規定」</a>を参照）。</p>
+<h4>operator==の暗黙宣言</h4>
+<p>上記のように<code>&lt;=&gt;</code>が<code>default</code>宣言されていて<code>operator==</code>メンバ/<code>friend</code>関数が一つも宣言されていない場合、その<code>&lt;=&gt;</code>に対応する<code>==</code>の<code>default</code>宣言が暗黙的に行われる。</p>
+<p>そのような暗黙宣言は対応する<code>&lt;=&gt;</code>の直後で、その<code>&lt;=&gt;</code>宣言の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型を<code>bool</code>、名前を<code>operator==</code>に置き換えたように宣言される。すなわち、対応する<code>&lt;=&gt;</code>に指定されているあらゆるプロパティを全て継承する。ただし、結果的な<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>指定だけは異なる可能性がある。</p>
+<p><code>&lt;=&gt;</code>の<code>default</code>宣言に伴う暗黙の<code>==</code>宣言の例。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
+  <span class="k">friend</span> <span class="k">constexpr</span> <span class="n">std</span><span class="o">::</span><span class="n">partial_ordering</span> <span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span> <span class="n">requires</span> <span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+  <span class="c1">//対応する==の暗黙宣言は次のようになる</span>
+  <span class="c1">//friend constexpr bool operator==(X, X) requires (sizeof(T) != 1) = default;</span>
+
+  <span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span> <span class="k">virtual</span> <span class="n">std</span><span class="o">::</span><span class="n"><a href="../../reference/compare/strong_ordering.html">strong_ordering</a></span> <span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">X</span><span class="o">&amp;</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+  <span class="c1">//対応する==の暗黙宣言は次のようになる</span>
+  <span class="c1">//[[nodiscard]] virtual bool operator==(const X&amp;) const = default;</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<p>このような<code>==</code>の暗黙宣言は、対応する<code>&lt;=&gt;</code>が暗黙的に<code>delete</code>されている場合でも宣言される。</p>
+<h4>default実装</h4>
+<p>default宣言された<code>&lt;=&gt; ==</code>演算子はその基底クラスと非静的メンバを宣言順に比較していくことで実装される。</p>
+<p>その手順は以下のようになる（演算子<code>@</code>は<code>&lt;=&gt; ==</code>のどちらか）。</p>
+<ol>
+<li>基底クラスの<code>@</code>を呼び出して比較を行う。その順番は継承順（<code>:</code>の後ろに書いてある型を左から右）、深さ優先で比較される。</li>
+<li>宣言された順番（上から下）で非静的メンバを<code>@</code>によって比較する。<ul>
+<li>この時、配列は要素ごとに比較する。</li>
+</ul>
+</li>
+<li>これらの比較の際、結果が<code>0</code>（<code>==</code>なら<code>true</code>）とならない時点でその結果を返して終了する。</li>
+<li>基底クラスもメンバも無い場合、<code>strong_ordering::equal</code>（<code>==</code>なら<code>true</code>）を返して終了する。</li>
+</ol>
+<p>この手順を明示的に書くと以下の様な実装になる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">D</span> <span class="o">:</span> <span class="n">Base1</span><span class="p">,</span> <span class="n">Base2</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">y</span><span class="p">;</span>
+  <span class="kt">char</span> <span class="n">str</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+  <span class="kt">double</span> <span class="n">v</span><span class="p">;</span>
+
+<span class="k">public</span><span class="o">:</span>
+  <span class="c1">//auto operator&lt;=&gt;(const D&amp;) const = default;</span>
+  <span class="k">auto</span> <span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">D</span><span class="o">&amp;</span> <span class="n">that</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="n">comp</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">Base1</span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">)</span> <span class="o">&lt;=&gt;</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">Base1</span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="n">that</span><span class="p">);</span> <span class="n">comp</span> <span class="o">!=</span><span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="n">comp</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="n">comp</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">Base2</span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">)</span> <span class="o">&lt;=&gt;</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">Base2</span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="n">that</span><span class="p">);</span> <span class="n">comp</span> <span class="o">!=</span><span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="n">comp</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">x</span> <span class="o">&lt;=&gt;</span> <span class="n">that</span><span class="p">.</span><span class="n">x</span><span class="p">;</span> <span class="n">comp</span> <span class="o">!=</span><span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="n">comp</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">y</span> <span class="o">&lt;=&gt;</span> <span class="n">that</span><span class="p">.</span><span class="n">y</span><span class="p">;</span> <span class="n">comp</span> <span class="o">!=</span><span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="n">comp</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=&gt;</span> <span class="n">that</span><span class="p">.</span><span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="n">comp</span> <span class="o">!=</span><span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="n">comp</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">str</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=&gt;</span> <span class="n">that</span><span class="p">.</span><span class="n">str</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span> <span class="n">comp</span> <span class="o">!=</span><span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="n">comp</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">str</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;=&gt;</span> <span class="n">that</span><span class="p">.</span><span class="n">str</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span> <span class="n">comp</span> <span class="o">!=</span><span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="n">comp</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">v</span> <span class="o">&lt;=&gt;</span> <span class="n">that</span><span class="p">.</span><span class="n">v</span><span class="p">;</span>
+   <span class="p">}</span>
+
+  <span class="c1">//auto operator==(const D&amp;) const = default;</span>
+  <span class="k">auto</span> <span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span> <span class="n">D</span><span class="o">&amp;</span> <span class="n">that</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="kt">bool</span> <span class="n">comp</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">Base1</span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">)</span> <span class="o">==</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">Base1</span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="n">that</span><span class="p">);</span> <span class="n">comp</span> <span class="o">!=</span> <span class="nb">true</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="kt">bool</span> <span class="n">comp</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">Base2</span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">)</span> <span class="o">==</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">Base2</span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="n">that</span><span class="p">);</span> <span class="n">comp</span> <span class="o">!=</span> <span class="nb">true</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="kt">bool</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">x</span> <span class="o">==</span> <span class="n">that</span><span class="p">.</span><span class="n">x</span><span class="p">;</span> <span class="n">comp</span> <span class="o">!=</span> <span class="nb">true</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="kt">bool</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">y</span> <span class="o">==</span> <span class="n">that</span><span class="p">.</span><span class="n">y</span><span class="p">;</span> <span class="n">comp</span> <span class="o">!=</span> <span class="nb">true</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="kt">bool</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">that</span><span class="p">.</span><span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="n">comp</span> <span class="o">!=</span> <span class="nb">true</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="kt">bool</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">str</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">that</span><span class="p">.</span><span class="n">str</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span> <span class="n">comp</span> <span class="o">!=</span> <span class="nb">true</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="kt">bool</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">str</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="n">that</span><span class="p">.</span><span class="n">str</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span> <span class="n">comp</span> <span class="o">!=</span> <span class="nb">true</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">v</span> <span class="o">==</span> <span class="n">that</span><span class="p">.</span><span class="n">v</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<p>ただし、次のいずれかに該当する場合には<code>&lt;=&gt; ==</code>の<code>default</code>宣言は暗黙的に<code>delete</code>される</p>
+<ul>
+<li><code>&lt;=&gt;</code>は<code>delete</code>される<ul>
+<li>使用可能な<code>&lt;=&gt;</code>演算子が見つからないペアがある</li>
+<li><code>&lt;=&gt;</code>による比較が比較カテゴリ型を返さないペアがある</li>
+</ul>
+</li>
+<li><code>==</code>は<code>delete</code>される<ul>
+<li>使用可能な<code>==</code>演算子が見つからないペアがある</li>
+<li><code>==</code>による比較が<code>bool</code>に変換可能な型を返さないペアがある</li>
+</ul>
+</li>
+<li>両方とも<code>delete</code>される<ul>
+<li>参照型メンバを持つ</li>
+<li>1つ以上のメンバ変数を持つ匿名共用体をメンバに含む</li>
+<li>その型が1つ以上のメンバ変数を持つ共用体である</li>
+</ul>
+</li>
+</ul>
+<h4>default実装における&lt;=&gt;の合成</h4>
+<p><code>&lt;=&gt;</code>のdefault比較実装はメンバおよび基底クラスに<code>&lt;=&gt;</code>を持たない型があると暗黙deleteされる。しかし、これでは現在使われている多くの<code>&lt;=&gt;</code>を持たない型をメンバに持つ際にdefaultの<code>&lt;=&gt;</code>を提供できない。<br />
+しかしその場合にも、<code>&lt;=&gt;</code>のdefault宣言に<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型を指定した上で<code>&lt;=&gt;</code>を持たないメンバ（基底）型が<code>&lt; ==</code>の2つの演算子を実装していれば、それらを元にして<code>&lt;=&gt;</code>を合成した上でdefault実装を行うことができる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">//C++17以前に作成された&lt;=&gt;を持たない型</span>
+<span class="k">struct</span> <span class="n">legacy</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+  <span class="c1">//共に実装は省略</span>
+  <span class="kt">bool</span> <span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span> <span class="n">legacy</span><span class="o">&amp;</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+  <span class="kt">bool</span> <span class="k">operator</span><span class="o">&lt;</span> <span class="p">(</span><span class="k">const</span> <span class="n">legacy</span><span class="o">&amp;</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">//C++20環境で作成された型、&lt;=&gt;を実装したい</span>
+<span class="k">struct</span> <span class="n">newer</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+  <span class="n">legacy</span> <span class="n">l</span> <span class="o">=</span> <span class="p">{</span><span class="mi">20</span><span class="p">};</span> <span class="c1">//&lt;=&gt;を持っていない</span>
+  <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+
+  <span class="c1">//こう宣言すると暗黙delete</span>
+  <span class="c1">//auto operator&lt;=&gt;(const newer&amp;) const = default;</span>
+
+  <span class="c1">//legacyの比較に関しては指定した戻り値型とlegacyの持つ比較演算子&lt; ==を用いて実装、使用可能</span>
+  <span class="n">std</span><span class="o">::</span><span class="n"><a href="../../reference/compare/strong_ordering.html">strong_ordering</a></span> <span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">newer</span><span class="o">&amp;</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">newer</span> <span class="n">n1</span><span class="p">{},</span> <span class="n">n2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">20</span><span class="p">,</span> <span class="p">{</span><span class="mi">30</span><span class="p">},</span> <span class="mi">40</span><span class="p">};</span>
+<span class="k">auto</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">n1</span> <span class="o">&lt;=&gt;</span> <span class="n">n2</span><span class="p">;</span>  <span class="c1">//ok</span>
+<span class="kt">bool</span> <span class="n">eq</span>   <span class="o">=</span> <span class="n">n1</span> <span class="o">==</span>  <span class="n">n2</span><span class="p">;</span>  <span class="c1">//ok</span>
+</code></pre></div>
+</p>
+<p><code>&lt;=&gt;</code>の<code>default</code>宣言に指定された<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型を<code>R</code>、比較しようとしている対応するメンバの値を<code>a, b</code>として、それらの満たす条件によって以下のように<code>&lt;=&gt;</code>は合成される。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th align="left">条件</th>
+<th align="left">合成された<code>&lt;=&gt;</code>の式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>a &lt;=&gt; b</code>が使用可能</td>
+<td align="left"><code>static_cast&lt;R&gt;(a &lt;=&gt; b);</code></td>
+</tr>
+<tr>
+<td align="left"><code>R</code>は<code>std::strong_ordering</code>であり、<code>a == b, a &lt; b</code>がいずれも使用可能</td>
+<td align="left"><code>a == b ? std::strong_ordering::equal :</code><br /><code>a &lt; b  ? std::strong_ordering::less :</code><br /><code>std::strong_ordering::greater;</code></td>
+</tr>
+<tr>
+<td align="left"><code>R</code>は<code>std::weak_ordering</code>であり、<code>a == b, a &lt; b</code>がいずれも使用可能</td>
+<td align="left"><code>a == b ? std::weak_ordering::equivalent :</code><br /><code>a &lt; b  ? std::weak_ordering::less :</code><br /><code>std::weak_ordering::greater;</code></td>
+</tr>
+<tr>
+<td align="left"><code>R</code>は<code>std::partial_ordering</code>であり、<code>a == b, a &lt; b</code>がいずれも使用可能</td>
+<td align="left"><code>a == b ? std::partial_ordering::equivalent :</code><br /><code>a &lt; b  ? std::partial_ordering::less :</code><br /><code>b &lt; a  ? std::partial_ordering::greater;</code><br /><code>std::partial_ordering::unordered</code></td>
+</tr>
+<tr>
+<td align="left">どれにも当てはまらない</td>
+<td align="left">定義されない</td>
+</tr>
+</tbody>
+</table>
+<p>この合成された式を用いて<code>&lt;=&gt;</code>の<code>default</code>実装を行う時、合成された式が定義されない（上記条件に当てはまらない）ペアがある場合はその<code>&lt;=&gt;</code>の<code>default</code>宣言は暗黙的に<code>delete</code>される。</p>
+<p>先ほどの<code>newer</code>に対して明示的に書くと以下のようになる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">newer</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+  <span class="n">legacy</span> <span class="n">l</span> <span class="o">=</span> <span class="p">{</span><span class="mi">20</span><span class="p">};</span> <span class="c1">//&lt;=&gt;を持っていない</span>
+  <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+
+  <span class="c1">//std::<a href="../../reference/compare/strong_ordering.html">strong_ordering</a> operator&lt;=&gt;(const newer&amp;) const = default;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n"><a href="../../reference/compare/strong_ordering.html">strong_ordering</a></span> <span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">newer</span><span class="o">&amp;</span> <span class="n">that</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="n">comp</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../../reference/compare/strong_ordering.html">strong_ordering</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">m</span> <span class="o">&lt;=&gt;</span> <span class="n">that</span><span class="p">.</span><span class="n">m</span><span class="p">);</span> <span class="n">comp</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="n">comp</span><span class="p">;</span>
+
+    <span class="c1">//legacy型に対する&lt;=&gt;の合成</span>
+    <span class="n">std</span><span class="o">::</span><span class="n"><a href="../../reference/compare/strong_ordering.html">strong_ordering</a></span> <span class="n">comp</span> <span class="o">=</span> <span class="p">(</span><span class="n">l</span> <span class="o">==</span> <span class="n">that</span><span class="p">.</span><span class="n">l</span><span class="p">)</span> <span class="o">?</span> <span class="n">std</span><span class="o">::</span><span class="n"><a href="../../reference/compare/strong_ordering.html">strong_ordering</a></span><span class="o">::</span><span class="nl">equal</span> <span class="p">:</span>
+                                <span class="p">(</span><span class="n">l</span> <span class="o">&lt;</span>  <span class="n">that</span><span class="p">.</span><span class="n">l</span><span class="p">)</span> <span class="o">?</span> <span class="n">std</span><span class="o">::</span><span class="n"><a href="../../reference/compare/strong_ordering.html">strong_ordering</a></span><span class="o">::</span><span class="nl">less</span>
+                                              <span class="p">:</span> <span class="n">std</span><span class="o">::</span><span class="n"><a href="../../reference/compare/strong_ordering.html">strong_ordering</a></span><span class="o">::</span><span class="n">greater</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">comp</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="n">comp</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../../reference/compare/strong_ordering.html">strong_ordering</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">n</span> <span class="o">&lt;=&gt;</span> <span class="n">that</span><span class="p">.</span><span class="n">n</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<p>この合成において使用される<code>&lt; ==</code>演算子の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型の妥当性はチェックされない。仮に<code>bool</code>ではなかったとしても、合成された式においてコンパイルエラーが発生しなければ<code>&lt;=&gt;</code>の合成はつつがなく行われる。逆に言うと、合成された式がコンパイルエラーを起こす場合はハードエラーとなる。</p>
+<h4>その他の比較演算子のdefault宣言</h4>
+<p><code>&lt;=&gt; ==</code>だけでなく、残りの比較演算子もdefault指定で宣言することができる。その有効な宣言は<code>==</code>に従う。<br />
+そのようなdefault実装は<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>時に生成される式と同様の式を使って<code>&lt;=&gt; ==</code>から実装される。</p>
+<p>ただし次のいずれかの場合、演算子<code>@</code>（<code>&lt; &lt;= &gt; &gt;= !=</code>のいずれか）の<code>default</code>宣言は暗黙的に<code>delete</code>される（<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>候補生成時はコンパイルエラーとなる場合でも単に<code>delete</code>される）。</p>
+<ul>
+<li><code>x @ y</code>の<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>の結果、使用可能な候補が見つからない<ul>
+<li><code>@</code>の生成に使用する<code>&lt;=&gt; ==</code>演算子が使用可能ではない</li>
+<li><code>@</code>の生成に使用する<code>&lt;=&gt;</code>の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型が比較カテゴリ型ではない</li>
+<li><code>@</code>（<code>!=</code>）の生成に使用する<code>==</code>の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型が<code>bool</code>ではない</li>
+</ul>
+</li>
+<li><code>x @ y</code>の<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>の結果、生成された式ではない演算子が見つかった<ul>
+<li><code>operator@</code>がすでに定義されている</li>
+</ul>
+</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">C</span> <span class="p">{</span>
+  <span class="c1">// 戻り値型のおかしい&lt;=&gt;</span>
+  <span class="kt">bool</span> <span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">C</span><span class="o">&amp;</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">true</span><span class="p">;</span> <span class="p">}</span>
+  <span class="c1">// 正常な==</span>
+  <span class="kt">bool</span> <span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span> <span class="n">C</span><span class="o">&amp;</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+
+  <span class="kt">bool</span> <span class="k">operator</span><span class="o">&lt;</span><span class="p">(</span><span class="k">const</span> <span class="n">C</span><span class="o">&amp;</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>  <span class="c1">//ok、暗黙的にdeleteされる</span>
+
+  <span class="kt">bool</span> <span class="k">operator</span><span class="o">!=</span><span class="p">(</span><span class="k">const</span> <span class="n">C</span><span class="o">&amp;</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>  <span class="c1">//ok、使用可能（ただし、==が明示的に宣言されている必要がある）</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<p>これは、比較演算子のアドレスを取りたいときに使用する。</p>
+<h3>組み込み型の三方比較</h3>
+<p>三方比較演算子は<code>void</code>、<code>std::nullptr_t</code>、関数/メンバポインタ、および参照型を除く組み込みの型に対して、組み込みの物が提供される。<br />
+その比較カテゴリ型は以下のようになる（以下、比較とは<code>&lt;=&gt;</code>によるものを指す）。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th align="left">型</th>
+<th align="center">カテゴリ</th>
+<th align="left">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>bool</code></td>
+<td align="center"><code>std::strong_ordering</code></td>
+<td align="left"><code>bool</code>同士でしか比較不可</td>
+</tr>
+<tr>
+<td align="left"><code><a href="../../reference/type_traits/is_integral.html">整数型</a></code></td>
+<td align="center"><code>std::strong_ordering</code></td>
+<td align="left">縮小変換が行われる場合は比較不可</td>
+</tr>
+<tr>
+<td align="left"><code><a href="../../reference/type_traits/is_floating_point.html">浮動小数点型</a></code></td>
+<td align="center"><code>std::partial_ordering</code></td>
+<td align="left">縮小変換が行われる場合は比較不可<br /><code>NaN</code>や<code>±0.0</code>の存在のため半順序</td>
+</tr>
+<tr>
+<td align="left">オブジェクトポインタ</td>
+<td align="center"><code>std::strong_ordering</code></td>
+<td align="left">あらゆるポインタ変換が施された後、同じポインタ型にならなければ比較不可<br />配列と配列は比較不可<br />どちらかの引数が整数型やヌルポインタ定数である場合も比較不可</td>
+</tr>
+<tr>
+<td align="left">列挙型</td>
+<td align="center"><code>std::strong_ordering</code></td>
+<td align="left">スコープ有無に関わらず同じ列挙型同士でしか比較不可</td>
+</tr>
+</tbody>
+</table>
+<p>なお、参照型に対する<code>&lt;=&gt;</code>による比較は参照先の型による比較になる。</p>
+<h4>従来の比較演算子との差異及び修正</h4>
+<p>三方比較演算子<code>&lt;=&gt;</code>による比較は、従来の比較演算子(<code>&lt; &gt; &lt;= &gt;= == !=</code>)の挙動とは異なるところがある（より安全な比較となっている）。
+それに伴って、いくつかの比較演算子の挙動が修正された（C++20では非推奨とされ、禁止されてはいない）。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th align="left">比較するペア</th>
+<th align="left"><code>&lt;=&gt;</code>での比較の可否</th>
+<th align="left">C++17までの従来演算子での比較の可否</th>
+<th align="left">C++20からの非推奨化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">符号なし整数型と符号付整数型</td>
+<td align="left">×<br />ただし定数式で符号付きオペランドが正の値に評価されれば可能</td>
+<td align="left">〇</td>
+<td align="left">―</td>
+</tr>
+<tr>
+<td align="left">列挙型と算術型</td>
+<td align="left">△<br />スコープ無し列挙型と整数型のみ可能</td>
+<td align="left">〇<br />例えば、列挙型と浮動小数点型の比較が可能</td>
+<td align="left">列挙型と浮動小数点型の比較のみ非推奨</td>
+</tr>
+<tr>
+<td align="left">異なる列挙型間</td>
+<td align="left">×</td>
+<td align="left">〇</td>
+<td align="left">非推奨</td>
+</tr>
+<tr>
+<td align="left">配列同士</td>
+<td align="left">×</td>
+<td align="left">△<br />先頭要素へのポインタの比較になる</td>
+<td align="left">非推奨</td>
+</tr>
+<tr>
+<td align="left">ヌルポインタ定数とポインタ</td>
+<td align="left">×</td>
+<td align="left">△<br />同値比較のみ可能</td>
+<td align="left">―</td>
+</tr>
+</tbody>
+</table>
+<p>表中の記号の意味</p>
+<ul>
+<li>〇 : 比較可能</li>
+<li>△ : 制限があるが比較可能</li>
+<li>× : 比較不可能</li>
+<li>― : 変更なし</li>
+</ul>
+<h2>C++17までの比較演算子実装の一例</h2>
+<p><div class="yata" id="5e10a49bbc4f514cdd29dc7609f7e35056270388"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/tuple.html">&lt;tuple&gt;</a></span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">S</span>  <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+  <span class="kt">double</span> <span class="n">d</span><span class="p">;</span>
+  <span class="kt">char</span> <span class="n">str</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+
+  <span class="k">constexpr</span> <span class="kt">bool</span> <span class="k">operator</span><span class="o">&lt;</span><span class="p">(</span><span class="k">const</span> <span class="n">S</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n"><a href="../../reference/tuple/tie.html">std::tie</a></span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">str</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">str</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">str</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+         <span class="o">&lt;</span> <span class="n"><a href="../../reference/tuple/tie.html">std::tie</a></span><span class="p">(</span><span class="n">rhs</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">rhs</span><span class="p">.</span><span class="n">d</span><span class="p">,</span> <span class="n">rhs</span><span class="p">.</span><span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">rhs</span><span class="p">.</span><span class="n">str</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">rhs</span><span class="p">.</span><span class="n">str</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">rhs</span><span class="p">.</span><span class="n">str</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
+  <span class="p">}</span>
+
+  <span class="k">constexpr</span> <span class="kt">bool</span> <span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span> <span class="n">S</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n"><a href="../../reference/tuple/tie.html">std::tie</a></span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">str</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">str</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">str</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+        <span class="o">==</span> <span class="n"><a href="../../reference/tuple/tie.html">std::tie</a></span><span class="p">(</span><span class="n">rhs</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">rhs</span><span class="p">.</span><span class="n">d</span><span class="p">,</span> <span class="n">rhs</span><span class="p">.</span><span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">rhs</span><span class="p">.</span><span class="n">str</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">rhs</span><span class="p">.</span><span class="n">str</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">rhs</span><span class="p">.</span><span class="n">str</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
+  <span class="p">}</span>
+
+  <span class="k">constexpr</span> <span class="kt">bool</span> <span class="k">operator</span><span class="o">!=</span><span class="p">(</span><span class="k">const</span> <span class="n">S</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">!</span><span class="p">(</span><span class="o">*</span><span class="k">this</span> <span class="o">==</span> <span class="n">rhs</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">constexpr</span> <span class="kt">bool</span> <span class="k">operator</span><span class="o">&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">S</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">rhs</span> <span class="o">&lt;</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">constexpr</span> <span class="kt">bool</span> <span class="k">operator</span><span class="o">&lt;=</span><span class="p">(</span><span class="k">const</span> <span class="n">S</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">!</span><span class="p">(</span><span class="o">*</span><span class="k">this</span> <span class="o">&gt;</span> <span class="n">rhs</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">constexpr</span> <span class="kt">bool</span> <span class="k">operator</span><span class="o">&gt;=</span><span class="p">(</span><span class="k">const</span> <span class="n">S</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">!</span><span class="p">(</span><span class="o">*</span><span class="k">this</span> <span class="o">&lt;</span> <span class="n">rhs</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">S</span> <span class="n">s1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">10</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s">"abc"</span><span class="p">};</span>
+  <span class="n">S</span> <span class="n">s2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">10</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s">"ABC"</span><span class="p">};</span>
+
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ios/boolalpha.html">std::boolalpha</a></span><span class="p">;</span>
+
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">s1</span> <span class="o">&lt;</span>  <span class="n">s2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">s1</span> <span class="o">&lt;=</span> <span class="n">s2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">s1</span> <span class="o">&gt;</span>  <span class="n">s2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">s1</span> <span class="o">&gt;=</span> <span class="n">s2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">s1</span> <span class="o">==</span> <span class="n">s2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">s1</span> <span class="o">!=</span> <span class="n">s2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>false
+false
+true
+true
+false
+true
+</code></pre></p>
+<h2>C++20での比較演算子実装例</h2>
+<p><div class="yata" id="976551b9151bbe3c280a2c86632d51ca346d88dc"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/compare.html">&lt;compare&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">S</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+  <span class="kt">double</span> <span class="n">d</span><span class="p">;</span>
+  <span class="kt">char</span> <span class="n">str</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+
+  <span class="k">auto</span> <span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">S</span><span class="o">&amp;</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">S</span> <span class="n">s1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">10</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s">"abc"</span><span class="p">};</span>
+  <span class="n">S</span> <span class="n">s2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">10</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s">"ABC"</span><span class="p">};</span>
+
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ios/boolalpha.html">std::boolalpha</a></span><span class="p">;</span>
+
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">s1</span> <span class="o">&lt;</span>  <span class="n">s2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">s1</span> <span class="o">&lt;=</span> <span class="n">s2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">s1</span> <span class="o">&gt;</span>  <span class="n">s2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">s1</span> <span class="o">&gt;=</span> <span class="n">s2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">s1</span> <span class="o">==</span> <span class="n">s2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">s1</span> <span class="o">!=</span> <span class="n">s2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>false
+false
+true
+true
+false
+true
+</code></pre></p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>C++17以前の例に示したように、従来のC++における比較演算子の実装は煩雑でボイラープレートの様なコードを大量にコピーアンドペーストすることになる。さらに、異種型間比較を加えるとその対称性のために同じ比較について引数型を逆にしたものを用意しなければならないため、そのようなボイラープレートは更に倍になることになる。<br />
+この問題は以前から認識されており、比較演算子が実際には<code>&lt; ==</code>の2つから残りのすべてを導出できることを利用して実装を簡易にする、<a href="https://boostjp.github.io/tips/operators.html" target="_blank">Boost Operators Library</a>や<code><a href="../../reference/utility/rel_ops.html">std::rel_ops</a></code>等が提供されていた。しかし、これを用いても異種型間比較におけるボイラープレートを完全に取り除くことは出来ない。</p>
+<p>また、比較演算子の実装に伴う別の問題として、クラスの全メンバが参加するような構造的な比較を提供する際にも、メンバの列挙方法が無いために全てのメンバを<code>&lt;</code>や<code>==</code>で繋いで回るコードを書くことを強いられていた。<br />
+比較演算子実装の多くの場合はこのような構造的な比較を提供すれば十分であり、その場合はクラスによってメンバ名等が違えど全メンバの辞書式比較を行うという点に変わりはない。</p>
+<p>これらの問題の解決を言語機能によって提供するために、三方比較演算子が導入された。</p>
+<p>上で示したように、任意のクラス型に対する比較演算子の実装は<code>&lt;=&gt;</code>を1つ定義するだけで完結する。その比較が構造的なものであるならば、<code>default</code>指定することで定義を書く必要すらない。<br />
+そして、<code>default</code>指定された<code>&lt;=&gt;</code>と<code>==</code>は基底クラス及び全メンバの宣言順の辞書式比較を行う。<br />
+異種型間比較においても、1つの引数順の<code>&lt;=&gt;</code>と<code>==</code>の2つを定義することで残りの11個の比較演算子を導出することができる。</p>
+<h2>検討されたほかの選択肢</h2>
+<h3><code>&lt;=&gt; != ==</code> : 同値比較の分離</h3>
+<p>当初の三方比較演算子から導出される演算子は同値比較（<code>== !=</code>）のものも含めた最大6つであった。しかし、同値比較なら比較についての処理を短絡評価できる場合に、<code>&lt;=&gt;</code>を用いて<code>== !=</code>を導出すると短絡評価が行われず非効率になるケースがあったため、<code>&lt;=&gt;</code>から<code>==</code>を切り離し、<code>!=</code>は<code>==</code>から導出するように変更された。</p>
+<p>例えば、<code><a href="../../reference/vector/vector.html">std::vector</a></code>で<code>&lt;=&gt;</code>を実装することを考えてみる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n"><a href="../../reference/compare/strong_ordering.html">strong_ordering</a></span> <span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">lhs</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n"><a href="../../reference/cstddef/size_t.html">size_t</a></span> <span class="n">min_size</span> <span class="o">=</span> <span class="n"><a href="../../reference/algorithm/min.html">std::min</a></span><span class="p">(</span><span class="n"><a href="../../reference/vector/vector/size.html">lhs.size()</a></span><span class="p">,</span> <span class="n"><a href="../../reference/vector/vector/size.html">rhs.size()</a></span><span class="p">);</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n"><a href="../../reference/cstddef/size_t.html">size_t</a></span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">min_size</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="k">const</span> <span class="n">cmp</span> <span class="o">=</span> <span class="n"><a href="../../reference/compare/compare_three_way.html">std::compare_three_way</a></span><span class="p">(</span><span class="n">lhs</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">rhs</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span> <span class="n">cmp</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">cmp</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n"><a href="../../reference/vector/vector/size.html">lhs.size()</a></span> <span class="o">&lt;=&gt;</span> <span class="n"><a href="../../reference/vector/vector/size.html">rhs.size()</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>これは、保持する要素に対する辞書式比較を行う実装で既存の比較演算子と等価の処理である。<br />
+実際の比較は<code><a href="../../reference/compare/compare_three_way.html">compare_three_way</a></code>に委譲しているが、これは<code>T</code>に<code>&lt;=&gt;</code>があればそれを利用し無ければ<code>&lt;</code>と<code>==</code>を使って比較を行う関数である（C++20より利用可能）。</p>
+<p>これは順序付けにおいては問題ないが、同値比較を行おうとすると非効率な点がある。それは、長さ（サイズ）を一番最後に比較していることで、同値比較の場合は一番最初に<code>vector</code>の長さをチェックし異なっていれば、その時点で結果が<code>false</code>になると分かり処理を終えることができる。<br />
+従って、<code>vector</code>における<code>==</code>の効率的な実装は以下のようになる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">bool</span> <span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">lhs</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">rhs</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">//サイズを先にチェックすることで比較をショートサーキット</span>
+  <span class="k">const</span> <span class="n"><a href="../../reference/cstddef/size_t.html">size_t</a></span> <span class="n">size</span> <span class="o">=</span> <span class="n"><a href="../../reference/vector/vector/size.html">lhs.size()</a></span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="o">!=</span> <span class="n"><a href="../../reference/vector/vector/size.html">rhs.size()</a></span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="n"><a href="../../reference/cstddef/size_t.html">size_t</a></span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">size</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//ネストする比較においても&lt;=&gt;ではなく==を使う（ようにしたい）</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">lhs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">rhs</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">bool</span> <span class="k">operator</span><span class="o">!=</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">lhs</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">rhs</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="o">!</span><span class="p">(</span><span class="n">lhs</span> <span class="o">==</span> <span class="n">rhs</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>この様にしておけば、<code>vector</code>のオブジェクト同士の同値比較においては常に効率的な実装が選択される。</p>
+<p>ところで、当初の仕様では<code>== !=</code>も三方比較演算子から導出されており、その際に生成する式は以下のように規定されていた。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th align="center">呼び出す演算子 <code>a @ b</code></th>
+<th align="center"><a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>候補</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>a == b</code></td>
+<td align="center"><code>a == b</code><br /><code>(a &lt;=&gt; b) == 0</code><br /><code>0 == (b &lt;=&gt; a)</code></td>
+</tr>
+<tr>
+<td align="center"><code>a != b</code></td>
+<td align="center"><code>a != b</code><br /><code>(a &lt;=&gt; b) != 0</code><br /><code>0 != (b &lt;=&gt; a)</code></td>
+</tr>
+</tbody>
+</table>
+<p>この前提の下で上記の効率的な<code>==</code>実装をした<code>vector</code>を保持する別の型を考えてみると困ったことが起こる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">has_vector</span> <span class="p">{</span>
+  <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">vec</span><span class="p">;</span>
+
+  <span class="k">auto</span> <span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">has_vector</span><span class="o">&amp;</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">has_vector</span> <span class="n">hv1</span><span class="p">{},</span> <span class="n">hv2</span><span class="p">{};</span>
+
+<span class="c1">//以下の二つの比較は当初提案の下では</span>
+<span class="kt">bool</span> <span class="n">eq</span> <span class="o">=</span> <span class="n">hv1</span> <span class="o">==</span> <span class="n">hv2</span><span class="p">;</span>
+<span class="kt">bool</span> <span class="n">ne</span> <span class="o">=</span> <span class="n">hv1</span> <span class="o">!=</span> <span class="n">hv2</span><span class="p">;</span>
+<span class="c1">//このように展開される</span>
+<span class="kt">bool</span> <span class="n">eq</span> <span class="o">=</span> <span class="p">(</span><span class="n">hv1</span> <span class="o">&lt;=&gt;</span> <span class="n">hv2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">bool</span> <span class="n">ne</span> <span class="o">=</span> <span class="p">(</span><span class="n">hv1</span> <span class="o">&lt;=&gt;</span> <span class="n">hv2</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<p>この<code>has_vector</code>クラスは以前の仕様の下でも<code>&lt;=&gt;</code>を利用して6つの比較演算子による比較が可能である。<br />
+しかし、この<code>has_vector</code>クラスのオブジェクトに対して<code>== !=</code>による比較を行った時、呼び出されるのは<code>vector</code>に定義された<code>&lt;=&gt;</code>であって効率的に実装された<code>==</code>ではない。<br />
+この<code>has_vector</code>の同値比較において、内部<code>vector</code>に実装された効率的な<code>==</code>を呼び出すには以下のようにしなければならない。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">has_vector</span> <span class="p">{</span>
+  <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">vec</span><span class="p">;</span>
+
+  <span class="k">auto</span> <span class="k">operator</span><span class="o">&lt;=&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">has_vector</span><span class="o">&amp;</span><span class="p">)</span> <span class="k">const</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+
+  <span class="kt">bool</span> <span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span> <span class="n">has_vector</span><span class="o">&amp;</span> <span class="n">that</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">vec</span> <span class="o">==</span> <span class="n">that</span><span class="p">.</span><span class="n">vec</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kt">bool</span> <span class="k">operator</span><span class="o">!=</span><span class="p">(</span><span class="k">const</span> <span class="n">has_vector</span><span class="o">&amp;</span> <span class="n">that</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">vec</span> <span class="o">!=</span> <span class="n">that</span><span class="p">.</span><span class="n">vec</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<p>内部<code>vector</code>の<code>== !=</code>を呼び出すように<code>has_vector</code>に対する<code>== !=</code>を独自に定義する。しかも、この<code>has_vector</code>をメンバに持つ別のクラスがある時も同様にしなければならない。<br />
+また、この様な新たなボイラープレートのコピーアンドペーストが必要になるかどうかは、クラスのメンバ型の全ての<code>== !=</code>演算子の実装を再帰的に辿り判断する必要がある。</p>
+<p>このような新たな煩雑さの導入は当初の一貫比較が目指した方向性とは真逆であり、RustやHaskell等の他言語においても同値比較と順序付けの演算子は区別されたうえで自動実装が行われていることから、C++においても同様に<code>&lt;=&gt;</code>から<code>== !=</code>が切り離されることとなった。</p>
+<p>しかし、当初の一貫比較仕様の簡便さを損なわないために、default実装の<code>&lt;=&gt;</code>があれば暗黙的に<code>==</code>を宣言するという仕様を追加し、効率的な<code>==</code>の実装が必要ない型では当初の仕様にほぼ沿った形で恩恵を受けることができる。</p>
+<h3>同値関係を表す比較カテゴリの削除</h3>
+<p>当初の仕様では、<code>&lt;=&gt;</code>の比較が同値関係のみを満たすことを表明する2つの比較カテゴリ型が定義されていた。<br />
+これらの型を返す<code>&lt;=&gt;</code>による比較においては、<code>== !=</code>演算子のみが（<code>==</code>演算子によって）導出されていた。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th align="left">比較カテゴリ型</th>
+<th align="center">対応する数学的な関係</th>
+<th align="center">導出される演算子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>weak_equality</code></td>
+<td align="center">同値関係</td>
+<td align="center"><code>== !=</code></td>
+</tr>
+<tr>
+<td align="left"><code>strong_equality</code></td>
+<td align="center">相等関係：最も細かい同値関係</td>
+<td align="center"><code>== !=</code></td>
+</tr>
+</tbody>
+</table>
+<p>しかし、前項の変更によってこれらの型はほとんどその役割を失い、またそのカテゴリ付けにも問題があったため、残しておくのは混乱やバグのものとであるとして削除された。</p>
+<p>また、これに伴いこれらの型を返していた組み込みの型の比較も削除された。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th align="left">型</th>
+<th align="center">カテゴリ</th>
+<th align="left">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">関数/メンバポインタ</td>
+<td align="center"><code>std::strong_equality</code></td>
+<td align="left">あらゆるポインタ変換が施された後、同じポインタ型にならなければ比較不可</td>
+</tr>
+<tr>
+<td align="left"><code><a href="../../reference/cstddef/nullptr_t.html">std::nullptr_t</a></code></td>
+<td align="center"><code>std::strong_equality</code></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><code><a href="../../reference/compare.html">&lt;compare&gt;</a></code><ul>
+<li>比較カテゴリ型<ul>
+<li><code><a href="../../reference/compare/partial_ordering.html">partial_ordering</a></code></li>
+<li><code><a href="../../reference/compare/weak_ordering.html">weak_ordering</a></code></li>
+<li><code><a href="../../reference/compare/strong_ordering.html">strong_ordering</a></code></li>
+</ul>
+</li>
+<li>コンセプト<ul>
+<li><code><a href="../../reference/compare/three_way_comparable.html">three_way_comparable</a></code></li>
+<li><code><a href="../../reference/compare/three_way_comparable.html">three_way_comparable_with</a></code></li>
+</ul>
+</li>
+<li><code><a href="../../reference/compare/common_comparison_category.html">common_comparison_category</a></code></li>
+<li>比較関数オブジェクト<ul>
+<li><code><a href="../../reference/compare/strong_order.html">strong_order</a></code></li>
+<li><code><a href="../../reference/compare/weak_order.html">weak_order</a></code></li>
+<li><code><a href="../../reference/compare/partial_order.html">partial_order</a></code></li>
+<li><code><a href="../../reference/compare/compare_three_way.html">compare_three_way</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code><a href="../../reference/algorithm.html">&lt;algorithm&gt;</a></code><ul>
+<li><code><a href="../../reference/algorithm/lexicographical_compare_three_way.html">lexicographical_compare_three_way</a></code></li>
+</ul>
+</li>
+<li><a href="deprecate_arithmetic_conversion_on_enumerations.html">C++20 列挙値から算術型への暗黙変換を非推奨化</a><ul>
+<li><a href="../cpp26/remove_deprecated_arithmetic_conversion_on_enumerations.html">C++26 非推奨となっていた列挙値から算術型への暗黙変換を削除</a></li>
+</ul>
+</li>
+<li><a href="deprecate_array_comparisons.html">C++20 組み込み配列の比較を非推奨化</a><ul>
+<li><a href="../cpp26/remove_deprecated_array_comparisons.html">C++26 非推奨だった組み込み配列の比較を削除</a></li>
+</ul>
+</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li>C++20にて承認された提案文書<ol>
+<li><a href="http://wg21.link/p0515" target="_blank">P0515R3 Consistent comparison</a><ul>
+<li>一貫比較仕様の追加 </li>
+</ul>
+</li>
+<li><a href="http://wg21.link/p0768" target="_blank">P0768R1 Library support for the spaceship (comparison) operator</a><ul>
+<li>比較カテゴリ型の標準ライブラリへの導入</li>
+</ul>
+</li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0905r1.html" target="_blank">P0905R1 Symmetry for spaceship</a><ul>
+<li><code>&lt;=&gt;</code>そのものの対称性補完</li>
+</ul>
+</li>
+<li><a href="http://wg21.link/p1120" target="_blank">P1120R0 Consistency improvements for &lt;=&gt; and other comparison operators</a><ul>
+<li><code>&lt;=&gt;</code>による比較を基にした従来の比較演算子の修正</li>
+</ul>
+</li>
+<li><a href="http://wg21.link/p1185" target="_blank">P1185R2 &lt;=&gt; != ==</a><ul>
+<li><code>== !=</code>の<code>&lt;=&gt;</code>からの切り離し</li>
+</ul>
+</li>
+<li><a href="http://wg21.link/p1186" target="_blank">P1186R3 When do you actually use &lt;=&gt;?</a><ul>
+<li>メンバ変数に<code>&lt;=&gt;</code>を持たない型がある時、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型と<code>&lt; ==</code>を用いて<code>&lt;=&gt;</code>を合成する</li>
+</ul>
+</li>
+<li><a href="http://wg21.link/p1630" target="_blank">P1630R1 Spaceship needs a tune-up</a><ul>
+<li><code>==</code>の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型を<code>bool</code>限定にするなど、一貫比較仕様全般の細かいバグ修正</li>
+</ul>
+</li>
+<li><a href="http://wg21.link/p1614" target="_blank">P1614R2 The Mothership has Landed (Adding &lt;=&gt; to the Library)</a><ul>
+<li>標準ライブラリで提供されるクラスへの一貫比較仕様をベースとした<code>&lt;=&gt; ==</code>導入</li>
+</ul>
+</li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1959r0.html" target="_blank">P1959R0 Remove <code>std::weak_equality</code> and <code>std::strong_equality</code></a><ul>
+<li>不要になった<code>_equality</code>な比較カテゴリ型の削除</li>
+</ul>
+</li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1946r0.html" target="_blank">P1946R0 Allow defaulting comparisons by value</a><ul>
+<li><code>&lt;=&gt; ==</code>の<code>friend</code>な<code>default</code>宣言の調整</li>
+</ul>
+</li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2085r0.html" target="_blank">P2085R0 Consistent defaulted comparisons</a><ul>
+<li><code>&lt;=&gt; ==</code>の<code>default</code>宣言をクラス外でも行えるようにする</li>
+</ul>
+</li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2002r1.html" target="_blank">P2002R1 Defaulted comparison specification cleanups</a><ul>
+<li>デフォルト比較についての仕様のクリーンアップ、暗黙<code>delete</code>されるときを明確にしたり仕様の空白を埋めるなどの調整</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>以前に検討されていた提案文書<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3950.html" target="_blank">N3950 Defaulted comparison operators</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4114.htm" target="_blank">N4114 Defaulted comparison operators</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4126.htm" target="_blank">N4126 Explicitly defaulted comparison operators</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4475.pdf" target="_blank">N4475 Default comparisons (R2)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4476.pdf" target="_blank">N4476 Thoughts about Comparisons (R2)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0221r2.html" target="_blank">P0221R2: Proposed wording for default comparisons, revision 4</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0100r2.html" target="_blank">P0100R2 Comparison in C++</a></li>
+<li><a href="http://wg21.link/P0436R1" target="_blank">P0436R1 An Extensible Approach to Obtaining Selected Operators</a></li>
+<li><a href="http://wg21.link/P0474R0" target="_blank">P0474R0 Comparison in C++: Basic Facilities</a></li>
+<li><a href="http://wg21.link/P0481R0" target="_blank">P0481R0 T. Van Eerd. “Bravely Default</a></li>
+<li><a href="http://wg21.link/P0432R0" target="_blank">P0432R0 D. Stone. “Implicit and Explicit Default Comparison Operators</a></li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

@@ -1,0 +1,375 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>stop_callback::デストラクタ - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,stop_token,std,stop_callback,function,cpp20
+">
+        <meta name="title" content="stop_callback::デストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="stop_callback::デストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="stop_callback::デストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/stop_token/stop_callback/op_destructor.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="function&amp;lt;stop_token&amp;gt;std::stop_callback::デストラクタ(C++20) ~stop_callback();   効果 停止可能コールバック登録解除を実行する（備考欄を参照）。 ほかに停止状態を共有しているオブジェクトがいない場合は、停止状態を扱うために確保したリソースを解放する。 備考 停止可能コールバック登録解除は次のように行われる。 もし自身と同" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="stop_callback::デストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/stop_token/stop_callback/op_destructor.html" />
+        <meta name="twitter:description" content="function&amp;lt;stop_token&amp;gt;std::stop_callback::デストラクタ(C++20) ~stop_callback();   効果 停止可能コールバック登録解除を実行する（備考欄を参照）。 ほかに停止状態を共有しているオブジェクトがいない場合は、停止状態を扱うために確保したリソースを解放する。 備考 停止可能コールバック登録解除は次のように行われる。 もし自身と同" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="manifest" href="../../../manifest.json?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;stop_token&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;stop_callback&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;6a0125b8237c2c006d6b8b6f93ba024c9a182dec&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;chrono&gt;\n#include &lt;functional&gt;\n#include &lt;memory&gt;\n#include &lt;stop_token&gt;\n#include &lt;thread&gt;\n\n// CallbackFunc \u306e\u72b6\u614b\u3092\u8868\u3059\u69cb\u9020\u4f53\nstruct CallbackFuncStatus\n{\n  std::atomic&lt;bool&gt; started { false };\n  std::atomic&lt;bool&gt; finished { false };\n  std::atomic&lt;bool&gt; destructed { false };\n};\n\n// \u505c\u6b62\u8981\u6c42\u306b\u5fdc\u3058\u3066\u547c\u3073\u51fa\u3055\u308c\u308b\u95a2\u6570\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\nstruct CallbackFunc {\n  CallbackFunc(CallbackFuncStatus* cfs) : cfs_(cfs) {}\n  CallbackFunc(CallbackFunc&amp;&amp; rhs) {\n    cfs_ = rhs.cfs_;\n    rhs.cfs_ = nullptr;\n  }\n\n  CallbackFunc &amp; operator=(CallbackFunc&amp;&amp; rhs) {\n    cfs_ = rhs.cfs_;\n    rhs.cfs_ = nullptr;\n    return *this;\n  }\n\n  ~CallbackFunc() {\n    if(cfs_) { cfs_-&gt;destructed = true; }\n  }\n\n  void operator()() {\n    cfs_-&gt;started = true;\n    std::this_thread::sleep_for(std::chrono::milliseconds(1000));\n    cfs_-&gt;finished = true;\n  }\n\nprivate:\n  CallbackFuncStatus* cfs_ { nullptr };\n};\n\nint main()\n{\n  // \u30c7\u30b9\u30c8\u30e9\u30af\u30bf\u547c\u3073\u51fa\u3057\u306e\u3068\u304d\u306b\u5225\u306e\u30b9\u30ec\u30c3\u30c9\u3067\u81ea\u8eab\u306e\u30b3\u30fc\u30eb\u30d0\u30c3\u30af\u304c\u5b9f\u884c\u4e2d\u306a\u5834\u5408\u306e\u30b5\u30f3\u30d7\u30eb\n  {\n    std::stop_source ss;\n    std::thread t;\n    CallbackFuncStatus cfs;\n    {\n      std::stop_callback cb { ss.get_token(), CallbackFunc(&amp;cfs) };\n\n      // \u5225\u30b9\u30ec\u30c3\u30c9\u3067 cb \u306e\u30b3\u30fc\u30eb\u30d0\u30c3\u30af\u3092\u547c\u3073\u51fa\u3059\n      t = std::thread([&amp;] { ss.request_stop(); });\n      std::this_thread::sleep_for(std::chrono::milliseconds(100));\n\n      assert(cfs.started == true);\n      assert(cfs.destructed == false);\n\n    } // \u3053\u3053\u3067 cb \u306e\u30c7\u30b9\u30c8\u30e9\u30af\u30bf\u304c\u547c\u3073\u51fa\u3055\u308c\u308b\u304c\u3001\n      // \u5225\u306e\u30b9\u30ec\u30c3\u30c9\u3067\u81ea\u8eab\u306e\u30b3\u30fc\u30eb\u30d0\u30c3\u30af\u3092\u5b9f\u884c\u4e2d\u306a\u306e\u3067\u3001\n      // \u305d\u308c\u304c\u5b8c\u4e86\u3059\u308b\u307e\u3067\u30c7\u30b9\u30c8\u30e9\u30af\u30bf\u306e\u5b9f\u884c\u304c\u30d6\u30ed\u30c3\u30af\u3055\u308c\u3001\n      // stop_callback \u306e\u30b3\u30f3\u30b9\u30c8\u30e9\u30af\u30bf\u306b\u6e21\u3057\u305f\u95a2\u6570\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u306f\u7834\u68c4\u3055\u308c\u306a\u3044\u3002\n\n    // \u30c7\u30b9\u30c8\u30e9\u30af\u30bf\u306e\u547c\u3073\u51fa\u3057\u304c\u5b8c\u4e86\u3057\u305f\u306a\u3089\u3070\u3001\n    // \u305d\u308c\u306b\u5148\u7acb\u3063\u3066\u95a2\u6570\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3082\u7834\u68c4\u3055\u308c\u3066\u3044\u308b\u306f\u305a\u3002\n    assert(cfs.finished == true);\n    assert(cfs.destructed == true);\n\n    t.join();\n  }\n\n  // \u30c7\u30b9\u30c8\u30e9\u30af\u30bf\u547c\u3073\u51fa\u3057\u306e\u3068\u304d\u306b\u540c\u3058\u30b9\u30ec\u30c3\u30c9\u3067\u81ea\u8eab\u306e\u30b3\u30fc\u30eb\u30d0\u30c3\u30af\u304c\u5b9f\u884c\u4e2d\u306a\u5834\u5408\u306e\u30b5\u30f3\u30d7\u30eb\n  {\n    std::stop_source ss;\n    std::function&lt;void()&gt; reset_cb;\n\n    auto on_callback = [&amp;] { reset_cb(); }; // \u505c\u6b62\u8981\u6c42\u306b\u5fdc\u3058\u3066\u547c\u3073\u51fa\u3055\u308c\u308b\u95a2\u6570\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3002\n    auto cb = std::make_unique&lt;std::stop_callback&lt;decltype(on_callback)&gt;&gt;(ss.get_token(), on_callback);\n\n    reset_cb = [&amp;] { cb.reset(); }; // on_callback \u306e\u4e2d\u304b\u3089\u547c\u3073\u51fa\u3059\u51e6\u7406\u3002cb \u3092\u7834\u68c4\u3059\u308b\u3002\n\n    // \u3053\u306e\u4e2d\u3067 reset_cb() \u304c\u547c\u3073\u51fa\u3055\u308c\u3001 cb \u306e\u30c7\u30b9\u30c8\u30e9\u30af\u30bf\u304c\u547c\u3073\u51fa\u3055\u308c\u308b\u3002\n    // \u30c7\u30b9\u30c8\u30e9\u30af\u30bf\u3068\u30b3\u30fc\u30eb\u30d0\u30c3\u30af\u304c\u540c\u3058\u30b9\u30ec\u30c3\u30c9\u4e0a\u3067\u547c\u3073\u51fa\u3055\u308c\u3066\u3044\u308b\u5834\u5408\u306f\u3001\n    // \u30c7\u30b9\u30c8\u30e9\u30af\u30bf\u306e\u5b9f\u884c\u306f\u30d6\u30ed\u30c3\u30af\u3055\u308c\u306a\u3044\u3002\n    ss.request_stop();\n\n    assert(cb == nullptr);\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;stop_token&#34;, &#34;stop_callback&#34;, &#34;op_destructor&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/stop_token.html" itemprop="url">
+              
+                <span itemprop="name">stop_token</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/stop_token/stop_callback.html" itemprop="url">
+              
+                <span itemprop="name">stop_callback</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">デストラクタ</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-07-08T15:33:39">
+        2025年07月08日 15時33分39秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/stop_token/stop_callback/op_destructor.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/stop_token/stop_callback/op_destructor.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;stop_token&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class stop_callback">stop_callback::</span><span class="token">デストラクタ</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="o">~</span><span class="n">stop_callback</span><span class="p">();</span>
+</code></pre></div>
+</p>
+<h2>効果</h2>
+<p><a href="../stoppable_token.html">停止可能コールバック登録解除</a>を実行する（備考欄を参照）。</p>
+<p>ほかに停止状態を共有しているオブジェクトがいない場合は、停止状態を扱うために確保したリソースを解放する。</p>
+<h2>備考</h2>
+<p>停止可能コールバック登録解除は次のように行われる。</p>
+<p>もし自身と同じ停止状態を共有しているほかの<code><a href="../stop_callback.html">stop_callback</a></code>が存在してそのコールバックが実行中だったとしても、自身のデストラクタの実行はブロックされない。</p>
+<p>もしデストラクタの呼び出し中に自身のコールバックが別のスレッドで実行中だった場合は、そのコールバックの呼び出しから処理が戻るまでは、<code>stop_callback</code>のコンストラクタで受け取った関数オブジェクトが破棄されないようにデストラクタの実行がブロックされる。<br />
+もしデストラクタの呼び出し中に自身のコールバックが同じスレッドで実行中だった場合は、デストラクタの実行はブロックされない。</p>
+<h2>例</h2>
+<p><div class="yata" id="6a0125b8237c2c006d6b8b6f93ba024c9a182dec"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../stop_token.html">&lt;stop_token&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// CallbackFunc の状態を表す構造体</span>
+<span class="k">struct</span> <span class="n">CallbackFuncStatus</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../atomic/atomic.html">std::atomic</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">started</span> <span class="p">{</span> <span class="nb">false</span> <span class="p">};</span>
+  <span class="n"><a href="../../atomic/atomic.html">std::atomic</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">finished</span> <span class="p">{</span> <span class="nb">false</span> <span class="p">};</span>
+  <span class="n"><a href="../../atomic/atomic.html">std::atomic</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">destructed</span> <span class="p">{</span> <span class="nb">false</span> <span class="p">};</span>
+<span class="p">};</span>
+
+<span class="c1">// 停止要求に応じて呼び出される関数オブジェクト</span>
+<span class="k">struct</span> <span class="n">CallbackFunc</span> <span class="p">{</span>
+  <span class="n">CallbackFunc</span><span class="p">(</span><span class="n">CallbackFuncStatus</span><span class="o">*</span> <span class="n">cfs</span><span class="p">)</span> <span class="o">:</span> <span class="n">cfs_</span><span class="p">(</span><span class="n">cfs</span><span class="p">)</span> <span class="p">{}</span>
+  <span class="n">CallbackFunc</span><span class="p">(</span><span class="n">CallbackFunc</span><span class="o">&amp;&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">cfs_</span> <span class="o">=</span> <span class="n">rhs</span><span class="p">.</span><span class="n">cfs_</span><span class="p">;</span>
+    <span class="n">rhs</span><span class="p">.</span><span class="n">cfs_</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n">CallbackFunc</span> <span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">CallbackFunc</span><span class="o">&amp;&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">cfs_</span> <span class="o">=</span> <span class="n">rhs</span><span class="p">.</span><span class="n">cfs_</span><span class="p">;</span>
+    <span class="n">rhs</span><span class="p">.</span><span class="n">cfs_</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+    <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="o">~</span><span class="n">CallbackFunc</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">cfs_</span><span class="p">)</span> <span class="p">{</span> <span class="n">cfs_</span><span class="o">-&gt;</span><span class="n">destructed</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="kt">void</span> <span class="k">operator</span><span class="p">()()</span> <span class="p">{</span>
+    <span class="n">cfs_</span><span class="o">-&gt;</span><span class="n">started</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="n"><a href="../../thread/this_thread/sleep_for.html">std::this_thread::sleep_for</a></span><span class="p">(</span><span class="n"><a href="../../chrono/duration_aliases.html">std::chrono::milliseconds</a></span><span class="p">(</span><span class="mi">1000</span><span class="p">));</span>
+    <span class="n">cfs_</span><span class="o">-&gt;</span><span class="n">finished</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+  <span class="n">CallbackFuncStatus</span><span class="o">*</span> <span class="n">cfs_</span> <span class="p">{</span> <span class="k">nullptr</span> <span class="p">};</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// デストラクタ呼び出しのときに別のスレッドで自身のコールバックが実行中な場合のサンプル</span>
+  <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n"><a href="../stop_source.html">stop_source</a></span> <span class="n">ss</span><span class="p">;</span>
+    <span class="n"><a href="../../thread/thread.html">std::thread</a></span> <span class="n">t</span><span class="p">;</span>
+    <span class="n">CallbackFuncStatus</span> <span class="n">cfs</span><span class="p">;</span>
+    <span class="p">{</span>
+      <span class="n">std</span><span class="o">::</span><span class="n"><a href="../stop_callback.html">stop_callback</a></span> <span class="n">cb</span> <span class="p">{</span> <span class="n">ss</span><span class="p">.</span><span class="n"><a href="../stop_source/get_token.html">get_token()</a></span><span class="p">,</span> <span class="n">CallbackFunc</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cfs</span><span class="p">)</span> <span class="p">};</span>
+
+      <span class="c1">// 別スレッドで cb のコールバックを呼び出す</span>
+      <span class="n">t</span> <span class="o">=</span> <span class="n"><a href="../../thread/thread.html">std::thread</a></span><span class="p">([</span><span class="o">&amp;</span><span class="p">]</span> <span class="p">{</span> <span class="n">ss</span><span class="p">.</span><span class="n"><a href="../stop_source/request_stop.html">request_stop()</a></span><span class="p">;</span> <span class="p">});</span>
+      <span class="n"><a href="../../thread/this_thread/sleep_for.html">std::this_thread::sleep_for</a></span><span class="p">(</span><span class="n"><a href="../../chrono/duration_aliases.html">std::chrono::milliseconds</a></span><span class="p">(</span><span class="mi">100</span><span class="p">));</span>
+
+      <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">cfs</span><span class="p">.</span><span class="n">started</span> <span class="o">==</span> <span class="nb">true</span><span class="p">);</span>
+      <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">cfs</span><span class="p">.</span><span class="n">destructed</span> <span class="o">==</span> <span class="nb">false</span><span class="p">);</span>
+
+    <span class="p">}</span> <span class="c1">// ここで cb のデストラクタが呼び出されるが、</span>
+      <span class="c1">// 別のスレッドで自身のコールバックを実行中なので、</span>
+      <span class="c1">// それが完了するまでデストラクタの実行がブロックされ、</span>
+      <span class="c1">// <a href="../stop_callback.html">stop_callback</a> のコンストラクタに渡した関数オブジェクトは破棄されない。</span>
+
+    <span class="c1">// デストラクタの呼び出しが完了したならば、</span>
+    <span class="c1">// それに先立って関数オブジェクトも破棄されているはず。</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">cfs</span><span class="p">.</span><span class="n">finished</span> <span class="o">==</span> <span class="nb">true</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">cfs</span><span class="p">.</span><span class="n">destructed</span> <span class="o">==</span> <span class="nb">true</span><span class="p">);</span>
+
+    <span class="n"><a href="../../thread/thread/join.html">t.join()</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// デストラクタ呼び出しのときに同じスレッドで自身のコールバックが実行中な場合のサンプル</span>
+  <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n"><a href="../stop_source.html">stop_source</a></span> <span class="n">ss</span><span class="p">;</span>
+    <span class="n"><a href="../../functional/function.html">std::function</a></span><span class="o">&lt;</span><span class="kt">void</span><span class="p">()</span><span class="o">&gt;</span> <span class="n">reset_cb</span><span class="p">;</span>
+
+    <span class="k">auto</span> <span class="n">on_callback</span> <span class="o">=</span> <span class="p">[</span><span class="o">&amp;</span><span class="p">]</span> <span class="p">{</span> <span class="n">reset_cb</span><span class="p">();</span> <span class="p">};</span> <span class="c1">// 停止要求に応じて呼び出される関数オブジェクト。</span>
+    <span class="k">auto</span> <span class="n">cb</span> <span class="o">=</span> <span class="n"><a href="../../memory/make_unique.html">std::make_unique</a></span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../stop_callback.html">stop_callback</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">on_callback</span><span class="p">)</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">ss</span><span class="p">.</span><span class="n"><a href="../stop_source/get_token.html">get_token()</a></span><span class="p">,</span> <span class="n">on_callback</span><span class="p">);</span>
+
+    <span class="n">reset_cb</span> <span class="o">=</span> <span class="p">[</span><span class="o">&amp;</span><span class="p">]</span> <span class="p">{</span> <span class="n">cb</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span> <span class="p">};</span> <span class="c1">// on_callback の中から呼び出す処理。cb を破棄する。</span>
+
+    <span class="c1">// この中で reset_cb() が呼び出され、 cb のデストラクタが呼び出される。</span>
+    <span class="c1">// デストラクタとコールバックが同じスレッド上で呼び出されている場合は、</span>
+    <span class="c1">// デストラクタの実行はブロックされない。</span>
+    <span class="n">ss</span><span class="p">.</span><span class="n"><a href="../stop_source/request_stop.html">request_stop()</a></span><span class="p">;</span>
+
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">cb</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code></code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++20</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0660r10.pdf" target="_blank">P0660R10 Stop token and joining thread</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

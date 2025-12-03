@@ -1,0 +1,536 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>function::コンストラクタ - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,functional,std,function,function,cpp11
+">
+        <meta name="title" content="function::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="function::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="function::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/functional/function/op_constructor.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`function`オブジェクトを構築する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="function::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/functional/function/op_constructor.html" />
+        <meta name="twitter:description" content="`function`オブジェクトを構築する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="manifest" href="../../../manifest.json?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;functional&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;function&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;4659cefb7ebd19af9d11adc6d13187813988667b&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;iostream&gt;\n#include &lt;functional&gt;\n\nstruct ident_functor {\n  int operator()(int x) const\n  { return x; }\n};\n\nint ident_func(int x)\n{ return x; }\n\nstruct X {\n  int value;\n  X() : value(3) {}\n\n  int ident_member_func(int x) const\n  { return x; }\n};\n\nint main()\n{\n  // (1)\n  // \u30c7\u30d5\u30a9\u30eb\u30c8\u30b3\u30f3\u30b9\u30c8\u30e9\u30af\u30bf\n  // \u7a7a\u306efunction\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3092\u4f5c\u308b\n  {\n    std::function&lt;int(int)&gt; f;\n    assert(!f);\n  }\n\n  // (2)\n  // \u30cc\u30eb\u30dd\u30a4\u30f3\u30bf\u3092\u53d7\u3051\u53d6\u308b\u30b3\u30f3\u30b9\u30c8\u30e9\u30af\u30bf\n  // \u30c7\u30d5\u30a9\u30eb\u30c8\u30b3\u30f3\u30b9\u30c8\u30e9\u30af\u30bf\u3068\u540c\u69d8\u3001\u7a7a\u306efunction\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3092\u4f5c\u308b\n  {\n    std::function&lt;int(int)&gt; f = nullptr;\n    assert(!f);\n  }\n\n  // (3)\n  // \u30b3\u30d4\u30fc\u69cb\u7bc9\n  {\n    std::function&lt;int(int)&gt; f = ident_functor();\n    std::function&lt;int(int)&gt; g = f;\n\n    int result = g(1);\n    std::cout &lt;&lt; \&#34;(3) : \&#34; &lt;&lt; result &lt;&lt; std::endl;\n  }\n\n  // (4)\n  // \u30e0\u30fc\u30d6\u69cb\u7bc9\n  {\n    std::function&lt;int(int)&gt; f = ident_functor();\n    std::function&lt;int(int)&gt; g = std::move(f);\n\n    int result = g(1);\n    std::cout &lt;&lt; \&#34;(4) : \&#34; &lt;&lt; result &lt;&lt; std::endl;\n  }\n\n  // (5)\n  // \u95a2\u6570\u30dd\u30a4\u30f3\u30bf\u3092\u53d7\u3051\u53d6\u3063\u3066\u69cb\u7bc9\n  {\n    std::function&lt;int(int)&gt; f = ident_func;\n\n    int result = f(1);\n    std::cout &lt;&lt; \&#34;(5) function pointer : \&#34; &lt;&lt; result &lt;&lt; std::endl;\n  }\n\n  // (5)\n  // \u95a2\u6570\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3092\u53d7\u3051\u53d6\u3063\u3066\u69cb\u7bc9\n  {\n    std::function&lt;int(int)&gt; f = ident_functor();\n\n    int result = f(1);\n    std::cout &lt;&lt; \&#34;(5) function object : \&#34; &lt;&lt; result &lt;&lt; std::endl;\n  }\n\n  // (5)\n  // \u30e1\u30f3\u30d0\u95a2\u6570\u30dd\u30a4\u30f3\u30bf\u3092\u53d7\u3051\u53d6\u3063\u305f\u69cb\u7bc9\n  {\n    std::function&lt;int(const X&amp;, int)&gt; f = &amp;X::ident_member_func;\n\n    X x;\n    int result = f(x, 1);\n    std::cout &lt;&lt; \&#34;(5) member function pointer : \&#34; &lt;&lt; result &lt;&lt; std::endl;\n  }\n\n  // (5)\n  // \u30e1\u30f3\u30d0\u5909\u6570\u30dd\u30a4\u30f3\u30bf\u3092\u53d7\u3051\u53d6\u3063\u305f\u69cb\u7bc9\n  {\n    std::function&lt;int(const X&amp;)&gt; f = &amp;X::value;\n\n    X x;\n    int result = f(x);\n    std::cout &lt;&lt; \&#34;(5) member variable pointer : \&#34; &lt;&lt; result &lt;&lt; std::endl;\n  }\n\n  // (6)\n  // \u30a2\u30ed\u30b1\u30fc\u30bf\u3092\u53d7\u3051\u53d6\u3063\u3066\u7a7a\u306efunction\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3092\u69cb\u7bc9\n  {\n    // \u203b\u3053\u3053\u3067\u306fint\u578b\u3092\u5bfe\u8c61\u3068\u3059\u308b\u30a2\u30ed\u30b1\u30fc\u30bf\u3092\u6e21\u3057\u3066\u3044\u308b\u304c\u3001\u5185\u90e8\u3067\u9069\u5207\u306a\u95a2\u6570\u306e\u578b\u306brebind\u3057\u3066\u4f7f\u308f\u308c\u308b\u3002\n    std::function&lt;int(int)&gt; f(std::allocator_arg, std::allocator&lt;int&gt;());\n    assert(!f);\n  }\n\n  // (7)\n  // \u30a2\u30ed\u30b1\u30fc\u30bf\u3068\u30cc\u30eb\u30dd\u30a4\u30f3\u30bf\u3092\u53d7\u3051\u53d6\u3063\u3066\u3001\u7a7a\u306efunction\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3092\u69cb\u7bc9\n  {\n    std::function&lt;int(int)&gt; f(std::allocator_arg, std::allocator&lt;int&gt;(), nullptr);\n    assert(!f);\n  }\n\n  // (8)\n  // \u30a2\u30ed\u30b1\u30fc\u30bf\u3092\u53d7\u3051\u53d6\u308a\u3001function\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3092\u30b3\u30d4\u30fc\u69cb\u7bc9\n  {\n    std::function&lt;int(int)&gt; f = ident_functor();\n    std::function&lt;int(int)&gt; g(std::allocator_arg, std::allocator&lt;int&gt;(), f);\n\n    int result = g(1);\n    std::cout &lt;&lt; \&#34;(8) : \&#34; &lt;&lt; result &lt;&lt; std::endl;\n  }\n\n  // (9)\n  // \u30a2\u30ed\u30b1\u30fc\u30bf\u3092\u53d7\u3051\u53d6\u308a\u3001function\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3092\u30e0\u30fc\u30d6\u69cb\u7bc9\n  {\n    std::function&lt;int(int)&gt; f = ident_functor();\n    std::function&lt;int(int)&gt; g(std::allocator_arg, std::allocator&lt;int&gt;(), std::move(f));\n\n    int result = g(1);\n    std::cout &lt;&lt; \&#34;(9) : \&#34; &lt;&lt; result &lt;&lt; std::endl;\n  }\n\n  // (10)\n  // \u95a2\u6570\u30dd\u30a4\u30f3\u30bf\u3001\u95a2\u6570\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3001\u30e1\u30f3\u30d0\u30dd\u30a4\u30f3\u30bf\u306e\u3044\u305a\u308c\u304b\u3092\u53d7\u3051\u53d6\u3063\u305f\u69cb\u7bc9\n  {\n    std::function&lt;int(int)&gt; f(std::allocator_arg, std::allocator&lt;int&gt;(), ident_functor());\n\n    int result = f(1);\n    std::cout &lt;&lt; \&#34;(10) : \&#34; &lt;&lt; result &lt;&lt; std::endl;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;functional&#34;, &#34;function&#34;, &#34;op_constructor&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/functional.html" itemprop="url">
+              
+                <span itemprop="name">functional</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/functional/function.html" itemprop="url">
+              
+                <span itemprop="name">function</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">コンストラクタ</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-07-08T15:33:39">
+        2025年07月08日 15時33分39秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/functional/function/op_constructor.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/functional/function/op_constructor.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;functional&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class function">function::</span><span class="token">コンストラクタ</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">function</span><span class="p">()</span> <span class="k">noexcept</span><span class="p">;</span>              <span class="c1">// (1) C++11</span>
+<span class="n">function</span><span class="p">(</span><span class="n"><a href="../../cstddef/nullptr_t.html">nullptr_t</a></span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>     <span class="c1">// (2) C++11</span>
+<span class="n">function</span><span class="p">(</span><span class="k">const</span> <span class="n">function</span><span class="o">&amp;</span> <span class="n">f</span><span class="p">);</span>      <span class="c1">// (3) C++11</span>
+
+<span class="n">function</span><span class="p">(</span><span class="n">function</span><span class="o">&amp;&amp;</span> <span class="n">f</span><span class="p">);</span>           <span class="c1">// (4) C++11</span>
+<span class="n">function</span><span class="p">(</span><span class="n">function</span><span class="o">&amp;&amp;</span> <span class="n">f</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>  <span class="c1">// (4) C++20</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">F</span><span class="o">&gt;</span>
+<span class="n">function</span><span class="p">(</span><span class="n">F</span> <span class="n">f</span><span class="p">);</span>                    <span class="c1">// (5) C++11</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">F</span><span class="o">&gt;</span>
+<span class="n">function</span><span class="p">(</span><span class="n">F</span><span class="o">&amp;&amp;</span> <span class="n">f</span><span class="p">);</span>                  <span class="c1">// (5) C++23</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Alloc</span><span class="o">&gt;</span>
+<span class="n">function</span><span class="p">(</span><span class="n"><a href="../../memory/allocator_arg_t.html">allocator_arg_t</a></span><span class="p">,</span> <span class="k">const</span> <span class="n">Alloc</span><span class="o">&amp;</span> <span class="n">alloc</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>            <span class="c1">// (6) C++17で削除</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Alloc</span><span class="o">&gt;</span>
+<span class="n">function</span><span class="p">(</span><span class="n"><a href="../../memory/allocator_arg_t.html">allocator_arg_t</a></span><span class="p">,</span> <span class="k">const</span> <span class="n">Alloc</span><span class="o">&amp;</span> <span class="n">alloc</span><span class="p">,</span> <span class="n"><a href="../../cstddef/nullptr_t.html">nullptr_t</a></span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (7) C++17で削除</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Alloc</span><span class="o">&gt;</span>
+<span class="n">function</span><span class="p">(</span><span class="n"><a href="../../memory/allocator_arg_t.html">allocator_arg_t</a></span><span class="p">,</span> <span class="k">const</span> <span class="n">Alloc</span><span class="o">&amp;</span> <span class="n">alloc</span><span class="p">,</span> <span class="k">const</span> <span class="n">function</span><span class="o">&amp;</span> <span class="n">f</span><span class="p">);</span>  <span class="c1">// (8) C++17で削除</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Alloc</span><span class="o">&gt;</span>
+<span class="n">function</span><span class="p">(</span><span class="n"><a href="../../memory/allocator_arg_t.html">allocator_arg_t</a></span><span class="p">,</span> <span class="k">const</span> <span class="n">Alloc</span><span class="o">&amp;</span> <span class="n">alloc</span><span class="p">,</span> <span class="n">function</span><span class="o">&amp;&amp;</span> <span class="n">f</span><span class="p">);</span>       <span class="c1">// (9) C++17で削除</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">F</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Alloc</span><span class="o">&gt;</span>
+<span class="n">function</span><span class="p">(</span><span class="n"><a href="../../memory/allocator_arg_t.html">allocator_arg_t</a></span><span class="p">,</span> <span class="k">const</span> <span class="n">Alloc</span><span class="o">&amp;</span> <span class="n">alloc</span><span class="p">,</span> <span class="n">F</span> <span class="n">f</span><span class="p">);</span>                <span class="c1">// (10) C++17で削除</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>function</code>オブジェクトを構築する。</p>
+<ul>
+<li>(1) : <a class="cpprefjp-defined-word" data-desc="デフォルト初期化。`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト構築</a>。空の<code>function</code>オブジェクトを構築する</li>
+<li>(2) : <code>nullptr</code>からの構築。空の<code>function</code>オブジェクトを構築する</li>
+<li>(3) : コピー構築する</li>
+<li>(4) : ムーブ構築する</li>
+<li>(5) : 任意の型の関数ポインタ、メンバポインタ、関数オブジェクトを受け取って構築する</li>
+<li>(6) : アロケータをとって空の<code>function</code>オブジェクトを構築する</li>
+<li>(7) : アロケータと<code>nullptr</code>をとって空の<code>function</code>オブジェクトを構築する</li>
+<li>(8) : アロケータをとってコピー構築する</li>
+<li>(9) : アロケータをとってムーブ構築する</li>
+<li>(10) : アロケータと、任意の型の関数ポインタ、メンバポインタ、関数オブジェクトを受け取って構築する</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
+<p><code><a href="../../type_traits/decay.html">decay_t</a>&lt;F&gt;</code>を<code>FD</code>として、</p>
+<ul>
+<li>(5) :<ul>
+<li>C++11<ul>
+<li><code>F</code>は、パラメータとして<code>ArgTypes...</code>型をとり、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>として<code>R</code>型を返す関数ポインタ、メンバ関数ポインタ、メンバ変数ポインタ、または関数オブジェクトであること</li>
+</ul>
+</li>
+<li>C++23<ul>
+<li><code>F</code>が<code>function</code>ではないこと</li>
+<li><code>FD</code>は、パラメータとして<code>ArgTypes...</code>型をとり、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>として<code>R</code>型を返す関数ポインタ、メンバ関数ポインタ、メンバ変数ポインタ、または関数オブジェクトであること</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>(10) :<ul>
+<li><code>F</code>はコピー構築可能であること</li>
+<li><code>F</code>のコピーコンストラクタとデストラクタは、<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げるべきではない</li>
+<li><code>F</code>は、パラメータとして<code>ArgTypes...</code>型をとり、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>として<code>R</code>型を返す関数ポインタ、メンバ関数ポインタ、メンバ変数ポインタ、または関数オブジェクトであること</li>
+</ul>
+</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Mandates。満たさなければプログラムが不適格となる要件。この要件は、オーバーロード解決によって選択された関数内での`static_assert`の定数条件式や、関数に対するdelete宣言などで表現できる">適格要件</a></h2>
+<ul>
+<li>(5) :<ul>
+<li>C++11<ul>
+<li><code>F</code>はコピー構築可能であること</li>
+<li><code>F</code>は、パラメータとして<code>ArgTypes...</code>型をとり、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>として<code>R</code>型を返す関数ポインタ、メンバ関数ポインタ、メンバ変数ポインタ、または関数オブジェクトであること。</li>
+</ul>
+</li>
+<li>C++23<ul>
+<li><code>FD</code>はコピー構築可能であること</li>
+<li><code>FD</code>は<code>F</code>から構築可能であること</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2>効果</h2>
+<ul>
+<li>(1), (2) : 関数を持たない空の<code>function</code>オブジェクトを構築する。この方法で構築した後、<code><a href="op_bool.html">operator bool</a></code>は<code>false</code>を返す。</li>
+<li>(3) : <code>f</code>が保持する関数、または関数オブジェクトをコピーする。</li>
+<li>(4) : <code>f</code>が保持する状態を<code>*this</code>に移動する。移動された後の<code>f</code>は、<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>な値を持つ有効な状態となる。</li>
+<li>(5) : <code>f</code>がヌルの関数ポインタ、もしくはメンバポインタである場合、構築後の<code><a href="op_bool.html">operator bool</a></code>は<code>false</code>を返す。<code>f</code>が有効な関数ポインタ、メンバポインタ、もしくは関数オブジェクトである場合は、<code>f</code>が持つターゲットを<code>*this</code>に移動する。</li>
+<li>(6), (7) : アロケータを設定し、関数を持たない空の<code>function</code>オブジェクトを構築する。この方法で構築した後、<code><a href="op_bool.html">operator bool</a></code>は<code>false</code>を返す。</li>
+<li>(9) : アロケータを設定し、<code>f</code>が保持する状態を<code>*this</code>に移動する。移動された後の<code>f</code>は、<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>な値を持つ有効な状態となる。</li>
+<li>(10) : アロケータを設定する。<code>f</code>がヌルの関数ポインタ、もしくはメンバポインタである場合、構築後の<code><a href="op_bool.html">operator bool</a></code>は<code>false</code>を返す。<code>f</code>が有効な関数ポインタ、メンバポインタ、もしくは関数オブジェクトである場合は、<code>f</code>が持つターゲットを<code>*this</code>に移動する。</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
+<ul>
+<li>(3), (8) : <code>f</code>が<code><a href="../reference_wrapper.html">reference_wrapper</a></code>か関数ポインタを保持している場合は、<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げるべきではない。<code>f</code>が関数オブジェクトを保持している場合は、そのコピーコンストラクタが<code><a href="../../new/bad_alloc.html">bad_alloc</a></code>やその他の<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げる可能性がある。</li>
+<li>(10) : <code>f</code>が<code><a href="../reference_wrapper.html">reference_wrapper</a></code>か関数ポインタを保持している場合は、<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げるべきではない。<code>f</code>が関数オブジェクトを保持している場合は、そのコピーコンストラクタもしくはムーブコンストラクタが<code><a href="../../new/bad_alloc.html">bad_alloc</a></code>やその他の<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げる可能性がある。</li>
+</ul>
+<h2>備考</h2>
+<ul>
+<li>(5), (10) : <ul>
+<li>C++14 : <code>F</code>が、パラメータとして<code>ArgTypes...</code>型をとり、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>として<code>R</code>型を返す関数ポインタ、メンバ関数ポインタ、メンバ変数ポインタ、または関数オブジェクトでない場合、この関数は<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>から除外される。</li>
+</ul>
+</li>
+</ul>
+<h2>削除の詳細</h2>
+<ul>
+<li>(6)-(10) : このクラスのメモリアロケータサポートは、ほとんどの標準ライブラリ実装で使用されず、メモリアロケータを使用する必要がなかった。そのため、実装もされなかったことでユーザーにも使われてこなかったため、この機能を削除した。</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="4659cefb7ebd19af9d11adc6d13187813988667b"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">ident_functor</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="k">operator</span><span class="p">()(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="k">const</span>
+  <span class="p">{</span> <span class="k">return</span> <span class="n">x</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">ident_func</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span>
+<span class="p">{</span> <span class="k">return</span> <span class="n">x</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
+  <span class="n">X</span><span class="p">()</span> <span class="o">:</span> <span class="n">value</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">{}</span>
+
+  <span class="kt">int</span> <span class="n">ident_member_func</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="k">const</span>
+  <span class="p">{</span> <span class="k">return</span> <span class="n">x</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// (1)</span>
+  <span class="c1">// デフォルトコンストラクタ</span>
+  <span class="c1">// 空のfunctionオブジェクトを作る</span>
+  <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">f</span><span class="p">;</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">f</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (2)</span>
+  <span class="c1">// ヌルポインタを受け取るコンストラクタ</span>
+  <span class="c1">// デフォルトコンストラクタと同様、空のfunctionオブジェクトを作る</span>
+  <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">f</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (3)</span>
+  <span class="c1">// コピー構築</span>
+  <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">ident_functor</span><span class="p">();</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">g</span> <span class="o">=</span> <span class="n">f</span><span class="p">;</span>
+
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"(3) : "</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (4)</span>
+  <span class="c1">// ムーブ構築</span>
+  <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">ident_functor</span><span class="p">();</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">g</span> <span class="o">=</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
+
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"(4) : "</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (5)</span>
+  <span class="c1">// 関数ポインタを受け取って構築</span>
+  <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">ident_func</span><span class="p">;</span>
+
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"(5) function pointer : "</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (5)</span>
+  <span class="c1">// 関数オブジェクトを受け取って構築</span>
+  <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">ident_functor</span><span class="p">();</span>
+
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"(5) function object : "</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (5)</span>
+  <span class="c1">// メンバ関数ポインタを受け取った構築</span>
+  <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="k">const</span> <span class="n">X</span><span class="o">&amp;</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">X</span><span class="o">::</span><span class="n">ident_member_func</span><span class="p">;</span>
+
+    <span class="n">X</span> <span class="n">x</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"(5) member function pointer : "</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (5)</span>
+  <span class="c1">// メンバ変数ポインタを受け取った構築</span>
+  <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="k">const</span> <span class="n">X</span><span class="o">&amp;</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">X</span><span class="o">::</span><span class="n">value</span><span class="p">;</span>
+
+    <span class="n">X</span> <span class="n">x</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"(5) member variable pointer : "</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (6)</span>
+  <span class="c1">// アロケータを受け取って空のfunctionオブジェクトを構築</span>
+  <span class="p">{</span>
+    <span class="c1">// ※ここではint型を対象とするアロケータを渡しているが、内部で適切な関数の型にrebindして使われる。</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">f</span><span class="p">(</span><span class="n"><a href="../../memory/allocator_arg_t.html">std::allocator_arg</a></span><span class="p">,</span> <span class="n"><a href="../../memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">());</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">f</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (7)</span>
+  <span class="c1">// アロケータとヌルポインタを受け取って、空のfunctionオブジェクトを構築</span>
+  <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">f</span><span class="p">(</span><span class="n"><a href="../../memory/allocator_arg_t.html">std::allocator_arg</a></span><span class="p">,</span> <span class="n"><a href="../../memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(),</span> <span class="k">nullptr</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">f</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (8)</span>
+  <span class="c1">// アロケータを受け取り、functionオブジェクトをコピー構築</span>
+  <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">ident_functor</span><span class="p">();</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">g</span><span class="p">(</span><span class="n"><a href="../../memory/allocator_arg_t.html">std::allocator_arg</a></span><span class="p">,</span> <span class="n"><a href="../../memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(),</span> <span class="n">f</span><span class="p">);</span>
+
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"(8) : "</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (9)</span>
+  <span class="c1">// アロケータを受け取り、functionオブジェクトをムーブ構築</span>
+  <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">ident_functor</span><span class="p">();</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">g</span><span class="p">(</span><span class="n"><a href="../../memory/allocator_arg_t.html">std::allocator_arg</a></span><span class="p">,</span> <span class="n"><a href="../../memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(),</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">f</span><span class="p">));</span>
+
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"(9) : "</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (10)</span>
+  <span class="c1">// 関数ポインタ、関数オブジェクト、メンバポインタのいずれかを受け取った構築</span>
+  <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">f</span><span class="p">(</span><span class="n"><a href="../../memory/allocator_arg_t.html">std::allocator_arg</a></span><span class="p">,</span> <span class="n"><a href="../../memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(),</span> <span class="n">ident_functor</span><span class="p">());</span>
+
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"(10) : "</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>(3) : 1
+(4) : 1
+(5) function pointer : 1
+(5) function object : 1
+(5) member function pointer : 1
+(5) member variable pointer : 3
+(8) : 1
+(9) : 1
+(10) : 1
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: 3.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: 4.3.6(アロケータを受け取るバージョンは、4.8.2時点でサポートされていない) <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2308.html" target="_blank">N2308 Adding allocator support to <code>std::function</code> for C++0x</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2132" target="_blank">LWG Issue 2132. <code>std::function</code> ambiguity</a><ul>
+<li>C++14から、(5)と(10)でシグニチャが合わない関数オブジェクトが渡された場合に、SFINAEされるようになった。</li>
+</ul>
+</li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0302r1.html" target="_blank">P0302R1 Removing Allocator Support in <code>std::function</code> (rev 1)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0771r1.pdf" target="_blank">P0771R1 std::function move constructor should be noexcept</a></li>
+<li><a href="https://cplusplus.github.io/LWG/issue2774" target="_blank">LWG Issue 2774. <code>std::function</code> construction vs assignment</a><ul>
+<li>C++23から、<code>function(F)</code>の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>が<code>function(F&amp;&amp;)</code>に変更された</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

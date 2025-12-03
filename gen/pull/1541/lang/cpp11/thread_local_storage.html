@@ -1,0 +1,377 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>スレッドローカルストレージ [N2659] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp11
+">
+        <meta name="title" content="スレッドローカルストレージ [N2659] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="スレッドローカルストレージ [N2659] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="スレッドローカルストレージ [N2659] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp11/thread_local_storage.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="変数宣言の際に、記憶域として`thread_local`キーワードを指定することで、スレッドごとの静的記憶域に変数が保持される。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="スレッドローカルストレージ [N2659] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp11/thread_local_storage.html" />
+        <meta name="twitter:description" content="変数宣言の際に、記憶域として`thread_local`キーワードを指定することで、スレッドごとの静的記憶域に変数が保持される。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="manifest" href="../../manifest.json?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;2a4599bfd3c0907e015d1b59d19a455faf2a9777&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;thread&gt;\n#include &lt;random&gt;\n#include &lt;cstdint&gt;\n\n// \u7bc4\u56f2[min_inclusive, max_inclusive]\u3067\u30e9\u30f3\u30c0\u30e0\u4e00\u69d8\u5206\u5e03\u3059\u308b\u6574\u6570\u3092\u751f\u6210\u3059\u308b\u3002\n// \u30b9\u30ec\u30c3\u30c9\u3054\u3068\u306b\u4e71\u6570\u306e\u72b6\u614b\u3092\u6301\u3064\u3002\nint random_range(int min_inclusive, int max_inclusive)\n{\n  std::random_device seed_gen;\n  std::uint32_t seed = seed_gen();\n  thread_local std::mt19937 engine(seed);\n  std::uniform_int_distribution&lt;int&gt; dist(min_inclusive, max_inclusive);\n  return dist(engine);\n}\n\nint main()\n{\n  // \u8907\u6570\u306e\u30b9\u30ec\u30c3\u30c9\u304b\u3089\u4e26\u884c\u306brandom_range()\u95a2\u6570\u3092\u547c\u3073\u51fa\u305b\u308b\n  std::thread t1([]{\n    int random_value = random_range(0, 100);\n\n    // \u203bcout\u306b\u5bfe\u3059\u308b\u4e00\u5ea6\u306e\u66f8\u304d\u8fbc\u307f\u306f\u30b9\u30ec\u30c3\u30c9\u30bb\u30fc\u30d5\u3067\u3042\u308b\u305f\u3081\u30013\u3064\u306e\u66f8\u304d\u8fbc\u307f\u30921\u3064\u306b\u7d71\u5408\u3002\n    std::cout &lt;&lt; \&#34;thread1 : \&#34; + std::to_string(random_value) + \&#34;\\n\&#34;;\n  });\n\n  std::thread t2([]{\n    int random_value = random_range(0, 100);\n    std::cout &lt;&lt; \&#34;thread2 : \&#34; + std::to_string(random_value) + \&#34;\\n\&#34;;\n  });\n\n  t1.join();\n  t2.join();\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp11&#34;, &#34;thread_local_storage&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp11.html" itemprop="url">
+              
+                <span itemprop="name">C++11</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">スレッドローカルストレージ [N2659]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-10-22T16:15:43">
+        2025年10月22日 16時15分43秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp11/thread_local_storage.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp11/thread_local_storage.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">スレッドローカルストレージ [N2659]</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++11に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>変数宣言の際に、記憶域として<code>thread_local</code>キーワードを指定することで、スレッドごとの静的記憶域に変数が保持される。</p>
+<p><code>static</code>キーワードを記憶域として使用した変数は、プログラムを通してひとつの状態を持ち、プログラム終了時に変数が破棄される。<code>thread_local</code>キーワードの場合はスレッドごとに状態を持ち、スレッド終了時に変数が破棄される。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// スレッドごとに、0から始まるIDを生成して返す関数</span>
+<span class="kt">int</span> <span class="nf">create_id</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="">thread_local</a></span> <span class="kt">int</span> <span class="n">current_id</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">return</span> <span class="n">current_id</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 2つのスレッドそれぞれで、IDが0から始まる</span>
+<span class="n"><a href="../../reference/thread/thread.html">std::thread</a></span> <span class="nf">t1</span><span class="p">([]{</span>
+  <span class="kt">int</span> <span class="n">id1</span> <span class="o">=</span> <span class="n">create_id</span><span class="p">();</span> <span class="c1">// id1 == 0</span>
+  <span class="kt">int</span> <span class="n">id2</span> <span class="o">=</span> <span class="n">create_id</span><span class="p">();</span> <span class="c1">// id2 == 1</span>
+<span class="p">});</span>
+
+<span class="n"><a href="../../reference/thread/thread.html">std::thread</a></span> <span class="nf">t2</span><span class="p">([]{</span>
+  <span class="kt">int</span> <span class="n">id1</span> <span class="o">=</span> <span class="n">create_id</span><span class="p">();</span> <span class="c1">// id1 == 0</span>
+  <span class="kt">int</span> <span class="n">id2</span> <span class="o">=</span> <span class="n">create_id</span><span class="p">();</span> <span class="c1">// id2 == 1</span>
+<span class="p">});</span>
+
+<span class="n"><a href="../../reference/thread/thread/join.html">t1.join()</a></span><span class="p">;</span>
+<span class="n"><a href="../../reference/thread/thread/join.html">t2.join()</a></span><span class="p">;</span>
+</code></pre></div>
+</p>
+<h2>仕様</h2>
+<ul>
+<li><code>thread_local</code>キーワードを記憶域として指定された変数は、「スレッド記憶域の有効期間 (thread storage duration)」を持つ。この記憶域を持つ変数は、スレッドの開始から終了までの有効期間を持つ。</li>
+<li><code>thread_local</code>キーワードは、<code>static</code>と<code>extern</code>を除き、<code>register</code>といった他の記憶域キーワードと同時には使用できない。</li>
+<li>スレッド終了時には、スレッド記憶域を持つ変数のデストラクタが呼び出される。</li>
+<li>スレッド記憶域を持つ変数のデストラクタ、もしくは名前空間スコープを持つスレッド記憶域変数のコンストラクタで<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が送出された場合、スレッドを初期化する関数の関数tryブロックでは、その<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を捕捉できない。</li>
+<li>プログラム終了時の動作は、<code><a href="../../reference/cstdlib/exit.html">std::exit()</a></code>関数と<code><a href="../../reference/cstdlib/quick_exit.html">std::quick_exit()</a></code>関数のページを参照。</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="2a4599bfd3c0907e015d1b59d19a455faf2a9777"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/random.html">&lt;random&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/cstdint.html">&lt;cstdint&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// 範囲[min_inclusive, max_inclusive]でランダム一様分布する整数を生成する。</span>
+<span class="c1">// スレッドごとに乱数の状態を持つ。</span>
+<span class="kt">int</span> <span class="nf">random_range</span><span class="p">(</span><span class="kt">int</span> <span class="n">min_inclusive</span><span class="p">,</span> <span class="kt">int</span> <span class="n">max_inclusive</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../reference/random/random_device.html">std::random_device</a></span> <span class="n">seed_gen</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/cstdint/uint32_t.html">std::uint32_t</a></span> <span class="n">seed</span> <span class="o">=</span> <span class="n">seed_gen</span><span class="p">();</span>
+  <span class="n"><span style="color:#ff0000">thread_local</span></span> <span class="n"><a href="../../reference/random/mt19937.html">std::mt19937</a></span> <span class="n">engine</span><span class="p">(</span><span class="n">seed</span><span class="p">);</span>
+  <span class="n"><a href="../../reference/random/uniform_int_distribution.html">std::uniform_int_distribution</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dist</span><span class="p">(</span><span class="n">min_inclusive</span><span class="p">,</span> <span class="n">max_inclusive</span><span class="p">);</span>
+  <span class="k">return</span> <span class="n">dist</span><span class="p">(</span><span class="n">engine</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// 複数のスレッドから並行にrandom_range()関数を呼び出せる</span>
+  <span class="n"><a href="../../reference/thread/thread.html">std::thread</a></span> <span class="n">t1</span><span class="p">([]{</span>
+    <span class="kt">int</span> <span class="n">random_value</span> <span class="o">=</span> <span class="n">random_range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+
+    <span class="c1">// ※coutに対する一度の書き込みはスレッドセーフであるため、3つの書き込みを1つに統合。</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"thread1 : "</span> <span class="o">+</span> <span class="n"><a href="../../reference/string/to_string.html">std::to_string</a></span><span class="p">(</span><span class="n">random_value</span><span class="p">)</span> <span class="o">+</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+  <span class="p">});</span>
+
+  <span class="n"><a href="../../reference/thread/thread.html">std::thread</a></span> <span class="n">t2</span><span class="p">([]{</span>
+    <span class="kt">int</span> <span class="n">random_value</span> <span class="o">=</span> <span class="n">random_range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"thread2 : "</span> <span class="o">+</span> <span class="n"><a href="../../reference/string/to_string.html">std::to_string</a></span><span class="p">(</span><span class="n">random_value</span><span class="p">)</span> <span class="o">+</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+  <span class="p">});</span>
+
+  <span class="n"><a href="../../reference/thread/thread/join.html">t1.join()</a></span><span class="p">;</span>
+  <span class="n"><a href="../../reference/thread/thread/join.html">t2.join()</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力例</h3>
+<p><pre><code>thread1 : 67
+thread2 : 4
+</code></pre></p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>マルチスレッドアプリケーションでは、スレッドごとにデータを一意に維持することがたびたび必要となる。これはスレッドローカルストレージと呼ばれ、多くのベンダーがスレッド記憶域の言語拡張を用意していた：</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>ベンダー</th>
+<th>機能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.gnu.org/" target="_blank">GNU</a></td>
+<td><a href="https://gcc.gnu.org/onlinedocs/gcc-3.3.1/gcc/Thread-Local.html#Thread-Local" target="_blank">Thread-Local Storage</a></td>
+</tr>
+<tr>
+<td><a href="http://www.hp.com/" target="_blank">HP</a></td>
+<td>スレッドローカルストレージを指定する記憶クラス指定子が存在した。 例: <code>__declspec(__thread) int x = 0;</code></td>
+</tr>
+<tr>
+<td><a href="http://www.ibm.com/" target="_blank">IBM</a></td>
+<td>Thread-Local Storage in <a href="http://www-1.ibm.com/support/docview.wss?uid=swg27007322&amp;aid=1" target="_blank">What's New in XL C/C++ V9.0</a></td>
+</tr>
+<tr>
+<td><a href="http://www.ibm.com/" target="_blank">IBM</a></td>
+<td><a href="https://www.ibm.com/support/knowledgecenter/ja/ssw_ibm_i_71/rzarg/thread.htm?view=embed" target="_blank">__thread ストレージ・クラス指定子</a></td>
+</tr>
+<tr>
+<td><a href="http://www.intel.com/" target="_blank">Intel</a></td>
+<td>GCC互換の<code>__thread</code>キーワードが存在した。</td>
+</tr>
+<tr>
+<td><a href="https://www.microsoft.com/" target="_blank">Microsoft</a></td>
+<td><a href="https://docs.microsoft.com/ja-JP/cpp/cpp/thread?view=vs-2019" target="_blank">__declspec thread</a></td>
+</tr>
+<tr>
+<td><a href="https://www.oracle.com/index.html" target="_blank">Oracle</a>（旧Sun Microsystems）</td>
+<td><a href="https://docs.oracle.com/cd/E37069_01/html/E37075/bkaeg.html" target="_blank">Thread-Local Storage</a></td>
+</tr>
+</tbody>
+</table>
+<p>各ベンダーのこれらの経験を標準C++に導入することとなった。</p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><code><a href="../../reference/cstdlib/exit.html">exit</a></code></li>
+<li><code><a href="../../reference/cstdlib/quick_exit.html">quick_exit</a></code></li>
+<li><a href="../../article/lib/at_thread_exit.html"><code>_at_thread_exit</code>系の関数が存在している理由</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1874.html" target="_blank">N1874 Thread-Local Storage</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1966.html" target="_blank">N1966 Thread-Local Storage</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2147.html" target="_blank">N2147 Thread-Local Storage</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2280.html" target="_blank">N2280 Thread-Local Storage</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2545.html" target="_blank">N2545 Thread-Local Storage</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2659.htm" target="_blank">N2659 Thread-Local Storage</a></li>
+<li><a href="http://stackoverflow.com/a/29929949/463412" target="_blank">Why does Apple clang disallow C++11 <code>thread_local</code> when 'official' clang supports it - Stack Overflow</a><ul>
+<li>Apple実装のClang（Xcode 7以下に付属のもの）が<code>thread_local</code>機能をサポートしない理由</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

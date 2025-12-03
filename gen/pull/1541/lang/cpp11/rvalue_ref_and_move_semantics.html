@@ -1,0 +1,583 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>右辺値参照・ムーブセマンティクス [N2118] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp11
+">
+        <meta name="title" content="右辺値参照・ムーブセマンティクス [N2118] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="右辺値参照・ムーブセマンティクス [N2118] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="右辺値参照・ムーブセマンティクス [N2118] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp11/rvalue_ref_and_move_semantics.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="ムーブセマンティクスはコピーコストの削減を主な目的としており、また所有権の移動を実現する。  " />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="右辺値参照・ムーブセマンティクス [N2118] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp11/rvalue_ref_and_move_semantics.html" />
+        <meta name="twitter:description" content="ムーブセマンティクスはコピーコストの削減を主な目的としており、また所有権の移動を実現する。  " />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="manifest" href="../../manifest.json?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;1ac8f8049a75fd1f06b309adc8526a4480736852&#34;, &#34;source&#34;: &#34;#include &lt;string&gt;\n#include &lt;utility&gt;\n\nint main()\n{\n  std::string x = \&#34;Hello, world!\&#34;;\n  // \u4f55\u3082\u8d77\u3053\u3089\u306a\u3044\n  std::move(x);\n\n  // \u5b9f\u969b\u306b x \u304b\u3089 y \u3078\u6587\u5b57\u5217\u304c\u30e0\u30fc\u30d6\u3055\u308c\u308b\n  std::string y = std::move(x);\n}\n&#34;}, {&#34;id&#34;: &#34;a0afe94378bebfc821fbc7c28624f9587252005e&#34;, &#34;source&#34;: &#34;#include &lt;utility&gt;\n#include &lt;memory&gt;\n\nint main()\n{\n  std::unique_ptr&lt;int&gt; p(new int(1));\n\n  // \u6240\u6709\u6a29\u306fq\u306b\u79fb\u308a\n  // p\u306fnullptr\u306b\u306a\u308b\n  std::unique_ptr&lt;int&gt; q = std::move(p);\n}\n&#34;}, {&#34;id&#34;: &#34;8399bfcafda3af9093883c3f426e67696bfb5dc7&#34;, &#34;source&#34;: &#34;#include &lt;algorithm&gt;\n\nclass large_class\n{\nprivate:\n  char* ptr ;\npublic:\n  large_class() {\n    ptr = new char[1000];\n    // \u30d0\u30c3\u30d5\u30a1\u306b\u5bfe\u3057\u3066\u3001\u6642\u9593\u306e\u304b\u304b\u308b\u66f8\u304d\u8fbc\u307f\u3092\u5b9f\u884c\n  }\n  // \u30b3\u30d4\u30fc\u30b3\u30f3\u30b9\u30c8\u30e9\u30af\u30bf\n  large_class( const large_class&amp; r ) {\n    ptr = new char[1000] ;\n    std::copy( r.ptr, r.ptr + 1000, ptr );\n  }\n  // \u30c7\u30b9\u30c8\u30e9\u30af\u30bf\n  ~large_class() {\n    delete[] ptr;\n  }\n};\n\nint main()\n{\n  large_class x{};\n\n  // \u3068\u3066\u3082\u6642\u9593\u304c\u304b\u304b\u308b\n  large_class y(x);\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp11&#34;, &#34;rvalue_ref_and_move_semantics&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp11.html" itemprop="url">
+              
+                <span itemprop="name">C++11</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">右辺値参照・ムーブセマンティクス [N2118]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-07-10T01:26:30">
+        2025年07月10日 01時26分30秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Koichi Murase</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp11/rvalue_ref_and_move_semantics.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp11/rvalue_ref_and_move_semantics.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">右辺値参照・ムーブセマンティクス [N2118]</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++11に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>ムーブセマンティクスはコピーコストの削減を主な目的としており、また所有権の移動を実現する。<br />
+右辺値参照はムーブ元のオブジェクト（右辺値）を束縛するための言語機能である。</p>
+<h3>右辺値（Rvalues）と左辺値（Lvalues）について</h3>
+<p>誤解を恐れずに言えば、右辺値とは名前をもたない一時的なオブジェクトである。<br />
+また、左辺値とは明示的に実態のある名前付きオブジェクトである。  </p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">Foo</span><span class="p">{}</span> <span class="p">;</span>
+<span class="kt">int</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">0</span> <span class="p">;</span> <span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+  <span class="n">i</span><span class="p">;</span>      <span class="c1">// 名前付きオブジェクトは左辺値</span>
+  <span class="mi">0</span><span class="p">;</span>      <span class="c1">// リテラル値は右辺値</span>
+
+  <span class="n">Foo</span> <span class="n">x</span> <span class="p">;</span>
+
+  <span class="n">x</span><span class="p">;</span>      <span class="c1">// 名前付きオブジェクトは左辺値</span>
+  <span class="n">Foo</span><span class="p">();</span>  <span class="c1">// コンストラクタの戻り値は右辺値</span>
+
+  <span class="n">f</span><span class="p">();</span>    <span class="c1">// 関数の戻り値は右辺値</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h3>右辺値参照</h3>
+<p>右辺値参照は、右辺値のみを束縛する参照である。<br />
+C++11からは、型<code>T</code>に対して <code>T&amp;</code> で宣言される参照型を左辺値参照と呼ぶのに対して、<code>T&amp;&amp;</code> で宣言される参照型を右辺値参照と呼ぶ。</p>
+<p>C++03までは、右辺値のみを扱う右辺値参照は存在せず、右辺値はconst左辺値参照 <code>const T&amp;</code> に束縛するよう扱われていた。<br />
+このconst左辺値参照では左辺値も束縛できるため、左辺値／右辺値の区別情報が失われてしまい、右辺値のみに対して特別な処理を記述することができなかった。  </p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">,</span> <span class="n">vv</span><span class="p">;</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">vv</span><span class="p">;</span>                  <span class="c1">// 代入式1</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// 代入式2</span>
+</code></pre></div>
+</p>
+<p>上記コードはC++03では、代入式1,2ともに右辺は <code>vector&lt;int&gt; const&amp;</code> 型に束縛される。<br />
+代入処理の中では、右辺の値をコピーし、左辺の値と置き換えられる。<br />
+しかし代入式2の右辺は一時オブジェクトであり、直後に破棄されるため、一時オブジェクトをコピーすることは無駄といえる。<br />
+もし右辺値と左辺値を型を用いて区別できれば、右辺値の場合はコピーせず単に左辺と置き換えるといった処理が記述できる。  </p>
+<p>右辺値参照は、右辺値と左辺値を型として区別するために導入された。<br />
+C++11 以降では、代入式2の右辺は右辺値参照 <code>vector&lt;int&gt;&amp;&amp;</code> に束縛されるため、代入演算子<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>により左辺値参照とは区別して処理される。<br />
+また、代入式2で行われる処理のことを「ムーブ」と呼ぶ。  </p>
+<p>右辺値参照と左辺値参照の挙動をまとめると以下のようになる</p>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+  <span class="c1">// 左辺値参照</span>
+  <span class="kt">int</span><span class="o">&amp;</span> <span class="n">lvalue_ref_1</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>              <span class="c1">// OK</span>
+  <span class="c1">// int&amp; lvalue_ref_2 = 0;           // Error 右辺値を左辺値参照で束縛している</span>
+
+  <span class="c1">// 右辺値参照</span>
+  <span class="c1">// int&amp;&amp; rvalue_ref_1 = x;          // Error 左辺値を右辺値参照で束縛している</span>
+  <span class="kt">int</span><span class="o">&amp;&amp;</span> <span class="n">rvalue_ref_2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>             <span class="c1">// OK</span>
+
+  <span class="c1">// const左辺値参照</span>
+  <span class="k">const</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">const_lvalue_ref_1</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>    <span class="c1">// OK</span>
+  <span class="k">const</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">const_lvalue_ref_2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>    <span class="c1">// OK const左辺値参照は右辺値を束縛できる</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>右辺値参照で宣言された変数は右辺値ではなく、左辺値である。<br />
+<strong>右辺値参照であるということと、右辺値であるということは全く違うことである。</strong></p>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// xの型は int&amp;&amp; である</span>
+  <span class="c1">// xは左辺値＝xは実体を持ち名前のあるオブジェクト</span>
+  <span class="kt">int</span><span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+  <span class="c1">// xは左辺値なので右辺値参照できない！</span>
+  <span class="c1">//int&amp;&amp; y = x; // Error!</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h3>ムーブ</h3>
+<p>ムーブとはあるオブジェクトから他のオブジェクトにリソースを明け渡すということである。<br />
+値のコピーではコストが高くつく場合は、より高速に値を別の変数へ移すことができる。<br />
+リソース明け渡し後のオブジェクトには何が入っているのか不明となり、値を参照した時の動作は対象オブジェクトの型に依存する。
+後述する所有権の移動を除けば、一般にはムーブ後オブジェクトの状態は明確に規定されない事が多い。 </p>
+<p>あるオブジェクトをムーブしたいときには、
+<code><a href="../../reference/utility/move.html">std::move()</a></code>関数を利用する。
+ムーブされた変数は右辺値となり、それ以降使える保証はなくなる。<br />
+注意すべきことは<code><a href="../../reference/utility/move.html">std::move()</a></code>関数の呼び出しは<br />
+「このオブジェクトはこれ以降使わないので好きに書き換えて良い」<br />
+という明示にすぎない。<br />
+実際のムーブは変数を<code><a href="../../reference/utility/move.html">std::move()</a></code>関数に通し、後述するムーブコンストラクタ・ムーブ代入演算子に渡した際に行われる。</p>
+<p><div class="yata" id="1ac8f8049a75fd1f06b309adc8526a4480736852"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">x</span> <span class="o">=</span> <span class="s">"Hello, world!"</span><span class="p">;</span>
+  <span class="c1">// 何も起こらない</span>
+  <span class="n"><a href="../../reference/utility/move.html">std::move</a></span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+
+  <span class="c1">// 実際に x から y へ文字列がムーブされる</span>
+  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">y</span> <span class="o">=</span> <span class="n"><a href="../../reference/utility/move.html">std::move</a></span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>所有権の移動</h4>
+<p>クラスによってはコピーは禁止されるが、ムーブならば可能ということがある。<br />
+そういったクラスではムーブが所有権の移動を表す。<br />
+同じものが複数存在してはいけないという制約を持つクラスが所有権の移動に対応しており、ムーブ後の変数は無効値（例えばスマートポインタなら<code>nullptr</code>）となることが保証される。<br />
+例を挙げると、<code><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></code>がそれに当たる。
+<code><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></code>はあるオブジェクトの唯一の所有権を持つことを表すスマートポインタである。
+所有権は唯一であるので、コピーが禁止されている。
+しかし、別の変数にムーブ代入することはできる。</p>
+<p><div class="yata" id="a0afe94378bebfc821fbc7c28624f9587252005e"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+
+  <span class="c1">// 所有権はqに移り</span>
+  <span class="c1">// pはnullptrになる</span>
+  <span class="n"><a href="../../reference/memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">q</span> <span class="o">=</span> <span class="n"><a href="../../reference/utility/move.html">std::move</a></span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>他には、<code><a href="../../reference/iostream.html">&lt;iostream&gt;</a></code>も所有権の移動に対応している。</p>
+<h3>ムーブセマンティクス</h3>
+<p>ムーブセマンティクスが必要とされる場面として、コピーに高いコストがかかる場合をあげる。<br />
+コピーコンストラクタ、コピー代入に高いコストがかかる以下のクラスで説明する。</p>
+<p><div class="yata" id="8399bfcafda3af9093883c3f426e67696bfb5dc7"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+
+<span class="k">class</span> <span class="nc">large_class</span>
+<span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+  <span class="kt">char</span><span class="o">*</span> <span class="n">ptr</span> <span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="n">large_class</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">ptr</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="p">[</span><span class="mi">1000</span><span class="p">];</span>
+    <span class="c1">// バッファに対して、時間のかかる書き込みを実行</span>
+  <span class="p">}</span>
+  <span class="c1">// コピーコンストラクタ</span>
+  <span class="n">large_class</span><span class="p">(</span> <span class="k">const</span> <span class="n">large_class</span><span class="o">&amp;</span> <span class="n">r</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="n">ptr</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="p">[</span><span class="mi">1000</span><span class="p">]</span> <span class="p">;</span>
+    <span class="n"><a href="../../reference/algorithm/copy.html">std::copy</a></span><span class="p">(</span> <span class="n">r</span><span class="p">.</span><span class="n">ptr</span><span class="p">,</span> <span class="n">r</span><span class="p">.</span><span class="n">ptr</span> <span class="o">+</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">ptr</span> <span class="p">);</span>
+  <span class="p">}</span>
+  <span class="c1">// デストラクタ</span>
+  <span class="o">~</span><span class="n">large_class</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">delete</span><span class="p">[]</span> <span class="n">ptr</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">large_class</span> <span class="n">x</span><span class="p">{};</span>
+
+  <span class="c1">// とても時間がかかる</span>
+  <span class="n">large_class</span> <span class="n">y</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>コピーには時間がかかる。<br />
+コピーをポインタの挿げ替えにしてしまえば、定数時間で処理が終わる。<br />
+そうすると元のオブジェクトが参照できなくなる。<br />
+しかし、そうなっても良い場合がある。<br />
+一時変数からオブジェクトを作る場合などである。  </p>
+<p><div class="codehilite"><pre><span></span><code>  <span class="c1">// 一時変数</span>
+  <span class="n">large_class</span> <span class="n">tmp</span><span class="p">{};</span>
+
+  <span class="n">large_class</span> <span class="nf">x</span><span class="p">(</span><span class="n">tmp</span><span class="p">);</span>
+  <span class="c1">// これ以降tmpは使わない</span>
+</code></pre></div>
+</p>
+<p>もう使わない変数とそうでない変数を区別する必要がある。<br />
+そこで登場するのが右辺値と右辺値参照である。<br />
+右辺値であるということが、変数をムーブしてもよいという意味となる。<br />
+右辺値が渡された場合に、ポインタを挿げ替えるため、
+右辺値参照を引数にするコンストラクタ・コピー代入演算子（ムーブ演算）を定義する。  </p>
+<h3>ムーブコンストラクタ・ムーブ代入演算子</h3>
+<p>さきほどの<code>large_class</code>にムーブコンストラクタ（右辺値参照を引数とするコンストラクタ）を追加する。<br />
+同様にムーブ代入演算子（右辺値参照を引数とする代入演算子）を追加する。  </p>
+<p><div class="codehilite"><pre><span></span><code>  <span class="c1">// ムーブコンストラクタ</span>
+  <span class="n">large_class</span><span class="p">(</span><span class="n">large_class</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// ポインタの挿げ替え</span>
+    <span class="n">ptr</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="n">ptr</span><span class="p">;</span>
+    <span class="c1">// 元のオブジェクトはnullptrに</span>
+    <span class="n">r</span><span class="p">.</span><span class="n">ptr</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="c1">// ムーブ代入演算子</span>
+  <span class="n">large_class</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">large_class</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// 既存バッファの破棄</span>
+    <span class="k">delete</span> <span class="p">[]</span> <span class="n">ptr</span><span class="p">;</span>
+    <span class="c1">// ポインタの挿げ替え</span>
+    <span class="n">ptr</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="n">ptr</span><span class="p">;</span>
+    <span class="c1">// 元のオブジェクトはnullptrに</span>
+    <span class="n">r</span><span class="p">.</span><span class="n">ptr</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+    <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+  <span class="p">}</span>
+</code></pre></div>
+</p>
+<p>左辺値に対して<code><a href="../../reference/utility/move.html">std::move()</a></code>を適用すると右辺値となり、ムーブコンストラクタが呼ばれる。  </p>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">large_class</span> <span class="n">tmp</span><span class="p">{};</span>
+  <span class="n">large_class</span> <span class="n">y</span><span class="p">{};</span>
+
+  <span class="n">large_class</span> <span class="n">x</span><span class="p">(</span><span class="n"><a href="../../reference/utility/move.html">std::move</a></span><span class="p">(</span><span class="n">tmp</span><span class="p">));</span>   <span class="c1">// tmpをムーブしてxを作る</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="n"><a href="../../reference/utility/move.html">std::move</a></span><span class="p">(</span><span class="n">x</span><span class="p">);</span>   <span class="c1">// x をムーブして y に代入する</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>標準ライブラリで提供されるクラスのほとんどは、このようなムーブコンストラクタを用意している（<code><a href="../../reference/mutex/mutex.html">mutex</a></code>、<code><a href="../../reference/atomic/atomic.html">atomic</a></code>などを除く）。</p>
+<p>ムーブコンストラクタ・ムーブ代入演算子は</p>
+<ul>
+<li>クラスがコピー演算を宣言していない</li>
+<li>クラスがムーブ演算を宣言していない</li>
+<li>クラスがデストラクタを宣言していない</li>
+</ul>
+<p>の３つを満たす場合のみ自動生成される、特殊メンバ関数である。</p>
+<p>また、<code>default</code>を指定することができる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">large_class</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="c1">// ムーブ演算のデフォルト指定</span>
+  <span class="n">large_class</span><span class="p">(</span><span class="n">large_class</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+  <span class="n">large_class</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">large_class</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<h3>ユニヴァーサル参照</h3>
+<p>関数テンプレートの型パラメータ<code>T</code>や<a href="auto.html">型推論プレースホルダ<code>auto</code></a>に参照修飾子<code>&amp;&amp;</code>をつけて宣言したものはユニヴァーサル参照と呼ばれ、通常の右辺値参照とは異なる動作をする。
+なお「ユニヴァーサル参照(Universal Reference)」は<a href="https://isocpp.org/blog/2012/11/universal-references-in-c11-scott-meyers" target="_blank">Scott Mayers氏による解説</a>由来の俗称であり、後にC++17仕様において「転送参照(Forwarding Reference)」という正式名称が与えられた。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// ユニヴァーサル参照</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="p">{}</span>
+</code></pre></div>
+</p>
+<p>関数テンプレート<code>f()</code>のテンプレートパラメータ<code>T</code>を用いた<code>T&amp;&amp;</code>はユニヴァーサル参照であり、
+<code>f()</code>に渡された実引数が左辺値の場合には左辺値参照となり、右辺値の場合は右辺値参照となる。<br />
+これは、次で説明する完全転送に関わる。</p>
+<h3>完全転送（Perfect Forwarding）</h3>
+<p>ある関数が受け取ったパラメータを別の関数へそのまま渡したいとき、
+右辺値は右辺値として、左辺値は左辺値として別の関数へ転送したいことがある（完全転送）。<br />
+ユニヴァーサル参照を用いると、呼び出し元における右辺値／左辺値という情報が、受け取り側で右辺値参照／左辺値参照という型情報によって区別可能となる。<br />
+しかし右辺値を右辺値参照で受け取った場合、その引数をそのまま使うと左辺値になるため再び右辺値へ変換する必要が生じる。  </p>
+<p>つまり左辺値参照の場合は左辺値として、右辺値参照の場合は右辺値に変換して渡す機能が必要となる。<br />
+そのような機能として、<code><a href="../../reference/utility/forward.html">std::forward()</a></code>関数が用意されている。<br />
+利用時には <code>std::forward&lt;T&gt;(a)</code> のように、テンプレートパラメータとしてユニヴァーサル参照宣言時の型パラメータ名を明示する必要がある。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">g</span><span class="p">(</span><span class="n">T</span><span class="p">);</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">a</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// 引数 a が左辺値参照の場合は 左辺値 に</span>
+  <span class="c1">// 右辺値参照の場合は 右辺値 に変換してから</span>
+  <span class="c1">// 別関数 g() の実引数として渡す。</span>
+  <span class="n">g</span><span class="p">(</span> <span class="n"><a href="../../reference/utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="p">)</span> <span class="p">;</span>
+  <span class="c1">// 関数 g() は値型 T としてパラメータを取るため</span>
+  <span class="c1">// 左辺値ではコピーが、右辺値ではムーブが行われる。</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>仕様</h2>
+<h3>式の分類</h3>
+<p>右辺値と左辺値は、明快な基準によって2つに分けることが難しい。<br />
+厳密な分類は以下のようになっている。  </p>
+<p><code>expression</code>は、 
+<code>glvalue</code>と<code>rvalue</code>に分類できる。<br />
+<code>glvalue</code>と<code>rvalue</code>は、<br />
+<code>lvalue</code>と<code>xvalue</code>と<code>prvalue</code>に分類できる。</p>
+<p><strong>lvalue</strong><br />
+lvalueは関数もしくはオブジェクトを指す。  </p>
+<p>名前付きの変数が指し示すオブジェクトや、ポインタを通してアクセスできるオブジェクトが該当する。<br />
+<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型が左辺値参照型の関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>などもこれにあたる。  </p>
+<p><strong>xvalue</strong><br />
+xvalueも、オブジェクトを指す。  </p>
+<p>xvalueのオブジェクトはその寿命が近いか、寿命に関心がないことを表現するために使われる。  <br />
+xvalueは、一部の式の結果や、rvalueリファレンスへの明示的なキャストなどが該当する。  </p>
+<p>xvalueの名前の由来は、eXpiring value(期限切れ値)。<br />
+xvalueは寿命が近いか、寿命に関心がなく、値を消してしまって問題がないという意味。<br />
+オブジェクトがxvalueならば、ムーブしても問題はないことを表現するために使われる。<br />
+<strong>glvalue</strong><br />
+glvalueは、lvalueとxvalueの総称。  </p>
+<p>glvalueの名前の由来は、generalized lvalue(一般化されたlvalue)。  </p>
+<p><strong>rvalue</strong><br />
+rvalueは、prvalueとxvalueの総称。  </p>
+<p>xvalueの他には、一時オブジェクトや、リテラル値(<code>10</code>, <code>3.14</code>, <code>true</code>など)や、特定のオブジェクトに関連付けられていない値などが該当する。  </p>
+<p><strong>prvalue</strong><br />
+prvalue(pure rvalue)は、rvalueのうちxvalueではないものである。  </p>
+<p>一時オブジェクトやリテラル値や、オブジェクトに関連付けされていない値など。<br />
+なお、C++17では再定義され、一時オブジェクトではなくなった。
+ほかには、関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>で、型がリファレンスではないものや、<br />
+enumの列挙子などもこれにあたる。  </p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>ムーブセマンティクスは、C++03でもNRVO（特定の文脈でのコンストラクタの省略）や、
+C++11で非推奨となった<code>std::auto_ptr</code>で実現されていた。<br />
+しかし、NRVOがいつでも機能するわけではなかった。<br />
+また、<code>std::auto_ptr</code>にはコピーと同じ文法でムーブしていることなど、問題が多かった。<br />
+そのため、コピーと区別でき、統一的にムーブを表す文法が言語機能として必要とされた。</p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><code><a href="../../reference/utility/move.html">move</a></code></li>
+<li><code><a href="../../reference/utility/forward.html">forward</a></code></li>
+<li><code><a href="../../reference/utility/move_if_noexcept.html">move_if_noexcept</a></code></li>
+<li><a href="../../reference/algorithm/move.html"><code>move</code> (範囲版)</a></li>
+<li><code><a href="../../reference/algorithm/move_backward.html">move_backward</a></code></li>
+<li><code><a href="../../reference/memory/unique_ptr.html">unique_ptr</a></code></li>
+<li><code><a href="../../reference/iterator/move_iterator.html">move_iterator</a></code></li>
+<li><a href="../cpp23/simpler_implicit_move.html">C++23 暗黙的なムーブを簡略化</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2002/n1377.htm" target="_blank">N1377 A Proposal to Add Move Semantics Support to the C++ Language</a><ul>
+<li>必要になった経緯について</li>
+</ul>
+</li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2002/n1385.htm" target="_blank">N1385 The Forwarding Problem: Arguments</a><ul>
+<li>引数の転送問題</li>
+</ul>
+</li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1690.html" target="_blank">N1690 A Proposal to Add an Rvalue Reference to the C++ Language</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1770.html" target="_blank">N1770 A Proposal to Add an Rvalue Reference to the C++ Language</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1771.html" target="_blank">N1771 Impact of the rvalue reference on the Standard Library</a><ul>
+<li>標準ライブラリへの右辺値参照の対応。MoveConstructible、MoveAssignableといった要件もこの提案文書で追加された</li>
+</ul>
+</li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1855.html" target="_blank">N1855 A Proposal to Add an Rvalue Reference to the C++ Language - Revision 1</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1952.html" target="_blank">N1952 A Proposal to Add an Rvalue Reference to the C++ Language - Revision 2</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2027.html" target="_blank">N2027 A Brief Introduction to Rvalue References</a><ul>
+<li>右辺値参照の入門</li>
+</ul>
+</li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2118.html" target="_blank">N2118 A Proposal to Add an Rvalue Reference to the C++ Language - Revision 3</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2983.html" target="_blank">N2983 Allowing Move Constructors to Throw</a><ul>
+<li>ムーブコンストラクタから<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出することを許可した経緯</li>
+</ul>
+</li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0135r1.html" target="_blank">P0135R1 Wording for guaranteed copy elision through simplified value categories</a><ul>
+<li>C++17 値カテゴリの定義</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

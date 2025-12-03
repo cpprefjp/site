@@ -1,0 +1,359 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>bulk - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,cpo,std::execution,cpp26
+">
+        <meta name="title" content="bulk - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="bulk - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="bulk - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/execution/execution/bulk.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`bulk`は、インデクス空間の各インデクスに対してタスクを一括実行するSenderアダプタである。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="bulk - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/execution/execution/bulk.html" />
+        <meta name="twitter:description" content="`bulk`は、インデクス空間の各インデクスに対してタスクを一括実行するSenderアダプタである。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="manifest" href="../../../manifest.json?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;execution&#34;], &#34;id-type&#34;: [&#34;cpo&#34;], &#34;namespace&#34;: [&#34;std::execution&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;00bd31caf947932c9f38869b07524d3fdd3a4813&#34;, &#34;source&#34;: &#34;#include &lt;print&gt;\n#include &lt;execution&gt;\nnamespace ex = std::execution;\n\nint main()\n{\n  ex::sender auto sndr =\n    ex::just()\n    | ex::bulk(3, ex::seq, [](int i) {\n        std::println(\&#34;{}\&#34;, i);\n      });\n  std::this_thread::sync_wait(sndr);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;execution&#34;, &#34;execution&#34;, &#34;bulk&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/execution.html" itemprop="url">
+              
+                <span itemprop="name">execution</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/execution/execution.html" itemprop="url">
+              
+                <span itemprop="name">execution</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">bulk</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-08-28T12:20:27">
+        2025年08月28日 12時20分27秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Raclamusi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/execution/execution/bulk.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/execution/execution/bulk.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">customization point object</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">bulk</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
+  <span class="k">struct</span> <span class="n">bulk_t</span> <span class="p">{</span> <span class="n"><i>unspecified</i></span> <span class="p">};</span>
+  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">bulk_t</span> <span class="n">bulk</span><span class="p">{};</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>bulk</code>は、インデクス空間の各インデクスに対してタスクを一括実行するSenderアダプタである。</p>
+<p><code>bulk</code>は<a href="sender_adaptor_closure.html">パイプ可能Senderアダプタオブジェクト</a>であり、パイプライン記法をサポートする。</p>
+<p>実行制御ライブラリのデフォルト動作では、<code>bulk</code>は<code><a href="bulk_chunked.html">bulk_chunked</a></code>に変換され、下記のように振る舞う。</p>
+<ul>
+<li><a href="parallel_scheduler.html">並列Scheduler</a>上では、インデクス空間を区間分割されたチャンク単位で並列実行される。</li>
+<li>明示的にカスタマイズされていなければ、各インデクスに対する処理は逐次実行される。</li>
+</ul>
+<h2>効果</h2>
+<p>説明用の式<code>sndr</code>, <code>policy</code>, <code>shape</code>, <code>f</code>に対して、型<code>Policy</code>を<code><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a>&lt;decltype(policy)&gt;</code>、型<code>Shape</code>を<code>decltype(auto(shape))</code>、型<code>Func</code>を<code><a href="../../type_traits/decay.html">decay_t</a>&lt;decltype((f))&gt;</code>とする。下記いずれかの条件をみたすとき、呼び出し式<code>bulk(sndr, policy, shape, f)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
+<ul>
+<li><code>decltype((sndr))</code>が<code><a href="sender.html">sender</a></code>を満たさない、もしくは</li>
+<li><code><a href="../is_execution_policy.html">is_execution_policy_v</a>&lt;Policy&gt; == false</code>、もしくは</li>
+<li><code>Shape</code>が<code><a href="../../concepts/integral.html">integral</a></code>を満たさない、もしくは</li>
+<li><code>Func</code>が<code><a href="../../concepts/copy_constructible.html">copy_constructible</a></code>のモデルでないとき。</li>
+</ul>
+<p>そうでなければ、呼び出し式<code>bulk(sndr, policy, shape, f)</code>は<code>sndr</code>が1回だけ評価されることを除いて、下記と等価。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="transform_sender.html">transform_sender</a></span><span class="p">(</span>
+  <span class="n"><a href="get-domain-early.html">get-domain-early</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span>
+  <span class="n"><a href="make-sender.html">make-sender</a></span><span class="p">(</span><span class="n">bulk</span><span class="p">,</span> <span class="n"><a href="product-type.html">product-type</a></span><span class="o">&lt;</span><span class="n"><i>see below</i></span><span class="p">,</span> <span class="n">Shape</span><span class="p">,</span> <span class="n">Func</span><span class="o">&gt;</span><span class="p">{</span><span class="n">policy</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">f</span><span class="p">},</span> <span class="n">sndr</span><span class="p">))</span>
+</code></pre></div>
+</p>
+<p><code>product-type</code>の第1テンプレート引数は、<code>Policy</code>が<code><a href="../../concepts/copy_constructible.html">copy_constructible</a></code>のモデルであるとき<code>Policy</code>となる。そうでなければ、<code>const Policy&amp;</code>となる。</p>
+<h3>Senderアルゴリズムタグ <code>bulk</code></h3>
+<p>説明用の式<code>sndr</code>と<code>env</code>に対して、型<code>Sndr</code>を<code>decltype((sndr))</code>とする。<code><a href="sender-for.html">sender-for</a>&lt;Sndr, bulk_t&gt; == false</code>のとき、式<code>bulk.transform_sender(sndr, env)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
+<p>そうでなければ、式<code>bulk.transform_sender(sndr, env)</code>は下記と等価。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="p">[</span><span class="n">_</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">child</span><span class="p">]</span> <span class="o">=</span> <span class="n">sndr</span><span class="p">;</span>
+<span class="k">auto</span><span class="o">&amp;</span> <span class="p">[</span><span class="n">policy</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">f</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">;</span>
+<span class="k">auto</span> <span class="n">new_f</span> <span class="o">=</span> <span class="p">[</span><span class="n">func</span> <span class="o">=</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">f</span><span class="p">)](</span><span class="n">Shape</span> <span class="n">begin</span><span class="p">,</span> <span class="n">Shape</span> <span class="n">end</span><span class="p">,</span> <span class="k">auto</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">vs</span><span class="p">)</span>
+    <span class="k">noexcept</span><span class="p">(</span><span class="k">noexcept</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">begin</span><span class="p">,</span> <span class="n">vs</span><span class="p">...)))</span> <span class="p">{</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">begin</span> <span class="o">!=</span> <span class="n">end</span><span class="p">)</span> <span class="n">func</span><span class="p">(</span><span class="n">begin</span><span class="o">++</span><span class="p">,</span> <span class="n">vs</span><span class="p">...);</span>
+<span class="p">}</span>
+<span class="k">return</span> <span class="n"><a href="bulk_chunked.html">bulk_chunked</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">child</span><span class="p">),</span> <span class="n">policy</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">new_f</span><span class="p">));</span>
+</code></pre></div>
+</p>
+<h2>カスタマイゼーションポイント</h2>
+<p>Senderアルゴリズム構築時に、<a href="sender.html">Sender</a><code>sndr</code>に<a href="get-domain-early.html">関連付けられた実行ドメイン</a>に対して<code><a href="transform_sender.html">execution::transform_sender</a></code>経由でSender変換が行われる。
+<a href="default_domain.html">デフォルト実行ドメイン</a>では無変換。</p>
+<p><a href="receiver.html">Receiver</a>との<a href="connect.html">接続(connect)</a>時に、<a href="get-domain-late.html">関連付けられた実行ドメイン</a>に対して<code><a href="transform_sender.html">execution::transform_sender</a></code>経由でSender変換が行われる。
+<a href="default_domain.html">デフォルト実行ドメイン</a>では<code>bulk.transform_sender(out_sndr, env)</code>が呼ばれ、<code><a href="bulk_chunked.html">bulk_chunked</a></code>Senderへと変換される。</p>
+<p>説明用の式<code>out_sndr</code>を<code>bulk(sndr, policy, shape, f)</code>の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a><a href="sender.html">Sender</a>とし、式<code>rcvr</code>を式<code><a href="connect.html">connect</a>(out_sndr, rcvr)</code>が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>となる<a href="receiver.html">Receiver</a>とする。式<code><a href="connect.html">connect</a>(out_sndr, rcvr)</code>は<a href="start.html">開始(start)</a>時に下記を満たす非<a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a>を生成しない場合、<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../../implementation-compliance.html#dfn-undefined-behavior">動作は未定義</a>となる。</p>
+<ul>
+<li>説明用の<code>args</code>を<code>sndr</code>の値完了結果を参照する左辺値式のパック、または<code><a href="../../concepts/copy_constructible.html">copy_constructible</a></code>のモデルであるならばそれらの値のdecayコピーのパックとする。<code>sndr</code>が値完了したとき、<ul>
+<li><code>out_sndr</code>もまた値完了するとき、<code>0</code>から<code>shape</code>までの型<code>Shape</code>の全ての<code>i</code>に対して<code>f(i, args...)</code>を呼び出す。</li>
+<li><code>out_sndr</code>が<code><a href="set_error.html">set_error</a>(rcvr, eptr)</code>で完了するとき、エラー完了ハンドラが呼び出される前に非<a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a>は<code>f</code>呼び出しのサブセットを呼び出す可能性があり、<code>eptr</code>は下記いずれかを指す<code><a href="../../exception/exception_ptr.html">exception_ptr</a></code>となる。<ul>
+<li><code>f</code>呼び出しから送出された<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>、または</li>
+<li>処理系が要求リソースの確保に失敗したときは<code><a href="../../new/bad_alloc.html">bad_alloc</a></code><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>、または</li>
+<li><code><a href="../../stdexcept.html">runtime_error</a></code>から派生された<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>。</li>
+</ul>
+</li>
+<li><code>out_sndr</code>が<code><a href="set_stopped.html">set_stopped</a>(rcvr)</code>で完了するとき、停止完了ハンドラが呼び出される前に非<a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a>は<code>f</code>呼び出しのサブセットを呼び出す可能性がある。</li>
+</ul>
+</li>
+<li><code>sndr</code>が<code><a href="set_value.html">set_value</a></code>で完了しないとき、その完了操作は<code>recv</code>に転送される。</li>
+<li>パラメータ<code>policy</code>は、アルゴリズムに対応した非<a class="cpprefjp-defined-word" data-desc="マルチスレッド実行時にリソースの所有権に基づいて実行順序を制御する操作">同期操作</a>の実行を並列化する方法、および<code>f</code>に適用する方法を規程する。並列アルゴリズム要素アクセス関数に対する権限と要件は<code>f</code>に適用される。</li>
+</ul>
+<h2>備考</h2>
+<p><code>bulk</code>アルゴリズムを直接カスタマイズしない実行ドメインであっても、<code>bulk</code>の動作は<a href="receiver.html">Receiver</a>接続時に変換される<code><a href="bulk_chunked.html">bulk_chunked</a></code>へ委譲される。</p>
+<h2>例</h2>
+<p><div class="yata" id="00bd31caf947932c9f38869b07524d3fdd3a4813"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../print.html">&lt;print&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>
+<span class="k">namespace</span> <span class="n">ex</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="sender.html">ex::sender</a></span> <span class="k">auto</span> <span class="n">sndr</span> <span class="o">=</span>
+    <span class="n"><a href="just.html">ex::just</a></span><span class="p">()</span>
+    <span class="o">|</span> <span class="n"><span style="color:#ff0000">ex::bulk</span></span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n"><a href="execution_policy.html">ex::seq</a></span><span class="p">,</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n"><a href="../../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+      <span class="p">});</span>
+  <span class="n"><a href="../this_thread/sync_wait.html">std::this_thread::sync_wait</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>0
+1
+2
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++26</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="bulk_chunked.html">execution::bulk_chunked</a></code></li>
+<li><code><a href="bulk_unchunked.html">execution::bulk_unchunked</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html" target="_blank">P2999R3 Sender Algorithm Customization</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3481r5.html" target="_blank">P3481R5 <code>std::execution::bulk()</code> issues</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
