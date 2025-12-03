@@ -227,7 +227,7 @@
 | `<cinttypes>`                        | 固定精度整数のための書式指定マクロ  | C++11 (C99)    |
 | `<ciso646>`                          | `&&`に対する別名`and`のような、各種演算子に対するマクロを定義する。<br/> ただしC++ではこれらの別名はキーワードとして定義されるため、このヘッダでは何も定義されない。 | C++20で削除               |
 | [`<climits>`](/reference/climits.md) | 整数型の最小値、最大値を表すマクロ  |                |
-| `<clocale>`                          | ロケール                            |                |
+| [`<clocale>`](/reference/clocale.md) | ロケール                            |                |
 | [`<cmath>`](/reference/cmath.md)     | 数学関数                            |                |
 | `<csetjmp>`                          | ジャンプ処理                        |                |
 | `<csignal>`                          | シグナル                            |                |
