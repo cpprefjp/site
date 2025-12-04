@@ -109,7 +109,7 @@ minmax_element(ForwardIterator first, ForwardIterator last, Compare comp)
       ForwardIterator prev = first;
 
       // 残りの要素が 1 個しか無かったら、.first と .second の両方の要素と比較して、
-      // 必要に応じで結果を更新後、ループを抜ける
+      // 必要に応じて結果を更新後、ループを抜ける
       if (++first == last) {
         if (comp(*prev, *result.first))
           result.first = prev;
