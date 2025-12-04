@@ -1,0 +1,1476 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2025-12-04T18:19:46.745634</updated>
+  <id>acddb952-3fa6-4c36-89cf-87f6f8994174</id>
+
+  
+    <entry>
+      <title>minmax_element -- fix typo in `reference/algorithm/minmax_element.md`</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/minmax_element.html"/>
+      <id>801c37f8708c6054ffe49561e7f02968abadc433:reference/algorithm/minmax_element.md</id>
+      <updated>2025-12-05T03:13:26+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/minmax_element.md b/reference/algorithm/minmax_element.md
+index f2edde4bc..b839bc566 100644
+--- a/reference/algorithm/minmax_element.md
++++ b/reference/algorithm/minmax_element.md
+@@ -109,7 +109,7 @@ minmax_element(ForwardIterator first, ForwardIterator last, Compare comp)
+       ForwardIterator prev = first;
+ 
+       // 残りの要素が 1 個しか無かったら、.first と .second の両方の要素と比較して、
+-      // 必要に応じで結果を更新後、ループを抜ける
++      // 必要に応じて結果を更新後、ループを抜ける
+       if (++first == last) {
+         if (comp(*prev, *result.first))
+           result.first = prev;
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Ryoga</name>
+        <email>49950206+Ryoga-exe@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>確率が高い分岐と低い分岐を伝える属性 [[likely]], [[unlikely]] [P0479R5] -- Merge pull request #1539 from Gumichocopengin8/fix/add-relative-page</title>
+      <link href="https://cpprefjp.github.io/lang/cpp20/likely_and_unlikely_attributes.html"/>
+      <id>7945899c6d50b342bff90c7b32bde8be4d9a0eb2:lang/cpp20/likely_and_unlikely_attributes.md</id>
+      <updated>2025-12-04T10:47:09+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp20/likely_and_unlikely_attributes.md b/lang/cpp20/likely_and_unlikely_attributes.md
+index 9a818d36e..85a5f8300 100644
+--- a/lang/cpp20/likely_and_unlikely_attributes.md
++++ b/lang/cpp20/likely_and_unlikely_attributes.md
+@@ -72,6 +72,7 @@ GCCやClangなど一部C++コンパイラでは独自拡張として同等機能
+ 
+ 
+ ## &amp;lt;a id=&amp;#34;relative-page&amp;#34; href=&amp;#34;#relative-page&amp;#34;&amp;gt;関連項目&amp;lt;/a&amp;gt;
++- [C++11 属性構文](/lang/cpp11/attributes.md)
+ - [C++23 `[[assume]]`属性](/lang/cpp23/portable_assumptions.md)
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>リファレンス -- Merge pull request #1542 from cpprefjp/clocale</title>
+      <link href="https://cpprefjp.github.io/reference.html"/>
+      <id>da9f88f7f43e9edb924abc0c1c66637c98a355e4:reference.md</id>
+      <updated>2025-12-03T22:04:14+00:00</updated>
+      
+        <content type="html">&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;リファレンス&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;h2&gt;目次&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#language-support&#34;&gt;言語サポートライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#concepts&#34;&gt;コンセプトライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#diagnostics&#34;&gt;診断ライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#general-utils&#34;&gt;汎用的なユーティリティライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#strings&#34;&gt;文字列ライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#localization&#34;&gt;ローカライズライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#container&#34;&gt;コンテナライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#iterator&#34;&gt;イテレータライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#ranges&#34;&gt;レンジライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#algorithm&#34;&gt;アルゴリズムライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#numerics&#34;&gt;数値ライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#debug&#34;&gt;デバッグライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#io&#34;&gt;入出力ライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#regular-expressions&#34;&gt;正規表現ライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#atomic-operations&#34;&gt;アトミック操作ライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#thread-support&#34;&gt;スレッドサポートライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#clib-facilities&#34;&gt;C言語互換ライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#exposition-only&#34;&gt;説明専用ライブラリ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;&lt;a href=&#34;#language-support-library&#34; id=&#34;language-support&#34;&gt;言語サポートライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/limits.html&#34;&gt;&amp;lt;limits&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;実装プロパティ&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/version.html&#34;&gt;&amp;lt;version&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;実装依存のバージョン情報&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/stdfloat.html&#34;&gt;&amp;lt;stdfloat&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;拡張浮動小数点数型&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/new.html&#34;&gt;&amp;lt;new&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;動的メモリ管理&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/typeinfo.html&#34;&gt;&amp;lt;typeinfo&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;型情報&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/source_location.html&#34;&gt;&amp;lt;source_location&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ソースコード上の位置&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/exception.html&#34;&gt;&amp;lt;exception&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;例外ハンドリング&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/initializer_list.html&#34;&gt;&amp;lt;initializer_list&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;初期化子リスト&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/compare.html&#34;&gt;&amp;lt;compare&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;比較演算&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/coroutine.html&#34;&gt;&amp;lt;coroutine&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;コルーチン&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#concepts&#34; id=&#34;concepts&#34;&gt;コンセプトライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/concepts.html&#34;&gt;&amp;lt;concepts&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;言語関係のコンセプト&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#diagnostics&#34; id=&#34;diagnostics&#34;&gt;診断ライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/stdexcept.html&#34;&gt;&amp;lt;stdexcept&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;例外クラス&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/system_error.html&#34;&gt;&amp;lt;system_error&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;システムエラーサポート&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#general-utils&#34; id=&#34;general-utils&#34;&gt;汎用的なユーティリティライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/utility.html&#34;&gt;&amp;lt;utility&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ユーティリティコンポーネント&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/bitset.html&#34;&gt;&amp;lt;bitset&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ビットの固定サイズシーケンス&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/ratio.html&#34;&gt;&amp;lt;ratio&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;コンパイル時有理数&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/tuple.html&#34;&gt;&amp;lt;tuple&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;タプル&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/optional.html&#34;&gt;&amp;lt;optional&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;任意で値を持たせられるオブジェクト&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/variant.html&#34;&gt;&amp;lt;variant&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;候補の型を切り替えながら保持できる記憶域型&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/any.html&#34;&gt;&amp;lt;any&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;あらゆる型の値を保持できる記憶域型&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/expected.html&#34;&gt;&amp;lt;expected&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;正常値かエラー値のどちらかを持たせられるオブジェクト&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/type_traits.html&#34;&gt;&amp;lt;type_traits&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;型特性&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/functional.html&#34;&gt;&amp;lt;functional&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;関数オブジェクト&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/memory.html&#34;&gt;&amp;lt;memory&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;メモリ&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/scoped_allocator.html&#34;&gt;&amp;lt;scoped_allocator&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;スコープ付きアロケータ&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/memory_resource.html&#34;&gt;&amp;lt;memory_resource&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;多相アロケータ&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/chrono.html&#34;&gt;&amp;lt;chrono&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;時間ユーティリティ&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/typeindex.html&#34;&gt;&amp;lt;typeindex&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;型のインデックス&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/execution.html&#34;&gt;&amp;lt;execution&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;実行ポリシー、実行制御ライブラリ(C++26)&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/charconv.html&#34;&gt;&amp;lt;charconv&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;高速な文字列 ⇔ 数値変換&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/format.html&#34;&gt;&amp;lt;format&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字列フォーマット&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/stacktrace.html&#34;&gt;&amp;lt;stacktrace&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;スタックトレース&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#strings&#34; id=&#34;strings&#34;&gt;文字列ライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/string.html&#34;&gt;&amp;lt;string&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字列クラスと、文字特性&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/string_view.html&#34;&gt;&amp;lt;string_view&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;所有権を持たず文字列を参照する文字列クラス&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#localization&#34; id=&#34;localization&#34;&gt;ローカライズライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/locale.html&#34;&gt;&amp;lt;locale&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ロケール&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/text_encoding.md.nolink&#34;&gt;&amp;lt;text_encoding&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字列エンコーディングの識別&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/codecvt.html&#34;&gt;&amp;lt;codecvt&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;コード変換ファセット&lt;/td&gt;
+&lt;td&gt;C++11&lt;br /&gt; C++17から非推奨&lt;br /&gt; C++26で削除&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#container&#34; id=&#34;container&#34;&gt;コンテナライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/array.html&#34;&gt;&amp;lt;array&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;配列&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/deque.html&#34;&gt;&amp;lt;deque&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;両端キュー&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/forward_list.html&#34;&gt;&amp;lt;forward_list&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;単方向リスト&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/list.html&#34;&gt;&amp;lt;list&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;双方向リスト&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/queue.html&#34;&gt;&amp;lt;queue&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;FIFOキュー&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/stack.html&#34;&gt;&amp;lt;stack&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;LIFOスタック&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/vector.html&#34;&gt;&amp;lt;vector&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;可変長配列&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/inplace_vector.md.nolink&#34;&gt;&amp;lt;inplace_vector&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;容量固定の可変長配列&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/map.html&#34;&gt;&amp;lt;map&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;順序付き連想配列&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/set.html&#34;&gt;&amp;lt;set&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;順序付き集合&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/flat_map.html&#34;&gt;&amp;lt;flat_map&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ソート済みキーによる順序付き連想配列&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/flat_set.html&#34;&gt;&amp;lt;flat_set&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ソート済みキーによる順序付き集合&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/unordered_map.html&#34;&gt;&amp;lt;unordered_map&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;非順序連想配列&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/unordered_set.html&#34;&gt;&amp;lt;unordered_set&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;非順序集合&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/span.html&#34;&gt;&amp;lt;span&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;部分シーケンスの参照&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/mdspan.html&#34;&gt;&amp;lt;mdspan&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;多次元配列ビュー&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#iterator&#34; id=&#34;iterator&#34;&gt;イテレータライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/iterator.html&#34;&gt;&amp;lt;iterator&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;イテレータの定義&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#ranges&#34; id=&#34;ranges&#34;&gt;レンジライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/ranges.html&#34;&gt;&amp;lt;ranges&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;レンジアルゴリズム&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/generator.html&#34;&gt;&amp;lt;generator&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;コルーチンによるレンジ生成&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#algorithm&#34; id=&#34;algorithm&#34;&gt;アルゴリズムライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/algorithm.html&#34;&gt;&amp;lt;algorithm&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;アルゴリズム&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#numerics&#34; id=&#34;numerics&#34;&gt;数値ライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/complex.html&#34;&gt;&amp;lt;complex&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;複素数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/bit.html&#34;&gt;&amp;lt;bit&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ビット操作&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/random.html&#34;&gt;&amp;lt;random&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;乱数生成&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/valarray.html&#34;&gt;&amp;lt;valarray&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;数値の配列&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/numeric.html&#34;&gt;&amp;lt;numeric&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;一般的な数値操作&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/numbers.html&#34;&gt;&amp;lt;numbers&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;数値&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/linalg.html&#34;&gt;&amp;lt;linalg&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;線形代数&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#debug&#34; id=&#34;debug&#34;&gt;デバッグライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/debugging.html&#34;&gt;&amp;lt;debugging&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;デバッグサポート&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/contracts.html&#34;&gt;&amp;lt;contracts&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;契約プログラミング&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#io&#34; id=&#34;io&#34;&gt;入出力ライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;iosfwd&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;先行宣言&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/iostream.html&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;標準&lt;code&gt;iostream&lt;/code&gt;オブジェクト&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/ios.html&#34;&gt;&amp;lt;ios&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;iostream&lt;/code&gt;基底クラス&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/streambuf.html&#34;&gt;&amp;lt;streambuf&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ストリームバッファ&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/istream.html&#34;&gt;&amp;lt;istream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;入力ストリーム&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/ostream.html&#34;&gt;&amp;lt;ostream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;出力ストリーム&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/iomanip.html&#34;&gt;&amp;lt;iomanip&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;フォーマットとマニピュレータ&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/sstream.html&#34;&gt;&amp;lt;sstream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字列ストリーム&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;strstream&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;古い文字列ストリーム&lt;/td&gt;
+&lt;td&gt;C++98から非推奨&lt;br /&gt; C++26で削除&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/fstream.html&#34;&gt;&amp;lt;fstream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルストリーム&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/filesystem.html&#34;&gt;&amp;lt;filesystem&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ファイルシステム&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/syncstream.html&#34;&gt;&amp;lt;syncstream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;同期化出力ストリームラッパー&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/spanstream.html&#34;&gt;&amp;lt;spanstream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;メモリバッファの所有権をもたないストリーム&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/print.html&#34;&gt;&amp;lt;print&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;書式指定による出力&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#regular-expressions&#34; id=&#34;regular-expressions&#34;&gt;正規表現ライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/regex.html&#34;&gt;&amp;lt;regex&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;正規表現&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#atomic-operations&#34; id=&#34;atomic-operations&#34;&gt;アトミック操作ライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/atomic.html&#34;&gt;&amp;lt;atomic&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;アトミックアクセスのためのコンポーネント&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/stdatomic.h.html&#34;&gt;&amp;lt;stdatomic.h&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;アトミック操作のC互換ライブラリ&lt;/td&gt;
+&lt;td&gt;C++23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#thread-support&#34; id=&#34;thread-support&#34;&gt;スレッドサポートライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/stop_token.html&#34;&gt;&amp;lt;stop_token&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;停止状態&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/thread.html&#34;&gt;&amp;lt;thread&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;スレッド&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/mutex.html&#34;&gt;&amp;lt;mutex&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ミューテックス&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/shared_mutex.html&#34;&gt;&amp;lt;shared_mutex&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;共有ミューテックス&lt;/td&gt;
+&lt;td&gt;C++14&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/condition_variable.html&#34;&gt;&amp;lt;condition_variable&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;条件変数&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/semaphore.html&#34;&gt;&amp;lt;semaphore&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;セマフォ&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/latch.html&#34;&gt;&amp;lt;latch&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ラッチ同期&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/barrier.html&#34;&gt;&amp;lt;barrier&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;バリア同期&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/future.html&#34;&gt;&amp;lt;future&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Future&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/rcu.html&#34;&gt;&amp;lt;rcu&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;データの参照・更新&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/hazard_pointer.md.nolink&#34;&gt;&amp;lt;hazard_pointer&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ハザードポインタ&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/simd.md.nolink&#34;&gt;&amp;lt;simd&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;データ並列&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#clib-facilities&#34; id=&#34;clib-facilities&#34;&gt;C言語互換ライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cassert.html&#34;&gt;&amp;lt;cassert&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;アサート&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;ccomplex&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;複素数&lt;/td&gt;
+&lt;td&gt;C++11 (C99)&lt;br /&gt; C++17で非推奨&lt;br /&gt; C++20で削除&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cctype.html&#34;&gt;&amp;lt;cctype&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字種別の判定と変換&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cerrno.html&#34;&gt;&amp;lt;cerrno&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;エラー番号&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cfenv.html&#34;&gt;&amp;lt;cfenv&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;浮動小数点環境へのアクセス&lt;/td&gt;
+&lt;td&gt;C++11 (C99)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cfloat.html&#34;&gt;&amp;lt;cfloat&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;浮動小数点数の定数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;cinttypes&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;固定精度整数のための書式指定マクロ&lt;/td&gt;
+&lt;td&gt;C++11 (C99)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;ciso646&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;に対する別名&lt;code&gt;and&lt;/code&gt;のような、各種演算子に対するマクロを定義する。&lt;br /&gt; ただしC++ではこれらの別名はキーワードとして定義されるため、このヘッダでは何も定義されない。&lt;/td&gt;
+&lt;td&gt;C++20で削除&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/climits.html&#34;&gt;&amp;lt;climits&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;整数型の最小値、最大値を表すマクロ&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/clocale.html&#34;&gt;&amp;lt;clocale&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ロケール&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cmath.html&#34;&gt;&amp;lt;cmath&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;数学関数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;csetjmp&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ジャンプ処理&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;csignal&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;シグナル&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;cstdalign&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;アライメント操作のマクロ&lt;/td&gt;
+&lt;td&gt;C++17で非推奨&lt;br /&gt; C++20で削除&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;cstdarg&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;可変引数操作&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/stdbit.h.md.nolink&#34;&gt;&amp;lt;stdbit.h&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ビット操作&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/stdckdint.h.md.nolink&#34;&gt;&amp;lt;stdckdint.h&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;検査付き整数演算&lt;/td&gt;
+&lt;td&gt;C++26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;cstdbool&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;真理値型の定義&lt;/td&gt;
+&lt;td&gt;C++11 (C99)&lt;br /&gt; C++17で非推奨&lt;br /&gt; C++20で削除&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cstddef.html&#34;&gt;&amp;lt;cstddef&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;基本的な型、値、マクロの定義&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cstdint.html&#34;&gt;&amp;lt;cstdint&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;大きさが規定されている整数型&lt;/td&gt;
+&lt;td&gt;C++11 (C99)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cstdio.html&#34;&gt;&amp;lt;cstdio&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;入出力&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cstdlib.html&#34;&gt;&amp;lt;cstdlib&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ユーティリティ関数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cstring.html&#34;&gt;&amp;lt;cstring&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字列操作&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;ctgmath&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ジェネリックな数学関数&lt;/td&gt;
+&lt;td&gt;C++11 (C99)&lt;br /&gt; C++17で非推奨&lt;br /&gt; C++20で削除&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/ctime.html&#34;&gt;&amp;lt;ctime&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;日付・時間&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;cuchar&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ユニコード文字型&lt;/td&gt;
+&lt;td&gt;C++11 (C11)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;cwchar&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ワイド文字型&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&amp;lt;cwctype&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ワイド文字の種別と判定&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#exposition-only&#34; id=&#34;exposition-only&#34;&gt;説明専用ライブラリ&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;ヘッダ&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/exposition-only.html&#34;&gt;exposition-only&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;説明のためのものを集めたページ (実際のライブラリではない)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;参照&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2867r2.html&#34; target=&#34;_blank&#34;&gt;P2867R2 Remove Deprecated &lt;code&gt;strstream&lt;/code&gt;s From C++26&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clocale -- Merge pull request #1542 from cpprefjp/clocale</title>
+      <link href="https://cpprefjp.github.io/reference/clocale.html"/>
+      <id>da9f88f7f43e9edb924abc0c1c66637c98a355e4:reference/clocale.md</id>
+      <updated>2025-12-03T22:04:14+00:00</updated>
+      
+        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;clocale&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;clocale&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;clocale&amp;gt;&lt;/code&gt;ヘッダでは、ローカライゼーション（地域化）に関するクラス・関数を定義する。&lt;/p&gt;
+&lt;p&gt;これらの機能は基本的には、&lt;code&gt;std&lt;/code&gt;名前空間に属することを除いてC言語の標準ライブラリ&lt;code&gt;&amp;lt;locale.h&amp;gt;&lt;/code&gt;ヘッダと同じである。&lt;/p&gt;
+&lt;h2&gt;マクロ&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;cstddef/null.html&#34;&gt;NULL&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ヌルポインタ定数に展開されるマクロ&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;LC_ALL&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;すべてのロケールカテゴリを一括指定するための定数&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;LC_COLLATE&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字列の照合（比較）規則に関するロケールカテゴリ&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;LC_CTYPE&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;文字分類（大文字/小文字、数字、空白など）やマルチバイト文字の扱いに関するカテゴリ&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;LC_MONETARY&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;通貨表記に関するロケールカテゴリ&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;LC_NUMERIC&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;数値表記に関するロケールカテゴリ（小数点記号など）&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;LC_TIME&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;日付および時刻表記に関するロケールカテゴリ&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;構造体&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;lconv&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;数値・通貨表示の書式設定をまとめた型&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;関数&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;clocale/setlocale.html&#34;&gt;setlocale&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;ロケールを変更、または現在のロケールを取得する。　&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;localeconv&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;現在のロケールに応じた数値・通貨表記情報を取得する。&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;関連項目&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;locale.html&#34;&gt;locale&lt;/a&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;参照&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0175r1.html&#34; target=&#34;_blank&#34;&gt;Synopses for the C library&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>setlocale -- Merge pull request #1542 from cpprefjp/clocale</title>
+      <link href="https://cpprefjp.github.io/reference/clocale/setlocale.html"/>
+      <id>da9f88f7f43e9edb924abc0c1c66637c98a355e4:reference/clocale/setlocale.md</id>
+      <updated>2025-12-03T22:04:14+00:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/clocale/setlocale.md b/reference/clocale/setlocale.md
+new file mode 100644
+index 000000000..724ec4420
+--- /dev/null
++++ b/reference/clocale/setlocale.md
+@@ -0,0 +1,65 @@
++# setlocale
++* clocale[meta header]
++* std[meta namespace]
++* function[meta id-type]
++
++```cpp
++namespace std {
++  char* setlocale(int category, const char* locale);
++}
++```
++
++## 概要
++指定したカテゴリのロケールを設定、または現在のロケールを取得する。
++
++指定できる処理系定義のロケール文字列は[使用できるロケール文字列](/article/platform/locales.md)を参照のこと。
++
++この関数の呼び出しは他スレッドにおける `setlocale()` または現在のロケールを使用する他の関数の呼び出しとデータ競合の可能性がある。
++
++プログラム開始時の現在のロケールは `std::setlocale(LC_ALL, &amp;#34;C&amp;#34;);` が呼び出されたのと同じ状態に初期化される。
++
++## 引数
++- `category`：設定対象のカテゴリ。`LC_ALL`,`LC_CTYPE`などのマクロを使用。
++- `locale`：
++	* `&amp;#34;C&amp;#34;`：標準のCロケール
++	* `&amp;#34;&amp;#34;`：環境依存のデフォルトロケール
++	* `NULL`：現在のロケールを取得するだけ
++	* 処置系定義の文字列
++
++## 戻り値
++成功時は設定されたロケール名（文字列）、失敗時は`NULL`。
++
++返された文字列をプログラムで変更してはならない。
++
++`setlocale()` を呼び出したスレッドが終了した後、もしくは更に次の `setlocale()` の呼び出しの後に返された文字列を使った時の動作は未定義である。
++
++## 例
++```cpp example
++#include &amp;lt;iostream&amp;gt;
++#include &amp;lt;clocale&amp;gt;
++
++int main() {
++  // 日本語ロケールに設定
++  if (!std::setlocale(LC_ALL, &amp;#34;ja_JP.UTF-8&amp;#34;)) {
++    std::cerr &amp;lt;&amp;lt; &amp;#34;Failed to set locale\n&amp;#34;;
++    return 1;
++  }
++
++  // 現在の全カテゴリのロケールを取得
++  std::cout &amp;lt;&amp;lt; &amp;#34;Current locale: &amp;#34; &amp;lt;&amp;lt; std::setlocale(LC_ALL, NULL) &amp;lt;&amp;lt; &amp;#34;\n&amp;#34;;
++
++  // 数値カテゴリだけ確認
++  std::cout &amp;lt;&amp;lt; &amp;#34;Numeric locale: &amp;#34; &amp;lt;&amp;lt; std::setlocale(LC_NUMERIC, NULL) &amp;lt;&amp;lt; &amp;#34;\n&amp;#34;;
++}
++
++```
++
++### 出力
++```
++Current locale: ja_JP.UTF-8
++Numeric locale: ja_JP.UTF-8
++```
++
++## 関連項目
++- [ ロケール文字列一覧 ](/article/platform/locales.md)
++- [ `std::locale` ](/reference/locale/locale.md)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>MB_CUR_MAX -- Merge pull request #1542 from cpprefjp/clocale</title>
+      <link href="https://cpprefjp.github.io/reference/cstdlib/mb_cur_max.html"/>
+      <id>da9f88f7f43e9edb924abc0c1c66637c98a355e4:reference/cstdlib/mb_cur_max.md</id>
+      <updated>2025-12-03T22:04:14+00:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/mb_cur_max.md b/reference/cstdlib/mb_cur_max.md
+index f3bb3fafa..41738ed23 100644
+--- a/reference/cstdlib/mb_cur_max.md
++++ b/reference/cstdlib/mb_cur_max.md
+@@ -44,7 +44,7 @@ Locale: ja_JP.UTF-8, MB_CUR_MAX: 6
+ 
+ ## 関連項目
+ - [`MB_LEN_MAX`](/reference/climits/mb_len_max.md): 全ロケールでのマルチバイト文字の最大バイト数
+-- `setlocale`: ロケールを変更する
++- [`setlocale`](/reference/clocale/setlocale.md): ロケールを変更する
+ 
+ ## 参照
+ - [mb_cur_max(3) - Linux man page](https://linux.die.net/man/3/mb_cur_max)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>stod -- Merge pull request #1542 from cpprefjp/clocale</title>
+      <link href="https://cpprefjp.github.io/reference/string/stod.html"/>
+      <id>da9f88f7f43e9edb924abc0c1c66637c98a355e4:reference/string/stod.md</id>
+      <updated>2025-12-03T22:04:14+00:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/string/stod.md b/reference/string/stod.md
+index 2d61a8c0c..da23fcaa7 100644
+--- a/reference/string/stod.md
++++ b/reference/string/stod.md
+@@ -38,7 +38,7 @@ namespace std {
+ - Clang (libc++) 3.3では、この関数の呼び出し前後で`errno`の値は変化しない。
+ 
+ ### グローバルロケールの影響
+-この関数は、`setlocale()`関数により挙動が変化する。
++この関数は、[`setlocale()`](/reference/clocale/setlocale.md)関数により挙動が変化する。
+ 
+ - `strtod()`関数での文字列先頭の空白を読み飛ばす処理に、`&amp;lt;cctype&amp;gt;`の`isspace()`関数が使用される。
+ - 小数点記号は`LC_NUMERIC`で指定されたものが使用される。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>stof -- Merge pull request #1542 from cpprefjp/clocale</title>
+      <link href="https://cpprefjp.github.io/reference/string/stof.html"/>
+      <id>da9f88f7f43e9edb924abc0c1c66637c98a355e4:reference/string/stof.md</id>
+      <updated>2025-12-03T22:04:14+00:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/string/stof.md b/reference/string/stof.md
+index 95ab2cb9c..ff2594f6f 100644
+--- a/reference/string/stof.md
++++ b/reference/string/stof.md
+@@ -38,7 +38,7 @@ namespace std {
+ - Clang (libc++) 3.3では、この関数の呼び出し前後で`errno`の値は変化しない。
+ 
+ ### グローバルロケールの影響
+-この関数は、`setlocale()`関数により挙動が変化する。
++この関数は、[`setlocale()`](/reference/clocale/setlocale.md)関数により挙動が変化する。
+ 
+ - `strtof()`関数での文字列先頭の空白を読み飛ばす処理に、`&amp;lt;cctype&amp;gt;`の`isspace()`関数が使用される。
+ - 小数点記号は`LC_NUMERIC`で指定されたものが使用される。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>stoi -- Merge pull request #1542 from cpprefjp/clocale</title>
+      <link href="https://cpprefjp.github.io/reference/string/stoi.html"/>
+      <id>da9f88f7f43e9edb924abc0c1c66637c98a355e4:reference/string/stoi.md</id>
+      <updated>2025-12-03T22:04:14+00:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/string/stoi.md b/reference/string/stoi.md
+index 66b15defd..fcd6b887f 100644
+--- a/reference/string/stoi.md
++++ b/reference/string/stoi.md
+@@ -43,7 +43,7 @@ namespace std {
+ - Clang (libc++) 3.3では、この関数の呼び出し前後で`errno`の値は変化しない。
+ 
+ ### グローバルロケールの影響
+-この関数は、`setlocale()`関数により挙動が変化する。
++この関数は、[`setlocale()`](/reference/clocale/setlocale.md)関数により挙動が変化する。
+ 
+ `strtol()`関数での文字列先頭の空白を読み飛ばす処理に、`&amp;lt;cctype&amp;gt;`の`isspace()`関数が使用されるためである。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>stol -- Merge pull request #1542 from cpprefjp/clocale</title>
+      <link href="https://cpprefjp.github.io/reference/string/stol.html"/>
+      <id>da9f88f7f43e9edb924abc0c1c66637c98a355e4:reference/string/stol.md</id>
+      <updated>2025-12-03T22:04:14+00:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/string/stol.md b/reference/string/stol.md
+index 0b9401b25..6b270ba8a 100644
+--- a/reference/string/stol.md
++++ b/reference/string/stol.md
+@@ -43,7 +43,7 @@ namespace std {
+ - Clang (libc++) 3.3では、この関数の呼び出し前後で`errno`の値は変化しない。
+ 
+ ### グローバルロケールの影響
+-この関数は、`setlocale()`関数により挙動が変化する。
++この関数は、[`setlocale()`](/reference/clocale/setlocale.md)関数により挙動が変化する。
+ 
+ `strtol()`関数での文字列先頭の空白を読み飛ばす処理に、`&amp;lt;cctype&amp;gt;`の`isspace()`関数が使用されるためである。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>stold -- Merge pull request #1542 from cpprefjp/clocale</title>
+      <link href="https://cpprefjp.github.io/reference/string/stold.html"/>
+      <id>da9f88f7f43e9edb924abc0c1c66637c98a355e4:reference/string/stold.md</id>
+      <updated>2025-12-03T22:04:14+00:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/string/stold.md b/reference/string/stold.md
+index 8481acddd..aa4260c42 100644
+--- a/reference/string/stold.md
++++ b/reference/string/stold.md
+@@ -38,7 +38,7 @@ namespace std {
+ - Clang (libc++) 3.3では、この関数の呼び出し前後で`errno`の値は変化しない。
+ 
+ ### グローバルロケールの影響
+-この関数は、`setlocale()`関数により挙動が変化する。
++この関数は、[`setlocale()`](/reference/clocale/setlocale.md)関数により挙動が変化する。
+ 
+ - `strtold()`関数での文字列先頭の空白を読み飛ばす処理に、`&amp;lt;cctype&amp;gt;`の`isspace()`関数が使用される。
+ - 小数点記号は`LC_NUMERIC`で指定されたものが使用される。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>stoll -- Merge pull request #1542 from cpprefjp/clocale</title>
+      <link href="https://cpprefjp.github.io/reference/string/stoll.html"/>
+      <id>da9f88f7f43e9edb924abc0c1c66637c98a355e4:reference/string/stoll.md</id>
+      <updated>2025-12-03T22:04:14+00:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/string/stoll.md b/reference/string/stoll.md
+index e310cb601..e606ca610 100644
+--- a/reference/string/stoll.md
++++ b/reference/string/stoll.md
+@@ -48,7 +48,7 @@ namespace std {
+ - Clang (libc++) 3.3では、この関数の呼び出し前後で`errno`の値は変化しない。
+ 
+ ### グローバルロケールの影響
+-この関数は、`setlocale()`関数により挙動が変化する。
++この関数は、[`setlocale()`](/reference/clocale/setlocale.md)関数により挙動が変化する。
+ 
+ `strtoll()`関数での文字列先頭の空白を読み飛ばす処理に、`&amp;lt;cctype&amp;gt;`の`isspace()`関数が使用されるためである。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>stoul -- Merge pull request #1542 from cpprefjp/clocale</title>
+      <link href="https://cpprefjp.github.io/reference/string/stoul.html"/>
+      <id>da9f88f7f43e9edb924abc0c1c66637c98a355e4:reference/string/stoul.md</id>
+      <updated>2025-12-03T22:04:14+00:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/string/stoul.md b/reference/string/stoul.md
+index 6c156599c..32c29da68 100644
+--- a/reference/string/stoul.md
++++ b/reference/string/stoul.md
+@@ -48,7 +48,7 @@ namespace std {
+ - Clang (libc++) 3.3では、この関数の呼び出し前後で`errno`の値は変化しない。
+ 
+ ### グローバルロケールの影響
+-この関数は、`setlocale()`関数により挙動が変化する。
++この関数は、[`setlocale()`](/reference/clocale/setlocale.md)関数により挙動が変化する。
+ 
+ `strtoul()`関数での文字列先頭の空白を読み飛ばす処理に、`&amp;lt;cctype&amp;gt;`の`isspace()`関数が使用されるためである。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>stoull -- Merge pull request #1542 from cpprefjp/clocale</title>
+      <link href="https://cpprefjp.github.io/reference/string/stoull.html"/>
+      <id>da9f88f7f43e9edb924abc0c1c66637c98a355e4:reference/string/stoull.md</id>
+      <updated>2025-12-03T22:04:14+00:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/string/stoull.md b/reference/string/stoull.md
+index 439623166..b41860e0d 100644
+--- a/reference/string/stoull.md
++++ b/reference/string/stoull.md
+@@ -48,7 +48,7 @@ namespace std {
+ - Clang (libc++) 3.3では、この関数の呼び出し前後で`errno`の値は変化しない。
+ 
+ ### グローバルロケールの影響
+-この関数は、`setlocale()`関数により挙動が変化する。
++この関数は、[`setlocale()`](/reference/clocale/setlocale.md)関数により挙動が変化する。
+ 
+ `strtoull()`関数での文字列先頭の空白を読み飛ばす処理に、`&amp;lt;cctype&amp;gt;`の`isspace()`関数が使用されるためである。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>setlocale -- Update setlocale.md</title>
+      <link href="https://cpprefjp.github.io/reference/clocale/setlocale.html"/>
+      <id>cef2a2cc234b9556b2645a3688ea1ed78812bac6:reference/clocale/setlocale.md</id>
+      <updated>2025-12-03T16:11:56+00:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/clocale/setlocale.md b/reference/clocale/setlocale.md
+index 2fe7636c1..724ec4420 100644
+--- a/reference/clocale/setlocale.md
++++ b/reference/clocale/setlocale.md
+@@ -14,12 +14,17 @@ namespace std {
+ 
+ 指定できる処理系定義のロケール文字列は[使用できるロケール文字列](/article/platform/locales.md)を参照のこと。
+ 
++この関数の呼び出しは他スレッドにおける `setlocale()` または現在のロケールを使用する他の関数の呼び出しとデータ競合の可能性がある。
++
++プログラム開始時の現在のロケールは `std::setlocale(LC_ALL, &amp;#34;C&amp;#34;);` が呼び出されたのと同じ状態に初期化される。
++
+ ## 引数
+ - `category`：設定対象のカテゴリ。`LC_ALL`,`LC_CTYPE`などのマクロを使用。
+ - `locale`：
+ 	* `&amp;#34;C&amp;#34;`：標準のCロケール
+ 	* `&amp;#34;&amp;#34;`：環境依存のデフォルトロケール
+ 	* `NULL`：現在のロケールを取得するだけ
++	* 処置系定義の文字列
+ 
+ ## 戻り値
+ 成功時は設定されたロケール名（文字列）、失敗時は`NULL`。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>setlocale -- 指摘された点を変更</title>
+      <link href="https://cpprefjp.github.io/reference/clocale/setlocale.html"/>
+      <id>1cf31acb644fd3585d103572247dc2f8bbb36ef9:reference/clocale/setlocale.md</id>
+      <updated>2025-12-04T00:13:16+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/clocale/setlocale.md b/reference/clocale/setlocale.md
+index e2934913f..2fe7636c1 100644
+--- a/reference/clocale/setlocale.md
++++ b/reference/clocale/setlocale.md
+@@ -5,31 +5,35 @@
+ 
+ ```cpp
+ namespace std {
+-	char* setlocale(int category, const char* locale);
++  char* setlocale(int category, const char* locale);
+ }
+ ```
+ 
+ ## 概要
+ 指定したカテゴリのロケールを設定、または現在のロケールを取得する。
+ 
+-指定できるロケール文字列は[以下のページ](/article/platform/locales.md)である。
++指定できる処理系定義のロケール文字列は[使用できるロケール文字列](/article/platform/locales.md)を参照のこと。
+ 
+ ## 引数
+ - `category`：設定対象のカテゴリ。`LC_ALL`,`LC_CTYPE`などのマクロを使用。
+ - `locale`：
+-	* &amp;#34;C&amp;#34;：標準のCロケール
+-	* &amp;#34;&amp;#34;：環境依存のデフォルトロケール
++	* `&amp;#34;C&amp;#34;`：標準のCロケール
++	* `&amp;#34;&amp;#34;`：環境依存のデフォルトロケール
+ 	* `NULL`：現在のロケールを取得するだけ
+ 
+ ## 戻り値
+ 成功時は設定されたロケール名（文字列）、失敗時は`NULL`。
+ 
++返された文字列をプログラムで変更してはならない。
++
++`setlocale()` を呼び出したスレッドが終了した後、もしくは更に次の `setlocale()` の呼び出しの後に返された文字列を使った時の動作は未定義である。
++
+ ## 例
+ ```cpp example
+ #include &amp;lt;iostream&amp;gt;
+ #include &amp;lt;clocale&amp;gt;
+ 
+-int main(){
++int main() {
+   // 日本語ロケールに設定
+   if (!std::setlocale(LC_ALL, &amp;#34;ja_JP.UTF-8&amp;#34;)) {
+     std::cerr &amp;lt;&amp;lt; &amp;#34;Failed to set locale\n&amp;#34;;
+@@ -52,5 +56,5 @@ Numeric locale: ja_JP.UTF-8
+ ```
+ 
+ ## 関連項目
+-- [ ロケール文字一覧 ](/article/platform/locales.md)
++- [ ロケール文字列一覧 ](/article/platform/locales.md)
+ - [ `std::locale` ](/reference/locale/locale.md)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>
