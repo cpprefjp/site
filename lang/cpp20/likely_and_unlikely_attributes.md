@@ -72,6 +72,7 @@ GCCやClangなど一部C++コンパイラでは独自拡張として同等機能
 
 
 ## <a id="relative-page" href="#relative-page">関連項目</a>
+- [C++11 属性構文](/lang/cpp11/attributes.md)
 - [C++23 `[[assume]]`属性](/lang/cpp23/portable_assumptions.md)
 
 
