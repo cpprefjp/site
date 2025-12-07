@@ -264,7 +264,7 @@ C++20とは、2020年中に改訂され、ISO/IEC 14882:2020で標準規格化�
 - [`operator>>`](/reference/istream/basic_istream/op_istream_free.md)`(basic_istream&, CharT*)`を`operator>>(basic_istream&, CharT (&)[N])`に修正
 - [`operator<<`](/reference/ostream/basic_ostream/op_ostream_free.md)に、`wchar_t` (`char`版のみ)、`char8_t`、`char16_t`、`char32_t`のdelete宣言を追加
 - [`std::istream_iterator`](/reference/iterator/istream_iterator.md)について、要件の書き方を整理し、振る舞いをより明確化
-- `std::basic_stringbuf`、`std::basic_istringstream`、`std::basic_ostringstream`クラスに、アロケータを伝播させるためのインタフェースを追加
+- [`std::basic_stringbuf`](/reference/sstream/basic_stringbuf.md)、[`std::basic_istringstream`](/reference/sstream/basic_istringstream.md)、[`std::basic_ostringstream`](/reference/sstream/basic_ostringstream.md)クラスに、アロケータを伝播させるためのインタフェースを追加
 
 
 ### スマートポインタ
