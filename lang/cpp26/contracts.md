@@ -131,11 +131,11 @@ void return_negative(int value)
 
 - ignore: 契約のチェックを無視(ignore)する。
 
-- observe: 契約違反時にハンドラを呼び出し、プログラムの実行を続行します。
+- observe: 契約違反時にハンドラを呼び出し、プログラムの実行を続行する。
 
-- enforce: 契約違反時にハンドラを呼び出し、プログラムを終了します。
+- enforce: 契約違反時にハンドラを呼び出し、プログラムを終了する。
 
-- quick_enforce: 契約違反時にハンドラを呼び出さず、即座にプログラムを終了します。
+- quick_enforce: 契約違反時にハンドラを呼び出さず、即座にプログラムを終了する。
 
 評価モードは、コンパイル時、もしくは実行時に指定できる。
 
@@ -146,7 +146,7 @@ g++ -std=c++26 -fcontracts -fcontract-semantic=observe main.cpp
 のように指定できる。
 
 ### 契約違反ハンドラ
-契約違反が発生した場合、`std::contracts::contract_violation`型の情報（&lt;contracts&gt;ヘッダー）がハンドラに渡されます。この情報には、違反の種類、発生場所、違反した条件式などが含まれます。
+契約違反が発生した場合、`std::contracts::contract_violation`型の情報（&lt;contracts&gt;ヘッダー）がハンドラに渡される。この情報には、違反の種類、発生場所、違反した条件式などが含まれる。
 
 ### 使用上の注意
 以下の操作は、気をつけなければならない。

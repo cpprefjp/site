@@ -19,6 +19,6 @@ namespace std {
 * expected[link expected.md]
 * is_void_v[link /reference/type_traits/is_void.md]
 
-このページは`expected<cv void, E>`部分特殊化テンプレートに対応するプレースホルダです。
+このページは`expected<cv void, E>`部分特殊化テンプレートに対応するプレースホルダである。
 
-`expected`クラスの説明は[`expected<T, E>`プライマリテンプレート](expected.md)ページを参照してください。
+`expected`クラスの説明は[`expected<T, E>`プライマリテンプレート](expected.md)ページを参照のこと。
