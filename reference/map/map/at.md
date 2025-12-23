@@ -7,7 +7,7 @@
 
 ```cpp
 T& at(const key_type& x);              // (1) C++11
-const T& at(const key_type & x) const; // (2) C++11
+const T& at(const key_type& x) const;  // (2) C++11
 
 template<class K>
 T& at(const K& x);                     // (3) C++26

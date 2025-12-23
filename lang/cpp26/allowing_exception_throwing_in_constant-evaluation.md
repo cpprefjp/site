@@ -28,7 +28,7 @@ const auto b = hello("Hana");
 
 try {
   const auto c = hello(""); // C++26: 例外を捕捉
-} catch (const validation_error &) {
+} catch (const validation_error&) {
   // everything is fine
 }
 
