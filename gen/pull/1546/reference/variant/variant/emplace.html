@@ -1,0 +1,438 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>variant::emplace - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,variant,std,variant,function template,cpp17
+">
+        <meta name="title" content="variant::emplace - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="variant::emplace - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="variant::emplace - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/variant/variant/emplace.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`variant`に代入する値を直接構築する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="variant::emplace - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/variant/variant/emplace.html" />
+        <meta name="twitter:description" content="`variant`に代入する値を直接構築する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="manifest" href="../../../manifest.json?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;variant&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;variant&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;c6afcc11e915b67618ea74a320ecbcb23c5a6661&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;variant&gt;\n#include &lt;string&gt;\n\nint main()\n{\n  // (1)\n  {\n    std::variant&lt;int, char, std::string&gt; v;\n\n    // v\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u5185\u3067std::string\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3092\u69cb\u7bc9\u3057\u3066\u4fdd\u6301\n    std::string&amp; s = v.emplace&lt;std::string&gt;(3, &#39;a&#39;);\n\n    assert(s == \&#34;aaa\&#34;);\n    assert(std::get&lt;std::string&gt;(v) == \&#34;aaa\&#34;);\n  }\n\n  // (2)\n  {\n    std::variant&lt;int, char, std::string&gt; v;\n\n    std::allocator&lt;char&gt; alloc;\n    v.emplace&lt;std::string&gt;({&#39;H&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39;}, alloc);\n\n    assert(std::get&lt;std::string&gt;(v) == \&#34;Hello\&#34;);\n  }\n\n  // (3)\n  {\n    std::variant&lt;int, char, std::string&gt; v;\n    v.emplace&lt;2&gt;(3, &#39;a&#39;);\n\n    assert(std::get&lt;2&gt;(v) == \&#34;aaa\&#34;);\n  }\n\n  // (4)\n  {\n    std::variant&lt;int, char, std::string&gt; v;\n\n    std::allocator&lt;char&gt; alloc;\n    v.emplace&lt;2&gt;({&#39;H&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39;}, alloc);\n\n    assert(std::get&lt;2&gt;(v) == \&#34;Hello\&#34;);\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;f9eead1c220e5f646b6d39db48fcc33cb80abc1c&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;variant&gt;\n#include &lt;string&gt;\n\nint main()\n{\n  // \u30a4\u30f3\u30c7\u30c3\u30af\u30b9\u3092\u6307\u5b9a\u3057\u305f\u4ee3\u5165\u306a\u3089\u3001\u540c\u3058\u578b\u304c\u8907\u6570\u73fe\u308c\u3066\u3082\u3088\u3044\u3002\n  // \u4ee3\u5165\u6f14\u7b97\u5b50\u3001emplace&lt;T&gt;()\u3001std::get&lt;T&gt;()\u3001std::holds_alternative&lt;T&gt;()\u306f\u4f7f\u7528\u3067\u304d\u306a\u3044\u3002\n  // in_place_index&lt;I&gt;\u3092\u6307\u5b9a\u3059\u308b\u30b3\u30f3\u30b9\u30c8\u30e9\u30af\u30bf\u3001emplace&lt;I&gt;()\u3001std::get&lt;I&gt;(), index()\u306f\u4f7f\u7528\u3067\u304d\u308b\n  std::variant&lt;std::string, std::string&gt; v;\n  v.emplace&lt;0&gt;(\&#34;abc\&#34;); // OK\n  std::string&amp; s = std::get&lt;0&gt;(v);\n  assert(s == \&#34;abc\&#34;);\n\n  //v.emplace&lt;std::string&gt;(\&#34;abc\&#34;); // \u30b3\u30f3\u30d1\u30a4\u30eb\u30a8\u30e9\u30fc\uff01\n  //v = \&#34;abc\&#34;; // \u30b3\u30f3\u30d1\u30a4\u30eb\u30a8\u30e9\u30fc\uff01\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;variant&#34;, &#34;variant&#34;, &#34;emplace&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/variant.html" itemprop="url">
+              
+                <span itemprop="name">variant</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/variant/variant.html" itemprop="url">
+              
+                <span itemprop="name">variant</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">emplace</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-07-08T15:33:39">
+        2025年07月08日 15時33分39秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/variant/variant/emplace.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/variant/variant/emplace.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function template</div><div class="header">&lt;variant&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class variant">variant::</span><span class="token">emplace</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="n">T</span><span class="o">&amp;</span> <span class="n">emplace</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>                                        <span class="c1">// (1) C++17</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">emplace</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>                              <span class="c1">// (1) C++23</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="n">T</span><span class="o">&amp;</span> <span class="n">emplace</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">std::initializer_list</a></span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span> <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>           <span class="c1">// (2) C++17</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">emplace</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">std::initializer_list</a></span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span> <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span> <span class="c1">// (2) C++23</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span> <span class="n">I</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="n"><a href="../variant_alternative.html">variant_alternative_t</a></span><span class="o">&lt;</span><span class="n">I</span><span class="p">,</span> <span class="n">variant</span><span class="o">&lt;</span><span class="n">Types</span><span class="p">...</span><span class="o">&gt;&gt;&amp;</span>
+  <span class="n">emplace</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>                                         <span class="c1">// (3) C++17</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span> <span class="n">I</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="n"><a href="../variant_alternative.html">variant_alternative_t</a></span><span class="o">&lt;</span><span class="n">I</span><span class="p">,</span> <span class="n">variant</span><span class="o">&lt;</span><span class="n">Types</span><span class="p">...</span><span class="o">&gt;&gt;&amp;</span>
+  <span class="n">emplace</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>                                         <span class="c1">// (3) C++23</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span> <span class="n">I</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="n"><a href="../variant_alternative.html">variant_alternative_t</a></span><span class="o">&lt;</span><span class="n">I</span><span class="p">,</span> <span class="n">variant</span><span class="o">&lt;</span><span class="n">Types</span><span class="p">...</span><span class="o">&gt;&gt;&amp;</span>
+  <span class="n">emplace</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">std::initializer_list</a></span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span> <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>            <span class="c1">// (4) C++17</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span> <span class="n">I</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="n"><a href="../variant_alternative.html">variant_alternative_t</a></span><span class="o">&lt;</span><span class="n">I</span><span class="p">,</span> <span class="n">variant</span><span class="o">&lt;</span><span class="n">Types</span><span class="p">...</span><span class="o">&gt;&gt;&amp;</span>
+  <span class="n">emplace</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">std::initializer_list</a></span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span> <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>            <span class="c1">// (4) C++23</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>variant</code>に代入する値を直接構築する。</p>
+<ul>
+<li>(1) : 候補型に含まれる<code>T</code>型のオブジェクトを、コンストラクタ引数<code>args...</code>から構築して保持する</li>
+<li>(2) : 候補型に含まれる<code>T</code>型のオブジェクトを、コンストラクタ引数<code>il</code>と<code>args...</code>から構築して保持する</li>
+<li>(3) : <code>I</code>番目の候補型オブジェクトを、コンストラクタ引数<code>args...</code>から構築して保持する</li>
+<li>(4) : <code>I</code>番目の候補型オブジェクトを、コンストラクタ引数<code>il</code>と<code>args...</code>から構築して保持する</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
+<ul>
+<li>(1) :<ul>
+<li><code><a href="../../type_traits/is_constructible.html">is_constructible_v</a>&lt;T, Args...&gt;</code>が<code>true</code>であること</li>
+<li><code>Types...</code>内に型<code>T</code>が一度だけ現れること</li>
+</ul>
+</li>
+<li>(2) :<ul>
+<li><code><a href="../../type_traits/is_constructible.html">is_constructible_v</a>&lt;T, <a href="../../initializer_list/initializer_list.html">std::initializer_list</a>&lt;U&gt;&amp;, Args...&gt;</code>が<code>true</code>であること</li>
+<li><code>Types...</code>内に型<code>T</code>が一度だけ現れること</li>
+</ul>
+</li>
+<li>(3) :<ul>
+<li><code>I &lt; sizeof...(Types)</code>であること</li>
+<li><code>Types...</code>の<code>I</code>番目の型を<code>Ti</code>として、<code><a href="../../type_traits/is_constructible.html">is_constructible_v</a>&lt;Ti, Args...&gt;</code>が<code>true</code>であること</li>
+</ul>
+</li>
+<li>(4) :<ul>
+<li><code>I &lt; sizeof...(Types)</code>であること</li>
+<li><code>Types...</code>の<code>I</code>番目の型を<code>Ti</code>として、<code><a href="../../type_traits/is_constructible.html">is_constructible_v</a>&lt;Ti, <a href="../../initializer_list/initializer_list.html">std::initializer_list</a>&lt;U&gt;&amp;, Args...&gt;</code>が<code>true</code>であること</li>
+</ul>
+</li>
+</ul>
+<h2>効果</h2>
+<ul>
+<li>
+<p>(1) : <code>Types...</code>に含まれる型<code>T</code>のインデックスを<code>I</code>として、以下と等価：
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="n">emplace</span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
+</code></pre></div>
+</p>
+</li>
+<li>
+<p>(2) : <code>Types...</code>に含まれる型<code>T</code>のインデックスを<code>I</code>として、以下と等価：
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="n">emplace</span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="p">(</span><span class="n">il</span><span class="p">,</span> <span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
+</code></pre></div>
+</p>
+</li>
+<li>
+<p>(3) :</p>
+<ul>
+<li>値を保持している場合、破棄する</li>
+<li><code>Types...</code>の<code>I</code>番目の型を<code>Ti</code>として、<code>Ti</code>型オブジェクトをコンストラクタ引数<code><a href="../../utility/forward.html">std::forward</a>&lt;Args&gt;(args)...</code>で構築して保持する</li>
+</ul>
+</li>
+<li>(4) :<ul>
+<li>値を保持している場合、破棄する</li>
+<li><code>Types...</code>の<code>I</code>番目の型を<code>Ti</code>として、<code>Ti</code>型オブジェクトをコンストラクタ引数<code>il</code>と<code><a href="../../utility/forward.html">std::forward</a>&lt;Args&gt;(args)...</code>で構築して保持する</li>
+</ul>
+</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p>新たに保持する値への参照を返す。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a></h2>
+<ul>
+<li>(3), (4) : <code><a href="index.html">index()</a></code>が<code>I</code>であること</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
+<ul>
+<li>(1), (2), (3), (4) : 保持する値の初期化中に<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が発生する可能性があり、その後、<code>variant</code>オブジェクトは値を保持しない可能性がある</li>
+</ul>
+<h2>備考</h2>
+<ul>
+<li>この関数は、テンプレート内で使用する場合に、<code>v.template emplace&lt;T&gt;(args...)</code>のようにtemplate限定子を指定する必要がある。</li>
+</ul>
+<h2>例</h2>
+<h3>基本的な使い方</h3>
+<p><div class="yata" id="c6afcc11e915b67618ea74a320ecbcb23c5a6661"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../variant.html">&lt;variant&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// (1)</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">char</span><span class="p">,</span> <span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>
+
+    <span class="c1">// vオブジェクト内で<a href="../../string/basic_string.html">std::string</a>オブジェクトを構築して保持</span>
+    <span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&amp;</span> <span class="n">s</span> <span class="o">=</span> <span class="n">v</span><span class="p">.</span><span class="n"><span style="color:#ff0000">emplace</span></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="sc">'a'</span><span class="p">);</span>
+
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">s</span> <span class="o">==</span> <span class="s">"aaa"</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="get.html">std::get</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">==</span> <span class="s">"aaa"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (2)</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">char</span><span class="p">,</span> <span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>
+
+    <span class="n"><a href="../../memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="n">alloc</span><span class="p">;</span>
+    <span class="n">v</span><span class="p">.</span><span class="n"><span style="color:#ff0000">emplace</span></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="p">({</span><span class="sc">'H'</span><span class="p">,</span> <span class="sc">'e'</span><span class="p">,</span> <span class="sc">'l'</span><span class="p">,</span> <span class="sc">'l'</span><span class="p">,</span> <span class="sc">'o'</span><span class="p">},</span> <span class="n">alloc</span><span class="p">);</span>
+
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="get.html">std::get</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">==</span> <span class="s">"Hello"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (3)</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">char</span><span class="p">,</span> <span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>
+    <span class="n">v</span><span class="p">.</span><span class="n"><span style="color:#ff0000">emplace</span></span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="sc">'a'</span><span class="p">);</span>
+
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="get.html">std::get</a></span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">==</span> <span class="s">"aaa"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (4)</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">char</span><span class="p">,</span> <span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>
+
+    <span class="n"><a href="../../memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="n">alloc</span><span class="p">;</span>
+    <span class="n">v</span><span class="p">.</span><span class="n"><span style="color:#ff0000">emplace</span></span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">({</span><span class="sc">'H'</span><span class="p">,</span> <span class="sc">'e'</span><span class="p">,</span> <span class="sc">'l'</span><span class="p">,</span> <span class="sc">'l'</span><span class="p">,</span> <span class="sc">'o'</span><span class="p">},</span> <span class="n">alloc</span><span class="p">);</span>
+
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="get.html">std::get</a></span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">==</span> <span class="s">"Hello"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code></code></pre></p>
+<h3>同じ型を複数指定できる状況の例</h3>
+<p><div class="yata" id="f9eead1c220e5f646b6d39db48fcc33cb80abc1c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../variant.html">&lt;variant&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// インデックスを指定した代入なら、同じ型が複数現れてもよい。</span>
+  <span class="c1">// 代入演算子、<span style="color:#ff0000">emplace</span>&lt;T&gt;()、<a href="get.html">std::get</a>&lt;T&gt;()、<a href="../holds_alternative.html">std::holds_alternative</a>&lt;T&gt;()は使用できない。</span>
+  <span class="c1">// <a href="../../utility/in_place_index_t.html">in_place_index</a>&lt;I&gt;を指定するコンストラクタ、<span style="color:#ff0000">emplace</span>&lt;I&gt;()、<a href="get.html">std::get</a>&lt;I&gt;(), <a href="index.html">index()</a>は使用できる</span>
+  <span class="n"><a href="../variant.html">std::variant</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="p">,</span> <span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>
+  <span class="n">v</span><span class="p">.</span><span class="n"><span style="color:#ff0000">emplace</span></span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"abc"</span><span class="p">);</span> <span class="c1">// OK</span>
+  <span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&amp;</span> <span class="n">s</span> <span class="o">=</span> <span class="n"><a href="get.html">std::get</a></span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">s</span> <span class="o">==</span> <span class="s">"abc"</span><span class="p">);</span>
+
+  <span class="c1">//v.<span style="color:#ff0000">emplace</span>&lt;<a href="../../string/basic_string.html">std::string</a>&gt;("abc"); // コンパイルエラー！</span>
+  <span class="c1">//v = "abc"; // コンパイルエラー！</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code></code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++17</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: 4.0.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: 7.3 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2231r1.html" target="_blank">P2231R1 Missing <code>constexpr</code> in <code>std::optional</code> and <code>std::variant</code></a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

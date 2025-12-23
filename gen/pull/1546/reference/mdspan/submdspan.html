@@ -1,0 +1,488 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>submdspan - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,mdspan,function template,std,cpp26
+">
+        <meta name="title" content="submdspan - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="submdspan - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="submdspan - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/mdspan/submdspan.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="多次元配列ビュー[`mdspan`](mdspan.md)と各次元からの要素取り出し（スライス）方式を指定して、メモリブロックに対する新しい多次元配列ビュー[`mdspan`](mdspan.md)を取得する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="submdspan - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/mdspan/submdspan.html" />
+        <meta name="twitter:description" content="多次元配列ビュー[`mdspan`](mdspan.md)と各次元からの要素取り出し（スライス）方式を指定して、メモリブロックに対する新しい多次元配列ビュー[`mdspan`](mdspan.md)を取得する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="manifest" href="../../manifest.json?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;mdspan&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;95102713c60ec2ceb808e1b1fb37eccb28b09dc5&#34;, &#34;source&#34;: &#34;#include &lt;mdspan&gt;\n#include &lt;numeric&gt;\n#include &lt;print&gt;\n#include &lt;string_view&gt;\n\n// 2\u6b21\u5143\u914d\u5217\u30d3\u30e5\u30fc(Matrix)\u306e\u8981\u7d20\u8868\u793a\ntemplate &lt;class T, class E, class L, class A&gt;\nvoid print_mat(std::string_view name, const std::mdspan&lt;T, E, L, A&gt;&amp; mat)\n{\n  static_assert(mat.rank() == 2);\n  std::println(\&#34;{}:\&#34;, name);\n  for (size_t i = 0; i &lt; mat.extent(0); ++i) {\n    for (size_t j = 0; j &lt; mat.extent(1); ++j) {\n      std::print(\&#34; {:2}\&#34;, mat[i, j]);\n    }\n    std::println(\&#34;\&#34;);\n  }\n}\n\n// 1\u6b21\u5143\u914d\u5217\u30d3\u30e5\u30fc(Vector)\u306e\u8981\u7d20\u8868\u793a\ntemplate &lt;class T, class E, class L, class A&gt;\nvoid print_vec(std::string_view name, const std::mdspan&lt;T, E, L, A&gt;&amp; mat)\n{\n  static_assert(mat.rank() == 1);\n  std::println(\&#34;{}:\&#34;, name);\n  for (size_t i = 0; i &lt; mat.extent(0); ++i) {\n    std::print(\&#34; {:2}\&#34;, mat[i]);\n  }\n  std::println(\&#34;\&#34;);\n}\n\nint main()\n{\n  int arr[20];\n  std::ranges::iota(arr, 1);\n\n  // 4x5\u8981\u7d20\u306e2\u6b21\u5143\u914d\u5217\u30d3\u30e5\u30fc\n  using Ext2D = std::dextents&lt;size_t, 2&gt;;\n  std::mdspan mat{arr, Ext2D{4, 5}};\n  print_mat(\&#34;mat\&#34;, mat);\n\n  // \u30a4\u30f3\u30c7\u30af\u30b9\u5024\u6307\u5b9a\uff0b\u5168\u8981\u7d20\u6307\u5b9a\uff082\u6b21\u5143\u21921\u6b21\u5143\uff09\n  auto row1 = std::submdspan(mat, 1, std::full_extent);\n  print_vec(\&#34;mat[1,M]\&#34;, row1);\n  auto col2 = std::submdspan(mat, std::full_extent, 2);\n  print_vec(\&#34;mat[N,2]\&#34;, col2);\n\n  // \u5358\u4e00\u8981\u7d20\u306e\u53d6\u308a\u51fa\u3057\uff082\u6b21\u5143\u21920\u6b21\u5143\uff09\n  auto elem = std::submdspan(mat, 1, 2);\n  std::println(\&#34;mat[1,2]:\\n {:2}\&#34;, elem[]);\n\n  // \u30a4\u30f3\u30c7\u30af\u30b9\u7bc4\u56f2\u6307\u5b9a\n  auto submat = std::submdspan(mat, std::pair{1,3}, std::pair{1,4});\n  print_mat(\&#34;submat\&#34;, submat);\n\n  // \u30b9\u30c8\u30e9\u30a4\u30c9\u30fb\u30b9\u30e9\u30a4\u30b9\u6307\u5b9a\n  auto strided = std::submdspan(mat,\n    std::strided_slice{.offset=1, .extent=3, .stride=2}, \n    std::strided_slice{.offset=0, .extent=5, .stride=2});\n  print_mat(\&#34;strided\&#34;, strided);\n}\n&#34;}, {&#34;id&#34;: &#34;1497b78373b4c1f82db9b3cd77eade7b64170c19&#34;, &#34;source&#34;: &#34;#include &lt;concepts&gt;\n#include &lt;mdspan&gt;\n#include &lt;numeric&gt;\n#include &lt;print&gt;\n\n// \u6574\u6570\u5b9a\u6570\u578b\ntemplate &lt;int N&gt;\nconstexpr auto Int = std::integral_constant&lt;int, N&gt;{};\n\nint main()\n{\n  int arr[20];\n  std::ranges::iota(arr, 1);\n\n  // \u9759\u7684\u8981\u7d20\u6570 4x5 \u306e2\u6b21\u5143\u914d\u5217\u30d3\u30e5\u30fc\n  std::mdspan mat{arr, std::extents&lt;size_t, 4, 5&gt;{}};\n\n  // \u52d5\u7684\u8981\u7d20\u6570 2x3 \u306e2\u6b21\u5143\u914d\u5217\u90e8\u5206\u30d3\u30e5\u30fc\u3092\u53d6\u308a\u51fa\u3057\n  auto submat_dyn = std::submdspan(mat,\n    std::pair{1, 3},\n    std::strided_slice{.offset=0, .extent=5, .stride=2});\n  static_assert(std::same_as&lt;decltype(submat_dyn)::extents_type, std::dextents&lt;size_t, 2&gt;&gt;);\n  std::println(\&#34;submat_dyn {}x{}\&#34;, submat_dyn.extent(0), submat_dyn.extent(1));\n\n  // \u9759\u7684\u8981\u7d20\u6570 2x3 \u306e2\u6b21\u5143\u914d\u5217\u90e8\u5206\u30d3\u30e5\u30fc\u3092\u53d6\u308a\u51fa\u3057\n  auto submat_2x3 = std::submdspan(mat,\n    std::pair{Int&lt;1&gt;, Int&lt;3&gt;},\n    std::strided_slice{.offset=0, .extent=Int&lt;5&gt;, .stride=Int&lt;2&gt;});\n  // (strided_slice::offset \u306f\u623b\u308a\u5024\u578b\u306b\u5f71\u97ff\u3092\u4e0e\u3048\u306a\u3044)\n  static_assert(std::same_as&lt;decltype(submat_2x3)::extents_type, std::extents&lt;size_t, 2, 3&gt;&gt;);\n  std::println(\&#34;submat_2x3 {}x{}\&#34;, submat_2x3.extent(0), submat_2x3.extent(1));\n}\n&#34;}, {&#34;id&#34;: &#34;1a130cd541150ac14150f9b74b48b137fbf96787&#34;, &#34;source&#34;: &#34;#include &lt;mdspan&gt;\n\nint main()\n{\n  int arr[6] = {1, 2, 3, 4, 5, 6};\n\n  // 3x2\u8981\u7d20\u306e2\u6b21\u5143\u914d\u5217\u30d3\u30e5\u30fc\uff08\u884c\u512a\u5148\u30ec\u30a4\u30a2\u30a6\u30c8\uff09\n  std::mdspan mat{arr, std::extents&lt;size_t, 3, 2&gt;{}};\n  static_assert(std::same_as&lt;decltype(mat)::layout_type, std::layout_right&gt;);\n  // 1 2\n  // 3 4\n  // 5 6\n\n  // \u884c\u512a\u5148\u30ec\u30a4\u30a2\u30a6\u30c8 std::layout_right \u3092\u7dad\u6301\n  auto row0 = std::submdspan(mat, 0, std::full_extent);\n  // 1 2\n  auto row12 = std::submdspan(mat, std::pair{1,3}, std::full_extent);\n  // 3 4\n  // 5 6\n  static_assert(std::same_as&lt;decltype(row0)::layout_type, std::layout_right&gt;);\n  static_assert(std::same_as&lt;decltype(row12)::layout_type, std::layout_right&gt;);\n\n  // \u6c4e\u7528\u30b9\u30c8\u30e9\u30a4\u30c9\u6307\u5b9a\u30ec\u30a4\u30a2\u30a6\u30c8 std::layout_stride \u306b\u5909\u63db\n  auto col1 = std::submdspan(mat, std::full_extent, 1);\n  // 2 4 6\n  auto row02 = std::submdspan(mat,\n    std::strided_slice{.offset=0, .extent=3, .stride=2},\n    std::full_extent);\n  // 1 2\n  // 5 6\n  static_assert(std::same_as&lt;decltype(col1)::layout_type, std::layout_stride&gt;);\n  static_assert(std::same_as&lt;decltype(row02)::layout_type, std::layout_stride&gt;);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;mdspan&#34;, &#34;submdspan&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/mdspan.html" itemprop="url">
+              
+                <span itemprop="name">mdspan</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">submdspan</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-08-31T12:46:41">
+        2025年08月31日 12時46分41秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Raclamusi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/mdspan/submdspan.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/mdspan/submdspan.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function template</div><div class="header">&lt;mdspan&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">submdspan</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span>
+    <span class="k">class</span> <span class="nc">ElementType</span><span class="p">,</span>
+    <span class="k">class</span> <span class="nc"><a href="extents.html">Extents</a></span><span class="p">,</span>
+    <span class="k">class</span> <span class="nc"><a href="LayoutMappingPolicy.html">LayoutPolicy</a></span><span class="p">,</span>
+    <span class="k">class</span> <span class="nc"><a href="AccessorPolicy.html">AccessorPolicy</a></span><span class="p">,</span>
+    <span class="n">class</span><span class="p">...</span> <span class="n">SliceSpecifiers</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">submdspan</span><span class="p">(</span>
+    <span class="k">const</span> <span class="n"><a href="mdspan.html">mdspan</a></span><span class="o">&lt;</span><span class="n">ElementType</span><span class="p">,</span> <span class="n"><a href="extents.html">Extents</a></span><span class="p">,</span> <span class="n"><a href="LayoutMappingPolicy.html">LayoutPolicy</a></span><span class="p">,</span> <span class="n"><a href="AccessorPolicy.html">AccessorPolicy</a></span><span class="o">&gt;&amp;</span> <span class="n">src</span><span class="p">,</span>
+    <span class="n">SliceSpecifiers</span><span class="p">...</span> <span class="n">slices</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><i>see below</i></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>多次元配列ビュー<code><a href="mdspan.html">mdspan</a></code>と各次元からの要素取り出し（スライス）方式を指定して、メモリブロックに対する新しい多次元配列ビュー<code><a href="mdspan.html">mdspan</a></code>を取得する。</p>
+<h3>スライス指定</h3>
+<p>各次元からの要素取り出し方式は、下記の4種類をサポートする。
+スライス指定子リスト<code>slices...</code>にインデクス値指定が含まれる場合、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の次元数(rank)は元の多次元配列ビューに対してインデクス値指定した次元数だけ削減される。</p>
+<ul>
+<li>インデクス値指定 : 整数値。指定次元に対する多次元インデクス値を固定する。</li>
+<li>インデクス範囲指定 : <a href="index-pair-like.html">インデクス・ペア互換型</a>の値。開始位置(begin)と終了位置(end)で表現される半開区間から要素群を取り出す。</li>
+<li>ストライド・スライス指定 : <code><a href="strided_slice.html">std::strided_slice</a></code>の値。オフセット(offset)と要素数(extent)とストライド幅(stride)で指定される要素群を取り出す。</li>
+<li>全要素指定 : <code><a href="full_extent_t.html">std::full_extent</a></code>。指定次元の全要素を取り出す。</li>
+</ul>
+<h3>カスタマイゼーションポイント</h3>
+<p><code>submdspan</code>関数により<code><a href="mdspan.html">mdspan</a></code>から部分ビューを取り出すには、変換元の<a href="LayoutMapping.html">レイアウトマッピング型</a>がカスタマイゼーションポイント<code>submdspan_mapping</code>を実装している必要がある。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
+<ul>
+<li><code>sizeof...(slices)</code>が<code><a href="extents/rank.html">Extents::rank()</a></code>と等しく、かつ</li>
+<li>評価されない文脈において式<code>submdspan_mapping(<a href="mdspan/mapping.html">src.mapping()</a>, slices...)</code>が妥当な式であること。</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Mandates。満たさなければプログラムが不適格となる要件。この要件は、オーバーロード解決によって選択された関数内での`static_assert`の定数条件式や、関数に対するdelete宣言などで表現できる">適格要件</a></h2>
+<p>説明用の型<code>index_type</code>を<code><a href="extents.html">Extents::index_type</a></code>、変数<code>sub_map_offset</code>を<code>submdspan_mapping(<a href="mdspan/mapping.html">src.mapping()</a>, slices...)</code>の結果としたとき、</p>
+<ul>
+<li>型<code>decltype(submdspan_mapping(<a href="mdspan/mapping.html">src.mapping()</a>, slices...))</code>が<code><a href="submdspan_mapping_result.html">submdspan_mapping_result</a></code>の特殊化であり、</li>
+<li><code><a href="../type_traits/is_same.html">is_same_v</a>&lt;<a href="../type_traits/remove_cvref.html">remove_cvref_t</a>&lt;decltype(<a href="submdspan_mapping_result.html">sub_map_offset.mapping</a>.extents())&gt;, decltype(<a href="submdspan_extents.html">submdspan_extents</a>(<a href="mdspan/mapping.html">src.mapping()</a>, slices...))&gt;</code>が<code>true</code>、かつ</li>
+<li><code><a href="mdspan/extents.html">src.extents()</a></code>の各次元インデクス<code>k</code>において、<code>S_k</code>を<code>SliceSpecifiers</code>の<code>k</code>番目の型としたき、下記いずれかのうち1つだけを満たすこと。<ul>
+<li>型<code>S_k</code>が<code><a href="../concepts/convertible_to.html">convertible_to</a>&lt;index_type&gt;</code>のモデル</li>
+<li>型<code>S_k</code>が<code><a href="index-pair-like.html">index-pair-like</a>&lt;index_type&gt;</code>のモデル</li>
+<li><code><a href="../type_traits/is_convertible.html">is_convertible_v</a>&lt;S_k, <a href="full_extent_t.html">full_extent_t</a>&gt;</code>が<code>true</code></li>
+<li>型<code>S_k</code>が<code><a href="strided_slice.html">strided_slice</a></code>の特殊化</li>
+</ul>
+</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a></h2>
+<ul>
+<li><code><a href="mdspan/extents.html">src.extents()</a></code>の各次元インデクス<code>k</code>において、<code>S_k</code>を<code>SliceSpecifiers</code>の<code>k</code>番目の型、<code>s_k</code>を<code>slices</code>の<code>k</code>番目の値としたとき、下記を全て満たすこと。<ul>
+<li>型<code>S_k</code>が<code><a href="strided_slice.html">strided_slice</a></code>の特殊化のとき<ul>
+<li><code>s_k.extent == 0</code>、または</li>
+<li><code>s_k.stride &gt; 0</code></li>
+</ul>
+</li>
+<li><code>0</code> ≤ <code><a href="first_.html">first_</a>&lt;index_type, k&gt;(slices...)</code> ≤ <code><a href="last_.html">last_</a>&lt;k&gt;(<a href="mdspan/extents.html">src.extents()</a>, slices...)</code> ≤ <code><a href="mdspan/extent.html">src.extent(k)</a></code></li>
+</ul>
+</li>
+<li><code><a href="submdspan_mapping_result.html">sub_map_offset.mapping</a>.extents() == <a href="submdspan_extents.html">submdspan_extents</a>(<a href="mdspan/mapping.html">src.mapping()</a>, slices...)</code>が<code>true</code>、かつ</li>
+<li><code><a href="submdspan_mapping_result.html">sub_map_offset.mapping</a>.extents()</code>の多次元インデクス値を表す任意の整数パック<code>I</code>に対して、<code>sub_map_offset.mapping(I...) + <a href="submdspan_mapping_result.html">sub_map_offset.offset</a> == <a href="mdspan/mapping.html">src.mapping()</a>(<a href="src-indices.html">src-indices</a>(<a href="../array/array.html">array</a>{I...}, slices...))</code>が<code>true</code>であること。</li>
+</ul>
+<h2>効果</h2>
+<p>以下と等価</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="n"><a href="submdspan_mapping_result.html">sub_map_offset</a></span> <span class="o">=</span> <span class="n">submdspan_mapping</span><span class="p">(</span><span class="n"><a href="mdspan/mapping.html">src.mapping()</a></span><span class="p">,</span> <span class="n">slices</span><span class="p">...);</span>
+<span class="k">return</span> <span class="nf"><a href="mdspan.html">mdspan</a></span><span class="p">(</span><span class="n"><a href="mdspan/accessor.html">src.accessor()</a></span><span class="p">.</span><span class="n">offset</span><span class="p">(</span><span class="n"><a href="mdspan/data_handle.html">src.data_handle()</a></span><span class="p">,</span> <span class="n"><a href="submdspan_mapping_result.html">sub_map_offset</a></span><span class="p">.</span><span class="n">offset</span><span class="p">),</span>
+              <span class="n"><a href="submdspan_mapping_result.html">sub_map_offset</a></span><span class="p">.</span><span class="n">mapping</span><span class="p">,</span>
+              <span class="n"><a href="AccessorPolicy.html">AccessorPolicy::offset_policy</a></span><span class="p">(</span><span class="n"><a href="mdspan/accessor.html">src.accessor()</a></span><span class="p">));</span>
+</code></pre></div>
+</p>
+<h2>例</h2>
+<h3>基本的な使い方</h3>
+<p><div class="yata" id="95102713c60ec2ceb808e1b1fb37eccb28b09dc5"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../mdspan.html">&lt;mdspan&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../numeric.html">&lt;numeric&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../print.html">&lt;print&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string_view.html">&lt;string_view&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// 2次元配列ビュー(Matrix)の要素表示</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">E</span><span class="p">,</span> <span class="k">class</span> <span class="nc">L</span><span class="p">,</span> <span class="k">class</span> <span class="nc">A</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">print_mat</span><span class="p">(</span><span class="n"><a href="../string_view/basic_string_view.html">std::string_view</a></span> <span class="n">name</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="mdspan.html">std::mdspan</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">A</span><span class="o">&gt;&amp;</span> <span class="n">mat</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n">mat</span><span class="p">.</span><span class="n">rank</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
+  <span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}:"</span><span class="p">,</span> <span class="n">name</span><span class="p">);</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">mat</span><span class="p">.</span><span class="n">extent</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">mat</span><span class="p">.</span><span class="n">extent</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n"><a href="../print/print.html">std::print</a></span><span class="p">(</span><span class="s">" {:2}"</span><span class="p">,</span> <span class="n">mat</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]);</span>
+    <span class="p">}</span>
+    <span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">""</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 1次元配列ビュー(Vector)の要素表示</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">E</span><span class="p">,</span> <span class="k">class</span> <span class="nc">L</span><span class="p">,</span> <span class="k">class</span> <span class="nc">A</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">print_vec</span><span class="p">(</span><span class="n"><a href="../string_view/basic_string_view.html">std::string_view</a></span> <span class="n">name</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="mdspan.html">std::mdspan</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">A</span><span class="o">&gt;&amp;</span> <span class="n">mat</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n">mat</span><span class="p">.</span><span class="n">rank</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{}:"</span><span class="p">,</span> <span class="n">name</span><span class="p">);</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">mat</span><span class="p">.</span><span class="n">extent</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../print/print.html">std::print</a></span><span class="p">(</span><span class="s">" {:2}"</span><span class="p">,</span> <span class="n">mat</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+  <span class="p">}</span>
+  <span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">""</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">arr</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
+  <span class="n"><a href="../numeric/ranges_iota.html">std::ranges::iota</a></span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+  <span class="c1">// 4x5要素の2次元配列ビュー</span>
+  <span class="k">using</span> <span class="n">Ext2D</span> <span class="o">=</span> <span class="n"><a href="extents.html">std::dextents</a></span><span class="o">&lt;</span><span class="kt">size_t</span><span class="p">,</span> <span class="mi">2</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="n"><a href="mdspan.html">std::mdspan</a></span> <span class="n">mat</span><span class="p">{</span><span class="n">arr</span><span class="p">,</span> <span class="n">Ext2D</span><span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}};</span>
+  <span class="n">print_mat</span><span class="p">(</span><span class="s">"mat"</span><span class="p">,</span> <span class="n">mat</span><span class="p">);</span>
+
+  <span class="c1">// インデクス値指定＋全要素指定（2次元→1次元）</span>
+  <span class="k">auto</span> <span class="n">row1</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::submdspan</span></span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n"><a href="full_extent_t.html">std::full_extent</a></span><span class="p">);</span>
+  <span class="n">print_vec</span><span class="p">(</span><span class="s">"mat[1,M]"</span><span class="p">,</span> <span class="n">row1</span><span class="p">);</span>
+  <span class="k">auto</span> <span class="n">col2</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::submdspan</span></span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n"><a href="full_extent_t.html">std::full_extent</a></span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+  <span class="n">print_vec</span><span class="p">(</span><span class="s">"mat[N,2]"</span><span class="p">,</span> <span class="n">col2</span><span class="p">);</span>
+
+  <span class="c1">// 単一要素の取り出し（2次元→0次元）</span>
+  <span class="k">auto</span> <span class="n">elem</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::submdspan</span></span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+  <span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"mat[1,2]:</span><span class="se">\n</span><span class="s"> {:2}"</span><span class="p">,</span> <span class="n">elem</span><span class="p">[]);</span>
+
+  <span class="c1">// インデクス範囲指定</span>
+  <span class="k">auto</span> <span class="n">submat</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::submdspan</span></span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n"><a href="../utility/pair.html">std::pair</a></span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">},</span> <span class="n"><a href="../utility/pair.html">std::pair</a></span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">});</span>
+  <span class="n">print_mat</span><span class="p">(</span><span class="s">"submat"</span><span class="p">,</span> <span class="n">submat</span><span class="p">);</span>
+
+  <span class="c1">// ストライド・スライス指定</span>
+  <span class="k">auto</span> <span class="n">strided</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::submdspan</span></span><span class="p">(</span><span class="n">mat</span><span class="p">,</span>
+    <span class="n"><a href="strided_slice.html">std::strided_slice</a></span><span class="p">{.</span><span class="n">offset</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="p">.</span><span class="n">extent</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="p">.</span><span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">},</span> 
+    <span class="n"><a href="strided_slice.html">std::strided_slice</a></span><span class="p">{.</span><span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="p">.</span><span class="n">extent</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="p">.</span><span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">});</span>
+  <span class="n">print_mat</span><span class="p">(</span><span class="s">"strided"</span><span class="p">,</span> <span class="n">strided</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>mat:
+  1  2  3  4  5
+  6  7  8  9 10
+ 11 12 13 14 15
+ 16 17 18 19 20
+mat[1,M]:
+  6  7  8  9 10
+mat[N,2]:
+  3  8 13 18
+mat[1,2]:
+  8
+submat:
+  7  8  9
+ 12 13 14
+strided:
+  6  8 10
+ 16 18 20
+</code></pre></p>
+<h3>静的要素数mdspanの生成</h3>
+<p><div class="yata" id="1497b78373b4c1f82db9b3cd77eade7b64170c19"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../concepts.html">&lt;concepts&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../mdspan.html">&lt;mdspan&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../numeric.html">&lt;numeric&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../print.html">&lt;print&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// 整数定数型</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">N</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="k">auto</span> <span class="n">Int</span> <span class="o">=</span> <span class="n"><a href="../type_traits/integral_constant.html">std::integral_constant</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">N</span><span class="o">&gt;</span><span class="p">{};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">arr</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
+  <span class="n"><a href="../numeric/ranges_iota.html">std::ranges::iota</a></span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+  <span class="c1">// 静的要素数 4x5 の2次元配列ビュー</span>
+  <span class="n"><a href="mdspan.html">std::mdspan</a></span> <span class="n">mat</span><span class="p">{</span><span class="n">arr</span><span class="p">,</span> <span class="n"><a href="extents.html">std::extents</a></span><span class="o">&lt;</span><span class="kt">size_t</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">&gt;</span><span class="p">{}};</span>
+
+  <span class="c1">// 動的要素数 2x3 の2次元配列部分ビューを取り出し</span>
+  <span class="k">auto</span> <span class="n">submat_dyn</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::submdspan</span></span><span class="p">(</span><span class="n">mat</span><span class="p">,</span>
+    <span class="n"><a href="../utility/pair.html">std::pair</a></span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span>
+    <span class="n"><a href="strided_slice.html">std::strided_slice</a></span><span class="p">{.</span><span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="p">.</span><span class="n">extent</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="p">.</span><span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">});</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">submat_dyn</span><span class="p">)</span><span class="o">::</span><span class="n">extents_type</span><span class="p">,</span> <span class="n"><a href="extents.html">std::dextents</a></span><span class="o">&lt;</span><span class="kt">size_t</span><span class="p">,</span> <span class="mi">2</span><span class="o">&gt;&gt;</span><span class="p">);</span>
+  <span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"submat_dyn {}x{}"</span><span class="p">,</span> <span class="n">submat_dyn</span><span class="p">.</span><span class="n">extent</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">submat_dyn</span><span class="p">.</span><span class="n">extent</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+
+  <span class="c1">// 静的要素数 2x3 の2次元配列部分ビューを取り出し</span>
+  <span class="k">auto</span> <span class="n">submat_2x3</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::submdspan</span></span><span class="p">(</span><span class="n">mat</span><span class="p">,</span>
+    <span class="n"><a href="../utility/pair.html">std::pair</a></span><span class="p">{</span><span class="n">Int</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">Int</span><span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span><span class="p">},</span>
+    <span class="n"><a href="strided_slice.html">std::strided_slice</a></span><span class="p">{.</span><span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="p">.</span><span class="n">extent</span><span class="o">=</span><span class="n">Int</span><span class="o">&lt;</span><span class="mi">5</span><span class="o">&gt;</span><span class="p">,</span> <span class="p">.</span><span class="n">stride</span><span class="o">=</span><span class="n">Int</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">});</span>
+  <span class="c1">// (strided_slice::offset は戻り値型に影響を与えない)</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">submat_2x3</span><span class="p">)</span><span class="o">::</span><span class="n">extents_type</span><span class="p">,</span> <span class="n"><a href="extents.html">std::extents</a></span><span class="o">&lt;</span><span class="kt">size_t</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">&gt;&gt;</span><span class="p">);</span>
+  <span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"submat_2x3 {}x{}"</span><span class="p">,</span> <span class="n">submat_2x3</span><span class="p">.</span><span class="n">extent</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">submat_2x3</span><span class="p">.</span><span class="n">extent</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>submat_dyn 2x3
+submat_2x3 2x3
+</code></pre></p>
+<h3>レイアウトマッピング互換性</h3>
+<p><div class="yata" id="1a130cd541150ac14150f9b74b48b137fbf96787"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../mdspan.html">&lt;mdspan&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">arr</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">};</span>
+
+  <span class="c1">// 3x2要素の2次元配列ビュー（行優先レイアウト）</span>
+  <span class="n"><a href="mdspan.html">std::mdspan</a></span> <span class="n">mat</span><span class="p">{</span><span class="n">arr</span><span class="p">,</span> <span class="n"><a href="extents.html">std::extents</a></span><span class="o">&lt;</span><span class="kt">size_t</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="o">&gt;</span><span class="p">{}};</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span><span class="o">::</span><span class="n">layout_type</span><span class="p">,</span> <span class="n"><a href="layout_right.html">std::layout_right</a></span><span class="o">&gt;</span><span class="p">);</span>
+  <span class="c1">// 1 2</span>
+  <span class="c1">// 3 4</span>
+  <span class="c1">// 5 6</span>
+
+  <span class="c1">// 行優先レイアウト <a href="layout_right.html">std::layout_right</a> を維持</span>
+  <span class="k">auto</span> <span class="n">row0</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::submdspan</span></span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n"><a href="full_extent_t.html">std::full_extent</a></span><span class="p">);</span>
+  <span class="c1">// 1 2</span>
+  <span class="k">auto</span> <span class="n">row12</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::submdspan</span></span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n"><a href="../utility/pair.html">std::pair</a></span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">},</span> <span class="n"><a href="full_extent_t.html">std::full_extent</a></span><span class="p">);</span>
+  <span class="c1">// 3 4</span>
+  <span class="c1">// 5 6</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">row0</span><span class="p">)</span><span class="o">::</span><span class="n">layout_type</span><span class="p">,</span> <span class="n"><a href="layout_right.html">std::layout_right</a></span><span class="o">&gt;</span><span class="p">);</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">row12</span><span class="p">)</span><span class="o">::</span><span class="n">layout_type</span><span class="p">,</span> <span class="n"><a href="layout_right.html">std::layout_right</a></span><span class="o">&gt;</span><span class="p">);</span>
+
+  <span class="c1">// 汎用ストライド指定レイアウト <a href="layout_stride.html">std::layout_stride</a> に変換</span>
+  <span class="k">auto</span> <span class="n">col1</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::submdspan</span></span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n"><a href="full_extent_t.html">std::full_extent</a></span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="c1">// 2 4 6</span>
+  <span class="k">auto</span> <span class="n">row02</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::submdspan</span></span><span class="p">(</span><span class="n">mat</span><span class="p">,</span>
+    <span class="n"><a href="strided_slice.html">std::strided_slice</a></span><span class="p">{.</span><span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="p">.</span><span class="n">extent</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="p">.</span><span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">},</span>
+    <span class="n"><a href="full_extent_t.html">std::full_extent</a></span><span class="p">);</span>
+  <span class="c1">// 1 2</span>
+  <span class="c1">// 5 6</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">col1</span><span class="p">)</span><span class="o">::</span><span class="n">layout_type</span><span class="p">,</span> <span class="n"><a href="layout_stride.html">std::layout_stride</a></span><span class="o">&gt;</span><span class="p">);</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">row02</span><span class="p">)</span><span class="o">::</span><span class="n">layout_type</span><span class="p">,</span> <span class="n"><a href="layout_stride.html">std::layout_stride</a></span><span class="o">&gt;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code></code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++26</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="mdspan.html">mdspan</a></code></li>
+<li><code><a href="full_extent_t.html">full_extent</a></code></li>
+<li><code><a href="strided_slice.html">strided_slice</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2630r4.html" target="_blank">P2630R4 Submdspan</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

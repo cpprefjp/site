@@ -1,0 +1,1257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2025-12-23T12:13:05.505631</updated>
+  <id>fbbaef36-89fd-485e-8e00-d4a82cf6de46</id>
+
+  
+    <entry>
+      <title>関数のdefault／delete宣言 [N2346] -- standardizing to `const T&amp; v` type declaration</title>
+      <link href="https://cpprefjp.github.io/lang/cpp11/defaulted_and_deleted_functions.html"/>
+      <id>e42919d3aca6a44a997591dffd1482e83c20d8f8:lang/cpp11/defaulted_and_deleted_functions.md</id>
+      <updated>2025-12-23T21:07:41+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp11/defaulted_and_deleted_functions.md b/lang/cpp11/defaulted_and_deleted_functions.md
+index 2d2455d3e..d9777233e 100644
+--- a/lang/cpp11/defaulted_and_deleted_functions.md
++++ b/lang/cpp11/defaulted_and_deleted_functions.md
+@@ -89,7 +89,7 @@ int main()
+       sometype();
+ 
+       // デフォルト動作のコピーコンストラクタを使用する
+-      sometype(const sometype &amp;amp;) = default;
++      sometype(const sometype&amp;amp;) = default;
+ 
+       // デフォルト動作のデストラクタを使用する。
+       // ただし、このデストラクタは仮想関数とする。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>定数評価での例外送出を許可 [P3068R6] -- standardizing to `const T&amp; v` type declaration</title>
+      <link href="https://cpprefjp.github.io/lang/cpp26/allowing_exception_throwing_in_constant-evaluation.html"/>
+      <id>e42919d3aca6a44a997591dffd1482e83c20d8f8:lang/cpp26/allowing_exception_throwing_in_constant-evaluation.md</id>
+      <updated>2025-12-23T21:07:41+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp26/allowing_exception_throwing_in_constant-evaluation.md b/lang/cpp26/allowing_exception_throwing_in_constant-evaluation.md
+index bf8b7f3c7..d57fc92d1 100644
+--- a/lang/cpp26/allowing_exception_throwing_in_constant-evaluation.md
++++ b/lang/cpp26/allowing_exception_throwing_in_constant-evaluation.md
+@@ -28,7 +28,7 @@ const auto b = hello(&amp;#34;Hana&amp;#34;);
+ 
+ try {
+   const auto c = hello(&amp;#34;&amp;#34;); // C++26: 例外を捕捉
+-} catch (const validation_error &amp;amp;) {
++} catch (const validation_error&amp;amp;) {
+   // everything is fine
+ }
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>定数式でのvoid*からポインタ型へのキャストを許可 [P2738R1] -- standardizing to `const T&amp; v` type declaration</title>
+      <link href="https://cpprefjp.github.io/lang/cpp26/constexpr_cast_from_voidptr.html"/>
+      <id>e42919d3aca6a44a997591dffd1482e83c20d8f8:lang/cpp26/constexpr_cast_from_voidptr.md</id>
+      <updated>2025-12-23T21:07:41+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp26/constexpr_cast_from_voidptr.md b/lang/cpp26/constexpr_cast_from_voidptr.md
+index 21d55886b..0b4f7ce91 100644
+--- a/lang/cpp26/constexpr_cast_from_voidptr.md
++++ b/lang/cpp26/constexpr_cast_from_voidptr.md
+@@ -34,7 +34,7 @@ private:
+   std::string_view (*speak_function)(const void*);
+ public:
+   template &amp;lt;typename Animal&amp;gt;
+-  constexpr AnimalView(const Animal &amp;amp;a)
++  constexpr AnimalView(const Animal&amp;amp; a)
+     : animal{&amp;amp;a}, speak_function{[](const void* object) {
+         return static_cast&amp;lt;const Animal*&amp;gt;(object)-&amp;gt;speak();
+       }}
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>at -- standardizing to `const T&amp; v` type declaration</title>
+      <link href="https://cpprefjp.github.io/reference/map/map/at.html"/>
+      <id>e42919d3aca6a44a997591dffd1482e83c20d8f8:reference/map/map/at.md</id>
+      <updated>2025-12-23T21:07:41+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/map/map/at.md b/reference/map/map/at.md
+index dd0782d6a..981838d6f 100644
+--- a/reference/map/map/at.md
++++ b/reference/map/map/at.md
+@@ -7,7 +7,7 @@
+ 
+ ```cpp
+ T&amp;amp; at(const key_type&amp;amp; x);              // (1) C++11
+-const T&amp;amp; at(const key_type &amp;amp; x) const; // (2) C++11
++const T&amp;amp; at(const key_type&amp;amp; x) const;  // (2) C++11
+ 
+ template&amp;lt;class K&amp;gt;
+ T&amp;amp; at(const K&amp;amp; x);                     // (3) C++26
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>extract -- standardizing to `const T&amp; v` type declaration</title>
+      <link href="https://cpprefjp.github.io/reference/set/multiset/extract.html"/>
+      <id>e42919d3aca6a44a997591dffd1482e83c20d8f8:reference/set/multiset/extract.md</id>
+      <updated>2025-12-23T21:07:41+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/extract.md b/reference/set/multiset/extract.md
+index 9187b14ec..35a130f57 100644
+--- a/reference/set/multiset/extract.md
++++ b/reference/set/multiset/extract.md
+@@ -56,7 +56,7 @@ struct my_struct // ムーブオンリーな型
+   int num = 0;
+   static inline int count = 0;
+   constexpr my_struct(int i) noexcept : value(i) { num = count++; };
+-  bool operator &amp;lt; (const my_struct &amp;amp;rhs) const noexcept {return this-&amp;gt;value &amp;lt; rhs.value;}
++  bool operator &amp;lt; (const my_struct&amp;amp; rhs) const noexcept {return this-&amp;gt;value &amp;lt; rhs.value;}
+ };
+ 
+ int main()
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>extract -- standardizing to `const T&amp; v` type declaration</title>
+      <link href="https://cpprefjp.github.io/reference/set/set/extract.html"/>
+      <id>e42919d3aca6a44a997591dffd1482e83c20d8f8:reference/set/set/extract.md</id>
+      <updated>2025-12-23T21:07:41+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/set/extract.md b/reference/set/set/extract.md
+index 3637b4267..c045064d7 100644
+--- a/reference/set/set/extract.md
++++ b/reference/set/set/extract.md
+@@ -54,7 +54,7 @@ struct my_struct // ムーブオンリーな型
+   : private noncopyable {
+   int value;
+   constexpr explicit my_struct(int i) noexcept : value(i) {};
+-  bool operator &amp;lt; (const my_struct &amp;amp;rhs) const noexcept {return this-&amp;gt;value &amp;lt; rhs.value;}
++  bool operator &amp;lt; (const my_struct&amp;amp; rhs) const noexcept {return this-&amp;gt;value &amp;lt; rhs.value;}
+ };
+ 
+ int main()
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>ignore -- standardizing to `const T&amp; v` type declaration</title>
+      <link href="https://cpprefjp.github.io/reference/tuple/ignore.html"/>
+      <id>e42919d3aca6a44a997591dffd1482e83c20d8f8:reference/tuple/ignore.md</id>
+      <updated>2025-12-23T21:07:41+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/tuple/ignore.md b/reference/tuple/ignore.md
+index 8d3d8a3bc..baf5f77dc 100644
+--- a/reference/tuple/ignore.md
++++ b/reference/tuple/ignore.md
+@@ -8,7 +8,7 @@
+ namespace std {
+   struct ignore-type { // 説明用の定義 (C++26)
+     constexpr const ignore-type&amp;amp;
+-    operator=(const auto &amp;amp;) const noexcept
++    operator=(const auto&amp;amp;) const noexcept
+       { return *this; }
+   };
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>at -- standardizing to `const T&amp; v` type declaration</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_map/at.html"/>
+      <id>e42919d3aca6a44a997591dffd1482e83c20d8f8:reference/unordered_map/unordered_map/at.md</id>
+      <updated>2025-12-23T21:07:41+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_map/at.md b/reference/unordered_map/unordered_map/at.md
+index aa49034fd..abe0c2d10 100644
+--- a/reference/unordered_map/unordered_map/at.md
++++ b/reference/unordered_map/unordered_map/at.md
+@@ -7,7 +7,7 @@
+ 
+ ```cpp
+ T&amp;amp; at(const key_type&amp;amp; x);              // (1) C++11
+-const T&amp;amp; at(const key_type &amp;amp; x) const; // (2) C++11
++const T&amp;amp; at(const key_type&amp;amp; x) const;  // (2) C++11
+ 
+ template&amp;lt;class K&amp;gt;
+ T&amp;amp; at(const K&amp;amp; x);                     // (3) C++26
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>extract -- standardizing to `const T&amp; v` type declaration</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/extract.html"/>
+      <id>e42919d3aca6a44a997591dffd1482e83c20d8f8:reference/unordered_set/unordered_multiset/extract.md</id>
+      <updated>2025-12-23T21:07:41+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/extract.md b/reference/unordered_set/unordered_multiset/extract.md
+index 8d97b5ae8..d6de3b38a 100644
+--- a/reference/unordered_set/unordered_multiset/extract.md
++++ b/reference/unordered_set/unordered_multiset/extract.md
+@@ -47,7 +47,7 @@ struct my_struct // ムーブオンリーな型
+   int num = 0;
+   static inline int count = 0;
+   constexpr my_struct(int i) noexcept : value(i) { num = count++; };
+-  bool operator == (const my_struct &amp;amp;rhs) const noexcept {return this-&amp;gt;value == rhs.value;}
++  bool operator == (const my_struct&amp;amp; rhs) const noexcept {return this-&amp;gt;value == rhs.value;}
+ };
+ 
+ // ハッシュ関数
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>extract -- standardizing to `const T&amp; v` type declaration</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_set/extract.html"/>
+      <id>e42919d3aca6a44a997591dffd1482e83c20d8f8:reference/unordered_set/unordered_set/extract.md</id>
+      <updated>2025-12-23T21:07:41+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_set/extract.md b/reference/unordered_set/unordered_set/extract.md
+index 344fbaee9..0bb7afefc 100644
+--- a/reference/unordered_set/unordered_set/extract.md
++++ b/reference/unordered_set/unordered_set/extract.md
+@@ -47,7 +47,7 @@ struct my_struct // ムーブオンリーな型
+   int num = 0;
+   static inline int count = 0;
+   constexpr my_struct(int i) noexcept : value(i) { num = count++; };
+-  bool operator == (const my_struct &amp;amp;rhs) const noexcept {return this-&amp;gt;value == rhs.value;}
++  bool operator == (const my_struct&amp;amp; rhs) const noexcept {return this-&amp;gt;value == rhs.value;}
+ };
+ 
+ // ハッシュ関数
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>契約プログラミング [P2900R14] -- contracts: Adding contents(#1419)</title>
+      <link href="https://cpprefjp.github.io/lang/cpp26/contracts.html"/>
+      <id>5b4545770cf94c6ef9c3bc732b896065d763cfaa:lang/cpp26/contracts.md</id>
+      <updated>2025-12-23T20:47:41+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp26/contracts.md b/lang/cpp26/contracts.md
+index 05c1613ff..ab3863f62 100644
+--- a/lang/cpp26/contracts.md
++++ b/lang/cpp26/contracts.md
+@@ -18,9 +18,9 @@ C++26では、関数の正確な動作を明示的に指定でき、プログラ
+ 
+ ## 仕様
+ ### キーワード
+-`pre`、`post`、`assert`は文脈依存キーワードである。これらは`override`や`final`と同様に、特定の文脈でのみ特別な意味を持つ。
++`pre`、`post`は文脈依存キーワードである。これらは`override`や`final`と同様に、特定の文脈でのみ特別な意味を持つ。`contract_assert`は完全なキーワードである。
+ 
+-- 変数名や関数名として使用可能
++- `pre`と`post`は変数名や関数名として使用可能
+   ```cpp
+   int pre = 42;  // OK: 変数名として使用
+   void post() {} // OK: 関数名として使用
+@@ -30,6 +30,12 @@ C++26では、関数の正確な動作を明示的に指定でき、プログラ
+   void f()
+     pre(true);   // ここでは契約指定として機能
+   ```
++- `contract_assert`は既存の`assert`マクロとの衝突を避けるための完全なキーワード
++  ```cpp
++  void g() {
++    contract_assert(true);  // アサーション文
++  }
++  ```
+ 
+ ### 契約の種類
+ 契約には以下の3種類が定められている。
+@@ -102,60 +108,637 @@ public:
+ #### アサーション(assert)
+ 関数の実行中に満たされているべき条件を指定する。
+ ```cpp
+-void return_negative(int value)
++int return_negative(int value)
+ {
+     contract_assert(value &amp;gt;= 0);
+     return -value;
+ }
+ ```
+-ここでは、`return_negative`関数のが引数として受け取っている`value`が0以上であることをアサーションとして指定している。
++ここでは、`return_negative`関数が引数として受け取っている`value`が0以上であることをアサーションとして指定している。
+ 
+ `contract_assert`は、関数の本体内で使用される。
+ 
+ また、これらの全ては、`[[ likely ]]`や`[[ unlikely ]]`、 `[[ maybe_unused ]]`属性を使用することができる。
+ ```cpp
+-void return_negative(int value)
++int return_negative(int value)
+   pre [[likely]] (value &amp;gt;= 0)
+   post (r [[maybe_unused]] : r &amp;lt;= 0)
+   {
+     return -value;
+   }
+ ```
++### 構文上の制約
++契約プログラミングには、いくつかの構文上の制約がある。
++
++#### 複数の宣言
++関数に複数の宣言がある場合、それらすべてに同じ契約指定子の並びを指定することも、一部の宣言にのみ指定することもできる。契約指定子の並びが指定されていない宣言は、他の宣言から契約アサーションを継承する。
++
++```cpp
++int f(int x) pre(x &amp;gt; 0);  // 宣言
++int f(int x);             // OK: 契約アサーションを継承
++int f(int x) pre(x &amp;gt; 0) { // OK: 定義でも同じ契約を指定
++    return x * 2;
++}
++```
++
++#### 仮想関数
++仮想関数に事前条件または事後条件の指定子を付けることは不適格（ill-formed）である。仮想関数への`pre`と`post`のサポートは、将来の拡張として提案される予定である。
++
++```cpp
++struct Base {
++    // エラー：仮想関数に契約指定子を適用できない
++    virtual int compute(int x) pre(x &amp;gt; 0) = 0;
++};
++```
++
++#### デフォルト化・削除された関数
++最初の宣言でデフォルト化（`= default`）された関数に事前条件または事後条件指定子を付けることは不適格（ill-formed）である。
++
++```cpp
++struct X {
++    X() pre(true) = default;           // エラー: 最初の宣言でdefault化
++    X(const X&amp;amp;) pre(true) = default;   // エラー: 最初の宣言でdefault化
++};
++```
++
++ただし、最初の宣言ではない宣言でデフォルト化する場合は契約指定子を付けることができる。
++
++```cpp
++struct Y {
++    Y() pre(true);                      // 最初の宣言に契約指定子
++};
++Y::Y() pre(true) = default;             // OK: 最初の宣言ではない（pre(true)は省略可能）
++```
++
++また、明示的に削除（`= delete`）された関数に事前条件または事後条件指定子を付けることは不適格である。
++
++```cpp
++struct Z {
++    Z() pre(true) = delete;             // エラー: 削除された関数
++    Z&amp;amp; operator=(const Z&amp;amp;) pre(true) = delete; // エラー: 削除された関数
++};
++```
++
++#### コンストラクタとデストラクタの制約
++コンストラクタの事前条件アサーションまたはデストラクタの事後条件アサーションの述語内で、クラスの非静的データメンバを`this-&amp;gt;`なしで直接参照すると、プログラムは不適格となる。これは、オブジェクトの生存期間の開始前または終了後にメンバにアクセスする未定義動作のリスクを最小限に抑えるためである。
++
++```cpp
++struct X {
++    int i = 0;
++    bool f();
++
++    X()
++        pre(i == 0)              // エラー: thisなしでメンバ参照
++        pre(f())                 // エラー: thisなしでメンバ関数呼び出し
++        pre(this-&amp;gt;i == 0)        // OK: thisを明示的に使用
++        pre(this-&amp;gt;f())           // OK
++    {}
++
++    ~X()
++        pre(i == 0)              // OK: デストラクタの事前条件
++        post(i == 0)             // エラー: デストラクタの事後条件でメンバ参照
++        post(this-&amp;gt;i == 0)       // OK
++    {}
++};
++```
++
++#### await式とyield式
++コルーチン内の契約アサーションの述語に、そのコルーチンの中断コンテキスト内にある`await`式または`yield`式が含まれている場合、プログラムは不適格となる。
++
++```cpp
++std::generator&amp;lt;int&amp;gt; f() {
++    contract_assert(((co_yield 1), true));  // エラー
++}
++
++stdex::task&amp;lt;void&amp;gt; g() {
++    contract_assert((co_await query_database()) &amp;gt; 0);  // エラー
++}
++```
++
++#### 関数へのポインタとメンバ関数へのポインタ
++関数へのポインタやメンバ関数へのポインタに契約指定子を適用することはできない。
++
++```cpp
++typedef int (*fpt)(int) post(r: r != 0);  // エラー
++
++int f(int x) post(r: r != 0);
++int (*fp)(int) post(r: r != 0) = f;       // エラー
++```
++
++ただし、契約アサーションは関数の型の一部ではないため、契約付きの関数のアドレスを通常の関数ポインタに代入できる。
++
++```cpp
++int f(int x) post(r: r != 0);
++int (*fp)(int) = f;  // OK
++```
++
++関数ポインタを通して関数を呼び出す場合でも、その関数の契約アサーションは通常通り評価される必要がある。
++
++#### 関数型エイリアス
++関数型エイリアスに契約指定子を適用することはできない。
++
++```cpp
++using ft = int(int) post(r: r != 0);  // エラー
++```
++
++ただし、関数型エイリアスを使用する関数宣言には契約指定子を適用できる。
++
++```cpp
++using ft = int(int);
++ft f post(r: r != 0);  // OK
++```
++
++#### C言語の可変長引数パラメータの使用
++契約述語内で`va_start`マクロを使用すると、プログラムは不適格となる（診断不要）。
++
++### 意味論
++
++#### 名前探索とアクセス制御
++関数契約アサーションの述語に対する名前探索とアクセス制御のルールは、その関数の宣言の他の部分と同様に適用される。
++
++- 非静的メンバ関数の宣言の一部として、`this`式が使用可能であり、関数の暗黙のオブジェクトパラメータを参照する。
++- メンバ関数の場合、述語はprivateメンバにアクセスできる。
++- 事後条件アサーションは結果バインディング（result binding）という新しい宣言をそのスコープに導入し、この名前は外側のスコープの他の名前を隠す。
++
++```cpp
++struct Y {
++    int i;
++public:
++    void f() pre(i == 0);                    // OK
++    friend void g(Y* y) pre(y-&amp;gt;i == 0);      // OK
++};
++
++int r = 10;
++int h() post(r : r != ::r);  // OK: 結果バインディングのrは外側のrを隠す
++```
++
++#### 暗黙のconst性
++契約チェックは、プログラムの状態を変更するのではなく観察するものである。これを促進するために、契約述語内で参照される変数には暗黙的に`const`修飾が適用される。
++
++```cpp
++void f(int x) {
++    contract_assert(++x &amp;gt; 0);  // エラー: xは暗黙的にconstとして扱われる
++}
++```
++
++ただし、述語内で呼び出される関数は`constexpr`である必要はない。ロギングなどのデバッグ目的で副作用を持つ関数を呼び出すことは許可されるが、プログラムの正当性に影響を与える破壊的な副作用は避けるべきである。
++
++#### 結果バインディング
++事後条件の結果バインディングは、関数の戻り値オブジェクトを参照する。結果バインディングによって導入される変数は、定数（`const`）な左辺値参照である。
++
++```cpp
++int f(int i)
++    post(result: result &amp;gt;= i);  // resultは戻り値への定数参照
++```
++
++結果バインディングには、`[[maybe_unused]]`などの属性を適用できる。
++
++```cpp
++int g()
++    post(r [[maybe_unused]]: true);  // OK
++```
++
++#### 事後条件における関数パラメータ
++事後条件アサーションの述語内で関数パラメータを使用できる。ただし、配列パラメータをODR使用（One Definition Rule use）することは不適格である。
++
++```cpp
++int sum(int arr[], int n)
++    post(r: r &amp;gt;= 0);  // OK: 配列パラメータを使用していない
++
++int process(int arr[], int n)
++    post(r: arr[0] &amp;gt; 0);  // エラー: 配列パラメータをODR使用
++```
++
+ ### 評価の順番
+-契約式の評価順序に注意が必要である。
++契約アサーションの評価順序は以下の通りである。
++
++#### 評価のタイミング
++- **事前条件アサーション**: 関数パラメータの初期化後、関数本体の評価開始前に評価される。
++- **事後条件アサーション**: 戻り値の初期化後、return文によって抜けるスコープのローカル変数の破棄後、ただし**関数パラメータの破棄前**に評価される。
++- **アサーション文**: 制御フローがその文に到達した時点で実行される。
++
++コンストラクタとデストラクタでの評価タイミングの詳細については、「コンストラクタとデストラクタの制約」および「レジスタで渡される・返されるオブジェクト」を参照のこと。
+ 
+-事前条件は関数の引数が初期化された後に評価され、事後条件は関数の戻り値が初期化された後、ローカル変数の破棄前に評価される。この順序により、契約式は必要な変数や状態にアクセスできるようになっている。
++#### 複数の契約指定子の評価順序
++関数契約アサーションのシーケンス内に複数の事前条件または事後条件アサーションがある場合、それらは宣言された順序で評価される。
++
++```cpp
++void f()
++    pre(a())
++    pre(b())
++    post(c())
++    post(d())
++{
++    // 事前条件の評価順: a(), b()
++    // 事後条件の評価順: c(), d()
++}
++```
++
++#### 戻り値のコピーとシーケンス
++関数の戻り値の型がレジスタで渡される資格がある場合、コンパイラは戻り値オブジェクトの追加のトリビアルなコピーを作成することが許可されており、事後条件アサーションはそれらのコピーを参照する可能性がある。ただし、これらのコピーは事後条件アサーションの評価と順序付けられて行われなければならない。
++
++したがって、すべての契約アサーションがチェックセマンティクスで正確に1回評価されるようにプログラムがビルドされている場合、以下の例では、`r`が同じオブジェクトを参照するかどうかに関わらず、両方の事後条件アサーションはtrueと評価されなければならない。
++
++```cpp
++int f()
++    post(r: ++const_cast&amp;lt;int&amp;amp;&amp;gt;(r) == 1)
++    post(r: ++const_cast&amp;lt;int&amp;amp;&amp;gt;(r) == 2)
++{
++    return 0;
++}
++```
++
++#### 述語の評価
++契約アサーションの述語式が評価されるとき、それは`bool`に文脈的に変換される。述語式は完全式（full expression）であるため、述語の評価中に作成された一時オブジェクトは、その評価が完了したときに破棄される。
+ 
+ ### 契約の評価モード
+-契約の評価には、次の4つのモードが存在する。
++各契約アサーションの個別の評価は、特定の評価セマンティクスで実行される。提案されている4つの評価セマンティクスは以下の通りである。
+ 
+-- ignore: 契約のチェックを無視(ignore)する。
++#### ignore（無視）
++`ignore`セマンティクスは何も行わない。契約述語は評価されず、副作用も発生しない。これは非チェックセマンティクスである。
+ 
+-- observe: 契約違反時にハンドラを呼び出し、プログラムの実行を続行する。
++#### observe（観察）
++`observe`セマンティクスは述語を評価して契約違反を識別する。契約違反が発生した場合、契約違反ハンドラを呼び出す。ハンドラが正常に戻ると、プログラムの実行は続行される。これはチェックセマンティクスである。
+ 
+-- enforce: 契約違反時にハンドラを呼び出し、プログラムを終了する。
++#### enforce（強制）
++`enforce`セマンティクスは述語を評価して契約違反を識別する。契約違反が発生した場合、契約違反ハンドラを呼び出す。ハンドラが正常に戻ると、プログラムは実装定義の方法で終了する（通常は`std::terminate()`を呼び出すか、類似の方法）。これはチェックセマンティクスであり、終了セマンティクスでもある。
+ 
+-- quick_enforce: 契約違反時にハンドラを呼び出さず、即座にプログラムを終了する。
++#### quick-enforce（高速強制）
++`quick-enforce`セマンティクスは述語を評価して契約違反を識別する。契約違反が発生した場合、契約違反ハンドラを呼び出さずに、即座にプログラムを実装定義の方法で終了する。これはチェックセマンティクスであり、終了セマンティクスでもある。`quick-enforce`は、契約違反ハンドラのオーバーヘッドを避けるため、パフォーマンスが重要な状況で有用である。
+ 
+-評価モードは、コンパイル時、もしくは実行時に指定できる。
++#### 評価セマンティクスの選択
++契約アサーションの個別の評価に対してどの評価セマンティクスが使用されるかを選択するメカニズムは実装定義である。コンパイル時オプション、実行時設定、またはその組み合わせで指定できる。
+ 
+-GCCでは、
++GCCでの例：
+ ```bash
+ g++ -std=c++26 -fcontracts -fcontract-semantic=observe main.cpp
+ ```
+-のように指定できる。
++
++#### 契約述語のチェック
++チェックセマンティクス（`observe`、`enforce`、`quick-enforce`）では、述語が評価され、`bool`に文脈変換される。述語が`true`に評価されると、契約違反は識別されない。述語が`false`に評価されるか、述語の評価が例外で終了すると、契約違反が識別される。
++
++述語の評価がスタックを通じて制御を返さない他の結果（終了、無限ループ、`longjmp`の呼び出しなど）が発生した場合、他のC++式の評価時と同様に処理される。
++
++#### 省略、重複、順次評価
++実装は、契約アサーションの評価を省略、重複、または特定の順序で実行できる。ただし、副作用が正常に戻る場合にのみ省略できる。この柔軟性により、実装は最適化の機会を持つ。
++
++#### 述語の副作用
++契約述語に副作用があることは推奨されないが、完全に禁止されているわけではない。述語に破壊的な副作用（プログラムの正当性に影響を与える副作用）がある場合、その動作は設計原則に違反する。ただし、ロギングやデバッグ目的の非破壊的な副作用は許可される。
++
++#### 観察可能なチェックポイント
++契約アサーションの評価は、観察可能なチェックポイントである。これは、コンパイラが契約アサーションの評価の前後でメモリアクセスの並べ替えを行わないことを意味する。
++
++#### コルーチンのサポート
++コルーチンには契約指定子を適用できる。事前条件アサーションはコルーチンの引数が初期化された後に評価され、事後条件アサーションはコルーチンが`co_return`で終了したときに評価される。
++
++#### 定数評価
++契約アサーションは定数評価中にも評価できる。定数評価中、契約違反ハンドラは呼び出されない。代わりに、チェックセマンティクスで契約違反が識別されると、定数評価は失敗する。
+ 
+ ### 契約違反ハンドラ
+-契約違反が発生した場合、`std::contracts::contract_violation`型の情報（&amp;amp;lt;contracts&amp;amp;gt;ヘッダー）がハンドラに渡される。この情報には、違反の種類、発生場所、違反した条件式などが含まれる。
++
++#### ハンドラの定義
++契約違反ハンドラは、ユーザーがリンク時にカスタム定義できる関数である。ハンドラの署名は以下の通り：
++
++```cpp
++void handle_contract_violation(const std::contracts::contract_violation&amp;amp; violation);
++```
++
++この関数を定義することで、デフォルトの契約違反ハンドラをオーバーライドできる。
++
++#### contract_violation情報
++`std::contracts::contract_violation`オブジェクトは、契約違反に関する以下の情報を提供する：
++
++- **違反の種類** (`assertion_kind`): 事前条件、事後条件、またはアサーション文のいずれか
++- **評価セマンティクス** (`evaluation_semantic`): 違反を識別した評価セマンティクス
++- **検出モード** (`detection_mode`): 契約違反がどのように検出されたか（述語が`false`に評価されたか、例外が発生したか）
++- **ソースロケーション** (`location`): 違反した契約アサーションのソースファイル名、行番号、関数名
++- **終了判定** (`is_terminating`): この違反後にプログラムが終了するかどうか
++- **評価例外** (`evaluation_exception`): 述語の評価中に例外が発生した場合、その例外オブジェクトへのアクセス
++
++#### ハンドラの動作
++契約違反が識別されると、`observe`または`enforce`セマンティクスの場合、契約違反ハンドラが呼び出される：
++
++1. **observeセマンティクス**: ハンドラが正常に戻ると、プログラムの実行は続行される。
++2. **enforceセマンティクス**: ハンドラが正常に戻ると、プログラムは実装定義の方法で終了する。
++3. **quick-enforceセマンティクス**: ハンドラは呼び出されず、即座にプログラムが終了する。
++
++#### デフォルトハンドラ
++ユーザーがカスタムハンドラを定義しない場合、実装が提供するデフォルトハンドラが使用される。デフォルトハンドラは、標準エラー出力に診断メッセージを出力することが期待される。
++
++#### ハンドラ内での契約違反
++契約違反ハンドラの実行中に別の契約違反が発生した場合（再帰的契約違反）、動作は実装定義である。通常は、無限再帰を避けるために即座にプログラムを終了する。
++
++#### 例外を投げるハンドラ
++契約違反ハンドラから例外を投げることは許可されているが、推奨されない。ハンドラが例外で終了した場合、`std::terminate()`が呼び出される。
++
++### 標準ライブラリAPI
++
++#### &amp;amp;lt;contracts&amp;amp;gt;ヘッダー
++C++26では、契約プログラミングをサポートするために`&amp;lt;contracts&amp;gt;`ヘッダーが導入される。このヘッダーには以下の型と関数が含まれる。
++
++#### 列挙型
++
++##### assertion_kind
++契約アサーションの種類を表す列挙型：
++
++```cpp
++namespace std::contracts {
++    enum class assertion_kind {
++        precondition,   // 事前条件アサーション
++        postcondition,  // 事後条件アサーション
++        assertion       // アサーション文
++    };
++}
++```
++
++##### evaluation_semantic
++契約アサーションの評価セマンティクスを表す列挙型：
++
++```cpp
++namespace std::contracts {
++    enum class evaluation_semantic {
++        ignore,         // 無視
++        observe,        // 観察
++        enforce,        // 強制
++        quick_enforce   // 高速強制
++    };
++}
++```
++
++##### detection_mode
++契約違反がどのように検出されたかを表す列挙型：
++
++```cpp
++namespace std::contracts {
++    enum class detection_mode {
++        predicate_false,     // 述語がfalseに評価された
++        evaluation_exception // 述語の評価中に例外が発生
++    };
++}
++```
++
++#### contract_violationクラス
++契約違反に関する情報を提供するクラス：
++
++```cpp
++namespace std::contracts {
++    class contract_violation {
++    public:
++        assertion_kind kind() const noexcept;
++        evaluation_semantic semantic() const noexcept;
++        detection_mode detection() const noexcept;
++        source_location location() const noexcept;
++        string_view comment() const noexcept;
++        bool is_terminating() const noexcept;
++        exception_ptr evaluation_exception() const noexcept;
++    };
++}
++```
++
++主なメンバ関数：
++- `kind()`: 違反した契約アサーションの種類を返す
++- `semantic()`: 使用された評価セマンティクスを返す
++- `detection()`: 違反の検出方法を返す
++- `location()`: 契約アサーションのソースロケーションを返す
++- `comment()`: ベンダー固有のコメント文字列を返す
++- `is_terminating()`: 違反後にプログラムが終了するかどうかを返す
++- `evaluation_exception()`: 述語の評価中に例外が発生した場合、その例外への`exception_ptr`を返す
++
++#### invoke_default_contract_violation_handler関数
++デフォルトの契約違反ハンドラを明示的に呼び出すための関数：
++
++```cpp
++namespace std::contracts {
++    void invoke_default_contract_violation_handler(
++        const contract_violation&amp;amp; violation);
++}
++```
++
++この関数は、カスタムハンドラ内でデフォルトの動作を呼び出したい場合に有用である。
+ 
+ ### 使用上の注意
+-以下の操作は、気をつけなければならない。
+-- 契約式内において副作用を要する式を記述した場合(グローバル変数の変更、`volatile`変数への参照、`constexpr`でない関数の呼び出しなど)
+-- 契約式内で例外を送出すると、std::terminate()が呼び出され、プログラムが終了する。
+-- 通常の関数やメンバ関数には契約を適用できるが、特殊な関数(例えば`default`によって定義されたコピーコンストラクタやデストラクタ)には適用できない。適用すると、プログラムは不適格(ill-formed)となる。
++以下の操作には注意が必要である。
++
++#### 副作用
++契約述語内で副作用を持つ式を記述することは可能だが、推奨されない。破壊的な副作用（グローバル変数の変更、`volatile`変数への参照など）は避けるべきである。ただし、ロギングなどの非破壊的な副作用は許可される。
++
++```cpp
++// 推奨されない例
++int global_counter = 0;
++void f(int x) pre(++global_counter &amp;gt; 0);  // 副作用あり
++
++// 許容される例（デバッグ目的）
++void g(int x) pre(log_value(x), x &amp;gt; 0);  // ロギングは許容
++```
++
++#### 例外
++契約述語内で例外が送出されると、契約違反として扱われる。`observe`または`enforce`セマンティクスの場合、契約違反ハンドラが呼び出され、その後の動作はセマンティクスに依存する。
++
++```cpp
++bool might_throw(int x);
++
++void f(int x) pre(might_throw(x));  // 例外発生時は契約違反
++```
++
++#### 特殊メンバ関数
++`= default`または`= delete`で定義された特殊メンバ関数に契約指定子を適用すると、プログラムは不適格となる。通常のコンストラクタ、デストラクタ、およびメンバ関数には契約を適用できる。
++
++#### assert マクロとの違い
++契約プログラミング機能と従来の`assert`マクロには以下の違いがある：
++
++- **キーワード vs マクロ**: `contract_assert`はキーワードであり、`assert`はマクロである
++- **評価制御**: 契約の評価セマンティクスは実装定義の方法で選択されるが、`assert`は`NDEBUG`マクロの有無で制御される
++- **事後条件**: 契約プログラミングは事後条件を簡潔に記述できるが、`assert`マクロでは困難
++- **標準化**: 契約プログラミングはC++標準の一部であり、`assert`はCから継承されたマクロである
++
++## 例
++
++### 基本的な使用例
++
++```cpp example
++#include &amp;lt;contracts&amp;gt;
++#include &amp;lt;iostream&amp;gt;
++
++// 事前条件と事後条件を持つ関数
++int safe_division(int numerator, int denominator)
++    pre(denominator != 0)
++    post(result: result * denominator == numerator)
++{
++    return numerator / denominator;
++}
++
++// 複数の契約条件
++class BankAccount {
++    double balance = 0.0;
++
++public:
++    void deposit(double amount)
++        pre(amount &amp;gt; 0)
++        post(balance &amp;gt;= old_balance)  // 注: old値の参照はC++26では未サポート
++    {
++        balance += amount;
++    }
++
++    void withdraw(double amount)
++        pre(amount &amp;gt; 0)
++        pre(amount &amp;lt;= balance)  // 複数の事前条件
++        post(balance &amp;gt;= 0)
++    {
++        contract_assert(balance &amp;gt;= amount);  // アサーション文
++        balance -= amount;
++    }
++
++    double get_balance() const
++        post(result: result &amp;gt;= 0)
++    {
++        return balance;
++    }
++};
++
++// ラムダ式での使用
++auto lambda_with_contract = [](int x)
++    pre(x &amp;gt; 0)
++    post(r: r &amp;gt; x)
++{
++    return x + 1;
++};
++
++int main() {
++    // 正常な使用
++    int result = safe_division(10, 2);  // OK: result = 5
++    std::cout &amp;lt;&amp;lt; result &amp;lt;&amp;lt; &amp;#39;\n&amp;#39;;
++
++    BankAccount account;
++    account.deposit(100.0);   // OK
++    account.withdraw(50.0);   // OK
++
++    // 契約違反の例（実行時に検出される）
++    // safe_division(10, 0);  // 事前条件違反
++    // account.withdraw(200.0);  // 事前条件違反
++
++    auto value = lambda_with_contract(5);  // OK: value = 6
++
++    return 0;
++}
++```
++
++### カスタム契約違反ハンドラの例
++
++```cpp example
++#include &amp;lt;contracts&amp;gt;
++#include &amp;lt;iostream&amp;gt;
++#include &amp;lt;cstdlib&amp;gt;
++
++// カスタム契約違反ハンドラの定義
++void handle_contract_violation(const std::contracts::contract_violation&amp;amp; v) {
++    std::cerr &amp;lt;&amp;lt; &amp;#34;契約違反が発生しました:\n&amp;#34;;
++    std::cerr &amp;lt;&amp;lt; &amp;#34;  種類: &amp;#34;;
++    switch (v.kind()) {
++        case std::contracts::assertion_kind::precondition:
++            std::cerr &amp;lt;&amp;lt; &amp;#34;事前条件\n&amp;#34;;
++            break;
++        case std::contracts::assertion_kind::postcondition:
++            std::cerr &amp;lt;&amp;lt; &amp;#34;事後条件\n&amp;#34;;
++            break;
++        case std::contracts::assertion_kind::assertion:
++            std::cerr &amp;lt;&amp;lt; &amp;#34;アサーション\n&amp;#34;;
++            break;
++    }
++
++    std::cerr &amp;lt;&amp;lt; &amp;#34;  場所: &amp;#34; &amp;lt;&amp;lt; v.location().file_name()
++              &amp;lt;&amp;lt; &amp;#34;:&amp;#34; &amp;lt;&amp;lt; v.location().line() &amp;lt;&amp;lt; &amp;#39;\n&amp;#39;;
++    std::cerr &amp;lt;&amp;lt; &amp;#34;  関数: &amp;#34; &amp;lt;&amp;lt; v.location().function_name() &amp;lt;&amp;lt; &amp;#39;\n&amp;#39;;
++
++    if (v.is_terminating()) {
++        std::cerr &amp;lt;&amp;lt; &amp;#34;プログラムを終了します。\n&amp;#34;;
++    }
++
++    // デフォルトハンドラも呼び出す
++    std::contracts::invoke_default_contract_violation_handler(v);
++}
++
++int process(int x)
++    pre(x &amp;gt; 0)
++    post(r: r &amp;gt; x)
++{
++    return x + 1;
++}
++
++int main() {
++    // 契約違反が発生すると、カスタムハンドラが呼び出される
++    // process(-1);  // 事前条件違反
++
++    return 0;
++}
++```
++
++### テンプレート関数での使用例
++
++```cpp example
++#include &amp;lt;contracts&amp;gt;
++#include &amp;lt;concepts&amp;gt;
++#include &amp;lt;vector&amp;gt;
++
++template&amp;lt;std::integral T&amp;gt;
++T increment(T value)
++    pre(value &amp;lt; std::numeric_limits&amp;lt;T&amp;gt;::max())
++    post(result: result == value + 1)
++{
++    return value + 1;
++}
++
++template&amp;lt;typename T&amp;gt;
++class Stack {
++    std::vector&amp;lt;T&amp;gt; data;
++
++public:
++    void push(const T&amp;amp; item)
++        post(size() == old_size + 1)  // 注: old値の参照はC++26では未サポート
++    {
++        data.push_back(item);
++    }
++
++    T pop()
++        pre(!empty())
++        post(size() == old_size - 1)  // 注: old値の参照はC++26では未サポート
++    {
++        T value = data.back();
++        data.pop_back();
++        return value;
++    }
++
++    bool empty() const
++        post(result: result == (size() == 0))
++    {
++        return data.empty();
++    }
++
++    std::size_t size() const
++        post(result: result &amp;lt;= data.capacity())
++    {
++        return data.size();
++    }
++};
++
++int main() {
++    auto value = increment(42);  // OK
++
++    Stack&amp;lt;int&amp;gt; stack;
++    stack.push(10);
++    stack.push(20);
++    int top = stack.pop();  // OK: top = 20
++
++    return 0;
++}
++```
+ 
+ ## &amp;lt;a id=&amp;#34;relative-page&amp;#34; href=&amp;#34;#relative-page&amp;#34;&amp;gt;関連項目&amp;lt;/a&amp;gt;
+ - [C++ 将来 契約に基づくプログラミング](/lang/future/contract-based_programming.md)
++- [`&amp;lt;contracts&amp;gt;`ヘッダー](/reference/contracts.md)
++- [`std::contracts::contract_violation`](/reference/contracts/contract_violation.md)
++- [`std::contracts::assertion_kind`](/reference/contracts/assertion_kind.md)
++- [`std::contracts::evaluation_semantic`](/reference/contracts/evaluation_semantic.md)
++- [`std::contracts::detection_mode`](/reference/contracts/detection_mode.md)
+ 
+ 
+ ## 参照
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>rotarymars</name>
+        <email>s.goto2050@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>invocable -- regular_invocable: 意味論要件について追加と調整</title>
+      <link href="https://cpprefjp.github.io/reference/concepts/invocable.html"/>
+      <id>baadf1ba8cbbf82fc7ece96596d119e0949b6b96:reference/concepts/invocable.md</id>
+      <updated>2025-12-21T19:10:56+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/concepts/invocable.md b/reference/concepts/invocable.md
+index a19bbae04..7fa1ed181 100644
+--- a/reference/concepts/invocable.md
++++ b/reference/concepts/invocable.md
+@@ -21,11 +21,13 @@ namespace std {
+ 
+ `invocable`及び`regular_invocable`は、任意の関数呼び出し可能な型`F`が引数`Args...`によって関数呼び出し可能であることを表すコンセプトである。
+ 
++加えて、`regular_invocable`はその呼び出しが等しさを保持し、なおかつ関数オブジェクト（`F`のオブジェクト）も引数（`Args`オブジェクト）も変更しないものである必要がある。
++
+ ## 等しさの保持
+ 
+ `invocable`コンセプトでは`F`の`Args...`による関数呼び出しが[等しさを保持](/reference/concepts.md)することを要求しない。従って、`invocable`コンセプトのモデルとなる型`F, Args...`は関数呼び出しに際して副作用があっても良く、その出力が内部状態や外部状態に依存していても構わない。
+ 
+-対して、`regular_invocable`コンセプトのモデルとなる`F`の`Args...`による関数呼び出しには[等しさを保持](/reference/concepts.md)することが要求される。従って、`regular_invocable`コンセプトのモデルとなる型`F, Args...`は関数呼び出しに際して副作用を持ってはならず、出力は何かしらの状態に依存してはならない。ただし、このことは構文的に（コンパイル時に）チェックされるものではなく、純粋に意味論的な制約として要求・表明される。
++対して、`regular_invocable`コンセプトのモデルとなる`F`の`Args...`による関数呼び出しには[等しさを保持](/reference/concepts.md)することと引数を変更しないことが要求される。従って、`regular_invocable`コンセプトのモデルとなる型`F, Args...`は関数呼び出しに際して副作用を持ってはならず、出力は何かしらの状態に依存してはならない。ただし、このことは構文的に（コンパイル時に）チェックされるものではなく、純粋に意味論的な制約として要求・表明される。
+ 
+ 例えば、[乱数・分布生成器](/reference/random.md)はその呼び出しに際して等しさを保持しない（内部に状態を保ち、出力はそれに依存する）ため、`regular_invocable`コンセプトのモデルにはならないが`invocable`コンセプトのモデルとなる。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>onihusube</name>
+        <email>44743040+onihusube@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>契約プログラミング [P2900R14] -- reference / lang : ですます調を、である調に修正</title>
+      <link href="https://cpprefjp.github.io/lang/cpp26/contracts.html"/>
+      <id>7a709f016fb9836e7641d73efa2d651fe5b84c1b:lang/cpp26/contracts.md</id>
+      <updated>2025-12-12T12:39:35+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp26/contracts.md b/lang/cpp26/contracts.md
+index e2e57725f..05c1613ff 100644
+--- a/lang/cpp26/contracts.md
++++ b/lang/cpp26/contracts.md
+@@ -131,11 +131,11 @@ void return_negative(int value)
+ 
+ - ignore: 契約のチェックを無視(ignore)する。
+ 
+-- observe: 契約違反時にハンドラを呼び出し、プログラムの実行を続行します。
++- observe: 契約違反時にハンドラを呼び出し、プログラムの実行を続行する。
+ 
+-- enforce: 契約違反時にハンドラを呼び出し、プログラムを終了します。
++- enforce: 契約違反時にハンドラを呼び出し、プログラムを終了する。
+ 
+-- quick_enforce: 契約違反時にハンドラを呼び出さず、即座にプログラムを終了します。
++- quick_enforce: 契約違反時にハンドラを呼び出さず、即座にプログラムを終了する。
+ 
+ 評価モードは、コンパイル時、もしくは実行時に指定できる。
+ 
+@@ -146,7 +146,7 @@ g++ -std=c++26 -fcontracts -fcontract-semantic=observe main.cpp
+ のように指定できる。
+ 
+ ### 契約違反ハンドラ
+-契約違反が発生した場合、`std::contracts::contract_violation`型の情報（&amp;amp;lt;contracts&amp;amp;gt;ヘッダー）がハンドラに渡されます。この情報には、違反の種類、発生場所、違反した条件式などが含まれます。
++契約違反が発生した場合、`std::contracts::contract_violation`型の情報（&amp;amp;lt;contracts&amp;amp;gt;ヘッダー）がハンドラに渡される。この情報には、違反の種類、発生場所、違反した条件式などが含まれる。
+ 
+ ### 使用上の注意
+ 以下の操作は、気をつけなければならない。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>int_fast16_t -- reference / lang : ですます調を、である調に修正</title>
+      <link href="https://cpprefjp.github.io/reference/cstdint/int_fast16_t.html"/>
+      <id>7a709f016fb9836e7641d73efa2d651fe5b84c1b:reference/cstdint/int_fast16_t.md</id>
+      <updated>2025-12-12T12:39:35+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdint/int_fast16_t.md b/reference/cstdint/int_fast16_t.md
+index ca7bcb465..9b45bff47 100644
+--- a/reference/cstdint/int_fast16_t.md
++++ b/reference/cstdint/int_fast16_t.md
+@@ -63,7 +63,7 @@ int_fast16_t is the same as int16_t: 0
+ 30000 + 10000 = -25536
+ ```
+ 
+-この出力例は特定の環境に依存しており、処理系によって異なる可能性があります。特に、`int_fast16_t`のサイズやオーバーフロー動作は処理系によって異なることがある。
++この出力例は特定の環境に依存しており、処理系によって異なる可能性がある。特に、`int_fast16_t`のサイズやオーバーフロー動作は処理系によって異なることがある。
+ 
+ ## バージョン
+ ### 言語
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>int_fast32_t -- reference / lang : ですます調を、である調に修正</title>
+      <link href="https://cpprefjp.github.io/reference/cstdint/int_fast32_t.html"/>
+      <id>7a709f016fb9836e7641d73efa2d651fe5b84c1b:reference/cstdint/int_fast32_t.md</id>
+      <updated>2025-12-12T12:39:35+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdint/int_fast32_t.md b/reference/cstdint/int_fast32_t.md
+index d8893f688..bd7dd68df 100644
+--- a/reference/cstdint/int_fast32_t.md
++++ b/reference/cstdint/int_fast32_t.md
+@@ -63,7 +63,7 @@ int_fast32_t is the same as int32_t: 0
+ 2000000000 + 1000000000 = -1294967296
+ ```
+ 
+-この出力例は特定の環境に依存しており、処理系によって異なる可能性があります。特に、`int_fast32_t`のサイズやオーバーフロー動作は処理系によって異なることがある。
++この出力例は特定の環境に依存しており、処理系によって異なる可能性がある。特に、`int_fast32_t`のサイズやオーバーフロー動作は処理系によって異なることがある。
+ 
+ ## バージョン
+ ### 言語
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>int_fast8_t -- reference / lang : ですます調を、である調に修正</title>
+      <link href="https://cpprefjp.github.io/reference/cstdint/int_fast8_t.html"/>
+      <id>7a709f016fb9836e7641d73efa2d651fe5b84c1b:reference/cstdint/int_fast8_t.md</id>
+      <updated>2025-12-12T12:39:35+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdint/int_fast8_t.md b/reference/cstdint/int_fast8_t.md
+index 2ef6ea588..027c08a4b 100644
+--- a/reference/cstdint/int_fast8_t.md
++++ b/reference/cstdint/int_fast8_t.md
+@@ -63,7 +63,7 @@ int_fast8_t is the same as int8_t: 0
+ 100 + 50 = -106
+ ```
+ 
+-この出力例は特定の環境に依存しており、処理系によって異なる可能性があります。特に、`int_fast8_t`のサイズやオーバーフロー動作は処理系によって異なることがある。
++この出力例は特定の環境に依存しており、処理系によって異なる可能性がある。特に、`int_fast8_t`のサイズやオーバーフロー動作は処理系によって異なることがある。
+ 
+ ## バージョン
+ ### 言語
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>expected.void -- reference / lang : ですます調を、である調に修正</title>
+      <link href="https://cpprefjp.github.io/reference/expected/expected.void.html"/>
+      <id>7a709f016fb9836e7641d73efa2d651fe5b84c1b:reference/expected/expected.void.md</id>
+      <updated>2025-12-12T12:39:35+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/expected/expected.void.md b/reference/expected/expected.void.md
+index 0081c5728..b6c0a7e26 100644
+--- a/reference/expected/expected.void.md
++++ b/reference/expected/expected.void.md
+@@ -19,6 +19,6 @@ namespace std {
+ * expected[link expected.md]
+ * is_void_v[link /reference/type_traits/is_void.md]
+ 
+-このページは`expected&amp;lt;cv void, E&amp;gt;`部分特殊化テンプレートに対応するプレースホルダです。
++このページは`expected&amp;lt;cv void, E&amp;gt;`部分特殊化テンプレートに対応するプレースホルダである。
+ 
+-`expected`クラスの説明は[`expected&amp;lt;T, E&amp;gt;`プライマリテンプレート](expected.md)ページを参照してください。
++`expected`クラスの説明は[`expected&amp;lt;T, E&amp;gt;`プライマリテンプレート](expected.md)ページを参照のこと。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>thread -- reference / lang : ですます調を、である調に修正</title>
+      <link href="https://cpprefjp.github.io/reference/thread.html"/>
+      <id>7a709f016fb9836e7641d73efa2d651fe5b84c1b:reference/thread.md</id>
+      <updated>2025-12-12T12:39:35+09:00</updated>
+      
+        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;thread&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;thread&lt;/span&gt;&lt;span class=&#34;cpp cpp11&#34; title=&#34;C++11で追加&#34;&gt;(C++11)&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;thread&amp;gt;&lt;/code&gt;ヘッダはマルチスレッド制御に関するクラス・関数を定義する。&lt;/p&gt;
+&lt;p&gt;このヘッダでは、以下の標準ヘッダをインクルードする：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&lt;a href=&#34;compare.html&#34;&gt;&amp;lt;compare&amp;gt;&lt;/a&gt;&lt;/code&gt; (C++20)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;thread/thread.html&#34;&gt;thread&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;スレッド クラス(class)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;thread/thread/id.html&#34;&gt;thread::id&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;スレッド識別子 クラス(class)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;thread/this_thread.html&#34;&gt;this_thread&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;現スレッドの制御機能を提供する名前空間 (namespace)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;thread/jthread.html&#34;&gt;jthread&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;停止要求を扱ったり、自動で&lt;code&gt;&lt;a href=&#34;thread/jthread/join.html&#34;&gt;join&lt;/a&gt;&lt;/code&gt;する機能を持つスレッド クラス (class)&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;バージョン&lt;/h2&gt;
+&lt;h3&gt;言語&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;C++11&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;処理系&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;../implementation.html#gcc&#34;&gt;GCC&lt;/a&gt;: 4.6.3 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 4.7.0 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;
+     GCC／pthread環境でスレッドサポートを有効化するには -pthread オプション指定が必要。（GCC 4.7.0で確認）&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../implementation.html#visual_cpp&#34;&gt;Visual C++&lt;/a&gt;: 2012 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 2013 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;, 2015 &lt;span aria-label=&#34;検証済&#34; role=&#34;img&#34; title=&#34;検証済&#34;&gt;✅&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;参照&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.decadent.org.uk/pipermail/cpp-threads/&#34; target=&#34;_blank&#34;&gt;The cpp-threads Archives&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;C++11の策定時に、C++標準の言語とライブラリに並行プログラミングの提案を行うため使用されていたメーリングリストのアーカイブである。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2051r0.html&#34; target=&#34;_blank&#34;&gt;P2051R0 C++ Standard Library Issues to be moved in Prague&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>int_fast64_t -- 口調の修正</title>
+      <link href="https://cpprefjp.github.io/reference/cstdint/int_fast64_t.html"/>
+      <id>57412ffbc6cf3346315154241a95c33606d6a96e:reference/cstdint/int_fast64_t.md</id>
+      <updated>2025-12-10T23:07:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdint/int_fast64_t.md b/reference/cstdint/int_fast64_t.md
+index de6d1bee6..ad7f943f8 100644
+--- a/reference/cstdint/int_fast64_t.md
++++ b/reference/cstdint/int_fast64_t.md
+@@ -63,7 +63,7 @@ int_fast64_t is the same as int64_t: 0
+ 9000000000000000000 + 1000000000000000000 = -8446744073709551616
+ ```
+ 
+-この出力例は特定の環境に依存しており、処理系によって異なる可能性があります。特に、`int_fast64_t`のサイズやオーバーフロー動作は処理系によって異なることがある。
++この出力例は特定の環境に依存しており、処理系によって異なる可能性がある。特に、`int_fast64_t`のサイズやオーバーフロー動作は処理系によって異なることがある。
+ 
+ ## バージョン
+ ### 言語
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>

@@ -1,0 +1,487 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>simple_counting_scope - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,class,std::execution,cpp26
+">
+        <meta name="title" content="simple_counting_scope - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="simple_counting_scope - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="simple_counting_scope - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/execution/execution/simple_counting_scope.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`simple_counting_scope`は、カウント式の非同期スコープを表現する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="simple_counting_scope - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/execution/execution/simple_counting_scope.html" />
+        <meta name="twitter:description" content="`simple_counting_scope`は、カウント式の非同期スコープを表現する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="manifest" href="../../../manifest.json?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;execution&#34;], &#34;id-type&#34;: [&#34;class&#34;], &#34;namespace&#34;: [&#34;std::execution&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;execution&#34;, &#34;execution&#34;, &#34;simple_counting_scope&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/execution.html" itemprop="url">
+              
+                <span itemprop="name">execution</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/execution/execution.html" itemprop="url">
+              
+                <span itemprop="name">execution</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">simple_counting_scope</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-09-20T02:23:38">
+        2025年09月20日 02時23分38秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yoh</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/execution/execution/simple_counting_scope.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/execution/execution/simple_counting_scope.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">simple_counting_scope</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
+  <span class="k">class</span> <span class="nc">simple_counting_scope</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>simple_counting_scope</code>は、カウント式の非同期スコープを表現する。</p>
+<h2>クラス仕様</h2>
+<p><code>simple_counting_scope</code>型と<code><a href="counting_scope.html">counting_scope</a></code>型による非同期スコープは関連付けカウントを管理する。</p>
+<p>クラス動作説明用のメンバ変数として下記を保持する。</p>
+<ul>
+<li><code>count</code> : <code>size_t</code>型の関連付けカウント値</li>
+<li><code>state</code> : <code>scope-state-type</code>列挙型（後述）の状態</li>
+</ul>
+<h3>状態遷移</h3>
+<p>説明専用の各種エンティティを下記の通り定義する。</p>
+<ul>
+<li><code>Scope</code>型 : <code>simple_counting_scope</code>または<code><a href="counting_scope.html">counting_scope</a></code>のいずれか</li>
+<li><code>scope</code>オブジェクト : <code>Scope</code>型のオブジェクト</li>
+<li><code>tkn</code>オブジェクト : <code>scope.get_token()</code>が返す<code>Scope::token</code>型のオブジェクト</li>
+<li><code>jsndr</code> : <code>scope.join()</code>が返す<a href="sender.html">Sender</a></li>
+<li><code>op</code> : <code>jsndr</code>を<a href="receiver.html">Receiver</a>と接続して得られる<a href="operation_state.html">Operation State</a></li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="k">enum</span> <span class="n">scope</span><span class="o">-</span><span class="n">state</span><span class="o">-</span><span class="n">type</span> <span class="p">{</span>  <span class="c1">// exposition only</span>
+  <span class="n">unused</span><span class="p">,</span>                <span class="c1">// exposition only</span>
+  <span class="n">open</span><span class="p">,</span>                  <span class="c1">// exposition only</span>
+  <span class="n">closed</span><span class="p">,</span>                <span class="c1">// exposition only</span>
+  <span class="n">open</span><span class="o">-</span><span class="n">and</span><span class="o">-</span><span class="n">joining</span><span class="p">,</span>      <span class="c1">// exposition only</span>
+  <span class="n">closed</span><span class="o">-</span><span class="n">and</span><span class="o">-</span><span class="n">joining</span><span class="p">,</span>    <span class="c1">// exposition only</span>
+  <span class="n">unused</span><span class="o">-</span><span class="n">and</span><span class="o">-</span><span class="n">closed</span><span class="p">,</span>     <span class="c1">// exposition only</span>
+  <span class="n">joined</span><span class="p">,</span>                <span class="c1">// exposition only</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<p><code>scope</code>はその生存期間中にさまざまな状態をとり、各状態で許可される操作とその結果を決定する：</p>
+<ul>
+<li><code>unused</code> : 新しく構築されたオブジェクトは<code>unused</code>状態で開始する。</li>
+<li><code>open</code> : <code>scope</code>が<code>unused</code>状態にあるとき<code>tkn.try_associate()</code>が呼び出されると、<code>scope</code>は<code>open</code>状態に遷移する。</li>
+<li><code>open-and-joining</code> : <code>scope</code>が<code>unused</code>または<code>open</code>状態にあるとき<a href="operation_state.html">Operation State</a><code>op</code>が<a href="start.html">開始(start)</a>されると、<code>scope</code>は<code>open-and-joining</code>状態に遷移する。</li>
+<li><code>closed</code> : <code>scope</code>が<code>open</code>状態にあるとき<code>scope.close()</code>が呼び出されると、<code>scope</code>は<code>closed</code>状態に遷移する。</li>
+<li><code>unused-and-closed</code> : <code>scope</code>が<code>unused</code>状態にあるとき<code>scope.close()</code>が呼び出されると、<code>scope</code>は<code>unused-and-closed</code>状態に遷移する。</li>
+<li><code>closed-and-joining</code> : <code>scope</code>が<code>open-and-joining</code>状態にあるとき<code>scope.close()</code>が呼び出される、もしくは<code>scope</code>が<code>closed</code>または<code>unused-and-closed</code>状態にあるとき<a href="operation_state.html">Operation State</a><code>op</code>が<a href="start.html">開始(start)</a>されると、<code>scope</code>は<code>closed-and-joining</code>状態に遷移する。</li>
+<li><code>joined</code> : <code>scope</code>が<code>open-and-joining</code>または<code>closed-and-joining</code>状態にあるとき関連付けカウントがゼロに到達すると、<code>scope</code>は<code>joined</code>状態に遷移する。</li>
+</ul>
+<h3>Senderアルゴリズムタグ <code>scope-join-t</code></h3>
+<p><code><a href="simple_counting_scope/join.html">join</a></code>メンバ関数が返す合流Sender動作仕様を記述するため、説明専用の<a href="tag_of_t.html">Senderアルゴリズムタグ型</a><code>scope-join-t</code>を定義する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">scope</span><span class="o">-</span><span class="n">join</span><span class="o">-</span><span class="n">t</span> <span class="p">{};</span>  <span class="c1">// exposition only</span>
+</code></pre></div>
+</p>
+<p>Senderアルゴリズム動作説明用のクラステンプレート<code><a href="impls-for.html">impls-for</a></code>に対して、下記の特殊化が定義される。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;&gt;</span>
+  <span class="k">struct</span> <span class="n"><a href="impls-for.html">impls-for</a></span><span class="o">&lt;</span><span class="n">scope</span><span class="o">-</span><span class="n">join</span><span class="o">-</span><span class="n">t</span><span class="o">&gt;</span> <span class="o">:</span> <span class="n"><a href="impls-for.html">default-impls</a></span> <span class="p">{</span>
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Scope</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Rcvr</span><span class="o">&gt;</span>
+    <span class="k">struct</span> <span class="n">state</span> <span class="p">{</span>                          <span class="c1">// exposition only</span>
+      <span class="k">struct</span> <span class="n">rcvr</span><span class="o">-</span><span class="n">t</span> <span class="p">{</span>                       <span class="c1">// exposition only</span>
+        <span class="k">using</span> <span class="n">receiver_concept</span> <span class="o">=</span> <span class="n"><a href="receiver.html">receiver_t</a></span><span class="p">;</span>
+
+        <span class="n">Rcvr</span><span class="o">&amp;</span> <span class="n">rcvr</span><span class="p">;</span>                         <span class="c1">// exposition only</span>
+
+        <span class="kt">void</span> <span class="nf">set_value</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="k">noexcept</span> <span class="p">{</span>
+          <span class="n"><a href="set_value.html">execution::set_value</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">));</span>
+        <span class="p">}</span>
+
+        <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">E</span><span class="o">&gt;</span>
+        <span class="kt">void</span> <span class="n">set_error</span><span class="p">(</span><span class="n">E</span><span class="o">&amp;&amp;</span> <span class="n">e</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="k">noexcept</span> <span class="p">{</span>
+          <span class="n"><a href="set_error.html">execution::set_error</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">),</span> <span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="p">(</span><span class="n">e</span><span class="p">));</span>
+        <span class="p">}</span>
+
+        <span class="kt">void</span> <span class="n">set_stopped</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="k">noexcept</span> <span class="p">{</span>
+          <span class="n"><a href="set_stopped.html">execution::set_stopped</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">));</span>
+        <span class="p">}</span>
+
+        <span class="n"><a href="../../../lang/cpp14/decltype_auto.html">decltype(auto)</a></span> <span class="n">get_env</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="n"><a href="get_env.html">execution::get_env</a></span><span class="p">(</span><span class="n">rcvr</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">};</span>
+
+      <span class="k">using</span> <span class="n">sched</span><span class="o">-</span><span class="n">sender</span> <span class="o">=</span>                  <span class="c1">// exposition only</span>
+        <span class="k">decltype</span><span class="p">(</span><span class="n"><a href="schedule.html">schedule</a></span><span class="p">(</span><span class="n"><a href="get_scheduler.html">get_scheduler</a></span><span class="p">(</span><span class="n">get_env</span><span class="p">(</span><span class="n"><a href="../../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">Rcvr</span><span class="o">&amp;&gt;</span><span class="p">()))));</span>
+      <span class="k">using</span> <span class="n">op</span><span class="o">-</span><span class="n">t</span> <span class="o">=</span>                          <span class="c1">// exposition only</span>
+        <span class="n"><a href="connect_result_t.html">connect_result_t</a></span><span class="o">&lt;</span><span class="n">sched</span><span class="o">-</span><span class="n">sender</span><span class="p">,</span> <span class="n">rcvr</span><span class="o">-</span><span class="n">t</span><span class="o">&gt;</span><span class="p">;</span>
+
+      <span class="n">Scope</span><span class="o">*</span> <span class="n">scope</span><span class="p">;</span>                         <span class="c1">// exposition only</span>
+      <span class="n">Rcvr</span><span class="o">&amp;</span> <span class="n">receiver</span><span class="p">;</span>                       <span class="c1">// exposition only</span>
+      <span class="n">op</span><span class="o">-</span><span class="n">t</span> <span class="n">op</span><span class="p">;</span>                              <span class="c1">// exposition only</span>
+
+      <span class="n">state</span><span class="p">(</span><span class="n">Scope</span><span class="o">*</span> <span class="n">scope</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&amp;</span> <span class="n">rcvr</span><span class="p">)</span>       <span class="c1">// exposition only</span>
+        <span class="k">noexcept</span><span class="p">(</span><span class="n"><a href="../../functional/nothrow-callable.html">nothrow-callable</a></span><span class="o">&lt;</span><span class="n"><a href="connect.html">connect_t</a></span><span class="p">,</span> <span class="n">sched</span><span class="o">-</span><span class="n">sender</span><span class="p">,</span> <span class="n">rcvr</span><span class="o">-</span><span class="n">t</span><span class="o">&gt;</span><span class="p">)</span>
+        <span class="o">:</span> <span class="n">scope</span><span class="p">(</span><span class="n">scope</span><span class="p">),</span>
+          <span class="n">receiver</span><span class="p">(</span><span class="n">rcvr</span><span class="p">),</span>
+          <span class="n">op</span><span class="p">(</span><span class="n"><a href="connect.html">connect</a></span><span class="p">(</span><span class="n"><a href="schedule.html">schedule</a></span><span class="p">(</span><span class="n"><a href="get_scheduler.html">get_scheduler</a></span><span class="p">(</span><span class="n">get_env</span><span class="p">(</span><span class="n">rcvr</span><span class="p">))),</span> <span class="n">rcvr</span><span class="o">-</span><span class="n">t</span><span class="p">(</span><span class="n">rcvr</span><span class="p">)))</span> <span class="p">{}</span>
+
+      <span class="kt">void</span> <span class="n">complete</span><span class="p">()</span> <span class="k">noexcept</span> <span class="p">{</span>            <span class="c1">// exposition only</span>
+        <span class="n"><a href="start.html">start</a></span><span class="p">(</span><span class="n">op</span><span class="p">);</span>
+      <span class="p">}</span>
+
+      <span class="kt">void</span> <span class="n">complete</span><span class="o">-</span><span class="kr">inline</span><span class="p">()</span> <span class="k">noexcept</span> <span class="p">{</span>     <span class="c1">// exposition only</span>
+        <span class="n">set_value</span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">receiver</span><span class="p">));</span>
+      <span class="p">}</span>
+    <span class="p">};</span>
+
+    <span class="k">static</span> <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">get</span><span class="o">-</span><span class="n">state</span> <span class="o">=</span>       <span class="c1">// exposition only</span>
+      <span class="p">[]</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Rcvr</span><span class="o">&gt;</span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="n">sender</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&amp;</span> <span class="n">receiver</span><span class="p">)</span>
+        <span class="k">noexcept</span><span class="p">(</span><span class="n"><a href="../../type_traits/is_nothrow_constructible.html">is_nothrow_constructible_v</a></span><span class="o">&lt;</span><span class="n">state</span><span class="o">&lt;</span><span class="n">Rcvr</span><span class="o">&gt;</span><span class="p">,</span> <span class="n"><a href="data-type.html">data-type</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">sender</span><span class="p">)</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&amp;&gt;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">auto</span><span class="p">[</span><span class="n">_</span><span class="p">,</span> <span class="n">self</span><span class="p">]</span> <span class="o">=</span> <span class="n">sender</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nf">state</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">receiver</span><span class="p">);</span>
+      <span class="p">};</span>
+
+    <span class="k">static</span> <span class="k">constexpr</span> <span class="k">auto</span> <span class="n"><a href="start.html">start</a></span> <span class="o">=</span>           <span class="c1">// exposition only</span>
+      <span class="p">[](</span><span class="k">auto</span><span class="o">&amp;</span> <span class="n">s</span><span class="p">,</span> <span class="k">auto</span><span class="o">&amp;</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">scope</span><span class="o">-&gt;</span><span class="n"><a href="start.html">start</a></span><span class="o">-</span><span class="n">join</span><span class="o">-</span><span class="n">sender</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+          <span class="n">s</span><span class="p">.</span><span class="n">complete</span><span class="o">-</span><span class="kr">inline</span><span class="p">();</span>
+      <span class="p">};</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="simple_counting_scope/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simple_counting_scope/op_destructor.html">(destructor)</a></code></td>
+<td>デストラクタ</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simple_counting_scope/get_token.html">get_token</a></code></td>
+<td>非同期スコープトークンを取得</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simple_counting_scope/close.html">close</a></code></td>
+<td>非同期スコープを閉じる</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simple_counting_scope/join.html">join</a></code></td>
+<td>非同期スコープを合流する<a href="sender.html">Sender</a>取得</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h3>説明専用メンバ関数</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="simple_counting_scope/try-associate.html">try-associate</a></code></td>
+<td>関連付けを試行</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simple_counting_scope/disassociate.html">disassociate</a></code></td>
+<td>関連付けを解除</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="simple_counting_scope/start-join-sender.html">start-join-sender</a></code></td>
+<td>合流<a href="sender.html">Sender</a>を開始</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="simple_counting_scope/token.html">token</a></code></td>
+<td>非同期スコープトークン型</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>静的メンバ変数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>constexpr size_t max_associations = implementation-defined;</code></td>
+<td>関連付けの最大数</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++26</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="counting_scope.html">execution::counting_scope</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3149r11.html" target="_blank">P3149R11 <code>async_scope</code> - Creating scopes for non-sequential concurrency</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
