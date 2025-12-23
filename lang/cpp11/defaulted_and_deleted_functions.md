@@ -89,7 +89,7 @@ int main()
       sometype();
 
       // デフォルト動作のコピーコンストラクタを使用する
-      sometype(const sometype &) = default;
+      sometype(const sometype&) = default;
 
       // デフォルト動作のデストラクタを使用する。
       // ただし、このデストラクタは仮想関数とする。

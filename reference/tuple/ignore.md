@@ -8,7 +8,7 @@
 namespace std {
   struct ignore-type { // 説明用の定義 (C++26)
     constexpr const ignore-type&
-    operator=(const auto &) const noexcept
+    operator=(const auto&) const noexcept
       { return *this; }
   };
 

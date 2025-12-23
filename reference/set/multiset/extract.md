@@ -56,7 +56,7 @@ struct my_struct // ムーブオンリーな型
   int num = 0;
   static inline int count = 0;
   constexpr my_struct(int i) noexcept : value(i) { num = count++; };
-  bool operator < (const my_struct &rhs) const noexcept {return this->value < rhs.value;}
+  bool operator < (const my_struct& rhs) const noexcept {return this->value < rhs.value;}
 };
 
 int main()

@@ -34,7 +34,7 @@ private:
   std::string_view (*speak_function)(const void*);
 public:
   template <typename Animal>
-  constexpr AnimalView(const Animal &a)
+  constexpr AnimalView(const Animal& a)
     : animal{&a}, speak_function{[](const void* object) {
         return static_cast<const Animal*>(object)->speak();
       }}
