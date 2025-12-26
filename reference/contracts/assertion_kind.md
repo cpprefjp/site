@@ -9,7 +9,7 @@ namespace std::contracts {
   enum class assertion_kind : unspecified {
     pre = 1,
     post = 2,
-    assertion = 3
+    assert = 3
   };
 }
 ```
