@@ -19,6 +19,17 @@ namespace std::contracts {
 ## 概要
 契約違反をどのように評価するかを表す列挙型。
 
+これの他に、処理系定義のものを定めてもよい。
+
+### 列挙子
+
+| 列挙子 | 値 | 説明 |
+|--------|-----|------|
+| `ignore` | 1 | 述語を評価しない |
+| `observe` | 2 | 述語を評価し、違反時にハンドラを呼ぶが、実行を継続する |
+| `enforce` | 3 | 述語を評価し、違反時にハンドラを呼び、その後プログラムを終了する |
+| `quick_enforce` | 4 | 述語を評価し、違反時にハンドラを呼ばずにプログラムを終了する |
+
 ## バージョン
 ### 言語
 - C++26
@@ -34,4 +45,4 @@ namespace std::contracts {
 - [契約プログラミング](/lang/cpp26/contracts.md)
 
 ## 参照
-- [P0542R5 Support for contract based programming in C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0542r5.html)
+- [P2900R14 Contracts for C++](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2900r14.pdf)
