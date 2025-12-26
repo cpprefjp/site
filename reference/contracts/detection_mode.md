@@ -37,4 +37,4 @@ namespace std::contracts {
 - [契約プログラミング](/lang/cpp26/contracts.md)
 
 ## 参照
-- [P0542R5 Support for contract based programming in C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0542r5.html)
+- [P2900R14 Contracts for C++](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2900r14.pdf)
