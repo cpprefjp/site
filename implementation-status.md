@@ -171,18 +171,18 @@
 | P0428R2: [ジェネリックラムダのテンプレート構文](/lang/cpp20/familiar_template_syntax_for_generic_lambdas.md) | ジェネリックラムダでテンプレートパラメータを定義できるようにする | 8 | 9.0 | 2021.4 | 2019 Update 2 |
 | P0704R1: [`const`修飾されたメンバポインタの制限を修正](/lang/cpp20/fixing_const_qualified_pointers_to_members.md) | `.*`演算子での左辺値の`const`メンバ関数呼び出しを許可する | 8 | 6.0 | 2021.4 | 2015 |
 | P0306R4: [可変引数が空でない場合のトークン置換](/lang/cpp20/va_opt.md) | プリプロセッサの置換で可変引数が空の場合に余計なカンマが付いてしまう問題に対処 | 8 (partial, `#__VA_OPT__`による文字列化が未サポート) | 6.0<br/> 9.0 ([p1042](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1042r1.html)) | 2021.4 | 2019 Update 5 |
-| P0329R4: [指示付き初期化](/lang/cpp20/designated_initialization.md) | 波カッコによる集成体初期化でメンバ名を指定して初期化できるようにする | 8 | 6.0 (partial) | 2021.4 | 2019 Update 1 |
-| P0734R0: [コンセプト](/lang/cpp20/concepts.md) | テンプレートパラメータに対する制約を行う | 10 | 10.0 (partial) | 2021.6 | 2019 Update 3 |
+| P0329R4: [指示付き初期化](/lang/cpp20/designated_initialization.md) | 波カッコによる集成体初期化でメンバ名を指定して初期化できるようにする | 8 | 6.0 (partial)<br>10 | 2021.4 | 2019 Update 1 |
+| P0734R0: [コンセプト](/lang/cpp20/concepts.md) | テンプレートパラメータに対する制約を行う | 10 | 10 | 2021.6 | 2019 Update 3 |
 | P0614R1: [初期化式をともなう範囲for文](/lang/cpp20/range-based_for_statements_with_initializer.md) | 範囲for文スコープで使用する変数の初期化のための構文を追加 | 9 | 8.0 | 2021.7 | 2019 Update 5 |
 | P0588R1: [暗黙のラムダキャプチャを簡略化](/lang/cpp20/simplifying_implicit_lambda_capture.md) | ラムダ式のキャプチャに関する仕様整理 | 8 | No | 2021.4 | 2019 Update 4 |
 | P0846R0: [関数テンプレートに明示的に型指定した場合にADLで見つからない問題を修正](/lang/cpp20/adl_and_function_templates_that_are_not_visible.md) | 名前空間内の関数テンプレートをテンプレート引数指定かつ非修飾・ADLで正しく呼び出せるよう修正 | 9 | 9.0 | 2021.4 | 2019 Update 1 |
 | P0641R2: [デフォルトのコピーコンストラクタと非`const`なコンストラクタが衝突する問題を修正](/lang/cpp20/resolving_const_mismatch_with_defaulted_copy_constructor.md) | 非`const`なオブジェクトをとるコンストラクタを定義すると、そのクラスをラップしたクラスのコピーコンストラクタが不適格になってしまう問題を修正 | 9 | 8.0 | 2021.4 | 2015 |
 | P0859R0: [評価されない文脈での定数式評価によって特殊メンバ関数がインスタンス化されることを規定](/lang/cpp20/less_eager_instantiation_of_constexpr_functions.md) | `sizeof`や`decltype`などの評価されない文脈において定数式評価を行った場合に、ムーブコンストラクタのような特殊メンバ関数が定義されることを規定 | 9 | 8 | | Partial in 2019 Update 7 |
-| P0515R3: [`<=>`/`==`による比較演算子の自動定義](/lang/cpp20/consistent_comparison.md) | 三方比較演算子によって比較演算子の自動生成を行うようにする | 10 | 8.0 (partial) | 2021.4 | 2019 |
-| P0692R1: [特殊化のアクセスチェック](/lang/cpp20/access_checking_on_specializations.md) | | Yes | partial | 2021.4 | 2019 Update 6 |
+| P0515R3: [`<=>`/`==`による比較演算子の自動定義](/lang/cpp20/consistent_comparison.md) | 三方比較演算子によって比較演算子の自動生成を行うようにする | 10 | 8.0 (partial)<br>10 | 2021.4 | 2019 |
+| P0692R1: [特殊化のアクセスチェック](/lang/cpp20/access_checking_on_specializations.md) | | Yes | 14 | 2021.4 | 2019 Update 6 |
 | P0624R2: [状態を持たないラムダ式を、デフォルト構築可能、代入可能とする](/lang/cpp20/default_constructible_and_assignable_stateless_lambdas.md) | キャプチャしていないラムダ式をデフォルト構築・代入可能にする | 9 | 8.0 | 2021.4 | 2019 Update 2 |
 | P0767R1: [PODを非推奨化](/lang/cpp20/deprecate_pod.md) | PODという用語を非推奨化する | | | 2021.4 | 2019 Update 5 |
-| P0315R4: [評価されない文脈でのラムダ式](/lang/cpp20/wording_for_lambdas_in_unevaluated_contexts.md) | 評価されない文脈でもラムダ式を書くことができるようにする | 9 | Partial | 2024.0 | 2019 Update 8 |
+| P0315R4: [評価されない文脈でのラムダ式](/lang/cpp20/wording_for_lambdas_in_unevaluated_contexts.md) | 評価されない文脈でもラムダ式を書くことができるようにする | 9 | 17 | 2024.0 | 2019 Update 8 |
 | P0840R2: [空オブジェクトを言語サポート](/lang/cpp20/language_support_for_empty_objects.md) | `[[no_unique_address]]`属性を導入し、空の型のオブジェクトをほかのオブジェクトと共有する最適化を許可する | 9 | 9.0 | 2021.4 | 2019 Update 9 <sup><a href="#note-t1-1" id="note_ref-t1-1">†1</a></sup> |
 | P0962R1: [範囲for文がカスタマイゼーションポイントを見つけるルールを緩和](/lang/cpp20/relaxing_the_range_for_loop_customization_point_finding_rules.md) | `begin()`/`end()`メンバ関数のどちらかが見つからなかった場合に非メンバ関数の`begin()`/`end()`を探しにいく | 8 | 8 | 2021.4 | 2019 Update 5 |
 | P0969R0: [friend指定された関数内から構造化束縛を使用して非公開メンバ変数にアクセスすることを許可](/lang/cpp20/allow_structured_bindings_to_accessible_members.md) | 構造化束縛の仕様として公開メンバ変数のみを取り出せるようになっていたが、friend指定された関数からは非公開メンバ変数にもアクセスできるようにする | 8 | 8.0 | 2021.4 | 2019 |
@@ -191,7 +191,7 @@
 | P0780R2: [ラムダ式の初期化キャプチャでのパック展開を許可](/lang/cpp20/allow_pack_expansion_in_lambda_init_capture.md) | `[...args = std::move(args)]`のようなキャプチャを許可 | 9<br/>10 | 9.0 | 2021.7 | 2019 Update 2 |
 | P0479R5: [確率が高い分岐と低い分岐を伝える属性 `[[likely]]`, `[[unlikely]]`](/lang/cpp20/likely_and_unlikely_attributes.md) | 条件分岐の最適化ヒントを与える属性 | 9 (partial, `switch` 文のみ可能)<br/> 10 | 12.0 | 2021.7 | 2019 Update 6 |
 | P0929R2: [抽象型のチェック](/lang/cpp20/checking_for_abstract_class_types.md) | 関数の宣言段階では、パラメータおよび戻り値型が抽象型かどうかをチェックしないようにする | 11 | | | 2019 Update 5 |
-| P0732R2: [非型テンプレートパラメータとしてクラス型を許可する](/lang/cpp20/class_types_in_non-type_template_parameters.md) | 定数式として使用できる型を広く非型テンプレートパラメータとして使用できるようにする | 9 | partial | 2022.2 Partial | 2019 Update 6 |
+| P0732R2: [非型テンプレートパラメータとしてクラス型を許可する](/lang/cpp20/class_types_in_non-type_template_parameters.md) | 定数式として使用できる型を広く非型テンプレートパラメータとして使用できるようにする | 9 | 12 | 2022.2 Partial | 2019 Update 6 |
 | P0722R3: [可変長データを扱うクラスの効率的な`delete`](/lang/cpp20/efficient_sized_delete_for_variable_sized_classes.md) | クラスの`delete`演算子が呼び出される前にデストラクタが呼ばれないようにするオプションを追加 | 9 | 6.0 | 2023.0 | 2019 Update 7 |
 | P1064R0: [定数式からの仮想関数の呼び出しを許可](/lang/cpp20/allow_virtual_function_calls_in_constant_expressions.md) | 仮想関数に`constexpr`を付けられない制限を解除 | 9 | 9.0 | 2021.4 | 2019 Update 9 |
 | P1327R1: [定数式での`dynamic_cast`、多態的な`typeid`を許可](/lang/cpp20/allowing_dynamic_cast_polymorphic_typeid_in_constant_expressions.md) | 定数式での動的多態を許可 | 10 | 9.0 | 2021.4 | 2019 Update 9 |
