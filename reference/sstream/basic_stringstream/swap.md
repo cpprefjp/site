@@ -6,8 +6,7 @@
 * cpp11[meta cpp]
 
 ```cpp
-void swap(basic_stringstream& rhs);                     // (1) C++11
-void swap(basic_stringstream& rhs) noexcept(see below); // (1) C++17
+void swap(basic_stringstream& rhs);
 ```
 
 ## 概要
@@ -15,9 +14,6 @@ void swap(basic_stringstream& rhs) noexcept(see below); // (1) C++17
 
 ## 効果
 `basic_iostream<CharT, Traits>::swap(rhs)`を呼び出し、`sb.swap(rhs.sb)`を実行する。ここで`sb`は内部の`basic_stringbuf`オブジェクトである。
-
-## 例外
-- C++17 : 実装が例外を投げない場合、この関数は`noexcept`が指定される。
 
 ## 例
 ```cpp example

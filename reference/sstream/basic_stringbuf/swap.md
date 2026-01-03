@@ -6,8 +6,9 @@
 * cpp11[meta cpp]
 
 ```cpp
-void swap(basic_stringbuf& rhs);                     // (1) C++11
-void swap(basic_stringbuf& rhs) noexcept(see below); // (1) C++17
+void swap(basic_stringbuf& rhs); // (1) C++11
+
+void swap(basic_stringbuf& rhs) noexcept(see below); // (1) C++20
 ```
 
 ## 概要
@@ -17,7 +18,7 @@ void swap(basic_stringbuf& rhs) noexcept(see below); // (1) C++17
 `basic_streambuf<CharT, Traits>::swap(rhs)`を呼び出し、`mode`と内部の文字列バッファを`rhs`と交換する。
 
 ## 例外
-- C++17 : 実装が例外を投げない場合、この関数は`noexcept`が指定される。
+- C++20 : `noexcept(see below)` の `see below` は以下と等価である `allocator_­traits<Allocator>​::​propagate_­on_­container_­swap​::​value || allocator_­traits<Allocator>​::​is_­always_­equal​::​value`。
 
 ## 例
 ```cpp example

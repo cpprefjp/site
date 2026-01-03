@@ -8,7 +8,11 @@
 namespace std {
   template<class CharT, class Traits, class Allocator>
   void swap(basic_stringbuf<CharT, Traits, Allocator>& x,
-            basic_stringbuf<CharT, Traits, Allocator>& y);
+            basic_stringbuf<CharT, Traits, Allocator>& y); // (1) C++11
+
+  template<class CharT, class Traits, class Allocator>
+  void swap(basic_stringbuf<CharT, Traits, Allocator>& x,
+            basic_stringbuf<CharT, Traits, Allocator>& y) noexcept(noexcept(x.swap(y))); // (1) C++20
 }
 ```
 
