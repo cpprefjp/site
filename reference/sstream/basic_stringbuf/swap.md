@@ -18,7 +18,7 @@ void swap(basic_stringbuf& rhs) noexcept(see below); // (1) C++20
 `basic_streambuf<CharT, Traits>::swap(rhs)`を呼び出し、`mode`と内部の文字列バッファを`rhs`と交換する。
 
 ## 例外
-- C++20 : `noexcept(see below)` の `see below` は以下と等価である `allocator_­traits<Allocator>​::​propagate_­on_­container_­swap​::​value || allocator_­traits<Allocator>​::​is_­always_­equal​::​value`。
+- C++20 : `noexcept(see below)` の `see below` は以下と等価である `allocator_traits<Allocator>::propagate_on_container_swap::value || allocator_traits<Allocator>::is_always_equal::value`。
 
 ## 例
 ```cpp example
