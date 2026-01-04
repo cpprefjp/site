@@ -83,6 +83,11 @@ cout << buffer; // The answer is 42.
 
 `format_to_n_result{out + M, N}` (ただし、`N` = `formatted_size(fmt, args...)` または `formatted_size(loc, fmt, args...)`、`M` = `min(max(n, 0), N)`)
 
+戻り値のオブジェクトが保持するメンバ変数の意味は以下の通り：
+
+* `out` : 出力範囲の末尾（実際に書き込まれた最後の文字の次）を指す出力イテレータ。
+* `size` : 文字列表現全体を格納するのに必要だった文字数（切り捨てを考慮せず、[`formatted_size`](formatted_size.md)の結果と等しい）。
+
 ## 例外
 
 フォーマット実行時に失敗した場合、[`format_error`](format_error.md)を投げる。
