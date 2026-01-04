@@ -144,7 +144,7 @@ class Wrapper {
   std::iter_difference_t<Out> count_ = 0;
   std::iter_difference_t<Out> max_count_;
   Out out_;
-  
+
 public:
   using value_type = CharT;
 
