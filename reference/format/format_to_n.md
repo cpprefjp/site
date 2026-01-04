@@ -104,16 +104,35 @@ cout << buffer; // The answer is 42.
 
 int main()
 {
-  char buffer[256];
-  auto [end, n] = std::format_to_n(buffer, std::size(buffer)-1, "The answer is {}.", 42);
-  *end = '\0';
-  std::cout << buffer << std::endl;
+  // 十分なバッファサイズがある場合
+  {
+    char buffer[256];
+    auto [out, size] = std::format_to_n(buffer, std::size(buffer)-1, "The answer is {}.", 42);
+    *out = '\0';
+    std::cout << buffer << std::endl;
+    std::cout << "size: " << size << std::endl;
+  }
+
+  // バッファサイズにより切り捨てられる場合
+  {
+    char buffer[10]; // 小さいバッファ
+    // "The answer is 42." は17文字必要だが、バッファは9文字分(null文字分除く)しかない
+    auto [out, size] = std::format_to_n(buffer, std::size(buffer)-1, "The answer is {}.", 42);
+    *out = '\0';
+
+    std::cout << "truncated: " << buffer << std::endl;
+    // size は本来出力されるはずだった長さ (17) を返す
+    std::cout << "required: " << size << std::endl;
+  }
 }
 ```
 
 ### 出力
 ```
 The answer is 42.
+size: 17
+truncated: The answe
+required: 17
 ```
 
 
