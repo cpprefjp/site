@@ -22,33 +22,28 @@ jobs:
           # を超えるようならば、この数はもっと大きくする必要がある。
           CPPREFJP_OPEN_PR_LIST=$(gh pr list --limit=999 --json number -q '.[].number' | tr '\n' ' ')
           CPPREFJP_OPEN_PR_LIST=${CPPREFJP_OPEN_PR_LIST% }
-          export CPPREFJP_OPEN_PR_LIST
+
+          CPPREFJP_CLOSED_PR_LIST=
+          for dir in gen/pull/*; do
+            pr=${dir##*/}
+            case " $CPPREFJP_OPEN_PR_LIST " in
+            (*" $pr "*)
+              ;;
+            (*)
+              CPPREFJP_CLOSED_PR_LIST="$CPPREFJP_CLOSED_PR_LIST $pr" ;;
+            esac
+          done
+          if [ -z "$CPPREFJP_CLOSED_PR_LIST" ]; then
+            exit 0
+          fi
+          export CPPREFJP_CLOSED_PR_LIST
 
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git filter-branch --commit-filter '
-            commit_message=$(git log -n 1 --pretty=format:%s "$GIT_COMMIT")
-            if [ "$commit_message" = preview_clear ]; then
-              # drop a dummy commit by previous preview_clear
-              skip_commit "$@"
-              exit
-            fi
-
-            pr=$(echo "$commit_message" | sed -n '\''s/^Preview PR \([0-9]\{1,\}\).*/\1/p'\'')
-            if [ -n "$pr" ]; then
-              case " $CPPREFJP_OPEN_PR_LIST " in
-              (*" $pr "*)
-                # preserve a commit for an open PR
-                git commit-tree "$@" ;;
-              (*)
-                # drop a commit for a closed PR
-                skip_commit "$@" ;;
-              esac
-              exit
-            fi
-
-            # we preserve all the other commits
-            git commit-tree "$@"
+          git filter-branch --prune-empty -f --index-filter '
+            for pr in $CPPREFJP_CLOSED_PR_LIST; do
+              git rm -rf "gen/pull/$pr" 2>/dev/null || true
+            done
           ' HEAD || true
 
           commit_count=$(git rev-list HEAD --count || true)
