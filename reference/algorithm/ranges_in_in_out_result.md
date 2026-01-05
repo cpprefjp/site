@@ -57,10 +57,10 @@ namespace std::ranges {
 ## 概要
 * (1): 3つのイテレータを格納する型
 * (2): [`ranges::transform`](ranges_transform.md)で使用するエイリアス
-* (2): [`ranges::merge`](ranges_merge.md)で使用するエイリアス
-* (2): [`ranges::set_union`](ranges_set_union.md)で使用するエイリアス
-* (2): [`ranges::set_intersection`](ranges_set_intersection.md)で使用するエイリアス
-* (2): [`ranges::set_symmetric_difference`](ranges_set_symmetric_difference.md)で使用するエイリアス
+* (3): [`ranges::merge`](ranges_merge.md)で使用するエイリアス
+* (4): [`ranges::set_union`](ranges_set_union.md)で使用するエイリアス
+* (5): [`ranges::set_intersection`](ranges_set_intersection.md)で使用するエイリアス
+* (6): [`ranges::set_symmetric_difference`](ranges_set_symmetric_difference.md)で使用するエイリアス
 
 この型は、関数が2つの入力用の範囲と出力用の範囲を受け取る場合に、それぞれ処理した範囲の末尾を返すために使用される。
 
