@@ -23,6 +23,35 @@ jobs:
           CPPREFJP_OPEN_PR_LIST=$(gh pr list --limit=999 --json number -q '.[].number' | tr '\n' ' ')
           CPPREFJP_OPEN_PR_LIST=${CPPREFJP_OPEN_PR_LIST% }
 
+          # Note: 以下は closed PR に関する commit を squash する。原理的にはこ
+          # のステップは不要だが、後の --index-filter の処理コストを軽減するた
+          # めに commit 数を減らしておく。
+          export CPPREFJP_OPEN_PR_LIST
+          git filter-branch --commit-filter '
+            commit_message=$(git log -n 1 --pretty=format:%s "$GIT_COMMIT")
+            if [ "$commit_message" = preview_clear ]; then
+              # drop a dummy commit by previous preview_clear
+              skip_commit "$@"
+              exit
+            fi
+          
+            pr=$(echo "$commit_message" | sed -n '\''s/^Preview PR \([0-9]\{1,\}\).*/\1/p'\'')
+            if [ -n "$pr" ]; then
+              case " $CPPREFJP_OPEN_PR_LIST " in
+              (*" $pr "*)
+                # preserve a commit for an open PR
+                git_commit_non_empty_tree "$@" ;;
+              (*)
+                # drop a commit for a closed PR
+                skip_commit "$@" ;;
+              esac
+              exit
+            fi
+
+            # we preserve all the other commits
+            git_commit_non_empty_tree "$@"
+          '
+
           CPPREFJP_CLOSED_PR_LIST=
           for dir in gen/pull/*; do
             pr=${dir##*/}
