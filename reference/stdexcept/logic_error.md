@@ -30,18 +30,18 @@ namespace std {
 #include <iostream>
 
 int square_root(int num) {
-    if (num < 0) {
-        throw std::invalid_argument("Cannot perform calculations with negative numbers!")
-    }
-    return num * num;
+  if (num < 0) {
+    throw std::invalid_argument("Cannot perform calculations with negative numbers!")
+  }
+  return num * num;
 }
 
 int main() {
-    try {
-        square_root(-5);
-    } catch (const std::logic_error& e) {
-        std::cerr << "Error: " << e.what() << "\n";
-    }
+  try {
+    square_root(-5);
+  } catch (const std::logic_error& e) {
+    std::cerr << "Error: " << e.what() << "\n";
+  }
 }
 ```
 
