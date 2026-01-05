@@ -48,6 +48,7 @@ NGWORD_LIST = [
     ("", "voaltile", "volatile"),
     ("", "Updated upstream", ""),
     ("", "Stashed changes", ""),
+    ("", "イテレーター", "イテレータ"),
     ("", "子ルーチン", "コルーチン"),
     ("", "移譲", "委譲"),
     ("", r'型]\((.*?)\)型', "型](link)"),
