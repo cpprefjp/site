@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
-<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
-<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
-<link rel="manifest" href="../manifest.json?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="manifest" href="../manifest.json?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../static/pygments/default.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
 <!-- <link rel="stylesheet" href="../static/css/root.css"> -->
 
         
   
 
 
-<link href="../static/kunai/css/kunai-stage-0.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
-<link href="../static/kunai/css/kunai-stage-1.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
-<link href="../static/kunai/css/kunai-stage-2.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
-<link href="../static/kunai/css/kunai-stage-3.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
 
-<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
-<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -176,8 +176,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-06-13T03:11:41">
-        2025年06月13日 03時11分41秒
+      <span itemprop="datePublished" content="2025-12-26T08:14:06">
+        2025年12月26日 08時14分06秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -204,6 +204,9 @@
 <div itemprop="articleBody"><h2>概要</h2>
 <p><code>&lt;contracts&gt;</code>ヘッダでは、C++における契約プログラミングのサポートを提供する。</p>
 <p>契約プログラミングは、関数やクラスの前提条件、<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a>、およびアサーションを明示的に指定するプログラミング手法である。これらの条件が満たされない場合、プログラムは契約違反を報告する。</p>
+<p>このヘッダで提供される機能は、<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>の契約違反ハンドラ（<code>handle_contract_violation</code>関数）を記述するために使用することを主な目的としており、契約アサーション（<code>pre</code>、<code>post</code>、<code>contract_assert</code>）を記述するためにこのヘッダをインクルードする必要はない。</p>
+<p>このヘッダのすべての宣言は名前空間<code>std::contracts</code>に属する。</p>
+<h2>列挙型</h2>
 <table border="1" bordercolor="#888" style="border-collapse:collapse">
 <thead>
 <tr>
@@ -215,31 +218,75 @@
 <tbody>
 <tr>
 <td><code><a href="contracts/assertion_kind.html">assertion_kind</a></code></td>
-<td>アサーションの種類 (enum)</td>
+<td>契約アサーションの種類（enum）</td>
 <td>C++26</td>
 </tr>
 <tr>
 <td><code><a href="contracts/evaluation_semantic.html">evaluation_semantic</a></code></td>
-<td>アサーションの評価の種類(enum)</td>
+<td>契約アサーションの評価セマンティクス（enum）</td>
 <td>C++26</td>
 </tr>
 <tr>
 <td><code><a href="contracts/detection_mode.html">detection_mode</a></code></td>
-<td>契約違反の検出モード(enum)</td>
+<td>契約違反の検出方法（enum）</td>
 <td>C++26</td>
 </tr>
+</tbody>
+</table>
+<h2>クラス</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td><code><a href="contracts/contract_violation.html">contract_violation</a></code></td>
 <td>契約違反に関する情報 (class)</td>
 <td>C++26</td>
 </tr>
+</tbody>
+</table>
+<h2>関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td><code><a href="contracts/invoke_default_contract_violation_handler.html">invoke_default_contract_violation_handler</a></code></td>
-<td>デフォルトcontract_violationハンドラー</td>
+<td>デフォルトの契約違反ハンドラを呼び出す（function）</td>
 <td>C++26</td>
 </tr>
 </tbody>
 </table>
+<h2>機能テストマクロ</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>マクロ名</th>
+<th>値</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__cpp_lib_contracts</code></td>
+<td>???</td>
+<td><code>&lt;contracts&gt;</code>ヘッダが利用可能かを検出する</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<p>言語機能（<code>pre</code>、<code>post</code>、<code>contract_assert</code>構文）の検出には<code>__cpp_contracts</code>マクロを使用する。ライブラリと言語機能は異なるベンダーから提供される可能性があるため、別々のマクロが用意されている。</p>
 <h2>バージョン</h2>
 <h3>言語</h3>
 <ul>
@@ -247,10 +294,9 @@
 </ul>
 <h3>処理系</h3>
 <ul>
-<li><a href="../implementation.html#clang">Clang</a>: ?</li>
-<li><a href="../implementation.html#gcc">GCC</a>: ?</li>
-<li><a href="../implementation.html#icc">ICC</a>: ?</li>
-<li><a href="../implementation.html#visual_cpp">Visual C++</a>: ?</li>
+<li><a href="../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../implementation.html#visual_cpp">Visual C++</a>: ??</li>
 </ul>
 <h2>関連項目</h2>
 <ul>
@@ -259,7 +305,7 @@
 </ul>
 <h2>参照</h2>
 <ul>
-<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0542r5.html" target="_blank">P0542R5 Support for contract based programming in C++</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2900r14.pdf" target="_blank">P2900R14 Contracts for C++</a></li>
 </ul></div>
 
       </div>

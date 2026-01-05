@@ -2,14 +2,14 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2025-12-03T14:38:28.004783</updated>
-  <id>3fe2cfbc-3ac8-4795-bc33-62baef48e27d</id>
+  <updated>2026-01-05T09:04:43.814552</updated>
+  <id>b3c2de98-177b-455b-b5a2-ed6696204b8c</id>
 
   
     <entry>
       <title>mblen -- fix(cstdlib/mblen): 内部状態と std::mbrlen を言及</title>
       <link href="https://cpprefjp.github.io/reference/cstdlib/mblen.html"/>
-      <id>3dc288591ad11b8e493dc7638f20c7a00424253a:reference/cstdlib/mblen.md</id>
+      <id>ce88a4e65ada6abad4fcb4c9f4b65c2717622c3c:reference/cstdlib/mblen.md</id>
       <updated>2025-12-03T10:48:37+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/mblen.md b/reference/cstdlib/mblen.md
@@ -55,7 +55,7 @@ index 4bdf01934..c38e3d3d8 100644
     <entry>
       <title>mblen -- fix(cstdlib/mblen): バッファオーバーランの修正</title>
       <link href="https://cpprefjp.github.io/reference/cstdlib/mblen.html"/>
-      <id>4a9b8871d00120f54b5a08b1e0e7e35917b2e56f:reference/cstdlib/mblen.md</id>
+      <id>197e443026f66fd66ac82f136fa57ffe389d597c:reference/cstdlib/mblen.md</id>
       <updated>2025-12-03T11:01:35+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/mblen.md b/reference/cstdlib/mblen.md
@@ -117,7 +117,7 @@ index e20519737..4bdf01934 100644
     <entry>
       <title>mblen -- fix(cstdlib/mblen): 諸々の修正</title>
       <link href="https://cpprefjp.github.io/reference/cstdlib/mblen.html"/>
-      <id>0d0c489493c7f6a765eca712991593caa0165687:reference/cstdlib/mblen.md</id>
+      <id>bcbae438db36ab08cb78823e8a6be345694bb773:reference/cstdlib/mblen.md</id>
       <updated>2025-12-03T10:28:57+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/mblen.md b/reference/cstdlib/mblen.md
@@ -158,98 +158,6 @@ index 4cdcd924d..e20519737 100644
       <author>
         <name>Koichi Murase</name>
         <email>myoga.murase@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>mblen -- mblenのサンプルコード : ロケールを毎回設定すると重いので文字数計算の外にだした</title>
-      <link href="https://cpprefjp.github.io/reference/cstdlib/mblen.html"/>
-      <id>0b61755bd12efe68418cb790b84cf00cd8667ea5:reference/cstdlib/mblen.md</id>
-      <updated>2025-12-03T10:11:53+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/mblen.md b/reference/cstdlib/mblen.md
-index 838ee668b..4cdcd924d 100644
---- a/reference/cstdlib/mblen.md
-+++ b/reference/cstdlib/mblen.md
-@@ -51,7 +51,6 @@ int main() {
- #include &amp;lt;clocale&amp;gt;
- 
- int count_chars_mblen(const char* s) {
--  std::setlocale(LC_ALL, &amp;#34;ja_JP.UTF-8&amp;#34;);
-   int count = 0;
-   size_t i = 0;
-   while (s[i] != &amp;#39;\0&amp;#39;) {
-@@ -66,6 +65,8 @@ int count_chars_mblen(const char* s) {
- }
- 
- int main() {
-+  std::setlocale(LC_ALL, &amp;#34;ja_JP.UTF-8&amp;#34;);
-+
-   const char* str = &amp;#34;こんにちは世界&amp;#34;;
-   std::cout &amp;lt;&amp;lt; &amp;#34;文字列: &amp;#34; &amp;lt;&amp;lt; str &amp;lt;&amp;lt; &amp;#34;\n&amp;#34;;
-   std::cout &amp;lt;&amp;lt; &amp;#34;文字数: &amp;#34; &amp;lt;&amp;lt; count_chars_mblen(str) &amp;lt;&amp;lt; &amp;#34;\n&amp;#34;;
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>mblen -- mblen : インデントを4から2に変更</title>
-      <link href="https://cpprefjp.github.io/reference/cstdlib/mblen.html"/>
-      <id>f73e9f6b98d891f84a1ba174e5243e41ed2ac897:reference/cstdlib/mblen.md</id>
-      <updated>2025-12-03T10:11:02+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/mblen.md b/reference/cstdlib/mblen.md
-index 3154cca3c..838ee668b 100644
---- a/reference/cstdlib/mblen.md
-+++ b/reference/cstdlib/mblen.md
-@@ -51,24 +51,24 @@ int main() {
- #include &amp;lt;clocale&amp;gt;
- 
- int count_chars_mblen(const char* s) {
--    std::setlocale(LC_ALL, &amp;#34;ja_JP.UTF-8&amp;#34;);
--    int count = 0;
--    size_t i = 0;
--    while (s[i] != &amp;#39;\0&amp;#39;) {
--        int len = std::mblen(&amp;amp;s[i], MB_CUR_MAX);
--        if (len &amp;lt; 0) {
--            len = 1;
--        }
--        i += len;
--        count++;
-+  std::setlocale(LC_ALL, &amp;#34;ja_JP.UTF-8&amp;#34;);
-+  int count = 0;
-+  size_t i = 0;
-+  while (s[i] != &amp;#39;\0&amp;#39;) {
-+    int len = std::mblen(&amp;amp;s[i], MB_CUR_MAX);
-+    if (len &amp;lt; 0) {
-+      len = 1;
-     }
--    return count;
-+    i += len;
-+    count++;
-+  }
-+  return count;
- }
- 
- int main() {
--    const char* str = &amp;#34;こんにちは世界&amp;#34;;
--    std::cout &amp;lt;&amp;lt; &amp;#34;文字列: &amp;#34; &amp;lt;&amp;lt; str &amp;lt;&amp;lt; &amp;#34;\n&amp;#34;;
--    std::cout &amp;lt;&amp;lt; &amp;#34;文字数: &amp;#34; &amp;lt;&amp;lt; count_chars_mblen(str) &amp;lt;&amp;lt; &amp;#34;\n&amp;#34;;
-+  const char* str = &amp;#34;こんにちは世界&amp;#34;;
-+  std::cout &amp;lt;&amp;lt; &amp;#34;文字列: &amp;#34; &amp;lt;&amp;lt; str &amp;lt;&amp;lt; &amp;#34;\n&amp;#34;;
-+  std::cout &amp;lt;&amp;lt; &amp;#34;文字数: &amp;#34; &amp;lt;&amp;lt; count_chars_mblen(str) &amp;lt;&amp;lt; &amp;#34;\n&amp;#34;;
- }
- ```
- 
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
       </author>
     </entry>
   

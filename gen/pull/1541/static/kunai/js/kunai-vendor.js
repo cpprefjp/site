@@ -1609,12 +1609,47 @@ var Database = /*#__PURE__*/function () {
           var ns = _step4.value;
           targets.push.apply(targets, (0,toConsumableArray/* default */.A)(ns.query(q)));
         }
+
+        // 検索クエリとの完全一致を優先するソート
       } catch (err) {
         _iterator4.e(err);
       } finally {
         _iterator4.f();
       }
-      var grouped_targets = targets.sort(Index.compare).slice(0, max_count).reduce(function (gr, index) {
+      var grouped_targets = targets.sort(function (aidx, bidx) {
+        // 名前の最後の部分（名前空間を除いた部分）を取得
+        var getLastPart = function getLastPart(name) {
+          var parts = name.split('::');
+          return parts[parts.length - 1];
+        };
+
+        // 検索クエリとの完全一致を判定（フル名）
+        var aExactFull = q._and.some(function (s) {
+          return aidx._name === s;
+        });
+        var bExactFull = q._and.some(function (s) {
+          return bidx._name === s;
+        });
+
+        // 完全一致（フル名）を最優先
+        if (aExactFull && !bExactFull) return -1;
+        if (!aExactFull && bExactFull) return 1;
+
+        // 名前空間を除いた部分での完全一致を判定
+        var aExactPart = q._and.some(function (s) {
+          return getLastPart(aidx._name) === s;
+        });
+        var bExactPart = q._and.some(function (s) {
+          return getLastPart(bidx._name) === s;
+        });
+
+        // 名前空間を除いた部分での完全一致を次に優先
+        if (aExactPart && !bExactPart) return -1;
+        if (!aExactPart && bExactPart) return 1;
+
+        // 完全一致でない場合、元のcompareロジックを使用
+        return Index.compare(aidx, bidx);
+      }).slice(0, max_count).reduce(function (gr, index) {
         var hdr = index.in_header;
         var indexes = gr.get(hdr);
         if (!indexes) {
@@ -2199,7 +2234,7 @@ var CRSearch = /*#__PURE__*/function () {
                 cr_info_link = crsearch_crsearch_$('<a />');
                 cr_info_link.attr('href', CRSearch._HOMEPAGE);
                 cr_info_link.attr('target', '_blank');
-                cr_info_link.text("".concat(CRSearch._APPNAME, " v").concat({"version":"3.0.23","bugs_url":"https://github.com/cpprefjp/crsearch/issues"}.version));
+                cr_info_link.text("".concat(CRSearch._APPNAME, " v").concat({"version":"3.0.26","bugs_url":"https://github.com/cpprefjp/crsearch/issues"}.version));
                 cr_info_link.appendTo(cr_info);
                 cr_info.appendTo(result_wrapper);
                 input.on('focusin', function () {

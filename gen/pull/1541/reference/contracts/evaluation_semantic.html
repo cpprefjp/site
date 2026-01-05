@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
-<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
-<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
-<link rel="manifest" href="../../manifest.json?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="manifest" href="../../manifest.json?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73">
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
 <!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
 
-<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
-<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=759f03fc15b30d6368ce2e93b7017b1d9cee9a73"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-06-11T14:15:20">
-        2025年06月11日 14時15分20秒
+      <span itemprop="datePublished" content="2025-12-26T09:09:21">
+        2025年12月26日 09時09分21秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Raclamusi</span>
+        <span itemprop="name">rotarymars</span>
       </span>
       が更新
     </small></p>
@@ -226,6 +226,39 @@
 </p>
 <h2>概要</h2>
 <p>契約違反をどのように評価するかを表す列挙型。</p>
+<p>これの他に、<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>のものを定めてもよい。</p>
+<h3>列挙子</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>列挙子</th>
+<th>値</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ignore</code></td>
+<td>1</td>
+<td><a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>を評価しない</td>
+</tr>
+<tr>
+<td><code>observe</code></td>
+<td>2</td>
+<td><a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>を評価し、違反時にハンドラを呼ぶが、実行を継続する</td>
+</tr>
+<tr>
+<td><code>enforce</code></td>
+<td>3</td>
+<td><a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>を評価し、違反時にハンドラを呼び、その後プログラムを終了する</td>
+</tr>
+<tr>
+<td><code>quick_enforce</code></td>
+<td>4</td>
+<td><a class="cpprefjp-defined-word" data-desc="boolを返す関数・関数オブジェクト。predicate">述語</a>を評価し、違反時にハンドラを呼ばずにプログラムを終了する</td>
+</tr>
+</tbody>
+</table>
 <h2>バージョン</h2>
 <h3>言語</h3>
 <ul>
@@ -245,7 +278,7 @@
 </ul>
 <h2>参照</h2>
 <ul>
-<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0542r5.html" target="_blank">P0542R5 Support for contract based programming in C++</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2900r14.pdf" target="_blank">P2900R14 Contracts for C++</a></li>
 </ul></div>
 
       </div>
