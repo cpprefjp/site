@@ -23,7 +23,7 @@ namespace std::ranges {
 
 ## 概要
 
-初期値の指定を省略する[`fold_right`](./ranges_fold_right.md)。入力範囲の末尾要素が初期値として使用される。
+初期値の指定を省略する[`fold_right`](ranges_fold_right.md)。入力範囲の末尾要素が初期値として使用される。
 
 - (1) : 入力としてイテレータ範囲をとるオーバーロード
 - (2) : 入力として範囲を直接とるオーバーロード
@@ -41,7 +41,7 @@ namespace std::ranges {
 
 `indirectly-binary-right-foldable`は`F`の引数順が逆になることを除いて[`indirectly-binary-left-foldable`](ranges_fold_left.md)と同様の制約となる。
 
-`indirectly-binary-left-foldable`では、初期値の型`T`が戻り値型（積算値の型）`U`に変換可能であることが要求（[`convertible_to`](/reference/concepts/convertible_to.md)`<T, U>`）されており、この関数では初期値の型を指定できない（`range_value_t<R>`が使用される）ため戻り値型を大きく制御することが困難になる（例えば、[`fold_right`](./ranges_fold_right.md)の例にある入力範囲を反転させる例の様なことは素直にはできない）。
+`indirectly-binary-left-foldable`では、初期値の型`T`が戻り値型（積算値の型）`U`に変換可能であることが要求（[`convertible_to`](/reference/concepts/convertible_to.md)`<T, U>`）されており、この関数では初期値の型を指定できない（`range_value_t<R>`が使用される）ため戻り値型を大きく制御することが困難になる（例えば、[`fold_right`](ranges_fold_right.md)の例にある入力範囲を反転させる例の様なことは素直にはできない）。
 
 ## 戻り値
 

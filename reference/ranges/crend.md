@@ -22,8 +22,8 @@ Rangeの先頭の前を指す、読み取り専用逆イテレータもしくは
     1. `E`がlvalueであれば、[`ranges::rend`](rend.md)`(static_cast<const T&>(E))`
     2. それ以外の場合、[`ranges::rend`](rend.md)`(static_cast<const T&&>(E))`
 - C++23から
-    1. `E`が右辺値であり、[`enable_borrowed_range`](./enable_borrowed_range.md)`<remove_cv_t<T>>`が`false`となる場合、`ranges::crend(E)`は不適格
-    2. それ以外の場合、式`U`を[`ranges::rend`](rend.md)`(`[`possibly-const-range`](./possibly-const-range.md)`(t))`とすると、[`const_sentinel`](/reference/iterator/const_sentinel.md)`<decltype(U)>(U)`
+    1. `E`が右辺値であり、[`enable_borrowed_range`](enable_borrowed_range.md)`<remove_cv_t<T>>`が`false`となる場合、`ranges::crend(E)`は不適格
+    2. それ以外の場合、式`U`を[`ranges::rend`](rend.md)`(`[`possibly-const-range`](possibly-const-range.md)`(t))`とすると、[`const_sentinel`](/reference/iterator/const_sentinel.md)`<decltype(U)>(U)`
 
 ## 戻り値
 Rangeの先頭の前を指す、読み取り専用逆イテレータもしくは番兵。

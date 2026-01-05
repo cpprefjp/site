@@ -332,7 +332,7 @@ int main()
 }
 ```
 
-ただしこのバグはコンテナの参照を返すメンバ関数(上記では`get_vector`)に[左辺値修飾](./ref_qualifier_for_this.md)することで防げる場合もある
+ただしこのバグはコンテナの参照を返すメンバ関数(上記では`get_vector`)に[左辺値修飾](ref_qualifier_for_this.md)することで防げる場合もある
 
 ```cpp example
 #include <initializer_list>
@@ -368,7 +368,7 @@ int main()
 - [C++17 範囲forの制限緩和 — `begin` と `end` の型が異なることを許可](/lang/cpp17/generalizing_the_range-based_for_loop.md)
 - [C++20 範囲for文がカスタマイゼーションポイントを見つけるルールを緩和](/lang/cpp20/relaxing_the_range_for_loop_customization_point_finding_rules.md)
 - [C++23 範囲for文が範囲初期化子内で生じた一時オブジェクトを延命することを規定](/lang/cpp23/lifetime_extension_in_range_based_for_loop.md)
-- [メンバ関数の左辺値／右辺値修飾](./ref_qualifier_for_this.md)
+- [メンバ関数の左辺値／右辺値修飾](ref_qualifier_for_this.md)
 
 ## 参照
 - [N2930 Range-Based For Loop Wording (Without Concepts)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2930.html)

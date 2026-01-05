@@ -289,7 +289,7 @@ C++20のコンセプトの導入によって、コンセプトによって特殊
 
 ## <a id="relative-page" href="#relative-page">関連項目</a>
 
-- [コンセプト](./concepts.md)
+- [コンセプト](concepts.md)
 
 ## 参照
 

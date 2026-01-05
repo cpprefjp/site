@@ -72,7 +72,7 @@ struct closure {
 
 ## 例
 
-以下の例では、「[評価されない文脈でのラムダ式](./wording_for_lambdas_in_unevaluated_contexts.md)」による仕様を同時に用いている。
+以下の例では、「[評価されない文脈でのラムダ式](wording_for_lambdas_in_unevaluated_contexts.md)」による仕様を同時に用いている。
 
 ### 連想コンテナの比較をカスタマイズする
 
@@ -161,10 +161,10 @@ set1 = set2;  // C++17まではコンパイルエラー
 
 ラムダ式は関数オブジェクトを生成する糖衣構文であるが、これらのことは対応する関数オブジェクトを直接書いた場合と一貫しておらず不便であるため、状態を持たないラムダ式に限ってデフォルト構築と代入が可能になるように変更された。
 
-C++20では同時に[評価されない文脈にラムダ式を書くことができるようになった](./wording_for_lambdas_in_unevaluated_contexts.md)ため、この様な場合にラムダ式のクロージャ型を直接取得し渡すことができ、余計なコードをほとんど削減することができるようになる。
+C++20では同時に[評価されない文脈にラムダ式を書くことができるようになった](wording_for_lambdas_in_unevaluated_contexts.md)ため、この様な場合にラムダ式のクロージャ型を直接取得し渡すことができ、余計なコードをほとんど削減することができるようになる。
 
 ## <a id="relative-page" href="#relative-page">関連項目</a>
-- [評価されない文脈でのラムダ式](./wording_for_lambdas_in_unevaluated_contexts.md)
+- [評価されない文脈でのラムダ式](wording_for_lambdas_in_unevaluated_contexts.md)
 
 ## 参照
 - [P0624R2 Default constructible and assignable stateless lambdas](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0624r2.pdf)

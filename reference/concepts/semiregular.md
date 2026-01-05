@@ -14,7 +14,7 @@ namespace std {
 
 ## 概要
 
-`semiregular`は、任意の型`T`が[`copyable`](./copyable.md)コンセプトを満たし、それに加えてデフォルト構築可能であることを表すコンセプトである。
+`semiregular`は、任意の型`T`が[`copyable`](copyable.md)コンセプトを満たし、それに加えてデフォルト構築可能であることを表すコンセプトである。
 
 半正則（*semiregular*）な型とは`int`型などの[基本型](/reference/type_traits/is_fundamental.md)の様に扱うことができる型を表しているが、`==`による等値比較が必ずしも可能ではない。
 
@@ -83,7 +83,7 @@ copyable is not semiregular
 ## 関連項目
 
 - [C++20 コンセプト](/lang/cpp20/concepts.md)
-- [`regular`](./regular.md)
+- [`regular`](regular.md)
 
 ## 参照
 

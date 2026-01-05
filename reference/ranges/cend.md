@@ -22,8 +22,8 @@ Rangeから、最後尾要素の次を指す読み取り専用イテレータも
     1. `E`がlvalueであれば、[`ranges::end`](end.md)`(static_cast<const T&>(E))`
     2. それ以外の場合、[`ranges::end`](end.md)`(static_cast<const T&&>(E))`
 - C++23から
-    1. `E`が右辺値であり、[`enable_borrowed_range`](./enable_borrowed_range.md)`<remove_cv_t<T>>`が`false`となる場合、`ranges::cend(E)`は不適格
-    2. それ以外の場合、式`U`を[`ranges::end`](end.md)`(`[`possibly-const-range`](./possibly-const-range.md)`(t))`とすると、[`const_sentinel`](/reference/iterator/const_sentinel.md)`<decltype(U)>(U)`
+    1. `E`が右辺値であり、[`enable_borrowed_range`](enable_borrowed_range.md)`<remove_cv_t<T>>`が`false`となる場合、`ranges::cend(E)`は不適格
+    2. それ以外の場合、式`U`を[`ranges::end`](end.md)`(`[`possibly-const-range`](possibly-const-range.md)`(t))`とすると、[`const_sentinel`](/reference/iterator/const_sentinel.md)`<decltype(U)>(U)`
 
 ## 戻り値
 最後尾要素の次を指す読み取り専用イテレータもしくは番兵。

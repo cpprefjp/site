@@ -67,7 +67,7 @@ namespace std::ranges {
            10 + 5 -> fold_left(rng, 0, +)
 ```
 
-[`fold_right`](./ranges_fold_right.md)に対しては、入力範囲の先頭から末尾に向かって処理を進めていく点が異なる。
+[`fold_right`](ranges_fold_right.md)に対しては、入力範囲の先頭から末尾に向かって処理を進めていく点が異なる。
 
 ## 引数
 
