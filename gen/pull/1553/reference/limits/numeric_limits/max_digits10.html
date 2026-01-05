@@ -1,0 +1,363 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>numeric_limits::max_digits10 - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,limits,std,numeric_limits,variable,cpp11
+">
+        <meta name="title" content="numeric_limits::max_digits10 - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="numeric_limits::max_digits10 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="numeric_limits::max_digits10 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/limits/numeric_limits/max_digits10.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`max_digits10`は、`T`が浮動小数点数型のとき意味を持つ。  " />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="numeric_limits::max_digits10 - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/limits/numeric_limits/max_digits10.html" />
+        <meta name="twitter:description" content="`max_digits10`は、`T`が浮動小数点数型のとき意味を持つ。  " />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="manifest" href="../../../manifest.json?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;limits&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;numeric_limits&#34;], &#34;id-type&#34;: [&#34;variable&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;68838fea90c262e5577093edee2a12dea303bbf2&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;limits&gt;\n#include &lt;cmath&gt;\n#include &lt;sstream&gt;\n#include &lt;bitset&gt;\n#include &lt;cstring&gt;\n\nstd::string make_float_string(float f, int digits) {\n  std::stringstream s;\n  s.precision(digits);\n  s &lt;&lt; std::scientific &lt;&lt; f;\n  return s.str();\n}\n\nstd::uint32_t float_to_uint(float f) {\n    std::uint32_t result = 0;\n    std::memcpy(&amp;result, &amp;f, sizeof(std::uint32_t));\n    return result;\n}\n\nstd::string make_bit_string(float f) {\n    return std::bitset&lt;32&gt;(float_to_uint(f)).to_string();\n}\n\nint main()\n{\n  using limits = std::numeric_limits&lt;float&gt;;\n\n  std::cout &lt;&lt; \&#34;float digits10 : \&#34; &lt;&lt; limits::digits10 &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;float max_digits10 : \&#34; &lt;&lt; limits::max_digits10 &lt;&lt; std::endl;\n  std::cout &lt;&lt; std::endl;\n\n  // digits10\u3068max_digits10\u3067\u306e\u3001\n  // \u4e0b\u4f4d\u6570\u30d3\u30c3\u30c8\u304c\u7570\u306a\u308b\u6d6e\u52d5\u5c0f\u6570\u70b9\u6570\u306e\u51fa\u529b\u306e\u3055\u308c\u65b9\u3092\u6bd4\u8f03\n  for (int digits : {limits::digits10, limits::max_digits10}) {\n    std::cout &lt;&lt; \&#34;[digits : \&#34; &lt;&lt; digits &lt;&lt; &#39;]&#39; &lt;&lt; std::endl;\n    std::cout &lt;&lt; make_float_string(3.145900f, digits) &lt;&lt; std::endl;\n    std::cout &lt;&lt; make_float_string(std::nextafter(3.145900f, 1.0f), digits) &lt;&lt; std::endl;\n  }\n\n  // \u305d\u308c\u305e\u308c\u306e\u5024\u306e\u30d3\u30c3\u30c8\u5217\u3092\u51fa\u529b\n  std::cout &lt;&lt; \&#34;[bit string]\&#34; &lt;&lt; std::endl;\n  std::cout &lt;&lt; make_bit_string(3.145900f) &lt;&lt; std::endl;\n  std::cout &lt;&lt; make_bit_string(std::nextafter(3.145900f, 1.0f)) &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;limits&#34;, &#34;numeric_limits&#34;, &#34;max_digits10&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/limits.html" itemprop="url">
+              
+                <span itemprop="name">limits</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/limits/numeric_limits.html" itemprop="url">
+              
+                <span itemprop="name">numeric_limits</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">max_digits10</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-09-27T16:03:34">
+        2025年09月27日 16時03分34秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Raclamusi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/limits/numeric_limits/max_digits10.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/limits/numeric_limits/max_digits10.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">variable</div><div class="header">&lt;limits&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class numeric_limits">numeric_limits::</span><span class="token">max_digits10</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">static</span> <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">max_digits10</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>max_digits10</code>は、<code>T</code>が浮動小数点数型のとき意味を持つ。  </p>
+<p>基数<code>radix</code>の浮動小数点数を、仮数部がn桁で基数10の浮動小数点数に変換してまた元の基数<code>radix</code>の浮動小数点数に変換することを考える。<br />
+<code>max_digits10</code>は、上の変換によって元の浮動小数点数の値が変化しないようなnのうち、最小のものを表す。</p>
+<p>通常、浮動小数点数を文字列などに変換する場合には出力精度 (小数点以下の桁数) として<code><a href="digits10.html">digits10</a></code> (デフォルト) を使用すれば十分である。しかしその精度では、下位数ビットが異なる値を同値とみなしてしまう場合がある。<code>max_digits10</code>を出力精度として使用することで、そのような値の違いに気づくことができる。</p>
+<p><code>max_digits10</code>は <code><a href="digits.html">digits</a></code> を用いて次のように計算できる：  </p>
+<p><code>(Is radix power of 10) ? digits * log10(radix) : ceil(1 + digits * log10(radix))</code></p>
+<p>対応するマクロを次の表に挙げる。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>型</th>
+<th>対応するマクロ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>float</code></td>
+<td><code><a href="../../cfloat/flt_decimal_dig.html">FLT_DECIMAL_DIG</a></code></td>
+</tr>
+<tr>
+<td><code>double</code></td>
+<td><code><a href="../../cfloat/dbl_decimal_dig.html">DBL_DECIMAL_DIG</a></code></td>
+</tr>
+<tr>
+<td><code>long double</code></td>
+<td><code><a href="../../cfloat/ldbl_decimal_dig.html">LDBL_DECIMAL_DIG</a></code></td>
+</tr>
+</tbody>
+</table>
+<p>なお、<code>is_specialized == false</code>もしくは浮動小数点数型以外の場合、<code>max_digits10</code>は<code>0</code>となる。</p>
+<h2>例</h2>
+<p><div class="yata" id="68838fea90c262e5577093edee2a12dea303bbf2"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../limits.html">&lt;limits&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../cmath.html">&lt;cmath&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../sstream.html">&lt;sstream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../bitset.html">&lt;bitset&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../cstring.html">&lt;cstring&gt;</a></span><span class="cp"></span>
+
+<span class="n"><a href="../../string/basic_string.html">std::string</a></span> <span class="nf">make_float_string</span><span class="p">(</span><span class="kt">float</span> <span class="n">f</span><span class="p">,</span> <span class="kt">int</span> <span class="n">digits</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n"><a href="../../sstream/basic_stringstream.html">std::stringstream</a></span> <span class="n">s</span><span class="p">;</span>
+  <span class="n">s</span><span class="p">.</span><span class="n"><a href="../../ios/ios_base/precision.html">precision</a></span><span class="p">(</span><span class="n">digits</span><span class="p">);</span>
+  <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ios/scientific.html">std::scientific</a></span> <span class="o">&lt;&lt;</span> <span class="n">f</span><span class="p">;</span>
+  <span class="k">return</span> <span class="n"><a href="../../sstream/basic_stringstream/str.html">s.str()</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n"><a href="../../cstdint/uint32_t.html">std::uint32_t</a></span> <span class="nf">float_to_uint</span><span class="p">(</span><span class="kt">float</span> <span class="n">f</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../../cstdint/uint32_t.html">std::uint32_t</a></span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">memcpy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">result</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">f</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n"><a href="../../cstdint/uint32_t.html">std::uint32_t</a></span><span class="p">));</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n"><a href="../../string/basic_string.html">std::string</a></span> <span class="nf">make_bit_string</span><span class="p">(</span><span class="kt">float</span> <span class="n">f</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n"><a href="../../bitset/bitset.html">std::bitset</a></span><span class="o">&lt;</span><span class="mi">32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">float_to_uint</span><span class="p">(</span><span class="n">f</span><span class="p">)).</span><span class="n">to_string</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">using</span> <span class="n">limits</span> <span class="o">=</span> <span class="n"><a href="../numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">;</span>
+
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"float <a href="digits10.html">digits10</a> : "</span> <span class="o">&lt;&lt;</span> <span class="n">limits</span><span class="o">::</span><span class="n"><a href="digits10.html">digits10</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"float <span style="color:#ff0000">max_digits10</span> : "</span> <span class="o">&lt;&lt;</span> <span class="n">limits</span><span class="o">::</span><span class="n"><span style="color:#ff0000">max_digits10</span></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// <a href="digits10.html">digits10</a>と<span style="color:#ff0000">max_digits10</span>での、</span>
+  <span class="c1">// 下位数ビットが異なる浮動小数点数の出力のされ方を比較</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">digits</span> <span class="p">:</span> <span class="p">{</span><span class="n">limits</span><span class="o">::</span><span class="n"><a href="digits10.html">digits10</a></span><span class="p">,</span> <span class="n">limits</span><span class="o">::</span><span class="n"><span style="color:#ff0000">max_digits10</span></span><span class="p">})</span> <span class="p">{</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"[digits : "</span> <span class="o">&lt;&lt;</span> <span class="n">digits</span> <span class="o">&lt;&lt;</span> <span class="sc">']'</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">make_float_string</span><span class="p">(</span><span class="mf">3.145900f</span><span class="p">,</span> <span class="n">digits</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">make_float_string</span><span class="p">(</span><span class="n"><a href="../../cmath/nextafter.html">std::nextafter</a></span><span class="p">(</span><span class="mf">3.145900f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">),</span> <span class="n">digits</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// それぞれの値のビット列を出力</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"[bit string]"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">make_bit_string</span><span class="p">(</span><span class="mf">3.145900f</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">make_bit_string</span><span class="p">(</span><span class="n"><a href="../../cmath/nextafter.html">std::nextafter</a></span><span class="p">(</span><span class="mf">3.145900f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">))</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力例</h3>
+<p><pre><code>float digits10 : 6
+float max_digits10 : 9
+
+[digits : 6]
+3.145900e+00
+3.145900e+00
+[digits : 9]
+3.145900011e+00
+3.145899773e+00
+[bit string]
+01000000010010010101011001101101
+01000000010010010101011001101100
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: 3.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: 4.5.4 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#icc">ICC</a>: ?</li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: 2010 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2012 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2013 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2015 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2017 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<h3>参照</h3>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1822.pdf" target="_blank">A Proposal to add a max significant decimal digits value to the C++ Standard Library Numeric limits</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2026-01-05T09:31:38.931028</updated>
+  <id>58096368-eacf-4dc0-8dd4-6bda497eb999</id>
+
+  
+    <entry>
+      <title>concat_view -- fix: イテレーター -&gt; イテレータ</title>
+      <link href="https://cpprefjp.github.io/reference/ranges/concat_view.html"/>
+      <id>c7bb02513affbd46591ea4af06a6861e0ad0deb2:reference/ranges/concat_view.md</id>
+      <updated>2026-01-05T18:18:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ranges/concat_view.md b/reference/ranges/concat_view.md
+index 23109df85..69bb43888 100644
+--- a/reference/ranges/concat_view.md
++++ b/reference/ranges/concat_view.md
+@@ -41,7 +41,7 @@ namespace std::ranges {
+ 
+ - それらの要素に共通の値型`Cv`、参照型`Cr`、右辺値参照型`Crr` が存在し、
+ - `Cr&amp;amp;&amp;amp;`と`Cv&amp;amp;`、`Cr&amp;amp;&amp;amp;`と`Crr&amp;amp;&amp;amp;`、`Crr&amp;amp;&amp;amp;`と`Cv const&amp;amp;`にそれぞれ共通の参照型があり、
+-- 連結するすべてのビューのイテレーター`it`について、
++- 連結するすべてのビューのイテレータ`it`について、
+     - `*it`が`Cr`に変換可能であり、
+     - `ranges::iter_move(it)`が`Crr`に変換可能であること。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>範囲for文 [N2930] -- fix: 内部リンクの ./ を削除 (follow-up 581ab3f8) (#1552)</title>
+      <link href="https://cpprefjp.github.io/lang/cpp11/range_based_for.html"/>
+      <id>34424d2dd03fe77a8a63a3e716a440cd20b16bc4:lang/cpp11/range_based_for.md</id>
+      <updated>2026-01-05T17:09:29+08:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp11/range_based_for.md b/lang/cpp11/range_based_for.md
+index c074f1ba6..1480b6fd6 100644
+--- a/lang/cpp11/range_based_for.md
++++ b/lang/cpp11/range_based_for.md
+@@ -332,7 +332,7 @@ int main()
+ }
+ ```
+ 
+-ただしこのバグはコンテナの参照を返すメンバ関数(上記では`get_vector`)に[左辺値修飾](./ref_qualifier_for_this.md)することで防げる場合もある
++ただしこのバグはコンテナの参照を返すメンバ関数(上記では`get_vector`)に[左辺値修飾](ref_qualifier_for_this.md)することで防げる場合もある
+ 
+ ```cpp example
+ #include &amp;lt;initializer_list&amp;gt;
+@@ -368,7 +368,7 @@ int main()
+ - [C++17 範囲forの制限緩和 — `begin` と `end` の型が異なることを許可](/lang/cpp17/generalizing_the_range-based_for_loop.md)
+ - [C++20 範囲for文がカスタマイゼーションポイントを見つけるルールを緩和](/lang/cpp20/relaxing_the_range_for_loop_customization_point_finding_rules.md)
+ - [C++23 範囲for文が範囲初期化子内で生じた一時オブジェクトを延命することを規定](/lang/cpp23/lifetime_extension_in_range_based_for_loop.md)
+-- [メンバ関数の左辺値／右辺値修飾](./ref_qualifier_for_this.md)
++- [メンバ関数の左辺値／右辺値修飾](ref_qualifier_for_this.md)
+ 
+ ## 参照
+ - [N2930 Range-Based For Loop Wording (Without Concepts)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2930.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>条件付きで特殊メンバ関数をトリビアルに定義するように [P0848R3] -- fix: 内部リンクの ./ を削除 (follow-up 581ab3f8) (#1552)</title>
+      <link href="https://cpprefjp.github.io/lang/cpp20/conditionally_trivial_special_member_functions.html"/>
+      <id>34424d2dd03fe77a8a63a3e716a440cd20b16bc4:lang/cpp20/conditionally_trivial_special_member_functions.md</id>
+      <updated>2026-01-05T17:09:29+08:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp20/conditionally_trivial_special_member_functions.md b/lang/cpp20/conditionally_trivial_special_member_functions.md
+index 07a2acce1..2aa5c48e9 100644
+--- a/lang/cpp20/conditionally_trivial_special_member_functions.md
++++ b/lang/cpp20/conditionally_trivial_special_member_functions.md
+@@ -289,7 +289,7 @@ C++20のコンセプトの導入によって、コンセプトによって特殊
+ 
+ ## &amp;lt;a id=&amp;#34;relative-page&amp;#34; href=&amp;#34;#relative-page&amp;#34;&amp;gt;関連項目&amp;lt;/a&amp;gt;
+ 
+-- [コンセプト](./concepts.md)
++- [コンセプト](concepts.md)
+ 
+ ## 参照
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>状態を持たないラムダ式を、デフォルト構築可能、代入可能とする [P0624R2] -- fix: 内部リンクの ./ を削除 (follow-up 581ab3f8) (#1552)</title>
+      <link href="https://cpprefjp.github.io/lang/cpp20/default_constructible_and_assignable_stateless_lambdas.html"/>
+      <id>34424d2dd03fe77a8a63a3e716a440cd20b16bc4:lang/cpp20/default_constructible_and_assignable_stateless_lambdas.md</id>
+      <updated>2026-01-05T17:09:29+08:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp20/default_constructible_and_assignable_stateless_lambdas.md b/lang/cpp20/default_constructible_and_assignable_stateless_lambdas.md
+index 107b1e7d7..26ef2b02e 100644
+--- a/lang/cpp20/default_constructible_and_assignable_stateless_lambdas.md
++++ b/lang/cpp20/default_constructible_and_assignable_stateless_lambdas.md
+@@ -72,7 +72,7 @@ struct closure {
+ 
+ ## 例
+ 
+-以下の例では、「[評価されない文脈でのラムダ式](./wording_for_lambdas_in_unevaluated_contexts.md)」による仕様を同時に用いている。
++以下の例では、「[評価されない文脈でのラムダ式](wording_for_lambdas_in_unevaluated_contexts.md)」による仕様を同時に用いている。
+ 
+ ### 連想コンテナの比較をカスタマイズする
+ 
+@@ -161,10 +161,10 @@ set1 = set2;  // C++17まではコンパイルエラー
+ 
+ ラムダ式は関数オブジェクトを生成する糖衣構文であるが、これらのことは対応する関数オブジェクトを直接書いた場合と一貫しておらず不便であるため、状態を持たないラムダ式に限ってデフォルト構築と代入が可能になるように変更された。
+ 
+-C++20では同時に[評価されない文脈にラムダ式を書くことができるようになった](./wording_for_lambdas_in_unevaluated_contexts.md)ため、この様な場合にラムダ式のクロージャ型を直接取得し渡すことができ、余計なコードをほとんど削減することができるようになる。
++C++20では同時に[評価されない文脈にラムダ式を書くことができるようになった](wording_for_lambdas_in_unevaluated_contexts.md)ため、この様な場合にラムダ式のクロージャ型を直接取得し渡すことができ、余計なコードをほとんど削減することができるようになる。
+ 
+ ## &amp;lt;a id=&amp;#34;relative-page&amp;#34; href=&amp;#34;#relative-page&amp;#34;&amp;gt;関連項目&amp;lt;/a&amp;gt;
+-- [評価されない文脈でのラムダ式](./wording_for_lambdas_in_unevaluated_contexts.md)
++- [評価されない文脈でのラムダ式](wording_for_lambdas_in_unevaluated_contexts.md)
+ 
+ ## 参照
+ - [P0624R2 Default constructible and assignable stateless lambdas](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0624r2.pdf)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>型の文脈でtypenameの省略を許可 [P0634R3] -- fix: 内部リンクの ./ を削除 (follow-up 581ab3f8) (#1552)</title>
+      <link href="https://cpprefjp.github.io/lang/cpp20/down_with_typename.html"/>
+      <id>34424d2dd03fe77a8a63a3e716a440cd20b16bc4:lang/cpp20/down_with_typename.md</id>
+      <updated>2026-01-05T17:09:29+08:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp20/down_with_typename.md b/lang/cpp20/down_with_typename.md
+index 05c90b933..711b86b6d 100644
+--- a/lang/cpp20/down_with_typename.md
++++ b/lang/cpp20/down_with_typename.md
+@@ -29,7 +29,7 @@
+     * メンバ宣言
+     * メンバ宣言の中の引数宣言(デフォルト引数に現れる場合を除く)
+     * 識別子が修飾名である関数または関数テンプレートの引数宣言(デフォルト引数に現れる場合を除く)
+-    * [ラムダ式](/lang/cpp11/lambda_expressions.md)または[requires式](./concepts.md)の引数宣言(デフォルト引数に現れる場合を除く)
++    * [ラムダ式](/lang/cpp11/lambda_expressions.md)または[requires式](concepts.md)の引数宣言(デフォルト引数に現れる場合を除く)
+     * 非型テンプレートパラメーターの宣言
+ 
+ ```cpp
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>評価されない文脈でのラムダ式 [P0315R4] -- fix: 内部リンクの ./ を削除 (follow-up 581ab3f8) (#1552)</title>
+      <link href="https://cpprefjp.github.io/lang/cpp20/wording_for_lambdas_in_unevaluated_contexts.html"/>
+      <id>34424d2dd03fe77a8a63a3e716a440cd20b16bc4:lang/cpp20/wording_for_lambdas_in_unevaluated_contexts.md</id>
+      <updated>2026-01-05T17:09:29+08:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp20/wording_for_lambdas_in_unevaluated_contexts.md b/lang/cpp20/wording_for_lambdas_in_unevaluated_contexts.md
+index 3c4719394..fadae028c 100644
+--- a/lang/cpp20/wording_for_lambdas_in_unevaluated_contexts.md
++++ b/lang/cpp20/wording_for_lambdas_in_unevaluated_contexts.md
+@@ -136,7 +136,7 @@ C++17までは、ラムダ式をSFINAEの文脈で用いて擬似的なコンセ
+ 
+ この変更に伴う文言によってラムダ式を用いてSFINAEする事は完全に禁止され、評価されない文脈においてラムダ式の使用を制限する必要がなくなったため、C++20においてその制限を緩和することになった。
+ 
+-ただし、ラムダ式が外部リンケージを持つエンティティのシグネチャに現れる事は相変わらず禁止されている。ラムダ式を用いてSFINAEするなど、そのような事がしたい場合には[コンセプト](./concepts.md)を用いる事でより容易に目的を達成できる。
++ただし、ラムダ式が外部リンケージを持つエンティティのシグネチャに現れる事は相変わらず禁止されている。ラムダ式を用いてSFINAEするなど、そのような事がしたい場合には[コンセプト](concepts.md)を用いる事でより容易に目的を達成できる。
+ 
+ ## &amp;lt;a id=&amp;#34;relative-page&amp;#34; href=&amp;#34;#relative-page&amp;#34;&amp;gt;関連項目&amp;lt;/a&amp;gt;
+ - [状態を持たないラムダ式を、デフォルト構築可能、代入可能とする](/lang/cpp20/default_constructible_and_assignable_stateless_lambdas.md)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>fold_left -- fix: 内部リンクの ./ を削除 (follow-up 581ab3f8) (#1552)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/ranges_fold_left.html"/>
+      <id>34424d2dd03fe77a8a63a3e716a440cd20b16bc4:reference/algorithm/ranges_fold_left.md</id>
+      <updated>2026-01-05T17:09:29+08:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/ranges_fold_left.md b/reference/algorithm/ranges_fold_left.md
+index 6dcd4cd04..ff01c89d1 100644
+--- a/reference/algorithm/ranges_fold_left.md
++++ b/reference/algorithm/ranges_fold_left.md
+@@ -67,7 +67,7 @@ namespace std::ranges {
+            10 + 5 -&amp;gt; fold_left(rng, 0, +)
+ ```
+ 
+-[`fold_right`](./ranges_fold_right.md)に対しては、入力範囲の先頭から末尾に向かって処理を進めていく点が異なる。
++[`fold_right`](ranges_fold_right.md)に対しては、入力範囲の先頭から末尾に向かって処理を進めていく点が異なる。
+ 
+ ## 引数
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>fold_left_first -- fix: 内部リンクの ./ を削除 (follow-up 581ab3f8) (#1552)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/ranges_fold_left_first.html"/>
+      <id>34424d2dd03fe77a8a63a3e716a440cd20b16bc4:reference/algorithm/ranges_fold_left_first.md</id>
+      <updated>2026-01-05T17:09:29+08:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/ranges_fold_left_first.md b/reference/algorithm/ranges_fold_left_first.md
+index c9c9531ca..b1b87f89b 100644
+--- a/reference/algorithm/ranges_fold_left_first.md
++++ b/reference/algorithm/ranges_fold_left_first.md
+@@ -23,7 +23,7 @@ namespace std::ranges {
+ 
+ ## 概要
+ 
+-初期値の指定を省略する[`fold_left`](./ranges_fold_left.md)。入力範囲の先頭要素が初期値として使用される。
++初期値の指定を省略する[`fold_left`](ranges_fold_left.md)。入力範囲の先頭要素が初期値として使用される。
+ 
+ - (1) : 入力としてイテレータ範囲をとるオーバーロード
+ - (2) : 入力として範囲を直接とるオーバーロード
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>fold_left_first_with_iter -- fix: 内部リンクの ./ を削除 (follow-up 581ab3f8) (#1552)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/ranges_fold_left_first_with_iter.html"/>
+      <id>34424d2dd03fe77a8a63a3e716a440cd20b16bc4:reference/algorithm/ranges_fold_left_first_with_iter.md</id>
+      <updated>2026-01-05T17:09:29+08:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/ranges_fold_left_first_with_iter.md b/reference/algorithm/ranges_fold_left_first_with_iter.md
+index dce9fe282..267d0e8c5 100644
+--- a/reference/algorithm/ranges_fold_left_first_with_iter.md
++++ b/reference/algorithm/ranges_fold_left_first_with_iter.md
+@@ -23,7 +23,7 @@ namespace std::ranges {
+ 
+ ## 概要
+ 
+-処理の過程で得られた終端位置を指すイテレータを同時に返す[`fold_left_first`](./ranges_fold_left_first.md)。入力範囲の先頭要素が初期値として使用され、戻り値はイテレータと処理結果のペアとなる。
++処理の過程で得られた終端位置を指すイテレータを同時に返す[`fold_left_first`](ranges_fold_left_first.md)。入力範囲の先頭要素が初期値として使用され、戻り値はイテレータと処理結果のペアとなる。
+ 
+ - (1) : 入力としてイテレータ範囲をとるオーバーロード
+ - (2) : 入力として範囲を直接とるオーバーロード
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>fold_left_with_iter -- fix: 内部リンクの ./ を削除 (follow-up 581ab3f8) (#1552)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/ranges_fold_left_with_iter.html"/>
+      <id>34424d2dd03fe77a8a63a3e716a440cd20b16bc4:reference/algorithm/ranges_fold_left_with_iter.md</id>
+      <updated>2026-01-05T17:09:29+08:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/ranges_fold_left_with_iter.md b/reference/algorithm/ranges_fold_left_with_iter.md
+index dd682d6c0..ced1da4ce 100644
+--- a/reference/algorithm/ranges_fold_left_with_iter.md
++++ b/reference/algorithm/ranges_fold_left_with_iter.md
+@@ -45,7 +45,7 @@ namespace std::ranges {
+ 
+ ## 概要
+ 
+-処理の過程で得られた終端位置を指すイテレータを同時に返す[`fold_left`](./ranges_fold_left.md)。戻り値はイテレータと処理結果のペアとなる。
++処理の過程で得られた終端位置を指すイテレータを同時に返す[`fold_left`](ranges_fold_left.md)。戻り値はイテレータと処理結果のペアとなる。
+ 
+ - (1) : 入力としてイテレータ範囲をとるオーバーロード
+ - (2) : 入力として範囲を直接とるオーバーロード
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>fold_right -- fix: 内部リンクの ./ を削除 (follow-up 581ab3f8) (#1552)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/ranges_fold_right.html"/>
+      <id>34424d2dd03fe77a8a63a3e716a440cd20b16bc4:reference/algorithm/ranges_fold_right.md</id>
+      <updated>2026-01-05T17:09:29+08:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/ranges_fold_right.md b/reference/algorithm/ranges_fold_right.md
+index 5611e23a1..3264562eb 100644
+--- a/reference/algorithm/ranges_fold_right.md
++++ b/reference/algorithm/ranges_fold_right.md
+@@ -67,7 +67,7 @@ namespace std::ranges {
+  1 + 14 -&amp;gt; fold_right(rng, 0, +)  
+ ```
+ 
+-[`fold_left`](./ranges_fold_left.md)に対しては、入力範囲の末尾から先頭に向かって処理を進めていく点が異なる。
++[`fold_left`](ranges_fold_left.md)に対しては、入力範囲の末尾から先頭に向かって処理を進めていく点が異なる。
+ 
+ ## 引数
+ 
+@@ -104,7 +104,7 @@ public:
+ };
+ ```
+ 
+-すなわち、二項演算`F`の引数順が逆になることを除いて[`fold_left`](./ranges_fold_left.md)と同じ制約となる。
++すなわち、二項演算`F`の引数順が逆になることを除いて[`fold_left`](ranges_fold_left.md)と同じ制約となる。
+ 
+ ただし、`fold_right`はその処理の都合上、入力範囲に対して[`bidirectional_range`](/reference/ranges/bidirectional_range.md)であることを要求する（`fold_left`は[`input_range`](/reference/ranges/input_range.md)）。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>fold_right_last -- fix: 内部リンクの ./ を削除 (follow-up 581ab3f8) (#1552)</title>
+      <link href="https://cpprefjp.github.io/reference/algorithm/ranges_fold_right_last.html"/>
+      <id>34424d2dd03fe77a8a63a3e716a440cd20b16bc4:reference/algorithm/ranges_fold_right_last.md</id>
+      <updated>2026-01-05T17:09:29+08:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/algorithm/ranges_fold_right_last.md b/reference/algorithm/ranges_fold_right_last.md
+index 2e3d621ab..aa58a681f 100644
+--- a/reference/algorithm/ranges_fold_right_last.md
++++ b/reference/algorithm/ranges_fold_right_last.md
+@@ -23,7 +23,7 @@ namespace std::ranges {
+ 
+ ## 概要
+ 
+-初期値の指定を省略する[`fold_right`](./ranges_fold_right.md)。入力範囲の末尾要素が初期値として使用される。
++初期値の指定を省略する[`fold_right`](ranges_fold_right.md)。入力範囲の末尾要素が初期値として使用される。
+ 
+ - (1) : 入力としてイテレータ範囲をとるオーバーロード
+ - (2) : 入力として範囲を直接とるオーバーロード
+@@ -41,7 +41,7 @@ namespace std::ranges {
+ 
+ `indirectly-binary-right-foldable`は`F`の引数順が逆になることを除いて[`indirectly-binary-left-foldable`](ranges_fold_left.md)と同様の制約となる。
+ 
+-`indirectly-binary-left-foldable`では、初期値の型`T`が戻り値型（積算値の型）`U`に変換可能であることが要求（[`convertible_to`](/reference/concepts/convertible_to.md)`&amp;lt;T, U&amp;gt;`）されており、この関数では初期値の型を指定できない（`range_value_t&amp;lt;R&amp;gt;`が使用される）ため戻り値型を大きく制御することが困難になる（例えば、[`fold_right`](./ranges_fold_right.md)の例にある入力範囲を反転させる例の様なことは素直にはできない）。
++`indirectly-binary-left-foldable`では、初期値の型`T`が戻り値型（積算値の型）`U`に変換可能であることが要求（[`convertible_to`](/reference/concepts/convertible_to.md)`&amp;lt;T, U&amp;gt;`）されており、この関数では初期値の型を指定できない（`range_value_t&amp;lt;R&amp;gt;`が使用される）ため戻り値型を大きく制御することが困難になる（例えば、[`fold_right`](ranges_fold_right.md)の例にある入力範囲を反転させる例の様なことは素直にはできない）。
+ 
+ ## 戻り値
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>copyable -- fix: 内部リンクの ./ を削除 (follow-up 581ab3f8) (#1552)</title>
+      <link href="https://cpprefjp.github.io/reference/concepts/copyable.html"/>
+      <id>34424d2dd03fe77a8a63a3e716a440cd20b16bc4:reference/concepts/copyable.md</id>
+      <updated>2026-01-05T17:09:29+08:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/concepts/copyable.md b/reference/concepts/copyable.md
+index eed875cb2..1dcb9c2aa 100644
+--- a/reference/concepts/copyable.md
++++ b/reference/concepts/copyable.md
+@@ -20,7 +20,7 @@ namespace std {
+ 
+ ## 概要
+ 
+-`copyable`は、任意の型`T`が[`movable`](./movable.md)コンセプトを満たし、それに加えてコピー構築・代入が可能であることを表すコンセプトである。
++`copyable`は、任意の型`T`が[`movable`](movable.md)コンセプトを満たし、それに加えてコピー構築・代入が可能であることを表すコンセプトである。
+ 
+ ## 例
+ ```cpp example
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>regular -- fix: 内部リンクの ./ を削除 (follow-up 581ab3f8) (#1552)</title>
+      <link href="https://cpprefjp.github.io/reference/concepts/regular.html"/>
+      <id>34424d2dd03fe77a8a63a3e716a440cd20b16bc4:reference/concepts/regular.md</id>
+      <updated>2026-01-05T17:09:29+08:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/concepts/regular.md b/reference/concepts/regular.md
+index 4226df245..8853d3b79 100644
+--- a/reference/concepts/regular.md
++++ b/reference/concepts/regular.md
+@@ -14,7 +14,7 @@ namespace std {
+ 
+ ## 概要
+ 
+-`regular`は、任意の型`T`が[`semiregular`](./semiregular.md)コンセプトを満たし、それに加えて等値比較可能であることを表すコンセプトである。
++`regular`は、任意の型`T`が[`semiregular`](semiregular.md)コンセプトを満たし、それに加えて等値比較可能であることを表すコンセプトである。
+ 
+ ## 正則性
+ 
+@@ -28,7 +28,7 @@ namespace std {
+ 
+ このような正則な型とは、`int`型などの[基本型](/reference/type_traits/is_fundamental.md)の様に扱うことのできる型を表している。
+ 
+-ここから等値比較可能という性質を弱めたものは、[半正則](./semiregular.md)な型と呼ばれる。
++ここから等値比較可能という性質を弱めたものは、[半正則](semiregular.md)な型と呼ばれる。
+ 
+ ## 例
+ ```cpp example
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>semiregular -- fix: 内部リンクの ./ を削除 (follow-up 581ab3f8) (#1552)</title>
+      <link href="https://cpprefjp.github.io/reference/concepts/semiregular.html"/>
+      <id>34424d2dd03fe77a8a63a3e716a440cd20b16bc4:reference/concepts/semiregular.md</id>
+      <updated>2026-01-05T17:09:29+08:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/concepts/semiregular.md b/reference/concepts/semiregular.md
+index 329ecc682..9424dff49 100644
+--- a/reference/concepts/semiregular.md
++++ b/reference/concepts/semiregular.md
+@@ -14,7 +14,7 @@ namespace std {
+ 
+ ## 概要
+ 
+-`semiregular`は、任意の型`T`が[`copyable`](./copyable.md)コンセプトを満たし、それに加えてデフォルト構築可能であることを表すコンセプトである。
++`semiregular`は、任意の型`T`が[`copyable`](copyable.md)コンセプトを満たし、それに加えてデフォルト構築可能であることを表すコンセプトである。
+ 
+ 半正則（*semiregular*）な型とは`int`型などの[基本型](/reference/type_traits/is_fundamental.md)の様に扱うことができる型を表しているが、`==`による等値比較が必ずしも可能ではない。
+ 
+@@ -83,7 +83,7 @@ copyable is not semiregular
+ ## 関連項目
+ 
+ - [C++20 コンセプト](/lang/cpp20/concepts.md)
+-- [`regular`](./regular.md)
++- [`regular`](regular.md)
+ 
+ ## 参照
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>cbegin -- fix: 内部リンクの ./ を削除 (follow-up 581ab3f8) (#1552)</title>
+      <link href="https://cpprefjp.github.io/reference/ranges/cbegin.html"/>
+      <id>34424d2dd03fe77a8a63a3e716a440cd20b16bc4:reference/ranges/cbegin.md</id>
+      <updated>2026-01-05T17:09:29+08:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ranges/cbegin.md b/reference/ranges/cbegin.md
+index 0438c68a5..ace719d33 100644
+--- a/reference/ranges/cbegin.md
++++ b/reference/ranges/cbegin.md
+@@ -22,8 +22,8 @@ Rangeから先頭要素への読み取り専用イテレータを取得する関
+     1. `E`がlvalueであれば、[`ranges::begin`](begin.md)`(static_cast&amp;lt;const T&amp;amp;&amp;gt;(E))`
+     2. それ以外の場合、[`ranges::begin`](begin.md)`(static_cast&amp;lt;const T&amp;amp;&amp;amp;&amp;gt;(E))`
+ - C++23から
+-    1. `E`が右辺値であり、[`enable_borrowed_range`](./enable_borrowed_range.md)`&amp;lt;remove_cv_t&amp;lt;T&amp;gt;&amp;gt;`が`false`となる場合、`ranges::cbegin(E)`は不適格
+-    2. それ以外の場合、式`U`を[`ranges::begin`](begin.md)`(`[`possibly-const-range`](./possibly-const-range.md)`(t))`とすると、[`const_iterator`](/reference/iterator/const_iterator.md)`&amp;lt;decltype(U)&amp;gt;(U)`
++    1. `E`が右辺値であり、[`enable_borrowed_range`](enable_borrowed_range.md)`&amp;lt;remove_cv_t&amp;lt;T&amp;gt;&amp;gt;`が`false`となる場合、`ranges::cbegin(E)`は不適格
++    2. それ以外の場合、式`U`を[`ranges::begin`](begin.md)`(`[`possibly-const-range`](possibly-const-range.md)`(t))`とすると、[`const_iterator`](/reference/iterator/const_iterator.md)`&amp;lt;decltype(U)&amp;gt;(U)`
+ 
+ ## 戻り値
+ 先頭要素への読み取り専用イテレータ。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>cdata -- fix: 内部リンクの ./ を削除 (follow-up 581ab3f8) (#1552)</title>
+      <link href="https://cpprefjp.github.io/reference/ranges/cdata.html"/>
+      <id>34424d2dd03fe77a8a63a3e716a440cd20b16bc4:reference/ranges/cdata.md</id>
+      <updated>2026-01-05T17:09:29+08:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ranges/cdata.md b/reference/ranges/cdata.md
+index dff8fd6db..a159cd6ee 100644
+--- a/reference/ranges/cdata.md
++++ b/reference/ranges/cdata.md
+@@ -22,8 +22,8 @@ Rangeの要素が格納されたメモリ領域へのポインタを取得する
+     1. `E`がlvalueであれば、[`ranges::data`](data.md)`(static_cast&amp;lt;const T&amp;amp;&amp;gt;(E))`
+     2. それ以外の場合、[`ranges::data`](data.md)`(static_cast&amp;lt;const T&amp;amp;&amp;amp;&amp;gt;(E))`
+ - C++23から
+-    1. `E`が右辺値であり、[`enable_borrowed_range`](./enable_borrowed_range.md)`&amp;lt;remove_cv_t&amp;lt;T&amp;gt;&amp;gt;`が`false`となる場合、`ranges::cdata(E)`は不適格
+-    2. それ以外の場合、`as-const-pointer(`[`ranges::data`](data.md)`(`[`possibly-const-range`](./possibly-const-range.md)`(t)))`
++    1. `E`が右辺値であり、[`enable_borrowed_range`](enable_borrowed_range.md)`&amp;lt;remove_cv_t&amp;lt;T&amp;gt;&amp;gt;`が`false`となる場合、`ranges::cdata(E)`は不適格
++    2. それ以外の場合、`as-const-pointer(`[`ranges::data`](data.md)`(`[`possibly-const-range`](possibly-const-range.md)`(t)))`
+         - `as-const-pointer`は次のような説明専用関数テンプレートである
+           ```cpp
+           template&amp;lt;class T&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>cend -- fix: 内部リンクの ./ を削除 (follow-up 581ab3f8) (#1552)</title>
+      <link href="https://cpprefjp.github.io/reference/ranges/cend.html"/>
+      <id>34424d2dd03fe77a8a63a3e716a440cd20b16bc4:reference/ranges/cend.md</id>
+      <updated>2026-01-05T17:09:29+08:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ranges/cend.md b/reference/ranges/cend.md
+index 39cae8936..e72447b16 100644
+--- a/reference/ranges/cend.md
++++ b/reference/ranges/cend.md
+@@ -22,8 +22,8 @@ Rangeから、最後尾要素の次を指す読み取り専用イテレータも
+     1. `E`がlvalueであれば、[`ranges::end`](end.md)`(static_cast&amp;lt;const T&amp;amp;&amp;gt;(E))`
+     2. それ以外の場合、[`ranges::end`](end.md)`(static_cast&amp;lt;const T&amp;amp;&amp;amp;&amp;gt;(E))`
+ - C++23から
+-    1. `E`が右辺値であり、[`enable_borrowed_range`](./enable_borrowed_range.md)`&amp;lt;remove_cv_t&amp;lt;T&amp;gt;&amp;gt;`が`false`となる場合、`ranges::cend(E)`は不適格
+-    2. それ以外の場合、式`U`を[`ranges::end`](end.md)`(`[`possibly-const-range`](./possibly-const-range.md)`(t))`とすると、[`const_sentinel`](/reference/iterator/const_sentinel.md)`&amp;lt;decltype(U)&amp;gt;(U)`
++    1. `E`が右辺値であり、[`enable_borrowed_range`](enable_borrowed_range.md)`&amp;lt;remove_cv_t&amp;lt;T&amp;gt;&amp;gt;`が`false`となる場合、`ranges::cend(E)`は不適格
++    2. それ以外の場合、式`U`を[`ranges::end`](end.md)`(`[`possibly-const-range`](possibly-const-range.md)`(t))`とすると、[`const_sentinel`](/reference/iterator/const_sentinel.md)`&amp;lt;decltype(U)&amp;gt;(U)`
+ 
+ ## 戻り値
+ 最後尾要素の次を指す読み取り専用イテレータもしくは番兵。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>crbegin -- fix: 内部リンクの ./ を削除 (follow-up 581ab3f8) (#1552)</title>
+      <link href="https://cpprefjp.github.io/reference/ranges/crbegin.html"/>
+      <id>34424d2dd03fe77a8a63a3e716a440cd20b16bc4:reference/ranges/crbegin.md</id>
+      <updated>2026-01-05T17:09:29+08:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ranges/crbegin.md b/reference/ranges/crbegin.md
+index 0df83f406..cfff36577 100644
+--- a/reference/ranges/crbegin.md
++++ b/reference/ranges/crbegin.md
+@@ -22,8 +22,8 @@ Rangeの末尾を指す読み取り専用逆イテレータを取得する関数
+     1. `E`がlvalueであれば、[`ranges::rbegin`](rbegin.md)`(static_cast&amp;lt;const T&amp;amp;&amp;gt;(E))`
+     2. それ以外の場合、[`ranges::rbegin`](rbegin.md)`(static_cast&amp;lt;const T&amp;amp;&amp;amp;&amp;gt;(E))`
+ - C++23から
+-    1. `E`が右辺値であり、[`enable_borrowed_range`](./enable_borrowed_range.md)`&amp;lt;remove_cv_t&amp;lt;T&amp;gt;&amp;gt;`が`false`となる場合、`ranges::crbegin(E)`は不適格
+-    2. それ以外の場合、式`U`を[`ranges::rbegin`](rbegin.md)`(`[`possibly-const-range`](./possibly-const-range.md)`(t))`とすると、[`const_iterator`](/reference/iterator/const_iterator.md)`&amp;lt;decltype(U)&amp;gt;(U)`
++    1. `E`が右辺値であり、[`enable_borrowed_range`](enable_borrowed_range.md)`&amp;lt;remove_cv_t&amp;lt;T&amp;gt;&amp;gt;`が`false`となる場合、`ranges::crbegin(E)`は不適格
++    2. それ以外の場合、式`U`を[`ranges::rbegin`](rbegin.md)`(`[`possibly-const-range`](possibly-const-range.md)`(t))`とすると、[`const_iterator`](/reference/iterator/const_iterator.md)`&amp;lt;decltype(U)&amp;gt;(U)`
+ 
+ ## 戻り値
+ Rangeの末尾を指す読み取り専用逆イテレータ。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>crend -- fix: 内部リンクの ./ を削除 (follow-up 581ab3f8) (#1552)</title>
+      <link href="https://cpprefjp.github.io/reference/ranges/crend.html"/>
+      <id>34424d2dd03fe77a8a63a3e716a440cd20b16bc4:reference/ranges/crend.md</id>
+      <updated>2026-01-05T17:09:29+08:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ranges/crend.md b/reference/ranges/crend.md
+index 5e85208e0..2fb967a38 100644
+--- a/reference/ranges/crend.md
++++ b/reference/ranges/crend.md
+@@ -22,8 +22,8 @@ Rangeの先頭の前を指す、読み取り専用逆イテレータもしくは
+     1. `E`がlvalueであれば、[`ranges::rend`](rend.md)`(static_cast&amp;lt;const T&amp;amp;&amp;gt;(E))`
+     2. それ以外の場合、[`ranges::rend`](rend.md)`(static_cast&amp;lt;const T&amp;amp;&amp;amp;&amp;gt;(E))`
+ - C++23から
+-    1. `E`が右辺値であり、[`enable_borrowed_range`](./enable_borrowed_range.md)`&amp;lt;remove_cv_t&amp;lt;T&amp;gt;&amp;gt;`が`false`となる場合、`ranges::crend(E)`は不適格
+-    2. それ以外の場合、式`U`を[`ranges::rend`](rend.md)`(`[`possibly-const-range`](./possibly-const-range.md)`(t))`とすると、[`const_sentinel`](/reference/iterator/const_sentinel.md)`&amp;lt;decltype(U)&amp;gt;(U)`
++    1. `E`が右辺値であり、[`enable_borrowed_range`](enable_borrowed_range.md)`&amp;lt;remove_cv_t&amp;lt;T&amp;gt;&amp;gt;`が`false`となる場合、`ranges::crend(E)`は不適格
++    2. それ以外の場合、式`U`を[`ranges::rend`](rend.md)`(`[`possibly-const-range`](possibly-const-range.md)`(t))`とすると、[`const_sentinel`](/reference/iterator/const_sentinel.md)`&amp;lt;decltype(U)&amp;gt;(U)`
+ 
+ ## 戻り値
+ Rangeの先頭の前を指す、読み取り専用逆イテレータもしくは番兵。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>
