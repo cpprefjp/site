@@ -13,7 +13,7 @@
 
 | 名前 | 説明 | 対応バージョン |
 |--------------------|--------------------------------------------|-------|
-| `logic_error`      | プログラムの実行前に検出可能なエラー（論理エラー）を示す | |
+| [`logic_error`](./stdexcept/logic_error.md) | プログラムの実行前に検出可能なエラー（論理エラー）を示す | |
 | `domain_error`     | 定義域エラーを示す | |
 | `invalid_argument` | 不正な引数を示す | |
 | `length_error`     | 長すぎるオブジェクトを作ろうとしたことを示す | |
@@ -26,7 +26,7 @@
 例外クラスには継承関係があり、以下の箇条書きの階層構造で示す。
 
 - [`exception`](/reference/exception/exception.md)
-	- `logic_error`
+	- [`logic_error`](./stdexcept/logic_error.md)
 		- `domain_error`
 		- `invalid_argument`
 		- `length_error`
