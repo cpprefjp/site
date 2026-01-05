@@ -113,8 +113,9 @@ constexpr basic_string&
     ```
 
 - (9) 対象オブジェクトの末尾に、[`basic_string_view`](/reference/string_view/basic_string_view.md)`<charT, traits>`に変換可能な`t`の指定された範囲の文字列が追加される。
-    * 文字列の長さ `rlen` は、`n` と [`sv.size()`](/reference/string_view/basic_string_view/size.md) `- pos` の小さい方である。  
-以下と等価。
+    * 文字列の長さ `rlen` は、`n` と [`sv.size()`](/reference/string_view/basic_string_view/size.md) `- pos` の小さい方である。
+
+    以下と等価。
     ```cpp
     basic_string_view<charT, traits> sv = t;
     return append(sv.substr(pos, n));
