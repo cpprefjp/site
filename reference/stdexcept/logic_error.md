@@ -1,6 +1,6 @@
 # logic_error
 
-* header_name[meta header]
+* stdexcept[meta header]
 * class[meta id-type]
 * std[meta namespace]
 
