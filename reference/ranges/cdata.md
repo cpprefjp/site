@@ -22,8 +22,8 @@ Rangeの要素が格納されたメモリ領域へのポインタを取得する
     1. `E`がlvalueであれば、[`ranges::data`](data.md)`(static_cast<const T&>(E))`
     2. それ以外の場合、[`ranges::data`](data.md)`(static_cast<const T&&>(E))`
 - C++23から
-    1. `E`が右辺値であり、[`enable_borrowed_range`](./enable_borrowed_range.md)`<remove_cv_t<T>>`が`false`となる場合、`ranges::cdata(E)`は不適格
-    2. それ以外の場合、`as-const-pointer(`[`ranges::data`](data.md)`(`[`possibly-const-range`](./possibly-const-range.md)`(t)))`
+    1. `E`が右辺値であり、[`enable_borrowed_range`](enable_borrowed_range.md)`<remove_cv_t<T>>`が`false`となる場合、`ranges::cdata(E)`は不適格
+    2. それ以外の場合、`as-const-pointer(`[`ranges::data`](data.md)`(`[`possibly-const-range`](possibly-const-range.md)`(t)))`
         - `as-const-pointer`は次のような説明専用関数テンプレートである
           ```cpp
           template<class T>

@@ -22,8 +22,8 @@ Rangeから先頭要素への読み取り専用イテレータを取得する関
     1. `E`がlvalueであれば、[`ranges::begin`](begin.md)`(static_cast<const T&>(E))`
     2. それ以外の場合、[`ranges::begin`](begin.md)`(static_cast<const T&&>(E))`
 - C++23から
-    1. `E`が右辺値であり、[`enable_borrowed_range`](./enable_borrowed_range.md)`<remove_cv_t<T>>`が`false`となる場合、`ranges::cbegin(E)`は不適格
-    2. それ以外の場合、式`U`を[`ranges::begin`](begin.md)`(`[`possibly-const-range`](./possibly-const-range.md)`(t))`とすると、[`const_iterator`](/reference/iterator/const_iterator.md)`<decltype(U)>(U)`
+    1. `E`が右辺値であり、[`enable_borrowed_range`](enable_borrowed_range.md)`<remove_cv_t<T>>`が`false`となる場合、`ranges::cbegin(E)`は不適格
+    2. それ以外の場合、式`U`を[`ranges::begin`](begin.md)`(`[`possibly-const-range`](possibly-const-range.md)`(t))`とすると、[`const_iterator`](/reference/iterator/const_iterator.md)`<decltype(U)>(U)`
 
 ## 戻り値
 先頭要素への読み取り専用イテレータ。

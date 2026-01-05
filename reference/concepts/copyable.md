@@ -20,7 +20,7 @@ namespace std {
 
 ## 概要
 
-`copyable`は、任意の型`T`が[`movable`](./movable.md)コンセプトを満たし、それに加えてコピー構築・代入が可能であることを表すコンセプトである。
+`copyable`は、任意の型`T`が[`movable`](movable.md)コンセプトを満たし、それに加えてコピー構築・代入が可能であることを表すコンセプトである。
 
 ## 例
 ```cpp example

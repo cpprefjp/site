@@ -14,7 +14,7 @@ namespace std {
 
 ## 概要
 
-`regular`は、任意の型`T`が[`semiregular`](./semiregular.md)コンセプトを満たし、それに加えて等値比較可能であることを表すコンセプトである。
+`regular`は、任意の型`T`が[`semiregular`](semiregular.md)コンセプトを満たし、それに加えて等値比較可能であることを表すコンセプトである。
 
 ## 正則性
 
@@ -28,7 +28,7 @@ namespace std {
 
 このような正則な型とは、`int`型などの[基本型](/reference/type_traits/is_fundamental.md)の様に扱うことのできる型を表している。
 
-ここから等値比較可能という性質を弱めたものは、[半正則](./semiregular.md)な型と呼ばれる。
+ここから等値比較可能という性質を弱めたものは、[半正則](semiregular.md)な型と呼ばれる。
 
 ## 例
 ```cpp example

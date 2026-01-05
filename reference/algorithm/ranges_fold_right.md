@@ -67,7 +67,7 @@ namespace std::ranges {
  1 + 14 -> fold_right(rng, 0, +)  
 ```
 
-[`fold_left`](./ranges_fold_left.md)に対しては、入力範囲の末尾から先頭に向かって処理を進めていく点が異なる。
+[`fold_left`](ranges_fold_left.md)に対しては、入力範囲の末尾から先頭に向かって処理を進めていく点が異なる。
 
 ## 引数
 
@@ -104,7 +104,7 @@ public:
 };
 ```
 
-すなわち、二項演算`F`の引数順が逆になることを除いて[`fold_left`](./ranges_fold_left.md)と同じ制約となる。
+すなわち、二項演算`F`の引数順が逆になることを除いて[`fold_left`](ranges_fold_left.md)と同じ制約となる。
 
 ただし、`fold_right`はその処理の都合上、入力範囲に対して[`bidirectional_range`](/reference/ranges/bidirectional_range.md)であることを要求する（`fold_left`は[`input_range`](/reference/ranges/input_range.md)）。
 
