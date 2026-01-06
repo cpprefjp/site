@@ -32,18 +32,18 @@ namespace std {
 #include <stdexcept>
 
 double calc_sqrt(double num) {
-    if (num < 0) {
-        throw std::domain_error("Cannot calculate square root of a negative number.");
-    }
-    return std::sqrt(num);
+  if (num < 0) {
+    throw std::domain_error("Cannot calculate square root of a negative number.");
+  }
+  return std::sqrt(num);
 }
 
 int main() {
-    try {
-        std::cout << calc_sqrt(-4.0) << "\n";
-    } catch (const std::domain_error& e) {
-        std::cerr << e.what() << "\n";
-    }
+  try {
+    std::cout << calc_sqrt(-4.0) << "\n";
+  } catch (const std::domain_error& e) {
+    std::cerr << e.what() << "\n";
+  }
 }
 ```
 
