@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-23T06:06:34">
-        2025年08月23日 06時06分34秒
+      <span itemprop="datePublished" content="2026-01-06T03:47:59">
+        2026年01月06日 03時47分59秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">yoh</span>
+        <span itemprop="name">Koichi Murase</span>
       </span>
       が更新
     </small></p>
@@ -246,7 +246,7 @@
 <li>コルーチンを中断し、Operation Stateを<a href="start.html">開始(start)</a>する。</li>
 <li><a href="../queryable.html">クエリオブジェクト</a>による<a href="receiver.html">Receiver</a>環境への問い合わせは、Promise型に関連付けられた環境(<code>get_env</code>)へと転送される。</li>
 <li>Senderが<a href="set_value.html">値完了</a>した場合、送信値をAwait式の結果としてコルーチンを再開する。</li>
-<li>Senderが<a href="set_error.html">エラー完了</a>した場合、エラー値を<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>としてコルーチンから再スローする。</li>
+<li>Senderが<a href="set_error.html">エラー完了</a>した場合、エラー値を<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>としてコルーチンから再送出する。</li>
 <li>Senderが<a href="set_stopped.html">停止完了</a>した場合、停止完了ハンドラ(<code>unhandled_stopped</code>)が返す別のコルーチンを再開させる。</li>
 </ul>
 </li>

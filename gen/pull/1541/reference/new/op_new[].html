@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:33:39">
-        2025年07月08日 15時33分39秒
+      <span itemprop="datePublished" content="2026-01-06T03:47:59">
+        2026年01月06日 03時47分59秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Koichi Murase</span>
       </span>
       が更新
     </small></p>
@@ -265,7 +265,7 @@
 <li>(1), (2) : <code><a href="op_new.html">operator new</a>(size)</code> を呼び出す。アライメントに関しては単一オブジェクト版と同様に動作する。</li>
 <li>(3), (4) : C++03 までと C++11 からで異なる。  <ul>
 <li>C++03 まで：<code><a href="op_new.html">operator new</a>(size, std::<a href="nothrow_t.html">nothrow</a>)</code> を呼び出す。  </li>
-<li>C++11 から：(1) の形式を <code>operator new[](size)</code> で呼び出す。ただし、記憶域の確保に失敗しても<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>をスローしない。</li>
+<li>C++11 から：(1) の形式を <code>operator new[](size)</code> で呼び出す。ただし、記憶域の確保に失敗しても<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出しない。</li>
 </ul>
 </li>
 <li>(5) : 何もしない。</li>
@@ -275,7 +275,7 @@
 <li>(1), (2) : 確保した記憶域の先頭アドレスを指すポインタ（<code><a href="op_new.html">operator new</a>(size)</code> の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>）。</li>
 <li>(3), (4) : 記憶域を確保できた場合、確保した記憶域の先頭アドレスを指すポインタ。確保できなかった場合、ヌルポインタ。<ul>
 <li>C++03 まで：<code><a href="op_new.html">operator new</a>(size, std::<a href="nothrow_t.html">nothrow</a>)</code> の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></li>
-<li>C++11 から：<code>operator new[](size)</code> の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>。ただし、<code>std::<a href="bad_alloc.html">bad_alloc</a></code> <a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>がスローされた場合には、ヌルポインタ。</li>
+<li>C++11 から：<code>operator new[](size)</code> の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>。ただし、<code>std::<a href="bad_alloc.html">bad_alloc</a></code> <a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が送出された場合には、ヌルポインタ。</li>
 </ul>
 </li>
 <li>(5) : 引数 <code>ptr</code></li>
@@ -304,7 +304,7 @@
 <li>
 <p>(3) の形式の挙動の C++03 までと C++11 からの差は、利用者が <code><a href="op_new.html">operator new</a></code>、あるいは <code>operator new[]</code> を置き換えていない場合には顕在化しない。<br />
     しかし、例えば利用者が (1) の形式のみを置き換えた場合、C++03 までは (3) の形式を呼び出しても置き換えられたバージョンは呼び出されずに、間接的に<code><a href="op_new.html">operator new</a></code> の (3) の形式を呼び出す。<br />
-<code>new</code> 式と異なり、<code>delete</code> 式には配置構文が存在しないため、(3) の形式で確保した記憶域も通常の <code>delete</code> 式で解放する事になる（コンストラクタで<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>がスローされた場合を除く。<code><a href="op_delete[].html">operator delete[]</a></code> も参照）。<br />
+<code>new</code> 式と異なり、<code>delete</code> 式には配置構文が存在しないため、(3) の形式で確保した記憶域も通常の <code>delete</code> 式で解放する事になる（コンストラクタで<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が送出された場合を除く。<code><a href="op_delete[].html">operator delete[]</a></code> も参照）。<br />
     従って、C++03 までの場合、(1) の形式を利用者提供の関数で置き換える場合は、(3) の形式も (1) の形式と同様の記憶域確保を行う利用者提供の関数で置き換えるべきである。その場合、C++11 の (3) の形式のように、(1) を呼び出した上で<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>ハンドリングする方法が安全確実な方法である。<br />
     なお、C++11 からは (3) の形式は (1) を呼び出すことになっているため、 (1) の形式のみを置き換えれば問題はないが、C++03 までのバージョンでも同様に動くようにするため、あるいは、標準ライブラリのバグで (3) の形式が (1) の形式を呼び出していない可能性もあるため、(3) の形式も提供した方が良いかもしれない。</p>
 </li>
@@ -316,8 +316,8 @@
 <li>
 <p>配列版 <code>new</code> 式は <code>operator new[]</code> を呼び出すだけではない事に注意。<br />
     配列版 <code>new</code> 式は、<code>operator new[]</code> を呼び出した後、確保された記憶域上にオブジェクトを構築する（つまり、コンストラクタを呼び出す）。<br />
-    特に、(3) の形式を使用するために <code>new</code> 式を <code>new(std::<a href="nothrow_t.html">nothrow</a>)</code> のようにしても、依然としてコンストラクタが<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>をスローする可能性はあるため、<code>new</code> 式が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>をスローしないとは限らない。<br />
-    また、配列版 <code>new</code> 式は、C++11 以降、配列の要素数の指定によっては <code>std::<a href="bad_array_new_length.html">bad_array_new_length</a></code> をスローする可能性もある。</p>
+    特に、(3) の形式を使用するために <code>new</code> 式を <code>new(std::<a href="nothrow_t.html">nothrow</a>)</code> のようにしても、依然としてコンストラクタが<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する可能性はあるため、<code>new</code> 式が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出しないとは限らない。<br />
+    また、配列版 <code>new</code> 式は、C++11 以降、配列の要素数の指定によっては <code>std::<a href="bad_array_new_length.html">bad_array_new_length</a></code> を送出する可能性もある。</p>
 </li>
 <li>
 <p>引数 <code>size</code> は、配列版 <code>new</code> 式で指定されている配列の合計サイズより大きい可能性がある。<br />

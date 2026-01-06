@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2024-06-11T13:45:38">
-        2024年06月11日 13時45分38秒
+      <span itemprop="datePublished" content="2026-01-06T03:47:59">
+        2026年01月06日 03時47分59秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Koichi Murase</span>
       </span>
       が更新
     </small></p>
@@ -227,10 +227,10 @@
 <h2>効果</h2>
 <p>型<code>T</code>のオブジェクトにメモリを割り当てる（<code>T</code>が<code>U[]</code>の場合は<code>U[N]</code>。<code>N</code>はそれぞれの<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>で指定された引数から決定される）。</p>
 <p>すべての<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>において、確保された領域のオブジェクトは<a class="cpprefjp-defined-word" data-desc="デフォルト初期化。`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト構築</a>される。</p>
-<p><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>がスローされた場合、関数は効果がない。</p>
+<p><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が送出された場合、関数は効果がない。</p>
 <p>非配列型<code>U</code>の（サブ）オブジェクトがこの関数によって初期化されるときは、式<code>::new(pv) U</code>によって初期化される。ここで、<code>pv</code>は型 <code>void *</code>を持ち、型<code>U</code>のオブジェクトを保持するための適切なストレージを指す。</p>
 <p>配列要素は、アドレスの昇順で初期化される。</p>
-<p><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>によって管理されるオブジェクトの<code>lifetime</code>が終了するか、配列要素の初期化が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>をスローすると、初期化された要素は元の構造の逆の順序で破棄される。</p>
+<p><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>によって管理されるオブジェクトの<code>lifetime</code>が終了するか、配列要素の初期化が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出すると、初期化された要素は元の構造の逆の順序で破棄される。</p>
 <ul>
 <li>(1) : この<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>が選択されるとき、<code>T</code>は、不明な境界の配列ではない。<code>T</code>型のオブジェクトへの<code>shared_ptr</code>を返す。</li>
 <li>(2) : この<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>が選択されるとき、<code>T</code>は、不明な境界の配列である。型<code>U[N]</code>のオブジェクトへの<code>shared_ptr</code>を返す。ここで、<code>U</code>は<code><a href="../type_traits/remove_extent.html">remove_extent_t&lt;T&gt;</a></code>である。</li>
@@ -240,7 +240,7 @@
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a></h2>
 <p><code>r.get() != 0 &amp;&amp; r.use_count() == 1</code>, ここで、<code>r</code> は<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>である。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
-<p><code>bad_alloc</code>、または<code>allocate</code>またはオブジェクトの初期化からスローされた<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>。</p>
+<p><code>bad_alloc</code>、または<code>allocate</code>またはオブジェクトの初期化から送出された<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>。</p>
 <h2>備考</h2>
 <p>メモリの確保に<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>のアロケータを使用したい場合には、 <code><a href="allocate_shared_for_overwrite.html">allocate_shared_for_overwrite()</a></code> を使用する。</p>
 <p><a class="cpprefjp-defined-word" data-desc="デフォルト初期化。`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト構築</a>においては、<a href="../type_traits/is_trivially_default_constructible.html">トリビアルにデフォルト構築可能</a>な型のオブジェクトは未初期化状態となるため、値を読みだす前に明示的に初期化（<em>overwrite</em>）する必要がある。初期化後の状態が不定になってほしくない場合はこの関数ではなく<code><a href="make_shared.html">make_shared()</a></code>を使用すべき。</p>

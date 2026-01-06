@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-31T10:06:36">
-        2025年08月31日 10時06分36秒
+      <span itemprop="datePublished" content="2026-01-05T18:10:36">
+        2026年01月05日 18時10分36秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Raclamusi</span>
+        <span itemprop="name">Koichi Murase</span>
       </span>
       が更新
     </small></p>
@@ -360,14 +360,13 @@
 <li>
 <p>(9) 対象オブジェクトの末尾に、<code><a href="../../string_view/basic_string_view.html">basic_string_view</a>&lt;charT, traits&gt;</code>に変換可能な<code>t</code>の指定された範囲の文字列が追加される。</p>
 <ul>
-<li>文字列の長さ <code>rlen</code> は、<code>n</code> と <code><a href="../../string_view/basic_string_view/size.html">sv.size()</a> - pos</code> の小さい方である。<br />
-以下と等価。
-
-<div class="codehilite"><pre><span></span><code><span class="n"><a href="../../string_view/basic_string_view.html">basic_string_view</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;</span> <span class="n">sv</span> <span class="o">=</span> <span class="n">t</span><span class="p">;</span>
+<li>文字列の長さ <code>rlen</code> は、<code>n</code> と <code><a href="../../string_view/basic_string_view/size.html">sv.size()</a> - pos</code> の小さい方である。</li>
+</ul>
+<p>以下と等価。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../string_view/basic_string_view.html">basic_string_view</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;</span> <span class="n">sv</span> <span class="o">=</span> <span class="n">t</span><span class="p">;</span>
 <span class="k">return</span> <span class="nf">append</span><span class="p">(</span><span class="n">sv</span><span class="p">.</span><span class="n"><a href="../../string_view/basic_string_view/substr.html">substr</a></span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">n</span><span class="p">));</span>
 </code></pre></div>
-</li>
-</ul>
+</p>
 </li>
 </ul>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>

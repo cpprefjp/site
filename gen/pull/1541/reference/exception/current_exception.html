@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;exception&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;e1e59a5e312014012689b354736652204fad1965&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;exception&gt;\n#include &lt;stdexcept&gt;\n\nint main()\n{\n  std::exception_ptr ep;\n\n  try {\n    throw std::runtime_error(\&#34;error!\&#34;);\n  }\n  catch (...) {\n    std::cout &lt;&lt; \&#34;catch\&#34; &lt;&lt; std::endl;\n    ep = std::current_exception(); // \u51e6\u7406\u4e2d\u306e\u4f8b\u5916\u30dd\u30a4\u30f3\u30bf\u3092\u53d6\u5f97\n  }\n\n  if (ep) {\n    std::cout &lt;&lt; \&#34;rethrow\&#34; &lt;&lt; std::endl;\n    std::rethrow_exception(ep); // \u518d\u30b9\u30ed\u30fc\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;exception&#34;, &#34;current_exception&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;exception&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;b23f7da7b16ee3f1a9928d3acf9c1a87de27e39c&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;exception&gt;\n#include &lt;stdexcept&gt;\n\nint main()\n{\n  std::exception_ptr ep;\n\n  try {\n    throw std::runtime_error(\&#34;error!\&#34;);\n  }\n  catch (...) {\n    std::cout &lt;&lt; \&#34;catch\&#34; &lt;&lt; std::endl;\n    ep = std::current_exception(); // \u51e6\u7406\u4e2d\u306e\u4f8b\u5916\u30dd\u30a4\u30f3\u30bf\u3092\u53d6\u5f97\n  }\n\n  if (ep) {\n    std::cout &lt;&lt; \&#34;rethrow\&#34; &lt;&lt; std::endl;\n    std::rethrow_exception(ep); // \u518d\u9001\u51fa\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;exception&#34;, &#34;current_exception&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-11T17:16:44">
-        2025年07月11日 17時16分44秒
+      <span itemprop="datePublished" content="2026-01-06T03:47:59">
+        2026年01月06日 03時47分59秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -238,7 +238,7 @@
 <p>この関数は、<code>catch</code>節で使用すれば、処理中の<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>オブジェクトへの<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>ポインタを取得できる。</p>
 <p>ただし、<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出によるスタック巻き戻し中は、取得できないので注意。(スタック巻き戻し中とは、<code>try</code>ブロック中で定義されたオブジェクトのデストラクタのこと)</p>
 <h2>例</h2>
-<p><div class="yata" id="e1e59a5e312014012689b354736652204fad1965"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="b23f7da7b16ee3f1a9928d3acf9c1a87de27e39c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../exception.html">&lt;exception&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../stdexcept.html">&lt;stdexcept&gt;</a></span><span class="cp"></span>
 
@@ -256,7 +256,7 @@
 
   <span class="k">if</span> <span class="p">(</span><span class="n">ep</span><span class="p">)</span> <span class="p">{</span>
     <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"rethrow"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-    <span class="n"><a href="rethrow_exception.html">std::rethrow_exception</a></span><span class="p">(</span><span class="n">ep</span><span class="p">);</span> <span class="c1">// 再スロー</span>
+    <span class="n"><a href="rethrow_exception.html">std::rethrow_exception</a></span><span class="p">(</span><span class="n">ep</span><span class="p">);</span> <span class="c1">// 再送出</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>

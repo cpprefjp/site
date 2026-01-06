@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cstdlib&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;f33c7faf4c60ed0dad5dfc6cb45a19ab328f5a5d&#34;, &#34;source&#34;: &#34;#include &lt;clocale&gt;\n#include &lt;cstdlib&gt;\n#include &lt;cstring&gt;\n#include &lt;iostream&gt;\n\nint main() {\n  std::setlocale(LC_ALL, \&#34;ja_JP.UTF-8\&#34;);\n  const char *str = \&#34;\u3053\u3093\u306b\u3061\u306f\&#34;;\n  int result = std::mblen(str, std::strlen(str));\n  std::cout &lt;&lt; result &lt;&lt; std::endl;\n  return 0;\n}\n&#34;}, {&#34;id&#34;: &#34;71a2e9a91f3dcb005628803afc8d5a31b0f308b3&#34;, &#34;source&#34;: &#34;#include &lt;clocale&gt;\n#include &lt;cstdlib&gt;\n#include &lt;cstring&gt;\n#include &lt;iostream&gt;\n\nint count_chars_mblen(const char* s) {\n  // std::mblen \u5185\u90e8\u306e std::mbstate_t \u3092\u521d\u671f\u5316\u3059\u308b\u5fc5\u8981\u3042\u308a\n  std::mblen(nullptr, 0);\n\n  int count = 0;\n  std::size_t i = 0;\n  std::size_t bytes = std::strlen(s);\n  while (i &lt; bytes) {\n    int len = std::mblen(&amp;s[i], bytes - i);\n    if (len &lt; 0) {\n      len = 1;\n    }\n    i += len;\n    count++;\n  }\n  return count;\n}\n\nint main() {\n  std::setlocale(LC_ALL, \&#34;ja_JP.UTF-8\&#34;);\n\n  const char* str = \&#34;\u3053\u3093\u306b\u3061\u306f\u4e16\u754c\&#34;;\n  std::cout &lt;&lt; \&#34;\u6587\u5b57\u5217: \&#34; &lt;&lt; str &lt;&lt; \&#34;\\n\&#34;;\n  std::cout &lt;&lt; \&#34;\u6587\u5b57\u6570: \&#34; &lt;&lt; count_chars_mblen(str) &lt;&lt; \&#34;\\n\&#34;;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cstdlib&#34;, &#34;mblen&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cstdlib&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;f33c7faf4c60ed0dad5dfc6cb45a19ab328f5a5d&#34;, &#34;source&#34;: &#34;#include &lt;clocale&gt;\n#include &lt;cstdlib&gt;\n#include &lt;cstring&gt;\n#include &lt;iostream&gt;\n\nint main() {\n  std::setlocale(LC_ALL, \&#34;ja_JP.UTF-8\&#34;);\n  const char *str = \&#34;\u3053\u3093\u306b\u3061\u306f\&#34;;\n  int result = std::mblen(str, std::strlen(str));\n  std::cout &lt;&lt; result &lt;&lt; std::endl;\n  return 0;\n}\n&#34;}, {&#34;id&#34;: &#34;451eee8661bab7f820f59354d769e8183f65fd47&#34;, &#34;source&#34;: &#34;#include &lt;clocale&gt;\n#include &lt;cstdlib&gt;\n#include &lt;cstring&gt;\n#include &lt;iostream&gt;\n\nint count_chars_mblen(const char* s) {\n#if __cplusplus &gt;= 201703L\n  if (std::mblen(nullptr, 0) != 0) {\n    std::cerr &lt;&lt; \&#34;count_chars_mblen: State-dependent encoding is unsupported.\&#34; &lt;&lt; std::endl;\n    std::exit(1);\n  }\n#else\n  // C++14 \u4ee5\u524d: std::mblen \u5185\u90e8\u306e std::mbstate_t \u3092\u521d\u671f\u5316\u3059\u308b\u5fc5\u8981\u3042\u308a\n  std::mblen(nullptr, 0);\n#fi\n\n  int count = 0;\n  std::size_t i = 0;\n  std::size_t bytes = std::strlen(s);\n  while (i &lt; bytes) {\n    int len = std::mblen(&amp;s[i], bytes - i);\n    if (len &lt; 0) {\n      len = 1;\n    }\n    i += len;\n    count++;\n  }\n  return count;\n}\n\nint main() {\n  std::setlocale(LC_ALL, \&#34;ja_JP.UTF-8\&#34;);\n\n  const char* str = \&#34;\u3053\u3093\u306b\u3061\u306f\u4e16\u754c\&#34;;\n  std::cout &lt;&lt; \&#34;\u6587\u5b57\u5217: \&#34; &lt;&lt; str &lt;&lt; \&#34;\\n\&#34;;\n  std::cout &lt;&lt; \&#34;\u6587\u5b57\u6570: \&#34; &lt;&lt; count_chars_mblen(str) &lt;&lt; \&#34;\\n\&#34;;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cstdlib&#34;, &#34;mblen&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-12-03T01:48:37">
-        2025年12月03日 01時48分37秒
+      <span itemprop="datePublished" content="2026-01-06T05:35:23">
+        2026年01月06日 05時35分23秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -223,10 +223,31 @@
 <p>先頭以外の文字に関するバイト数は計算されない。</p>
 <p>この関数は現在のロケールカテゴリー <code>LC_CTYPE</code> に依存してマルチバイト文字を解釈する。</p>
 <p><code>n</code>は解析に使用する最大バイト数を指定する。</p>
-<p>この関数は <code>std::mbstate_t</code> に等価な静的記憶域の内部状態を保持し、前回の <code>mblen</code> 関数呼び出しの続きとして処理を行う。
+<p>エンコーディングの内部状態に関する振る舞いが最近の規格で変更されたことから、
+内部状態に依存するエンコーディングを考慮するならば、
+特に理由がない限り <code>std::mblen</code> ではなく <code>std::mbstate_t</code> を受け取る <code>std::mbrlen</code> を
+新しいコードでは用いるべきである。
+以前の振る舞いではスレッドセーフではなく、
+現在の振る舞いではそもそも内部状態に依存する使い方ができない。</p>
+<h3>C11, C++17, POSIX.1-2024 以降</h3>
+<p>この関数は以下の関数呼び出しに等価である。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><span href="https://cpprefjp.github.io/reference/cstdlib/mbtowc.md.nolink">mbtowc</span></span><span class="p">((</span><span class="kt">wchar_t</span> <span class="o">*</span><span class="p">)</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n"><span href="https://cpprefjp.github.io/reference/cstdlib/mbtowc.md.nolink">mbtowc</span></span><span class="p">((</span><span class="kt">wchar_t</span> <span class="o">*</span><span class="p">)</span><span class="mi">0</span><span class="p">,</span> <span class="n">str</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+</code></pre></div>
+</p>
+<p>つまり、関数 <code>mblen</code> はあたかも内部状態がないかのように振る舞い、
+現在のエンコーディングの初期状態を用いて <code>str</code> の先頭にある文字のバイト数を計算する。</p>
+<h3>C99, C++14, POSIX.1-2017 以前</h3>
+<p>この関数は以下の関数呼び出しに等価である。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><span href="https://cpprefjp.github.io/reference/cstdlib/mbtowc.md.nolink">mbtowc</span></span><span class="p">((</span><span class="kt">wchar_t</span> <span class="o">*</span><span class="p">)</span><span class="mi">0</span><span class="p">,</span> <span class="n">str</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+</code></pre></div>
+</p>
+<p>関数 <code>mblen</code> は <code>std::mbstate_t</code> に等価な静的記憶域の内部状態を保持し、前回の <code>mblen</code> 関数呼び出しの続きとして処理を行う。
 従って、この関数はスレッドセーフではない。
-スレッドセーフに処理する場合は、<code>std::mbstate_t</code> を受け取る <code><span href="https://cpprefjp.github.io/reference/cwchar/mbrlen.md.nolink">std::mbrlen</span></code> (<code>&lt;cwchar&gt;</code>) を使い、呼び出し元でデコード状態の記録場所 <code>std::mbstate_t</code> を用意する必要がある。
-新しいコードでは、特に理由がない限り <code>std::mblen</code> ではなく <code>std::mbrlen</code> を用いるべきである。</p>
+また、この関数を用いる処理の途中で、この関数を用いる別の処理を行うこともできない。
+安全に処理するためには、この関数の代わりに <code>std::mbstate_t</code> を受け取る <code><span href="https://cpprefjp.github.io/reference/cwchar/mbrlen.md.nolink">std::mbrlen</span></code> (<code>&lt;cwchar&gt;</code>) を使い、呼び出し元でデコード状態の記録場所 <code>std::mbstate_t</code> を用意する必要がある。</p>
+<p>他の標準ライブラリ関数はあたかも<code>mblen</code>を呼び出さないように振る舞う。
+つまり、明示的に <code>mblen</code> を呼び出さない限り、その内部状態を変更しない。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <ul>
 <li>正常に動作する場合、文字の占めるバイト数を返す。</li>
@@ -253,14 +274,21 @@
 <p><pre><code>3
 </code></pre></p>
 <h3>文字列の文字数を計算する</h3>
-<p><div class="yata" id="71a2e9a91f3dcb005628803afc8d5a31b0f308b3"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;clocale&gt;</span><span class="cp"></span>
+<p><div class="yata" id="451eee8661bab7f820f59354d769e8183f65fd47"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;clocale&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../cstdlib.html">&lt;cstdlib&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../cstring.html">&lt;cstring&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">count_chars_mblen</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// std::mblen 内部の std::mbstate_t を初期化する必要あり</span>
+<span class="cp">#if __cplusplus &gt;= 201703L</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">mblen</span><span class="p">(</span><span class="k">nullptr</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">"count_chars_mblen: State-dependent encoding is unsupported."</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="cp">#else</span>
+  <span class="c1">// C++14 以前: std::mblen 内部の std::mbstate_t を初期化する必要あり</span>
   <span class="n">std</span><span class="o">::</span><span class="n">mblen</span><span class="p">(</span><span class="k">nullptr</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="cp">#fi</span>
 
   <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
   <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>

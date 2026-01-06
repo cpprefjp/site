@@ -28,11 +28,11 @@
         <meta property="og:url" content="https://cpprefjp.github.io/reference/exception/rethrow_exception.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
-        <meta property="og:description" content="`exception_ptr`が指す例外オブジェクトを再スローする。" />
+        <meta property="og:description" content="`exception_ptr`が指す例外オブジェクトを再送出する。" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="rethrow_exception - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/exception/rethrow_exception.html" />
-        <meta name="twitter:description" content="`exception_ptr`が指す例外オブジェクトを再スローする。" />
+        <meta name="twitter:description" content="`exception_ptr`が指す例外オブジェクトを再送出する。" />
 
         
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;exception&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;e1e59a5e312014012689b354736652204fad1965&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;exception&gt;\n#include &lt;stdexcept&gt;\n\nint main()\n{\n  std::exception_ptr ep;\n\n  try {\n    throw std::runtime_error(\&#34;error!\&#34;);\n  }\n  catch (...) {\n    std::cout &lt;&lt; \&#34;catch\&#34; &lt;&lt; std::endl;\n    ep = std::current_exception(); // \u51e6\u7406\u4e2d\u306e\u4f8b\u5916\u30dd\u30a4\u30f3\u30bf\u3092\u53d6\u5f97\n  }\n\n  if (ep) {\n    std::cout &lt;&lt; \&#34;rethrow\&#34; &lt;&lt; std::endl;\n    std::rethrow_exception(ep); // \u518d\u30b9\u30ed\u30fc\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;exception&#34;, &#34;rethrow_exception&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;exception&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;b23f7da7b16ee3f1a9928d3acf9c1a87de27e39c&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;exception&gt;\n#include &lt;stdexcept&gt;\n\nint main()\n{\n  std::exception_ptr ep;\n\n  try {\n    throw std::runtime_error(\&#34;error!\&#34;);\n  }\n  catch (...) {\n    std::cout &lt;&lt; \&#34;catch\&#34; &lt;&lt; std::endl;\n    ep = std::current_exception(); // \u51e6\u7406\u4e2d\u306e\u4f8b\u5916\u30dd\u30a4\u30f3\u30bf\u3092\u53d6\u5f97\n  }\n\n  if (ep) {\n    std::cout &lt;&lt; \&#34;rethrow\&#34; &lt;&lt; std::endl;\n    std::rethrow_exception(ep); // \u518d\u9001\u51fa\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;exception&#34;, &#34;rethrow_exception&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-04-03T07:03:23">
-        2025年04月03日 07時03分23秒
+      <span itemprop="datePublished" content="2026-01-06T03:47:59">
+        2026年01月06日 03時47分59秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Koichi Murase</span>
       </span>
       が更新
     </small></p>
@@ -218,21 +218,21 @@
 </code></pre></div>
 </p>
 <h2>概要</h2>
-<p><code>exception_ptr</code>が指す<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>オブジェクトを再スローする。</p>
+<p><code>exception_ptr</code>が指す<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>オブジェクトを再送出する。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a></h2>
 <p><code>p</code>がヌルを指す<code>exception_ptr</code>ではないこと。</p>
 <h2>効果</h2>
 <p>説明用の変数<code>u</code>を、<code>p</code>が指す<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>オブジェクトもしくはそのコピーとする。
 コピーが行われるか否か、コピー時にメモリ確保が行われるか否かは<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>とされる。</p>
 <ul>
-<li><code>u</code>用のメモリ確保に失敗した場合、<code><a href="../new/bad_alloc.html">bad_alloc</a></code><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>がスローされる。</li>
-<li>そうでなければ、<code>p</code>が指す<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>オブジェクトから<code>u</code>へのコピー時に<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>スローされた場合、その<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>がスローされる。</li>
+<li><code>u</code>用のメモリ確保に失敗した場合、<code><a href="../new/bad_alloc.html">bad_alloc</a></code><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が送出される。</li>
+<li>そうでなければ、<code>p</code>が指す<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>オブジェクトから<code>u</code>へのコピー時に<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出された場合、その<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が送出される。</li>
 <li>そうでなければ、<code>throw u;</code></li>
 </ul>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p>この関数は決して返らない。</p>
 <h2>例</h2>
-<p><div class="yata" id="e1e59a5e312014012689b354736652204fad1965"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="b23f7da7b16ee3f1a9928d3acf9c1a87de27e39c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../exception.html">&lt;exception&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../stdexcept.html">&lt;stdexcept&gt;</a></span><span class="cp"></span>
 
@@ -250,7 +250,7 @@
 
   <span class="k">if</span> <span class="p">(</span><span class="n">ep</span><span class="p">)</span> <span class="p">{</span>
     <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"rethrow"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-    <span class="n"><span style="color:#ff0000">std::rethrow_exception</span></span><span class="p">(</span><span class="n">ep</span><span class="p">);</span> <span class="c1">// 再スロー</span>
+    <span class="n"><span style="color:#ff0000">std::rethrow_exception</span></span><span class="p">(</span><span class="n">ep</span><span class="p">);</span> <span class="c1">// 再送出</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>

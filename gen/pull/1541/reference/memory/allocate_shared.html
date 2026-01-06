@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-10-14T05:41:25">
-        2025年10月14日 05時41分25秒
+      <span itemprop="datePublished" content="2026-01-06T03:47:59">
+        2026年01月06日 03時47分59秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">Koichi Murase</span>
       </span>
       が更新
     </small></p>
@@ -267,7 +267,7 @@
 <h2>効果</h2>
 <p>型<code>T</code>のオブジェクトにメモリを割り当てる（<code>T</code>が<code>U[]</code>の場合は<code>U[N]</code>。<code>N</code>はそれぞれの<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>で指定された引数から決定される）。メモリは、引数<code>a</code>のコピー(value_type のためのリバウンド。value_type は、参照カウンタと型<code>T</code>の本体を連続メモリ領域に配置するための<code>T</code>のサイズより大きい領域をアロケートできるような型だと考えられる)を使用して割り当てられる。</p>
 <p>オブジェクトは、それぞれの<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>で指定された引数から初期化される。</p>
-<p><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>がスローされた場合、関数は効果がない。</p>
+<p><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が送出された場合、関数は効果がない。</p>
 <p>配列型<code>U</code>のオブジェクトが（同じ型の）<code>u</code>の初期値を持つように指定されている場合、これは、オブジェクトの各配列要素が初期値として<code>u</code>からの対応する要素を持つことを意味すると解釈される。</p>
 <p>配列タイプのオブジェクトがデフォルトの初期値を持つように指定されている場合、これはオブジェクトの各配列要素がデフォルトの初期値を持つ（<a class="cpprefjp-defined-word" data-desc="`T x{};`構文での初期化。組み込み型の場合はゼロ相当の値で、クラス型の場合はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的に値初期化される">値初期化</a>される）ことを意味すると解釈される。</p>
 <p>非配列型Uの（サブ）オブジェクトが初期値<code>v</code>または<code>U(l...)</code>を持つように指定されている場合（<code>l...</code>はコンストラクタ引数のリスト）、この関数は次の式を介してこの（サブ）オブジェクトを初期化する。</p>
@@ -282,7 +282,7 @@
 <p>それぞれ、<code>pv</code>は型<code>U</code>のオブジェクトを保持するのに適したストレージを指し、型<code>A2</code>の<code>a2</code>は、<code>value_type</code>が<code>remove_cv_t&lt;U&gt;</code>になるように<code>allocate_shared</code>に渡されるアロケーター<code>a</code>のリバウンドコピーである。ここで、リバウンドコピーとは、参照カウンタと型<code>T</code>の本体を連続メモリ領域に配置するためには<code>T</code>のサイズより大きい領域をアロケートする必要があるために<code>allocator_traits&lt;Alloc&gt;::rebind_alloc&lt;value_type&gt;</code>を用いて再束縛されたものである。</p>
 <p>非配列型Uの（サブ）オブジェクトがデフォルトの初期値を持つように指定されている場合、この関数は、式 <code>allocator_traits&lt;A2&gt;::construct(a2, pv)</code>を介してこの（サブ）オブジェクトを初期化する。ここで、<code>pv</code>は、型<code>U</code>のオブジェクトを保持するのに適したストレージを指し、タイプ<code>A2</code>の<code>a2</code>は、<code>value_type</code>が<code>remove_cv_t&lt;U&gt;</code>になるように、<code>allocate_shared</code>に渡されるアロケーター<code>a</code>のリバウンドコピーである。</p>
 <p>配列要素は、アドレスの昇順で初期化される。</p>
-<p><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>によって管理されるオブジェクトの<code>lifetime</code>が終了するか、配列要素の初期化が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>をスローすると、初期化された要素は元の構造の逆の順序で破棄される。</p>
+<p><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>によって管理されるオブジェクトの<code>lifetime</code>が終了するか、配列要素の初期化が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出すると、初期化された要素は元の構造の逆の順序で破棄される。</p>
 <p>この関数によって初期化された非配列型<code>U</code>の（サブ）オブジェクトが破棄される場合、式<code>allocator_traits&lt;A2&gt;::destroy(a2, pv)</code>によって破棄される。<code>pv</code>はその型のオブジェクトを指す。<code>remove_cv_t&lt;U&gt;</code>および型<code>A2</code>の<code>a2</code>は、<code>value_type</code>が<code>remove_cv_t&lt;U&gt;</code>になるように<code>allocate_shared</code>に渡されるアロケーター<code>a</code>の再束縛されたコピーである。</p>
 <ul>
 <li>(1) : 初期値<code>T(forward&lt;Args&gt;(args)...)</code>を持つ型<code>T</code>のオブジェクトへの<code>shared_ptr</code>を返す。Tが配列型でない場合にのみ、この<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>は<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>に関与する。この関数によって呼び出される<code>shared_ptr</code>コンストラクタは、型<code>T</code>の新しく構築されたオブジェクトのアドレスで<code>shared_from_this</code>を有効にする。</li>
@@ -296,7 +296,7 @@
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a></h2>
 <p><code>r.get() != 0 &amp;&amp; r.use_count() == 1</code>, ここで、<code>r</code> は<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>である。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
-<p><code>bad_alloc</code>、または<code>allocate</code>またはオブジェクトの初期化からスローされた<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>。</p>
+<p><code>bad_alloc</code>、または<code>allocate</code>またはオブジェクトの初期化から送出された<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>。</p>
 <h2>備考</h2>
 <p>同様の効果を持つ関数に、<code><a href="make_shared.html">make_shared()</a></code>があるが、
 この関数はメモリの確保に<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>のアロケータを使用したい場合などに用いることができる。</p>
