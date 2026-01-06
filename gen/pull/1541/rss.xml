@@ -2,18 +2,18 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-01-06T05:42:07.530103</updated>
-  <id>9775a0e8-5c9b-4a12-8a0a-59e9d94773b0</id>
+  <updated>2026-01-06T05:57:21.336943</updated>
+  <id>b35d5828-f190-4f1c-adef-ffbbc5441e24</id>
 
   
     <entry>
       <title>mblen -- fix(cstdlib/mblen): C規格の内部状態に関する取り扱い変更について記述</title>
       <link href="https://cpprefjp.github.io/reference/cstdlib/mblen.html"/>
-      <id>815d0a5b13d4424707f058155fc1c5e673f0a55e:reference/cstdlib/mblen.md</id>
+      <id>3cde06286c6212ec37f10c5fdac2c33ef7ca4f17:reference/cstdlib/mblen.md</id>
       <updated>2026-01-06T14:35:23+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/mblen.md b/reference/cstdlib/mblen.md
-index c38e3d3d8..16905e501 100644
+index c38e3d3d8..afb248e4b 100644
 --- a/reference/cstdlib/mblen.md
 +++ b/reference/cstdlib/mblen.md
 @@ -18,10 +18,42 @@ namespace std {
@@ -75,7 +75,7 @@ index c38e3d3d8..16905e501 100644
 +#else
 +  // C++14 以前: std::mblen 内部の std::mbstate_t を初期化する必要あり
    std::mblen(nullptr, 0);
-+#fi
++#endif
  
    int count = 0;
    std::size_t i = 0;
