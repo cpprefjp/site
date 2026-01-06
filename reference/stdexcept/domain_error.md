@@ -19,10 +19,10 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 | --- | --- | --- |
-| [`(constructor)`](logic_error/op_constructor.md.nolink) | コンストラクタ | |
-| [`(destructor)`](logic_error/op_destructor.md.nolink) | デストラクタ | |
-| [`operator=`](logic_error/op_assign.md.nolink) | 代入演算子 | |
-| [`what`](logic_error/what.md.nolink) | エラー理由を取得する | |
+| [`(constructor)`](domain_error/op_constructor.md.nolink) | コンストラクタ | |
+| [`(destructor)`](domain_error/op_destructor.md.nolink) | デストラクタ | |
+| [`operator=`](domain_error/op_assign.md.nolink) | 代入演算子 | |
+| [`what`](exception/what.md.nolink) | エラー理由を取得する | |
 
 ## 例
 

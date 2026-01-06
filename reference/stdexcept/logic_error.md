@@ -21,7 +21,7 @@ namespace std {
 | [`(constructor)`](logic_error/op_constructor.md.nolink) | コンストラクタ | |
 | [`(destructor)`](logic_error/op_destructor.md.nolink) | デストラクタ | |
 | [`operator=`](logic_error/op_assign.md.nolink) | 代入演算子 | |
-| [`what`](logic_error/what.md.nolink) | エラー理由を取得する | |
+| [`what`](exception/what.md.nolink) | エラー理由を取得する | |
 
 ## 例
 
