@@ -1,0 +1,1836 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cpprefjp - C++日本語リファレンス</title>
+  <link href="https://cpprefjp.github.io" />
+  <updated>2026-01-06T09:42:29.595608</updated>
+  <id>fdaa5e1c-58b4-4e54-aeb1-60d06de4c650</id>
+
+  
+    <entry>
+      <title>C++国際標準規格 -- feat(C++国際標準規格): 引用規格情報とC規格の表を追加</title>
+      <link href="https://cpprefjp.github.io/international-standard.html"/>
+      <id>26ce93dbcfc869aaeda8d6df4855da485f6507fc:international-standard.md</id>
+      <updated>2026-01-06T18:07:51+09:00</updated>
+      
+        <content type="html">&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;C++国際標準規格&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;h2&gt;&lt;a href=&#34;#summary&#34; id=&#34;summary&#34;&gt;概要&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;C++ の標準規格の実例として ISO/IEC による&lt;strong&gt;国際標準規格&lt;/strong&gt; (international standard) がある。
+最新の国際標準規格は「ISO/IEC 14882:2020 Programming Languages -- C++」(通称 C++20) である。
+C++ の標準規格は、他にも各国の規格化団体によって国際標準規格に等価なものが定められている。
+日本では日本工業標準調査会 (JISC) により「JIS X 3014:2003 プログラム言語C++」が定められているが古い (C++03 相当)。
+ここでは特に国際標準規格について取り扱う。&lt;/p&gt;
+&lt;h2&gt;&lt;a href=&#34;#list-of-iso-cpp&#34; id=&#34;list-of-iso-cpp&#34;&gt;国際標準規格の一覧&lt;/a&gt;&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;通称&lt;sup&gt;&lt;a href=&#34;#note-t1-1&#34; id=&#34;note_ref-t1-1&#34;&gt;†1&lt;/a&gt;&lt;/sup&gt;&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;名称&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;参照する規格案&lt;sup&gt;&lt;a href=&#34;#note-t1-2&#34; id=&#34;note_ref-t1-2&#34;&gt;†2&lt;/a&gt;&lt;/sup&gt;&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;規格案・原案&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;&lt;code&gt;__cplusplus&lt;/code&gt;&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;引用規格&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;lang/cpp26.html&#34;&gt;C++26&lt;/a&gt; (C++2c)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ISO/IEC 14882:2026 (予定)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N5014(&lt;a href=&#34;https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/n5014.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;/&lt;a href=&#34;https://timsong-cpp.github.io/cppwp/&#34; target=&#34;_blank&#34;&gt;HTML&lt;/a&gt;)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N5014 N5008 N5001 N4993&lt;br /&gt;N4986 N4981 N4971 N4964 N4958&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;--&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;C23, POSIX.1-2017&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;lang/cpp23.html&#34;&gt;C++23&lt;/a&gt; (C++2b)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ISO/IEC 14882:2024&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N4950(&lt;a href=&#34;https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/n4950.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;/&lt;a href=&#34;https://timsong-cpp.github.io/cppwp/n4950/&#34; target=&#34;_blank&#34;&gt;HTML&lt;/a&gt;)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N4950 N4944 N4928 N4917 N4910&lt;br /&gt;N4901 N4892 N4885 N4878 N4868&lt;br /&gt;N4861&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;202302L&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;C17, POSIX.1-2017&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;lang/cpp20.html&#34;&gt;C++20&lt;/a&gt; (C++2a)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ISO/IEC 14882:2020&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N4861&lt;sup&gt;&lt;a href=&#34;#note-t1-3&#34; id=&#34;note_ref-t1-3&#34;&gt;†3&lt;/a&gt;&lt;/sup&gt;(&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/n4861.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;/&lt;a href=&#34;https://timsong-cpp.github.io/cppwp/n4861/&#34; target=&#34;_blank&#34;&gt;HTML&lt;/a&gt;)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N4860 N4849 N4842 N4835 N4830&lt;br /&gt;N4820 N4810 N4800 N4791 &lt;del&gt;N4788&lt;/del&gt;&lt;sup&gt;&lt;a href=&#34;#note-t1-4&#34; id=&#34;note_ref-t1-4&#34;&gt;†4&lt;/a&gt;&lt;/sup&gt;&lt;br /&gt;N4778 N4762 N4750 N4741 N4727&lt;br /&gt;N4713 N4700 N4687&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;202002L&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;C17, POSIX.1-2001&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;lang/cpp17.html&#34;&gt;C++17&lt;/a&gt; (C++1z)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ISO/IEC 14882:2017&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N4659(&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4659.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;/&lt;a href=&#34;https://timsong-cpp.github.io/cppwp/n4659/&#34; target=&#34;_blank&#34;&gt;HTML&lt;/a&gt;)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N4660 N4659 N4640 N4618 N4606&lt;br /&gt;N4594 N4582 N4567 N4527 N4431&lt;br /&gt;N4296&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;201703L&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;C11/TC1, POSIX.1-2001&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;lang/cpp14.html&#34;&gt;C++14&lt;/a&gt; (C++1y)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ISO/IEC 14882:2014&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N4140(&lt;a href=&#34;https://github.com/cplusplus/draft/blob/master/papers/n4140.pdf?raw=true&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;/&lt;a href=&#34;https://timsong-cpp.github.io/cppwp/n4140/&#34; target=&#34;_blank&#34;&gt;HTML&lt;/a&gt;)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N4141 N4140 N3937 N3936 N3797&lt;br /&gt;N3691 N3690 N3485 N3376 N3337&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;201402L&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;C99/TC3, POSIX.1-2001&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;lang/cpp11.html&#34;&gt;C++11&lt;/a&gt; (C++0x)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ISO/IEC 14882:2011&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N3337&lt;sup&gt;&lt;a href=&#34;#note-t1-5&#34; id=&#34;note_ref-t1-5&#34;&gt;†5&lt;/a&gt;&lt;/sup&gt;(&lt;a href=&#34;https://wg21.link/std11&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;/&lt;a href=&#34;https://timsong-cpp.github.io/cppwp/n3337/&#34; target=&#34;_blank&#34;&gt;HTML&lt;/a&gt;)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N3291 N3290 N3242 N3225 N3126&lt;br /&gt;N3090 N3035 N3000 N2960 N2914&lt;br /&gt;N2857 N2798 N2723 N2691 N2606&lt;br /&gt;N2588 N2521 N2461 N2369 N2315&lt;br /&gt;N2284 N2134 N2009 N1905 N1804&lt;br /&gt;N1733 N1655&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;201103L&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;C99/TC3, POSIX.1-2001&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;C++03&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ISO/IEC 14882:2003&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N1577&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N1577 ?&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;199711L&lt;/code&gt;&lt;br /&gt;(C++98 と同じ)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;C99&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;C++98&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ISO/IEC 14882:1998&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;199711L&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;#note_ref-t1-1&#34; id=&#34;note-t1-1&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; カッコ内は策定時・標準化前に一時的に用いられた通称&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#note_ref-t1-2&#34; id=&#34;note-t1-2&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; 最終国際規格案はPDFやHTMLなどの形で一般公開されていないため、それにほぼ同一の内容の規格案を参照する。&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#note_ref-t1-3&#34; id=&#34;note-t1-3&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; N4861 は、C++20 DISであるN4860に対するデザインレベルの差とC++17との相互参照がない以外の差はないため、事実上 N4861 が C++20 を参照する時に用いられる。&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#note_ref-t1-4&#34; id=&#34;note-t1-4&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; N4788 は政治的事情により撤回された (参照 N4792)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#note_ref-t1-5&#34; id=&#34;note-t1-5&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; N3337 は、C++11規格に対する編集レベルの修正のみが適用された仕様案であるため、事実上 N3337 が C++11 を参照する時に用いられる。C++11規格からN3337への変更点は、&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3338.html&#34; target=&#34;_blank&#34;&gt;N3338&lt;/a&gt;を参照。&lt;br /&gt;
+(それより前の公開されているC++11向け仕様案であるN3242からC++11規格に対しては、機能的な変更がいくつかあるため、C++11規格として参照するには適さない)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;最新のDraftのHTML版は以下で公開されている。&lt;br /&gt;
+&lt;a href=&#34;https://timsong-cpp.github.io/cppwp/&#34; target=&#34;_blank&#34;&gt;Draft C++ Standard: Contents&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;標準規格の文章はtexで書かれており、そのソースコードは以下で2011年8月16日以降のものについて(つまりN3291より後、N3337より前)公開されている。&lt;br /&gt;
+&lt;a href=&#34;https://github.com/cplusplus/draft&#34; target=&#34;_blank&#34;&gt;cplusplus/draft: C++ standards drafts&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;a href=&#34;#list-of-iso-c&#34; id=&#34;list-of-iso-c&#34;&gt;C標準規格の一覧&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;以下、主な C 規格と C++ が参照する技術報告 (technical report; TC) の一覧である。&lt;/p&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;通称&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;名称&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;参照する規格案&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;&lt;code&gt;__STDC_VERSION__&lt;/code&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;C?? (C2Y)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ISO/IEC 9899:????&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N3685(&lt;a href=&#34;https://www.open-std.org/jtc1/sc22/wg14/www/docs/n3685.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;) (暫定)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;C23&lt;/strong&gt; (C2X)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ISO/IEC 9899:2024&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N3096(&lt;a href=&#34;https://www.open-std.org/jtc1/sc22/wg14/www/docs/n3096.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;202311L&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;C17&lt;/strong&gt; (C18)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ISO/IEC 9899:2018&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N2176&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;201710L&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;C11 TC1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ISO/IEC 9899:2011/Cor 1:2012&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;201112L&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;C11&lt;/strong&gt; (C1X)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ISO/IEC 9899:2011&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N1570(&lt;a href=&#34;https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;201112L&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;C99 TC3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ISO/IEC 9899:1999/Cor.3:2007&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N1256(&lt;a href=&#34;https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;199901L&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;C99 TC2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ISO/IEC 9899:1999/Cor.2:2004&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;199901L&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;C99 TC1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ISO/IEC 9899:1999/Cor.1:2001&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;199901L&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;C99&lt;/strong&gt; (C9X)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ISO/IEC 9899:1999&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N843(&lt;a href=&#34;https://www.open-std.org/jtc1/sc22/wg14/www/docs/n843.htm&#34; target=&#34;_blank&#34;&gt;HTML&lt;/a&gt;)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;199901L&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;C95&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ISO/IEC 9899/Amd.1:1995&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;199409L&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;C90&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ISO/IEC 9899:1990&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;--&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;strong&gt;C89&lt;/strong&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ANSI X3.159-1989&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;--&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;&lt;a href=&#34;#iso-cpp-committee&#34; id=&#34;iso-cpp-committee&#34;&gt;用語: 国際標準規格を定める組織&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;C++標準化委員会&lt;/strong&gt; (C++ Standards Committee): C++ の国際標準規格を策定する団体。
+  組織としての位置づけはISO/IEC JTC1/SC22/WG21になる。
+  &lt;strong&gt;国際標準化機構&lt;/strong&gt; (ISO; international organization for standardization) および&lt;strong&gt;国際電気標準会議&lt;/strong&gt; (IEC; International Electronics Commission) はそれぞれ様々な規格の標準化団体である。
+  &lt;strong&gt;第一合同技術委員会&lt;/strong&gt; (JTC1; Joint Technical Committee 1) は ISO/IEC の下で情報技術の標準化を行う団体である。
+  下部組織の SC22 はプログラム言語の標準化を行う&lt;strong&gt;副委員会&lt;/strong&gt; (SC; subcommittee) である。
+  C++標準化委員会は WG21 という&lt;strong&gt;作業グループ&lt;/strong&gt; (WG; working group) である。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CWG&lt;/strong&gt; (Core working group): C++標準化委員会の内、コア言語機能の策定を行う作業グループ&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LWG&lt;/strong&gt; (Library working group): C++標準化委員会の内、標準ライブラリ機能の策定を行う作業グループ&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;NB&lt;/strong&gt; (national body) または&lt;strong&gt;MB/NC&lt;/strong&gt; (member body/national committee): C++標準化委員会の正会員つまり各国から派遣される団体のこと。本来は member body は ISO での名称で、national committee は IEC での名称。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;&lt;a href=&#34;#iso-cpp-documents&#34; id=&#34;iso-cpp-documents&#34;&gt;用語: 国際標準規格の文書&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;提案文書&lt;/strong&gt; (proposal paper): 標準規格の変更についての提案文書&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;問題&lt;/strong&gt; (issue): C++標準規格の問題や課題のこと&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;欠陥&lt;/strong&gt; (defect): C++標準規格に含まれるいわば &#34;バグ&#34; のこと&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;DR&lt;/strong&gt; (defect report, defect resolution): 委員会で承認された欠陥の報告または欠陥の修正のこと&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;NAD&lt;/strong&gt; (not a defect): 委員会により標準規格の欠陥ではないとされた問題のこと&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DRWP&lt;/strong&gt;: 最新の規格原案に取り込み済みの DR のこと&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;WD&lt;/strong&gt; (working draft): 作業原案&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CD&lt;/strong&gt; (committee draft): 委員会原案&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;FCD&lt;/strong&gt; (final committee draft): 最終委員会原案&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DIS&lt;/strong&gt; (draft international standard): 国際規格案&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;FDIS&lt;/strong&gt; (final draft international standard): 最終国際規格案&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;IS&lt;/strong&gt; (international standard): 国際規格&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;TR&lt;/strong&gt; (technical report): 技術報告書。用例: TR1&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;TS&lt;/strong&gt; (technical specifications): 技術仕様書。用例: Concepts TS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;参照&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;標準規格&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.iso.org/standard/83626.html&#34; target=&#34;_blank&#34;&gt;ISO/IEC 14882:2024 - Programming languages — C++&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.iso.org/standard/79358.html&#34; target=&#34;_blank&#34;&gt;ISO/IEC 14882:2020 - Programming languages — C++&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.iso.org/standard/68564.html&#34; target=&#34;_blank&#34;&gt;ISO/IEC 14882:2017 - Programming languages -- C++&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.iso.org/standard/64029.html&#34; target=&#34;_blank&#34;&gt;ISO/IEC 14882:2014 - Information technology -- Programming languages -- C++&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.iso.org/standard/50372.html&#34; target=&#34;_blank&#34;&gt;ISO/IEC 14882:2011 - Information technology -- Programming languages -- C++&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.iso.org/standard/38110.html&#34; target=&#34;_blank&#34;&gt;ISO/IEC 14882:2003 - Programming languages -- C++&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.iso.org/standard/25845.html&#34; target=&#34;_blank&#34;&gt;ISO/IEC 14882:1998 - Programming languages -- C++&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://webdesk.jsa.or.jp/books/W11M0090/index/?bunsyo_id=JIS%20X%203014:2003&#34; target=&#34;_blank&#34;&gt;JIS X 3014:2003 プログラム言語Ｃ＋＋／Information Technology -- Programming languages -- C++ 日本規格協会 JSA Webdesk&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://en.cppreference.com/w/cpp/experimental&#34; target=&#34;_blank&#34;&gt;Experimental C++ Features - cppreference.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/29115656/which-draft-is-closest-to-the-c14-standard&#34; target=&#34;_blank&#34;&gt;c++ - Which draft is closest to the C++14 standard? - Stack Overflow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/81656/where-do-i-find-the-current-c-or-c-standard-documents&#34; target=&#34;_blank&#34;&gt;Where do I find the current C or C++ standard documents? - Stack Overflow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/11053960/how-are-the-cplusplus-directive-defined-in-various-compilers&#34; target=&#34;_blank&#34;&gt;c++ - How are the __cplusplus directive defined in various compilers? - Stack Overflow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/&#34; target=&#34;_blank&#34;&gt;ISO/IEC JTC1/SC22/WG21 - The C++ Standards Committee - ISOCPP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ja.wikipedia.org/wiki/%E5%9B%BD%E9%9A%9B%E6%A8%99%E6%BA%96%E5%8C%96%E6%A9%9F%E6%A7%8B&#34; target=&#34;_blank&#34;&gt;国際標準化機構 - Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ja.wikipedia.org/wiki/%E5%9B%BD%E9%9A%9B%E9%9B%BB%E6%B0%97%E6%A8%99%E6%BA%96%E4%BC%9A%E8%AD%B0&#34; target=&#34;_blank&#34;&gt;国際電気標準会議 - Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ja.wikipedia.org/wiki/ISO/IEC_JTC_1&#34; target=&#34;_blank&#34;&gt;ISO/IEC JTC 1 - Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ja.wikipedia.org/wiki/ISO/IEC_JTC_1/SC_22&#34; target=&#34;_blank&#34;&gt;ISO/IEC JTC 1/SC 22 - Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コルーチン [P0912R5] -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/lang/cpp20/coroutines.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:lang/cpp20/coroutines.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp20/coroutines.md b/lang/cpp20/coroutines.md
+index c30f35ed2..0f3023216 100644
+--- a/lang/cpp20/coroutines.md
++++ b/lang/cpp20/coroutines.md
+@@ -323,7 +323,7 @@ Await式は式 _o_ と式 _await-ready_ を評価し、続いて：
+     - _await-suspend_ の型が[`std::coroutine_handle&amp;lt;Z&amp;gt;`](/reference/coroutine/coroutine_handle.md)の場合、_await-suspend_[`.resume()`](/reference/coroutine/coroutine_handle/resume.md)が評価される。
+     - そうではなく _await-suspend_ の型が`bool`の場合、_await-suspend_ が評価され、その結果が`false`であればコルーチンは再開する。
+     - それ以外の場合、_await-suspend_ が評価される。
+-- _await-suspend_ の評価が例外で終了した場合、例外が捕捉されてコルーチンが再開し、その例外は即座に再スローされる。そうでなければ、スコープ終了をともなわずに現在のコルーチンの呼出元もしくは再開元へ制御フローを戻す。
++- _await-suspend_ の評価が例外で終了した場合、例外が捕捉されてコルーチンが再開し、その例外は即座に再送出される。そうでなければ、スコープ終了をともなわずに現在のコルーチンの呼出元もしくは再開元へ制御フローを戻す。
+ - _await-ready_ の結果が`true`またはコルーチンが再開した場合、_await-resume_ の評価結果がAwait式の結果となる。
+ 
+ ```cpp
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>current_exception -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/exception/current_exception.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/exception/current_exception.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/exception/current_exception.md b/reference/exception/current_exception.md
+index 858e9b060..82b850184 100644
+--- a/reference/exception/current_exception.md
++++ b/reference/exception/current_exception.md
+@@ -55,7 +55,7 @@ int main()
+ 
+   if (ep) {
+     std::cout &amp;lt;&amp;lt; &amp;#34;rethrow&amp;#34; &amp;lt;&amp;lt; std::endl;
+-    std::rethrow_exception(ep); // 再スロー
++    std::rethrow_exception(ep); // 再送出
+   }
+ }
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>rethrow_exception -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/exception/rethrow_exception.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/exception/rethrow_exception.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/exception/rethrow_exception.md b/reference/exception/rethrow_exception.md
+index b6baa3a13..8ab2d8f1a 100644
+--- a/reference/exception/rethrow_exception.md
++++ b/reference/exception/rethrow_exception.md
+@@ -11,7 +11,7 @@
+ * exception_ptr[link exception_ptr.md]
+ 
+ ## 概要
+-`exception_ptr`が指す例外オブジェクトを再スローする。
++`exception_ptr`が指す例外オブジェクトを再送出する。
+ 
+ 
+ ## 事前条件
+@@ -22,8 +22,8 @@
+ 説明用の変数`u`を、`p`が指す例外オブジェクトもしくはそのコピーとする。
+ コピーが行われるか否か、コピー時にメモリ確保が行われるか否かは未規定とされる。
+ 
+-- `u`用のメモリ確保に失敗した場合、[`bad_alloc`](/reference/new/bad_alloc.md)例外がスローされる。
+-- そうでなければ、`p`が指す例外オブジェクトから`u`へのコピー時に例外スローされた場合、その例外がスローされる。
++- `u`用のメモリ確保に失敗した場合、[`bad_alloc`](/reference/new/bad_alloc.md)例外が送出される。
++- そうでなければ、`p`が指す例外オブジェクトから`u`へのコピー時に例外送出された場合、その例外が送出される。
+ - そうでなければ、`throw u;`
+ 
+ 
+@@ -51,7 +51,7 @@ int main()
+ 
+   if (ep) {
+     std::cout &amp;lt;&amp;lt; &amp;#34;rethrow&amp;#34; &amp;lt;&amp;lt; std::endl;
+-    std::rethrow_exception(ep); // 再スロー
++    std::rethrow_exception(ep); // 再送出
+   }
+ }
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>uncaught_exception -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/exception/uncaught_exception.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/exception/uncaught_exception.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/exception/uncaught_exception.md b/reference/exception/uncaught_exception.md
+index f3097d432..a0f8c485b 100644
+--- a/reference/exception/uncaught_exception.md
++++ b/reference/exception/uncaught_exception.md
+@@ -19,7 +19,7 @@ namespace std {
+ 
+ 
+ ## 戻り値
+-例外オブジェクトが生成され、スローされてからキャッチするまでの間に`true`を返す。
++例外オブジェクトが生成され、送出されてからキャッチするまでの間に`true`を返す。
+ 
+ また、明示的に[`terminate()`](/reference/exception/terminate.md)を呼び出し、実際に呼び出されるまでの間に`true`を返す。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>uncaught_exceptions -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/exception/uncaught_exceptions.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/exception/uncaught_exceptions.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/exception/uncaught_exceptions.md b/reference/exception/uncaught_exceptions.md
+index 5e00ac035..ae0d83f15 100644
+--- a/reference/exception/uncaught_exceptions.md
++++ b/reference/exception/uncaught_exceptions.md
+@@ -16,7 +16,7 @@ namespace std {
+ 
+ 
+ ## 戻り値
+-呼び出し時点の、そのスレッドにおいてスローされたがキャッチされていない例外オブジェクトの数を取得する。
++呼び出し時点の、そのスレッドにおいて送出されたがキャッチされていない例外オブジェクトの数を取得する。
+ 
+ 具体的には、`try`ブロック中で作られたオブジェクトのデストラクタや、スタック巻き戻し(unwind)中のデストラクタで1以上になる。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>as_awaitable -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/execution/execution/as_awaitable.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/execution/execution/as_awaitable.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/as_awaitable.md b/reference/execution/execution/as_awaitable.md
+index fdcf54492..0d039abed 100644
+--- a/reference/execution/execution/as_awaitable.md
++++ b/reference/execution/execution/as_awaitable.md
+@@ -25,7 +25,7 @@ Promise型`p`をもつコルーチンにおいて、Await式`co_await as_awaitab
+     - コルーチンを中断し、Operation Stateを[開始(start)](start.md)する。
+     - [クエリオブジェクト](../queryable.md)による[Receiver](receiver.md)環境への問い合わせは、Promise型に関連付けられた環境(`get_env`)へと転送される。
+     - Senderが[値完了](set_value.md)した場合、送信値をAwait式の結果としてコルーチンを再開する。
+-    - Senderが[エラー完了](set_error.md)した場合、エラー値を例外としてコルーチンから再スローする。
++    - Senderが[エラー完了](set_error.md)した場合、エラー値を例外としてコルーチンから再送出する。
+     - Senderが[停止完了](set_stopped.md)した場合、停止完了ハンドラ(`unhandled_stopped`)が返す別のコルーチンを再開させる。
+ - そうでなければ、式`expr`に対してAwait式を実行する。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>swap -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/expected/expected.void/swap.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/expected/expected.void/swap.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/expected/expected.void/swap.md b/reference/expected/expected.void/swap.md
+index 129ed170a..a28fda194 100644
+--- a/reference/expected/expected.void/swap.md
++++ b/reference/expected/expected.void/swap.md
+@@ -53,7 +53,7 @@ noexcept例外指定は次の式に従う :
+ 
+ [`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`&amp;lt;E&amp;gt; &amp;amp;&amp;amp;` [`is_nothrow_swappable_v`](/reference/type_traits/is_nothrow_swappable.md)`&amp;lt;E&amp;gt;`
+ 
+-noexcept例外指定が`false`の場合、上記の「効果」による処理からの例外がスローされる。
++noexcept例外指定が`false`の場合、上記の「効果」による処理からの例外が送出される。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>value -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/expected/expected.void/value.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/expected/expected.void/value.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/expected/expected.void/value.md b/reference/expected/expected.void/value.md
+index cfd3689d5..90860355b 100644
+--- a/reference/expected/expected.void/value.md
++++ b/reference/expected/expected.void/value.md
+@@ -20,8 +20,8 @@ constexpr void value() &amp;amp;&amp;amp;;      // (2)
+ 
+ 
+ ## 例外
+-- (1) : エラー値を保持していたら、例外[`bad_expected_access`](../bad_expected_access.md)`(`[`error()`](error.md)`)`をスローする
+-- (2) : エラー値を保持していたら、例外[`bad_expected_access`](../bad_expected_access.md)`(`[`std::move`](/reference/utility/move.md)`(`[`error()`](error.md)`))`をスローする
++- (1) : エラー値を保持していたら、例外[`bad_expected_access`](../bad_expected_access.md)`(`[`error()`](error.md)`)`を送出する
++- (2) : エラー値を保持していたら、例外[`bad_expected_access`](../bad_expected_access.md)`(`[`std::move`](/reference/utility/move.md)`(`[`error()`](error.md)`))`を送出する
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>swap -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/expected/expected/swap.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/expected/expected/swap.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/expected/expected/swap.md b/reference/expected/expected/swap.md
+index 6786915ba..f453d7f42 100644
+--- a/reference/expected/expected/swap.md
++++ b/reference/expected/expected/swap.md
+@@ -77,7 +77,7 @@ noexcept例外指定は次の式に従う :
+ 
+ [`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`&amp;lt;T&amp;gt; &amp;amp;&amp;amp;` [`is_nothrow_swappable_v`](/reference/type_traits/is_nothrow_swappable.md)`&amp;lt;T&amp;gt; &amp;amp;&amp;amp;` [`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`&amp;lt;E&amp;gt; &amp;amp;&amp;amp;` [`is_nothrow_swappable_v`](/reference/type_traits/is_nothrow_swappable.md)`&amp;lt;E&amp;gt;`
+ 
+-noexcept例外指定が`false`の場合、上記の「効果」による処理からの例外がスローされる。
++noexcept例外指定が`false`の場合、上記の「効果」による処理からの例外が送出される。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>value -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/expected/expected/value.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/expected/expected/value.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/expected/expected/value.md b/reference/expected/expected/value.md
+index ede35fc45..74e129619 100644
+--- a/reference/expected/expected/value.md
++++ b/reference/expected/expected/value.md
+@@ -24,8 +24,8 @@ constexpr T&amp;amp;&amp;amp; value() &amp;amp;&amp;amp;;             // (4)
+ 
+ 
+ ## 例外
+-- (1), (2) : エラー値を保持していたら、例外[`bad_expected_access`](../bad_expected_access.md)`(`[`error()`](error.md)`)`をスローする
+-- (3), (4) : エラー値を保持していたら、例外[`bad_expected_access`](../bad_expected_access.md)`(`[`std::move`](/reference/utility/move.md)`(`[`error()`](error.md)`))`をスローする
++- (1), (2) : エラー値を保持していたら、例外[`bad_expected_access`](../bad_expected_access.md)`(`[`error()`](error.md)`)`を送出する
++- (3), (4) : エラー値を保持していたら、例外[`bad_expected_access`](../bad_expected_access.md)`(`[`std::move`](/reference/utility/move.md)`(`[`error()`](error.md)`))`を送出する
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>merge -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/map/map/merge.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/map/map/merge.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/map/map/merge.md b/reference/map/map/merge.md
+index 425ff823f..0b1c865e0 100644
+--- a/reference/map/map/merge.md
++++ b/reference/map/map/merge.md
+@@ -41,7 +41,7 @@ template&amp;lt;class C2&amp;gt;
+ 
+ 
+ ## 例外 
+-比較オブジェクトが例外をスローしない限り、例外をスローしない。
++比較オブジェクトが例外を送出しない限り、例外を送出しない。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>merge -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/map/multimap/merge.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/map/multimap/merge.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/map/multimap/merge.md b/reference/map/multimap/merge.md
+index 922be06c2..e229e9eee 100644
+--- a/reference/map/multimap/merge.md
++++ b/reference/map/multimap/merge.md
+@@ -40,7 +40,7 @@ template&amp;lt;class C2&amp;gt;
+ 
+ 
+ ## 例外 
+-比較オブジェクトが例外をスローしない限り、例外をスローしない。
++比較オブジェクトが例外を送出しない限り、例外を送出しない。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>allocate_shared -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/memory/allocate_shared.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/memory/allocate_shared.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory/allocate_shared.md b/reference/memory/allocate_shared.md
+index 25e51ca62..c435d30a3 100644
+--- a/reference/memory/allocate_shared.md
++++ b/reference/memory/allocate_shared.md
+@@ -71,7 +71,7 @@ namespace std {
+ 
+ オブジェクトは、それぞれのオーバーロードで指定された引数から初期化される。
+ 
+-例外がスローされた場合、関数は効果がない。
++例外が送出された場合、関数は効果がない。
+ 
+ 配列型`U`のオブジェクトが（同じ型の）`u`の初期値を持つように指定されている場合、これは、オブジェクトの各配列要素が初期値として`u`からの対応する要素を持つことを意味すると解釈される。
+ 
+@@ -89,7 +89,7 @@ namespace std {
+ 
+ 配列要素は、アドレスの昇順で初期化される。
+ 
+-戻り値によって管理されるオブジェクトの`lifetime`が終了するか、配列要素の初期化が例外をスローすると、初期化された要素は元の構造の逆の順序で破棄される。
++戻り値によって管理されるオブジェクトの`lifetime`が終了するか、配列要素の初期化が例外を送出すると、初期化された要素は元の構造の逆の順序で破棄される。
+ 
+ この関数によって初期化された非配列型`U`の（サブ）オブジェクトが破棄される場合、式`allocator_traits&amp;lt;A2&amp;gt;::destroy(a2, pv)`によって破棄される。`pv`はその型のオブジェクトを指す。`remove_cv_t&amp;lt;U&amp;gt;`および型`A2`の`a2`は、`value_type`が`remove_cv_t&amp;lt;U&amp;gt;`になるように`allocate_shared`に渡されるアロケーター`a`の再束縛されたコピーである。
+ 
+@@ -108,7 +108,7 @@ namespace std {
+ 
+ 
+ ## 例外
+-`bad_alloc`、または`allocate`またはオブジェクトの初期化からスローされた例外。
++`bad_alloc`、または`allocate`またはオブジェクトの初期化から送出された例外。
+ 
+ 
+ ## 備考
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>allocate_shared_for_overwrite -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/memory/allocate_shared_for_overwrite.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/memory/allocate_shared_for_overwrite.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory/allocate_shared_for_overwrite.md b/reference/memory/allocate_shared_for_overwrite.md
+index e7f47f2b5..5f758d72d 100644
+--- a/reference/memory/allocate_shared_for_overwrite.md
++++ b/reference/memory/allocate_shared_for_overwrite.md
+@@ -36,13 +36,13 @@ namespace std {
+ 
+ すべてのオーバーロードにおいて、確保された領域のオブジェクトはデフォルト構築される。
+ 
+-例外がスローされた場合、関数は効果がない。
++例外が送出された場合、関数は効果がない。
+ 
+ 非配列型`U`の（サブ）オブジェクトがこの関数によって初期化されるときは、式`::new(pv) U`によって初期化される。ここで、`pv`は型 `void *`を持ち、型`U`のオブジェクトを保持するための適切なストレージを指す。
+ 
+ 配列要素は、アドレスの昇順で初期化される。
+ 
+-戻り値によって管理されるオブジェクトの`lifetime`が終了するか、配列要素の初期化が例外をスローすると、初期化された要素は元の構造の逆の順序で破棄される。
++戻り値によって管理されるオブジェクトの`lifetime`が終了するか、配列要素の初期化が例外を送出すると、初期化された要素は元の構造の逆の順序で破棄される。
+ 
+ - (1) : このオーバーロードが選択されるとき、`T`は、不明な境界の配列ではない。`T`型のオブジェクトへの`shared_ptr`を返す。
+ - (2) : このオーバーロードが選択されるとき、`T`は、不明な境界の配列である。型`U[N]`のオブジェクトへの`shared_ptr`を返す。ここで、`U`は[`remove_extent_t&amp;lt;T&amp;gt;`](/reference/type_traits/remove_extent.md)である。
+@@ -56,7 +56,7 @@ namespace std {
+ 
+ 
+ ## 例外
+-`bad_alloc`、または`allocate`またはオブジェクトの初期化からスローされた例外。
++`bad_alloc`、または`allocate`またはオブジェクトの初期化から送出された例外。
+ 
+ 
+ ## 備考
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>make_shared -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/memory/make_shared.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/memory/make_shared.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory/make_shared.md b/reference/memory/make_shared.md
+index ef9d12e0d..ad37714e9 100644
+--- a/reference/memory/make_shared.md
++++ b/reference/memory/make_shared.md
+@@ -56,7 +56,7 @@ namespace std {
+ 
+ オブジェクトは、それぞれのオーバーロードで指定された引数から初期化される。
+ 
+-例外がスローされた場合、関数は効果がない。
++例外が送出された場合、関数は効果がない。
+ 
+ 配列型`U`のオブジェクトが（同じ型の）`u`の初期値を持つように指定されている場合、これは、オブジェクトの各配列要素が初期値として`u`からの対応する要素を持つことを意味すると解釈される。
+ 
+@@ -68,7 +68,7 @@ namespace std {
+ 
+ 配列要素は、アドレスの昇順で初期化される。
+ 
+-戻り値によって管理されるオブジェクトの`lifetime`が終了するか、配列要素の初期化が例外をスローすると、初期化された要素は元の構造の逆の順序で破棄される。
++戻り値によって管理されるオブジェクトの`lifetime`が終了するか、配列要素の初期化が例外を送出すると、初期化された要素は元の構造の逆の順序で破棄される。
+ 
+ この関数によって初期化された非配列型`U`の（サブ）オブジェクトを破棄する場合、式`pv-&amp;gt;~U()`によって破棄される。pvは型`U`のオブジェクトを指す。
+ 
+@@ -88,7 +88,7 @@ namespace std {
+ 
+ 
+ ## 例外
+-`bad_alloc`、または`allocate`またはオブジェクトの初期化からスローされた例外。
++`bad_alloc`、または`allocate`またはオブジェクトの初期化から送出された例外。
+ 
+ 
+ ## 備考
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>make_shared_for_overwrite -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/memory/make_shared_for_overwrite.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/memory/make_shared_for_overwrite.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory/make_shared_for_overwrite.md b/reference/memory/make_shared_for_overwrite.md
+index 1256852e0..0fcf744cc 100644
+--- a/reference/memory/make_shared_for_overwrite.md
++++ b/reference/memory/make_shared_for_overwrite.md
+@@ -24,13 +24,13 @@ namespace std {
+ 
+ すべてのオーバーロードにおいて、確保された領域のオブジェクトはデフォルト構築される。
+ 
+-例外がスローされた場合、関数は効果がない。
++例外が送出された場合、関数は効果がない。
+ 
+ 非配列型`U`の（サブ）オブジェクトがこの関数によって初期化されるときは、式`::new(pv) U`によって初期化される。ここで、`pv`は型 `void *`を持ち、型`U`のオブジェクトを保持するための適切なストレージを指す。
+ 
+ 配列要素は、アドレスの昇順で初期化される。
+ 
+-戻り値によって管理されるオブジェクトの`lifetime`が終了するか、配列要素の初期化が例外をスローすると、初期化された要素は元の構造の逆の順序で破棄される。
++戻り値によって管理されるオブジェクトの`lifetime`が終了するか、配列要素の初期化が例外を送出すると、初期化された要素は元の構造の逆の順序で破棄される。
+ 
+ - (1) : このオーバーロードが選択されるとき、`T`は、不明な境界の配列ではない。`T`型のオブジェクトへの`shared_ptr`を返す。
+ - (2) : このオーバーロードが選択されるとき、`T`は、不明な境界の配列である。型`U[N]`のオブジェクトへの`shared_ptr`を返す。ここで、`U`は[`remove_extent_t&amp;lt;T&amp;gt;`](/reference/type_traits/remove_extent.md)である。
+@@ -44,7 +44,7 @@ namespace std {
+ 
+ 
+ ## 例外
+-`bad_alloc`、または`allocate`またはオブジェクトの初期化からスローされた例外。
++`bad_alloc`、または`allocate`またはオブジェクトの初期化から送出された例外。
+ 
+ 
+ ## 備考
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>uninitialized_copy -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/memory/ranges_uninitialized_copy.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/memory/ranges_uninitialized_copy.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory/ranges_uninitialized_copy.md b/reference/memory/ranges_uninitialized_copy.md
+index 6b1168ecd..7e76fade9 100644
+--- a/reference/memory/ranges_uninitialized_copy.md
++++ b/reference/memory/ranges_uninitialized_copy.md
+@@ -101,7 +101,7 @@ return {std::move(ifirst), ofirst};
+ 
+ ## 例外
+ 
+-呼び出すコンストラクタなどから例外がスローされた場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外がスローされた場合は初期化対象領域は未初期化のままとなる。
++呼び出すコンストラクタなどから例外が送出された場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外が送出された場合は初期化対象領域は未初期化のままとなる。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>uninitialized_copy_n -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/memory/ranges_uninitialized_copy_n.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/memory/ranges_uninitialized_copy_n.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory/ranges_uninitialized_copy_n.md b/reference/memory/ranges_uninitialized_copy_n.md
+index 6060168c4..fb409e56e 100644
+--- a/reference/memory/ranges_uninitialized_copy_n.md
++++ b/reference/memory/ranges_uninitialized_copy_n.md
+@@ -73,7 +73,7 @@ return {std::move(t.in).base(), t.out};
+ 
+ ## 例外
+ 
+-呼び出すコンストラクタなどから例外がスローされた場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外がスローされた場合は初期化対象領域は未初期化のままとなる。
++呼び出すコンストラクタなどから例外が送出された場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外が送出された場合は初期化対象領域は未初期化のままとなる。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>uninitialized_default_construct -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/memory/ranges_uninitialized_default_construct.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/memory/ranges_uninitialized_default_construct.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory/ranges_uninitialized_default_construct.md b/reference/memory/ranges_uninitialized_default_construct.md
+index 2450c3fb1..32812ee0c 100644
+--- a/reference/memory/ranges_uninitialized_default_construct.md
++++ b/reference/memory/ranges_uninitialized_default_construct.md
+@@ -69,7 +69,7 @@ return first;
+ 
+ ## 例外
+ 
+-呼び出すコンストラクタなどから例外がスローされた場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外がスローされた場合は初期化対象領域は未初期化のままとなる。
++呼び出すコンストラクタなどから例外が送出された場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外が送出された場合は初期化対象領域は未初期化のままとなる。
+ 
+ ## 備考
+ - [`std::vector`](/reference/vector/vector.md)クラスの要素数を変更する操作は、要素を値構築するためゼロ初期化が行われる。その値初期化のコストが気になるような場合に、デフォルト構築することでプログラマの責任で必要な分だけ任意に初期化でき、パフォーマンス向上が期待できるようになる。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>uninitialized_default_construct_n -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/memory/ranges_uninitialized_default_construct_n.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/memory/ranges_uninitialized_default_construct_n.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory/ranges_uninitialized_default_construct_n.md b/reference/memory/ranges_uninitialized_default_construct_n.md
+index 3590484b1..6e9cd283b 100644
+--- a/reference/memory/ranges_uninitialized_default_construct_n.md
++++ b/reference/memory/ranges_uninitialized_default_construct_n.md
+@@ -43,7 +43,7 @@ return uninitialized_default_construct(counted_iterator(first, n),
+ 
+ ## 例外
+ 
+-呼び出すコンストラクタなどから例外がスローされた場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外がスローされた場合は初期化対象領域は未初期化のままとなる。
++呼び出すコンストラクタなどから例外が送出された場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外が送出された場合は初期化対象領域は未初期化のままとなる。
+ 
+ ## 例
+ ```cpp example
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>uninitialized_fill -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/memory/ranges_uninitialized_fill.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/memory/ranges_uninitialized_fill.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory/ranges_uninitialized_fill.md b/reference/memory/ranges_uninitialized_fill.md
+index a445b12e8..735aa3dfa 100644
+--- a/reference/memory/ranges_uninitialized_fill.md
++++ b/reference/memory/ranges_uninitialized_fill.md
+@@ -75,7 +75,7 @@ return first;
+ 
+ ## 例外
+ 
+-呼び出すコンストラクタなどから例外がスローされた場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外がスローされた場合は初期化対象領域は未初期化のままとなる。
++呼び出すコンストラクタなどから例外が送出された場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外が送出された場合は初期化対象領域は未初期化のままとなる。
+ 
+ ## 例
+ ```cpp example
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>uninitialized_fill_n -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/memory/ranges_uninitialized_fill_n.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/memory/ranges_uninitialized_fill_n.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory/ranges_uninitialized_fill_n.md b/reference/memory/ranges_uninitialized_fill_n.md
+index 31e6efbaf..5c0377772 100644
+--- a/reference/memory/ranges_uninitialized_fill_n.md
++++ b/reference/memory/ranges_uninitialized_fill_n.md
+@@ -45,7 +45,7 @@ return uninitialized_fill(counted_iterator(first, n), default_sentinel, x).base(
+ 
+ ## 例外
+ 
+-呼び出すコンストラクタなどから例外がスローされた場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外がスローされた場合は初期化対象領域は未初期化のままとなる。
++呼び出すコンストラクタなどから例外が送出された場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外が送出された場合は初期化対象領域は未初期化のままとなる。
+ 
+ ## 例
+ ```cpp example
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>uninitialized_move -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/memory/ranges_uninitialized_move.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/memory/ranges_uninitialized_move.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory/ranges_uninitialized_move.md b/reference/memory/ranges_uninitialized_move.md
+index bc0b4ba58..2fca1ad0f 100644
+--- a/reference/memory/ranges_uninitialized_move.md
++++ b/reference/memory/ranges_uninitialized_move.md
+@@ -92,7 +92,7 @@ return {std::move(ifirst), ofirst};
+ 
+ ## 例外
+ 
+-呼び出すコンストラクタなどから例外がスローされた場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外がスローされた場合は初期化対象領域は未初期化のままとなる。
++呼び出すコンストラクタなどから例外が送出された場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外が送出された場合は初期化対象領域は未初期化のままとなる。
+ 
+ またその場合、`[ifirst, ilast)`内の一部のオブジェクトは有効だが未規定な状態として残される。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>uninitialized_move_n -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/memory/ranges_uninitialized_move_n.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/memory/ranges_uninitialized_move_n.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory/ranges_uninitialized_move_n.md b/reference/memory/ranges_uninitialized_move_n.md
+index b5bec1bbd..044b99e9f 100644
+--- a/reference/memory/ranges_uninitialized_move_n.md
++++ b/reference/memory/ranges_uninitialized_move_n.md
+@@ -72,7 +72,7 @@ return {std::move(t.in).base(), t.out};
+ 
+ ## 例外
+ 
+-呼び出すコンストラクタなどから例外がスローされた場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外がスローされた場合は初期化対象領域は未初期化のままとなる。
++呼び出すコンストラクタなどから例外が送出された場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外が送出された場合は初期化対象領域は未初期化のままとなる。
+ 
+ またその場合、`[ifirst, ifirst + n)`内の一部のオブジェクトは有効だが未規定な状態として残される。
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>uninitialized_value_construct -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/memory/ranges_uninitialized_value_construct.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/memory/ranges_uninitialized_value_construct.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory/ranges_uninitialized_value_construct.md b/reference/memory/ranges_uninitialized_value_construct.md
+index 413c81d2b..2e1d24423 100644
+--- a/reference/memory/ranges_uninitialized_value_construct.md
++++ b/reference/memory/ranges_uninitialized_value_construct.md
+@@ -69,7 +69,7 @@ return first;
+ 
+ ## 例外
+ 
+-呼び出すコンストラクタなどから例外がスローされた場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外がスローされた場合は初期化対象領域は未初期化のままとなる。
++呼び出すコンストラクタなどから例外が送出された場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外が送出された場合は初期化対象領域は未初期化のままとなる。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>uninitialized_value_construct_n -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/memory/ranges_uninitialized_value_construct_n.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/memory/ranges_uninitialized_value_construct_n.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory/ranges_uninitialized_value_construct_n.md b/reference/memory/ranges_uninitialized_value_construct_n.md
+index 346ee4814..be0805925 100644
+--- a/reference/memory/ranges_uninitialized_value_construct_n.md
++++ b/reference/memory/ranges_uninitialized_value_construct_n.md
+@@ -43,7 +43,7 @@ return uninitialized_value_construct(counted_iterator(first, n),
+ 
+ ## 例外
+ 
+-呼び出すコンストラクタなどから例外がスローされた場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外がスローされた場合は初期化対象領域は未初期化のままとなる。
++呼び出すコンストラクタなどから例外が送出された場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外が送出された場合は初期化対象領域は未初期化のままとなる。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>uninitialized_copy -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/memory/uninitialized_copy.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/memory/uninitialized_copy.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory/uninitialized_copy.md b/reference/memory/uninitialized_copy.md
+index 43f02a343..d8fab7c63 100644
+--- a/reference/memory/uninitialized_copy.md
++++ b/reference/memory/uninitialized_copy.md
+@@ -55,7 +55,7 @@ namespace std {
+ 
+ ## 例外
+ 
+-呼び出すコンストラクタなどから例外がスローされた場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外がスローされた場合は初期化対象領域は未初期化のままとなる。
++呼び出すコンストラクタなどから例外が送出された場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外が送出された場合は初期化対象領域は未初期化のままとなる。
+ 
+ 
+ ### 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>uninitialized_copy_n -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/memory/uninitialized_copy_n.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/memory/uninitialized_copy_n.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory/uninitialized_copy_n.md b/reference/memory/uninitialized_copy_n.md
+index 91d6ff9ae..7904726a9 100644
+--- a/reference/memory/uninitialized_copy_n.md
++++ b/reference/memory/uninitialized_copy_n.md
+@@ -65,7 +65,7 @@ namespace std {
+ 
+ ## 例外
+ 
+-呼び出すコンストラクタなどから例外がスローされた場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外がスローされた場合は初期化対象領域は未初期化のままとなる。
++呼び出すコンストラクタなどから例外が送出された場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外が送出された場合は初期化対象領域は未初期化のままとなる。
+ 
+ 
+ ### 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>uninitialized_default_construct -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/memory/uninitialized_default_construct.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/memory/uninitialized_default_construct.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory/uninitialized_default_construct.md b/reference/memory/uninitialized_default_construct.md
+index 950f3c0e9..b5c2fae31 100644
+--- a/reference/memory/uninitialized_default_construct.md
++++ b/reference/memory/uninitialized_default_construct.md
+@@ -44,7 +44,7 @@ for (; first != last; ++first)
+ 
+ ## 例外
+ 
+-呼び出すコンストラクタなどから例外がスローされた場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外がスローされた場合は初期化対象領域は未初期化のままとなる。
++呼び出すコンストラクタなどから例外が送出された場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外が送出された場合は初期化対象領域は未初期化のままとなる。
+ 
+ ## 備考
+ - [`std::vector`](/reference/vector/vector.md)クラスの要素数を変更する操作は、要素を値構築するためゼロ初期化が行われる。その値初期化のコストが気になるような場合に、デフォルト構築することでプログラマの責任で必要な分だけ任意に初期化でき、パフォーマンス向上が期待できるようになる。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>uninitialized_default_construct_n -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/memory/uninitialized_default_construct_n.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/memory/uninitialized_default_construct_n.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory/uninitialized_default_construct_n.md b/reference/memory/uninitialized_default_construct_n.md
+index 09c2d8fa7..eac895b9c 100644
+--- a/reference/memory/uninitialized_default_construct_n.md
++++ b/reference/memory/uninitialized_default_construct_n.md
+@@ -41,7 +41,7 @@ return first;
+ 
+ ## 例外
+ 
+-呼び出すコンストラクタなどから例外がスローされた場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外がスローされた場合は初期化対象領域は未初期化のままとなる。
++呼び出すコンストラクタなどから例外が送出された場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外が送出された場合は初期化対象領域は未初期化のままとなる。
+ 
+ ## 備考
+ - [`std::vector`](/reference/vector/vector.md)クラスの要素数を変更する操作は、要素を値構築するためゼロ初期化が行われる。その値初期化のコストが気になるような場合に、デフォルト構築することでプログラマの責任で必要な分だけ任意に初期化でき、パフォーマンス向上が期待できるようになる。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>uninitialized_fill -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/memory/uninitialized_fill.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/memory/uninitialized_fill.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory/uninitialized_fill.md b/reference/memory/uninitialized_fill.md
+index 89b10d989..c7f687955 100644
+--- a/reference/memory/uninitialized_fill.md
++++ b/reference/memory/uninitialized_fill.md
+@@ -52,7 +52,7 @@ namespace std {
+ 
+ ## 例外
+ 
+-呼び出すコンストラクタなどから例外がスローされた場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外がスローされた場合は初期化対象領域は未初期化のままとなる。
++呼び出すコンストラクタなどから例外が送出された場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外が送出された場合は初期化対象領域は未初期化のままとなる。
+ 
+ ### 例
+ ```cpp example
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>uninitialized_fill_n -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/memory/uninitialized_fill_n.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/memory/uninitialized_fill_n.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory/uninitialized_fill_n.md b/reference/memory/uninitialized_fill_n.md
+index a0d05f426..578eea242 100644
+--- a/reference/memory/uninitialized_fill_n.md
++++ b/reference/memory/uninitialized_fill_n.md
+@@ -52,7 +52,7 @@ namespace std {
+ 
+ ## 例外
+ 
+-呼び出すコンストラクタなどから例外がスローされた場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外がスローされた場合は初期化対象領域は未初期化のままとなる。
++呼び出すコンストラクタなどから例外が送出された場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外が送出された場合は初期化対象領域は未初期化のままとなる。
+ 
+ ### 例
+ ```cpp example
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>uninitialized_move -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/memory/uninitialized_move.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/memory/uninitialized_move.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory/uninitialized_move.md b/reference/memory/uninitialized_move.md
+index b200530c1..59c0077dc 100644
+--- a/reference/memory/uninitialized_move.md
++++ b/reference/memory/uninitialized_move.md
+@@ -51,7 +51,7 @@ for (; first != last; ++result, ++first)
+ 
+ ## 例外
+ 
+-呼び出すコンストラクタなどから例外がスローされた場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外がスローされた場合は初期化対象領域は未初期化のままとなる。
++呼び出すコンストラクタなどから例外が送出された場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外が送出された場合は初期化対象領域は未初期化のままとなる。
+ 
+ ### 例
+ ```cpp example
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>uninitialized_move_n -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/memory/uninitialized_move_n.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/memory/uninitialized_move_n.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory/uninitialized_move_n.md b/reference/memory/uninitialized_move_n.md
+index 0ef7d0d1b..3dbc29ac8 100644
+--- a/reference/memory/uninitialized_move_n.md
++++ b/reference/memory/uninitialized_move_n.md
+@@ -51,7 +51,7 @@ for (; n &amp;gt; 0; ++result, (void)++first, --n)
+ 
+ ## 例外
+ 
+-呼び出すコンストラクタなどから例外がスローされた場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外がスローされた場合は初期化対象領域は未初期化のままとなる。
++呼び出すコンストラクタなどから例外が送出された場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外が送出された場合は初期化対象領域は未初期化のままとなる。
+ 
+ ### 例
+ ```cpp example
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>uninitialized_value_construct -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/memory/uninitialized_value_construct.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/memory/uninitialized_value_construct.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory/uninitialized_value_construct.md b/reference/memory/uninitialized_value_construct.md
+index 0aa5770c2..635594043 100644
+--- a/reference/memory/uninitialized_value_construct.md
++++ b/reference/memory/uninitialized_value_construct.md
+@@ -44,7 +44,7 @@ for (; first != last; ++first)
+ 
+ ## 例外
+ 
+-呼び出すコンストラクタなどから例外がスローされた場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外がスローされた場合は初期化対象領域は未初期化のままとなる。
++呼び出すコンストラクタなどから例外が送出された場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外が送出された場合は初期化対象領域は未初期化のままとなる。
+ 
+ ### 例
+ ```cpp example
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>uninitialized_value_construct_n -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/memory/uninitialized_value_construct_n.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/memory/uninitialized_value_construct_n.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/memory/uninitialized_value_construct_n.md b/reference/memory/uninitialized_value_construct_n.md
+index 82279e8cd..32bd77b77 100644
+--- a/reference/memory/uninitialized_value_construct_n.md
++++ b/reference/memory/uninitialized_value_construct_n.md
+@@ -41,7 +41,7 @@ return first;
+ 
+ ## 例外
+ 
+-呼び出すコンストラクタなどから例外がスローされた場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外がスローされた場合は初期化対象領域は未初期化のままとなる。
++呼び出すコンストラクタなどから例外が送出された場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外が送出された場合は初期化対象領域は未初期化のままとなる。
+ 
+ 
+ ### 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>new -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/new.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/new.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;new&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;new&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;new&amp;gt;&lt;/code&gt;ヘッダは、プログラムが動的に記憶域を確保し、管理するための機能を定義し、記憶域の管理のエラー報告（例外の送出）についても定義する。このヘッダはグローバルネームスペースの&lt;code&gt;new&lt;/code&gt;演算子および&lt;code&gt;delete&lt;/code&gt;演算子をオーバーロードする。placement new を行いたい場合などに用いる。&lt;/p&gt;
+&lt;p&gt;本ヘッダはフリースタンディング環境でも提供される。&lt;/p&gt;
+&lt;h2&gt;型&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;new/bad_alloc.html&#34;&gt;bad_alloc&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;何らかの理由で記憶域の動的確保に失敗するなど、&lt;code&gt;get_new_handler()&lt;/code&gt;が&lt;code&gt;nullptr&lt;/code&gt;を返した場合に送出される例外(class)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;new/bad_array_new_length.html&#34;&gt;bad_array_new_length&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;動的に記憶域を確保しようとする配列の長さが0未満または処理系の最大値以上の場合に送出される例外(class)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;new/align_val_t.html&#34;&gt;align_val_t&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;デフォルトよりも大きなアライメントを要求するとき、&lt;code&gt;new&lt;/code&gt; に渡されるアライメント値の型&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;new/nothrow_t.html&#34;&gt;nothrow_t&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;例外を送出しないための&lt;code&gt;std::nothrow&lt;/code&gt;の型&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;new/new_handler.html&#34;&gt;new_handler&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;new&lt;/code&gt;失敗時に呼ばれる関数の型&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;new/destroying_delete_t.html&#34;&gt;destroying_delete_t&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;destroying operator delete&lt;/em&gt;を定義するためのタグ型&lt;/td&gt;
+&lt;td&gt;C++20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;関数&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;new/get_new_handler.html&#34;&gt;get_new_handler&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;new&lt;/code&gt;失敗時に呼ばれる関数を取得する(function)&lt;/td&gt;
+&lt;td&gt;C++11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;new/launder.html&#34;&gt;launder&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;置き換えられたオブジェクトに適格にアクセスする(function)&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;new/set_new_handler.html&#34;&gt;set_new_handler&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;new&lt;/code&gt;失敗時に呼ばれる関数を設定する(function)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;new/op_new.html&#34;&gt;operator new&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;動的に記憶域を確保する(function)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;new/op_new[].html&#34;&gt;operator new[]&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;動的に配列の記憶域を確保する(function)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;new/op_delete.html&#34;&gt;operator delete&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;動的に確保した記憶域を解放する(function)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;new/op_delete[].html&#34;&gt;operator delete[]&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;動的に確保した配列の記憶域を解放する(function)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;干渉サイズ&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;new/hardware_destructive_interference_size.html&#34;&gt;hardware_destructive_interference_size&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;2つのオブジェクトに並行アクセスする際に、パフォーマンス低下を避けられる最小アライメントサイズ (variable)&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;new/hardware_constructive_interference_size.html&#34;&gt;hardware_constructive_interference_size&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;2つのオブジェクトに一時局所的にアクセスできる最大サイズ (variable)&lt;/td&gt;
+&lt;td&gt;C++17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>nothrow_t -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/new/nothrow_t.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/new/nothrow_t.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/new/nothrow_t.md b/reference/new/nothrow_t.md
+index 12ed75df6..e88f37421 100644
+--- a/reference/new/nothrow_t.md
++++ b/reference/new/nothrow_t.md
+@@ -35,7 +35,7 @@ int main()
+   int* p = new(std::nothrow) int[3];
+ 
+   // ただし、オブジェクトのコンストラクタが例外を投げる場合は
+-  // 例外がスローされることに注意
++  // 例外が送出されることに注意
+   try
+   {
+     ThrowObj* obj = new(std::nothrow) ThrowObj();
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator new -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/new/op_new.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/new/op_new.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/new/op_new.md b/reference/new/op_new.md
+index ae0e149ca..ce4f884df 100644
+--- a/reference/new/op_new.md
++++ b/reference/new/op_new.md
+@@ -100,17 +100,17 @@ constexpr void* operator new(std::size_t size,
+     - `size` で指定したサイズ（バイト）の記憶域を確保しようとする。なお、記憶域の確保に C 互換ライブラリ関数 `malloc()` や [`aligned_alloc()`](/reference/cstdlib/aligned_alloc.md) を用いるか否かは規定されていない。
+     - もし、記憶域を確保できた場合、確保した先頭アドレスを返す。
+     - もし、確保できなかった場合、
+-        - 現在の [`new_handler`](new_handler.md) が ヌルポインタであれば、[`bad_alloc`](bad_alloc.md) 例外をスローする。
++        - 現在の [`new_handler`](new_handler.md) が ヌルポインタであれば、[`bad_alloc`](bad_alloc.md) 例外を送出する。
+         - 現在の [`new_handler`](new_handler.md) が ヌルポインタでなければ、当該関数を呼び出した後、最初に戻って記憶域の確保から再試行する（ループする）。
+ 
+-        なお、[`new_handler`](new_handler.md) は [`bad_alloc`](bad_alloc.md) 例外をスローしたり、呼び出し元に戻らなかったりすることがあるので注意。
++        なお、[`new_handler`](new_handler.md) は [`bad_alloc`](bad_alloc.md) 例外を送出したり、呼び出し元に戻らなかったりすることがあるので注意。
+ 
+ - (3) の形式の詳細な正確な挙動は、以下の通り C++03 までと C++11 以降で異なる。
+-    - C++03 までの場合、(1) の形式とほぼ同様の処理を行うが、記憶域が確保できなかったり、現在の [`new_handler`](new_handler.md) が[`bad_alloc`](bad_alloc.md) 例外をスローしたりした場合には、ヌルポインタを返す。
+-    - C++11 以降の場合、(1) の形式を呼び出し、[`bad_alloc`](bad_alloc.md) 例外がスローされた場合には、ヌルポインタを返す。
++    - C++03 までの場合、(1) の形式とほぼ同様の処理を行うが、記憶域が確保できなかったり、現在の [`new_handler`](new_handler.md) が[`bad_alloc`](bad_alloc.md) 例外を送出したりした場合には、ヌルポインタを返す。
++    - C++11 以降の場合、(1) の形式を呼び出し、[`bad_alloc`](bad_alloc.md) 例外が送出された場合には、ヌルポインタを返す。
+ 
+     この差は、利用者が `operator new` を置き換えていない場合には顕在化しないが、利用者が (1) の形式のみを置き換えた場合、C++03 までは (2) の形式を呼び出しても置き換えられたバージョンは呼び出されない。  
+-    `new` 式と異なり、`delete` 式には配置構文が存在しないため、(3) の形式で確保した記憶域も通常の `delete` 式で解放することになる（コンストラクタで例外がスローされた場合を除く。[`operator delete`](op_delete.md)も参照）。  
++    `new` 式と異なり、`delete` 式には配置構文が存在しないため、(3) の形式で確保した記憶域も通常の `delete` 式で解放することになる（コンストラクタで例外が送出された場合を除く。[`operator delete`](op_delete.md)も参照）。  
+     従って、C++03 までの場合、(1) の形式を利用者提供の関数で置き換える場合は、(3) の形式も (1) の形式と同様の記憶域確保を行う利用者提供の関数で置き換えるべきである。その場合、C++11 の (3) の形式のように、(1) を呼び出した上で例外ハンドリングする方法が安全確実な方法である。  
+     なお、C++11 からは (3) の形式は (1) を呼び出すことになっているため、 (1) の形式のみを置き換えれば問題はないが、C++03 までのバージョンでも同様に動くようにするため、あるいは、標準ライブラリのバグで (3) の形式が (1) の形式を呼び出していない可能性もあるため、(3) の形式も提供した方が良いかもしれない。
+ 
+@@ -119,7 +119,7 @@ constexpr void* operator new(std::size_t size,
+ 
+ - `new` 式は `operator new` を呼び出すだけではない事に注意。  
+     `new` 式は、`operator new` を呼び出した後、確保された記憶域上にオブジェクトを構築する（つまり、コンストラクタを呼び出す）。  
+-    特に、(3) の形式を使用するために `new` 式を `new(std::`[`nothrow`](nothrow_t.md)`)` のようにしても、依然としてコンストラクタが例外をスローする可能性はあるため、`new` 式が例外をスローしないとは限らない。
++    特に、(3) の形式を使用するために `new` 式を `new(std::`[`nothrow`](nothrow_t.md)`)` のようにしても、依然としてコンストラクタが例外を送出する可能性はあるため、`new` 式が例外を送出しないとは限らない。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator new[] -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/new/op_new[].html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/new/op_new[].md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/new/op_new[].md b/reference/new/op_new[].md
+index 93b288895..c06263c1c 100644
+--- a/reference/new/op_new[].md
++++ b/reference/new/op_new[].md
+@@ -60,7 +60,7 @@ constexpr void* operator new[](std::size_t size, void* ptr) noexcept;     // (5)
+ - (1), (2) : [`operator new`](op_new.md)`(size)` を呼び出す。アライメントに関しては単一オブジェクト版と同様に動作する。
+ - (3), (4) : C++03 までと C++11 からで異なる。  
+     - C++03 まで：[`operator new`](op_new.md)`(size, std::`[`nothrow`](nothrow_t.md)`)` を呼び出す。  
+-    - C++11 から：(1) の形式を `operator new[](size)` で呼び出す。ただし、記憶域の確保に失敗しても例外をスローしない。
++    - C++11 から：(1) の形式を `operator new[](size)` で呼び出す。ただし、記憶域の確保に失敗しても例外を送出しない。
+ - (5) : 何もしない。
+ 
+ 
+@@ -68,7 +68,7 @@ constexpr void* operator new[](std::size_t size, void* ptr) noexcept;     // (5)
+ - (1), (2) : 確保した記憶域の先頭アドレスを指すポインタ（[`operator new`](op_new.md)`(size)` の戻り値）。
+ - (3), (4) : 記憶域を確保できた場合、確保した記憶域の先頭アドレスを指すポインタ。確保できなかった場合、ヌルポインタ。
+     - C++03 まで：[`operator new`](op_new.md)`(size, std::`[`nothrow`](nothrow_t.md)`)` の戻り値
+-    - C++11 から：`operator new[](size)` の戻り値。ただし、`std::`[`bad_alloc`](bad_alloc.md) 例外がスローされた場合には、ヌルポインタ。
++    - C++11 から：`operator new[](size)` の戻り値。ただし、`std::`[`bad_alloc`](bad_alloc.md) 例外が送出された場合には、ヌルポインタ。
+ - (5) : 引数 `ptr`
+ 
+ 
+@@ -89,7 +89,7 @@ constexpr void* operator new[](std::size_t size, void* ptr) noexcept;     // (5)
+ 
+ - (3) の形式の挙動の C++03 までと C++11 からの差は、利用者が [`operator new`](op_new.md)、あるいは `operator new[]` を置き換えていない場合には顕在化しない。  
+     しかし、例えば利用者が (1) の形式のみを置き換えた場合、C++03 までは (3) の形式を呼び出しても置き換えられたバージョンは呼び出されずに、間接的に[`operator new`](op_new.md) の (3) の形式を呼び出す。  
+-    `new` 式と異なり、`delete` 式には配置構文が存在しないため、(3) の形式で確保した記憶域も通常の `delete` 式で解放する事になる（コンストラクタで例外がスローされた場合を除く。[`operator delete[]`](op_delete[].md) も参照）。  
++    `new` 式と異なり、`delete` 式には配置構文が存在しないため、(3) の形式で確保した記憶域も通常の `delete` 式で解放する事になる（コンストラクタで例外が送出された場合を除く。[`operator delete[]`](op_delete[].md) も参照）。  
+     従って、C++03 までの場合、(1) の形式を利用者提供の関数で置き換える場合は、(3) の形式も (1) の形式と同様の記憶域確保を行う利用者提供の関数で置き換えるべきである。その場合、C++11 の (3) の形式のように、(1) を呼び出した上で例外ハンドリングする方法が安全確実な方法である。  
+     なお、C++11 からは (3) の形式は (1) を呼び出すことになっているため、 (1) の形式のみを置き換えれば問題はないが、C++03 までのバージョンでも同様に動くようにするため、あるいは、標準ライブラリのバグで (3) の形式が (1) の形式を呼び出していない可能性もあるため、(3) の形式も提供した方が良いかもしれない。
+ 
+@@ -99,8 +99,8 @@ constexpr void* operator new[](std::size_t size, void* ptr) noexcept;     // (5)
+ 
+ - 配列版 `new` 式は `operator new[]` を呼び出すだけではない事に注意。  
+     配列版 `new` 式は、`operator new[]` を呼び出した後、確保された記憶域上にオブジェクトを構築する（つまり、コンストラクタを呼び出す）。  
+-    特に、(3) の形式を使用するために `new` 式を `new(std::`[`nothrow`](nothrow_t.md)`)` のようにしても、依然としてコンストラクタが例外をスローする可能性はあるため、`new` 式が例外をスローしないとは限らない。  
+-    また、配列版 `new` 式は、C++11 以降、配列の要素数の指定によっては `std::`[`bad_array_new_length`](bad_array_new_length.md) をスローする可能性もある。
++    特に、(3) の形式を使用するために `new` 式を `new(std::`[`nothrow`](nothrow_t.md)`)` のようにしても、依然としてコンストラクタが例外を送出する可能性はあるため、`new` 式が例外を送出しないとは限らない。  
++    また、配列版 `new` 式は、C++11 以降、配列の要素数の指定によっては `std::`[`bad_array_new_length`](bad_array_new_length.md) を送出する可能性もある。
+ 
+ - 引数 `size` は、配列版 `new` 式で指定されている配列の合計サイズより大きい可能性がある。  
+     これは、配列版 `delete` 式を実行する際に、全要素に対してデストラクタを呼び出す等のために、配列要素そのもの以外の情報を格納することがあるためである。  
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>merge -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/set/multiset/merge.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/set/multiset/merge.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/merge.md b/reference/set/multiset/merge.md
+index de1853859..6ed8b10ed 100644
+--- a/reference/set/multiset/merge.md
++++ b/reference/set/multiset/merge.md
+@@ -40,7 +40,7 @@ template&amp;lt;class C2&amp;gt;
+ 
+ 
+ ## 例外 
+-比較オブジェクトが例外をスローしない限り、例外をスローしない。
++比較オブジェクトが例外を送出しない限り、例外を送出しない。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>merge -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/set/set/merge.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/set/set/merge.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/set/merge.md b/reference/set/set/merge.md
+index a36d47184..ca5bb9db2 100644
+--- a/reference/set/set/merge.md
++++ b/reference/set/set/merge.md
+@@ -41,7 +41,7 @@ template&amp;lt;class C2&amp;gt;
+ 
+ 
+ ## 例外 
+-比較オブジェクトが例外をスローしない限り、例外をスローしない。
++比較オブジェクトが例外を送出しない限り、例外を送出しない。
+ 
+ 
+ ## 例
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>domain_error -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/stdexcept/domain_error.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/stdexcept/domain_error.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/stdexcept/domain_error.md b/reference/stdexcept/domain_error.md
+index 2d32011e2..0045c7822 100644
+--- a/reference/stdexcept/domain_error.md
++++ b/reference/stdexcept/domain_error.md
+@@ -13,7 +13,7 @@ namespace std {
+ ## 概要
+ 
+ 関数引数に定義域の外の値が指定された場合に処理系が送出する例外およびその基底クラスである。
+-実際には標準ライブラリのコンポーネントはこの例外をスローせず、
++実際には標準ライブラリのコンポーネントはこの例外を送出せず、
+ 代わりにユーザーが使うことができる。
+ 
+ ## メンバ関数
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>logic_error -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/stdexcept/logic_error.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/stdexcept/logic_error.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/stdexcept/logic_error.md b/reference/stdexcept/logic_error.md
+index 57925ad38..fd4063680 100644
+--- a/reference/stdexcept/logic_error.md
++++ b/reference/stdexcept/logic_error.md
+@@ -12,7 +12,7 @@ namespace std {
+ 
+ ## 概要
+ 
+-`logic_error`クラスはプログラムの実行前に検出可能なエラー（論理エラー）を通知するためにスローされる例外クラス全般に対する基底クラスである。
++`logic_error`クラスはプログラムの実行前に検出可能なエラー（論理エラー）を通知するために送出される例外クラス全般に対する基底クラスである。
+ 
+ ## メンバ関数
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- style: 用語統一 &#34;スロー =&gt; 送出&#34;</title>
+      <link href="https://cpprefjp.github.io/reference/syncstream/basic_syncbuf/op_constructor.html"/>
+      <id>1e0f1cc6b3b7a9774e7be497fd844f69e64c07c2:reference/syncstream/basic_syncbuf/op_constructor.md</id>
+      <updated>2026-01-06T12:47:59+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/syncstream/basic_syncbuf/op_constructor.md b/reference/syncstream/basic_syncbuf/op_constructor.md
+index 6bd4e1e35..a8eb87ea8 100644
+--- a/reference/syncstream/basic_syncbuf/op_constructor.md
++++ b/reference/syncstream/basic_syncbuf/op_constructor.md
+@@ -27,7 +27,7 @@ basic_syncbuf(basic_syncbuf&amp;amp;&amp;amp; other);                             // (3)
+ 
+ 
+ ## 例外
+-- (1), (2) : ミューテックスの構築から[`std::system_error`](../../system_error/system_error.md)、またはメモリ割り当てによって[`std::bad_alloc`](../../new/bad_alloc.md)例外がスローされる可能性がある。
++- (1), (2) : ミューテックスの構築から[`std::system_error`](../../system_error/system_error.md)、またはメモリ割り当てによって[`std::bad_alloc`](../../new/bad_alloc.md)例外が送出される可能性がある。
+ 
+ 
+ ## 事後条件
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>domain_error -- fix(domain_error): 規格の記述を反映</title>
+      <link href="https://cpprefjp.github.io/reference/stdexcept/domain_error.html"/>
+      <id>cc152831521a58127967057d58d436e7db595d37:reference/stdexcept/domain_error.md</id>
+      <updated>2026-01-06T12:38:24+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/stdexcept/domain_error.md b/reference/stdexcept/domain_error.md
+index 039fdfd78..2d32011e2 100644
+--- a/reference/stdexcept/domain_error.md
++++ b/reference/stdexcept/domain_error.md
+@@ -12,8 +12,9 @@ namespace std {
+ 
+ ## 概要
+ 
+-操作定義の範囲外の入力があった場合に送出されるすべての例外に対する基底クラスである。
+-標準ライブラリのコンポーネントはこの例外をスローしない。
++関数引数に定義域の外の値が指定された場合に処理系が送出する例外およびその基底クラスである。
++実際には標準ライブラリのコンポーネントはこの例外をスローせず、
++代わりにユーザーが使うことができる。
+ 
+ ## メンバ関数
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>domain_error -- fix({domain,logic}_error): 継承メンバへのリンクを修正</title>
+      <link href="https://cpprefjp.github.io/reference/stdexcept/domain_error.html"/>
+      <id>76d0141d40b5a0f0a681053e3db9514d7da2451f:reference/stdexcept/domain_error.md</id>
+      <updated>2026-01-06T12:22:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/stdexcept/domain_error.md b/reference/stdexcept/domain_error.md
+index 26b923db5..039fdfd78 100644
+--- a/reference/stdexcept/domain_error.md
++++ b/reference/stdexcept/domain_error.md
+@@ -19,10 +19,10 @@ namespace std {
+ 
+ | 名前 | 説明 | 対応バージョン |
+ | --- | --- | --- |
+-| [`(constructor)`](logic_error/op_constructor.md.nolink) | コンストラクタ | |
+-| [`(destructor)`](logic_error/op_destructor.md.nolink) | デストラクタ | |
+-| [`operator=`](logic_error/op_assign.md.nolink) | 代入演算子 | |
+-| [`what`](logic_error/what.md.nolink) | エラー理由を取得する | |
++| [`(constructor)`](domain_error/op_constructor.md.nolink) | コンストラクタ | |
++| [`(destructor)`](domain_error/op_destructor.md.nolink) | デストラクタ | |
++| [`operator=`](domain_error/op_assign.md.nolink) | 代入演算子 | |
++| [`what`](exception/what.md.nolink) | エラー理由を取得する | |
+ 
+ ## 例
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>logic_error -- fix({domain,logic}_error): 継承メンバへのリンクを修正</title>
+      <link href="https://cpprefjp.github.io/reference/stdexcept/logic_error.html"/>
+      <id>76d0141d40b5a0f0a681053e3db9514d7da2451f:reference/stdexcept/logic_error.md</id>
+      <updated>2026-01-06T12:22:05+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/stdexcept/logic_error.md b/reference/stdexcept/logic_error.md
+index f26bd2973..57925ad38 100644
+--- a/reference/stdexcept/logic_error.md
++++ b/reference/stdexcept/logic_error.md
+@@ -21,7 +21,7 @@ namespace std {
+ | [`(constructor)`](logic_error/op_constructor.md.nolink) | コンストラクタ | |
+ | [`(destructor)`](logic_error/op_destructor.md.nolink) | デストラクタ | |
+ | [`operator=`](logic_error/op_assign.md.nolink) | 代入演算子 | |
+-| [`what`](logic_error/what.md.nolink) | エラー理由を取得する | |
++| [`what`](exception/what.md.nolink) | エラー理由を取得する | |
+ 
+ ## 例
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>domain_error -- fix(domain_error): 基底クラスを &#34;{public =&gt; logic}_error&#34; に修正</title>
+      <link href="https://cpprefjp.github.io/reference/stdexcept/domain_error.html"/>
+      <id>498653ba1b2192e2bc75e08d582d515fae8eccdd:reference/stdexcept/domain_error.md</id>
+      <updated>2026-01-06T12:21:17+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/stdexcept/domain_error.md b/reference/stdexcept/domain_error.md
+index 5e0456f35..26b923db5 100644
+--- a/reference/stdexcept/domain_error.md
++++ b/reference/stdexcept/domain_error.md
+@@ -6,7 +6,7 @@
+ 
+ ```cpp
+ namespace std {
+-  class domain_error : public public_error;
++  class domain_error : public logic_error;
+ }
+ ```
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Koichi Murase</name>
+        <email>myoga.murase@gmail.com</email>
+      </author>
+    </entry>
+  
+</feed>

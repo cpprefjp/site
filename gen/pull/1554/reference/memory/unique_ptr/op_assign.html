@@ -1,0 +1,361 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>unique_ptr::operator= - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,memory,std,unique_ptr,function,cpp11
+">
+        <meta name="title" content="unique_ptr::operator= - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="unique_ptr::operator= - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="unique_ptr::operator= - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/memory/unique_ptr/op_assign.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="- (1) : 自身が保持しているリソースを解放し、`u`から`*this`に所有権を譲渡する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="unique_ptr::operator= - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/memory/unique_ptr/op_assign.html" />
+        <meta name="twitter:description" content="- (1) : 自身が保持しているリソースを解放し、`u`から`*this`に所有権を譲渡する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="manifest" href="../../../manifest.json?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;memory&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;unique_ptr&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;24b7ab96064b9977b92e7d069ac194ced8d7990a&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;memory&gt;\n\nint main()\n{\n  std::unique_ptr&lt;int&gt; p0(new int(3));\n\n  // (1) \u30e0\u30fc\u30d6\u4ee3\u5165\n  // p0\u306e\u6240\u6709\u6a29\u3092p1\u306b\u8b72\u6e21\u3059\u308b\n  std::unique_ptr&lt;int&gt; p1;\n  p1 = std::move(p0);\n  assert(*p1 == 3);\n\n  // (2) \u5909\u63db\u53ef\u80fd\u306a\u578b\u304b\u3089\u306e\u6240\u6709\u6a29\u79fb\u52d5\n  // p1\u306e\u6240\u6709\u6a29\u3092p2\u306b\u8b72\u6e21\u3059\u308b\n  std::unique_ptr&lt;const int&gt; p2;\n  p2 = std::move(p1);\n  assert(*static_cast&lt;const int*&gt;(p2.get()) == 3);\n\n  // (3) \u30ea\u30bd\u30fc\u30b9\u89e3\u653e\n  std::unique_ptr&lt;int&gt; p3(new int(3));\n  p3 = nullptr;\n  assert(!p3);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;memory&#34;, &#34;unique_ptr&#34;, &#34;op_assign&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/memory.html" itemprop="url">
+              
+                <span itemprop="name">memory</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/memory/unique_ptr.html" itemprop="url">
+              
+                <span itemprop="name">unique_ptr</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">operator=</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-07-08T15:33:39">
+        2025年07月08日 15時33分39秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/memory/unique_ptr/op_assign.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/memory/unique_ptr/op_assign.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;memory&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class unique_ptr">unique_ptr::</span><span class="token">operator=</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">unique_ptr</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">unique_ptr</span><span class="o">&amp;&amp;</span> <span class="n">u</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>           <span class="c1">// (1) C++11</span>
+<span class="k">constexpr</span> <span class="n">unique_ptr</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">unique_ptr</span><span class="o">&amp;&amp;</span> <span class="n">u</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (1) C++23</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">U</span><span class="p">,</span> <span class="k">class</span> <span class="nc">E</span><span class="o">&gt;</span>
+<span class="n">unique_ptr</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">U</span><span class="p">,</span> <span class="n">E</span><span class="o">&gt;&amp;&amp;</span> <span class="n">u</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>           <span class="c1">// (2) C++11 単一オブジェクト版</span>
+                                                                <span class="c1">// (2) C++17 配列版</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">U</span><span class="p">,</span> <span class="k">class</span> <span class="nc">E</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="n">unique_ptr</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">U</span><span class="p">,</span> <span class="n">E</span><span class="o">&gt;&amp;&amp;</span> <span class="n">u</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (2) C++23</span>
+
+<span class="n">unique_ptr</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n"><a href="../../cstddef/nullptr_t.html">nullptr_t</a></span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>            <span class="c1">// (3) C++11</span>
+<span class="k">constexpr</span> <span class="n">unique_ptr</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n"><a href="../../cstddef/nullptr_t.html">nullptr_t</a></span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>  <span class="c1">// (3) C++23</span>
+
+<span class="n">unique_ptr</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">unique_ptr</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>    <span class="c1">// (4) C++11</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<ul>
+<li>(1) : 自身が保持しているリソースを解放し、<code>u</code>から<code>*this</code>に所有権を譲渡する。</li>
+<li>(2) : 自身が保持しているリソースを解放し、変換可能な<code>u</code>から<code>*this</code>に所有権を譲渡する</li>
+<li>(3) : 自身が保持しているリソースを解放する。</li>
+<li>(4) : コピー代入禁止。</li>
+</ul>
+<h2>要件</h2>
+<ul>
+<li>(1) : デリータの型<code>D</code>が、<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げずにムーブ構築可能であること。</li>
+<li>(2) 単一オブジェクト : 以下の条件を満たさない場合、この関数は<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>の候補から外れる：<ul>
+<li><code>unique_ptr&lt;U, E&gt;::pointer</code>が、<code>pointer</code>に暗黙変換可能な型であること。</li>
+<li><code>U</code>が配列型ではないこと。</li>
+<li><code><a href="../../type_traits/is_assignable.html">is_assignable_v</a>&lt;D&amp;, E&amp;&amp;&gt; == true</code>であること。</li>
+</ul>
+</li>
+<li>(2) 配列 : 以下の条件を満たさない場合、この関数は<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>の候補から外れる：<ul>
+<li><code>U</code>は配列型であること。</li>
+<li><code>*this</code>の型<code>UP</code>について、<code>UP::pointer</code>と<code>UP::element_type*</code>が同じ型であること。</li>
+<li><code>u</code>の型<code>UP</code>について、<code>UP::pointer</code>と<code>UP::element_type*</code>が同じ型であること。</li>
+<li><code>unique_ptr&lt;U, D&gt;::element_type(*)[]</code>から<code>unique_ptr&lt;T[], D&gt;::element_type(*)[]</code>へ変換可能であること。</li>
+<li><code><a href="../../type_traits/is_assignable.html">is_assignable_v</a>&lt;D&amp;, E&amp;&amp;&gt; == true</code>であること。</li>
+</ul>
+</li>
+</ul>
+<h2>効果</h2>
+<ul>
+<li>(1), (2) :</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="reset.html">reset</a></span><span class="p">(</span><span class="n">u</span><span class="p">.</span><span class="n"><a href="release.html">release</a></span><span class="p">());</span>
+<span class="n">d_</span> <span class="o">=</span> <span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="p">(</span><span class="n">u</span><span class="p">.</span><span class="n"><a href="get_deleter.html">get_deleter()</a></span><span class="p">);</span>
+</code></pre></div>
+</p>
+<ul>
+<li>(3) : <code><a href="reset.html">reset()</a></code></li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p><code>*this</code></p>
+<h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
+<p>投げない</p>
+<h2>例</h2>
+<p><div class="yata" id="24b7ab96064b9977b92e7d069ac194ced8d7990a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p0</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
+
+  <span class="c1">// (1) ムーブ代入</span>
+  <span class="c1">// p0の所有権をp1に譲渡する</span>
+  <span class="n"><a href="../unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p1</span><span class="p">;</span>
+  <span class="n">p1</span> <span class="o">=</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">p0</span><span class="p">);</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">*</span><span class="n">p1</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+
+  <span class="c1">// (2) 変換可能な型からの所有権移動</span>
+  <span class="c1">// p1の所有権をp2に譲渡する</span>
+  <span class="n"><a href="../unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">p2</span><span class="p">;</span>
+  <span class="n">p2</span> <span class="o">=</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">p1</span><span class="p">);</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">*</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">int</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">p2</span><span class="p">.</span><span class="n">get</span><span class="p">())</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+
+  <span class="c1">// (3) リソース解放</span>
+  <span class="n"><a href="../unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p3</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
+  <span class="n">p3</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">p3</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code></code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#gcc">GCC</a>: 4.4.7 (nullptr_tの<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>以外) <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.6.4 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#clang">Clang</a>: 3.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#icc">ICC</a>: ?</li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: 2010 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2012 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2013 <span aria-label="検証済" role="img" title="検証済">✅</span><ul>
+<li>2010にはnullptr_tの<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>がない。</li>
+<li>2012までは、delete宣言に対応していないため、代わりにprivateで宣言のみ行う手法で代用されている。</li>
+</ul>
+</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2047" target="_blank">LWG Issue 2047. Incorrect "mixed" move-assignment semantics of <code>unique_ptr</code></a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2246" target="_blank">LWG 2246. <code>unique_ptr</code> assignment effects w.r.t. deleter</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4366" target="_blank">LWG 2228: Missing SFINAE rule in unique_ptr templated assignment</a><ul>
+<li>(2)のSFINAEルール不足の欠陥修正の提案文書</li>
+</ul>
+</li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2273r3.pdf" target="_blank">P2273R3 Making <code>std::unique_ptr</code> constexpr</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

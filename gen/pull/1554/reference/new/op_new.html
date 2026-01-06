@@ -1,0 +1,423 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>operator new - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,new,function,
+">
+        <meta name="title" content="operator new - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="operator new - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="operator new - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/new/op_new.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="単一オブジェクトのために動的に記憶域を確保する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="operator new - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/new/op_new.html" />
+        <meta name="twitter:description" content="単一オブジェクトのために動的に記憶域を確保する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="manifest" href="../../manifest.json?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;new&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;namespace&#34;: [&#34;&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;efae6d1e4e479a5c07c9f8767019f336ca4720e7&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;new&gt;\n#include &lt;complex&gt;\n\nint main()\n{\n  using cl = std::complex&lt;long double&gt;;\n\n  try {\n    // (1) cl \u578b\u5909\u6570\u3092\u52d5\u7684\u306b\u4f5c\u6210\n    // \u78ba\u4fdd\u5931\u6557\u6642\u306b bad_alloc \u4f8b\u5916\u304c\u9001\u51fa\u3055\u308c\u308b\n    cl* p1 = new cl();\n    delete p1;\n\n    // (3) cl \u578b\u5909\u6570\u3092\u52d5\u7684\u306b\u4f5c\u6210\n    // \u78ba\u4fdd\u5931\u6557\u6642\u306b\u30cc\u30eb\u30dd\u30a4\u30f3\u30bf\u304c\u8fd4\u3055\u308c\u308b\n    cl* p2 = new (std::nothrow) cl();\n    delete p2;  // \u914d\u7f6e delete \u3068\u8a00\u3046\u3082\u306e\u306f\u306a\u3044\u306e\u3067\u3001\u901a\u5e38\u306e delete \u5f0f\u3067\u8a18\u61b6\u57df\u3092\u89e3\u653e\u3059\u308b\n\n    // (5) char \u914d\u5217\u306e\u30b9\u30bf\u30c3\u30af\u9818\u57df\u306b\u3001cl \u578b\u5909\u6570\u3092\u52d5\u7684\u306b\u4f5c\u6210\n    // \u9818\u57df\u306e\u30a2\u30e9\u30a4\u30e1\u30f3\u30c8\u306b\u6ce8\u610f\n    alignas(cl) char one_field[sizeof(cl)] = {};\n    cl* p3 = new(one_field) cl();\n    p3-&gt;~cl();  // delete \u306f\u4f7f\u3048\u306a\u3044\u305f\u3081\u3001\u30c7\u30b9\u30c8\u30e9\u30af\u30bf\u3092\u76f4\u63a5\u547c\u3073\u51fa\u3059\n  }\n  catch (std::bad_alloc&amp; e) {\n    std::cout &lt;&lt; e.what() &lt;&lt; std::endl;\n    throw;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;new&#34;, &#34;op_new&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/new.html" itemprop="url">
+              
+                <span itemprop="name">new</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">operator new</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2026-01-06T03:47:59">
+        2026年01月06日 03時47分59秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Koichi Murase</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/new/op_new.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/new/op_new.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;new&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace ">::</span><span class="token">operator new</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">void</span><span class="o">*</span> <span class="k">operator</span> <span class="nf">new</span><span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">size</span><span class="p">)</span> <span class="k">throw</span><span class="p">(</span><span class="n"><a href="bad_alloc.html">std::bad_alloc</a></span><span class="p">);</span>         <span class="c1">// (1) C++03</span>
+<span class="kt">void</span><span class="o">*</span> <span class="k">operator</span> <span class="nf">new</span><span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">size</span><span class="p">);</span>                               <span class="c1">// (1) C++11</span>
+<span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span> <span class="kt">void</span><span class="o">*</span> <span class="k">operator</span> <span class="k">new</span><span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">size</span><span class="p">);</span>                 <span class="c1">// (1) C++20</span>
+<span class="kt">void</span><span class="o">*</span> <span class="k">operator</span> <span class="nf">new</span><span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">size</span><span class="p">);</span>                               <span class="c1">// (1) C++26</span>
+
+<span class="kt">void</span><span class="o">*</span> <span class="k">operator</span> <span class="nf">new</span><span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">size</span><span class="p">,</span>
+                   <span class="n"><a href="align_val_t.html">std::align_val_t</a></span> <span class="n">alignment</span><span class="p">);</span>                     <span class="c1">// (2) C++17</span>
+<span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span> <span class="kt">void</span><span class="o">*</span> <span class="k">operator</span> <span class="k">new</span><span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">size</span><span class="p">,</span>
+                                 <span class="n"><a href="align_val_t.html">std::align_val_t</a></span> <span class="n">alignment</span><span class="p">);</span>       <span class="c1">// (2) C++20</span>
+<span class="kt">void</span><span class="o">*</span> <span class="k">operator</span> <span class="nf">new</span><span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">size</span><span class="p">,</span>
+                   <span class="n"><a href="align_val_t.html">std::align_val_t</a></span> <span class="n">alignment</span><span class="p">);</span>                     <span class="c1">// (2) C++26</span>
+
+<span class="kt">void</span><span class="o">*</span> <span class="k">operator</span> <span class="nf">new</span><span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">size</span><span class="p">,</span>
+                   <span class="k">const</span> <span class="n"><a href="nothrow_t.html">std::nothrow_t</a></span><span class="o">&amp;</span><span class="p">)</span> <span class="k">throw</span><span class="p">();</span>                  <span class="c1">// (3) C++03</span>
+<span class="kt">void</span><span class="o">*</span> <span class="k">operator</span> <span class="nf">new</span><span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">size</span><span class="p">,</span>
+                   <span class="k">const</span> <span class="n"><a href="nothrow_t.html">std::nothrow_t</a></span><span class="o">&amp;</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>                 <span class="c1">// (3) C++11</span>
+<span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span> <span class="kt">void</span><span class="o">*</span> <span class="k">operator</span> <span class="k">new</span><span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">size</span><span class="p">,</span>
+                                 <span class="k">const</span> <span class="n"><a href="nothrow_t.html">std::nothrow_t</a></span><span class="o">&amp;</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>   <span class="c1">// (3) C++20</span>
+<span class="kt">void</span><span class="o">*</span> <span class="k">operator</span> <span class="nf">new</span><span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">size</span><span class="p">,</span>
+                   <span class="k">const</span> <span class="n"><a href="nothrow_t.html">std::nothrow_t</a></span><span class="o">&amp;</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>                 <span class="c1">// (3) C++26</span>
+
+<span class="kt">void</span><span class="o">*</span> <span class="k">operator</span> <span class="nf">new</span><span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">size</span><span class="p">,</span>
+                   <span class="n"><a href="align_val_t.html">std::align_val_t</a></span> <span class="n">alignment</span><span class="p">,</span>
+                   <span class="k">const</span> <span class="n"><a href="nothrow_t.html">std::nothrow_t</a></span><span class="o">&amp;</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>                 <span class="c1">// (4) C++17</span>
+<span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span> <span class="kt">void</span><span class="o">*</span> <span class="k">operator</span> <span class="k">new</span><span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">size</span><span class="p">,</span>
+                                 <span class="n"><a href="align_val_t.html">std::align_val_t</a></span> <span class="n">alignment</span><span class="p">,</span>
+                                 <span class="k">const</span> <span class="n"><a href="nothrow_t.html">std::nothrow_t</a></span><span class="o">&amp;</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>   <span class="c1">// (4) C++20</span>
+<span class="kt">void</span><span class="o">*</span> <span class="k">operator</span> <span class="nf">new</span><span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">size</span><span class="p">,</span>
+                   <span class="n"><a href="align_val_t.html">std::align_val_t</a></span> <span class="n">alignment</span><span class="p">,</span>
+                   <span class="k">const</span> <span class="n"><a href="nothrow_t.html">std::nothrow_t</a></span><span class="o">&amp;</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>                 <span class="c1">// (4) C++26</span>
+
+<span class="kt">void</span><span class="o">*</span> <span class="k">operator</span> <span class="nf">new</span><span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">size</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">ptr</span><span class="p">)</span> <span class="k">throw</span><span class="p">();</span>            <span class="c1">// (5) C++03</span>
+<span class="kt">void</span><span class="o">*</span> <span class="k">operator</span> <span class="nf">new</span><span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">size</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">ptr</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>           <span class="c1">// (5) C++11</span>
+<span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span> <span class="kt">void</span><span class="o">*</span> <span class="k">operator</span> <span class="k">new</span><span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">size</span><span class="p">,</span>
+                                 <span class="kt">void</span><span class="o">*</span> <span class="n">ptr</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>               <span class="c1">// (5) C++20</span>
+<span class="k">constexpr</span> <span class="kt">void</span><span class="o">*</span> <span class="k">operator</span> <span class="nf">new</span><span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">size</span><span class="p">,</span>
+                             <span class="kt">void</span><span class="o">*</span> <span class="n">ptr</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>                   <span class="c1">// (5) C++26</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>単一オブジェクトのために動的に記憶域を確保する。</p>
+<ul>
+<li>(1) : 単純な記憶域の確保。指定されたサイズの記憶域を確保する</li>
+<li>(2) : (1)に対してデフォルトよりも大きいアライメント要求がされた場合に、アライメント値付きで呼び出される</li>
+<li>(3) : 単純な記憶域の確保。確保失敗時に<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出しない。指定されたサイズの記憶域を確保する</li>
+<li>(4) : (3)に対してデフォルトよりも大きいアライメント要求がされた場合に、アライメント値付きで呼び出される</li>
+<li>(5) : 配置newによる記憶域の確保</li>
+</ul>
+<h2>効果</h2>
+<ul>
+<li>(1) : <code>size</code> で指定したサイズ（バイト）の記憶域を確保する。<br />
+    確保された記憶域の先頭アドレスは、<code>size</code> バイトのあらゆるオブジェクトのアライメント要求を満たしている。それより大きいアライメントが<code>alignment</code> によって要求される場合、指定したアライメント要求を満たす。  </li>
+<li>(2) : <code>size</code> で指定したサイズ（バイト）の記憶域を確保する。<br />
+    確保された記憶域の先頭アドレスは、<code>alignment</code>によって指定されたアライメント要求を満たす。</li>
+<li>(3) : <code>size</code> で指定したサイズ（バイト）の記憶域を確保する。<br />
+    確保された記憶域の先頭アドレスは、<code>size</code> バイトのあらゆるオブジェクトのアライメント要求を満たしている。それより大きいアライメントが<code>alignment</code> によって要求される場合、指定したアライメント要求を満たす。</li>
+<li>(4) : <code>size</code> で指定したサイズ（バイト）の記憶域を確保する。<br />
+    確保された記憶域の先頭アドレスは、<code>alignment</code> によって指定された、アライメント要求を満たす。</li>
+<li>(5) : 何もしない。</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<ul>
+<li>(1), (2) : 確保した記憶域の先頭アドレスを指すポインタ。</li>
+<li>(3), (4) : 記憶域を確保できた場合、確保した記憶域の先頭アドレスを指すポインタ。<br />
+    確保できなかった場合、ヌルポインタ。</li>
+<li>(5) : 引数 <code>ptr</code></li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
+<ul>
+<li>(1), (2) : 確保に失敗した場合、<code><a href="bad_alloc.html">bad_alloc</a></code> <a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する</li>
+<li>(3), (4) : 確保に失敗した場合でも、<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出しない</li>
+</ul>
+<h2>備考</h2>
+<ul>
+<li>
+<p>(1)と(2)、および、(3)と(4) の形式は、<code>size</code> が <code>0</code> でも他の確保済みの記憶域と異なるアドレスを返す。<br />
+    ただし、記憶域の確保に失敗する可能性もあり、また、成功しても当該ポインタを間接参照した場合は<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こす。</p>
+</li>
+<li>
+<p>(1)と(2)、および、(3)と(4) の形式は、利用者がこれらとおなじシグネチャの関数を用意することで、標準ライブラリの提供している関数を置き換えることができる。<br />
+    なお、(5) の形式については、置き換えることはできない（許可されていない）。</p>
+</li>
+<li>
+<p>(2)、および、(4) の形式は、C++17以降、デフォルトの <code>new</code> が保証するアライメントよりも大きなアライメントを要求する型については自動的に <code><a href="align_val_t.html">std::align_val_t</a></code> を取る<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を選択する。
+    このとき、<code>align_val_t(alignof(T))</code> が引数として渡される。この閾値は定義済みマクロ <code>__STDCPP_DEFAULT_NEW_ALIGNMENT__</code> で提供される。
+    既存のコードを利用する観点から、利用者が <code>operator new</code> を置き換えていた場合は、その型がデフォルトより大きなアライメントを要求していたとしても、ユーザーが置き換えた関数が使用される。</p>
+</li>
+<li>
+<p>(2)、および、(4) の形式において、<code>alignment</code> に無効な値を渡した場合、<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こす。</p>
+</li>
+<li>
+<p>(1)と(2) の形式の <code>operator new</code> を呼び出すだけであれば、（<code>new</code> 式から間接的に呼ばれる場合も含めて）<code>new</code> ヘッダをインクルードする必要はない。</p>
+</li>
+<li>
+<p>(1)と(2) の形式の詳細な正確な挙動は以下の通りである。</p>
+<ul>
+<li><code>size</code> で指定したサイズ（バイト）の記憶域を確保しようとする。なお、記憶域の確保に C 互換ライブラリ関数 <code>malloc()</code> や <code><a href="../cstdlib/aligned_alloc.html">aligned_alloc()</a></code> を用いるか否かは規定されていない。</li>
+<li>もし、記憶域を確保できた場合、確保した先頭アドレスを返す。</li>
+<li>
+<p>もし、確保できなかった場合、</p>
+<ul>
+<li>現在の <code><a href="new_handler.html">new_handler</a></code> が ヌルポインタであれば、<code><a href="bad_alloc.html">bad_alloc</a></code> <a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する。</li>
+<li>現在の <code><a href="new_handler.html">new_handler</a></code> が ヌルポインタでなければ、当該関数を呼び出した後、最初に戻って記憶域の確保から再試行する（ループする）。</li>
+</ul>
+<p>なお、<code><a href="new_handler.html">new_handler</a></code> は <code><a href="bad_alloc.html">bad_alloc</a></code> <a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出したり、呼び出し元に戻らなかったりすることがあるので注意。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>(3) の形式の詳細な正確な挙動は、以下の通り C++03 までと C++11 以降で異なる。</p>
+<ul>
+<li>C++03 までの場合、(1) の形式とほぼ同様の処理を行うが、記憶域が確保できなかったり、現在の <code><a href="new_handler.html">new_handler</a></code> が<code><a href="bad_alloc.html">bad_alloc</a></code> <a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出したりした場合には、ヌルポインタを返す。</li>
+<li>C++11 以降の場合、(1) の形式を呼び出し、<code><a href="bad_alloc.html">bad_alloc</a></code> <a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が送出された場合には、ヌルポインタを返す。</li>
+</ul>
+<p>この差は、利用者が <code>operator new</code> を置き換えていない場合には顕在化しないが、利用者が (1) の形式のみを置き換えた場合、C++03 までは (2) の形式を呼び出しても置き換えられたバージョンは呼び出されない。<br />
+<code>new</code> 式と異なり、<code>delete</code> 式には配置構文が存在しないため、(3) の形式で確保した記憶域も通常の <code>delete</code> 式で解放することになる（コンストラクタで<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が送出された場合を除く。<code><a href="op_delete.html">operator delete</a></code>も参照）。<br />
+従って、C++03 までの場合、(1) の形式を利用者提供の関数で置き換える場合は、(3) の形式も (1) の形式と同様の記憶域確保を行う利用者提供の関数で置き換えるべきである。その場合、C++11 の (3) の形式のように、(1) を呼び出した上で<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>ハンドリングする方法が安全確実な方法である。<br />
+なお、C++11 からは (3) の形式は (1) を呼び出すことになっているため、 (1) の形式のみを置き換えれば問題はないが、C++03 までのバージョンでも同様に動くようにするため、あるいは、標準ライブラリのバグで (3) の形式が (1) の形式を呼び出していない可能性もあるため、(3) の形式も提供した方が良いかもしれない。</p>
+</li>
+<li>
+<p>(5) の形式は、実質何もしていない。この形式は、記憶域を確保した上でそこに新たなオブジェクトを構築するのではなく、あらかじめ確保されている記憶域上に新たなオブジェクトを構築するのに用いられる。<br />
+    一般に、プログラム実行中の記憶域の動的確保は、処理系が OS からヒープを確保するのに対し、(5) の形式では、既にプログラムに確保済みの任意の記憶域上にオブジェクトを構築するため、上手く使った場合には <code>new</code> / <code>delete</code> を大量に繰り返す必要のある処理を高速に実現しうる。</p>
+</li>
+<li>
+<p><code>new</code> 式は <code>operator new</code> を呼び出すだけではない事に注意。<br />
+<code>new</code> 式は、<code>operator new</code> を呼び出した後、確保された記憶域上にオブジェクトを構築する（つまり、コンストラクタを呼び出す）。<br />
+    特に、(3) の形式を使用するために <code>new</code> 式を <code>new(std::<a href="nothrow_t.html">nothrow</a>)</code> のようにしても、依然としてコンストラクタが<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する可能性はあるため、<code>new</code> 式が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出しないとは限らない。</p>
+</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="efae6d1e4e479a5c07c9f8767019f336ca4720e7"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../new.html">&lt;new&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../complex.html">&lt;complex&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">using</span> <span class="n">cl</span> <span class="o">=</span> <span class="n"><a href="../complex/complex.html">std::complex</a></span><span class="o">&lt;</span><span class="kt">long</span> <span class="kt">double</span><span class="o">&gt;</span><span class="p">;</span>
+
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="c1">// (1) cl 型変数を動的に作成</span>
+    <span class="c1">// 確保失敗時に bad_alloc 例外が送出される</span>
+    <span class="n">cl</span><span class="o">*</span> <span class="n">p1</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">new</span></span> <span class="n">cl</span><span class="p">();</span>
+    <span class="k">delete</span> <span class="n">p1</span><span class="p">;</span>
+
+    <span class="c1">// (3) cl 型変数を動的に作成</span>
+    <span class="c1">// 確保失敗時にヌルポインタが返される</span>
+    <span class="n">cl</span><span class="o">*</span> <span class="n">p2</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">new</span></span> <span class="p">(</span><span class="n"><a href="nothrow_t.html">std::nothrow</a></span><span class="p">)</span> <span class="n">cl</span><span class="p">();</span>
+    <span class="k">delete</span> <span class="n">p2</span><span class="p">;</span>  <span class="c1">// 配置 delete と言うものはないので、通常の delete 式で記憶域を解放する</span>
+
+    <span class="c1">// (5) char 配列のスタック領域に、cl 型変数を動的に作成</span>
+    <span class="c1">// 領域のアライメントに注意</span>
+    <span class="k">alignas</span><span class="p">(</span><span class="n">cl</span><span class="p">)</span> <span class="kt">char</span> <span class="n">one_field</span><span class="p">[</span><span class="k">sizeof</span><span class="p">(</span><span class="n">cl</span><span class="p">)]</span> <span class="o">=</span> <span class="p">{};</span>
+    <span class="n">cl</span><span class="o">*</span> <span class="n">p3</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">new</span></span><span class="p">(</span><span class="n">one_field</span><span class="p">)</span> <span class="n">cl</span><span class="p">();</span>
+    <span class="n">p3</span><span class="o">-&gt;~</span><span class="n">cl</span><span class="p">();</span>  <span class="c1">// delete は使えないため、デストラクタを直接呼び出す</span>
+  <span class="p">}</span>
+  <span class="k">catch</span> <span class="p">(</span><span class="n"><a href="bad_alloc.html">std::bad_alloc</a></span><span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">e</span><span class="p">.</span><span class="n">what</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="k">throw</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code></code></pre></p>
+<h2>関連項目</h2>
+<ul>
+<li><a href="../../lang/cpp17/dynamic_memory_allocation_for_over-aligned_data.html">C++17 アライメント指定されたデータの動的メモリ確保</a></li>
+<li><a href="../../lang/cpp26/constexpr_placement_new.html">C++26 <code>constexpr</code>配置<code>new</code></a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0600r1.pdf" target="_blank">P0600R1 <code>[[nodiscard]]</code> in the Library</a><ul>
+<li>C++20で<code>[[nodiscard]]</code>が付加された</li>
+</ul>
+</li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html" target="_blank">P2422R1 Remove <code>nodiscard</code> annotations from the standard library specification</a><ul>
+<li>C++26で<code>[[nodiscard]]</code>指定が削除された</li>
+</ul>
+</li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2747r2.html" target="_blank">P2747R2 constexpr placement new</a><ul>
+<li>C++26で配置newの<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>が<code>constexpr</code>対応した</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

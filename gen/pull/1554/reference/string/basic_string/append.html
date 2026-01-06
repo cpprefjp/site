@@ -1,0 +1,516 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>basic_string::append - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,string,std,basic_string,function
+">
+        <meta name="title" content="basic_string::append - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="basic_string::append - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="basic_string::append - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/string/basic_string/append.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="指定された文字列、文字、あるいは初期化リストを追加する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="basic_string::append - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/string/basic_string/append.html" />
+        <meta name="twitter:description" content="指定された文字列、文字、あるいは初期化リストを追加する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="manifest" href="../../../manifest.json?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;string&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;basic_string&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;68e5201262a1aeb2418e46d607dd4ca687a31100&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;string&gt;\n\nint main()\n{\n  std::string s1(\&#34;Hello\&#34;);\n  std::cout &lt;&lt; s1 &lt;&lt; &#39;\\n&#39;;\n\n  // (2)\n  std::string s2(\&#34;Hell, world!\&#34;);\n  s1.append(s2, 4, 2);\n  std::cout &lt;&lt; s1 &lt;&lt; &#39;\\n&#39;;\n\n  // (2)\n  s1.append(\&#34;worldworldworld\&#34;, 5);\n  std::cout &lt;&lt; s1 &lt;&lt; &#39;\\n&#39;;\n\n  // (5)\n  s1.append(2, &#39;!&#39;);\n  std::cout &lt;&lt; s1 &lt;&lt; &#39;\\n&#39;;\n\n  // (7)\n  s1.append({ &#39; &#39;, &#39;:&#39;, &#39;)&#39; });\n  std::cout &lt;&lt; s1 &lt;&lt; &#39;\\n&#39;;\n\n  // (8)\n  std::string s8 = \&#34;Hello\&#34;;\n  s8.append(std::string_view{\&#34;Hi, world\&#34;}.substr(2));\n  std::cout &lt;&lt; s8 &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;string&#34;, &#34;basic_string&#34;, &#34;append&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/string.html" itemprop="url">
+              
+                <span itemprop="name">string</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/string/basic_string.html" itemprop="url">
+              
+                <span itemprop="name">basic_string</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">append</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2026-01-05T18:10:36">
+        2026年01月05日 18時10分36秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Koichi Murase</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/string/basic_string/append.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/string/basic_string/append.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;string&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class basic_string">basic_string::</span><span class="token">append</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">basic_string</span><span class="o">&amp;</span> <span class="n">append</span><span class="p">(</span><span class="k">const</span> <span class="n">basic_string</span><span class="o">&amp;</span> <span class="n">str</span><span class="p">);</span>           <span class="c1">// (1) C++03</span>
+<span class="k">constexpr</span> <span class="n">basic_string</span><span class="o">&amp;</span> <span class="n">append</span><span class="p">(</span><span class="k">const</span> <span class="n">basic_string</span><span class="o">&amp;</span> <span class="n">str</span><span class="p">);</span> <span class="c1">// (1) C++20</span>
+
+<span class="n">basic_string</span><span class="o">&amp;</span>
+  <span class="n">append</span><span class="p">(</span><span class="k">const</span> <span class="n">basic_string</span><span class="o">&amp;</span> <span class="n">str</span><span class="p">,</span>
+         <span class="n">size_type</span> <span class="n">pos</span><span class="p">,</span>
+         <span class="n">size_type</span> <span class="n">n</span><span class="p">);</span>             <span class="c1">// (2) C++03</span>
+<span class="n">basic_string</span><span class="o">&amp;</span>
+  <span class="n">append</span><span class="p">(</span><span class="k">const</span> <span class="n">basic_string</span><span class="o">&amp;</span> <span class="n">str</span><span class="p">,</span>
+         <span class="n">size_type</span> <span class="n">pos</span><span class="p">,</span>
+         <span class="n">size_type</span> <span class="n">n</span> <span class="o">=</span> <span class="n">npos</span><span class="p">);</span>      <span class="c1">// (2) C++14</span>
+<span class="k">constexpr</span> <span class="n">basic_string</span><span class="o">&amp;</span>
+  <span class="n">append</span><span class="p">(</span><span class="k">const</span> <span class="n">basic_string</span><span class="o">&amp;</span> <span class="n">str</span><span class="p">,</span>
+         <span class="n">size_type</span> <span class="n">pos</span><span class="p">,</span>
+         <span class="n">size_type</span> <span class="n">n</span> <span class="o">=</span> <span class="n">npos</span><span class="p">);</span>      <span class="c1">// (2) C++20</span>
+
+<span class="n">basic_string</span><span class="o">&amp;</span> <span class="n">append</span><span class="p">(</span><span class="k">const</span> <span class="n">charT</span><span class="o">*</span> <span class="n">s</span><span class="p">,</span> <span class="n">size_type</span> <span class="n">n</span><span class="p">);</span>           <span class="c1">// (3) C++03</span>
+<span class="k">constexpr</span> <span class="n">basic_string</span><span class="o">&amp;</span> <span class="n">append</span><span class="p">(</span><span class="k">const</span> <span class="n">charT</span><span class="o">*</span> <span class="n">s</span><span class="p">,</span> <span class="n">size_type</span> <span class="n">n</span><span class="p">);</span> <span class="c1">// (3) C++20</span>
+
+<span class="n">basic_string</span><span class="o">&amp;</span> <span class="n">append</span><span class="p">(</span><span class="k">const</span> <span class="n">charT</span><span class="o">*</span> <span class="n">s</span><span class="p">);</span>           <span class="c1">// (4) C++03</span>
+<span class="k">constexpr</span> <span class="n">basic_string</span><span class="o">&amp;</span> <span class="n">append</span><span class="p">(</span><span class="k">const</span> <span class="n">charT</span><span class="o">*</span> <span class="n">s</span><span class="p">);</span> <span class="c1">// (4) C++20</span>
+
+<span class="n">basic_string</span><span class="o">&amp;</span> <span class="n">append</span><span class="p">(</span><span class="n">size_type</span> <span class="n">n</span><span class="p">,</span> <span class="n">charT</span> <span class="n">c</span><span class="p">);</span>           <span class="c1">// (5) C++03</span>
+<span class="k">constexpr</span> <span class="n">basic_string</span><span class="o">&amp;</span> <span class="n">append</span><span class="p">(</span><span class="n">size_type</span> <span class="n">n</span><span class="p">,</span> <span class="n">charT</span> <span class="n">c</span><span class="p">);</span> <span class="c1">// (5) C++20</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
+<span class="n">basic_string</span><span class="o">&amp;</span>
+  <span class="n">append</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span>
+         <span class="n">InputIterator</span> <span class="n">last</span><span class="p">);</span>  <span class="c1">// (6) C++03</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="n">basic_string</span><span class="o">&amp;</span>
+  <span class="n">append</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span>
+         <span class="n">InputIterator</span> <span class="n">last</span><span class="p">);</span>  <span class="c1">// (6) C++20</span>
+
+<span class="n">basic_string</span><span class="o">&amp;</span> <span class="n">append</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">);</span>           <span class="c1">// (7) C++11</span>
+<span class="k">constexpr</span> <span class="n">basic_string</span><span class="o">&amp;</span> <span class="n">append</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">);</span> <span class="c1">// (7) C++20</span>
+
+<span class="c1">// <a href="../../string_view/basic_string_view.html">string_view</a>を引数に取るオーバーロード</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">basic_string</span><span class="o">&amp;</span>
+  <span class="n">append</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">t</span><span class="p">);</span>        <span class="c1">// (8) C++17</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="n">basic_string</span><span class="o">&amp;</span>
+  <span class="n">append</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">t</span><span class="p">);</span>        <span class="c1">// (8) C++20</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">basic_string</span><span class="o">&amp;</span>
+  <span class="n">append</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">t</span><span class="p">,</span>
+        <span class="n">size_type</span> <span class="n">pos</span><span class="p">,</span>
+        <span class="n">size_type</span> <span class="n">n</span> <span class="o">=</span> <span class="n">npos</span><span class="p">);</span> <span class="c1">// (9) C++17</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="n">basic_string</span><span class="o">&amp;</span>
+  <span class="n">append</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">t</span><span class="p">,</span>
+        <span class="n">size_type</span> <span class="n">pos</span><span class="p">,</span>
+        <span class="n">size_type</span> <span class="n">n</span> <span class="o">=</span> <span class="n">npos</span><span class="p">);</span> <span class="c1">// (9) C++20</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>指定された文字列、文字、あるいは初期化リストを追加する。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
+<ul>
+<li>(8), (9) : 以下の両方を満たしていること<ul>
+<li><code><a href="../../type_traits/is_convertible.html">is_convertible_v</a>&lt;const T&amp;, <a href="../../string_view/basic_string_view.html">basic_string_view</a>&lt;charT, traits&gt;&gt; == true</code></li>
+<li><code><a href="../../type_traits/is_convertible.html">is_convertible_v</a>&lt;const T&amp;, const charT*&gt; == false</code></li>
+</ul>
+</li>
+</ul>
+<h2>要件</h2>
+<ul>
+<li>(2) : <code>pos &lt;= <a href="size.html">size</a>()</code> であること。</li>
+<li>(3) : <code>s</code> は少なくとも <code>n</code> の長さを持つ <code>charT</code> 型の配列を指していること。</li>
+<li>(4) : <code>s</code> は少なくとも <code>traits_type::length(s) + 1</code> の長さを持つ <code>charT</code> 型の配列を指していること。</li>
+<li>(6) : <code>[first, last)</code> が有効な<a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a>であること。</li>
+</ul>
+<h2>効果</h2>
+<ul>
+<li>
+<p>(1) 対象オブジェクトの末尾に <code>str</code> の値が追加（コピー）される。</p>
+<ul>
+<li>C++03 まで：<code>append(str, 0, npos)</code> と等価。</li>
+<li>C++11 から：<code>append(str.<a href="data.html">data</a>(), str.<a href="size.html">size</a>())</code> と等価。</li>
+</ul>
+</li>
+<li>
+<p>(2) 対象オブジェクトの末尾に <code>str</code> の <code>pos</code> 以降の文字が追加される。
+    追加される文字列の長さ <code>rlen</code> は、<code>n</code> と <code>str.<a href="size.html">size</a>() - pos</code> の小さい方である。 <code>n == npos</code> の場合は、 <code>str.<a href="size.html">size</a>() - pos</code> が使用される。</p>
+<ul>
+<li>C++03 まで：対象オブジェクトの末尾に <code>str</code> の <code>pos</code> 番目からの <code>rlen</code> 文字を追加（コピー）する。</li>
+<li>C++11 から：<code>append(str.<a href="data.html">data</a>() + pos, rlen)</code> と等価。</li>
+</ul>
+</li>
+<li>
+<p>(3) 対象オブジェクトの末尾に <code>s</code> が指す長さ <code>n</code> の文字列が追加（コピー）される。</p>
+<ul>
+<li>C++03 まで：<code>append(<a href="op_constructor.html">basic_string</a>&lt;value_type, traits_type, allocator_type&gt;(s, n))</code> と等価。</li>
+<li>C++11 から：対象オブジェクトの末尾に <code>s</code> からの <code>n</code> 文字を追加（コピー）する。</li>
+</ul>
+</li>
+<li>
+<p>(4) 対象オブジェクトの末尾に <code>s</code> が指す NULL 終端された文字列が追加（コピー）される。</p>
+<ul>
+<li>C++03 まで：<code>append(<a href="op_constructor.html">basic_string</a>&lt;value_type, traits_type, allocator_type&gt;(s))</code> と等価。</li>
+<li>C++11 から：<code>append(s, traits_type::length(s))</code> と等価。</li>
+</ul>
+</li>
+<li>
+<p>(5) 対象オブジェクトの末尾に、文字 <code>c</code> が <code>n</code> 文字追加（コピー）される。</p>
+<ul>
+<li><code>append(<a href="op_constructor.html">basic_string</a>&lt;value_type, traits_type, allocator_type&gt;(n, c))</code> と等価。</li>
+</ul>
+</li>
+<li>
+<p>(6) 対象オブジェクトの末尾に、<a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a> <code>[first, last)</code> の文字列が追加（コピー）される。</p>
+<ul>
+<li><code>append(<a href="op_constructor.html">basic_string</a>&lt;value_type, traits_type, allocator_type&gt;(first, last))</code> と等価。</li>
+</ul>
+</li>
+<li>
+<p>(7) 対象オブジェクトの末尾に初期化リスト <code>il</code> で表された文字列が追加される。</p>
+<ul>
+<li><code>append(il.begin(), il.end())</code> と等価。</li>
+</ul>
+</li>
+<li>
+<p>(8) 対象オブジェクトの末尾に、<code><a href="../../string_view/basic_string_view.html">basic_string_view</a>&lt;charT, traits&gt;</code>に変換可能な<code>t</code>が参照する範囲の文字列が追加される。<br />
+以下と等価。
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="n"><a href="../../string_view/basic_string_view.html">basic_string_view</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;</span> <span class="n">sv</span> <span class="o">=</span> <span class="n">t</span><span class="p">;</span>
+<span class="k">return</span> <span class="nf">append</span><span class="p">(</span><span class="n"><a href="../../string_view/basic_string_view/data.html">sv.data()</a></span><span class="p">,</span> <span class="n"><a href="../../string_view/basic_string_view/size.html">sv.size()</a></span><span class="p">);</span>
+</code></pre></div>
+</p>
+</li>
+<li>
+<p>(9) 対象オブジェクトの末尾に、<code><a href="../../string_view/basic_string_view.html">basic_string_view</a>&lt;charT, traits&gt;</code>に変換可能な<code>t</code>の指定された範囲の文字列が追加される。</p>
+<ul>
+<li>文字列の長さ <code>rlen</code> は、<code>n</code> と <code><a href="../../string_view/basic_string_view/size.html">sv.size()</a> - pos</code> の小さい方である。</li>
+</ul>
+<p>以下と等価。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../string_view/basic_string_view.html">basic_string_view</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="p">,</span> <span class="n">traits</span><span class="o">&gt;</span> <span class="n">sv</span> <span class="o">=</span> <span class="n">t</span><span class="p">;</span>
+<span class="k">return</span> <span class="nf">append</span><span class="p">(</span><span class="n">sv</span><span class="p">.</span><span class="n"><a href="../../string_view/basic_string_view/substr.html">substr</a></span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">n</span><span class="p">));</span>
+</code></pre></div>
+</p>
+</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p><code>*this</code></p>
+<h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
+<ul>
+<li>
+<p>(1) C++03 まで：<code><a href="size.html">size</a>() &gt;= npos - str.<a href="size.html">size</a>()</code> の場合、<code>length_error</code> が送出される。<br />
+    C++11 から：<code><a href="size.html">size</a>() + str.<a href="size.html">size</a>() &gt; <a href="max_size.html">max_size</a>()</code> の場合、<code>length_error</code> が送出される。</p>
+</li>
+<li>
+<p>(2) <code>pos &gt; str.<a href="size.html">size</a>()</code> の場合、<code>out_of_range</code> が送出される。<br />
+    C++03 まで：<code><a href="size.html">size</a>() &gt;= npos - rlen</code> の場合、<code>length_error</code> が送出される。<br />
+    C++11 から：<code><a href="size.html">size</a>() + rlen &gt; <a href="max_size.html">max_size</a>()</code> の場合、<code>length_error</code> が送出される。</p>
+</li>
+<li>
+<p>(3) C++03 まで：<code><a href="size.html">size</a>() &gt;= npos - n</code> の場合、<code>length_error</code> が送出される。<br />
+    C++11 から：<code><a href="size.html">size</a>() + n &gt; <a href="max_size.html">max_size</a>()</code> の場合、<code>length_error</code> が送出される。</p>
+</li>
+<li>
+<p>(4) C++03 まで：<code><a href="size.html">size</a>() &gt;= npos - traits::length(s)</code> の場合、<code>length_error</code> が送出される。<br />
+    C++11 から：<code><a href="size.html">size</a>() + traits::length(s) &gt; <a href="max_size.html">max_size</a>()</code> の場合、<code>length_error</code> が送出される。</p>
+</li>
+<li>
+<p>(5) C++03 まで：<code><a href="size.html">size</a>() &gt;= npos - n</code> の場合、<code>length_error</code> が送出される。<br />
+    C++11 から：<code><a href="size.html">size</a>() + n &gt; <a href="max_size.html">max_size</a>()</code> の場合、<code>length_error</code> が送出される。</p>
+</li>
+<li>
+<p>(6) C++03 まで：<code><a href="size.html">size</a>() &gt;= npos - <a href="../../iterator/distance.html">distance</a>(first, last)</code> の場合、<code>length_error</code> が送出される。<br />
+    C++11 から：<code><a href="size.html">size</a>() + <a href="../../iterator/distance.html">distance</a>(first, last) &gt; <a href="max_size.html">max_size</a>()</code> の場合、<code>length_error</code> が送出される。</p>
+</li>
+<li>
+<p>(7) <code><a href="size.html">size</a>() + il.<a href="../../initializer_list/initializer_list/size.html">size</a>() &gt; <a href="max_size.html">max_size</a>()</code> の場合、<code>length_error</code> が送出される。</p>
+</li>
+</ul>
+<h2>備考</h2>
+<p>本メンバ関数の呼び出しによって、対象オブジェクトの要素への参照、ポインタ、および、イテレータは無効になる可能性がある。</p>
+<h2>例</h2>
+<p><div class="yata" id="68e5201262a1aeb2418e46d607dd4ca687a31100"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../basic_string.html">std::string</a></span> <span class="n">s1</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">);</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">s1</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+
+  <span class="c1">// (2)</span>
+  <span class="n"><a href="../basic_string.html">std::string</a></span> <span class="n">s2</span><span class="p">(</span><span class="s">"Hell, world!"</span><span class="p">);</span>
+  <span class="n">s1</span><span class="p">.</span><span class="n"><span style="color:#ff0000">append</span></span><span class="p">(</span><span class="n">s2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">s1</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+
+  <span class="c1">// (2)</span>
+  <span class="n">s1</span><span class="p">.</span><span class="n"><span style="color:#ff0000">append</span></span><span class="p">(</span><span class="s">"worldworldworld"</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">s1</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+
+  <span class="c1">// (5)</span>
+  <span class="n">s1</span><span class="p">.</span><span class="n"><span style="color:#ff0000">append</span></span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="sc">'!'</span><span class="p">);</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">s1</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+
+  <span class="c1">// (7)</span>
+  <span class="n">s1</span><span class="p">.</span><span class="n"><span style="color:#ff0000">append</span></span><span class="p">({</span> <span class="sc">' '</span><span class="p">,</span> <span class="sc">':'</span><span class="p">,</span> <span class="sc">')'</span> <span class="p">});</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">s1</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+
+  <span class="c1">// (8)</span>
+  <span class="n"><a href="../basic_string.html">std::string</a></span> <span class="n">s8</span> <span class="o">=</span> <span class="s">"Hello"</span><span class="p">;</span>
+  <span class="n">s8</span><span class="p">.</span><span class="n"><span style="color:#ff0000">append</span></span><span class="p">(</span><span class="n"><a href="../../string_view/basic_string_view.html">std::string_view</a></span><span class="p">{</span><span class="s">"Hi, world"</span><span class="p">}.</span><span class="n">substr</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">s8</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>Hello
+Hello, 
+Hello, world
+Hello, world!!
+Hello, world!! :)
+Hello, world
+</code></pre></p>
+<h2>関連項目</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="op_plus_assign.html">operator+=</a></code></td>
+<td>文字／文字列を追加する</td>
+</tr>
+<tr>
+<td><code><a href="push_back.html">push_back</a></code></td>
+<td>文字を追加する</td>
+</tr>
+<tr>
+<td><code><a href="insert.html">insert</a></code></td>
+<td>文字／文字列を挿入する</td>
+</tr>
+<tr>
+<td><code><a href="op_plus.html">operator+</a></code></td>
+<td>文字列を連結する</td>
+</tr>
+</tbody>
+</table>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf" target="_blank">N2679 Initializer Lists for Standard Containers(Revision 1)</a><ul>
+<li>(7)の経緯となる提案文書</li>
+</ul>
+</li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2268" target="_blank">LWG ISsue 2268. Setting a default argument in the declaration of a member function <code>assign</code> of <code>std::basic_string</code></a><ul>
+<li>C++14から(2)の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>に、<code>n = npos</code>のデフォルト引数を追加。</li>
+</ul>
+</li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0254r2.pdf" target="_blank">P0254R2 Integrating <code>std::string_view</code> and <code>std::string</code></a></li>
+<li><a href="https://wg21.cmeerw.net/lwg/issue2758" target="_blank">LWG Issue 2758. <code>std::string{}.assign("ABCDE", 0, 1)</code> is ambiguous</a></li>
+<li><a href="https://wg21.cmeerw.net/lwg/issue2946" target="_blank">LWG Issue 2946. LWG 2758's resolution missed further corrections</a><ul>
+<li>意図しない暗黙変換防止のために<code>string_view</code>を受ける<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>(8), (9)の引数型を<code>const T&amp;</code>に変更</li>
+</ul>
+</li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0980r1.pdf" target="_blank">P0980R1 Making <code>std::string</code> constexpr</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
