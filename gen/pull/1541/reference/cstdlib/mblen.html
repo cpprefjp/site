@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-01-06T05:35:23">
-        2026年01月06日 05時35分23秒
+      <span itemprop="datePublished" content="2026-01-06T06:37:48">
+        2026年01月06日 06時37分48秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -223,10 +223,10 @@
 <p>先頭以外の文字に関するバイト数は計算されない。</p>
 <p>この関数は現在のロケールカテゴリー <code>LC_CTYPE</code> に依存してマルチバイト文字を解釈する。</p>
 <p><code>n</code>は解析に使用する最大バイト数を指定する。</p>
-<p>エンコーディングの内部状態に関する振る舞いが最近の規格で変更されたことから、
-内部状態に依存するエンコーディングを考慮するならば、
+<p>内部状態に依存するエンコーディングを考慮するならば、
 特に理由がない限り <code>std::mblen</code> ではなく <code>std::mbstate_t</code> を受け取る <code>std::mbrlen</code> を
 新しいコードでは用いるべきである。
+エンコーディングの内部状態に関する振る舞いが C11 で変更 (WG14 N1373) されたが、
 以前の振る舞いではスレッドセーフではなく、
 現在の振る舞いではそもそも内部状態に依存する使い方ができない。</p>
 <h3>C11, C++17, POSIX.1-2024 以降</h3>
@@ -322,6 +322,21 @@
 <h2>関連項目</h2>
 <ul>
 <li><code><span href="https://cpprefjp.github.io/reference/cwchar/mbrlen.md.nolink">mbrlen</span></code>: <code>std::mbstate_t</code> を受け取るスレッドセーフなバージョン</li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1373.htm" target="_blank">WG14 N1373: Wording improvements for mblen, mbtowc, and c16rtomb</a><ul>
+<li>単なる「表現の改善」としてこの破壊的な変更が実施されたように見える。</li>
+<li><a href="https://www.openwall.com/lists/musl/2019/12/26/7" target="_blank">musl のメーリングリスト - 2019-12-26</a> にて Florian Weimer が以下のように指摘している:
+    "actual users of the interfaces with legacy charsets do not seem to be represented on the standards committee anymore (see the mblen behavioral change in C11 as evidence supporting this theory)."
+    訳: C11 における mblen の振る舞い変更でも分かるように、C標準化委員会には古い文字コードを使っている人がいないようだ。</li>
+</ul>
+</li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg14/www/docs/n2037.htm" target="_blank">WG14 N2037: mblen, mbtowc, and wctomb thread-safety</a><ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg14/issues/c11c17/issue0498.html" target="_blank">WG14 DR498: mblen, mbtowc, and wctomb thread-safety</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg14/www/docs/n2246.htm" target="_blank">WG14 N2246: Make mblen, mbtowc, and wctomb thread-safe for encodings that are not state-dependent</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg14/www/docs/n2281.htm" target="_blank">WG14 N2281: Make mblen, mbtowc, and wctomb thread-safe for encodings that are not state-dependent</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg14/www/docs/n2358.htm" target="_blank">WG14 N2358: No internal state for mblen</a></li>
+<li>C11 以降もあたかも <code>mblen</code> が内部状態を持つかのような記述になっていたのが C23 で修正された。</li>
+</ul>
+</li>
 </ul></div>
 
       </div>
