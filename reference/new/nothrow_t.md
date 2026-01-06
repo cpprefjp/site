@@ -35,7 +35,7 @@ int main()
   int* p = new(std::nothrow) int[3];
 
   // ただし、オブジェクトのコンストラクタが例外を投げる場合は
-  // 例外がスローされることに注意
+  // 例外が送出されることに注意
   try
   {
     ThrowObj* obj = new(std::nothrow) ThrowObj();

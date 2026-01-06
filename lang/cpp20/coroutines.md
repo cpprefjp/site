@@ -323,7 +323,7 @@ Await式は式 _o_ と式 _await-ready_ を評価し、続いて：
     - _await-suspend_ の型が[`std::coroutine_handle<Z>`](/reference/coroutine/coroutine_handle.md)の場合、_await-suspend_[`.resume()`](/reference/coroutine/coroutine_handle/resume.md)が評価される。
     - そうではなく _await-suspend_ の型が`bool`の場合、_await-suspend_ が評価され、その結果が`false`であればコルーチンは再開する。
     - それ以外の場合、_await-suspend_ が評価される。
-- _await-suspend_ の評価が例外で終了した場合、例外が捕捉されてコルーチンが再開し、その例外は即座に再スローされる。そうでなければ、スコープ終了をともなわずに現在のコルーチンの呼出元もしくは再開元へ制御フローを戻す。
+- _await-suspend_ の評価が例外で終了した場合、例外が捕捉されてコルーチンが再開し、その例外は即座に再送出される。そうでなければ、スコープ終了をともなわずに現在のコルーチンの呼出元もしくは再開元へ制御フローを戻す。
 - _await-ready_ の結果が`true`またはコルーチンが再開した場合、_await-resume_ の評価結果がAwait式の結果となる。
 
 ```cpp

@@ -25,7 +25,7 @@ Promise型`p`をもつコルーチンにおいて、Await式`co_await as_awaitab
     - コルーチンを中断し、Operation Stateを[開始(start)](start.md)する。
     - [クエリオブジェクト](../queryable.md)による[Receiver](receiver.md)環境への問い合わせは、Promise型に関連付けられた環境(`get_env`)へと転送される。
     - Senderが[値完了](set_value.md)した場合、送信値をAwait式の結果としてコルーチンを再開する。
-    - Senderが[エラー完了](set_error.md)した場合、エラー値を例外としてコルーチンから再スローする。
+    - Senderが[エラー完了](set_error.md)した場合、エラー値を例外としてコルーチンから再送出する。
     - Senderが[停止完了](set_stopped.md)した場合、停止完了ハンドラ(`unhandled_stopped`)が返す別のコルーチンを再開させる。
 - そうでなければ、式`expr`に対してAwait式を実行する。
 

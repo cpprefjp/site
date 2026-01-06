@@ -27,7 +27,7 @@ basic_syncbuf(basic_syncbuf&& other);                             // (3)
 
 
 ## 例外
-- (1), (2) : ミューテックスの構築から[`std::system_error`](../../system_error/system_error.md)、またはメモリ割り当てによって[`std::bad_alloc`](../../new/bad_alloc.md)例外がスローされる可能性がある。
+- (1), (2) : ミューテックスの構築から[`std::system_error`](../../system_error/system_error.md)、またはメモリ割り当てによって[`std::bad_alloc`](../../new/bad_alloc.md)例外が送出される可能性がある。
 
 
 ## 事後条件

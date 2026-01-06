@@ -77,7 +77,7 @@ noexcept例外指定は次の式に従う :
 
 [`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<T> &&` [`is_nothrow_swappable_v`](/reference/type_traits/is_nothrow_swappable.md)`<T> &&` [`is_nothrow_move_constructible_v`](/reference/type_traits/is_nothrow_move_constructible.md)`<E> &&` [`is_nothrow_swappable_v`](/reference/type_traits/is_nothrow_swappable.md)`<E>`
 
-noexcept例外指定が`false`の場合、上記の「効果」による処理からの例外がスローされる。
+noexcept例外指定が`false`の場合、上記の「効果」による処理からの例外が送出される。
 
 
 ## 例

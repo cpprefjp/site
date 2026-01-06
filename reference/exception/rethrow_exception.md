@@ -11,7 +11,7 @@
 * exception_ptr[link exception_ptr.md]
 
 ## 概要
-`exception_ptr`が指す例外オブジェクトを再スローする。
+`exception_ptr`が指す例外オブジェクトを再送出する。
 
 
 ## 事前条件
@@ -22,8 +22,8 @@
 説明用の変数`u`を、`p`が指す例外オブジェクトもしくはそのコピーとする。
 コピーが行われるか否か、コピー時にメモリ確保が行われるか否かは未規定とされる。
 
-- `u`用のメモリ確保に失敗した場合、[`bad_alloc`](/reference/new/bad_alloc.md)例外がスローされる。
-- そうでなければ、`p`が指す例外オブジェクトから`u`へのコピー時に例外スローされた場合、その例外がスローされる。
+- `u`用のメモリ確保に失敗した場合、[`bad_alloc`](/reference/new/bad_alloc.md)例外が送出される。
+- そうでなければ、`p`が指す例外オブジェクトから`u`へのコピー時に例外送出された場合、その例外が送出される。
 - そうでなければ、`throw u;`
 
 
@@ -51,7 +51,7 @@ int main()
 
   if (ep) {
     std::cout << "rethrow" << std::endl;
-    std::rethrow_exception(ep); // 再スロー
+    std::rethrow_exception(ep); // 再送出
   }
 }
 ```

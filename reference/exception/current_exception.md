@@ -55,7 +55,7 @@ int main()
 
   if (ep) {
     std::cout << "rethrow" << std::endl;
-    std::rethrow_exception(ep); // 再スロー
+    std::rethrow_exception(ep); // 再送出
   }
 }
 ```
