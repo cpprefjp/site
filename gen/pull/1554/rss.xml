@@ -2,14 +2,14 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-01-06T09:42:29.595608</updated>
-  <id>fdaa5e1c-58b4-4e54-aeb1-60d06de4c650</id>
+  <updated>2026-01-06T11:53:38.376974</updated>
+  <id>a45d32a7-b2ed-4090-bf27-728188cf6521</id>
 
   
     <entry>
       <title>C++国際標準規格 -- feat(C++国際標準規格): 引用規格情報とC規格の表を追加</title>
       <link href="https://cpprefjp.github.io/international-standard.html"/>
-      <id>26ce93dbcfc869aaeda8d6df4855da485f6507fc:international-standard.md</id>
+      <id>40c0ec809d4672ee35bf45973911f1821fe4779f:international-standard.md</id>
       <updated>2026-01-06T18:07:51+09:00</updated>
       
         <content type="html">&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;C++国際標準規格&lt;/span&gt;&lt;/h1&gt;
@@ -28,7 +28,7 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 &lt;th align=&#34;left&#34;&gt;参照する規格案&lt;sup&gt;&lt;a href=&#34;#note-t1-2&#34; id=&#34;note_ref-t1-2&#34;&gt;†2&lt;/a&gt;&lt;/sup&gt;&lt;/th&gt;
 &lt;th align=&#34;left&#34;&gt;規格案・原案&lt;/th&gt;
 &lt;th align=&#34;left&#34;&gt;&lt;code&gt;__cplusplus&lt;/code&gt;&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;引用規格&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;引用規格&lt;sup&gt;&lt;a href=&#34;#note-t1-6&#34; id=&#34;note_ref-t1-6&#34;&gt;†1&lt;/a&gt;&lt;/sup&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
@@ -38,7 +38,7 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 &lt;td align=&#34;left&#34;&gt;N5014(&lt;a href=&#34;https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/n5014.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;/&lt;a href=&#34;https://timsong-cpp.github.io/cppwp/&#34; target=&#34;_blank&#34;&gt;HTML&lt;/a&gt;)&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;N5014 N5008 N5001 N4993&lt;br /&gt;N4986 N4981 N4971 N4964 N4958&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;--&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;C23, POSIX.1-2017&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;C23, POSIX.1-2017&lt;br /&gt;Unicode:15.1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;lang/cpp23.html&#34;&gt;C++23&lt;/a&gt; (C++2b)&lt;/td&gt;
@@ -46,7 +46,7 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 &lt;td align=&#34;left&#34;&gt;N4950(&lt;a href=&#34;https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/n4950.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;/&lt;a href=&#34;https://timsong-cpp.github.io/cppwp/n4950/&#34; target=&#34;_blank&#34;&gt;HTML&lt;/a&gt;)&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;N4950 N4944 N4928 N4917 N4910&lt;br /&gt;N4901 N4892 N4885 N4878 N4868&lt;br /&gt;N4861&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;code&gt;202302L&lt;/code&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;C17, POSIX.1-2017&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;C17, POSIX.1-2017,&lt;br /&gt;Unicode:latest&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;lang/cpp20.html&#34;&gt;C++20&lt;/a&gt; (C++2a)&lt;/td&gt;
@@ -54,7 +54,7 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 &lt;td align=&#34;left&#34;&gt;N4861&lt;sup&gt;&lt;a href=&#34;#note-t1-3&#34; id=&#34;note_ref-t1-3&#34;&gt;†3&lt;/a&gt;&lt;/sup&gt;(&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/n4861.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;/&lt;a href=&#34;https://timsong-cpp.github.io/cppwp/n4861/&#34; target=&#34;_blank&#34;&gt;HTML&lt;/a&gt;)&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;N4860 N4849 N4842 N4835 N4830&lt;br /&gt;N4820 N4810 N4800 N4791 &lt;del&gt;N4788&lt;/del&gt;&lt;sup&gt;&lt;a href=&#34;#note-t1-4&#34; id=&#34;note_ref-t1-4&#34;&gt;†4&lt;/a&gt;&lt;/sup&gt;&lt;br /&gt;N4778 N4762 N4750 N4741 N4727&lt;br /&gt;N4713 N4700 N4687&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;code&gt;202002L&lt;/code&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;C17, POSIX.1-2001&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;C17, POSIX.1-2001,&lt;br /&gt;UCS:1993, UCS:latest, UAX#29-35&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;lang/cpp17.html&#34;&gt;C++17&lt;/a&gt; (C++1z)&lt;/td&gt;
@@ -62,7 +62,7 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 &lt;td align=&#34;left&#34;&gt;N4659(&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4659.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;/&lt;a href=&#34;https://timsong-cpp.github.io/cppwp/n4659/&#34; target=&#34;_blank&#34;&gt;HTML&lt;/a&gt;)&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;N4660 N4659 N4640 N4618 N4606&lt;br /&gt;N4594 N4582 N4567 N4527 N4431&lt;br /&gt;N4296&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;code&gt;201703L&lt;/code&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;C11/TC1, POSIX.1-2001&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;C11:TC1, POSIX.1-2001,&lt;br /&gt;UCS:1993&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;lang/cpp14.html&#34;&gt;C++14&lt;/a&gt; (C++1y)&lt;/td&gt;
@@ -70,7 +70,7 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 &lt;td align=&#34;left&#34;&gt;N4140(&lt;a href=&#34;https://github.com/cplusplus/draft/blob/master/papers/n4140.pdf?raw=true&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;/&lt;a href=&#34;https://timsong-cpp.github.io/cppwp/n4140/&#34; target=&#34;_blank&#34;&gt;HTML&lt;/a&gt;)&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;N4141 N4140 N3937 N3936 N3797&lt;br /&gt;N3691 N3690 N3485 N3376 N3337&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;code&gt;201402L&lt;/code&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;C99/TC3, POSIX.1-2001&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;C99:TC3, POSIX.1-2001,&lt;br /&gt;UCS:1993&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;lang/cpp11.html&#34;&gt;C++11&lt;/a&gt; (C++0x)&lt;/td&gt;
@@ -78,7 +78,7 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 &lt;td align=&#34;left&#34;&gt;N3337&lt;sup&gt;&lt;a href=&#34;#note-t1-5&#34; id=&#34;note_ref-t1-5&#34;&gt;†5&lt;/a&gt;&lt;/sup&gt;(&lt;a href=&#34;https://wg21.link/std11&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;/&lt;a href=&#34;https://timsong-cpp.github.io/cppwp/n3337/&#34; target=&#34;_blank&#34;&gt;HTML&lt;/a&gt;)&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;N3291 N3290 N3242 N3225 N3126&lt;br /&gt;N3090 N3035 N3000 N2960 N2914&lt;br /&gt;N2857 N2798 N2723 N2691 N2606&lt;br /&gt;N2588 N2521 N2461 N2369 N2315&lt;br /&gt;N2284 N2134 N2009 N1905 N1804&lt;br /&gt;N1733 N1655&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;code&gt;201103L&lt;/code&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;C99/TC3, POSIX.1-2001&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;C99:TC3, POSIX.1-2001,&lt;br /&gt;UCS:1993&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td align=&#34;left&#34;&gt;C++03&lt;/td&gt;
@@ -86,7 +86,7 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 &lt;td align=&#34;left&#34;&gt;N1577&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;N1577 ?&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;code&gt;199711L&lt;/code&gt;&lt;br /&gt;(C++98 と同じ)&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;C99&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;C99, UCS:2000&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td align=&#34;left&#34;&gt;C++98&lt;/td&gt;
@@ -94,7 +94,7 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 &lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;code&gt;199711L&lt;/code&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;C95, UCS:1993&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -105,13 +105,22 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 &lt;li&gt;&lt;a href=&#34;#note_ref-t1-4&#34; id=&#34;note-t1-4&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; N4788 は政治的事情により撤回された (参照 N4792)&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#note_ref-t1-5&#34; id=&#34;note-t1-5&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; N3337 は、C++11規格に対する編集レベルの修正のみが適用された仕様案であるため、事実上 N3337 が C++11 を参照する時に用いられる。C++11規格からN3337への変更点は、&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3338.html&#34; target=&#34;_blank&#34;&gt;N3338&lt;/a&gt;を参照。&lt;br /&gt;
 (それより前の公開されているC++11向け仕様案であるN3242からC++11規格に対しては、機能的な変更がいくつかあるため、C++11規格として参照するには適さない)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#note_ref-t1-6&#34; id=&#34;note-t1-6&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; 全ての引用規格 (normative references) を載せているわけではない。特に引用規格のバージョン差異が重要なものを表中に載せている。&lt;ul&gt;
+&lt;li&gt;UCS/Unicode の引用規格については長らく UCS:1993 (ISO/IEC 10646-1:1993) が参照されてきたが、
+    C++20 で UCS (最新) (ISO/IEC 10646) への参照が追加され [&lt;a href=&#34;lang/cpp20/update_the_reference_to_the_unicode_standard.html&#34;&gt;P1025R1&lt;/a&gt;],
+    C++23 で Unicode (最新) に切り替えられ [&lt;a href=&#34;https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2736r2.pdf&#34; target=&#34;_blank&#34;&gt;P2736R2&lt;/a&gt;]、
+    C++26 で Unicode:15.1 に切り替えられた [&lt;a href=&#34;https://cplusplus.github.io/CWG/issues/2843.html&#34; target=&#34;_blank&#34;&gt;CWG 2843&lt;/a&gt;]。&lt;/li&gt;
+&lt;li&gt;C++11 以降は &lt;code&gt;&amp;lt;regex&amp;gt;&lt;/code&gt; のために ECMAScript ECMA-262:1999 を参照する。&lt;/li&gt;
+&lt;li&gt;他に基本語彙・日時・浮動小数点数・数学記号などのために他の規格を参照する。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;最新のDraftのHTML版は以下で公開されている。&lt;br /&gt;
 &lt;a href=&#34;https://timsong-cpp.github.io/cppwp/&#34; target=&#34;_blank&#34;&gt;Draft C++ Standard: Contents&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;標準規格の文章はtexで書かれており、そのソースコードは以下で2011年8月16日以降のものについて(つまりN3291より後、N3337より前)公開されている。&lt;br /&gt;
 &lt;a href=&#34;https://github.com/cplusplus/draft&#34; target=&#34;_blank&#34;&gt;cplusplus/draft: C++ standards drafts&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;&lt;a href=&#34;#list-of-iso-c&#34; id=&#34;list-of-iso-c&#34;&gt;C標準規格の一覧&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;以下、主な C 規格と C++ が参照する技術報告 (technical report; TC) の一覧である。&lt;/p&gt;
+&lt;p&gt;以下、主な C 規格と C++ が参照する技術報告 (TC; technical report) の一覧である。&lt;/p&gt;
 &lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -123,8 +132,8 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;C?? (C2Y)&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;ISO/IEC 9899:????&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;C29 (C2Y)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ISO/IEC 9899:2029 (予定)&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;N3685(&lt;a href=&#34;https://www.open-std.org/jtc1/sc22/wg14/www/docs/n3685.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;) (暫定)&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
 &lt;/tr&gt;
@@ -161,7 +170,7 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 &lt;tr&gt;
 &lt;td align=&#34;left&#34;&gt;C99 TC2&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;ISO/IEC 9899:1999/Cor.2:2004&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N1124(&lt;a href=&#34;https://open-std.org/JTC1/SC22/WG14/www/docs/n1124.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;)&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;code&gt;199901L&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -203,7 +212,9 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
   &lt;strong&gt;国際標準化機構&lt;/strong&gt; (ISO; international organization for standardization) および&lt;strong&gt;国際電気標準会議&lt;/strong&gt; (IEC; International Electronics Commission) はそれぞれ様々な規格の標準化団体である。
   &lt;strong&gt;第一合同技術委員会&lt;/strong&gt; (JTC1; Joint Technical Committee 1) は ISO/IEC の下で情報技術の標準化を行う団体である。
   下部組織の SC22 はプログラム言語の標準化を行う&lt;strong&gt;副委員会&lt;/strong&gt; (SC; subcommittee) である。
-  C++標準化委員会は WG21 という&lt;strong&gt;作業グループ&lt;/strong&gt; (WG; working group) である。&lt;/li&gt;
+  C++標準化委員会は &lt;strong&gt;WG21&lt;/strong&gt; という&lt;strong&gt;作業グループ&lt;/strong&gt; (WG; working group) である。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;C標準化委員会&lt;/strong&gt; (C Standards Committee): C言語の国際標準規格を策定する団体。
+  C++標準化委員会と同じく ISO/IEC JTC1/SC22 の下に属する作業グループで、&lt;strong&gt;WG14&lt;/strong&gt;になる。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;CWG&lt;/strong&gt; (Core working group): C++標準化委員会の内、コア言語機能の策定を行う作業グループ&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;LWG&lt;/strong&gt; (Library working group): C++標準化委員会の内、標準ライブラリ機能の策定を行う作業グループ&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;NB&lt;/strong&gt; (national body) または&lt;strong&gt;MB/NC&lt;/strong&gt; (member body/national committee): C++標準化委員会の正会員つまり各国から派遣される団体のこと。本来は member body は ISO での名称で、national committee は IEC での名称。&lt;/li&gt;
