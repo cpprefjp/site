@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std {
-  class domain_error : public public_error;
+  class domain_error : public logic_error;
 }
 ```
 
