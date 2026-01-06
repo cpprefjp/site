@@ -33,7 +33,7 @@ namespace std {
 
 double calc_sqrt(double num) {
   if (num < 0) {
-    throw std::domain_error("Cannot calculate square root of a negative number.");
+    throw std::domain_error("Cannot calculate the square root of a negative number.");
   }
   return std::sqrt(num);
 }
@@ -47,6 +47,7 @@ int main() {
 }
 ```
 
-### 出力
+### 出力 (標準エラー出力)
 ```
+Cannot calculate the square root of a negative number.
 ```

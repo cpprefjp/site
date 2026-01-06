@@ -45,7 +45,8 @@ int main() {
 }
 ```
 
-### 出力
+### 出力 (標準エラー出力)
 
 ```
+Error: Cannot perform calculations with negative numbers!
 ```
