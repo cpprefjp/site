@@ -18,10 +18,10 @@ namespace std {
 
 `n`は解析に使用する最大バイト数を指定する。
 
-エンコーディングの内部状態に関する振る舞いが最近の規格で変更されたことから、
 内部状態に依存するエンコーディングを考慮するならば、
 特に理由がない限り `std::mblen` ではなく `std::mbstate_t` を受け取る `std::mbrlen` を
 新しいコードでは用いるべきである。
+エンコーディングの内部状態に関する振る舞いが C11 で変更 (WG14 N1373) されたが、
 以前の振る舞いではスレッドセーフではなく、
 現在の振る舞いではそもそも内部状態に依存する使い方ができない。
 
@@ -135,3 +135,14 @@ int main() {
 ## 関連項目
 
 - [`mbrlen`](../cwchar/mbrlen.md.nolink): `std::mbstate_t` を受け取るスレッドセーフなバージョン
+- [WG14 N1373: Wording improvements for mblen, mbtowc, and c16rtomb](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1373.htm)
+    - C11 以降内部状態が最初に初期化されることになった。「表現の改善」としてこの破壊的な変更が実施されたように見える。
+    - [musl のメーリングリスト - 2019-12-26](https://www.openwall.com/lists/musl/2019/12/26/7) にて Florian Weimer が以下のように指摘している:
+        "actual users of the interfaces with legacy charsets do not seem to be represented on the standards committee anymore (see the mblen behavioral change in C11 as evidence supporting this theory)."
+        意訳: 「(C11 で入った mblen の振る舞い変更でも分かるように) C標準化委員会には古い文字コードを使っている人はもういないようだ。」
+- [WG14 N2037: mblen, mbtowc, and wctomb thread-safety](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n2037.htm)
+    - [WG14 DR498: mblen, mbtowc, and wctomb thread-safety](https://www.open-std.org/jtc1/sc22/wg14/issues/c11c17/issue0498.html)
+    - [WG14 N2246: Make mblen, mbtowc, and wctomb thread-safe for encodings that are not state-dependent](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n2246.htm)
+    - [WG14 N2281: Make mblen, mbtowc, and wctomb thread-safe for encodings that are not state-dependent](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n2281.htm)
+    - [WG14 N2358: No internal state for mblen](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n2358.htm)
+    - C11 以降もあたかも `mblen` が内部状態を持つかのような記述になっていたのが C23 で修正された。
