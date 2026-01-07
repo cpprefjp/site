@@ -2,6 +2,7 @@
 * string[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* string,u8string,u16string,u32string,wstring[meta alias]
 
 ```cpp
 namespace std {
