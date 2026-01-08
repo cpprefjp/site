@@ -3,6 +3,7 @@
 * class[meta id-type]
 * std[meta namespace]
 * cpp23[meta cpp]
+* format_string,wformat_string[meta alias]
 
 ```cpp
 namespace std {
