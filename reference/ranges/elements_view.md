@@ -3,6 +3,7 @@
 * std::ranges[meta namespace]
 * class template[meta id-type]
 * cpp20[meta cpp]
+* keys_view,values_view[meta alias]
 
 ```cpp
 namespace std::ranges {

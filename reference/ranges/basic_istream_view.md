@@ -3,6 +3,7 @@
 * std::ranges[meta namespace]
 * class template[meta id-type]
 * cpp20[meta cpp]
+* istream_view,wistream_view[meta alias]
 
 ```cpp
 namespace std::ranges {
