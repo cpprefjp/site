@@ -37,6 +37,7 @@
 <!--    `cpp26removed[meta cpp]` : C++26で削除された機能 -->
 <!--    `future[meta cpp]` : 将来のC++で検討されている機能 -->
 <!--    `archive[meta cpp]` : 廃案になったが記録として残す価値のあるC++機能 -->
+<!-- `[meta alias]`は、検索エンジン用にページの別名を追加登録するためのメタ情報。カンマ区切りで複数登録できる。名前空間は各ページで指定されたものに準じる。例としてbasic_stringページには以下のように登録されている。 `* string,u8string,u16string,u32string,wstring[meta alias]` -->
 
 ```cpp
 namespace std {
