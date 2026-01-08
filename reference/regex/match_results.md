@@ -3,6 +3,7 @@
 * std[meta namespace]
 * class template[meta id-type]
 * cpp11[meta cpp]
+* cmatch,wcmatch,smatch,wsmatch[meta alias]
 
 ```cpp
 namespace std {

@@ -3,6 +3,7 @@
 * std::regex_constants[meta namespace]
 * type-alias[meta id-type]
 * cpp11[meta cpp]
+* icase,nosubs,optimize,collate,ECMAScript,basic,extended,awk,grep,egrep[meta alias]
 
 ```cpp
 namespace std {

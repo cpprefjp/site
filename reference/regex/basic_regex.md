@@ -3,7 +3,7 @@
 * std[meta namespace]
 * class template[meta id-type]
 * cpp11[meta cpp]
-
+* regex,wregex[meta alias]
 
 ```cpp
 namespace std {

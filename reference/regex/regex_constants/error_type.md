@@ -3,6 +3,7 @@
 * std::regex_constants[meta namespace]
 * enum[meta id-type]
 * cpp11[meta cpp]
+* error_collate,error_ctype,error_escape,error_backref,error_brack,error_paren,error_brace,error_badbrace,error_range,error_space,error_badrepeat,error_complexity,error_stack[meta alias]
 
 ```cpp
 namespace std {

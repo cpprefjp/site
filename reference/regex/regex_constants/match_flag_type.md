@@ -3,6 +3,7 @@
 * std::regex_constants[meta namespace]
 * type-alias[meta id-type]
 * cpp11[meta cpp]
+* match_default,match_not_bol,match_not_eol,match_not_bow,match_not_eow,match_any,match_not_null,match_continuous,match_prev_avail,format_default,format_sed,format_no_copy,format_first_only[meta alias]
 
 ```cpp
 namespace std {

@@ -3,6 +3,7 @@
 * std[meta namespace]
 * class template[meta id-type]
 * cpp11[meta cpp]
+* cregex_iterator,wcregex_iterator,sregex_iterator,wsregex_iterator[meta alias]
 
 ```cpp
 namespace std {
