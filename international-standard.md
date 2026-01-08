@@ -43,10 +43,10 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
     - C++11 以降は `<regex>` のために ECMAScript ECMA-262:1999 を引用する。
     - 他に基本語彙・日時・浮動小数点数・数学記号などのために他の規格を引用する。
 
-最新のDraftのHTML版は以下で公開されている。  
+最新の原案のHTML版は以下で公開されている。  
 [Draft C++ Standard: Contents](https://timsong-cpp.github.io/cppwp/)
 
-標準規格の文章はtexで書かれており、そのソースコードは以下で2011年8月16日以降のものについて(つまりN3291より後、N3337より前)公開されている。  
+標準規格の原案はLaTeXで書かれており、そのソースコードは以下で2011年8月16日以降のものについて(つまりN3291より後、N3337より前)公開されている。  
 [cplusplus/draft: C++ standards drafts](https://github.com/cplusplus/draft)
 
 ## <a href="#list-of-iso-c" id="list-of-iso-c">C国際標準規格の一覧</a>
