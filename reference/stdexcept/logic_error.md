@@ -31,7 +31,7 @@ namespace std {
 
 int square_root(int num) {
   if (num < 0) {
-    throw std::invalid_argument("Cannot perform calculations with negative numbers!")
+    throw std::invalid_argument("Cannot perform calculations with negative numbers!");
   }
   return num * num;
 }
