@@ -164,8 +164,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-01-08T11:14:11">
-        2026年01月08日 11時14分11秒
+      <span itemprop="datePublished" content="2026-01-08T12:04:37">
+        2026年01月08日 12時04分37秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -252,7 +252,7 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 <td align="left"><a href="lang/cpp11.html">C++11</a> (C++0x)</td>
 <td align="left">ISO/IEC 14882:2011</td>
 <td align="left">N3337<sup><a href="#note-t1-5" id="note_ref-t1-5">†5</a></sup>(<a href="https://wg21.link/std11" target="_blank">PDF</a>/<a href="https://timsong-cpp.github.io/cppwp/n3337/" target="_blank">HTML</a>)</td>
-<td align="left">N3291 N3290 N3242 N3225 N3126<br />N3090 N3035 N3000 N2960 N2914<br />N2857 N2798 N2723 N2691 N2606<br />N2588 N2521 N2461 N2369 N2315<br />N2284 N2134 N2009 N1905 N1804<br />N1733 N1655</td>
+<td align="left">N3291 N3290 N3242 N3225 N3126<br />N3090 N3035 N3000 N2960 N2914<br />N2857 N2798 N2723 N2691 N2606<br />N2588 N2521 N2461 N2369 N2315<br />N2284 N2134 N2009 N1905 N1804<br />N1733 N1655 N1638</td>
 <td align="left"><code>201103L</code></td>
 <td align="left">C99:TC3, POSIX.1-2003,<br />UCS:1993</td>
 </tr>
@@ -262,15 +262,15 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 <td align="left">N1577</td>
 <td align="left">N1577 ?</td>
 <td align="left"><code>199711L</code><br />(C++98 と同じ)</td>
-<td align="left">C99, UCS:2000</td>
+<td align="left">C99,<br />UCS:2000</td>
 </tr>
 <tr>
 <td align="left">C++98</td>
 <td align="left">ISO/IEC 14882:1998</td>
-<td align="left">?</td>
-<td align="left">?</td>
+<td align="left"><span href="https://cpprefjp.github.io/[複数PDF](https:/open-std.org/jtc1/sc22/wg21/docs/wp/pdf/nov97-2/)">N1146</span></td>
+<td align="left">N1146 N1117 N1037 N0996 N0926<br />N0836 N0785 N0691 N0687 N0629<br />... N0048 N0008</td>
 <td align="left"><code>199711L</code></td>
-<td align="left">C95, UCS:1993</td>
+<td align="left">C95,<br />UCS:1993</td>
 </tr>
 </tbody>
 </table>
@@ -282,19 +282,20 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 <li><a href="#note_ref-t1-5" id="note-t1-5"><strong>^</strong></a> N3337 は、C++11規格に対する編集レベルの修正のみが適用された仕様案であるため、事実上 N3337 が C++11 を参照する時に用いられる。C++11規格からN3337への変更点は、<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3338.html" target="_blank">N3338</a>を参照。<br />
 (それより前の公開されているC++11向け仕様案であるN3242からC++11規格に対しては、機能的な変更がいくつかあるため、C++11規格として参照するには適さない)</li>
 <li><a href="#note_ref-t1-6" id="note-t1-6"><strong>^</strong></a> 全ての引用規格 (normative references) を載せているわけではない。特に引用規格のバージョン差異が重要なものを表中に載せている。<ul>
-<li>C規格に関しては<a href="#list-of-iso-c">下の表</a>も参照のこと。C99:TC3 などの表記は C99 に加えて TC1 から TC3 までを取り入れたものを指す。</li>
+<li>C規格に関しては<a href="#list-of-iso-c">下の表</a>も参照のこと。
+  ここでは C99:TC3 などの表記は C99 に加えて TC1 から TC3 までを取り入れたものを指すこととする。</li>
 <li>POSIX規格については POSIX.1-2003 は ISO/IEC 9945:2003 (POSIX.1-2001 + TC1) で、
-  POSIX.1-2017 は ISO/IEC/IEEE 9945:2009 に TC1 (ISO/IEC/IEEE 9945:2009/Cor 1:2013) と TC2 (ISO/IEC/IEEE 9945:2009/Cor 2:2017) を取り入れたもの。
+  POSIX.1-2017 は ISO/IEC/IEEE 9945:2009 に TC1 (ISO/IEC/IEEE 9945:2009/Cor 1:2013) と TC2 (ISO/IEC/IEEE 9945:2009/Cor 2:2017) を取り入れたものである。
   長らく POSIX.1-2003 が参照されて来たが C++23 から POSIX.1-2017 を参照する様に変更された[<a href="lang/cpp23/update_normative_reference_to_posix.html">P2227R0</a>]。</li>
 <li>国際符号化文字集合 (UCS; Universal Coded Character Set) / Unicode については、
-    UCS は ISO/IEC 10646 の総称であり、UCS:1993 は ISO/IEC 10646-1:1993、UCS:2000 は ISO/IEC 10646-1:2000 である。
-    UAX#29-35 は Unicode 12.0 の Unicode Standard Annex UAX #29 (revision 35) を指す。
+    UCS は ISO/IEC 10646 の総称であり、ここでは UCS:1993 は ISO/IEC 10646-1:1993、UCS:2000 は ISO/IEC 10646-1:2000 を指すこととする。
+    また UAX#29-35 は Unicode 12.0 の Unicode Standard Annex UAX #29 (revision 35) を指すこととする。
     引用規格として長らく UCS:1993 が参照されてきたが、
     C++20 で UCS (最新) への参照が追加され [<a href="lang/cpp20/update_the_reference_to_the_unicode_standard.html">P1025R1</a>],
     C++23 で Unicode (最新) に切り替えられ [<a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2736r2.pdf" target="_blank">P2736R2</a>]、
     C++26 で Unicode 15.1 に切り替えられた [<a href="https://cplusplus.github.io/CWG/issues/2843.html" target="_blank">CWG 2843</a>]。</li>
-<li>C++11 以降は <code>&lt;regex&gt;</code> のために ECMAScript ECMA-262:1999 を参照する。</li>
-<li>他に基本語彙・日時・浮動小数点数・数学記号などのために他の規格を参照する。</li>
+<li>C++11 以降は <code>&lt;regex&gt;</code> のために ECMAScript ECMA-262:1999 を引用する。</li>
+<li>他に基本語彙・日時・浮動小数点数・数学記号などのために他の規格を引用する。</li>
 </ul>
 </li>
 </ol>
