@@ -3,6 +3,7 @@
 * std::chrono[meta namespace]
 * type-alias[meta id-type]
 * cpp11[meta cpp]
+* nanoseconds,microseconds,milliseconds,seconds,minutes,hours,days,weeks,years,months[meta alias]
 
 ```cpp
 namespace std {
