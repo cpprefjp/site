@@ -3,6 +3,7 @@
 * std::chrono[meta namespace]
 * type-alias[meta id-type]
 * cpp20[meta cpp]
+* gps_seconds[meta alias]
 
 ```cpp
 namespace std::chrono {

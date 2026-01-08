@@ -3,6 +3,7 @@
 * std::chrono[meta namespace]
 * type-alias[meta id-type]
 * cpp20[meta cpp]
+* sys_seconds,sys_days[meta alias]
 
 ```cpp
 namespace std::chrono {

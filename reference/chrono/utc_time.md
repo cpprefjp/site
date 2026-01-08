@@ -3,6 +3,7 @@
 * std::chrono[meta namespace]
 * type-alias[meta id-type]
 * cpp20[meta cpp]
+* utc_seconds[meta alias]
 
 ```cpp
 namespace std::chrono {
