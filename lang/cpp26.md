@@ -105,6 +105,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 |----------|------|
 | [モジュール宣言でのモジュール名のマクロ展開を禁止する](/lang/cpp26/module_declarations_shouldnt_be_macros.md) | `export module MACRO_NAME;`を禁止 |
 | [`main`関数をグローバルモジュールに含められるようにする](/lang/cpp26/allow_attaching_main_to_the_global_module.md.nolink) | `main`関数に`extern "C++"`を指定できるようにすることで名前付きモジュールに含められるようにする |
+| [モジュール宣言より前での`#line`ディレクティブの使用を許可する](/lang/cpp26/allow_line_before_module_declarations.md.nolink) | モジュール宣言より前での`#line`ディレクティブの使用を禁止していたのは過度な制限だった |
 
 
 ### 機能の非推奨化

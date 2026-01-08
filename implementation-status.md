@@ -328,6 +328,7 @@
 | P1306R5: [コンパイル時のタプルやリストを展開処理する`template for`文](/lang/cpp26/expansion_statements.md.nolink) | クラス・タプル・Range・パラメータパックなどを展開してすべての要素をコンパイル時の処理する`template for`文を追加 | 16 | | | |
 | P3533R2: [`constexpr`仮想継承を許可](/lang/cpp26/constexpr_virtual_inheritance.md.nolink) | 定数式の文脈での仮想継承を許可 | 16 | | | |
 | P2843R3: [プリプロセッサ仕様での「未定義動作」を不適格 (診断不要) に変更](/lang/cpp26/preprocessing_is_never_undefined.md.nolink) | プリプロセッサとレキサーの文脈での「未定義動作」用語を不適格 (診断不要) に変更 | 16 | | | |
+| P3868R1: [モジュール宣言より前での`#line`ディレクティブの使用を許可する](/lang/cpp26/allow_line_before_module_declarations.md.nolink) | モジュール宣言より前での`#line`ディレクティブの使用を禁止していたのは過度な制限だった | | | | |
 
 
 各処理系のC++26実装状況ページ：
