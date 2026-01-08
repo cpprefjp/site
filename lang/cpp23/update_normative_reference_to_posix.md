@@ -10,11 +10,11 @@
 <!-- last lang caution -->
 
 ## 概要
-C++20まではPOSIX規格としてISO/IEC 9945:2003 (別名POSIX.1-2001 aka The Single UNIX Specification, version 3) を参照していた。
+C++20まではPOSIX規格としてISO/IEC 9945:2003 (POSIX.1-2001 別名 The Single UNIX Specification, version 3 (SUSv3) の 2003 年修正版 (TC1)) を参照していた。
 
 しかし、標準C++の一部の機能はより新しいPOSIX規格の機能を使用していたため、ISO/IEC 9945:2003への参照を削除した上で、以下の3つの規格を参照するよう変更する：
 
-1. ISO/IEC/IEEE 9945:20032009, Information Technology — Portable Operating System Interface (POSIX)
+1. ISO/IEC/IEEE 9945:2009, Information Technology — Portable Operating System Interface (POSIX)
 2. ISO/IEC/IEEE 9945:2009/Cor 1:2013, Information Technology — Portable Operating System Interface (POSIX), Technical Corrigendum 1
 3. ISO/IEC/IEEE 9945:2009/Cor 2:2017, Information Technology — Portable Operating System Interface (POSIX), Technical Corrigendum 2
 
