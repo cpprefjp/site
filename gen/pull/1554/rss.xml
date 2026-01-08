@@ -2,14 +2,14 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-01-08T12:21:18.367626</updated>
-  <id>ce4e4da5-e7e3-4a40-924e-85929d98e518</id>
+  <updated>2026-01-08T12:25:33.409889</updated>
+  <id>e4f62b49-36b0-4aa4-b416-a605d55fb662</id>
 
   
     <entry>
       <title>C++国際標準規格 -- fix(C++国際標準規格): 過去のC++の原稿番号を追加</title>
       <link href="https://cpprefjp.github.io/international-standard.html"/>
-      <id>6e637681cf44530c6181b6e1cbbd6a7a7d4fc809:international-standard.md</id>
+      <id>39c7b70654e290f1bf3ab0e6fe12f2664c8fa086:international-standard.md</id>
       <updated>2026-01-08T21:04:37+09:00</updated>
       
         <content type="html">&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;C++国際標準規格&lt;/span&gt;&lt;/h1&gt;
@@ -173,7 +173,7 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 &lt;td align=&#34;left&#34;&gt;ISO/IEC 9899:2011&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;N1570(&lt;a href=&#34;https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;)&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;code&gt;201112L&lt;/code&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;C++17&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td align=&#34;left&#34;&gt;C99 TC3&lt;/td&gt;
@@ -187,21 +187,21 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 &lt;td align=&#34;left&#34;&gt;ISO/IEC 9899:1999/Cor.2:2004&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;N1124(&lt;a href=&#34;https://open-std.org/JTC1/SC22/WG14/www/docs/n1124.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;)&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;code&gt;199901L&lt;/code&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;C++11, C++14&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td align=&#34;left&#34;&gt;C99 TC1&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;ISO/IEC 9899:1999/Cor.1:2001&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;code&gt;199901L&lt;/code&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;C++11, C++14&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;strong&gt;C99&lt;/strong&gt; (C9X)&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;ISO/IEC 9899:1999&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;N843(&lt;a href=&#34;https://www.open-std.org/jtc1/sc22/wg14/www/docs/n843.htm&#34; target=&#34;_blank&#34;&gt;HTML&lt;/a&gt;)&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;code&gt;199901L&lt;/code&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;C++03&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;C++03, C++11, C++14&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td align=&#34;left&#34;&gt;C95&lt;/td&gt;
@@ -293,7 +293,7 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
     <entry>
       <title>参照するPOSIX規格を更新 [P2227R0] -- fix(P2227R0): 引用規格 POSIX の情報を修正</title>
       <link href="https://cpprefjp.github.io/lang/cpp23/update_normative_reference_to_posix.html"/>
-      <id>b8b466b01d75f4c696a9e0d5077daf60061c7889:lang/cpp23/update_normative_reference_to_posix.md</id>
+      <id>5fedac9cea890d537a35bc0bfdbd5e4a7736958d:lang/cpp23/update_normative_reference_to_posix.md</id>
       <updated>2026-01-08T20:17:26+09:00</updated>
       
         <content type="html">&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;参照するPOSIX規格を更新 [P2227R0]&lt;/span&gt;&lt;span class=&#34;cpp cpp23&#34; title=&#34;C++23で追加&#34;&gt;(C++23)&lt;/span&gt;&lt;/h1&gt;
@@ -337,7 +337,7 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
     <entry>
       <title>C++国際標準規格 -- fix(C++国際標準規格): 日本語修正・表記修正 (tex =&gt; LaTeX)</title>
       <link href="https://cpprefjp.github.io/international-standard.html"/>
-      <id>7ae74574ad436757499cde5555f00e2e9e9560a2:international-standard.md</id>
+      <id>608d371cc39a31158d4ca796ddf0bee2b2daa405:international-standard.md</id>
       <updated>2026-01-08T20:14:11+09:00</updated>
       
         <content type="html">&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;C++国際標準規格&lt;/span&gt;&lt;/h1&gt;
@@ -501,7 +501,7 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 &lt;td align=&#34;left&#34;&gt;ISO/IEC 9899:2011&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;N1570(&lt;a href=&#34;https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;)&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;code&gt;201112L&lt;/code&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;C++17&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td align=&#34;left&#34;&gt;C99 TC3&lt;/td&gt;
@@ -515,21 +515,21 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 &lt;td align=&#34;left&#34;&gt;ISO/IEC 9899:1999/Cor.2:2004&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;N1124(&lt;a href=&#34;https://open-std.org/JTC1/SC22/WG14/www/docs/n1124.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;)&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;code&gt;199901L&lt;/code&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;C++11, C++14&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td align=&#34;left&#34;&gt;C99 TC1&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;ISO/IEC 9899:1999/Cor.1:2001&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;code&gt;199901L&lt;/code&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;C++11, C++14&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;strong&gt;C99&lt;/strong&gt; (C9X)&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;ISO/IEC 9899:1999&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;N843(&lt;a href=&#34;https://www.open-std.org/jtc1/sc22/wg14/www/docs/n843.htm&#34; target=&#34;_blank&#34;&gt;HTML&lt;/a&gt;)&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;code&gt;199901L&lt;/code&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;C++03&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;C++03, C++11, C++14&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td align=&#34;left&#34;&gt;C95&lt;/td&gt;
@@ -621,7 +621,7 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
     <entry>
       <title>C++国際標準規格 -- feat(C++国際標準規格): 引用規格情報とC規格の表を追加</title>
       <link href="https://cpprefjp.github.io/international-standard.html"/>
-      <id>6b2b865d6901ae1fc9494afdfe8be6dfdaf26277:international-standard.md</id>
+      <id>beeb26304b8615f10164221fc1e2632e8c3a94a0:international-standard.md</id>
       <updated>2026-01-06T18:07:51+09:00</updated>
       
         <content type="html">&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;C++国際標準規格&lt;/span&gt;&lt;/h1&gt;
@@ -785,7 +785,7 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 &lt;td align=&#34;left&#34;&gt;ISO/IEC 9899:2011&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;N1570(&lt;a href=&#34;https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;)&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;code&gt;201112L&lt;/code&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;C++17&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td align=&#34;left&#34;&gt;C99 TC3&lt;/td&gt;
@@ -799,21 +799,21 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 &lt;td align=&#34;left&#34;&gt;ISO/IEC 9899:1999/Cor.2:2004&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;N1124(&lt;a href=&#34;https://open-std.org/JTC1/SC22/WG14/www/docs/n1124.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;)&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;code&gt;199901L&lt;/code&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;C++11, C++14&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td align=&#34;left&#34;&gt;C99 TC1&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;ISO/IEC 9899:1999/Cor.1:2001&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;?&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;code&gt;199901L&lt;/code&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;C++11, C++14&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;strong&gt;C99&lt;/strong&gt; (C9X)&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;ISO/IEC 9899:1999&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;N843(&lt;a href=&#34;https://www.open-std.org/jtc1/sc22/wg14/www/docs/n843.htm&#34; target=&#34;_blank&#34;&gt;HTML&lt;/a&gt;)&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;code&gt;199901L&lt;/code&gt;&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;C++03&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;C++03, C++11, C++14&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td align=&#34;left&#34;&gt;C95&lt;/td&gt;
