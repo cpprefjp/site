@@ -20,7 +20,7 @@
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
-  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,regex,std,class template,cpp11
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,regex,std,class template,cpp11,cmatch,wcmatch,smatch,wsmatch
 ">
         <meta name="title" content="match_results - cpprefjp C++日本語リファレンス" />
         <meta itemprop="name" content="match_results - cpprefjp C++日本語リファレンス" />
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;regex&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;abe62a5cb45d08a6b87f70033b74da639d335e90&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;regex&gt;\n\nint main()\n{\n  const char s[] = \&#34;The C++11 is very cool!!\&#34;;\n  const std::regex re(\&#34;(\\\\w+) is (\\\\w+)\&#34;);\n\n  std::cmatch m;\n  if (std::regex_search(s, m, re)) {\n    std::cout &lt;&lt; \&#34;ready = \&#34; &lt;&lt; std::boolalpha &lt;&lt; m.ready() &lt;&lt; \&#34;, empty = \&#34; &lt;&lt; m.empty() &lt;&lt; std::endl &lt;&lt; std::endl;\n    std::cout &lt;&lt; \&#34;prefix:&#39;\&#34; &lt;&lt; m.prefix() &lt;&lt; &#39;\\&#39;&#39; &lt;&lt; std::endl;\n    for (std::size_t i = 0, n = m.size(); i &lt; n; ++i) {\n      std::cout &lt;&lt; i &lt;&lt; \&#34;:&#39;\&#34; &lt;&lt; m.str(i) &lt;&lt; \&#34;\\&#39;, position = \&#34; &lt;&lt; m.position(i) &lt;&lt; \&#34;, length = \&#34; &lt;&lt; m.length(i) &lt;&lt; std::endl;\n    }\n    std::cout &lt;&lt; \&#34;suffix:&#39;\&#34; &lt;&lt; m.suffix() &lt;&lt; &#39;\\&#39;&#39; &lt;&lt; std::endl &lt;&lt; std::endl;\n    std::cout &lt;&lt; m.format(\&#34;$`14 is $2$&#39;\&#34;) &lt;&lt; std::endl;\n  } else {\n    std::cout &lt;&lt; \&#34;not match\&#34; &lt;&lt; std::endl;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;regex&#34;, &#34;match_results&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;regex&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;], &#34;alias&#34;: [&#34;cmatch,wcmatch,smatch,wsmatch&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;abe62a5cb45d08a6b87f70033b74da639d335e90&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;regex&gt;\n\nint main()\n{\n  const char s[] = \&#34;The C++11 is very cool!!\&#34;;\n  const std::regex re(\&#34;(\\\\w+) is (\\\\w+)\&#34;);\n\n  std::cmatch m;\n  if (std::regex_search(s, m, re)) {\n    std::cout &lt;&lt; \&#34;ready = \&#34; &lt;&lt; std::boolalpha &lt;&lt; m.ready() &lt;&lt; \&#34;, empty = \&#34; &lt;&lt; m.empty() &lt;&lt; std::endl &lt;&lt; std::endl;\n    std::cout &lt;&lt; \&#34;prefix:&#39;\&#34; &lt;&lt; m.prefix() &lt;&lt; &#39;\\&#39;&#39; &lt;&lt; std::endl;\n    for (std::size_t i = 0, n = m.size(); i &lt; n; ++i) {\n      std::cout &lt;&lt; i &lt;&lt; \&#34;:&#39;\&#34; &lt;&lt; m.str(i) &lt;&lt; \&#34;\\&#39;, position = \&#34; &lt;&lt; m.position(i) &lt;&lt; \&#34;, length = \&#34; &lt;&lt; m.length(i) &lt;&lt; std::endl;\n    }\n    std::cout &lt;&lt; \&#34;suffix:&#39;\&#34; &lt;&lt; m.suffix() &lt;&lt; &#39;\\&#39;&#39; &lt;&lt; std::endl &lt;&lt; std::endl;\n    std::cout &lt;&lt; m.format(\&#34;$`14 is $2$&#39;\&#34;) &lt;&lt; std::endl;\n  } else {\n    std::cout &lt;&lt; \&#34;not match\&#34; &lt;&lt; std::endl;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;regex&#34;, &#34;match_results&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2024-07-18T16:39:47">
-        2024年07月18日 16時39分47秒
+      <span itemprop="datePublished" content="2026-01-08T11:16:38">
+        2026年01月08日 11時16分38秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">yoh</span>
       </span>
       が更新
     </small></p>

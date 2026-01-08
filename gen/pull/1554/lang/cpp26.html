@@ -176,8 +176,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-11-13T06:41:58">
-        2025年11月13日 06時41分58秒
+      <span itemprop="datePublished" content="2026-01-08T03:33:22">
+        2026年01月08日 03時33分22秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -313,10 +313,6 @@
 <tr>
 <td><span href="https://cpprefjp.github.io/lang/cpp26/trivial_unions.md.nolink">共用体をトリビアルに未初期化できるようにする</span></td>
 <td><code>constexpr</code>での<code>union U { T storage[N]; };</code>を許可し、未初期化にできるようにする</td>
-</tr>
-<tr>
-<td><span href="https://cpprefjp.github.io/lang/cpp26/trivial_relocatability.md.nolink">トリビアルな再配置</span></td>
-<td>ムーブ構築と破棄のためにビット単位のコピーとデストラクタ評価が必要になる型のオブジェクトを再配置するメカニズムを導入する</td>
 </tr>
 </tbody>
 </table>
@@ -459,6 +455,10 @@
 <tr>
 <td><span href="https://cpprefjp.github.io/lang/cpp26/allow_attaching_main_to_the_global_module.md.nolink"><code>main</code>関数をグローバルモジュールに含められるようにする</span></td>
 <td><code>main</code>関数に<code>extern "C++"</code>を指定できるようにすることで名前付きモジュールに含められるようにする</td>
+</tr>
+<tr>
+<td><span href="https://cpprefjp.github.io/lang/cpp26/allow_line_before_module_declarations.md.nolink">モジュール宣言より前での<code>#line</code>ディレクティブの使用を許可する</span></td>
+<td>モジュール宣言より前での<code>#line</code>ディレクティブの使用を禁止していたのは過度な制限だった</td>
 </tr>
 </tbody>
 </table>

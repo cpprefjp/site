@@ -20,7 +20,7 @@
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
-  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,format,class,std,cpp23
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,format,class,std,cpp23,format_string,wformat_string
 ">
         <meta name="title" content="basic_format_string - cpprefjp C++日本語リファレンス" />
         <meta itemprop="name" content="basic_format_string - cpprefjp C++日本語リファレンス" />
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;format&#34;], &#34;id-type&#34;: [&#34;class&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;cpp&#34;: [&#34;cpp23&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;5f81c50cb060b8a4edf897a184c3ff3f6c31f56c&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;format&gt;\n#include &lt;chrono&gt;\n\nthread_local bool logging_enabled = true;\n\n// \u73fe\u5728\u6642\u523b\u4ed8\u304d\u3067\u3001\u6587\u5b57\u5217\u30d5\u30a9\u30fc\u30de\u30c3\u30c8\u3057\u3066\u30ed\u30b0\u51fa\u529b\u3059\u308b\ntemplate &lt;typename... Args&gt;\nvoid log(std::format_string&lt;Args...&gt; s, Args&amp;&amp;... args) {\n  if (!logging_enabled) {\n    return;\n  }\n\n  namespace chrono = std::chrono;\n  auto now = chrono::floor&lt;chrono::seconds&gt;(chrono::system_clock::now());\n  std::cout &lt;&lt; std::format(\&#34;{}: {}\&#34;,\n    chrono::zoned_time{\&#34;Asia/Tokyo\&#34;, now},\n    std::format(s, std::forward&lt;Args&gt;(args)...)\n  ) &lt;&lt; std::endl;\n}\n\nint main()\n{\n  log(\&#34;Hello {} World\&#34;, 42);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;format&#34;, &#34;basic_format_string&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;format&#34;], &#34;id-type&#34;: [&#34;class&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;cpp&#34;: [&#34;cpp23&#34;], &#34;alias&#34;: [&#34;format_string,wformat_string&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;5f81c50cb060b8a4edf897a184c3ff3f6c31f56c&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;format&gt;\n#include &lt;chrono&gt;\n\nthread_local bool logging_enabled = true;\n\n// \u73fe\u5728\u6642\u523b\u4ed8\u304d\u3067\u3001\u6587\u5b57\u5217\u30d5\u30a9\u30fc\u30de\u30c3\u30c8\u3057\u3066\u30ed\u30b0\u51fa\u529b\u3059\u308b\ntemplate &lt;typename... Args&gt;\nvoid log(std::format_string&lt;Args...&gt; s, Args&amp;&amp;... args) {\n  if (!logging_enabled) {\n    return;\n  }\n\n  namespace chrono = std::chrono;\n  auto now = chrono::floor&lt;chrono::seconds&gt;(chrono::system_clock::now());\n  std::cout &lt;&lt; std::format(\&#34;{}: {}\&#34;,\n    chrono::zoned_time{\&#34;Asia/Tokyo\&#34;, now},\n    std::format(s, std::forward&lt;Args&gt;(args)...)\n  ) &lt;&lt; std::endl;\n}\n\nint main()\n{\n  log(\&#34;Hello {} World\&#34;, 42);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;format&#34;, &#34;basic_format_string&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-10-21T07:45:27">
-        2025年10月21日 07時45分27秒
+      <span itemprop="datePublished" content="2026-01-08T11:44:37">
+        2026年01月08日 11時44分37秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Raclamusi</span>
+        <span itemprop="name">yoh</span>
       </span>
       が更新
     </small></p>

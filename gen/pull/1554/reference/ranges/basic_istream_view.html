@@ -20,7 +20,7 @@
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
-  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,ranges,std::ranges,class template,cpp20
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,ranges,std::ranges,class template,cpp20,istream_view,wistream_view
 ">
         <meta name="title" content="basic_istream_view - cpprefjp C++日本語リファレンス" />
         <meta itemprop="name" content="basic_istream_view - cpprefjp C++日本語リファレンス" />
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;ranges&#34;], &#34;namespace&#34;: [&#34;std::ranges&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;aae7bb1b6bfe643192eb06c1ab5e313d9599ef25&#34;, &#34;source&#34;: &#34;#include &lt;ranges&gt;\n#include &lt;sstream&gt;\n#include &lt;iostream&gt;\n\nint main() {\n  using namespace std;\n  auto iss = istringstream{\&#34;1 2 3 4 5\&#34;};\n\n  for (int i : views::istream&lt;int&gt;(iss)) {\n    cout &lt;&lt; i;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;ranges&#34;, &#34;basic_istream_view&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;ranges&#34;], &#34;namespace&#34;: [&#34;std::ranges&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;], &#34;alias&#34;: [&#34;istream_view,wistream_view&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;aae7bb1b6bfe643192eb06c1ab5e313d9599ef25&#34;, &#34;source&#34;: &#34;#include &lt;ranges&gt;\n#include &lt;sstream&gt;\n#include &lt;iostream&gt;\n\nint main() {\n  using namespace std;\n  auto iss = istringstream{\&#34;1 2 3 4 5\&#34;};\n\n  for (int i : views::istream&lt;int&gt;(iss)) {\n    cout &lt;&lt; i;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;ranges&#34;, &#34;basic_istream_view&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:33:39">
-        2025年07月08日 15時33分39秒
+      <span itemprop="datePublished" content="2026-01-08T11:32:39">
+        2026年01月08日 11時32分39秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">yoh</span>
       </span>
       が更新
     </small></p>

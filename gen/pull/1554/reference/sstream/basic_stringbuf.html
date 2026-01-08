@@ -20,7 +20,7 @@
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
-  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,sstream,std,class template
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,sstream,std,class template,stringbuf,wstringbuf
 ">
         <meta name="title" content="basic_stringbuf - cpprefjp C++日本語リファレンス" />
         <meta itemprop="name" content="basic_stringbuf - cpprefjp C++日本語リファレンス" />
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;sstream&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;30ff3cf72fe7c1f81a03df1a17ddc1249b6ba0d0&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;sstream&gt;\n#include &lt;string&gt;\n#include &lt;cstring&gt;\n\nint main()\n{\n  // basic_stringbuf\u306f\u30b9\u30c8\u30ea\u30fc\u30e0\u306e\u5185\u90e8\u30d0\u30c3\u30d5\u30a1\u3068\u3057\u3066\u52d5\u4f5c\u3059\u308b\n  std::stringbuf buf;\n\n  // \u66f8\u304d\u8fbc\u307f: sputc()\u30671\u6587\u5b57\u305a\u3064\u66f8\u304d\u8fbc\u3080\n  buf.sputc(&#39;H&#39;);\n  buf.sputc(&#39;e&#39;);\n  buf.sputc(&#39;l&#39;);\n  buf.sputc(&#39;l&#39;);\n  buf.sputc(&#39;o&#39;);\n\n  // \u6587\u5b57\u5217\u3068\u3057\u3066\u53d6\u5f97\n  std::cout &lt;&lt; \&#34;Written: \&#34; &lt;&lt; buf.str() &lt;&lt; std::endl;\n\n  // \u65b0\u3057\u3044\u6587\u5b57\u5217\u3092\u8a2d\u5b9a\n  buf.str(\&#34;World\&#34;);\n\n  // \u8aad\u307f\u53d6\u308a: sbumpc()\u30671\u6587\u5b57\u305a\u3064\u8aad\u307f\u53d6\u308b\n  std::cout &lt;&lt; \&#34;Read: \&#34;;\n  while (buf.in_avail() &gt; 0) {\n    char c = buf.sbumpc();\n    std::cout &lt;&lt; c;\n  }\n  std::cout &lt;&lt; std::endl;\n\n  // sputn()\u3067\u6587\u5b57\u5217\u3092\u4e00\u5ea6\u306b\u66f8\u304d\u8fbc\u3080\n  buf.str(\&#34;\&#34;);  // \u30d0\u30c3\u30d5\u30a1\u3092\u30af\u30ea\u30a2\n  const char* message = \&#34;Hello, World!\&#34;;\n  buf.sputn(message, std::strlen(message));\n\n  // C++20\u4ee5\u964d: view()\u3067\u6587\u5b57\u5217\u30d3\u30e5\u30fc\u3068\u3057\u3066\u53d6\u5f97\n  // std::string_view sv = buf.view();\n  // std::cout &lt;&lt; \&#34;View: \&#34; &lt;&lt; sv &lt;&lt; std::endl;\n\n  std::cout &lt;&lt; \&#34;Final: \&#34; &lt;&lt; buf.str() &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;sstream&#34;, &#34;basic_stringbuf&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;sstream&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;alias&#34;: [&#34;stringbuf,wstringbuf&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;30ff3cf72fe7c1f81a03df1a17ddc1249b6ba0d0&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;sstream&gt;\n#include &lt;string&gt;\n#include &lt;cstring&gt;\n\nint main()\n{\n  // basic_stringbuf\u306f\u30b9\u30c8\u30ea\u30fc\u30e0\u306e\u5185\u90e8\u30d0\u30c3\u30d5\u30a1\u3068\u3057\u3066\u52d5\u4f5c\u3059\u308b\n  std::stringbuf buf;\n\n  // \u66f8\u304d\u8fbc\u307f: sputc()\u30671\u6587\u5b57\u305a\u3064\u66f8\u304d\u8fbc\u3080\n  buf.sputc(&#39;H&#39;);\n  buf.sputc(&#39;e&#39;);\n  buf.sputc(&#39;l&#39;);\n  buf.sputc(&#39;l&#39;);\n  buf.sputc(&#39;o&#39;);\n\n  // \u6587\u5b57\u5217\u3068\u3057\u3066\u53d6\u5f97\n  std::cout &lt;&lt; \&#34;Written: \&#34; &lt;&lt; buf.str() &lt;&lt; std::endl;\n\n  // \u65b0\u3057\u3044\u6587\u5b57\u5217\u3092\u8a2d\u5b9a\n  buf.str(\&#34;World\&#34;);\n\n  // \u8aad\u307f\u53d6\u308a: sbumpc()\u30671\u6587\u5b57\u305a\u3064\u8aad\u307f\u53d6\u308b\n  std::cout &lt;&lt; \&#34;Read: \&#34;;\n  while (buf.in_avail() &gt; 0) {\n    char c = buf.sbumpc();\n    std::cout &lt;&lt; c;\n  }\n  std::cout &lt;&lt; std::endl;\n\n  // sputn()\u3067\u6587\u5b57\u5217\u3092\u4e00\u5ea6\u306b\u66f8\u304d\u8fbc\u3080\n  buf.str(\&#34;\&#34;);  // \u30d0\u30c3\u30d5\u30a1\u3092\u30af\u30ea\u30a2\n  const char* message = \&#34;Hello, World!\&#34;;\n  buf.sputn(message, std::strlen(message));\n\n  // C++20\u4ee5\u964d: view()\u3067\u6587\u5b57\u5217\u30d3\u30e5\u30fc\u3068\u3057\u3066\u53d6\u5f97\n  // std::string_view sv = buf.view();\n  // std::cout &lt;&lt; \&#34;View: \&#34; &lt;&lt; sv &lt;&lt; std::endl;\n\n  std::cout &lt;&lt; \&#34;Final: \&#34; &lt;&lt; buf.str() &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;sstream&#34;, &#34;basic_stringbuf&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-06-12T01:43:55">
-        2025年06月12日 01時43分55秒
+      <span itemprop="datePublished" content="2026-01-08T11:45:05">
+        2026年01月08日 11時45分05秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">yoh</span>
       </span>
       が更新
     </small></p>

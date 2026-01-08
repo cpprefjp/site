@@ -20,7 +20,7 @@
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
-  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,fstream,std,class template
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,fstream,std,class template,ofstream,wofstream
 ">
         <meta name="title" content="basic_ofstream - cpprefjp C++日本語リファレンス" />
         <meta itemprop="name" content="basic_ofstream - cpprefjp C++日本語リファレンス" />
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;fstream&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;ca387c4922d55d03e473c1cdbdf3fd51e09f7110&#34;, &#34;source&#34;: &#34;#include &lt;fstream&gt;\n#include &lt;iostream&gt;\n#include &lt;string&gt;\n\nint main() {\n  // example.txt\u30d5\u30a1\u30a4\u30eb\u3092\u51fa\u529b\u5c02\u7528\u3067\u958b\u304f\n  std::ofstream ofs(\&#34;example.txt\&#34;);\n  if (!ofs.is_open()) {\n    std::cerr &lt;&lt; \&#34;\u30d5\u30a1\u30a4\u30eb\u3092\u958b\u3051\u307e\u305b\u3093\u3067\u3057\u305f\&#34; &lt;&lt; std::endl;\n    return 1;\n  }\n\n  // \u30d5\u30a1\u30a4\u30eb\u306b\u6587\u5b57\u5217\u3092\u66f8\u304d\u8fbc\u3080\n  ofs &lt;&lt; \&#34;Hello, world!\&#34; &lt;&lt; std::endl;\n\n  // \u30d5\u30a1\u30a4\u30eb\u3092\u9589\u3058\u308b (\u30c7\u30b9\u30c8\u30e9\u30af\u30bf\u3067\u3082\u81ea\u52d5\u7684\u306b\u9589\u3058\u3089\u308c\u308b)\n  ofs.close();\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;fstream&#34;, &#34;basic_ofstream&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;fstream&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;alias&#34;: [&#34;ofstream,wofstream&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;ca387c4922d55d03e473c1cdbdf3fd51e09f7110&#34;, &#34;source&#34;: &#34;#include &lt;fstream&gt;\n#include &lt;iostream&gt;\n#include &lt;string&gt;\n\nint main() {\n  // example.txt\u30d5\u30a1\u30a4\u30eb\u3092\u51fa\u529b\u5c02\u7528\u3067\u958b\u304f\n  std::ofstream ofs(\&#34;example.txt\&#34;);\n  if (!ofs.is_open()) {\n    std::cerr &lt;&lt; \&#34;\u30d5\u30a1\u30a4\u30eb\u3092\u958b\u3051\u307e\u305b\u3093\u3067\u3057\u305f\&#34; &lt;&lt; std::endl;\n    return 1;\n  }\n\n  // \u30d5\u30a1\u30a4\u30eb\u306b\u6587\u5b57\u5217\u3092\u66f8\u304d\u8fbc\u3080\n  ofs &lt;&lt; \&#34;Hello, world!\&#34; &lt;&lt; std::endl;\n\n  // \u30d5\u30a1\u30a4\u30eb\u3092\u9589\u3058\u308b (\u30c7\u30b9\u30c8\u30e9\u30af\u30bf\u3067\u3082\u81ea\u52d5\u7684\u306b\u9589\u3058\u3089\u308c\u308b)\n  ofs.close();\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;fstream&#34;, &#34;basic_ofstream&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-11T17:16:44">
-        2025年07月11日 17時16分44秒
+      <span itemprop="datePublished" content="2026-01-08T11:45:05">
+        2026年01月08日 11時45分05秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Koichi Murase</span>
+        <span itemprop="name">yoh</span>
       </span>
       が更新
     </small></p>

@@ -20,7 +20,7 @@
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
-  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,fstream,std,class template
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,fstream,std,class template,fstream,wfstream
 ">
         <meta name="title" content="basic_fstream - cpprefjp C++日本語リファレンス" />
         <meta itemprop="name" content="basic_fstream - cpprefjp C++日本語リファレンス" />
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;fstream&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;389af5ea14dc5cce74d6f2ce720224ebda24922e&#34;, &#34;source&#34;: &#34;#include &lt;fstream&gt;\n#include &lt;ios&gt;\n#include &lt;iostream&gt;\n#include &lt;string&gt;\n\nint main() {\n  std::fstream fs;\n  fs.exceptions(std::ios::failbit | std::ios::badbit); // \u4f8b\u5916\u3092\u6709\u52b9\u5316\u3059\u308b\n  try {\n    fs.open(\&#34;./temp.txt\&#34;, std::ios_base::out | std::ios_base::in | std::ios_base::trunc);\n    if (!fs.is_open()) {\n      throw std::runtime_error(\&#34;Failed to open file\&#34;); // \u30d5\u30a1\u30a4\u30eb\u304c\u958b\u3051\u306a\u304b\u3063\u305f\u5834\u5408\n    }\n    int a = 1;\n    long double b = 3.141592;\n    std::string c = \&#34;hello\&#34;;\n    fs &lt;&lt; a &lt;&lt; \&#34; \&#34; &lt;&lt; b &lt;&lt; \&#34; \&#34; &lt;&lt; c &lt;&lt; std::endl;\n    fs.seekg(0);\n    int d;\n    long double e;\n    std::string f;\n    fs &gt;&gt; d &gt;&gt; e &gt;&gt; f;\n    if (!fs) {\n      throw std::runtime_error(\&#34;Failed to read from file\&#34;); // \u30d5\u30a1\u30a4\u30eb\u304b\u3089\u8aad\u307f\u53d6\u308c\u306a\u304b\u3063\u305f\u5834\u5408\n    }\n    std::cout &lt;&lt; d &lt;&lt; \&#34; \&#34; &lt;&lt; e &lt;&lt; \&#34; \&#34; &lt;&lt; f &lt;&lt; std::endl;\n  } catch (const std::exception&amp; e) {\n    std::cerr &lt;&lt; \&#34;Error: \&#34; &lt;&lt; e.what() &lt;&lt; std::endl;\n    return 1;\n  }\n  return 0;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;fstream&#34;, &#34;basic_fstream&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;fstream&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;alias&#34;: [&#34;fstream,wfstream&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;389af5ea14dc5cce74d6f2ce720224ebda24922e&#34;, &#34;source&#34;: &#34;#include &lt;fstream&gt;\n#include &lt;ios&gt;\n#include &lt;iostream&gt;\n#include &lt;string&gt;\n\nint main() {\n  std::fstream fs;\n  fs.exceptions(std::ios::failbit | std::ios::badbit); // \u4f8b\u5916\u3092\u6709\u52b9\u5316\u3059\u308b\n  try {\n    fs.open(\&#34;./temp.txt\&#34;, std::ios_base::out | std::ios_base::in | std::ios_base::trunc);\n    if (!fs.is_open()) {\n      throw std::runtime_error(\&#34;Failed to open file\&#34;); // \u30d5\u30a1\u30a4\u30eb\u304c\u958b\u3051\u306a\u304b\u3063\u305f\u5834\u5408\n    }\n    int a = 1;\n    long double b = 3.141592;\n    std::string c = \&#34;hello\&#34;;\n    fs &lt;&lt; a &lt;&lt; \&#34; \&#34; &lt;&lt; b &lt;&lt; \&#34; \&#34; &lt;&lt; c &lt;&lt; std::endl;\n    fs.seekg(0);\n    int d;\n    long double e;\n    std::string f;\n    fs &gt;&gt; d &gt;&gt; e &gt;&gt; f;\n    if (!fs) {\n      throw std::runtime_error(\&#34;Failed to read from file\&#34;); // \u30d5\u30a1\u30a4\u30eb\u304b\u3089\u8aad\u307f\u53d6\u308c\u306a\u304b\u3063\u305f\u5834\u5408\n    }\n    std::cout &lt;&lt; d &lt;&lt; \&#34; \&#34; &lt;&lt; e &lt;&lt; \&#34; \&#34; &lt;&lt; f &lt;&lt; std::endl;\n  } catch (const std::exception&amp; e) {\n    std::cerr &lt;&lt; \&#34;Error: \&#34; &lt;&lt; e.what() &lt;&lt; std::endl;\n    return 1;\n  }\n  return 0;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;fstream&#34;, &#34;basic_fstream&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-05-28T09:37:41">
-        2025年05月28日 09時37分41秒
+      <span itemprop="datePublished" content="2026-01-08T11:45:05">
+        2026年01月08日 11時45分05秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">yoh</span>
       </span>
       が更新
     </small></p>

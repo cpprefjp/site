@@ -20,7 +20,7 @@
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
-  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,syncstream,std,class template,cpp20
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,syncstream,std,class template,cpp20,osyncstream,wosyncstream
 ">
         <meta name="title" content="basic_osyncstream - cpprefjp C++日本語リファレンス" />
         <meta itemprop="name" content="basic_osyncstream - cpprefjp C++日本語リファレンス" />
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;syncstream&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;ebef1cf1f5ae7cc43952466848d0d8c79423d1fb&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;syncstream&gt;\n#include &lt;thread&gt;\n\nvoid thread1()\n{\n  {\n    std::osyncstream bout{std::cout};\n    bout &lt;&lt; \&#34;Hello, \&#34;;\n    bout &lt;&lt; \&#34;World!\&#34;;\n    bout &lt;&lt; std::endl; // \u30d5\u30e9\u30c3\u30b7\u30e5\u304c\u30ce\u30fc\u30c8\u3055\u308c\u308b\n    bout &lt;&lt; \&#34;and more!\\n\&#34;;\n  }   // \u6587\u5b57\u304c\u8ee2\u9001\u3055\u308c\u3001cout \u306f\u30d5\u30e9\u30c3\u30b7\u30e5\u3059\u308b\n}\n\nvoid thread2()\n{\n  // \u540c\u3058\u30d0\u30c3\u30d5\u30a1\u306b\u884c\u308f\u308c\u308b\u51fa\u529b\u306f\u3001\u7570\u306a\u308b std::basic_osyncstream(std::basic_syncbuf) \u306e\n  // \u30a4\u30f3\u30b9\u30bf\u30f3\u30b9\u304b\u3089\u3067\u3082\u3001\u30a2\u30c8\u30df\u30c3\u30af\u306b\u51fa\u529b\u3055\u308c\u308b\u3053\u3068\u304c\u4fdd\u8a3c\u3055\u308c\u308b\n  std::osyncstream(std::cout) &lt;&lt; \&#34;Goodbye, \&#34; &lt;&lt; \&#34;Planet!\&#34; &lt;&lt; &#39;\\n&#39;;\n}\n\nint main()\n{\n  std::thread th1(thread1);\n  std::thread th2(thread2);\n  th1.join();\n  th2.join();\n}\n&#34;}, {&#34;id&#34;: &#34;6e0c986c3b365ae59657c88e2c6cae400000ae86&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;syncstream&gt;\n#include &lt;thread&gt;\n\n// 1\u3064\u306eosyncstream\u3092\u8907\u6570\u30b9\u30ec\u30c3\u30c9\u3067\u5171\u6709\u3057\u3066\u3057\u307e\u3046\u3068\u51fa\u529b\u306e\u7af6\u5408\u304c\u8d77\u3053\u308b\nstd::osyncstream bout{std::cout};\n\nvoid thread1()\n{\n  {\n    bout &lt;&lt; \&#34;Hello, \&#34;;\n    bout &lt;&lt; \&#34;World!\&#34;;\n    bout &lt;&lt; std::endl;\n    bout &lt;&lt; \&#34;and more!\\n\&#34;;\n  }\n}\n\nvoid thread2()\n{\n  bout &lt;&lt; \&#34;Goodbye, \&#34; &lt;&lt; \&#34;Planet!\&#34; &lt;&lt; &#39;\\n&#39;;\n}\n\nint main()\n{\n  std::thread th1(thread1);\n  std::thread th2(thread2);\n  th1.join();\n  th2.join();\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;syncstream&#34;, &#34;basic_osyncstream&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;syncstream&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;], &#34;alias&#34;: [&#34;osyncstream,wosyncstream&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;ebef1cf1f5ae7cc43952466848d0d8c79423d1fb&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;syncstream&gt;\n#include &lt;thread&gt;\n\nvoid thread1()\n{\n  {\n    std::osyncstream bout{std::cout};\n    bout &lt;&lt; \&#34;Hello, \&#34;;\n    bout &lt;&lt; \&#34;World!\&#34;;\n    bout &lt;&lt; std::endl; // \u30d5\u30e9\u30c3\u30b7\u30e5\u304c\u30ce\u30fc\u30c8\u3055\u308c\u308b\n    bout &lt;&lt; \&#34;and more!\\n\&#34;;\n  }   // \u6587\u5b57\u304c\u8ee2\u9001\u3055\u308c\u3001cout \u306f\u30d5\u30e9\u30c3\u30b7\u30e5\u3059\u308b\n}\n\nvoid thread2()\n{\n  // \u540c\u3058\u30d0\u30c3\u30d5\u30a1\u306b\u884c\u308f\u308c\u308b\u51fa\u529b\u306f\u3001\u7570\u306a\u308b std::basic_osyncstream(std::basic_syncbuf) \u306e\n  // \u30a4\u30f3\u30b9\u30bf\u30f3\u30b9\u304b\u3089\u3067\u3082\u3001\u30a2\u30c8\u30df\u30c3\u30af\u306b\u51fa\u529b\u3055\u308c\u308b\u3053\u3068\u304c\u4fdd\u8a3c\u3055\u308c\u308b\n  std::osyncstream(std::cout) &lt;&lt; \&#34;Goodbye, \&#34; &lt;&lt; \&#34;Planet!\&#34; &lt;&lt; &#39;\\n&#39;;\n}\n\nint main()\n{\n  std::thread th1(thread1);\n  std::thread th2(thread2);\n  th1.join();\n  th2.join();\n}\n&#34;}, {&#34;id&#34;: &#34;6e0c986c3b365ae59657c88e2c6cae400000ae86&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;syncstream&gt;\n#include &lt;thread&gt;\n\n// 1\u3064\u306eosyncstream\u3092\u8907\u6570\u30b9\u30ec\u30c3\u30c9\u3067\u5171\u6709\u3057\u3066\u3057\u307e\u3046\u3068\u51fa\u529b\u306e\u7af6\u5408\u304c\u8d77\u3053\u308b\nstd::osyncstream bout{std::cout};\n\nvoid thread1()\n{\n  {\n    bout &lt;&lt; \&#34;Hello, \&#34;;\n    bout &lt;&lt; \&#34;World!\&#34;;\n    bout &lt;&lt; std::endl;\n    bout &lt;&lt; \&#34;and more!\\n\&#34;;\n  }\n}\n\nvoid thread2()\n{\n  bout &lt;&lt; \&#34;Goodbye, \&#34; &lt;&lt; \&#34;Planet!\&#34; &lt;&lt; &#39;\\n&#39;;\n}\n\nint main()\n{\n  std::thread th1(thread1);\n  std::thread th2(thread2);\n  th1.join();\n  th2.join();\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;syncstream&#34;, &#34;basic_osyncstream&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2024-06-11T13:45:38">
-        2024年06月11日 13時45分38秒
+      <span itemprop="datePublished" content="2026-01-08T11:45:05">
+        2026年01月08日 11時45分05秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">yoh</span>
       </span>
       が更新
     </small></p>
