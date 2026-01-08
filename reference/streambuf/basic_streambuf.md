@@ -2,6 +2,7 @@
 * streambuf[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* streambuf,wstreambuf[meta alias]
 
 ```cpp
 namespace std {

@@ -3,6 +3,7 @@
 * std[meta namespace]
 * class template[meta id-type]
 * cpp20[meta cpp]
+* syncbuf,wsyncbuf[meta alias]
 
 ```cpp
 namespace std {

@@ -3,6 +3,7 @@
 * std[meta namespace]
 * class template[meta id-type]
 * cpp23[meta cpp]
+* spanstream,wspanstream[meta alias]
 
 ```cpp
 namespace std {

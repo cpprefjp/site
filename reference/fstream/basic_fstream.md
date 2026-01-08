@@ -2,6 +2,7 @@
 * fstream[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* fstream,wfstream[meta alias]
 
 ```cpp
 namespace std {

@@ -2,6 +2,7 @@
 * ios[meta header]
 * std[meta namespace]
 * class template[meta id-type]
+* ios,wios[meta alias]
 
 ```cpp
 namespace std {
