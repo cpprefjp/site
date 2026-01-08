@@ -3,6 +3,7 @@
 * std[meta namespace]
 * class template[meta id-type]
 * cpp17[meta cpp]
+* string_view,u8string_view,u16string_view,u32string_view,wstring_view[meta alias]
 
 ```cpp
 namespace std {
