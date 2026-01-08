@@ -322,7 +322,6 @@
 | P3074R7: [共用体をトリビアルに未初期化できるようにする](/lang/cpp26/trivial_unions.md.nolink) | `constexpr`での`union U { T storage[N]; };`を許可し、未初期化にできるようにする | | | | |
 | P2900R14: [契約プログラミングをサポートする](/lang/cpp26/contracts.md) | 関数の事前条件、事後条件、不変条件を記述できるようにする | | | | |
 | P2841R7: [コンセプトと変数テンプレートにテンプレートテンプレートパラメータのサポートを追加](/lang/cpp26/concept_and_variable-template_template-parameters.md.nolink) | テンプレート引数をあとで指定するテンプレートテンプレートパラメータを、コンセプトと変数テンプレートでも使用できるようにする | | | | |
-| P2786R13: [トリビアルな再配置](/lang/cpp26/trivial_relocatability.md.nolink) | ムーブ構築と破棄のためにビット単位のコピーとデストラクタ評価が必要になる型のオブジェクトを再配置するメカニズムを導入する | | | | |
 | P1967R14: [ファイルを読み込む`#embed`命令を追加](/lang/cpp26/embed.md) | バイナリファイルをインクルードするメカニズム。`#include`とちがって読み出しサイズなどの柔軟な指定ができる | 15 | | | |
 | P3618R0: [`main`関数をグローバルモジュールに含められるようにする](/lang/cpp26/allow_attaching_main_to_the_global_module.md.nolink) | `main`関数に`extern "C++"`を指定できるようにすることで名前付きモジュールに含められるようにする | 16 | 21 | | | |
 | P2996R13: [静的リフレクション](/lang/cpp26/reflection.md.nolink) | リフレクション演算子`^^`と`std::meta::info`型によりコンパイル時にさまざまな情報を取得できる | | | | |
