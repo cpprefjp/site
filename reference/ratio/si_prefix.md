@@ -3,6 +3,7 @@
 * std[meta namespace]
 * type-alias[meta id-type]
 * cpp11[meta cpp]
+* quecto,ronto,yocto,zepto,atto,femto,pico,nano,micro,milli,centi,deci,deca,hecto,kilo,mega,giga,tera,peta,exa,zetta,yotta,ronna,quetta[meta alias]
 
 ```cpp
 namespace std {
