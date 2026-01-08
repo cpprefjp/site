@@ -3,6 +3,7 @@
 * class template[meta id-type]
 * std[meta namespace]
 * cpp20[meta cpp]
+* binary_semaphore[meta alias]
 
 ```cpp
 namespace std {
