@@ -3,6 +3,7 @@
 * class template[meta id-type]
 * std[meta namespace]
 * cpp23[meta cpp]
+* dextents,dims[meta alias]
 
 ```cpp
 namespace std {
