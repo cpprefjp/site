@@ -2,14 +2,14 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-01-08T12:30:00.785499</updated>
-  <id>920c2bc3-9134-4481-8156-54a60736d85d</id>
+  <updated>2026-01-08T20:03:50.770937</updated>
+  <id>70ecb55c-7c39-4cd6-8ea8-0196dabd8eac</id>
 
   
     <entry>
       <title>C++国際標準規格 -- fix(C++国際標準規格): 過去のC++の原稿番号を追加</title>
       <link href="https://cpprefjp.github.io/international-standard.html"/>
-      <id>8fc30213cfb5efea3997ff0f2ac09d8c2529766e:international-standard.md</id>
+      <id>d3a23f8f248814fa8b766928ca29da4c94f9d8e1:international-standard.md</id>
       <updated>2026-01-08T21:04:37+09:00</updated>
       
         <content type="html">&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;C++国際標準規格&lt;/span&gt;&lt;/h1&gt;
@@ -84,14 +84,14 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 &lt;td align=&#34;left&#34;&gt;C++03&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;ISO/IEC 14882:2003&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;N1577&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;N1577 ?&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N1577 N1344 N1316&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;code&gt;199711L&lt;/code&gt;&lt;br /&gt;(C++98 と同じ)&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;C99,&lt;br /&gt;UCS:2000&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td align=&#34;left&#34;&gt;C++98&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;ISO/IEC 14882:1998&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;[複数PDF](https:/open-std.org/jtc1/sc22/wg21/docs/wp/pdf/nov97-2/)&#34;&gt;N1146&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;N1146(&lt;a href=&#34;https://open-std.org/jtc1/sc22/wg21/docs/wp/pdf/nov97-2/&#34; target=&#34;_blank&#34;&gt;複数PDF&lt;/a&gt;)&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;N1146 N1117 N1037 N0996 N0926&lt;br /&gt;N0836 N0785 N0691 N0687 N0629&lt;br /&gt;... N0048 N0008&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;&lt;code&gt;199711L&lt;/code&gt;&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;C95,&lt;br /&gt;UCS:1993&lt;/td&gt;
@@ -115,20 +115,20 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
     UCS は ISO/IEC 10646 の総称であり、ここでは UCS:1993 は ISO/IEC 10646-1:1993、UCS:2000 は ISO/IEC 10646-1:2000 を指すこととする。
     また UAX#29-35 は Unicode 12.0 の Unicode Standard Annex UAX #29 (revision 35) を指すこととする。
     引用規格として長らく UCS:1993 が参照されてきたが、
-    C++20 で UCS (最新) への参照が追加され [&lt;a href=&#34;lang/cpp20/update_the_reference_to_the_unicode_standard.html&#34;&gt;P1025R1&lt;/a&gt;],
-    C++23 で Unicode (最新) に切り替えられ [&lt;a href=&#34;https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2736r2.pdf&#34; target=&#34;_blank&#34;&gt;P2736R2&lt;/a&gt;]、
+    C++20 で UCS (最新) への参照が追加され [&lt;a href=&#34;lang/cpp20/update_the_reference_to_the_unicode_standard.html&#34;&gt;P1025R1&lt;/a&gt;]、
+    C++23 で Unicode (最新) に切り替えられ [P2736R2(&lt;a href=&#34;https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2736r2.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;)]、
     C++26 で Unicode 15.1 に切り替えられた [&lt;a href=&#34;https://cplusplus.github.io/CWG/issues/2843.html&#34; target=&#34;_blank&#34;&gt;CWG 2843&lt;/a&gt;]。&lt;/li&gt;
 &lt;li&gt;C++11 以降は &lt;code&gt;&amp;lt;regex&amp;gt;&lt;/code&gt; のために ECMAScript ECMA-262:1999 を引用する。&lt;/li&gt;
 &lt;li&gt;他に基本語彙・日時・浮動小数点数・数学記号などのために他の規格を引用する。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;最新の原稿のHTML版は以下で公開されている。&lt;br /&gt;
+&lt;p&gt;最新の原案のHTML版は以下で公開されている。&lt;br /&gt;
 &lt;a href=&#34;https://timsong-cpp.github.io/cppwp/&#34; target=&#34;_blank&#34;&gt;Draft C++ Standard: Contents&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;標準規格の原稿はLaTeXで書かれており、そのソースコードは以下で2011年8月16日以降のものについて(つまりN3291より後、N3337より前)公開されている。&lt;br /&gt;
+&lt;p&gt;標準規格の原案はLaTeXで書かれており、そのソースコードは以下で2011年8月16日以降のものについて(つまりN3291より後、N3337より前)公開されている。&lt;br /&gt;
 &lt;a href=&#34;https://github.com/cplusplus/draft&#34; target=&#34;_blank&#34;&gt;cplusplus/draft: C++ standards drafts&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;&lt;a href=&#34;#list-of-iso-c&#34; id=&#34;list-of-iso-c&#34;&gt;C標準規格の一覧&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;以下、主な C 規格と C++ が参照する技術的正誤票 (TC) の一覧である。&lt;/p&gt;
+&lt;h2&gt;&lt;a href=&#34;#list-of-iso-c&#34; id=&#34;list-of-iso-c&#34;&gt;C国際標準規格の一覧&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;以下、主な C 国際標準規格と C++ が参照する技術的正誤票 (TC) の一覧である。&lt;/p&gt;
 &lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -293,7 +293,7 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
     <entry>
       <title>参照するPOSIX規格を更新 [P2227R0] -- fix(P2227R0): 引用規格 POSIX の情報を修正</title>
       <link href="https://cpprefjp.github.io/lang/cpp23/update_normative_reference_to_posix.html"/>
-      <id>062ae3289167af0170dbc9c1ca0daf0fd0f1f254:lang/cpp23/update_normative_reference_to_posix.md</id>
+      <id>5c4014700b8ce5e449b3a95e691e41557152a36d:lang/cpp23/update_normative_reference_to_posix.md</id>
       <updated>2026-01-08T20:17:26+09:00</updated>
       
         <content type="html">&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;参照するPOSIX規格を更新 [P2227R0]&lt;/span&gt;&lt;span class=&#34;cpp cpp23&#34; title=&#34;C++23で追加&#34;&gt;(C++23)&lt;/span&gt;&lt;/h1&gt;
@@ -337,7 +337,7 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
     <entry>
       <title>C++国際標準規格 -- fix(C++国際標準規格): 日本語修正・表記修正 (tex =&gt; LaTeX)</title>
       <link href="https://cpprefjp.github.io/international-standard.html"/>
-      <id>88e7b7fc029d16e36604f2decc275ae84c17fcf9:international-standard.md</id>
+      <id>9d6a5cfb0917f246f25231edb0f2fa4dd583aee8:international-standard.md</id>
       <updated>2026-01-08T20:14:11+09:00</updated>
       
         <content type="html">&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;C++国際標準規格&lt;/span&gt;&lt;/h1&gt;
@@ -443,20 +443,20 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
     UCS は ISO/IEC 10646 の総称であり、ここでは UCS:1993 は ISO/IEC 10646-1:1993、UCS:2000 は ISO/IEC 10646-1:2000 を指すこととする。
     また UAX#29-35 は Unicode 12.0 の Unicode Standard Annex UAX #29 (revision 35) を指すこととする。
     引用規格として長らく UCS:1993 が参照されてきたが、
-    C++20 で UCS (最新) への参照が追加され [&lt;a href=&#34;lang/cpp20/update_the_reference_to_the_unicode_standard.html&#34;&gt;P1025R1&lt;/a&gt;],
-    C++23 で Unicode (最新) に切り替えられ [&lt;a href=&#34;https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2736r2.pdf&#34; target=&#34;_blank&#34;&gt;P2736R2&lt;/a&gt;]、
+    C++20 で UCS (最新) への参照が追加され [&lt;a href=&#34;lang/cpp20/update_the_reference_to_the_unicode_standard.html&#34;&gt;P1025R1&lt;/a&gt;]、
+    C++23 で Unicode (最新) に切り替えられ [P2736R2(&lt;a href=&#34;https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2736r2.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;)]、
     C++26 で Unicode 15.1 に切り替えられた [&lt;a href=&#34;https://cplusplus.github.io/CWG/issues/2843.html&#34; target=&#34;_blank&#34;&gt;CWG 2843&lt;/a&gt;]。&lt;/li&gt;
 &lt;li&gt;C++11 以降は &lt;code&gt;&amp;lt;regex&amp;gt;&lt;/code&gt; のために ECMAScript ECMA-262:1999 を引用する。&lt;/li&gt;
 &lt;li&gt;他に基本語彙・日時・浮動小数点数・数学記号などのために他の規格を引用する。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;最新の原稿のHTML版は以下で公開されている。&lt;br /&gt;
+&lt;p&gt;最新の原案のHTML版は以下で公開されている。&lt;br /&gt;
 &lt;a href=&#34;https://timsong-cpp.github.io/cppwp/&#34; target=&#34;_blank&#34;&gt;Draft C++ Standard: Contents&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;標準規格の原稿はLaTeXで書かれており、そのソースコードは以下で2011年8月16日以降のものについて(つまりN3291より後、N3337より前)公開されている。&lt;br /&gt;
+&lt;p&gt;標準規格の原案はLaTeXで書かれており、そのソースコードは以下で2011年8月16日以降のものについて(つまりN3291より後、N3337より前)公開されている。&lt;br /&gt;
 &lt;a href=&#34;https://github.com/cplusplus/draft&#34; target=&#34;_blank&#34;&gt;cplusplus/draft: C++ standards drafts&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;&lt;a href=&#34;#list-of-iso-c&#34; id=&#34;list-of-iso-c&#34;&gt;C標準規格の一覧&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;以下、主な C 規格と C++ が参照する技術的正誤票 (TC) の一覧である。&lt;/p&gt;
+&lt;h2&gt;&lt;a href=&#34;#list-of-iso-c&#34; id=&#34;list-of-iso-c&#34;&gt;C国際標準規格の一覧&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;以下、主な C 国際標準規格と C++ が参照する技術的正誤票 (TC) の一覧である。&lt;/p&gt;
 &lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -621,7 +621,7 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
     <entry>
       <title>C++国際標準規格 -- feat(C++国際標準規格): 引用規格情報とC規格の表を追加</title>
       <link href="https://cpprefjp.github.io/international-standard.html"/>
-      <id>3548af53b80c56eece2e212b82ef759a17700f68:international-standard.md</id>
+      <id>c96311edd887b8affa302a9edf2a40d9cb6bcd74:international-standard.md</id>
       <updated>2026-01-06T18:07:51+09:00</updated>
       
         <content type="html">&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;C++国際標準規格&lt;/span&gt;&lt;/h1&gt;
@@ -727,8 +727,8 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
     UCS は ISO/IEC 10646 の総称であり、ここでは UCS:1993 は ISO/IEC 10646-1:1993、UCS:2000 は ISO/IEC 10646-1:2000 を指すこととする。
     また UAX#29-35 は Unicode 12.0 の Unicode Standard Annex UAX #29 (revision 35) を指すこととする。
     引用規格として長らく UCS:1993 が参照されてきたが、
-    C++20 で UCS (最新) への参照が追加され [&lt;a href=&#34;lang/cpp20/update_the_reference_to_the_unicode_standard.html&#34;&gt;P1025R1&lt;/a&gt;],
-    C++23 で Unicode (最新) に切り替えられ [&lt;a href=&#34;https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2736r2.pdf&#34; target=&#34;_blank&#34;&gt;P2736R2&lt;/a&gt;]、
+    C++20 で UCS (最新) への参照が追加され [&lt;a href=&#34;lang/cpp20/update_the_reference_to_the_unicode_standard.html&#34;&gt;P1025R1&lt;/a&gt;]、
+    C++23 で Unicode (最新) に切り替えられ [P2736R2(&lt;a href=&#34;https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2736r2.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;)]、
     C++26 で Unicode 15.1 に切り替えられた [&lt;a href=&#34;https://cplusplus.github.io/CWG/issues/2843.html&#34; target=&#34;_blank&#34;&gt;CWG 2843&lt;/a&gt;]。&lt;/li&gt;
 &lt;li&gt;C++11 以降は &lt;code&gt;&amp;lt;regex&amp;gt;&lt;/code&gt; のために ECMAScript ECMA-262:1999 を引用する。&lt;/li&gt;
 &lt;li&gt;他に基本語彙・日時・浮動小数点数・数学記号などのために他の規格を引用する。&lt;/li&gt;
@@ -739,8 +739,8 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 &lt;a href=&#34;https://timsong-cpp.github.io/cppwp/&#34; target=&#34;_blank&#34;&gt;Draft C++ Standard: Contents&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;標準規格の文章はtexで書かれており、そのソースコードは以下で2011年8月16日以降のものについて(つまりN3291より後、N3337より前)公開されている。&lt;br /&gt;
 &lt;a href=&#34;https://github.com/cplusplus/draft&#34; target=&#34;_blank&#34;&gt;cplusplus/draft: C++ standards drafts&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;&lt;a href=&#34;#list-of-iso-c&#34; id=&#34;list-of-iso-c&#34;&gt;C標準規格の一覧&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;以下、主な C 規格と C++ が参照する技術的正誤票 (TC) の一覧である。&lt;/p&gt;
+&lt;h2&gt;&lt;a href=&#34;#list-of-iso-c&#34; id=&#34;list-of-iso-c&#34;&gt;C国際標準規格の一覧&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;以下、主な C 国際標準規格と C++ が参照する技術的正誤票 (TC) の一覧である。&lt;/p&gt;
 &lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
