@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;stdexcept&#34;], &#34;id-type&#34;: [&#34;class&#34;], &#34;namespace&#34;: [&#34;std&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;4872d8eeed329fc2ab85ab735c6782d90d8126fd&#34;, &#34;source&#34;: &#34;#include &lt;stdexcept&gt;\n#include &lt;iostream&gt;\n\nint square_root(int num) {\n  if (num &lt; 0) {\n    throw std::invalid_argument(\&#34;Cannot perform calculations with negative numbers!\&#34;)\n  }\n  return num * num;\n}\n\nint main() {\n  try {\n    square_root(-5);\n  } catch (const std::logic_error&amp; e) {\n    std::cerr &lt;&lt; \&#34;Error: \&#34; &lt;&lt; e.what() &lt;&lt; \&#34;\\n\&#34;;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;stdexcept&#34;, &#34;logic_error&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;stdexcept&#34;], &#34;id-type&#34;: [&#34;class&#34;], &#34;namespace&#34;: [&#34;std&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;9ddb9550cc78b6f640ceff5ff7941f1a3140ad44&#34;, &#34;source&#34;: &#34;#include &lt;stdexcept&gt;\n#include &lt;iostream&gt;\n\nint square_root(int num) {\n  if (num &lt; 0) {\n    throw std::invalid_argument(\&#34;Cannot perform calculations with negative numbers!\&#34;);\n  }\n  return num * num;\n}\n\nint main() {\n  try {\n    square_root(-5);\n  } catch (const std::logic_error&amp; e) {\n    std::cerr &lt;&lt; \&#34;Error: \&#34; &lt;&lt; e.what() &lt;&lt; \&#34;\\n\&#34;;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;stdexcept&#34;, &#34;logic_error&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-01-06T03:47:59">
-        2026年01月06日 03時47分59秒
+      <span itemprop="datePublished" content="2026-01-08T12:52:39">
+        2026年01月08日 12時52分39秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Koichi Murase</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>
@@ -253,12 +253,12 @@
 </tbody>
 </table>
 <h2>例</h2>
-<p><div class="yata" id="4872d8eeed329fc2ab85ab735c6782d90d8126fd"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../stdexcept.html">&lt;stdexcept&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="9ddb9550cc78b6f640ceff5ff7941f1a3140ad44"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../stdexcept.html">&lt;stdexcept&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">square_root</span><span class="p">(</span><span class="kt">int</span> <span class="n">num</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="n">num</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">throw</span> <span class="n">std</span><span class="o">::</span><span class="n">invalid_argument</span><span class="p">(</span><span class="s">"Cannot perform calculations with negative numbers!"</span><span class="p">)</span>
+    <span class="k">throw</span> <span class="n">std</span><span class="o">::</span><span class="n">invalid_argument</span><span class="p">(</span><span class="s">"Cannot perform calculations with negative numbers!"</span><span class="p">);</span>
   <span class="p">}</span>
   <span class="k">return</span> <span class="n">num</span> <span class="o">*</span> <span class="n">num</span><span class="p">;</span>
 <span class="p">}</span>

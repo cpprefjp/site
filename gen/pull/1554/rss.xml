@@ -2,14 +2,14 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-01-08T20:03:50.770937</updated>
-  <id>70ecb55c-7c39-4cd6-8ea8-0196dabd8eac</id>
+  <updated>2026-01-09T01:11:03.680520</updated>
+  <id>2247d8c5-5ed5-4674-9a05-c7b1f1d04023</id>
 
   
     <entry>
       <title>C++国際標準規格 -- fix(C++国際標準規格): 過去のC++の原稿番号を追加</title>
       <link href="https://cpprefjp.github.io/international-standard.html"/>
-      <id>d3a23f8f248814fa8b766928ca29da4c94f9d8e1:international-standard.md</id>
+      <id>3f1b6a186e49ff99be31d8c650d6eae8f3946933:international-standard.md</id>
       <updated>2026-01-08T21:04:37+09:00</updated>
       
         <content type="html">&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;C++国際標準規格&lt;/span&gt;&lt;/h1&gt;
@@ -105,7 +105,7 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 &lt;li&gt;&lt;a href=&#34;#note_ref-t1-4&#34; id=&#34;note-t1-4&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; N4788 は政治的事情により撤回された (参照 N4792)&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#note_ref-t1-5&#34; id=&#34;note-t1-5&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; N3337 は、C++11規格に対する編集レベルの修正のみが適用された仕様案であるため、事実上 N3337 が C++11 を参照する時に用いられる。C++11規格からN3337への変更点は、&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3338.html&#34; target=&#34;_blank&#34;&gt;N3338&lt;/a&gt;を参照。&lt;br /&gt;
 (それより前の公開されているC++11向け仕様案であるN3242からC++11規格に対しては、機能的な変更がいくつかあるため、C++11規格として参照するには適さない)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#note_ref-t1-6&#34; id=&#34;note-t1-6&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; 全ての引用規格 (normative references) を載せているわけではない。特に引用規格のバージョン差異が重要なものを表中に載せている。&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#note_ref-t1-6&#34; id=&#34;note-t1-6&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; 全ての&lt;strong&gt;引用規格&lt;/strong&gt; (normative references) を載せているわけではない。特に引用規格のバージョン差異が重要なものを表中に載せている。&lt;ul&gt;
 &lt;li&gt;C規格に関しては&lt;a href=&#34;#list-of-iso-c&#34;&gt;下の表&lt;/a&gt;も参照のこと。
   ここでは C99:TC3 などの表記は C99 に加えて TC1 から TC3 までを取り入れたものを指すこととする。&lt;/li&gt;
 &lt;li&gt;POSIX規格については POSIX.1-2003 は ISO/IEC 9945:2003 (POSIX.1-2001 + TC1) で、
@@ -293,7 +293,7 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
     <entry>
       <title>参照するPOSIX規格を更新 [P2227R0] -- fix(P2227R0): 引用規格 POSIX の情報を修正</title>
       <link href="https://cpprefjp.github.io/lang/cpp23/update_normative_reference_to_posix.html"/>
-      <id>5c4014700b8ce5e449b3a95e691e41557152a36d:lang/cpp23/update_normative_reference_to_posix.md</id>
+      <id>8a387b94cc95585792ce317ce3670d58c47dd793:lang/cpp23/update_normative_reference_to_posix.md</id>
       <updated>2026-01-08T20:17:26+09:00</updated>
       
         <content type="html">&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;参照するPOSIX規格を更新 [P2227R0]&lt;/span&gt;&lt;span class=&#34;cpp cpp23&#34; title=&#34;C++23で追加&#34;&gt;(C++23)&lt;/span&gt;&lt;/h1&gt;
@@ -337,7 +337,7 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
     <entry>
       <title>C++国際標準規格 -- fix(C++国際標準規格): 日本語修正・表記修正 (tex =&gt; LaTeX)</title>
       <link href="https://cpprefjp.github.io/international-standard.html"/>
-      <id>9d6a5cfb0917f246f25231edb0f2fa4dd583aee8:international-standard.md</id>
+      <id>328b0baa2a4df8343bd6415046ddb0253137a671:international-standard.md</id>
       <updated>2026-01-08T20:14:11+09:00</updated>
       
         <content type="html">&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;C++国際標準規格&lt;/span&gt;&lt;/h1&gt;
@@ -433,7 +433,7 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 &lt;li&gt;&lt;a href=&#34;#note_ref-t1-4&#34; id=&#34;note-t1-4&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; N4788 は政治的事情により撤回された (参照 N4792)&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#note_ref-t1-5&#34; id=&#34;note-t1-5&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; N3337 は、C++11規格に対する編集レベルの修正のみが適用された仕様案であるため、事実上 N3337 が C++11 を参照する時に用いられる。C++11規格からN3337への変更点は、&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3338.html&#34; target=&#34;_blank&#34;&gt;N3338&lt;/a&gt;を参照。&lt;br /&gt;
 (それより前の公開されているC++11向け仕様案であるN3242からC++11規格に対しては、機能的な変更がいくつかあるため、C++11規格として参照するには適さない)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#note_ref-t1-6&#34; id=&#34;note-t1-6&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; 全ての引用規格 (normative references) を載せているわけではない。特に引用規格のバージョン差異が重要なものを表中に載せている。&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#note_ref-t1-6&#34; id=&#34;note-t1-6&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; 全ての&lt;strong&gt;引用規格&lt;/strong&gt; (normative references) を載せているわけではない。特に引用規格のバージョン差異が重要なものを表中に載せている。&lt;ul&gt;
 &lt;li&gt;C規格に関しては&lt;a href=&#34;#list-of-iso-c&#34;&gt;下の表&lt;/a&gt;も参照のこと。
   ここでは C99:TC3 などの表記は C99 に加えて TC1 から TC3 までを取り入れたものを指すこととする。&lt;/li&gt;
 &lt;li&gt;POSIX規格については POSIX.1-2003 は ISO/IEC 9945:2003 (POSIX.1-2001 + TC1) で、
@@ -621,7 +621,7 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
     <entry>
       <title>C++国際標準規格 -- feat(C++国際標準規格): 引用規格情報とC規格の表を追加</title>
       <link href="https://cpprefjp.github.io/international-standard.html"/>
-      <id>c96311edd887b8affa302a9edf2a40d9cb6bcd74:international-standard.md</id>
+      <id>5168db12b7fe5c3f5ffbccc55d4616a3f159382b:international-standard.md</id>
       <updated>2026-01-06T18:07:51+09:00</updated>
       
         <content type="html">&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;C++国際標準規格&lt;/span&gt;&lt;/h1&gt;
@@ -717,7 +717,7 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
 &lt;li&gt;&lt;a href=&#34;#note_ref-t1-4&#34; id=&#34;note-t1-4&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; N4788 は政治的事情により撤回された (参照 N4792)&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#note_ref-t1-5&#34; id=&#34;note-t1-5&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; N3337 は、C++11規格に対する編集レベルの修正のみが適用された仕様案であるため、事実上 N3337 が C++11 を参照する時に用いられる。C++11規格からN3337への変更点は、&lt;a href=&#34;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3338.html&#34; target=&#34;_blank&#34;&gt;N3338&lt;/a&gt;を参照。&lt;br /&gt;
 (それより前の公開されているC++11向け仕様案であるN3242からC++11規格に対しては、機能的な変更がいくつかあるため、C++11規格として参照するには適さない)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#note_ref-t1-6&#34; id=&#34;note-t1-6&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; 全ての引用規格 (normative references) を載せているわけではない。特に引用規格のバージョン差異が重要なものを表中に載せている。&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#note_ref-t1-6&#34; id=&#34;note-t1-6&#34;&gt;&lt;strong&gt;^&lt;/strong&gt;&lt;/a&gt; 全ての&lt;strong&gt;引用規格&lt;/strong&gt; (normative references) を載せているわけではない。特に引用規格のバージョン差異が重要なものを表中に載せている。&lt;ul&gt;
 &lt;li&gt;C規格に関しては&lt;a href=&#34;#list-of-iso-c&#34;&gt;下の表&lt;/a&gt;も参照のこと。
   ここでは C99:TC3 などの表記は C99 に加えて TC1 から TC3 までを取り入れたものを指すこととする。&lt;/li&gt;
 &lt;li&gt;POSIX規格については POSIX.1-2003 は ISO/IEC 9945:2003 (POSIX.1-2001 + TC1) で、
@@ -903,28 +903,29 @@ C++ の標準規格は、他にも各国の規格化団体によって国際標�
     </entry>
   
     <entry>
-      <title>SI接頭辞 -- ratio/si_prefix: meta aliasタグ追加(#1545)</title>
-      <link href="https://cpprefjp.github.io/reference/ratio/si_prefix.html"/>
-      <id>542d90ba4fbe24a28f662ef04b61d573a0524527:reference/ratio/si_prefix.md</id>
-      <updated>2026-01-08T20:50:50+09:00</updated>
+      <title>logic_error -- logic_error : コンパイルエラーを修正</title>
+      <link href="https://cpprefjp.github.io/reference/stdexcept/logic_error.html"/>
+      <id>62d4905bc289539e412e9447f6d1284fed14f918:reference/stdexcept/logic_error.md</id>
+      <updated>2026-01-08T21:52:39+09:00</updated>
       
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/ratio/si_prefix.md b/reference/ratio/si_prefix.md
-index a3fcae033..371f76500 100644
---- a/reference/ratio/si_prefix.md
-+++ b/reference/ratio/si_prefix.md
-@@ -3,6 +3,7 @@
- * std[meta namespace]
- * type-alias[meta id-type]
- * cpp11[meta cpp]
-+* quecto,ronto,yocto,zepto,atto,femto,pico,nano,micro,milli,centi,deci,deca,hecto,kilo,mega,giga,tera,peta,exa,zetta,yotta,ronna,quetta[meta alias]
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/stdexcept/logic_error.md b/reference/stdexcept/logic_error.md
+index fd4063680..f63d0f109 100644
+--- a/reference/stdexcept/logic_error.md
++++ b/reference/stdexcept/logic_error.md
+@@ -31,7 +31,7 @@ namespace std {
  
- ```cpp
- namespace std {
+ int square_root(int num) {
+   if (num &amp;lt; 0) {
+-    throw std::invalid_argument(&amp;#34;Cannot perform calculations with negative numbers!&amp;#34;)
++    throw std::invalid_argument(&amp;#34;Cannot perform calculations with negative numbers!&amp;#34;);
+   }
+   return num * num;
+ }
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
-        <name>yoh</name>
-        <email>kawasaki.liamg@gmail.com</email>
+        <name>Raclamusi</name>
+        <email>raclamusi@gmail.com</email>
       </author>
     </entry>
   
