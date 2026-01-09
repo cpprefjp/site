@@ -3,6 +3,7 @@
 * std::ranges[meta namespace]
 * class template[meta id-type]
 * cpp23[meta cpp]
+* iota_result[meta alias]
 
 ```cpp
 namespace std::ranges {

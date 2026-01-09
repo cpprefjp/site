@@ -3,6 +3,7 @@
 * std::ranges[meta namespace]
 * class template[meta id-type]
 * cpp20[meta cpp]
+* next_permutation_result,prev_permutation_result[meta alias]
 
 ```cpp
 namespace std::ranges {

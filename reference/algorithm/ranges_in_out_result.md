@@ -3,6 +3,7 @@
 * std::ranges[meta namespace]
 * class template[meta id-type]
 * cpp20[meta cpp]
+* copy_result,copy_n_result,copy_if_result,copy_backward_result,move_result,move_backward_result,unary_transform_result,replace_copy_result,replace_copy_if_result,remove_copy_result,remove_copy_if_result,unique_copy_result,reverse_copy_result,rotate_copy_result,partial_sort_copy_result,set_difference_result[meta alias]
 
 ```cpp
 namespace std::ranges {

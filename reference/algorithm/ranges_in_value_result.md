@@ -3,6 +3,7 @@
 * std::ranges[meta namespace]
 * class template[meta id-type]
 * cpp23[meta cpp]
+* fold_left_with_iter_result,fold_left_first_with_iter_result[meta alias]
 
 ```cpp
 namespace std::ranges {

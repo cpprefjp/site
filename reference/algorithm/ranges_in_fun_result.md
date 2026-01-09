@@ -3,6 +3,7 @@
 * std::ranges[meta namespace]
 * class template[meta id-type]
 * cpp20[meta cpp]
+* for_each_result,for_each_n_result[meta alias]
 
 ```cpp
 namespace std::ranges {

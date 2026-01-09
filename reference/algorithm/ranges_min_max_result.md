@@ -3,6 +3,7 @@
 * std::ranges[meta namespace]
 * class template[meta id-type]
 * cpp20[meta cpp]
+* minmax_result,minmax_element_result[meta alias]
 
 ```cpp
 namespace std::ranges {

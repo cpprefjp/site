@@ -3,6 +3,7 @@
 * std::ranges[meta namespace]
 * class template[meta id-type]
 * cpp20[meta cpp]
+* mismatch_result,swap_ranges_result[meta alias]
 
 ```cpp
 namespace std::ranges {
