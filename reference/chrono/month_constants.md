@@ -3,6 +3,7 @@
 * std::chrono[meta namespace]
 * variable[meta id-type]
 * cpp20[meta cpp]
+* January,February,March,April,May,June,July,August,September,October,November,December[meta alias]
 
 ```cpp
 namespace std::chrono {

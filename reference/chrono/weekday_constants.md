@@ -3,6 +3,7 @@
 * std::chrono[meta namespace]
 * variable[meta id-type]
 * cpp20[meta cpp]
+* Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday[meta alias]
 
 ```cpp
 namespace std::chrono {
