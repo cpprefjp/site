@@ -3,6 +3,7 @@
 * std::execution[meta namespace]
 * class[meta id-type]
 * cpp17[meta cpp]
+* sequenced_policy,parallel_policy,parallel_unsequenced_policy,unsequenced_policy,seq,par,par_unseq,unseq[meta alias]
 
 ```cpp
 namespace std::execution {
