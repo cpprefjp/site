@@ -4,6 +4,7 @@
 * class template[meta id-type]
 * cpp17deprecated[meta cpp]
 * cpp20removed[meta cpp]
+* unary_negate,binary_negate,not1,not2[meta alias]
 
 ```cpp
 namespace std {
