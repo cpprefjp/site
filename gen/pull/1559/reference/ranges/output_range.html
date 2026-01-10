@@ -1,0 +1,289 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>output_range - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,ranges,concept,std::ranges,cpp20
+">
+        <meta name="title" content="output_range - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="output_range - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="output_range - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/ranges/output_range.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`output_range`は、イテレータが[`output_iterator`](/reference/iterator/output_iterator.md)であるRangeを表すコンセプトである。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="output_range - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/ranges/output_range.html" />
+        <meta name="twitter:description" content="`output_range`は、イテレータが[`output_iterator`](/reference/iterator/output_iterator.md)であるRangeを表すコンセプトである。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<link rel="manifest" href="../../manifest.json?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;ranges&#34;], &#34;id-type&#34;: [&#34;concept&#34;], &#34;namespace&#34;: [&#34;std::ranges&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;e6585423efa851767a43d575465e45d6d57df9c2&#34;, &#34;source&#34;: &#34;#include &lt;ranges&gt;\n#include &lt;iterator&gt;\n#include &lt;concepts&gt;\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\n\nint main() {\n  using namespace std;\n  // ostream_iterator\u304b\u3089\u4f5c\u3063\u305fRange\u306foutput_range\n  ostream_iterator&lt;int&gt; osi(cout);\n  static_assert(ranges::output_range&lt;decltype(views::counted(osi, 5)), int&gt;);\n\n  // const\u3067\u306f\u306a\u3044\u30b3\u30f3\u30c6\u30ca\u306foutput_range\n  static_assert(ranges::output_range&lt;vector&lt;int&gt;&amp;, int&gt;);\n\n  // const\u306a\u30b3\u30f3\u30c6\u30ca\u306b\u306f\u66f8\u304d\u8fbc\u3081\u306a\u3044\u306e\u3067\u3001output_range\u3067\u306f\u306a\u3044\n  static_assert(!ranges::output_range&lt;const vector&lt;int&gt;&amp;, int&gt;);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;ranges&#34;, &#34;output_range&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/ranges.html" itemprop="url">
+              
+                <span itemprop="name">ranges</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">output_range</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-07-08T15:33:39">
+        2025年07月08日 15時33分39秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/ranges/output_range.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/ranges/output_range.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">concept</div><div class="header">&lt;ranges&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::ranges">std::ranges::</span><span class="token">output_range</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">R</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <span class="n">concept</span> <span class="n"><a href="">output_range</a></span> <span class="o">=</span> <span class="n"><a href="range.html">range</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span> <span class="n"><a href="../iterator/output_iterator.html">output_iterator</a></span><span class="o">&lt;</span><span class="n"><a href="iterator_t.html">iterator_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>output_range</code>は、イテレータが<code><a href="../iterator/output_iterator.html">output_iterator</a></code>であるRangeを表すコンセプトである。</p>
+<h2>モデル</h2>
+<p>型<code>T</code>が<code>output_range</code>のモデルとなるのは、<code>T</code>が<code><a href="range.html">range</a></code>のモデルであり、かつそのイテレータが<code><a href="../iterator/output_iterator.html">output_iterator</a></code>のモデルである場合である。</p>
+<h2>例</h2>
+<p><div class="yata" id="e6585423efa851767a43d575465e45d6d57df9c2"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iterator.html">&lt;iterator&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../concepts.html">&lt;concepts&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+  <span class="c1">// <a href="../iterator/ostream_iterator.html">ostream_iterator</a>から作ったRangeは<a href="">output_range</a></span>
+  <span class="n"><a href="../iterator/ostream_iterator.html">ostream_iterator</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">osi</span><span class="p">(</span><span class="n">cout</span><span class="p">);</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">ranges::output_range</span></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n"><a href="counted.html">views::counted</a></span><span class="p">(</span><span class="n">osi</span><span class="p">,</span> <span class="mi">5</span><span class="p">)),</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">);</span>
+
+  <span class="c1">// constではないコンテナは<a href="">output_range</a></span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">ranges::output_range</span></span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">);</span>
+
+  <span class="c1">// constなコンテナには書き込めないので、<a href="">output_range</a>ではない</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n"><span style="color:#ff0000">ranges::output_range</span></span><span class="o">&lt;</span><span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code></code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++20</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 13.0.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 10.1.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2019 Update 10 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://timsong-cpp.github.io/cppwp/n4861/ranges" target="_blank">N4861 24 Ranges library</a></li>
+<li><a href="https://techbookfest.org/product/5134506308665344" target="_blank">C++20 ranges</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

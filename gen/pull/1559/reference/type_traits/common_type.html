@@ -1,0 +1,416 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>common_type - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,type_traits,std,class template,cpp11
+">
+        <meta name="title" content="common_type - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="common_type - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="common_type - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/type_traits/common_type.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="変換可能な共通の型を取得する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="common_type - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/type_traits/common_type.html" />
+        <meta name="twitter:description" content="変換可能な共通の型を取得する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<link rel="manifest" href="../../manifest.json?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;type_traits&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;4d87d98512f997705bd72ad2eeb677409f3d89ea&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;type_traits&gt;\n\n// 2\u3064\u306e\u5024\u3069\u3061\u3089\u304c\u5c0f\u3055\u3044\u304b\u3092\u8fd4\u3059\u30a2\u30eb\u30b4\u30ea\u30ba\u30e0\n// \u578bT\u3068\u578bU\u306e\u5171\u901a\u306e\u578b\u3092\u623b\u308a\u5024\u578b\u306b\u3059\u308b\ntemplate &lt;class T, class U&gt;\ntypename std::common_type&lt;T, U&gt;::type\n  generic_min(T t, U u)\n{\n  return t &lt; u ? t : u;\n}\n\nint main()\n{\n  auto x = generic_min(3L, 2);\n\n  static_assert(\n    std::is_same&lt;decltype(x), long&gt;::value == true,\n    \&#34;type of x is long\&#34;);\n\n  std::cout &lt;&lt; x &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;type_traits&#34;, &#34;common_type&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/type_traits.html" itemprop="url">
+              
+                <span itemprop="name">type_traits</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">common_type</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-07-08T15:33:39">
+        2025年07月08日 15時33分39秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/type_traits/common_type.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/type_traits/common_type.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;type_traits&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">common_type</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Types</span><span class="o">&gt;</span>
+  <span class="k">struct</span> <span class="n">common_type</span> <span class="p">{</span>
+    <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="err">…</span><span class="p">;</span>
+  <span class="p">};</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">T</span><span class="o">&gt;</span>
+  <span class="k">using</span> <span class="n"><a href="">common_type_t</a></span> <span class="o">=</span> <span class="k">typename</span> <span class="n">common_type</span><span class="o">&lt;</span><span class="n">T</span><span class="p">...</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span> <span class="c1">// C++14</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>変換可能な共通の型を取得する。</p>
+<h2>要件</h2>
+<p><code>Types...</code>の全ての型は<a class="cpprefjp-defined-word" data-desc="型のサイズを決定できる型。不完全型ではない型">完全型</a>であるか、<code>const/volatile</code>修飾された(あるいはされていない)<code>void</code>か、要素数不明の配列型でなければならない。</p>
+<h2>効果</h2>
+<p><code>common_type</code>は、<code>Types...</code>に含まれる全ての型が暗黙変換可能な型を、メンバ型<code>type</code>として定義する。</p>
+<p>より詳細には、次のように決定される。ただし、C++11では<code><a href="decay.html">decay</a></code>を適用するプロセスが、C++14では下記<code>N == 2</code>の時のプロセスが、C++17では<code>N == 2</code>のとき<code>COND-RES</code>を適用するプロセスが、それぞれ行われない。</p>
+<p><code>N = sizeof...(Types)</code>として</p>
+<ul>
+<li>
+<p><code>N == 0</code> : メンバ型<code>type</code>は定義されない。</p>
+</li>
+<li>
+<p><code>N == 1</code> : <code>Types...</code>内の唯一の型を<code>T</code>とすると、<code>type = common_type_t&lt;T, T&gt;;</code>のように<code>type</code>を定義。</p>
+</li>
+<li><code>N == 2</code> : <code>Types...</code>の1, 2番目の型を<code>T1, T2</code>、<code>D1 = decay_t&lt;T1&gt;, D2 = decay_t&lt;T2&gt;</code>として<ul>
+<li><code>T1,T2</code>に対する<code>decay</code>適用が少なくとも片方が恒等写像とならない（<code>is_same_v&lt;T1, D1&gt; == false || is_same_v&lt;T2, D2&gt; == false</code>となる）場合、<code>type = common_type_t&lt;D1, D2&gt;;</code></li>
+<li><code>common_type&lt;T1, T2&gt;</code>に対するユーザ定義の特殊化が行われていれば、同特殊化を利用する。</li>
+<li><code>C = decay_t&lt;decltype(false ? declval&lt;D1&gt;() : declval&lt;D2&gt;())&gt;</code>が有効な型ならば、<code>type = C;</code></li>
+<li><code>COND-RES(CREF(D1), CREF(D2))</code>が有効な型ならば、<code>type = decay_t&lt;COND-RES(CREF(D1), CREF(D2))&gt;;</code></li>
+<li>そうでなければ、メンバ型<code>type</code>は定義されない。</li>
+</ul>
+</li>
+<li><code>N &gt;= 3</code> : <code>Types...</code>の１、2番目の型を<code>T1, T2</code>、残りのパラメータパックを<code>P...</code>とすると、<code>type = common_type_t&lt;common_type_t&lt;T1, T2&gt;, P...&gt;;</code>のように<code>type</code>を定義。<ul>
+<li>先頭2つの型の共通型を求めて、その型と3番目の型の共通型を求めて、その型と4番目の...というように再帰的に<code>common_type</code>を適用していく。</li>
+</ul>
+</li>
+</ul>
+<p>2つの型<code>T1, T2</code>に対する<code><a href="decay.html">decay</a></code>の適用がともに恒等写像となるのは以下の場合である。</p>
+<ul>
+<li><code>T1, T2</code>はともに配列型ではなく</li>
+<li><code>T1, T2</code>はともに関数型でもなく</li>
+<li><code>T1, T2</code>はともに参照型でもなく</li>
+<li><code>T1, T2</code>はともに<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>もされていない</li>
+</ul>
+<p><code>COND-RES</code>や<code>CREF</code>はそれぞれ次のように定義される型を表す説明専用のものである。</p>
+<ul>
+<li><code>CREF(X)</code><ul>
+<li><code>add_lvalue_reference_t&lt;const remove_reference_t&lt;A&gt;&gt;</code></li>
+</ul>
+</li>
+<li><code>COND-REF(X, Y)</code><ul>
+<li><code>decltype(false ? declval&lt;X(&amp;)()&gt;()() : declval&lt;Y(&amp;)()&gt;()())</code></li>
+</ul>
+</li>
+</ul>
+<h2>特殊化</h2>
+<p><code>common_type</code>は以下の条件を満たす場合に、2引数のもの（<code>common_type&lt;T1, T2&gt;</code>）に限って<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>の特殊化が許可されている。</p>
+<ul>
+<li><code>T1, T2</code>の少なくとも片方は<a class="cpprefjp-defined-word" data-desc="標準ライブラリの型を除く、ユーザー（プログラマ）によって定義された型のこと">プログラム定義型</a>に依存している<ul>
+<li><a class="cpprefjp-defined-word" data-desc="標準ライブラリの型を除く、ユーザー（プログラマ）によって定義された型のこと">プログラム定義型</a>とは、標準ライブラリの型を除いた、ユーザーによって定義された型のこと<ul>
+<li>「<a class="cpprefjp-defined-word" data-desc="標準ライブラリの型を除く、ユーザー（プログラマ）によって定義された型のこと">プログラム定義型</a>に依存している」とは例えば、<a class="cpprefjp-defined-word" data-desc="標準ライブラリの型を除く、ユーザー（プログラマ）によって定義された型のこと">プログラム定義型</a>に対する<code>vector</code>等の特殊化のこと</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>T1, T2</code>に対する<code><a href="decay.html">decay</a></code>の適用はともに恒等写像となる（上記参照）</li>
+</ul>
+<p>そして、そのような特殊化は必ずしもメンバ型<code>type</code>を持たなくても構わない。<br />
+もし<code>type</code>を定義する場合は<code>public</code>にただ一つだけ定義し、その型は<code>T1, T2</code>から明示的に変換可能であり、かつ<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>されておらず参照型でもない型である必要がある。<br />
+そして、その特殊化は<code>T1,T2</code>の引数順を入れ替えても同じ結果を返す（対称性を持つ）必要がある。<br />
+これらの規則に違反した特殊化を定義したとしてもコンパイルエラーにはならず、<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こす。</p>
+<p>このように定義された<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>の特殊化は、<code>common_type_t&lt;T1, T2&gt;</code>のように使用された時<code>T1, T2</code>がともに<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>もなく参照でもない場合は直接利用される。<br />
+<code>T1, T2</code>のどちらかが<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>されているか参照である場合は、プライマリの<code>common_type</code>によって<code>decay</code>された上で利用される。</p>
+<p>なお、<code>common_type, basic_common_reference</code>以外の<code><a href="../type_traits.html">&lt;type_traits&gt;</a></code>内テンプレートに対する<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>の特殊化は許可されていない。</p>
+<h2>例</h2>
+<p><div class="yata" id="4d87d98512f997705bd72ad2eeb677409f3d89ea"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// 2つの値どちらが小さいかを返すアルゴリズム</span>
+<span class="c1">// 型Tと型Uの共通の型を戻り値型にする</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
+<span class="k">typename</span> <span class="n"><span style="color:#ff0000">std::common_type</span></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">U</span><span class="o">&gt;::</span><span class="n">type</span>
+  <span class="n">generic_min</span><span class="p">(</span><span class="n">T</span> <span class="n">t</span><span class="p">,</span> <span class="n">U</span> <span class="n">u</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="n">u</span> <span class="o">?</span> <span class="nl">t</span> <span class="p">:</span> <span class="n">u</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">auto</span> <span class="n">x</span> <span class="o">=</span> <span class="n">generic_min</span><span class="p">(</span><span class="mi">3L</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+
+  <span class="k">static_assert</span><span class="p">(</span>
+    <span class="n"><a href="is_same.html">std::is_same</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="kt">long</span><span class="o">&gt;::</span><span class="n">value</span> <span class="o">==</span> <span class="nb">true</span><span class="p">,</span>
+    <span class="s">"type of x is long"</span><span class="p">);</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>2
+</code></pre></p>
+<h2>定義(C++11)</h2>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="err">...</span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">common_type</span><span class="p">;</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">common_type</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="n">T</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">common_type</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">U</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="k">decltype</span><span class="p">(</span><span class="nb">true</span> <span class="o">?</span> <span class="n"><a href="../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">:</span> <span class="n"><a href="../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span><span class="p">());</span>
+<span class="p">};</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">V</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">common_type</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">...</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">common_type</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">common_type</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">U</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">,</span> <span class="n">V</span><span class="p">...</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<h2>定義(C++14)</h2>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="err">...</span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">common_type</span><span class="p">;</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">using</span> <span class="n"><a href="">common_type_t</a></span> <span class="o">=</span> <span class="k">typename</span> <span class="n">common_type</span><span class="o">&lt;</span><span class="n">T</span><span class="p">...</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">common_type</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="n"><a href="decay.html">decay_t</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">common_type</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">U</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="n"><a href="decay.html">decay_t</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="nb">true</span> <span class="o">?</span> <span class="n"><a href="../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">()</span> <span class="o">:</span> <span class="n"><a href="../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span><span class="p">())</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">V</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">common_type</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">...</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="n"><a href="">common_type_t</a></span><span class="o">&lt;</span><span class="n"><a href="">common_type_t</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">U</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">V</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 3.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 4.4.7 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2010 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2012 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2013 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2015 <span aria-label="検証済" role="img" title="検証済">✅</span><ul>
+<li>2012までは、可変引数テンプレートに対応していないため、不完全な実装である。</li>
+<li><code>common_type_t</code>は、2013から。</li>
+</ul>
+</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2661.htm" target="_blank">N2661 A Foundation to Sleep On</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3546.pdf" target="_blank">N3546 TransformationTraits Redux</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3655.pdf" target="_blank">N3655 TransformationTraits Redux, v2</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2141" target="_blank">LWG Issue 2141. <code>common_type</code> trait produces reference types</a><ul>
+<li>C++11では、<code>common_type</code>の結果が参照型になる場合があった。C++14で<code>decay_t</code>を通すことにしたことにより、参照型が返されることがなくなった。</li>
+</ul>
+</li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0435r1.pdf" target="_blank">P0435R1 Resolving LWG Issues re common_type</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0898r3.pdf" target="_blank">P0898R3 Standard Library Concepts</a><ul>
+<li>C++20で<code>COND-RES</code>, <code>CREF</code>操作を利用するステップが追加された。</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

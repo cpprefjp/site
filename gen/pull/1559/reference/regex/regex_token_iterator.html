@@ -1,0 +1,547 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>regex_token_iterator - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,regex,std,class template,cpp11,cregex_token_iterator,wcregex_token_iterator,sregex_token_iterator,wsregex_token_iterator
+">
+        <meta name="title" content="regex_token_iterator - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="regex_token_iterator - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="regex_token_iterator - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/regex/regex_token_iterator.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`regex_token_iterator` は、ある文字列に対して、指定した正規表現で検索した結果をサブマッチ毎に順番に列挙する読み取り専用の前方向イテレータである。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="regex_token_iterator - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/regex/regex_token_iterator.html" />
+        <meta name="twitter:description" content="`regex_token_iterator` は、ある文字列に対して、指定した正規表現で検索した結果をサブマッチ毎に順番に列挙する読み取り専用の前方向イテレータである。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<link rel="manifest" href="../../manifest.json?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;regex&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;], &#34;alias&#34;: [&#34;cregex_token_iterator,wcregex_token_iterator,sregex_token_iterator,wsregex_token_iterator&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;2f455ce87fd89f1fcbda1c17e69480d495744276&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;iterator&gt;\n#include &lt;regex&gt;\n#include &lt;string&gt;\n#include &lt;initializer_list&gt;\n\ntemplate&lt;typename T&gt;\nvoid f(T submatch)\n{\n  static const std::string s(\&#34;enum E { enumerator1 = value1, enumerator2 = value2, enumerator3 = value3, };\&#34;);\n  static const std::regex re(R\&#34;((\\w+)\\s*=\\s*(\\w+))\&#34;);\n\n  for (std::sregex_token_iterator it(std::begin(s), std::end(s), re, submatch), end; it != end; ++it) {\n    auto&amp;&amp; m = *it;\n    std::cout &lt;&lt; \&#34;match range = (\&#34; &lt;&lt; m.first - std::begin(s) &lt;&lt; \&#34;, \&#34; &lt;&lt; m.second - std::begin(s) &lt;&lt; \&#34;), \&#34;\n                 \&#34;str = &#39;\&#34; &lt;&lt; m.str() &lt;&lt; &#39;\\&#39;&#39; &lt;&lt; std::endl;\n  }\n  std::cout &lt;&lt; std::endl;\n}\n\nint main()\n{\n  // \u5217\u6319\u5b50\u306e\u307f\u62bd\u51fa\n  f(1);\n\n  // \u5024\u306e\u307f\u62bd\u51fa\n  f(2);\n\n  // \u30de\u30c3\u30c1\u3057\u306a\u3044\u90e8\u5206\u306e\u307f\u62bd\u51fa\n  f(-1);\n\n  // \u5217\u6319\u5b50\u3068\u5024\u306e\u4e21\u65b9\u3092\u62bd\u51fa\n  f(std::initializer_list&lt;int&gt;{ 1, 2 });\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;regex&#34;, &#34;regex_token_iterator&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/regex.html" itemprop="url">
+              
+                <span itemprop="name">regex</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">regex_token_iterator</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2026-01-08T11:16:38">
+        2026年01月08日 11時16分38秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yoh</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/regex/regex_token_iterator.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/regex/regex_token_iterator.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;regex&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">regex_token_iterator</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">BidirectionalIterator</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">charT</span> <span class="o">=</span> <span class="k">typename</span> <span class="n"><a href="../iterator/iterator_traits.html">iterator_traits</a></span><span class="o">&lt;</span><span class="n">BidirectionalIterator</span><span class="o">&gt;::</span><span class="n">value_type</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">traits</span> <span class="o">=</span> <span class="n"><a href="regex_traits.html">regex_traits</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="o">&gt;</span> <span class="o">&gt;</span>
+  <span class="k">class</span> <span class="nc">regex_token_iterator</span><span class="p">;</span>
+
+  <span class="k">using</span> <span class="n">cregex_token_iterator</span>  <span class="o">=</span> <span class="n">regex_token_iterator</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">char</span><span class="o">*&gt;</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">wcregex_token_iterator</span> <span class="o">=</span> <span class="n">regex_token_iterator</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">wchar_t</span><span class="o">*&gt;</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">sregex_token_iterator</span>  <span class="o">=</span> <span class="n">regex_token_iterator</span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">string</a></span><span class="o">::</span><span class="n">const_iterator</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">wsregex_token_iterator</span> <span class="o">=</span> <span class="n">regex_token_iterator</span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">wstring</a></span><span class="o">::</span><span class="n">const_iterator</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>regex_token_iterator</code> は、ある文字列に対して、指定した正規表現で検索した結果をサブマッチ毎に順番に列挙する読み取り専用の前方向イテレータである。
+<code><a href="regex_iterator.html">regex_iterator</a></code> と違い、マッチ結果（<code><a href="match_results.html">match_results</a></code>）ではなくサブマッチ（<code><a href="sub_match.html">sub_match</a></code>）を返す。</p>
+<p>返されるサブマッチはオブジェクトの構築時に複数指定することができる。
+返されるサブマッチは、マッチ結果 <code><a href="match_results.html">match_results</a></code> からサブマッチ <code><a href="sub_match.html">sub_match</a></code> を取得する場合と同様、0（マッチ全体を表す）、および、正規表現内の各グループを表す正の整数で指定する。
+加えて、-1 を指定することで、指定した正規表現にマッチしなかった文字列を返すことも可能である。</p>
+<p><code>regex_token_iterator</code> オブジェクトを構築した時、当該オブジェクトは <code><a href="regex_iterator.html">regex_iterator</a>&lt;BidirectionalIterator, charT, traits&gt;</code> 型のメンバ変数 <code>position</code> を構築する。
+また、構築時に指定された返すべきサブマッチのリストをメンバ変数 <code>subs</code> に保持し、現在返すべきサブマッチを識別するカウンタ用のメンバ変数 <code>N</code> を <code>0</code> に設定する。<br />
+そして、<code><a href="regex_token_iterator/op_increment.html">operator++</a></code> が呼び出される毎に、当該イテレータは <code>N</code> をインクリメントし、<code>N</code> が <code>subs</code> のサイズ以上になると、<code>position</code> をインクリメントして <code>N</code> を再び <code>0</code> にリセットする。<br />
+<code>position</code> が終端まで来た時（つまり、<code>position</code> がシーケンス終端イテレータとなった時）、<code>subs</code> に <code>-1</code> が含まれていて、かつ、<code>position</code> が直前にマッチした文字列の後ろに文字列が残っている場合（つまり、<code>position.<a href="match_results/suffix.html">suffix</a>()</code> が空文字では無い場合）には、当該文字列を最後のサブマッチとして扱う。この状態になったイテレータを接尾辞イテレータと呼ぶ。<br />
+<code>position</code> が終端まで来た時に、<code>subs</code> に <code>-1</code> が含まれていない、または、<code>position</code> が直前にマッチした文字列の後ろに文字列が残っていない場合、および、接尾辞イテレータがインクリメントされた場合、当該オブジェクトは、シーケンスの終端を示す特別な値となる。<br />
+この、シーケンスの終端を示す特別な値は、<code>regex_token_iterator</code> オブジェクトをデフォルトコンストラクタにより構築した場合にも生成されるため、この値と比較することによってシーケンスの終端であるか否か（つまり、マッチしなかったか否か）が判別できる。</p>
+<p>シーケンス終端のイテレータに対する <code><a href="regex_token_iterator/op_deref.html">operator*</a></code> 演算子適用は<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こす。その他のイテレータに対する <code><a href="regex_token_iterator/op_deref.html">operator*</a></code> 演算子適用の結果は <code>const <a href="sub_match.html">sub_match</a>&lt;BidirectionalIterator&gt;&amp;</code> である。<br />
+同様に、シーケンス終端のイテレータに対する <code><a href="regex_token_iterator/op_arrow.html">operator-&gt;</a></code> 演算子適用は<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こす。その他のイテレータに対する <code><a href="regex_token_iterator/op_arrow.html">operator-&gt;</a></code> 演算子適用の結果は <code>const <a href="sub_match.html">sub_match</a>&lt;BidirectionalIterator&gt;*</code> である。</p>
+<p>なお、本サイトの <code>regex_token_iterator</code> の各説明（上記も含む）では、規格にならって以下のプライベートなメンバ変数が存在する前提で記載している。</p>
+<ul>
+<li>コンストラクタで指定した引数から構築された <code>regex_iterator</code> の <code>position</code>（<code><a href="regex_iterator.html">regex_iterator</a>&lt;BidirectionalIterator, charT, traits&gt;</code> 型）</li>
+<li>現在のサブマッチへのポインタ <code>result</code>（<code>const <a href="sub_match.html">sub_match</a>&lt;BidirectionalIterator&gt;*</code> 型）</li>
+<li>接尾辞イテレータとなった際に保持するサブマッチ <code>suffix</code>（<code><a href="sub_match.html">sub_match</a>&lt;BidirectionalIterator&gt;</code> 型）</li>
+<li>現在のサブマッチを識別する整数値 <code>N</code>（<code>size_t</code> 型）</li>
+<li>返すべきサブマッチのリスト <code>subs</code>（<code><a href="../vector.html">vector</a>&lt;int&gt;</code> 型）</li>
+</ul>
+<p>しかし、規格上これらのメンバ変数は説明のためだけに導入されているため、実際の各実装でこれらのメンバ変数が存在するとは限らない事に注意すること。</p>
+<p><code>regex_token_iterator</code> は <code>iterator_category</code> を <code>forward_iterator_tag</code> に定義しているため、基本的には前方向イテレータであると考えられるが、実際には前方向イテレータの要件のうち以下の要件を満たしていない。</p>
+<ul>
+<li>2 つの間接参照可能な <code>regex_token_iterator</code> オブジェクト <code>a</code> と <code>b</code> がある時、<code>a == b</code> の場合でも、<code>++a == ++b</code> とは限らない。</li>
+<li>2 つの間接参照可能な <code>regex_token_iterator</code> オブジェクト <code>a</code> と <code>b</code> がある時、<code>a == b</code> の場合でも、<code>*a</code> と <code>*b</code> が同じオブジェクトとは限らない。</li>
+</ul>
+<h2>メンバ関数</h2>
+<h3>構築・破棄</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="regex_token_iterator/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="regex_token_iterator/op_assign.html">operator=</a></code></td>
+<td>代入演算子</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>比較</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="regex_token_iterator/op_equal.html">operator==</a></code></td>
+<td>等値比較</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="regex_token_iterator/op_not_equal.html">operator!=</a></code></td>
+<td>非等値比較</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>間接</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="regex_token_iterator/op_deref.html">operator*</a></code></td>
+<td>間接参照</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="regex_token_iterator/op_arrow.html">operator-&gt;</a></code></td>
+<td>メンバアクセス</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>インクリメント</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="regex_token_iterator/op_increment.html">operator++</a></code></td>
+<td>インクリメント</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>regex_type</code></td>
+<td>マッチに使用している正規表現型。<code><a href="basic_regex.html">basic_regex</a>&lt;charT, traits&gt;</code> の別名</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>value_type</code></td>
+<td>サブマッチの型（間接参照で返される型）。<code><a href="sub_match.html">sub_match</a>&lt;BidirectionalIterator&gt;</code> の別名</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>difference_type</code></td>
+<td>2 つのイテレータの差を表すための型。<code>ptrdiff_t</code> の別名</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>pointer</code></td>
+<td><code>const value_type</code> へのポインタ</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>reference</code></td>
+<td><code>const value_type</code> への参照</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>iterator_category</code></td>
+<td>このイテレータのカテゴリを表すタグ。前方向イテレータ（<code>forward_iterator_tag</code>）</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>説明用プライベートメンバ変数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>position</code></td>
+<td>現在のマッチを指す <code>regex_iterator</code>。<code><a href="regex_iterator.html">regex_iterator</a>&lt;BidirectionalIterator, charT, traits&gt;</code> 型</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td>現在のサブマッチへのポインタ。<code>const <a href="sub_match.html">sub_match</a>&lt;BidirectionalIterator&gt;*</code> 型</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>suffix</code></td>
+<td>接尾辞イテレータとなった際に保持するサブマッチ。<code><a href="sub_match.html">sub_match</a>&lt;BidirectionalIterator&gt;</code> 型</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>N</code></td>
+<td>現在のサブマッチを識別する整数値。<code>size_t</code> 型</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>subs</code></td>
+<td>返すべきサブマッチを表す整数のリスト。<code><a href="../vector.html">vector</a>&lt;int&gt;</code> 型</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>非メンバ型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cregex_token_iterator</code></td>
+<td><code>regex_token_iterator&lt;const char*&gt;</code> の別名</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>wcregex_token_iterator</code></td>
+<td><code>regex_token_iterator&lt;const wchar_t*&gt;</code> の別名</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>sregex_token_iterator</code></td>
+<td><code>regex_token_iterator&lt;string::const_iterator&gt;</code> の別名</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>wsregex_token_iterator</code></td>
+<td><code>regex_token_iterator&lt;wstring::const_iterator&gt;</code> の別名</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<p><div class="yata" id="2f455ce87fd89f1fcbda1c17e69480d495744276"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iterator.html">&lt;iterator&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../regex.html">&lt;regex&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../initializer_list.html">&lt;initializer_list&gt;</a></span><span class="cp"></span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">T</span> <span class="n">submatch</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">const</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">s</span><span class="p">(</span><span class="s">"enum E { enumerator1 = value1, enumerator2 = value2, enumerator3 = value3, };"</span><span class="p">);</span>
+  <span class="k">static</span> <span class="k">const</span> <span class="n"><a href="basic_regex.html">std::regex</a></span> <span class="nf">re</span><span class="p">(</span><span class="n">R</span><span class="s">"((\w+)</span><span class="err">\</span><span class="n">s</span><span class="o">*=</span><span class="err">\</span><span class="n">s</span><span class="o">*</span><span class="p">(</span><span class="err">\</span><span class="n">w</span><span class="o">+</span><span class="p">))</span><span class="s">")</span><span class="p">;</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="n"><span style="color:#ff0000">std::sregex_token_iterator</span></span> <span class="n">it</span><span class="p">(</span><span class="n"><a href="../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n">re</span><span class="p">,</span> <span class="n">submatch</span><span class="p">),</span> <span class="n">end</span><span class="p">;</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">end</span><span class="p">;</span> <span class="o">++</span><span class="n">it</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="n">m</span> <span class="o">=</span> <span class="o">*</span><span class="n">it</span><span class="p">;</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"match <a href="../ranges/range.html">range</a> = ("</span> <span class="o">&lt;&lt;</span> <span class="n">m</span><span class="p">.</span><span class="n">first</span> <span class="o">-</span> <span class="n"><a href="../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">m</span><span class="p">.</span><span class="n">second</span> <span class="o">-</span> <span class="n"><a href="../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">"), "</span>
+                 <span class="s">"str = '"</span> <span class="o">&lt;&lt;</span> <span class="n">m</span><span class="p">.</span><span class="n">str</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">'\''</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// 列挙子のみ抽出</span>
+  <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+  <span class="c1">// 値のみ抽出</span>
+  <span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+
+  <span class="c1">// マッチしない部分のみ抽出</span>
+  <span class="n">f</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+
+  <span class="c1">// 列挙子と値の両方を抽出</span>
+  <span class="n">f</span><span class="p">(</span><span class="n"><a href="../initializer_list/initializer_list.html">std::initializer_list</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>match <a href="../ranges/range.html">range</a> = (9, 20), str = 'enumerator1'
+match <a href="../ranges/range.html">range</a> = (31, 42), str = 'enumerator2'
+match <a href="../ranges/range.html">range</a> = (53, 64), str = 'enumerator3'
+
+match <a href="../ranges/range.html">range</a> = (23, 29), str = 'value1'
+match <a href="../ranges/range.html">range</a> = (45, 51), str = 'value2'
+match <a href="../ranges/range.html">range</a> = (67, 73), str = 'value3'
+
+match <a href="../ranges/range.html">range</a> = (0, 9), str = 'enum E { '
+match <a href="../ranges/range.html">range</a> = (29, 31), str = ', '
+match <a href="../ranges/range.html">range</a> = (51, 53), str = ', '
+match <a href="../ranges/range.html">range</a> = (73, 77), str = ', };'
+
+match <a href="../ranges/range.html">range</a> = (9, 20), str = 'enumerator1'
+match <a href="../ranges/range.html">range</a> = (23, 29), str = 'value1'
+match <a href="../ranges/range.html">range</a> = (31, 42), str = 'enumerator2'
+match <a href="../ranges/range.html">range</a> = (45, 51), str = 'value2'
+match <a href="../ranges/range.html">range</a> = (53, 64), str = 'enumerator3'
+match <a href="../ranges/range.html">range</a> = (67, 73), str = 'value3'
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 3.0 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.1 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.2 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.3 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.4 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.5 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.6 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 4.9.0 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.9.1 <span aria-label="検証済" role="img" title="検証済">✅</span>, 5.0.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#icc">ICC</a>: ?</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ?</li>
+</ul>
+<p>ただし、Clang と GCC の 4.9.1 までのバージョンには、長さ 0 の文字列にマッチした時の挙動に問題があるため、注意が必要。
+（特に、Clang は長さ 0 の文字列にマッチするとそこから先に進まなくなってしまう）</p></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

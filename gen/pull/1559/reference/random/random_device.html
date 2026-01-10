@@ -1,0 +1,594 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>random_device - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,random,std,class template,cpp11
+">
+        <meta name="title" content="random_device - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="random_device - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="random_device - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/random/random_device.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`random_device`クラスは、非決定論的な乱数生成エンジンである。予測不能な乱数を生成することから、擬似乱数生成エンジンのシード初期化や、暗号化といった用途に使用できる。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="random_device - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/random/random_device.html" />
+        <meta name="twitter:description" content="`random_device`クラスは、非決定論的な乱数生成エンジンである。予測不能な乱数を生成することから、擬似乱数生成エンジンのシード初期化や、暗号化といった用途に使用できる。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<link rel="manifest" href="../../manifest.json?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;random&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;2763881a66ef7bfd08a467ce4182cb4ea14d2641&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;random&gt;\n\nint main()\n{\n  std::random_device rng;\n\n  for (int i = 0; i &lt; 10; ++i) {\n    // \u4e88\u6e2c\u4e0d\u80fd\u306a\u4e71\u6570\u3092\u751f\u6210\u3059\u308b\n    unsigned int result = rng();\n\n    std::cout &lt;&lt; result &lt;&lt; std::endl;\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;c6bfd3d0a228488918587f5900effb53f4314e3f&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;cassert&gt;\n#include &lt;string&gt;\n#include &lt;random&gt;\n\n// candidate_chars : \u30d1\u30b9\u30ef\u30fc\u30c9\u306b\u542b\u3081\u308b\u6587\u5b57\u306e\u96c6\u5408\n// length : \u30d1\u30b9\u30ef\u30fc\u30c9\u306e\u9577\u3055\nstd::string create_password(const std::string&amp; candidate_chars, std::size_t length)\n{\n  assert(!candidate_chars.empty());\n\n  // \u975e\u6c7a\u5b9a\u8ad6\u7684\u306a\u4e71\u6570\u751f\u6210\u5668\u3092\u4f7f\u7528\u3059\u308b\n  std::random_device engine;\n\n  // \u30d1\u30b9\u30ef\u30fc\u30c9\u5019\u88dc\u3068\u306a\u308b\u6587\u5b57\u96c6\u5408\u306e\u7bc4\u56f2\u3092\u4e00\u69d8\u5206\u5e03\u3055\u305b\u308b\n  std::uniform_int_distribution&lt;std::size_t&gt; dist(0, candidate_chars.size() - 1);\n\n  std::string password;\n  for (std::size_t i = 0; i &lt; length; ++i) {\n    // \u30d1\u30b9\u30ef\u30fc\u30c9\u5019\u88dc\u306e\u6587\u5b57\u96c6\u5408\u304b\u3089\u3001\u30e9\u30f3\u30c0\u30e0\u306a\u4e00\u6587\u5b57\u3092\u9078\u629e\u3059\u308b\n    std::size_t random_index = dist(engine);\n    char random_char = candidate_chars[random_index];\n\n    // \u9078\u629e\u3057\u305f\u6587\u5b57\u3092\u3001\u30d1\u30b9\u30ef\u30fc\u30c9\u6587\u5b57\u5217\u306b\u8ffd\u52a0\u3059\u308b\n    password += random_char;\n  }\n  return password;\n}\n\nint main()\n{\n  std::string candidate_chars = \&#34;abcdefghijklmnopqrstuvwxyz\&#34;;\n  std::size_t length = 8;\n\n  std::string password = create_password(candidate_chars, length);\n  std::cout &lt;&lt; password &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;random&#34;, &#34;random_device&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/random.html" itemprop="url">
+              
+                <span itemprop="name">random</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">random_device</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-07-11T17:16:44">
+        2025年07月11日 17時16分44秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Koichi Murase</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/random/random_device.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/random/random_device.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;random&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">random_device</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">class</span> <span class="nc">random_device</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>random_device</code>クラスは、非決定論的な乱数生成エンジンである。予測不能な乱数を生成することから、擬似乱数生成エンジンのシード初期化や、暗号化といった用途に使用できる。</p>
+<p><code>random_device</code>の実装は<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>だが、Windows環境では<code><a href="https://docs.microsoft.com/ja-jp/windows/win32/api/wincrypt/nf-wincrypt-cryptgenrandom" target="_blank">CryptGenRandom()</a></code>関数のラッパーとして、UNIX系環境では<code><a href="https://web.archive.org/web/20230207121147/http://linuxjm.osdn.jp/html/LDP_man-pages/man4/random.4.html" target="_blank">/dev/random</a></code>や<code><a href="https://web.archive.org/web/20230207121147/http://linuxjm.osdn.jp/html/LDP_man-pages/man4/random.4.html" target="_blank">/dev/urandom</a></code>から値を読み取る形で定義される場合がある。
+実装の制限によって予測不能な乱数生成器を定義できない場合、このクラスは<strong>擬似乱数生成器で定義される可能性がある</strong>ため、特にクロスプラットフォームなコードを書く場合は注意すること。</p>
+<p>予測不能な乱数はソフトウェアでは実装できないため、これらはハードウェアのノイズやマウスの動きといった環境ノイズをエントロピープールとして乱数を生成する。
+非決定論的な乱数生成器のパフォーマンスは擬似乱数生成器よりも悪く、特にエントロピープールが枯渇すると著しく悪化する。
+再現性が必要なく、速度が遅くても問題ない状況で使用すること。</p>
+<h2>実装</h2>
+<ul>
+<li>Windows<ul>
+<li>Visual C++: 外部デバイスを用いており、暗号学的に安全で非決定論的 (<code><a href="https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/rand-s" target="_blank">rand_s</a></code>)</li>
+<li>Clang: 暗号論的な乱数である <code><a href="https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/rand-s" target="_blank">rand_s</a></code> を使用する</li>
+<li>GCC (MinGW): GCC 9.1までは擬似乱数生成器 <code><a href="mt19937.html">mt19937</a></code> を用いるため<strong>使用を推奨しない</strong>。詳細は備考欄を参照。GCC 9.2からは暗号論的な乱数である <code><a href="https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/rand-s" target="_blank">rand_s</a></code> を使用する。</li>
+</ul>
+</li>
+<li>UNIX 系<ul>
+<li>Clang (libc++): <code>/dev/urandom</code> (デフォルト) または <code>/dev/random</code> から値を読み取る</li>
+<li>GCC (libstdc++): CPU の <code>RDRAND</code> 命令を使う (デフォルト) か、<code>/dev/urandom</code> (<code>RDRAND</code> が使用できないときのデフォルト) または <code>/dev/random</code> から値を読み取る</li>
+</ul>
+</li>
+</ul>
+<h2>メンバ関数</h2>
+<h3>構築</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="random_device/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>~random_device() = default;</code></td>
+<td>デストラクタ</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>void operator=(const random_device&amp; ) = delete;</code></td>
+<td>代入演算子。代入不可</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>生成</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="random_device/op_call.html">operator()</a></code></td>
+<td>乱数を生成する</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>エンジンの特性</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="random_device/entropy.html">entropy</a></code></td>
+<td>エントロピーを取得する</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>静的メンバ関数</h2>
+<h3>生成の特徴</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="random_device/min.html">min</a></code></td>
+<td>生成する範囲の最小値を取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="random_device/max.html">max</a></code></td>
+<td>生成する範囲の最大値を取得する</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>型</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result_type</code></td>
+<td>乱数生成結果の符号なし整数型 <code>unsigned int</code>。</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<h3>基本的な使い方</h3>
+<p><div class="yata" id="2763881a66ef7bfd08a467ce4182cb4ea14d2641"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../random.html">&lt;random&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><span style="color:#ff0000">std::random_device</span></span> <span class="n">rng</span><span class="p">;</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 予測不能な乱数を生成する</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n"><a href="random_device/op_call.html">rng()</a></span><span class="p">;</span>
+
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力例</h4>
+<p><pre><code>770203506
+3783995753
+458506084
+4033712415
+4182902552
+940753559
+327526966
+3226755811
+4026482080
+1445600541
+</code></pre></p>
+<h3>パスワードを生成する</h3>
+<p><div class="yata" id="c6bfd3d0a228488918587f5900effb53f4314e3f"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../random.html">&lt;random&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// candidate_chars : パスワードに含める文字の集合</span>
+<span class="c1">// length : パスワードの長さ</span>
+<span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="nf">create_password</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&amp;</span> <span class="n">candidate_chars</span><span class="p">,</span> <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">length</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">candidate_chars</span><span class="p">.</span><span class="n">empty</span><span class="p">());</span>
+
+  <span class="c1">// 非決定論的な乱数生成器を使用する</span>
+  <span class="n"><a href="">std::random_device</a></span> <span class="n">engine</span><span class="p">;</span>
+
+  <span class="c1">// パスワード候補となる文字集合の範囲を一様分布させる</span>
+  <span class="n"><a href="uniform_int_distribution.html">std::uniform_int_distribution</a></span><span class="o">&lt;</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="o">&gt;</span> <span class="n">dist</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n"><a href="../string/basic_string/size.html">candidate_chars.size()</a></span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+
+  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">password</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">length</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// パスワード候補の文字集合から、ランダムな一文字を選択する</span>
+    <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">random_index</span> <span class="o">=</span> <span class="n"><a href="uniform_int_distribution/op_call.html">dist(engine)</a></span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">random_char</span> <span class="o">=</span> <span class="n">candidate_chars</span><span class="p">[</span><span class="n">random_index</span><span class="p">];</span>
+
+    <span class="c1">// 選択した文字を、パスワード文字列に追加する</span>
+    <span class="n"><a href="../string/basic_string/op_plus_assign.html">password += random_char</a></span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">password</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">candidate_chars</span> <span class="o">=</span> <span class="s">"abcdefghijklmnopqrstuvwxyz"</span><span class="p">;</span>
+  <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">length</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+
+  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">password</span> <span class="o">=</span> <span class="n">create_password</span><span class="p">(</span><span class="n">candidate_chars</span><span class="p">,</span> <span class="n">length</span><span class="p">);</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">password</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力例</h4>
+<p><pre><code>jyiasder
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 3.2 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 4.7.2 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2010 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2012 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2013 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2015 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2017 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<h2>備考</h2>
+<h3>MinGW GCC(libstdc++)</h3>
+<p>Windows版のGCC (MinGW, libstdc++) 9.1まででは、<code>random_device</code>クラスは擬似乱数生成器である<code><a href="mt19937.html">mt19937</a></code>で実装されている。その環境のデフォルトでは固定の乱数列が生成されてしまうので注意すること。コンストラクタの引数としてシード値を文字列化して渡せば<code>mt19937</code>のシードとして扱われるが、非決定論的な乱数として振る舞わないことは変わらない。この環境では<code>random_device</code>の使用は推奨しない</p>
+<p>GCC (MinGW, libstdc++) 9.2からは、この問題は解決されている。<a href="https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=91df033fd775060adde6f78fd4a0a7d744032910" target="_blank">PR libstdc++/85494 use rdseed and rand_s in std::random_device</a>により、暗号学的に安全で非決定論的な乱数を生成する<code>rand_s</code>関数での実装になるためである。</p>
+<h5>代替</h5>
+<ul>
+<li>クロスプラットフォーム<ul>
+<li>CPU が提供する <a href="https://www.cryptopp.com/wiki/RDRAND" target="_blank"><code>RDRAND</code>, <code>RDSEED</code> 命令</a></li>
+</ul>
+</li>
+<li>Windows<ul>
+<li><code><a href="https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/rand-s" target="_blank">rand_s</a></code> (<code>CryptGenRandom</code> のラッパー)</li>
+<li><code><a href="https://docs.microsoft.com/ja-jp/windows/win32/api/wincrypt/nf-wincrypt-cryptgenrandom" target="_blank">CryptGenRandom</a></code> 関数(Windows XP/Windows Server 2003以降。非推奨)</li>
+<li><code><a href="https://docs.microsoft.com/ja-jp/windows/win32/api/bcrypt/nf-bcrypt-bcryptgenrandom" target="_blank">BCryptGenRandom</a></code> 関数(Windows Vista/Windows Server 2008以降)</li>
+</ul>
+</li>
+</ul>
+<h5>Workaround</h5>
+<p>ワークアラウンドとして次のコードが利用できる。<code>rand_s</code>ではなく<code>CryptGenRandom</code>を用いているのは、<code>rand_s</code>を利用するには<code>Windows.h</code>をincludeする前に<code>_CRT_RAND_S</code>のdefineが必要でworkaroundには向かないため。また<code>BCryptGenRandom</code>を用いていないのは、対象としている環境では<code>CryptGenRandom</code>は利用可能であり、<code>BCryptGenRandom</code>より使える環境が広いためである。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">//! @file random_device.hpp</span>
+<span class="cp">#pragma once</span>
+
+<span class="cp">#include</span> <span class="cpf"><a href="../random.html">&lt;random&gt;</a></span><span class="cp"></span>
+
+<span class="cp">#if defined(__MINGW32__) &amp;&amp; defined(__GNUC__) &amp;&amp; !defined(__clang__) &amp;&amp; (__GNUC__ &lt; 9 || (__GNUC__ == 9 &amp;&amp; __GNUC_MINOR__ &lt;2))</span>
+
+<span class="cp">#include</span> <span class="cpf"><a href="../system_error.html">&lt;system_error&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../limits.html">&lt;limits&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;Windows.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="https://docs.microsoft.com/en-us/previous-versions/ms867086(v=msdn.10)" target="_blank">&lt;wincrypt.h&gt;</a></span><span class="cp"></span>
+
+<span class="k">namespace</span> <span class="n">workaround_mingw_gcc</span> <span class="p">{</span>
+<span class="k">class</span> <span class="nc">random_device</span> <span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+  <span class="k">class</span> <span class="nc">crypt_context</span> <span class="p">{</span>
+  <span class="k">private</span><span class="o">:</span>
+    <span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/seccrypto/hcryptprov" target="_blank">HCRYPTPROV</a></span> <span class="n">prov_</span><span class="p">;</span>
+  <span class="k">public</span><span class="o">:</span>
+    <span class="n">crypt_context</span><span class="p">(</span><span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/winprog/windows-data-types#DWORD" target="_blank">DWORD</a></span> <span class="n">prov_type</span><span class="p">,</span> <span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/winprog/windows-data-types#LPCTSTR" target="_blank">LPCTSTR</a></span> <span class="n">container</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">,</span> <span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/winprog/windows-data-types#LPCTSTR" target="_blank">LPCTSTR</a></span> <span class="n">provider</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">,</span> <span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/winprog/windows-data-types#DWORD" target="_blank">DWORD</a></span> <span class="n">flags</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">const</span> <span class="k">auto</span> <span class="n">success</span> <span class="o">=</span> <span class="o">::</span><span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/api/wincrypt/nf-wincrypt-cryptacquirecontexta" target="_blank">CryptAcquireContext</a></span><span class="p">(</span><span class="o">&amp;</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">prov_</span><span class="p">,</span> <span class="n">container</span><span class="p">,</span> <span class="n">provider</span><span class="p">,</span> <span class="n">prov_type</span><span class="p">,</span> <span class="n">flags</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">success</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="n"><a href="../system_error/system_error.html">std::system_error</a></span><span class="p">(</span>
+          <span class="n"><a href="../system_error/error_code.html">std::error_code</a></span><span class="p">(</span><span class="o">::</span><span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror" target="_blank">GetLastError</a></span><span class="p">(),</span> <span class="n"><a href="../system_error/system_category.html">std::system_category</a></span><span class="p">()),</span>
+          <span class="s">"<a href="https://docs.microsoft.com/ja-jp/windows/win32/api/wincrypt/nf-wincrypt-cryptacquirecontexta" target="_blank">CryptAcquireContext</a>:("</span> <span class="o">+</span> <span class="n"><a href="../string/to_string.html">std::to_string</a></span><span class="p">(</span><span class="n">success</span><span class="p">)</span> <span class="o">+</span> <span class="sc">')'</span>
+        <span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">crypt_context</span><span class="p">(</span><span class="k">const</span> <span class="n">crypt_context</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+    <span class="kt">void</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">crypt_context</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+    <span class="o">~</span><span class="n">crypt_context</span><span class="p">()</span> <span class="k">noexcept</span> <span class="p">{</span>
+      <span class="o">::</span><span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/api/wincrypt/nf-wincrypt-cryptreleasecontext" target="_blank">CryptReleaseContext</a></span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">prov_</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="c1">//<a href="https://docs.microsoft.com/ja-jp/windows/win32/seccrypto/hcryptprov" target="_blank">HCRYPTPROV</a>&amp; get() noexcept { return this-&gt;prov_; }</span>
+    <span class="k">const</span> <span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/seccrypto/hcryptprov" target="_blank">HCRYPTPROV</a></span><span class="o">&amp;</span> <span class="n">get</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">prov_</span><span class="p">;</span> <span class="p">}</span>
+  <span class="p">};</span>
+  <span class="n">crypt_context</span> <span class="n">prov_</span><span class="p">;</span>
+
+<span class="k">public</span><span class="o">:</span>
+  <span class="k">using</span> <span class="n">result_type</span> <span class="o">=</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="p">;</span>
+  <span class="k">explicit</span> <span class="nf">random_device</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&amp;</span> <span class="cm">/*token*/</span> <span class="o">=</span> <span class="s">"workaround_mingw_gcc "</span><span class="p">)</span>
+  <span class="o">:</span> <span class="n">prov_</span><span class="p">(</span><span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/seccrypto/prov-rsa-full" target="_blank">PROV_RSA_FULL</a></span><span class="p">)</span>
+  <span class="p">{}</span>
+  <span class="n">random_device</span><span class="p">(</span><span class="k">const</span> <span class="n">random_device</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+  <span class="kt">void</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">random_device</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+  <span class="c1">//~random_device() = default;</span>
+  <span class="kt">double</span> <span class="nf">entropy</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="k">return</span> <span class="mf">0.0</span><span class="p">;</span> <span class="p">}</span>
+  <span class="n">result_type</span> <span class="nf">operator</span><span class="p">()()</span> <span class="p">{</span>
+    <span class="n">result_type</span> <span class="n">re</span><span class="p">;</span>
+    <span class="k">const</span> <span class="k">auto</span> <span class="n">success</span> <span class="o">=</span> <span class="o">::</span><span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/api/wincrypt/nf-wincrypt-cryptgenrandom" target="_blank">CryptGenRandom</a></span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">prov_</span><span class="p">.</span><span class="n">get</span><span class="p">(),</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">re</span><span class="p">),</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/winprog/windows-data-types#BYTE" target="_blank">BYTE</a></span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">re</span><span class="p">));</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">success</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="n"><a href="../system_error/system_error.html">std::system_error</a></span><span class="p">(</span>
+        <span class="n"><a href="../system_error/error_code.html">std::error_code</a></span><span class="p">(</span><span class="o">::</span><span class="n"><a href="https://docs.microsoft.com/ja-jp/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror" target="_blank">GetLastError</a></span><span class="p">(),</span> <span class="n"><a href="../system_error/system_category.html">std::system_category</a></span><span class="p">()),</span>
+        <span class="s">"<a href="https://docs.microsoft.com/ja-jp/windows/win32/api/wincrypt/nf-wincrypt-cryptgenrandom" target="_blank">CryptGenRandom</a>:("</span> <span class="o">+</span> <span class="n"><a href="../string/to_string.html">std::to_string</a></span><span class="p">(</span><span class="n">success</span><span class="p">)</span> <span class="o">+</span> <span class="sc">')'</span>
+      <span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">re</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">static</span> <span class="k">constexpr</span> <span class="n">result_type</span> <span class="nf">min</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n"><a href="../limits/numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="n">result_type</span><span class="o">&gt;::</span><span class="n">min</span><span class="p">();</span> <span class="p">}</span>
+  <span class="k">static</span> <span class="k">constexpr</span> <span class="n">result_type</span> <span class="nf">max</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n"><a href="../limits/numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="n">result_type</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">();</span> <span class="p">}</span>
+<span class="p">};</span>
+<span class="p">}</span> <span class="c1">// namespace workaround_mingw_gcc</span>
+
+<span class="k">namespace</span> <span class="n">cpprefjp</span> <span class="p">{</span>
+<span class="k">using</span> <span class="n">workaround_mingw_gcc</span><span class="o">::</span><span class="n">random_device</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cp">#else </span><span class="c1">//defined(__MINGW32__) &amp;&amp; defined(__GNUC__) &amp;&amp; !defined(__clang__)</span>
+
+<span class="k">namespace</span> <span class="n">cpprefjp</span> <span class="p">{</span>
+<span class="k">using</span> <span class="n"><a href="">std::random_device</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cp">#endif </span><span class="c1">//defined(__MINGW32__) &amp;&amp; defined(__GNUC__) &amp;&amp; !defined(__clang__)</span>
+</code></pre></div>
+</p>
+<p>使用例は次の通り。上記コードを<code>random_device.hpp</code>というファイル名で保存していると仮定する。<code>cpprefjp::random_device</code>が<code>std::random_device</code>のworkaroundで、C++11標準規格の要求を満たしたクラス。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">"random_device.hpp"</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../array.html">&lt;array&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+<span class="k">using</span> <span class="n">seed_v_t</span> <span class="o">=</span> <span class="n"><a href="../array/array.html">std::array</a></span><span class="o">&lt;</span><span class="n">cpprefjp</span><span class="o">::</span><span class="n">random_device</span><span class="o">::</span><span class="n">result_type</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n"><a href="mt19937.html">std::mt19937</a></span><span class="p">)</span><span class="o">/</span><span class="k">sizeof</span><span class="p">(</span><span class="n">cpprefjp</span><span class="o">::</span><span class="n">random_device</span><span class="o">::</span><span class="n">result_type</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="n">seed_v_t</span> <span class="nf">create_seed_v</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">cpprefjp</span><span class="o">::</span><span class="n">random_device</span> <span class="n">rnd</span><span class="p">;</span>
+  <span class="n">seed_v_t</span> <span class="n">sed_v</span><span class="p">;</span>
+  <span class="n"><a href="../algorithm/generate.html">std::generate</a></span><span class="p">(</span><span class="n"><a href="../array/array/begin.html">sed_v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../array/array/end.html">sed_v.end()</a></span><span class="p">,</span> <span class="n"><a href="../functional/ref.html">std::ref</a></span><span class="p">(</span><span class="n">rnd</span><span class="p">));</span>
+  <span class="k">return</span> <span class="n">sed_v</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n"><a href="mt19937.html">std::mt19937</a></span> <span class="nf">create_random_engine</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">const</span> <span class="k">auto</span> <span class="n">sed_v</span> <span class="o">=</span> <span class="n">create_seed_v</span><span class="p">();</span>
+  <span class="n"><a href="seed_seq.html">std::seed_seq</a></span> <span class="n">seq</span><span class="p">(</span><span class="n"><a href="../array/array/begin.html">sed_v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../array/array/end.html">sed_v.end()</a></span><span class="p">);</span>
+  <span class="k">return</span> <span class="n"><a href="mt19937.html">std::mt19937</a></span><span class="p">(</span><span class="n">seq</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n"><a href="mt19937.html">std::mt19937</a></span><span class="o">&amp;</span> <span class="n">random_engine</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="n"><a href="../../lang/cpp11/thread_local_storage.html">thread_local</a></span> <span class="n"><a href="mt19937.html">std::mt19937</a></span> <span class="n">engine</span> <span class="o">=</span> <span class="n">create_random_engine</span><span class="p">();</span>
+  <span class="k">return</span> <span class="n">engine</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="mt19937.html">std::mt19937</a></span><span class="o">&amp;</span> <span class="n">engine</span> <span class="o">=</span> <span class="n">random_engine</span><span class="p">();</span>
+  <span class="n"><a href="uniform_int_distribution.html">std::uniform_int_distribution</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dist</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">32</span><span class="p">);</span>
+  <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="uniform_int_distribution/op_call.html">dist(engine)</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>参照</h2>
+<ul>
+<li>GCC: <a href="https://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#iso.2011.specific" target="_blank">Implementation Status 26.5.6 [rand.device]</a></li>
+<li>Microdoft Visual Studio 2017: <a href="https://docs.microsoft.com/en-us/cpp/standard-library/random-device-class" target="_blank">random_device Class</a></li>
+<li><a href="https://ja.wikipedia.org/wiki//dev/random" target="_blank">/dev/random - Wikipedia</a></li>
+<li><a href="https://web.archive.org/web/20230207121147/http://linuxjm.osdn.jp/html/LDP_man-pages/man4/random.4.html" target="_blank">Man page of RANDOM</a></li>
+<li><a href="https://docs.microsoft.com/ja-jp/windows/win32/api/wincrypt/nf-wincrypt-cryptgenrandom" target="_blank">CryptGenRandom function (wincrypt.h) - Win32 apps | Microsoft Docs</a></li>
+<li><a href="http://vaporoid.hateblo.jp/entry/2014/07/25/154852" target="_blank">random_deviceの実装（再訪） - 煙人計画</a></li>
+<li><a href="https://lwn.net/Articles/685371/" target="_blank">Replacing <code>/dev/urandom</code> May 4, 2016 - Security</a></li>
+<li><a href="http://qiita.com/nanashi/items/f94b78398a6c79d939e1" target="_blank">gccをwindowsで使うならstd::random_deviceを使ってはいけない - Qiita</a></li>
+<li><a href="https://www.jpcert.or.jp/sc-rules/c-msc30-c.html" target="_blank">MSC30-C. 擬似乱数の生成に rand() 関数を使用しない</a></li>
+<li><code>CryptGenRandom</code>のエントロピー源(2005年時点): <a href="https://blogs.msdn.microsoft.com/michael_howard/2005/01/14/cryptographically-secure-random-number-on-windows-without-using-cryptoapi/#div-comment-5543" target="_blank">Cryptographically Secure Random number on Windows without using CryptoAPI – Michael Howard's Web Log</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

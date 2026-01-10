@@ -1,0 +1,341 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>assignable_from - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,concepts,std,concept,cpp20
+">
+        <meta name="title" content="assignable_from - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="assignable_from - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="assignable_from - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/concepts/assignable_from.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="assignable_from - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/concepts/assignable_from.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<link rel="manifest" href="../../manifest.json?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;concepts&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;concept&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;385e130fb3f909ddb8f99c9063e8e86255f3e1cf&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;concepts&gt;\n#include &lt;vector&gt;\n#include &lt;memory&gt;\n\ntemplate&lt;typename LHS, typename RHS&gt;\n  requires std::assignable_from&lt;LHS, RHS&gt;\nvoid f(const char* name, const char* arg) {\n  std::cout &lt;&lt; name &lt;&lt; \&#34; is assignable from \&#34; &lt;&lt; arg &lt;&lt; std::endl;\n}\n\ntemplate&lt;typename LHS, typename RHS&gt;\nvoid f(const char* name, const char* arg) {\n  std::cout &lt;&lt; name &lt;&lt; \&#34; is not assignable from \&#34; &lt;&lt; arg &lt;&lt; std::endl;\n}\n\nstruct S {\n  S&amp; operator=(const S&amp;) = default;\n  S&amp; operator=(S&amp;&amp;) = delete;\n};\n\nint main() {\n  f&lt;int&amp;, short&gt;(\&#34;int&amp;\&#34;, \&#34;short\&#34;);\n  f&lt;std::vector&lt;int&gt;&amp;, std::vector&lt;int&gt;&gt;(\&#34;std::vector&lt;int&gt;&amp;\&#34;, \&#34;std::vector&lt;short&gt;\&#34;);\n  f&lt;std::unique_ptr&lt;int&gt;&amp;, std::unique_ptr&lt;int&gt;&gt;(\&#34;std::unique_ptr&lt;int&gt;&amp;\&#34;, \&#34;std::unique_ptr&lt;int&gt;\&#34;);\n  f&lt;S&amp;, S&amp;&gt;(\&#34;S&amp;\&#34;, \&#34;S&amp;\&#34;);\n\n  std::cout &lt;&lt; \&#34;\\n\&#34;;\n\n  f&lt;std::unique_ptr&lt;int&gt;&amp;, std::unique_ptr&lt;int&gt;&amp;&gt;(\&#34;std::unique_ptr&lt;int&gt;&amp;\&#34;, \&#34;std::unique_ptr&lt;short&gt;&amp;\&#34;);\n  f&lt;S&amp;, S&gt;(\&#34;S&amp;\&#34;, \&#34;S\&#34;);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;concepts&#34;, &#34;assignable_from&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/concepts.html" itemprop="url">
+              
+                <span itemprop="name">concepts</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">assignable_from</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-08-31T10:06:36">
+        2025年08月31日 10時06分36秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Raclamusi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/concepts/assignable_from.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/concepts/assignable_from.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">concept</div><div class="header">&lt;concepts&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">assignable_from</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">LHS</span><span class="p">,</span> <span class="k">class</span> <span class="nc">RHS</span><span class="o">&gt;</span>
+  <span class="n">concept</span> <span class="n">assignable_from</span> <span class="o">=</span>
+    <span class="n"><a href="../type_traits/is_lvalue_reference.html">is_lvalue_reference_v</a></span><span class="o">&lt;</span><span class="n">LHS</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
+    <span class="n"><a href="common_reference_with.html">common_reference_with</a></span><span class="o">&lt;</span><span class="k">const</span> <span class="n"><a href="../type_traits/remove_reference.html">remove_reference_t</a></span><span class="o">&lt;</span><span class="n">LHS</span><span class="o">&gt;&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../type_traits/remove_reference.html">remove_reference_t</a></span><span class="o">&lt;</span><span class="n">RHS</span><span class="o">&gt;&amp;&gt;</span> <span class="o">&amp;&amp;</span>
+    <span class="n">requires</span><span class="p">(</span><span class="n">LHS</span> <span class="n">lhs</span><span class="p">,</span> <span class="n">RHS</span><span class="o">&amp;&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="p">{</span>
+      <span class="p">{</span> <span class="n">lhs</span> <span class="o">=</span> <span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">RHS</span><span class="o">&gt;</span><span class="p">(</span><span class="n">rhs</span><span class="p">)</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n">LHS</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>assignable_from</code>は、指定された型および値カテゴリ<code>RHS</code>から左辺値<code>LHS</code>へ代入可能であることを表すコンセプトである。</p>
+<h2>モデル</h2>
+<p>まず、<code>lhs</code>を<code>decltype((lhs))</code>が<code>LHS</code>であるような<code>lcopy</code>オブジェクトを参照する左辺値（参照）、<code>rhs</code>を<code>decltype((rhs))</code>が<code>RHS</code>であるような式、<code>rcopy</code>を<code>rhs</code>と等値な別のオブジェクトとして定義する。</p>
+<p>これらの<code>lhs, rhs, lcopy, rcopy</code>について、以下の条件を満たす場合に限って、型<code>LHS, RHS</code>は<code>assignable_from</code>のモデルである。</p>
+<ul>
+<li><code><a href="../memory/addressof.html">addressof</a>(lhs = rhs) == <a href="../memory/addressof.html">addressof</a>(lcopy)</code>となる</li>
+<li><code>lhs = rhs;</code>という式の評価の後で以下のことが成り立っている<ul>
+<li><code>rhs</code>が<code>lcopy</code>を参照する非<code>const</code> <em>xvalue</em>でない（ムーブが起こる自己代入ではない）場合<ul>
+<li><code>lhs</code>は<code>rcopy</code>と等値である</li>
+</ul>
+</li>
+<li><code>rhs</code>が非<code>const</code> <em>xvalue</em>ならば<ul>
+<li><code>rhs</code>が参照するオブジェクトの状態は有効だが<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a></li>
+</ul>
+</li>
+<li>それ以外の場合で、<code>rhs</code>が<em>glvalue</em>ならば<ul>
+<li><code>rhs</code>が参照するオブジェクトは変更されない</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><code>rhs</code>が<em>prvalue</em>の場合、2つめの条件のいずれにも該当しない。これはコピー省略等の最適化を考慮したものである。</p>
+<h2>備考</h2>
+<p>代入操作では、引数型の一部の値が本コンセプトが要求する構文・意味論的制約を必ずしも満たしていなくても構わない。特に、あるオブジェクト<code>x</code>への代入操作によって別のオブジェクト<code>y</code>が変更される時、<code>x, y</code>はその場合の<code>=</code>の定義域に含まれない事がある。</p>
+<p>ある<code>LHS, RHS</code>についてそのような個別の値が存在していたとしても、そのことはその<code>LHS, RHS</code>が<code>assignable_from</code>のモデルとなることを妨げない。</p>
+<h2>例</h2>
+<p><div class="yata" id="385e130fb3f909ddb8f99c9063e8e86255f3e1cf"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../concepts.html">&lt;concepts&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">LHS</span><span class="p">,</span> <span class="k">typename</span> <span class="n">RHS</span><span class="o">&gt;</span>
+  <span class="n">requires</span> <span class="n"><span style="color:#ff0000">std::assignable_from</span></span><span class="o">&lt;</span><span class="n">LHS</span><span class="p">,</span> <span class="n">RHS</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">arg</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="s">" is assignable from "</span> <span class="o">&lt;&lt;</span> <span class="n">arg</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">LHS</span><span class="p">,</span> <span class="k">typename</span> <span class="n">RHS</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">arg</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="s">" is not assignable from "</span> <span class="o">&lt;&lt;</span> <span class="n">arg</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">struct</span> <span class="n">S</span> <span class="p">{</span>
+  <span class="n">S</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">S</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+  <span class="n">S</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">S</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">f</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&amp;</span><span class="p">,</span> <span class="kt">short</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"int&amp;"</span><span class="p">,</span> <span class="s">"short"</span><span class="p">);</span>
+  <span class="n">f</span><span class="o">&lt;</span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span><span class="p">,</span> <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="s">"<a href="../vector/vector.html">std::vector</a>&lt;int&gt;&amp;"</span><span class="p">,</span> <span class="s">"<a href="../vector/vector.html">std::vector</a>&lt;short&gt;"</span><span class="p">);</span>
+  <span class="n">f</span><span class="o">&lt;</span><span class="n"><a href="../memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span><span class="p">,</span> <span class="n"><a href="../memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="s">"<a href="../memory/unique_ptr.html">std::unique_ptr</a>&lt;int&gt;&amp;"</span><span class="p">,</span> <span class="s">"<a href="../memory/unique_ptr.html">std::unique_ptr</a>&lt;int&gt;"</span><span class="p">);</span>
+  <span class="n">f</span><span class="o">&lt;</span><span class="n">S</span><span class="o">&amp;</span><span class="p">,</span> <span class="n">S</span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="s">"S&amp;"</span><span class="p">,</span> <span class="s">"S&amp;"</span><span class="p">);</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+
+  <span class="n">f</span><span class="o">&lt;</span><span class="n"><a href="../memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span><span class="p">,</span> <span class="n"><a href="../memory/unique_ptr.html">std::unique_ptr</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;&gt;</span><span class="p">(</span><span class="s">"<a href="../memory/unique_ptr.html">std::unique_ptr</a>&lt;int&gt;&amp;"</span><span class="p">,</span> <span class="s">"<a href="../memory/unique_ptr.html">std::unique_ptr</a>&lt;short&gt;&amp;"</span><span class="p">);</span>
+  <span class="n">f</span><span class="o">&lt;</span><span class="n">S</span><span class="o">&amp;</span><span class="p">,</span> <span class="n">S</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"S&amp;"</span><span class="p">,</span> <span class="s">"S"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>int&amp; is assignable from short
+<a href="../vector/vector.html">std::vector</a>&lt;int&gt;&amp; is assignable from <a href="../vector/vector.html">std::vector</a>&lt;short&gt;
+<a href="../memory/unique_ptr.html">std::unique_ptr</a>&lt;int&gt;&amp; is assignable from <a href="../memory/unique_ptr.html">std::unique_ptr</a>&lt;int&gt;
+S&amp; is assignable from S&amp;
+
+<a href="../memory/unique_ptr.html">std::unique_ptr</a>&lt;int&gt;&amp; is not assignable from <a href="../memory/unique_ptr.html">std::unique_ptr</a>&lt;short&gt;&amp;
+S&amp; is not assignable from S
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++20</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 10.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2019 Update 3 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><a href="../../lang/cpp20/concepts.html">C++20 コンセプト</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0898r3.pdf" target="_blank">P0898R3 Standard Library Concepts</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1754r1.pdf" target="_blank">P1754R1 Rename concepts to standard_case for C++20, while we still can</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

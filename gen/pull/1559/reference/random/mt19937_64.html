@@ -1,0 +1,313 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>mt19937_64 - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,random,std,type-alias,cpp11
+">
+        <meta name="title" content="mt19937_64 - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="mt19937_64 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="mt19937_64 - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/random/mt19937_64.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="パラメータ設定済みの[`mersenne_twister_engine`](mersenne_twister_engine.md)。  " />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="mt19937_64 - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/random/mt19937_64.html" />
+        <meta name="twitter:description" content="パラメータ設定済みの[`mersenne_twister_engine`](mersenne_twister_engine.md)。  " />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<link rel="manifest" href="../../manifest.json?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;random&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;type-alias&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;86a8b761a6df2e9cc924096a5c6b96f865089b26&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;random&gt;\n#include &lt;cstdint&gt;\n\nint main()\n{\n  std::random_device seed_gen;\n  std::uint32_t seed = seed_gen();\n  std::mt19937_64 engine(seed);\n\n  for (int i = 0; i &lt; 10; ++i) {\n    std::uint64_t result = engine();\n    std::cout &lt;&lt; result &lt;&lt; std::endl;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;random&#34;, &#34;mt19937_64&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/random.html" itemprop="url">
+              
+                <span itemprop="name">random</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">mt19937_64</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-10-22T16:15:43">
+        2025年10月22日 16時15分43秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/random/mt19937_64.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/random/mt19937_64.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">type-alias</div><div class="header">&lt;random&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">mt19937_64</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">using</span> <span class="n">mt19937_64</span> <span class="o">=</span> <span class="n"><a href="mersenne_twister_engine.html">mersenne_twister_engine</a></span><span class="o">&lt;</span>
+      <span class="n"><a href="../cstdint/uint_fast64_t.html">uint_fast64_t</a></span><span class="p">,</span>
+      <span class="mi">64</span><span class="p">,</span> <span class="mi">312</span><span class="p">,</span> <span class="mi">156</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span>
+      <span class="mh">0xb5026f5aa96619e9</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mh">0x5555555555555555</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span>
+      <span class="mh">0x71d67fffeda60000</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mh">0xfff7eee000000000</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">6364136223846793005</span>
+    <span class="o">&gt;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>パラメータ設定済みの<code><a href="mersenne_twister_engine.html">mersenne_twister_engine</a></code>。<br />
+64ビット版のメルセンヌ・ツイスター。32ビット版は<code><a href="mt19937.html">mt19937</a></code>。</p>
+<p>19937という名称は、メルセンヌ・ツイスター法によって生成される乱数列の周期から来ている(2<sup>19937</sup> - 1)。  </p>
+<p>この乱数生成器は、64ビット環境以上では、それ未満の環境に比べて高速に動作する。また、64ビット整数をシード値としてとれるため、32ビット版の<code><a href="mt19937.html">mt19937</a></code>に比べて、さらなる乱雑さを期待できる。</p>
+<h2>要件</h2>
+<p><code>mt19937_64</code>型オブジェクトを<a class="cpprefjp-defined-word" data-desc="デフォルト初期化。`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト構築</a>した場合、10000番目に生成される擬似乱数の値は<code>9981545732273789042</code>であること。</p>
+<h2>乱数列の周期</h2>
+<p>2<sup>19937</sup> - 1</p>
+<h2>サイズ</h2>
+<p><div class="codehilite"><pre><span></span><code><span class="p">(</span><span class="mi">312</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="n"><a href="../cstdint/uint_fast64_t.html">uint_fast64_t</a></span><span class="p">)</span>
+</code></pre></div>
+</p>
+<p>メルセンヌ・ツイスターのシフトサイズ(312) + 現在の状態(1)。</p>
+<h2>パフォーマンス</h2>
+<p>32ビット環境では、およそ<code><a href="mt19937.html">mt19937</a></code>より3倍近く遅い。</p>
+<p>64ビット環境では、実装にもよるが32ビット環境以上に高速に動作する。</p>
+<h2>次元</h2>
+<p>311次元で一様分布する。</p>
+<p>このトレードオフは、各出力の間(現在の状態と次の状態)の相関関係が、無視できるほどしかないということを意味する。たとえばN次元のランダムなベクトルを生成する場合、各次元の値に相関関係がほぼない状態にできる。</p>
+<h2>シード、および生成される値の型</h2>
+<p><code><a href="../cstdint/uint_fast64_t.html">uint_fast64_t</a></code></p>
+<h2>例</h2>
+<p><div class="yata" id="86a8b761a6df2e9cc924096a5c6b96f865089b26"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../random.html">&lt;random&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../cstdint.html">&lt;cstdint&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="random_device.html">std::random_device</a></span> <span class="n">seed_gen</span><span class="p">;</span>
+  <span class="n"><a href="../cstdint/uint32_t.html">std::uint32_t</a></span> <span class="n">seed</span> <span class="o">=</span> <span class="n">seed_gen</span><span class="p">();</span>
+  <span class="n"><span style="color:#ff0000">std::mt19937_64</span></span> <span class="n">engine</span><span class="p">(</span><span class="n">seed</span><span class="p">);</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../cstdint/uint64_t.html">std::uint64_t</a></span> <span class="n">result</span> <span class="o">=</span> <span class="n"><a href="mersenne_twister_engine/op_call.html">engine()</a></span><span class="p">;</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力例</h3>
+<p><pre><code>1621025592805379139
+4514793392314528655
+4543694396077351855
+3612539632838912606
+2625719985131503282
+3238788996565779147
+3317678171748965379
+12700229574828234289
+8869797388973705309
+9625202625077775903
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 4.7.2 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

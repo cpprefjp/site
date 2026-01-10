@@ -1,0 +1,327 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>movable - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,concepts,std,concept,cpp20
+">
+        <meta name="title" content="movable - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="movable - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="movable - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/concepts/movable.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="movable - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/concepts/movable.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<link rel="manifest" href="../../manifest.json?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;concepts&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;concept&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;f109ce4b34d21403d1465bb5f9cd20dda22dd365&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;concepts&gt;\n\ntemplate&lt;std::movable T&gt;\nvoid f(const char* name) {\n  std::cout &lt;&lt; name &lt;&lt; \&#34; is movable\&#34; &lt;&lt; std::endl;\n}\n\ntemplate&lt;typename T&gt;\nvoid f(const char* name) {\n  std::cout &lt;&lt; name &lt;&lt; \&#34; is not movable\&#34; &lt;&lt; std::endl;\n}\n\n\nstruct movable {\n  movable(movable&amp;&amp;) = default;\n  movable&amp; operator=(movable&amp;&amp;) = default;\n};\n\nstruct not_movable1 {\n  not_movable1(not_movable1&amp;&amp;) = delete;\n};\n\nstruct not_movable2 {\n  not_movable2&amp; operator=(not_movable2&amp;&amp;) = delete;\n};\n\nint main() {\n  f&lt;int&gt;(\&#34;int\&#34;);\n  f&lt;double&gt;(\&#34;double\&#34;);\n  f&lt;std::nullptr_t&gt;(\&#34;std::nullptr_t\&#34;);\n  f&lt;std::size_t&gt;(\&#34;std::size_t\&#34;);\n  f&lt;movable&gt;(\&#34;movable\&#34;);\n\n  std::cout &lt;&lt; \&#34;\\n\&#34;;\n  f&lt;void&gt;(\&#34;void\&#34;);\n  f&lt;not_movable1&gt;(\&#34;not_movable1\&#34;);\n  f&lt;not_movable2&gt;(\&#34;not_movable2\&#34;);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;concepts&#34;, &#34;movable&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/concepts.html" itemprop="url">
+              
+                <span itemprop="name">concepts</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">movable</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-07-08T15:33:39">
+        2025年07月08日 15時33分39秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/concepts/movable.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/concepts/movable.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">concept</div><div class="header">&lt;concepts&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">movable</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <span class="n">concept</span> <span class="n">movable</span> <span class="o">=</span> <span class="n"><a href="../type_traits/is_object.html">is_object_v</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
+                    <span class="n"><a href="move_constructible.html">move_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
+                    <span class="n"><a href="assignable_from.html">assignable_from</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&amp;</span><span class="p">,</span> <span class="n">T</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
+                    <span class="n"><a href="swappable.html">swappable</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>movable</code>は、任意の型<code>T</code>がオブジェクト型かつムーブ構築・代入が可能であることを表すコンセプトである。</p>
+<h2>備考</h2>
+<p>意味論上はムーブ構築可能(<code>move_constructible&lt;T&gt;</code>)かつムーブ代入可能(<code>assignable_from&lt;T&amp;, T&gt;</code>)であれば結果として必然的に<code><a href="swap.html">swap</a></code>可能となるにもかかわらず、本コンセプト定義の制約式は<code><a href="swappable.html">swappable</a></code>コンセプトを明示的に含んでいる。</p>
+<p>オブジェクトに対する基本操作としては「<code>swap</code>可能」がもっとも原始的と考えられるため、ムーブ可能を表すコンセプトの制約式に<code>swappable</code>コンセプトを含めることで、そのような「<code>swap</code>可能-&gt;ムーブ可能-&gt;コピー可能」という基本操作の関係性を、コンセプトにおける包摂関係として表現している。</p>
+<h2>例</h2>
+<p><div class="yata" id="f109ce4b34d21403d1465bb5f9cd20dda22dd365"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../concepts.html">&lt;concepts&gt;</a></span><span class="cp"></span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">std::movable</span></span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="s">" is movable"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="s">" is not movable"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="k">struct</span> <span class="n">movable</span> <span class="p">{</span>
+  <span class="n">movable</span><span class="p">(</span><span class="n">movable</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+  <span class="n">movable</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">movable</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">not_movable1</span> <span class="p">{</span>
+  <span class="n">not_movable1</span><span class="p">(</span><span class="n">not_movable1</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">not_movable2</span> <span class="p">{</span>
+  <span class="n">not_movable2</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">not_movable2</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">f</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"int"</span><span class="p">);</span>
+  <span class="n">f</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"double"</span><span class="p">);</span>
+  <span class="n">f</span><span class="o">&lt;</span><span class="n"><a href="../cstddef/nullptr_t.html">std::nullptr_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="s">"<a href="../cstddef/nullptr_t.html">std::nullptr_t</a>"</span><span class="p">);</span>
+  <span class="n">f</span><span class="o">&lt;</span><span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span><span class="o">&gt;</span><span class="p">(</span><span class="s">"<a href="../cstddef/size_t.html">std::size_t</a>"</span><span class="p">);</span>
+  <span class="n">f</span><span class="o">&lt;</span><span class="n">movable</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"movable"</span><span class="p">);</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+  <span class="n">f</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"void"</span><span class="p">);</span>
+  <span class="n">f</span><span class="o">&lt;</span><span class="n">not_movable1</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"not_movable1"</span><span class="p">);</span>
+  <span class="n">f</span><span class="o">&lt;</span><span class="n">not_movable2</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"not_movable2"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>int is movable
+double is movable
+<a href="../cstddef/nullptr_t.html">std::nullptr_t</a> is movable
+<a href="../cstddef/size_t.html">std::size_t</a> is movable
+movable is movable
+
+void is not movable
+not_movable1 is not movable
+not_movable2 is not movable
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++20</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 10.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2019 Update 3 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><a href="../../lang/cpp20/concepts.html">C++20 コンセプト</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0898r3.pdf" target="_blank">P0898R3 Standard Library Concepts</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1754r1.pdf" target="_blank">P1754R1 Rename concepts to standard_case for C++20, while we still can</a></li>
+<li><a href="https://github.com/cpprefjp/site/pull/929" target="_blank">値指向なコンセプトの説明文面を修正 Pull Request #929 - cpprefjp/site</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

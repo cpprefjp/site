@@ -1,0 +1,312 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>is-integer-like - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,iterator,std,variable,cpp20
+">
+        <meta name="title" content="is-integer-like - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="is-integer-like - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="is-integer-like - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/iterator/is_integer_like.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="is-integer-like - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/iterator/is_integer_like.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<link rel="manifest" href="../../manifest.json?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;iterator&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;variable&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;iterator&#34;, &#34;is_integer_like&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/iterator.html" itemprop="url">
+              
+                <span itemprop="name">iterator</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">is-integer-like</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-08-31T10:06:36">
+        2025年08月31日 10時06分36秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Raclamusi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/iterator/is_integer_like.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/iterator/is_integer_like.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">variable</div><div class="header">&lt;iterator&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">is-integer-like</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">is</span><span class="o">-</span><span class="n">integer</span><span class="o">-</span><span class="n">like</span> <span class="o">=</span> <span class="n"><i>see below</i></span><span class="p">;</span>
+
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">is</span><span class="o">-</span><span class="kt">signed</span><span class="o">-</span><span class="n">integer</span><span class="o">-</span><span class="n">like</span> <span class="o">=</span> <span class="n"><i>see below</i></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>これらの説明専用の変数テンプレートは、任意の型<code>T</code>が符号付/なし整数型そのものあるいはそれと同様に扱える型である場合に<code>true</code>を示すものである。</p>
+<p>これは標準ライブラリ内において、イテレータの差分型（<code>difference_type</code>）として<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">実装定義</a>の整数型の使用を許可するためにコンセプトの文脈で使用される。</p>
+<h2>効果</h2>
+<p><code>is-integer-like&lt;T&gt;</code>は<code>T</code>が<code><a href="../concepts/integral.html">integral</a></code>のモデルとなるか<em>integer-class</em>である時に<code>true</code>を示す。ただし、<code>T</code>が<code>bool</code>かその<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>された型である場合は常に<code>false</code>となる。<br />
+<code>is-signed-integer-like&lt;T&gt;</code>は<code>T</code>が<code>integer-like</code>（<code>is-integer-like&lt;T&gt; == true</code>）であり、<code><a href="../concepts/signed_integral.html">signed_integral</a></code>のモデルとなるか<em>signed-integer-class</em>である時に<code>true</code>を示す。</p>
+<h2>(signed-)integer-class型</h2>
+<p><em>integer-class</em>型は組み込みの整数型と同じように動作する<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">実装定義</a>のクラス型である。</p>
+<p><em>integer-class</em>型の表現可能な範囲はそれが定義する値の連続集合であり、<code>0</code>と<code>1</code>を必ず含んでいなければならない。この時、その範囲に負の数が含まれていればその型は<em>signed-integer-class</em>型であり、それ以外のものは<em>unsigned-integer-class</em>型である。</p>
+<h3>要件</h3>
+<p><code>I</code>をある<em>integer-class</em>型、<code>B</code>を少なくとも<code>I</code>と同じ範囲の値を表現可能で同じ幅を持つ別の<em>integer-class</em>型とする。<br />
+<code>I</code>の値<code>a, b</code>、<code>a, b</code>それぞれと同じ値を表現する<code>B</code>の値<code>x, y</code>と任意の整数型の値<code>c</code>について次のことが成り立つ。</p>
+<ul>
+<li>式<code>@x</code>が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../implementation-compliance.html#dfn-well-formed">適格</a>である全ての単項演算子<code>@</code>について<code>@a</code>もまた<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../implementation-compliance.html#dfn-well-formed">適格</a>であり、共に同じ値、効果、値カテゴリを持つ。<code>@x</code>が<code>bool</code>型を示す場合<code>@a</code>もまた<code>bool</code>型を示すが。<code>@x</code>が<code>B</code>を示す場合は<code>@a</code>は<code>I</code>を示す。</li>
+<li>式<code>c @= x</code>が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../implementation-compliance.html#dfn-well-formed">適格</a>である全ての（複合）代入演算子<code>@=</code>について<code>c @= a</code>もまた<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../implementation-compliance.html#dfn-well-formed">適格</a>であり、共に同じ値、効果を持つ。式<code>c @= a</code>の結果は<code>c</code>を参照する<em>lvalue</em>となる。</li>
+<li>式<code>x @ y</code>が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../implementation-compliance.html#dfn-well-formed">適格</a>である全ての二項演算子<code>@</code>について<code>a @ b</code>もまた<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../implementation-compliance.html#dfn-well-formed">適格</a>であり、結果の値を<code>I</code>が表現できる場合は共に同じ値、効果、値カテゴリを持つ。<code>x @ y</code>が<code>bool</code>型を示す場合<code>a @ b</code>もまた<code>bool</code>型を示すが。<code>x @ y</code>が<code>B</code>を示す場合は<code>a @ b</code>は<code>I</code>を示す。</li>
+<li><em>integer-class</em>型の値は任意の整数型に明示的に変換でき、任意の整数型の値は<em>integer-class</em>型に暗黙的にも明示的にも変換できる。それらの変換は<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出しない。</li>
+<li><em>integer-class</em>型の式<code>E</code>は<code>bool(E != I(0))</code>のように文脈的に<code>bool</code>に変換できる。</li>
+<li><em>integer-class</em>型は<code><a href="../concepts/regular.html">regular</a></code>及び<code><a href="../concepts/totally_ordered.html">totally_ordered</a></code>のモデルとなる。</li>
+<li><a class="cpprefjp-defined-word" data-desc="`T x{};`構文での初期化。組み込み型の場合はゼロ相当の値で、クラス型の場合はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的に値初期化される">値初期化</a>された<em>integer-class</em>型の値は<code>0</code>になる。</li>
+</ul>
+<p><em>integer-class</em>型<code>I</code>について<code><a href="../limits/numeric_limits.html">numeric_limits&lt;I&gt;</a></code>の特殊化は次のような値を示す。</p>
+<ul>
+<li><code>numeric_limits&lt;I&gt;::is_specialized == true</code></li>
+<li><code><a href="../limits/numeric_limits/is_signed.html">numeric_limits&lt;I&gt;::is_signed</a> == true</code><ul>
+<li><code>I</code>が<em>signed-integer-class</em>型の場合のみ</li>
+</ul>
+</li>
+<li><code><a href="../limits/numeric_limits/digits.html">numeric_limits&lt;I&gt;::digits</a></code>は<code>I</code>の幅と等しい</li>
+<li><code><a href="../limits/numeric_limits/digits10.html">numeric_limits&lt;I&gt;::digits10</a></code>は<code>static_cast&lt;int&gt;(digits * log10(2))</code>と等しい</li>
+<li><code><a href="../limits/numeric_limits/min.html">numeric_limits&lt;I&gt;::min()</a></code>と<code><a href="../limits/numeric_limits/max.html">numeric_limits&lt;I&gt;::max()</a></code>はそれぞれ、<code>I</code>の表現可能な値の最小値と最大値を返す。<code><a href="../limits/numeric_limits/lowest.html">numeric_limits&lt;I&gt;::lowest()</a></code>は<code>numeric_limits&lt;I&gt;::max()</code>を返す。</li>
+</ul>
+<h2>実装例 (MSVC)</h2>
+<p><div class="codehilite"><pre><span></span><code><span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">_Is_nonbool_integral</span> <span class="o">=</span> <span class="n"><a href="../type_traits/is_integral.html">is_integral_v</a></span><span class="o">&lt;</span><span class="n">_Ty</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n"><a href="../type_traits/is_same.html">is_same_v</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/remove_cv.html">remove_cv_t</a></span><span class="o">&lt;</span><span class="n">_Ty</span><span class="o">&gt;</span><span class="p">,</span> <span class="kt">bool</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">_Ty</span><span class="o">&gt;</span>
+<span class="kr">inline</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">_Integer_class</span> <span class="o">=</span> <span class="n">requires</span> <span class="p">{</span>
+  <span class="k">typename</span> <span class="n">_Ty</span><span class="o">::</span><span class="n">_Signed_type</span><span class="p">;</span>
+  <span class="k">typename</span> <span class="n">_Ty</span><span class="o">::</span><span class="n">_Unsigned_type</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">_Ty</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">_Integer_like</span> <span class="o">=</span> <span class="n">_Is_nonbool_integral</span><span class="o">&lt;</span><span class="n"><a href="../type_traits/remove_cv.html">remove_cv_t</a></span><span class="o">&lt;</span><span class="n">_Ty</span><span class="o">&gt;&gt;</span> <span class="o">||</span> <span class="n">_Integer_class</span><span class="o">&lt;</span><span class="n">_Ty</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">_Ty</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">_Signed_integer_like</span> <span class="o">=</span> <span class="n">_Integer_like</span><span class="o">&lt;</span><span class="n">_Ty</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">_Ty</span><span class="o">&gt;</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">_Ty</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</code></pre></div>
+</p>
+<p>上記の説明のうち構文的な要件を素直に実装している。MSVCでは、128ビット整数が<em>integer-class</em>型である。</p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++20</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="weakly_incrementable.html">weakly_incrementable</a></code></li>
+<li><code><a href="../ranges/iota_view.html">iota_view</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1522r1.pdf" target="_blank">P1522R1 Iterator Difference Type and Integer Overflow</a></li>
+<li><a href="https://cplusplus.github.io/LWG/issue3467" target="_blank">LWG Issue 3467. bool can't be an integer-like type</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

@@ -1,0 +1,662 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>constexpr if 文 [P0292R2] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp17
+">
+        <meta name="title" content="constexpr if 文 [P0292R2] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="constexpr if 文 [P0292R2] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="constexpr if 文 [P0292R2] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp17/if_constexpr.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="constexpr if 文 [P0292R2] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp17/if_constexpr.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<link rel="manifest" href="../../manifest.json?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=16b31c406b907f6df4eaf0be75319bbffb6bcd32"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;e71dc51e3c807c2d099833ca105af0209dae3458&#34;, &#34;source&#34;: &#34;#include &lt;type_traits&gt;\n\ntemplate &lt;typename T&gt;\nvoid f(T)\n{\n  if constexpr (std::is_same_v&lt;T, int&gt;)\n  {\n    // T\u304cint\u306e\u3068\u304d\u306e\u307f\u8a55\u4fa1\u3055\u308c\u3066\u307b\u3057\u3044\n    // \u5b9f\u969b\u306f\u5e38\u306b\u8a55\u4fa1\u3055\u308c\u308b\n    static_assert(false);\n  }\n}\n\nint main()\n{\n  f(2.4);\n  f(3);\n}\n&#34;}, {&#34;id&#34;: &#34;583ebd19262fed28c91d69f132fcbcae803ddce6&#34;, &#34;source&#34;: &#34;#include &lt;type_traits&gt;\n\ntemplate &lt;typename T&gt;\nconstexpr bool false_v = false;\n\ntemplate &lt;typename T&gt;\nvoid f(T)\n{\n  if constexpr (std::is_same_v&lt;T, int&gt;)\n  {\n    // T\u304cint\u306e\u3068\u304d\u306e\u307f\u8a55\u4fa1\u3055\u308c\u308b\n    static_assert(false_v&lt;T&gt;);\n  }\n}\n\nint main()\n{\n  f(2.4);\n  f(3);\n}\n&#34;}, {&#34;id&#34;: &#34;bbd30e2c982d81f86d8e0b8fc3b99ee38278503f&#34;, &#34;source&#34;: &#34;#include &lt;type_traits&gt;\n\ntemplate &lt;typename T&gt;\nvoid f(T)\n{\n  if constexpr (std::is_same_v&lt;T, int&gt;)\n  {\n    // T\u304cint\u306e\u3068\u304d\u306e\u307f\u8a55\u4fa1\u3055\u308c\u308b\n    static_assert([]{return false;}());\n  }\n}\n\nint main()\n{\n  f(2.4);\n  f(3);\n}\n&#34;}, {&#34;id&#34;: &#34;babd8abb29ae2e8d87d8740451c8ba13f4573333&#34;, &#34;source&#34;: &#34;#include &lt;type_traits&gt;\n#include &lt;iostream&gt;\n\nstruct Hoge {\n  using type = int;\n};\n\ntemplate &lt;typename T&gt;\nvoid f()\n{\n  if constexpr (std::is_same_v&lt;typename T::type, int&gt; || std::is_same_v&lt;typename T::value_type, int&gt;) {\n    std::cout &lt;&lt; \&#34;is int\&#34; &lt;&lt; std::endl;\n  }\n}\n\nint main()\n{\n  f&lt;Hoge&gt;(); //error: Hoge::value_type\u306f\u5b58\u5728\u3057\u306a\u3044\u306e\u3067if constexpr\u6587\u306e\u6761\u4ef6\u5f0f\u304c\u30b3\u30f3\u30d1\u30a4\u30eb\u30a8\u30e9\u30fc\u306b\u306a\u308b\n}\n&#34;}, {&#34;id&#34;: &#34;1db62823aed0162ca08415e26147d292cbce36d2&#34;, &#34;source&#34;: &#34;#include &lt;cstdint&gt;\ntemplate &lt;class T&gt;\nvoid f(T t) {\n  if constexpr (sizeof(T) == sizeof(std::int32_t)) {\n    use(t);\n  } else {\n    static_assert(false, \&#34;must be 32bit\&#34;);\n  }\n}\n\nvoid g(std::int8_t c) {\n  std::int32_t n = 0;\n  f(n); // OK: n\u306fstd::int32_t\u578b\u306a\u306e\u3067`use(t);`\u306e\u307b\u3046\u304c\u30a4\u30f3\u30b9\u30bf\u30f3\u30b9\u5316\u3055\u308c\u308b\u305f\u3081\u306b\u3001static_assert\u6587\u306f\u5ba3\u8a00\u3055\u308c\u306a\u3044\u3002\n  f(c); // error: c\u306fstd::int8_t\u578b\u306a\u306e\u3067\u3001static_assert\u6587\u306f\u5ba3\u8a00\u3055\u308c\u3001\&#34;must be 32bit\&#34;\u3068\u30b3\u30f3\u30d1\u30a4\u30e9\u304c\u8a3a\u65ad\u30e1\u30c3\u30bb\u30fc\u30b8\u3092\u51fa\u529b\u3059\u308b\n}\n&#34;}, {&#34;id&#34;: &#34;474b034dc49c625edd965c985714c99002564ffc&#34;, &#34;source&#34;: &#34;#include &lt;type_traits&gt;\n#include &lt;random&gt;\n#include &lt;cstdint&gt;\n#include &lt;iostream&gt;\n\n// C++11\ntemplate&lt;typename Integer&gt;\nusing mt = typename std::conditional&lt;std::is_same&lt;Integer, std::uint32_t&gt;::value, std::mt19937, std::mt19937_64&gt;::type;\n\n// C++14\u4ee5\u964d\n// template&lt;typename Integer&gt;\n// using mt = std::conditional_t&lt;std::is_same&lt;Integer, std::uint32_t&gt;::value, std::mt19937, std::mt19937_64&gt;;\n\nint main()\n{\n  mt&lt;std::uint32_t&gt; m1 {37};\n  std::cout &lt;&lt; m1() &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp17&#34;, &#34;if_constexpr&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp17.html" itemprop="url">
+              
+                <span itemprop="name">C++17</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">constexpr if 文 [P0292R2]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-09-18T07:22:34">
+        2025年09月18日 07時22分34秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Raclamusi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp17/if_constexpr.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp17/if_constexpr.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">constexpr if 文 [P0292R2]</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++17に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>constexpr if文とは、文を条件付きコンパイルすることを目的とした制御構文である。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span> <span class="n">condition</span> <span class="p">)</span>
+  <span class="n">statement</span>
+<span class="k">else</span>
+  <span class="n">statement</span>
+</code></pre></div>
+</p>
+<p><code>condition</code>はコンパイル時に<code>bool</code>に評価できる式である。
+<code>condition</code>によって採用されなかった分岐は、2段階名前探索(two-phase name lookup)において、
+2段階目の依存式の解析(依存名解決およびテンプレートの実体化)の対象から除外される。
+ただし、どちらの分岐も1段階目の構文解析・意味解析の対象となる事に注意する。</p>
+<h2>仕様</h2>
+<p>constexpr if文は文法的には通常の<code>if</code>文において<code>(condition)</code>の前に<code>constexpr</code>があるだけである。
+条件<code>condition</code>は文脈的に<code>bool</code>に変換可能な定数式である
+(例えば<code>constexpr</code>指定された<code>explicit operator bool()</code>を持つ型の式)。
+条件が<code>false</code>の時最初の分岐が廃棄文(discarded statement)となり、<code>true</code>の時2つ目の分岐が廃棄文となる。
+テンプレート実体化の後に条件が非依存式のとき、廃棄文は実体化されない。</p>
+<ul>
+<li>廃棄文に現れるodr-usedな構成要素は定義されていなくても良い。</li>
+<li>constexpr if文の中の<code>case</code>及び<code>default</code>ラベルは、同じ分岐にある<code>switch</code>に対応している必要がある。</li>
+<li>constexpr if文の中のラベルは、同じ分岐内からしか参照してはならない。</li>
+<li>関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型の推論において、廃棄文内のreturn文は無視される。</li>
+</ul>
+<p>constexpr if文を用いれば例えば以下の様なコードを書くことができる。
+constexpr if文の中にある <code>s += a1</code> や <code>s += a1.capacity()</code> 等のようなコードは、<code>A1</code>が特定の型の時にしか<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../implementation-compliance.html#dfn-well-formed">適格</a>にならない。
+通常のif文を使うとこれをコンパイルする事はできないが、
+constexpr if文を用いれば特定の条件を満たした時にだけコードが実体化させることにより、以下のような記述を可能にする。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">Out</span><span class="p">,</span> <span class="k">typename</span> <span class="n">A1</span><span class="p">,</span> <span class="k">typename</span> <span class="n">A2</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">Out</span><span class="o">&amp;</span> <span class="n">o</span><span class="p">,</span> <span class="n">A1</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">a1</span><span class="p">,</span> <span class="n">A2</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">a2</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">if</span> <span class="nf">constexpr</span> <span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="n">A1</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">+=</span> <span class="n">a1</span><span class="p">;</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="nf">constexpr</span> <span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="n">A1</span><span class="p">,</span> <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">+=</span> <span class="n">a1</span><span class="p">.</span><span class="n">capacity</span><span class="p">();</span>
+
+  <span class="k">if</span> <span class="nf">constexpr</span> <span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="n">A2</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">+=</span> <span class="n">a2</span><span class="p">;</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="nf">constexpr</span> <span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="n">A2</span><span class="p">,</span> <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&gt;</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">+=</span> <span class="n">a2</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+
+  <span class="k">if</span> <span class="nf">constexpr</span> <span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="n">Out</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">)</span>
+    <span class="n">o</span> <span class="o">=</span> <span class="n">s</span><span class="p">;</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="nf">constexpr</span> <span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="n">Out</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&gt;</span><span class="p">)</span>
+    <span class="n">o</span> <span class="o">&lt;&lt;</span> <span class="n">s</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>この様な分岐は、従来はテンプレートの特殊化や推論規則(SFINAE)を利用した手法により実現されていたが、
+一つの関数の中に分岐が複数あると用意しなければならない特殊化・<a class="cpprefjp-defined-word" data-desc="オーバーロード。同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">多重定義</a>が指数関数的に増える。
+代わりに処理毎に分割してそれぞれにテンプレートを用意することが可能な場合もあるが、
+それでも記述が実際にしたい処理に比べて不必要に複雑になる。
+constexpr if文の導入によりそのような複雑な手法を用いずに素直に条件付きのコンパイルを実現できるようになった。</p>
+<h3>2段階名前探索における注意点</h3>
+<p><code>constexpr if</code>文で、実行されない方の<code>statement</code>は廃棄文(discarded statement)となり、文の実体化を防ぐ。言い換えると、2段階名前探索における依存名(dependent name)は、廃棄文の場合検証されない。また文が実体化されないのだから通常のif文と同じくもちろん実行時に実行もされない。つまり次の例は意図と異なる挙動を示す。</p>
+<p><div class="yata" id="e71dc51e3c807c2d099833ca105af0209dae3458"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// Tがintのときのみ評価されてほしい</span>
+    <span class="c1">// 実際は常に評価される</span>
+    <span class="k">static_assert</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">f</span><span class="p">(</span><span class="mf">2.4</span><span class="p">);</span>
+  <span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>なぜならば廃棄文はテンプレートの実体化を防ぐ (依存名の検証をしない) だけで、非依存名は検証されるからである。この例の<code><a href="../cpp11/static_assert.html">static_assert</a></code>に渡す条件式はテンプレートパラメータに依存していないので、テンプレートの宣言時に検証され、エラーとなる。言い換えれば<code>static_assert</code>に渡す条件式が依存名ならばテンプレートの宣言時に検証されず、テンプレート実体化まで評価を遅らせることができる。</p>
+<p><div class="yata" id="583ebd19262fed28c91d69f132fcbcae803ddce6"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">false_v</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// Tがintのときのみ評価される</span>
+    <span class="k">static_assert</span><span class="p">(</span><span class="n">false_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">f</span><span class="p">(</span><span class="mf">2.4</span><span class="p">);</span>
+  <span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>上の例では<code>false_v</code>を作ったが、ラムダ式でも同様のことができる。ラムダ式はそれが記述された位置から見て最小のスコープ (ブロックスコープ／クラススコープ／名前空間スコープ) で宣言されるクラスとして扱われる。例えば、下の例では<code>f()</code>という関数テンプレート内で宣言される。関数テンプレート内のクラスは依存名になるため、テンプレートの宣言時に検証されず、テンプレート実体化まで評価を遅らせることができる。</p>
+<p><div class="yata" id="bbd30e2c982d81f86d8e0b8fc3b99ee38278503f"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// Tがintのときのみ評価される</span>
+    <span class="k">static_assert</span><span class="p">([]{</span><span class="k">return</span> <span class="nb">false</span><span class="p">;}());</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">f</span><span class="p">(</span><span class="mf">2.4</span><span class="p">);</span>
+  <span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p><code>constexpr if</code>文の条件式内は実体化が起きる。したがって実体化するとコンパイルエラーになるものは書いてはいけない。</p>
+<p><div class="yata" id="babd8abb29ae2e8d87d8740451c8ba13f4573333"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">Hoge</span> <span class="p">{</span>
+  <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="kt">int</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">f</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">::</span><span class="n">type</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="o">||</span> <span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same_v</a></span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">::</span><span class="n">value_type</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"is int"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">f</span><span class="o">&lt;</span><span class="n">Hoge</span><span class="o">&gt;</span><span class="p">();</span> <span class="c1">//error: Hoge::value_typeは存在しないのでif constexpr文の条件式がコンパイルエラーになる</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>(CWG 2518が適用された環境) <code>static_assert</code>文に関する<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h3>
+<p>上に述べたように、<code>constexpr if</code>文の中の文は廃棄文においても、非依存名の検証を行う。このため特に<code>static_assert</code>文を使う時に直感的ではない挙動を示していた。</p>
+<p>C++23以降、もしくはCWG 2518が適用された環境においては、template文(もしくは適切な特殊化や<code>constexpr if</code>文の中の文)が実際にインスタンス化されるまで、<code>static_assert</code>文の宣言は遅延される。</p>
+<p><div class="yata" id="1db62823aed0162ca08415e26147d292cbce36d2"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/cstdint.html">&lt;cstdint&gt;</a></span><span class="cp"></span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">T</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="o">==</span> <span class="k">sizeof</span><span class="p">(</span><span class="n"><a href="../../reference/cstdint/int32_t.html">std::int32_t</a></span><span class="p">))</span> <span class="p">{</span>
+    <span class="n">use</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">static_assert</span><span class="p">(</span><span class="nb">false</span><span class="p">,</span> <span class="s">"must be 32bit"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">g</span><span class="p">(</span><span class="n"><a href="../../reference/cstdint/int8_t.html">std::int8_t</a></span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n"><a href="../../reference/cstdint/int32_t.html">std::int32_t</a></span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="p">);</span> <span class="c1">// OK: nは<a href="../../reference/cstdint/int32_t.html">std::int32_t</a>型なので`use(t);`のほうがインスタンス化されるために、static_assert文は宣言されない。</span>
+  <span class="n">f</span><span class="p">(</span><span class="n">c</span><span class="p">);</span> <span class="c1">// error: cは<a href="../../reference/cstdint/int8_t.html">std::int8_t</a>型なので、static_assert文は宣言され、"must be 32bit"とコンパイラが診断メッセージを出力する</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>類似機能との比較</h3>
+<p><code>constexpr if</code>文の導入によってC++の<code>if</code>系の条件分岐は3種類になった。</p>
+<ul>
+<li>プリプロセス時<code>if</code>: <code>#if</code></li>
+<li>コンパイル時<code>if</code>: <code>constexpr if</code></li>
+<li>実行時<code>if</code>: <code>if</code></li>
+</ul>
+<p>プリプロセス時の<code>#if</code>指令と異なり、<code>constexpr if</code>文は宣言を条件付きでコンパイルをすることはできない。例えば次の例は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>である。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span><span class="n">cond</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">void</span> <span class="n">f</span><span class="p">();</span>
+    <span class="k">using</span> <span class="n">int32</span> <span class="o">=</span> <span class="kt">int</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="kt">void</span> <span class="n">g</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<p><code>constexpr if</code>文はスコープを作るので、例えばVisual C++の独自拡張機能である<code><a href="https://docs.microsoft.com/ja-jp/cpp/cpp/if-exists-statement" target="_blank">__if_exists</a></code>は以下のような書き方が可能であるが、<code>constexpr if</code>文でこれを再現することはできない。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">A</span> <span class="p">{</span>
+  <span class="k">static</span> <span class="kt">float</span> <span class="n">get</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="mf">1.2f</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">auto</span> <span class="n">a</span> <span class="o">=</span> <span class="n">__if_exists</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">get</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">A</span><span class="o">::</span><span class="n">get</span><span class="p">();</span>
+  <span class="p">}</span>
+  <span class="n">__if_not_exists</span><span class="p">(</span><span class="n">A</span><span class="o">::</span><span class="n">get</span><span class="p">)</span> <span class="p">{</span>
+    <span class="s">"not found"</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>同様にD言語の<code>static if</code>とは違いスコープを作るので、D言語で可能な次のようなことは<code>constexpr if</code>文で再現できない。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">const</span> <span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="k">class</span> <span class="n">C</span> <span class="p">{</span>
+  <span class="k">const</span> <span class="kt">int</span> <span class="n">k</span> <span class="p">=</span> <span class="mi">5</span><span class="p">;</span>
+
+  <span class="k">static</span> <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="p">==</span> <span class="mi">3</span><span class="p">)</span> <span class="c1">// D言語ではok</span>
+    <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+  <span class="k">else</span>
+    <span class="kt">long</span> <span class="n">x</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>なお型情報のifが欲しいならば、<code><a href="../../reference/type_traits/conditional.html">std::conditional</a></code> がある。</p>
+<p><div class="yata" id="474b034dc49c625edd965c985714c99002564ffc"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/random.html">&lt;random&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/cstdint.html">&lt;cstdint&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// C++11</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">Integer</span><span class="o">&gt;</span>
+<span class="k">using</span> <span class="n">mt</span> <span class="o">=</span> <span class="k">typename</span> <span class="n"><a href="../../reference/type_traits/conditional.html">std::conditional</a></span><span class="o">&lt;</span><span class="n"><a href="../../reference/type_traits/is_same.html">std::is_same</a></span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span> <span class="n"><a href="../../reference/cstdint/uint32_t.html">std::uint32_t</a></span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="n"><a href="../../reference/random/mt19937.html">std::mt19937</a></span><span class="p">,</span> <span class="n"><a href="../../reference/random/mt19937_64.html">std::mt19937_64</a></span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
+
+<span class="c1">// C++14以降</span>
+<span class="c1">// template&lt;typename Integer&gt;</span>
+<span class="c1">// using mt = <a href="../../reference/type_traits/conditional.html">std::conditional_t</a>&lt;<a href="../../reference/type_traits/is_same.html">std::is_same</a>&lt;Integer, <a href="../../reference/cstdint/uint32_t.html">std::uint32_t</a>&gt;::value, <a href="../../reference/random/mt19937.html">std::mt19937</a>, <a href="../../reference/random/mt19937_64.html">std::mt19937_64</a>&gt;;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">mt</span><span class="o">&lt;</span><span class="n"><a href="../../reference/cstdint/uint32_t.html">std::uint32_t</a></span><span class="o">&gt;</span> <span class="n">m1</span> <span class="p">{</span><span class="mi">37</span><span class="p">};</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">m1</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>一番最初の静的な条件分岐の提案文書 N3322 の直接のきっかけになったのは、
+静的な条件によってコンパイルエラーを発生させる <code>static_assert</code> の C++11 への導入である。
+その拡張として静的な条件によって宣言を切り替えられる機能を考えるのは自然な発想である。
+N3322 では、<code>static_assert</code> と同じように、
+名前空間スコープ・クラススコープ・ブロックスコープの何れでも使える <code>static_if</code> を提案している。
+次の提案文書 N3329 ではD言語における実装 [D0.124 <code>static if</code> (2005年)、D2.015 Template Constraints (2008年)] の実績を元に、
+より詳しい提案を行っている。</p>
+<p>これらの提案の目的は、従来使われた手法であるテンプレート特殊化、SFINAE、
+タグディスパッチなどの複雑な技法を単純化することであった。</p>
+<ul>
+<li>(A) 関数やメンバ関数の静的な条件分岐については、従来はテンプレート特殊化やSFINAEが用いられた。
+  静的な条件分岐を用いればより自然に実装することが可能である。</li>
+<li>(B) メンバ変数の静的な条件分岐については、従来は再帰的なクラスの派生とEBO(空の基底の最適化)の技法を用いた。
+  メンバ変数の条件分岐毎にクラスを派生させる必要があり、また派生による様々な制限を避けるために複雑になる。</li>
+<li>(C) ブロックスコープにおける静的な条件分岐に関しては、従来は分岐毎に処理を新しいテンプレートを定義して委譲する必要があった。
+  処理の間で変数を明示的に共有するために処理が複雑になる。処理が複数箇所に分断されるため読みにくく、また記述も煩雑である。</li>
+</ul>
+<p>特にこれらの提案で特徴的だったのは、</p>
+<ul>
+<li>静的な条件分岐によって関数や変数の宣言自体を切り替えることができる。</li>
+<li>静的な条件分岐の構文は新しいスコープを作らない。つまり条件分岐内の宣言は外から直接見える。</li>
+<li>廃棄された分岐(discarded branch)については構文解析すら実施しない (字句解析だけ行う)。</li>
+</ul>
+<p>一方で N3576 および N3613 において静的な条件分岐の提案は厳しい批判に晒されることになる。
+N3576 では Concepts Lite による条件付きの宣言を行う機能と、静的な条件分岐の機能の棲み分けが懸念された。
+両機能の矛盾が生じる懸念から少なくとも Concepts Lite の仕様が固まるまでは静的な条件分岐の議論は凍結するべきとの意見が強かった。
+更に、N3613 では N3322/N3329 で提案された仕様に対する批判が行われた。
+分かりにくくメンテナンスしにくいという事と、Concepts Lite との棲み分けの問題の他に、
+AST(抽象構文木)を元にしたソースコードの静的解析ツールの開発を困難にするとの指摘があった。
+また、静的な条件分岐で記述が本当に簡単になるのかという点についての幾つかの疑問も呈された。
+例えば、クラスメンバに対する静的な条件分岐に関しては、
+使用する側でも同様の静的な条件分岐が毎回必要であり煩雑であるということ。
+また、実際に複雑な処理を実装するのはライブラリ実装者であり、
+その様な者は従来の複雑な手法も理解しているはずなので、新しい機能は不要ではないかということ。
+他に、関数の<a class="cpprefjp-defined-word" data-desc="オーバーロード。同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">多重定義</a>や従来のテンプレート特殊化・SFINAE技法と比べて自由度が小さいということ、
+更にそれらとの組み合わせよって起こる問題についても懸念があった。</p>
+<p>N4461, P0128R0, P0128R1 では批判を受けて静的な条件分岐の大幅な単純化が提案された。
+特に、静的な条件分岐は上記 (C) ブロックスコープに限定し、宣言の条件分岐には使えないこととした。
+また静的な条件分岐は通常の<code>if</code>文と同様に変数のスコープを作成するということ、
+及び、廃棄された分岐の構文解析もテンプレートの2段階名前探索と同様にして実施するということが提案された。
+また、静的な条件分岐はテンプレートの中でしか使えないよう制限することも提案された。</p>
+<p>P0292R0-P0292R2 では、静的な条件分岐のキーワードが <code>if constexpr</code> になった。
+また、<code>static_assert</code> と同様に、テンプレートの外でも静的な条件分岐を許すように修正された。
+<code>auto</code>による関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型の推論で、廃棄された分岐内の<code>return</code>文は参考にしない旨が明記され、
+C++17 の規格原案 N4606 において変更が適用された。</p>
+<h2>検討されたほかの選択肢</h2>
+<p>N3322 では <code>static_assert</code> からの連想でキーワードとして <code>static_if</code> / <code>else</code> の組が提案された。
+N3329 ではD言語を参考にして <code>static if</code> / <code>else</code> の組が提案された。
+N3613 では <code>static if</code> の様な複合キーワードは、間にコメントを挟めるので、分かりにくく問題であると指摘された。
+また、通常の<code>if</code>文と静的な条件分岐とが互いに入れ子になっている時に <code>else</code> がどれに属しているのか分かりにくいとの指摘もあった。
+これを受けて P0128R0 では、静的な条件分岐がブロックスコープに制限されると共に、<code>constexpr_if</code> / <code>constexpr_else</code> となった。
+P0128R1 では、<code>constexpr if</code> / <code>constexpr_else</code> に改訂された。
+P0292R0 で現行の <code>if constexpr</code> / <code>else</code> が提案され、
+文法上は通常の<code>if</code>文に対する<code>constexpr</code>キーワードの修飾という形にまとめられた。
+<code>else</code> に関しては、通常の入れ子の<code>if</code>文と同様に一番近くの<code>if</code>/<code>if constexpr</code>文に属するとすれば曖昧さはないこと、
+また <code>if constexpr</code> を繋げた時の煩雑さから単に<code>else</code>とすることになった。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// N3322</span>
+<span class="n">static_if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span>
+  <span class="n">statement</span>
+<span class="k">else</span> <span class="n">static_if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span>
+  <span class="n">statement</span>
+<span class="k">else</span>
+  <span class="n">statement</span>
+
+<span class="c1">// N3329</span>
+<span class="k">static</span> <span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">statement</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">static</span> <span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">statement</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="n">statement</span>
+<span class="p">}</span>
+
+<span class="c1">// P0128R0</span>
+<span class="n">constexpr_if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span>
+  <span class="n">statement</span>
+<span class="n">constexpr_else</span>
+  <span class="n">statement</span>
+
+<span class="c1">// P0128R1</span>
+<span class="k">constexpr</span> <span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span>
+  <span class="n">statement</span>
+<span class="n">constexpr_else</span> <span class="k">constexpr</span> <span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span>
+  <span class="n">statement</span>
+<span class="n">constexpr_else</span>
+  <span class="n">statement</span>
+</code></pre></div>
+</p>
+<p>静的な条件分岐の各分岐を囲む波カッコ <code>{ ... }</code> に関しては、
+廃棄された分岐の構文解析を行わない N3329 においては必須とされた。
+つまり、構文解析は行わずに単にカッコだけの対応を取ることにより分岐の終わりを調べる。
+しかし、N3613 における批判により、結局はテンプレートの2段階名前探索と同様に、
+廃棄された分岐でも構文解析は実施され、非依存名に関しては1段階目で検証されることとなった。
+これにより通常の<code>if</code>文と同様に <code>{ ... }</code> は任意となった。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// N3329</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">g</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">static</span> <span class="k">if</span> <span class="p">(</span><span class="nb">false</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">static_assert</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span> <span class="c1">// 引っかからない (構文解析すら実施されない)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// P0292R0</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">g</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span><span class="nb">false</span><span class="p">)</span>
+    <span class="k">static_assert</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span> <span class="c1">// 廃棄された分岐内でも引っかかる (ill-formed NDR)</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>静的な条件によって関数の宣言・実装を切り替える構文として、N3322 および N3329 では以下のようなものも提案された。
+これは <code>requires</code> キーワードを用いる Concepts Lite が目的とする機能との類似性もあり、
+Concepts Lite の仕様が確定していない段階で、
+どのように棲み分けるのかや両方用いた時の振る舞いについての考察が問題になった。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// N3322</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">f</span><span class="p">()</span>
+  <span class="n">static_if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">statement</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="n">static_if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">statement</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">statement</span>
+  <span class="p">}</span>
+
+<span class="c1">// N3329 (cf D言語の Template Constraints)</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">f</span><span class="p">()</span> <span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">);</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">f</span><span class="p">()</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">statement</span>
+  <span class="p">}</span>
+</code></pre></div>
+</p>
+<p>ブロックスコープでの静的な条件分岐について、
+ライブラリによる代替手段として以下のようなものも可能であることが P0128R0 で指摘されている。
+つまり、ジェネリックラムダの実体化は実際に関数の呼び出しがある時に行われるので、
+実体化を遅延することができるのである。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// P0128R0</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">arg</span><span class="p">,</span> <span class="k">typename</span> <span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span> <span class="kt">int</span> <span class="n">do_something</span><span class="p">(</span><span class="n">Args</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">static_if</span><span class="o">&lt;</span><span class="k">sizeof</span><span class="p">...(</span><span class="n">args</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">get</span><span class="p">(</span>
+    <span class="p">[](</span><span class="k">auto</span> <span class="n">x</span><span class="p">,</span> <span class="k">auto</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">;</span> <span class="p">},</span>
+    <span class="p">[](</span><span class="k">auto</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="o">*</span><span class="n">x</span><span class="p">;</span> <span class="p">})(</span><span class="n">args</span><span class="p">...);</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>その他に、元々静的な条件分岐で置き換える目的だった、
+旧来のテンプレート特殊化・SFINAE・タグディスパッチ・EBO・再帰的な派生などの技法を用いた複雑な代替手段もあるが、
+それらを一つ一つここで紹介することは避ける。</p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><code><a href="../../reference/type_traits/conditional.html">std::conditional</a></code></li>
+<li><a href="../cpp23/narrowing_contextual_conversions_to_bool.html">C++23 定数式の文脈での<code>bool</code>への縮小変換を許可</a></li>
+</ul>
+<h2>参照</h2>
+<h3>関連する提案文書</h3>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3322.pdf" target="_blank">[PDF] N3322: A Preliminary Proposal for a Static if</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3329.pdf" target="_blank">[PDF] N3329: Proposal: <code>static if</code> declaration</a></li>
+<li><a href="https://isocpp.org/files/papers/N3576.pdf" target="_blank">[PDF] N3576: SG8 Concepts Teleconference Minutes – 2013-03-12</a> §2.1</li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3613.pdf" target="_blank">[PDF] N3613: “Static If ” Considered</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4461.html" target="_blank">N4461: Static if resurrected</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0128r0.html" target="_blank">P0128R0: constexpr_if</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0128r1.html" target="_blank">P0128R1: constexpr if</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0292r0.html" target="_blank">P0292R0: constexpr if: A slightly different syntax</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0292r1.html" target="_blank">P0292R1: constexpr if: A slightly different syntax</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0292r2.html" target="_blank">P0292R2: constexpr if: A slightly different syntax</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/n4603.html" target="_blank">N4603 Editor's Report -- Committee Draft, Standard for Programming Language C++</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2593r1.html" target="_blank">P2593R1: Allowing static_assert(false)</a></li>
+</ul>
+<h3>2段階名前探索における注意点について</h3>
+<ul>
+<li><a href="http://qiita.com/saka1_p/items/e8c4dfdbfa88449190c5" target="_blank">if constexprを使うとき、特定条件時にコンパイルを失敗させる - Qiita</a></li>
+<li><a href="https://cpplover.blogspot.jp/2017/05/constexpr-if.html" target="_blank">本の虫: constexpr ifの落とし穴</a></li>
+<li><a href="https://qiita.com/alphya/items/b3463d1a2f53687f6025" target="_blank"><code>static_assert</code>の評価を実体化まで遅延させる簡単な方法 - Qiita</a></li>
+<li><a href="https://teratail.com/questions/166409" target="_blank">C++ - constexpr if と local struct の評価のタイミングについて｜teratail</a></li>
+</ul>
+<h3>その他</h3>
+<ul>
+<li><a href="../cpp11/static_assert.html">C++11 コンパイル時アサート</a></li>
+<li><a href="http://web.archive.org/web/20201202042515/https://channel9.msdn.com/Events/GoingNative/GoingNative-2012/Static-If-I-Had-a-Hammer" target="_blank">Static If I Had a Hammer - Andrei Alexandrescu</a></li>
+<li><a href="https://faithandbrave.hateblo.jp/entry/2016/12/22/171238" target="_blank">C++1z if constexpr文 - Faith and Brave - C++で遊ぼう</a></li>
+<li><a href="https://lists.llvm.org/pipermail/cfe-dev/2014-March/035801.html" target="_blank">[cfe-dev] Clang getting involved</a></li>
+<li><a href="https://docs.microsoft.com/ja-jp/cpp/cpp/if-exists-statement" target="_blank"><code>__if_exists</code> Statement | Microsoft Docs</a></li>
+<li><a href="https://wg21.cmeerw.net/cwg/issue2518" target="_blank">Issue 2518: Conformance requirements and #error/#warning - WG21 CWG Issues</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
