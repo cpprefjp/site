@@ -45,26 +45,46 @@ namespace std {
 
 ## 例
 ```cpp example
-#include <cassert>
+#include <iostream>
 #include <cmath>
+#include <limits>
 
 int main()
 {
-  assert(std::signbit(-1.0f));
-  assert(std::signbit(-0.0f));
+// 通常の数値
+  std::cout << std::boolalpha;
+  std::cout << "-1.0f : " << std::signbit(-1.0f) << std::endl;
+  std::cout << "-0.0f : " << std::signbit(-0.0f) << std::endl;
 
-  assert(!std::signbit(1.0f));
-  assert(!std::signbit(0.0f));
+  std::cout << "1.0f  : " << std::signbit(1.0f) << std::endl;
+  std::cout << "0.0f  : " << std::signbit(0.0f) << std::endl;
 
-  constexpr float nan = std::numeric_limits<float>::quiet_NaN();
-  assert(!std::signbit(nan));
-  assert(std::signbit(-nan));
+  // 無限大
+  const double inf = std::numeric_limits<double>::infinity();
+  std::cout << "inf   : " << std::signbit(inf) << std::endl;
+  std::cout << "-inf  : " << std::signbit(-inf) << std::endl;
+
+  // NaN (Not a Number)
+  // NaNの符号ビットも検出できる
+  const double nan = std::numeric_limits<double>::quiet_NaN();
+  std::cout << "nan   : " << std::signbit(nan) << std::endl;
+  std::cout << "-nan  : " << std::signbit(-nan) << std::endl;
 }
 ```
 * std::signbit[color ff0000]
+* infinity()[link /reference/limits/numeric_limits/infinity.md]
+* quiet_NaN()[link /reference/limits/numeric_limits/quiet_nan.md]
 
 ### 出力
 ```
+-1.0f : true
+-0.0f : true
+1.0f  : false
+0.0f  : false
+inf   : false
+-inf  : true
+nan   : false
+-nan  : true
 ```
 
 ### 備考
