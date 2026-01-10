@@ -64,6 +64,7 @@ namespace std {
 
 ## 備考
 - 符号付きゼロを表現するが負のゼロを取り扱わない実装では、この関数はゼロを正と見なす。
+- 浮動小数点数の符号ビットを検出したい場合は、[`std::signbit`](/reference/cmath/signbit.md)を使用できる。`NaN`の符号を検出できる移植性のある方法はこの2つのみである。
 - C++23では、(1), (2), (3)が(4)に統合され、拡張浮動小数点数型を含む浮動小数点数型へのオーバーロードとして定義された
 
 
@@ -71,22 +72,40 @@ namespace std {
 ```cpp example
 #include <iostream>
 #include <cmath>
+#include <limits>
 
 int main()
 {
-  float result1 = std::copysign(1.0f, 2.0f);
-  float result2 = std::copysign(1.0f, -2.0f);
+  // 通常の数値
+  std::cout << "1.0f,  2.0f : " << std::copysign(1.0f, 2.0f) << std::endl;
+  std::cout << "0.0f, -2.0f : " << std::copysign(0.0f, -2.0f) << std::endl;
+  std::cout << "1.5f, -0.0f : " << std::copysign(1.5f, -0.0f) << std::endl;
 
-  std::cout << result1 << std::endl;
-  std::cout << result2 << std::endl;
+  // 無限大
+  const float inf = std::numeric_limits<float>::infinity();
+  std::cout << " inf, -2.0f : " << std::copysign(inf, -2.0f) << std::endl;
+  std::cout << " inf,  2.0f : " << std::copysign(inf, 2.0f) << std::endl;
+
+  // NaN (Not a Number)
+  // NaNの符号もコピーされる。
+  const float nan = std::numeric_limits<float>::quiet_NaN();
+  std::cout << " nan, -2.0f : " << std::copysign(nan, -2.0f) << std::endl;
+  std::cout << " nan,  2.0f : " << std::copysign(nan, 2.0f) << std::endl;
 }
 ```
 * std::copysign[color ff0000]
+* infinity()[link /reference/limits/numeric_limits/infinity.md]
+* quiet_NaN()[link /reference/limits/numeric_limits/quiet_nan.md]
 
 ### 出力
 ```
-1
--1
+1.0f,  2.0f : 1
+0.0f, -2.0f : -0
+1.5f, -0.0f : -1.5
+ inf, -2.0f : -inf
+ inf,  2.0f : inf
+ nan, -2.0f : -nan
+ nan,  2.0f : nan
 ```
 
 ### 備考
