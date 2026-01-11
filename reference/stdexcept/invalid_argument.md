@@ -13,7 +13,7 @@ namespace std {
 ## 概要
 
 関数などにおいて、引数に渡した値が不正であることを示す例外およびその基底クラスである。
-この例外は、`std::bitset::bitset`および`std::stoi`や`std::stof`系の関数によってスローされる。
+この例外は、`std::bitset::bitset`および`std::stoi`や`std::stof`系の関数によって送出される。
 
 ## メンバ関数
 
