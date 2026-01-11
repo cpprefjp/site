@@ -20,6 +20,7 @@ namespace std::execution {
 }
 ```
 * scheduler_t[link scheduler.md]
+* receiver[link receiver.md]
 * inline-sender[italic]
 * inline-state[italic]
 
@@ -49,7 +50,7 @@ namespace std::execution {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `schedule` | `inline-sender`を返す | C++26 |
+| `schedule` | [スケジュールSender](schedule.md)を返す | C++26 |
 
 ## メンバ型
 
