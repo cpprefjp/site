@@ -11,10 +11,14 @@ namespace std::execution {
 ```
 
 ## 概要
-`task_scheduler`は、任意の[Scheduler](scheduler.md)型を型消去して保持できるSchedulerである。
+`task_scheduler`は、任意の[Scheduler](scheduler.md)型を型消去して保持するSchedulerである。
+
+実行制御ライブラリのタスクコルーチン戻り値型[`task<T, E>`](task.md)において、環境`E`のデフォルトScheduler型として利用される。
 
 `task_scheduler`は[`scheduler`](scheduler.md)のモデルである。
 
+
+## クラス仕様
 `task_scheduler`クラスは、下記の説明専用メンバ変数を持つ。
 
 - `sch_` : [`shared_ptr`](/reference/memory/shared_ptr.md)`<void>`型
@@ -30,12 +34,12 @@ namespace std::execution {
 | `(destructor)` | デストラクタ | C++26 |
 | [`schedule`](task_scheduler/schedule.md) | [スケジュールSender](schedule.md)を返す | C++26 |
 
+
 ## メンバ型
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | `scheduler_concept` | [`scheduler_t`](scheduler.md) | C++26 |
-
 
 ### 比較演算子
 
@@ -80,6 +84,7 @@ int main()
 
 ## 関連項目
 - [`execution::scheduler`](scheduler.md)
+- [`execution::task`](task.md)
 
 
 ## 参照

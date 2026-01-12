@@ -37,7 +37,7 @@ namespace std::execution {
 
 説明用の`sndr`を`inline-sender`型の式とする。`CS`を[`completion_signatures`](completion_signatures.md)`<`[`set_value_t`](set_value.md)`()>`としたとき、`rcvr`を[`receiver_of`](receiver_of.md)`<decltype((rcvr)), CS>`が`true`となる式とする。
 
-- 式[`connect`](connect.md)`(sndr, rcvr)`の型は`line-state<remove_cvref_t<decltype((rcvr))>>`であり、式`((void)sndr, auto(rcvr))`が潜在的に例外送出(potentially-throwing)するときに限って潜在的に例外送出する。
+- 式[`connect`](connect.md)`(sndr, rcvr)`の型は`inline-state<`[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<decltype((rcvr))>>`であり、式`((void)sndr, auto(rcvr))`が潜在的に例外送出(potentially-throwing)するときに限って潜在的に例外送出する。
 - 式[`get_completion_scheduler`](get_completion_scheduler.md)`<`[`set_value_t`](set_value.md)`>(`[`get_env`](get_env.md)`(sndr))`の型は`inline_scheduler`であり、式[`get_env`](get_env.md)`(sndr)`が潜在的に例外送出(potentially-throwing)するときに限って潜在的に例外送出する。
 
 説明用の`o`を`inline-state<Rcvr>`型の非const左辺値とし、`REC(o)`を`o`を返す[接続(connect)](connect.md)呼び出しへ渡した式`rcvr`で初期化された`Rcvr`型の非const左辺値参照とする。
@@ -50,6 +50,8 @@ namespace std::execution {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
+| `(constructor)` | コンストラクタ | C++26 |
+| `(destructor)` | デストラクタ | C++26 |
 | `schedule` | [スケジュールSender](schedule.md)を返す | C++26 |
 
 ## メンバ型
