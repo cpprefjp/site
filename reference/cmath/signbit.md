@@ -51,7 +51,7 @@ namespace std {
 
 int main()
 {
-// 通常の数値
+  // 通常の数値
   std::cout << std::boolalpha;
   std::cout << "-1.0f : " << std::signbit(-1.0f) << std::endl;
   std::cout << "-0.0f : " << std::signbit(-0.0f) << std::endl;
