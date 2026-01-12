@@ -83,14 +83,14 @@ int main()
 
   // 無限大
   const float inf = std::numeric_limits<float>::infinity();
-  std::cout << " inf, -2.0f : " << std::copysign(inf, -2.0f) << std::endl;
-  std::cout << " inf,  2.0f : " << std::copysign(inf, 2.0f) << std::endl;
+  std::cout << "-inf,  3.0f : " << std::copysign(-inf, 3.0f) << std::endl;
+  std::cout << "3.0f,  -inf : " << std::copysign(3.0f, -inf) << std::endl;
 
   // NaN (Not a Number)
   // NaNの符号もコピーされる。
   const float nan = std::numeric_limits<float>::quiet_NaN();
-  std::cout << " nan, -2.0f : " << std::copysign(nan, -2.0f) << std::endl;
-  std::cout << " nan,  2.0f : " << std::copysign(nan, 2.0f) << std::endl;
+  std::cout << " nan, -4.2f : " << std::copysign(nan, -4.2f) << std::endl;
+  std::cout << "4.2f,  -nan : " << std::copysign(4.2f, -nan) << std::endl;
 }
 ```
 * std::copysign[color ff0000]
@@ -102,10 +102,10 @@ int main()
 1.0f,  2.0f : 1
 0.0f, -2.0f : -0
 1.5f, -0.0f : -1.5
- inf, -2.0f : -inf
- inf,  2.0f : inf
- nan, -2.0f : -nan
- nan,  2.0f : nan
+-inf,  3.0f : inf
+3.0f,  -inf : -3
+ nan, -4.2f : -nan
+4.2f,  -nan : -4.2
 ```
 
 ### 備考
