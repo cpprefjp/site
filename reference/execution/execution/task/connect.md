@@ -2,7 +2,7 @@
 * execution[meta header]
 * std::execution[meta namespace]
 * task[meta class]
-* template function[meta id-type]
+* function template[meta id-type]
 * cpp26[meta cpp]
 
 ```cpp
