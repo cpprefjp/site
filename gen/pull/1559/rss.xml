@@ -2,14 +2,14 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-01-12T00:44:44.550721</updated>
-  <id>129a05ef-6c68-4cd1-aae8-09a17ec830cf</id>
+  <updated>2026-01-12T02:30:25.201964</updated>
+  <id>7bfe9313-c2be-4e1c-ab3d-0099bdea957c</id>
 
   
     <entry>
       <title>copysign -- feat(cmath/copysign): 実行例のバリエーションを増やす</title>
       <link href="https://cpprefjp.github.io/reference/cmath/copysign.html"/>
-      <id>fc491d3893c4942ac82672c71f36adc8fd86e5ac:reference/cmath/copysign.md</id>
+      <id>d3c1b2340d19a6a1568ab870615da43e16b6c38b:reference/cmath/copysign.md</id>
       <updated>2026-01-12T09:32:09+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cmath/copysign.md b/reference/cmath/copysign.md
@@ -61,22 +61,13 @@ index ed7f660b3..e31b2c84b 100644
     <entry>
       <title>signbit -- fix(cmath/signbit): インデントの修正</title>
       <link href="https://cpprefjp.github.io/reference/cmath/signbit.html"/>
-      <id>474946a5b85d91790e2c403ab41ac482c8e67adb:reference/cmath/signbit.md</id>
+      <id>5895cf13311806d7a5734c60707248615c4b0dc9:reference/cmath/signbit.md</id>
       <updated>2026-01-12T09:14:56+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cmath/signbit.md b/reference/cmath/signbit.md
-index 2bc875a71..54c60e458 100644
+index 2bc875a71..4b575c401 100644
 --- a/reference/cmath/signbit.md
 +++ b/reference/cmath/signbit.md
-@@ -34,7 +34,7 @@ namespace std {
- ## 戻り値
- パラメータ`x`が負数である場合、`true`を返す。そうでない場合、`false`を返す。
- 
--この関数はその名前の通り、浮動小数点数の符号ビットを検出する。そのため、`NaN`の符号を検出することができる。  
-+この関数はその名前の通り、浮動小数点数の符号ビットを検出する。そのため、`NaN`の符号を検出することができる。
- 他には[`std::copysign`](/reference/cmath/copysign.md)でも検出でき、この2つのみが`NaN`の符号を検出できる移植性のある方法となる。
- 
- 
 @@ -51,7 +51,7 @@ namespace std {
  
  int main()
