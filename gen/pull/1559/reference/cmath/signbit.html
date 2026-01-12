@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cmath&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;d675e4a98f51731f3b0dfeec69045e2d65b8ae6c&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;cmath&gt;\n#include &lt;limits&gt;\n\nint main()\n{\n// \u901a\u5e38\u306e\u6570\u5024\n  std::cout &lt;&lt; std::boolalpha;\n  std::cout &lt;&lt; \&#34;-1.0f : \&#34; &lt;&lt; std::signbit(-1.0f) &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;-0.0f : \&#34; &lt;&lt; std::signbit(-0.0f) &lt;&lt; std::endl;\n\n  std::cout &lt;&lt; \&#34;1.0f  : \&#34; &lt;&lt; std::signbit(1.0f) &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;0.0f  : \&#34; &lt;&lt; std::signbit(0.0f) &lt;&lt; std::endl;\n\n  // \u7121\u9650\u5927\n  const double inf = std::numeric_limits&lt;double&gt;::infinity();\n  std::cout &lt;&lt; \&#34;inf   : \&#34; &lt;&lt; std::signbit(inf) &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;-inf  : \&#34; &lt;&lt; std::signbit(-inf) &lt;&lt; std::endl;\n\n  // NaN (Not a Number)\n  // NaN\u306e\u7b26\u53f7\u30d3\u30c3\u30c8\u3082\u691c\u51fa\u3067\u304d\u308b\n  const double nan = std::numeric_limits&lt;double&gt;::quiet_NaN();\n  std::cout &lt;&lt; \&#34;nan   : \&#34; &lt;&lt; std::signbit(nan) &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;-nan  : \&#34; &lt;&lt; std::signbit(-nan) &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cmath&#34;, &#34;signbit&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cmath&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;b215c742dae70cc54b14462a858c7708eb89227e&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;cmath&gt;\n#include &lt;limits&gt;\n\nint main()\n{\n  // \u901a\u5e38\u306e\u6570\u5024\n  std::cout &lt;&lt; std::boolalpha;\n  std::cout &lt;&lt; \&#34;-1.0f : \&#34; &lt;&lt; std::signbit(-1.0f) &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;-0.0f : \&#34; &lt;&lt; std::signbit(-0.0f) &lt;&lt; std::endl;\n\n  std::cout &lt;&lt; \&#34;1.0f  : \&#34; &lt;&lt; std::signbit(1.0f) &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;0.0f  : \&#34; &lt;&lt; std::signbit(0.0f) &lt;&lt; std::endl;\n\n  // \u7121\u9650\u5927\n  const double inf = std::numeric_limits&lt;double&gt;::infinity();\n  std::cout &lt;&lt; \&#34;inf   : \&#34; &lt;&lt; std::signbit(inf) &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;-inf  : \&#34; &lt;&lt; std::signbit(-inf) &lt;&lt; std::endl;\n\n  // NaN (Not a Number)\n  // NaN\u306e\u7b26\u53f7\u30d3\u30c3\u30c8\u3082\u691c\u51fa\u3067\u304d\u308b\n  const double nan = std::numeric_limits&lt;double&gt;::quiet_NaN();\n  std::cout &lt;&lt; \&#34;nan   : \&#34; &lt;&lt; std::signbit(nan) &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;-nan  : \&#34; &lt;&lt; std::signbit(-nan) &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cmath&#34;, &#34;signbit&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-01-10T15:56:54">
-        2026年01月10日 15時56分54秒
+      <span itemprop="datePublished" content="2026-01-12T00:14:56">
+        2026年01月12日 00時14分56秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -239,7 +239,7 @@
 </ul>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p>パラメータ<code>x</code>が負数である場合、<code>true</code>を返す。そうでない場合、<code>false</code>を返す。</p>
-<p>この関数はその名前の通り、浮動小数点数の符号ビットを検出する。そのため、<code>NaN</code>の符号を検出することができる。<br />
+<p>この関数はその名前の通り、浮動小数点数の符号ビットを検出する。そのため、<code>NaN</code>の符号を検出することができる。
 他には<code><a href="copysign.html">std::copysign</a></code>でも検出でき、この2つのみが<code>NaN</code>の符号を検出できる移植性のある方法となる。</p>
 <h2>備考</h2>
 <ul>
@@ -247,13 +247,13 @@
 <li>C++23では、(1), (2), (3)が(4)に統合され、<a class="cpprefjp-defined-word" data-desc="&lt;stdfloat&gt;で定義される内部表現の規定された浮動小数点数型" href="../stdfloat.html">拡張浮動小数点数型</a>を含む浮動小数点数型への<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>として定義された</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="d675e4a98f51731f3b0dfeec69045e2d65b8ae6c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="b215c742dae70cc54b14462a858c7708eb89227e"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../cmath.html">&lt;cmath&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../limits.html">&lt;limits&gt;</a></span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-<span class="c1">// 通常の数値</span>
+  <span class="c1">// 通常の数値</span>
   <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ios/boolalpha.html">std::boolalpha</a></span><span class="p">;</span>
   <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"-1.0f : "</span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::signbit</span></span><span class="p">(</span><span class="o">-</span><span class="mf">1.0f</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
   <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"-0.0f : "</span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::signbit</span></span><span class="p">(</span><span class="o">-</span><span class="mf">0.0f</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>

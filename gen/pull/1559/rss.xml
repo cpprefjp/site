@@ -2,9 +2,97 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-01-10T16:28:38.095363</updated>
-  <id>47f76ca7-1741-42b4-bd84-b85ac7d97410</id>
+  <updated>2026-01-12T00:44:44.550721</updated>
+  <id>129a05ef-6c68-4cd1-aae8-09a17ec830cf</id>
 
+  
+    <entry>
+      <title>copysign -- feat(cmath/copysign): 実行例のバリエーションを増やす</title>
+      <link href="https://cpprefjp.github.io/reference/cmath/copysign.html"/>
+      <id>fc491d3893c4942ac82672c71f36adc8fd86e5ac:reference/cmath/copysign.md</id>
+      <updated>2026-01-12T09:32:09+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cmath/copysign.md b/reference/cmath/copysign.md
+index ed7f660b3..e31b2c84b 100644
+--- a/reference/cmath/copysign.md
++++ b/reference/cmath/copysign.md
+@@ -83,14 +83,14 @@ int main()
+ 
+   // 無限大
+   const float inf = std::numeric_limits&amp;lt;float&amp;gt;::infinity();
+-  std::cout &amp;lt;&amp;lt; &amp;#34; inf, -2.0f : &amp;#34; &amp;lt;&amp;lt; std::copysign(inf, -2.0f) &amp;lt;&amp;lt; std::endl;
+-  std::cout &amp;lt;&amp;lt; &amp;#34; inf,  2.0f : &amp;#34; &amp;lt;&amp;lt; std::copysign(inf, 2.0f) &amp;lt;&amp;lt; std::endl;
++  std::cout &amp;lt;&amp;lt; &amp;#34;-inf,  3.0f : &amp;#34; &amp;lt;&amp;lt; std::copysign(-inf, 3.0f) &amp;lt;&amp;lt; std::endl;
++  std::cout &amp;lt;&amp;lt; &amp;#34;3.0f,  -inf : &amp;#34; &amp;lt;&amp;lt; std::copysign(3.0f, -inf) &amp;lt;&amp;lt; std::endl;
+ 
+   // NaN (Not a Number)
+   // NaNの符号もコピーされる。
+   const float nan = std::numeric_limits&amp;lt;float&amp;gt;::quiet_NaN();
+-  std::cout &amp;lt;&amp;lt; &amp;#34; nan, -2.0f : &amp;#34; &amp;lt;&amp;lt; std::copysign(nan, -2.0f) &amp;lt;&amp;lt; std::endl;
+-  std::cout &amp;lt;&amp;lt; &amp;#34; nan,  2.0f : &amp;#34; &amp;lt;&amp;lt; std::copysign(nan, 2.0f) &amp;lt;&amp;lt; std::endl;
++  std::cout &amp;lt;&amp;lt; &amp;#34; nan, -4.2f : &amp;#34; &amp;lt;&amp;lt; std::copysign(nan, -4.2f) &amp;lt;&amp;lt; std::endl;
++  std::cout &amp;lt;&amp;lt; &amp;#34;4.2f,  -nan : &amp;#34; &amp;lt;&amp;lt; std::copysign(4.2f, -nan) &amp;lt;&amp;lt; std::endl;
+ }
+ ```
+ * std::copysign[color ff0000]
+@@ -102,10 +102,10 @@ int main()
+ 1.0f,  2.0f : 1
+ 0.0f, -2.0f : -0
+ 1.5f, -0.0f : -1.5
+- inf, -2.0f : -inf
+- inf,  2.0f : inf
+- nan, -2.0f : -nan
+- nan,  2.0f : nan
++-inf,  3.0f : inf
++3.0f,  -inf : -3
++ nan, -4.2f : -nan
++4.2f,  -nan : -4.2
+ ```
+ 
+ ### 備考
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>signbit -- fix(cmath/signbit): インデントの修正</title>
+      <link href="https://cpprefjp.github.io/reference/cmath/signbit.html"/>
+      <id>474946a5b85d91790e2c403ab41ac482c8e67adb:reference/cmath/signbit.md</id>
+      <updated>2026-01-12T09:14:56+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cmath/signbit.md b/reference/cmath/signbit.md
+index 2bc875a71..54c60e458 100644
+--- a/reference/cmath/signbit.md
++++ b/reference/cmath/signbit.md
+@@ -34,7 +34,7 @@ namespace std {
+ ## 戻り値
+ パラメータ`x`が負数である場合、`true`を返す。そうでない場合、`false`を返す。
+ 
+-この関数はその名前の通り、浮動小数点数の符号ビットを検出する。そのため、`NaN`の符号を検出することができる。  
++この関数はその名前の通り、浮動小数点数の符号ビットを検出する。そのため、`NaN`の符号を検出することができる。
+ 他には[`std::copysign`](/reference/cmath/copysign.md)でも検出でき、この2つのみが`NaN`の符号を検出できる移植性のある方法となる。
+ 
+ 
+@@ -51,7 +51,7 @@ namespace std {
+ 
+ int main()
+ {
+-// 通常の数値
++  // 通常の数値
+   std::cout &amp;lt;&amp;lt; std::boolalpha;
+   std::cout &amp;lt;&amp;lt; &amp;#34;-1.0f : &amp;#34; &amp;lt;&amp;lt; std::signbit(-1.0f) &amp;lt;&amp;lt; std::endl;
+   std::cout &amp;lt;&amp;lt; &amp;#34;-0.0f : &amp;#34; &amp;lt;&amp;lt; std::signbit(-0.0f) &amp;lt;&amp;lt; std::endl;
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>teruyamato0731</name>
+        <email>77840326+teruyamato0731@users.noreply.github.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>copysign -- feat(cmath/copysign): signbitに言及し、infやnanの実行例を追加</title>
@@ -173,84 +261,6 @@ index c5a790059..3a9d5260a 100644
  
  ```cpp
  namespace std {
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Raclamusi</name>
-        <email>raclamusi@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>実行ポリシー -- 実行ポリシー : meta alias タグを追加 #1545</title>
-      <link href="https://cpprefjp.github.io/reference/execution/execution/execution_policy.html"/>
-      <id>8851e7462232bcf36492e856e70ee1752bff485e:reference/execution/execution/execution_policy.md</id>
-      <updated>2026-01-09T11:23:41+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/execution/execution/execution_policy.md b/reference/execution/execution/execution_policy.md
-index a9d078547..514cb8cda 100644
---- a/reference/execution/execution/execution_policy.md
-+++ b/reference/execution/execution/execution_policy.md
-@@ -3,6 +3,7 @@
- * std::execution[meta namespace]
- * class[meta id-type]
- * cpp17[meta cpp]
-+* sequenced_policy,parallel_policy,parallel_unsequenced_policy,unsequenced_policy,seq,par,par_unseq,unseq[meta alias]
- 
- ```cpp
- namespace std::execution {
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Raclamusi</name>
-        <email>raclamusi@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>月の定数 -- 月・曜日の定数 : meta alias タグを追加 #1545</title>
-      <link href="https://cpprefjp.github.io/reference/chrono/month_constants.html"/>
-      <id>05a2eadb95c9c85d0cdb805d02b29597b996804f:reference/chrono/month_constants.md</id>
-      <updated>2026-01-09T11:23:20+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/chrono/month_constants.md b/reference/chrono/month_constants.md
-index 409eb9a58..87603986d 100644
---- a/reference/chrono/month_constants.md
-+++ b/reference/chrono/month_constants.md
-@@ -3,6 +3,7 @@
- * std::chrono[meta namespace]
- * variable[meta id-type]
- * cpp20[meta cpp]
-+* January,February,March,April,May,June,July,August,September,October,November,December[meta alias]
- 
- ```cpp
- namespace std::chrono {
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Raclamusi</name>
-        <email>raclamusi@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>曜日の定数 -- 月・曜日の定数 : meta alias タグを追加 #1545</title>
-      <link href="https://cpprefjp.github.io/reference/chrono/weekday_constants.html"/>
-      <id>05a2eadb95c9c85d0cdb805d02b29597b996804f:reference/chrono/weekday_constants.md</id>
-      <updated>2026-01-09T11:23:20+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/chrono/weekday_constants.md b/reference/chrono/weekday_constants.md
-index b5305ec31..44d9b8547 100644
---- a/reference/chrono/weekday_constants.md
-+++ b/reference/chrono/weekday_constants.md
-@@ -3,6 +3,7 @@
- * std::chrono[meta namespace]
- * variable[meta id-type]
- * cpp20[meta cpp]
-+* Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday[meta alias]
- 
- ```cpp
- namespace std::chrono {
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
