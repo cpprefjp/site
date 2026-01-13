@@ -12,6 +12,7 @@
 * std[meta namespace]
 * cpp17[meta cpp]
 
+<!-- `[meta exposition-only]`をつけると、説明専用の機能として見出し1を斜体表示し、「説明専用」バッジが表示される -->
 <!-- `[meta header]`は、所属ヘッダを表すメタ情報 -->
 <!-- `[meta id-type]`は、識別子の種別を表すメタ情報。class, class template, function, function template, enum, variable, type-alias, concept, macro, namespace -->
 <!-- `[meta namespace]`は、所属する名前空間を表すメタ情報。マクロを考慮して省略可。名前空間の区切りは`::` -->

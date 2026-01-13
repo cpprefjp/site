@@ -7,9 +7,11 @@
   その際拡張構文である`example`タグをルールに従って付け、コンパイル・実行可能にすることを検討してください。
 )
 
+* [meta exposition-only]
 * named requirement[meta id-type]
 * cpp17[meta cpp]
 
+<!-- `[meta exposition-only]`をつけると、説明専用の機能として見出し1を斜体表示し、「説明専用」バッジが表示される -->
 <!-- `[meta id-type]`は、識別子の種別を表すメタ情報。named requirementを指定してください -->
 <!-- `[meta cpp]`は、機能が追加・非推奨・削除されたバージョンを表すメタ情報。改行して複数指定ができる。 -->
 <!--    `cpp11[meta cpp]` : C++11で追加された機能 -->
