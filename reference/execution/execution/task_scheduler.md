@@ -23,7 +23,7 @@ namespace std::execution {
 
 - `sch_` : [`shared_ptr`](/reference/memory/shared_ptr.md)`<void>`型
 
-`task_scheduler`型のオブジェクト`s`に対して、`SCHED(s)`を`s.sch_`により所有されるオブジェクトとする。
+`task_scheduler`型のオブジェクト`s`に対して、`SCHED(s)`を`s.sch_`が所有するポインタが指すオブジェクトとする。
 
 
 ## メンバ関数
@@ -32,6 +32,7 @@ namespace std::execution {
 |------|------|----------------|
 | [`(constructor)`](task_scheduler/op_constructor.md) | コンストラクタ | C++26 |
 | `(destructor)` | デストラクタ | C++26 |
+| [`operator=`](task_scheduler/op_assign.md) | 代入演算子 | C++26 |
 | [`schedule`](task_scheduler/schedule.md) | [スケジュールSender](schedule.md)を返す | C++26 |
 
 
@@ -89,3 +90,4 @@ int main()
 
 ## 参照
 - [P3552R3 Add a Coroutine Task Type](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html)
+- [LWG4446. Bad phrasing for `SCHED(s)`](https://cplusplus.github.io/LWG/issue4446)
