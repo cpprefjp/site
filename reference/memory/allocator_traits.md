@@ -208,7 +208,7 @@ int main() {
 
 ## 参照
 - [Allocators@C++11 - Cryolite](http://www.slideshare.net/Cryolite/allocator11final)
-- [A visitor’s guide to C++ allocators](https://rawgit.com/google/cxx-std-draft/allocator-paper/allocator_user_guide.html)
+- [A visitor’s guide to C++ allocators](https://htmlpreview.github.io/?https://github.com/google/cxx-std-draft/blob/allocator-paper/allocator_user_guide.html)
 - [N2982 Allocators post Removal of C++ Concepts (Rev 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2982.pdf)
 - [AllocatorAwareContainer: Introduction and pitfalls of `propagate_on_container_XXX` defaults](https://www.foonathan.net/2015/10/allocatorawarecontainer-propagation-pitfalls/)
 - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
