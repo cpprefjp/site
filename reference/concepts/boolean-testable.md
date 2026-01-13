@@ -1,4 +1,5 @@
 # boolean-testable
+* [meta exposition-only]
 * concepts[meta header]
 * std[meta namespace]
 * concept[meta id-type]
