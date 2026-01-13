@@ -34,8 +34,8 @@ namespace std::execution {
 型エイリアス`completion_signatures`は、（未規定の順序で）次のテンプレート実引数をもつ[`execution::completion_signatures`](completion_signatures.md)の特殊化となる :
 
 - `T`が`void`のとき[`set_value_t`](set_value.md)`()`、そうでなければ`set_value_t(T)`
-- `error_types`で表される[`execution::completion_signatures`](completion_signatures.md)の特殊化のテンプレート実引数（エラー型`Err`を持つ[`set_error_t`](set_error.md)`(Err)...`）
-- [`set_stopped_t`](set_stopped.md)
+- `error_types`で表される[`execution::completion_signatures`](completion_signatures.md)の特殊化のテンプレート実引数（エラー型`Err`を持つ[`set_error_t`](set_error.md)`(Err)`）
+- [`set_stopped_t`](set_stopped.md)`()`
 
 
 ## メンバ関数
@@ -58,7 +58,7 @@ namespace std::execution {
 | `stop_source_type` | コルーチンの停止ソース型 | C++26 |
 | `stop_token_type` | コルーチンの停止トークン型 | C++26 |
 | `error_types` | コルーチンの[エラー完了](set_error.md)の結果型 | C++26 |
-| [`state`](task/state.md.nolink) | タスクコルーチン動作の説明専用クラステンプレート | C++26 |
+| [`state`](task/state.md) | タスクコルーチン動作の説明専用クラステンプレート | C++26 |
 | [`promise_type`](task/promise_type.md.nolink) | タスクコルーチンの[Promise型](/lang/cpp20/coroutines.md) | C++26 |
 
 

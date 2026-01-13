@@ -10,7 +10,7 @@ template<receiver Rcvr>
 state<Rcvr> connect(Rcvr&& recv) &&;
 ```
 * receiver[link ../receiver.md]
-* state[italic]
+* state[link state.md]
 
 ## 概要
 [Receiver](../receiver.md)と接続する。
@@ -27,7 +27,7 @@ state<Rcvr> connect(Rcvr&& recv) &&;
 return state<Rcvr>(exchange(handle, {}), std::forward<Rcvr>(recv));
 ```
 * exchange[link /reference/utility/exchange.md]
-* state[italic]
+* state[link state.md]
 
 
 ## バージョン
