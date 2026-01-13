@@ -47,3 +47,4 @@ return state<Rcvr>(exchange(handle, {}), std::forward<Rcvr>(recv));
 
 ## 参照
 - [P3552R3 Add a Coroutine Task Type](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html)
+- [LWG4341. Missing rvalue reference qualification for `task::connect()`](https://cplusplus.github.io/LWG/issue4341)

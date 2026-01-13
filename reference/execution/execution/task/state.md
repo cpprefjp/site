@@ -17,7 +17,7 @@ namespace std::execution {
     ~state();
     void start() & noexcept;
 
-private:
+  private:
     using own-env-t = see below;     // exposition only
     coroutine_handle<promise_type> handle;  // exposition only
     remove_cvref_t<R>              rcvr;    // exposition only

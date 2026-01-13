@@ -6,10 +6,11 @@
 
 ```cpp
 namespace std::execution {
-  template <class T, class Environment>
+  template <class T = void, class Environment = env<>>
   class task;
 }
 ```
+* env<>[link env.md]
 
 ## 概要
 `task`クラステンプレートは、[コルーチン](/lang/cpp20/coroutines.md)の戻り値型として使用できる[Sender](sender.md)を表す。
@@ -116,4 +117,5 @@ int main()
 
 ## 参照
 - [P3552R3 Add a Coroutine Task Type](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html)
+- [LWG4343. Missing default template arguments for `task`](https://cplusplus.github.io/LWG/issue4343)
 - C++now 2025, [Getting The Lazy Task Done](https://schedule.cppnow.org/wp-content/uploads/2025/03/Getting_The_Lazy_Task_Done.pdf)
