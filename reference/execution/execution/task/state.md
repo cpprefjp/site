@@ -78,7 +78,7 @@ void start() & noexcept;
 
     - `prom.token.`[`stop_requested()`](/reference/stop_token/stoppable_token.md) : `st.stop_requested()`を返す。
     - `prom.token.`[`stop_possible()`](/reference/stop_token/stoppable_token.md) : `st.stop_possible()`を返す。
-    ― 型`Fn`と型`Init`をそれぞれ[`invocalbe`](/reference/concepts/invocable.md)`<F>`と[`constructible_from`](/reference/concepts/constructible_from.md)`<Fn, Init>`のモデルとしたとき、[`stop_token::callback_type`](/reference/stop_token/stoppable_token.md)`<Fn>`は[`stoppable-callback-for`](/reference/stop_token/stoppable_token.md)`<Fn,` [`stop_token_type`](../task.md)`, Init>`のモデルである。
+    ― 型`Fn`と型`Init`をそれぞれ[`invocable`](/reference/concepts/invocable.md)`<F>`と[`constructible_from`](/reference/concepts/constructible_from.md)`<Fn, Init>`のモデルとしたとき、[`stop_token::callback_type`](/reference/stop_token/stoppable_token.md)`<Fn>`は[`stoppable-callback-for`](/reference/stop_token/stoppable_token.md)`<Fn,` [`stop_token_type`](../task.md)`, Init>`のモデルである。
 
     その後、`handle.`[`resume()`](/reference/coroutine/coroutine_handle/resume.md)を呼び出す。
 

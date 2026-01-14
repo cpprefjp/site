@@ -15,7 +15,7 @@ ts-sender schedule();
 
 
 ## 効果
-[`schedue`](../schedule.md)`(SCHED(*this))`で初期化された[Sender](../sender.md)を保持する、説明専用の`ts-sender`型オブジェクトを返す。
+[`schedule`](../schedule.md)`(SCHED(*this))`で初期化された[Sender](../sender.md)を保持する、説明専用の`ts-sender`型オブジェクトを返す。
 
 
 ## 説明専用エンティティ
