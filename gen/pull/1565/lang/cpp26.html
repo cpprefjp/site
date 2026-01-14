@@ -176,8 +176,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-01-14T05:29:54">
-        2026年01月14日 05時29分54秒
+      <span itemprop="datePublished" content="2026-01-14T06:24:44">
+        2026年01月14日 06時24分44秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -515,6 +515,7 @@
 </ul>
 <h3>コンテナ</h3>
 <ul>
+<li><code><a href="../reference/vector/vector.html">std::vector&lt;bool&gt;::reference</a></code>のプロキシ操作として、<code>const</code>修飾付きの代入と<code>swap()</code>メンバ関数を追加</li>
 <li><code><a href="../reference/mdspan/mdspan.html">std::mdspan</a></code>から部分ビューを取り出す<code><a href="../reference/mdspan/submdspan.html">std::submdspan()</a></code>を追加</li>
 <li><code><a href="../reference/mdspan/mdspan.html">std::mdspan</a></code>に、インデックスを指定して要素を取り出す<code><span href="https://cpprefjp.github.io/reference/mdspan/mdspan/at.md.nolink">at()</span></code>メンバ関数を追加</li>
 <li><code><a href="../reference/mdspan/mdspan.html">std::mdspan</a></code>に対する<code><a href="../reference/mdspan/extents.html">std::dextents</a></code>指定の冗長さを解決する<code><a href="../reference/mdspan/extents.html">std::dims</a></code>を追加</li>
@@ -689,8 +690,10 @@
 <li>ポインタ出力のサポートを追加</li>
 <li>幅と精度を動的に指定した場合でも型の検証がコンパイル時に行われるよう仕様を見直し</li>
 <li>コンパイル時の書式文字列だけでなく、実行時の書式文字列を渡せるよう仕様修正</li>
+<li><code>constexpr</code>に対応</li>
 </ul>
 </li>
+<li><code><a href="../reference/string/to_string.html">std::to_string()</a></code>と<code><a href="../reference/string/to_wstring.html">std::to_wstring()</a></code>を<code>constexpr</code>に対応</li>
 <li><code><a href="../reference/string/basic_string.html">std::basic_string</a></code>クラスと<code><a href="../reference/string_view/basic_string_view.html">std::basic_string_view</a></code>クラスに、部分文字列を<code><a href="../reference/string_view/basic_string_view.html">std::basic_string_view</a></code>として取得するメンバ関数<code>subview()</code>を追加</li>
 <li><code><a href="../reference/string/basic_string.html">std::basic_string</a></code>と<code><a href="../reference/string_view/basic_string_view.html">std::basic_string_view</a></code>を<code><a href="../reference/string/basic_string.html">std::basic_string</a></code>として連結させる<code>operator+</code>を追加</li>
 </ul>
@@ -986,6 +989,7 @@
 <li><code><a href="../reference/type_traits.html">&lt;type_traits&gt;</a></code>に、共用体の指定されたメンバがアクティブかを定数式で判定するための関数として<code><a href="../reference/type_traits/is_within_lifetime.html">std::is_within_lifetime()</a></code>を追加</li>
 <li><code><a href="../reference/type_traits.html">&lt;type_traits&gt;</a></code>に、仮想継承の関係を判定する<code><a href="../reference/type_traits/is_virtual_base_of.html">std::is_virtual_base_of</a></code>を追加</li>
 <li><code><a href="../reference/type_traits.html">&lt;type_traits&gt;</a></code>に、<code><a href="../reference/type_traits/integral_constant.html">std::integral_constant</a></code>クラスを置き換える定数ラッパーとして<code><span href="https://cpprefjp.github.io/reference/type_traits/constant_wrapper.md.nolink">std::constant_wrapper</span></code>クラスを追加</li>
+<li><code><a href="../reference/utility/index_sequence.html">std::index_sequence</a></code>クラスを<a href="cpp17/structured_bindings.html">構造化束縛</a>と<span href="https://cpprefjp.github.io/lang/cpp26/expansion_statements.md.nolink">template for文</span>で使用できるようにするため、タプルインタフェースの特殊化を追加</li>
 </ul>
 <h3>制約</h3>
 <ul>
