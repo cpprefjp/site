@@ -20,7 +20,11 @@ namespace std::execution {
 
 
 ## クラス仕様
-`T`が`void`、参照型、cv修飾された非配列オブジェクト型であり、かつ`E`がクラス型であるとき、`task<T, E>`は[`sender`](sender.md)のモデルである。そうでなければ、`task<T, E>`の定義をインスタンス化するプログラムは不適格となる。
+`task`クラステンプレートは、下記の説明専用メンバ変数を持つ。
+
+- `handle` : [`coroutine_handle`](/reference/coroutine/coroutine_handle.md)`<`[`promise_type`](task/promise_type.md)`>`
+
+`T`が`void`、参照型、cv修飾された非配列オブジェクト型のいずれかであり、かつ`E`がクラス型であるとき、`task<T, E>`は[`sender`](sender.md)のモデルである。そうでなければ、`task<T, E>`の定義をインスタンス化するプログラムは不適格となる。
 
 `task`テンプレート特殊化のネストした型は、`Environment`パラメータに基づいて決定される :
 
@@ -60,7 +64,7 @@ namespace std::execution {
 | `stop_token_type` | コルーチンの停止トークン型 | C++26 |
 | `error_types` | コルーチンの[エラー完了](set_error.md)の結果型 | C++26 |
 | [`state`](task/state.md) | タスクコルーチン動作の説明専用クラステンプレート | C++26 |
-| [`promise_type`](task/promise_type.md.nolink) | タスクコルーチンの[Promise型](/lang/cpp20/coroutines.md) | C++26 |
+| [`promise_type`](task/promise_type.md) | タスクコルーチンの[Promise型](/lang/cpp20/coroutines.md) | C++26 |
 
 
 ## 例
@@ -112,6 +116,8 @@ int main()
 
 
 ## 関連項目
+- [`execution::with_error`](with_error.md.nolink)
+- [`execution::change_coroutine_scheduler`](change_coroutine_scheduler.md.nolink)
 - [`execution::task_scheduler`](task_scheduler.md)
 
 

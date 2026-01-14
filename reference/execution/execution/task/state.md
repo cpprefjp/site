@@ -2,6 +2,7 @@
 * execution[meta header]
 * class template[meta id-type]
 * std::execution[meta namespace]
+* task[meta class]
 * cpp26[meta cpp]
 
 ```cpp
@@ -30,7 +31,7 @@ namespace std::execution {
 * task[link ../task.md]
 * operation_state_t[link ../operation_state.md]
 * coroutine_handle[link /reference/coroutine/coroutine_handle.md]
-* promise_type[link promise_type.md.nolink]
+* promise_type[link promise_type.md]
 * own-env-t[italic]
 
 ## 概要
@@ -45,10 +46,10 @@ template <class Rcvr>
 state(coroutine_handle<promise_type> h, Rcvr&& rr);
 ```
 * coroutine_handle[link /reference/coroutine/coroutine_handle.md]
-* promise_type[link promise_type.md.nolink]
+* promise_type[link promise_type.md]
 
 - 効果 :
-    - `handle`を[`std::move`](/reference/utility/move.md)`(h);`で初期化する。
+    - `handle`を[`std::move`](/reference/utility/move.md)`(h)`で初期化する。
     - `rcvr`を[`std::forward`](/reference/utility/forward.md)`<Rcvr>(rr)`で初期化する。
     - `own-env`を、式が有効ならば`own-env-t(`[`get_env`](../get_env.md)`(rcvr))`で、そうでなければ`own-env-t()`で初期化する。いずれの式も適格でなければ、プログラムは不適格となる。
     - `environment`を、式が有効ならば`Environment(own-env)`で、そうではなく式が有効ならば`Environment(`[`get_env`](../get_env.md)`(rcvr))`で、そうでなければ`Environment()`で初期化する。いずれの式も適格でなければ、プログラムは不適格となる。
@@ -89,7 +90,7 @@ void start() & noexcept;
 
 
 ## 関連項目
-- [`execution::task::promise_type`](promise_type.md.nolink)
+- [`execution::task::promise_type`](promise_type.md)
 
 
 ## 参照
