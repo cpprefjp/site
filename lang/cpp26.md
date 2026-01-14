@@ -141,6 +141,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 
 
 ### コンテナ
+- [`std::vector<bool>::reference`](/reference/vector/vector.md)のプロキシ操作として、`const`修飾付きの代入と`swap()`メンバ関数を追加
 - [`std::mdspan`](/reference/mdspan/mdspan.md)から部分ビューを取り出す[`std::submdspan()`](/reference/mdspan/submdspan.md)を追加
 - [`std::mdspan`](/reference/mdspan/mdspan.md)に、インデックスを指定して要素を取り出す[`at()`](/reference/mdspan/mdspan/at.md.nolink)メンバ関数を追加
 - [`std::mdspan`](/reference/mdspan/mdspan.md)に対する[`std::dextents`](/reference/mdspan/extents.md)指定の冗長さを解決する[`std::dims`](/reference/mdspan/extents.md)を追加
@@ -277,6 +278,8 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - ポインタ出力のサポートを追加
     - 幅と精度を動的に指定した場合でも型の検証がコンパイル時に行われるよう仕様を見直し
     - コンパイル時の書式文字列だけでなく、実行時の書式文字列を渡せるよう仕様修正
+    - `constexpr`に対応
+- [`std::to_string()`](/reference/string/to_string.md)と[`std::to_wstring()`](/reference/string/to_wstring.md)を`constexpr`に対応
 - [`std::basic_string`](/reference/string/basic_string.md)クラスと[`std::basic_string_view`](/reference/string_view/basic_string_view.md)クラスに、部分文字列を[`std::basic_string_view`](/reference/string_view/basic_string_view.md)として取得するメンバ関数`subview()`を追加
 - [`std::basic_string`](/reference/string/basic_string.md)と[`std::basic_string_view`](/reference/string_view/basic_string_view.md)を[`std::basic_string`](/reference/string/basic_string.md)として連結させる`operator+`を追加
 
@@ -520,6 +523,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 - [`<type_traits>`](/reference/type_traits.md)に、共用体の指定されたメンバがアクティブかを定数式で判定するための関数として[`std::is_within_lifetime()`](/reference/type_traits/is_within_lifetime.md)を追加
 - [`<type_traits>`](/reference/type_traits.md)に、仮想継承の関係を判定する[`std::is_virtual_base_of`](/reference/type_traits/is_virtual_base_of.md)を追加
 - [`<type_traits>`](/reference/type_traits.md)に、[`std::integral_constant`](/reference/type_traits/integral_constant.md)クラスを置き換える定数ラッパーとして[`std::constant_wrapper`](/reference/type_traits/constant_wrapper.md.nolink)クラスを追加
+- [`std::index_sequence`](/reference/utility/index_sequence.md)クラスを[構造化束縛](/lang/cpp17/structured_bindings.md)と[template for文](/lang/cpp26/expansion_statements.md.nolink)で使用できるようにするため、タプルインタフェースの特殊化を追加
 
 
 ### 制約
