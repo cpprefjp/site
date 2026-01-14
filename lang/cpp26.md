@@ -180,6 +180,20 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
     - [`std::ranges::approximately_sized_range`](/reference/ranges/approximately_sized_range.md.nolink)コンセプトを追加
 - インデックス列を生成する[`std::views::indices`](/reference/ranges/indices.md.nolink)を追加
 - 連続イテレータのコンセプト[`contiguous_iterator`](/reference/iterator/contiguous_iterator.md)に、ポインタに変換できることを要件として追加
+- [`std::initializer_list`](/reference/initializer_list/initializer_list.md)クラスを以下のように変更
+    - 独自に定義されていた[`std::begin()`](/reference/initializer_list/initializer_list/begin_free.md) / [`std::end()`](/reference/initializer_list/initializer_list/end_free.md)のオーバーロードを削除 (`std::cbegin()`や`std::rend()`のようなオーバーロードがなかったため、ほかとの不整合があった)
+    - メンバ関数[`data()`](/reference/initializer_list/initializer_list/data.md.nolink)を追加
+    - メンバ関数[`empty()`](/reference/initializer_list/initializer_list/empty.md.nolink)を追加
+- [`std::valarray`](/reference/valarray/valarray.md)クラスを以下のように変更
+    - 独自に定義されていた[`std::begin()`](/reference/valarray/valarray/begin_free.md) / [`std::end()`](/reference/valarray/valarray/end_free.md)のオーバーロードを削除 (`std::cbegin()`や`std::rend()`のようなオーバーロードがなかったため、ほかとの不整合があった)
+    - メンバ型`iterator` / `const_iterator`を追加
+    - メンバ関数[`begin()`](/reference/valarray/valarray/begin.md.nolink) / [`end()`](/reference/valarray/valarray/end.md.nolink)を追加
+- イテレータインタフェースの非メンバ関数[`std::begin()`](/reference/iterator/begin.md) / [`std::end()`](/reference/iterator/end.md) / [`std::cbegin()`](/reference/iterator/cbegin.md) / [`std::cend()`](/reference/iterator/cend.md) / [`std::rbegin()`](/reference/iterator/rbegin.md) / [`std::rend()`](/reference/iterator/rend.md) / [`std::crbegin()`](/reference/iterator/crbegin.md) / [`std::crend()`](/reference/iterator/crend.md) / [`std::size()`](/reference/iterator/size.md) / [`std::ssize()`](/reference/iterator/ssize.md) / [`std::empty()`](/reference/iterator/empty.md) / [`std::data()`](/reference/iterator/data.md)を以下のように変更
+    - [`std::initializer_list`](/reference/initializer_list/initializer_list.md)型に対するオーバーロードを削除 (専用のオーバーロードを用意しなくても汎用オーバーロードが使用できるようになった)
+    - 条件付き`noexcept`指定を追加
+- Rangeインタフェースの非メンバ関数[`std::ranges::begin()`](/reference/ranges/begin.md) / [`std::ranges::end()`](/reference/ranges/end.md) / [`std::ranges::cbegin()`](/reference/ranges/cbegin.md) / [`std::ranges::cend()`](/reference/ranges/cend.md) / [`std::ranges::rbegin()`](/reference/ranges/rbegin.md) / [`std::ranges::rend()`](/reference/ranges/rend.md) / [`std::ranges::crbegin()`](/reference/ranges/crbegin.md) / [`std::ranges::crend()`](/reference/ranges/crend.md) / [`std::ranges::size()`](/reference/ranges/size.md) / [`std::ranges::ssize()`](/reference/ranges/ssize.md) / [`std::ranges::empty()`](/reference/ranges/empty.md) / [`std::ranges::data()`](/reference/ranges/data.md)を以下のように変更
+    - [`std::initializer_list`](/reference/initializer_list/initializer_list.md)型に対するオーバーロードを削除 (専用のオーバーロードを用意しなくても汎用オーバーロードが使用できるようになった)
+    - 条件付き`noexcept`指定を追加
 - 以下のコンテナを`constexpr`に対応
     - [`std::deque`](/reference/deque/deque.md)
     - [`std::forward_list`](/reference/forward_list/forward_list.md)
