@@ -1,0 +1,1286 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>コンセプト [P0734R0] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp20
+">
+        <meta name="title" content="コンセプト [P0734R0] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="コンセプト [P0734R0] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="コンセプト [P0734R0] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp20/concepts.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="C++20から導入される「コンセプト (concepts)」は、テンプレートパラメータを制約する機能である。この機能を使用することで、以下のような面でプログラミングのしやすさが向上する：" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="コンセプト [P0734R0] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp20/concepts.html" />
+        <meta name="twitter:description" content="C++20から導入される「コンセプト (concepts)」は、テンプレートパラメータを制約する機能である。この機能を使用することで、以下のような面でプログラミングのしやすさが向上する：" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="manifest" href="../../manifest.json?cachebust=1badf8656537fb83110091804da2a289044600de">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=1badf8656537fb83110091804da2a289044600de">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;3738017ac509e794ecc67a751cdaf1d318ec12f6&#34;, &#34;source&#34;: &#34;// \u63cf\u753b\u53ef\u80fd\u30b3\u30f3\u30bb\u30d7\u30c8\u3002\n// \u30e1\u30f3\u30d0\u95a2\u6570draw()\u3092\u6301\u3064\u3053\u3068\u3092\u8981\u6c42\u3059\u308b\ntemplate &lt;class T&gt;\nconcept Drawable = requires (T&amp; x) {\n  x.draw(); // \u578bT\u306b\u8981\u6c42\u3059\u308b\u64cd\u4f5c\u3092\u30bb\u30df\u30b3\u30ed\u30f3\u533a\u5207\u308a\u3067\u5217\u6319\u3059\u308b\u3002\n            // \u3053\u3053\u3067\u306f\u3001\u30e1\u30f3\u30d0\u95a2\u6570draw()\u3092\u547c\u3073\u51fa\u305b\u308b\u3053\u3068\u3092\u8981\u6c42\u3057\u3066\u3044\u308b\u3002\n};\n\n// \u30c6\u30f3\u30d7\u30ec\u30fc\u30c8\u30d1\u30e9\u30e1\u30fc\u30bfT\u3092\u30b3\u30f3\u30bb\u30d7\u30c8Drawable\u3067\u5236\u7d04\u3059\u308b\u3002\n// Drawable\u306e\u8981\u4ef6\u3092\u6e80\u305f\u3055\u306a\u3044\u578b\u304c\u6e21\u3055\u308c\u305f\u5834\u5408\u306f\u5236\u7d04\u30a8\u30e9\u30fc\u3068\u306a\u308b\ntemplate &lt;Drawable T&gt;\nvoid f(T&amp; x) {\n  x.draw();\n}\n\nstruct Circle {\n  void draw() {}\n};\n\nstruct Box {\n  void draw() {}\n};\n\nint main() {\n  Circle c;\n  f(c);      // OK\n\n  Box b;\n  f(b);      // OK\n\n//int n = 0;\n//f(n);      // \u30b3\u30f3\u30d1\u30a4\u30eb\u30a8\u30e9\u30fc\uff01\n             // \u578bint\u306fDrawable\u30b3\u30f3\u30bb\u30d7\u30c8\u306e\u8981\u4ef6\u3092\u6e80\u305f\u3055\u305a\u3001\n             // draw()\u30e1\u30f3\u30d0\u95a2\u6570\u3092\u6301\u3063\u3066\u3044\u306a\u3044\n}\n&#34;}, {&#34;id&#34;: &#34;30ca301ffdb5d3006ac41d266650eff905c4c76a&#34;, &#34;source&#34;: &#34;#include &lt;concepts&gt;\n#include &lt;cmath&gt;\n#include &lt;limits&gt;\n#include &lt;cassert&gt;\n#include &lt;iostream&gt;\n\n// \u6570\u5024\u306e\u7b49\u5024\u6bd4\u8f03\u3092\u884c\u3046\u95a2\u6570\u3092\u3001\u6574\u6570\u578b\u304b\u6d6e\u52d5\u5c0f\u6570\u70b9\u6570\u578b\u304b\u3067\u30aa\u30fc\u30d0\u30fc\u30ed\u30fc\u30c9\u3059\u308b\u3002\n// \u6574\u6570\u578b\u306e\u5834\u5408\u306f\u3001\u5358\u7d14\u306a==\u6f14\u7b97\u5b50\u306b\u3088\u308b\u6bd4\u8f03\ntemplate &lt;std::integral T&gt;\nbool equal(T a, T b) {\n  return a == b;\n}\n\n// \u6d6e\u52d5\u5c0f\u6570\u70b9\u6570\u578b\u306e\u5834\u5408\u306f\u3001\u8a08\u7b97\u8aa4\u5dee\u3092\u8a31\u5bb9\u3059\u308b\u7b49\u5024\u6bd4\u8f03\ntemplate &lt;std::floating_point T&gt;\nbool equal(T a, T b) {\n  return std::abs(a - b) &lt;= std::numeric_limits&lt;T&gt;::epsilon();\n}\n\n// \u5909\u6570\u30c6\u30f3\u30d7\u30ec\u30fc\u30c8\u3092\u3001\u6574\u6570\u578b\u304b\u6d6e\u52d5\u5c0f\u6570\u70b9\u6570\u578b\u304b\u3067\u7279\u6b8a\u5316\u3059\u308b\u3002\n// \u540c\u3058\u3053\u3068\u306f\u30af\u30e9\u30b9\u30c6\u30f3\u30d7\u30ec\u30fc\u30c8\u3067\u3082\u3067\u304d\u308b\ntemplate &lt;class T&gt;\nconstexpr T pi;\n\ntemplate &lt;std::floating_point T&gt;\nconstexpr T pi&lt;T&gt; = static_cast&lt;T&gt;(3.141592653589793);\n\ntemplate &lt;std::integral T&gt;\nconstexpr T pi&lt;T&gt; = static_cast&lt;T&gt;(3); // \u6574\u6570\u306e\u5186\u5468\u7387\u306f3 (\u3053\u308c\u306f\u30b8\u30e7\u30fc\u30af\u3067\u3059)\n\nint main() {\n  assert(equal(1 + 2, 3));\n  assert(equal(0.1 + 0.2, 0.3)); // \u8a08\u7b97\u8aa4\u5dee\u306b\u3088\u3063\u30660.1 + 0.2 == 0.3\u306b\u306f\u306a\u3089\u306a\u3044\u304c\u3001\u8aa4\u5dee\u3092\u8a31\u5bb9\u3059\u308b\u3053\u3068\u3067\u7b49\u5024\u3068\u898b\u306a\u3059\n                                 // (0.1 + 0.2 \u306f 0.30000000000000004 \u306e\u3088\u3046\u306a\u5024\u306b\u306a\u308b)\n\n  std::cout &lt;&lt; pi&lt;double&gt; &lt;&lt; std::endl; // 3.14159\n  std::cout &lt;&lt; pi&lt;int&gt; &lt;&lt; std::endl;    // 3\n}\n&#34;}, {&#34;id&#34;: &#34;eb907c3489a9132a2f943cd95a6fa1d146b23013&#34;, &#34;source&#34;: &#34;#include &lt;concepts&gt;\n#include &lt;cassert&gt;\n#include &lt;vector&gt;\n\ntemplate &lt;std::constructible_from&lt;int&gt; T&gt;\nT make_from_int(int x) {\n  return T(x);\n}\n\nint main() {\n  int a = make_from_int&lt;int&gt;(3);\n  std::vector&lt;int&gt; b = make_from_int&lt;std::vector&lt;int&gt;&gt;(3);\n\n  assert(a == 3);\n  assert(b.size() == 3);\n}\n&#34;}, {&#34;id&#34;: &#34;d1fa11adf82e0ec38338ad390be71172154612c8&#34;, &#34;source&#34;: &#34;#include &lt;concepts&gt;\n#include &lt;cassert&gt;\n#include &lt;vector&gt;\n\ntemplate &lt;class T&gt;\nrequires std::constructible_from&lt;T, int&gt; &amp;&amp; std::move_constructible&lt;T&gt;\nT make_from_int(int x) {\n  return T(x);\n}\n\nint main() {\n  int a = make_from_int&lt;int&gt;(3);\n  std::vector&lt;int&gt; b = make_from_int&lt;std::vector&lt;int&gt;&gt;(3);\n\n  assert(a == 3);\n  assert(b.size() == 3);\n}\n&#34;}, {&#34;id&#34;: &#34;07625a06c0d3ed7367160bb5d98f9697cf518c2f&#34;, &#34;source&#34;: &#34;#include &lt;concepts&gt;\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\n#include &lt;algorithm&gt;\n#include &lt;memory&gt;\n#include &lt;stdexcept&gt;\n\ntemplate &lt;class T&gt;\nclass MyVector {\n  std::allocator&lt;T&gt; alloc_;\n  T* data_ = nullptr;\n  std::size_t capacity_ = 0;\n  std::size_t size_ = 0;\npublic:\n  // \u7c21\u6613\u5b9f\u88c5\u306e\u305f\u3081\u3001\u4e8b\u524d\u306b\u30e1\u30e2\u30ea\u9818\u57df\u3092\u78ba\u4fdd\u3057\u3066\u518d\u78ba\u4fdd\u306f\u3057\u306a\u3044\u3002\n  // (std::vector\u306e\u30b3\u30f3\u30b9\u30c8\u30e9\u30af\u30bf\u3068\u306f\u52b9\u679c\u304c\u9055\u3046)\n  explicit MyVector(std::size_t n)\n    : data_{alloc_.allocate(n)},\n      capacity_{n},\n      size_{0}\n  {}\n\n  ~MyVector() {\n    std::destroy_n(data_, size_);\n    alloc_.deallocate(data_, size_);\n  }\n\n  // \u30b3\u30d4\u30fc\u7248\u306epush_back\n  void push_back(const T&amp; x) requires std::copy_constructible&lt;T&gt;\n  {\n    if (size_ &gt;= capacity_)\n      throw std::out_of_range(\&#34;over capacity\&#34;);\n\n    new (data_ + size_) T(x);\n    size_ = size_ + 1;\n  }\n\n  // \u30e0\u30fc\u30d6\u7248\u306epush_back\n  void push_back(T&amp;&amp; x) requires std::move_constructible&lt;T&gt;\n  {\n    if (size_ &gt;= capacity_)\n      throw std::out_of_range(\&#34;over capacity\&#34;);\n\n    new (data_ + size_) T(std::move(x));\n    size_ = size_ + 1;\n  }\n\n  // \u975e\u30c6\u30f3\u30d7\u30ec\u30fc\u30c8\u306a\u95a2\u6570\u306b\u5bfe\u3059\u308brequires\u7bc0\u306f\u3001\u95a2\u6570\u4fee\u98fe\u306e\u5f8c\u308d\u306b\u8a18\u8ff0\u3059\u308b\n  T front() const&amp; requires std::copy_constructible&lt;T&gt;\n  {\n    if (size_ &lt; 1u)\n      throw std::out_of_range(\&#34;empty\&#34;);\n    return data_[0];\n  }\n\n  void print()\n  {\n    std::for_each_n(data_, size_, [](const T&amp; x) {\n      std::cout &lt;&lt; x &lt;&lt; std::endl;\n    });\n  }\n};\n\nint main() {\n  std::string a = \&#34;Hello\&#34;;\n  std::string b = \&#34;World\&#34;;\n\n  MyVector&lt;std::string&gt; v(2);\n  v.push_back(a);\n  v.push_back(std::move(b));\n\n  v.print();\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp20&#34;, &#34;concepts&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp20.html" itemprop="url">
+              
+                <span itemprop="name">C++20</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">コンセプト [P0734R0]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-07-08T15:33:39">
+        2025年07月08日 15時33分39秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp20/concepts.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp20/concepts.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">コンセプト [P0734R0]</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++20に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>C++20から導入される「コンセプト (concepts)」は、テンプレートパラメータを制約する機能である。この機能を使用することで、以下のような面でプログラミングのしやすさが向上する：</p>
+<ul>
+<li>コンパイルエラーのメッセージが読みやすくなる<ul>
+<li>テンプレートパラメータの型およびそのオブジェクトに対する許可されていない操作をしようとした場合に発生するエラーメッセージが、「テンプレートパラメータ<code>T</code>がコンセプト<code>X</code>の要件を満たしません」のようなわかりやすいものになることが期待できる</li>
+</ul>
+</li>
+<li>これまで自然言語で書いていた制約の仕様をプログラムで記述できる<ul>
+<li><code>assert</code> / <code>static_assert</code>はどのような値になるべきかを表明するが、コンセプトは型が持つべきインタフェースや特性を表明する</li>
+</ul>
+</li>
+<li>コンセプトによって関数<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>やテンプレート特殊化ができる<ul>
+<li>これまでSFINAEと呼ばれる上級者向けの言語機能を使用していた制約による<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>が、コンセプトというわかりやすい機能で実現できる。これはたとえば、InputIteratorとRandomAccessIterator、整数と浮動小数点数でそれぞれに最適な実装を切り替えるような場合に必要となる</li>
+</ul>
+</li>
+</ul>
+<h3>コンセプトの基本的な定義方法</h3>
+<p>以下は、関数テンプレートのテンプレートパラメータ<code>T</code>に対して、<code>draw()</code>メンバ関数を持っていることを要求する制約の定義例である：</p>
+<p><div class="yata" id="3738017ac509e794ecc67a751cdaf1d318ec12f6"><div class="codehilite"><pre><span></span><code><span class="c1">// 描画可能コンセプト。</span>
+<span class="c1">// メンバ関数draw()を持つことを要求する</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">Drawable</span> <span class="o">=</span> <span class="n">requires</span> <span class="p">(</span><span class="n">T</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">x</span><span class="p">.</span><span class="n">draw</span><span class="p">();</span> <span class="c1">// 型Tに要求する操作をセミコロン区切りで列挙する。</span>
+            <span class="c1">// ここでは、メンバ関数draw()を呼び出せることを要求している。</span>
+<span class="p">};</span>
+
+<span class="c1">// テンプレートパラメータTをコンセプトDrawableで制約する。</span>
+<span class="c1">// Drawableの要件を満たさない型が渡された場合は制約エラーとなる</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="n">Drawable</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">x</span><span class="p">.</span><span class="n">draw</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">struct</span> <span class="n">Circle</span> <span class="p">{</span>
+  <span class="kt">void</span> <span class="n">draw</span><span class="p">()</span> <span class="p">{}</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">Box</span> <span class="p">{</span>
+  <span class="kt">void</span> <span class="n">draw</span><span class="p">()</span> <span class="p">{}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">Circle</span> <span class="n">c</span><span class="p">;</span>
+  <span class="n">f</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>      <span class="c1">// OK</span>
+
+  <span class="n">Box</span> <span class="n">b</span><span class="p">;</span>
+  <span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>      <span class="c1">// OK</span>
+
+<span class="c1">//int n = 0;</span>
+<span class="c1">//f(n);      // コンパイルエラー！</span>
+             <span class="c1">// 型intはDrawableコンセプトの要件を満たさず、</span>
+             <span class="c1">// draw()メンバ関数を持っていない</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p><code>concept</code>キーワードを使用して、型に対する要求の集合であるコンセプトを定義する。コンセプトの定義では、型がどのような特性を持つのか (整数型なのか浮動小数点数型なのか、<code>==</code>で比較可能なのか<code>&lt;</code>で順序付けられているか) や、型に対してどのような操作ができるべきか (メンバ関数呼び出し、非メンバ関数呼び出し、ほかの型との演算、特定のメンバ型を持っているか) などを列挙する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iterator.html">&lt;iterator&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/concepts.html">&lt;concepts&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// bool型の定数式でコンセプトを定義できるため、</span>
+<span class="c1">// 型特性としてすでに用意されている定数式をラップしてコンセプトを定義できる</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">Integral</span> <span class="o">=</span> <span class="n"><a href="../../reference/type_traits/is_integral.html">std::is_integral_v</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="c1">// 2つ以上のテンプレートパラメータをとるコンセプトも定義できる</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">EqualityComparable</span> <span class="o">=</span> <span class="n">requires</span> <span class="p">(</span><span class="n">T</span> <span class="n">a</span><span class="p">,</span> <span class="n">U</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">{</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="../../reference/concepts/convertible_to.html">std::convertible_to</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// 式の戻り値型も制約できる (直接の戻り値型は指定できない)</span>
+<span class="p">};</span>
+
+<span class="c1">// 戻り値型の要求には、直接の型だけでなくコンセプトも指定できる</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">Addable</span> <span class="o">=</span> <span class="n">requires</span> <span class="p">(</span><span class="n">T</span> <span class="n">a</span><span class="p">,</span> <span class="n">U</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 加算の結果として、型Tと型Uの共通の型が返ること</span>
+  <span class="p">{</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="../../reference/concepts/common_with.html">std::common_with</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// セミコロン区切りで複数の要求を列挙できる</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">SequenceContainer</span> <span class="o">=</span> <span class="n">requires</span> <span class="p">(</span><span class="n">T</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">typename</span> <span class="n">T</span><span class="o">::</span><span class="n">size_type</span><span class="p">;</span> <span class="c1">// 型Tがメンバ型としてsize_typeを持っていること</span>
+  <span class="p">{</span><span class="n">c</span><span class="p">.</span><span class="n">size</span><span class="p">()}</span> <span class="o">-&gt;</span> <span class="n"><a href="../../reference/concepts/convertible_to.html">std::convertible_to</a></span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">::</span><span class="n">size_type</span><span class="o">&gt;</span><span class="p">;</span>     <span class="c1">// 型Tのオブジェクトに対して特定のメンバ関数が呼び出せることを要求</span>
+  <span class="p">{</span><span class="n"><a href="../../reference/iterator/size.html">std::size</a></span><span class="p">(</span><span class="n">c</span><span class="p">)}</span> <span class="o">-&gt;</span> <span class="n"><a href="../../reference/concepts/convertible_to.html">std::convertible_to</a></span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">::</span><span class="n">size_type</span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// 非メンバ関数の呼び出しも要求できる</span>
+
+  <span class="k">typename</span> <span class="n">T</span><span class="o">::</span><span class="n">value_type</span><span class="p">;</span>
+  <span class="n">c</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n"><a href="../../reference/utility/declval.html">std::declval</a></span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">::</span><span class="n">value_type</span><span class="o">&gt;</span><span class="p">());</span>
+<span class="p">};</span>
+
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// コンセプトはbool定数式として使用できる</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n">Integral</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">);</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n">EqualityComparable</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span><span class="p">);</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n">Addable</span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="p">,</span> <span class="kt">char</span><span class="o">&gt;</span><span class="p">);</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n">SequenceContainer</span><span class="o">&lt;</span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h3>コンセプトによる<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>と特殊化</h3>
+<p>テンプレートパラメータを制約するためには<code>static_assert</code>を使うこともできるだろう。</p>
+<p><code>static_assert</code>とコンセプトの違いとしては、<code>static_assert</code>は要件を満たさない場合に即座にコンパイルエラーになるが、コンセプトの場合は、要件を満たさない場合にほかの候補を探しに行き、要件を満たす候補が見つからなかった時点でコンパイルエラーとする機能がある。</p>
+<p>そのため、コンセプトは関数テンプレートの<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>、クラステンプレートや変数テンプレートの特殊化に使用できる。</p>
+<p><div class="yata" id="30ca301ffdb5d3006ac41d266650eff905c4c76a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/concepts.html">&lt;concepts&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/cmath.html">&lt;cmath&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/limits.html">&lt;limits&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// 数値の等値比較を行う関数を、整数型か浮動小数点数型かでオーバーロードする。</span>
+<span class="c1">// 整数型の場合は、単純な==演算子による比較</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../../reference/concepts/integral.html">std::integral</a></span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">bool</span> <span class="n">equal</span><span class="p">(</span><span class="n">T</span> <span class="n">a</span><span class="p">,</span> <span class="n">T</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 浮動小数点数型の場合は、計算誤差を許容する等値比較</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../../reference/concepts/floating_point.html">std::floating_point</a></span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">bool</span> <span class="n">equal</span><span class="p">(</span><span class="n">T</span> <span class="n">a</span><span class="p">,</span> <span class="n">T</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n"><a href="../../reference/cmath/abs.html">std::abs</a></span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n"><a href="../../reference/limits/numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n"><a href="../../reference/limits/numeric_limits/epsilon.html">epsilon()</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 変数テンプレートを、整数型か浮動小数点数型かで特殊化する。</span>
+<span class="c1">// 同じことはクラステンプレートでもできる</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="n">T</span> <span class="n">pi</span><span class="p">;</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../../reference/concepts/floating_point.html">std::floating_point</a></span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="n">T</span> <span class="n">pi</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="mf">3.141592653589793</span><span class="p">);</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../../reference/concepts/integral.html">std::integral</a></span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="n">T</span> <span class="n">pi</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> <span class="c1">// 整数の円周率は3 (これはジョークです)</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">equal</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span>
+  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">equal</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">));</span> <span class="c1">// 計算誤差によって0.1 + 0.2 == 0.3にはならないが、誤差を許容することで等値と見なす</span>
+                                 <span class="c1">// (0.1 + 0.2 は <a href="https://0.30000000000000004.com" target="_blank">0.30000000000000004</a> のような値になる)</span>
+
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">pi</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span> <span class="c1">// 3.14159</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">pi</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>    <span class="c1">// 3</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>また、コンセプトは<code>bool</code>型の定数式でもあるため、<code>static_assert</code>と組み合わせてコンパイル時の表明としても使用できる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">T</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// テンプレートパラメータTは整数型であること</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n"><a href="../../reference/concepts/integral.html">std::integral</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h3>テンプレートパラメータを制約する複数の方法</h3>
+<p>テンプレートパラメータを制約する方法はいくつかある。ここまで紹介した方法は、<code>template &lt;std::integral T&gt;</code>のように<code>class</code>や<code>typename</code>といったキーワードを使用していたテンプレートパラメータの宣言部分にコンセプトを指定し、テンプレートパラメータ<code>T</code>を制約するものだった。この方法は簡易的な制約には便利だが、複数条件を指定できないというトレードオフがある。</p>
+<p>制約の方法としては、以下の選択肢がある：</p>
+<ol>
+<li><code>class</code> / <code>typename</code>の代わりにコンセプトを指定する</li>
+<li><code>requires</code>節を使用する</li>
+<li>関数テンプレートの簡略構文を使用する</li>
+</ol>
+<h4>class / typenameの代わりにコンセプトを指定して制約する</h4>
+<p><code>class</code> / <code>typename</code>キーワードの代わりにコンセプトを指定する方法は、これまでに紹介した。</p>
+<p>もう少し詳細な仕様を紹介すると、この構文の場合、コンセプトの第1テンプレート引数がテンプレートパラメータで置き換えられる。<code>template &lt;std::integral T&gt;</code>の場合、<code>std::integral&lt;T&gt;</code>のようにテンプレートパラメータ<code>T</code>を<code>std::integral</code>コンセプトに自動的に指定される。</p>
+<p>この方法では、複数のテンプレートパラメータをとるコンセプトを使用する場合に注意する必要がある。たとえば任意の引数型から型<code>T</code>を構築できることを要求する<code><a href="../../reference/concepts/constructible_from.html">std::constructible_from</a></code>コンセプトの場合、<code>template &lt;std::constructible_from&lt;int&gt; T&gt;</code>のように指定すると、<code>std::constructible_from&lt;T, int&gt;</code>を意味し、「型<code>T</code>が<code>int</code>から構築できること」を要求する制約となる。</p>
+<p><div class="yata" id="eb907c3489a9132a2f943cd95a6fa1d146b23013"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/concepts.html">&lt;concepts&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../../reference/concepts/constructible_from.html">std::constructible_from</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">T</span> <span class="n">make_from_int</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">T</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">make_from_int</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+  <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">make_from_int</span><span class="o">&lt;</span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+
+  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../../reference/vector/vector/size.html">b.size()</a></span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>requires節を使用して制約する</h4>
+<p><code>requires</code>節を使用することで、以下のような制約ができる：</p>
+<ul>
+<li>ひとつのテンプレートパラメータを複数のコンセプトで制約 (AND / OR条件)</li>
+<li>クラステンプレートでメンバ関数ごとにクラステンプレートパラメータを制約</li>
+</ul>
+<p><code>requires</code>節は基本的に、テンプレートパラメータ宣言のあとに記述する。これは、関数テンプレート、クラステンプレート、エイリアステンプレート、変数テンプレートなど、どれでも共通である。また、<code>requires</code>では、ひとつのテンプレートパラメータに対して複数の制約を指定することができる。<code>&amp;&amp;</code>演算子によるAND条件、<code>||</code>演算子によるOR条件によって複数の制約を指定する。</p>
+<p><div class="yata" id="d1fa11adf82e0ec38338ad390be71172154612c8"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/concepts.html">&lt;concepts&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">requires</span> <span class="n"><a href="../../reference/concepts/constructible_from.html">std::constructible_from</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span> <span class="n"><a href="../../reference/concepts/move_constructible.html">std::move_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
+<span class="n">T</span> <span class="n">make_from_int</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">T</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">make_from_int</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+  <span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">make_from_int</span><span class="o">&lt;</span><span class="n"><a href="../../reference/vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+
+  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../../reference/vector/vector/size.html">b.size()</a></span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>また、requires節は、クラステンプレートのテンプレートパラメータを、メンバ関数ごとに制約するためにも使用できる。簡易的な<code><a href="../../reference/vector/vector.html">std::vector</a></code>の<code>push_back()</code>メンバ関数を実装してみよう。</p>
+<p><div class="yata" id="07625a06c0d3ed7367160bb5d98f9697cf518c2f"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/concepts.html">&lt;concepts&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/stdexcept.html">&lt;stdexcept&gt;</a></span><span class="cp"></span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">MyVector</span> <span class="p">{</span>
+  <span class="n"><a href="../../reference/memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">alloc_</span><span class="p">;</span>
+  <span class="n">T</span><span class="o">*</span> <span class="n">data_</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="n">capacity_</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="n">size_</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="c1">// 簡易実装のため、事前にメモリ領域を確保して再確保はしない。</span>
+  <span class="c1">// (<a href="../../reference/vector/vector.html">std::vector</a>のコンストラクタとは効果が違う)</span>
+  <span class="k">explicit</span> <span class="n">MyVector</span><span class="p">(</span><span class="n"><a href="../../reference/cstddef/size_t.html">std::size_t</a></span> <span class="n">n</span><span class="p">)</span>
+    <span class="o">:</span> <span class="n">data_</span><span class="p">{</span><span class="n"><a href="../../reference/memory/allocator/allocate.html">alloc_.allocate</a></span><span class="p">(</span><span class="n">n</span><span class="p">)},</span>
+      <span class="n">capacity_</span><span class="p">{</span><span class="n">n</span><span class="p">},</span>
+      <span class="n">size_</span><span class="p">{</span><span class="mi">0</span><span class="p">}</span>
+  <span class="p">{}</span>
+
+  <span class="o">~</span><span class="n">MyVector</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n"><a href="../../reference/memory/destroy_n.html">std::destroy_n</a></span><span class="p">(</span><span class="n">data_</span><span class="p">,</span> <span class="n">size_</span><span class="p">);</span>
+    <span class="n"><a href="../../reference/memory/allocator/deallocate.html">alloc_.deallocate</a></span><span class="p">(</span><span class="n">data_</span><span class="p">,</span> <span class="n">size_</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// コピー版のpush_back</span>
+  <span class="kt">void</span> <span class="n">push_back</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="n">requires</span> <span class="n"><a href="../../reference/concepts/copy_constructible.html">std::copy_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
+  <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">size_</span> <span class="o">&gt;=</span> <span class="n">capacity_</span><span class="p">)</span>
+      <span class="k">throw</span> <span class="n"><a href="../../reference/stdexcept.html">std::out_of_range</a></span><span class="p">(</span><span class="s">"over capacity"</span><span class="p">);</span>
+
+    <span class="k">new</span> <span class="p">(</span><span class="n">data_</span> <span class="o">+</span> <span class="n">size_</span><span class="p">)</span> <span class="n">T</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+    <span class="n">size_</span> <span class="o">=</span> <span class="n">size_</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// ムーブ版のpush_back</span>
+  <span class="kt">void</span> <span class="n">push_back</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="n">requires</span> <span class="n"><a href="../../reference/concepts/move_constructible.html">std::move_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
+  <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">size_</span> <span class="o">&gt;=</span> <span class="n">capacity_</span><span class="p">)</span>
+      <span class="k">throw</span> <span class="n"><a href="../../reference/stdexcept.html">std::out_of_range</a></span><span class="p">(</span><span class="s">"over capacity"</span><span class="p">);</span>
+
+    <span class="k">new</span> <span class="p">(</span><span class="n">data_</span> <span class="o">+</span> <span class="n">size_</span><span class="p">)</span> <span class="n">T</span><span class="p">(</span><span class="n"><a href="../../reference/utility/move.html">std::move</a></span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
+    <span class="n">size_</span> <span class="o">=</span> <span class="n">size_</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 非テンプレートな関数に対するrequires節は、関数修飾の後ろに記述する</span>
+  <span class="n">T</span> <span class="n">front</span><span class="p">()</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">requires</span> <span class="n"><a href="../../reference/concepts/copy_constructible.html">std::copy_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
+  <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">size_</span> <span class="o">&lt;</span> <span class="mi">1u</span><span class="p">)</span>
+      <span class="k">throw</span> <span class="n"><a href="../../reference/stdexcept.html">std::out_of_range</a></span><span class="p">(</span><span class="s">"empty"</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">data_</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+  <span class="p">}</span>
+
+  <span class="kt">void</span> <span class="n">print</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../../reference/algorithm/for_each_n.html">std::for_each_n</a></span><span class="p">(</span><span class="n">data_</span><span class="p">,</span> <span class="n">size_</span><span class="p">,</span> <span class="p">[](</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">a</span> <span class="o">=</span> <span class="s">"Hello"</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span> <span class="n">b</span> <span class="o">=</span> <span class="s">"World"</span><span class="p">;</span>
+
+  <span class="n">MyVector</span><span class="o">&lt;</span><span class="n"><a href="../../reference/string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">v</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+  <span class="n">v</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+  <span class="n">v</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n"><a href="../../reference/utility/move.html">std::move</a></span><span class="p">(</span><span class="n">b</span><span class="p">));</span>
+
+  <span class="n">v</span><span class="p">.</span><span class="n">print</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>出力：</p>
+<p><pre><code>Hello
+World
+</code></pre></p>
+<h4>関数テンプレートの簡略構文を使用する</h4>
+<p>ジェネリックラムダと同様に、関数テンプレートも<code>auto</code>プレースホルダーを使用して、簡易的にテンプレートを使用できる。その場合でも、各パラメータの型をコンセプトで制約できる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/concepts.html">&lt;concepts&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/limits.html">&lt;limits&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/cmath.html">&lt;cmath&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// template &lt;<a href="../../reference/concepts/integral.html">std::integral</a> A, <a href="../../reference/concepts/integral.html">std::integral</a> B&gt;</span>
+<span class="c1">// bool equal(A a, B b); これと同じ</span>
+<span class="kt">bool</span> <span class="nf">equal</span><span class="p">(</span><span class="n"><a href="../../reference/concepts/integral.html">std::integral</a></span> <span class="k">auto</span> <span class="n">a</span><span class="p">,</span> <span class="n"><a href="../../reference/concepts/integral.html">std::integral</a></span> <span class="k">auto</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span> <span class="nf">equal</span><span class="p">(</span><span class="n"><a href="../../reference/concepts/floating_point.html">std::floating_point</a></span> <span class="k">auto</span> <span class="n">a</span><span class="p">,</span> <span class="n"><a href="../../reference/concepts/floating_point.html">std::floating_point</a></span> <span class="k">auto</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">using</span> <span class="n">T</span> <span class="o">=</span> <span class="n"><a href="../../reference/type_traits/common_type.html">std::common_type_t</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="k">decltype</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="k">return</span> <span class="n"><a href="../../reference/cmath/abs.html">std::abs</a></span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n"><a href="../../reference/limits/numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n"><a href="../../reference/limits/numeric_limits/epsilon.html">epsilon()</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">equal</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span>
+  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">equal</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>仕様</h2>
+<h3>コンセプト定義</h3>
+<ul>
+<li>
+<p>「コンセプト (concept)」は、テンプレート引数に対する制約を定義するテンプレートである。コンセプトは、以下の構文で定義する：
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="err">テンプレートパラメータ宣言</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="err">コンセプト名</span> <span class="o">=</span> <span class="n">requires式</span><span class="p">;</span>
+</code></pre></div>
+</p>
+</li>
+<li>
+<p>コンセプトは、<code>bool</code>型のprvalueを持つ定数式である：
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">C</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+
+<span class="k">static_assert</span><span class="p">(</span><span class="n">C</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">);</span>
+</code></pre></div>
+</p>
+</li>
+<li>
+<p>コンセプトは、関連制約を持ってはならない (条件によって定義が存在しないことは許可されない)
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">A</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="n">A</span> <span class="n">T</span><span class="o">&gt;</span> <span class="c1">// コンパイルエラー！コンセプトは制約できない</span>
+<span class="n">concept</span> <span class="n">B</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+</code></pre></div>
+</p>
+</li>
+<li>
+<p>コンセプトはインスタンス化されない。コンセプトを明示的にインスタンス化、明示的に特殊化、部分的に特殊化した場合、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる</p>
+</li>
+</ul>
+<h3>requires式</h3>
+<ul>
+<li>
+<p>「requires式 (Requires expressions)」は、「型<code>T</code>がメンバ関数<code>f()</code>を持っていなければならない」「型<code>T</code>がメンバ型<code>value_type</code>を持っていなければならない」といったテンプレートパラメータの型がもつプロパティを検査し、要件を定義するための機能である</p>
+</li>
+<li>
+<p>requires式の結果は、<code>bool</code>型のprvalueを持つ定数式である</p>
+</li>
+<li>
+<p>requires式のサンプルをいくつか示す：
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">R</span> <span class="o">=</span> <span class="n">requires</span> <span class="p">(</span><span class="n">T</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>       <span class="c1">// 型Tの値iがあるとして、</span>
+  <span class="k">typename</span> <span class="n">T</span><span class="o">::</span><span class="n">type</span><span class="p">;</span>                <span class="c1">// 型Tがメンバ型typeを持つこと。</span>
+  <span class="p">{</span><span class="o">*</span><span class="n">i</span><span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="../../reference/concepts/convertible_to.html">std::convertible_to</a></span><span class="o">&lt;</span><span class="k">const</span> <span class="k">typename</span> <span class="n">T</span><span class="o">::</span><span class="n">type</span><span class="o">&amp;&gt;</span><span class="p">;</span> <span class="c1">// 型Tの値に対して式*iが妥当であり、</span>
+                                                        <span class="c1">// その式の戻り値型としてconst typename T::type&amp;に変換可能な型が返ること</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<ul>
+<li>ここでは、関数形式でローカルパラメータをひとつ (<code>T i</code>) とるrequires式によってコンセプト<code>R</code>を定義している</li>
+<li>ローカルパラメータである<code>T i</code>の変数定義では、<code>T</code>型に対して「コピー構築可能であること」といった要求は行わず、そのような評価はコンパイル時にも行われない。これは<code><a href="../../reference/utility/declval.html">std::declval()</a></code>関数と同様に、「<code>T</code>型のなんらかの値」であることのみを表し、特定の値は持たず、構築もされない</li>
+</ul>
+</li>
+<li>
+<p>パラメータリスト後の波カッコ { } で囲まれた本体中には、要件のシーケンスをセミコロン区切りで記述する。各要件は、ローカルパラメータ、テンプレートパラメータ、およびその文脈から見えるほかの宣言を参照できる</p>
+</li>
+<li>
+<p>ローカルパラメータは、リンケージ、記憶域、生存期間をもたない</p>
+</li>
+<li>
+<p>ローカルパラメータのスコープは、名前が導入されてから本体の閉じカッコまでである</p>
+</li>
+<li>
+<p>ローカルパラメータはデフォルト引数を持ってはならず、パラメータリストの最後が <code>...</code> であってはならない</p>
+</li>
+<li>
+<p>型<code>T</code>がrequires式で列挙された要件は定義順に検査され、全ての要件を満たす場合、<code>bool</code>型の定数<code>true</code>が返る。requires式内では、無効な型や式が形成されたり、意味論的な制約に違反する場合があるが、そういった場合はプログラムが<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>にはならず、<code>false</code>が返る</p>
+<ul>
+<li>テンプレートパラメータに関わらず無効になる型や式が現れた場合、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる</li>
+</ul>
+</li>
+<li>
+<p>対象となる型がひとつである場合でも、requires式のパラメータは複数とることができる：
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">C</span> <span class="o">=</span> <span class="n">requires</span> <span class="p">(</span><span class="n">T</span> <span class="n">a</span><span class="p">,</span> <span class="n">T</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 型Tの値aとbがあるとして、</span>
+  <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span> <span class="c1">// 式a + bが妥当であること</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+</li>
+<li>
+<p>ローカルパラメータをとらないrequires式も定義できる：
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="n">concept</span> <span class="n">C</span> <span class="o">=</span> <span class="n">requires</span> <span class="p">{</span>
+  <span class="k">typename</span> <span class="n">T</span><span class="o">::</span><span class="n">inner</span><span class="p">;</span> <span class="c1">// メンバ型innerの存在を要求</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+</li>
+<li>
+<p>requires式で定義できる要件の種類は、以下である：</p>
+<ul>
+<li>単純要件</li>
+<li>型要件</li>
+<li>複合要件</li>
+<li>入れ子要件</li>
+</ul>
+</li>
+</ul>
+<h4>単純要件</h4>
+<ul>
+<li>
+<p>「単純要件 (Simple requirements)」は、式の妥当性を表明する要件である。テンプレート引数で型を置き換えた結果として式が無効な場合、<code>false</code>に評価される
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">C</span> <span class="o">=</span> <span class="n">requires</span> <span class="p">(</span><span class="n">T</span> <span class="n">a</span><span class="p">,</span> <span class="n">T</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 型Tの値aとbがあるとして、</span>
+  <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span> <span class="c1">// 式a + bが妥当であること</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+</li>
+<li>
+<p>この要件には、任意の定数式を含めることができるが、直接的にそのような方法をとったとしても、その定数式の評価された結果が<code>true</code>であること、というような要件にはできない。あくまで式が妥当であることの要件である</p>
+</li>
+</ul>
+<h4>型要件</h4>
+<ul>
+<li>
+<p>「型要件 (Type requirements)」は、型の妥当性を表明する要件である。テンプレート引数で型を置き換えた結果として型が無効な場合、<code>false</code>に評価される</p>
+</li>
+<li>
+<p>型要件の構文は以下のようになる：
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">typename</span> <span class="err">入れ子指定</span><span class="p">(</span><span class="err">省略可</span><span class="p">)</span> <span class="err">要求する型名</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<ul>
+<li>
+<p>つまり、先頭に<code>typename</code>が記述されていれば型要件である。テンプレートパラメータの型が保持するメンバ型を<code>typename T::nested_type;</code>のように要求することもできるが、特定のクラステンプレートにテンプレート引数を渡した結果が妥当であること、というような要求もできる</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">T</span><span class="o">::</span><span class="n">type</span> <span class="o">=</span> <span class="mi">0</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">S</span><span class="p">;</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="k">using</span> <span class="n">Ref</span> <span class="o">=</span> <span class="n">T</span><span class="o">&amp;</span><span class="p">;</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">C</span> <span class="o">=</span> <span class="n">requires</span> <span class="p">{</span>
+  <span class="k">typename</span> <span class="n">T</span><span class="o">::</span><span class="n">inner</span><span class="p">;</span> <span class="c1">// メンバ型innerの存在を要求</span>
+  <span class="k">typename</span> <span class="n">S</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>     <span class="c1">// クラステンプレートの特殊化を要求</span>
+  <span class="k">typename</span> <span class="n">Ref</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>   <span class="c1">// エイリアステンプレートRefに型Tを渡せることを要求</span>
+                     <span class="c1">// (Tがvoidだったら失敗することを意図)</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+</li>
+</ul>
+</li>
+<li>
+<p>ただし特殊化の要求は、テンプレート引数を渡した結果として<a class="cpprefjp-defined-word" data-desc="型のサイズを決定できる型。不完全型ではない型">完全型</a>になること、という要求ではない</p>
+<ul>
+<li>そのため、宣言のみのプライマリテンプレートと、定義をもつ特殊化、という構成になっているクラステンプレートは、特殊化されていないテンプレート引数に対しては<a class="cpprefjp-defined-word" data-desc="型のサイズを決定できない、完全には定義されていない型。例えば先行宣言のみのクラス型、要素数不明の配列型、`void`など。クラス定義内部ではそのクラス自身は不完全型">不完全型</a>になるのみで非妥当ではない</li>
+</ul>
+</li>
+</ul>
+<h4>複合要件</h4>
+<ul>
+<li>
+<p>「複合要件 (Compound requirements)」は、式のプロパティを表明する要件である。式の妥当性、<code>noexcept</code>、式の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型に対する要件を順に検査する</p>
+</li>
+<li>
+<p>複合要件の構文は以下のようになる：
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="p">{</span> <span class="err">妥当性を検査する式</span> <span class="p">}</span> <span class="k">noexcept</span><span class="p">(</span><span class="err">省略可</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="err">戻り値型の制約</span><span class="p">(</span><span class="err">省略可</span><span class="p">);</span>
+</code></pre></div>
+</p>
+</li>
+<li>
+<p>この要件は、以下のように検査される：</p>
+<ul>
+<li>テンプレート引数で型を置き換えて式を評価し、妥当でなければ<code>false</code>に評価される</li>
+<li><code>noexcept</code>を指定した場合、式は<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出の可能性がある場合は<code>false</code>に評価される</li>
+<li><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型要件が指定された場合、<ul>
+<li>テンプレート引数で型を置き換えて型を評価し、妥当でなければ<code>false</code>に評価される</li>
+<li><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型の制約が指定された場合、その要件を満たすこと。満たさなければ<code>false</code>に評価される。制約として制約名のみが指定された場合、<code>{E} -&gt; Concept;</code>は<code>E; Concept&lt;decltype((E))&gt;;</code>と等価であり、唯一の制約引数として式の型が渡される。制約として引数付きの制約が指定された場合、<code>{E} -&gt; Concept&lt;Args...&gt;;</code>は<code>E; Concept&lt;decltype((E)), Args...&gt;;</code>と等価となり、先頭の制約引数として式の型が渡される</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>例として、式のみを指定する場合、単純要件と等価である：
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">C1</span> <span class="o">=</span> <span class="n">requires</span><span class="p">(</span><span class="n">T</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">{</span><span class="n">x</span><span class="o">++</span><span class="p">};</span> <span class="c1">// 型Tの値xに対して式x++が妥当であること</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+</li>
+<li>
+<p>式と<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型を指定したい場合：
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">C2</span> <span class="o">=</span> <span class="n">requires</span><span class="p">(</span><span class="n">T</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">{</span><span class="o">*</span><span class="n">x</span><span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="../../reference/concepts/same_as.html">std::same_as</a></span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">::</span><span class="n">inner</span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// 型Tの値xに対して式*xが妥当であり、</span>
+                                           <span class="c1">// その戻り値型がtypename T::inner型であること。</span>
+                                           <span class="c1">// <a href="../../reference/concepts/same_as.html">std::same_as</a>&lt;decltype(*x), typename T::inner&gt;制約を意味する</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+</li>
+<li>
+<p>式と<code>noexcept</code>を指定した場合、指定した式<code>g(x)</code>が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出の可能性がないことが検査される：
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">C3</span> <span class="o">=</span> <span class="n">requires</span><span class="p">(</span><span class="n">T</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">{</span><span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">)}</span> <span class="k">noexcept</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+</li>
+<li>
+<p>式と<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型の制約を指定した場合、指定した式が妥当であることと、その<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型が指定した制約を満たすことが検査される：
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">C4</span> <span class="o">=</span> <span class="n">requires</span><span class="p">(</span><span class="n">T</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">{</span><span class="n">x</span><span class="o">++</span><span class="p">}</span> <span class="o">-&gt;</span> <span class="n">Incrementable</span><span class="p">;</span>     <span class="c1">// 式x++の戻り値型がIncrementable制約を満たすこと。</span>
+                              <span class="c1">// x; Incrementable&lt;decltype((x++))&gt;; と等価</span>
+  <span class="p">{</span><span class="o">*</span><span class="n">x</span><span class="p">}</span> <span class="o">-&gt;</span> <span class="n">Constructible</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// 式*xの戻り値型がConstructible制約を満たすこと (intから構築可能であること)。</span>
+                              <span class="c1">// x; Constructible&lt;decltype((*x)), int&gt;; と等価</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+</li>
+</ul>
+<h4>入れ子要件</h4>
+<ul>
+<li>
+<p>「入れ子要件 (Nested requirements)」は、requires式内で<code>bool</code>型の定数式で制約する要件である。コンセプトには<code>bool</code>型の定数式を直接指定できるため入れ子要件と等価な指定ができるが、こちらは先に述べた単純要件、型要件、複合要件に対する追加の制約として使用する。要件は定義順に検査されるため、要件Aが成り立たなければ要件Bを検査しない、というような状況で入れ子要件を使用できるだろう</p>
+</li>
+<li>
+<p>入れ子要件の構文は以下のようになる：
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="n">requires</span> <span class="err">制約式</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<ul>
+<li>ここでの制約式とは、<code>concept C = 制約定数式;</code>のようになっているコンセプト定義に指定する<code>bool</code>型の定数式と同じである
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">U</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">C</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">U</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">D</span> <span class="o">=</span> <span class="n">requires</span> <span class="p">(</span><span class="n">T</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">requires</span> <span class="n">C</span><span class="o">&lt;</span><span class="k">decltype</span> <span class="p">(</span><span class="o">+</span><span class="n">t</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>                   <span class="c1">// コンセプトを指定できる</span>
+  <span class="n">requires</span> <span class="n"><a href="../../reference/type_traits/is_default_constructible.html">std::is_default_constructible_v</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// 判定系の型特性も指定できる</span>
+<span class="p">};</span>
+</code></pre></div>
+</li>
+</ul>
+</li>
+<li>
+<p>入れ子要件では、requires式で導入したローカルパラメータを使用できる。ただし、ローカルパラメータは特定の値を意味しない「その型のなんらかの値をもつオブジェクト」でしかないため、ローカルパラメータの値を参照しようとする式は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。ローカルパラメータを使用できるのは、値が評価されない文脈のみである (<code>sizeof</code>、<code>decltype</code>、<code>alignof</code>など)
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">C</span> <span class="o">=</span> <span class="n">requires</span> <span class="p">(</span><span class="n">T</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">requires</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">;</span> <span class="c1">// OK : 値が評価されない文脈でローカルパラメータを使用</span>
+  <span class="c1">//requires a == 0;       // コンパイルエラー！: 制約変数は値を評価できない</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+</li>
+</ul>
+<h3>制約テンプレート</h3>
+<ul>
+<li>
+<p>テンプレートは、クラス、関数、変数、エイリアスに加えて、コンセプトに対して宣言でき、その全てに対して制約を適用できる
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="err">パラメータリスト</span><span class="p">...</span><span class="o">&gt;</span>
+<span class="n">requires節</span>
+<span class="err">宣言</span><span class="p">;</span>
+</code></pre></div>
+</p>
+</li>
+<li>
+<p>テンプレートパラメータを「制約パラメータ (constrained parameter)」として宣言することで、requires節を指定することなくテンプレートパラメータを制約できる。制約パラメータを使用したテンプレートパラメータの宣言は、以下の構文である：
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="err">名前空間修飾付きのコンセプト名もしくはテンプレート引数付きコンセプト</span> <span class="err">識別子</span> <span class="err">デフォルトテンプレート引数</span><span class="p">(</span><span class="err">省略可</span><span class="p">)</span><span class="o">&gt;</span>
+</code></pre></div>
+</p>
+<ul>
+<li>
+<p>コンセプト名を指定した場合、指定されたテンプレート引数が自動的にコンセプトの第1テンプレート引数として渡される：
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../../reference/concepts/move_constructible.html">std::move_constructible</a></span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">X</span><span class="p">;</span>
+
+<span class="c1">// 以下と等価</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">requires</span> <span class="n"><a href="../../reference/concepts/move_constructible.html">std::move_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">X</span><span class="p">;</span>
+</code></pre></div>
+</p>
+</li>
+<li>
+<p>第1テンプレート引数を除いたコンセプトを制約パラメータとして指定することで、第1テンプレート引数以外のテンプレート引数を任意に指定することができる：
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="c1">// 2つのテンプレートパラメータをもつコンセプト</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">Addable</span> <span class="o">=</span> <span class="n">requires</span><span class="p">(</span><span class="n">T</span> <span class="n">x</span><span class="p">,</span> <span class="n">U</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// Addableコンセプトの第1テンプレート引数としてTが渡され、</span>
+<span class="c1">// 第2テンプレート引数としてintが渡される</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="n">Addable</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">T</span><span class="o">&gt;</span> <span class="c1">// requires Addable&lt;T, int&gt; と等価</span>
+<span class="k">struct</span> <span class="n">X</span> <span class="p">{};</span>
+
+<span class="n">X</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="n">x</span><span class="p">;</span> <span class="c1">// requires Addable&lt;char, int&gt;</span>
+</code></pre></div>
+</p>
+</li>
+<li>
+<p>制約パラメータに省略記号がついている場合、パラメータパックと見なされる。単一パラメータのコンセプトをパラメータパックにした場合、パラメータパックの各テンプレートパラメータがそのコンセプトを満たすべきという制約になる。複数パラメータをとるコンセプトをパラメータパックにした場合、そのパラメータパックに渡された引数列がコンセプトに渡される：
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="n">concept</span> <span class="n">C1</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">Ts</span><span class="o">&gt;</span> <span class="n">concept</span> <span class="n">C2</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">U</span><span class="o">&gt;</span> <span class="n">concept</span> <span class="n">C3</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="n">C1</span> <span class="n">T</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">s1</span><span class="p">;</span>      <span class="c1">// requires C1&lt;T&gt;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="n">C1</span><span class="p">...</span> <span class="n">T</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">s2</span><span class="p">;</span>   <span class="c1">// requires (C1&lt;T&gt; &amp;&amp; ...)</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="n">C2</span><span class="p">...</span> <span class="n">T</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">s3</span><span class="p">;</span>   <span class="c1">// requires C2&lt;T...&gt;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="n">C3</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">T</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">s4</span><span class="p">;</span> <span class="c1">// requires C3&lt;T, int&gt;</span>
+</code></pre></div>
+</p>
+</li>
+</ul>
+</li>
+<li>
+<p>制約された関数以外のテンプレート、もしくは制約されたテンプレートテンプレートパラメータ、ただし不明な特殊化のメンバテンプレート以外で、全てのテンプレート引数が依存名でない場合、その制約テンプレートの関連制約は全て満たされなければならない
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="n">concept</span> <span class="n">C1</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="o">!=</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="n">C1</span> <span class="n">T</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">S1</span> <span class="p">{};</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="n">C1</span> <span class="n">T</span><span class="o">&gt;</span> <span class="k">using</span> <span class="n">Ptr</span> <span class="o">=</span> <span class="n">T</span><span class="o">*</span><span class="p">;</span>
+
+<span class="n">S1</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;*</span> <span class="n">p</span><span class="p">;</span> <span class="c1">// コンパイルエラー！制約を満たさない</span>
+<span class="n">Ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p</span><span class="p">;</span> <span class="c1">// コンパイルエラー！制約を満たさない</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">S2</span> <span class="p">{</span> <span class="n">Ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">x</span><span class="p">;</span> <span class="p">};</span> <span class="c1">// コンパイルエラー！制約を満たさない</span>
+                           <span class="c1">// intは依存名ではないので、この定義段階で制約チェックされる</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">S3</span> <span class="p">{</span> <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">x</span><span class="p">;</span> <span class="p">};</span> <span class="c1">// OK。Tは依存名なので、この段階では制約チェックされない</span>
+
+<span class="n">S3</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">x</span><span class="p">;</span> <span class="c1">// コンパイルエラー！使用段階 (依存名でなくなった段階) で制約を満たさない</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">template</span><span class="o">&lt;</span><span class="n">C1</span> <span class="n">T</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">X</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">S4</span> <span class="p">{</span>
+  <span class="n">X</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">x</span><span class="p">;</span> <span class="c1">// コンパイルエラー！制約を満たさない</span>
+<span class="p">};</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="n">concept</span> <span class="n">C2</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="n">C2</span> <span class="n">T</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">S</span> <span class="p">{};</span>
+
+<span class="k">template</span> <span class="k">struct</span> <span class="n">S</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">&gt;</span><span class="p">;</span>      <span class="c1">// コンパイルエラー！テンプレート引数が制約を満たさない</span>
+<span class="k">template</span><span class="o">&lt;&gt;</span> <span class="k">struct</span> <span class="n">S</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">&gt;</span> <span class="p">{};</span> <span class="c1">// コンパイルエラー！テンプレート引数が制約を満たさない</span>
+</code></pre></div>
+</p>
+</li>
+<li>
+<p>クラステンプレートのメンバを宣言と定義で分ける場合、制約テンプレートの宣言は等価でなければならない：
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="n">concept</span> <span class="n">C</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="n">concept</span> <span class="n">D</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="n">C</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">S</span> <span class="p">{</span>
+  <span class="kt">void</span> <span class="n">f</span><span class="p">();</span>
+  <span class="kt">void</span> <span class="nf">g</span><span class="p">();</span>
+  <span class="kt">void</span> <span class="nf">h</span><span class="p">();</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="n">D</span> <span class="n">U</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">Inner</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="n">C</span> <span class="n">A</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">S</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;::</span><span class="n">f</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>        <span class="c1">// OK。テンプレート宣言が一致している</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">S</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">g</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span> <span class="c1">// コンパイルエラー！S&lt;T&gt;の宣言と一致していない</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">requires</span> <span class="n">C</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">S</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">h</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>                      <span class="c1">// コンパイルエラー！機能的には等価だが宣言が一致していない</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="n">C</span> <span class="n">X</span><span class="o">&gt;</span> <span class="k">template</span><span class="o">&lt;</span><span class="n">D</span> <span class="n">Y</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">S</span><span class="o">&lt;</span><span class="n">X</span><span class="o">&gt;::</span><span class="n">Inner</span> <span class="p">{</span> <span class="p">};</span> <span class="c1">// OK</span>
+</code></pre></div>
+</p>
+<ul>
+<li>メンバテンプレートも同様に、テンプレート宣言が宣言と定義で等価でなければならない：
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="n">concept</span> <span class="n">C1</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="n">concept</span> <span class="n">C2</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">4</span><span class="p">;</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="n">C1</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">S</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="n">C2</span> <span class="n">U</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">U</span><span class="p">);</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="n">C2</span> <span class="n">U</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">g</span><span class="p">(</span><span class="n">U</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="n">C1</span> <span class="n">T</span><span class="o">&gt;</span> <span class="k">template</span><span class="o">&lt;</span><span class="n">C2</span> <span class="n">U</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">S</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">f</span><span class="p">(</span><span class="n">U</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span> <span class="c1">// OK。テンプレート宣言が一致している</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="n">C1</span> <span class="n">T</span><span class="o">&gt;</span> <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">U</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">S</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">g</span><span class="p">(</span><span class="n">U</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span> <span class="c1">// コンパイルエラー！テンプレート宣言が一致していない</span>
+</code></pre></div>
+</li>
+</ul>
+</li>
+<li>
+<p>クラステンプレートおよび変数テンプレートの部分特殊化も制約できる：
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="n">concept</span> <span class="n">C</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">X</span> <span class="p">{};</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">X</span><span class="o">&lt;</span><span class="n">T</span><span class="o">*&gt;</span> <span class="p">{};</span> <span class="c1">// #1</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="n">C</span> <span class="n">T</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">X</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{};</span>         <span class="c1">// #2</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="kt">int</span> <span class="n">value</span><span class="o">&lt;</span><span class="n">T</span><span class="o">*&gt;</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>          <span class="c1">// #1</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="n">C</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="kt">int</span> <span class="n">value</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>           <span class="c1">// #2</span>
+</code></pre></div>
+</p>
+<ul>
+<li>この例において、#1 と #2 の部分特殊化はどちらも、プライマリテンプレートよりも特殊化されている。#1 の部分特殊化は成功するが、コンセプトによる制約の方がより特殊化されるため、<code>int*</code>型をテンプレート引数とした場合、#2 が選択される
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="n">concept</span> <span class="n">C</span> <span class="o">=</span> <span class="n">requires</span> <span class="p">(</span><span class="n">T</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span> <span class="n">t</span><span class="p">.</span><span class="n">f</span><span class="p">();</span> <span class="p">};</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">S</span> <span class="p">{</span> <span class="p">};</span> <span class="c1">// #1</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="n">C</span> <span class="n">T</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">S</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span> <span class="p">};</span>     <span class="c1">// #2</span>
+
+<span class="k">struct</span> <span class="n">Arg</span> <span class="p">{</span> <span class="kt">void</span> <span class="n">f</span><span class="p">();</span> <span class="p">};</span>
+
+<span class="n">S</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s1</span><span class="p">;</span> <span class="c1">// #1 が選択される。#2 の制約を満たさない</span>
+<span class="n">S</span><span class="o">&lt;</span><span class="n">Arg</span><span class="o">&gt;</span> <span class="n">s2</span><span class="p">;</span> <span class="c1">// #2 が選択される。両方の制約を満たすが、#2 の方がより特殊化されている</span>
+</code></pre></div>
+</li>
+</ul>
+</li>
+<li>
+<p>ラムダ式においても、テンプレートパラメータを個別に制約できる：
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="n">concept</span> <span class="n">C</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+
+<span class="c1">// テンプレート構文を使用したラムダ式のテンプレートパラメータを制約</span>
+<span class="k">auto</span> <span class="n">f</span> <span class="o">=</span> <span class="p">[]</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T1</span><span class="p">,</span> <span class="n">C</span> <span class="n">T2</span><span class="o">&gt;</span> <span class="n">requires</span> <span class="n">C</span><span class="o">&lt;</span><span class="n">T1</span><span class="o">&gt;</span> <span class="p">(</span><span class="n">T1</span> <span class="n">t1</span><span class="p">,</span> <span class="n">T2</span> <span class="n">t2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">t1</span> <span class="o">+</span> <span class="n">t2</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// autoプレースホルダーによる簡略構文を使用したラムダ式のテンプレートパラメータを制約</span>
+<span class="k">auto</span> <span class="n">g</span> <span class="o">=</span> <span class="p">[](</span><span class="n">C</span> <span class="k">auto</span> <span class="n">t1</span><span class="p">,</span> <span class="k">auto</span> <span class="n">t2</span><span class="p">)</span> <span class="n">requires</span> <span class="n">C</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">t2</span><span class="p">)</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">t1</span> <span class="o">+</span> <span class="n">t2</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+</li>
+</ul>
+<h3>requires節</h3>
+<ul>
+<li>
+<p>「requires節 (Requires clauses)」は、テンプレートパラメータに対する制約を表明する構文である</p>
+</li>
+<li>
+<p>requires節は、<code>&amp;&amp;</code> (AND条件、conjunction、連言)、<code>||</code> (OR条件、disjunction、選言) の論理演算子によって複合的に制約を指定できる
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">requires</span> <span class="n"><a href="../../reference/concepts/move_constructible.html">std::move_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">||</span> <span class="n"><a href="../../reference/concepts/copy_constructible.html">std::copy_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">MyVector</span><span class="p">;</span>
+</code></pre></div>
+</p>
+</li>
+<li>
+<p><code>&amp;&amp;</code>と<code>||</code>でつなげる個々の制約を「原子制約 (Atomic constraints)」という。制約単体、もしくは<code>&amp;&amp;</code>と<code>||</code>を含まない定数条件式が原子制約となる</p>
+</li>
+<li>
+<p>requires節は、非テンプレートの関数宣言にも記述できる。これは、クラステンプレートの非テンプレートメンバ関数に対する制約として使用できる</p>
+<ul>
+<li>requires節は関数宣言のみに現れ、定義には現れてはならない</li>
+<li><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型を前置する構文では、<a class="cpprefjp-defined-word" data-desc="型をconstおよび・もしくはvolatileで修飾すること">CV修飾</a>や<code>noexcept</code>のうしろに記述する</li>
+<li>
+<p><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型を後置する構文では、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型のうしろに記述する
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">f1</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">)</span> <span class="n">requires</span> <span class="nb">true</span><span class="p">;</span>         <span class="c1">// OK</span>
+<span class="k">auto</span> <span class="nf">f2</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">bool</span> <span class="n">requires</span> <span class="nb">true</span><span class="p">;</span> <span class="c1">// OK</span>
+<span class="k">auto</span> <span class="nf">f3</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">)</span> <span class="n">requires</span> <span class="nb">true</span> <span class="o">-&gt;</span> <span class="kt">bool</span><span class="p">;</span> <span class="c1">// コンパイルエラー！requires節は戻り値型のうしろに記述すること</span>
+
+<span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">pf</span><span class="p">)()</span> <span class="n">requires</span> <span class="nb">true</span><span class="p">;</span>      <span class="c1">// コンパイルエラー！変数は制約できない</span>
+<span class="kt">void</span> <span class="nf">g</span><span class="p">(</span><span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="p">)()</span> <span class="n">requires</span> <span class="nb">true</span><span class="p">);</span> <span class="c1">// コンパイルエラー！パラメータ宣言は制約できない</span>
+
+<span class="k">auto</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">void</span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">char</span><span class="p">)</span> <span class="n">requires</span> <span class="nb">true</span><span class="p">;</span> <span class="c1">// コンパイルエラー！関数宣言ではない</span>
+                                           <span class="c1">// (関数シグニチャの一部ではないため関数ポインタの宣言には現れない)</span>
+</code></pre></div>
+</p>
+</li>
+<li>
+<p>非テンプレートの関数宣言に対するrequires節は、仮想関数に対しては記述できない
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">A</span> <span class="p">{</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">f</span><span class="p">()</span> <span class="n">requires</span> <span class="nb">true</span><span class="p">;</span> <span class="c1">// コンパイルエラー！仮想関数は制約できない</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+</li>
+<li>
+<p>非テンプレートの関数宣言に対するrequires節は、クラステンプレートの非テンプレートメンバ関数に対する制約として使用する
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">MyVector</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="kt">void</span> <span class="n">push_back</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span><span class="p">)</span>
+    <span class="n">requires</span> <span class="n"><a href="../../reference/type_traits/is_copy_constructible.html">std::is_copy_constructible_v</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
+
+  <span class="kt">void</span> <span class="nf">push_back</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="p">)</span>
+    <span class="n">requires</span> <span class="n"><a href="../../reference/concepts/move_constructible.html">std::move_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+</li>
+<li>
+<p>関数宣言と関数定義を分ける場合、非テンプレートの関数宣言に対するrequires節は宣言と定義は等価でなければならない
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">MyVector</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="kt">void</span> <span class="n">push_back</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span><span class="p">)</span>
+    <span class="n">requires</span> <span class="n"><a href="../../reference/concepts/copy_constructible.html">std::copy_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
+
+  <span class="kt">void</span> <span class="nf">push_back</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="p">)</span>
+    <span class="n">requires</span> <span class="n"><a href="../../reference/concepts/move_constructible.html">std::move_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">MyVector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">push_back</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span><span class="p">)</span>
+  <span class="n">requires</span> <span class="n"><a href="../../reference/concepts/copy_constructible.html">copy_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
+<span class="p">{}</span>                                    <span class="c1">// OK</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">MyVector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">push_back</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="p">)</span>
+<span class="p">{}</span>                                    <span class="c1">// コンパイルエラー！宣言と一致していない</span>
+</code></pre></div>
+</p>
+</li>
+</ul>
+</li>
+<li>
+<p>requires節は、requires式を持てる
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">requires</span> <span class="n">requires</span> <span class="p">(</span><span class="n">T</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">x</span> <span class="o">+</span> <span class="n">x</span><span class="p">;</span> <span class="p">}</span> <span class="c1">// ひとつめのrequiresはrequires節</span>
+<span class="n">T</span> <span class="n">add</span><span class="p">(</span><span class="n">T</span> <span class="n">a</span><span class="p">,</span> <span class="n">T</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span> <span class="p">}</span>  <span class="c1">// ふたつめのrequiresはrequires式</span>
+</code></pre></div>
+</p>
+</li>
+<li>
+<p>非テンプレートのfriend宣言は、requires節を持ってはならない</p>
+</li>
+</ul>
+<h3>関数<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a></h3>
+<ul>
+<li>同じ名前の2つの関数宣言が、同じスコープ、等価なパラメータ宣言、等価なrequires節を持つ場合、同じ関数を参照するものとする<ul>
+<li>同じ関数の再宣言と見なされ、<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>にはならない</li>
+</ul>
+</li>
+<li>
+<p>関数の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>としては、より制約が強い関数が選択される：
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">requires</span> <span class="n"><a href="../../reference/concepts/move_constructible.html">std::move_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"move"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">requires</span> <span class="n"><a href="../../reference/concepts/move_constructible.html">std::move_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span> <span class="n"><a href="../../reference/concepts/copy_constructible.html">std::copy_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"move&amp;copy"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">requires</span> <span class="n"><a href="../../reference/concepts/move_constructible.html">std::move_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span> <span class="n"><a href="../../reference/concepts/copy_constructible.html">std::copy_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">g</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"move&amp;copy"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">requires</span> <span class="n"><a href="../../reference/concepts/move_constructible.html">std::move_constructible</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">g</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"move"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">f</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="c1">// move&amp;copy</span>
+<span class="n">g</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="c1">// move&amp;copy</span>
+</code></pre></div>
+</p>
+</li>
+<li>
+<p><a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>の優先順は、以下のようになる：</p>
+<ol>
+<li>非関数テンプレート</li>
+<li>より強い制約を満たす<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a></li>
+<li>関数テンプレート</li>
+</ol>
+</li>
+<li>満たされない制約を持つ全ての関数は、<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>の候補から除外される</li>
+</ul>
+<h3>autoに対する制約</h3>
+<ul>
+<li><a href="../cpp14/generic_lambdas.html">ジェネリックラムダ</a>では<code>[](auto a, auto b) { … }</code>のようにパラメータの型として<code>auto</code>を使用することで関数テンプレートとして関数呼び出し演算子が定義され、それぞれの変数にテンプレートパラメータが割り振られていた</li>
+<li>コンセプトの導入にともない、この仕様を以下のように拡大する：<ul>
+<li>ラムダ式以外の通常の関数もまたパラメータ型<code>auto</code>とすることで関数テンプレートを定義できるようにする</li>
+<li>関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型として使用する<code>auto</code>、変数定義の<code>auto</code>、パラメータ型の<code>auto</code>をコンセプトで制約できるようにする構文を追加する</li>
+</ul>
+</li>
+</ul>
+<h4>autoパラメータによる関数テンプレートの簡易定義</h4>
+<ul>
+<li>
+<p>パラメータ型を<code>auto</code>にすることにより、それぞれのパラメータにテンプレートパラメータが振り分けられる。
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="nf">f</span><span class="p">(</span><span class="k">auto</span> <span class="n">a</span><span class="p">,</span> <span class="k">auto</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="c1">// 以下と同じ</span>
+<span class="c1">// template &lt;class T, class U&gt;</span>
+<span class="c1">// auto f(T a, U b) { return a + b; }</span>
+
+<span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>     <span class="c1">// パラメータaとbの型はint</span>
+<span class="n">f</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">);</span> <span class="c1">// パラメータaとbの型はdouble</span>
+</code></pre></div>
+</p>
+<ul>
+<li>これはコンセプトによる制約がされない、単純な関数テンプレートの定義である</li>
+</ul>
+</li>
+</ul>
+<h4>auto変数、autoパラメータ、auto<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>に対する制約</h4>
+<ul>
+<li>
+<p>変数定義のauto、関数パラメータのauto、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型のautoをそれぞれ制約できる。単純な使い方は以下のようになる：
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="n">concept</span> <span class="n">C</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+
+<span class="c1">// 変数を制約する。制約を満たさない型が代入されようとしたらコンパイルエラー</span>
+<span class="n">C</span> <span class="k">auto</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="c1">// パラメータ型を制約する</span>
+<span class="c1">// (constは制約の前)</span>
+<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="k">const</span> <span class="n">C</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="n">C</span> <span class="k">auto</span> <span class="n">b</span><span class="p">,</span> <span class="n">C</span> <span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="n">c</span><span class="p">)</span> <span class="p">{}</span>
+<span class="c1">// 以下と同じ意味になる：</span>
+<span class="c1">// template &lt;class T, class U, class V&gt;</span>
+<span class="c1">// requires C&lt;T&gt; &amp;&amp; C&lt;U&gt; &amp;&amp; C&lt;V&gt;</span>
+<span class="c1">// void f(const T&amp; a, U b, V&amp;&amp; c) {}</span>
+
+<span class="c1">// 戻り値型を制約する (<a href="../cpp14/decltype_auto.html">decltype(auto)</a>も同様)</span>
+<span class="n">C</span> <span class="k">auto</span> <span class="nf">g</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="c1">// 非型テンプレート引数を制約する</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="n">C</span> <span class="k">auto</span> <span class="n">N</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">X</span> <span class="p">{};</span>
+
+<span class="k">struct</span> <span class="n">Y</span> <span class="p">{</span>
+  <span class="c1">// 型変換演算子の戻り値型を制約する</span>
+  <span class="k">operator</span> <span class="n">C</span> <span class="k">auto</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+</li>
+<li>
+<p>テンプレート引数付きコンセプトを使用する場合、コンセプトの第1テンプレート引数として<code>auto</code>プレースホルダーで置き換わる型が自動的に渡される：
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="c1">// <a href="../../reference/concepts/copy_constructible.html">std::copy_constructible</a>&lt;decltype(x)&gt;を意味する</span>
+<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="n"><a href="../../reference/concepts/copy_constructible.html">std::copy_constructible</a></span> <span class="k">auto</span> <span class="n">x</span><span class="p">);</span>
+
+<span class="c1">// <a href="../../reference/concepts/constructible_from.html">std::constructible_from</a>&lt;decltype(x), int&gt;を意味する</span>
+<span class="kt">void</span> <span class="nf">g</span><span class="p">(</span><span class="n"><a href="../../reference/concepts/constructible_from.html">std::constructible_from</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="k">auto</span> <span class="n">x</span><span class="p">);</span>
+</code></pre></div>
+</p>
+</li>
+</ul>
+<h2>備考</h2>
+<ul>
+<li>GCC 9.1では、コンセプトが正式サポートされていないため、コンパイルオプションとして<code>-fconcepts</code>を付ける必要がある</li>
+<li>コンセプトに相当する型パラメータを制約する機能は、他の言語も持っている：<ul>
+<li>Haskell言語の型クラス (type class)</li>
+<li>Scala言語のケースクラス (case class)</li>
+</ul>
+</li>
+</ul>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>コンセプトは最初、テンプレートを使用した際のコンパイルエラーメッセージを読みやすいものにするため設計された。テンプレートは定義に使用された機能がそれぞれインスタンス化されるまで、型パラメータにその操作が適用できるかどうかわからない。そのため、テンプレートを使用したプログラムは、使い方を間違えたときに問題を解析しにくいエラーメッセージを出力した。</p>
+<p>この問題を解決する方法として考えられたのが、テンプレートパラメータを制約するというものだ。定義ではなく宣言の段階でテンプレートパラメータが満たすべき要件を指定できるようにすることで、早い段階で型パラメータに適用できない操作を検出し、読みやすいエラーメッセージを出力できる。</p>
+<p>C++11を策定する際、大きな目玉機能としてコンセプトの導入が予定されていた。そのときのコンセプトには、C++20で導入される機能に加え、以下のような機能が予定されていて、コンパイラが実験的に実装して試すこともできた：</p>
+<ul>
+<li>コンセプトマップ (concept map) : コンセプトの要求を直接的に満たさない型が、どのような形であればコンセプトの要求を満たせるのかを定義し、適用可能にする</li>
+<li>コンセプトのデフォルト実装 : 一部の要求を省略可能にし、型がその機能を持っていない場合に、要求されたインタフェースからデフォルト実装を定義する</li>
+<li>制約外の機能を使用禁止 : コンセプトで制約した機能以外はテンプレート内で使用できない。Destructibleコンセプトで制約しなければオブジェクトの破棄すらできない</li>
+<li>遅延チェック (late check) : 制約された機能以外が使用できないと不便であるため、<code>late_check {}</code>ブロック内では制約していない機能を使用できるようにし、従来のチェックが行われるようにした</li>
+<li>コンセプトの洗練 (refinement) : コンセプトにも継承相当の機能を導入し、あるコンセプトをベースにしてさらに強い制約をもつ新たなコンセプトを定義するもの。イテレータの分類などで使用する</li>
+</ul>
+<p>C++11の会議において「コンセプトは本当にC++11に入れるんだな？」という投票を行い、コンセプトをC++11に入れる合意が得られてコンセプトが入った規格案であるCommittee Draft (CD) が公開された。しかしその後、コンセプトはやはり使うのが難しく複雑だということで取り下げられ、コンセプトが取り除かれたCommittee Draft (CD2) が再度公開された。ただしその際、コンセプトの策定で培った経験は活かすことになり、整理された自然言語としてテンプレートパラメータへの要求が規格に載ることとなった。</p>
+<p>C++14の策定において、コンセプトの複雑さを回避して必要最小限の機能のみをまとめた「軽量コンセプト (Concept Lite)」という機能を入れることが計画された。これは、C++11で導入されたconstexprを使用し、<code>bool</code>型の定数式として制約を定義し、<code>requires</code>節に<code>bool</code>型定数式を指定して制約するというものだった。これはConcept TS (Technical Specification) として個別に各国承認が行われ、遅延したがC++17に導入される予定だった。</p>
+<p>軽量コンセプトとしてなるべく早くプログラマにこの機能を導入するつもりだったが、その後コンセプトをさらに仕様拡張としていくことを考えると、最初の設計から大幅に違ったものになってしまう懸念があった。また、コンセプトは標準ライブラリの仕様に適用すべきものであるため、より完全なものが求められた。そのため、軽量コンセプトという予定はなくなり、より時間をかけて完全なコンセプトの仕様を策定することとなり、C++20で導入されることとなった。</p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><code><a href="../../reference/concepts.html">&lt;concepts&gt;</a></code></li>
+<li><code><a href="../../reference/iterator.html">&lt;iterator&gt;</a></code></li>
+<li><code><a href="../../reference/ranges.html">&lt;ranges&gt;</a></code></li>
+<li><a href="function_templates_with_auto_parameters.html">C++20 autoパラメータによる関数テンプレートの簡易定義</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0734r0.pdf" target="_blank">P0734R0 Wording Paper, C++ extensions for Concepts</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0857r0.html" target="_blank">P0857R0 Wording for "functionality gaps in constraints"</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1084r2.pdf" target="_blank">P1084R2 Today's return-type-requirement s Are Insufcient</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1141r2.html" target="_blank">P1141R2 Yet another approach for constrained declarations</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1452r2.html" target="_blank">P1452R2 On the non-uniform semantics of return-type-requirements</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1616r1.html" target="_blank">P1616R1 Using unconstrained template template parameters with constrained templates</a></li>
+<li><a href="http://programowaniezpasja.pl/wp-content/uploads/2019/05/Cpp_Concepts_-_complete_overview_-_Jakub_Cislo.pdf" target="_blank">C++ Concepts - complete overview (Jakub Cislo)</a></li>
+<li><a href="https://www.sandordargo.com/blog/2021/06/16/multiple-destructors-with-cpp-concepts" target="_blank">Multiple destructors with C++ concepts - Sandor Dargo's Blog</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

@@ -1,0 +1,299 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>fread - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cstdio,std,function
+">
+        <meta name="title" content="fread - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="fread - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="fread - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/cstdio/fread.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="ファイルから`count`文字の`size`バイトのデータを読み込む。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="fread - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/cstdio/fread.html" />
+        <meta name="twitter:description" content="ファイルから`count`文字の`size`バイトのデータを読み込む。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="manifest" href="../../manifest.json?cachebust=1badf8656537fb83110091804da2a289044600de">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=1badf8656537fb83110091804da2a289044600de">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cstdio&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;9d1a198d1c38ef5440d1246ea27d195012dc2c72&#34;, &#34;source&#34;: &#34;#include &lt;cstdio&gt;\n\nint main() {\n  std::FILE *file = std::fopen(\&#34;sample.txt\&#34;, \&#34;r\&#34;);\n  if (!file) {\n    std::perror(\&#34;\u30d5\u30a1\u30a4\u30eb\u3092\u958b\u3051\u307e\u305b\u3093\u3067\u3057\u305f\&#34;);\n    return 1;\n  }\n\n  char buffer[100];\n  /*\n  \u53b3\u5bc6\u306b\u306f\u3001sizeof(char)\u306f1\u30d0\u30a4\u30c8\u3067\u3042\u308b\u3053\u3068\u304c\u4fdd\u8a3c\u3055\u308c\u3066\u3044\u308b\u305f\u3081\u3001\n  sizeof(buffer) / sizeof(char)\u306f\u3001buffer\u306e\u8981\u7d20\u6570\u3068\u7b49\u3057\u304f\u306a\u308b\u3002\n  */\n  std::size_t count = std::fread(buffer, sizeof(char), sizeof(buffer) / sizeof(char), file);\n  std::printf(\&#34;\u8aad\u307f\u8fbc\u3093\u3060\u30c7\u30fc\u30bf\u306e\u9577\u3055: %zu\\n\&#34;, count);\n\n  std::fclose(file);\n  return 0;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cstdio&#34;, &#34;fread&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/cstdio.html" itemprop="url">
+              
+                <span itemprop="name">cstdio</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">fread</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-08-21T14:51:20">
+        2025年08月21日 14時51分20秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">rotarymars</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/cstdio/fread.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/cstdio/fread.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;cstdio&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">fread</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="kt">size_t</span> <span class="n">fread</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">buffer</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">size</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">count</span><span class="p">,</span> <span class="kt">FILE</span> <span class="o">*</span><span class="n">stream</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>ファイルから<code>count</code>文字の<code>size</code>バイトのデータを読み込む。</p>
+<p>ファイル内の位置は、読み取られたバイトだけ進む。</p>
+<h2>要件</h2>
+<ul>
+<li><code>buffer</code>は有効なポインタであること。</li>
+<li><code>stream</code>は有効なファイルストリームであること。</li>
+<li><code>buffer</code>が指すメモリ領域と<code>stream</code>が指すファイルストリームの内部バッファが重複していないこと。</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p>正常に読み込むことのできた項目の数を返す。</p>
+<p><code>size</code>または<code>count</code>のいずれかが0だった場合、必ず<code>0</code>を返し、<code>buffer</code>は変更されない。</p>
+<h2>効果</h2>
+<p><code>stream</code>から<code>count</code>個の<code>size</code>バイトのデータを読み込む。</p>
+<p>読み込んだデータは、<code>buffer</code>が指すメモリの先頭から順に格納される。</p>
+<p>読み取りエラーが生じなければ、読み込むデータの大きさは<code>count * size</code>バイトである。</p>
+<h2>例</h2>
+<p><div class="yata" id="9d1a198d1c38ef5440d1246ea27d195012dc2c72"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cstdio.html">&lt;cstdio&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">std</span><span class="o">::</span><span class="kt">FILE</span> <span class="o">*</span><span class="n">file</span> <span class="o">=</span> <span class="n"><a href="fopen.html">std::fopen</a></span><span class="p">(</span><span class="s">"sample.txt"</span><span class="p">,</span> <span class="s">"r"</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">file</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><span href="https://cpprefjp.github.io/reference/cstdio/perror.md.nolink">std::perror</span></span><span class="p">(</span><span class="s">"ファイルを開けませんでした"</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kt">char</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+  <span class="cm">/*</span>
+<span class="cm">  厳密には、sizeof(char)は1バイトであることが保証されているため、</span>
+<span class="cm">  sizeof(buffer) / sizeof(char)は、bufferの要素数と等しくなる。</span>
+<span class="cm">  */</span>
+  <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">count</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::fread</span></span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">),</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span> <span class="o">/</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">),</span> <span class="n">file</span><span class="p">);</span>
+  <span class="n"><a href="printf.html">std::printf</a></span><span class="p">(</span><span class="s">"読み込んだデータの長さ: %zu</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">count</span><span class="p">);</span>
+
+  <span class="n"><a href="fclose.html">std::fclose</a></span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>ファイル内容(sample.txt)</h3>
+<p><pre><code>Hello, World!
+</code></pre></p>
+<h3>出力例</h3>
+<p><pre><code>読み込んだデータの長さ: 14
+</code></pre></p>
+<h2>処理系</h2>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://qiita.com/yohhoy/items/a2ab2900a2bd36c31879" target="_blank">sizeof演算子にまつわるアレコレ</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

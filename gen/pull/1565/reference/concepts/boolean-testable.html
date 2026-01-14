@@ -1,0 +1,351 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>boolean-testable - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,,concepts,std,concept,cpp20
+">
+        <meta name="title" content="boolean-testable - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="boolean-testable - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="boolean-testable - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/concepts/boolean-testable.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="boolean-testable - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/concepts/boolean-testable.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="manifest" href="../../manifest.json?cachebust=1badf8656537fb83110091804da2a289044600de">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=1badf8656537fb83110091804da2a289044600de">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;exposition-only&#34;: [&#34;&#34;], &#34;header&#34;: [&#34;concepts&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;concept&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;concepts&#34;, &#34;boolean-testable&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/concepts.html" itemprop="url">
+              
+                <span itemprop="name">concepts</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">boolean-testable</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2026-01-13T07:52:34">
+        2026年01月13日 07時52分34秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/concepts/boolean-testable.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/concepts/boolean-testable.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">concept</div><div class="header">&lt;concepts&gt;</div><h1 class="exposition-only" itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">boolean-testable</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span><span class="cpp exposition-only" title="説明専用"></span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <span class="n">concept</span> <span class="n">boolean</span><span class="o">-</span><span class="n">testable</span> <span class="o">=</span> <span class="n"><i>see below</i></span><span class="p">;</span> <span class="c1">// 説明専用コンセプト</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>boolean-testable</code>は、任意の型<code>T</code>を<code>bool</code>として扱う事ができることを表すコンセプトである。</p>
+<p>このコンセプトはほかのコンセプトの定義および説明に使用される説明専用のものであり、実際に使用可能ではない。</p>
+<h2>要件</h2>
+<p>まず、説明専用の<code>boolean-testable-impl</code>コンセプトを以下の様に定義する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">boolean</span><span class="o">-</span><span class="n">testable</span><span class="o">-</span><span class="n">impl</span> <span class="o">=</span> <span class="n"><a href="convertible_to.html">convertible_to</a></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="kt">bool</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<p>これを用いて、<code>boolean-testable</code>は以下の様に定義される。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">concept</span> <span class="n">boolean</span><span class="o">-</span><span class="n">testable</span> <span class="o">=</span>
+  <span class="n">boolean</span><span class="o">-</span><span class="n">testable</span><span class="o">-</span><span class="n">impl</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span> <span class="n">requires</span> <span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">{</span> <span class="o">!</span><span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n">boolean</span><span class="o">-</span><span class="n">testable</span><span class="o">-</span><span class="n">impl</span><span class="p">;</span>
+  <span class="p">};</span>
+</code></pre></div>
+</p>
+<h2>モデル</h2>
+<ul>
+<li><code>decltype((e))</code>が<code>T</code>となる式<code>e</code>について、次の条件を満たす場合に限って型<code>T</code>は<code>boolean-testable-impl</code>のモデルである。<ul>
+<li>次のどちらかを満たす<ul>
+<li><code>remove_cvref_t&lt;T&gt;</code>はクラス型ではない</li>
+<li><code>operator||, operator&amp;&amp;</code>を<code>remove_cvref_t&lt;T&gt;</code>のクラススコープで名前解決したかの様に探索した結果、候補関数は見つからない</li>
+</ul>
+</li>
+<li><code>operator||, operator&amp;&amp;</code>の<a class="cpprefjp-defined-word" data-desc="実引数依存の名前探索 (Argument Dependent Lookup)。引数の型が所属する名前空間の関数を探索する言語機能">ADL</a>による探索では<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>な宣言は見つからない<ul>
+<li><code>T</code>の<a class="cpprefjp-defined-word" data-desc="実引数依存の名前探索 (Argument Dependent Lookup)。引数の型が所属する名前空間の関数を探索する言語機能">ADL</a>探索範囲に<code>T</code>が左右どちらのオペランドになったとしても、受け入れ可能に<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>された<code>operator||, operator&amp;&amp;</code>演算子は存在しない</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>2番目の条件の<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>な宣言が見つからないとは、<code>boolean-testable-impl</code>のモデルとなる型<code>T1, T2</code>については、<code>declval&lt;T1&gt;() &amp;&amp; declval&lt;T2&gt;()</code>および<code>declval&lt;T1&gt;() || declval&lt;T2&gt;()</code>の<code>operator||, operator&amp;&amp;</code>は確実に組み込みの演算子が使用される、と言う事を要求している。</p>
+<ul>
+<li><code>decltype((e))</code>が<code>T</code>となる式<code>e</code>について、次の条件を満たす場合に限って型<code>T</code>は<code>boolean-testable</code>のモデルである。<ul>
+<li><code>bool(e) == !bool(!e)</code></li>
+</ul>
+</li>
+</ul>
+<h2>備考</h2>
+<p><code>boolean-testable</code>コンセプトのモデルとなる型には、<code>bool</code>, <code><a href="../type_traits/true_type.html">std::true_type</a></code>, <code>int*</code>等ポインタ型、<code><a href="../bitset/bitset/reference.html">std::bitset&lt;N&gt;::reference</a></code>等がある。</p>
+<h2>booleanコンセプト</h2>
+<p><code>boolean-testable</code>コンセプトは当初、真理値型を表す説明専用ではない<code>boolean</code>コンセプトとして以下の様に定義されていた。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">B</span><span class="o">&gt;</span>
+  <span class="n">concept</span> <span class="n">boolean</span> <span class="o">=</span>
+    <span class="n"><a href="movable.html">movable</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">B</span><span class="o">&gt;&gt;</span> <span class="o">&amp;&amp;</span>
+    <span class="n">requires</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../type_traits/remove_reference.html">remove_reference_t</a></span><span class="o">&lt;</span><span class="n">B</span><span class="o">&gt;&amp;</span> <span class="n">b1</span><span class="p">,</span>
+             <span class="k">const</span> <span class="n"><a href="../type_traits/remove_reference.html">remove_reference_t</a></span><span class="o">&lt;</span><span class="n">B</span><span class="o">&gt;&amp;</span> <span class="n">b2</span><span class="p">,</span> <span class="k">const</span> <span class="kt">bool</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+      <span class="p">{</span> <span class="n">b1</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="convertible_to.html">convertible_to</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">;</span>
+      <span class="p">{</span> <span class="o">!</span><span class="n">b1</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="convertible_to.html">convertible_to</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">;</span>
+      <span class="p">{</span> <span class="n">b1</span> <span class="o">&amp;&amp;</span> <span class="n">b2</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="same_as.html">same_as</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">;</span>
+      <span class="p">{</span> <span class="n">b1</span> <span class="o">&amp;&amp;</span>  <span class="n">a</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="same_as.html">same_as</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">;</span>
+      <span class="p">{</span>  <span class="n">a</span> <span class="o">&amp;&amp;</span> <span class="n">b2</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="same_as.html">same_as</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">;</span>
+      <span class="p">{</span> <span class="n">b1</span> <span class="o">||</span> <span class="n">b2</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="same_as.html">same_as</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">;</span>
+      <span class="p">{</span> <span class="n">b1</span> <span class="o">||</span>  <span class="n">a</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="same_as.html">same_as</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">;</span>
+      <span class="p">{</span>  <span class="n">a</span> <span class="o">||</span> <span class="n">b2</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="same_as.html">same_as</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">;</span>
+      <span class="p">{</span> <span class="n">b1</span> <span class="o">==</span> <span class="n">b2</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="convertible_to.html">convertible_to</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">;</span>
+      <span class="p">{</span> <span class="n">b1</span> <span class="o">==</span>  <span class="n">a</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="convertible_to.html">convertible_to</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">;</span>
+      <span class="p">{</span>  <span class="n">a</span> <span class="o">==</span> <span class="n">b2</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="convertible_to.html">convertible_to</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">;</span>
+      <span class="p">{</span> <span class="n">b1</span> <span class="o">!=</span> <span class="n">b2</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="convertible_to.html">convertible_to</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">;</span>
+      <span class="p">{</span> <span class="n">b1</span> <span class="o">!=</span>  <span class="n">a</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="convertible_to.html">convertible_to</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">;</span>
+      <span class="p">{</span>  <span class="n">a</span> <span class="o">!=</span> <span class="n">b2</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="convertible_to.html">convertible_to</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>この<code>boolean</code>コンセプトは14個の制約式によって定義されている。これらは真理値式をなるべく正しく表現するために議論の経過と共に追加されていったものだが、これによって以下の様な問題が発生していた。</p>
+<ul>
+<li>ある型が<code>boolean</code>コンセプトを満たしているのかがわかりにくい<ul>
+<li>特に、演算子<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>されていると追いかけるのは非常に困難になる</li>
+</ul>
+</li>
+<li>制約式の数が多すぎるため、少し使用しただけでコンパイル時間を増大させる<ul>
+<li>例えば当初の<code><a href="totally_ordered.html">totally_ordered_with</a></code>は直接的に8個、間接的に50個の<code>boolean</code>コンセプトのチェックを要求する。<code>totally_ordered_with</code>1度の使用あたり<code>boolean</code>のチェックだけで最悪812個の制約式のチェックを行う事になる。</li>
+</ul>
+</li>
+<li>この<code>boolean</code>を正しく使用するためには、本来必要ない箇所で明示的な<code>bool</code>への変換を行う必要がある。しかし、どこで必要になってどこなら必要ないのかが非常に分かりづらい。</li>
+</ul>
+<p>これらの問題（共通するのは、制約式が多すぎると言う問題）によって、<code>boolean</code>コンセプトは検証するのも使用するのも教育するのも困難なものになってしまったため、削除される事となった。<br />
+ただ、<code>boolean</code>コンセプトは標準ライブラリのその他のコンセプトの定義のために使用されていたため、「標準ライブラリが必要とするときに（暗黙的に）<code>bool</code>型への変換が可能」と言う最低限の性質を表明し、なおかつ説明専用の<code>boolean-testable</code>コンセプトへと置換された。</p>
+<p>上記定義の<code>boolean</code>コンセプトはポインタ型等<code>bool</code>に変換可能なだけの型では満たす事はできなかったが、<code>boolean-testable</code>コンセプトでは<code>bool</code>に変換可能なだけの型でも満たす事ができる。</p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++20</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><a href="../../lang/cpp20/concepts.html">C++20 コンセプト</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0898r3.pdf" target="_blank">P0898R3 Standard Library Concepts</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1754r1.pdf" target="_blank">P1754R1 Rename concepts to standard_case for C++20, while we still can</a></li>
+<li><a href="https://wg21.cmeerw.net/lwg/issue3208" target="_blank">LWG Issue 3208. Boolean's expression requirements are ordered inconsistently</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1934r0.pdf" target="_blank">P1934R0 <code>boolean</code> Considered Harmful</a><ul>
+<li><code>boolean</code>コンセプトが標準ライブラリのコンセプトとして<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>である理由について</li>
+</ul>
+</li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1964r0.html" target="_blank">P1964R0 Wording for <code>boolean-testable</code></a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1964r2.html" target="_blank">P1964R2 Wording for <code>boolean-testable</code></a><ul>
+<li><code>boolean-testable</code>コンセプトについて</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
