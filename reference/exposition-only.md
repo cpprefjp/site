@@ -1,4 +1,4 @@
-# 説明専用ライブラリ
+# exposition-only
 
 * exposition-only[meta header]
 
