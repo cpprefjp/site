@@ -7,7 +7,7 @@
 
 ```cpp
 // is_void_v<T> == false 時のみ存在
-template<class V>
+template<class V = T>
 void return_value(V&& v);
 ```
 
@@ -33,4 +33,5 @@ void return_value(V&& v);
 
 ## 参照
 - [P3552R3 Add a Coroutine Task Type](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3552r3.html)
+- [LWG4345. `task::promise_type::return_value` default template parameter](https://cplusplus.github.io/LWG/issue4345)
 - [LWG4346. `task::promise_type::return_void/value` lack a specification](https://cplusplus.github.io/LWG/issue4346)
