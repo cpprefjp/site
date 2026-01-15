@@ -10,7 +10,7 @@ template<class... Args>
 promise_type(const Args&... args);
 ```
 
-# 概要
+## 概要
 タスクコルーチンの[Promise型](/lang/cpp20/coroutines.md)コンストラクタ。
 プログラマが本コンストラクタを直接利用することは想定されていない。
 

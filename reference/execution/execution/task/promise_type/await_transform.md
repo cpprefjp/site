@@ -15,7 +15,7 @@ auto await_transform(change_coroutine_scheduler<Sch> sch); // (2)
 * sender[link ../../sender.md]
 * change_coroutine_scheduler[link ../../change_coroutine_scheduler.md.nolink]
 
-# 概要
+## 概要
 タスクコルーチンにおける[co_await式](/lang/cpp20/coroutines.md)の動作を制御する。
 プログラマが本関数を直接利用することは想定されていない。
 

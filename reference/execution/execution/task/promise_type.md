@@ -1,4 +1,4 @@
-# task::promise_type
+# promise_type
 * execution[meta header]
 * class[meta id-type]
 * std::execution[meta namespace]

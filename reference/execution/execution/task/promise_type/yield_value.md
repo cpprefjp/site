@@ -11,7 +11,7 @@ auto yield_value(with_error<Err> err);
 ```
 * with_error[link ../../with_error.md.nolink]
 
-# 概要
+## 概要
 タスクコルーチンにおける[co_yield式](/lang/cpp20/coroutines.md)の動作を制御する。
 プログラマが本関数を直接利用することは想定されていない。
 

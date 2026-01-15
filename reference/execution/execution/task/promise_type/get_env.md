@@ -14,7 +14,7 @@ unspecified get_env() const noexcept;
 
 
 ## 戻り値
-問い合わせが以下のようい転送されるオブジェクト`env`を返す。
+問い合わせが以下のように転送されるオブジェクト`env`を返す。
 
 - `env.query(`[`get_scheduler`](../../get_scheduler.md)`)`は[`scheduler_type`](../../task.md)`(SCHED(*this))`を返す。
 - `env.query(`[`get_allocator`](../../../get_allocator.md)`)`は`alloc`を返す。
