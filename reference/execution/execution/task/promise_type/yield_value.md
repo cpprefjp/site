@@ -9,7 +9,7 @@
 template<class Err>
 auto yield_value(with_error<Err> err);
 ```
-* with_error[link ../../with_error.md.nolink]
+* with_error[link ../../with_error.md]
 
 ## 概要
 タスクコルーチンにおける[co_yield式](/lang/cpp20/coroutines.md)の動作を制御する。
@@ -36,7 +36,7 @@ auto yield_value(with_error<Err> err);
 
 
 ## 関連項目
-- [`execution::with_error`](../../with_error.md.nolink)
+- [`execution::with_error`](../../with_error.md)
 
 
 ## 参照
