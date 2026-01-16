@@ -109,23 +109,14 @@ std::forward<Sndr>(sndr).apply(make-state<Rcvr>())
   state.on_stop.emplace(
     get_stop_token(get_env(rcvr)),
     on-stop-request{state.stop_src});
-  if (state.stop_src.stop_requested()) {
-    state.on_stop.reset();
-    set_stopped(std::move(rcvr));
-  } else {
-    (start(ops), ...);
-  }
+  (start(ops), ...);
 }
 ```
 * get_stop_token[link ../get_stop_token.md]
 * get_env[link get_env.md]
 * on-stop-request[link on-stop-request.md]
-* set_stopped[link set_stopped.md]
 * start[link start.md]
 * emplace[link /reference/optional/optional/emplace.md]
-* reset()[link /reference/optional/optional/reset.md]
-* stop_requested()[link /reference/stop_token/inplace_stop_source/stop_requested.md]
-* std::move[link /reference/utility/move.md]
 
 `impls-for<when_all_t>::complete`メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。
 
@@ -337,12 +328,16 @@ variant<none-such, copy-fail, Es...>
 - それ以外のとき、下記を評価する。
 
     ```cpp
-    on_stop.reset();
-    set_stopped(std::move(rcvr));
+    if constexpr(sends-stopped) {
+      on_stop.reset();
+      set_stopped(std::move(rcvr));
+    }
     ```
     * set_stopped[link set_stopped.md]
     * reset()[link /reference/optional/optional/reset.md]
     * std::move[link /reference/utility/move.md]
+
+    ここで、`Sndrs`の要素`S`において[`completion_signatures_of_t`](completion_signatures_of_t.md)`<S, when-all-env<Env>>`が[`set_stopped_t`](set_stopped.md)`()`を含む`S`が存在するときに限って`sends-stopped`は`true`に等しい。
 
 
 ## カスタマイゼーションポイント
@@ -512,5 +507,6 @@ error=-2
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3396R1 std::execution wording fixes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html)
 - [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+- [P3887R1 Make `when_all` a Ronseal Algorithm](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3887r1.pdf)
 - [LWG 4203. Constraints on `get-state` functions are incorrect](https://cplusplus.github.io/LWG/issue4203)
 - [LWG 4227. Missing `noexcept` operator in [exec.when.all]](https://cplusplus.github.io/LWG/issue4227)
