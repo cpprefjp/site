@@ -206,17 +206,15 @@ auto fn = []<class Child>() {
 ```cpp
 template<class Env>
 constexpr auto make-when-all-env(inplace_stop_source& stop_src,  // exposition only
-                                 Env&& env) noexcept {
-  return see below;
-}
+                                 Env&& env) noexcept;
 ```
 * inplace_stop_source[link /reference/stop_token/inplace_stop_source.md]
 
 下記を満たすオブジェクト`e`を返す。
 
 - `decltype(e)`が[`queryable`](../queryable.md)のモデル、かつ
-- 式`e.query(`[`get_stop_token`](../get_stop_token.md)`)`が`state.stop-src.`[`get_token()`](/reference/stop_token/inplace_stop_source/get_token.md)と等価、かつ
-- [`get_stop_token`](../get_stop_token.md)以外かつ[`forwarding-query`](../forwarding-query.md)を満たす[クエリオブジェクト](../queryable.md)`q`に対して、式`e.query(q)`は[`get_env`](get_env.md)`(rcvr).query(q)`と等価。
+- 式`e.query(`[`get_stop_token`](../get_stop_token.md)`)`が`stop_src.`[`get_token()`](/reference/stop_token/inplace_stop_source/get_token.md)と等価、かつ
+- CV修飾された[`get_stop_token`](../get_stop_token.md)ではない[クエリオブジェクト](../queryable.md)`q`に対して、[`forwarding-query`](../forwarding-query.md)を満たすならば、式`e.query(q)`は`env.query(q)`と等価。そうでなければ不適格となる。
 
 ### エイリアステンプレート`when-all-env`
 `when-all-env<Env>`は`decltype(make-when-all-env(declval<`[`inplace_stop_source`](/reference/stop_token/inplace_stop_source.md)`&>(), declval<Env>()))`となる。
@@ -510,3 +508,4 @@ error=-2
 - [P3887R1 Make `when_all` a Ronseal Algorithm](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3887r1.pdf)
 - [LWG 4203. Constraints on `get-state` functions are incorrect](https://cplusplus.github.io/LWG/issue4203)
 - [LWG 4227. Missing `noexcept` operator in [exec.when.all]](https://cplusplus.github.io/LWG/issue4227)
+- [LWG 4438. Bad expression in [exec.when.all]](https://cplusplus.github.io/LWG/issue4438)
