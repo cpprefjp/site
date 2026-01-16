@@ -1,5 +1,7 @@
 # コルーチン [P0912R5]
 * cpp20[meta cpp]
+* co_yield,co_await,co_return,promise_type,get_return_object,initial_suspend,final_suspend,yield_value,await_transform,return_value,return_void,unhandled_exception,get_return_object_on_allocation_failure,await_ready,await_suspend,await_resume[meta alias]
+<!-- 検索性向上のためキーワード,カスタマイズポイント識別子を列挙 -->
 
 <!-- start lang caution -->
 
