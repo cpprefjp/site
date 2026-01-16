@@ -1,5 +1,7 @@
 # コンパイル時アサート [N1720]
 * cpp11[meta cpp]
+* static_assert[meta alias]
+<!-- 検索性向上のためキーワードを列挙 -->
 
 <!-- start lang caution -->
 

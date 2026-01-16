@@ -1,5 +1,7 @@
 # コンセプト [P0734R0]
 * cpp20[meta cpp]
+* concept,requires[meta alias]
+<!-- 検索性向上のためキーワードを列挙 -->
 
 <!-- start lang caution -->
 

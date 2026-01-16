@@ -1,5 +1,7 @@
 # スレッドローカルストレージ [N2659]
 * cpp11[meta cpp]
+* thread_local[meta alias]
+<!-- 検索性向上のためキーワードを列挙 -->
 
 <!-- start lang caution -->
 
