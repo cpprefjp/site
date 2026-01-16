@@ -13,7 +13,7 @@ template<class Sch>
 auto await_transform(change_coroutine_scheduler<Sch> sch); // (2)
 ```
 * sender[link ../../sender.md]
-* change_coroutine_scheduler[link ../../change_coroutine_scheduler.md.nolink]
+* change_coroutine_scheduler[link ../../change_coroutine_scheduler.md]
 
 ## 概要
 タスクコルーチンにおける[co_await式](/lang/cpp20/coroutines.md)の動作を制御する。
@@ -31,7 +31,7 @@ auto await_transform(change_coroutine_scheduler<Sch> sch); // (2)
     ```
     * just[link ../../just.md]
     * scheduler_type[link ../../task.md]
-    * scheduler[link ../../change_coroutine_scheduler.md.nolink]
+    * scheduler[link ../../change_coroutine_scheduler.md]
     * exchange[link /reference/utility/exchange.md]
 
 
@@ -50,7 +50,7 @@ auto await_transform(change_coroutine_scheduler<Sch> sch); // (2)
 - [`execution::as_awaitable`](../../as_awaitable.md)
 - [`execution::affine_on`](../../affine_on.md.nolink)
 - [`execution::inline_scheduler`](../../inline_scheduler.md)
-- [`execution::change_coroutine_scheduler`](../../change_coroutine_scheduler.md.nolink)
+- [`execution::change_coroutine_scheduler`](../../change_coroutine_scheduler.md)
 
 
 ## 参照
