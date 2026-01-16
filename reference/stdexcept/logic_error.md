@@ -6,7 +6,7 @@
 
 ```cpp
 namespace std {
-    class logic_error : public exception;
+  class logic_error : public exception;
 }
 ```
 
