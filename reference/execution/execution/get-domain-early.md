@@ -46,7 +46,7 @@ constexpr auto get-domain-early(const Sndr& sndr) noexcept;
 - [`execution::stopped_as_optional`](stopped_as_optional.md)
 - [`execution::stopped_as_error`](stopped_as_error.md)
 - [`execution::associate`](associate.md)
-- [`execution::affine_on`](affine_on.md.nolink)
+- [`execution::affine_on`](affine_on.md)
 - [`this_thread::sync_wait`](../this_thread/sync_wait.md)
 - [`this_thread::sync_wait_with_variant`](../this_thread/sync_wait_with_variant.md)
 

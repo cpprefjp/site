@@ -22,8 +22,8 @@ auto await_transform(change_coroutine_scheduler<Sch> sch); // (2)
 
 ## 効果
 - (1) :
-    - [`same_as`](/reference/concepts/same_as.md)`<`[`inline_scheduler`](../../inline_scheduler.md)`, `[`scheduler_type`](../../task.md)`> == true`ならば、[`as_awaitable`](../../as_awaitable.md)`(std::forward<Sender>(sndr), *this)`を返す。
-    - そうでなければ、[`as_awaitable`](../../as_awaitable.md)`(`[`affine_on`](../../affine_on.md.nolink)`(std::forward<Sender>(sndr), SCHED(*this)), *this)`を返す。
+    - [`same_as`](/reference/concepts/same_as.md)`<`[`inline_scheduler`](../../inline_scheduler.md)`,` [`scheduler_type`](../../task.md)`> == true`ならば、[`as_awaitable`](../../as_awaitable.md)`(std::forward<Sender>(sndr), *this)`を返す。
+    - そうでなければ、[`as_awaitable`](../../as_awaitable.md)`(`[`affine_on`](../../affine_on.md)`(std::forward<Sender>(sndr), SCHED(*this)), *this)`を返す。
 - (2) : 以下と等価
 
     ```cpp
@@ -48,7 +48,7 @@ auto await_transform(change_coroutine_scheduler<Sch> sch); // (2)
 
 ## 関連項目
 - [`execution::as_awaitable`](../../as_awaitable.md)
-- [`execution::affine_on`](../../affine_on.md.nolink)
+- [`execution::affine_on`](../../affine_on.md)
 - [`execution::inline_scheduler`](../../inline_scheduler.md)
 - [`execution::change_coroutine_scheduler`](../../change_coroutine_scheduler.md)
 
