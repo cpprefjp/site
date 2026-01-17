@@ -14,8 +14,8 @@
 | 名前 | 説明 | 対応バージョン |
 |--------------------|--------------------------------------------|-------|
 | [`logic_error`](stdexcept/logic_error.md) | プログラムの実行前に検出可能なエラー（論理エラー）を示す | |
-| [`domain_error`](stdexcept/domain_error.md)     | 定義域エラーを示す | |
-| `invalid_argument` | 不正な引数を示す | |
+| [`domain_error`](stdexcept/domain_error.md) | 定義域エラーを示す | |
+| [`invalid_argument`](stdexcept/invalid_argument.md) | 不正な引数を示す | |
 | `length_error`     | 長すぎるオブジェクトを作ろうとしたことを示す | |
 | `out_of_range`     | 引数が許容範囲外であることを示す | |
 | `runtime_error`    | プログラム実行時にのみ検出可能なエラー（実行時エラー）を示す | |
