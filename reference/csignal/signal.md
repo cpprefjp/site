@@ -9,8 +9,6 @@ namespace std{
 }
 ```
 
-* signal-handler[italic]
-
 ## 概要
 
 シグナル番号`sig`の受け取り後の処理を指定する。

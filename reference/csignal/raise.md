@@ -1,4 +1,4 @@
-## raise
+# raise
 * csignal[meta header]
 * std[meta namespace]
 * function[meta id-type]
@@ -30,7 +30,7 @@ namespace std {
 volatile std::sig_atomic_t got_signal = 0;
 
 void signal_handler(int signum) {
-    got_signal = 1;
+  got_signal = 1;
 }
 
 int main (){
