@@ -24,7 +24,7 @@ namespace std {
 ```cpp
 raise(SIGABRT);
 ```
-* raise[link /reference/csignal/raise.md.nolink]
+* raise[link /reference/csignal/raise.md]
 * SIGABRT[link /reference/csignal/sigabrt.md.nolink]
 
 
