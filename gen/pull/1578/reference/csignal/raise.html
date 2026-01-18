@@ -16,21 +16,21 @@
 
         <meta charset="UTF-8">
 
-        <title># raise - cpprefjp C++日本語リファレンス</title>
+        <title>raise - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
   C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,csignal,std,function
 ">
-        <meta name="title" content="# raise - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="# raise - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="# raise - cpprefjp C++日本語リファレンス" />
+        <meta name="title" content="raise - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="raise - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="raise - cpprefjp C++日本語リファレンス" />
         <meta property="og:url" content="https://cpprefjp.github.io/reference/csignal/raise.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
         <meta property="og:description" content="プログラムにシグナルを送信する。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="# raise - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:title" content="raise - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/csignal/raise.html" />
         <meta name="twitter:description" content="プログラムにシグナルを送信する。" />
 
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;csignal&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;63a002d4654ca33d80333f254a9960261aa31ff3&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;csignal&gt;\n\nvolatile std::sig_atomic_t got_signal = 0;\n\nvoid signal_handler(int signum) {\n    got_signal = 1;\n}\n\nint main (){\n  std::signal(SIGABRT, signal_handler);\n  std::raise(SIGABRT);\n  if (got_signal)\n    std::cout &lt;&lt; \&#34;SIGABRT\&#34; &lt;&lt; std::endl;\n  return 0;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;csignal&#34;, &#34;raise&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;csignal&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;c8bde8a810b045c3535f6eac9cfedf46cf92f355&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;csignal&gt;\n\nvolatile std::sig_atomic_t got_signal = 0;\n\nvoid signal_handler(int signum) {\n  got_signal = 1;\n}\n\nint main (){\n  std::signal(SIGABRT, signal_handler);\n  std::raise(SIGABRT);\n  if (got_signal)\n    std::cout &lt;&lt; \&#34;SIGABRT\&#34; &lt;&lt; std::endl;\n  return 0;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;csignal&#34;, &#34;raise&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -171,7 +171,7 @@
         <span>
           
             
-              <span itemprop="name"># raise</span>
+              <span itemprop="name">raise</span>
             
           
         </span>
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-01-18T11:18:46">
-        2026年01月18日 11時18分46秒
+      <span itemprop="datePublished" content="2026-01-18T14:39:37">
+        2026年01月18日 14時39分37秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -212,8 +212,8 @@
     <div class="row">
       <div class="col-sm-12 content-body">
         
-  <div class="identifier-type">function</div><div class="header">&lt;csignal&gt;</div><h2>raise</h2>
-<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <div class="identifier-type">function</div><div class="header">&lt;csignal&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">raise</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
   <span class="kt">int</span> <span class="n">raise</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -230,13 +230,13 @@
 <h2>備考</h2>
 <p><code>signal</code>関数などにより、シグナルハンドラが呼び出された場合、それが終了するまでこの関数は戻らない。</p>
 <h2>例</h2>
-<p><div class="yata" id="63a002d4654ca33d80333f254a9960261aa31ff3"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="c8bde8a810b045c3535f6eac9cfedf46cf92f355"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;csignal&gt;</span><span class="cp"></span>
 
 <span class="k">volatile</span> <span class="n">std</span><span class="o">::</span><span class="kt">sig_atomic_t</span> <span class="n">got_signal</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
 <span class="kt">void</span> <span class="nf">signal_handler</span><span class="p">(</span><span class="kt">int</span> <span class="n">signum</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">got_signal</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="n">got_signal</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kt">int</span> <span class="nf">main</span> <span class="p">(){</span>
@@ -250,7 +250,7 @@
 </div></p>
 <h3>出力例</h3>
 <p><pre><code>SIGABRT
-</code></pre></p><div itemprop="articleBody"></div>
+</code></pre></p></div>
 
       </div>
     </div>

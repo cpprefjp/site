@@ -2,9 +2,194 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-01-18T14:32:17.157459</updated>
-  <id>a06cfb82-bab2-467a-bd9a-bdb04879bed1</id>
+  <updated>2026-01-18T14:44:03.610599</updated>
+  <id>16da46a0-1380-4cad-a944-c36b4304b162</id>
 
+  
+    <entry>
+      <title>csignal -- add line signal,fixint head size</title>
+      <link href="https://cpprefjp.github.io/reference/csignal.html"/>
+      <id>00cf01789432438964ae1206317d232aa83c836e:reference/csignal.md</id>
+      <updated>2026-01-18T23:39:37+09:00</updated>
+      
+        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;csignal&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;csignal&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;csignal&amp;gt;&lt;/code&gt;ヘッダでは、シグナル操作のための機能を定義する。
+シグナルの集合、意味、及びデフォルトの処理は処理系定義である。&lt;/p&gt;
+&lt;h2&gt;型&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/sig_atomic_t.html&#34;&gt;sig_atomic_t&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;非同期シグナルハンドラからアトミックなエンティティとしてアクセス可能な整数型&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;マクロ&lt;/h2&gt;
+&lt;h3&gt;&lt;code&gt;signal&lt;/code&gt;関数用のハンドラ指定子&lt;/h3&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SIG_DFL&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;デフォルト動作を指定する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SIG_ERR&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;signal&lt;/code&gt;関数が失敗したことを示す戻り値&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SIG_IGN&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;シグナルを無視する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;シグナル番号を表すマクロ&lt;/h3&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SIGINT&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;割り込みを示すシグナル番号&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SIGILL&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;不正な命令を示すシグナル番号&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SIGABRT&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;abort&lt;/code&gt;関数などによる異常終了を示すシグナル番号&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SIGFPE&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;算術演算エラーを示すシグナル番号&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SIGSEGV&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;記憶領域への不正アクセスを示すシグナル番号&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SIGTERM&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;終了要求を示すシグナル番号&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;関数&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/signal.html&#34;&gt;signal&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;特定のシグナルに対するシグナルハンドラを設定する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/raise.html&#34;&gt;raise&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;プログラムにシグナルを送信する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>raise -- add line signal,fixint head size</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/raise.html"/>
+      <id>00cf01789432438964ae1206317d232aa83c836e:reference/csignal/raise.md</id>
+      <updated>2026-01-18T23:39:37+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/raise.md b/reference/csignal/raise.md
+index e42a53e12..4e11f12a8 100644
+--- a/reference/csignal/raise.md
++++ b/reference/csignal/raise.md
+@@ -1,4 +1,4 @@
+-## raise
++# raise
+ * csignal[meta header]
+ * std[meta namespace]
+ * function[meta id-type]
+@@ -30,7 +30,7 @@ namespace std {
+ volatile std::sig_atomic_t got_signal = 0;
+ 
+ void signal_handler(int signum) {
+-    got_signal = 1;
++  got_signal = 1;
+ }
+ 
+ int main (){
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>signal -- add line signal,fixint head size</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/signal.html"/>
+      <id>00cf01789432438964ae1206317d232aa83c836e:reference/csignal/signal.md</id>
+      <updated>2026-01-18T23:39:37+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/signal.md b/reference/csignal/signal.md
+index 5ce18ad1a..d4dfcbcd9 100644
+--- a/reference/csignal/signal.md
++++ b/reference/csignal/signal.md
+@@ -9,8 +9,6 @@ namespace std{
+ }
+ ```
+ 
+-* signal-handler[italic]
+-
+ ## 概要
+ 
+ シグナル番号`sig`の受け取り後の処理を指定する。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>signal -- fix: ng word</title>
@@ -400,199 +585,6 @@ index 000000000..747ad4079
 +## 関連項目
 +- [`SIG_ATOMIC_MAX`](/reference/cstdint/sig_atomic_max.md)
 +- [`SIG_ATOMIC_MIN`](/reference/cstdint/sig_atomic_min.md)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>csignal -- add new post `csignal/raise`</title>
-      <link href="https://cpprefjp.github.io/reference/csignal.html"/>
-      <id>87f78f04bf2630eba6e34c52f308b71f3bbf8803:reference/csignal.md</id>
-      <updated>2026-01-18T20:18:46+09:00</updated>
-      
-        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;csignal&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;csignal&lt;/span&gt;&lt;/h1&gt;
-&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;csignal&amp;gt;&lt;/code&gt;ヘッダでは、シグナル操作のための機能を定義する。
-シグナルの集合、意味、及びデフォルトの処理は処理系定義である。&lt;/p&gt;
-&lt;h2&gt;型&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;sig_atomic_t&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;非同期シグナルハンドラからアトミックなエンティティとしてアクセス可能な整数型&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;マクロ&lt;/h2&gt;
-&lt;h3&gt;&lt;code&gt;signal&lt;/code&gt;関数用のハンドラ指定子&lt;/h3&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;SIG_DFL&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;デフォルト動作を指定する&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;SIG_ERR&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;signal&lt;/code&gt;関数が失敗したことを示す戻り値。&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;SIG_IGN&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;シグナルを無視する&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3&gt;シグナル番号を表すマクロ&lt;/h3&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;SIGINT&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;割り込みを示すシグナル番号&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;SIGILL&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;不正な命令を示すシグナル番号&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;SIGABRT&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;abort&lt;/code&gt;関数などによる異常終了を示すシグナル番号&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;SIGFPE&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;算術演算エラーを示すシグナル番号&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;SIGSEGV&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;記憶領域への不正アクセスを示すシグナル番号&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;SIGTERM&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;終了要求を示すシグナル番号&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;関数&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;signal&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;特定のシグナルに対するシグナルハンドラを設定する&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/raise.html&#34;&gt;raise&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;プログラムにシグナルを送信する&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;&lt;/div&gt;</content>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title># raise -- add new post `csignal/raise`</title>
-      <link href="https://cpprefjp.github.io/reference/csignal/raise.html"/>
-      <id>87f78f04bf2630eba6e34c52f308b71f3bbf8803:reference/csignal/raise.md</id>
-      <updated>2026-01-18T20:18:46+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/raise.md b/reference/csignal/raise.md
-new file mode 100644
-index 000000000..e42a53e12
---- /dev/null
-+++ b/reference/csignal/raise.md
-@@ -0,0 +1,48 @@
-+## raise
-+* csignal[meta header]
-+* std[meta namespace]
-+* function[meta id-type]
-+
-+```cpp
-+namespace std {
-+  int raise(int sig);
-+}
-+```
-+
-+## 概要
-+プログラムにシグナルを送信する。
-+
-+## 引数
-+- `sig`: 送信するシグナル番号
-+
-+## 戻り値
-+正常に終了した場合は0を返す。
-+それ以外の場合は非ゼロの値を返す。
-+
-+## 備考
-+`signal`関数などにより、シグナルハンドラが呼び出された場合、それが終了するまでこの関数は戻らない。
-+
-+## 例
-+```cpp example
-+#include &amp;lt;iostream&amp;gt;
-+#include &amp;lt;csignal&amp;gt;
-+
-+volatile std::sig_atomic_t got_signal = 0;
-+
-+void signal_handler(int signum) {
-+    got_signal = 1;
-+}
-+
-+int main (){
-+  std::signal(SIGABRT, signal_handler);
-+  std::raise(SIGABRT);
-+  if (got_signal)
-+    std::cout &amp;lt;&amp;lt; &amp;#34;SIGABRT&amp;#34; &amp;lt;&amp;lt; std::endl;
-+  return 0;
-+}
-+```
-+
-+### 出力例
-+```
-+SIGABRT
-+```
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
