@@ -1,0 +1,329 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>try_lock - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,mutex,std,function template,cpp11
+">
+        <meta name="title" content="try_lock - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="try_lock - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="try_lock - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/mutex/try_lock.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="複数のミューテックスオブジェクトに対してtry_lock操作を行う" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="try_lock - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/mutex/try_lock.html" />
+        <meta name="twitter:description" content="複数のミューテックスオブジェクトに対してtry_lock操作を行う" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="manifest" href="../../manifest.json?cachebust=1badf8656537fb83110091804da2a289044600de">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=1badf8656537fb83110091804da2a289044600de">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;mutex&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;ce239b3c538ab7de7738cebf8b6780a36152eae0&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;thread&gt;\n#include &lt;mutex&gt;\n\nint main()\n{\n  std::mutex mtx1;\n  std::recursive_mutex mtx2;\n\n  // \u8907\u6570\u306e\u30df\u30e5\u30fc\u30c6\u30c3\u30af\u30b9\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u306b\u5bfe\u3057\u3066try_lock()\u3092\u547c\u3073\u51fa\u3059\n  {\n    int result = std::try_lock(mtx1, mtx2);\n\n    assert(result == -1); // \u5168\u3066\u306etry_lock()\u547c\u3073\u51fa\u3057\u304c\u6210\u529f\n\n    mtx1.unlock();\n    mtx2.unlock();\n  }\n\n  // unique_lock\u306b\u5bfe\u3057\u3066try_lock()\u3092\u547c\u3073\u51fa\u3059\n  {\n    std::unique_lock&lt;std::mutex&gt; lk1(mtx1, std::defer_lock);\n    std::unique_lock&lt;std::recursive_mutex&gt; lk2(mtx2, std::defer_lock);\n\n    int result = std::try_lock(lk1, lk2);\n\n    assert(result == -1); // \u5168\u3066\u306etry_lock()\u547c\u3073\u51fa\u3057\u304c\u6210\u529f\n  }\n\n  // \u4e00\u90e8\u306etry_lock()\u304c\u5931\u6557\u3059\u308b\u5834\u5408\n  {\n    // mtx2\u3092\u30ed\u30c3\u30af\u3057\u3066\u304a\u304f\u3002\n    std::lock_guard&lt;std::recursive_mutex&gt; lk2_main_thread(mtx2);\n\n    std::thread th([&amp;]\n    {\n      std::unique_lock&lt;std::mutex&gt; lk1(mtx1, std::defer_lock);\n      std::unique_lock&lt;std::recursive_mutex&gt; lk2(mtx2, std::defer_lock);\n\n      // \u4ed6\u306e\u30b9\u30ec\u30c3\u30c9\u3067mtx2\u3092\u30ed\u30c3\u30af\u3057\u3066\u3044\u308b\u305f\u3081\u3001lk2\u306e\u30ed\u30c3\u30af\u306b\u5931\u6557\u3059\u308b\u3002\n      int result = std::try_lock(lk1, lk2);\n\n      // lk2\u304c\u5931\u6557\u3057\u305f\u306e\u3067\u7b2c2\u5f15\u6570\u3092\u793a\u30591\u304c\u8fd4\u308b(0\u59cb\u307e\u308a)\n      assert(result == 1);\n\n      // lk2\u304c\u5931\u6557\u3057\u305f\u306e\u3067\u3001std::try_lock()\u5185\u3067lk2\u3088\u308a\u524d\u306btry_lock()\u304c\n      // \u6210\u529f\u3057\u305f\u5168\u3066\u306e\u30df\u30e5\u30fc\u30c6\u30c3\u30af\u30b9\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u304cunlock()\u3055\u308c\u308b\n      assert(!lk1.owns_lock());\n    });\n    th.join();\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;mutex&#34;, &#34;try_lock&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/mutex.html" itemprop="url">
+              
+                <span itemprop="name">mutex</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">try_lock</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-07-11T17:16:44">
+        2025年07月11日 17時16分44秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Koichi Murase</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/mutex/try_lock.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/mutex/try_lock.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function template</div><div class="header">&lt;mutex&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">try_lock</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">L1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">L2</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">L3</span><span class="o">&gt;</span>
+  <span class="kt">int</span> <span class="n">try_lock</span><span class="p">(</span><span class="n">L1</span><span class="o">&amp;</span><span class="p">,</span> <span class="n">L2</span><span class="o">&amp;</span><span class="p">,</span> <span class="n">L3</span><span class="o">&amp;</span><span class="p">...);</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>複数のミューテックスオブジェクトに対してtry_lock操作を行う</p>
+<h2>要件</h2>
+<p>テンプレートパラメータの型が<code>lock()</code>、<code>unlock()</code>、<code>try_lock()</code>メンバ関数をサポートしていること</p>
+<h2>効果</h2>
+<p>各ミューテックスオブジェクトに、引数の順に<code>try_lock()</code>メンバ関数を呼び出す。</p>
+<p>いずれかの<code>try_lock()</code>が<code>false</code>を返すか、もしくは<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出した場合、以降の<code>try_lock()</code>呼び出しを行わず、それより前にロック取得したミューテックスオブジェクトに対して<code>unlock()</code>メンバ関数を呼び出す。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p>全てのミューテックスオブジェクトへの<code>try_lock()</code>が成功した場合、<code>-1</code>を返す。</p>
+<p>いずれかの<code>try_lock()</code>が失敗して終了した場合、失敗した最初のミューテックスオブジェクトへの<code>0</code>から始まるインデックスを返す。</p>
+<h2>例</h2>
+<p><div class="yata" id="ce239b3c538ab7de7738cebf8b6780a36152eae0"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../thread.html">&lt;thread&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../mutex.html">&lt;mutex&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="mutex.html">std::mutex</a></span> <span class="n">mtx1</span><span class="p">;</span>
+  <span class="n"><a href="recursive_mutex.html">std::recursive_mutex</a></span> <span class="n">mtx2</span><span class="p">;</span>
+
+  <span class="c1">// 複数のミューテックスオブジェクトに対してtry_lock()を呼び出す</span>
+  <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::try_lock</span></span><span class="p">(</span><span class="n">mtx1</span><span class="p">,</span> <span class="n">mtx2</span><span class="p">);</span>
+
+    <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// 全てのtry_lock()呼び出しが成功</span>
+
+    <span class="n"><a href="mutex/unlock.html">mtx1.unlock()</a></span><span class="p">;</span>
+    <span class="n"><a href="recursive_mutex/unlock.html">mtx2.unlock()</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// unique_lockに対してtry_lock()を呼び出す</span>
+  <span class="p">{</span>
+    <span class="n"><a href="unique_lock.html">std::unique_lock</a></span><span class="o">&lt;</span><span class="n"><a href="mutex.html">std::mutex</a></span><span class="o">&gt;</span> <span class="n">lk1</span><span class="p">(</span><span class="n">mtx1</span><span class="p">,</span> <span class="n"><a href="defer_lock.html">std::defer_lock</a></span><span class="p">);</span>
+    <span class="n"><a href="unique_lock.html">std::unique_lock</a></span><span class="o">&lt;</span><span class="n"><a href="recursive_mutex.html">std::recursive_mutex</a></span><span class="o">&gt;</span> <span class="n">lk2</span><span class="p">(</span><span class="n">mtx2</span><span class="p">,</span> <span class="n"><a href="defer_lock.html">std::defer_lock</a></span><span class="p">);</span>
+
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::try_lock</span></span><span class="p">(</span><span class="n">lk1</span><span class="p">,</span> <span class="n">lk2</span><span class="p">);</span>
+
+    <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// 全てのtry_lock()呼び出しが成功</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 一部のtry_lock()が失敗する場合</span>
+  <span class="p">{</span>
+    <span class="c1">// mtx2をロックしておく。</span>
+    <span class="n"><a href="lock_guard.html">std::lock_guard</a></span><span class="o">&lt;</span><span class="n"><a href="recursive_mutex.html">std::recursive_mutex</a></span><span class="o">&gt;</span> <span class="n">lk2_main_thread</span><span class="p">(</span><span class="n">mtx2</span><span class="p">);</span>
+
+    <span class="n"><a href="../thread/thread.html">std::thread</a></span> <span class="n">th</span><span class="p">([</span><span class="o">&amp;</span><span class="p">]</span>
+    <span class="p">{</span>
+      <span class="n"><a href="unique_lock.html">std::unique_lock</a></span><span class="o">&lt;</span><span class="n"><a href="mutex.html">std::mutex</a></span><span class="o">&gt;</span> <span class="n">lk1</span><span class="p">(</span><span class="n">mtx1</span><span class="p">,</span> <span class="n"><a href="defer_lock.html">std::defer_lock</a></span><span class="p">);</span>
+      <span class="n"><a href="unique_lock.html">std::unique_lock</a></span><span class="o">&lt;</span><span class="n"><a href="recursive_mutex.html">std::recursive_mutex</a></span><span class="o">&gt;</span> <span class="n">lk2</span><span class="p">(</span><span class="n">mtx2</span><span class="p">,</span> <span class="n"><a href="defer_lock.html">std::defer_lock</a></span><span class="p">);</span>
+
+      <span class="c1">// 他のスレッドでmtx2をロックしているため、lk2のロックに失敗する。</span>
+      <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::try_lock</span></span><span class="p">(</span><span class="n">lk1</span><span class="p">,</span> <span class="n">lk2</span><span class="p">);</span>
+
+      <span class="c1">// lk2が失敗したので第2引数を示す1が返る(0始まり)</span>
+      <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+
+      <span class="c1">// lk2が失敗したので、<span style="color:#ff0000">std::try_lock</span>()内でlk2より前にtry_lock()が</span>
+      <span class="c1">// 成功した全てのミューテックスオブジェクトがunlock()される</span>
+      <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">lk1</span><span class="p">.</span><span class="n"><a href="unique_lock/owns_lock.html">owns_lock()</a></span><span class="p">);</span>
+    <span class="p">});</span>
+    <span class="n"><a href="../thread/thread/join.html">th.join()</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code></code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 4.7.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2012 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2013 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2015 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://d.hatena.ne.jp/yohhoy/20120919/p1" target="_blank">lock非メンバ関数の使いどころ - yohhoyの日記</a></li>
+<li><a href="https://www.justsoftwaresolutions.co.uk/threading/acquiring-multiple-locks-without-deadlock.html" target="_blank">Acquiring Multiple Locks Without Deadlock</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

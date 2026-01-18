@@ -1,0 +1,444 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>as_awaitable - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,cpo,std::execution,cpp26
+">
+        <meta name="title" content="as_awaitable - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="as_awaitable - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="as_awaitable - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/execution/execution/as_awaitable.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`as_awaitable`は、オブジェクトを特定の[コルーチン](/lang/cpp20/coroutines.md)内でAwaitableに変換するカスタマイゼーションポイントオブジェクトである。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="as_awaitable - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/execution/execution/as_awaitable.html" />
+        <meta name="twitter:description" content="`as_awaitable`は、オブジェクトを特定の[コルーチン](/lang/cpp20/coroutines.md)内でAwaitableに変換するカスタマイゼーションポイントオブジェクトである。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="manifest" href="../../../manifest.json?cachebust=1badf8656537fb83110091804da2a289044600de">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=1badf8656537fb83110091804da2a289044600de">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;execution&#34;], &#34;id-type&#34;: [&#34;cpo&#34;], &#34;namespace&#34;: [&#34;std::execution&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;execution&#34;, &#34;execution&#34;, &#34;as_awaitable&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/execution.html" itemprop="url">
+              
+                <span itemprop="name">execution</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/execution/execution.html" itemprop="url">
+              
+                <span itemprop="name">execution</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">as_awaitable</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2026-01-06T03:47:59">
+        2026年01月06日 03時47分59秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Koichi Murase</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/execution/execution/as_awaitable.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/execution/execution/as_awaitable.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">customization point object</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">as_awaitable</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
+  <span class="k">struct</span> <span class="n">as_awaitable_t</span> <span class="p">{</span> <span class="n"><i>unspecified</i></span> <span class="p">};</span>
+  <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">as_awaitable_t</span> <span class="n">as_awaitable</span><span class="p">{};</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>as_awaitable</code>は、オブジェクトを特定の<a href="../../../lang/cpp20/coroutines.html">コルーチン</a>内でAwaitableに変換する<a class="cpprefjp-defined-word" data-desc="プログラム定義型に対するオーバーロードが許されている標準関数名について、中でいい感じにオーバーロード解決して呼び出してくれる関数オブジェクト">カスタマイゼーションポイントオブジェクト</a>である。</p>
+<p>Promise型<code>p</code>をもつコルーチンにおいて、Await式<code>co_await as_awaitable(expr, p)</code>は下記のように動作する。</p>
+<ul>
+<li>式<code>expr.as_awaitable(p)</code>が有効ならば、同式が返すAwaitableオブジェクトに対してAwait式を実行する。</li>
+<li>
+<p><code>expr</code>が<a href="sender.html">Sender型</a>かつ<code><a href="get_await_completion_adaptor.html">get_await_completion_adaptor</a></code>問い合わせに対応する場合、同問い合わせが返すSenderアダプタを<code>expr</code>に適用した結果を<code>adapted-expr</code>とする。</p>
+</li>
+<li>
+<p><code>expr</code>（または上記ステップの<code>adapted-expr</code>）が<a href="single-sender.html">単一の値を送信するSender</a>であり、Promise型が停止完了ハンドラを定義するならば、下記動作を行う。</p>
+<ul>
+<li>Senderを<a href="connect.html">接続(connect)</a>し、結果<a href="operation_state.html">Operation State</a>をAwaitableオブジェクトに格納する。</li>
+<li>コルーチンを中断し、Operation Stateを<a href="start.html">開始(start)</a>する。</li>
+<li><a href="../queryable.html">クエリオブジェクト</a>による<a href="receiver.html">Receiver</a>環境への問い合わせは、Promise型に関連付けられた環境(<code>get_env</code>)へと転送される。</li>
+<li>Senderが<a href="set_value.html">値完了</a>した場合、送信値をAwait式の結果としてコルーチンを再開する。</li>
+<li>Senderが<a href="set_error.html">エラー完了</a>した場合、エラー値を<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>としてコルーチンから再送出する。</li>
+<li>Senderが<a href="set_stopped.html">停止完了</a>した場合、停止完了ハンドラ(<code>unhandled_stopped</code>)が返す別のコルーチンを再開させる。</li>
+</ul>
+</li>
+<li>そうでなければ、式<code>expr</code>に対してAwait式を実行する。</li>
+</ul>
+<h2>効果</h2>
+<p>説明用の式<code>expr</code>と左辺値<code>p</code>に対して、型<code>Expr</code>を<code>decltype((expr))</code>、型<code>Promise</code>を<code><a href="../../type_traits/decay.html">decay_t</a>&lt;decltype((p))&gt;</code>とする。</p>
+<p>呼び出し式<code>as_awaitable(expr, p)</code>は、<code>expr</code>と<code>p</code>の評価が不定順で順序付けられることを除いて、下記と等価。</p>
+<ul>
+<li><a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>であるならば、式<code>expr.as_awaitable(p)</code><ul>
+<li><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Mandates。満たさなければプログラムが不適格となる要件。この要件は、オーバーロード解決によって選択された関数内での`static_assert`の定数条件式や、関数に対するdelete宣言などで表現できる">適格要件</a> : 同式の型を<code>A</code>としたとき、<code><a href="../is-awaitable.html">is-awaitable</a>&lt;A, Promise&gt; == true</code>であるべき。</li>
+</ul>
+</li>
+<li>そうではなく、説明用の型<code>U</code>を<code>Promise</code>とは異なりかつ<code>await_transform</code>メンバ関数を持たない<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>の型としたとき、<code><a href="../is-awaitable.html">is-awaitable</a>&lt;Expr, U&gt; == true</code>ならば、式<code>(void(p), expr)</code><ul>
+<li><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a> : <code><a href="../is-awaitable.html">is-awaitable</a>&lt;Expr, Promise&gt; == true</code>、かつPromise型<code>U</code>のコルーチンにおける式<code>co_await expr</code>がPromise型<code>Promise</code>のコルーチンにおける同式と等しさを保持すること。</li>
+</ul>
+</li>
+<li>そうではなく、説明用の式<code>adapted-expr</code>を<code>expr</code>が1回だけ評価されることを除いて<code><a href="get_await_completion_adaptor.html">get_await_completion_adaptor</a>(<a href="get_env.html">get_env</a>(expr))(expr)</code>としたとき、<code>has-queryable-await-completion-adaptor&lt;Expr&gt;</code>と<code>awaitable-sender&lt;decltype((adapted-expr)), Promise&gt;</code>が共に満たされるならば、式<code>sender-awaitable{adapted-expr, p}</code></li>
+<li>そうではなく、<code>awaitable-sender&lt;Expr, Promise&gt;</code>ならば、式<code>sender-awaitable{expr, p}</code></li>
+<li>そうでなければ、式<code>(void(p), expr)</code></li>
+</ul>
+<h2>説明専用エンティティ</h2>
+<h3>コンセプト<code>awaitable-sender</code></h3>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Promise</span><span class="o">&gt;</span>
+  <span class="n">concept</span> <span class="n">awaitable</span><span class="o">-</span><span class="n">sender</span> <span class="o">=</span>
+    <span class="n"><a href="single-sender.html">single-sender</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n"><a href="env_of_t.html">env_of_t</a></span><span class="o">&lt;</span><span class="n">Promise</span><span class="o">&gt;&gt;</span> <span class="o">&amp;&amp;</span>
+    <span class="n"><a href="sender_to.html">sender_to</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">awaitable</span><span class="o">-</span><span class="n">receiver</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>  <span class="c1">// <i>see below</i></span>
+    <span class="n">requires</span> <span class="p">(</span><span class="n">Promise</span><span class="o">&amp;</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+      <span class="p">{</span> <span class="n">p</span><span class="p">.</span><span class="n">unhandled_stopped</span><span class="p">()</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="../../concepts/convertible_to.html">convertible_to</a></span><span class="o">&lt;</span><span class="n"><a href="../../coroutine/coroutine_handle.html">coroutine_handle&lt;&gt;</a></span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h3>コンセプト<code>has-queryable-await-completion-adaptor</code></h3>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="o">&gt;</span>
+  <span class="n">concept</span> <span class="n">has</span><span class="o">-</span><span class="n">queryable</span><span class="o">-</span><span class="n">await</span><span class="o">-</span><span class="n">completion</span><span class="o">-</span><span class="n">adaptor</span> <span class="o">=</span>  <span class="c1">// exposition only</span>
+    <span class="n"><a href="sender.html">sender</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span>
+    <span class="o">&amp;&amp;</span> <span class="n">requires</span><span class="p">(</span><span class="n">Sndr</span><span class="o">&amp;&amp;</span> <span class="n"><a href="sender.html">sender</a></span><span class="p">)</span> <span class="p">{</span>
+      <span class="n"><a href="get_await_completion_adaptor.html">get_await_completion_adaptor</a></span><span class="p">(</span><span class="n"><a href="get_env.html">get_env</a></span><span class="p">(</span><span class="n"><a href="sender.html">sender</a></span><span class="p">));</span>
+    <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h3>クラステンプレート<code>sender-awaitable</code></h3>
+<p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Promise</span><span class="o">&gt;</span>
+  <span class="k">class</span> <span class="nc">sender</span><span class="o">-</span><span class="n">awaitable</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="n">unit</span> <span class="p">{};</span>                                           <span class="c1">// exposition only</span>
+    <span class="k">using</span> <span class="n">value</span><span class="o">-</span><span class="n">type</span> <span class="o">=</span>                                        <span class="c1">// exposition only</span>
+      <span class="n"><a href="single-sender-value-type.html">single-sender-value-type</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n"><a href="env_of_t.html">env_of_t</a></span><span class="o">&lt;</span><span class="n">Promise</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+    <span class="k">using</span> <span class="n">result</span><span class="o">-</span><span class="n">type</span> <span class="o">=</span>                                       <span class="c1">// exposition only</span>
+      <span class="n"><a href="../../type_traits/conditional.html">conditional_t</a></span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/is_void.html">is_void_v</a></span><span class="o">&lt;</span><span class="n">value</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">unit</span><span class="p">,</span> <span class="n">value</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">awaitable</span><span class="o">-</span><span class="n">receiver</span><span class="p">;</span>                                <span class="c1">// exposition only</span>
+
+    <span class="n"><a href="../../variant/variant.html">variant</a></span><span class="o">&lt;</span><span class="n"><a href="../../variant/monostate.html">monostate</a></span><span class="p">,</span> <span class="n">result</span><span class="o">-</span><span class="n">type</span><span class="p">,</span> <span class="n"><a href="../../exception/exception_ptr.html">exception_ptr</a></span><span class="o">&gt;</span> <span class="n">result</span><span class="p">{};</span>  <span class="c1">// exposition only</span>
+    <span class="n"><a href="connect_result_t.html">connect_result_t</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">awaitable</span><span class="o">-</span><span class="n">receiver</span><span class="o">&gt;</span> <span class="n">state</span><span class="p">;</span>         <span class="c1">// exposition only</span>
+
+  <span class="k">public</span><span class="o">:</span>
+    <span class="n">sender</span><span class="o">-</span><span class="n">awaitable</span><span class="p">(</span><span class="n">Sndr</span><span class="o">&amp;&amp;</span> <span class="n">sndr</span><span class="p">,</span> <span class="n">Promise</span><span class="o">&amp;</span> <span class="n">p</span><span class="p">);</span>
+    <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="nf">await_ready</span><span class="p">()</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
+    <span class="kt">void</span> <span class="nf">await_suspend</span><span class="p">(</span><span class="n"><a href="../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;</span><span class="n">Promise</span><span class="o">&gt;</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="n"><a href="start.html">start</a></span><span class="p">(</span><span class="n">state</span><span class="p">);</span> <span class="p">}</span>
+    <span class="n">value</span><span class="o">-</span><span class="n">type</span> <span class="n">await_resume</span><span class="p">();</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h3>式<code>AS-EXCEPT-PTR</code></h3>
+<p>説明用の式<code>err</code>に対して<code>decltype((err))</code>を型<code>Err</code>としたとき、式<code>AS-EXCEPT-PTR(err)</code>を下記の通り定義する。</p>
+<ul>
+<li><code><a href="../../type_traits/decay.html">decay_t</a>&lt;Err&gt;</code>が<code><a href="../../exception/exception_ptr.html">exception_ptr</a></code>型と等しければ、<code>err</code>となる。このとき、<a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a>として<code>!err == false</code>であること。</li>
+<li>そうではなく、<code><a href="../../type_traits/decay.html">decay_t</a>&lt;Err&gt;</code>が<code><a href="../../system_error/error_code.html">error_code</a></code>型と等しければ、<code><a href="../../exception/make_exception_ptr.html">make_exception_ptr</a>(<a href="../../system_error/system_error.html">system_error</a>(err))</code>となる。</li>
+<li>そうでなければ、<code><a href="../../exception/make_exception_ptr.html">make_exception_ptr</a>(err)</code>となる。</li>
+</ul>
+<h3>クラステンプレート<code>awaitable-receiver</code></h3>
+<p>説明専用のクラステンプレート<code>sender-awaitable&lt;Sndr, Promise&gt;::awaitable-receiver</code>は下記の通り定義される。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">awaitable</span><span class="o">-</span><span class="n">receiver</span> <span class="p">{</span>
+  <span class="k">using</span> <span class="n">receiver_concept</span> <span class="o">=</span> <span class="n"><a href="receiver.html">receiver_t</a></span><span class="p">;</span>
+  <span class="n"><a href="../../variant/variant.html">variant</a></span><span class="o">&lt;</span><span class="n"><a href="../../variant/monostate.html">monostate</a></span><span class="p">,</span> <span class="n">result</span><span class="o">-</span><span class="n">type</span><span class="p">,</span> <span class="n"><a href="../../exception/exception_ptr.html">exception_ptr</a></span><span class="o">&gt;*</span> <span class="n">result</span><span class="o">-</span><span class="n">ptr</span><span class="p">;</span>  <span class="c1">// exposition only</span>
+  <span class="n"><a href="../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;</span><span class="n">Promise</span><span class="o">&gt;</span> <span class="n">continuation</span><span class="p">;</span>                      <span class="c1">// exposition only</span>
+  <span class="c1">// <i>see below</i></span>
+<span class="p">};</span>
+</code></pre></div>
+</p>
+<p>説明用の式<code>rcvr</code>を<code>awaitable-receiver</code>型の右辺値、<code>crcvr</code>を<code>rcvr</code>をconst参照する左辺値、<code>vs</code>を式パック、<code>err</code>を<code>Err</code>型の式とする。このとき</p>
+<ul>
+<li>
+<p><code><a href="../../concepts/constructible_from.html">constructible_from</a>&lt;result-type, decltype((vs))...&gt;</code>を満たすとき、式<code><a href="set_value.html">set_value</a>(rcvr, vs...)</code>は下記と等価。そうでなければ、式<code>set_value(rcvr, vs...)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">try</span> <span class="p">{</span>
+  <span class="n">rcvr</span><span class="p">.</span><span class="n">result</span><span class="o">-</span><span class="n">ptr</span><span class="o">-&gt;</span><span class="n"><a href="../../variant/variant/emplace.html">template emplace</a></span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">vs</span><span class="p">...);</span>
+<span class="p">}</span> <span class="k">catch</span><span class="p">(...)</span> <span class="p">{</span>
+  <span class="n">rcvr</span><span class="p">.</span><span class="n">result</span><span class="o">-</span><span class="n">ptr</span><span class="o">-&gt;</span><span class="n"><a href="../../variant/variant/emplace.html">template emplace</a></span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../exception/current_exception.html">current_exception()</a></span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">rcvr</span><span class="p">.</span><span class="n">continuation</span><span class="p">.</span><span class="n"><a href="../../coroutine/coroutine_handle/resume.html">resume()</a></span><span class="p">;</span>
+</code></pre></div>
+</p>
+</li>
+<li>
+<p>式<code><a href="set_error.html">set_error</a>(rcvr, err)</code>は下記と等価。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n">rcvr</span><span class="p">.</span><span class="n">result</span><span class="o">-</span><span class="n">ptr</span><span class="o">-&gt;</span><span class="n"><a href="../../variant/variant/emplace.html">template emplace</a></span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><i>AS-EXCEPT-PTR</i></span><span class="p">(</span><span class="n">err</span><span class="p">));</span>
+<span class="n">rcvr</span><span class="p">.</span><span class="n">continuation</span><span class="p">.</span><span class="n"><a href="../../coroutine/coroutine_handle/resume.html">resume()</a></span><span class="p">;</span>
+</code></pre></div>
+</p>
+</li>
+<li>
+<p>式<code><a href="set_stopped.html">set_stopped</a>(rcvr)</code>は下記と等価。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><a href="../../coroutine/coroutine_handle.html">coroutine_handle&lt;&gt;</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">rcvr</span><span class="p">.</span><span class="n">continuation</span><span class="p">.</span><span class="n"><a href="../../coroutine/coroutine_handle/promise.html">promise()</a></span><span class="p">.</span><span class="n">unhandled_stopped</span><span class="p">()).</span><span class="n"><a href="../../coroutine/coroutine_handle/resume.html">resume()</a></span><span class="p">;</span>
+</code></pre></div>
+</p>
+</li>
+<li>
+<p><code><a href="../forwarding-query.html">forwarding-query</a></code>を満たす型の式<code>tag</code>とパック式<code>as</code>に対して、式<code><a href="get_env.html">get_env</a>(crcvr).query(tag, as...)</code>は下記と等価。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n">tag</span><span class="p">(</span><span class="n"><a href="get_env.html">get_env</a></span><span class="p">(</span><span class="n"><a href="../../utility/as_const.html">as_const</a></span><span class="p">(</span><span class="n">crcvr</span><span class="p">.</span><span class="n">continuation</span><span class="p">.</span><span class="n"><a href="../../coroutine/coroutine_handle/promise.html">promise()</a></span><span class="p">)),</span> <span class="n">as</span><span class="p">...)</span>
+</code></pre></div>
+</p>
+</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="n">sender</span><span class="o">-</span><span class="n">awaitable</span><span class="p">(</span><span class="n">Sndr</span><span class="o">&amp;&amp;</span> <span class="n">sndr</span><span class="p">,</span> <span class="n">Promise</span><span class="o">&amp;</span> <span class="n">p</span><span class="p">);</span>
+</code></pre></div>
+</p>
+<ul>
+<li>
+<p>効果 : <code>state</code>を下記で初期化する。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="connect.html">connect</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span>
+        <span class="n">awaitable</span><span class="o">-</span><span class="n">receiver</span><span class="p">{</span><span class="n"><a href="../../memory/addressof.html">addressof</a></span><span class="p">(</span><span class="n">result</span><span class="p">),</span> <span class="n"><a href="../../coroutine/coroutine_handle.html">coroutine_handle</a></span><span class="o">&lt;</span><span class="n">Promise</span><span class="o">&gt;::</span><span class="n"><a href="../../coroutine/coroutine_handle/from_promise.html">from_promise</a></span><span class="p">(</span><span class="n">p</span><span class="p">)})</span>
+</code></pre></div>
+</p>
+</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="n">value</span><span class="o">-</span><span class="n">type</span> <span class="n">await_resume</span><span class="p">();</span>
+</code></pre></div>
+</p>
+<ul>
+<li>
+<p>効果 : 下記と等価。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n"><a href="../../variant/variant/index.html">index()</a></span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>
+  <span class="n"><a href="../../exception/rethrow_exception.html">rethrow_exception</a></span><span class="p">(</span><span class="n"><a href="../../variant/variant/get.html">get</a></span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">(</span><span class="n">result</span><span class="p">));</span>
+<span class="k">if</span> <span class="nf">constexpr</span> <span class="p">(</span><span class="o">!</span><span class="n"><a href="../../type_traits/is_void.html">is_void_v</a></span><span class="o">&lt;</span><span class="n">value</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">value</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../variant/variant/get.html">get</a></span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">result</span><span class="p">));</span>
+</code></pre></div>
+</p>
+</li>
+</ul>
+<h2>カスタマイゼーションポイント</h2>
+<p><code>expr</code>に対して、<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>であるならば式<code>expr.as_awaitable(p)</code>が呼び出される。</p>
+<p><code>expr</code>が<a href="sender.html">Sender型</a>かつ関連付けられた<a href="../queryable.html">属性</a>がクエリオブジェクト<code><a href="get_await_completion_adaptor.html">get_await_completion_adaptor</a></code>に対応するとき、<code>expr</code>に対して同クエリオブジェクトが返すSenderアダプタを適用してからAwaitableオブジェクトへ変換する。</p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++26</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="with_awaitable_senders.html">execution::with_awaitable_senders</a></code></li>
+<li><code><a href="get_await_completion_adaptor.html">execution::get_await_completion_adaptor</a></code></li>
+<li><a href="../../../lang/cpp20/coroutines.html">C++20 コルーチン</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html" target="_blank">P3396R1 std::execution wording fixes</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3570r2.html" target="_blank">P3570R2 optional variants in sender/receiver</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

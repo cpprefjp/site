@@ -1,0 +1,711 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>random - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,random,cpp11
+">
+        <meta name="title" content="random - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="random - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="random - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/random.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="&amp;lt;random&amp;gt;random(C++11) &amp;lt;random&amp;gt;ヘッダは、擬似乱数を取り扱うための乱数生成器 (Random Number Generator) や分布生成器 (Distribution) 、非決定論的な乱数生成器、および関連する一連のクラス・関数を定義する乱数ライブラリである。 このヘッダでは、以下の標準ヘッダをインクルードする：  &amp;lt;initializ" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="random - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/random.html" />
+        <meta name="twitter:description" content="&amp;lt;random&amp;gt;random(C++11) &amp;lt;random&amp;gt;ヘッダは、擬似乱数を取り扱うための乱数生成器 (Random Number Generator) や分布生成器 (Distribution) 、非決定論的な乱数生成器、および関連する一連のクラス・関数を定義する乱数ライブラリである。 このヘッダでは、以下の標準ヘッダをインクルードする：  &amp;lt;initializ" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../static/favicons/apple-touch-icon.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicons/favicon-32x32.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicons/favicon-16x16.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="manifest" href="../manifest.json?cachebust=1badf8656537fb83110091804da2a289044600de">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../static/pygments/default.css?cachebust=1badf8656537fb83110091804da2a289044600de">
+<!-- <link rel="stylesheet" href="../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../static/kunai/css/kunai-stage-0.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-1.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-2.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../static/kunai/css/kunai-stage-3.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+
+<script type="text/javascript" src="../static/kunai/js/kunai-vendor.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
+<script type="text/javascript" src="../static/kunai/js/kunai.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;random&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;831b2bc82df0e41738ec6fe1745750c8e2aa5842&#34;, &#34;source&#34;: &#34;#include &lt;fstream&gt;\n#include &lt;random&gt;\n#include &lt;cstdint&gt;\n\nint main()\n{\n  // \u30e1\u30eb\u30bb\u30f3\u30cc\u30fb\u30c4\u30a4\u30b9\u30bf\u30fc\u6cd5\u306b\u3088\u308b\u64ec\u4f3c\u4e71\u6570\u751f\u6210\u5668\u3092\u3001\n  // \u30cf\u30fc\u30c9\u30a6\u30a7\u30a2\u4e71\u6570\u3092\u30b7\u30fc\u30c9\u306b\u3057\u3066\u521d\u671f\u5316\n  std::random_device seed_gen;\n  std::uint32_t seed = seed_gen();\n  std::mt19937 engine(seed);\n\n  // \u4e00\u69d8\u5b9f\u6570\u5206\u5e03\n  // [-1.0f, 1.0f)\u306e\u5024\u306e\u7bc4\u56f2\u3067\u3001\u7b49\u78ba\u7387\u306b\u5b9f\u6570\u3092\u751f\u6210\u3059\u308b\n  std::uniform_real_distribution&lt;float&gt; dist1(-1.0f, 1.0f);\n\n  // \u6b63\u898f\u5206\u5e03\n  // \u5e73\u57471.0f\u3001\u6a19\u6e96\u504f\u5dee0.5f\u3067\u5206\u5e03\u3055\u305b\u308b\n  std::normal_distribution&lt;float&gt; dist2(1.0f, 0.5f);\n\n  std::ofstream file(\&#34;random.tsv\&#34;);\n  for (size_t i = 0; i &lt; 1000*1000; ++i) {\n    // \u5404\u5206\u5e03\u6cd5\u306b\u57fa\u3044\u3066\u4e71\u6570\u3092\u751f\u6210\n    float r1 = dist1(engine);\n    float r2 = dist2(engine);\n\n    file &lt;&lt; r1 &lt;&lt; \&#34;\\t\&#34; &lt;&lt; r2 &lt;&lt; \&#34;\\n\&#34;;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;random&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">random</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-10-22T16:15:43">
+        2025年10月22日 16時15分43秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/random.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/random.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="header">&lt;random&gt;</div><h1 itemprop="name"><span class="token">random</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><code>&lt;random&gt;</code>ヘッダは、擬似乱数を取り扱うための乱数生成器 (Random Number Generator) や分布生成器 (Distribution) 、非決定論的な乱数生成器、および関連する一連のクラス・関数を定義する乱数ライブラリである。</p>
+<p>このヘッダでは、以下の標準ヘッダをインクルードする：</p>
+<ul>
+<li><code><a href="initializer_list.html">&lt;initializer_list&gt;</a></code></li>
+</ul>
+<h2>コンセプト</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="random/uniform_random_bit_generator.html">uniform_random_bit_generator</a></code></td>
+<td>離散一様分布に従う乱数生成器(concept)</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>擬似乱数生成器</h2>
+<p>擬似乱数生成器は、ソフトウェアで乱雑な値のシーケンスを生成するクラスである。</p>
+<p>擬似乱数生成器は、環境によらず同じシードを与えれば同じ乱数列が生成される。</p>
+<p>多くのユーザーにとっては、以下に挙げる生の乱数生成器テンプレートクラスそのものよりも、後述するパラメータ定義済みの乱数生成器の型を使用すれば十分である。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="random/linear_congruential_engine.html">linear_congruential_engine</a></code></td>
+<td>線形合同法(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="random/mersenne_twister_engine.html">mersenne_twister_engine</a></code></td>
+<td>メルセンヌツイスター法(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="random/subtract_with_carry_engine.html">subtract_with_carry_engine</a></code></td>
+<td>キャリー付き減算法(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="random/philox_engine.html">philox_engine</a></code></td>
+<td>カウンタベース乱数生成器のPhilox法(class template)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>生成器アダプタ</h2>
+<p>生成器アダプタは、他の乱数生成器の乱数列を調整するクラスである。</p>
+<p>通常、ユーザーがこれらのクラスを直接使用することはない。新たな乱数アルゴリズムを作る上級者、および研究者向けの機能である。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="random/discard_block_engine.html">discard_block_engine</a></code></td>
+<td>部分的に乱数列を破棄する(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="random/independent_bits_engine.html">independent_bits_engine</a></code></td>
+<td>乱数生成器が生成するビットを変更する(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="random/shuffle_order_engine.html">shuffle_order_engine</a></code></td>
+<td>乱数の生成順をシャッフルする(class template)</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>パラメータ定義済み擬似乱数生成器</h2>
+<p>先に挙げた擬似乱数生成器に対して一般的なパラメータを定義し、使いやすいように用意された擬似乱数生成器の型。</p>
+<p>これらの型には、パフォーマンス、オブジェクトのサイズ、周期などのトレードオフがある。ユーザーの目的に合わせて擬似乱数生成器の型を選択してほしい。</p>
+<p>オブジェクトのサイズをある程度無視・許容できる状況では、多くの分野と用途に、<code><a href="random/mt19937.html">mt19937</a></code>を推奨できる。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="random/minstd_rand0.html">minstd_rand0</a></code></td>
+<td>最小標準MINSTD(type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="random/minstd_rand.html">minstd_rand</a></code></td>
+<td>最小標準MINSTDのパラメータ改良版(type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="random/mt19937.html">mt19937</a></code></td>
+<td>メルセンヌツイスターの32ビット版(type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="random/mt19937_64.html">mt19937_64</a></code></td>
+<td>メルセンヌツイスターの64ビット版(type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="random/ranlux24_base.html">ranlux24_base</a></code></td>
+<td>RANLUX法の<code>ranlux24</code>を定義するための型(type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="random/ranlux48_base.html">ranlux48_base</a></code></td>
+<td>RANLUX法の<code>ranlux48</code>を定義するための型(type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="random/ranlux24.html">ranlux24</a></code></td>
+<td>RANLUX法のレベル3(type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="random/ranlux48.html">ranlux48</a></code></td>
+<td>RANLUX法のレベル4(type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="random/knuth_b.html">knuth_b</a></code></td>
+<td>KnuthのリオーダーアルゴリズムB(type-alias)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="random/philox4x32.html">philox4x32</a></code></td>
+<td>Philoxの32ビット版(type-alias)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="random/philox4x64.html">philox4x64</a></code></td>
+<td>Philoxの64ビット版(type-alias)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="random/default_random_engine.html">default_random_engine</a></code></td>
+<td>非専門用途でデフォルト使用する擬似乱数生成器(type-alias)</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>非決定論的な乱数生成器</h2>
+<p>擬似乱数には「予測できる」「再現性がある」という特徴がある。</p>
+<p>暗号化、パスワードの生成、擬似乱数のシードを決定するといった、エンドユーザーに予測されたくない乱数列が必要な場合に、擬似乱数の代わりに、以下の非決定論的な乱数生成器を利用できる。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="random/random_device.html">random_device</a></code></td>
+<td>予測不能な乱数生成器(class)</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>シード数列</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="random/seed_seq.html">seed_seq</a></code></td>
+<td>擬似乱数エンジンの為のシード数列(class)</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>分布生成器</h2>
+<p>分布生成器は、乱数生成器によって生成される値の範囲や分布を調整するクラスである。</p>
+<p>分布生成器は、環境によって異なるアルゴリズムで実装される可能性がある。擬似乱数生成器は環境によらず同じシードを与えれば同じ乱数列が生成されるが、分布生成器を介して乱数生成する場合、環境によって異なる乱数列が生成される場合がある。</p>
+<h3>一様分布</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="random/uniform_int_distribution.html">uniform_int_distribution</a></code></td>
+<td>一様整数分布(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="random/uniform_real_distribution.html">uniform_real_distribution</a></code></td>
+<td>一様実数分布(class template)</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>ベルヌーイ分布(Bernoulli Distribution)</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="random/bernoulli_distribution.html">bernoulli_distribution</a></code></td>
+<td>ベルヌーイ分布(class)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="random/binomial_distribution.html">binomial_distribution</a></code></td>
+<td>二項分布(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="random/geometric_distribution.html">geometric_distribution</a></code></td>
+<td>幾何分布(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="random/negative_binomial_distribution.html">negative_binomial_distribution</a></code></td>
+<td>負の二項分布(class template)</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>ポワソン分布(Poisson Distribution)</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="random/poisson_distribution.html">poisson_distribution</a></code></td>
+<td>ポワソン分布(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="random/exponential_distribution.html">exponential_distribution</a></code></td>
+<td>指数分布(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="random/gamma_distribution.html">gamma_distribution</a></code></td>
+<td>ガンマ分布(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="random/weibull_distribution.html">weibull_distribution</a></code></td>
+<td>ワイブル分布(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="random/extreme_value_distribution.html">extreme_value_distribution</a></code></td>
+<td>極値分布(class template)</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>正規分布(Normal Distribution)</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="random/normal_distribution.html">normal_distribution</a></code></td>
+<td>正規分布(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="random/lognormal_distribution.html">lognormal_distribution</a></code></td>
+<td>対数正規分布(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="random/chi_squared_distribution.html">chi_squared_distribution</a></code></td>
+<td>カイ二乗分布(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="random/cauchy_distribution.html">cauchy_distribution</a></code></td>
+<td>コーシー分布(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="random/fisher_f_distribution.html">fisher_f_distribution</a></code></td>
+<td>フィッシャーのF分布(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="random/student_t_distribution.html">student_t_distribution</a></code></td>
+<td>ステューデントのt分布(class template)</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>標本分布(Sampling Distribution)</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="random/discrete_distribution.html">discrete_distribution</a></code></td>
+<td>整数のインデックスごとに離散した確率分布生成器(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="random/piecewise_constant_distribution.html">piecewise_constant_distribution</a></code></td>
+<td>区間ごとの重み付けを定数値とした分布生成器(class template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="random/piecewise_linear_distribution.html">piecewise_linear_distribution</a></code></td>
+<td>区間ごとの重み付けを線形に接続した分布生成器(class template)</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>ユーティリティ</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="random/generate_canonical.html">generate_canonical</a></code></td>
+<td>実数区間[0.0,1.0)に展開（事実上正規化）された一様分布乱数を得る(function template)</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="random/generate_random.html">generate_random</a></code></td>
+<td>乱数列を生成する(function template)</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<p>以下に示す例では、標準の乱数ライブラリを用いてランダムデバイスでシードを生成してメルセンヌツイスタエンジンを初期化、単精度浮動小数点数型で区間[-1.0f, 1.0f)の一様分布、および<code>1.0f</code>を中心として標準偏差<code>0.5f</code>の正規分布に基づく擬似乱数を100万個生成し"random.tsv"にタブ区切り形式のファイルとして結果を保存する。</p>
+<p><div class="yata" id="831b2bc82df0e41738ec6fe1745750c8e2aa5842"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="fstream.html">&lt;fstream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="">&lt;random&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="cstdint.html">&lt;cstdint&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// メルセンヌ・ツイスター法による擬似乱数生成器を、</span>
+  <span class="c1">// ハードウェア乱数をシードにして初期化</span>
+  <span class="n"><a href="random/random_device.html">std::random_device</a></span> <span class="n">seed_gen</span><span class="p">;</span>
+  <span class="n"><a href="cstdint/uint32_t.html">std::uint32_t</a></span> <span class="n">seed</span> <span class="o">=</span> <span class="n">seed_gen</span><span class="p">();</span>
+  <span class="n"><a href="random/mt19937.html">std::mt19937</a></span> <span class="n">engine</span><span class="p">(</span><span class="n">seed</span><span class="p">);</span>
+
+  <span class="c1">// 一様実数分布</span>
+  <span class="c1">// [-1.0f, 1.0f)の値の範囲で、等確率に実数を生成する</span>
+  <span class="n"><a href="random/uniform_real_distribution.html">std::uniform_real_distribution</a></span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span> <span class="n">dist1</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">);</span>
+
+  <span class="c1">// 正規分布</span>
+  <span class="c1">// 平均1.0f、標準偏差0.5fで分布させる</span>
+  <span class="n"><a href="random/normal_distribution.html">std::normal_distribution</a></span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span> <span class="n">dist2</span><span class="p">(</span><span class="mf">1.0f</span><span class="p">,</span> <span class="mf">0.5f</span><span class="p">);</span>
+
+  <span class="n"><a href="fstream/basic_ofstream.html">std::ofstream</a></span> <span class="n">file</span><span class="p">(</span><span class="s">"random.tsv"</span><span class="p">);</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="o">*</span><span class="mi">1000</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 各分布法に基いて乱数を生成</span>
+    <span class="kt">float</span> <span class="n">r1</span> <span class="o">=</span> <span class="n"><a href="random/uniform_real_distribution/op_call.html">dist1(engine)</a></span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">r2</span> <span class="o">=</span> <span class="n"><a href="random/normal_distribution/op_call.html">dist2(engine)</a></span><span class="p">;</span>
+
+    <span class="n">file</span> <span class="o">&lt;&lt;</span> <span class="n">r1</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s">"</span> <span class="o">&lt;&lt;</span> <span class="n">r2</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>この例である時得られた <a href="https://raw.githubusercontent.com/cpprefjp/image/master/reference/random/random.tsv.xz" target="_blank">random.tsv</a> (ファイルサイズが大きいので添付する上では random.tsv.xz に圧縮) を元に、得られたデータの密度を図示すると、以下のような図が得られた。</p>
+<p><img alt="" src="../static/image/reference/random/random.png" /></p>
+<p>破線は dist1 (一様分布; min=-1.0f, max=1.0f) 、実線は dist2 (正規分布; mean=1.0f, stdev=0.5f) 、横軸は値、縦軸は密度(値の件数を区間ごとに数えたヒストグラムを全体に占める割合で表したもの)である。</p>
+<h2>標準乱数ライブラリの基本的な使い方</h2>
+<h3>「擬似」乱数生成器</h3>
+<p>擬似乱数生成器は決定論的で、再現性を持つ。
+擬似乱数生成器に同じシードを与えることで、同じ乱数列を再現させられる。この挙動は開発中のテストやデバッグなどで有用である。
+実行ごとに異なる乱数列が必要な場合、<code><a href="random/random_device.html">random_device</a></code> クラスのような非決定論的に実装される乱数をシードとして使用するとよい。</p>
+<p>また、擬似乱数生成器は高速かつ高効率に動作するよう設計されている。
+しかしながら、これらが生成する乱数列は真の乱数ではなく、周期を持つ。</p>
+<p><code>&lt;random&gt;</code> が提供する擬似乱数生成器は暗号論的に安全ではない。</p>
+<p>一方 <code><a href="random/random_device.html">random_device</a></code> は非決定論的である（ただし実装は<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>なので詳細は項目を参照すること）が、
+速度は擬似乱数生成器に比べ遅く、特にエントロピープールが枯渇すると著しく悪化する。</p>
+<p>モンテカルロ法など多数の乱数が必要な場合は擬似乱数生成器の使用を推奨する。</p>
+<h3>推奨する擬似乱数エンジン</h3>
+<p>基本的には32ビット版メルセンヌ・ツイスターの実装である<code><a href="random/mt19937.html">mt19937</a></code>、もしくはその64ビット版の実装である<code><a href="random/mt19937_64.html">mt19937_64</a></code>のどちらかを使用することを推奨する。</p>
+<p>非専門用途のための<code><a href="random/default_random_engine.html">default_random_engine</a></code>というエンジン型も定義されているが、この型は環境によって乱雑度が低く、周期も短い擬似乱数エンジンの別名として定義される場合がある。</p>
+<p><code><a href="random/mt19937.html">mt19937</a></code>は、状態の大きさが<code>sizeof(std::uint_fast32_t) * (624 + 1)</code>だけあり、少々サイズが大きいが、それを受け入れられる状況であれば、デフォルトで<code><a href="random/mt19937.html">mt19937</a></code>を採用しよう。このエンジンでは、乱雑度や周期の長さが問題になることは少ない。</p>
+<h3>特定の範囲の整数や浮動小数点数が必要な場合</h3>
+<p><code><a href="random/uniform_int_distribution.html">uniform_int_distribution</a></code>や<code><a href="random/uniform_real_distribution.html">uniform_real_distribution</a></code>のような、専門特化した分布クラスを使用する。</p>
+<p>古典的な方法として、特定の範囲の整数を生成するために、剰余演算が使われていた。たとえば<code>[0, 6)</code>の範囲のランダムな整数が必要な場合には、<code>int x = random_value % 6;</code>のようにしていた。この方法では、modulo biasと呼ばれる値の偏り問題が発生する。この場合は、<code>[0, 3]</code>の値が出力される確率が17%で、<code>[4, 5]</code>の値が出力される可能性は16%となり、小さい値の方が確率が高くなる。これは、出力される可能のある乱数の最大値が、剰余する値で割り切れない場合に発生する偏りである。</p>
+<p>専門特化した一様分布のクラスを使用することで、そのような偏りは起こらなくなる。</p>
+<h3>シード生成法</h3>
+<p>リリース版においては、実行ごとに擬似乱数のシードが異なることが求められる。
+<code><a href="random/random_device.html">random_device</a></code> クラスが非決定論的に実装されている環境ではこれを使用するのが望ましい。</p>
+<p>古典的な方法として、シードには<code>std::time(NULL)</code>で取得した現在時間 (エポックからの経過秒) が使われてきた。
+しかしながら、この方法ではアプリケーションの起動時間によってシードを調整され、乱数列を制御されてしまう。</p>
+<p>これを防ぐには、非決定論的な <code><a href="random/random_device.html">random_device</a></code> や CPU の <code>RDRAND</code> 命令などを使用してシードを生成するのがよいだろう。</p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h2>参照</h2>
+<h3>分布アルゴリズム</h3>
+<ul>
+<li><a href="https://web.archive.org/web/20190523080819/https://www.biwako.shiga-u.ac.jp/sensei/mnaka/ut/statdist.html" target="_blank">さまざまな確率分布 (probability distributions)</a></li>
+<li><a href="https://sites.google.com/site/techdmba/distribution" target="_blank">確率変数－種々の分布の特徴</a></li>
+</ul>
+<h3>乱数ライブラリの使い方</h3>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3551.pdf" target="_blank">N3551 Random Number Generation in C++11</a></li>
+<li><a href="https://www.codeproject.com/articles/28548/pitfalls-in-random-number-generation" target="_blank">Pitfalls in Random Number Generation</a></li>
+</ul>
+<h3>乱数ライブラリが導入された経緯</h3>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/1993/N0352.asc" target="_blank">N0352 Proposal for Standardization of Random Number Generators in C++</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2002/n1398.html" target="_blank">N1398 A Proposal to Add an Extensible Random Number Facility to the Standard Library</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1452.html" target="_blank">N1452 A Proposal to Add an Extensible Random Number Facility to the Standard Library (Revision 2)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1588.pdf" target="_blank">N1588 On Random-Number Distributions for C++0x</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1837.pdf" target="_blank">N1837 Library Extension Technical Report  Issues List</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1914.pdf" target="_blank">N1914 A Proposal to Add Random-Number Distributions to C++0x</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1932.pdf" target="_blank">N1932 Random Number Generation in C++0X: A Comprehensive Proposal</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1933.pdf" target="_blank">N1933 Improvements to TR1’s Facility for Random Number Generation</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2032.pdf" target="_blank">N2032 Random Number Generation in C++0X: A Comprehensive Proposal, version 2</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2033.pdf" target="_blank">N2033 Proposal to Consolidate the Subtract-with-Carry Engines</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2079.pdf" target="_blank">N2079 Random Number Generation in C++0X: A Comprehensive Proposal, version 3</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2111.pdf" target="_blank">N2111 Random Number Generation in C++0X: A Comprehensive Proposal, version 4</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2423.pdf" target="_blank">N2423 Recommendations for Resolving Issues re [rand], Version 2</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2424.pdf" target="_blank">N2424 Recommendations for Resolving the 2007-09-21 Issues re [rand]</a></li>
+</ul>
+<h3>その他</h3>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2930.html" target="_blank">N2930 Range-Based For Loop Wording (Without Concepts)</a></li>
+</ul>
+<h2>編集者向けの参照</h2>
+<ul>
+<li><a href="../start_editing/random_figure.html">乱数分布の図を作る方法</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

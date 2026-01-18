@@ -1,0 +1,395 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>seed_seq - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,random,std,class template,cpp11
+">
+        <meta name="title" content="seed_seq - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="seed_seq - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="seed_seq - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/random/seed_seq.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`seed_seq`クラスは、擬似乱数を生成するためのシード列を表現するためのクラスである。  " />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="seed_seq - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/random/seed_seq.html" />
+        <meta name="twitter:description" content="`seed_seq`クラスは、擬似乱数を生成するためのシード列を表現するためのクラスである。  " />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="manifest" href="../../manifest.json?cachebust=1badf8656537fb83110091804da2a289044600de">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=1badf8656537fb83110091804da2a289044600de">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;random&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;86af7fe7adc4fa3dbff20d5106cc130b56ae8fba&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;array&gt;\n#include &lt;algorithm&gt;\n#include &lt;functional&gt;\n#include &lt;random&gt;\n\nint main()\n{\n  // \u64ec\u4f3c\u4e71\u6570\u751f\u6210\u5668\u306e\u72b6\u614b\u30b7\u30fc\u30b1\u30f3\u30b9\u306e\u30b5\u30a4\u30ba\u5206\u3001\n  // \u30b7\u30fc\u30c9\u3092\u7528\u610f\u3059\u308b\n  std::array&lt;\n    std::seed_seq::result_type,\n    std::mt19937::state_size\n  &gt; seed_data;\n\n  // \u975e\u6c7a\u5b9a\u7684\u306a\u4e71\u6570\u3067\u30b7\u30fc\u30c9\u5217\u3092\u69cb\u7bc9\u3059\u308b\n  std::random_device seed_gen;\n  std::generate(seed_data.begin(), seed_data.end(), std::ref(seed_gen));\n\n  std::seed_seq seq(seed_data.begin(), seed_data.end());\n\n  // \u64ec\u4f3c\u4e71\u6570\u751f\u6210\u5668\u3092\u30b7\u30fc\u30c9\u5217\u3067\u521d\u671f\u5316\n  std::mt19937 engine(seq);\n\n  // \u4e71\u6570\u751f\u6210\n  for (int i = 0; i &lt; 10; ++i) {\n    std::uint32_t result = engine();\n    std::cout &lt;&lt; result &lt;&lt; std::endl;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;random&#34;, &#34;seed_seq&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/random.html" itemprop="url">
+              
+                <span itemprop="name">random</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">seed_seq</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-07-11T17:16:44">
+        2025年07月11日 17時16分44秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Koichi Murase</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/random/seed_seq.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/random/seed_seq.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;random&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">seed_seq</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">class</span> <span class="nc">seed_seq</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>seed_seq</code>クラスは、擬似乱数を生成するためのシード列を表現するためのクラスである。<br />
+シード列は、32ビット整数の<code><a href="../vector.html">vector</a></code>として表現される。</p>
+<p>擬似乱数は一つの値をシードとして使用することもできるが、より多くの乱雑さ(エントロピー)が必要な場合に、複数のシードで擬似乱数を初期化するためにこのクラスを使用する。</p>
+<h2>メンバ関数</h2>
+<h3>構築</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="seed_seq/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>~seed_seq() = default;</code></td>
+<td>デストラクタ</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>void operator=(const seed_seq&amp;) = delete;</code></td>
+<td>代入演算子。代入不可</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h3>生成</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="seed_seq/generate.html">generate</a></code></td>
+<td>シード列を生成する</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>特性</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="seed_seq/size.html">size</a></code></td>
+<td>シード列の要素数を取得する</td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code><a href="seed_seq/param.html">param</a></code></td>
+<td>シード列を取得する</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>型</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result_type</code></td>
+<td>シードを表す整数型 <code><a href="../cstdint/uint_least32_t.html">uint_least32_t</a></code>。</td>
+<td>C++11</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<p>以下は、メルセンヌ・ツイスター法による擬似乱数生成器を、状態シーケンスのサイズ分のシード列で初期化する例である。</p>
+<p><div class="yata" id="86af7fe7adc4fa3dbff20d5106cc130b56ae8fba"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../array.html">&lt;array&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../random.html">&lt;random&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// 擬似乱数生成器の状態シーケンスのサイズ分、</span>
+  <span class="c1">// シードを用意する</span>
+  <span class="n"><a href="../array/array.html">std::array</a></span><span class="o">&lt;</span>
+    <span class="n"><span style="color:#ff0000">std::seed_seq</span></span><span class="o">::</span><span class="n">result_type</span><span class="p">,</span>
+    <span class="n"><a href="mt19937.html">std::mt19937</a></span><span class="o">::</span><span class="n">state_size</span>
+  <span class="o">&gt;</span> <span class="n">seed_data</span><span class="p">;</span>
+
+  <span class="c1">// 非決定的な乱数でシード列を構築する</span>
+  <span class="n"><a href="random_device.html">std::random_device</a></span> <span class="n">seed_gen</span><span class="p">;</span>
+  <span class="n"><a href="../algorithm/generate.html">std::generate</a></span><span class="p">(</span><span class="n"><a href="../array/array/begin.html">seed_data.begin()</a></span><span class="p">,</span> <span class="n"><a href="../array/array/end.html">seed_data.end()</a></span><span class="p">,</span> <span class="n"><a href="../functional/ref.html">std::ref</a></span><span class="p">(</span><span class="n">seed_gen</span><span class="p">));</span>
+
+  <span class="n"><span style="color:#ff0000">std::seed_seq</span></span> <span class="n">seq</span><span class="p">(</span><span class="n"><a href="../array/array/begin.html">seed_data.begin()</a></span><span class="p">,</span> <span class="n"><a href="../array/array/end.html">seed_data.end()</a></span><span class="p">);</span>
+
+  <span class="c1">// 擬似乱数生成器をシード列で初期化</span>
+  <span class="n"><a href="mt19937.html">std::mt19937</a></span> <span class="n">engine</span><span class="p">(</span><span class="n">seq</span><span class="p">);</span>
+
+  <span class="c1">// 乱数生成</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../cstdint/uint32_t.html">std::uint32_t</a></span> <span class="n">result</span> <span class="o">=</span> <span class="n"><a href="mersenne_twister_engine/op_call.html">engine()</a></span><span class="p">;</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力例</h3>
+<p><pre><code>2454004218
+3605965574
+154830518
+2773897806
+2068951439
+2231513109
+607824
+726899798
+1108321733
+2723491878
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 4.7.2 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://stackoverflow.com/questions/15509270/does-stdmt19937-require-warmup" target="_blank">Does std::mt19937 require warmup? - StackOverflow</a></li>
+<li><a href="http://stackoverflow.com/questions/16078794/mersenne-twister-warm-up-vs-reproducibility" target="_blank">Mersenne twister warm up vs. reproducibility</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

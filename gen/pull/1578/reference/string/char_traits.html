@@ -1,0 +1,699 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>char_traits - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,string,std,class template
+">
+        <meta name="title" content="char_traits - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="char_traits - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="char_traits - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/string/char_traits.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`char_traits`は、[`basic_string`](basic_string.md)文字列クラスのおける、各要素の特性を使用するためのクラスである。  " />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="char_traits - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/string/char_traits.html" />
+        <meta name="twitter:description" content="`char_traits`は、[`basic_string`](basic_string.md)文字列クラスのおける、各要素の特性を使用するためのクラスである。  " />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="manifest" href="../../manifest.json?cachebust=1badf8656537fb83110091804da2a289044600de">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=1badf8656537fb83110091804da2a289044600de">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;string&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;1af702e60c8463ac15f58c3f80ae5fcee1764a07&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;string&gt;\n\nint main()\n{\n  // std::string\u3068\u540c\u3058\n  std::basic_string&lt;char, std::char_traits&lt;char&gt;&gt; a = \&#34;aaa\&#34;;\n  std::basic_string&lt;char, std::char_traits&lt;char&gt;&gt; b = \&#34;bbb\&#34;;\n\n  // char_traits::compare()\u3067\u6bd4\u8f03\u304c\u884c\u308f\u308c\u308b\n  if (a &lt; b) {\n    std::cout &lt;&lt; \&#34;then\&#34; &lt;&lt; std::endl;\n  }\n  else {\n    std::cout &lt;&lt; \&#34;else\&#34; &lt;&lt; std::endl;\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;da9b7f9fe5233935f1dcd0f4b2d63c684349d05f&#34;, &#34;source&#34;: &#34;#include &lt;string&gt;\n#include &lt;compare&gt;\n#include &lt;cctype&gt;\n#include &lt;algorithm&gt;\n\ntemplate &lt;class T&gt;\nclass case_insensitive_char_traits {\n  using base_traits = std::char_traits&lt;T&gt;;\npublic:\n  using char_type = char;\n  using int_type = int;\n  using off_type = std::streamoff;\n  using pos_type = std::streampos;\n  using state_type = std::mbstate_t;\n  using comparison_category = std::weak_ordering;\n\n  static constexpr void assign(char_type&amp; c1, const char_type&amp; c2) noexcept {\n    base_traits::assign(c1, c2);\n  }\n\n  static constexpr bool eq(char_type c1, char_type c2) noexcept {\n    return base_traits::eq(std::tolower(c1), std::tolower(c2));\n  }\n\n  static constexpr bool lt(char_type c1, char_type c2) noexcept {\n    return base_traits::lt(std::tolower(c1), std::tolower(c2));\n  }\n\n  static constexpr int compare(const char_type* s1, const char_type* s2, size_t n) {\n    auto order = std::lexicographical_compare_three_way(s1, s1 + n, s2, s2 + n,\n           [](char_type c1, char_type c2) -&gt; std::weak_ordering {\n             return std::tolower(c1) &lt;=&gt; std::tolower(c2);\n           });\n    return order == std::weak_ordering::equivalent ? 0 :\n           order == std::weak_ordering::greater ? 1 :\n           -1;\n  }\n\n  static constexpr size_t length(const char_type* s) {\n    return base_traits::length(s);\n  }\n\n  static constexpr const char_type* find(const char_type* s, size_t n,\n                                         const char_type&amp; a) {\n    return std::find_if(s, s + n, [a](char_type c) {\n      return std::tolower(c) == a;\n    });\n  }\n\n  static constexpr char_type* move(char_type* s1, const char_type* s2, size_t n) {\n    return base_traits::move(s1, s2, n);\n  }\n\n  static constexpr char_type* copy(char_type* s1, const char_type* s2, size_t n) {\n    return base_traits::copy(s1, s2, n);\n  }\n\n  static constexpr char_type* assign(char_type* s, size_t n, char_type a) {\n    return base_traits::assign(s, n, a);\n  }\n};\n\n#include &lt;iostream&gt;\nint main() {\n  using case_insensitive_string =\n      std::basic_string&lt;char, case_insensitive_char_traits&lt;char&gt;&gt;;\n  case_insensitive_string a = \&#34;AbC\&#34;;\n  case_insensitive_string b = \&#34;aBc\&#34;;\n\n  if (a == b) {\n    std::cout &lt;&lt; \&#34;equal\&#34; &lt;&lt; std::endl;\n  }\n  else {\n    std::cout &lt;&lt; \&#34;not equal\&#34; &lt;&lt; std::endl;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;string&#34;, &#34;char_traits&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/string.html" itemprop="url">
+              
+                <span itemprop="name">string</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">char_traits</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-07-08T15:33:39">
+        2025年07月08日 15時33分39秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/string/char_traits.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/string/char_traits.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;string&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">char_traits</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">charT</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">char_traits</span><span class="p">;</span>
+
+  <span class="k">template</span><span class="o">&lt;&gt;</span> <span class="k">struct</span> <span class="n">char_traits</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="k">template</span><span class="o">&lt;&gt;</span> <span class="k">struct</span> <span class="n">char_traits</span><span class="o">&lt;</span><span class="n">char8_t</span><span class="o">&gt;</span><span class="p">;</span>  <span class="c1">// C++20から</span>
+  <span class="k">template</span><span class="o">&lt;&gt;</span> <span class="k">struct</span> <span class="n">char_traits</span><span class="o">&lt;</span><span class="kt">char16_t</span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// C++11から</span>
+  <span class="k">template</span><span class="o">&lt;&gt;</span> <span class="k">struct</span> <span class="n">char_traits</span><span class="o">&lt;</span><span class="kt">char32_t</span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// C++11から</span>
+  <span class="k">template</span><span class="o">&lt;&gt;</span> <span class="k">struct</span> <span class="n">char_traits</span><span class="o">&lt;</span><span class="kt">wchar_t</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>char_traits</code>は、<code><a href="basic_string.html">basic_string</a></code>文字列クラスのおける、各要素の特性を使用するためのクラスである。<br />
+このクラスと同じインタフェースのクラスを用意して<code><a href="basic_string.html">basic_string</a></code>クラスのテンプレート引数として指定することにより、ユーザー独自の処理に切り替えることが可能である。たとえば、大文字・小文字を区別しない比較のためのカスタマイズに利用できる。</p>
+<p>テンプレートパラメータは以下を意味する：</p>
+<ul>
+<li><code>charT</code> : <code>basic_string</code>クラスが扱う文字型</li>
+</ul>
+<h2>静的メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="char_traits/assign.html">assign</a></code></td>
+<td>代入</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="char_traits/eq.html">eq</a></code></td>
+<td>等値比較</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="char_traits/lt.html">lt</a></code></td>
+<td>小なり比較</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="char_traits/compare.html">compare</a></code></td>
+<td>比較</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="char_traits/length.html">length</a></code></td>
+<td>文字列長を取得する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="char_traits/find.html">find</a></code></td>
+<td>文字列中から特定の値を検索する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="char_traits/move.html">move</a></code></td>
+<td>文字列を他のシーケンスにコピーする</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="char_traits/copy.html">copy</a></code></td>
+<td>文字列を他のシーケンスにコピーする</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="char_traits/not_eof.html">not_eof</a></code></td>
+<td>文字がファイル終端文字(EOF)ではないかを判定する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="char_traits/to_char_type.html">to_char_type</a></code></td>
+<td>数値を文字に変換する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="char_traits/to_int_type.html">to_int_type</a></code></td>
+<td>文字を数値に変換する</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="char_traits/eq_int_type.html">eq_int_type</a></code></td>
+<td>数値の等値比較</td>
+<td></td>
+</tr>
+<tr>
+<td><code><a href="char_traits/eof.html">eof</a></code></td>
+<td>ファイル終端文字(EOF)を表す数値を取得する</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>char_type</code></td>
+<td>文字コンテナの実装で使用される文字型</td>
+<td></td>
+</tr>
+<tr>
+<td><code>int_type</code></td>
+<td>文字に対応する値を表す数値型</td>
+<td></td>
+</tr>
+<tr>
+<td><code>off_type</code></td>
+<td>文字の差を表す型</td>
+<td></td>
+</tr>
+<tr>
+<td><code>pos_type</code></td>
+<td>位置を表す型</td>
+<td></td>
+</tr>
+<tr>
+<td><code>state_type</code></td>
+<td>ストリームのマルチバイト文字の変換の状態を表す型</td>
+<td></td>
+</tr>
+<tr>
+<td><code>comparison_category</code></td>
+<td>比較カテゴリ</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>charによる特殊化のメンバ型定義</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>char_type</code></td>
+<td><code>char</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>int_type</code></td>
+<td><code>int</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>off_type</code></td>
+<td><code>streamoff</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>pos_type</code></td>
+<td><code>streampos</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>state_type</code></td>
+<td><code>mbstate_t</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>comparison_category</code></td>
+<td><code><a href="../compare/strong_ordering.html">strong_ordering</a></code></td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>char8_tによる特殊化のメンバ型定義 (C++20)</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>char_type</code></td>
+<td><code>char8_t</code></td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code>int_type</code></td>
+<td><code>unsigned int</code></td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code>off_type</code></td>
+<td><code>streamoff</code></td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code>pos_type</code></td>
+<td><code>u8streampos</code></td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code>state_type</code></td>
+<td><code>mbstate_t</code></td>
+<td>C++20</td>
+</tr>
+<tr>
+<td><code>comparison_category</code></td>
+<td><code><a href="../compare/strong_ordering.html">strong_ordering</a></code></td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>char16_tによる特殊化のメンバ型定義 (C++11)</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>char_type</code></td>
+<td><code>char16_t</code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>int_type</code></td>
+<td><code>uint_least16_t</code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>off_type</code></td>
+<td><code>streamoff</code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>pos_type</code></td>
+<td><code>u16streampos</code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>state_type</code></td>
+<td><code>mbstate_t</code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>comparison_category</code></td>
+<td><code><a href="../compare/strong_ordering.html">strong_ordering</a></code></td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>char32_tによる特殊化のメンバ型定義 (C++11)</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>char_type</code></td>
+<td><code>char32_t</code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>int_type</code></td>
+<td><code>uint_least32_t</code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>off_type</code></td>
+<td><code>streamoff</code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>pos_type</code></td>
+<td><code>u32streampos</code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>state_type</code></td>
+<td><code>mbstate_t</code></td>
+<td>C++11</td>
+</tr>
+<tr>
+<td><code>comparison_category</code></td>
+<td><code><a href="../compare/strong_ordering.html">strong_ordering</a></code></td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>wchar_tによる特殊化のメンバ型定義</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>char_type</code></td>
+<td><code>wchar_t</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>int_type</code></td>
+<td><code>wint_t</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>off_type</code></td>
+<td><code>streamoff</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>pos_type</code></td>
+<td><code>wstreampos</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>state_type</code></td>
+<td><code>mbstate_t</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>comparison_category</code></td>
+<td><code><a href="../compare/strong_ordering.html">strong_ordering</a></code></td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<h3>基本的な使い方</h3>
+<p><div class="yata" id="1af702e60c8463ac15f58c3f80ae5fcee1764a07"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// <a href="basic_string.html">std::string</a>と同じ</span>
+  <span class="n"><a href="basic_string.html">std::basic_string</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n"><span style="color:#ff0000">std::char_traits</span></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s">"aaa"</span><span class="p">;</span>
+  <span class="n"><a href="basic_string.html">std::basic_string</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n"><span style="color:#ff0000">std::char_traits</span></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="s">"bbb"</span><span class="p">;</span>
+
+  <span class="c1">// char_traits::compare()で比較が行われる</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"then"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"else"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>then
+</code></pre></p>
+<h3>大文字・小文字を区別しない文字列比較をする<code>basic_string</code>を定義 (C++20)</h3>
+<p><div class="yata" id="da9b7f9fe5233935f1dcd0f4b2d63c684349d05f"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../compare.html">&lt;compare&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../cctype.html">&lt;cctype&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">case_insensitive_char_traits</span> <span class="p">{</span>
+  <span class="k">using</span> <span class="n">base_traits</span> <span class="o">=</span> <span class="n"><a href="">std::char_traits</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="k">using</span> <span class="n">char_type</span> <span class="o">=</span> <span class="kt">char</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">int_type</span> <span class="o">=</span> <span class="kt">int</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">off_type</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">streamoff</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">pos_type</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">streampos</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">state_type</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="kt">mbstate_t</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">comparison_category</span> <span class="o">=</span> <span class="n"><a href="../compare/weak_ordering.html">std::weak_ordering</a></span><span class="p">;</span>
+
+  <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">void</span> <span class="nf">assign</span><span class="p">(</span><span class="n">char_type</span><span class="o">&amp;</span> <span class="n">c1</span><span class="p">,</span> <span class="k">const</span> <span class="n">char_type</span><span class="o">&amp;</span> <span class="n">c2</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span>
+    <span class="n">base_traits</span><span class="o">::</span><span class="n">assign</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="nf">eq</span><span class="p">(</span><span class="n">char_type</span> <span class="n">c1</span><span class="p">,</span> <span class="n">char_type</span> <span class="n">c2</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">base_traits</span><span class="o">::</span><span class="n">eq</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">tolower</span><span class="p">(</span><span class="n">c1</span><span class="p">),</span> <span class="n">std</span><span class="o">::</span><span class="n">tolower</span><span class="p">(</span><span class="n">c2</span><span class="p">));</span>
+  <span class="p">}</span>
+
+  <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">bool</span> <span class="nf">lt</span><span class="p">(</span><span class="n">char_type</span> <span class="n">c1</span><span class="p">,</span> <span class="n">char_type</span> <span class="n">c2</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">base_traits</span><span class="o">::</span><span class="n">lt</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">tolower</span><span class="p">(</span><span class="n">c1</span><span class="p">),</span> <span class="n">std</span><span class="o">::</span><span class="n">tolower</span><span class="p">(</span><span class="n">c2</span><span class="p">));</span>
+  <span class="p">}</span>
+
+  <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">int</span> <span class="nf">compare</span><span class="p">(</span><span class="k">const</span> <span class="n">char_type</span><span class="o">*</span> <span class="n">s1</span><span class="p">,</span> <span class="k">const</span> <span class="n">char_type</span><span class="o">*</span> <span class="n">s2</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">auto</span> <span class="n">order</span> <span class="o">=</span> <span class="n"><a href="../algorithm/lexicographical_compare_three_way.html">std::lexicographical_compare_three_way</a></span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s1</span> <span class="o">+</span> <span class="n">n</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="n">s2</span> <span class="o">+</span> <span class="n">n</span><span class="p">,</span>
+           <span class="p">[](</span><span class="n">char_type</span> <span class="n">c1</span><span class="p">,</span> <span class="n">char_type</span> <span class="n">c2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a href="../compare/weak_ordering.html">std::weak_ordering</a></span> <span class="p">{</span>
+             <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">tolower</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span> <span class="o">&lt;=&gt;</span> <span class="n">std</span><span class="o">::</span><span class="n">tolower</span><span class="p">(</span><span class="n">c2</span><span class="p">);</span>
+           <span class="p">});</span>
+    <span class="k">return</span> <span class="n">order</span> <span class="o">==</span> <span class="n"><a href="../compare/weak_ordering.html">std::weak_ordering</a></span><span class="o">::</span><span class="n">equivalent</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span>
+           <span class="n">order</span> <span class="o">==</span> <span class="n"><a href="../compare/weak_ordering.html">std::weak_ordering</a></span><span class="o">::</span><span class="n">greater</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span>
+           <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">size_t</span> <span class="nf">length</span><span class="p">(</span><span class="k">const</span> <span class="n">char_type</span><span class="o">*</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">base_traits</span><span class="o">::</span><span class="n">length</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">static</span> <span class="k">constexpr</span> <span class="k">const</span> <span class="n">char_type</span><span class="o">*</span> <span class="nf">find</span><span class="p">(</span><span class="k">const</span> <span class="n">char_type</span><span class="o">*</span> <span class="n">s</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">n</span><span class="p">,</span>
+                                         <span class="k">const</span> <span class="n">char_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n"><a href="../algorithm/find_if.html">std::find_if</a></span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">s</span> <span class="o">+</span> <span class="n">n</span><span class="p">,</span> <span class="p">[</span><span class="n">a</span><span class="p">](</span><span class="n">char_type</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">tolower</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">==</span> <span class="n">a</span><span class="p">;</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="k">static</span> <span class="k">constexpr</span> <span class="n">char_type</span><span class="o">*</span> <span class="nf">move</span><span class="p">(</span><span class="n">char_type</span><span class="o">*</span> <span class="n">s1</span><span class="p">,</span> <span class="k">const</span> <span class="n">char_type</span><span class="o">*</span> <span class="n">s2</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">base_traits</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">static</span> <span class="k">constexpr</span> <span class="n">char_type</span><span class="o">*</span> <span class="nf">copy</span><span class="p">(</span><span class="n">char_type</span><span class="o">*</span> <span class="n">s1</span><span class="p">,</span> <span class="k">const</span> <span class="n">char_type</span><span class="o">*</span> <span class="n">s2</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">base_traits</span><span class="o">::</span><span class="n">copy</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">static</span> <span class="k">constexpr</span> <span class="n">char_type</span><span class="o">*</span> <span class="nf">assign</span><span class="p">(</span><span class="n">char_type</span><span class="o">*</span> <span class="n">s</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">n</span><span class="p">,</span> <span class="n">char_type</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">base_traits</span><span class="o">::</span><span class="n">assign</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">using</span> <span class="n">case_insensitive_string</span> <span class="o">=</span>
+      <span class="n"><a href="basic_string.html">std::basic_string</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n">case_insensitive_char_traits</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+  <span class="n">case_insensitive_string</span> <span class="n">a</span> <span class="o">=</span> <span class="s">"AbC"</span><span class="p">;</span>
+  <span class="n">case_insensitive_string</span> <span class="n">b</span> <span class="o">=</span> <span class="s">"aBc"</span><span class="p">;</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"equal"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"not equal"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>equal
+</code></pre></p>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html" target="_blank">P1614R2 The Mothership has Landed</a><ul>
+<li>C++20での三方比較演算子の追加と、関連する演算子の自動導出</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
