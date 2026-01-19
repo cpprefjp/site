@@ -48,6 +48,7 @@ int main() {
   }
 }
 ```
+* std::stoi[link /reference/string/stoi.md]
 
 ### 出力（標準エラー出力）
 ```

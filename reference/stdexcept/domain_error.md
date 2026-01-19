@@ -47,6 +47,7 @@ int main() {
   }
 }
 ```
+* std::sqrt[link /reference/cmath/sqrt.md]
 
 ### 出力 (標準エラー出力)
 ```
