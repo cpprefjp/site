@@ -17,7 +17,7 @@
 | [`domain_error`](stdexcept/domain_error.md) | 定義域エラーを示す | |
 | [`invalid_argument`](stdexcept/invalid_argument.md) | 不正な引数を示す | |
 | `length_error`     | 長すぎるオブジェクトを作ろうとしたことを示す | |
-| `out_of_range`     | 引数が許容範囲外であることを示す | |
+| [`out_of_range`](stdexcept/out_of_range.md) | 引数が許容範囲外であることを示す | |
 | `runtime_error`    | プログラム実行時にのみ検出可能なエラー（実行時エラー）を示す | |
 | `range_error`      | 内部計算によって、値が範囲外になったことを示す（値域エラー） | |
 | `overflow_error`   | 数値計算の結果がオーバーフローしたことを示す | |
