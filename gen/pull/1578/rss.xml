@@ -2,14 +2,14 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-01-19T15:09:20.020535</updated>
-  <id>9647720b-7d2e-4042-9fe6-874bf5ca6749</id>
+  <updated>2026-01-19T15:23:25.752772</updated>
+  <id>ab943f08-aaa9-4f35-a334-ebbd5ea15dc1</id>
 
   
     <entry>
       <title>csignal -- add 6 page defines signal types macro</title>
       <link href="https://cpprefjp.github.io/reference/csignal.html"/>
-      <id>ca630e23ab830f2c0bf2ccefde6ceb8a37df294e:reference/csignal.md</id>
+      <id>7bd2348d713351204ba5735e57c5902d8ebf987f:reference/csignal.md</id>
       <updated>2026-01-19T23:34:31+09:00</updated>
       
         <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;csignal&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;csignal&lt;/span&gt;&lt;/h1&gt;
@@ -134,7 +134,7 @@
     <entry>
       <title>sig_atomic_t -- add 6 page defines signal types macro</title>
       <link href="https://cpprefjp.github.io/reference/csignal/sig_atomic_t.html"/>
-      <id>ca630e23ab830f2c0bf2ccefde6ceb8a37df294e:reference/csignal/sig_atomic_t.md</id>
+      <id>7bd2348d713351204ba5735e57c5902d8ebf987f:reference/csignal/sig_atomic_t.md</id>
       <updated>2026-01-19T23:34:31+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_atomic_t.md b/reference/csignal/sig_atomic_t.md
@@ -160,7 +160,7 @@ index cd4f06b02..9d73d0f83 100644
     <entry>
       <title>SIGABRT -- add 6 page defines signal types macro</title>
       <link href="https://cpprefjp.github.io/reference/csignal/sigabrt.html"/>
-      <id>ca630e23ab830f2c0bf2ccefde6ceb8a37df294e:reference/csignal/sigabrt.md</id>
+      <id>7bd2348d713351204ba5735e57c5902d8ebf987f:reference/csignal/sigabrt.md</id>
       <updated>2026-01-19T23:34:31+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sigabrt.md b/reference/csignal/sigabrt.md
@@ -214,7 +214,7 @@ index 000000000..950b73bce
     <entry>
       <title>SIGFPE -- add 6 page defines signal types macro</title>
       <link href="https://cpprefjp.github.io/reference/csignal/sigfpe.html"/>
-      <id>ca630e23ab830f2c0bf2ccefde6ceb8a37df294e:reference/csignal/sigfpe.md</id>
+      <id>7bd2348d713351204ba5735e57c5902d8ebf987f:reference/csignal/sigfpe.md</id>
       <updated>2026-01-19T23:34:31+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sigfpe.md b/reference/csignal/sigfpe.md
@@ -265,7 +265,7 @@ index 000000000..0c219973d
     <entry>
       <title>SIGILL -- add 6 page defines signal types macro</title>
       <link href="https://cpprefjp.github.io/reference/csignal/sigill.html"/>
-      <id>ca630e23ab830f2c0bf2ccefde6ceb8a37df294e:reference/csignal/sigill.md</id>
+      <id>7bd2348d713351204ba5735e57c5902d8ebf987f:reference/csignal/sigill.md</id>
       <updated>2026-01-19T23:34:31+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sigill.md b/reference/csignal/sigill.md
@@ -316,7 +316,7 @@ index 000000000..0fb00bc22
     <entry>
       <title>SIGINT -- add 6 page defines signal types macro</title>
       <link href="https://cpprefjp.github.io/reference/csignal/sigint.html"/>
-      <id>ca630e23ab830f2c0bf2ccefde6ceb8a37df294e:reference/csignal/sigint.md</id>
+      <id>7bd2348d713351204ba5735e57c5902d8ebf987f:reference/csignal/sigint.md</id>
       <updated>2026-01-19T23:34:31+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sigint.md b/reference/csignal/sigint.md
@@ -367,7 +367,7 @@ index 000000000..dcda15ce8
     <entry>
       <title>signal -- add 6 page defines signal types macro</title>
       <link href="https://cpprefjp.github.io/reference/csignal/signal.html"/>
-      <id>ca630e23ab830f2c0bf2ccefde6ceb8a37df294e:reference/csignal/signal.md</id>
+      <id>7bd2348d713351204ba5735e57c5902d8ebf987f:reference/csignal/signal.md</id>
       <updated>2026-01-19T23:34:31+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/signal.md b/reference/csignal/signal.md
@@ -393,7 +393,7 @@ index ee54ae2dd..c487fd128 100644
     <entry>
       <title>SIGSEGV -- add 6 page defines signal types macro</title>
       <link href="https://cpprefjp.github.io/reference/csignal/sigsegv.html"/>
-      <id>ca630e23ab830f2c0bf2ccefde6ceb8a37df294e:reference/csignal/sigsegv.md</id>
+      <id>7bd2348d713351204ba5735e57c5902d8ebf987f:reference/csignal/sigsegv.md</id>
       <updated>2026-01-19T23:34:31+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sigsegv.md b/reference/csignal/sigsegv.md
@@ -444,7 +444,7 @@ index 000000000..da5ee5693
     <entry>
       <title>SIGTERM -- add 6 page defines signal types macro</title>
       <link href="https://cpprefjp.github.io/reference/csignal/sigterm.html"/>
-      <id>ca630e23ab830f2c0bf2ccefde6ceb8a37df294e:reference/csignal/sigterm.md</id>
+      <id>7bd2348d713351204ba5735e57c5902d8ebf987f:reference/csignal/sigterm.md</id>
       <updated>2026-01-19T23:34:31+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sigterm.md b/reference/csignal/sigterm.md
@@ -495,7 +495,7 @@ index 000000000..488df5613
     <entry>
       <title>abort -- add 6 page defines signal types macro</title>
       <link href="https://cpprefjp.github.io/reference/cstdlib/abort.html"/>
-      <id>ca630e23ab830f2c0bf2ccefde6ceb8a37df294e:reference/cstdlib/abort.md</id>
+      <id>7bd2348d713351204ba5735e57c5902d8ebf987f:reference/cstdlib/abort.md</id>
       <updated>2026-01-19T23:34:31+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/abort.md b/reference/cstdlib/abort.md
@@ -529,969 +529,13 @@ index c772799a3..cf3d5ac90 100644
     </entry>
   
     <entry>
-      <title>raise -- add code syntax highlight `signal` `raise` `sig_atomic_t`</title>
-      <link href="https://cpprefjp.github.io/reference/csignal/raise.html"/>
-      <id>09f3948558ef3253bc2b7faea5f274ea489a88eb:reference/csignal/raise.md</id>
-      <updated>2026-01-19T23:11:29+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/raise.md b/reference/csignal/raise.md
-index 25a3f67e4..7139da2c9 100644
---- a/reference/csignal/raise.md
-+++ b/reference/csignal/raise.md
-@@ -41,6 +41,7 @@ int main (){
-   return 0;
- }
- ```
-+* std::raise[color ff0000]
- 
- ### 出力例
- ```
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>sig_atomic_t -- add code syntax highlight `signal` `raise` `sig_atomic_t`</title>
-      <link href="https://cpprefjp.github.io/reference/csignal/sig_atomic_t.html"/>
-      <id>09f3948558ef3253bc2b7faea5f274ea489a88eb:reference/csignal/sig_atomic_t.md</id>
-      <updated>2026-01-19T23:11:29+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_atomic_t.md b/reference/csignal/sig_atomic_t.md
-index a37cea325..cd4f06b02 100644
---- a/reference/csignal/sig_atomic_t.md
-+++ b/reference/csignal/sig_atomic_t.md
-@@ -46,6 +46,7 @@ int main ()
-   return 0;
- }
- ```
-+* std::sig_atomic_t[color ff0000]
- 
- ### 出力例
- ```
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>signal -- add code syntax highlight `signal` `raise` `sig_atomic_t`</title>
-      <link href="https://cpprefjp.github.io/reference/csignal/signal.html"/>
-      <id>09f3948558ef3253bc2b7faea5f274ea489a88eb:reference/csignal/signal.md</id>
-      <updated>2026-01-19T23:11:29+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/signal.md b/reference/csignal/signal.md
-index a2717f8e9..ee54ae2dd 100644
---- a/reference/csignal/signal.md
-+++ b/reference/csignal/signal.md
-@@ -72,8 +72,8 @@ int main()
-   }
-   return 0;
- }
--
- ```
-+* std::signal[color ff0000]
- 
- ### 出力例
- ```
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>リファレンス -- add link to csignal</title>
-      <link href="https://cpprefjp.github.io/reference.html"/>
-      <id>72443c6760d356abc6c3b240c0c7820443996222:reference.md</id>
-      <updated>2026-01-19T22:29:37+09:00</updated>
-      
-        <content type="html">&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;リファレンス&lt;/span&gt;&lt;/h1&gt;
-&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;h2&gt;目次&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#language-support&#34;&gt;言語サポートライブラリ&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#concepts&#34;&gt;コンセプトライブラリ&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#diagnostics&#34;&gt;診断ライブラリ&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#general-utils&#34;&gt;汎用的なユーティリティライブラリ&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#strings&#34;&gt;文字列ライブラリ&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#localization&#34;&gt;ローカライズライブラリ&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#container&#34;&gt;コンテナライブラリ&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#iterator&#34;&gt;イテレータライブラリ&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#ranges&#34;&gt;レンジライブラリ&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#algorithm&#34;&gt;アルゴリズムライブラリ&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#numerics&#34;&gt;数値ライブラリ&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#debug&#34;&gt;デバッグライブラリ&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#io&#34;&gt;入出力ライブラリ&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#regular-expressions&#34;&gt;正規表現ライブラリ&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#atomic-operations&#34;&gt;アトミック操作ライブラリ&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#thread-support&#34;&gt;スレッドサポートライブラリ&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#clib-facilities&#34;&gt;C言語互換ライブラリ&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#exposition-only&#34;&gt;説明専用ライブラリ&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;&lt;a href=&#34;#language-support-library&#34; id=&#34;language-support&#34;&gt;言語サポートライブラリ&lt;/a&gt;&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;ヘッダ&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/limits.html&#34;&gt;&amp;lt;limits&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;実装プロパティ&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/version.html&#34;&gt;&amp;lt;version&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;実装依存のバージョン情報&lt;/td&gt;
-&lt;td&gt;C++20&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/stdfloat.html&#34;&gt;&amp;lt;stdfloat&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;拡張浮動小数点数型&lt;/td&gt;
-&lt;td&gt;C++23&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/new.html&#34;&gt;&amp;lt;new&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;動的メモリ管理&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/typeinfo.html&#34;&gt;&amp;lt;typeinfo&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;型情報&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/source_location.html&#34;&gt;&amp;lt;source_location&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;ソースコード上の位置&lt;/td&gt;
-&lt;td&gt;C++20&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/exception.html&#34;&gt;&amp;lt;exception&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;例外ハンドリング&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/initializer_list.html&#34;&gt;&amp;lt;initializer_list&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;初期化子リスト&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/compare.html&#34;&gt;&amp;lt;compare&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;比較演算&lt;/td&gt;
-&lt;td&gt;C++20&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/coroutine.html&#34;&gt;&amp;lt;coroutine&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;コルーチン&lt;/td&gt;
-&lt;td&gt;C++20&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;&lt;a href=&#34;#concepts&#34; id=&#34;concepts&#34;&gt;コンセプトライブラリ&lt;/a&gt;&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;ヘッダ&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/concepts.html&#34;&gt;&amp;lt;concepts&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;言語関係のコンセプト&lt;/td&gt;
-&lt;td&gt;C++20&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;&lt;a href=&#34;#diagnostics&#34; id=&#34;diagnostics&#34;&gt;診断ライブラリ&lt;/a&gt;&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;ヘッダ&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/stdexcept.html&#34;&gt;&amp;lt;stdexcept&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;例外クラス&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/system_error.html&#34;&gt;&amp;lt;system_error&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;システムエラーサポート&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;&lt;a href=&#34;#general-utils&#34; id=&#34;general-utils&#34;&gt;汎用的なユーティリティライブラリ&lt;/a&gt;&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;ヘッダ&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/utility.html&#34;&gt;&amp;lt;utility&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;ユーティリティコンポーネント&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/bitset.html&#34;&gt;&amp;lt;bitset&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;ビットの固定サイズシーケンス&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/ratio.html&#34;&gt;&amp;lt;ratio&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;コンパイル時有理数&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/tuple.html&#34;&gt;&amp;lt;tuple&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;タプル&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/optional.html&#34;&gt;&amp;lt;optional&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;任意で値を持たせられるオブジェクト&lt;/td&gt;
-&lt;td&gt;C++17&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/variant.html&#34;&gt;&amp;lt;variant&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;候補の型を切り替えながら保持できる記憶域型&lt;/td&gt;
-&lt;td&gt;C++17&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/any.html&#34;&gt;&amp;lt;any&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;あらゆる型の値を保持できる記憶域型&lt;/td&gt;
-&lt;td&gt;C++17&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/expected.html&#34;&gt;&amp;lt;expected&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;正常値かエラー値のどちらかを持たせられるオブジェクト&lt;/td&gt;
-&lt;td&gt;C++23&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/type_traits.html&#34;&gt;&amp;lt;type_traits&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;型特性&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/functional.html&#34;&gt;&amp;lt;functional&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;関数オブジェクト&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/memory.html&#34;&gt;&amp;lt;memory&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;メモリ&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/scoped_allocator.html&#34;&gt;&amp;lt;scoped_allocator&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;スコープ付きアロケータ&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/memory_resource.html&#34;&gt;&amp;lt;memory_resource&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;多相アロケータ&lt;/td&gt;
-&lt;td&gt;C++17&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/chrono.html&#34;&gt;&amp;lt;chrono&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;時間ユーティリティ&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/typeindex.html&#34;&gt;&amp;lt;typeindex&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;型のインデックス&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/execution.html&#34;&gt;&amp;lt;execution&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;実行ポリシー、実行制御ライブラリ(C++26)&lt;/td&gt;
-&lt;td&gt;C++17&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/charconv.html&#34;&gt;&amp;lt;charconv&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;高速な文字列 ⇔ 数値変換&lt;/td&gt;
-&lt;td&gt;C++17&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/format.html&#34;&gt;&amp;lt;format&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;文字列フォーマット&lt;/td&gt;
-&lt;td&gt;C++20&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/stacktrace.html&#34;&gt;&amp;lt;stacktrace&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;スタックトレース&lt;/td&gt;
-&lt;td&gt;C++23&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;&lt;a href=&#34;#strings&#34; id=&#34;strings&#34;&gt;文字列ライブラリ&lt;/a&gt;&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;ヘッダ&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/string.html&#34;&gt;&amp;lt;string&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;文字列クラスと、文字特性&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/string_view.html&#34;&gt;&amp;lt;string_view&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;所有権を持たず文字列を参照する文字列クラス&lt;/td&gt;
-&lt;td&gt;C++17&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;&lt;a href=&#34;#localization&#34; id=&#34;localization&#34;&gt;ローカライズライブラリ&lt;/a&gt;&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;ヘッダ&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/locale.html&#34;&gt;&amp;lt;locale&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;ロケール&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/text_encoding.md.nolink&#34;&gt;&amp;lt;text_encoding&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;文字列エンコーディングの識別&lt;/td&gt;
-&lt;td&gt;C++26&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/codecvt.html&#34;&gt;&amp;lt;codecvt&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;コード変換ファセット&lt;/td&gt;
-&lt;td&gt;C++11&lt;br /&gt; C++17から非推奨&lt;br /&gt; C++26で削除&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;&lt;a href=&#34;#container&#34; id=&#34;container&#34;&gt;コンテナライブラリ&lt;/a&gt;&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;ヘッダ&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/array.html&#34;&gt;&amp;lt;array&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;配列&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/deque.html&#34;&gt;&amp;lt;deque&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;両端キュー&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/forward_list.html&#34;&gt;&amp;lt;forward_list&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;単方向リスト&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/list.html&#34;&gt;&amp;lt;list&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;双方向リスト&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/queue.html&#34;&gt;&amp;lt;queue&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;FIFOキュー&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/stack.html&#34;&gt;&amp;lt;stack&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;LIFOスタック&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/vector.html&#34;&gt;&amp;lt;vector&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;可変長配列&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/inplace_vector.md.nolink&#34;&gt;&amp;lt;inplace_vector&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;容量固定の可変長配列&lt;/td&gt;
-&lt;td&gt;C++26&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/map.html&#34;&gt;&amp;lt;map&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;順序付き連想配列&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/set.html&#34;&gt;&amp;lt;set&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;順序付き集合&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/flat_map.html&#34;&gt;&amp;lt;flat_map&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;ソート済みキーによる順序付き連想配列&lt;/td&gt;
-&lt;td&gt;C++23&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/flat_set.html&#34;&gt;&amp;lt;flat_set&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;ソート済みキーによる順序付き集合&lt;/td&gt;
-&lt;td&gt;C++23&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/unordered_map.html&#34;&gt;&amp;lt;unordered_map&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;非順序連想配列&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/unordered_set.html&#34;&gt;&amp;lt;unordered_set&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;非順序集合&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/span.html&#34;&gt;&amp;lt;span&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;部分シーケンスの参照&lt;/td&gt;
-&lt;td&gt;C++20&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/mdspan.html&#34;&gt;&amp;lt;mdspan&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;多次元配列ビュー&lt;/td&gt;
-&lt;td&gt;C++23&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;&lt;a href=&#34;#iterator&#34; id=&#34;iterator&#34;&gt;イテレータライブラリ&lt;/a&gt;&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;ヘッダ&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/iterator.html&#34;&gt;&amp;lt;iterator&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;イテレータの定義&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;&lt;a href=&#34;#ranges&#34; id=&#34;ranges&#34;&gt;レンジライブラリ&lt;/a&gt;&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;ヘッダ&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/ranges.html&#34;&gt;&amp;lt;ranges&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;レンジアルゴリズム&lt;/td&gt;
-&lt;td&gt;C++20&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/generator.html&#34;&gt;&amp;lt;generator&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;コルーチンによるレンジ生成&lt;/td&gt;
-&lt;td&gt;C++23&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;&lt;a href=&#34;#algorithm&#34; id=&#34;algorithm&#34;&gt;アルゴリズムライブラリ&lt;/a&gt;&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;ヘッダ&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/algorithm.html&#34;&gt;&amp;lt;algorithm&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;アルゴリズム&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;&lt;a href=&#34;#numerics&#34; id=&#34;numerics&#34;&gt;数値ライブラリ&lt;/a&gt;&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;ヘッダ&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/complex.html&#34;&gt;&amp;lt;complex&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;複素数&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/bit.html&#34;&gt;&amp;lt;bit&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;ビット操作&lt;/td&gt;
-&lt;td&gt;C++20&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/random.html&#34;&gt;&amp;lt;random&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;乱数生成&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/valarray.html&#34;&gt;&amp;lt;valarray&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;数値の配列&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/numeric.html&#34;&gt;&amp;lt;numeric&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;一般的な数値操作&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/numbers.html&#34;&gt;&amp;lt;numbers&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;数値&lt;/td&gt;
-&lt;td&gt;C++20&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/linalg.html&#34;&gt;&amp;lt;linalg&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;線形代数&lt;/td&gt;
-&lt;td&gt;C++26&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;&lt;a href=&#34;#debug&#34; id=&#34;debug&#34;&gt;デバッグライブラリ&lt;/a&gt;&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;ヘッダ&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/debugging.html&#34;&gt;&amp;lt;debugging&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;デバッグサポート&lt;/td&gt;
-&lt;td&gt;C++26&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/contracts.html&#34;&gt;&amp;lt;contracts&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;契約プログラミング&lt;/td&gt;
-&lt;td&gt;C++26&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;&lt;a href=&#34;#io&#34; id=&#34;io&#34;&gt;入出力ライブラリ&lt;/a&gt;&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;ヘッダ&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&amp;lt;iosfwd&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;先行宣言&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/iostream.html&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;標準&lt;code&gt;iostream&lt;/code&gt;オブジェクト&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/ios.html&#34;&gt;&amp;lt;ios&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;iostream&lt;/code&gt;基底クラス&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/streambuf.html&#34;&gt;&amp;lt;streambuf&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;ストリームバッファ&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/istream.html&#34;&gt;&amp;lt;istream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;入力ストリーム&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/ostream.html&#34;&gt;&amp;lt;ostream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;出力ストリーム&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/iomanip.html&#34;&gt;&amp;lt;iomanip&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;フォーマットとマニピュレータ&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/sstream.html&#34;&gt;&amp;lt;sstream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;文字列ストリーム&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&amp;lt;strstream&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;古い文字列ストリーム&lt;/td&gt;
-&lt;td&gt;C++98から非推奨&lt;br /&gt; C++26で削除&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/fstream.html&#34;&gt;&amp;lt;fstream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;ファイルストリーム&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/filesystem.html&#34;&gt;&amp;lt;filesystem&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;ファイルシステム&lt;/td&gt;
-&lt;td&gt;C++17&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/syncstream.html&#34;&gt;&amp;lt;syncstream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;同期化出力ストリームラッパー&lt;/td&gt;
-&lt;td&gt;C++20&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/spanstream.html&#34;&gt;&amp;lt;spanstream&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;メモリバッファの所有権をもたないストリーム&lt;/td&gt;
-&lt;td&gt;C++23&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/print.html&#34;&gt;&amp;lt;print&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;書式指定による出力&lt;/td&gt;
-&lt;td&gt;C++23&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;&lt;a href=&#34;#regular-expressions&#34; id=&#34;regular-expressions&#34;&gt;正規表現ライブラリ&lt;/a&gt;&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;ヘッダ&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/regex.html&#34;&gt;&amp;lt;regex&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;正規表現&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;&lt;a href=&#34;#atomic-operations&#34; id=&#34;atomic-operations&#34;&gt;アトミック操作ライブラリ&lt;/a&gt;&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;ヘッダ&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/atomic.html&#34;&gt;&amp;lt;atomic&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;アトミックアクセスのためのコンポーネント&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/stdatomic.h.html&#34;&gt;&amp;lt;stdatomic.h&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;アトミック操作のC互換ライブラリ&lt;/td&gt;
-&lt;td&gt;C++23&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;&lt;a href=&#34;#thread-support&#34; id=&#34;thread-support&#34;&gt;スレッドサポートライブラリ&lt;/a&gt;&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;ヘッダ&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/stop_token.html&#34;&gt;&amp;lt;stop_token&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;停止状態&lt;/td&gt;
-&lt;td&gt;C++20&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/thread.html&#34;&gt;&amp;lt;thread&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;スレッド&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/mutex.html&#34;&gt;&amp;lt;mutex&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;ミューテックス&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/shared_mutex.html&#34;&gt;&amp;lt;shared_mutex&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;共有ミューテックス&lt;/td&gt;
-&lt;td&gt;C++14&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/condition_variable.html&#34;&gt;&amp;lt;condition_variable&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;条件変数&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/semaphore.html&#34;&gt;&amp;lt;semaphore&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;セマフォ&lt;/td&gt;
-&lt;td&gt;C++20&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/latch.html&#34;&gt;&amp;lt;latch&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;ラッチ同期&lt;/td&gt;
-&lt;td&gt;C++20&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/barrier.html&#34;&gt;&amp;lt;barrier&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;バリア同期&lt;/td&gt;
-&lt;td&gt;C++20&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/future.html&#34;&gt;&amp;lt;future&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Future&lt;/td&gt;
-&lt;td&gt;C++11&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/rcu.html&#34;&gt;&amp;lt;rcu&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;データの参照・更新&lt;/td&gt;
-&lt;td&gt;C++26&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/hazard_pointer.md.nolink&#34;&gt;&amp;lt;hazard_pointer&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;ハザードポインタ&lt;/td&gt;
-&lt;td&gt;C++26&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/simd.md.nolink&#34;&gt;&amp;lt;simd&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;データ並列&lt;/td&gt;
-&lt;td&gt;C++26&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;&lt;a href=&#34;#clib-facilities&#34; id=&#34;clib-facilities&#34;&gt;C言語互換ライブラリ&lt;/a&gt;&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;ヘッダ&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cassert.html&#34;&gt;&amp;lt;cassert&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;アサート&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&amp;lt;ccomplex&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;複素数&lt;/td&gt;
-&lt;td&gt;C++11 (C99)&lt;br /&gt; C++17で非推奨&lt;br /&gt; C++20で削除&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cctype.html&#34;&gt;&amp;lt;cctype&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;文字種別の判定と変換&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cerrno.html&#34;&gt;&amp;lt;cerrno&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;エラー番号&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cfenv.html&#34;&gt;&amp;lt;cfenv&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;浮動小数点環境へのアクセス&lt;/td&gt;
-&lt;td&gt;C++11 (C99)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cfloat.html&#34;&gt;&amp;lt;cfloat&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;浮動小数点数の定数&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&amp;lt;cinttypes&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;固定精度整数のための書式指定マクロ&lt;/td&gt;
-&lt;td&gt;C++11 (C99)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&amp;lt;ciso646&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;に対する別名&lt;code&gt;and&lt;/code&gt;のような、各種演算子に対するマクロを定義する。&lt;br /&gt; ただしC++ではこれらの別名はキーワードとして定義されるため、このヘッダでは何も定義されない。&lt;/td&gt;
-&lt;td&gt;C++20で削除&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/climits.html&#34;&gt;&amp;lt;climits&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;整数型の最小値、最大値を表すマクロ&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/clocale.html&#34;&gt;&amp;lt;clocale&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;ロケール&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cmath.html&#34;&gt;&amp;lt;cmath&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;数学関数&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&amp;lt;csetjmp&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;ジャンプ処理&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/csignal.html&#34;&gt;&amp;lt;csignal&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;シグナル&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&amp;lt;cstdalign&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;アライメント操作のマクロ&lt;/td&gt;
-&lt;td&gt;C++17で非推奨&lt;br /&gt; C++20で削除&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&amp;lt;cstdarg&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;可変引数操作&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/stdbit.h.md.nolink&#34;&gt;&amp;lt;stdbit.h&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;ビット操作&lt;/td&gt;
-&lt;td&gt;C++26&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/stdckdint.h.md.nolink&#34;&gt;&amp;lt;stdckdint.h&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;検査付き整数演算&lt;/td&gt;
-&lt;td&gt;C++26&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&amp;lt;cstdbool&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;真理値型の定義&lt;/td&gt;
-&lt;td&gt;C++11 (C99)&lt;br /&gt; C++17で非推奨&lt;br /&gt; C++20で削除&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cstddef.html&#34;&gt;&amp;lt;cstddef&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;基本的な型、値、マクロの定義&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cstdint.html&#34;&gt;&amp;lt;cstdint&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;大きさが規定されている整数型&lt;/td&gt;
-&lt;td&gt;C++11 (C99)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cstdio.html&#34;&gt;&amp;lt;cstdio&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;入出力&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cstdlib.html&#34;&gt;&amp;lt;cstdlib&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;ユーティリティ関数&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/cstring.html&#34;&gt;&amp;lt;cstring&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;文字列操作&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&amp;lt;ctgmath&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;ジェネリックな数学関数&lt;/td&gt;
-&lt;td&gt;C++11 (C99)&lt;br /&gt; C++17で非推奨&lt;br /&gt; C++20で削除&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/ctime.html&#34;&gt;&amp;lt;ctime&amp;gt;&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;日付・時間&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&amp;lt;cuchar&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;ユニコード文字型&lt;/td&gt;
-&lt;td&gt;C++11 (C11)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&amp;lt;cwchar&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;ワイド文字型&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&amp;lt;cwctype&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;ワイド文字の種別と判定&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;&lt;a href=&#34;#exposition-only&#34; id=&#34;exposition-only&#34;&gt;説明専用ライブラリ&lt;/a&gt;&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;ヘッダ&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;reference/exposition-only.html&#34;&gt;exposition-only&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;説明のためのものを集めたページ (実際のライブラリではない)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;参照&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2867r2.html&#34; target=&#34;_blank&#34;&gt;P2867R2 Remove Deprecated &lt;code&gt;strstream&lt;/code&gt;s From C++26&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/div&gt;</content>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
       <title>raise -- ご指摘頂いた箇所の修正</title>
       <link href="https://cpprefjp.github.io/reference/csignal/raise.html"/>
-      <id>2dc1f3fd33d21f638053a82a7bbc9a006c3b85c9:reference/csignal/raise.md</id>
+      <id>ff948e82d48f138734ea9f206a0a6b2aee5e25a9:reference/csignal/raise.md</id>
       <updated>2026-01-19T22:24:22+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/raise.md b/reference/csignal/raise.md
-index 4e11f12a8..25a3f67e4 100644
+index 997b66adb..7139da2c9 100644
 --- a/reference/csignal/raise.md
 +++ b/reference/csignal/raise.md
 @@ -10,7 +10,7 @@ namespace std {
@@ -1514,11 +558,11 @@ index 4e11f12a8..25a3f67e4 100644
     <entry>
       <title>sig_atomic_t -- ご指摘頂いた箇所の修正</title>
       <link href="https://cpprefjp.github.io/reference/csignal/sig_atomic_t.html"/>
-      <id>2dc1f3fd33d21f638053a82a7bbc9a006c3b85c9:reference/csignal/sig_atomic_t.md</id>
+      <id>ff948e82d48f138734ea9f206a0a6b2aee5e25a9:reference/csignal/sig_atomic_t.md</id>
       <updated>2026-01-19T22:24:22+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_atomic_t.md b/reference/csignal/sig_atomic_t.md
-index 747ad4079..a37cea325 100644
+index 6e911df96..cd4f06b02 100644
 --- a/reference/csignal/sig_atomic_t.md
 +++ b/reference/csignal/sig_atomic_t.md
 @@ -8,7 +8,6 @@ namespace std {
@@ -1529,7 +573,7 @@ index 747ad4079..a37cea325 100644
  * integer-type[italic]
  
  ## 概要
-@@ -38,19 +37,19 @@ void signal_handler(int signum)
+@@ -38,20 +37,20 @@ void signal_handler(int signum)
  int main ()
  {
    std::signal(SIGINT, signal_handler);
@@ -1548,6 +592,7 @@ index 747ad4079..a37cea325 100644
 +  return 0;
  }
  ```
+ * std::sig_atomic_t[color ff0000]
  
  ### 出力例
  ```
@@ -1567,11 +612,11 @@ index 747ad4079..a37cea325 100644
     <entry>
       <title>signal -- ご指摘頂いた箇所の修正</title>
       <link href="https://cpprefjp.github.io/reference/csignal/signal.html"/>
-      <id>2dc1f3fd33d21f638053a82a7bbc9a006c3b85c9:reference/csignal/signal.md</id>
+      <id>ff948e82d48f138734ea9f206a0a6b2aee5e25a9:reference/csignal/signal.md</id>
       <updated>2026-01-19T22:24:22+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/signal.md b/reference/csignal/signal.md
-index d4dfcbcd9..a2717f8e9 100644
+index eec0815c2..ee54ae2dd 100644
 --- a/reference/csignal/signal.md
 +++ b/reference/csignal/signal.md
 @@ -5,9 +5,11 @@
@@ -1637,9 +682,9 @@ index d4dfcbcd9..a2717f8e9 100644
     </entry>
   
     <entry>
-      <title>csignal -- add line signal,fixint head size</title>
+      <title>csignal -- シンタックスハイライトの追加、句点を削除</title>
       <link href="https://cpprefjp.github.io/reference/csignal.html"/>
-      <id>00cf01789432438964ae1206317d232aa83c836e:reference/csignal.md</id>
+      <id>d5a4f5ea266b7993fa6c34147c2c735980d85d91:reference/csignal.md</id>
       <updated>2026-01-18T23:39:37+09:00</updated>
       
         <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;csignal&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;csignal&lt;/span&gt;&lt;/h1&gt;
@@ -1762,13 +807,13 @@ index d4dfcbcd9..a2717f8e9 100644
     </entry>
   
     <entry>
-      <title>raise -- add line signal,fixint head size</title>
+      <title>raise -- シンタックスハイライトの追加、句点を削除</title>
       <link href="https://cpprefjp.github.io/reference/csignal/raise.html"/>
-      <id>00cf01789432438964ae1206317d232aa83c836e:reference/csignal/raise.md</id>
+      <id>d5a4f5ea266b7993fa6c34147c2c735980d85d91:reference/csignal/raise.md</id>
       <updated>2026-01-18T23:39:37+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/raise.md b/reference/csignal/raise.md
-index e42a53e12..4e11f12a8 100644
+index e42a53e12..997b66adb 100644
 --- a/reference/csignal/raise.md
 +++ b/reference/csignal/raise.md
 @@ -1,4 +1,4 @@
@@ -1786,6 +831,14 @@ index e42a53e12..4e11f12a8 100644
  }
  
  int main (){
+@@ -41,6 +41,7 @@ int main (){
+   return 0;
+ }
+ ```
++* std::raise[color ff0000]
+ 
+ ### 出力例
+ ```
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
@@ -1795,13 +848,39 @@ index e42a53e12..4e11f12a8 100644
     </entry>
   
     <entry>
-      <title>signal -- add line signal,fixint head size</title>
+      <title>sig_atomic_t -- シンタックスハイライトの追加、句点を削除</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sig_atomic_t.html"/>
+      <id>d5a4f5ea266b7993fa6c34147c2c735980d85d91:reference/csignal/sig_atomic_t.md</id>
+      <updated>2026-01-18T23:39:37+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_atomic_t.md b/reference/csignal/sig_atomic_t.md
+index 747ad4079..6e911df96 100644
+--- a/reference/csignal/sig_atomic_t.md
++++ b/reference/csignal/sig_atomic_t.md
+@@ -47,6 +47,7 @@ int main ()
+  return 0;
+ }
+ ```
++* std::sig_atomic_t[color ff0000]
+ 
+ ### 出力例
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>signal -- シンタックスハイライトの追加、句点を削除</title>
       <link href="https://cpprefjp.github.io/reference/csignal/signal.html"/>
-      <id>00cf01789432438964ae1206317d232aa83c836e:reference/csignal/signal.md</id>
+      <id>d5a4f5ea266b7993fa6c34147c2c735980d85d91:reference/csignal/signal.md</id>
       <updated>2026-01-18T23:39:37+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/signal.md b/reference/csignal/signal.md
-index 5ce18ad1a..d4dfcbcd9 100644
+index 5ce18ad1a..eec0815c2 100644
 --- a/reference/csignal/signal.md
 +++ b/reference/csignal/signal.md
 @@ -9,8 +9,6 @@ namespace std{
@@ -1813,6 +892,344 @@ index 5ce18ad1a..d4dfcbcd9 100644
  ## 概要
  
  シグナル番号`sig`の受け取り後の処理を指定する。
+@@ -68,8 +66,8 @@ int main()
+   }
+   return 0;
+ }
+-
+ ```
++* std::signal[color ff0000]
+ 
+ ### 出力例
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>signal -- add new post `csignal/signal`</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/signal.html"/>
+      <id>8d8eb04502033b1cf07940abf49ec5daf5020c91:reference/csignal/signal.md</id>
+      <updated>2026-01-18T22:49:07+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/signal.md b/reference/csignal/signal.md
+new file mode 100644
+index 000000000..5ce18ad1a
+--- /dev/null
++++ b/reference/csignal/signal.md
+@@ -0,0 +1,77 @@
++# signal
++* csignal[meta header]
++* std[meta namespace]
++* function[meta id-type]
++
++```cpp
++namespace std{
++  signal-handler* signal(int sig, signal-handler func);
++}
++```
++
++* signal-handler[italic]
++
++## 概要
++
++シグナル番号`sig`の受け取り後の処理を指定する。
++`func`の値が`SIG_DFL`の場合、そのシグナルに対するデフォルトの処理が行われる。
++`func`の値が`SIG_IGN`の場合、そのシグナルを無視する。
++それ以外の場合、関数`func`が実行される。
++
++## 引数
++
++- `sig`: シグナルハンドラを設定するシグナル番号
++- `func`: シグナルに対する処理。以下のいずれかを指定する。
++    - `SIG_DFL`: そのシグナルに対するデフォルト処理を指定する。
++    - `SIG_IGN`: そのシグナルを無視する。
++    - `func`: シグナルハンドラにする関数へのポインタを示す。
++
++### シグナルハンドラ関数の制約
++シグナルハンドラ関数は戻り値を持たず、`int`型の引数を持つ。
++この引数にはシグナル番号が格納される。
++
++また、以下の処理以外の動作をシグナルハンドラ内で行うとき、その動作は未定義。
++- `volatile std::sig_atomic_t`への単純な読み書き
++- `_Exit`関数と`abort`関数
++
++## 戻り値
++
++成功した場合、指定されたシグナルに対する直前のハンドラを返す。
++それ以外の場合は`SIG_ERR`を返す
++
++## 備考
++
++マルチスレッド内でのこの関数の動作は未定義。
++
++## 例
++```cpp example
++#include &amp;lt;csignal&amp;gt;
++#include &amp;lt;iostream&amp;gt;
++
++volatile std::sig_atomic_t flag = 0;
++
++void signal_handler(int sig)
++{
++  flag = 1;
++  // std::cout &amp;lt;&amp;lt; &amp;#34;signal: &amp;#34; &amp;lt;&amp;lt; sig &amp;lt;&amp;lt; std::endl; 未定義動作
++}
++
++int main()
++{
++  std::signal(SIGINT, signal_handler);
++  while(!flag){
++    //処理
++  }
++  if(flag)
++  {
++    std::cout &amp;lt;&amp;lt; &amp;#34;catch SIGINT&amp;#34; &amp;lt;&amp;lt; std::endl;
++  }
++  return 0;
++}
++
++```
++
++### 出力例
++```
++catch SIGINT
++```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>abort -- add new post `csignal/signal`</title>
+      <link href="https://cpprefjp.github.io/reference/cstdlib/abort.html"/>
+      <id>8d8eb04502033b1cf07940abf49ec5daf5020c91:reference/cstdlib/abort.md</id>
+      <updated>2026-01-18T22:49:07+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/abort.md b/reference/cstdlib/abort.md
+index 5e301f80f..c772799a3 100644
+--- a/reference/cstdlib/abort.md
++++ b/reference/cstdlib/abort.md
+@@ -24,7 +24,7 @@ namespace std {
+ ```cpp
+ raise(SIGABRT);
+ ```
+-* raise[link /reference/csignal/raise.md.nolink]
++* raise[link /reference/csignal/raise.md]
+ * SIGABRT[link /reference/csignal/sigabrt.md.nolink]
+ 
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>csignal -- add new posts `csignal/sig_atomic_t`</title>
+      <link href="https://cpprefjp.github.io/reference/csignal.html"/>
+      <id>1cc00dd99b1232a5b5999b6ed7e5d3a6147630b1:reference/csignal.md</id>
+      <updated>2026-01-18T21:06:56+09:00</updated>
+      
+        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;csignal&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;csignal&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;csignal&amp;gt;&lt;/code&gt;ヘッダでは、シグナル操作のための機能を定義する。
+シグナルの集合、意味、及びデフォルトの処理は処理系定義である。&lt;/p&gt;
+&lt;h2&gt;型&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/sig_atomic_t.html&#34;&gt;sig_atomic_t&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;非同期シグナルハンドラからアトミックなエンティティとしてアクセス可能な整数型&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;マクロ&lt;/h2&gt;
+&lt;h3&gt;&lt;code&gt;signal&lt;/code&gt;関数用のハンドラ指定子&lt;/h3&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SIG_DFL&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;デフォルト動作を指定する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SIG_ERR&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;signal&lt;/code&gt;関数が失敗したことを示す戻り値。&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SIG_IGN&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;シグナルを無視する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;シグナル番号を表すマクロ&lt;/h3&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SIGINT&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;割り込みを示すシグナル番号&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SIGILL&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;不正な命令を示すシグナル番号&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SIGABRT&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;abort&lt;/code&gt;関数などによる異常終了を示すシグナル番号&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SIGFPE&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;算術演算エラーを示すシグナル番号&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SIGSEGV&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;記憶領域への不正アクセスを示すシグナル番号&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SIGTERM&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;終了要求を示すシグナル番号&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;関数&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;signal&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;特定のシグナルに対するシグナルハンドラを設定する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/raise.html&#34;&gt;raise&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;プログラムにシグナルを送信する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>sig_atomic_t -- add new posts `csignal/sig_atomic_t`</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sig_atomic_t.html"/>
+      <id>1cc00dd99b1232a5b5999b6ed7e5d3a6147630b1:reference/csignal/sig_atomic_t.md</id>
+      <updated>2026-01-18T21:06:56+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_atomic_t.md b/reference/csignal/sig_atomic_t.md
+new file mode 100644
+index 000000000..747ad4079
+--- /dev/null
++++ b/reference/csignal/sig_atomic_t.md
+@@ -0,0 +1,59 @@
++# sig_atomic_t
++* csignal[meta header]
++* std[meta namespace]
++* type-alias[meta id-type]
++
++```cpp
++namespace std {
++  using sig_atomic_t = integer-type;
++}
++```
++
++* integer-type[italic]
++
++## 概要
++`sig_atomic_t`は、非同期シグナルハンドラと通常の実行コンテキストの間で、単純な読み書きを分断されずに行えることが保証された整数型である。
++
++この型に対して保証されるのは単純な代入および読み出しのみであり、
++複合操作や算術演算は保証されない。
++実際の使用では通常`volatile`修飾子と組み合わせて用いられる。
++
++具体的な型は処理系定義である。
++
++## 備考
++最大値は`SIG_ATOMIC_MAX`、最小値は`SIG_ATOMIC_MIN`に定義されている。
++
++## 例
++```cpp example
++#include &amp;lt;csignal&amp;gt;
++#include &amp;lt;iostream&amp;gt;
++
++volatile std::sig_atomic_t flag = 0;
++
++void signal_handler(int signum)
++{
++  flag = 1;
++}
++
++int main ()
++{
++  std::signal(SIGINT, signal_handler);
++  while(!flag){
++    //処理
++ }
++ if (flag){
++  std::cout &amp;lt;&amp;lt; &amp;#34;catch SIGINT&amp;#34; &amp;lt;&amp;lt; std::endl;
++ }
++ return 0;
++}
++```
++
++### 出力例
++```
++catch SIGINT
++```
++`Ctrl + c`などで割り込みが発生した場合。  
++
++## 関連項目
++- [`SIG_ATOMIC_MAX`](/reference/cstdint/sig_atomic_max.md)
++- [`SIG_ATOMIC_MIN`](/reference/cstdint/sig_atomic_min.md)
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
