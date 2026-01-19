@@ -9,6 +9,7 @@ namespace std {
   class out_of_range : public logic_error;
 }
 ```
+* logic_error[link logic_error.md]
 
 ## 概要
 
@@ -39,6 +40,7 @@ int main() {
   }
 }
 ```
+* vec.at[link /reference/vector/vector/at.md]
 
 ### 出力（標準エラー出力）
 
