@@ -8,7 +8,6 @@ namespace std {
   using sig_atomic_t = integer-type;
 }
 ```
-
 * integer-type[italic]
 
 ## 概要
@@ -38,20 +37,20 @@ void signal_handler(int signum)
 int main ()
 {
   std::signal(SIGINT, signal_handler);
-  while(!flag){
+  while (!flag) {
     //処理
- }
- if (flag){
-  std::cout << "catch SIGINT" << std::endl;
- }
- return 0;
+  }
+  if (flag) {
+    std::cout << "caught SIGINT" << std::endl;
+  }
+  return 0;
 }
 ```
 * std::sig_atomic_t[color ff0000]
 
 ### 出力例
 ```
-catch SIGINT
+caught SIGINT
 ```
 `Ctrl + c`などで割り込みが発生した場合。  
 

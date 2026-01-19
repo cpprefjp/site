@@ -9,6 +9,7 @@ namespace std {
   signal-handler* signal(int sig, signal-handler* func);
 }
 ```
+* signal-handler[italic]
 
 ## 概要
 
@@ -29,9 +30,14 @@ namespace std {
 シグナルハンドラ関数は戻り値を持たず、`int`型の引数を持つ。
 この引数にはシグナル番号が格納される。
 
-また、以下の処理以外の動作をシグナルハンドラ内で行うとき、その動作は未定義。
-- `volatile std::sig_atomic_t`への単純な読み書き
-- `_Exit`関数と`abort`関数
+シグナルハンドラ内で以下以外の処理を行うことは未定義動作である。
+- `volatile std::sig_atomic_t`オブジェクトへの代入
+- `abort`関数
+- `_Exit`関数
+- `quick_exit`関数
+- `atomic`引数がロックフリーである場合の`<stdatomic.h>`内の関数
+- 任意の`atomic`引数を持つ`atomic_is_lock_free`関数
+- `signal`関数（ただし、ハンドラを起こしたシグナル番号に対する呼び出しに限る）
 
 ## 戻り値
 
@@ -58,12 +64,11 @@ void signal_handler(int sig)
 int main()
 {
   std::signal(SIGINT, signal_handler);
-  while(!flag){
+  while (!flag) {
     //処理
   }
-  if(flag)
-  {
-    std::cout << "catch SIGINT" << std::endl;
+  if (flag) {
+    std::cout << "caught SIGINT" << std::endl;
   }
   return 0;
 }
@@ -72,5 +77,5 @@ int main()
 
 ### 出力例
 ```
-catch SIGINT
+caught SIGINT
 ```
