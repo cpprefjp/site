@@ -13,7 +13,8 @@ namespace std::execution {
       { get_env(rcvr) } -> queryable;
     } &&
     move_constructible<remove_cvref_t<Rcvr>> &&
-    constructible_from<remove_cvref_t<Rcvr>, Rcvr>;
+    constructible_from<remove_cvref_t<Rcvr>, Rcvr> &&
+    is_nothrow_move_constructible_v<remove_cvref_t<Rcvr>>;
 
   struct receiver_t {};  // タグ型
 }
@@ -22,6 +23,7 @@ namespace std::execution {
 * queryable[link ../queryable.md]
 * derived_from[link /reference/concepts/derived_from.md]
 * constructible_from[link /reference/concepts/constructible_from.md]
+* is_nothrow_move_constructible_v[link /reference/type_traits/is_nothrow_move_constructible.md]
 
 ## 概要
 `receiver`は、型`Rcvr`がReceiver型の要件を満たすことを表すコンセプトである。
@@ -30,7 +32,7 @@ namespace std::execution {
 
 - `receiver_t`をメンバ型`Rcvr::receiver_concept`として定義する
 - [`get_env`](get_env.md)で[環境](../queryable.md)を取得できる
-- ムーブ可能
+- 例外送出せずにムーブ構築可能
 
 
 ## モデル
@@ -79,3 +81,4 @@ int main()
 
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P3388R3 When Do You Know connect Doesn't Throw?](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3388r3.pdf)

@@ -41,6 +41,16 @@ transform_sender(decltype(get-domain-late(sndr, get_env(rcvr))){}, sndr, get_env
 - [`sender_in`](sender_in.md)`<Sndr,` [`env_of_t`](env_of_t.md)`<Rcvr>>`
 - [`receiver_of`](receiver_of.md)`<Rcvr,` [`completion_signatures_of_t`](completion_signatures_of_t.md)`<Sndr,` [`env_of_t`](env_of_t.md)`<Rcvr>>>`
 
+下記を満たす右辺値式`rcvr2`が存在するとき、プログラムは不適格(診断不要)となる。
+
+- `decltype(rcvr2)`は[`receiver`](receiver.md)のモデルである
+- `noexcept(rcvr2)`が`true`
+- [`is_same_v`](/reference/type_traits/is_same.md)`<decltype(`[`get_env`](get_env.md)`(rcvr2)), decltype(get_env(rcvr))>`が`true`
+- `noexcept(execution::connect(sndr, rcvr))`が`true`
+- `noexcept(execution::connect(sndr, rcvr2))`が適格かつ`false`に評価される
+
+上記により[`get_completion_signatures`](get_completion_signatures.md)内部のように、環境のコンテキストのみから`connect`操作の例外送出有無を判断できるようになる。
+
 
 ### Awaitable接続用へルパ
 説明用のクラス`connect-awaitable-promise`, `operation-state-task`をそれぞれ下記の通り定義する。
@@ -243,4 +253,5 @@ int main()
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3396R1 std::execution wording fixes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html)
 - [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+- [P3388R3 When Do You Know connect Doesn't Throw?](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3388r3.pdf)
 - [LWG 4208. Wording needs to ensure that in `connect(sndr, rcvr)` that `rcvr` expression is only evaluated once](https://cplusplus.github.io/LWG/issue4208)
