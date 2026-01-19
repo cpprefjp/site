@@ -24,12 +24,12 @@
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| `SIGINT` | 割り込みを示すシグナル番号 | |
-| `SIGILL` | 不正な命令を示すシグナル番号 | |
-| `SIGABRT` | `abort`関数などによる異常終了を示すシグナル番号 | |
-| `SIGFPE` | 算術演算エラーを示すシグナル番号 | |
-| `SIGSEGV` | 記憶領域への不正アクセスを示すシグナル番号 | |
-| `SIGTERM` | 終了要求を示すシグナル番号 | |
+| [`SIGINT`](csignal/sigint.md) | 割り込みを示すシグナル番号 | |
+| [`SIGILL`](csignal/sigill.md) | 不正な命令を示すシグナル番号 | |
+| [`SIGABRT`](csignal/sigabrt.md) | `abort`関数などによる異常終了を示すシグナル番号 | |
+| [`SIGFPE`](csignal/sigfpe.md) | 算術演算エラーを示すシグナル番号 | |
+| [`SIGSEGV`](csignal/sigsegv.md) | 無効なメモリアクセスを示すシグナル番号 | |
+| [`SIGTERM`](csignal/sigterm.md) | 終了要求を示すシグナル番号 | |
 
 ## 関数
 
