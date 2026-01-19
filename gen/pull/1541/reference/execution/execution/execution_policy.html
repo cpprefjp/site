@@ -20,7 +20,7 @@
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
-  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,std::execution,class,cpp17
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,std::execution,class,cpp17,sequenced_policy,parallel_policy,parallel_unsequenced_policy,unsequenced_policy,seq,par,par_unseq,unseq
 ">
         <meta name="title" content="実行ポリシー - cpprefjp C++日本語リファレンス" />
         <meta itemprop="name" content="実行ポリシー - cpprefjp C++日本語リファレンス" />
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
-<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
-<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
-<link rel="manifest" href="../../../manifest.json?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="manifest" href="../../../manifest.json?cachebust=1badf8656537fb83110091804da2a289044600de">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=1badf8656537fb83110091804da2a289044600de">
 <!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
 
-<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2"></script>
-<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;execution&#34;], &#34;namespace&#34;: [&#34;std::execution&#34;], &#34;id-type&#34;: [&#34;class&#34;], &#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;472d7f1872b818bcb98d05694e11c93bc046a0ba&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;algorithm&gt;\n#include &lt;execution&gt;\n#include &lt;vector&gt;\n\nint main()\n{\n  std::vector&lt;int&gt; v = {3, 1, 4, 5, 2, 6};\n\n  // \u3053\u308c\u307e\u3067\u901a\u308a\u306e\u9010\u6b21\u5b9f\u884c\n  std::sort(v.begin(), v.end());\n  std::sort(std::execution::seq, v.begin(), v.end());\n\n  // \u4e26\u5217\u5b9f\u884c\n  std::sort(std::execution::par, v.begin(), v.end());\n\n  // \u4e26\u5217\u5316\u30fb\u30d9\u30af\u30c8\u30eb\u5316\n  std::sort(std::execution::par_unseq, v.begin(), v.end());\n\n  // \u30d9\u30af\u30c8\u30eb\u5316\n  std::sort(std::execution::unseq, v.begin(), v.end());\n\n  for (int x : v) {\n    std::cout &lt;&lt; x &lt;&lt; std::endl;\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;958d23dfa2ea4c4bff0bb8e80c99aa18086a0619&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;algorithm&gt;\n#include &lt;execution&gt;\n#include &lt;vector&gt;\n#include &lt;mutex&gt;\n\nint main()\n{\n  {\n    std::vector&lt;int&gt; a = {3, 1, 4, 5, 2, 6};\n    std::vector&lt;int&gt; b;\n\n    // \u30de\u30eb\u30c1\u30b9\u30ec\u30c3\u30c9\u5316\u306e\u5834\u5408\u306f\u3001\u30df\u30e5\u30fc\u30c6\u30c3\u30af\u30b9\u304b\u30a2\u30c8\u30df\u30c3\u30af\u64cd\u4f5c\u3067\u30c7\u30fc\u30bf\u7af6\u5408\u3092\u56de\u907f\u3059\u308b\n    std::mutex m;\n    std::for_each(std::execution::par, a.begin(), a.end(), [&amp;](int x) {\n      std::lock_guard lk{m};\n      b.push_back(x);\n    });\n\n    for (int x : b) {\n      std::cout &lt;&lt; x &lt;&lt; &#39; &#39;;\n    }\n    std::cout &lt;&lt; std::endl;\n  }\n\n  // (\u30de\u30eb\u30c1\u30b9\u30ec\u30c3\u30c9\u5316 +) \u30d9\u30af\u30c8\u30eb\u5316\u306e\u5834\u5408\u306f\u3001Lock-free\u30a2\u30c8\u30df\u30c3\u30af\u64cd\u4f5c\u3067\u30c7\u30fc\u30bf\u7af6\u5408\u3092\u56de\u907f\u3059\u308b\n  {\n    static_assert(std::atomic&lt;int&gt;::is_always_lock_free);  // Lock-free\u4fdd\u8a3c\u3092\u78ba\u8a8d\n    std::vector&lt;int&gt; v = {3, 1, 4, 5, 2};\n    std::atomic&lt;int&gt; count {0}; // \u30bf\u30b9\u30af\u304c\u7d42\u4e86\u3057\u305f\u6570\n\n    std::for_each(std::execution::par_unseq, v.begin(), v.end(), [&amp;count](int) {\n      // ...\u6642\u9593\u306e\u304b\u304b\u308b\u51e6\u7406...\n      ++count;\n    });\n\n    std::cout &lt;&lt; count.load() &lt;&lt; std::endl;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;execution&#34;, &#34;execution&#34;, &#34;execution_policy&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;execution&#34;], &#34;namespace&#34;: [&#34;std::execution&#34;], &#34;id-type&#34;: [&#34;class&#34;], &#34;cpp&#34;: [&#34;cpp17&#34;], &#34;alias&#34;: [&#34;sequenced_policy,parallel_policy,parallel_unsequenced_policy,unsequenced_policy,seq,par,par_unseq,unseq&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;472d7f1872b818bcb98d05694e11c93bc046a0ba&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;algorithm&gt;\n#include &lt;execution&gt;\n#include &lt;vector&gt;\n\nint main()\n{\n  std::vector&lt;int&gt; v = {3, 1, 4, 5, 2, 6};\n\n  // \u3053\u308c\u307e\u3067\u901a\u308a\u306e\u9010\u6b21\u5b9f\u884c\n  std::sort(v.begin(), v.end());\n  std::sort(std::execution::seq, v.begin(), v.end());\n\n  // \u4e26\u5217\u5b9f\u884c\n  std::sort(std::execution::par, v.begin(), v.end());\n\n  // \u4e26\u5217\u5316\u30fb\u30d9\u30af\u30c8\u30eb\u5316\n  std::sort(std::execution::par_unseq, v.begin(), v.end());\n\n  // \u30d9\u30af\u30c8\u30eb\u5316\n  std::sort(std::execution::unseq, v.begin(), v.end());\n\n  for (int x : v) {\n    std::cout &lt;&lt; x &lt;&lt; std::endl;\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;958d23dfa2ea4c4bff0bb8e80c99aa18086a0619&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;algorithm&gt;\n#include &lt;execution&gt;\n#include &lt;vector&gt;\n#include &lt;mutex&gt;\n\nint main()\n{\n  {\n    std::vector&lt;int&gt; a = {3, 1, 4, 5, 2, 6};\n    std::vector&lt;int&gt; b;\n\n    // \u30de\u30eb\u30c1\u30b9\u30ec\u30c3\u30c9\u5316\u306e\u5834\u5408\u306f\u3001\u30df\u30e5\u30fc\u30c6\u30c3\u30af\u30b9\u304b\u30a2\u30c8\u30df\u30c3\u30af\u64cd\u4f5c\u3067\u30c7\u30fc\u30bf\u7af6\u5408\u3092\u56de\u907f\u3059\u308b\n    std::mutex m;\n    std::for_each(std::execution::par, a.begin(), a.end(), [&amp;](int x) {\n      std::lock_guard lk{m};\n      b.push_back(x);\n    });\n\n    for (int x : b) {\n      std::cout &lt;&lt; x &lt;&lt; &#39; &#39;;\n    }\n    std::cout &lt;&lt; std::endl;\n  }\n\n  // (\u30de\u30eb\u30c1\u30b9\u30ec\u30c3\u30c9\u5316 +) \u30d9\u30af\u30c8\u30eb\u5316\u306e\u5834\u5408\u306f\u3001Lock-free\u30a2\u30c8\u30df\u30c3\u30af\u64cd\u4f5c\u3067\u30c7\u30fc\u30bf\u7af6\u5408\u3092\u56de\u907f\u3059\u308b\n  {\n    static_assert(std::atomic&lt;int&gt;::is_always_lock_free);  // Lock-free\u4fdd\u8a3c\u3092\u78ba\u8a8d\n    std::vector&lt;int&gt; v = {3, 1, 4, 5, 2};\n    std::atomic&lt;int&gt; count {0}; // \u30bf\u30b9\u30af\u304c\u7d42\u4e86\u3057\u305f\u6570\n\n    std::for_each(std::execution::par_unseq, v.begin(), v.end(), [&amp;count](int) {\n      // ...\u6642\u9593\u306e\u304b\u304b\u308b\u51e6\u7406...\n      ++count;\n    });\n\n    std::cout &lt;&lt; count.load() &lt;&lt; std::endl;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;execution&#34;, &#34;execution&#34;, &#34;execution_policy&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-06-08T11:02:22">
-        2025年06月08日 11時02分22秒
+      <span itemprop="datePublished" content="2026-01-09T02:23:41">
+        2026年01月09日 02時23分41秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">yoh</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>

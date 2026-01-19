@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
-<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
-<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
-<link rel="manifest" href="../../../manifest.json?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="manifest" href="../../../manifest.json?cachebust=1badf8656537fb83110091804da2a289044600de">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=1badf8656537fb83110091804da2a289044600de">
 <!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
-<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
 
-<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2"></script>
-<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-16T12:31:08">
-        2025年08月16日 12時31分08秒
+      <span itemprop="datePublished" content="2026-01-19T03:03:20">
+        2026年01月19日 03時03分20秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -254,6 +254,15 @@
 <li><code><a href="sender_in.html">sender_in</a>&lt;Sndr, <a href="env_of_t.html">env_of_t</a>&lt;Rcvr&gt;&gt;</code></li>
 <li><code><a href="receiver_of.html">receiver_of</a>&lt;Rcvr, <a href="completion_signatures_of_t.html">completion_signatures_of_t</a>&lt;Sndr, <a href="env_of_t.html">env_of_t</a>&lt;Rcvr&gt;&gt;&gt;</code></li>
 </ul>
+<p>下記を満たす右辺値式<code>rcvr2</code>が存在するとき、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>(<a class="cpprefjp-defined-word" data-desc="処理系は規則違反に対してエラーメッセージや警告を出さないかもしれない" href="../../../implementation-compliance.html#dfn-no-diagnostic-required">診断不要</a>)となる。</p>
+<ul>
+<li><code>decltype(rcvr2)</code>は<code><a href="receiver.html">receiver</a></code>のモデルである</li>
+<li><code>noexcept(rcvr2)</code>が<code>true</code></li>
+<li><code><a href="../../type_traits/is_same.html">is_same_v</a>&lt;decltype(<a href="get_env.html">get_env</a>(rcvr2)), decltype(get_env(rcvr))&gt;</code>が<code>true</code></li>
+<li><code>noexcept(execution::connect(sndr, rcvr))</code>が<code>true</code></li>
+<li><code>noexcept(execution::connect(sndr, rcvr2))</code>が<a class="cpprefjp-defined-word" data-desc="プログラムが文法規則・診断対象の意味規則・単一定義規則を満たすこと" href="../../../implementation-compliance.html#dfn-well-formed">適格</a>かつ<code>false</code>に評価される</li>
+</ul>
+<p>上記により<code><a href="get_completion_signatures.html">get_completion_signatures</a></code>内部のように、環境のコンテキストのみから<code>connect</code>操作の<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出有無を判断できるようになる。</p>
 <h3>Awaitable接続用へルパ</h3>
 <p>説明用のクラス<code>connect-awaitable-promise</code>, <code>operation-state-task</code>をそれぞれ下記の通り定義する。</p>
 <p>型<code>DS</code>を<code><a href="../../type_traits/decay.html">decay_t</a>&lt;decltype((new_sndr))&gt;</code>、型<code>DR</code>を<code><a href="../../type_traits/decay.html">decay_t</a>&lt;Rcvr&gt;</code>とする。</p>
@@ -405,6 +414,7 @@
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html" target="_blank">P3396R1 std::execution wording fixes</a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html" target="_blank">P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3388r3.pdf" target="_blank">P3388R3 When Do You Know connect Doesn't Throw?</a></li>
 <li><a href="https://cplusplus.github.io/LWG/issue4208" target="_blank">LWG 4208. Wording needs to ensure that in <code>connect(sndr, rcvr)</code> that <code>rcvr</code> expression is only evaluated once</a></li>
 </ul></div>
 

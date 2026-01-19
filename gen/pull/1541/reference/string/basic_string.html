@@ -20,7 +20,7 @@
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
-  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,string,std,class template
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,string,std,class template,string,u8string,u16string,u32string,wstring
 ">
         <meta name="title" content="basic_string - cpprefjp C++日本語リファレンス" />
         <meta itemprop="name" content="basic_string - cpprefjp C++日本語リファレンス" />
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
-<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
-<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
-<link rel="manifest" href="../../manifest.json?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="manifest" href="../../manifest.json?cachebust=1badf8656537fb83110091804da2a289044600de">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=1badf8656537fb83110091804da2a289044600de">
 <!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
 
-<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2"></script>
-<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;string&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;64e782e8c368e30f8676b7ad1e1a5c1d38bf07a9&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;cstdio&gt;\n#include &lt;string&gt;\n\nint main()\n{\n  // C\u6587\u5b57\u5217\u304b\u3089string\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3092\u69cb\u7bc9\n  std::string s = \&#34;hello\&#34;;\n\n  // \u672b\u5c3e\u306b\u6587\u5b57\u5217\u3092\u8ffd\u52a0\n  s += \&#34; world\&#34;;\n\n  // \u90e8\u5206\u6587\u5b57\u5217\u3092\u53d6\u5f97(\u59cb\u70b9:0\u3001\u59cb\u70b9\u304b\u3089\u306e\u6587\u5b57\u6570:5)\n  std::string hello = s.substr(0, 5);\n\n  // ostream\u3078\u306e\u51fa\u529b\n  std::cout &lt;&lt; hello &lt;&lt; std::endl;\n\n  // C\u6587\u5b57\u5217\u3092\u53d6\u5f97\u3057\u3001const char*\u3092\u8981\u6c42\u3059\u308bAPI\u306b\u6e21\u3059\n  std::printf(\&#34;%s\&#34;, s.c_str());\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;string&#34;, &#34;basic_string&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;string&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;alias&#34;: [&#34;string,u8string,u16string,u32string,wstring&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;64e782e8c368e30f8676b7ad1e1a5c1d38bf07a9&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;cstdio&gt;\n#include &lt;string&gt;\n\nint main()\n{\n  // C\u6587\u5b57\u5217\u304b\u3089string\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3092\u69cb\u7bc9\n  std::string s = \&#34;hello\&#34;;\n\n  // \u672b\u5c3e\u306b\u6587\u5b57\u5217\u3092\u8ffd\u52a0\n  s += \&#34; world\&#34;;\n\n  // \u90e8\u5206\u6587\u5b57\u5217\u3092\u53d6\u5f97(\u59cb\u70b9:0\u3001\u59cb\u70b9\u304b\u3089\u306e\u6587\u5b57\u6570:5)\n  std::string hello = s.substr(0, 5);\n\n  // ostream\u3078\u306e\u51fa\u529b\n  std::cout &lt;&lt; hello &lt;&lt; std::endl;\n\n  // C\u6587\u5b57\u5217\u3092\u53d6\u5f97\u3057\u3001const char*\u3092\u8981\u6c42\u3059\u308bAPI\u306b\u6e21\u3059\n  std::printf(\&#34;%s\&#34;, s.c_str());\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;string&#34;, &#34;basic_string&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-11-10T13:21:07">
-        2025年11月10日 13時21分07秒
+      <span itemprop="datePublished" content="2026-01-07T13:31:19">
+        2026年01月07日 13時31分19秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">suomesta</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>

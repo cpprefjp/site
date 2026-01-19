@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
-<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
-<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
-<link rel="manifest" href="../../manifest.json?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="manifest" href="../../manifest.json?cachebust=1badf8656537fb83110091804da2a289044600de">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=1badf8656537fb83110091804da2a289044600de">
 <!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
 
-<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2"></script>
-<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cmath&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;4b8c136cc99d0d4e5fdf86e2a7d9c0361bc70de1&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;cmath&gt;\n\nint main()\n{\n  assert(std::signbit(-1.0f));\n  assert(std::signbit(-0.0f));\n\n  assert(!std::signbit(1.0f));\n  assert(!std::signbit(0.0f));\n\n  constexpr float nan = std::numeric_limits&lt;float&gt;::quiet_NaN();\n  assert(!std::signbit(nan));\n  assert(std::signbit(-nan));\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cmath&#34;, &#34;signbit&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cmath&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;b215c742dae70cc54b14462a858c7708eb89227e&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;cmath&gt;\n#include &lt;limits&gt;\n\nint main()\n{\n  // \u901a\u5e38\u306e\u6570\u5024\n  std::cout &lt;&lt; std::boolalpha;\n  std::cout &lt;&lt; \&#34;-1.0f : \&#34; &lt;&lt; std::signbit(-1.0f) &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;-0.0f : \&#34; &lt;&lt; std::signbit(-0.0f) &lt;&lt; std::endl;\n\n  std::cout &lt;&lt; \&#34;1.0f  : \&#34; &lt;&lt; std::signbit(1.0f) &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;0.0f  : \&#34; &lt;&lt; std::signbit(0.0f) &lt;&lt; std::endl;\n\n  // \u7121\u9650\u5927\n  const double inf = std::numeric_limits&lt;double&gt;::infinity();\n  std::cout &lt;&lt; \&#34;inf   : \&#34; &lt;&lt; std::signbit(inf) &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;-inf  : \&#34; &lt;&lt; std::signbit(-inf) &lt;&lt; std::endl;\n\n  // NaN (Not a Number)\n  // NaN\u306e\u7b26\u53f7\u30d3\u30c3\u30c8\u3082\u691c\u51fa\u3067\u304d\u308b\n  const double nan = std::numeric_limits&lt;double&gt;::quiet_NaN();\n  std::cout &lt;&lt; \&#34;nan   : \&#34; &lt;&lt; std::signbit(nan) &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;-nan  : \&#34; &lt;&lt; std::signbit(-nan) &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cmath&#34;, &#34;signbit&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-05-22T07:35:09">
-        2025年05月22日 07時35分09秒
+      <span itemprop="datePublished" content="2026-01-12T03:53:40">
+        2026年01月12日 03時53分40秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">teruyamato0731</span>
       </span>
       が更新
     </small></p>
@@ -247,25 +247,43 @@
 <li>C++23では、(1), (2), (3)が(4)に統合され、<a class="cpprefjp-defined-word" data-desc="&lt;stdfloat&gt;で定義される内部表現の規定された浮動小数点数型" href="../stdfloat.html">拡張浮動小数点数型</a>を含む浮動小数点数型への<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>として定義された</li>
 </ul>
 <h2>例</h2>
-<p><div class="yata" id="4b8c136cc99d0d4e5fdf86e2a7d9c0361bc70de1"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="b215c742dae70cc54b14462a858c7708eb89227e"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../cmath.html">&lt;cmath&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../limits.html">&lt;limits&gt;</a></span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::signbit</span></span><span class="p">(</span><span class="o">-</span><span class="mf">1.0f</span><span class="p">));</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::signbit</span></span><span class="p">(</span><span class="o">-</span><span class="mf">0.0f</span><span class="p">));</span>
+  <span class="c1">// 通常の数値</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ios/boolalpha.html">std::boolalpha</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"-1.0f : "</span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::signbit</span></span><span class="p">(</span><span class="o">-</span><span class="mf">1.0f</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"-0.0f : "</span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::signbit</span></span><span class="p">(</span><span class="o">-</span><span class="mf">0.0f</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n"><span style="color:#ff0000">std::signbit</span></span><span class="p">(</span><span class="mf">1.0f</span><span class="p">));</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n"><span style="color:#ff0000">std::signbit</span></span><span class="p">(</span><span class="mf">0.0f</span><span class="p">));</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"1.0f  : "</span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::signbit</span></span><span class="p">(</span><span class="mf">1.0f</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"0.0f  : "</span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::signbit</span></span><span class="p">(</span><span class="mf">0.0f</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 
-  <span class="k">constexpr</span> <span class="kt">float</span> <span class="n">nan</span> <span class="o">=</span> <span class="n"><a href="../limits/numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;::</span><span class="n">quiet_NaN</span><span class="p">();</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n"><span style="color:#ff0000">std::signbit</span></span><span class="p">(</span><span class="n">nan</span><span class="p">));</span>
-  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::signbit</span></span><span class="p">(</span><span class="o">-</span><span class="n">nan</span><span class="p">));</span>
+  <span class="c1">// 無限大</span>
+  <span class="k">const</span> <span class="kt">double</span> <span class="n">inf</span> <span class="o">=</span> <span class="n"><a href="../limits/numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;::</span><span class="n"><a href="../limits/numeric_limits/infinity.html">infinity()</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"inf   : "</span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::signbit</span></span><span class="p">(</span><span class="n">inf</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"-inf  : "</span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::signbit</span></span><span class="p">(</span><span class="o">-</span><span class="n">inf</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// NaN (Not a Number)</span>
+  <span class="c1">// NaNの符号ビットも検出できる</span>
+  <span class="k">const</span> <span class="kt">double</span> <span class="n">nan</span> <span class="o">=</span> <span class="n"><a href="../limits/numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;::</span><span class="n"><a href="../limits/numeric_limits/quiet_nan.html">quiet_NaN()</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"nan   : "</span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::signbit</span></span><span class="p">(</span><span class="n">nan</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"-nan  : "</span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">std::signbit</span></span><span class="p">(</span><span class="o">-</span><span class="n">nan</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 <h3>出力</h3>
-<p><pre><code></code></pre></p>
+<p><pre><code>-1.0f : true
+-0.0f : true
+1.0f  : false
+0.0f  : false
+inf   : false
+-inf  : true
+nan   : false
+-nan  : true
+</code></pre></p>
 <h3>備考</h3>
 <p>特定の環境では、早期に <code>constexpr</code> 対応されている場合がある：</p>
 <ul>

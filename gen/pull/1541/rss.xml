@@ -2,18 +2,18 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-01-06T06:51:04.632799</updated>
-  <id>6ca2ebd1-544d-43a1-8805-175e81b24355</id>
+  <updated>2026-01-19T14:03:44.069094</updated>
+  <id>4adeebf1-cda2-4fc8-b657-756d6a6c9c32</id>
 
   
     <entry>
       <title>mblen -- feat(mblen): C規格変更の経緯についての関連項目を追加</title>
       <link href="https://cpprefjp.github.io/reference/cstdlib/mblen.html"/>
-      <id>71ddec23c676ec85e80932553499c026d838bfec:reference/cstdlib/mblen.md</id>
+      <id>37a9853acfd87a16503e16ca1a20b3c94733b7ad:reference/cstdlib/mblen.md</id>
       <updated>2026-01-06T15:37:48+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/mblen.md b/reference/cstdlib/mblen.md
-index afb248e4b..81b5b6fb1 100644
+index afb248e4b..dc6fa62ba 100644
 --- a/reference/cstdlib/mblen.md
 +++ b/reference/cstdlib/mblen.md
 @@ -18,10 +18,10 @@ namespace std {
@@ -33,10 +33,10 @@ index afb248e4b..81b5b6fb1 100644
  
  - [`mbrlen`](../cwchar/mbrlen.md.nolink): `std::mbstate_t` を受け取るスレッドセーフなバージョン
 +- [WG14 N1373: Wording improvements for mblen, mbtowc, and c16rtomb](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1373.htm)
-+    - 単なる「表現の改善」としてこの破壊的な変更が実施されたように見える。
++    - C11 以降内部状態が最初に初期化されることになった。「表現の改善」としてこの破壊的な変更が実施されたように見える。
 +    - [musl のメーリングリスト - 2019-12-26](https://www.openwall.com/lists/musl/2019/12/26/7) にて Florian Weimer が以下のように指摘している:
 +        &amp;#34;actual users of the interfaces with legacy charsets do not seem to be represented on the standards committee anymore (see the mblen behavioral change in C11 as evidence supporting this theory).&amp;#34;
-+        訳: C11 における mblen の振る舞い変更でも分かるように、C標準化委員会には古い文字コードを使っている人がいないようだ。
++        意訳: 「(C11 で入った mblen の振る舞い変更でも分かるように) C標準化委員会には古い文字コードを使っている人はもういないようだ。」
 +- [WG14 N2037: mblen, mbtowc, and wctomb thread-safety](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n2037.htm)
 +    - [WG14 DR498: mblen, mbtowc, and wctomb thread-safety](https://www.open-std.org/jtc1/sc22/wg14/issues/c11c17/issue0498.html)
 +    - [WG14 N2246: Make mblen, mbtowc, and wctomb thread-safe for encodings that are not state-dependent](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n2246.htm)
@@ -54,7 +54,7 @@ index afb248e4b..81b5b6fb1 100644
     <entry>
       <title>mblen -- feat(mblen): C規格の内部状態に関する取り扱い変更について記述</title>
       <link href="https://cpprefjp.github.io/reference/cstdlib/mblen.html"/>
-      <id>24e134c0c53c181bfac0808e1824a7604cccea9e:reference/cstdlib/mblen.md</id>
+      <id>11fe94430ca1ae63f2862a97764407211fb4bc50:reference/cstdlib/mblen.md</id>
       <updated>2026-01-06T14:35:23+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/mblen.md b/reference/cstdlib/mblen.md
@@ -135,7 +135,7 @@ index c38e3d3d8..afb248e4b 100644
     <entry>
       <title>mblen -- feat(mblen): 内部状態と std::mbrlen を言及</title>
       <link href="https://cpprefjp.github.io/reference/cstdlib/mblen.html"/>
-      <id>3af77f7f40b4769b28be92ebe7a34eb82956e6be:reference/cstdlib/mblen.md</id>
+      <id>9068f791a8f291e321863090ba99f1e386d93187:reference/cstdlib/mblen.md</id>
       <updated>2025-12-03T10:48:37+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/mblen.md b/reference/cstdlib/mblen.md
@@ -181,7 +181,7 @@ index 4bdf01934..c38e3d3d8 100644
     <entry>
       <title>mblen -- fix(mblen): バッファオーバーランの修正</title>
       <link href="https://cpprefjp.github.io/reference/cstdlib/mblen.html"/>
-      <id>88d98673728f4d868125d4fe48782b938e2956ec:reference/cstdlib/mblen.md</id>
+      <id>4410d3b0e75b855c34a94b3eb22488f2f68faa29:reference/cstdlib/mblen.md</id>
       <updated>2025-12-03T11:01:35+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/mblen.md b/reference/cstdlib/mblen.md
@@ -243,7 +243,7 @@ index e20519737..4bdf01934 100644
     <entry>
       <title>mblen -- fix(mblen): 諸々の修正</title>
       <link href="https://cpprefjp.github.io/reference/cstdlib/mblen.html"/>
-      <id>c8ab2ddc8490d5dd3d54f840c661216713181cc3:reference/cstdlib/mblen.md</id>
+      <id>4b88e470871daa3cd88933c89dae702cf56ce3fd:reference/cstdlib/mblen.md</id>
       <updated>2025-12-03T10:28:57+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/mblen.md b/reference/cstdlib/mblen.md

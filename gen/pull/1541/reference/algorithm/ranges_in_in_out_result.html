@@ -20,7 +20,7 @@
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
-  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,algorithm,std::ranges,class template,cpp20
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,algorithm,std::ranges,class template,cpp20,binary_transform_result,merge_result,set_union_result,set_intersection_result,set_symmetric_difference_result
 ">
         <meta name="title" content="in_in_out_result - cpprefjp C++日本語リファレンス" />
         <meta itemprop="name" content="in_in_out_result - cpprefjp C++日本語リファレンス" />
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
-<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
-<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
-<link rel="manifest" href="../../manifest.json?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="manifest" href="../../manifest.json?cachebust=1badf8656537fb83110091804da2a289044600de">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=1badf8656537fb83110091804da2a289044600de">
 <!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
 
-<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2"></script>
-<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;algorithm&#34;], &#34;namespace&#34;: [&#34;std::ranges&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;ef9d7670bd7b73c775c4dd380f932c8e505384ff&#34;, &#34;source&#34;: &#34;#include &lt;algorithm&gt;\n#include &lt;vector&gt;\n#include &lt;string&gt;\n#include &lt;cassert&gt;\n\nint main() {\n  std::vector&lt;char&gt; v1 = { &#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;,&#39;e&#39; };\n  std::vector&lt;int&gt; v2 = { 3,1,4 };\n  std::vector&lt;std::string&gt; outs(3);\n\n  // v1[n] \u306e\u6587\u5b57\u3092 v2[n] \u56de\u7e70\u308a\u8fd4\u3057\u305f\u6587\u5b57\u5217\u3092\u8fd4\u3059\n  const std::ranges::in_in_out_result result = std::ranges::transform(v1, v2, outs.begin(), [](char a, int b) { return std::string(b, a); });\n\n  assert(result.in1 == v1.begin() + 3);\n  assert(result.in2 == v2.begin() + 3);\n  assert(result.out == outs.begin() + 3);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;algorithm&#34;, &#34;ranges_in_in_out_result&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;algorithm&#34;], &#34;namespace&#34;: [&#34;std::ranges&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;], &#34;alias&#34;: [&#34;binary_transform_result,merge_result,set_union_result,set_intersection_result,set_symmetric_difference_result&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;ef9d7670bd7b73c775c4dd380f932c8e505384ff&#34;, &#34;source&#34;: &#34;#include &lt;algorithm&gt;\n#include &lt;vector&gt;\n#include &lt;string&gt;\n#include &lt;cassert&gt;\n\nint main() {\n  std::vector&lt;char&gt; v1 = { &#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;,&#39;e&#39; };\n  std::vector&lt;int&gt; v2 = { 3,1,4 };\n  std::vector&lt;std::string&gt; outs(3);\n\n  // v1[n] \u306e\u6587\u5b57\u3092 v2[n] \u56de\u7e70\u308a\u8fd4\u3057\u305f\u6587\u5b57\u5217\u3092\u8fd4\u3059\n  const std::ranges::in_in_out_result result = std::ranges::transform(v1, v2, outs.begin(), [](char a, int b) { return std::string(b, a); });\n\n  assert(result.in1 == v1.begin() + 3);\n  assert(result.in2 == v2.begin() + 3);\n  assert(result.out == outs.begin() + 3);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;algorithm&#34;, &#34;ranges_in_in_out_result&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-01-05T18:11:37">
-        2026年01月05日 18時11分37秒
+      <span itemprop="datePublished" content="2026-01-09T02:10:05">
+        2026年01月09日 02時10分05秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Koichi Murase</span>
+        <span itemprop="name">Raclamusi</span>
       </span>
       が更新
     </small></p>

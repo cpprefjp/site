@@ -20,7 +20,7 @@
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
-  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,chrono,std::chrono,type-alias,cpp20
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,chrono,std::chrono,type-alias,cpp20,utc_seconds
 ">
         <meta name="title" content="utc_time - cpprefjp C++日本語リファレンス" />
         <meta itemprop="name" content="utc_time - cpprefjp C++日本語リファレンス" />
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
-<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
-<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
-<link rel="manifest" href="../../manifest.json?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="manifest" href="../../manifest.json?cachebust=1badf8656537fb83110091804da2a289044600de">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=1badf8656537fb83110091804da2a289044600de">
 <!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
 
-<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2"></script>
-<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;chrono&#34;], &#34;namespace&#34;: [&#34;std::chrono&#34;], &#34;id-type&#34;: [&#34;type-alias&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;014a7d5ebfac0ef78c9b0d9fe70e1a776cbcecb9&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;chrono&gt;\n\nnamespace chrono = std::chrono;\n\nint main()\n{\n  // \u672a\u898f\u5b9a\u306e\u6642\u9593\u9593\u9694\u5358\u4f4d\u3092\u3082\u3064\u6642\u9593\u70b9\n  chrono::utc_clock::time_point tp = chrono::utc_clock::now();\n\n  // \u79d2\u5358\u4f4d\u306e\u6642\u9593\u70b9 (\u65e5\u4ed8\u3068\u6642\u9593\u304c\u51fa\u529b\u3055\u308c\u308b)\n  chrono::utc_seconds sec_p = chrono::time_point_cast&lt;chrono::seconds&gt;(tp);\n  std::cout &lt;&lt; sec_p &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;76504aeb38ca97848acae769085ac62c644a0165&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;sstream&gt;\n#include &lt;chrono&gt;\n\nnamespace chrono = std::chrono;\n\nint main()\n{\n  // \u30bf\u30a4\u30e0\u30be\u30fc\u30f3\u3068\u30aa\u30d5\u30bb\u30c3\u30c8\u3092\u542b\u307e\u306a\u3044\u5165\u529b\n  {\n    std::stringstream ss;\n    ss &lt;&lt; \&#34;2019-10-24 20:15:10\&#34;;\n\n    chrono::utc_seconds tp;\n    chrono::from_stream(ss, \&#34;%Y-%m-%d %H:%M:%S\&#34;, tp);\n\n    if (ss) {\n      std::cout &lt;&lt; tp &lt;&lt; std::endl;\n    }\n    else {\n      std::cout &lt;&lt; \&#34;\u89e3\u6790\u5931\u6557\&#34; &lt;&lt; std::endl;\n    }\n  }\n\n  // \u30bf\u30a4\u30e0\u30be\u30fc\u30f3\u3068\u30aa\u30d5\u30bb\u30c3\u30c8\u3092\u542b\u3080\u5165\u529b\n  {\n    std::stringstream ss;\n    ss &lt;&lt; \&#34;2019-10-24 20:15:10 UTC +0900\&#34;;\n\n    chrono::utc_seconds tp;\n    std::string abbrev;\n    chrono::minutes offset{0};\n    chrono::from_stream(ss, \&#34;%Y-%m-%d %H:%M:%S %Z %z\&#34;, tp, &amp;abbrev, &amp;offset);\n\n    std::cout &lt;&lt; tp &lt;&lt; std::endl;\n    std::cout &lt;&lt; abbrev &lt;&lt; std::endl;\n    std::cout &lt;&lt; offset.count() &lt;&lt; std::endl;\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;72d5bbe833bc6525a1cdb737348a3ed6cc82593e&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;chrono&gt;\n#include &lt;format&gt;\n\nnamespace chrono = std::chrono;\n\nint main()\n{\n  chrono::utc_clock::time_point now = chrono::utc_clock::now();\n  chrono::utc_seconds now_sec = chrono::floor&lt;chrono::seconds&gt;(now);\n\n  // \u30c7\u30d5\u30a9\u30eb\u30c8\u30d5\u30a9\u30fc\u30de\u30c3\u30c8\n  std::cout &lt;&lt; std::format(\&#34;1 : {}\&#34;, now_sec) &lt;&lt; std::endl;\n\n  // \u300c\u5e74\u6708\u65e5 \u6642\u5206\u79d2\u300d\u306e\u30d5\u30a9\u30fc\u30de\u30c3\u30c8\n  std::cout &lt;&lt; std::format(\&#34;2 : {:%Y\u5e74%m\u6708%d\u65e5 %H\u6642%M\u5206%S\u79d2}\&#34;, now_sec) &lt;&lt; std::endl;\n\n  // \u65e5\u4ed8\u3092 / (\u30b9\u30e9\u30c3\u30b7\u30e5) \u533a\u5207\u308a\u3001\u6642\u9593\u3092 : (\u30b3\u30ed\u30f3) \u533a\u5207\u308a\u3001\u30bf\u30a4\u30e0\u30be\u30fc\u30f3\u306e\u7565\u79f0\u4ed8\u304d\n  std::cout &lt;&lt; std::format(\&#34;3 : {0:%Y/%m/%d %H:%M:%S %Z}\&#34;, now_sec) &lt;&lt; std::endl;\n\n  // \u65e5\u4ed8\u3060\u3051\u51fa\u529b\n  std::cout &lt;&lt; std::format(\&#34;4 : {:%Y\u5e74%m\u6708%d\u65e5}\&#34;, now_sec) &lt;&lt; std::endl;\n  std::cout &lt;&lt; std::format(\&#34;5 : {:%F}\&#34;, now_sec) &lt;&lt; std::endl;\n\n  // \u6642\u9593\u3060\u3051\u51fa\u529b\n  std::cout &lt;&lt; std::format(\&#34;6 : {:%H\u6642%M\u5206%S\u79d2}\&#34;, now_sec) &lt;&lt; std::endl;\n  std::cout &lt;&lt; std::format(\&#34;7 : {:%T}\&#34;, now_sec) &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;chrono&#34;, &#34;utc_time&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;chrono&#34;], &#34;namespace&#34;: [&#34;std::chrono&#34;], &#34;id-type&#34;: [&#34;type-alias&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;], &#34;alias&#34;: [&#34;utc_seconds&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;014a7d5ebfac0ef78c9b0d9fe70e1a776cbcecb9&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;chrono&gt;\n\nnamespace chrono = std::chrono;\n\nint main()\n{\n  // \u672a\u898f\u5b9a\u306e\u6642\u9593\u9593\u9694\u5358\u4f4d\u3092\u3082\u3064\u6642\u9593\u70b9\n  chrono::utc_clock::time_point tp = chrono::utc_clock::now();\n\n  // \u79d2\u5358\u4f4d\u306e\u6642\u9593\u70b9 (\u65e5\u4ed8\u3068\u6642\u9593\u304c\u51fa\u529b\u3055\u308c\u308b)\n  chrono::utc_seconds sec_p = chrono::time_point_cast&lt;chrono::seconds&gt;(tp);\n  std::cout &lt;&lt; sec_p &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;76504aeb38ca97848acae769085ac62c644a0165&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;sstream&gt;\n#include &lt;chrono&gt;\n\nnamespace chrono = std::chrono;\n\nint main()\n{\n  // \u30bf\u30a4\u30e0\u30be\u30fc\u30f3\u3068\u30aa\u30d5\u30bb\u30c3\u30c8\u3092\u542b\u307e\u306a\u3044\u5165\u529b\n  {\n    std::stringstream ss;\n    ss &lt;&lt; \&#34;2019-10-24 20:15:10\&#34;;\n\n    chrono::utc_seconds tp;\n    chrono::from_stream(ss, \&#34;%Y-%m-%d %H:%M:%S\&#34;, tp);\n\n    if (ss) {\n      std::cout &lt;&lt; tp &lt;&lt; std::endl;\n    }\n    else {\n      std::cout &lt;&lt; \&#34;\u89e3\u6790\u5931\u6557\&#34; &lt;&lt; std::endl;\n    }\n  }\n\n  // \u30bf\u30a4\u30e0\u30be\u30fc\u30f3\u3068\u30aa\u30d5\u30bb\u30c3\u30c8\u3092\u542b\u3080\u5165\u529b\n  {\n    std::stringstream ss;\n    ss &lt;&lt; \&#34;2019-10-24 20:15:10 UTC +0900\&#34;;\n\n    chrono::utc_seconds tp;\n    std::string abbrev;\n    chrono::minutes offset{0};\n    chrono::from_stream(ss, \&#34;%Y-%m-%d %H:%M:%S %Z %z\&#34;, tp, &amp;abbrev, &amp;offset);\n\n    std::cout &lt;&lt; tp &lt;&lt; std::endl;\n    std::cout &lt;&lt; abbrev &lt;&lt; std::endl;\n    std::cout &lt;&lt; offset.count() &lt;&lt; std::endl;\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;72d5bbe833bc6525a1cdb737348a3ed6cc82593e&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;chrono&gt;\n#include &lt;format&gt;\n\nnamespace chrono = std::chrono;\n\nint main()\n{\n  chrono::utc_clock::time_point now = chrono::utc_clock::now();\n  chrono::utc_seconds now_sec = chrono::floor&lt;chrono::seconds&gt;(now);\n\n  // \u30c7\u30d5\u30a9\u30eb\u30c8\u30d5\u30a9\u30fc\u30de\u30c3\u30c8\n  std::cout &lt;&lt; std::format(\&#34;1 : {}\&#34;, now_sec) &lt;&lt; std::endl;\n\n  // \u300c\u5e74\u6708\u65e5 \u6642\u5206\u79d2\u300d\u306e\u30d5\u30a9\u30fc\u30de\u30c3\u30c8\n  std::cout &lt;&lt; std::format(\&#34;2 : {:%Y\u5e74%m\u6708%d\u65e5 %H\u6642%M\u5206%S\u79d2}\&#34;, now_sec) &lt;&lt; std::endl;\n\n  // \u65e5\u4ed8\u3092 / (\u30b9\u30e9\u30c3\u30b7\u30e5) \u533a\u5207\u308a\u3001\u6642\u9593\u3092 : (\u30b3\u30ed\u30f3) \u533a\u5207\u308a\u3001\u30bf\u30a4\u30e0\u30be\u30fc\u30f3\u306e\u7565\u79f0\u4ed8\u304d\n  std::cout &lt;&lt; std::format(\&#34;3 : {0:%Y/%m/%d %H:%M:%S %Z}\&#34;, now_sec) &lt;&lt; std::endl;\n\n  // \u65e5\u4ed8\u3060\u3051\u51fa\u529b\n  std::cout &lt;&lt; std::format(\&#34;4 : {:%Y\u5e74%m\u6708%d\u65e5}\&#34;, now_sec) &lt;&lt; std::endl;\n  std::cout &lt;&lt; std::format(\&#34;5 : {:%F}\&#34;, now_sec) &lt;&lt; std::endl;\n\n  // \u6642\u9593\u3060\u3051\u51fa\u529b\n  std::cout &lt;&lt; std::format(\&#34;6 : {:%H\u6642%M\u5206%S\u79d2}\&#34;, now_sec) &lt;&lt; std::endl;\n  std::cout &lt;&lt; std::format(\&#34;7 : {:%T}\&#34;, now_sec) &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;chrono&#34;, &#34;utc_time&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-10-20T06:49:39">
-        2025年10月20日 06時49分39秒
+      <span itemprop="datePublished" content="2026-01-08T10:58:01">
+        2026年01月08日 10時58分01秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Raclamusi</span>
+        <span itemprop="name">yoh</span>
       </span>
       が更新
     </small></p>

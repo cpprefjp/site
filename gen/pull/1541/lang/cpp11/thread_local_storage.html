@@ -20,7 +20,7 @@
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
-  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp11
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp11,thread_local
 ">
         <meta name="title" content="スレッドローカルストレージ [N2659] - cpprefjp C++日本語リファレンス" />
         <meta itemprop="name" content="スレッドローカルストレージ [N2659] - cpprefjp C++日本語リファレンス" />
@@ -38,26 +38,26 @@
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
-<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
-<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
-<link rel="manifest" href="../../manifest.json?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="manifest" href="../../manifest.json?cachebust=1badf8656537fb83110091804da2a289044600de">
 <meta name="theme-color" content="#f5f8fc">
 
-<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2">
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=1badf8656537fb83110091804da2a289044600de">
 <!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
 
         
   
 
 
-<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
-<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
 
-<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2"></script>
-<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=1dd57ad3a6199920fb428d5f458168d2377523d2"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;2a4599bfd3c0907e015d1b59d19a455faf2a9777&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;thread&gt;\n#include &lt;random&gt;\n#include &lt;cstdint&gt;\n\n// \u7bc4\u56f2[min_inclusive, max_inclusive]\u3067\u30e9\u30f3\u30c0\u30e0\u4e00\u69d8\u5206\u5e03\u3059\u308b\u6574\u6570\u3092\u751f\u6210\u3059\u308b\u3002\n// \u30b9\u30ec\u30c3\u30c9\u3054\u3068\u306b\u4e71\u6570\u306e\u72b6\u614b\u3092\u6301\u3064\u3002\nint random_range(int min_inclusive, int max_inclusive)\n{\n  std::random_device seed_gen;\n  std::uint32_t seed = seed_gen();\n  thread_local std::mt19937 engine(seed);\n  std::uniform_int_distribution&lt;int&gt; dist(min_inclusive, max_inclusive);\n  return dist(engine);\n}\n\nint main()\n{\n  // \u8907\u6570\u306e\u30b9\u30ec\u30c3\u30c9\u304b\u3089\u4e26\u884c\u306brandom_range()\u95a2\u6570\u3092\u547c\u3073\u51fa\u305b\u308b\n  std::thread t1([]{\n    int random_value = random_range(0, 100);\n\n    // \u203bcout\u306b\u5bfe\u3059\u308b\u4e00\u5ea6\u306e\u66f8\u304d\u8fbc\u307f\u306f\u30b9\u30ec\u30c3\u30c9\u30bb\u30fc\u30d5\u3067\u3042\u308b\u305f\u3081\u30013\u3064\u306e\u66f8\u304d\u8fbc\u307f\u30921\u3064\u306b\u7d71\u5408\u3002\n    std::cout &lt;&lt; \&#34;thread1 : \&#34; + std::to_string(random_value) + \&#34;\\n\&#34;;\n  });\n\n  std::thread t2([]{\n    int random_value = random_range(0, 100);\n    std::cout &lt;&lt; \&#34;thread2 : \&#34; + std::to_string(random_value) + \&#34;\\n\&#34;;\n  });\n\n  t1.join();\n  t2.join();\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp11&#34;, &#34;thread_local_storage&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp11&#34;], &#34;alias&#34;: [&#34;thread_local&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;2a4599bfd3c0907e015d1b59d19a455faf2a9777&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;thread&gt;\n#include &lt;random&gt;\n#include &lt;cstdint&gt;\n\n// \u7bc4\u56f2[min_inclusive, max_inclusive]\u3067\u30e9\u30f3\u30c0\u30e0\u4e00\u69d8\u5206\u5e03\u3059\u308b\u6574\u6570\u3092\u751f\u6210\u3059\u308b\u3002\n// \u30b9\u30ec\u30c3\u30c9\u3054\u3068\u306b\u4e71\u6570\u306e\u72b6\u614b\u3092\u6301\u3064\u3002\nint random_range(int min_inclusive, int max_inclusive)\n{\n  std::random_device seed_gen;\n  std::uint32_t seed = seed_gen();\n  thread_local std::mt19937 engine(seed);\n  std::uniform_int_distribution&lt;int&gt; dist(min_inclusive, max_inclusive);\n  return dist(engine);\n}\n\nint main()\n{\n  // \u8907\u6570\u306e\u30b9\u30ec\u30c3\u30c9\u304b\u3089\u4e26\u884c\u306brandom_range()\u95a2\u6570\u3092\u547c\u3073\u51fa\u305b\u308b\n  std::thread t1([]{\n    int random_value = random_range(0, 100);\n\n    // \u203bcout\u306b\u5bfe\u3059\u308b\u4e00\u5ea6\u306e\u66f8\u304d\u8fbc\u307f\u306f\u30b9\u30ec\u30c3\u30c9\u30bb\u30fc\u30d5\u3067\u3042\u308b\u305f\u3081\u30013\u3064\u306e\u66f8\u304d\u8fbc\u307f\u30921\u3064\u306b\u7d71\u5408\u3002\n    std::cout &lt;&lt; \&#34;thread1 : \&#34; + std::to_string(random_value) + \&#34;\\n\&#34;;\n  });\n\n  std::thread t2([]{\n    int random_value = random_range(0, 100);\n    std::cout &lt;&lt; \&#34;thread2 : \&#34; + std::to_string(random_value) + \&#34;\\n\&#34;;\n  });\n\n  t1.join();\n  t2.join();\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp11&#34;, &#34;thread_local_storage&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-10-22T16:15:43">
-        2025年10月22日 16時15分43秒
+      <span itemprop="datePublished" content="2026-01-16T17:13:36">
+        2026年01月16日 17時13分36秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">yoh</span>
       </span>
       が更新
     </small></p>
@@ -214,6 +214,7 @@
         
   <h1 itemprop="name"><span class="token">スレッドローカルストレージ [N2659]</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
 <div itemprop="articleBody"><p></p>
+<p></p>
 <p>このページはC++11に採用された言語機能の変更を解説しています。</p>
 <p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
 <p></p>
