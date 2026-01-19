@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-01-19T13:24:22">
-        2026年01月19日 13時24分22秒
+      <span itemprop="datePublished" content="2026-01-19T14:11:29">
+        2026年01月19日 14時11分29秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -230,7 +230,7 @@
 <p><div class="yata" id="fed18e4189724e278b553ca3f75fb0beecaf0890"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;csignal&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
 
-<span class="k">volatile</span> <span class="n">std</span><span class="o">::</span><span class="kt">sig_atomic_t</span> <span class="n">flag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">volatile</span> <span class="n"><span style="color:#ff0000">std::sig_atomic_t</span></span> <span class="n">flag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
 <span class="kt">void</span> <span class="nf">signal_handler</span><span class="p">(</span><span class="kt">int</span> <span class="n">signum</span><span class="p">)</span>
 <span class="p">{</span>

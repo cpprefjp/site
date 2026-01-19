@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;csignal&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;3fe86ef5957f809cf0b9064ade4f24bfc0d42773&#34;, &#34;source&#34;: &#34;#include &lt;csignal&gt;\n#include &lt;iostream&gt;\n\nvolatile std::sig_atomic_t flag = 0;\n\nvoid signal_handler(int sig)\n{\n  flag = 1;\n  // std::cout &lt;&lt; \&#34;signal: \&#34; &lt;&lt; sig &lt;&lt; std::endl; \u672a\u5b9a\u7fa9\u52d5\u4f5c\n}\n\nint main()\n{\n  std::signal(SIGINT, signal_handler);\n  while (!flag) {\n    //\u51e6\u7406\n  }\n  if (flag) {\n    std::cout &lt;&lt; \&#34;caught SIGINT\&#34; &lt;&lt; std::endl;\n  }\n  return 0;\n}\n\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;csignal&#34;, &#34;signal&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;csignal&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;b19cbf89f5ef1476c53bb4945607323a2c5c4edc&#34;, &#34;source&#34;: &#34;#include &lt;csignal&gt;\n#include &lt;iostream&gt;\n\nvolatile std::sig_atomic_t flag = 0;\n\nvoid signal_handler(int sig)\n{\n  flag = 1;\n  // std::cout &lt;&lt; \&#34;signal: \&#34; &lt;&lt; sig &lt;&lt; std::endl; \u672a\u5b9a\u7fa9\u52d5\u4f5c\n}\n\nint main()\n{\n  std::signal(SIGINT, signal_handler);\n  while (!flag) {\n    //\u51e6\u7406\n  }\n  if (flag) {\n    std::cout &lt;&lt; \&#34;caught SIGINT\&#34; &lt;&lt; std::endl;\n  }\n  return 0;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;csignal&#34;, &#34;signal&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-01-19T13:24:22">
-        2026年01月19日 13時24分22秒
+      <span itemprop="datePublished" content="2026-01-19T14:11:29">
+        2026年01月19日 14時11分29秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -253,7 +253,7 @@
 <h2>備考</h2>
 <p>マルチスレッド内でのこの関数の<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">動作は未定義</a>。</p>
 <h2>例</h2>
-<p><div class="yata" id="3fe86ef5957f809cf0b9064ade4f24bfc0d42773"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;csignal&gt;</span><span class="cp"></span>
+<p><div class="yata" id="b19cbf89f5ef1476c53bb4945607323a2c5c4edc"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;csignal&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
 
 <span class="k">volatile</span> <span class="n">std</span><span class="o">::</span><span class="kt">sig_atomic_t</span> <span class="n">flag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -266,7 +266,7 @@
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">signal</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">signal_handler</span><span class="p">);</span>
+  <span class="n"><span style="color:#ff0000">std::signal</span></span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">signal_handler</span><span class="p">);</span>
   <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">flag</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">//処理</span>
   <span class="p">}</span>

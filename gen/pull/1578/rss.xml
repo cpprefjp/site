@@ -2,9 +2,89 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-01-19T13:34:06.392461</updated>
-  <id>90bef98a-4622-4167-8376-caec621f63d2</id>
+  <updated>2026-01-19T14:16:04.742778</updated>
+  <id>ca399a35-80e1-4f7c-b6da-05a53a7fd038</id>
 
+  
+    <entry>
+      <title>raise -- add code syntax highlight `signal` `raise` `sig_atomic_t`</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/raise.html"/>
+      <id>09f3948558ef3253bc2b7faea5f274ea489a88eb:reference/csignal/raise.md</id>
+      <updated>2026-01-19T23:11:29+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/raise.md b/reference/csignal/raise.md
+index 25a3f67e4..7139da2c9 100644
+--- a/reference/csignal/raise.md
++++ b/reference/csignal/raise.md
+@@ -41,6 +41,7 @@ int main (){
+   return 0;
+ }
+ ```
++* std::raise[color ff0000]
+ 
+ ### 出力例
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>sig_atomic_t -- add code syntax highlight `signal` `raise` `sig_atomic_t`</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sig_atomic_t.html"/>
+      <id>09f3948558ef3253bc2b7faea5f274ea489a88eb:reference/csignal/sig_atomic_t.md</id>
+      <updated>2026-01-19T23:11:29+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_atomic_t.md b/reference/csignal/sig_atomic_t.md
+index a37cea325..cd4f06b02 100644
+--- a/reference/csignal/sig_atomic_t.md
++++ b/reference/csignal/sig_atomic_t.md
+@@ -46,6 +46,7 @@ int main ()
+   return 0;
+ }
+ ```
++* std::sig_atomic_t[color ff0000]
+ 
+ ### 出力例
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>signal -- add code syntax highlight `signal` `raise` `sig_atomic_t`</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/signal.html"/>
+      <id>09f3948558ef3253bc2b7faea5f274ea489a88eb:reference/csignal/signal.md</id>
+      <updated>2026-01-19T23:11:29+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/signal.md b/reference/csignal/signal.md
+index a2717f8e9..ee54ae2dd 100644
+--- a/reference/csignal/signal.md
++++ b/reference/csignal/signal.md
+@@ -72,8 +72,8 @@ int main()
+   }
+   return 0;
+ }
+-
+ ```
++* std::signal[color ff0000]
+ 
+ ### 出力例
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>リファレンス -- add link to csignal</title>
@@ -1237,80 +1317,6 @@ index 0fc299985..5ce18ad1a 100644
 +また、以下の処理以外の動作をシグナルハンドラ内で行うとき、その動作は未定義。
  - `volatile std::sig_atomic_t`への単純な読み書き
  - `_Exit`関数と`abort`関数
- 
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>signal -- fix: indent width, link</title>
-      <link href="https://cpprefjp.github.io/reference/csignal/signal.html"/>
-      <id>ea26611f6aab782b75ef2ebd8e5f21c2c2c46981:reference/csignal/signal.md</id>
-      <updated>2026-01-18T22:52:45+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/signal.md b/reference/csignal/signal.md
-index a27068cc6..0fc299985 100644
---- a/reference/csignal/signal.md
-+++ b/reference/csignal/signal.md
-@@ -22,15 +22,15 @@ namespace std{
- 
- - `sig`: シグナルハンドラを設定するシグナル番号
- - `func`: シグナルに対する処理。以下のいずれかを指定する。
--  - `SIG_DFL`: そのシグナルに対するデフォルト処理を指定する。
--  - `SIG_IGN`: そのシグナルを無視する。
--  - `func`: シグナルハンドラにする関数へのポインタを示す。
-+    - `SIG_DFL`: そのシグナルに対するデフォルト処理を指定する。
-+    - `SIG_IGN`: そのシグナルを無視する。
-+    - `func`: シグナルハンドラにする関数へのポインタを示す。
- 
- ### シグナルハンドラ関数の制約
- シグナルハンドラ関数は戻り値を持たず、`int`型の引数を持つ。
- この引数にはシグナル番号が格納される。
- 
--また、以下の処理以外の動作をシグナルハンドラ内で行うことは未定義である。
-+また、以下の処理以外の動作をシグナルハンドラ内で行うことは未定義。
- - `volatile std::sig_atomic_t`への単純な読み書き
- - `_Exit`関数と`abort`関数
- 
-@@ -41,7 +41,7 @@ namespace std{
- 
- ## 備考
- 
--マルチスレッド内でのこの関数の動作は未定義である。
-+マルチスレッド内でのこの関数の動作は未定義。
- 
- ## 例
- ```cpp example
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>abort -- fix: indent width, link</title>
-      <link href="https://cpprefjp.github.io/reference/cstdlib/abort.html"/>
-      <id>ea26611f6aab782b75ef2ebd8e5f21c2c2c46981:reference/cstdlib/abort.md</id>
-      <updated>2026-01-18T22:52:45+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/abort.md b/reference/cstdlib/abort.md
-index 5e301f80f..c772799a3 100644
---- a/reference/cstdlib/abort.md
-+++ b/reference/cstdlib/abort.md
-@@ -24,7 +24,7 @@ namespace std {
- ```cpp
- raise(SIGABRT);
- ```
--* raise[link /reference/csignal/raise.md.nolink]
-+* raise[link /reference/csignal/raise.md]
- * SIGABRT[link /reference/csignal/sigabrt.md.nolink]
- 
  
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
