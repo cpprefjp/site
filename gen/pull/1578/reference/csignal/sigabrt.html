@@ -16,23 +16,23 @@
 
         <meta charset="UTF-8">
 
-        <title>sig_atomic_t - cpprefjp C++日本語リファレンス</title>
+        <title>SIGABRT - cpprefjp C++日本語リファレンス</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
-  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,csignal,std,type-alias
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,csignal,macro
 ">
-        <meta name="title" content="sig_atomic_t - cpprefjp C++日本語リファレンス" />
-        <meta itemprop="name" content="sig_atomic_t - cpprefjp C++日本語リファレンス" />
-        <meta property="og:title" content="sig_atomic_t - cpprefjp C++日本語リファレンス" />
-        <meta property="og:url" content="https://cpprefjp.github.io/reference/csignal/sig_atomic_t.html" />
+        <meta name="title" content="SIGABRT - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="SIGABRT - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="SIGABRT - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/csignal/sigabrt.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
-        <meta property="og:description" content="`sig_atomic_t`は、非同期シグナルハンドラと通常の実行コンテキストの間で、単純な読み書きを分断されずに行えることが保証された整数型である。" />
+        <meta property="og:description" content="`abort`関数などによる異常終了時に送られるシグナルの、シグナル番号を表す`int`型のマクロ。" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="sig_atomic_t - cpprefjp C++日本語リファレンス" />
-        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/csignal/sig_atomic_t.html" />
-        <meta name="twitter:description" content="`sig_atomic_t`は、非同期シグナルハンドラと通常の実行コンテキストの間で、単純な読み書きを分断されずに行えることが保証された整数型である。" />
+        <meta name="twitter:title" content="SIGABRT - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/csignal/sigabrt.html" />
+        <meta name="twitter:description" content="`abort`関数などによる異常終了時に送られるシグナルの、シグナル番号を表す`int`型のマクロ。" />
 
         
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;csignal&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;type-alias&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;fed18e4189724e278b553ca3f75fb0beecaf0890&#34;, &#34;source&#34;: &#34;#include &lt;csignal&gt;\n#include &lt;iostream&gt;\n\nvolatile std::sig_atomic_t flag = 0;\n\nvoid signal_handler(int signum)\n{\n  flag = 1;\n}\n\nint main ()\n{\n  std::signal(SIGINT, signal_handler);\n  while (!flag) {\n    //\u51e6\u7406\n  }\n  if (flag) {\n    std::cout &lt;&lt; \&#34;caught SIGINT\&#34; &lt;&lt; std::endl;\n  }\n  return 0;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;csignal&#34;, &#34;sig_atomic_t&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;csignal&#34;], &#34;id-type&#34;: [&#34;macro&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;c54138fa8dc2d88b24879856ced2e2d0b17440d4&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;csignal&gt;\n\nint main()\n{\n  std::cout &lt;&lt; SIGABRT &lt;&lt; std::endl;\n  return 0;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;csignal&#34;, &#34;sigabrt&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -171,7 +171,7 @@
         <span>
           
             
-              <span itemprop="name">sig_atomic_t</span>
+              <span itemprop="name">SIGABRT</span>
             
           
         </span>
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-01-19T14:35:12">
-        2026年01月19日 14時35分12秒
+      <span itemprop="datePublished" content="2026-01-19T14:34:31">
+        2026年01月19日 14時34分31秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -200,10 +200,10 @@
   
 
         <p class="text-right">
-          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/csignal/sig_atomic_t.md">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/csignal/sigabrt.md">
             <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
           </a>
-          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/csignal/sig_atomic_t.md">
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/csignal/sigabrt.md">
             <span class="fa fa-fw fa-pencil"></span>編集
           </a>
         </p>
@@ -212,52 +212,31 @@
     <div class="row">
       <div class="col-sm-12 content-body">
         
-  <div class="identifier-type">type-alias</div><div class="header">&lt;csignal&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">sig_atomic_t</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="k">using</span> <span class="kt">sig_atomic_t</span> <span class="o">=</span> <span class="n"><i>integer-type</i></span><span class="p">;</span>
-<span class="p">}</span>
+  <div class="identifier-type">macro</div><div class="header">&lt;csignal&gt;</div><h1 itemprop="name"><span class="token">SIGABRT</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="cp">#define SIGABRT <i>see below</i></span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
-<p><code>sig_atomic_t</code>は、非同期シグナルハンドラと通常の実行コンテキストの間で、単純な読み書きを分断されずに行えることが保証された整数型である。</p>
-<p>この型に対して保証されるのは単純な代入および読み出しのみであり、
-複合操作や算術演算は保証されない。</p>
-<p>実際の使用では通常<code>volatile</code>修飾子と組み合わせて用いられる。</p>
-<p>具体的な型は<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>である。</p>
-<h2>備考</h2>
-<p>最大値は<code>SIG_ATOMIC_MAX</code>、最小値は<code>SIG_ATOMIC_MIN</code>に定義されている。</p>
+<p><code>abort</code>関数などによる異常終了時に送られるシグナルの、シグナル番号を表す<code>int</code>型のマクロ。</p>
+<p>値は正の整数であり、実際の値は<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>である。</p>
 <h2>例</h2>
-<p><div class="yata" id="fed18e4189724e278b553ca3f75fb0beecaf0890"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;csignal&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="c54138fa8dc2d88b24879856ced2e2d0b17440d4"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;csignal&gt;</span><span class="cp"></span>
 
-<span class="k">volatile</span> <span class="n"><span style="color:#ff0000">std::sig_atomic_t</span></span> <span class="n">flag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-
-<span class="kt">void</span> <span class="nf">signal_handler</span><span class="p">(</span><span class="kt">int</span> <span class="n">signum</span><span class="p">)</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">flag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
-<span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">signal</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">signal_handler</span><span class="p">);</span>
-  <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">flag</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">//処理</span>
-  <span class="p">}</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">flag</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"caught SIGINT"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">SIGABRT</span></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
-<h3>出力例</h3>
-<p><pre><code>caught SIGINT
+<h2>出力例</h2>
+<p><pre><code>6
 </code></pre>
-<code>Ctrl + c</code>などで割り込みが発生した場合。  </p>
+処理系により異なる</p>
 <h2>関連項目</h2>
 <ul>
-<li><code><a href="../cstdint/sig_atomic_max.html">SIG_ATOMIC_MAX</a></code></li>
-<li><code><a href="../cstdint/sig_atomic_min.html">SIG_ATOMIC_MIN</a></code></li>
+<li><code><a href="../cstdlib/abort.html">abort</a></code></li>
 </ul></div>
 
       </div>
