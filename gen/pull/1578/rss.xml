@@ -2,9 +2,161 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-01-18T14:44:03.610599</updated>
-  <id>16da46a0-1380-4cad-a944-c36b4304b162</id>
+  <updated>2026-01-19T13:29:25.952118</updated>
+  <id>696d0f59-b233-4347-9920-f6c5562e88c3</id>
 
+  
+    <entry>
+      <title>raise -- ご指摘頂いた箇所の修正</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/raise.html"/>
+      <id>2dc1f3fd33d21f638053a82a7bbc9a006c3b85c9:reference/csignal/raise.md</id>
+      <updated>2026-01-19T22:24:22+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/raise.md b/reference/csignal/raise.md
+index 4e11f12a8..25a3f67e4 100644
+--- a/reference/csignal/raise.md
++++ b/reference/csignal/raise.md
+@@ -10,7 +10,7 @@ namespace std {
+ ```
+ 
+ ## 概要
+-プログラムにシグナルを送信する。
++現在のプログラムにシグナルを送信する。
+ 
+ ## 引数
+ - `sig`: 送信するシグナル番号
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>sig_atomic_t -- ご指摘頂いた箇所の修正</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sig_atomic_t.html"/>
+      <id>2dc1f3fd33d21f638053a82a7bbc9a006c3b85c9:reference/csignal/sig_atomic_t.md</id>
+      <updated>2026-01-19T22:24:22+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_atomic_t.md b/reference/csignal/sig_atomic_t.md
+index 747ad4079..a37cea325 100644
+--- a/reference/csignal/sig_atomic_t.md
++++ b/reference/csignal/sig_atomic_t.md
+@@ -8,7 +8,6 @@ namespace std {
+   using sig_atomic_t = integer-type;
+ }
+ ```
+-
+ * integer-type[italic]
+ 
+ ## 概要
+@@ -38,19 +37,19 @@ void signal_handler(int signum)
+ int main ()
+ {
+   std::signal(SIGINT, signal_handler);
+-  while(!flag){
++  while (!flag) {
+     //処理
+- }
+- if (flag){
+-  std::cout &amp;lt;&amp;lt; &amp;#34;catch SIGINT&amp;#34; &amp;lt;&amp;lt; std::endl;
+- }
+- return 0;
++  }
++  if (flag) {
++    std::cout &amp;lt;&amp;lt; &amp;#34;caught SIGINT&amp;#34; &amp;lt;&amp;lt; std::endl;
++  }
++  return 0;
+ }
+ ```
+ 
+ ### 出力例
+ ```
+-catch SIGINT
++caught SIGINT
+ ```
+ `Ctrl + c`などで割り込みが発生した場合。  
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>signal -- ご指摘頂いた箇所の修正</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/signal.html"/>
+      <id>2dc1f3fd33d21f638053a82a7bbc9a006c3b85c9:reference/csignal/signal.md</id>
+      <updated>2026-01-19T22:24:22+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/signal.md b/reference/csignal/signal.md
+index d4dfcbcd9..a2717f8e9 100644
+--- a/reference/csignal/signal.md
++++ b/reference/csignal/signal.md
+@@ -5,9 +5,11 @@
+ 
+ ```cpp
+ namespace std{
+-  signal-handler* signal(int sig, signal-handler func);
++  extern &amp;#34;C&amp;#34; using signal-handler = void(int); // exposition only
++  signal-handler* signal(int sig, signal-handler* func);
+ }
+ ```
++* signal-handler[italic]
+ 
+ ## 概要
+ 
+@@ -28,9 +30,14 @@ namespace std{
+ シグナルハンドラ関数は戻り値を持たず、`int`型の引数を持つ。
+ この引数にはシグナル番号が格納される。
+ 
+-また、以下の処理以外の動作をシグナルハンドラ内で行うとき、その動作は未定義。
+-- `volatile std::sig_atomic_t`への単純な読み書き
+-- `_Exit`関数と`abort`関数
++シグナルハンドラ内で以下以外の処理を行うことは未定義動作である。
++- `volatile std::sig_atomic_t`オブジェクトへの代入
++- `abort`関数
++- `_Exit`関数
++- `quick_exit`関数
++- `atomic`引数がロックフリーである場合の`&amp;lt;stdatomic.h&amp;gt;`内の関数
++- 任意の`atomic`引数を持つ`atomic_is_lock_free`関数
++- `signal`関数（ただし、ハンドラを起こしたシグナル番号に対する呼び出しに限る）
+ 
+ ## 戻り値
+ 
+@@ -57,12 +64,11 @@ void signal_handler(int sig)
+ int main()
+ {
+   std::signal(SIGINT, signal_handler);
+-  while(!flag){
++  while (!flag) {
+     //処理
+   }
+-  if(flag)
+-  {
+-    std::cout &amp;lt;&amp;lt; &amp;#34;catch SIGINT&amp;#34; &amp;lt;&amp;lt; std::endl;
++  if (flag) {
++    std::cout &amp;lt;&amp;lt; &amp;#34;caught SIGINT&amp;#34; &amp;lt;&amp;lt; std::endl;
+   }
+   return 0;
+ }
+@@ -71,5 +77,5 @@ int main()
+ 
+ ### 出力例
+ ```
+-catch SIGINT
++caught SIGINT
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>csignal -- add line signal,fixint head size</title>
@@ -381,210 +533,6 @@ index 000000000..a27068cc6
 +```
 +catch SIGINT
 +```
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>csignal -- add new posts `csignal/sig_atomic_t`</title>
-      <link href="https://cpprefjp.github.io/reference/csignal.html"/>
-      <id>8c1353a0e84d65da5954da034fe8089a96fe0cec:reference/csignal.md</id>
-      <updated>2026-01-18T21:06:56+09:00</updated>
-      
-        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;csignal&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;csignal&lt;/span&gt;&lt;/h1&gt;
-&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;csignal&amp;gt;&lt;/code&gt;ヘッダでは、シグナル操作のための機能を定義する。
-シグナルの集合、意味、及びデフォルトの処理は処理系定義である。&lt;/p&gt;
-&lt;h2&gt;型&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/sig_atomic_t.html&#34;&gt;sig_atomic_t&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;非同期シグナルハンドラからアトミックなエンティティとしてアクセス可能な整数型&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;マクロ&lt;/h2&gt;
-&lt;h3&gt;&lt;code&gt;signal&lt;/code&gt;関数用のハンドラ指定子&lt;/h3&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;SIG_DFL&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;デフォルト動作を指定する&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;SIG_ERR&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;signal&lt;/code&gt;関数が失敗したことを示す戻り値。&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;SIG_IGN&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;シグナルを無視する&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3&gt;シグナル番号を表すマクロ&lt;/h3&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;SIGINT&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;割り込みを示すシグナル番号&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;SIGILL&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;不正な命令を示すシグナル番号&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;SIGABRT&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;abort&lt;/code&gt;関数などによる異常終了を示すシグナル番号&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;SIGFPE&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;算術演算エラーを示すシグナル番号&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;SIGSEGV&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;記憶領域への不正アクセスを示すシグナル番号&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;SIGTERM&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;終了要求を示すシグナル番号&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;関数&lt;/h2&gt;
-&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名前&lt;/th&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;対応バージョン&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;signal&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;特定のシグナルに対するシグナルハンドラを設定する&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/raise.html&#34;&gt;raise&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;プログラムにシグナルを送信する&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;&lt;/div&gt;</content>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>sig_atomic_t -- add new posts `csignal/sig_atomic_t`</title>
-      <link href="https://cpprefjp.github.io/reference/csignal/sig_atomic_t.html"/>
-      <id>8c1353a0e84d65da5954da034fe8089a96fe0cec:reference/csignal/sig_atomic_t.md</id>
-      <updated>2026-01-18T21:06:56+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_atomic_t.md b/reference/csignal/sig_atomic_t.md
-new file mode 100644
-index 000000000..747ad4079
---- /dev/null
-+++ b/reference/csignal/sig_atomic_t.md
-@@ -0,0 +1,59 @@
-+# sig_atomic_t
-+* csignal[meta header]
-+* std[meta namespace]
-+* type-alias[meta id-type]
-+
-+```cpp
-+namespace std {
-+  using sig_atomic_t = integer-type;
-+}
-+```
-+
-+* integer-type[italic]
-+
-+## 概要
-+`sig_atomic_t`は、非同期シグナルハンドラと通常の実行コンテキストの間で、単純な読み書きを分断されずに行えることが保証された整数型である。
-+
-+この型に対して保証されるのは単純な代入および読み出しのみであり、
-+複合操作や算術演算は保証されない。
-+実際の使用では通常`volatile`修飾子と組み合わせて用いられる。
-+
-+具体的な型は処理系定義である。
-+
-+## 備考
-+最大値は`SIG_ATOMIC_MAX`、最小値は`SIG_ATOMIC_MIN`に定義されている。
-+
-+## 例
-+```cpp example
-+#include &amp;lt;csignal&amp;gt;
-+#include &amp;lt;iostream&amp;gt;
-+
-+volatile std::sig_atomic_t flag = 0;
-+
-+void signal_handler(int signum)
-+{
-+  flag = 1;
-+}
-+
-+int main ()
-+{
-+  std::signal(SIGINT, signal_handler);
-+  while(!flag){
-+    //処理
-+ }
-+ if (flag){
-+  std::cout &amp;lt;&amp;lt; &amp;#34;catch SIGINT&amp;#34; &amp;lt;&amp;lt; std::endl;
-+ }
-+ return 0;
-+}
-+```
-+
-+### 出力例
-+```
-+catch SIGINT
-+```
-+`Ctrl + c`などで割り込みが発生した場合。  
-+
-+## 関連項目
-+- [`SIG_ATOMIC_MAX`](/reference/cstdint/sig_atomic_max.md)
-+- [`SIG_ATOMIC_MIN`](/reference/cstdint/sig_atomic_min.md)
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>

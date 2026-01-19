@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;csignal&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;016b4ff983a4c06cd1093c0cd2a4aafcf1666d91&#34;, &#34;source&#34;: &#34;#include &lt;csignal&gt;\n#include &lt;iostream&gt;\n\nvolatile std::sig_atomic_t flag = 0;\n\nvoid signal_handler(int sig)\n{\n  flag = 1;\n  // std::cout &lt;&lt; \&#34;signal: \&#34; &lt;&lt; sig &lt;&lt; std::endl; \u672a\u5b9a\u7fa9\u52d5\u4f5c\n}\n\nint main()\n{\n  std::signal(SIGINT, signal_handler);\n  while(!flag){\n    //\u51e6\u7406\n  }\n  if(flag)\n  {\n    std::cout &lt;&lt; \&#34;catch SIGINT\&#34; &lt;&lt; std::endl;\n  }\n  return 0;\n}\n\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;csignal&#34;, &#34;signal&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;csignal&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;3fe86ef5957f809cf0b9064ade4f24bfc0d42773&#34;, &#34;source&#34;: &#34;#include &lt;csignal&gt;\n#include &lt;iostream&gt;\n\nvolatile std::sig_atomic_t flag = 0;\n\nvoid signal_handler(int sig)\n{\n  flag = 1;\n  // std::cout &lt;&lt; \&#34;signal: \&#34; &lt;&lt; sig &lt;&lt; std::endl; \u672a\u5b9a\u7fa9\u52d5\u4f5c\n}\n\nint main()\n{\n  std::signal(SIGINT, signal_handler);\n  while (!flag) {\n    //\u51e6\u7406\n  }\n  if (flag) {\n    std::cout &lt;&lt; \&#34;caught SIGINT\&#34; &lt;&lt; std::endl;\n  }\n  return 0;\n}\n\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;csignal&#34;, &#34;signal&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-01-18T14:39:37">
-        2026年01月18日 14時39分37秒
+      <span itemprop="datePublished" content="2026-01-19T13:24:22">
+        2026年01月19日 13時24分22秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -214,7 +214,8 @@
         
   <div class="identifier-type">function</div><div class="header">&lt;csignal&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">signal</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="p">{</span>
-  <span class="n">signal</span><span class="o">-</span><span class="n">handler</span><span class="o">*</span> <span class="n">signal</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">,</span> <span class="n">signal</span><span class="o">-</span><span class="n">handler</span> <span class="n">func</span><span class="p">);</span>
+  <span class="k">extern</span> <span class="s">"C"</span> <span class="k">using</span> <span class="n"><i>signal-handler</i></span> <span class="o">=</span> <span class="kt">void</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span> <span class="c1">// exposition only</span>
+  <span class="n"><i>signal-handler</i></span><span class="o">*</span> <span class="nf">signal</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">,</span> <span class="n"><i>signal-handler</i></span><span class="o">*</span> <span class="n">func</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -236,10 +237,15 @@
 <h3>シグナルハンドラ関数の制約</h3>
 <p>シグナルハンドラ関数は<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を持たず、<code>int</code>型の引数を持つ。
 この引数にはシグナル番号が格納される。</p>
-<p>また、以下の処理以外の動作をシグナルハンドラ内で行うとき、その<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">動作は未定義</a>。</p>
+<p>シグナルハンドラ内で以下以外の処理を行うことは<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>である。</p>
 <ul>
-<li><code>volatile std::sig_atomic_t</code>への単純な読み書き</li>
-<li><code>_Exit</code>関数と<code>abort</code>関数</li>
+<li><code>volatile std::sig_atomic_t</code>オブジェクトへの代入</li>
+<li><code>abort</code>関数</li>
+<li><code>_Exit</code>関数</li>
+<li><code>quick_exit</code>関数</li>
+<li><code>atomic</code>引数がロックフリーである場合の<code>&lt;stdatomic.h&gt;</code>内の関数</li>
+<li>任意の<code>atomic</code>引数を持つ<code>atomic_is_lock_free</code>関数</li>
+<li><code>signal</code>関数（ただし、ハンドラを起こしたシグナル番号に対する呼び出しに限る）</li>
 </ul>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p>成功した場合、指定されたシグナルに対する直前のハンドラを返す。
@@ -247,7 +253,7 @@
 <h2>備考</h2>
 <p>マルチスレッド内でのこの関数の<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">動作は未定義</a>。</p>
 <h2>例</h2>
-<p><div class="yata" id="016b4ff983a4c06cd1093c0cd2a4aafcf1666d91"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;csignal&gt;</span><span class="cp"></span>
+<p><div class="yata" id="3fe86ef5957f809cf0b9064ade4f24bfc0d42773"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;csignal&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
 
 <span class="k">volatile</span> <span class="n">std</span><span class="o">::</span><span class="kt">sig_atomic_t</span> <span class="n">flag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -261,19 +267,18 @@
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
   <span class="n">std</span><span class="o">::</span><span class="n">signal</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">signal_handler</span><span class="p">);</span>
-  <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">flag</span><span class="p">){</span>
+  <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">flag</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">//処理</span>
   <span class="p">}</span>
-  <span class="k">if</span><span class="p">(</span><span class="n">flag</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"catch SIGINT"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">flag</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"caught SIGINT"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
   <span class="p">}</span>
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 <h3>出力例</h3>
-<p><pre><code>catch SIGINT
+<p><pre><code>caught SIGINT
 </code></pre></p></div>
 
       </div>
