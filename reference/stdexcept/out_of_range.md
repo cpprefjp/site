@@ -42,7 +42,7 @@ int main() {
 ```
 * vec.at[link /reference/vector/vector/at.md]
 
-### 出力（標準エラー出力）
+### 出力例（標準エラー出力）
 
 ```
 vector::_M_range_check: __n (which is 3) >= this->size() (which is 3)

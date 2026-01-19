@@ -49,7 +49,7 @@ int main() {
 ```
 * std::sqrt[link /reference/cmath/sqrt.md]
 
-### 出力 (標準エラー出力)
+### 出力例 (標準エラー出力)
 ```
 Cannot calculate the square root of a negative number.
 ```

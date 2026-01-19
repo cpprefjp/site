@@ -50,7 +50,7 @@ int main() {
 ```
 * std::stoi[link /reference/string/stoi.md]
 
-### 出力（標準エラー出力）
+### 出力例（標準エラー出力）
 ```
 value must be positive
 ```
