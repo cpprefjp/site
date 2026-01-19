@@ -2,76 +2,14 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-01-19T14:41:08.622366</updated>
-  <id>2397edf1-1c9a-40cd-86f6-64ee851cbf34</id>
+  <updated>2026-01-19T15:09:20.020535</updated>
+  <id>9647720b-7d2e-4042-9fe6-874bf5ca6749</id>
 
-  
-    <entry>
-      <title>abort -- リンクの修正</title>
-      <link href="https://cpprefjp.github.io/reference/cstdlib/abort.html"/>
-      <id>28daf3ed97148159a029b520578a0585bd2ca5af:reference/cstdlib/abort.md</id>
-      <updated>2026-01-19T23:36:39+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/abort.md b/reference/cstdlib/abort.md
-index c772799a3..cf3d5ac90 100644
---- a/reference/cstdlib/abort.md
-+++ b/reference/cstdlib/abort.md
-@@ -13,7 +13,7 @@ namespace std {
- ## 概要
- プログラムを異常終了させる。
- 
--この関数は、シグナルハンドラでシグナル[`SIGABRT`](/reference/csignal/sigabrt.md.nolink)を捕捉しない限り、プログラムを異常終了させる。
-+この関数は、シグナルハンドラでシグナル[`SIGABRT`](/reference/csignal/sigabrt.md)を捕捉しない限り、プログラムを異常終了させる。
- 
- この関数を呼び出したときに生存しているオブジェクトは、破棄されない。
- 
-@@ -25,7 +25,7 @@ namespace std {
- raise(SIGABRT);
- ```
- * raise[link /reference/csignal/raise.md]
--* SIGABRT[link /reference/csignal/sigabrt.md.nolink]
-+* SIGABRT[link /reference/csignal/sigabrt.md]
- 
- 
- ## 戻り値
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>sig_atomic_t -- 細かい記述の変更</title>
-      <link href="https://cpprefjp.github.io/reference/csignal/sig_atomic_t.html"/>
-      <id>8b2026591211458a6875404ef6c80287d06a7bf1:reference/csignal/sig_atomic_t.md</id>
-      <updated>2026-01-19T23:35:12+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_atomic_t.md b/reference/csignal/sig_atomic_t.md
-index cd4f06b02..9d73d0f83 100644
---- a/reference/csignal/sig_atomic_t.md
-+++ b/reference/csignal/sig_atomic_t.md
-@@ -15,6 +15,7 @@ namespace std {
- 
- この型に対して保証されるのは単純な代入および読み出しのみであり、
- 複合操作や算術演算は保証されない。
-+
- 実際の使用では通常`volatile`修飾子と組み合わせて用いられる。
- 
- 具体的な型は処理系定義である。
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
-      </author>
-    </entry>
   
     <entry>
       <title>csignal -- add 6 page defines signal types macro</title>
       <link href="https://cpprefjp.github.io/reference/csignal.html"/>
-      <id>dfae43d2b589e98b4e05f35e84dfcd16a3d04c7d:reference/csignal.md</id>
+      <id>ca630e23ab830f2c0bf2ccefde6ceb8a37df294e:reference/csignal.md</id>
       <updated>2026-01-19T23:34:31+09:00</updated>
       
         <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;csignal&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;csignal&lt;/span&gt;&lt;/h1&gt;
@@ -194,9 +132,35 @@ index cd4f06b02..9d73d0f83 100644
     </entry>
   
     <entry>
+      <title>sig_atomic_t -- add 6 page defines signal types macro</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sig_atomic_t.html"/>
+      <id>ca630e23ab830f2c0bf2ccefde6ceb8a37df294e:reference/csignal/sig_atomic_t.md</id>
+      <updated>2026-01-19T23:34:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_atomic_t.md b/reference/csignal/sig_atomic_t.md
+index cd4f06b02..9d73d0f83 100644
+--- a/reference/csignal/sig_atomic_t.md
++++ b/reference/csignal/sig_atomic_t.md
+@@ -15,6 +15,7 @@ namespace std {
+ 
+ この型に対して保証されるのは単純な代入および読み出しのみであり、
+ 複合操作や算術演算は保証されない。
++
+ 実際の使用では通常`volatile`修飾子と組み合わせて用いられる。
+ 
+ 具体的な型は処理系定義である。
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
       <title>SIGABRT -- add 6 page defines signal types macro</title>
       <link href="https://cpprefjp.github.io/reference/csignal/sigabrt.html"/>
-      <id>dfae43d2b589e98b4e05f35e84dfcd16a3d04c7d:reference/csignal/sigabrt.md</id>
+      <id>ca630e23ab830f2c0bf2ccefde6ceb8a37df294e:reference/csignal/sigabrt.md</id>
       <updated>2026-01-19T23:34:31+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sigabrt.md b/reference/csignal/sigabrt.md
@@ -250,7 +214,7 @@ index 000000000..950b73bce
     <entry>
       <title>SIGFPE -- add 6 page defines signal types macro</title>
       <link href="https://cpprefjp.github.io/reference/csignal/sigfpe.html"/>
-      <id>dfae43d2b589e98b4e05f35e84dfcd16a3d04c7d:reference/csignal/sigfpe.md</id>
+      <id>ca630e23ab830f2c0bf2ccefde6ceb8a37df294e:reference/csignal/sigfpe.md</id>
       <updated>2026-01-19T23:34:31+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sigfpe.md b/reference/csignal/sigfpe.md
@@ -301,7 +265,7 @@ index 000000000..0c219973d
     <entry>
       <title>SIGILL -- add 6 page defines signal types macro</title>
       <link href="https://cpprefjp.github.io/reference/csignal/sigill.html"/>
-      <id>dfae43d2b589e98b4e05f35e84dfcd16a3d04c7d:reference/csignal/sigill.md</id>
+      <id>ca630e23ab830f2c0bf2ccefde6ceb8a37df294e:reference/csignal/sigill.md</id>
       <updated>2026-01-19T23:34:31+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sigill.md b/reference/csignal/sigill.md
@@ -352,7 +316,7 @@ index 000000000..0fb00bc22
     <entry>
       <title>SIGINT -- add 6 page defines signal types macro</title>
       <link href="https://cpprefjp.github.io/reference/csignal/sigint.html"/>
-      <id>dfae43d2b589e98b4e05f35e84dfcd16a3d04c7d:reference/csignal/sigint.md</id>
+      <id>ca630e23ab830f2c0bf2ccefde6ceb8a37df294e:reference/csignal/sigint.md</id>
       <updated>2026-01-19T23:34:31+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sigint.md b/reference/csignal/sigint.md
@@ -403,7 +367,7 @@ index 000000000..dcda15ce8
     <entry>
       <title>signal -- add 6 page defines signal types macro</title>
       <link href="https://cpprefjp.github.io/reference/csignal/signal.html"/>
-      <id>dfae43d2b589e98b4e05f35e84dfcd16a3d04c7d:reference/csignal/signal.md</id>
+      <id>ca630e23ab830f2c0bf2ccefde6ceb8a37df294e:reference/csignal/signal.md</id>
       <updated>2026-01-19T23:34:31+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/signal.md b/reference/csignal/signal.md
@@ -429,7 +393,7 @@ index ee54ae2dd..c487fd128 100644
     <entry>
       <title>SIGSEGV -- add 6 page defines signal types macro</title>
       <link href="https://cpprefjp.github.io/reference/csignal/sigsegv.html"/>
-      <id>dfae43d2b589e98b4e05f35e84dfcd16a3d04c7d:reference/csignal/sigsegv.md</id>
+      <id>ca630e23ab830f2c0bf2ccefde6ceb8a37df294e:reference/csignal/sigsegv.md</id>
       <updated>2026-01-19T23:34:31+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sigsegv.md b/reference/csignal/sigsegv.md
@@ -480,7 +444,7 @@ index 000000000..da5ee5693
     <entry>
       <title>SIGTERM -- add 6 page defines signal types macro</title>
       <link href="https://cpprefjp.github.io/reference/csignal/sigterm.html"/>
-      <id>dfae43d2b589e98b4e05f35e84dfcd16a3d04c7d:reference/csignal/sigterm.md</id>
+      <id>ca630e23ab830f2c0bf2ccefde6ceb8a37df294e:reference/csignal/sigterm.md</id>
       <updated>2026-01-19T23:34:31+09:00</updated>
       
         <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sigterm.md b/reference/csignal/sigterm.md
@@ -520,6 +484,42 @@ index 000000000..488df5613
 +15
 +```
 +処理系により異なる
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>abort -- add 6 page defines signal types macro</title>
+      <link href="https://cpprefjp.github.io/reference/cstdlib/abort.html"/>
+      <id>ca630e23ab830f2c0bf2ccefde6ceb8a37df294e:reference/cstdlib/abort.md</id>
+      <updated>2026-01-19T23:34:31+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/abort.md b/reference/cstdlib/abort.md
+index c772799a3..cf3d5ac90 100644
+--- a/reference/cstdlib/abort.md
++++ b/reference/cstdlib/abort.md
+@@ -13,7 +13,7 @@ namespace std {
+ ## 概要
+ プログラムを異常終了させる。
+ 
+-この関数は、シグナルハンドラでシグナル[`SIGABRT`](/reference/csignal/sigabrt.md.nolink)を捕捉しない限り、プログラムを異常終了させる。
++この関数は、シグナルハンドラでシグナル[`SIGABRT`](/reference/csignal/sigabrt.md)を捕捉しない限り、プログラムを異常終了させる。
+ 
+ この関数を呼び出したときに生存しているオブジェクトは、破棄されない。
+ 
+@@ -25,7 +25,7 @@ namespace std {
+ raise(SIGABRT);
+ ```
+ * raise[link /reference/csignal/raise.md]
+-* SIGABRT[link /reference/csignal/sigabrt.md.nolink]
++* SIGABRT[link /reference/csignal/sigabrt.md]
+ 
+ 
+ ## 戻り値
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
@@ -1477,6 +1477,343 @@ index a2717f8e9..ee54ae2dd 100644
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2867r2.html&#34; target=&#34;_blank&#34;&gt;P2867R2 Remove Deprecated &lt;code&gt;strstream&lt;/code&gt;s From C++26&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>raise -- ご指摘頂いた箇所の修正</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/raise.html"/>
+      <id>2dc1f3fd33d21f638053a82a7bbc9a006c3b85c9:reference/csignal/raise.md</id>
+      <updated>2026-01-19T22:24:22+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/raise.md b/reference/csignal/raise.md
+index 4e11f12a8..25a3f67e4 100644
+--- a/reference/csignal/raise.md
++++ b/reference/csignal/raise.md
+@@ -10,7 +10,7 @@ namespace std {
+ ```
+ 
+ ## 概要
+-プログラムにシグナルを送信する。
++現在のプログラムにシグナルを送信する。
+ 
+ ## 引数
+ - `sig`: 送信するシグナル番号
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>sig_atomic_t -- ご指摘頂いた箇所の修正</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sig_atomic_t.html"/>
+      <id>2dc1f3fd33d21f638053a82a7bbc9a006c3b85c9:reference/csignal/sig_atomic_t.md</id>
+      <updated>2026-01-19T22:24:22+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_atomic_t.md b/reference/csignal/sig_atomic_t.md
+index 747ad4079..a37cea325 100644
+--- a/reference/csignal/sig_atomic_t.md
++++ b/reference/csignal/sig_atomic_t.md
+@@ -8,7 +8,6 @@ namespace std {
+   using sig_atomic_t = integer-type;
+ }
+ ```
+-
+ * integer-type[italic]
+ 
+ ## 概要
+@@ -38,19 +37,19 @@ void signal_handler(int signum)
+ int main ()
+ {
+   std::signal(SIGINT, signal_handler);
+-  while(!flag){
++  while (!flag) {
+     //処理
+- }
+- if (flag){
+-  std::cout &amp;lt;&amp;lt; &amp;#34;catch SIGINT&amp;#34; &amp;lt;&amp;lt; std::endl;
+- }
+- return 0;
++  }
++  if (flag) {
++    std::cout &amp;lt;&amp;lt; &amp;#34;caught SIGINT&amp;#34; &amp;lt;&amp;lt; std::endl;
++  }
++  return 0;
+ }
+ ```
+ 
+ ### 出力例
+ ```
+-catch SIGINT
++caught SIGINT
+ ```
+ `Ctrl + c`などで割り込みが発生した場合。  
+ 
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>signal -- ご指摘頂いた箇所の修正</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/signal.html"/>
+      <id>2dc1f3fd33d21f638053a82a7bbc9a006c3b85c9:reference/csignal/signal.md</id>
+      <updated>2026-01-19T22:24:22+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/signal.md b/reference/csignal/signal.md
+index d4dfcbcd9..a2717f8e9 100644
+--- a/reference/csignal/signal.md
++++ b/reference/csignal/signal.md
+@@ -5,9 +5,11 @@
+ 
+ ```cpp
+ namespace std{
+-  signal-handler* signal(int sig, signal-handler func);
++  extern &amp;#34;C&amp;#34; using signal-handler = void(int); // exposition only
++  signal-handler* signal(int sig, signal-handler* func);
+ }
+ ```
++* signal-handler[italic]
+ 
+ ## 概要
+ 
+@@ -28,9 +30,14 @@ namespace std{
+ シグナルハンドラ関数は戻り値を持たず、`int`型の引数を持つ。
+ この引数にはシグナル番号が格納される。
+ 
+-また、以下の処理以外の動作をシグナルハンドラ内で行うとき、その動作は未定義。
+-- `volatile std::sig_atomic_t`への単純な読み書き
+-- `_Exit`関数と`abort`関数
++シグナルハンドラ内で以下以外の処理を行うことは未定義動作である。
++- `volatile std::sig_atomic_t`オブジェクトへの代入
++- `abort`関数
++- `_Exit`関数
++- `quick_exit`関数
++- `atomic`引数がロックフリーである場合の`&amp;lt;stdatomic.h&amp;gt;`内の関数
++- 任意の`atomic`引数を持つ`atomic_is_lock_free`関数
++- `signal`関数（ただし、ハンドラを起こしたシグナル番号に対する呼び出しに限る）
+ 
+ ## 戻り値
+ 
+@@ -57,12 +64,11 @@ void signal_handler(int sig)
+ int main()
+ {
+   std::signal(SIGINT, signal_handler);
+-  while(!flag){
++  while (!flag) {
+     //処理
+   }
+-  if(flag)
+-  {
+-    std::cout &amp;lt;&amp;lt; &amp;#34;catch SIGINT&amp;#34; &amp;lt;&amp;lt; std::endl;
++  if (flag) {
++    std::cout &amp;lt;&amp;lt; &amp;#34;caught SIGINT&amp;#34; &amp;lt;&amp;lt; std::endl;
+   }
+   return 0;
+ }
+@@ -71,5 +77,5 @@ int main()
+ 
+ ### 出力例
+ ```
+-catch SIGINT
++caught SIGINT
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>csignal -- add line signal,fixint head size</title>
+      <link href="https://cpprefjp.github.io/reference/csignal.html"/>
+      <id>00cf01789432438964ae1206317d232aa83c836e:reference/csignal.md</id>
+      <updated>2026-01-18T23:39:37+09:00</updated>
+      
+        <content type="html">&lt;div class=&#34;header&#34;&gt;&amp;lt;csignal&amp;gt;&lt;/div&gt;&lt;h1 itemprop=&#34;name&#34;&gt;&lt;span class=&#34;token&#34;&gt;csignal&lt;/span&gt;&lt;/h1&gt;
+&lt;div itemprop=&#34;articleBody&#34;&gt;&lt;p&gt;&lt;code&gt;&amp;lt;csignal&amp;gt;&lt;/code&gt;ヘッダでは、シグナル操作のための機能を定義する。
+シグナルの集合、意味、及びデフォルトの処理は処理系定義である。&lt;/p&gt;
+&lt;h2&gt;型&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/sig_atomic_t.html&#34;&gt;sig_atomic_t&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;非同期シグナルハンドラからアトミックなエンティティとしてアクセス可能な整数型&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;マクロ&lt;/h2&gt;
+&lt;h3&gt;&lt;code&gt;signal&lt;/code&gt;関数用のハンドラ指定子&lt;/h3&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SIG_DFL&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;デフォルト動作を指定する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SIG_ERR&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;signal&lt;/code&gt;関数が失敗したことを示す戻り値&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SIG_IGN&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;シグナルを無視する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;シグナル番号を表すマクロ&lt;/h3&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SIGINT&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;割り込みを示すシグナル番号&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SIGILL&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;不正な命令を示すシグナル番号&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SIGABRT&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;abort&lt;/code&gt;関数などによる異常終了を示すシグナル番号&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SIGFPE&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;算術演算エラーを示すシグナル番号&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SIGSEGV&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;記憶領域への不正アクセスを示すシグナル番号&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SIGTERM&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;終了要求を示すシグナル番号&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;関数&lt;/h2&gt;
+&lt;table border=&#34;1&#34; bordercolor=&#34;#888&#34; style=&#34;border-collapse:collapse&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名前&lt;/th&gt;
+&lt;th&gt;説明&lt;/th&gt;
+&lt;th&gt;対応バージョン&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/signal.html&#34;&gt;signal&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;特定のシグナルに対するシグナルハンドラを設定する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;&lt;a href=&#34;csignal/raise.html&#34;&gt;raise&lt;/a&gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;プログラムにシグナルを送信する&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;/div&gt;</content>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>raise -- add line signal,fixint head size</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/raise.html"/>
+      <id>00cf01789432438964ae1206317d232aa83c836e:reference/csignal/raise.md</id>
+      <updated>2026-01-18T23:39:37+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/raise.md b/reference/csignal/raise.md
+index e42a53e12..4e11f12a8 100644
+--- a/reference/csignal/raise.md
++++ b/reference/csignal/raise.md
+@@ -1,4 +1,4 @@
+-## raise
++# raise
+ * csignal[meta header]
+ * std[meta namespace]
+ * function[meta id-type]
+@@ -30,7 +30,7 @@ namespace std {
+ volatile std::sig_atomic_t got_signal = 0;
+ 
+ void signal_handler(int signum) {
+-    got_signal = 1;
++  got_signal = 1;
+ }
+ 
+ int main (){
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>signal -- add line signal,fixint head size</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/signal.html"/>
+      <id>00cf01789432438964ae1206317d232aa83c836e:reference/csignal/signal.md</id>
+      <updated>2026-01-18T23:39:37+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/signal.md b/reference/csignal/signal.md
+index 5ce18ad1a..d4dfcbcd9 100644
+--- a/reference/csignal/signal.md
++++ b/reference/csignal/signal.md
+@@ -9,8 +9,6 @@ namespace std{
+ }
+ ```
+ 
+-* signal-handler[italic]
+-
+ ## 概要
+ 
+ シグナル番号`sig`の受け取り後の処理を指定する。
+&lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
         <name>K10-K10</name>
