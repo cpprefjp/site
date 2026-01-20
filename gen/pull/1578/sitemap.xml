@@ -2173,7 +2173,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/csignal/sigint.html</loc>
-      <lastmod>2026-01-21T00:13:01+09:00</lastmod>
+      <lastmod>2026-01-21T00:23:00+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -2215,7 +2215,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/csignal/sigill.html</loc>
-      <lastmod>2026-01-21T00:13:01+09:00</lastmod>
+      <lastmod>2026-01-21T00:23:00+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
@@ -2229,7 +2229,7 @@
   
     <url>
       <loc>https://cpprefjp.github.io/reference/csignal/sigterm.html</loc>
-      <lastmod>2026-01-21T00:13:01+09:00</lastmod>
+      <lastmod>2026-01-21T00:23:00+09:00</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>

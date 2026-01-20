@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;csignal&#34;], &#34;id-type&#34;: [&#34;macro&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;f21c89638c7fde6db43f51593496e3231ca48318&#34;, &#34;source&#34;: &#34;#include &lt;csignal&gt;\n#include &lt;cstdlib&gt;\n\nvoid handler(int sig)\n{\n  std::_Exit(0);\n}\n\nint main()\n{\n  std::signal(SIGILL, handler);\n  std::raise(SIGILL);\n  return 0;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;csignal&#34;, &#34;sigill&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;csignal&#34;], &#34;id-type&#34;: [&#34;macro&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;6a48bdc49c42ae188ccc9de9a7e15270598c2f5a&#34;, &#34;source&#34;: &#34;#include &lt;csignal&gt;\n#include &lt;cstdlib&gt;\n\nvoid handler(int)\n{\n  std::_Exit(0);\n}\n\nint main()\n{\n  std::signal(SIGILL, handler);\n  std::raise(SIGILL);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;csignal&#34;, &#34;sigill&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-01-20T15:13:01">
-        2026年01月20日 15時13分01秒
+      <span itemprop="datePublished" content="2026-01-20T15:23:00">
+        2026年01月20日 15時23分00秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -220,10 +220,10 @@
 <p>無効な命令を実行しようとした際に送られるシグナルの、シグナル番号を表すマクロ。</p>
 <p><code>int</code>型の正の整数の定数式に展開され、実際の値は<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>。</p>
 <h2>例</h2>
-<p><div class="yata" id="f21c89638c7fde6db43f51593496e3231ca48318"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;csignal&gt;</span><span class="cp"></span>
+<p><div class="yata" id="6a48bdc49c42ae188ccc9de9a7e15270598c2f5a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;csignal&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../cstdlib.html">&lt;cstdlib&gt;</a></span><span class="cp"></span>
 
-<span class="kt">void</span> <span class="nf">handler</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">)</span>
+<span class="kt">void</span> <span class="nf">handler</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="n">std</span><span class="o">::</span><span class="n">_Exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 <span class="p">}</span>
@@ -232,13 +232,11 @@
 <span class="p">{</span>
   <span class="n">std</span><span class="o">::</span><span class="n">signal</span><span class="p">(</span><span class="n"><span style="color:#ff0000">SIGILL</span></span><span class="p">,</span> <span class="n">handler</span><span class="p">);</span>
   <span class="n">std</span><span class="o">::</span><span class="n">raise</span><span class="p">(</span><span class="n"><span style="color:#ff0000">SIGILL</span></span><span class="p">);</span>
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 <h3>出力</h3>
-<p><pre><code>SIGILL received
-</code></pre></p></div>
+<p><pre><code></code></pre></p></div>
 
       </div>
     </div>

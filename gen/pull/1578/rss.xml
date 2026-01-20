@@ -2,9 +2,127 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-01-20T15:17:37.335999</updated>
-  <id>294da722-e1e9-4888-8e3a-7b287d53d287</id>
+  <updated>2026-01-20T15:31:31.105633</updated>
+  <id>25643670-2acf-4093-9c0c-72660b745695</id>
 
+  
+    <entry>
+      <title>SIGILL -- コードの修正</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sigill.html"/>
+      <id>85a0b023dd563881f27255a4fa35a4c2ae520060:reference/csignal/sigill.md</id>
+      <updated>2026-01-21T00:23:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sigill.md b/reference/csignal/sigill.md
+index 0741b7459..7907a0c82 100644
+--- a/reference/csignal/sigill.md
++++ b/reference/csignal/sigill.md
+@@ -16,7 +16,7 @@
+ #include &amp;lt;csignal&amp;gt;
+ #include &amp;lt;cstdlib&amp;gt;
+ 
+-void handler(int sig)
++void handler(int)
+ {
+   std::_Exit(0);
+ }
+@@ -25,12 +25,10 @@ int main()
+ {
+   std::signal(SIGILL, handler);
+   std::raise(SIGILL);
+-  return 0;
+ }
+ ```
+ * SIGILL[color ff0000]
+ 
+ ### 出力
+ ```
+-SIGILL received
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>SIGINT -- コードの修正</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sigint.html"/>
+      <id>85a0b023dd563881f27255a4fa35a4c2ae520060:reference/csignal/sigint.md</id>
+      <updated>2026-01-21T00:23:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sigint.md b/reference/csignal/sigint.md
+index 8cdad7ece..7424bd03d 100644
+--- a/reference/csignal/sigint.md
++++ b/reference/csignal/sigint.md
+@@ -14,23 +14,19 @@
+ ## 例
+ ```cpp example
+ #include &amp;lt;csignal&amp;gt;
+-#include &amp;lt;iostream&amp;gt;
++#include &amp;lt;cstdlib&amp;gt;
+ 
+ volatile std::sig_atomic_t flag = 0;
+ 
+-void handler(int sig)
++void handler(int)
+ {
+-  flag = 1;
++  std::_Exit(0);
+ }
+ 
+ int main()
+ {
+   std::signal(SIGINT, handler);
+   std::raise(SIGINT);
+-  if (flag)
+-  {
+-    std::cout &amp;lt;&amp;lt; &amp;#34;SIGINT received&amp;#34; &amp;lt;&amp;lt; std::endl;
+-  }
+   return 0;
+ }
+ ```
+@@ -38,5 +34,4 @@ int main()
+ 
+ ### 出力
+ ```
+-SIGINT received
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>SIGTERM -- コードの修正</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sigterm.html"/>
+      <id>85a0b023dd563881f27255a4fa35a4c2ae520060:reference/csignal/sigterm.md</id>
+      <updated>2026-01-21T00:23:00+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sigterm.md b/reference/csignal/sigterm.md
+index 63e806f14..01890575d 100644
+--- a/reference/csignal/sigterm.md
++++ b/reference/csignal/sigterm.md
+@@ -16,7 +16,7 @@
+ #include &amp;lt;csignal&amp;gt;
+ #include &amp;lt;cstdlib&amp;gt;
+ 
+-void handler(int sig)
++void handler(int)
+ {
+   std::_Exit(0);
+ }
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>SIGABRT -- sig*: コードサンプルの修正</title>
@@ -1082,159 +1200,6 @@ index c772799a3..cf3d5ac90 100644
  
  
  ## 戻り値
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>raise -- ご指摘頂いた箇所の修正</title>
-      <link href="https://cpprefjp.github.io/reference/csignal/raise.html"/>
-      <id>1454a122e6eea10844188a97cbf602dacd489c90:reference/csignal/raise.md</id>
-      <updated>2026-01-19T22:24:22+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/raise.md b/reference/csignal/raise.md
-index 997b66adb..7139da2c9 100644
---- a/reference/csignal/raise.md
-+++ b/reference/csignal/raise.md
-@@ -10,7 +10,7 @@ namespace std {
- ```
- 
- ## 概要
--プログラムにシグナルを送信する。
-+現在のプログラムにシグナルを送信する。
- 
- ## 引数
- - `sig`: 送信するシグナル番号
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>sig_atomic_t -- ご指摘頂いた箇所の修正</title>
-      <link href="https://cpprefjp.github.io/reference/csignal/sig_atomic_t.html"/>
-      <id>1454a122e6eea10844188a97cbf602dacd489c90:reference/csignal/sig_atomic_t.md</id>
-      <updated>2026-01-19T22:24:22+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_atomic_t.md b/reference/csignal/sig_atomic_t.md
-index 6e911df96..cd4f06b02 100644
---- a/reference/csignal/sig_atomic_t.md
-+++ b/reference/csignal/sig_atomic_t.md
-@@ -8,7 +8,6 @@ namespace std {
-   using sig_atomic_t = integer-type;
- }
- ```
--
- * integer-type[italic]
- 
- ## 概要
-@@ -38,20 +37,20 @@ void signal_handler(int signum)
- int main ()
- {
-   std::signal(SIGINT, signal_handler);
--  while(!flag){
-+  while (!flag) {
-     //処理
-- }
-- if (flag){
--  std::cout &amp;lt;&amp;lt; &amp;#34;catch SIGINT&amp;#34; &amp;lt;&amp;lt; std::endl;
-- }
-- return 0;
-+  }
-+  if (flag) {
-+    std::cout &amp;lt;&amp;lt; &amp;#34;caught SIGINT&amp;#34; &amp;lt;&amp;lt; std::endl;
-+  }
-+  return 0;
- }
- ```
- * std::sig_atomic_t[color ff0000]
- 
- ### 出力例
- ```
--catch SIGINT
-+caught SIGINT
- ```
- `Ctrl + c`などで割り込みが発生した場合。  
- 
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>signal -- ご指摘頂いた箇所の修正</title>
-      <link href="https://cpprefjp.github.io/reference/csignal/signal.html"/>
-      <id>1454a122e6eea10844188a97cbf602dacd489c90:reference/csignal/signal.md</id>
-      <updated>2026-01-19T22:24:22+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/signal.md b/reference/csignal/signal.md
-index eec0815c2..ee54ae2dd 100644
---- a/reference/csignal/signal.md
-+++ b/reference/csignal/signal.md
-@@ -5,9 +5,11 @@
- 
- ```cpp
- namespace std{
--  signal-handler* signal(int sig, signal-handler func);
-+  extern &amp;#34;C&amp;#34; using signal-handler = void(int); // exposition only
-+  signal-handler* signal(int sig, signal-handler* func);
- }
- ```
-+* signal-handler[italic]
- 
- ## 概要
- 
-@@ -28,9 +30,14 @@ namespace std{
- シグナルハンドラ関数は戻り値を持たず、`int`型の引数を持つ。
- この引数にはシグナル番号が格納される。
- 
--また、以下の処理以外の動作をシグナルハンドラ内で行うとき、その動作は未定義。
--- `volatile std::sig_atomic_t`への単純な読み書き
--- `_Exit`関数と`abort`関数
-+シグナルハンドラ内で以下以外の処理を行うことは未定義動作である。
-+- `volatile std::sig_atomic_t`オブジェクトへの代入
-+- `abort`関数
-+- `_Exit`関数
-+- `quick_exit`関数
-+- `atomic`引数がロックフリーである場合の`&amp;lt;stdatomic.h&amp;gt;`内の関数
-+- 任意の`atomic`引数を持つ`atomic_is_lock_free`関数
-+- `signal`関数（ただし、ハンドラを起こしたシグナル番号に対する呼び出しに限る）
- 
- ## 戻り値
- 
-@@ -57,12 +64,11 @@ void signal_handler(int sig)
- int main()
- {
-   std::signal(SIGINT, signal_handler);
--  while(!flag){
-+  while (!flag) {
-     //処理
-   }
--  if(flag)
--  {
--    std::cout &amp;lt;&amp;lt; &amp;#34;catch SIGINT&amp;#34; &amp;lt;&amp;lt; std::endl;
-+  if (flag) {
-+    std::cout &amp;lt;&amp;lt; &amp;#34;caught SIGINT&amp;#34; &amp;lt;&amp;lt; std::endl;
-   }
-   return 0;
- }
-@@ -71,5 +77,5 @@ int main()
- 
- ### 出力例
- ```
--catch SIGINT
-+caught SIGINT
- ```
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>

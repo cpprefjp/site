@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;csignal&#34;], &#34;id-type&#34;: [&#34;macro&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;0e1debfc3ddfdd6b4538c84ad44d29a4ebe9ae67&#34;, &#34;source&#34;: &#34;#include &lt;csignal&gt;\n#include &lt;iostream&gt;\n\nvolatile std::sig_atomic_t flag = 0;\n\nvoid handler(int sig)\n{\n  flag = 1;\n}\n\nint main()\n{\n  std::signal(SIGINT, handler);\n  std::raise(SIGINT);\n  if (flag)\n  {\n    std::cout &lt;&lt; \&#34;SIGINT received\&#34; &lt;&lt; std::endl;\n  }\n  return 0;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;csignal&#34;, &#34;sigint&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;csignal&#34;], &#34;id-type&#34;: [&#34;macro&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;b385528ad58db1b0b03903975266d92db21d0e0c&#34;, &#34;source&#34;: &#34;#include &lt;csignal&gt;\n#include &lt;cstdlib&gt;\n\nvolatile std::sig_atomic_t flag = 0;\n\nvoid handler(int)\n{\n  std::_Exit(0);\n}\n\nint main()\n{\n  std::signal(SIGINT, handler);\n  std::raise(SIGINT);\n  return 0;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;csignal&#34;, &#34;sigint&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-01-20T15:13:01">
-        2026年01月20日 15時13分01秒
+      <span itemprop="datePublished" content="2026-01-20T15:23:00">
+        2026年01月20日 15時23分00秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -220,31 +220,26 @@
 <p>外部割り込みが発生した際に送られるシグナルの、シグナル番号を表すマクロ。</p>
 <p><code>int</code>型の正の整数の定数式に展開され、実際の値は<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>。</p>
 <h2>例</h2>
-<p><div class="yata" id="0e1debfc3ddfdd6b4538c84ad44d29a4ebe9ae67"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;csignal&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="b385528ad58db1b0b03903975266d92db21d0e0c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;csignal&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../cstdlib.html">&lt;cstdlib&gt;</a></span><span class="cp"></span>
 
 <span class="k">volatile</span> <span class="n">std</span><span class="o">::</span><span class="kt">sig_atomic_t</span> <span class="n">flag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-<span class="kt">void</span> <span class="nf">handler</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">)</span>
+<span class="kt">void</span> <span class="nf">handler</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="n">flag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">_Exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
   <span class="n">std</span><span class="o">::</span><span class="n">signal</span><span class="p">(</span><span class="n"><span style="color:#ff0000">SIGINT</span></span><span class="p">,</span> <span class="n">handler</span><span class="p">);</span>
   <span class="n">std</span><span class="o">::</span><span class="n">raise</span><span class="p">(</span><span class="n"><span style="color:#ff0000">SIGINT</span></span><span class="p">);</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">flag</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"<span style="color:#ff0000">SIGINT</span> received"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="p">}</span>
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
 <h3>出力</h3>
-<p><pre><code>SIGINT received
-</code></pre></p></div>
+<p><pre><code></code></pre></p></div>
 
       </div>
     </div>
