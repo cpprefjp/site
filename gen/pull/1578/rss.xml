@@ -2,9 +2,571 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-01-19T16:10:39.242241</updated>
-  <id>06c10ad5-3324-4892-9994-1a25bf0d0777</id>
+  <updated>2026-01-20T15:17:37.335999</updated>
+  <id>294da722-e1e9-4888-8e3a-7b287d53d287</id>
 
+  
+    <entry>
+      <title>SIGABRT -- sig*: コードサンプルの修正</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sigabrt.html"/>
+      <id>05c45443905a81932673d78f9a09143ae9ffb34c:reference/csignal/sigabrt.md</id>
+      <updated>2026-01-21T00:13:01+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sigabrt.md b/reference/csignal/sigabrt.md
+index 8582f7c2a..8475ca2ed 100644
+--- a/reference/csignal/sigabrt.md
++++ b/reference/csignal/sigabrt.md
+@@ -13,22 +13,23 @@
+ 
+ ## 例
+ ```cpp example
+-#include &amp;lt;iostream&amp;gt;
+ #include &amp;lt;csignal&amp;gt;
++#include &amp;lt;cstdlib&amp;gt;
+ 
+-int main()
+-{
+-  std::cout &amp;lt;&amp;lt; SIGABRT &amp;lt;&amp;lt; std::endl;
+-  return 0;
++void handler(int) {
++    std::_Exit(0);
++}
++
++int main() {
++    std::signal(SIGABRT, handler);
++    std::abort();
+ }
+ ```
+ * SIGABRT[color ff0000]
+ 
+-### 出力例
++### 出力
+ ```
+-6
+ ```
+-処理系により異なる
+ 
+ ## 関連項目
+ - [`abort`](/reference/cstdlib/abort.md)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>SIGFPE -- sig*: コードサンプルの修正</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sigfpe.html"/>
+      <id>05c45443905a81932673d78f9a09143ae9ffb34c:reference/csignal/sigfpe.md</id>
+      <updated>2026-01-21T00:13:01+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sigfpe.md b/reference/csignal/sigfpe.md
+index 76ea1fb53..34e24396c 100644
+--- a/reference/csignal/sigfpe.md
++++ b/reference/csignal/sigfpe.md
+@@ -13,19 +13,27 @@
+ 
+ ## 例
+ ```cpp example
+-#include &amp;lt;iostream&amp;gt;
+ #include &amp;lt;csignal&amp;gt;
++#include &amp;lt;cstdlib&amp;gt;
++
++void handler(int)
++{
++  std::_Exit(0);
++}
+ 
+ int main()
+ {
+-  std::cout &amp;lt;&amp;lt; SIGFPE &amp;lt;&amp;lt; std::endl;
+-  return 0;
++  std::signal(SIGFPE, handler);
++
++  volatile double x = 1.0;
++  volatile double y = 0.0;
++  // 浮動小数点の 0 除算。
++  // SIGFPE が発生することもあるが、規格上は保証されない。
++  x = x / y;
+ }
+ ```
+ * SIGFPE[color ff0000]
+ 
+-### 出力例
++### 出力
+ ```
+-8
+ ```
+-処理系により異なる
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>SIGILL -- sig*: コードサンプルの修正</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sigill.html"/>
+      <id>05c45443905a81932673d78f9a09143ae9ffb34c:reference/csignal/sigill.md</id>
+      <updated>2026-01-21T00:13:01+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sigill.md b/reference/csignal/sigill.md
+index acc241fd0..0741b7459 100644
+--- a/reference/csignal/sigill.md
++++ b/reference/csignal/sigill.md
+@@ -13,19 +13,24 @@
+ 
+ ## 例
+ ```cpp example
+-#include &amp;lt;iostream&amp;gt;
+ #include &amp;lt;csignal&amp;gt;
++#include &amp;lt;cstdlib&amp;gt;
++
++void handler(int sig)
++{
++  std::_Exit(0);
++}
+ 
+ int main()
+ {
+-  std::cout &amp;lt;&amp;lt; SIGILL &amp;lt;&amp;lt; std::endl;
++  std::signal(SIGILL, handler);
++  std::raise(SIGILL);
+   return 0;
+ }
+ ```
+ * SIGILL[color ff0000]
+ 
+-### 出力例
++### 出力
+ ```
+-4
++SIGILL received
+ ```
+-処理系により異なる
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>SIGINT -- sig*: コードサンプルの修正</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sigint.html"/>
+      <id>05c45443905a81932673d78f9a09143ae9ffb34c:reference/csignal/sigint.md</id>
+      <updated>2026-01-21T00:13:01+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sigint.md b/reference/csignal/sigint.md
+index ebee223c2..8cdad7ece 100644
+--- a/reference/csignal/sigint.md
++++ b/reference/csignal/sigint.md
+@@ -13,19 +13,30 @@
+ 
+ ## 例
+ ```cpp example
+-#include &amp;lt;iostream&amp;gt;
+ #include &amp;lt;csignal&amp;gt;
++#include &amp;lt;iostream&amp;gt;
++
++volatile std::sig_atomic_t flag = 0;
++
++void handler(int sig)
++{
++  flag = 1;
++}
+ 
+ int main()
+ {
+-  std::cout &amp;lt;&amp;lt; SIGINT &amp;lt;&amp;lt; std::endl;
++  std::signal(SIGINT, handler);
++  std::raise(SIGINT);
++  if (flag)
++  {
++    std::cout &amp;lt;&amp;lt; &amp;#34;SIGINT received&amp;#34; &amp;lt;&amp;lt; std::endl;
++  }
+   return 0;
+ }
+ ```
+ * SIGINT[color ff0000]
+ 
+-### 出力例
++### 出力
+ ```
+-2
++SIGINT received
+ ```
+-処理系により異なる
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>SIGSEGV -- sig*: コードサンプルの修正</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sigsegv.html"/>
+      <id>05c45443905a81932673d78f9a09143ae9ffb34c:reference/csignal/sigsegv.md</id>
+      <updated>2026-01-21T00:13:01+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sigsegv.md b/reference/csignal/sigsegv.md
+index 8a5e3c2a6..893f40e99 100644
+--- a/reference/csignal/sigsegv.md
++++ b/reference/csignal/sigsegv.md
+@@ -13,19 +13,26 @@
+ 
+ ## 例
+ ```cpp example
+-#include &amp;lt;iostream&amp;gt;
+ #include &amp;lt;csignal&amp;gt;
++#include &amp;lt;cstdlib&amp;gt;
++
++void signal_handler(int)
++{
++  std::_Exit(0);
++}
+ 
+ int main()
+ {
+-  std::cout &amp;lt;&amp;lt; SIGSEGV &amp;lt;&amp;lt; std::endl;
++  std::signal(SIGSEGV, signal_handler);
++
++  int *p = nullptr;
++  *p = 42; // 未定義動作。多くの処理系では SIGSEGV が発生するが、保証はない。
++
+   return 0;
+ }
+ ```
+ * SIGSEGV[color ff0000]
+ 
+-### 出力例
++### 出力
+ ```
+-11
+ ```
+-処理系により異なる
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>SIGTERM -- sig*: コードサンプルの修正</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sigterm.html"/>
+      <id>05c45443905a81932673d78f9a09143ae9ffb34c:reference/csignal/sigterm.md</id>
+      <updated>2026-01-21T00:13:01+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sigterm.md b/reference/csignal/sigterm.md
+index 72edf5ce8..63e806f14 100644
+--- a/reference/csignal/sigterm.md
++++ b/reference/csignal/sigterm.md
+@@ -13,19 +13,23 @@
+ 
+ ## 例
+ ```cpp example
+-#include &amp;lt;iostream&amp;gt;
+ #include &amp;lt;csignal&amp;gt;
++#include &amp;lt;cstdlib&amp;gt;
++
++void handler(int sig)
++{
++  std::_Exit(0);
++}
+ 
+ int main()
+ {
+-  std::cout &amp;lt;&amp;lt; SIGTERM &amp;lt;&amp;lt; std::endl;
++  std::signal(SIGTERM, handler);
++  std::raise(SIGTERM);
+   return 0;
+ }
+ ```
+ * SIGTERM[color ff0000]
+ 
+-### 出力例
++### 出力
+ ```
+-15
+ ```
+-処理系により異なる
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>SIGABRT -- sig*のマクロの説明を変更</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sigabrt.html"/>
+      <id>1bb663b456c4b47181e0d604c2762352b1803a8a:reference/csignal/sigabrt.md</id>
+      <updated>2026-01-20T18:46:26+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sigabrt.md b/reference/csignal/sigabrt.md
+index 950b73bce..8582f7c2a 100644
+--- a/reference/csignal/sigabrt.md
++++ b/reference/csignal/sigabrt.md
+@@ -7,9 +7,9 @@
+ ```
+ 
+ ## 概要
+-`abort`関数などによる異常終了時に送られるシグナルの、シグナル番号を表す`int`型のマクロ。
++`abort`関数などによる異常終了時に送られるシグナルの、シグナル番号を表すマクロ。
+ 
+-値は正の整数であり、実際の値は処理系定義である。
++`int`型の正の整数の定数式に展開され、実際の値は未規定。
+ 
+ ## 例
+ ```cpp example
+@@ -24,7 +24,7 @@ int main()
+ ```
+ * SIGABRT[color ff0000]
+ 
+-## 出力例
++### 出力例
+ ```
+ 6
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>SIGFPE -- sig*のマクロの説明を変更</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sigfpe.html"/>
+      <id>1bb663b456c4b47181e0d604c2762352b1803a8a:reference/csignal/sigfpe.md</id>
+      <updated>2026-01-20T18:46:26+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sigfpe.md b/reference/csignal/sigfpe.md
+index 0c219973d..76ea1fb53 100644
+--- a/reference/csignal/sigfpe.md
++++ b/reference/csignal/sigfpe.md
+@@ -7,9 +7,9 @@
+ ```
+ 
+ ## 概要
+-算術演算エラー（ゼロ除算など）が発生した際に送られるシグナルの、シグナル番号を表す`int`型のマクロ。
++算術演算エラー（浮動小数点例外など）が発生した際に送られるシグナルの、シグナル番号を表すマクロ。
+ 
+-値は正の整数であり、実際の値は処理系定義である。
++`int`型の正の整数の定数式に展開され、実際の値は未規定。
+ 
+ ## 例
+ ```cpp example
+@@ -24,7 +24,7 @@ int main()
+ ```
+ * SIGFPE[color ff0000]
+ 
+-## 出力例
++### 出力例
+ ```
+ 8
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>SIGILL -- sig*のマクロの説明を変更</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sigill.html"/>
+      <id>1bb663b456c4b47181e0d604c2762352b1803a8a:reference/csignal/sigill.md</id>
+      <updated>2026-01-20T18:46:26+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sigill.md b/reference/csignal/sigill.md
+index 0fb00bc22..acc241fd0 100644
+--- a/reference/csignal/sigill.md
++++ b/reference/csignal/sigill.md
+@@ -7,9 +7,9 @@
+ ```
+ 
+ ## 概要
+-無効な命令を実行しようとした際に送られるシグナルの、シグナル番号を表す`int`型のマクロ。
++無効な命令を実行しようとした際に送られるシグナルの、シグナル番号を表すマクロ。
+ 
+-値は正の整数であり、実際の値は処理系定義である。
++`int`型の正の整数の定数式に展開され、実際の値は未規定。
+ 
+ ## 例
+ ```cpp example
+@@ -24,7 +24,7 @@ int main()
+ ```
+ * SIGILL[color ff0000]
+ 
+-## 出力例
++### 出力例
+ ```
+ 4
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>SIGINT -- sig*のマクロの説明を変更</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sigint.html"/>
+      <id>1bb663b456c4b47181e0d604c2762352b1803a8a:reference/csignal/sigint.md</id>
+      <updated>2026-01-20T18:46:26+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sigint.md b/reference/csignal/sigint.md
+index dcda15ce8..ebee223c2 100644
+--- a/reference/csignal/sigint.md
++++ b/reference/csignal/sigint.md
+@@ -7,9 +7,9 @@
+ ```
+ 
+ ## 概要
+-外部割り込みが発生した際に送られるシグナルの、シグナル番号を表す`int`型のマクロ。
++外部割り込みが発生した際に送られるシグナルの、シグナル番号を表すマクロ。
+ 
+-値は正の整数であり、実際の値は処理系定義である。
++`int`型の正の整数の定数式に展開され、実際の値は未規定。
+ 
+ ## 例
+ ```cpp example
+@@ -24,7 +24,7 @@ int main()
+ ```
+ * SIGINT[color ff0000]
+ 
+-## 出力例
++### 出力例
+ ```
+ 2
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>SIGSEGV -- sig*のマクロの説明を変更</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sigsegv.html"/>
+      <id>1bb663b456c4b47181e0d604c2762352b1803a8a:reference/csignal/sigsegv.md</id>
+      <updated>2026-01-20T18:46:26+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sigsegv.md b/reference/csignal/sigsegv.md
+index da5ee5693..8a5e3c2a6 100644
+--- a/reference/csignal/sigsegv.md
++++ b/reference/csignal/sigsegv.md
+@@ -7,9 +7,9 @@
+ ```
+ 
+ ## 概要
+-無効なメモリアクセス（不正なアドレス参照など）が発生した際に送られるシグナルの、シグナル番号を表す`int`型のマクロ。
++無効なメモリアクセス（不正なアドレス参照など）が発生した際に送られるシグナルの、シグナル番号を表すマクロ。
+ 
+-値は正の整数であり、実際の値は処理系定義である。
++`int`型の正の整数の定数式に展開され、実際の値は未規定。
+ 
+ ## 例
+ ```cpp example
+@@ -24,7 +24,7 @@ int main()
+ ```
+ * SIGSEGV[color ff0000]
+ 
+-## 出力例
++### 出力例
+ ```
+ 11
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>SIGTERM -- sig*のマクロの説明を変更</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/sigterm.html"/>
+      <id>1bb663b456c4b47181e0d604c2762352b1803a8a:reference/csignal/sigterm.md</id>
+      <updated>2026-01-20T18:46:26+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sigterm.md b/reference/csignal/sigterm.md
+index 488df5613..72edf5ce8 100644
+--- a/reference/csignal/sigterm.md
++++ b/reference/csignal/sigterm.md
+@@ -7,9 +7,9 @@
+ ```
+ 
+ ## 概要
+-プロセスの終了を要求するために送られるシグナルの、シグナル番号を表す`int`型のマクロ。
++プロセスの終了を要求するために送られるシグナルの、シグナル番号を表すマクロ。
+ 
+-値は正の整数であり、実際の値は処理系定義である。
++`int`型の正の整数の定数式に展開され、実際の値は未規定。
+ 
+ ## 例
+ ```cpp example
+@@ -24,7 +24,7 @@ int main()
+ ```
+ * SIGTERM[color ff0000]
+ 
+-## 出力例
++### 出力例
+ ```
+ 15
+ ```
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>signal -- code format</title>
+      <link href="https://cpprefjp.github.io/reference/csignal/signal.html"/>
+      <id>53866c8411183c99fb813716a4139010118fd356:reference/csignal/signal.md</id>
+      <updated>2026-01-20T18:10:54+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/signal.md b/reference/csignal/signal.md
+index c487fd128..09d085d7e 100644
+--- a/reference/csignal/signal.md
++++ b/reference/csignal/signal.md
+@@ -4,7 +4,7 @@
+ * function[meta id-type]
+ 
+ ```cpp
+-namespace std{
++namespace std {
+   extern &amp;#34;C&amp;#34; using signal-handler = void(int); // exposition only
+   signal-handler* signal(int sig, signal-handler* func);
+ }
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>K10-K10</name>
+        <email>keito.tottori@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>csignal -- add 6 page defines signal types macro</title>
@@ -673,277 +1235,6 @@ index eec0815c2..ee54ae2dd 100644
 -catch SIGINT
 +caught SIGINT
  ```
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>signal -- add new ref `csignal/signal`</title>
-      <link href="https://cpprefjp.github.io/reference/csignal/signal.html"/>
-      <id>cbe45c2530877aaffe5fa8ee8761b8624e3b2ca7:reference/csignal/signal.md</id>
-      <updated>2026-01-18T22:49:07+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/signal.md b/reference/csignal/signal.md
-new file mode 100644
-index 000000000..eec0815c2
---- /dev/null
-+++ b/reference/csignal/signal.md
-@@ -0,0 +1,75 @@
-+# signal
-+* csignal[meta header]
-+* std[meta namespace]
-+* function[meta id-type]
-+
-+```cpp
-+namespace std{
-+  signal-handler* signal(int sig, signal-handler func);
-+}
-+```
-+
-+## 概要
-+
-+シグナル番号`sig`の受け取り後の処理を指定する。
-+`func`の値が`SIG_DFL`の場合、そのシグナルに対するデフォルトの処理が行われる。
-+`func`の値が`SIG_IGN`の場合、そのシグナルを無視する。
-+それ以外の場合、関数`func`が実行される。
-+
-+## 引数
-+
-+- `sig`: シグナルハンドラを設定するシグナル番号
-+- `func`: シグナルに対する処理。以下のいずれかを指定する。
-+    - `SIG_DFL`: そのシグナルに対するデフォルト処理を指定する。
-+    - `SIG_IGN`: そのシグナルを無視する。
-+    - `func`: シグナルハンドラにする関数へのポインタを示す。
-+
-+### シグナルハンドラ関数の制約
-+シグナルハンドラ関数は戻り値を持たず、`int`型の引数を持つ。
-+この引数にはシグナル番号が格納される。
-+
-+また、以下の処理以外の動作をシグナルハンドラ内で行うとき、その動作は未定義。
-+- `volatile std::sig_atomic_t`への単純な読み書き
-+- `_Exit`関数と`abort`関数
-+
-+## 戻り値
-+
-+成功した場合、指定されたシグナルに対する直前のハンドラを返す。
-+それ以外の場合は`SIG_ERR`を返す
-+
-+## 備考
-+
-+マルチスレッド内でのこの関数の動作は未定義。
-+
-+## 例
-+```cpp example
-+#include &amp;lt;csignal&amp;gt;
-+#include &amp;lt;iostream&amp;gt;
-+
-+volatile std::sig_atomic_t flag = 0;
-+
-+void signal_handler(int sig)
-+{
-+  flag = 1;
-+  // std::cout &amp;lt;&amp;lt; &amp;#34;signal: &amp;#34; &amp;lt;&amp;lt; sig &amp;lt;&amp;lt; std::endl; 未定義動作
-+}
-+
-+int main()
-+{
-+  std::signal(SIGINT, signal_handler);
-+  while(!flag){
-+    //処理
-+  }
-+  if(flag)
-+  {
-+    std::cout &amp;lt;&amp;lt; &amp;#34;catch SIGINT&amp;#34; &amp;lt;&amp;lt; std::endl;
-+  }
-+  return 0;
-+}
-+```
-+* std::signal[color ff0000]
-+
-+### 出力例
-+```
-+catch SIGINT
-+```
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>abort -- add new ref `csignal/signal`</title>
-      <link href="https://cpprefjp.github.io/reference/cstdlib/abort.html"/>
-      <id>cbe45c2530877aaffe5fa8ee8761b8624e3b2ca7:reference/cstdlib/abort.md</id>
-      <updated>2026-01-18T22:49:07+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/cstdlib/abort.md b/reference/cstdlib/abort.md
-index 5e301f80f..c772799a3 100644
---- a/reference/cstdlib/abort.md
-+++ b/reference/cstdlib/abort.md
-@@ -24,7 +24,7 @@ namespace std {
- ```cpp
- raise(SIGABRT);
- ```
--* raise[link /reference/csignal/raise.md.nolink]
-+* raise[link /reference/csignal/raise.md]
- * SIGABRT[link /reference/csignal/sigabrt.md.nolink]
- 
- 
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>sig_atomic_t -- add new ref `csignal/sig_atomic_t.md`</title>
-      <link href="https://cpprefjp.github.io/reference/csignal/sig_atomic_t.html"/>
-      <id>77db2dec0f1121161c4d6e127e176fbe43f06096:reference/csignal/sig_atomic_t.md</id>
-      <updated>2026-01-20T01:02:54+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/sig_atomic_t.md b/reference/csignal/sig_atomic_t.md
-new file mode 100644
-index 000000000..6e911df96
---- /dev/null
-+++ b/reference/csignal/sig_atomic_t.md
-@@ -0,0 +1,60 @@
-+# sig_atomic_t
-+* csignal[meta header]
-+* std[meta namespace]
-+* type-alias[meta id-type]
-+
-+```cpp
-+namespace std {
-+  using sig_atomic_t = integer-type;
-+}
-+```
-+
-+* integer-type[italic]
-+
-+## 概要
-+`sig_atomic_t`は、非同期シグナルハンドラと通常の実行コンテキストの間で、単純な読み書きを分断されずに行えることが保証された整数型である。
-+
-+この型に対して保証されるのは単純な代入および読み出しのみであり、
-+複合操作や算術演算は保証されない。
-+実際の使用では通常`volatile`修飾子と組み合わせて用いられる。
-+
-+具体的な型は処理系定義である。
-+
-+## 備考
-+最大値は`SIG_ATOMIC_MAX`、最小値は`SIG_ATOMIC_MIN`に定義されている。
-+
-+## 例
-+```cpp example
-+#include &amp;lt;csignal&amp;gt;
-+#include &amp;lt;iostream&amp;gt;
-+
-+volatile std::sig_atomic_t flag = 0;
-+
-+void signal_handler(int signum)
-+{
-+  flag = 1;
-+}
-+
-+int main ()
-+{
-+  std::signal(SIGINT, signal_handler);
-+  while(!flag){
-+    //処理
-+ }
-+ if (flag){
-+  std::cout &amp;lt;&amp;lt; &amp;#34;catch SIGINT&amp;#34; &amp;lt;&amp;lt; std::endl;
-+ }
-+ return 0;
-+}
-+```
-+* std::sig_atomic_t[color ff0000]
-+
-+### 出力例
-+```
-+catch SIGINT
-+```
-+`Ctrl + c`などで割り込みが発生した場合。  
-+
-+## 関連項目
-+- [`SIG_ATOMIC_MAX`](/reference/cstdint/sig_atomic_max.md)
-+- [`SIG_ATOMIC_MIN`](/reference/cstdint/sig_atomic_min.md)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>K10-K10</name>
-        <email>keito.tottori@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>raise -- add new ref `csignal/raise`</title>
-      <link href="https://cpprefjp.github.io/reference/csignal/raise.html"/>
-      <id>77b58d3b4388124e14258cf5a16d24d254384cfb:reference/csignal/raise.md</id>
-      <updated>2026-01-18T20:18:46+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/csignal/raise.md b/reference/csignal/raise.md
-new file mode 100644
-index 000000000..997b66adb
---- /dev/null
-+++ b/reference/csignal/raise.md
-@@ -0,0 +1,49 @@
-+# raise
-+* csignal[meta header]
-+* std[meta namespace]
-+* function[meta id-type]
-+
-+```cpp
-+namespace std {
-+  int raise(int sig);
-+}
-+```
-+
-+## 概要
-+プログラムにシグナルを送信する。
-+
-+## 引数
-+- `sig`: 送信するシグナル番号
-+
-+## 戻り値
-+正常に終了した場合は0を返す。
-+それ以外の場合は非ゼロの値を返す。
-+
-+## 備考
-+`signal`関数などにより、シグナルハンドラが呼び出された場合、それが終了するまでこの関数は戻らない。
-+
-+## 例
-+```cpp example
-+#include &amp;lt;iostream&amp;gt;
-+#include &amp;lt;csignal&amp;gt;
-+
-+volatile std::sig_atomic_t got_signal = 0;
-+
-+void signal_handler(int signum) {
-+  got_signal = 1;
-+}
-+
-+int main (){
-+  std::signal(SIGABRT, signal_handler);
-+  std::raise(SIGABRT);
-+  if (got_signal)
-+    std::cout &amp;lt;&amp;lt; &amp;#34;SIGABRT&amp;#34; &amp;lt;&amp;lt; std::endl;
-+  return 0;
-+}
-+```
-+* std::raise[color ff0000]
-+
-+### 出力例
-+```
-+SIGABRT
-+```
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>

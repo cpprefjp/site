@@ -28,11 +28,11 @@
         <meta property="og:url" content="https://cpprefjp.github.io/reference/csignal/sigfpe.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
-        <meta property="og:description" content="算術演算エラー（ゼロ除算など）が発生した際に送られるシグナルの、シグナル番号を表す`int`型のマクロ。" />
+        <meta property="og:description" content="算術演算エラー（浮動小数点例外など）が発生した際に送られるシグナルの、シグナル番号を表すマクロ。" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="SIGFPE - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/csignal/sigfpe.html" />
-        <meta name="twitter:description" content="算術演算エラー（ゼロ除算など）が発生した際に送られるシグナルの、シグナル番号を表す`int`型のマクロ。" />
+        <meta name="twitter:description" content="算術演算エラー（浮動小数点例外など）が発生した際に送られるシグナルの、シグナル番号を表すマクロ。" />
 
         
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;csignal&#34;], &#34;id-type&#34;: [&#34;macro&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;8cce2f78edcbcd32eaaf8148eee1f56e3c841b1c&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;csignal&gt;\n\nint main()\n{\n  std::cout &lt;&lt; SIGFPE &lt;&lt; std::endl;\n  return 0;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;csignal&#34;, &#34;sigfpe&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;csignal&#34;], &#34;id-type&#34;: [&#34;macro&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;950ecde9dc1063c773da610e4179eee6b7687452&#34;, &#34;source&#34;: &#34;#include &lt;csignal&gt;\n#include &lt;cstdlib&gt;\n\nvoid handler(int)\n{\n  std::_Exit(0);\n}\n\nint main()\n{\n  std::signal(SIGFPE, handler);\n\n  volatile double x = 1.0;\n  volatile double y = 0.0;\n  // \u6d6e\u52d5\u5c0f\u6570\u70b9\u306e 0 \u9664\u7b97\u3002\n  // SIGFPE \u304c\u767a\u751f\u3059\u308b\u3053\u3068\u3082\u3042\u308b\u304c\u3001\u898f\u683c\u4e0a\u306f\u4fdd\u8a3c\u3055\u308c\u306a\u3044\u3002\n  x = x / y;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;csignal&#34;, &#34;sigfpe&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-01-19T14:34:31">
-        2026年01月19日 14時34分31秒
+      <span itemprop="datePublished" content="2026-01-20T15:13:01">
+        2026年01月20日 15時13分01秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -217,23 +217,31 @@
 </code></pre></div>
 </p>
 <h2>概要</h2>
-<p>算術演算エラー（ゼロ除算など）が発生した際に送られるシグナルの、シグナル番号を表す<code>int</code>型のマクロ。</p>
-<p>値は正の整数であり、実際の値は<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>である。</p>
+<p>算術演算エラー（浮動小数点<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>など）が発生した際に送られるシグナルの、シグナル番号を表すマクロ。</p>
+<p><code>int</code>型の正の整数の定数式に展開され、実際の値は<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>。</p>
 <h2>例</h2>
-<p><div class="yata" id="8cce2f78edcbcd32eaaf8148eee1f56e3c841b1c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;csignal&gt;</span><span class="cp"></span>
+<p><div class="yata" id="950ecde9dc1063c773da610e4179eee6b7687452"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;csignal&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../cstdlib.html">&lt;cstdlib&gt;</a></span><span class="cp"></span>
+
+<span class="kt">void</span> <span class="nf">handler</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">_Exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><span style="color:#ff0000">SIGFPE</span></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">signal</span><span class="p">(</span><span class="n"><span style="color:#ff0000">SIGFPE</span></span><span class="p">,</span> <span class="n">handler</span><span class="p">);</span>
+
+  <span class="k">volatile</span> <span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+  <span class="k">volatile</span> <span class="kt">double</span> <span class="n">y</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+  <span class="c1">// 浮動小数点の 0 除算。</span>
+  <span class="c1">// <span style="color:#ff0000">SIGFPE</span> が発生することもあるが、規格上は保証されない。</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">y</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
-<h2>出力例</h2>
-<p><pre><code>8
-</code></pre>
-処理系により異なる</p></div>
+<h3>出力</h3>
+<p><pre><code></code></pre></p></div>
 
       </div>
     </div>
