@@ -54,6 +54,9 @@ namespace std::execution {
   template<>
   struct impls-for<bulk_unchunked_t> : default-impls {
     static constexpr auto complete = see below;
+
+    template<class Sndr, class... Env>
+    static consteval void check-types();
   };
 }
 ```
@@ -85,6 +88,32 @@ namespace std::execution {
 * std::move[link /reference/utility/move.md]
 
 型`Tag`が[`set_value_t`](set_value.md)以外の型であるとき、もしくは式`f(auto(shape), args...)`が適格なときに限って、上記ラムダ式のrequires節が満たされる。
+
+```cpp
+template<class Sndr, class... Env>
+static consteval void check-types();
+```
+
+効果 : 以下と等価
+
+    ```cpp
+    auto cs = get_completion_signatures<child-type<Sndr>, FWD-ENV-T(Env)...>();
+    auto fn = []<class... Ts>(set_value_t(*)(Ts...)) {
+      using data_type = data-type<Sndr>;
+      if constexpr (!invocable<remove_cvref_t<child-type<data_type>&,
+                               remove_cvref_t<data-type<data_type>>, Ts&...>)
+        throw unspecified-exception();
+    };
+    cs.for-each(overload-set(fn, [](auto){}));
+    ```
+    * get_completion_signatures[link get_completion_signatures.md]
+    * child-type[link child-type.md]
+    * FWD-ENV-T[link ../forwarding_query.md]
+    * set_value_t[link set_value.md]
+    * data-type[link data-type.md]
+    * unspecified-exception[link unspecified-exception.md]
+    * for-each[link completion_signatures.md]
+    * overload-set[link overload-set.md]
 
 
 ## カスタマイゼーションポイント
@@ -157,3 +186,4 @@ int main()
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P2079R10 Parallel scheduler](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2079r10.html)
 - [P3481R5 `std::execution::bulk()` issues](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3481r5.html)
+- [P3923R0 Additional NB comment resolutions for Kona 2025](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3923r0.html), US 221-339

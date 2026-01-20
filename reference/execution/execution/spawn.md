@@ -33,7 +33,7 @@ namespace std::execution {
 
 呼び出し式`spawn(sndr, token, env)`は`void`型であり、次の効果をもつ。
 
-- `alloc`を用いてメモリ確保し、`alloc`, [`write_env`](write_env.md)`(token.wrap(sndr), senv)`, `token`から特殊化された`spawn-state`型のオブジェクト`o`を構築し、`o.run()`を呼び出す。いずれかのオブジェクト構築・破棄時に例外送出されたときは、確保されたメモリが解放される。
+- `alloc`を用いてメモリ確保し、`alloc`, [`write_env`](write_env.md)`(token.wrap(sndr), senv)`, `token`から`decltype(spawn-state(alloc, write_env(token.wrap(sndr), senv), token))`型のオブジェクト`o`を構築し、`o.run()`を呼び出す。いずれかのオブジェクト構築・破棄時に例外送出されたときは、確保されたメモリが解放される。
 
 呼び出し式`spawn(sndr, token)`は、式`spawn(sndr, token,` [`execution::env<>`](env.md)`())`と等価である。
 
@@ -75,12 +75,10 @@ namespace std::execution {
     void run() noexcept;                                    // exposition only
 
   private:
-    using alloc-t =                                         // exposition only
-      typename allocator_traits<Alloc>::template rebind_alloc<spawn-state>;
     using assoc-t =                                         // exposition only
       remove_cvref_t<decltype(declval<Token&>().try_associate())>;
 
-    alloc-t alloc;                                          // exposition only
+    Alloc alloc;                                            // exposition only
     op-t op;                                                // exposition only
     assoc-t assoc;                                          // exposition only
   };
@@ -89,7 +87,6 @@ namespace std::execution {
 * scope_token[link scope_token.md]
 * sender[link sender.md]
 * connect_result_t[link connect_result_t.md]
-* allocator_traits[link /reference/memory/allocator_traits.md]
 * spawn-state-base[italic]
 * spawn-receiver[italic]
 
@@ -127,10 +124,12 @@ void complete() noexcept override;
 
     ```cpp
     auto assoc = std::move(this->assoc);
-    auto alloc = std::move(this->alloc);
-
-    allocator_traits<alloc-t>::destroy(alloc, this);
-    allocator_traits<alloc-t>::deallocate(alloc, this, 1);
+    {
+      using traits = allocator_traits<Alloc>::template rebind_traits<spawn-state>;
+      typename traits::allocator_type alloc(this->alloc);
+      traits::destroy(alloc, this);
+      traits::deallocate(alloc, this, 1);
+    }
     ```
     * allocator_traits[link /reference/memory/allocator_traits.md]
     * destroy[link /reference/memory/allocator_traits/destroy.md]
@@ -203,3 +202,4 @@ sync_wait
 ## 参照
 - [P3149R11 `async_scope` - Creating scopes for non-sequential concurrency](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3149r11.html)
 - [P3815R1 Add `scope_association` concept to P3149](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3815r1.html)
+- [P3923R0 Additional NB comment resolutions for Kona 2025](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3923r0.html), US 227-346, 229-347

@@ -35,7 +35,7 @@ namespace std::execution {
 
 呼び出し式`spawn_future(sndr, token, env)`は、次の効果をもつ。
 
-- `alloc`を用いてメモリ確保し、`alloc`, `token.wrap(sndr)`, `token`, `senv`から特殊化された`spawn-future-state`型のオブジェクト`s`を構築する。いずれかのオブジェクト構築・破棄時に例外送出されたときは、確保されたメモリが解放される。
+- `alloc`を用いてメモリ確保し、`alloc`, `token.wrap(sndr)`, `token`, `senv`から`decltype(spawn-future-state(alloc, token.wrap(sndr), token, senv))`型のオブジェクト`s`を構築する。いずれかのオブジェクト構築・破棄時に例外送出されたときは、確保されたメモリが解放される。
 - 下記を満たす[`unique_ptr`](/reference/memory/unique_ptr.md)の特殊化型のオブジェクト`u`を構築する。
     - `u.`[`get()`](/reference/memory/unique_ptr/get.md)は`s`のアドレスに等しく、かつ
     - `u.`[`get_deleter()`](/reference/memory/unique_ptr/get_deleter.md)`(u.`[`release()`](/reference/memory/unique_ptr/release.md)`)`は`u.release()->abandon()`に等しい。
@@ -186,18 +186,20 @@ namespace std::execution {
     void abandon() noexcept;                                                // exposition only
 
   private:
-    using alloc-t =                                                         // exposition only
-      typename allocator_traits<Alloc>::template rebind_alloc<spawn-future-state>;
     using assoc-t =                                                         // exposition only
       remove_cvref_t<decltype(declval<Token&>().try_associate())>;
 
-    alloc-t alloc;                                                          // exposition only
+    Alloc alloc;                                                            // exposition only
     ssource-t ssource;                                                      // exposition only
     op-t op;                                                                // exposition only
     assoc-t assoc;                                                          // exposition only
 
     void destroy() noexcept;                                                // exposition only
   };
+
+  template<class Alloc, scope_token Token, sender Sender, class Env>        // exposition only
+    spawn-future-state(Alloc alloc, Sender&& sndr, Token token, Env env)
+      -> spawn-future-state<Alloc, Token, Sender, Env>;
 }
 ```
 * scope_token[link scope_token.md]
@@ -210,7 +212,6 @@ namespace std::execution {
 * stop-when[link stop-when.md]
 * start[link start.md]
 * set_stopped[link set_stopped.md]
-* allocator_traits[link /reference/memory/allocator_traits.md]
 * std::move[link /reference/utility/move.md]
 
 データ競合の存在を判定する目的において、`complete`, `consume`, `abandon`はアトミック操作として振る舞う。
@@ -269,11 +270,13 @@ void destroy() noexcept;
 - 効果 : 下記と等価。
 
     ```cpp
-    bool assoc = std::move(this->assoc);
-    auto alloc = std::move(this->alloc);
-
-    allocator_traits<alloc-t>::destroy(alloc, this);
-    allocator_traits<alloc-t>::deallocate(alloc, this, 1);
+    auto associated = std::move(this->associated);
+    {
+      using traits = allocator_traits<Alloc>::template rebind_traits<spawn-future-state>;
+      typename traits::allocator_type alloc(std::move(this->alloc));
+      traits::destroy(alloc, this);
+      traits::deallocate(alloc, this, 1);
+    }
     ```
     * allocator_traits[link /reference/memory/allocator_traits.md]
     * destroy[link /reference/memory/allocator_traits/destroy.md]
@@ -355,3 +358,4 @@ value=42
 - [P3149R11 `async_scope` - Creating scopes for non-sequential concurrency](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3149r11.html)
 - [P3815R1 Add `scope_association` concept to P3149](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3815r1.html)
 - [P3914R0 Assorted NB comment resolutions for Kona 2025](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3914r0.html), US 228-348
+- [P3923R0 Additional NB comment resolutions for Kona 2025](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3923r0.html), US 227-346, 229-347
