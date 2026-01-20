@@ -46,7 +46,7 @@ namespace std::execution {
 * get_env[link get_env.md]
 
 型`Q`を[`decay_t`](/reference/type_traits/decay.md)`<`[`data-type`](data-type.md)`<Sndr>>`とする。
-`Env`型の左辺値`env`に対して式`Q()(env)`が不適格もしくは`void`型をもつとき、メンバ関数`check-types`は[`exception`](/reference/exception/exception.md)から派生した未規定の型を例外として送出する。
+`Env`型の左辺値`env`に対して式`Q()(env)`が不適格もしくは`void`型をもつとき、メンバ関数`check-types`は[`unspecified-exception`](unspecified-exception.md)型の例外を送出する。
 
 
 ## 備考

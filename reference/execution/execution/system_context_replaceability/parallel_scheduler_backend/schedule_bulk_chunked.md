@@ -19,7 +19,7 @@ virtual void schedule_bulk_chunked(size_t n,
 
 
 ## 事前条件
-`*this`, `r`が参照するオブジェクト, `s`が参照するストレージの生存期間終了は、下記いずれか式の評価開始よりも後に発生(happen after)すること。
+`*this`、`r`が参照するオブジェクト、`s`が参照するストレージの生存期間終了は、`r`に対する[`set_value`](../../set_value.md)／[`set_error`](../../set_error.md)／[`set_stopped`](../../set_stopped.md)いずれかの呼び出しの評価開始よりも後に発生(happen after)すること。
 
 
 ## 効果
@@ -58,3 +58,4 @@ virtual void schedule_bulk_chunked(size_t n,
 
 ## 参照
 - [P2079R10 Parallel scheduler](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2079r10.html)
+- [P3914R0 Assorted NB comment resolutions for Kona 2025](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3914r0.html), US 265-398, 266-399

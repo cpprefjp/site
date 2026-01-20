@@ -102,10 +102,9 @@ cs.for-each(overload-set{fn, [](auto){}});
 * FWD-ENV-T[link ../forwarding_query.md]
 * set_value_t[link set_value.md]
 * data-type[link data-type.md]
+* unspecified-exception[link unspecified-exception.md]
 * for-each[link completion_signatures.md]
 * overload-set[link overload-set.md]
-
-`unspecified-exception`は[`exception`](/reference/exception/exception.md)から派生した型となる。
 
 
 ## カスタマイゼーションポイント

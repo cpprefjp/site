@@ -3,6 +3,7 @@
 * class[meta id-type]
 * std::execution[meta namespace]
 * cpp26[meta cpp]
+* [meta exposition-only]
 
 ```cpp
 struct not-a-sender {
@@ -17,11 +18,10 @@ struct not-a-sender {
 * sender_t[link sender.md]
 * get_completion_signatures[link get_completion_signatures.md]
 * completion_signatures[link completion_signatures.md]
+* unspecified-exception[link unspecified-exception.md]
 
 ## 概要
 `not-a-sender`は、Senderアルゴリズム動作仕様定義で用いられる説明専用のクラスである。
-
-`unspecified-exception`は[`exception`](/reference/exception/exception.md)から派生した型となる。
 
 
 ## バージョン

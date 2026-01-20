@@ -144,11 +144,11 @@ cs.for-each(overload-set(fn, [](auto){}));
 * child-type[link child-type.md]
 * FWD-ENV-T[link ../forwarding_query.md]
 * decayed-typeof[link /reference/functional/decayed-typeof.md]
+* unspecified-exception[link unspecified-exception.md]
 * for-each[link completion_signatures.md]
 * overload-set[link overload-set.md]
 * set-cpo[italic]
 
-`unspecified-exception`は[`exception`](/reference/exception/exception.md)から派生した型となる。
 説明用の変数`is-valid-let-sender`は下記を全て満たす時に限って`true`となる。
 
 - `(`[`constructible_from`](/reference/concepts/constructible_from.md)`<decay_t<Ts>, Ts> &&...)`

@@ -3,6 +3,7 @@
 * function template[meta id-type]
 * std::execution[meta namespace]
 * cpp26[meta cpp]
+* [meta exposition-only]
 
 ```cpp
 constexpr void decay-copyable-result-datums(auto cs) {
@@ -14,11 +15,10 @@ constexpr void decay-copyable-result-datums(auto cs) {
 ```
 * for-each[link completion_signatures.md]
 * is_constructible_v[link /reference/type_traits/is_constructible.md]
+* unspecified-exception[link unspecified-exception.md]
 
 ## 概要
 `decay-copyable-result-datums`は、Senderアルゴリズム動作仕様定義で用いられる説明専用の関数テンプレートである。
-
-`unspecified-exception`は[`exception`](/reference/exception/exception.md)から派生した型となる。
 
 
 ## バージョン

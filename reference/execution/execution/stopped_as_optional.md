@@ -51,8 +51,7 @@ namespace std::execution {
 * single-sender-value-type[link single-sender-value-type.md]
 * child-type[link child-type.md]
 * FWD-ENV-T[link ../forwarding_query.md]
-
-`unspecified-exception`は[`exception`](/reference/exception/exception.md)から派生した型となる。
+* unspecified-exception[link unspecified-exception.md]
 
 説明用の式`sndr`と`env`に対して、型`Sndr`を`decltype((sndr))`、型`Env`を`decltype((env))`とする。[`sender-for`](sender-for.md)`<Sndr, stopped_as_optional_t> == false`のとき、式`stopped_as_optional.transform_sender(sndr, env)`は不適格となる。
 

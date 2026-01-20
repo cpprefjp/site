@@ -16,7 +16,8 @@ namespace std::execution::system_context_replaceability {
 
 
 ## 効果
-[`parallel_scheduler_backend`](parallel_scheduler_backend.md)インタフェースを実装したオブジェクトを指す非ヌル[`shared_ptr`](/reference/memory/shared_ptr.md)を返す。
+オブジェクト`p`は、`p.get()`がその生存期間内に最派生オブジェクト`o`基底クラスの部分オブジェクトである[`parallel_scheduler_backend`](parallel_scheduler_backend.md)オブジェクトを指すものとする。
+その存続期間内に`q.`[`owner_equal`](/reference/memory/shared_ptr/owner_equal.md.nolink)`(p)`が`true`となる[`shared_ptr`](/reference/memory/shared_ptr.md)オブジェクト`q`が存在する限り、`o`の存続期間は終了しない。
 
 
 ## 備考
@@ -41,3 +42,4 @@ namespace std::execution::system_context_replaceability {
 
 ## 参照
 - [P2079R10 Parallel scheduler](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2079r10.html)
+- [P3914R0 Assorted NB comment resolutions for Kona 2025](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3914r0.html), US 263-396

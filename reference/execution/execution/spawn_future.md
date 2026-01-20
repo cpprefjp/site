@@ -141,7 +141,8 @@ namespace std::execution {
 * exception_ptr[link /reference/exception/exception_ptr.md]
 * current_exception()[link /reference/exception/current_exception.md]
 
-型`ssource-t`を[`stoppable-source`](/reference/stop_token/stoppable-source.md)のモデルである未規定の型、`ssource`を型`ssource-t`の左辺値とする。
+型`ssource-t`を[`stoppable-source`](/reference/stop_token/stoppable-source.md)および[`default_initializable`](/reference/concepts/default_initializable.md)のモデルである未規定の型とし、型`ssource-t`のデフォルト構築オブジェクトは関連付けられた停止状態を持つ。
+`ssource`を型`ssource-t`の左辺値とする。
 型`stoken-t`を`decltype(ssource.get_token())`とする。
 
 ### エイリアステンプレート `future-spawned-sender`
@@ -353,3 +354,4 @@ value=42
 ## 参照
 - [P3149R11 `async_scope` - Creating scopes for non-sequential concurrency](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3149r11.html)
 - [P3815R1 Add `scope_association` concept to P3149](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3815r1.html)
+- [P3914R0 Assorted NB comment resolutions for Kona 2025](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3914r0.html), US 228-348

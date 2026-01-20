@@ -194,11 +194,11 @@ auto fn = []<class Child>() {
 * get_completion_signatures[link get_completion_signatures.md]
 * count-of[link completion_signatures.md]
 * set_value[link set_value.md]
+* unspecified-exception[link unspecified-exception.md]
 * decay-copyable-result-datums[link decay-copyable-result-datums.md]
 * child-type[link child-type.md]
 
-`unspecified-exception`は[`exception`](/reference/exception/exception.md)から派生した型となる。
-型`CD`が不適格な場合、[`exception`](/reference/exception/exception.md)から派生した未規定な型を例外として送出する。
+型`CD`が不適格な場合、[`unspecified-exception`](unspecified-exception.md)型の例外を送出する。
 
 
 ## 説明専用エンティティ
