@@ -6,12 +6,24 @@
 
 ```cpp
 namespace std {
-  wstring to_wstring(int val);                // (1) C++11
-  wstring to_wstring(unsigned int val);       // (2) C++11
-  wstring to_wstring(long val);               // (3) C++11
-  wstring to_wstring(unsigned long val);      // (4) C++11
-  wstring to_wstring(long long val);          // (5) C++11
-  wstring to_wstring(unsigned long long val); // (6) C++11
+  wstring to_wstring(int val);                          // (1) C++11
+  constexpr wstring to_wstring(int val);                // (1) C++26
+
+  wstring to_wstring(unsigned int val);                 // (2) C++11
+  constexpr wstring to_wstring(unsigned int val);       // (2) C++26
+
+  wstring to_wstring(long val);                         // (3) C++11
+  constexpr wstring to_wstring(long val);               // (3) C++26
+
+  wstring to_wstring(unsigned long val);                // (4) C++11
+  constexpr wstring to_wstring(unsigned long val);      // (4) C++26
+
+  wstring to_wstring(long long val);                    // (5) C++11
+  constexpr wstring to_wstring(long long val);          // (5) C++26
+
+  wstring to_wstring(unsigned long long val);           // (6) C++11
+  constexpr wstring to_wstring(unsigned long long val); // (6) C++26
+
   wstring to_wstring(float val);              // (7) C++11
   wstring to_wstring(double val);             // (8) C++11
   wstring to_wstring(long double val);        // (9) C++11
@@ -200,3 +212,5 @@ std::wstring to_wstring(long double val)
 - [N2408 Simple Numeric Access Revision 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2408.html)
 - [P2587R3 `to_string` or not `to_string`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2587r3.html)
     - C++26から`sprintf`ベースの仕様をやめて`std::format()`ベースの仕様になった
+- [P3391R2 `constexpr std::format`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3391r2.html)
+    - C++26から整数バージョンが`constexpr`に対応した
