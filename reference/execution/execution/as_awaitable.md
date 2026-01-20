@@ -37,8 +37,7 @@ Promise型`p`をもつコルーチンにおいて、Await式`co_await as_awaitab
 
 - 適格であるならば、式`expr.as_awaitable(p)`
     - 適格要件 : 同式の型を`A`としたとき、[`is-awaitable`](../is-awaitable.md)`<A, Promise> == true`であるべき。
-- そうではなく、説明用の型`U`を`Promise`とは異なりかつ`await_transform`メンバ関数を持たない未規定の型としたとき、[`is-awaitable`](../is-awaitable.md)`<Expr, U> == true`ならば、式`(void(p), expr)`
-    - 事前条件 : [`is-awaitable`](../is-awaitable.md)`<Expr, Promise> == true`、かつPromise型`U`のコルーチンにおける式`co_await expr`がPromise型`Promise`のコルーチンにおける同式と等しさを保持すること。
+- そうではなく、`decltype(`[`GET-AWAITER`](../is-awaitable.md)`(expr))`が[`is-awaiter`](../is-awaitable.md)`<Promise>`を満たすならば、式`(void(p), expr)`
 - そうではなく、説明用の式`adapted-expr`を`expr`が1回だけ評価されることを除いて[`get_await_completion_adaptor`](get_await_completion_adaptor.md)`(`[`get_env`](get_env.md)`(expr))(expr)`としたとき、`has-queryable-await-completion-adaptor<Expr>`と`awaitable-sender<decltype((adapted-expr)), Promise>`が共に満たされるならば、式`sender-awaitable{adapted-expr, p}`
 - そうではなく、`awaitable-sender<Expr, Promise>`ならば、式`sender-awaitable{expr, p}`
 - そうでなければ、式`(void(p), expr)`
@@ -51,7 +50,7 @@ namespace std::execution {
   template<class Sndr, class Promise>
   concept awaitable-sender =
     single-sender<Sndr, env_of_t<Promise>> &&
-    sender_to<Sndr, awaitable-receiver> &&  // see below
+    sender_to<Sndr, typename sender-awaitable<Sndr, Promise>::awaitable-receiver> &&  // see below
     requires (Promise& p) {
       { p.unhandled_stopped() } -> convertible_to<coroutine_handle<>>;
     };
@@ -238,3 +237,5 @@ value-type await_resume();
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3396R1 std::execution wording fixes](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html)
 - [P3570R2 optional variants in sender/receiver](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3570r2.html)
+- [LWG4358 §[exec.as.awaitable] is using "Preconditions:" when it should probably be described in the constraint](https://cplusplus.github.io/LWG/issue4358)
+- [LWG4360 `awaitable-sender` concept should qualify use of `awaitable-receiver` type](https://cplusplus.github.io/LWG/issue4360)
