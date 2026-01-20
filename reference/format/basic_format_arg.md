@@ -56,7 +56,7 @@ namespace std {
 
 | 名前            | 説明                              | 対応バージョン |
 |-----------------|-----------------------------------|----------------|
-| `operator bool`   | `bool`への変換演算子(空の時`false`) | C++20          |
+| [`operator bool`](basic_format_arg/op_bool.md) | `bool`への変換演算子(空の時`false`) | C++20          |
 
 ## メンバ型
 

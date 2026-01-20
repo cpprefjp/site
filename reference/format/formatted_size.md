@@ -8,16 +8,34 @@
 ```cpp
 namespace std {
   template<class... Args>
-  size_t formatted_size(format_string<Args...> fmt, Args&&... args); // (1)
+  size_t
+    formatted_size(format_string<Args...> fmt,
+                   Args&&... args);            // (1) C++20
+  template<class... Args>
+  constexpr size_t
+    formatted_size(format_string<Args...> fmt,
+                   Args&&... args);            // (1) C++26
 
   template<class... Args>
-  size_t formatted_size(wformat_string<Args...> fmt, Args&&... args); // (2)
+  size_t
+    formatted_size(wformat_string<Args...> fmt,
+                   Args&&... args);            // (2) C++20
+  template<class... Args>
+  constexpr size_t
+    formatted_size(wformat_string<Args...> fmt,
+                   Args&&... args);            // (2) C++26
 
   template<class... Args>
-  size_t formatted_size(const locale& loc, format_string<Args...> fmt, Args&&... args); // (3)
+  size_t
+    formatted_size(const locale& loc,
+                   format_string<Args...> fmt,
+                   Args&&... args);            // (3) C++20
 
   template<class... Args>
-  size_t formatted_size(const locale& loc, wformat_string<Args...> fmt, Args&&... args); // (4)
+  size_t
+    formatted_size(const locale& loc,
+                   wformat_string<Args...> fmt,
+                   Args&&... args);            // (4) C++20
 }
 ```
 * format_string[link basic_format_string.md]
@@ -143,8 +161,10 @@ size_t formatted_size(const locale& loc, wformat_string<Args...> fmt, const Args
 
 ## 参照
 
-* [Working Draft, Standard for Programming Language C++ [format]](https://timsong-cpp.github.io/cppwp/format)
-* [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
-* [P2216R3 std::format improvements](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2216r3.html)
-* [［C++］ std::formatあるいは{fmt}のコンパイル時フォーマット文字列チェックの魔術 - 地面を見下ろす少年の足蹴にされる私](https://onihusube.hatenablog.com/entry/2021/07/01/195912)
-* [P2418R2 Add support for `std::generator`-like types to `std::format`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2418r2.html)
+- [Working Draft, Standard for Programming Language C++ [format]](https://timsong-cpp.github.io/cppwp/format)
+- [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
+- [P2216R3 std::format improvements](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2216r3.html)
+- [［C++］ std::formatあるいは{fmt}のコンパイル時フォーマット文字列チェックの魔術 - 地面を見下ろす少年の足蹴にされる私](https://onihusube.hatenablog.com/entry/2021/07/01/195912)
+- [P2418R2 Add support for `std::generator`-like types to `std::format`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2418r2.html)
+- [P3391R2 `constexpr std::format`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3391r2.html)
+    - C++26から非ロケール版が`constexpr`に対応した

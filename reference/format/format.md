@@ -8,16 +8,34 @@
 ```cpp
 namespace std {
   template<class... Args>
-  string format(format_string<Args...> fmt, Args&&... args);                      // (1)
+  string
+    format(format_string<Args...> fmt,
+           Args&&... args);             // (1) C++20
+  template<class... Args>
+  constexpr string
+    format(format_string<Args...> fmt,
+           Args&&... args);             // (1) C++26
 
   template<class... Args>
-  wstring format(wformat_string<Args...> fmt, Args&&... args);                    // (2)
+  wstring
+    format(wformat_string<Args...> fmt,
+           Args&&... args);             // (2) C++20
+  template<class... Args>
+  constexpr wstring
+    format(wformat_string<Args...> fmt,
+           Args&&... args);             // (2) C++26
 
   template<class... Args>
-  string format(const locale& loc, format_string<Args...> fmt, Args&&... args);   // (3)
+  string
+    format(const locale& loc,
+           format_string<Args...> fmt,
+           Args&&... args);             // (3) C++20
 
   template<class... Args>
-  wstring format(const locale& loc, wformat_string<Args...> fmt, Args&&... args); // (4)
+  wstring
+    format(const locale& loc,
+           wformat_string<Args...> fmt,
+           Args&&... args);             // (4) C++20
 }
 ```
 * string[link /reference/string/basic_string.md]
@@ -719,3 +737,5 @@ wstring format(const locale& loc, wformat_string<Args...> fmt, const Args&... ar
 - [P2418R2 Add support for `std::generator`-like types to `std::format`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2418r2.html)
 - [P2510R3 Formatting pointers](https://open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2510r3.pdf)
     - C++26から、ポインタ値を大文字で出力する`P`オプションが追加された
+- [P3391R2 `constexpr std::format`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3391r2.html)
+    - C++26から非ロケール版が`constexpr`に対応した

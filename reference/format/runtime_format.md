@@ -6,10 +6,10 @@
 
 ```cpp
 namespace std {
-  runtime-format-string<char>
+  constexpr runtime-format-string<char>
     runtime_format(string_view fmt) noexcept;  // (1) C++26
 
-  runtime-format-string<wchar_t>
+  constexpr runtime-format-string<wchar_t>
     runtime_format(wstring_view fmt) noexcept; // (2) C++26
 }
 ```
@@ -66,3 +66,4 @@ Hello
 
 ## 参照
 - [P2918R2 Runtime format strings II](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2918r2.html)
+- [P3391R2 `constexpr std::format`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3391r2.html)

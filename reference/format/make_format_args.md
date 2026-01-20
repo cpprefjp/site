@@ -8,10 +8,18 @@
 ```cpp
 namespace std {
   template<class Context = format_context, class... Args>
-  format_arg_store<Context, Args...> make_format_args(Args&&... args); // (1)
+  format_arg_store<Context, Args...>
+    make_format_args(Args&&... args);         // (1) C++20
+  template<class Context = format_context, class... Args>
+  constexpr format_arg_store<Context, Args...>
+    make_format_args(Args&&... args);         // (1) C++26
 
   template<class... Args>
-  format_arg_store<wformat_context, Args...> make_wformat_args(Args&&... args); // (2)
+  format_arg_store<wformat_context, Args...>
+    make_wformat_args(Args&&... args);        // (2) C++20
+  template<class... Args>
+  constexpr format_arg_store<wformat_context, Args...>
+    make_wformat_args(Args&&... args);        // (2) C++26
 }
 ```
 * format_arg_store[italic]

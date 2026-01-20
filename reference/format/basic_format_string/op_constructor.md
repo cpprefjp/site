@@ -7,8 +7,10 @@
 
 ```cpp
 template <class T>
-consteval basic_format_string(const T& s); // (1) C++23
+consteval
+basic_format_string(const T& s); // (1) C++23
 
+constexpr
 basic_format_string(runtime-format-string<charT> s) noexcept; // (2) C++26
 ```
 * runtime-format-string[link /reference/format/runtime-format-string.md]
@@ -97,3 +99,4 @@ namespace std {
 ## 参照
 - [P2216R3 `std::format` improvements](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2216r3.html)
 - [P2918R2 Runtime format strings II](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2918r2.html)
+- [P3391R2 `constexpr std::format`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3391r2.html)

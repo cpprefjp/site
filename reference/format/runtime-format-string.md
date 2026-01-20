@@ -13,7 +13,7 @@ private:
   basic_string_view<charT> str;  // 説明用
 
 public:
-  runtime-format-string(basic_string_view<charT> s) noexcept : str(s) {}
+  constexpr runtime-format-string(basic_string_view<charT> s) noexcept : str(s) {}
 
   runtime-format-string(const runtime-format-string&) = delete;
   const runtime-format-string& operator=(const runtime-format-string&) = delete;
@@ -48,3 +48,4 @@ std::string s = std::format(std::runtime_format(fmt), "Hello");
 
 ## 参照
 - [P2918R2 Runtime format strings II](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2918r2.html)
+- [P3391R2 `constexpr std::format`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3391r2.html)

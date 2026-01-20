@@ -10,7 +10,12 @@ template <ranges::input_range R, class FormatContext>
   requires formattable<ranges::range_reference_t<R>, charT> &&
            same_as<remove_cvref_t<ranges::range_reference_t<R>>, T>
 typename FormatContext::iterator
-  format(R&& r, FormatContext& ctx) const; // (1)
+  format(R&& r, FormatContext& ctx) const; // (1) C++23
+template <ranges::input_range R, class FormatContext>
+  requires formattable<ranges::range_reference_t<R>, charT> &&
+           same_as<remove_cvref_t<ranges::range_reference_t<R>>, T>
+constexpr typename FormatContext::iterator
+  format(R&& r, FormatContext& ctx) const; // (1) C++26
 ```
 * FormatContext[link /reference/format/basic_format_context.md]
 * ranges::input_range[link /reference/ranges/input_range.md]
@@ -44,3 +49,8 @@ typename FormatContext::iterator
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P3391R2 `constexpr std::format`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3391r2.html)
+    - C++26から`constexpr`に対応した

@@ -7,13 +7,29 @@
 
 ```cpp
 namespace std {
-  string vformat(string_view fmt, format_args args); // (1)
+  string
+    vformat(string_view fmt,
+            format_args args);  // (1) C++20
+  constexpr string
+    vformat(string_view fmt,
+            format_args args);  // (1) C++26
 
-  wstring vformat(wstring_view fmt, wformat_args args); // (2)
+  wstring
+    vformat(wstring_view fmt,
+            wformat_args args); // (2) C++20
+  constexpr wstring
+    vformat(wstring_view fmt,
+            wformat_args args); // (2) C++26
 
-  string vformat(const locale& loc, string_view fmt, format_args args); // (3)
+  string
+    vformat(const locale& loc,
+            string_view fmt,
+            format_args args);  // (3) C++20
 
-  wstring vformat(const locale& loc, wstring_view fmt, wformat_args args); // (4)
+  wstring
+    vformat(const locale& loc,
+            wstring_view fmt,
+            wformat_args args); // (4) C++20
 }
 ```
 * string[link /reference/string/basic_string.md]
@@ -114,5 +130,7 @@ string vformat(const locale& loc, wstring_view fmt, wformat_args args) {
 
 ## 参照
 
-* [Working Draft, Standard for Programming Language C++ [format]](https://timsong-cpp.github.io/cppwp/format)
-* [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
+- [Working Draft, Standard for Programming Language C++ [format]](https://timsong-cpp.github.io/cppwp/format)
+- [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
+- [P3391R2 `constexpr std::format`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3391r2.html)
+    - C++26から非ロケール版が`constexpr`に対応した

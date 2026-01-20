@@ -7,7 +7,10 @@
 * cpp20[meta cpp]
 
 ```cpp
-basic_format_arg<Context> get(std::size_t i) const noexcept;
+basic_format_arg<Context>
+  get(std::size_t i) const noexcept; // (1) C++20
+constexpr basic_format_arg<Context>
+  get(std::size_t i) const noexcept; // (1) C++26
 ```
 * basic_format_arg[link /reference/format/basic_format_arg.md]
 
@@ -49,5 +52,6 @@ namespace std {
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 参照
-
-* [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
+- [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
+- [P3391R2 `constexpr std::format`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3391r2.html)
+    - C++26から`constexpr`に対応した

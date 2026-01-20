@@ -8,16 +8,40 @@
 ```cpp
 namespace std {
   template<class Out>
-  Out vformat_to(Out out, string_view fmt, format_args args); // (1)
+  Out
+    vformat_to(Out out,
+               string_view fmt,
+               format_args args); // (1) C++20
+  template<class Out>
+  constexpr Out
+    vformat_to(Out out,
+               string_view fmt,
+               format_args args); // (1) C++26
 
   template<class Out>
-  Out vformat_to(Out out, wstring_view fmt, wformat_args args); // (2)
+  Out
+    vformat_to(Out out,
+               wstring_view fmt,
+               wformat_args args); // (2) C++20
+  template<class Out>
+  constexpr Out
+    vformat_to(Out out,
+               wstring_view fmt,
+               wformat_args args); // (2) C++26
 
   template<class Out>
-  Out vformat_to(Out out, const locale& loc, string_view fmt, format_args args); // (3)
+  Out
+    vformat_to(Out out,
+               const locale& loc,
+               string_view fmt,
+               format_args args); // (3) C++20
 
   template<class Out>
-  Out vformat_to(Out out, const locale& loc, wstring_view fmt, wformat_args args); // (4)
+  Out
+    vformat_to(Out out,
+               const locale& loc,
+               wstring_view fmt,
+               wformat_args args); // (4) C++20
 }
 ```
 * wstring_view[link /reference/string_view/basic_string_view.md]
@@ -170,5 +194,7 @@ Out vformat_to(Out out, std::string_view fmt, std::basic_format_args<Context> ar
 
 ## 参照
 
-* [Working Draft, Standard for Programming Language C++ [format]](https://timsong-cpp.github.io/cppwp/format)
-* [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
+- [Working Draft, Standard for Programming Language C++ [format]](https://timsong-cpp.github.io/cppwp/format)
+- [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
+- [P3391R2 `constexpr std::format`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3391r2.html)
+    - C++26から非ロケール版が`constexpr`に対応した
