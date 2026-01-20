@@ -3,6 +3,7 @@
 * cpo[meta id-type]
 * std::execution[meta namespace]
 * cpp26[meta cpp]
+* [meta exposition-only]
 
 ```cpp
 namespace std::execution {
@@ -16,9 +17,9 @@ namespace std::execution {
 
 説明用の式`sndr`と`token`に対して、
 
-- `decltype((sndr))`が[`sender`](sender.md)を満たさない、もしくは[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<decltype((token))>`が[`stoppable_token`](/reference/stop_token/stoppable_token.md)を満たさないとき、式`stop-token(sndr, token)`は不適格となる。
-- そうでなく、[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<decltype((token))>`が[`unstoppable_token`](/reference/stop_token/unstoppable_token.md)のモデルであるとき、式`stop-token(sndr, token)`は`sndr`と等価となる。
-- そうでないとき、式`stop-token(sndr, token)`はSender`osndr`を返す。`osndr`が[Receiver](receiver.md)`r`と[接続(connect)](connect.md)されるとき、[`get_stop_token`](../get_stop_token.md)`(`[`get_env`](get_env.md)`(r))`の結果を`rtoken`とする。
+- `decltype((sndr))`が[`sender`](sender.md)を満たさない、もしくは[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<decltype((token))>`が[`stoppable_token`](/reference/stop_token/stoppable_token.md)を満たさないとき、式`stop-when(sndr, token)`は不適格となる。
+- そうでなく、[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<decltype((token))>`が[`unstoppable_token`](/reference/stop_token/unstoppable_token.md)のモデルであるとき、式`stop-when(sndr, token)`は、`token`と`sndr`が不定順で順序付けられることを除いて、`(void)token, sndr`と等価となる。
+- そうでないとき、式`stop-when(sndr, token)`はSender`osndr`を返す。`osndr`が[Receiver](receiver.md)`r`と[接続(connect)](connect.md)されるとき、[`get_stop_token`](../get_stop_token.md)`(`[`get_env`](get_env.md)`(r))`の結果を`rtoken`とする。
     - `rtoken`の型が[`unstoppable_token`](/reference/stop_token/unstoppable_token.md)のモデルであるとき、`osdnr`と`r`との接続の効果は[`connect`](connect.md)`(`[`write_env`](write_env.md)`(sndr,` [`prop`](prop.md)`(`[`get_stop_token`](../get_stop_token.md)`, token)), r)`に等しい。
     - そうでないとき、下記のような説明専用の型`stoken-t`の`stoken`オブジェクトに対して、`osdnr`と`r`との接続の効果は[`connect`](connect.md)`(`[`write_env`](write_env.md)`(sndr,` [`prop`](prop.md)`(`[`get_stop_token`](../get_stop_token.md)`, stoken)), r)`に等しい。
         - `stoken-t`は[`stoppable_token`](/reference/stop_token/stoppable_token.md)のモデルである。
@@ -39,3 +40,4 @@ namespace std::execution {
 
 ## 参照
 - [P3149R11 `async_scope` - Creating scopes for non-sequential concurrency](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3149r11.html)
+- [LWG4461 `stop-when` needs to evaluate unstoppable tokens](https://cplusplus.github.io/LWG/issue4461)
