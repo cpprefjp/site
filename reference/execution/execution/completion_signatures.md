@@ -13,7 +13,7 @@ namespace std::execution {
 
     template<class Fn>
     static constexpr void for-each(Fn&& fn) {  // exposition only
-      (std::forward<Fn>(fn)(static_cast<Fns*>(nullptr)), ...);
+      (fn(static_cast<Fns*>(nullptr)), ...);
     }
   };
 }
@@ -99,3 +99,4 @@ int main()
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+- [LWG4448 Do not forward `fn` in `completion_signatures`](https://cplusplus.github.io/LWG/issue4448)
