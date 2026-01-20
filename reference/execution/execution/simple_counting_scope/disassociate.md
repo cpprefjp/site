@@ -4,14 +4,14 @@
 * simple_counting_scope[meta class]
 * function[meta id-type]
 * cpp26[meta cpp]
+* [meta exposition-only]
 
 ```cpp
-void disassociate() noexcept; // exposition only
+void disassociate() noexcept;
 ```
 
 ## 概要
 非同期スコープとの関連付けを解除する、説明専用のメンバ関数。
-非同期トークン型[`token`](token.md)の[`disassociate`](token/disassociate.md)メンバ動作を定義する。
 
 
 ## 事前条件

@@ -6,8 +6,9 @@
 * cpp26[meta cpp]
 
 ```cpp
-bool try_associate() const noexcept;
+assoc-t try_associate() const noexcept;
 ```
+* assoc-t[link ../../counting_scope.md]
 
 ## 概要
 非同期スコープとの関連付けを試行する。
@@ -45,3 +46,4 @@ return scope->try-associate();
 
 ## 参照
 - [P3149R11 `async_scope` - Creating scopes for non-sequential concurrency](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3149r11.html)
+- [P3815R1 Add `scope_association` concept to P3149](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3815r1.html)

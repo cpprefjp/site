@@ -173,9 +173,8 @@ namespace std::execution {
         op(connect(
           write_env(stop-when(std::forward<Sender>(sndr), ssource.get_token()), std::move(env)),
           receiver-t(this))),
-        token(std::move(token)),
-        associated(token.try_associate()) {
-          if (associated)
+        assoc(token.try_associate()) {
+          if (assoc)
             start(op);
           else
             set_stopped(receiver-t(this));
@@ -188,12 +187,13 @@ namespace std::execution {
   private:
     using alloc-t =                                                         // exposition only
       typename allocator_traits<Alloc>::template rebind_alloc<spawn-future-state>;
+    using assoc-t =                                                         // exposition only
+      remove_cvref_t<decltype(declval<Token&>().try_associate())>;
 
     alloc-t alloc;                                                          // exposition only
     ssource-t ssource;                                                      // exposition only
     op-t op;                                                                // exposition only
-    Token token;                                                            // exposition only
-    bool associated;                                                        // exposition only
+    assoc-t assoc;                                                          // exposition only
 
     void destroy() noexcept;                                                // exposition only
   };
@@ -268,18 +268,11 @@ void destroy() noexcept;
 - 効果 : 下記と等価。
 
     ```cpp
-    auto token = std::move(this->token);
-    bool associated = this->associated;
+    bool assoc = std::move(this->assoc);
+    auto alloc = std::move(this->alloc);
 
-    {
-      auto alloc = std::move(this->alloc);
-
-      allocator_traits<alloc-t>::destroy(alloc, this);
-      allocator_traits<alloc-t>::deallocate(alloc, this, 1);
-    }
-
-    if (associated)
-      token.disassociate();
+    allocator_traits<alloc-t>::destroy(alloc, this);
+    allocator_traits<alloc-t>::deallocate(alloc, this, 1);
     ```
     * allocator_traits[link /reference/memory/allocator_traits.md]
     * destroy[link /reference/memory/allocator_traits/destroy.md]
@@ -359,3 +352,4 @@ value=42
 
 ## 参照
 - [P3149R11 `async_scope` - Creating scopes for non-sequential concurrency](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3149r11.html)
+- [P3815R1 Add `scope_association` concept to P3149](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3815r1.html)

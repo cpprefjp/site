@@ -72,17 +72,17 @@ namespace std::execution {
 
     spawn-state(Alloc alloc, Sender&& sndr, Token token);   // exposition only
     void complete() noexcept override;                      // exposition only
-    void run();                                             // exposition only
+    void run() noexcept;                                    // exposition only
 
   private:
     using alloc-t =                                         // exposition only
       typename allocator_traits<Alloc>::template rebind_alloc<spawn-state>;
+    using assoc-t =                                         // exposition only
+      remove_cvref_t<decltype(declval<Token&>().try_associate())>;
 
     alloc-t alloc;                                          // exposition only
     op-t op;                                                // exposition only
-    Token token;                                            // exposition only
-
-    void destroy() noexcept;                                // exposition only
+    assoc-t assoc;                                          // exposition only
   };
 }
 ```
@@ -97,7 +97,7 @@ namespace std::execution {
 spawn-state(Alloc alloc, Sender&& sndr, Token token);
 ```
 
-- 効果 : メンバ変数`alloc`を引数`alloc`で、メンバ変数`token`を引数`token`で、`op`を下記で初期化する。
+- 効果 : メンバ変数`alloc`を[`std::move`](/reference/utility/move.md)`(alloc)`で、メンバ変数`assoc`を`token.try_associate()`で、メンバ変数`op`を下記で初期化する。
 
     ```cpp
     connect(std::move(sndr), spawn-receiver(this))
@@ -106,16 +106,16 @@ spawn-state(Alloc alloc, Sender&& sndr, Token token);
     * std::move[link /reference/utility/move.md]
 
 ```cpp
-void run();
+void run() noexcept;
 ```
 
 - 効果 : 下記と等価
 
     ```cpp
-    if (token.try_associate())
+    if (assoc)
       start(op);
     else
-      destroy();
+      complete();
     ```
     * start[link start.md]
 
@@ -123,23 +123,10 @@ void run();
 void complete() noexcept override;
 ```
 
-- 効果 : 下記と等価
-
-    ```cpp
-    auto token = std::move(this->token);
-
-    destroy();
-    token.disassociate();
-    ```
-    * std::move[link /reference/utility/move.md]
-
-```cpp
-void destroy() noexcept;
-```
-
 - 効果 ： 下記と等価
 
     ```cpp
+    auto assoc = std::move(this->assoc);
     auto alloc = std::move(this->alloc);
 
     allocator_traits<alloc-t>::destroy(alloc, this);
@@ -215,3 +202,4 @@ sync_wait
 
 ## 参照
 - [P3149R11 `async_scope` - Creating scopes for non-sequential concurrency](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3149r11.html)
+- [P3815R1 Add `scope_association` concept to P3149](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3815r1.html)

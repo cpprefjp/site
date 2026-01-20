@@ -83,57 +83,53 @@ namespace std::execution {
 
 ```cpp
 []<class Sndr, class Rcvr>(Sndr&& sndr, Rcvr& rcvr) noexcept(see below) {
-  auto [_, data] = std::forward<Sndr>(sndr);
-  auto dataParts = std::move(data).release();
+  auto&& [_, data] = std::forward<Sndr>(sndr);
 
-  using scope_tkn = decltype(dataParts->first);
-  using wrap_sender = decltype(dataParts->second);
-  using op_t = connect_result_t<wrap_sender, Rcvr>;
+  using associate_data_t = remove_cvref_t<decltype(data)>;
+  using assoc_t = associate_data_t::assoc-t;
+  using sender_ref_t = associate_data_t::sender-ref;
+
+  using op_t = connect_result_t<typename sender_ref_t::element_type, Rcvr>;
 
   struct op_state {
-    bool associated = false;    // exposition only
+    assoc_t assoc;              // exposition only
     union {
       Rcvr* rcvr;               // exposition only
-      struct {
-        scope_tkn token;        // exposition only
-        op_t op;                // exposition only
-      } assoc;                  // exposition only
+      op_t op;                  // exposition only
     };
 
-    explicit op_state(Rcvr& r) noexcept
-      : rcvr(addressof(r)) {}
+    explicit op_state(pair<assoc_t, sender_ref_t> parts, Rcvr& r)
+      : assoc(std::move(parts.first)) {
+      if (assoc) {
+        ::new (voidify(op)) op_t(connect(std::move(*parts.second), std::move(r)));
+      } else {
+        rcvr = addressof(r);
+      }
+    }
 
-    explicit op_state(scope_tkn tkn, wrap_sender&& sndr, Rcvr& r) try
-      : associated(true),
-        assoc(tkn, connect(std::move(sndr), std::move(r))) {
-    }
-    catch (...) {
-      tkn.disassociate();
-      throw;
-    }
+    explicit op_state(associate_data_t&& ad, Rcvr& r)
+      : op_state(std::move(ad).release(), r) {}
+
+    explicit op_state(const associate_data_t& ad, Rcvr& r)
+      requires copy_constructible<associate_data_t>
+      : op_state(associate_data_t(ad).release(), r) {}
 
     op_state(op_state&&) = delete;
 
     ~op_state() {
-      if (associated) {
-        assoc.op.~op_t();
-        assoc.token.disassociate();
-        assoc.token.~scope_tkn();
-      }
+      if (assoc)
+        op.~op_t();
     }
 
     void run() noexcept {       // exposition only
-      if (associated)
-        start(assoc.op);
+      if (assoc)
+        start(op);
       else
         set_stopped(std::move(*rcvr));
     }
   };
 
-  if (dataParts)
-    return op_state{std::move(dataParts->first), std::move(dataParts->second), rcvr};
-  else
-    return op_state{rcvr};
+  return op_state{rcvr};
 }
 ```
 * connect_result_t[link connect_result_t.md]
@@ -147,12 +143,12 @@ namespace std::execution {
 `impls-for<associate_t>::get-state`の`noexcept`節の式は、型`wrap-sender`を[`remove_cvref_t`](/reference/type_traits/remove_cvref.md)`<data-type<Sndr>>::wrap-sender`としたとき、下記の通り。
 
 ```cpp
-is_nothrow_constructible_v<remove_cvref_t<Sndr>, Sndr> &&
-is_nothrow_move_constructible_v<wrap-sender> &&
+(is_same_v<Sndr, remove_cvref_t> ||
+ is_nothrow_constructible_v<remove_cvref_t<Sndr>, Sndr>) &&
 nothrow-callable<connect_t, wrap-sender, Rcvr>
 ```
+* is_same_v[link /reference/type_traits/is_same.md]
 * is_nothrow_constructible_v[link /reference/type_traits/is_nothrow_constructible.md]
-* is_nothrow_move_constructible_v[link /reference/type_traits/is_nothrow_move_constructible.md]
 * connect_t[link connect.md]
 * nothrow-callable[link /reference/functional/nothrow-callable.md]
 
@@ -174,29 +170,40 @@ namespace std::execution {
   struct associate-data {        // exposition only
     using wrap-sender =          // exposition only
       remove_cvref_t<decltype(declval<Token&>().wrap(declval<Sender>()))>;
+      using assoc-t =            // exposition only
+        decltype(declval<Token&>().try_associate());
+      using sender-ref =         // exposition only
+        unique_ptr<wrap-sender, decltype([](auto* p) noexcept { destroy_at(p); })>;
 
     explicit associate-data(Token t, Sender&& s)
       : sndr(t.wrap(std::forward<Sender>(s))),
-        token(t) {
-      if (!token.try_associate())
-        sndr.reset();
-    }
+        assoc([&] {
+          sender-ref guard{addressof(sndr)};
+          auto assoc = t.try_associate();
+          if (assoc) {
+            guard.release();
+          }
+          return assoc;
+        }()) {}
 
     associate-data(const associate-data& other)
       noexcept(is_nothrow_copy_constructible_v<wrap-sender> &&
-               noexcept(other.token.try_associate()));
+               noexcept(other.assoc.try_associate()));
 
     associate-data(associate-data&& other)
-      noexcept(is_nothrow_move_constructible_v<wrap-sender>);
+      noexcept(is_nothrow_move_constructible_v<wrap-sender>)
+      : associate-data(std::move(other).release()) {}
 
     ~associate-data();
 
-    optional<pair<Token, wrap-sender>>
-      release() && noexcept(is_nothrow_move_constructible_v<wrap-sender>);
+    pair<assoc-t, sender-ref> release() && noexcept;
 
   private:
-    optional<wrap-sender> sndr;  // exposition only
-    Token token;                 // exposition only
+    associate-data(pair<assoc-t, sender-ref> parts);  // exposition only
+    union {
+      wrap-sender sndr;          // exposition only
+    };
+    assoc-t assoc;               // exposition only
   };
 
   template<scope_token Token, sender Sender>
@@ -205,53 +212,39 @@ namespace std::execution {
 ```
 * scope_token[link scope_token.md]
 * sender[link sender.md]
+* destroy_at[link /reference/memory/destroy_at.md]
 * is_nothrow_copy_constructible_v[link /reference/type_traits/is_nothrow_copy_constructible.md]
 * is_nothrow_move_constructible_v[link /reference/type_traits/is_nothrow_move_constructible.md]
-* optional[link /reference/optional/optional.md]
-* reset()[link /reference/optional/optional/reset.md]
 
-`associate-data`型のオブジェクト`a`に対して、関連付けが正常に行われかつ`a`により所有される場合に限って、`a.sndr.`[`has_value()`](/reference/optional/optional/has_value.md)は`true`となる。
+`associate-data`型のオブジェクト`a`に対して、関連付けが正常に行われかつ`a`により所有される場合に限って、`bool(a.assoc)`は`true`となる。
 
 ```cpp
 associate-data(const associate-data& other)
   noexcept(is_nothrow_copy_constructible_v<wrap-sender> &&
-           noexcept(other.token.try_associate()));
+           noexcept(other.assoc.try_associate()));
 ```
 * is_nothrow_copy_constructible_v[link /reference/type_traits/is_nothrow_copy_constructible.md]
 
-- テンプレートパラメータ制約 : [`copy_constructible`](/reference/concepts/copy_constructible.md)`<wrap-sender> == true`
-- 効果 : `sndr`を値初期化し、`token`を`other.token`で初期化する。`other.sndr.`[`has_value()`](/reference/optional/optional/has_value.md) `== false`ならば、それ以上の効果を持たない。そうでなければ、`token.try_associate()`を呼び出し、戻り値が`true`ならば`sndr.`[`emplace`](/reference/optional/optional/emplace.md)`(*other.sndr)`を呼び出し、例外で終了するときは例外を伝播させる前に`token.disassociate()`を呼び出す。
+- テンプレートパラメータ制約 : `wrap-sender`は[`copy_constructible`](/reference/concepts/copy_constructible.md)のモデルである。
+- 効果 : `assoc`を`other.assoc.try_associate()`で初期化する。`bool(assoc)`が`true`ならば、`sndr`を`other.sndr`で初期化する。
 
 ```cpp
-associate-data(associate-data&& other)
-  noexcept(is_nothrow_move_constructible_v<wrap-sender>);
+associate-data(pair<assoc-t, sender-ref> parts);
 ```
-* is_nothrow_move_constructible_v[link /reference/type_traits/is_nothrow_move_constructible.md]
 
-- 効果 : `sndr`を[`std::move`](/reference/utility/move.md)`(other.sndr)`で、`token`を`std::move(otehr.token)`で初期化したのち、`other.sndr.`[`reset()`](/reference/optional/optional/reset.md)を呼び出す。
+- 効果 : `assoc`を[`std::move`](/reference/utility/move.md)`(parts.first)`で初期化する。`bool(assoc)`が`true`ならば、`sndr`を`std::move(*parts.second)`で初期化する。
 
 ```cpp
 ~associate-data();
 ```
 
-- 効果 : `sndr.`[`has_value()`](/reference/optional/optional/has_value.md)が`false`を返すとき、何もしない。そうでなければ、`token.disassociate()`呼び出しの前に`sndr.`[`reset()`](/reference/optional/optional/reset.md)を呼び出す。
+- 効果 : `bool(assoc)`が`true`ならば、`sndr`を破棄する。
 
 ```cpp
-optional<pair<Token, wrap-sender>>
-  release() && noexcept(is_nothrow_move_constructible_v<wrap-sender>);
+pair<assoc-t, sender-ref> release() && noexcept;
 ```
-* optional[link /reference/optional/optional.md]
-* is_nothrow_move_constructible_v[link /reference/type_traits/is_nothrow_move_constructible.md]
 
-- 効果 : `sndr.`[`has_value()`](/reference/optional/optional/has_value.md)が`false`を返すとき、値を保持しない[`optional`](/reference/optional/optional.md)を返す。そうでなければ、次のように[`pair`](/reference/utility/pair.md)`<Token, warp-sender>`型の値を保持する`optional`を返す。
-
-    ```cpp
-    return optional(pair(token, std::move(*sndr)));
-    ```
-    * optional[link /reference/optional/optional.md]
-    * std::move[link /reference/utility/move.md]
-
-- 事後条件 : `sndr`は値を保持しない。
+- 効果 : `bool(assoc)`が`true`ならば[`addressof`](/reference/memory/addressof.md)`(sndr)`で、そうでなければ`nullptr`で初期化された`sender-ref`型のオブジェクト`u`を構築し、[`pair`](/reference/utility/pair.md)`{std::move(assoc), std::move(u)}`を返す。
 
 
 ## カスタマイゼーションポイント
@@ -319,3 +312,4 @@ value=42
 - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3149R11 `async_scope` - Creating scopes for non-sequential concurrency](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3149r11.html)
+- [P3815R1 Add `scope_association` concept to P3149](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3815r1.html)

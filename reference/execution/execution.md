@@ -171,6 +171,7 @@ Senderコンシューマは名前空間 `std::this_thread` および名前空間
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
+| [`execution::scope_association`](execution/scope_association.md) | 非同期スコープの関連付け (concept) | C++26 |
 | [`execution::scope_token`](execution/scope_token.md) | 非同期スコープトークン (concept) | C++26 |
 | [`execution::simple_counting_scope`](execution/simple_counting_scope.md) | カウント式非同期スコープ (class) | C++26 |
 | [`execution::counting_scope`](execution/counting_scope.md) | 停止要求可能なカウント式非同期スコープ (class) | C++26 |
@@ -200,3 +201,4 @@ Senderコンシューマは名前空間 `std::this_thread` および名前空間
 - [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
 - [P3570R2 optional variants in sender/receiver](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3570r2.html)
 - [P3682R0 Remove `std::execution::split`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3682r0.pdf)
+- [P3815R1 Add `scope_association` concept to P3149](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3815r1.html)

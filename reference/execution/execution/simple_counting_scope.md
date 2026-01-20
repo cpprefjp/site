@@ -174,6 +174,7 @@ namespace std::execution {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
+| `assoc-t` | [`association-t`](association-t.md)`<simple_counting_scope>`（説明専用） | C++26 |
 | [`token`](simple_counting_scope/token.md) | 非同期スコープトークン型 | C++26 |
 
 ## 静的メンバ変数
@@ -200,3 +201,4 @@ namespace std::execution {
 
 ## 参照
 - [P3149R11 `async_scope` - Creating scopes for non-sequential concurrency](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3149r11.html)
+- [P3815R1 Add `scope_association` concept to P3149](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3815r1.html)

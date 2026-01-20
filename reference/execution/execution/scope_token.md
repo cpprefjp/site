@@ -10,19 +10,20 @@ namespace std::execution {
   concept scope_token =
     copyable<Token> &&
     requires(const Token token) {
-      { token.try_associate() } -> same_as<bool>;
-      { token.disassociate() } noexcept -> same_as<void>;
+      { token.try_associate() } -> scope_association;
       { token.wrap(declval<test-sender>()) } -> sender_in<test-env>;
     };
 }
 ```
 * copyable[link /reference/concepts/copyable.md]
+* scope_association[link scope_association.md]
 * sender_in[link sender_in.md]
 * test-sender[italic]
 * test-env[italic]
 
 ## 概要
 `scope_token`コンセプトは、[Sender](sender.md)と非同期スコープ間の関連付けを作成するために利用できる型`Token`に対する要件を定義する。
+`Token`型の各オブジェクトは、[関連スコープ](scope_association.md)と呼ばれる非同期スコープに関連付けられる。
 
 `test-sender`と`test-env`は、[`sender_in`](sender_in.md)`<test-sender, test-env>`のモデルである未規定の型とする。
 
@@ -31,6 +32,7 @@ namespace std::execution {
 型`Token`は、次のとき`scope_token`のモデルとなる。
 
 - `Token`型オブジェクトのコピー構築、ムーブ構築、コピー代入、ムーブ代入から例外送出しない、かつ
+- `Token`型のオブジェクト`token`に対して、`token.try_associate()`は有効でない(not engaged)オブジェクト、もしくは`token`の関連スコープとの新しい関連付けを取得して関連付けを所有する[有効な(engaged)](scope_association.md)オブジェクトのいずれかを返す。
 - （const修飾の可能性のある）型`Token`の左辺値`token`が与えられたとき、型`decltype((sndr))`が[`sender`](sender.md)のモデルである全ての式`sndr`に対して、
     - `token.warp(sndr)`が有効な式、かつ
     - `decltype(token.warp(sndr))`は[`sender`](sender.md)のモデルであり、かつ
@@ -72,7 +74,9 @@ int main()
 - [`execution::associate`](associate.md)
 - [`execution::spawn_future`](spawn_future.md)
 - [`execution::spawn`](spawn.md)
+- [`execution::scope_association`](scope_association.md)
 
 
 ## 参照
 - [P3149R11 `async_scope` - Creating scopes for non-sequential concurrency](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3149r11.html)
+- [P3815R1 Add `scope_association` concept to P3149](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3815r1.html)

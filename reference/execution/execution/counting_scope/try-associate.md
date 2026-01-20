@@ -4,10 +4,12 @@
 * counting_scope[meta class]
 * function[meta id-type]
 * cpp26[meta cpp]
+* [meta exposition-only]
 
 ```cpp
-bool try-associate() noexcept; // exposition only
+assoc-t try-associate() noexcept; // exposition only
 ```
+* assoc-t[link ../counting_scope.md]
 
 ## 概要
 非同期スコープとの関連付けを試行する、説明専用のメンバ関数。
@@ -24,7 +26,7 @@ bool try-associate() noexcept; // exposition only
 
 
 ## 戻り値
-`count`がインクリメントされたとき、`true`を返す。それ以外のときは、`false`を返す。
+`count`がインクリメントされたとき、`*this`に関連付けられた有効(engaged)な[`assoc-t`](../counting_scope.md)型のオブジェクトを返す。それ以外のときは、`assoc-t()`を返す。
 
 
 ## 例外
@@ -38,3 +40,4 @@ bool try-associate() noexcept; // exposition only
 
 ## 参照
 - [P3149R11 `async_scope` - Creating scopes for non-sequential concurrency](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3149r11.html)
+- [P3815R1 Add `scope_association` concept to P3149](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3815r1.html)

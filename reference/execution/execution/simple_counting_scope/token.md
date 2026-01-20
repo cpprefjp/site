@@ -26,7 +26,6 @@ namespace std::execution {
 |------|------|----------------|
 | [`wrap`](token/wrap.md) | 非同期スコープと[Sender](../sender.md)を関連付けたSenderを返す | C++26 |
 | [`try_associate`](token/try_associate.md) | 非同期スコープとの関連付けを試行 | C++26 |
-| [`disassociate`](token/disassociate.md) | 非同期スコープとの関連付けを解除 | C++26 |
 
 
 ## バージョン
@@ -46,3 +45,4 @@ namespace std::execution {
 
 ## 参照
 - [P3149R11 `async_scope` - Creating scopes for non-sequential concurrency](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3149r11.html)
+- [P3815R1 Add `scope_association` concept to P3149](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3815r1.html)
