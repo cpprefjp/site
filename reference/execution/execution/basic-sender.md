@@ -3,6 +3,7 @@
 * class template[meta id-type]
 * std::execution[meta namespace]
 * cpp26[meta cpp]
+* [meta exposition-only]
 
 ```cpp
 namespace std::execution {
@@ -62,9 +63,10 @@ is_nothrow_constructible_v<basic-operation<Self, Rcvr>, Self, Rcvr>
 ### `get_completion_signatures`メンバ関数
 ```cpp
 template<class Tag, class Data, class... Child>
-template<class Sndr, class... Env>
+template<decays-to<basic-sender> Sndr, class... Env>
 constexpr auto basic-sender<Tag, Data, Child...>::get_completion_signatures();
 ```
+* decays-to[link ../decays-to.md]
 
 型`E`をリスト`Env...,` [`env<>`](env.md)における先頭の型としたとき、[環境](../queryable.md)`E`をもつ[Receiver](receiver.md)型を`Rcvr`とする。式`CHECK-TYPE()`を[`impls-for`](impls-for.md)`<Tag>::template check-types<Sndr, E>()`とし、型`CS`を下記の通り定義する。
 
@@ -106,3 +108,4 @@ using indices-for = remove_reference_t<Sndr>::indices-for;  // exposition only
 - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+- [LWG4455 Add missing constraint to `basic-sender::get_completion_signatures` definition](https://cplusplus.github.io/LWG/issue4455)

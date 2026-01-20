@@ -3,16 +3,17 @@
 * type-alias[meta id-type]
 * std::execution[meta namespace]
 * cpp26[meta cpp]
+* [meta exposition-only]
 
 ```cpp
 template<class Sndr, class... Env>
-using single-sender-value-type = see below;  // exposition only
+using single-sender-value-type = see below;
 ```
 
 ## 概要
 `single-sender-value-type`は、実行制御ライブラリの仕様定義で用いられる説明専用のエイリアステンプレートである。
 
-型`Sndr`と型パック`Env`に対して、`CS`を[`completion_signatures_of_t`](completion_signatures_of_t.md)`<Sndr, Env...>`とする。`CS`が不適格または`sizeof...(Env) > 1`のとき、`single-sender-value-type<Sndr, Env...>`は不適格となる。
+型`Sndr`と型パック`Env`に対して、`CS`を[`completion_signatures_of_t`](completion_signatures_of_t.md)`<Sndr, Env...>`とする。`CS`が不適格なとき、`single-sender-value-type<Sndr, Env...>`は不適格となる。
 
 そうでなければ、`single-sender-value-type<Sndr, Env...>`は下記のエイリアスとなる。
 
@@ -35,3 +36,4 @@ using single-sender-value-type = see below;  // exposition only
 ## 参照
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+- [LWG4447 Remove unnecessary `sizeof...(Env) > 1` condition](https://cplusplus.github.io/LWG/issue4447)

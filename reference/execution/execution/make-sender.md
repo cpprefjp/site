@@ -3,6 +3,7 @@
 * function template[meta id-type]
 * std::execution[meta namespace]
 * cpp26[meta cpp]
+* [meta exposition-only]
 
 ```cpp
 template<class Tag, class Data = see below, class... Child>
@@ -25,7 +26,7 @@ constexpr auto make-sender(Tag tag, Data&& data, Child&&... child);
 - [`semiregular`](/reference/concepts/semiregular.md)`<Tag>`
 - [`movable-value`](../movable-value.md)`<Data>`
 - `(`[`sender`](sender.md)`<Child> && ...)`
-- 型`Sndr`を[`basic-sender`](basic-sender.md)`<Tag, Data, Child...>`としたとき、[`dependent_sender`](dependent_sender.md)`<Sndr> ||` [`sender_in`](sender_in.md)`<Sndr>`
+- 型`Sndr`を[`basic-sender`](basic-sender.md)`<Tag, decay_t<Data>, decay_t<Child>...>`としたとき、[`dependent_sender`](dependent_sender.md)`<Sndr> ||` [`sender_in`](sender_in.md)`<Sndr>`
 
 
 ## 戻り値
@@ -51,3 +52,4 @@ constexpr auto make-sender(Tag tag, Data&& data, Child&&... child);
 - [P2999R3 Sender Algorithm Customization](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+- [LWG4456 Decay `Data` and `Child` in `make-sender`](https://cplusplus.github.io/LWG/issue4456)

@@ -127,7 +127,7 @@ static consteval void default-impls::check-types();
 効果：下記と等価。
 
 ```cpp
-(get_completion_signatures<child-type<Sndr, Is>, FWD-ENV-T(Env)...>(), ...);
+((void)get_completion_signatures<child-type<Sndr, Is>, FWD-ENV-T(Env)...>(), ...);
 ```
 * get_completion_signatures[link get_completion_signatures.md]
 * child-type[link child-type.md]
@@ -149,3 +149,4 @@ static consteval void default-impls::check-types();
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
 - [P3433R1 Allocator Support for Operation States](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3433r1.pdf)
 - [P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html)
+- [LWG4459 Protect `get_completion_signatures` fold expression from overloaded commas](https://cplusplus.github.io/LWG/issue4459)
