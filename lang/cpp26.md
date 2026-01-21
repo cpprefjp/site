@@ -143,7 +143,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
 ### コンテナ
 - [`std::vector<bool>::reference`](/reference/vector/vector.md)のプロキシ操作として、`const`修飾付きの代入と`swap()`メンバ関数を追加
 - [`std::mdspan`](/reference/mdspan/mdspan.md)から部分ビューを取り出す[`std::submdspan()`](/reference/mdspan/submdspan.md)を追加
-- [`std::mdspan`](/reference/mdspan/mdspan.md)に、インデックスを指定して要素を取り出す[`at()`](/reference/mdspan/mdspan/at.md.nolink)メンバ関数を追加
+- [`std::mdspan`](/reference/mdspan/mdspan.md)に、インデックスを指定して要素を取り出す[`at()`](/reference/mdspan/mdspan/at.md)メンバ関数を追加
 - [`std::mdspan`](/reference/mdspan/mdspan.md)に対する[`std::dextents`](/reference/mdspan/extents.md)指定の冗長さを解決する[`std::dims`](/reference/mdspan/extents.md)を追加
 - [`std::mdspan`](/reference/mdspan/mdspan.md)のレイアウトとして、[`std::layout_left_padded`](/reference/mdspan/layout_left_padded.md)と[`std::layout_right_padded`](/reference/mdspan/layout_right_padded.md)を追加
 - [`<mdspan>`](/reference/mdspan.md)に、要素アクセスにアライメント保証を与える[`std::aligned_accessor`](/reference/mdspan/aligned_accessor.md)を追加

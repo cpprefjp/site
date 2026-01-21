@@ -72,6 +72,7 @@ namespace std {
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
 | [`operator[]`](mdspan/op_at.md) | 多次元配列の要素アクセス | C++23 |
+| [`at`](mdspan/at.md) | 多次元配列の要素アクセス | C++26 |
 
 ### 多次元配列サイズ
 
@@ -189,3 +190,5 @@ int main()
 - [P2599R2 `index_type` & `size_type` in `mdspan`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2599r2.pdf)
 - [P2604R0 `mdspan`: rename `pointer` and `contiguous`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2604r0.html)
 - [P2613R1 Add the missing `empty` to `mdspan`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2613r1.html)
+- [P3383R3 mdspan.at()](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3383r3.html)
+    - C++26で`at`メンバ関数を追加
