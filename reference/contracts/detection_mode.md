@@ -33,7 +33,6 @@ namespace std::contracts {
 - [Visual C++](/implementation.md#visual_cpp): ?
 
 ## 関連項目
-- [契約に基づくプログラミング](/lang/future/contract-based_programming.md)
 - [契約プログラミング](/lang/cpp26/contracts.md)
 
 ## 参照

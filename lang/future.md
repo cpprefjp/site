@@ -13,11 +13,10 @@ cpprefjpでは基本的に[Working Draftに採択された機能のみを解説�
 
 | 言語機能 | 説明 |
 |----------|------|
-| [契約に基づくプログラミング](future/contract-based_programming.md) | 事前条件、事後条件、表明を宣言する新たな属性構文を追加 |
 
 
 ## ライブラリ
 
 | ヘッダ | 説明 |
 |--------|------|
-| [`<contracts>`](/reference/contracts.md) | 契約違反のハンドリング |
+

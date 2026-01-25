@@ -733,7 +733,6 @@ int main() {
 ```
 
 ## <a id="relative-page" href="#relative-page">関連項目</a>
-- [C++ 将来 契約に基づくプログラミング](/lang/future/contract-based_programming.md)
 - [`<contracts>`ヘッダー](/reference/contracts.md)
 - [`std::contracts::contract_violation`](/reference/contracts/contract_violation.md)
 - [`std::contracts::assertion_kind`](/reference/contracts/assertion_kind.md)
