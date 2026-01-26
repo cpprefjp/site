@@ -13,7 +13,7 @@ namespace std {
 ## 概要
 プログラムを異常終了させる。
 
-この関数は、シグナルハンドラでシグナル[`SIGABRT`](/reference/csignal/sigabrt.md.nolink)を捕捉しない限り、プログラムを異常終了させる。
+この関数は、シグナルハンドラでシグナル[`SIGABRT`](/reference/csignal/sigabrt.md)を捕捉しない限り、プログラムを異常終了させる。
 
 この関数を呼び出したときに生存しているオブジェクトは、破棄されない。
 
@@ -24,8 +24,8 @@ namespace std {
 ```cpp
 raise(SIGABRT);
 ```
-* raise[link /reference/csignal/raise.md.nolink]
-* SIGABRT[link /reference/csignal/sigabrt.md.nolink]
+* raise[link /reference/csignal/raise.md]
+* SIGABRT[link /reference/csignal/sigabrt.md]
 
 
 ## 戻り値
