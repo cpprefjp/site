@@ -17,12 +17,12 @@
 #include <cstdlib>
 
 void handler(int) {
-    std::_Exit(0);
+  std::_Exit(0);
 }
 
 int main() {
-    std::signal(SIGABRT, handler);
-    std::abort();
+  std::signal(SIGABRT, handler);
+  std::abort();
 }
 ```
 * SIGABRT[color ff0000]
