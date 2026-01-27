@@ -1,9 +1,9 @@
 # visit_format_arg
-
 * format[meta header]
 * function template[meta id-type]
 * std[meta namespace]
 * cpp20[meta cpp]
+* cpp26deprecated[meta cpp]
 
 ```cpp
 namespace std {
@@ -12,6 +12,8 @@ namespace std {
 }
 ```
 * basic_format_arg[link /reference/format/basic_format_arg.md]
+
+この関数は、C++26から非推奨となった。代わりに[`std::basic_format_arg`](basic_format_arg.md)`::`[`visit()`](basic_format_arg/visit.md)メンバ関数を使用すること。
 
 ## 概要
 
@@ -61,6 +63,7 @@ namespace std {
 
 * (1) : [`basic_format_arg`](/reference/format/basic_format_arg.md)オブジェクトが現在保持している型に対応する関数を呼び出した戻り値
 
+
 ## 実装例
 ```cpp
 namespace std {
@@ -90,4 +93,5 @@ namespace std {
 
 ## 参照
 
-* [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
+- [P0645R10 Text Formatting](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html)
+- [P2637R3 Member `visit`](http://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2637r3.html)

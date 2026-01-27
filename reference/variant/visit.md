@@ -193,6 +193,9 @@ HelloHello
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 
+## 関連項目
+- [メンバ関数版`visit()`](variant/visit.md)
+
 ## 参照
 - [P0655R1 `visit<R>`: Explicit Return Type for `visit`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0655r1.pdf)
 - [LWG Issue 2970. Return type of `std::visit` misspecified](https://wg21.cmeerw.net/lwg/issue2970)

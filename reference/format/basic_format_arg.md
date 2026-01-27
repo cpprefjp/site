@@ -34,6 +34,7 @@ namespace std {
   };
 }
 ```
+* variant[link /reference/variant/variant.md]
 
 ## 概要
 フォーマット引数1つを保持する型。
@@ -58,6 +59,13 @@ namespace std {
 |-----------------|-----------------------------------|----------------|
 | [`operator bool`](basic_format_arg/op_bool.md) | `bool`への変換演算子(空の時`false`) | C++20          |
 
+### ビジター
+
+| 名前            | 説明                              | 対応バージョン |
+|-----------------|-----------------------------------|----------------|
+| [`visit`](basic_format_arg/visit.md) | 現在保持している型に対応する関数を呼び出す | C++26          |
+
+
 ## メンバ型
 
 | 名前                                   | 説明                                         | 対応バージョン |
@@ -69,7 +77,7 @@ namespace std {
 | 名前                                      | 説明                                                                                             | 対応バージョン |
 |-------------------------------------------|--------------------------------------------------------------------------------------------------|----------------|
 | [`make_format_args`](make_format_args.md) | `basic_format_arg`の列を構築する (function template)                                             | C++20          |
-| [`visit_format_arg`](visit_format_arg.md) | `basic_format_arg`オブジェクトが現在保持している型に対応する関数を呼び出す (function template)   | C++20          |
+| [`visit_format_arg`](visit_format_arg.md) | `basic_format_arg`オブジェクトが現在保持している型に対応する関数を呼び出す (function template)   | C++20<br/> C++26から非推奨          |
 
 ## バージョン
 ### 言語

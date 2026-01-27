@@ -45,7 +45,7 @@
 | 名前                                               | 説明                                                                                             | 対応バージョン |
 |----------------------------------------------------|--------------------------------------------------------------------------------------------------|----------------|
 | [`basic_format_arg`](format/basic_format_arg.md)   | 引数1つへのアクセスを提供する (class template)                                                   | C++20          |
-| [`visit_format_arg`](format/visit_format_arg.md)   | `basic_format_arg`オブジェクトが現在保持している型に対応する関数を呼び出す (function template)   | C++20          |
+| [`visit_format_arg`](format/visit_format_arg.md)   | `basic_format_arg`オブジェクトが現在保持している型に対応する関数を呼び出す (function template)   | C++20<br/> C++26から非推奨          |
 | [`make_format_args`](format/make_format_args.md)   | 可変長引数から`basic_format_arg`の列を構築する (function template)                               | C++20          |
 | [`make_wformat_args`](format/make_format_args.md)  | `make_wformat_args`のワイド文字列版 (function template)                                          | C++20          |
 | [`basic_format_args`](format/basic_format_args.md) | 引数列へのアクセスを提供する (class template)                                                    | C++20          |
