@@ -88,6 +88,7 @@ terminate called after throwing an instance of 'std::runtime_error'
 
 ## 関連項目
 - [C++26 定数評価での例外送出を許可](/lang/cpp26/allowing_exception_throwing_in_constant-evaluation.md)
+- [`std::exception_ptr_cast()`](exception_ptr_cast.md)
 
 
 ## 参照

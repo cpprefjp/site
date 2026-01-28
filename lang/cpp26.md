@@ -511,7 +511,7 @@ C++26とは、2026年中に改訂される予定の、C++バージョンの通�
         - [`std::format_error`](/reference/format/format_error.md)
 - [`<memory>`](/reference/memory.md)に、ポインタのアライメントを判定する[`std::is_sufficiently_aligned()`](/reference/memory/is_sufficiently_aligned.md)関数を追加。
 - [`<utility>`](/reference/utility.md)に、タイムトラベル最適化を抑止するための観測可能ポイントとして[`std::observable_checkpoint()`](/reference/utility/observable_checkpoint.md.nolink)を追加
-- [`std::exception_ptr`](/reference/exception/exception_ptr.md)を指定した例外型にキャストする[`std::exception_ptr_cast()`](/reference/exception/exception_ptr_cast.md.nolink)関数を追加
+- [`std::exception_ptr`](/reference/exception/exception_ptr.md)を指定した例外型にキャストする[`std::exception_ptr_cast()`](/reference/exception/exception_ptr_cast.md)関数を追加
 - [`<compare>`](/reference/compare.md)に、型の順序を取得する[`std::type_order`](/reference/compare/type_order.md.nolink)クラスを追加
 
 

@@ -21,6 +21,7 @@
 | [`exception_ptr`](exception/exception_ptr.md) | 例外格納用ポインタ(type-alias) | C++11 |
 | [`current_exception`](exception/current_exception.md) | 現在処理中の例外オブジェクトを指す例外ポインタを取得する(function) | C++11 |
 | [`rethrow_exception`](exception/rethrow_exception.md) | 例外ポインタが指す例外を送出する(function) | C++11 |
+| [`exception_ptr_cast`](exception/exception_ptr_cast.md) | 例外ポインタを指定された例外型にキャストする(function) | C++26 |
 | [`make_exception_ptr`](exception/make_exception_ptr.md) | 例外ポインタを作成する(function) | C++11 |
 | [`throw_with_nested`](exception/throw_with_nested.md) | 現在の例外を入れ子にした例外を送出する(function) | C++11 |
 | [`rethrow_if_nested`](exception/rethrow_if_nested.md) | 入れ子になった例外が存在する場合に、入れ子になった例外を送出する(function) | C++11 |

@@ -76,7 +76,7 @@
 |`__cpp_lib_counting_scope`|`202506L`|[`<execution>`](/reference/execution.md)に[`std::execution::spawn`](/reference/execution/execution/spawn.md)、[`std::execution::scope_token`](/reference/execution/execution/scope_token.md)などを追加|[`<execution>`](/reference/execution.md)|
 |`__cpp_lib_debugging`|`202403L`|デバッグサポートのライブラリとして[`<debugging>`](/reference/debugging.md)を追加|[`<debugging>`](/reference/debugging.md)|
 |`__cpp_lib_define_static`|`202506L`||[`<meta>`](/reference/meta.md.nolink)|
-|`__cpp_lib_exception_ptr_cast`|`202506L`|[`std::exception_ptr`](/reference/exception/exception_ptr.md)を指定した例外型にキャストする[`std::exception_ptr_cast()`](/reference/exception/exception_ptr_cast.md.nolink)関数を追加|[`<exception>`](/reference/exception.md)|
+|`__cpp_lib_exception_ptr_cast`|`202506L`|[`std::exception_ptr`](/reference/exception/exception_ptr.md)を指定した例外型にキャストする[`std::exception_ptr_cast()`](/reference/exception/exception_ptr_cast.md)関数を追加|[`<exception>`](/reference/exception.md)|
 |`__cpp_lib_format`|`202311L`||[`<format>`](/reference/format.md)|
 |`__cpp_lib_format_path`|`202506L`|[`std::filesystem::path`](/reference/filesystem/path.md)クラスに、文字列フォーマットのサポートを追加<br/>[`std::filesystem::path`](/reference/filesystem/path.md)クラスに、出力用の文字列を取得するためのメンバ関数を追加|[`<filesystem>`](/reference/filesystem.md)|
 |`__cpp_lib_format_uchar`|`202311L`|[`std::format`](/reference/format/format.md)が`char`を数値出力する際は符号なしとして扱う|[`<format>`](/reference/format.md)|
