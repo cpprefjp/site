@@ -75,7 +75,7 @@ int main()
 ### 出力例
 ```
 catch
-exception: erro!
+exception: error!
 ```
 
 ## バージョン
