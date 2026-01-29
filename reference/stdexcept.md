@@ -28,9 +28,9 @@
 - [`exception`](/reference/exception/exception.md)
 	- [`logic_error`](stdexcept/logic_error.md)
 		- [`domain_error`](stdexcept/domain_error.md)
-		- `invalid_argument`
+		- [`invalid_argument`](stdexcept/invalid_argument.md)
 		- `length_error`
-		- `out_of_range`
+		- [`out_of_range`](stdexcept/out_of_range.md)
 	- `runtime_error`
 		- `range_error`
 		- `overflow_error`
