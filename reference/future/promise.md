@@ -66,7 +66,7 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`uses_allocator`](promise/uses_allocator.md) | `promise`による特殊化 |
+| [`uses_allocator`](promise/uses_allocator.md) | `promise`による特殊化 | C++11<br/> C++26で削除 |
 
 
 ## 例

@@ -3,6 +3,7 @@
 * std[meta namespace]
 * class template[meta id-type]
 * cpp11[meta cpp]
+* cpp26removed[meta cpp]
 
 ```cpp
 namespace std {
@@ -13,17 +14,11 @@ namespace std {
 ```
 * true_type[link /reference/type_traits/true_type.md]
 
+この特殊化はC++11で導入され、C++26で削除された。
+
 ## 概要
 `uses_allocator`の、`promise<R>`に対する特殊化。
 
-
-## 例
-```cpp
-```
-
-### 出力
-```
-```
 
 ## バージョン
 ### 言語
@@ -37,3 +32,5 @@ namespace std {
 
 
 ## 参照
+- [P3503R3 Make type-erased allocator use in `promise` and `packaged_task` consistent](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3503r3.html)
+    - C++26でこの特殊化が削除された

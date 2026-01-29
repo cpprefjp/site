@@ -13,7 +13,7 @@ explicit packaged_task(F&& f);                     // (2)
 
 template <class F, class Allocator>
 explicit packaged_task(allocator_arg_t,
-                       const Allocator& a, F&& f); // (3) C++17で削除
+                       const Allocator& a, F&& f); // (3) C++17で削除、C++26で再追加
 
 packaged_task(packaged_task&) = delete;            // (4) C++11
 packaged_task(const packaged_task&) = delete;      // (4) C++14
@@ -117,3 +117,5 @@ int main()
 - [LWG Issue 2921. `packaged_task` and type-erased allocators](https://wg21.cmeerw.net/lwg/issue2921)
     - [`std::function`のコンストラクタ](/reference/functional/function/op_constructor.md)と同様の理由により、アロケータを受け取るコンストラクタを削除
 - [LWG Issue 3039. Unnecessary `decay` in `thread` and `packaged_task`](https://wg21.cmeerw.net/lwg/issue3039)
+- [P3503R3 Make type-erased allocator use in `promise` and `packaged_task` consistent](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3503r3.html)
+    - C++26でアロケータを受け取るコンストラクタを再追加
