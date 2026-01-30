@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2024-06-11T13:45:38">
-        2024年06月11日 13時45分38秒
+      <span itemprop="datePublished" content="2026-01-20T03:05:18">
+        2026年01月20日 03時05分18秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -214,10 +214,10 @@
         
   <div class="identifier-type">function template</div><div class="header">&lt;format&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">runtime_format</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="n"><a href="runtime-format-string.html">runtime-format-string</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="n"><a href="runtime-format-string.html">runtime-format-string</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span>
     <span class="n">runtime_format</span><span class="p">(</span><span class="n"><a href="../string_view/basic_string_view.html">string_view</a></span> <span class="n">fmt</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>  <span class="c1">// (1) C++26</span>
 
-  <span class="n"><a href="runtime-format-string.html">runtime-format-string</a></span><span class="o">&lt;</span><span class="kt">wchar_t</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="n"><a href="runtime-format-string.html">runtime-format-string</a></span><span class="o">&lt;</span><span class="kt">wchar_t</span><span class="o">&gt;</span>
     <span class="n">runtime_format</span><span class="p">(</span><span class="n"><a href="../string_view/basic_string_view.html">wstring_view</a></span> <span class="n">fmt</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (2) C++26</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -264,6 +264,7 @@
 <h2>参照</h2>
 <ul>
 <li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2918r2.html" target="_blank">P2918R2 Runtime format strings II</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3391r2.html" target="_blank">P3391R2 <code>constexpr std::format</code></a></li>
 </ul></div>
 
       </div>

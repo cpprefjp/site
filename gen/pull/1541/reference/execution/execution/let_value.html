@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-09-01T08:56:30">
-        2025年09月01日 08時56分30秒
+      <span itemprop="datePublished" content="2026-01-20T10:25:40">
+        2026年01月20日 10時25分40秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Akira Takahashi</span>
+        <span itemprop="name">yoh</span>
       </span>
       が更新
     </small></p>
@@ -344,13 +344,12 @@
 <span class="k">auto</span> <span class="n">cs</span> <span class="o">=</span> <span class="n"><a href="get_completion_signatures.html">get_completion_signatures</a></span><span class="o">&lt;</span><span class="n"><a href="child-type.html">child-type</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">,</span> <span class="n"><a href="../forwarding_query.html">FWD-ENV-T</a></span><span class="p">(</span><span class="n">Env</span><span class="p">)...</span><span class="o">&gt;</span><span class="p">();</span>
 <span class="k">auto</span> <span class="n">fn</span> <span class="o">=</span> <span class="p">[]</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Ts</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../functional/decayed-typeof.html">decayed-typeof</a></span><span class="o">&lt;</span><span class="n"><i>set-cpo</i></span><span class="o">&gt;</span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="n">Ts</span><span class="p">...))</span> <span class="p">{</span>
   <span class="k">if</span> <span class="k">constexpr</span> <span class="p">(</span><span class="o">!</span><span class="n">is</span><span class="o">-</span><span class="n">valid</span><span class="o">-</span><span class="n">let</span><span class="o">-</span><span class="n">sender</span><span class="p">)</span> <span class="c1">// <i>see below</i></span>
-    <span class="k">throw</span> <span class="n">unspecified</span><span class="o">-</span><span class="n">exception</span><span class="p">();</span>
+    <span class="k">throw</span> <span class="n"><a href="unspecified-exception.html">unspecified-exception</a></span><span class="p">();</span>
 <span class="p">};</span>
 <span class="n">cs</span><span class="p">.</span><span class="n"><a href="completion_signatures.html">for-each</a></span><span class="p">(</span><span class="n"><a href="overload-set.html">overload-set</a></span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="p">[](</span><span class="k">auto</span><span class="p">){}));</span>
 </code></pre></div>
 </p>
-<p><code>unspecified-exception</code>は<code><a href="../../exception/exception.html">exception</a></code>から派生した型となる。
-説明用の変数<code>is-valid-let-sender</code>は下記を全て満たす時に限って<code>true</code>となる。</p>
+<p>説明用の変数<code>is-valid-let-sender</code>は下記を全て満たす時に限って<code>true</code>となる。</p>
 <ul>
 <li><code>(<a href="../../concepts/constructible_from.html">constructible_from</a>&lt;decay_t&lt;Ts&gt;, Ts&gt; &amp;&amp;...)</code></li>
 <li><code><a href="../../concepts/invocable.html">invocable</a>&lt;LetFn, decay_t&lt;Ts&gt;&amp;...&gt;</code></li>

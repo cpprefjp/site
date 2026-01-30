@@ -20,7 +20,7 @@
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
-  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,std::execution,counting_scope,function,cpp26
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,std::execution,counting_scope,function,cpp26,
 ">
         <meta name="title" content="counting_scope::disassociate - cpprefjp C++日本語リファレンス" />
         <meta itemprop="name" content="counting_scope::disassociate - cpprefjp C++日本語リファレンス" />
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;execution&#34;], &#34;namespace&#34;: [&#34;std::execution&#34;], &#34;class&#34;: [&#34;counting_scope&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;execution&#34;, &#34;execution&#34;, &#34;counting_scope&#34;, &#34;disassociate&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;execution&#34;], &#34;namespace&#34;: [&#34;std::execution&#34;], &#34;class&#34;: [&#34;counting_scope&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;], &#34;exposition-only&#34;: [&#34;&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;execution&#34;, &#34;execution&#34;, &#34;counting_scope&#34;, &#34;disassociate&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -212,8 +212,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-09-20T08:53:48">
-        2025年09月20日 08時53分48秒
+      <span itemprop="datePublished" content="2026-01-20T07:36:33">
+        2026年01月20日 07時36分33秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -236,13 +236,12 @@
     <div class="row">
       <div class="col-sm-12 content-body">
         
-  <div class="identifier-type">function</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="class" title="class counting_scope">counting_scope::</span><span class="token">disassociate</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">disassociate</span><span class="p">()</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// exposition only</span>
+  <div class="identifier-type">function</div><div class="header">&lt;execution&gt;</div><h1 class="exposition-only" itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="class" title="class counting_scope">counting_scope::</span><span class="token">disassociate</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span><span class="cpp exposition-only" title="説明専用"></span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">disassociate</span><span class="p">()</span> <span class="k">noexcept</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
-<p>非同期スコープとの関連付けを解除する、説明専用のメンバ関数。
-非同期トークン型<code><a href="token.html">token</a></code>の<code><a href="token/disassociate.html">disassociate</a></code>メンバ動作を定義する。</p>
+<p>非同期スコープとの関連付けを解除する、説明専用のメンバ関数。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a></h2>
 <p>説明用のメンバ変数<code>count</code>は<code>0</code>より大きい。</p>
 <h2>効果</h2>

@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-20T09:48:11">
-        2025年08月20日 09時48分11秒
+      <span itemprop="datePublished" content="2026-01-20T10:25:40">
+        2026年01月20日 10時25分40秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -249,13 +249,12 @@
       <span class="n"><a href="impls-for.html">default-impls</a></span><span class="o">::</span><span class="n">check</span><span class="o">-</span><span class="n">types</span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">Env</span><span class="p">...</span><span class="o">&gt;</span><span class="p">();</span>
       <span class="k">if</span> <span class="nf">constexpr</span> <span class="p">(</span><span class="o">!</span><span class="n">requires</span> <span class="p">{</span>
         <span class="n">requires</span> <span class="p">(</span><span class="o">!</span><span class="n"><a href="../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="kt">void</span><span class="p">,</span> <span class="n"><a href="single-sender-value-type.html">single-sender-value-type</a></span><span class="o">&lt;</span><span class="n"><a href="child-type.html">child-type</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">,</span> <span class="n"><a href="../forwarding_query.html">FWD-ENV-T</a></span><span class="p">(</span><span class="n">Env</span><span class="p">)...</span><span class="o">&gt;&gt;</span><span class="p">);</span> <span class="p">})</span>
-        <span class="k">throw</span> <span class="n">unspecified</span><span class="o">-</span><span class="n">exception</span><span class="p">();</span>
+        <span class="k">throw</span> <span class="n"><a href="unspecified-exception.html">unspecified-exception</a></span><span class="p">();</span>
       <span class="p">}</span>
   <span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
-<p><code>unspecified-exception</code>は<code><a href="../../exception/exception.html">exception</a></code>から派生した型となる。</p>
 <p>説明用の式<code>sndr</code>と<code>env</code>に対して、型<code>Sndr</code>を<code>decltype((sndr))</code>、型<code>Env</code>を<code>decltype((env))</code>とする。<code><a href="sender-for.html">sender-for</a>&lt;Sndr, stopped_as_optional_t&gt; == false</code>のとき、式<code>stopped_as_optional.transform_sender(sndr, env)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
 <p>そうではなく、<code><a href="sender_in.html">sender_in</a>&lt;<a href="child-type.html">child-type</a>&lt;Sndr&gt;, <a href="../forwarding_query.html">FWD-ENV-T</a>(Env)&gt; == false</code>のとき、式<code>stopped_as_optional.transform_sender(sndr, env)</code>は<code><a href="not-a-sender.html">not-a-sender()</a></code>と等価。</p>
 <p>そうでなければ、式<code>stopped_as_optional.transform_sender(sndr, env)</code>は下記と等価。</p>

@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2024-05-17T05:01:28">
-        2024年05月17日 05時01分28秒
+      <span itemprop="datePublished" content="2026-01-20T03:05:18">
+        2026年01月20日 03時05分18秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -221,7 +221,7 @@
   <span class="n"><a href="../string_view/basic_string_view.html">basic_string_view</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="o">&gt;</span> <span class="n">str</span><span class="p">;</span>  <span class="c1">// 説明用</span>
 
 <span class="k">public</span><span class="o">:</span>
-  <span class="n">runtime</span><span class="o">-</span><span class="n">format</span><span class="o">-</span><span class="n">string</span><span class="p">(</span><span class="n"><a href="../string_view/basic_string_view.html">basic_string_view</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">)</span> <span class="k">noexcept</span> <span class="o">:</span> <span class="n">str</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="p">{}</span>
+  <span class="k">constexpr</span> <span class="n">runtime</span><span class="o">-</span><span class="n">format</span><span class="o">-</span><span class="n">string</span><span class="p">(</span><span class="n"><a href="../string_view/basic_string_view.html">basic_string_view</a></span><span class="o">&lt;</span><span class="n">charT</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">)</span> <span class="k">noexcept</span> <span class="o">:</span> <span class="n">str</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="p">{}</span>
 
   <span class="n">runtime</span><span class="o">-</span><span class="n">format</span><span class="o">-</span><span class="n">string</span><span class="p">(</span><span class="k">const</span> <span class="n">runtime</span><span class="o">-</span><span class="n">format</span><span class="o">-</span><span class="n">string</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
   <span class="k">const</span> <span class="n">runtime</span><span class="o">-</span><span class="n">format</span><span class="o">-</span><span class="n">string</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">runtime</span><span class="o">-</span><span class="n">format</span><span class="o">-</span><span class="n">string</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
@@ -251,6 +251,7 @@
 <h2>参照</h2>
 <ul>
 <li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2918r2.html" target="_blank">P2918R2 Runtime format strings II</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3391r2.html" target="_blank">P3391R2 <code>constexpr std::format</code></a></li>
 </ul></div>
 
       </div>

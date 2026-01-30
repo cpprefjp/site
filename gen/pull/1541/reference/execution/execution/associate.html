@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-09-22T04:42:00">
-        2025年09月22日 04時42分00秒
+      <span itemprop="datePublished" content="2026-01-20T07:36:33">
+        2026年01月20日 07時36分33秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -287,63 +287,59 @@
 </p>
 <p><code>impls-for&lt;associate_t&gt;::get-state</code>メンバは、下記ラムダ式と等価な関数呼び出し可能なオブジェクトで初期化される。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="p">[]</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Rcvr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Sndr</span><span class="o">&amp;&amp;</span> <span class="n">sndr</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&amp;</span> <span class="n">rcvr</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">auto</span> <span class="p">[</span><span class="n">_</span><span class="p">,</span> <span class="n">data</span><span class="p">]</span> <span class="o">=</span> <span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">sndr</span><span class="p">);</span>
-  <span class="k">auto</span> <span class="n">dataParts</span> <span class="o">=</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">data</span><span class="p">).</span><span class="n">release</span><span class="p">();</span>
+  <span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="p">[</span><span class="n">_</span><span class="p">,</span> <span class="n">data</span><span class="p">]</span> <span class="o">=</span> <span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">(</span><span class="n">sndr</span><span class="p">);</span>
 
-  <span class="k">using</span> <span class="n">scope_tkn</span> <span class="o">=</span> <span class="k">decltype</span><span class="p">(</span><span class="n">dataParts</span><span class="o">-&gt;</span><span class="n"><a href="../../utility/pair/first.html">first</a></span><span class="p">);</span>
-  <span class="k">using</span> <span class="n">wrap_sender</span> <span class="o">=</span> <span class="k">decltype</span><span class="p">(</span><span class="n">dataParts</span><span class="o">-&gt;</span><span class="n"><a href="../../utility/pair/second.html">second</a></span><span class="p">);</span>
-  <span class="k">using</span> <span class="n">op_t</span> <span class="o">=</span> <span class="n"><a href="connect_result_t.html">connect_result_t</a></span><span class="o">&lt;</span><span class="n">wrap_sender</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">associate_data_t</span> <span class="o">=</span> <span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">assoc_t</span> <span class="o">=</span> <span class="n">associate_data_t</span><span class="o">::</span><span class="n">assoc</span><span class="o">-</span><span class="n">t</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">sender_ref_t</span> <span class="o">=</span> <span class="n">associate_data_t</span><span class="o">::</span><span class="n">sender</span><span class="o">-</span><span class="n">ref</span><span class="p">;</span>
+
+  <span class="k">using</span> <span class="n">op_t</span> <span class="o">=</span> <span class="n"><a href="connect_result_t.html">connect_result_t</a></span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">sender_ref_t</span><span class="o">::</span><span class="n">element_type</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&gt;</span><span class="p">;</span>
 
   <span class="k">struct</span> <span class="n">op_state</span> <span class="p">{</span>
-    <span class="kt">bool</span> <span class="n">associated</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>    <span class="c1">// exposition only</span>
+    <span class="n">assoc_t</span> <span class="n">assoc</span><span class="p">;</span>              <span class="c1">// exposition only</span>
     <span class="k">union</span> <span class="p">{</span>
       <span class="n">Rcvr</span><span class="o">*</span> <span class="n">rcvr</span><span class="p">;</span>               <span class="c1">// exposition only</span>
-      <span class="k">struct</span> <span class="p">{</span>
-        <span class="n">scope_tkn</span> <span class="n">token</span><span class="p">;</span>        <span class="c1">// exposition only</span>
-        <span class="n">op_t</span> <span class="n">op</span><span class="p">;</span>                <span class="c1">// exposition only</span>
-      <span class="p">}</span> <span class="n">assoc</span><span class="p">;</span>                  <span class="c1">// exposition only</span>
+      <span class="n">op_t</span> <span class="n">op</span><span class="p">;</span>                  <span class="c1">// exposition only</span>
     <span class="p">};</span>
 
-    <span class="k">explicit</span> <span class="nf">op_state</span><span class="p">(</span><span class="n">Rcvr</span><span class="o">&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="k">noexcept</span>
-      <span class="o">:</span> <span class="n">rcvr</span><span class="p">(</span><span class="n"><a href="../../memory/addressof.html">addressof</a></span><span class="p">(</span><span class="n">r</span><span class="p">))</span> <span class="p">{}</span>
+    <span class="k">explicit</span> <span class="nf">op_state</span><span class="p">(</span><span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">assoc_t</span><span class="p">,</span> <span class="n">sender_ref_t</span><span class="o">&gt;</span> <span class="n">parts</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&amp;</span> <span class="n">r</span><span class="p">)</span>
+      <span class="o">:</span> <span class="n">assoc</span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">parts</span><span class="p">.</span><span class="n"><a href="../../utility/pair/first.html">first</a></span><span class="p">))</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">assoc</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">::</span><span class="k">new</span> <span class="p">(</span><span class="n">voidify</span><span class="p">(</span><span class="n">op</span><span class="p">))</span> <span class="n">op_t</span><span class="p">(</span><span class="n"><a href="connect.html">connect</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="o">*</span><span class="n">parts</span><span class="p">.</span><span class="n"><a href="../../utility/pair/second.html">second</a></span><span class="p">),</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">r</span><span class="p">)));</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">rcvr</span> <span class="o">=</span> <span class="n"><a href="../../memory/addressof.html">addressof</a></span><span class="p">(</span><span class="n">r</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
 
-    <span class="k">explicit</span> <span class="nf">op_state</span><span class="p">(</span><span class="n">scope_tkn</span> <span class="n">tkn</span><span class="p">,</span> <span class="n">wrap_sender</span><span class="o">&amp;&amp;</span> <span class="n">sndr</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="k">try</span>
-      <span class="o">:</span> <span class="n">associated</span><span class="p">(</span><span class="nb">true</span><span class="p">),</span>
-        <span class="n">assoc</span><span class="p">(</span><span class="n">tkn</span><span class="p">,</span> <span class="n"><a href="connect.html">connect</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">r</span><span class="p">)))</span> <span class="p">{</span>
-    <span class="p">}</span>
-    <span class="k">catch</span> <span class="p">(...)</span> <span class="p">{</span>
-      <span class="n">tkn</span><span class="p">.</span><span class="n">disassociate</span><span class="p">();</span>
-      <span class="k">throw</span><span class="p">;</span>
-    <span class="p">}</span>
+    <span class="k">explicit</span> <span class="nf">op_state</span><span class="p">(</span><span class="n">associate_data_t</span><span class="o">&amp;&amp;</span> <span class="n">ad</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&amp;</span> <span class="n">r</span><span class="p">)</span>
+      <span class="o">:</span> <span class="n">op_state</span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">ad</span><span class="p">).</span><span class="n">release</span><span class="p">(),</span> <span class="n">r</span><span class="p">)</span> <span class="p">{}</span>
+
+    <span class="k">explicit</span> <span class="nf">op_state</span><span class="p">(</span><span class="k">const</span> <span class="n">associate_data_t</span><span class="o">&amp;</span> <span class="n">ad</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&amp;</span> <span class="n">r</span><span class="p">)</span>
+      <span class="n">requires</span> <span class="n"><a href="../../concepts/copy_constructible.html">copy_constructible</a></span><span class="o">&lt;</span><span class="n">associate_data_t</span><span class="o">&gt;</span>
+      <span class="o">:</span> <span class="n">op_state</span><span class="p">(</span><span class="n">associate_data_t</span><span class="p">(</span><span class="n">ad</span><span class="p">).</span><span class="n">release</span><span class="p">(),</span> <span class="n">r</span><span class="p">)</span> <span class="p">{}</span>
 
     <span class="n">op_state</span><span class="p">(</span><span class="n">op_state</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
 
     <span class="o">~</span><span class="n">op_state</span><span class="p">()</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">associated</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">assoc</span><span class="p">.</span><span class="n">op</span><span class="p">.</span><span class="o">~</span><span class="n">op_t</span><span class="p">();</span>
-        <span class="n">assoc</span><span class="p">.</span><span class="n">token</span><span class="p">.</span><span class="n">disassociate</span><span class="p">();</span>
-        <span class="n">assoc</span><span class="p">.</span><span class="n">token</span><span class="p">.</span><span class="o">~</span><span class="n">scope_tkn</span><span class="p">();</span>
-      <span class="p">}</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">assoc</span><span class="p">)</span>
+        <span class="n">op</span><span class="p">.</span><span class="o">~</span><span class="n">op_t</span><span class="p">();</span>
     <span class="p">}</span>
 
     <span class="kt">void</span> <span class="n">run</span><span class="p">()</span> <span class="k">noexcept</span> <span class="p">{</span>       <span class="c1">// exposition only</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">associated</span><span class="p">)</span>
-        <span class="n"><a href="start.html">start</a></span><span class="p">(</span><span class="n">assoc</span><span class="p">.</span><span class="n">op</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">assoc</span><span class="p">)</span>
+        <span class="n"><a href="start.html">start</a></span><span class="p">(</span><span class="n">op</span><span class="p">);</span>
       <span class="k">else</span>
         <span class="nf"><a href="set_stopped.html">set_stopped</a></span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="o">*</span><span class="n">rcvr</span><span class="p">));</span>
     <span class="p">}</span>
   <span class="p">};</span>
 
-  <span class="k">if</span> <span class="p">(</span><span class="n">dataParts</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">op_state</span><span class="p">{</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">dataParts</span><span class="o">-&gt;</span><span class="n"><a href="../../utility/pair/first.html">first</a></span><span class="p">),</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">dataParts</span><span class="o">-&gt;</span><span class="n"><a href="../../utility/pair/second.html">second</a></span><span class="p">),</span> <span class="n">rcvr</span><span class="p">};</span>
-  <span class="k">else</span>
-    <span class="k">return</span> <span class="n">op_state</span><span class="p">{</span><span class="n">rcvr</span><span class="p">};</span>
+  <span class="k">return</span> <span class="n">op_state</span><span class="p">{</span><span class="n">rcvr</span><span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <p><code>impls-for&lt;associate_t&gt;::get-state</code>の<code>noexcept</code>節の式は、型<code>wrap-sender</code>を<code><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a>&lt;data-type&lt;Sndr&gt;&gt;::wrap-sender</code>としたとき、下記の通り。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../type_traits/is_nothrow_constructible.html">is_nothrow_constructible_v</a></span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">Sndr</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
-<span class="n"><a href="../../type_traits/is_nothrow_move_constructible.html">is_nothrow_move_constructible_v</a></span><span class="o">&lt;</span><span class="n">wrap</span><span class="o">-</span><span class="n">sender</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
+<p><div class="codehilite"><pre><span></span><code><span class="p">(</span><span class="n"><a href="../../type_traits/is_same.html">is_same_v</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&gt;</span> <span class="o">||</span>
+ <span class="n"><a href="../../type_traits/is_nothrow_constructible.html">is_nothrow_constructible_v</a></span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">Sndr</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
 <span class="n"><a href="../../functional/nothrow-callable.html">nothrow-callable</a></span><span class="o">&lt;</span><span class="n"><a href="connect.html">connect_t</a></span><span class="p">,</span> <span class="n">wrap</span><span class="o">-</span><span class="n">sender</span><span class="p">,</span> <span class="n">Rcvr</span><span class="o">&gt;</span>
 </code></pre></div>
 </p>
@@ -360,29 +356,40 @@
   <span class="k">struct</span> <span class="n">associate</span><span class="o">-</span><span class="n">data</span> <span class="p">{</span>        <span class="c1">// exposition only</span>
     <span class="k">using</span> <span class="n">wrap</span><span class="o">-</span><span class="n"><a href="sender.html">sender</a></span> <span class="o">=</span>          <span class="c1">// exposition only</span>
       <span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n"><a href="../../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">Token</span><span class="o">&amp;&gt;</span><span class="p">().</span><span class="n">wrap</span><span class="p">(</span><span class="n"><a href="../../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">Sender</span><span class="o">&gt;</span><span class="p">()))</span><span class="o">&gt;</span><span class="p">;</span>
+      <span class="k">using</span> <span class="n">assoc</span><span class="o">-</span><span class="n">t</span> <span class="o">=</span>            <span class="c1">// exposition only</span>
+        <span class="k">decltype</span><span class="p">(</span><span class="n"><a href="../../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">Token</span><span class="o">&amp;&gt;</span><span class="p">().</span><span class="n">try_associate</span><span class="p">());</span>
+      <span class="k">using</span> <span class="n"><a href="sender.html">sender</a></span><span class="o">-</span><span class="n">ref</span> <span class="o">=</span>         <span class="c1">// exposition only</span>
+        <span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">wrap</span><span class="o">-</span><span class="n"><a href="sender.html">sender</a></span><span class="p">,</span> <span class="k">decltype</span><span class="p">([](</span><span class="k">auto</span><span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="n"><a href="../../memory/destroy_at.html">destroy_at</a></span><span class="p">(</span><span class="n">p</span><span class="p">);</span> <span class="p">})</span><span class="o">&gt;</span><span class="p">;</span>
 
     <span class="k">explicit</span> <span class="n">associate</span><span class="o">-</span><span class="n">data</span><span class="p">(</span><span class="n">Token</span> <span class="n">t</span><span class="p">,</span> <span class="n">Sender</span><span class="o">&amp;&amp;</span> <span class="n">s</span><span class="p">)</span>
       <span class="o">:</span> <span class="n">sndr</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">wrap</span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Sender</span><span class="o">&gt;</span><span class="p">(</span><span class="n">s</span><span class="p">))),</span>
-        <span class="n">token</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">token</span><span class="p">.</span><span class="n">try_associate</span><span class="p">())</span>
-        <span class="n">sndr</span><span class="p">.</span><span class="n"><a href="../../optional/optional/reset.html">reset()</a></span><span class="p">;</span>
-    <span class="p">}</span>
+        <span class="n">assoc</span><span class="p">([</span><span class="o">&amp;</span><span class="p">]</span> <span class="p">{</span>
+          <span class="n"><a href="sender.html">sender</a></span><span class="o">-</span><span class="n">ref</span> <span class="n">guard</span><span class="p">{</span><span class="n"><a href="../../memory/addressof.html">addressof</a></span><span class="p">(</span><span class="n">sndr</span><span class="p">)};</span>
+          <span class="k">auto</span> <span class="n">assoc</span> <span class="o">=</span> <span class="n">t</span><span class="p">.</span><span class="n">try_associate</span><span class="p">();</span>
+          <span class="k">if</span> <span class="p">(</span><span class="n">assoc</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">guard</span><span class="p">.</span><span class="n">release</span><span class="p">();</span>
+          <span class="p">}</span>
+          <span class="k">return</span> <span class="n">assoc</span><span class="p">;</span>
+        <span class="p">}())</span> <span class="p">{}</span>
 
     <span class="n">associate</span><span class="o">-</span><span class="n">data</span><span class="p">(</span><span class="k">const</span> <span class="n">associate</span><span class="o">-</span><span class="n">data</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span>
       <span class="k">noexcept</span><span class="p">(</span><span class="n"><a href="../../type_traits/is_nothrow_copy_constructible.html">is_nothrow_copy_constructible_v</a></span><span class="o">&lt;</span><span class="n">wrap</span><span class="o">-</span><span class="n"><a href="sender.html">sender</a></span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
-               <span class="k">noexcept</span><span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="n">token</span><span class="p">.</span><span class="n">try_associate</span><span class="p">()));</span>
+               <span class="k">noexcept</span><span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="n">assoc</span><span class="p">.</span><span class="n">try_associate</span><span class="p">()));</span>
 
     <span class="n">associate</span><span class="o">-</span><span class="n">data</span><span class="p">(</span><span class="n">associate</span><span class="o">-</span><span class="n">data</span><span class="o">&amp;&amp;</span> <span class="n">other</span><span class="p">)</span>
-      <span class="k">noexcept</span><span class="p">(</span><span class="n"><a href="../../type_traits/is_nothrow_move_constructible.html">is_nothrow_move_constructible_v</a></span><span class="o">&lt;</span><span class="n">wrap</span><span class="o">-</span><span class="n"><a href="sender.html">sender</a></span><span class="o">&gt;</span><span class="p">);</span>
+      <span class="k">noexcept</span><span class="p">(</span><span class="n"><a href="../../type_traits/is_nothrow_move_constructible.html">is_nothrow_move_constructible_v</a></span><span class="o">&lt;</span><span class="n">wrap</span><span class="o">-</span><span class="n"><a href="sender.html">sender</a></span><span class="o">&gt;</span><span class="p">)</span>
+      <span class="o">:</span> <span class="n">associate</span><span class="o">-</span><span class="n">data</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">other</span><span class="p">).</span><span class="n">release</span><span class="p">())</span> <span class="p">{}</span>
 
     <span class="o">~</span><span class="n">associate</span><span class="o">-</span><span class="n">data</span><span class="p">();</span>
 
-    <span class="n"><a href="../../optional/optional.html">optional</a></span><span class="o">&lt;</span><span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">Token</span><span class="p">,</span> <span class="n">wrap</span><span class="o">-</span><span class="n"><a href="sender.html">sender</a></span><span class="o">&gt;&gt;</span>
-      <span class="n">release</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="k">noexcept</span><span class="p">(</span><span class="n"><a href="../../type_traits/is_nothrow_move_constructible.html">is_nothrow_move_constructible_v</a></span><span class="o">&lt;</span><span class="n">wrap</span><span class="o">-</span><span class="n"><a href="sender.html">sender</a></span><span class="o">&gt;</span><span class="p">);</span>
+    <span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">assoc</span><span class="o">-</span><span class="n">t</span><span class="p">,</span> <span class="n"><a href="sender.html">sender</a></span><span class="o">-</span><span class="n">ref</span><span class="o">&gt;</span> <span class="n">release</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="k">noexcept</span><span class="p">;</span>
 
   <span class="k">private</span><span class="o">:</span>
-    <span class="n"><a href="../../optional/optional.html">optional</a></span><span class="o">&lt;</span><span class="n">wrap</span><span class="o">-</span><span class="n"><a href="sender.html">sender</a></span><span class="o">&gt;</span> <span class="n">sndr</span><span class="p">;</span>  <span class="c1">// exposition only</span>
-    <span class="n">Token</span> <span class="n">token</span><span class="p">;</span>                 <span class="c1">// exposition only</span>
+    <span class="n">associate</span><span class="o">-</span><span class="n">data</span><span class="p">(</span><span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">assoc</span><span class="o">-</span><span class="n">t</span><span class="p">,</span> <span class="n"><a href="sender.html">sender</a></span><span class="o">-</span><span class="n">ref</span><span class="o">&gt;</span> <span class="n">parts</span><span class="p">);</span>  <span class="c1">// exposition only</span>
+    <span class="k">union</span> <span class="p">{</span>
+      <span class="n">wrap</span><span class="o">-</span><span class="n"><a href="sender.html">sender</a></span> <span class="n">sndr</span><span class="p">;</span>          <span class="c1">// exposition only</span>
+    <span class="p">};</span>
+    <span class="n">assoc</span><span class="o">-</span><span class="n">t</span> <span class="n">assoc</span><span class="p">;</span>               <span class="c1">// exposition only</span>
   <span class="p">};</span>
 
   <span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="scope_token.html">scope_token</a></span> <span class="n">Token</span><span class="p">,</span> <span class="n"><a href="sender.html">sender</a></span> <span class="n">Sender</span><span class="o">&gt;</span>
@@ -390,43 +397,33 @@
 <span class="p">}</span>
 </code></pre></div>
 </p>
-<p><code>associate-data</code>型のオブジェクト<code>a</code>に対して、関連付けが正常に行われかつ<code>a</code>により所有される場合に限って、<code>a.sndr.<a href="../../optional/optional/has_value.html">has_value()</a></code>は<code>true</code>となる。</p>
+<p><code>associate-data</code>型のオブジェクト<code>a</code>に対して、関連付けが正常に行われかつ<code>a</code>により所有される場合に限って、<code>bool(a.assoc)</code>は<code>true</code>となる。</p>
 <p><div class="codehilite"><pre><span></span><code><span class="n">associate</span><span class="o">-</span><span class="n">data</span><span class="p">(</span><span class="k">const</span> <span class="n">associate</span><span class="o">-</span><span class="n">data</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span>
   <span class="k">noexcept</span><span class="p">(</span><span class="n"><a href="../../type_traits/is_nothrow_copy_constructible.html">is_nothrow_copy_constructible_v</a></span><span class="o">&lt;</span><span class="n">wrap</span><span class="o">-</span><span class="n">sender</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
-           <span class="k">noexcept</span><span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="n">token</span><span class="p">.</span><span class="n">try_associate</span><span class="p">()));</span>
+           <span class="k">noexcept</span><span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="n">assoc</span><span class="p">.</span><span class="n">try_associate</span><span class="p">()));</span>
 </code></pre></div>
 </p>
 <ul>
-<li><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a> : <code><a href="../../concepts/copy_constructible.html">copy_constructible</a>&lt;wrap-sender&gt; == true</code></li>
-<li>効果 : <code>sndr</code>を<a class="cpprefjp-defined-word" data-desc="`T x{};`構文での初期化。組み込み型の場合はゼロ相当の値で、クラス型の場合はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的に値初期化される">値初期化</a>し、<code>token</code>を<code>other.token</code>で初期化する。<code>other.sndr.<a href="../../optional/optional/has_value.html">has_value()</a> == false</code>ならば、それ以上の効果を持たない。そうでなければ、<code>token.try_associate()</code>を呼び出し、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>が<code>true</code>ならば<code>sndr.<a href="../../optional/optional/emplace.html">emplace</a>(*other.sndr)</code>を呼び出し、<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>で終了するときは<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を伝播させる前に<code>token.disassociate()</code>を呼び出す。</li>
+<li><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a> : <code>wrap-sender</code>は<code><a href="../../concepts/copy_constructible.html">copy_constructible</a></code>のモデルである。</li>
+<li>効果 : <code>assoc</code>を<code>other.assoc.try_associate()</code>で初期化する。<code>bool(assoc)</code>が<code>true</code>ならば、<code>sndr</code>を<code>other.sndr</code>で初期化する。</li>
 </ul>
-<p><div class="codehilite"><pre><span></span><code><span class="n">associate</span><span class="o">-</span><span class="n">data</span><span class="p">(</span><span class="n">associate</span><span class="o">-</span><span class="n">data</span><span class="o">&amp;&amp;</span> <span class="n">other</span><span class="p">)</span>
-  <span class="k">noexcept</span><span class="p">(</span><span class="n"><a href="../../type_traits/is_nothrow_move_constructible.html">is_nothrow_move_constructible_v</a></span><span class="o">&lt;</span><span class="n">wrap</span><span class="o">-</span><span class="n">sender</span><span class="o">&gt;</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n">associate</span><span class="o">-</span><span class="n">data</span><span class="p">(</span><span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">assoc</span><span class="o">-</span><span class="n">t</span><span class="p">,</span> <span class="n">sender</span><span class="o">-</span><span class="n">ref</span><span class="o">&gt;</span> <span class="n">parts</span><span class="p">);</span>
 </code></pre></div>
 </p>
 <ul>
-<li>効果 : <code>sndr</code>を<code><a href="../../utility/move.html">std::move</a>(other.sndr)</code>で、<code>token</code>を<code>std::move(otehr.token)</code>で初期化したのち、<code>other.sndr.<a href="../../optional/optional/reset.html">reset()</a></code>を呼び出す。</li>
+<li>効果 : <code>assoc</code>を<code><a href="../../utility/move.html">std::move</a>(parts.first)</code>で初期化する。<code>bool(assoc)</code>が<code>true</code>ならば、<code>sndr</code>を<code>std::move(*parts.second)</code>で初期化する。</li>
 </ul>
 <p><div class="codehilite"><pre><span></span><code><span class="o">~</span><span class="n">associate</span><span class="o">-</span><span class="n">data</span><span class="p">();</span>
 </code></pre></div>
 </p>
 <ul>
-<li>効果 : <code>sndr.<a href="../../optional/optional/has_value.html">has_value()</a></code>が<code>false</code>を返すとき、何もしない。そうでなければ、<code>token.disassociate()</code>呼び出しの前に<code>sndr.<a href="../../optional/optional/reset.html">reset()</a></code>を呼び出す。</li>
+<li>効果 : <code>bool(assoc)</code>が<code>true</code>ならば、<code>sndr</code>を破棄する。</li>
 </ul>
-<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../optional/optional.html">optional</a></span><span class="o">&lt;</span><span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">Token</span><span class="p">,</span> <span class="n">wrap</span><span class="o">-</span><span class="n">sender</span><span class="o">&gt;&gt;</span>
-  <span class="n">release</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="k">noexcept</span><span class="p">(</span><span class="n"><a href="../../type_traits/is_nothrow_move_constructible.html">is_nothrow_move_constructible_v</a></span><span class="o">&lt;</span><span class="n">wrap</span><span class="o">-</span><span class="n">sender</span><span class="o">&gt;</span><span class="p">);</span>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">assoc</span><span class="o">-</span><span class="n">t</span><span class="p">,</span> <span class="n">sender</span><span class="o">-</span><span class="n">ref</span><span class="o">&gt;</span> <span class="n">release</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="k">noexcept</span><span class="p">;</span>
 </code></pre></div>
 </p>
 <ul>
-<li>
-<p>効果 : <code>sndr.<a href="../../optional/optional/has_value.html">has_value()</a></code>が<code>false</code>を返すとき、値を保持しない<code><a href="../../optional/optional.html">optional</a></code>を返す。そうでなければ、次のように<code><a href="../../utility/pair.html">pair</a>&lt;Token, warp-sender&gt;</code>型の値を保持する<code>optional</code>を返す。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="nf"><a href="../../optional/optional.html">optional</a></span><span class="p">(</span><span class="n"><a href="../../utility/pair.html">pair</a></span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="o">*</span><span class="n">sndr</span><span class="p">)));</span>
-</code></pre></div>
-</p>
-</li>
-<li>
-<p><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Postconditions。関数を実行後に満たされている条件。契約属性の`[[ensures]]`に相当">事後条件</a> : <code>sndr</code>は値を保持しない。</p>
-</li>
+<li>効果 : <code>bool(assoc)</code>が<code>true</code>ならば<code><a href="../../memory/addressof.html">addressof</a>(sndr)</code>で、そうでなければ<code>nullptr</code>で初期化された<code>sender-ref</code>型のオブジェクト<code>u</code>を構築し、<code><a href="../../utility/pair.html">pair</a>{std::move(assoc), std::move(u)}</code>を返す。</li>
 </ul>
 <h2>カスタマイゼーションポイント</h2>
 <p>Senderアルゴリズム構築時および<a href="receiver.html">Receiver</a>接続時に、関連付けられた実行ドメインに対して<code><a href="transform_sender.html">execution::transform_sender</a></code>経由でSender変換が行われる。
@@ -480,6 +477,7 @@
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html" target="_blank">P2999R3 Sender Algorithm Customization</a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
 <li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3149r11.html" target="_blank">P3149R11 <code>async_scope</code> - Creating scopes for non-sequential concurrency</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3815r1.html" target="_blank">P3815R1 Add <code>scope_association</code> concept to P3149</a></li>
 </ul></div>
 
       </div>

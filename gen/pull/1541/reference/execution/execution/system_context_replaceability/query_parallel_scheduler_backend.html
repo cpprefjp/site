@@ -212,8 +212,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-28T16:37:59">
-        2025年08月28日 16時37分59秒
+      <span itemprop="datePublished" content="2026-01-20T10:25:40">
+        2026年01月20日 10時25分40秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -245,7 +245,8 @@
 <h2>概要</h2>
 <p><a href="../parallel_scheduler.html">並列Scheduler</a>の実装オブジェクトを返す。</p>
 <h2>効果</h2>
-<p><code><a href="parallel_scheduler_backend.html">parallel_scheduler_backend</a></code>インタフェースを実装したオブジェクトを指す非ヌル<code><a href="../../../memory/shared_ptr.html">shared_ptr</a></code>を返す。</p>
+<p>オブジェクト<code>p</code>は、<code>p.get()</code>がその生存期間内に最派生オブジェクト<code>o</code>基底クラスの部分オブジェクトである<code><a href="parallel_scheduler_backend.html">parallel_scheduler_backend</a></code>オブジェクトを指すものとする。
+その存続期間内に<code>q.<span href="https://cpprefjp.github.io/reference/memory/shared_ptr/owner_equal.md.nolink">owner_equal</span>(p)</code>が<code>true</code>となる<code><a href="../../../memory/shared_ptr.html">shared_ptr</a></code>オブジェクト<code>q</code>が存在する限り、<code>o</code>の存続期間は終了しない。</p>
 <h2>備考</h2>
 <p>この関数は置換可能(replaceable)である。</p>
 <h2>バージョン</h2>
@@ -268,6 +269,7 @@
 <h2>参照</h2>
 <ul>
 <li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2079r10.html" target="_blank">P2079R10 Parallel scheduler</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3914r0.html" target="_blank">P3914R0 Assorted NB comment resolutions for Kona 2025</a>, US 263-396</li>
 </ul></div>
 
       </div>

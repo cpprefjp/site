@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-20T09:30:57">
-        2025年08月20日 09時30分57秒
+      <span itemprop="datePublished" content="2026-01-20T09:46:24">
+        2026年01月20日 09時46分24秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -233,7 +233,7 @@
 
     <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Fn</span><span class="o">&gt;</span>
     <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">void</span> <span class="k">for</span><span class="o">-</span><span class="n">each</span><span class="p">(</span><span class="n">Fn</span><span class="o">&amp;&amp;</span> <span class="n">fn</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// exposition only</span>
-      <span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Fn</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fn</span><span class="p">)(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">Fns</span><span class="o">*&gt;</span><span class="p">(</span><span class="k">nullptr</span><span class="p">)),</span> <span class="p">...);</span>
+      <span class="p">(</span><span class="n">fn</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">Fns</span><span class="o">*&gt;</span><span class="p">(</span><span class="k">nullptr</span><span class="p">)),</span> <span class="p">...);</span>
     <span class="p">}</span>
   <span class="p">};</span>
 <span class="p">}</span>
@@ -304,6 +304,7 @@
 <ul>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html" target="_blank">P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions</a></li>
+<li><a href="https://cplusplus.github.io/LWG/issue4448" target="_blank">LWG4448 Do not forward <code>fn</code> in <code>completion_signatures</code></a></li>
 </ul></div>
 
       </div>

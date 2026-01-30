@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-10-14T10:23:57">
-        2025年10月14日 10時23分57秒
+      <span itemprop="datePublished" content="2026-01-20T11:10:28">
+        2026年01月20日 11時10分28秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Raclamusi</span>
+        <span itemprop="name">yoh</span>
       </span>
       が更新
     </small></p>
@@ -250,7 +250,7 @@
 </ul>
 <p>呼び出し式<code>spawn_future(sndr, token, env)</code>は、次の効果をもつ。</p>
 <ul>
-<li><code>alloc</code>を用いてメモリ確保し、<code>alloc</code>, <code>token.wrap(sndr)</code>, <code>token</code>, <code>senv</code>から特殊化された<code>spawn-future-state</code>型のオブジェクト<code>s</code>を構築する。いずれかのオブジェクト構築・破棄時に<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出されたときは、確保されたメモリが解放される。</li>
+<li><code>alloc</code>を用いてメモリ確保し、<code>alloc</code>, <code>token.wrap(sndr)</code>, <code>token</code>, <code>senv</code>から<code>decltype(spawn-future-state(alloc, token.wrap(sndr), token, senv))</code>型のオブジェクト<code>s</code>を構築する。いずれかのオブジェクト構築・破棄時に<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出されたときは、確保されたメモリが解放される。</li>
 <li>下記を満たす<code><a href="../../memory/unique_ptr.html">unique_ptr</a></code>の特殊化型のオブジェクト<code>u</code>を構築する。<ul>
 <li><code>u.<a href="../../memory/unique_ptr/get.html">get()</a></code>は<code>s</code>のアドレスに等しく、かつ</li>
 <li><code>u.<a href="../../memory/unique_ptr/get_deleter.html">get_deleter()</a>(u.<a href="../../memory/unique_ptr/release.html">release()</a>)</code>は<code>u.release()-&gt;abandon()</code>に等しい。</li>
@@ -337,7 +337,8 @@
 <span class="p">}</span>
 </code></pre></div>
 </p>
-<p>型<code>ssource-t</code>を<code><a href="../../stop_token/stoppable-source.html">stoppable-source</a></code>のモデルである<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>の型、<code>ssource</code>を型<code>ssource-t</code>の左辺値とする。
+<p>型<code>ssource-t</code>を<code><a href="../../stop_token/stoppable-source.html">stoppable-source</a></code>および<code><a href="../../concepts/default_initializable.html">default_initializable</a></code>のモデルである<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>の型とし、型<code>ssource-t</code>の<a class="cpprefjp-defined-word" data-desc="デフォルト初期化。`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト構築</a>オブジェクトは関連付けられた停止状態を持つ。
+<code>ssource</code>を型<code>ssource-t</code>の左辺値とする。
 型<code>stoken-t</code>を<code>decltype(ssource.get_token())</code>とする。</p>
 <h3>エイリアステンプレート <code>future-spawned-sender</code></h3>
 <p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="n">sender</span> <span class="n">Sender</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Env</span><span class="o">&gt;</span>
@@ -362,9 +363,8 @@
         <span class="n">op</span><span class="p">(</span><span class="n"><a href="connect.html">connect</a></span><span class="p">(</span>
           <span class="n"><a href="write_env.html">write_env</a></span><span class="p">(</span><span class="n"><a href="stop-when.html">stop-when</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Sender</span><span class="o">&gt;</span><span class="p">(</span><span class="n">sndr</span><span class="p">),</span> <span class="n">ssource</span><span class="p">.</span><span class="n">get_token</span><span class="p">()),</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">env</span><span class="p">)),</span>
           <span class="n"><a href="receiver.html">receiver</a></span><span class="o">-</span><span class="n">t</span><span class="p">(</span><span class="k">this</span><span class="p">))),</span>
-        <span class="n">token</span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">token</span><span class="p">)),</span>
-        <span class="n">associated</span><span class="p">(</span><span class="n">token</span><span class="p">.</span><span class="n">try_associate</span><span class="p">())</span> <span class="p">{</span>
-          <span class="k">if</span> <span class="p">(</span><span class="n">associated</span><span class="p">)</span>
+        <span class="n">assoc</span><span class="p">(</span><span class="n">token</span><span class="p">.</span><span class="n">try_associate</span><span class="p">())</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="n">assoc</span><span class="p">)</span>
             <span class="n"><a href="start.html">start</a></span><span class="p">(</span><span class="n">op</span><span class="p">);</span>
           <span class="k">else</span>
             <span class="nf"><a href="set_stopped.html">set_stopped</a></span><span class="p">(</span><span class="n"><a href="receiver.html">receiver</a></span><span class="o">-</span><span class="n">t</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
@@ -375,17 +375,20 @@
     <span class="kt">void</span> <span class="nf">abandon</span><span class="p">()</span> <span class="k">noexcept</span><span class="p">;</span>                                                <span class="c1">// exposition only</span>
 
   <span class="k">private</span><span class="o">:</span>
-    <span class="k">using</span> <span class="n">alloc</span><span class="o">-</span><span class="n">t</span> <span class="o">=</span>                                                         <span class="c1">// exposition only</span>
-      <span class="k">typename</span> <span class="n"><a href="../../memory/allocator_traits.html">allocator_traits</a></span><span class="o">&lt;</span><span class="n">Alloc</span><span class="o">&gt;::</span><span class="k">template</span> <span class="n">rebind_alloc</span><span class="o">&lt;</span><span class="n">spawn</span><span class="o">-</span><span class="n">future</span><span class="o">-</span><span class="n">state</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="k">using</span> <span class="n">assoc</span><span class="o">-</span><span class="n">t</span> <span class="o">=</span>                                                         <span class="c1">// exposition only</span>
+      <span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n"><a href="../../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">Token</span><span class="o">&amp;&gt;</span><span class="p">().</span><span class="n">try_associate</span><span class="p">())</span><span class="o">&gt;</span><span class="p">;</span>
 
-    <span class="n">alloc</span><span class="o">-</span><span class="n">t</span> <span class="n">alloc</span><span class="p">;</span>                                                          <span class="c1">// exposition only</span>
+    <span class="n">Alloc</span> <span class="n">alloc</span><span class="p">;</span>                                                            <span class="c1">// exposition only</span>
     <span class="n">ssource</span><span class="o">-</span><span class="n">t</span> <span class="n">ssource</span><span class="p">;</span>                                                      <span class="c1">// exposition only</span>
     <span class="n">op</span><span class="o">-</span><span class="n">t</span> <span class="n">op</span><span class="p">;</span>                                                                <span class="c1">// exposition only</span>
-    <span class="n">Token</span> <span class="n">token</span><span class="p">;</span>                                                            <span class="c1">// exposition only</span>
-    <span class="kt">bool</span> <span class="n">associated</span><span class="p">;</span>                                                        <span class="c1">// exposition only</span>
+    <span class="n">assoc</span><span class="o">-</span><span class="n">t</span> <span class="n">assoc</span><span class="p">;</span>                                                          <span class="c1">// exposition only</span>
 
     <span class="kt">void</span> <span class="nf">destroy</span><span class="p">()</span> <span class="k">noexcept</span><span class="p">;</span>                                                <span class="c1">// exposition only</span>
   <span class="p">};</span>
+
+  <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Alloc</span><span class="p">,</span> <span class="n"><a href="scope_token.html">scope_token</a></span> <span class="n">Token</span><span class="p">,</span> <span class="n"><a href="sender.html">sender</a></span> <span class="n">Sender</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Env</span><span class="o">&gt;</span>        <span class="c1">// exposition only</span>
+    <span class="n">spawn</span><span class="o">-</span><span class="n">future</span><span class="o">-</span><span class="n">state</span><span class="p">(</span><span class="n">Alloc</span> <span class="n">alloc</span><span class="p">,</span> <span class="n">Sender</span><span class="o">&amp;&amp;</span> <span class="n">sndr</span><span class="p">,</span> <span class="n">Token</span> <span class="n">token</span><span class="p">,</span> <span class="n">Env</span> <span class="n">env</span><span class="p">)</span>
+      <span class="o">-&gt;</span> <span class="n">spawn</span><span class="o">-</span><span class="n">future</span><span class="o">-</span><span class="n">state</span><span class="o">&lt;</span><span class="n">Alloc</span><span class="p">,</span> <span class="n">Token</span><span class="p">,</span> <span class="n">Sender</span><span class="p">,</span> <span class="n">Env</span><span class="o">&gt;</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -449,18 +452,13 @@
 <ul>
 <li>
 <p>効果 : 下記と等価。</p>
-<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="n">token</span> <span class="o">=</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">token</span><span class="p">);</span>
-<span class="kt">bool</span> <span class="n">associated</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">associated</span><span class="p">;</span>
-
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="n">associated</span> <span class="o">=</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">associated</span><span class="p">);</span>
 <span class="p">{</span>
-  <span class="k">auto</span> <span class="n">alloc</span> <span class="o">=</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">alloc</span><span class="p">);</span>
-
-  <span class="n"><a href="../../memory/allocator_traits.html">allocator_traits</a></span><span class="o">&lt;</span><span class="n">alloc</span><span class="o">-</span><span class="n">t</span><span class="o">&gt;::</span><span class="n"><a href="../../memory/allocator_traits/destroy.html">destroy</a></span><span class="p">(</span><span class="n">alloc</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
-  <span class="n"><a href="../../memory/allocator_traits.html">allocator_traits</a></span><span class="o">&lt;</span><span class="n">alloc</span><span class="o">-</span><span class="n">t</span><span class="o">&gt;::</span><span class="n"><a href="../../memory/allocator_traits/deallocate.html">deallocate</a></span><span class="p">(</span><span class="n">alloc</span><span class="p">,</span> <span class="k">this</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="k">using</span> <span class="n">traits</span> <span class="o">=</span> <span class="n"><a href="../../memory/allocator_traits.html">allocator_traits</a></span><span class="o">&lt;</span><span class="n">Alloc</span><span class="o">&gt;::</span><span class="k">template</span> <span class="n">rebind_traits</span><span class="o">&lt;</span><span class="n">spawn</span><span class="o">-</span><span class="n">future</span><span class="o">-</span><span class="n">state</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="k">typename</span> <span class="n">traits</span><span class="o">::</span><span class="n">allocator_type</span> <span class="n">alloc</span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">alloc</span><span class="p">));</span>
+  <span class="n">traits</span><span class="o">::</span><span class="n"><a href="../../memory/allocator_traits/destroy.html">destroy</a></span><span class="p">(</span><span class="n">alloc</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+  <span class="n">traits</span><span class="o">::</span><span class="n"><a href="../../memory/allocator_traits/deallocate.html">deallocate</a></span><span class="p">(</span><span class="n">alloc</span><span class="p">,</span> <span class="k">this</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 <span class="p">}</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="n">associated</span><span class="p">)</span>
-  <span class="n">token</span><span class="p">.</span><span class="n">disassociate</span><span class="p">();</span>
 </code></pre></div>
 </p>
 </li>
@@ -523,6 +521,9 @@ value=42
 <h2>参照</h2>
 <ul>
 <li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3149r11.html" target="_blank">P3149R11 <code>async_scope</code> - Creating scopes for non-sequential concurrency</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3815r1.html" target="_blank">P3815R1 Add <code>scope_association</code> concept to P3149</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3914r0.html" target="_blank">P3914R0 Assorted NB comment resolutions for Kona 2025</a>, US 228-348</li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3923r0.html" target="_blank">P3923R0 Additional NB comment resolutions for Kona 2025</a>, US 227-346, 229-347</li>
 </ul></div>
 
       </div>

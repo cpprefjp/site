@@ -20,7 +20,7 @@
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
-  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,std::execution,counting_scope,function,cpp26
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,std::execution,counting_scope,function,cpp26,
 ">
         <meta name="title" content="counting_scope::try-associate - cpprefjp C++日本語リファレンス" />
         <meta itemprop="name" content="counting_scope::try-associate - cpprefjp C++日本語リファレンス" />
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;execution&#34;], &#34;namespace&#34;: [&#34;std::execution&#34;], &#34;class&#34;: [&#34;counting_scope&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;execution&#34;, &#34;execution&#34;, &#34;counting_scope&#34;, &#34;try-associate&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;execution&#34;], &#34;namespace&#34;: [&#34;std::execution&#34;], &#34;class&#34;: [&#34;counting_scope&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;], &#34;exposition-only&#34;: [&#34;&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;execution&#34;, &#34;execution&#34;, &#34;counting_scope&#34;, &#34;try-associate&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -212,8 +212,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-09-20T08:53:48">
-        2025年09月20日 08時53分48秒
+      <span itemprop="datePublished" content="2026-01-20T07:36:33">
+        2026年01月20日 07時36分33秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -236,8 +236,8 @@
     <div class="row">
       <div class="col-sm-12 content-body">
         
-  <div class="identifier-type">function</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="class" title="class counting_scope">counting_scope::</span><span class="token">try-associate</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">bool</span> <span class="k">try</span><span class="o">-</span><span class="n">associate</span><span class="p">()</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// exposition only</span>
+  <div class="identifier-type">function</div><div class="header">&lt;execution&gt;</div><h1 class="exposition-only" itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="class" title="class counting_scope">counting_scope::</span><span class="token">try-associate</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span><span class="cpp exposition-only" title="説明専用"></span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../counting_scope.html">assoc-t</a></span> <span class="k">try</span><span class="o">-</span><span class="n">associate</span><span class="p">()</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// exposition only</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -252,7 +252,7 @@
 <li>それ以外のとき、何もしない。</li>
 </ul>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
-<p><code>count</code>がインクリメントされたとき、<code>true</code>を返す。それ以外のときは、<code>false</code>を返す。</p>
+<p><code>count</code>がインクリメントされたとき、<code>*this</code>に関連付けられた有効(engaged)な<code><a href="../counting_scope.html">assoc-t</a></code>型のオブジェクトを返す。それ以外のときは、<code>assoc-t()</code>を返す。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p>投げない</p>
 <h2>バージョン</h2>
@@ -263,6 +263,7 @@
 <h2>参照</h2>
 <ul>
 <li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3149r11.html" target="_blank">P3149R11 <code>async_scope</code> - Creating scopes for non-sequential concurrency</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3815r1.html" target="_blank">P3815R1 Add <code>scope_association</code> concept to P3149</a></li>
 </ul></div>
 
       </div>

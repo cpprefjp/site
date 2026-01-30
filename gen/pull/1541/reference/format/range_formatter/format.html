@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-11T17:16:44">
-        2025年07月11日 17時16分44秒
+      <span itemprop="datePublished" content="2026-01-20T03:05:18">
+        2026年01月20日 03時05分18秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Koichi Murase</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -229,7 +229,12 @@
   <span class="n">requires</span> <span class="n">formattable</span><span class="o">&lt;</span><span class="n"><a href="../../ranges/range_reference_t.html">ranges::range_reference_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">charT</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
            <span class="n"><a href="../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n"><a href="../../ranges/range_reference_t.html">ranges::range_reference_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="n">T</span><span class="o">&gt;</span>
 <span class="k">typename</span> <span class="n"><a href="../basic_format_context.html">FormatContext</a></span><span class="o">::</span><span class="n">iterator</span>
-  <span class="n">format</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">,</span> <span class="n"><a href="../basic_format_context.html">FormatContext</a></span><span class="o">&amp;</span> <span class="n">ctx</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span> <span class="c1">// (1)</span>
+  <span class="n">format</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">,</span> <span class="n"><a href="../basic_format_context.html">FormatContext</a></span><span class="o">&amp;</span> <span class="n">ctx</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span> <span class="c1">// (1) C++23</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../../ranges/input_range.html">ranges::input_range</a></span> <span class="n">R</span><span class="p">,</span> <span class="k">class</span> <span class="nc"><a href="../basic_format_context.html">FormatContext</a></span><span class="o">&gt;</span>
+  <span class="n">requires</span> <span class="n">formattable</span><span class="o">&lt;</span><span class="n"><a href="../../ranges/range_reference_t.html">ranges::range_reference_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">charT</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
+           <span class="n"><a href="../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="n"><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a></span><span class="o">&lt;</span><span class="n"><a href="../../ranges/range_reference_t.html">ranges::range_reference_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="k">typename</span> <span class="n"><a href="../basic_format_context.html">FormatContext</a></span><span class="o">::</span><span class="n">iterator</span>
+  <span class="n">format</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">,</span> <span class="n"><a href="../basic_format_context.html">FormatContext</a></span><span class="o">&amp;</span> <span class="n">ctx</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span> <span class="c1">// (1) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -264,6 +269,13 @@
 <li><a href="../../../implementation.html#clang">Clang</a>: ??</li>
 <li><a href="../../../implementation.html#gcc">GCC</a>: ??</li>
 <li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3391r2.html" target="_blank">P3391R2 <code>constexpr std::format</code></a><ul>
+<li>C++26から<code>constexpr</code>に対応した</li>
+</ul>
+</li>
 </ul></div>
 
       </div>

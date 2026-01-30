@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-01-16T17:51:25">
-        2026年01月16日 17時51分25秒
+      <span itemprop="datePublished" content="2026-01-20T10:25:40">
+        2026年01月20日 10時25分40秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -351,14 +351,13 @@
 <p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="n">fn</span> <span class="o">=</span> <span class="p">[]</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Child</span><span class="o">&gt;</span><span class="p">()</span> <span class="p">{</span>
   <span class="k">auto</span> <span class="n">cs</span> <span class="o">=</span> <span class="n"><a href="get_completion_signatures.html">get_completion_signatures</a></span><span class="o">&lt;</span><span class="n">Child</span><span class="p">,</span> <span class="n">when</span><span class="o">-</span><span class="n">all</span><span class="o">-</span><span class="n">env</span><span class="o">&lt;</span><span class="n">Env</span><span class="o">&gt;</span><span class="p">...</span><span class="o">&gt;</span><span class="p">();</span>
   <span class="k">if</span> <span class="nf">constexpr</span> <span class="p">(</span><span class="n">cs</span><span class="p">.</span><span class="n"><a href="completion_signatures.html">count-of</a></span><span class="p">(</span><span class="n"><a href="set_value.html">set_value</a></span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="k">throw</span> <span class="n">unspecified</span><span class="o">-</span><span class="n">exception</span><span class="p">();</span>
+    <span class="k">throw</span> <span class="n"><a href="unspecified-exception.html">unspecified-exception</a></span><span class="p">();</span>
   <span class="n"><a href="decay-copyable-result-datums.html">decay-copyable-result-datums</a></span><span class="p">(</span><span class="n">cs</span><span class="p">);</span>
 <span class="p">};</span>
 <span class="p">(</span><span class="n">fn</span><span class="p">.</span><span class="k">template</span> <span class="k">operator</span><span class="p">()</span><span class="o">&lt;</span><span class="n"><a href="child-type.html">child-type</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">Is</span><span class="o">&gt;&gt;</span><span class="p">(),</span> <span class="p">...);</span>
 </code></pre></div>
 </p>
-<p><code>unspecified-exception</code>は<code><a href="../../exception/exception.html">exception</a></code>から派生した型となる。
-型<code>CD</code>が<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>な場合、<code><a href="../../exception/exception.html">exception</a></code>から派生した<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>な型を<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>として送出する。</p>
+<p>型<code>CD</code>が<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>な場合、<code><a href="unspecified-exception.html">unspecified-exception</a></code>型の<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する。</p>
 <h2>説明専用エンティティ</h2>
 <h3>関数テンプレート<code>make-when-all-env</code></h3>
 <p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Env</span><span class="o">&gt;</span>

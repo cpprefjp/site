@@ -20,7 +20,7 @@
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
-  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,function template,std::execution,cpp26
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,function template,std::execution,cpp26,
 ">
         <meta name="title" content="make-sender - cpprefjp C++日本語リファレンス" />
         <meta itemprop="name" content="make-sender - cpprefjp C++日本語リファレンス" />
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;execution&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;namespace&#34;: [&#34;std::execution&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;execution&#34;, &#34;execution&#34;, &#34;make-sender&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;execution&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;namespace&#34;: [&#34;std::execution&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;], &#34;exposition-only&#34;: [&#34;&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;execution&#34;, &#34;execution&#34;, &#34;make-sender&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-16T12:31:08">
-        2025年08月16日 12時31分08秒
+      <span itemprop="datePublished" content="2026-01-20T09:47:13">
+        2026年01月20日 09時47分13秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -224,7 +224,7 @@
     <div class="row">
       <div class="col-sm-12 content-body">
         
-  <div class="identifier-type">function template</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">make-sender</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+  <div class="identifier-type">function template</div><div class="header">&lt;execution&gt;</div><h1 class="exposition-only" itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">make-sender</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span><span class="cpp exposition-only" title="説明専用"></span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Tag</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Data</span> <span class="o">=</span> <span class="n"><i>see below</i></span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Child</span><span class="o">&gt;</span>
 <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">make</span><span class="o">-</span><span class="n">sender</span><span class="p">(</span><span class="n">Tag</span> <span class="n">tag</span><span class="p">,</span> <span class="n">Data</span><span class="o">&amp;&amp;</span> <span class="n">data</span><span class="p">,</span> <span class="n">Child</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">child</span><span class="p">);</span>
 </code></pre></div>
@@ -243,7 +243,7 @@
 <li><code><a href="../../concepts/semiregular.html">semiregular</a>&lt;Tag&gt;</code></li>
 <li><code><a href="../movable-value.html">movable-value</a>&lt;Data&gt;</code></li>
 <li><code>(<a href="sender.html">sender</a>&lt;Child&gt; &amp;&amp; ...)</code></li>
-<li>型<code>Sndr</code>を<code><a href="basic-sender.html">basic-sender</a>&lt;Tag, Data, Child...&gt;</code>としたとき、<code><a href="dependent_sender.html">dependent_sender</a>&lt;Sndr&gt; || <a href="sender_in.html">sender_in</a>&lt;Sndr&gt;</code></li>
+<li>型<code>Sndr</code>を<code><a href="basic-sender.html">basic-sender</a>&lt;Tag, decay_t&lt;Data&gt;, decay_t&lt;Child&gt;...&gt;</code>としたとき、<code><a href="dependent_sender.html">dependent_sender</a>&lt;Sndr&gt; || <a href="sender_in.html">sender_in</a>&lt;Sndr&gt;</code></li>
 </ul>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p>転送された各引数により<a class="cpprefjp-defined-word" data-desc="direct-non-list-initialization。リスト初期化ではない直接初期化">直接非リスト初期化</a>された型<code><a href="basic-sender.html">basic-sender</a>&lt;Tag, <a href="../../type_traits/decay.html">decay_t</a>&lt;Data&gt;, <a href="../../type_traits/decay.html">decay_t</a>&lt;Child&gt;...&gt;</code>のprvalueを返す。</p>
@@ -264,6 +264,7 @@
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2999r3.html" target="_blank">P2999R3 Sender Algorithm Customization</a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3557r3.html" target="_blank">P3557R3 High-Quality Sender Diagnostics with Constexpr Exceptions</a></li>
+<li><a href="https://cplusplus.github.io/LWG/issue4456" target="_blank">LWG4456 Decay <code>Data</code> and <code>Child</code> in <code>make-sender</code></a></li>
 </ul></div>
 
       </div>

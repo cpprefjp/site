@@ -224,8 +224,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-29T13:44:49">
-        2025年08月29日 13時44分49秒
+      <span itemprop="datePublished" content="2026-01-20T10:25:40">
+        2026年01月20日 10時25分40秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -257,7 +257,7 @@
 <h2>概要</h2>
 <p><code><a href="../../parallel_scheduler.html">parallel_scheduler</a></code>による<code><a href="../../bulk_chunked.html">bulk_chunked</a></code>アルゴリズムカスタマイズのバックエンド側を実装する。</p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a></h2>
-<p><code>*this</code>, <code>r</code>が参照するオブジェクト, <code>s</code>が参照するストレージの生存期間終了は、下記いずれか式の評価開始よりも後に発生(happen after)すること。</p>
+<p><code>*this</code>、<code>r</code>が参照するオブジェクト、<code>s</code>が参照するストレージの生存期間終了は、<code>r</code>に対する<code><a href="../../set_value.html">set_value</a></code>／<code><a href="../../set_error.html">set_error</a></code>／<code><a href="../../set_stopped.html">set_stopped</a></code>いずれかの呼び出しの評価開始よりも後に発生(happen after)すること。</p>
 <h2>効果</h2>
 <p>派生クラスでは、この関数を下記のように実装すべきである。</p>
 <ul>
@@ -295,6 +295,7 @@
 <h2>参照</h2>
 <ul>
 <li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2079r10.html" target="_blank">P2079R10 Parallel scheduler</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3914r0.html" target="_blank">P3914R0 Assorted NB comment resolutions for Kona 2025</a>, US 265-398, 266-399</li>
 </ul></div>
 
       </div>

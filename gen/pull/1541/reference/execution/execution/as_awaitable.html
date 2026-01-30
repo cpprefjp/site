@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-01-06T03:47:59">
-        2026年01月06日 03時47分59秒
+      <span itemprop="datePublished" content="2026-01-20T09:16:30">
+        2026年01月20日 09時16分30秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Koichi Murase</span>
+        <span itemprop="name">yoh</span>
       </span>
       が更新
     </small></p>
@@ -260,10 +260,7 @@
 <li><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Mandates。満たさなければプログラムが不適格となる要件。この要件は、オーバーロード解決によって選択された関数内での`static_assert`の定数条件式や、関数に対するdelete宣言などで表現できる">適格要件</a> : 同式の型を<code>A</code>としたとき、<code><a href="../is-awaitable.html">is-awaitable</a>&lt;A, Promise&gt; == true</code>であるべき。</li>
 </ul>
 </li>
-<li>そうではなく、説明用の型<code>U</code>を<code>Promise</code>とは異なりかつ<code>await_transform</code>メンバ関数を持たない<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>の型としたとき、<code><a href="../is-awaitable.html">is-awaitable</a>&lt;Expr, U&gt; == true</code>ならば、式<code>(void(p), expr)</code><ul>
-<li><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a> : <code><a href="../is-awaitable.html">is-awaitable</a>&lt;Expr, Promise&gt; == true</code>、かつPromise型<code>U</code>のコルーチンにおける式<code>co_await expr</code>がPromise型<code>Promise</code>のコルーチンにおける同式と等しさを保持すること。</li>
-</ul>
-</li>
+<li>そうではなく、<code>decltype(<a href="../is-awaitable.html">GET-AWAITER</a>(expr))</code>が<code><a href="../is-awaitable.html">is-awaiter</a>&lt;Promise&gt;</code>を満たすならば、式<code>(void(p), expr)</code></li>
 <li>そうではなく、説明用の式<code>adapted-expr</code>を<code>expr</code>が1回だけ評価されることを除いて<code><a href="get_await_completion_adaptor.html">get_await_completion_adaptor</a>(<a href="get_env.html">get_env</a>(expr))(expr)</code>としたとき、<code>has-queryable-await-completion-adaptor&lt;Expr&gt;</code>と<code>awaitable-sender&lt;decltype((adapted-expr)), Promise&gt;</code>が共に満たされるならば、式<code>sender-awaitable{adapted-expr, p}</code></li>
 <li>そうではなく、<code>awaitable-sender&lt;Expr, Promise&gt;</code>ならば、式<code>sender-awaitable{expr, p}</code></li>
 <li>そうでなければ、式<code>(void(p), expr)</code></li>
@@ -274,7 +271,7 @@
   <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Sndr</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Promise</span><span class="o">&gt;</span>
   <span class="n">concept</span> <span class="n">awaitable</span><span class="o">-</span><span class="n">sender</span> <span class="o">=</span>
     <span class="n"><a href="single-sender.html">single-sender</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n"><a href="env_of_t.html">env_of_t</a></span><span class="o">&lt;</span><span class="n">Promise</span><span class="o">&gt;&gt;</span> <span class="o">&amp;&amp;</span>
-    <span class="n"><a href="sender_to.html">sender_to</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">awaitable</span><span class="o">-</span><span class="n">receiver</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>  <span class="c1">// <i>see below</i></span>
+    <span class="n"><a href="sender_to.html">sender_to</a></span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="k">typename</span> <span class="n">sender</span><span class="o">-</span><span class="n">awaitable</span><span class="o">&lt;</span><span class="n">Sndr</span><span class="p">,</span> <span class="n">Promise</span><span class="o">&gt;::</span><span class="n">awaitable</span><span class="o">-</span><span class="n">receiver</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>  <span class="c1">// <i>see below</i></span>
     <span class="n">requires</span> <span class="p">(</span><span class="n">Promise</span><span class="o">&amp;</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
       <span class="p">{</span> <span class="n">p</span><span class="p">.</span><span class="n">unhandled_stopped</span><span class="p">()</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="../../concepts/convertible_to.html">convertible_to</a></span><span class="o">&lt;</span><span class="n"><a href="../../coroutine/coroutine_handle.html">coroutine_handle&lt;&gt;</a></span><span class="o">&gt;</span><span class="p">;</span>
     <span class="p">};</span>
@@ -417,6 +414,8 @@
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html" target="_blank">P2300R10 <code>std::execution</code></a></li>
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3396r1.html" target="_blank">P3396R1 std::execution wording fixes</a></li>
 <li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3570r2.html" target="_blank">P3570R2 optional variants in sender/receiver</a></li>
+<li><a href="https://cplusplus.github.io/LWG/issue4358" target="_blank">LWG4358 §[exec.as.awaitable] is using "Preconditions:" when it should probably be described in the constraint</a></li>
+<li><a href="https://cplusplus.github.io/LWG/issue4360" target="_blank">LWG4360 <code>awaitable-sender</code> concept should qualify use of <code>awaitable-receiver</code> type</a></li>
 </ul></div>
 
       </div>

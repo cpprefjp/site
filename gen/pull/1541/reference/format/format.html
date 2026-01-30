@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-10-21T07:45:27">
-        2025年10月21日 07時45分27秒
+      <span itemprop="datePublished" content="2026-01-20T03:05:18">
+        2026年01月20日 03時05分18秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Raclamusi</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -215,16 +215,34 @@
   <div class="identifier-type">function template</div><div class="header">&lt;format&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">format</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
   <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-  <span class="n"><a href="../string/basic_string.html">string</a></span> <span class="n">format</span><span class="p">(</span><span class="n"><a href="basic_format_string.html">format_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">fmt</span><span class="p">,</span> <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>                      <span class="c1">// (1)</span>
+  <span class="n"><a href="../string/basic_string.html">string</a></span>
+    <span class="n">format</span><span class="p">(</span><span class="n"><a href="basic_format_string.html">format_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">fmt</span><span class="p">,</span>
+           <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>             <span class="c1">// (1) C++20</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="n"><a href="../string/basic_string.html">string</a></span>
+    <span class="n">format</span><span class="p">(</span><span class="n"><a href="basic_format_string.html">format_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">fmt</span><span class="p">,</span>
+           <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>             <span class="c1">// (1) C++26</span>
 
   <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-  <span class="n"><a href="../string/basic_string.html">wstring</a></span> <span class="n">format</span><span class="p">(</span><span class="n"><a href="basic_format_string.html">wformat_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">fmt</span><span class="p">,</span> <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>                    <span class="c1">// (2)</span>
+  <span class="n"><a href="../string/basic_string.html">wstring</a></span>
+    <span class="n">format</span><span class="p">(</span><span class="n"><a href="basic_format_string.html">wformat_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">fmt</span><span class="p">,</span>
+           <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>             <span class="c1">// (2) C++20</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="n"><a href="../string/basic_string.html">wstring</a></span>
+    <span class="n">format</span><span class="p">(</span><span class="n"><a href="basic_format_string.html">wformat_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">fmt</span><span class="p">,</span>
+           <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>             <span class="c1">// (2) C++26</span>
 
   <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-  <span class="n"><a href="../string/basic_string.html">string</a></span> <span class="n">format</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../locale/locale.html">locale</a></span><span class="o">&amp;</span> <span class="n">loc</span><span class="p">,</span> <span class="n"><a href="basic_format_string.html">format_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">fmt</span><span class="p">,</span> <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>   <span class="c1">// (3)</span>
+  <span class="n"><a href="../string/basic_string.html">string</a></span>
+    <span class="n">format</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../locale/locale.html">locale</a></span><span class="o">&amp;</span> <span class="n">loc</span><span class="p">,</span>
+           <span class="n"><a href="basic_format_string.html">format_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">fmt</span><span class="p">,</span>
+           <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>             <span class="c1">// (3) C++20</span>
 
   <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-  <span class="n"><a href="../string/basic_string.html">wstring</a></span> <span class="n">format</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../locale/locale.html">locale</a></span><span class="o">&amp;</span> <span class="n">loc</span><span class="p">,</span> <span class="n"><a href="basic_format_string.html">wformat_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">fmt</span><span class="p">,</span> <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span> <span class="c1">// (4)</span>
+  <span class="n"><a href="../string/basic_string.html">wstring</a></span>
+    <span class="n">format</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../locale/locale.html">locale</a></span><span class="o">&amp;</span> <span class="n">loc</span><span class="p">,</span>
+           <span class="n"><a href="basic_format_string.html">wformat_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">fmt</span><span class="p">,</span>
+           <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>             <span class="c1">// (4) C++20</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -992,6 +1010,10 @@ ello
 <li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2418r2.html" target="_blank">P2418R2 Add support for <code>std::generator</code>-like types to <code>std::format</code></a></li>
 <li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2510r3.pdf" target="_blank">P2510R3 Formatting pointers</a><ul>
 <li>C++26から、ポインタ値を大文字で出力する<code>P</code>オプションが追加された</li>
+</ul>
+</li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3391r2.html" target="_blank">P3391R2 <code>constexpr std::format</code></a><ul>
+<li>C++26から非ロケール版が<code>constexpr</code>に対応した</li>
 </ul>
 </li>
 </ul></div>

@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-10-11T14:55:28">
-        2025年10月11日 14時55分28秒
+      <span itemprop="datePublished" content="2026-01-20T07:36:33">
+        2026年01月20日 07時36分33秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -230,20 +230,21 @@
   <span class="n">concept</span> <span class="n">scope_token</span> <span class="o">=</span>
     <span class="n"><a href="../../concepts/copyable.html">copyable</a></span><span class="o">&lt;</span><span class="n">Token</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span>
     <span class="n">requires</span><span class="p">(</span><span class="k">const</span> <span class="n">Token</span> <span class="n">token</span><span class="p">)</span> <span class="p">{</span>
-      <span class="p">{</span> <span class="n">token</span><span class="p">.</span><span class="n">try_associate</span><span class="p">()</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">;</span>
-      <span class="p">{</span> <span class="n">token</span><span class="p">.</span><span class="n">disassociate</span><span class="p">()</span> <span class="p">}</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="n"><a href="../../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="p">;</span>
+      <span class="p">{</span> <span class="n">token</span><span class="p">.</span><span class="n">try_associate</span><span class="p">()</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="scope_association.html">scope_association</a></span><span class="p">;</span>
       <span class="p">{</span> <span class="n">token</span><span class="p">.</span><span class="n">wrap</span><span class="p">(</span><span class="n"><a href="../../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n"><i>test-sender</i></span><span class="o">&gt;</span><span class="p">())</span> <span class="p">}</span> <span class="o">-&gt;</span> <span class="n"><a href="sender_in.html">sender_in</a></span><span class="o">&lt;</span><span class="n"><i>test-env</i></span><span class="o">&gt;</span><span class="p">;</span>
     <span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
-<p><code>scope_token</code>コンセプトは、<a href="sender.html">Sender</a>と非同期スコープ間の関連付けを作成するために利用できる型<code>Token</code>に対する要件を定義する。</p>
+<p><code>scope_token</code>コンセプトは、<a href="sender.html">Sender</a>と非同期スコープ間の関連付けを作成するために利用できる型<code>Token</code>に対する要件を定義する。
+<code>Token</code>型の各オブジェクトは、<a href="scope_association.html">関連スコープ</a>と呼ばれる非同期スコープに関連付けられる。</p>
 <p><code>test-sender</code>と<code>test-env</code>は、<code><a href="sender_in.html">sender_in</a>&lt;test-sender, test-env&gt;</code>のモデルである<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>の型とする。</p>
 <h2>モデル</h2>
 <p>型<code>Token</code>は、次のとき<code>scope_token</code>のモデルとなる。</p>
 <ul>
 <li><code>Token</code>型オブジェクトのコピー構築、ムーブ構築、コピー代入、ムーブ代入から<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出しない、かつ</li>
+<li><code>Token</code>型のオブジェクト<code>token</code>に対して、<code>token.try_associate()</code>は有効でない(not engaged)オブジェクト、もしくは<code>token</code>の関連スコープとの新しい関連付けを取得して関連付けを所有する<a href="scope_association.html">有効な(engaged)</a>オブジェクトのいずれかを返す。</li>
 <li>（const修飾の可能性のある）型<code>Token</code>の左辺値<code>token</code>が与えられたとき、型<code>decltype((sndr))</code>が<code><a href="sender.html">sender</a></code>のモデルである全ての式<code>sndr</code>に対して、<ul>
 <li><code>token.warp(sndr)</code>が有効な式、かつ</li>
 <li><code>decltype(token.warp(sndr))</code>は<code><a href="sender.html">sender</a></code>のモデルであり、かつ</li>
@@ -281,10 +282,12 @@
 <li><code><a href="associate.html">execution::associate</a></code></li>
 <li><code><a href="spawn_future.html">execution::spawn_future</a></code></li>
 <li><code><a href="spawn.html">execution::spawn</a></code></li>
+<li><code><a href="scope_association.html">execution::scope_association</a></code></li>
 </ul>
 <h2>参照</h2>
 <ul>
 <li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3149r11.html" target="_blank">P3149R11 <code>async_scope</code> - Creating scopes for non-sequential concurrency</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3815r1.html" target="_blank">P3815R1 Add <code>scope_association</code> concept to P3149</a></li>
 </ul></div>
 
       </div>

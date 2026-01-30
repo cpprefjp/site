@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;mdspan&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;mdspan&#34;], &#34;cpp&#34;: [&#34;cpp23&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;f805bec4f7d4545d83740381e9b2be03c48ea994&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;mdspan&gt;\n\nint main()\n{\n  int arr[] = {1, 2, 3, 4, 5, 6};\n  // \u9759\u7684\u8981\u7d20\u6570 2x3 \u306e2\u6b21\u5143\u914d\u5217\u30d3\u30e5\u30fc\n  std::mdspan&lt;int, std::extents&lt;size_t, 2, 3&gt;&gt; mat{arr};\n\n  assert(map[0,0] == 1);\n  assert(map[1,2] == 6);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;mdspan&#34;, &#34;mdspan&#34;, &#34;op_at&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;mdspan&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;mdspan&#34;], &#34;cpp&#34;: [&#34;cpp23&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;c7a14216e7ecfce695e930a629ab184de69f48da&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;mdspan&gt;\n\nint main()\n{\n  int arr[] = {1, 2, 3, 4, 5, 6};\n  // \u9759\u7684\u8981\u7d20\u6570 2x3 \u306e2\u6b21\u5143\u914d\u5217\u30d3\u30e5\u30fc\n  std::mdspan&lt;int, std::extents&lt;size_t, 2, 3&gt;&gt; mat{arr};\n\n  assert(mat[0,0] == 1);\n  assert(mat[1,2] == 6);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;mdspan&#34;, &#34;mdspan&#34;, &#34;op_at&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-23T16:37:25">
-        2025年08月23日 16時37分25秒
+      <span itemprop="datePublished" content="2026-01-21T13:43:46">
+        2026年01月21日 13時43分46秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Raclamusi</span>
+        <span itemprop="name">yoh</span>
       </span>
       が更新
     </small></p>
@@ -263,7 +263,7 @@
 </code></pre></div>
 </p>
 <h2>例</h2>
-<p><div class="yata" id="f805bec4f7d4545d83740381e9b2be03c48ea994"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="c7a14216e7ecfce695e930a629ab184de69f48da"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../../mdspan.html">&lt;mdspan&gt;</a></span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
@@ -272,8 +272,8 @@
   <span class="c1">// 静的要素数 2x3 の2次元配列ビュー</span>
   <span class="n"><a href="../mdspan.html">std::mdspan</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n"><a href="../extents.html">std::extents</a></span><span class="o">&lt;</span><span class="kt">size_t</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">&gt;&gt;</span> <span class="n">mat</span><span class="p">{</span><span class="n">arr</span><span class="p">};</span>
 
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">map</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
-  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">map</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">6</span><span class="p">);</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">mat</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">mat</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">6</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </div></p>
@@ -294,6 +294,7 @@
 <h2>関連項目</h2>
 <ul>
 <li>C++23 <a href="../../../lang/cpp23/multidimensional_subscript_operator.html">添字演算子の多次元サポート</a></li>
+<li><code><a href="at.html">at</a></code></li>
 </ul>
 <h2>参照</h2>
 <ul>

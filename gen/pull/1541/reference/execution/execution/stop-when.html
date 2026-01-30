@@ -20,7 +20,7 @@
 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="keywords" content="
-  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,cpo,std::execution,cpp26
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,execution,cpo,std::execution,cpp26,
 ">
         <meta name="title" content="stop-when - cpprefjp C++日本語リファレンス" />
         <meta itemprop="name" content="stop-when - cpprefjp C++日本語リファレンス" />
@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;execution&#34;], &#34;id-type&#34;: [&#34;cpo&#34;], &#34;namespace&#34;: [&#34;std::execution&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;execution&#34;, &#34;execution&#34;, &#34;stop-when&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;execution&#34;], &#34;id-type&#34;: [&#34;cpo&#34;], &#34;namespace&#34;: [&#34;std::execution&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;], &#34;exposition-only&#34;: [&#34;&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;execution&#34;, &#34;execution&#34;, &#34;stop-when&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-10-11T14:55:28">
-        2025年10月11日 14時55分28秒
+      <span itemprop="datePublished" content="2026-01-20T09:44:18">
+        2026年01月20日 09時44分18秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -224,7 +224,7 @@
     <div class="row">
       <div class="col-sm-12 content-body">
         
-  <div class="identifier-type">customization point object</div><div class="header">&lt;execution&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">stop-when</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+  <div class="identifier-type">customization point object</div><div class="header">&lt;execution&gt;</div><h1 class="exposition-only" itemprop="name"><span class="namespace" title="namespace std::execution">std::execution::</span><span class="token">stop-when</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span><span class="cpp exposition-only" title="説明専用"></span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">execution</span> <span class="p">{</span>
   <span class="kr">inline</span> <span class="k">constexpr</span> <span class="n"><i>unspecified</i></span> <span class="n">stop</span><span class="o">-</span><span class="n">when</span><span class="p">{};</span>
 <span class="p">}</span>
@@ -234,9 +234,9 @@
 <p><code>stop-when</code>は、入力<a href="sender.html">Sender</a>に追加の<a href="../../stop_token/stop_token.html">停止トークン</a>を結合したSenderを返す、説明専用のSenderアダプタである。</p>
 <p>説明用の式<code>sndr</code>と<code>token</code>に対して、</p>
 <ul>
-<li><code>decltype((sndr))</code>が<code><a href="sender.html">sender</a></code>を満たさない、もしくは<code><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a>&lt;decltype((token))&gt;</code>が<code><a href="../../stop_token/stoppable_token.html">stoppable_token</a></code>を満たさないとき、式<code>stop-token(sndr, token)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</li>
-<li>そうでなく、<code><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a>&lt;decltype((token))&gt;</code>が<code><a href="../../stop_token/unstoppable_token.html">unstoppable_token</a></code>のモデルであるとき、式<code>stop-token(sndr, token)</code>は<code>sndr</code>と等価となる。</li>
-<li>そうでないとき、式<code>stop-token(sndr, token)</code>はSender<code>osndr</code>を返す。<code>osndr</code>が<a href="receiver.html">Receiver</a><code>r</code>と<a href="connect.html">接続(connect)</a>されるとき、<code><a href="../get_stop_token.html">get_stop_token</a>(<a href="get_env.html">get_env</a>(r))</code>の結果を<code>rtoken</code>とする。<ul>
+<li><code>decltype((sndr))</code>が<code><a href="sender.html">sender</a></code>を満たさない、もしくは<code><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a>&lt;decltype((token))&gt;</code>が<code><a href="../../stop_token/stoppable_token.html">stoppable_token</a></code>を満たさないとき、式<code>stop-when(sndr, token)</code>は<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</li>
+<li>そうでなく、<code><a href="../../type_traits/remove_cvref.html">remove_cvref_t</a>&lt;decltype((token))&gt;</code>が<code><a href="../../stop_token/unstoppable_token.html">unstoppable_token</a></code>のモデルであるとき、式<code>stop-when(sndr, token)</code>は、<code>token</code>と<code>sndr</code>が不定順で順序付けられることを除いて、<code>(void)token, sndr</code>と等価となる。</li>
+<li>そうでないとき、式<code>stop-when(sndr, token)</code>はSender<code>osndr</code>を返す。<code>osndr</code>が<a href="receiver.html">Receiver</a><code>r</code>と<a href="connect.html">接続(connect)</a>されるとき、<code><a href="../get_stop_token.html">get_stop_token</a>(<a href="get_env.html">get_env</a>(r))</code>の結果を<code>rtoken</code>とする。<ul>
 <li><code>rtoken</code>の型が<code><a href="../../stop_token/unstoppable_token.html">unstoppable_token</a></code>のモデルであるとき、<code>osdnr</code>と<code>r</code>との接続の効果は<code><a href="connect.html">connect</a>(<a href="write_env.html">write_env</a>(sndr, <a href="prop.html">prop</a>(<a href="../get_stop_token.html">get_stop_token</a>, token)), r)</code>に等しい。</li>
 <li>そうでないとき、下記のような説明専用の型<code>stoken-t</code>の<code>stoken</code>オブジェクトに対して、<code>osdnr</code>と<code>r</code>との接続の効果は<code><a href="connect.html">connect</a>(<a href="write_env.html">write_env</a>(sndr, <a href="prop.html">prop</a>(<a href="../get_stop_token.html">get_stop_token</a>, stoken)), r)</code>に等しい。<ul>
 <li><code>stoken-t</code>は<code><a href="../../stop_token/stoppable_token.html">stoppable_token</a></code>のモデルである。</li>
@@ -261,6 +261,7 @@
 <h2>参照</h2>
 <ul>
 <li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3149r11.html" target="_blank">P3149R11 <code>async_scope</code> - Creating scopes for non-sequential concurrency</a></li>
+<li><a href="https://cplusplus.github.io/LWG/issue4461" target="_blank">LWG4461 <code>stop-when</code> needs to evaluate unstoppable tokens</a></li>
 </ul></div>
 
       </div>

@@ -176,8 +176,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-01-14T06:25:38">
-        2026年01月14日 06時25分38秒
+      <span itemprop="datePublished" content="2026-01-28T06:28:47">
+        2026年01月28日 06時28分47秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -517,7 +517,7 @@
 <ul>
 <li><code><a href="../reference/vector/vector.html">std::vector&lt;bool&gt;::reference</a></code>のプロキシ操作として、<code>const</code>修飾付きの代入と<code>swap()</code>メンバ関数を追加</li>
 <li><code><a href="../reference/mdspan/mdspan.html">std::mdspan</a></code>から部分ビューを取り出す<code><a href="../reference/mdspan/submdspan.html">std::submdspan()</a></code>を追加</li>
-<li><code><a href="../reference/mdspan/mdspan.html">std::mdspan</a></code>に、インデックスを指定して要素を取り出す<code><span href="https://cpprefjp.github.io/reference/mdspan/mdspan/at.md.nolink">at()</span></code>メンバ関数を追加</li>
+<li><code><a href="../reference/mdspan/mdspan.html">std::mdspan</a></code>に、インデックスを指定して要素を取り出す<code><a href="../reference/mdspan/mdspan/at.html">at()</a></code>メンバ関数を追加</li>
 <li><code><a href="../reference/mdspan/mdspan.html">std::mdspan</a></code>に対する<code><a href="../reference/mdspan/extents.html">std::dextents</a></code>指定の冗長さを解決する<code><a href="../reference/mdspan/extents.html">std::dims</a></code>を追加</li>
 <li><code><a href="../reference/mdspan/mdspan.html">std::mdspan</a></code>のレイアウトとして、<code><a href="../reference/mdspan/layout_left_padded.html">std::layout_left_padded</a></code>と<code><a href="../reference/mdspan/layout_right_padded.html">std::layout_right_padded</a></code>を追加</li>
 <li><code><a href="../reference/mdspan.html">&lt;mdspan&gt;</a></code>に、要素アクセスにアライメント保証を与える<code><a href="../reference/mdspan/aligned_accessor.html">std::aligned_accessor</a></code>を追加</li>
@@ -690,10 +690,10 @@
 <li>ポインタ出力のサポートを追加</li>
 <li>幅と精度を動的に指定した場合でも型の検証がコンパイル時に行われるよう仕様を見直し</li>
 <li>コンパイル時の書式文字列だけでなく、実行時の書式文字列を渡せるよう仕様修正</li>
-<li><code>constexpr</code>に対応</li>
+<li>非ロケール版を<code>constexpr</code>に対応</li>
 </ul>
 </li>
-<li><code><a href="../reference/string/to_string.html">std::to_string()</a></code>と<code><a href="../reference/string/to_wstring.html">std::to_wstring()</a></code>を<code>constexpr</code>に対応</li>
+<li><code><a href="../reference/string/to_string.html">std::to_string()</a></code>と<code><a href="../reference/string/to_wstring.html">std::to_wstring()</a></code>の整数<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>が<code>constexpr</code>に対応</li>
 <li><code><a href="../reference/string/basic_string.html">std::basic_string</a></code>クラスと<code><a href="../reference/string_view/basic_string_view.html">std::basic_string_view</a></code>クラスに、部分文字列を<code><a href="../reference/string_view/basic_string_view.html">std::basic_string_view</a></code>として取得するメンバ関数<code>subview()</code>を追加</li>
 <li><code><a href="../reference/string/basic_string.html">std::basic_string</a></code>と<code><a href="../reference/string_view/basic_string_view.html">std::basic_string_view</a></code>を<code><a href="../reference/string/basic_string.html">std::basic_string</a></code>として連結させる<code>operator+</code>を追加</li>
 </ul>
@@ -898,7 +898,7 @@
 </ul>
 <h3>ユーティリティ</h3>
 <ul>
-<li><code><a href="../reference/variant/variant.html">std::variant</a></code>クラスに、メンバ関数版の<code><span href="https://cpprefjp.github.io/reference/variant/variant/visit.md.nolink">visit()</span></code>を追加</li>
+<li><code><a href="../reference/variant/variant.html">std::variant</a></code>クラスに、メンバ関数版の<code><a href="../reference/variant/variant/visit.html">visit()</a></code>を追加</li>
 <li><code>std::monostate</code>を<code><a href="../reference/variant.html">&lt;variant&gt;</a></code>から<code><a href="../reference/utility.html">&lt;utility&gt;</a></code>に移動</li>
 <li><code><a href="../reference/optional/optional.html">std::optional</a></code>クラスに、0もしくは1要素のRangeとして扱えるようにするための拡張として、イテレータインタフェースを追加<ul>
 <li><code>iterator</code>型</li>
@@ -977,7 +977,7 @@
 </li>
 <li><code><a href="../reference/memory.html">&lt;memory&gt;</a></code>に、ポインタのアライメントを判定する<code><a href="../reference/memory/is_sufficiently_aligned.html">std::is_sufficiently_aligned()</a></code>関数を追加。</li>
 <li><code><a href="../reference/utility.html">&lt;utility&gt;</a></code>に、タイムトラベル最適化を抑止するための観測可能ポイントとして<code><span href="https://cpprefjp.github.io/reference/utility/observable_checkpoint.md.nolink">std::observable_checkpoint()</span></code>を追加</li>
-<li><code><a href="../reference/exception/exception_ptr.html">std::exception_ptr</a></code>を指定した<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>型にキャストする<code><span href="https://cpprefjp.github.io/reference/exception/exception_ptr_cast.md.nolink">std::exception_ptr_cast()</span></code>関数を追加</li>
+<li><code><a href="../reference/exception/exception_ptr.html">std::exception_ptr</a></code>を指定した<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>型にキャストする<code><a href="../reference/exception/exception_ptr_cast.html">std::exception_ptr_cast()</a></code>関数を追加</li>
 <li><code><a href="../reference/compare.html">&lt;compare&gt;</a></code>に、型の順序を取得する<code><span href="https://cpprefjp.github.io/reference/compare/type_order.md.nolink">std::type_order</span></code>クラスを追加</li>
 </ul>
 <h3>デバッグ</h3>

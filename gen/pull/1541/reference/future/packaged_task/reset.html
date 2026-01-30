@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-11T17:16:44">
-        2025年07月11日 17時16分44秒
+      <span itemprop="datePublished" content="2026-01-29T04:22:36">
+        2026年01月29日 04時22分36秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Koichi Murase</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -232,18 +232,34 @@
 <p>共有状態を作り直す。</p>
 <p>一度タスクを実行したのちは共有状態への結果値の再格納ができないため、同じ<code>packaged_task</code>オブジェクトの同じ関数(タスク)を再度非同期実行したい場合に使用する。</p>
 <h2>効果</h2>
-<p><div class="codehilite"><pre><span></span><code><span class="o">*</span><span class="k">this</span> <span class="o">=</span> <span class="n">packaged_task</span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">f</span><span class="p">));</span>
+<p>メンバ変数として保持している、非同期実行する関数オブジェクトを<code>f</code>として、</p>
+<ul>
+<li>
+<p>C++11: あたかも以下のように動作する
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="o">*</span><span class="k">this</span> <span class="o">=</span> <span class="n">packaged_task</span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">f</span><span class="p">));</span>
 </code></pre></div>
 </p>
-<p>によって、新たに共有状態を作成する。古い共有状態は放棄される(詳細は<code><a href="op_assign.html">operator=</a></code>を参照)。</p>
-<p><code>f</code>はメンバ変数として保持している、非同期実行する関数オブジェクト。</p>
+<ul>
+<li>この操作によって、新たに共有状態を作成する。古い共有状態は放棄される(詳細は<code><a href="op_assign.html">operator=</a></code>を参照)。</li>
+</ul>
+</li>
+<li>
+<p>C++26: 以下と等価
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n"><a href="valid.html">valid</a></span><span class="p">())</span>
+  <span class="k">throw</span> <span class="n"><a href="../future_error.html">future_error</a></span><span class="p">(</span><span class="n">future_errc</span><span class="o">::</span><span class="n">no_state</span><span class="p">);</span>
+<span class="o">*</span><span class="k">this</span> <span class="o">=</span> <span class="n">packaged_task</span><span class="p">(</span><span class="n"><a href="../../memory/allocator_arg_t.html">allocator_arg</a></span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">f</span><span class="p">));</span>
+</code></pre></div>
+</p>
+</li>
+</ul>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
 <p>なし</p>
 <h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
 <p>この関数は、以下の<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する可能性がある：</p>
 <ul>
-<li><code><a href="../../new/bad_alloc.html">bad_alloc</a></code> ： 新たな共有状態のアロケートに失敗</li>
-<li>タスク<code>f</code>のムーブコンストラクタが送出するあらゆる<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></li>
+<li><code>package_task</code>のコンストラクタ、またはタスク<code>f</code>のムーブコンストラクタが送出するあらゆる<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></li>
 <li><code><a href="../future_error.html">future_error</a></code> ： 共有状態を持っていない状態でこの関数を呼び出した場合、<code><a href="../future_errc.html">no_state</a></code>をerror conditionにして送出する</li>
 </ul>
 <h2>例</h2>
@@ -287,7 +303,13 @@
 <li><a href="../../../implementation.html#icc">ICC</a>: ??</li>
 <li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: 2012 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
 </ul>
-<h2>参照</h2></div>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3503r3.html" target="_blank">P3503R3 Make type-erased allocator use in <code>promise</code> and <code>packaged_task</code> consistent</a><ul>
+<li>C++26でアロケータを受け取るコンストラクタで再構築するよう変更された</li>
+</ul>
+</li>
+</ul></div>
 
       </div>
     </div>

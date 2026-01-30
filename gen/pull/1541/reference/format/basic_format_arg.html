@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2024-03-27T17:35:04">
-        2024年03月27日 17時35分04秒
+      <span itemprop="datePublished" content="2026-01-27T07:36:10">
+        2026年01月27日 07時36分10秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Tetsuro Matsumura</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -222,7 +222,7 @@
   <span class="k">private</span><span class="o">:</span>
     <span class="k">using</span> <span class="n">char_type</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">Context</span><span class="o">::</span><span class="n">char_type</span><span class="p">;</span>                              <span class="c1">// exposition only</span>
 
-    <span class="n">variant</span><span class="o">&lt;</span><span class="n">monostate</span><span class="p">,</span> <span class="kt">bool</span><span class="p">,</span> <span class="n">char_type</span><span class="p">,</span>
+    <span class="n"><a href="../variant/variant.html">variant</a></span><span class="o">&lt;</span><span class="n">monostate</span><span class="p">,</span> <span class="kt">bool</span><span class="p">,</span> <span class="n">char_type</span><span class="p">,</span>
             <span class="kt">int</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">long</span> <span class="kt">long</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="kt">int</span><span class="p">,</span>
             <span class="kt">float</span><span class="p">,</span> <span class="kt">double</span><span class="p">,</span> <span class="kt">long</span> <span class="kt">double</span><span class="p">,</span>
             <span class="k">const</span> <span class="n">char_type</span><span class="o">*</span><span class="p">,</span> <span class="n"><a href="../string_view/basic_string_view.html">basic_string_view</a></span><span class="o">&lt;</span><span class="n">char_type</span><span class="o">&gt;</span><span class="p">,</span>
@@ -278,9 +278,26 @@
 </thead>
 <tbody>
 <tr>
-<td><code>operator bool</code></td>
+<td><code><a href="basic_format_arg/op_bool.html">operator bool</a></code></td>
 <td><code>bool</code>への変換演算子(空の時<code>false</code>)</td>
 <td>C++20</td>
+</tr>
+</tbody>
+</table>
+<h3>ビジター</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="basic_format_arg/visit.html">visit</a></code></td>
+<td>現在保持している型に対応する関数を呼び出す</td>
+<td>C++26</td>
 </tr>
 </tbody>
 </table>
@@ -319,7 +336,7 @@
 <tr>
 <td><code><a href="visit_format_arg.html">visit_format_arg</a></code></td>
 <td><code>basic_format_arg</code>オブジェクトが現在保持している型に対応する関数を呼び出す (function template)</td>
-<td>C++20</td>
+<td>C++20<br /> C++26から非推奨</td>
 </tr>
 </tbody>
 </table>

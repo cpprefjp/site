@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;future&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;future&#34;, &#34;promise&#34;, &#34;uses_allocator&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;future&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;, &#34;cpp26removed&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;future&#34;, &#34;promise&#34;, &#34;uses_allocator&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-11T17:16:44">
-        2025年07月11日 17時16分44秒
+      <span itemprop="datePublished" content="2026-01-29T04:22:36">
+        2026年01月29日 04時22分36秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Koichi Murase</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -224,7 +224,7 @@
     <div class="row">
       <div class="col-sm-12 content-body">
         
-  <div class="identifier-type">class template</div><div class="header">&lt;future&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">uses_allocator</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+  <div class="identifier-type">class template</div><div class="header">&lt;future&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">uses_allocator</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span><span class="cpp cpp26removed text-danger" title="C++26で削除">(C++26で削除)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">R</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Alloc</span><span class="o">&gt;</span>
   <span class="k">struct</span> <span class="n">uses_allocator</span><span class="o">&lt;</span><span class="n">promise</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">Alloc</span><span class="o">&gt;</span>
@@ -232,14 +232,9 @@
 <span class="p">}</span>
 </code></pre></div>
 </p>
+<p>この特殊化はC++11で導入され、C++26で削除された。</p>
 <h2>概要</h2>
 <p><code>uses_allocator</code>の、<code>promise&lt;R&gt;</code>に対する特殊化。</p>
-<h2>例</h2>
-<p><div class="codehilite"><pre><span></span><code>
-</code></pre></div>
-</p>
-<h3>出力</h3>
-<p><pre><code></code></pre></p>
 <h2>バージョン</h2>
 <h3>言語</h3>
 <ul>
@@ -252,7 +247,13 @@
 <li><a href="../../../implementation.html#icc">ICC</a>: ??</li>
 <li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: 2012 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
 </ul>
-<h2>参照</h2></div>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3503r3.html" target="_blank">P3503R3 Make type-erased allocator use in <code>promise</code> and <code>packaged_task</code> consistent</a><ul>
+<li>C++26でこの特殊化が削除された</li>
+</ul>
+</li>
+</ul></div>
 
       </div>
     </div>

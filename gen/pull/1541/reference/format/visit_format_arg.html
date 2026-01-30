@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;format&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;format&#34;, &#34;visit_format_arg&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;format&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;, &#34;cpp26deprecated&#34;]}, &#34;sources&#34;: [], &#34;page_id&#34;: [&#34;reference&#34;, &#34;format&#34;, &#34;visit_format_arg&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,12 +188,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-14T14:14:09">
-        2025年07月14日 14時14分09秒
+      <span itemprop="datePublished" content="2026-01-27T07:36:10">
+        2026年01月27日 07時36分10秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Koichi Murase</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -212,13 +212,14 @@
     <div class="row">
       <div class="col-sm-12 content-body">
         
-  <div class="identifier-type">function template</div><div class="header">&lt;format&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">visit_format_arg</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+  <div class="identifier-type">function template</div><div class="header">&lt;format&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">visit_format_arg</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span><span class="cpp cpp26deprecated text-warning" title="C++26で非推奨">(C++26で非推奨)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
   <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">Visitor</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Context</span><span class="o">&gt;</span>
   <span class="n"><i>see below</i></span> <span class="n">visit_format_arg</span><span class="p">(</span><span class="n">Visitor</span><span class="o">&amp;&amp;</span> <span class="n">vis</span><span class="p">,</span> <span class="n"><a href="basic_format_arg.html">basic_format_arg</a></span><span class="o">&lt;</span><span class="n">Context</span><span class="o">&gt;</span> <span class="n">arg</span><span class="p">);</span> <span class="c1">// (1)</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
+<p>この関数は、C++26から非推奨となった。代わりに<code><a href="basic_format_arg.html">std::basic_format_arg</a>::<a href="basic_format_arg/visit.html">visit()</a></code>メンバ関数を使用すること。</p>
 <h2>概要</h2>
 <ul>
 <li>(1) : <code>basic_format_arg</code>オブジェクトが現在保持している型に対応する関数を呼び出し、呼び出された関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型で<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を返す</li>
@@ -282,6 +283,7 @@
 <h2>参照</h2>
 <ul>
 <li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html" target="_blank">P0645R10 Text Formatting</a></li>
+<li><a href="http://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2637r3.html" target="_blank">P2637R3 Member <code>visit</code></a></li>
 </ul></div>
 
       </div>

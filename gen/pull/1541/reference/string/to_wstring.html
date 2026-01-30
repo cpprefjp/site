@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2024-06-11T13:45:38">
-        2024年06月11日 13時45分38秒
+      <span itemprop="datePublished" content="2026-01-20T02:35:12">
+        2026年01月20日 02時35分12秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -214,12 +214,24 @@
         
   <div class="identifier-type">function</div><div class="header">&lt;string&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">to_wstring</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
-  <span class="n"><a href="basic_string.html">wstring</a></span> <span class="n">to_wstring</span><span class="p">(</span><span class="kt">int</span> <span class="n">val</span><span class="p">);</span>                <span class="c1">// (1) C++11</span>
-  <span class="n"><a href="basic_string.html">wstring</a></span> <span class="nf">to_wstring</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">val</span><span class="p">);</span>       <span class="c1">// (2) C++11</span>
-  <span class="n"><a href="basic_string.html">wstring</a></span> <span class="nf">to_wstring</span><span class="p">(</span><span class="kt">long</span> <span class="n">val</span><span class="p">);</span>               <span class="c1">// (3) C++11</span>
-  <span class="n"><a href="basic_string.html">wstring</a></span> <span class="nf">to_wstring</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">val</span><span class="p">);</span>      <span class="c1">// (4) C++11</span>
-  <span class="n"><a href="basic_string.html">wstring</a></span> <span class="nf">to_wstring</span><span class="p">(</span><span class="kt">long</span> <span class="kt">long</span> <span class="n">val</span><span class="p">);</span>          <span class="c1">// (5) C++11</span>
-  <span class="n"><a href="basic_string.html">wstring</a></span> <span class="nf">to_wstring</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">val</span><span class="p">);</span> <span class="c1">// (6) C++11</span>
+  <span class="n"><a href="basic_string.html">wstring</a></span> <span class="n">to_wstring</span><span class="p">(</span><span class="kt">int</span> <span class="n">val</span><span class="p">);</span>                          <span class="c1">// (1) C++11</span>
+  <span class="k">constexpr</span> <span class="n"><a href="basic_string.html">wstring</a></span> <span class="nf">to_wstring</span><span class="p">(</span><span class="kt">int</span> <span class="n">val</span><span class="p">);</span>                <span class="c1">// (1) C++26</span>
+
+  <span class="n"><a href="basic_string.html">wstring</a></span> <span class="nf">to_wstring</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">val</span><span class="p">);</span>                 <span class="c1">// (2) C++11</span>
+  <span class="k">constexpr</span> <span class="n"><a href="basic_string.html">wstring</a></span> <span class="nf">to_wstring</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">val</span><span class="p">);</span>       <span class="c1">// (2) C++26</span>
+
+  <span class="n"><a href="basic_string.html">wstring</a></span> <span class="nf">to_wstring</span><span class="p">(</span><span class="kt">long</span> <span class="n">val</span><span class="p">);</span>                         <span class="c1">// (3) C++11</span>
+  <span class="k">constexpr</span> <span class="n"><a href="basic_string.html">wstring</a></span> <span class="nf">to_wstring</span><span class="p">(</span><span class="kt">long</span> <span class="n">val</span><span class="p">);</span>               <span class="c1">// (3) C++26</span>
+
+  <span class="n"><a href="basic_string.html">wstring</a></span> <span class="nf">to_wstring</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">val</span><span class="p">);</span>                <span class="c1">// (4) C++11</span>
+  <span class="k">constexpr</span> <span class="n"><a href="basic_string.html">wstring</a></span> <span class="nf">to_wstring</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">val</span><span class="p">);</span>      <span class="c1">// (4) C++26</span>
+
+  <span class="n"><a href="basic_string.html">wstring</a></span> <span class="nf">to_wstring</span><span class="p">(</span><span class="kt">long</span> <span class="kt">long</span> <span class="n">val</span><span class="p">);</span>                    <span class="c1">// (5) C++11</span>
+  <span class="k">constexpr</span> <span class="n"><a href="basic_string.html">wstring</a></span> <span class="nf">to_wstring</span><span class="p">(</span><span class="kt">long</span> <span class="kt">long</span> <span class="n">val</span><span class="p">);</span>          <span class="c1">// (5) C++26</span>
+
+  <span class="n"><a href="basic_string.html">wstring</a></span> <span class="nf">to_wstring</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">val</span><span class="p">);</span>           <span class="c1">// (6) C++11</span>
+  <span class="k">constexpr</span> <span class="n"><a href="basic_string.html">wstring</a></span> <span class="nf">to_wstring</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">val</span><span class="p">);</span> <span class="c1">// (6) C++26</span>
+
   <span class="n"><a href="basic_string.html">wstring</a></span> <span class="nf">to_wstring</span><span class="p">(</span><span class="kt">float</span> <span class="n">val</span><span class="p">);</span>              <span class="c1">// (7) C++11</span>
   <span class="n"><a href="basic_string.html">wstring</a></span> <span class="nf">to_wstring</span><span class="p">(</span><span class="kt">double</span> <span class="n">val</span><span class="p">);</span>             <span class="c1">// (8) C++11</span>
   <span class="n"><a href="basic_string.html">wstring</a></span> <span class="nf">to_wstring</span><span class="p">(</span><span class="kt">long</span> <span class="kt">double</span> <span class="n">val</span><span class="p">);</span>        <span class="c1">// (9) C++11</span>
@@ -449,6 +461,10 @@
 <li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2408.html" target="_blank">N2408 Simple Numeric Access Revision 2</a></li>
 <li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2587r3.html" target="_blank">P2587R3 <code>to_string</code> or not <code>to_string</code></a><ul>
 <li>C++26から<code>sprintf</code>ベースの仕様をやめて<code>std::format()</code>ベースの仕様になった</li>
+</ul>
+</li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3391r2.html" target="_blank">P3391R2 <code>constexpr std::format</code></a><ul>
+<li>C++26から整数バージョンが<code>constexpr</code>に対応した</li>
 </ul>
 </li>
 </ul></div>

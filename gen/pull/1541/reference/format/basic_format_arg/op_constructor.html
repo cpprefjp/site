@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:33:39">
-        2025年07月08日 15時33分39秒
+      <span itemprop="datePublished" content="2026-01-20T03:05:18">
+        2026年01月20日 03時05分18秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -237,10 +237,16 @@
             <span class="k">const</span> <span class="n">char_type</span><span class="o">*</span><span class="p">,</span> <span class="n"><a href="../../string_view/basic_string_view.html">basic_string_view</a></span><span class="o">&lt;</span><span class="n">char_type</span><span class="o">&gt;</span><span class="p">,</span>
             <span class="k">const</span> <span class="kt">void</span><span class="o">*</span><span class="p">,</span> <span class="n"><a href="handle.html">handle</a></span><span class="o">&gt;</span> <span class="n">value</span><span class="p">;</span>                                         <span class="c1">// exposition only</span>
 
-    <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="k">explicit</span> <span class="n"><i>basic_format_arg</i></span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>                 <span class="c1">// (2) exposition only</span>
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+    <span class="k">explicit</span>
+    <span class="n"><i>basic_format_arg</i></span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>  <span class="c1">// (2) C++20 exposition only</span>
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+    <span class="k">constexpr</span> <span class="k">explicit</span>
+    <span class="n"><i>basic_format_arg</i></span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>  <span class="c1">// (2) C++26 exposition only</span>
 
   <span class="k">public</span><span class="o">:</span>
-    <span class="n"><i>basic_format_arg</i></span><span class="p">()</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (1)</span>
+    <span class="n"><i>basic_format_arg</i></span><span class="p">()</span> <span class="k">noexcept</span><span class="p">;</span>           <span class="c1">// (1) C++20</span>
+    <span class="k">constexpr</span> <span class="nf"><i>basic_format_arg</i></span><span class="p">()</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (1) C++26</span>
   <span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -305,6 +311,10 @@
 <h2>参照</h2>
 <ul>
 <li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html" target="_blank">P0645R10 Text Formatting</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3391r2.html" target="_blank">P3391R2 <code>constexpr std::format</code></a><ul>
+<li>C++26から<code>constexpr</code>に対応した</li>
+</ul>
+</li>
 </ul></div>
 
       </div>
