@@ -21,9 +21,11 @@ namespace std {
 |--------------------------------|----------------|-------|
 | [`(constructor)`](initializer_list/op_constructor.md) | コンストラクタ | C++11 |
 | `~initializer_list() = default;`                      | デストラクタ | C++11 |
-| [`size`](initializer_list/size.md)                  | 要素数を取得する | C++11 |
-| [`begin`](initializer_list/begin.md)                | 先頭要素へのポインタを取得する | C++11 |
-| [`end`](initializer_list/end.md)                    | 最後尾要素の次を指すポインタを取得する | C++11 |
+| [`size`](initializer_list/size.md)                    | 要素数を取得する | C++11 |
+| [`begin`](initializer_list/begin.md)                  | 先頭要素へのポインタを取得する | C++11 |
+| [`end`](initializer_list/end.md)                      | 最後尾要素の次を指すポインタを取得する | C++11 |
+| [`data`](initializer_list/data.md)                    | 配列の先頭へのポインタを取得する | C++26 |
+| [`empty`](initializer_list/empty.md)                  | 配列が空かどうかを判定する | C++26 |
 
 
 ## メンバ型
@@ -42,8 +44,8 @@ namespace std {
 
 | 名前 | 説明 | 対応バージョン |
 |-------------------|------------|-------|
-| [`begin`](initializer_list/begin_free.md) | 先頭要素へのポインタを取得する | C++11 |
-| [`end`](initializer_list/end_free.md)     | 最後尾要素の次を指すポインタを取得する | C++11 |
+| [`begin`](initializer_list/begin_free.md) | 先頭要素へのポインタを取得する | C++11<br/>C++26で削除 |
+| [`end`](initializer_list/end_free.md)     | 最後尾要素の次を指すポインタを取得する | C++11<br/>C++26で削除 |
 
 
 ## 例

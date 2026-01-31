@@ -7,7 +7,14 @@
 ```cpp
 namespace std {
   template <class C>
-  auto crbegin(const C& c) -> decltype(std::rbegin(c));
+  auto
+    crbegin(const C& c)
+      -> decltype(std::rbegin(c));        // (1) C++14
+  template <class C>
+  constexpr auto
+    crbegin(const C& c)
+      noexcept(noexcept(std::rbegin(c)))
+      -> decltype(std::rbegin(c));        // (1) C++26
 }
 ```
 * std::rbegin[link rbegin.md]
@@ -94,3 +101,4 @@ int main()
 
 ## 参照
 - [LWG Issue 2128. Absence of global functions `cbegin`/`cend`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2128)
+- [P3016R6 Resolve inconsistencies in `begin`/`end` for `valarray` and `braced-initializer-list`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3016r6.html)

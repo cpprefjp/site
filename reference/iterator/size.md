@@ -7,10 +7,18 @@
 ```cpp
 namespace std {
   template <class C>
-  constexpr auto size(const C& c) -> decltype(c.size());    // (1)
+  constexpr auto
+    size(const C& c)
+      -> decltype(c.size());            // (1) C++17
+  template <class C>
+  constexpr auto
+    size(const C& c)
+      noexcept(noexcept(c.size()))
+      -> decltype(c.size());            // (1) C++26
 
   template <class T, std::size_t N>
-  constexpr std::size_t size(const T (&array)[N]) noexcept; // (2)
+  constexpr std::size_t
+    size(const T (&array)[N]) noexcept; // (2) C++17
 }
 ```
 
@@ -101,3 +109,4 @@ int main()
 - [`boost::size()` - Boost Range Library](http://www.boost.org/doc/libs/release/libs/range/doc/html/range/reference/concept_implementation/semantics/functions.html)
 - [N4280: Non-member `size()` and more (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4280.pdf)
 - [LWG Issue 3009. Including `<string_view>` doesn't provide `std::size/empty/data`](https://wg21.cmeerw.net/lwg/issue3009)
+- [P3016R6 Resolve inconsistencies in `begin`/`end` for `valarray` and `braced-initializer-list`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3016r6.html)

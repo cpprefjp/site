@@ -7,28 +7,47 @@
 ```cpp
 namespace std {
   template <class C>
-  auto rend(C& c) -> decltype(c.rend());                             // (1) C++14
+  auto
+   rend(C& c)
+     -> decltype(c.rend());          // (1) C++14
+  template <class C>
+  constexpr auto
+    rend(C& c)
+      -> decltype(c.rend());         // (1) C++17
+  template <class C>
+  constexpr auto
+    rend(C& c)
+      noexcept(noexcept(c.rend()))
+      -> decltype(c.rend());         // (1) C++26
 
   template <class C>
-  constexpr auto rend(C& c) -> decltype(c.rend());                   // (1) C++17
-
+  auto
+    rend(const C& c)
+      -> decltype(c.rend());         // (2) C++14
   template <class C>
-  auto rend(const C& c) -> decltype(c.rend());                       // (2) C++14
-
+  constexpr auto
+    rend(const C& c)
+      -> decltype(c.rend());         // (2) C++17
   template <class C>
-  constexpr auto rend(const C& c) -> decltype(c.rend());             // (2) C++17
+  constexpr auto
+    rend(const C& c)
+      noexcept(noexcept(c.rend()))
+      -> decltype(c.rend());         // (2) C++26
 
   template <class T, size_t N>
-  reverse_iterator<T*> rend(T (&array)[N]);                          // (3) C++14
-
+  reverse_iterator<T*>
+    rend(T (&array)[N]);             // (3) C++14
   template <class T, size_t N>
-  constexpr reverse_iterator<T*> rend(T (&array)[N]);                // (3) C++17
+  constexpr reverse_iterator<T*>
+    rend(T (&array)[N]) noexcept;    // (3) C++17
 
   template <class E>
-  reverse_iterator<const E*> rend(initializer_list<E> il);           // (4) C++14
+  reverse_iterator<const E*>
+    rend(initializer_list<E> il);    // (4) C++14
 
   template <class E>
-  constexpr reverse_iterator<const E*> rend(initializer_list<E> il); // (4) C++17
+  constexpr reverse_iterator<const E*>
+    rend(initializer_list<E> il);    // (4) C++17
 }
 ```
 * reverse_iterator[link reverse_iterator.md]
@@ -40,7 +59,7 @@ namespace std {
 - (1) : コンテナの`rend()`メンバ関数で、範囲の先頭の前を指す、逆イテレータを返す。
 - (2) : コンテナの`rend()`メンバ関数で、範囲の先頭の前を指す、読み取り専用逆イテレータを返す。
 - (3) : 組み込み配列の先頭の前を指す、逆イテレータを返す。
-- (4) : `initializer_list`オブジェクトの先頭の前を指す、読み取り専用逆イテレータを返す。
+- (4) : `initializer_list`オブジェクトの先頭の前を指す、読み取り専用逆イテレータを返す。C++26で削除。
 
 
 ## 戻り値
@@ -122,3 +141,4 @@ int main()
 ## 参照
 - [LWG Issue 2128. Absence of global functions `cbegin`/`cend`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2128)
 - [P0031R0 A Proposal to Add Constexpr Modifiers to `reverse_iterator`, `move_iterator`, `array` and Range Access](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0031r0.html)
+- [P3016R6 Resolve inconsistencies in `begin`/`end` for `valarray` and `braced-initializer-list`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3016r6.html)

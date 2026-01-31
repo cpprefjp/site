@@ -7,22 +7,40 @@
 ```cpp
 namespace std {
   template <class C>
-  auto begin(C& c) -> decltype(c.begin());                 // (1) C++11
+  auto
+    begin(C& c)
+      -> decltype(c.begin());       // (1) C++11
+  template <class C>
+  constexpr auto
+    begin(C& c)
+      -> decltype(c.begin());       // (1) C++17
+  template <class C>
+  constexpr auto
+    begin(C& c)
+      noexcept(noexcept(c.begin()))
+      -> decltype(c.begin());       // (1) C++26
 
   template <class C>
-  constexpr auto begin(C& c) -> decltype(c.begin());       // (1) C++17
+  auto
+    begin(const C& c)
+      -> decltype(c.begin());         // (2) C++11
 
   template <class C>
-  auto begin(const C& c) -> decltype(c.begin());           // (2) C++11
-
+  constexpr auto
+    begin(const C& c)
+      -> decltype(c.begin());         // (2) C++17
   template <class C>
-  constexpr auto begin(const C& c) -> decltype(c.begin()); // (2) C++17
+  constexpr auto
+    begin(const C& c)
+      noexcept(noexcept(c.begin()))
+      -> decltype(c.begin());         // (2) C++26
 
   template <class T, size_t N>
-  T* begin(T (&array)[N]);                                 // (3) C++11
-
+  T*
+    begin(T (&array)[N]);             // (3) C++11
   template <class T, size_t N>
-  constexpr T* begin(T (&array)[N]) noexcept;              // (3) C++14
+  constexpr T*
+    begin(T (&array)[N]) noexcept;    // (3) C++14
 }
 ```
 
@@ -106,3 +124,4 @@ int main()
 - [boost::begin() - Boost Range Library](http://www.boost.org/doc/libs/release/libs/range/doc/html/range/reference/concept_implementation/semantics/functions.html)
 - [LWG2280 - begin/end for arrays should be constexpr and noexcept](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-active.html#2280)
 - [P0031R0 A Proposal to Add Constexpr Modifiers to `reverse_iterator`, `move_iterator`, `array` and Range Access](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0031r0.html)
+- [P3016R6 Resolve inconsistencies in `begin`/`end` for `valarray` and `braced-initializer-list`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3016r6.html)

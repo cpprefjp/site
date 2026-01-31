@@ -7,19 +7,35 @@
 ```cpp
 namespace std {
   template <class C>
-  constexpr auto data(C& c) -> decltype(c.data());          // (1) C++17
+  constexpr
+    auto data(C& c)
+      -> decltype(c.data());       // (1) C++17
+  template <class C>
+  constexpr auto data(C& c)
+    noexcept(noexcept(c.data()))
+    -> decltype(c.data());         // (1) C++26
 
   template <class C>
-  constexpr auto data(const C& c) -> decltype(c.data());    // (2) C++17
+  constexpr auto
+    data(const C& c)
+      -> decltype(c.data());       // (2) C++17
+  template <class C>
+  constexpr auto data(const C& c)
+    noexcept(noexcept(c.data()))
+    -> decltype(c.data());         // (2) C++26
 
   template <class T, std::size_t N>
-  constexpr T* data(T (&array)[N]) noexcept;                // (3) C++17
+  constexpr T*
+    data(T (&array)[N]) noexcept;  // (3) C++17
 
   template <class E>
-  constexpr const E* data(initializer_list<E> il) noexcept; // (4) C++17
+  constexpr const E*
+    data(initializer_list<E> il) noexcept;  // (4) C++17、C++26で削除
 }
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
+
+(4)はC++26で削除された。[`std::initializer_list`](/reference/initializer_list/initializer_list.md)に、メンバ関数版の[`data()`](/reference/initializer_list/initializer_list/data.md)が追加されたため、このオーバーフローは不要になった。使い方としてはこれまで通りに使用できる。
 
 ## 概要
 コンテナの要素が格納されたメモリ領域へのポインタを取得する。
@@ -89,3 +105,4 @@ array size:1 at 0x22e42b0
 ## 参照
 - [N4280: Non-member `data()` and more (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4280.pdf)
 - [LWG Issue 3009. Including `<string_view>` doesn't provide `std::size/empty/data`](https://wg21.cmeerw.net/lwg/issue3009)
+- [P3016R6 Resolve inconsistencies in `begin`/`end` for `valarray` and `braced-initializer-list`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3016r6.html)

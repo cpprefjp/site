@@ -7,37 +7,51 @@
 ```cpp
 namespace std {
   template <class C>
-  constexpr auto empty(const C& c) -> decltype(c.empty());               // (1) C++17
+  constexpr auto
+    empty(const C& c)
+      -> decltype(c.empty());        // (1) C++17
   template <class C>
-  [[nodiscard]] constexpr auto empty(const C& c) -> decltype(c.empty()); // (1) C++20
+  [[nodiscard]] constexpr auto
+    empty(const C& c)
+      -> decltype(c.empty());        // (1) C++20
   template <class C>
-  constexpr auto empty(const C& c) -> decltype(c.empty());               // (1) C++26
+  constexpr auto
+    empty(const C& c)
+      noexcept(noexcept(c.empty()))
+      -> decltype(c.empty());        // (1) C++26
 
   template <class T, std::size_t N>
-  constexpr bool empty(const T (&array)[N]) noexcept;                    // (2) C++17
+  constexpr bool
+    empty(const T (&array)[N]) noexcept;   // (2) C++17
   template <class T, std::size_t N>
-  [[nodiscard]] constexpr bool empty(const T (&array)[N]) noexcept;      // (2) C++20
+  [[nodiscard]] constexpr bool
+    empty(const T (&array)[N]) noexcept;   // (2) C++20
   template <class T, std::size_t N>
-  constexpr bool empty(const T (&array)[N]) noexcept;                    // (2) C++26
+  constexpr bool
+    empty(const T (&array)[N]) noexcept;   // (2) C++26
 
   template <class E>
-  constexpr bool empty(initializer_list<E> il) noexcept;                 // (3) C++17
+  constexpr bool
+    empty(initializer_list<E> il) noexcept;   // (3) C++17、C++26で削除
   template <class E>
-  [[nodiscard]] constexpr bool empty(initializer_list<E> il) noexcept;   // (3) C++20
-  template <class E>
-  constexpr bool empty(initializer_list<E> il) noexcept;                 // (3) C++26
+  [[nodiscard]] constexpr bool
+    empty(initializer_list<E> il) noexcept;   // (3) C++20、C++26で削除
 }
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
+(3)はC++26で削除された。[`std::initializer_list`](/reference/initializer_list/initializer_list.md)に、メンバ関数版の[`empty()`](/reference/initializer_list/initializer_list/empty.md)が追加されたため、このオーバーフローは不要になった。使い方としてはこれまで通りに使用できる。
+
 ## 概要
 コンテナが空かどうかを判定する。
+
+- (3) : C++26で削除。汎用オーバーロード(1)を使用すること。
 
 
 ## 戻り値
 - (1) : `return c.empty();`
 - (2) : `return false;`
-- (3) : `return il.size() == 0;`
+- (3) : `return il.size() == 0;` (C++26で削除)
 
 
 ## 備考
@@ -109,3 +123,4 @@ false
 - [LWG Issue 3009. Including `<string_view>` doesn't provide `std::size/empty/data`](https://wg21.cmeerw.net/lwg/issue3009)
 - [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
     - C++26で`[[nodiscard]]`指定が削除された
+- [P3016R6 Resolve inconsistencies in `begin`/`end` for `valarray` and `braced-initializer-list`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3016r6.html)

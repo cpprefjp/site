@@ -7,11 +7,18 @@
 ```cpp
 namespace std {
   template <class C>
-  constexpr auto ssize(const C& c)
-    -> common_type_t<ptrdiff_t, make_signed_t<decltype(c.size())>>; // (1)
+  constexpr auto
+    ssize(const C& c)
+      -> common_type_t<ptrdiff_t, make_signed_t<decltype(c.size())>>;  // (1) C++20
+  template <class C>
+  constexpr auto
+    ssize(const C& c)
+      noexcept(noexcept(c.size()))
+      -> common_type_t<ptrdiff_t, make_signed_t<decltype(c.size())>>;  // (1) C++26
 
   template <class T, ptrdiff_t N>
-  constexpr ptrdiff_t ssize(const T (&array)[N]) noexcept;          // (2)
+  constexpr ptrdiff_t
+    ssize(const T (&array)[N]) noexcept;                               // (2) C++20
 }
 ```
 * ptrdiff_t[link /reference/cstddef/ptrdiff_t.md]
@@ -75,3 +82,4 @@ int main()
 
 ## 参照
 - [P1227: Signed `ssize()` functions, unsigned `size()` functions (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1227r2.html)
+- [P3016R6 Resolve inconsistencies in `begin`/`end` for `valarray` and `braced-initializer-list`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3016r6.html)

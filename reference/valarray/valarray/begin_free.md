@@ -3,18 +3,21 @@
 * std[meta namespace]
 * function template[meta id-type]
 * cpp11[meta cpp]
+* cpp26removed[meta cpp]
 
 ```cpp
 namespace std {
   template <class T>
-  unspecified1 begin(valarray<T>& va);       // (1)
+  unspecified1 begin(valarray<T>& va);       // (1) C++11、C++26で削除
 
   template <class T>
-  unspecified2 begin(const valarray<T>& va); // (2)
+  unspecified2 begin(const valarray<T>& va); // (2) C++11、C++26で削除
 }
 ```
 * unspecified1[italic]
 * unspecified2[italic]
+
+この関数はC++26で削除された。代わりにメンバ関数版の[`begin()`](begin.md)および、[`<iterator>`](/reference/iterator.md)ヘッダで定義される[`std::begin()`](/reference/iterator/begin.md)関数を使用すること。
 
 ## 概要
 先頭の要素を指すイテレータを取得する。
@@ -86,3 +89,4 @@ int main()
 ## 参照
 - [N2930 Range-Based For Loop Wording (Without Concepts)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2930.html)
 - [LWG2058. valarray and begin/end](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2058)
+- [P3016R6 Resolve inconsistencies in `begin`/`end` for `valarray` and `braced-initializer-list`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3016r6.html)
