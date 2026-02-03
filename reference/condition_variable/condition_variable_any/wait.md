@@ -57,7 +57,7 @@ while (!stoken.stop_requested()) {
 }
 return pred();
 ```
-* stop_requested()[link /reference/stop_token/stop_source/stop_requested.md]
+* stop_requested()[link /reference/stop_token/stop_token/stop_requested.md]
 
 
 ## 事後条件

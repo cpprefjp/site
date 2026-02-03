@@ -70,7 +70,7 @@ while (!stoken.stop_requested()) {
 }
 return pred();
 ```
-* stop_requested()[link /reference/stop_token/stop_source/stop_requested.md]
+* stop_requested()[link /reference/stop_token/stop_token/stop_requested.md]
 * cv_status::timeout[link /reference/condition_variable/cv_status.md]
 
 
