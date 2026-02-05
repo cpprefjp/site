@@ -1,0 +1,388 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>all_of - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,algorithm,std::ranges,function template,cpp20
+">
+        <meta name="title" content="all_of - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="all_of - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="all_of - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/algorithm/ranges_all_of.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="範囲の全ての要素が条件を満たすかを判定する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="all_of - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/algorithm/ranges_all_of.html" />
+        <meta name="twitter:description" content="範囲の全ての要素が条件を満たすかを判定する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="manifest" href="../../manifest.json?cachebust=1badf8656537fb83110091804da2a289044600de">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=1badf8656537fb83110091804da2a289044600de">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;algorithm&#34;], &#34;namespace&#34;: [&#34;std::ranges&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;d7a8449db5c7e1cf04f00bf6a5c909323cc89246&#34;, &#34;source&#34;: &#34;#include &lt;algorithm&gt;\n#include &lt;iostream&gt;\n#include &lt;array&gt;\n\nint main() {\n  constexpr std::array v = { 3, 1, 4 };\n\n  std::cout &lt;&lt; std::boolalpha;\n\n  // \u5168\u3066\u306e\u8981\u7d20\u304c 5 \u3088\u308a\u5c0f\u3055\u3044\u304b\n  constexpr bool result1 = std::ranges::all_of(v, [](int x) { return x &lt; 5; });\n  std::cout &lt;&lt; result1 &lt;&lt; std::endl;\n\n  // \u5168\u3066\u306e\u8981\u7d20\u304c 1 \u3067\u3042\u308b\u304b\n  constexpr bool result2 = std::ranges::all_of(v, [](int x) { return x == 1; });\n  std::cout &lt;&lt; result2 &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;aad9b7428c5763925df78e611e33dd064823d892&#34;, &#34;source&#34;: &#34;#include &lt;algorithm&gt;\n#include &lt;execution&gt;\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\n\nint main() {\n  std::vector&lt;int&gt; v = {2, 4, 6, 8, 10};\n\n  std::cout &lt;&lt; std::boolalpha;\n\n  // \u4e26\u5217\u306b\u5168\u3066\u306e\u8981\u7d20\u304c\u5076\u6570\u3067\u3042\u308b\u304b\u3092\u5224\u5b9a\n  bool result = std::ranges::all_of(std::execution::par, v,\n                                    [](int x) { return x % 2 == 0; });\n  std::cout &lt;&lt; result &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;algorithm&#34;, &#34;ranges_all_of&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/algorithm.html" itemprop="url">
+              
+                <span itemprop="name">algorithm</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">all_of</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2026-02-05T04:53:18">
+        2026年02月05日 04時53分18秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/algorithm/ranges_all_of.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/algorithm/ranges_all_of.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function template</div><div class="header">&lt;algorithm&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::ranges">std::ranges::</span><span class="token">all_of</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../iterator/input_iterator.html">input_iterator</a></span> <span class="n">I</span><span class="p">,</span>
+            <span class="n"><a href="../iterator/sentinel_for.html">sentinel_for</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span> <span class="n">S</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Proj</span> <span class="o">=</span> <span class="n"><a href="../functional/identity.html">identity</a></span><span class="p">,</span>
+            <span class="n"><a href="../iterator/indirect_unary_predicate.html">indirect_unary_predicate</a></span><span class="o">&lt;</span><span class="n"><a href="../iterator/projected.html">projected</a></span><span class="o">&lt;</span><span class="n">I</span><span class="p">,</span> <span class="n">Proj</span><span class="o">&gt;&gt;</span> <span class="n">Pred</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="kt">bool</span>
+    <span class="n">all_of</span><span class="p">(</span><span class="n">I</span> <span class="n">first</span><span class="p">,</span> <span class="n">S</span> <span class="n">last</span><span class="p">,</span> <span class="n">Pred</span> <span class="n">pred</span><span class="p">,</span> <span class="n">Proj</span> <span class="n">proj</span> <span class="o">=</span> <span class="p">{});</span> <span class="c1">// (1) C++20</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../ranges/input_range.html">input_range</a></span> <span class="n">R</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Proj</span> <span class="o">=</span> <span class="n"><a href="../functional/identity.html">identity</a></span><span class="p">,</span>
+            <span class="n"><a href="../iterator/indirect_unary_predicate.html">indirect_unary_predicate</a></span><span class="o">&lt;</span><span class="n"><a href="../iterator/projected.html">projected</a></span><span class="o">&lt;</span><span class="n"><a href="../ranges/iterator_t.html">iterator_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">Proj</span><span class="o">&gt;&gt;</span> <span class="n">Pred</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="kt">bool</span>
+    <span class="n">all_of</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">,</span> <span class="n">Pred</span> <span class="n">pred</span><span class="p">,</span> <span class="n">Proj</span> <span class="n">proj</span> <span class="o">=</span> <span class="p">{});</span>           <span class="c1">// (2) C++20</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../execution/execution-policy.html">execution-policy</a></span> <span class="n">Ep</span><span class="p">,</span>
+            <span class="n"><a href="../iterator/random_access_iterator.html">random_access_iterator</a></span> <span class="n">I</span><span class="p">,</span>
+            <span class="n"><a href="../iterator/sized_sentinel_for.html">sized_sentinel_for</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span> <span class="n">S</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Proj</span> <span class="o">=</span> <span class="n"><a href="../functional/identity.html">identity</a></span><span class="p">,</span>
+            <span class="n"><a href="../iterator/indirect_unary_predicate.html">indirect_unary_predicate</a></span><span class="o">&lt;</span><span class="n"><a href="../iterator/projected.html">projected</a></span><span class="o">&lt;</span><span class="n">I</span><span class="p">,</span> <span class="n">Proj</span><span class="o">&gt;&gt;</span> <span class="n">Pred</span><span class="o">&gt;</span>
+  <span class="kt">bool</span> <span class="n">all_of</span><span class="p">(</span><span class="n">Ep</span><span class="o">&amp;&amp;</span> <span class="n">exec</span><span class="p">,</span>
+              <span class="n">I</span> <span class="n">first</span><span class="p">,</span>
+              <span class="n">S</span> <span class="n">last</span><span class="p">,</span>
+              <span class="n">Pred</span> <span class="n">pred</span><span class="p">,</span>
+              <span class="n">Proj</span> <span class="n">proj</span> <span class="o">=</span> <span class="p">{});</span> <span class="c1">// (3) C++26</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="n"><a href="../execution/execution-policy.html">execution-policy</a></span> <span class="n">Ep</span><span class="p">,</span>
+            <span class="n"><a href="../ranges/sized-random-access-range.html">sized-random-access-range</a></span> <span class="n">R</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Proj</span> <span class="o">=</span> <span class="n"><a href="../functional/identity.html">identity</a></span><span class="p">,</span>
+            <span class="n"><a href="../iterator/indirect_unary_predicate.html">indirect_unary_predicate</a></span><span class="o">&lt;</span><span class="n"><a href="../iterator/projected.html">projected</a></span><span class="o">&lt;</span><span class="n"><a href="../ranges/iterator_t.html">iterator_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">Proj</span><span class="o">&gt;&gt;</span> <span class="n">Pred</span><span class="o">&gt;</span>
+  <span class="kt">bool</span> <span class="n">all_of</span><span class="p">(</span><span class="n">Ep</span><span class="o">&amp;&amp;</span> <span class="n">exec</span><span class="p">,</span>
+              <span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">,</span>
+              <span class="n">Pred</span> <span class="n">pred</span><span class="p">,</span>
+              <span class="n">Proj</span> <span class="n">proj</span> <span class="o">=</span> <span class="p">{});</span> <span class="c1">// (4) C++26</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>範囲の全ての要素が条件を満たすかを判定する。</p>
+<ul>
+<li>(1): <a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a>を指定する</li>
+<li>(2): Rangeを直接指定する</li>
+<li>(3): (1)の並列アルゴリズム版。実行ポリシーを指定する</li>
+<li>(4): (2)の並列アルゴリズム版。実行ポリシーを指定する</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
+<ul>
+<li>(1):<ul>
+<li><code>I</code>が<code><a href="../iterator/input_iterator.html">input_iterator</a></code>である</li>
+<li><code>S</code>が<a href="../iterator/sentinel_for.html"><code>I</code>に対する番兵</a>である</li>
+<li><code>Pred</code>は<code>I</code>を<code>Proj</code>で射影した値を受け取る<a href="../iterator/indirect_unary_predicate.html">単項述語</a>である</li>
+</ul>
+</li>
+<li>(2):<ul>
+<li><code>R</code>が<code><a href="../ranges/input_range.html">input_range</a></code>である</li>
+<li><code>Pred</code>は<code>R</code>のイテレータを<code>Proj</code>で射影した値を受け取る<a href="../iterator/indirect_unary_predicate.html">単項述語</a>である</li>
+</ul>
+</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p><code>[first,last)</code> あるいは <code>r</code> が空であったり、その範囲内の全てのイテレータ <code>i</code> について <code><a href="../functional/invoke.html">invoke</a>(pred, <a href="../functional/invoke.html">invoke</a>(proj, *i))</code> が <code>true</code> である場合は <code>true</code> を返し、そうでない場合は <code>false</code> を返す。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></h2>
+<p>最大で <code>last - first</code> 回 <code>proj</code> と <code>pred</code> を実行する。</p>
+<h2>例</h2>
+<h3>基本的な使い方</h3>
+<p><div class="yata" id="d7a8449db5c7e1cf04f00bf6a5c909323cc89246"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../array.html">&lt;array&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">constexpr</span> <span class="n"><a href="../array/array.html">std::array</a></span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span> <span class="p">};</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ios/boolalpha.html">std::boolalpha</a></span><span class="p">;</span>
+
+  <span class="c1">// 全ての要素が 5 より小さいか</span>
+  <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">result1</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::ranges::all_of</span></span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="p">});</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">result1</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// 全ての要素が 1 であるか</span>
+  <span class="k">constexpr</span> <span class="kt">bool</span> <span class="n">result2</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::ranges::all_of</span></span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">;</span> <span class="p">});</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">result2</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>true
+false
+</code></pre></p>
+<h3>並列アルゴリズムの例 (C++26)</h3>
+<p><div class="yata" id="aad9b7428c5763925df78e611e33dd064823d892"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../execution.html">&lt;execution&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">};</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ios/boolalpha.html">std::boolalpha</a></span><span class="p">;</span>
+
+  <span class="c1">// 並列に全ての要素が偶数であるかを判定</span>
+  <span class="kt">bool</span> <span class="n">result</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::ranges::all_of</span></span><span class="p">(</span><span class="n"><a href="../execution/execution/execution_policy.html">std::execution::par</a></span><span class="p">,</span> <span class="n">v</span><span class="p">,</span>
+                                    <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span> <span class="p">});</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>true
+</code></pre></p>
+<h2>実装例</h2>
+<p><div class="codehilite"><pre><span></span><code><span class="k">struct</span> <span class="n">all_of_impl</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../iterator/input_iterator.html">input_iterator</a></span> <span class="n">I</span><span class="p">,</span> <span class="n"><a href="../iterator/sentinel_for.html">sentinel_for</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span> <span class="n">S</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Proj</span> <span class="o">=</span> <span class="n"><a href="../functional/identity.html">identity</a></span><span class="p">,</span> <span class="n"><a href="../iterator/indirect_unary_predicate.html">indirect_unary_predicate</a></span><span class="o">&lt;</span><span class="n"><a href="../iterator/projected.html">projected</a></span><span class="o">&lt;</span><span class="n">I</span><span class="p">,</span> <span class="n">Proj</span><span class="o">&gt;&gt;</span> <span class="n">Pred</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="kt">bool</span> <span class="k">operator</span><span class="p">()(</span><span class="n">I</span> <span class="n">first</span><span class="p">,</span> <span class="n">S</span> <span class="n">last</span><span class="p">,</span> <span class="n">Pred</span> <span class="n">pred</span><span class="p">,</span> <span class="n">Proj</span> <span class="n">proj</span> <span class="o">=</span> <span class="p">{})</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(;</span> <span class="n">first</span> <span class="o">!=</span> <span class="n">last</span><span class="p">;</span> <span class="o">++</span><span class="n">first</span><span class="p">)</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n"><a href="../functional/invoke.html">invoke</a></span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n"><a href="../functional/invoke.html">invoke</a></span><span class="p">(</span><span class="n">proj</span><span class="p">,</span> <span class="o">*</span><span class="n">first</span><span class="p">)))</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../ranges/input_range.html">input_range</a></span> <span class="n">R</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Proj</span> <span class="o">=</span> <span class="n"><a href="../functional/identity.html">identity</a></span><span class="p">,</span> <span class="n"><a href="../iterator/indirect_unary_predicate.html">indirect_unary_predicate</a></span><span class="o">&lt;</span><span class="n"><a href="../iterator/projected.html">projected</a></span><span class="o">&lt;</span><span class="n"><a href="../ranges/iterator_t.html">iterator_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">Proj</span><span class="o">&gt;&gt;</span> <span class="n">Pred</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="kt">bool</span> <span class="k">operator</span><span class="p">()(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">,</span> <span class="n">Pred</span> <span class="n">pred</span><span class="p">,</span> <span class="n">Proj</span> <span class="n">proj</span> <span class="o">=</span> <span class="p">{})</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">)(</span><span class="n"><a href="../ranges/begin.html">begin</a></span><span class="p">(</span><span class="n">r</span><span class="p">),</span> <span class="n"><a href="../ranges/end.html">end</a></span><span class="p">(</span><span class="n">r</span><span class="p">),</span> <span class="n"><a href="../functional/ref.html">ref</a></span><span class="p">(</span><span class="n">pred</span><span class="p">),</span> <span class="n"><a href="../functional/ref.html">ref</a></span><span class="p">(</span><span class="n">proj</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kr">inline</span> <span class="k">constexpr</span> <span class="n">all_of_impl</span> <span class="n">all_of</span><span class="p">;</span>
+</code></pre></div>
+</p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++20</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 16.0.6 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 10.1.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2019 Update 10 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="all_of.html">all_of</a></code></li>
+<li><code><a href="ranges_any_of.html">ranges::any_of</a></code></li>
+<li><code><a href="ranges_none_of.html">ranges::none_of</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://timsong-cpp.github.io/cppwp/n4861/algorithms" target="_blank">N4861 25 Algorithms library</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html" target="_blank">P3179R9 C++ parallel range algorithms</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

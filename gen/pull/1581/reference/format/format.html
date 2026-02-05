@@ -1,0 +1,1043 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>format - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,format,function template,std,cpp20
+">
+        <meta name="title" content="format - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="format - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="format - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/format/format.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="format - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/format/format.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="manifest" href="../../manifest.json?cachebust=1badf8656537fb83110091804da2a289044600de">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=1badf8656537fb83110091804da2a289044600de">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;format&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;8ad7317b00d931b251deb73b8651972ebfbc5b12&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;format&gt;\n\nint main()\n{\n  std::cout &lt;&lt; std::format(\&#34;The answer is {}.\&#34;, 42) &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;70614a02a73dc4f7a2a0955521309e1d6fae36bc&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;format&gt;\n\nint main() {\n  // \u30c7\u30d5\u30a9\u30eb\u30c8\u306e\u6587\u5b57\u5217\u51fa\u529b\u3002\n  // \u5f15\u7528\u7b26\u3067\u56f2\u307e\u308c\u305a\u300chello\u300d\u304c\u51fa\u529b\u3055\u308c\u308b\n  std::cout &lt;&lt; std::format(\&#34;0. {}\&#34;, \&#34;hello\&#34;) &lt;&lt; std::endl;\n\n  // \u30c7\u30d0\u30c3\u30b0\u51fa\u529b (C++23)\u3002\n  // \u5f15\u7528\u7b26\u3067\u56f2\u307e\u308c\u300c\&#34;hello\&#34;\u300d\u304c\u51fa\u529b\u3055\u308c\u308b\n  std::cout &lt;&lt; std::format(\&#34;1. {:?}\&#34;, \&#34;hello\&#34;) &lt;&lt; std::endl;\n\n  // \u30a8\u30b9\u30b1\u30fc\u30d7\u30b7\u30fc\u30b1\u30f3\u30b9\u3092\u542b\u3080\u6587\u5b57\u5217\u3092\u30c7\u30d5\u30a9\u30eb\u30c8\u51fa\u529b\u3002\n  // \u30a8\u30b9\u30b1\u30fc\u30d7\u30b7\u30fc\u30b1\u30f3\u30b9\u304c\u51e6\u7406\u3055\u308c\u3001\u4ee5\u4e0b\u306e\u3088\u3046\u306b\u51fa\u529b\u3055\u308c\u308b\uff1a\n  // hello\n  // world\n  std::cout &lt;&lt; std::format(\&#34;2. {}\&#34;, \&#34;hello\\nworld\&#34;) &lt;&lt; std::endl;\n\n  // \u30a8\u30b9\u30b1\u30fc\u30d7\u30b7\u30fc\u30b1\u30f3\u30b9\u3092\u542b\u3080\u6587\u5b57\u5217\u3092\u30c7\u30d0\u30c3\u30b0\u51fa\u529b (C++23)\u3002\n  // \u30a8\u30b9\u30b1\u30fc\u30d7\u30b7\u30fc\u30b1\u30f3\u30b9\u304c\u30a8\u30b9\u30b1\u30fc\u30d7\u3055\u308c\u3066\u4ee5\u4e0b\u306e\u3088\u3046\u306b\u51fa\u529b\u3055\u308c\u308b\uff1a\n  // \&#34;hello\\nworld\&#34;\n  std::cout &lt;&lt; std::format(\&#34;3. {:?}\&#34;, \&#34;hello\\nworld\&#34;) &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;1b67245553c23e2c7b2c8076bbbcdf2342d33c3f&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;format&gt;\n#include &lt;vector&gt;\n#include &lt;map&gt;\n#include &lt;set&gt;\n#include &lt;ranges&gt;\n\nint main() {\n  std::vector&lt;int&gt; vi = {1, 2, 3};\n  std::vector&lt;std::string&gt; vs = {\&#34;aaa\&#34;, \&#34;bbb\&#34;, \&#34;ccc\&#34;};\n  std::map&lt;int, std::string&gt; m {{1, \&#34;aaa\&#34;}, {2, \&#34;bbb\&#34;}};\n  std::set&lt;int&gt; s = {1, 2, 3};\n  auto r = std::ranges::views::iota(1, 5);\n\n  std::cout &lt;&lt; std::format(\&#34;0. {}\&#34;, vi) &lt;&lt; std::endl;\n  std::cout &lt;&lt; std::format(\&#34;1. {}\&#34;, vs) &lt;&lt; std::endl;\n  std::cout &lt;&lt; std::format(\&#34;2. {}\&#34;, m) &lt;&lt; std::endl;\n  std::cout &lt;&lt; std::format(\&#34;3. {}\&#34;, s) &lt;&lt; std::endl;\n  std::cout &lt;&lt; std::format(\&#34;4. {}\&#34;, r) &lt;&lt; std::endl;\n\n  // Range\u306e\u66f8\u5f0f\u6307\u5b9a\u306e\u3042\u3068\u3001:\u3067\u533a\u5207\u3063\u3066\u8981\u7d20\u306b\u5bfe\u3059\u308b\u66f8\u5f0f\u6307\u5b9a\u304c\u3067\u304d\u308b (\u3053\u3053\u3067\u306f16\u9032\u6570\u51fa\u529b)\n  std::vector&lt;int&gt; vx = {0xf, 0x1e, 0x3c};\n  std::cout &lt;&lt; std::format(\&#34;5. {::#x}\&#34;, vx) &lt;&lt; std::endl;\n\n  // vector&lt;vector&lt;T&gt;&gt;\u306e\u5834\u5408\u306f\u3001:\u3067\u533a\u5207\u3089\u308c\u305f\u8981\u7d20\u306e\u66f8\u5f0f\u304cRange\u306e\u66f8\u5f0f\u3068\u306a\u308a\u3001\n  // \u3055\u3089\u306b :\u3067\u533a\u5207\u3063\u3066\u8981\u7d20\u306e\u66f8\u5f0f\u6307\u5b9a\u3092\u3059\u308b\n  std::vector&lt;std::vector&lt;int&gt;&gt; vvx = {{0xf, 0x1e}, {0x3c}};\n  std::cout &lt;&lt; std::format(\&#34;6. {:::#x}\&#34;, vvx) &lt;&lt; std::endl;\n\n  // \u30b3\u30f3\u30c6\u30ca\u306e\u8981\u7d20\u578b\u304c\u6587\u5b57\u30fb\u6587\u5b57\u5217\u578b\u306e\u5834\u5408\u306f\u30c7\u30d5\u30a9\u30eb\u30c8\u3067\u30c7\u30d0\u30c3\u30b0\u51fa\u529b (?) \u304c\u9069\u7528\u3055\u308c\u308b\u304c\u3001\n  // \u8981\u7d20\u3078\u306e\u66f8\u5f0f\u6307\u5b9a\u3068\u3057\u3066 ? \u3092\u6307\u5b9a\u3057\u306a\u3051\u308c\u3070\u3001\u30c7\u30d0\u30c3\u30b0\u51fa\u529b\u304c\u89e3\u9664\u3055\u308c\u308b\n  std::vector&lt;std::string&gt; vt = {\&#34;h\\tello\&#34;, \&#34;w\\norld\&#34;, \&#34;C++\&#34;};\n  std::cout &lt;&lt; std::format(\&#34;7. {:}\&#34;, vt) &lt;&lt; std::endl;\n  std::cout &lt;&lt; std::format(\&#34;8. {::}\&#34;, vt) &lt;&lt; std::endl;\n\n  // \u6587\u5b57\u3092\u8981\u7d20\u3068\u3059\u308b\u30b3\u30f3\u30c6\u30ca\u306f\u6587\u5b57\u5217\u3068\u3057\u3066\u51fa\u529b\u3055\u305b\u308b\u3053\u3068\u3082\u3067\u304d\u308b\n  std::vector&lt;char&gt; vc = {&#39;h&#39;, &#39;\\n&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39;};\n  std::cout &lt;&lt; std::format(\&#34;9. {:s}\&#34;, vc) &lt;&lt; std::endl;\n  std::cout &lt;&lt; std::format(\&#34;10. {:?s}\&#34;, vc) &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;46b9727a4e0d481948665e7b2250058560443b04&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;format&gt;\n#include &lt;utility&gt;\n#include &lt;tuple&gt;\n\nint main()\n{\n  std::cout &lt;&lt; std::format(\&#34;{}\&#34;, std::tuple{3, 1.23, \&#34;hello\&#34;}) &lt;&lt; std::endl;\n  std::cout &lt;&lt; std::format(\&#34;{}\&#34;, std::pair{3, \&#34;hello\&#34;}) &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;082f11663253169ef7101b6b9221c8405949b20d&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;format&gt;\n#include &lt;queue&gt;\n#include &lt;stack&gt;\n#include &lt;flat_map&gt;\n#include &lt;flat_set&gt;\n\nint main()\n{\n  std::queue&lt;int&gt; que;\n  que.push(1);\n  que.push(2);\n  que.push(3);\n\n  std::priority_queue&lt;int&gt; pque;\n  pque.push(1);\n  pque.push(2);\n  pque.push(3);\n\n  std::stack&lt;int&gt; st;\n  st.push(1);\n  st.push(2);\n  st.push(3);\n\n  std::flat_map&lt;int, std::string&gt; m {{1, \&#34;aaa\&#34;}, {2, \&#34;bbb\&#34;}};\n  std::flat_set&lt;int&gt; s = {1, 2, 3};\n\n  // queue/priority_queue/stack\u306f\u3001\u5185\u90e8\u3067\u4f7f\u7528\u3057\u3066\u3044\u308b\u30b3\u30f3\u30c6\u30ca\u3068\u540c\u3058\u6271\u3044\n  std::cout &lt;&lt; std::format(\&#34;queue: {}\&#34;, que) &lt;&lt; std::endl;\n  std::cout &lt;&lt; std::format(\&#34;priority_queue: {}\&#34;, pque) &lt;&lt; std::endl;\n  std::cout &lt;&lt; std::format(\&#34;stack: {}\&#34;, st) &lt;&lt; std::endl;\n\n  // flat_map/flat_set\u306fmap/set\u3068\u540c\u3058\u6271\u3044\n  std::cout &lt;&lt; std::format(\&#34;flat_map: {}\&#34;, m) &lt;&lt; std::endl;\n  std::cout &lt;&lt; std::format(\&#34;flat_set: {}\&#34;, s) &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;2dab6e3cda339efd7f666d0f46c2a7480c105ec5&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;format&gt;\n#include &lt;vector&gt;\n\nint main()\n{\n  // vector&lt;bool&gt;\u306f1\u8981\u7d20\u3042\u305f\u308a1bit\u306e\u307f\u9818\u57df\u3092\u4f7f\u7528\u3059\u308b\u3088\u3046\u7279\u6b8a\u5316\u3055\u308c\u3066\u3044\u308b\u3002\n  // \u3057\u304b\u3057\u3001\u51fa\u529b\u3068\u3057\u3066\u306f\u901a\u5e38\u306ebool\u914d\u5217\u3068\u540c\u69d8\u306b\u306a\u308b\u3088\u3046formatter\u304c\u7279\u6b8a\u5316\u3055\u308c\u3066\u3044\u308b\n  std::vector&lt;bool&gt; v = {true, false, true};\n\n  std::cout &lt;&lt; std::format(\&#34;{}\&#34;, v) &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;28c6598c8487cbe6d8e0777337c432074bb7c118&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;format&gt;\n\nint main()\n{\n  std::string fmt = \&#34;{}\&#34;;\n  std::string s = std::format(std::runtime_format(fmt), \&#34;Hello\&#34;);\n\n  std::cout &lt;&lt; s &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;format&#34;, &#34;format&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/format.html" itemprop="url">
+              
+                <span itemprop="name">format</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">format</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2026-01-20T03:05:18">
+        2026年01月20日 03時05分18秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/format/format.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/format/format.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function template</div><div class="header">&lt;format&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">format</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+  <span class="n"><a href="../string/basic_string.html">string</a></span>
+    <span class="n">format</span><span class="p">(</span><span class="n"><a href="basic_format_string.html">format_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">fmt</span><span class="p">,</span>
+           <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>             <span class="c1">// (1) C++20</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="n"><a href="../string/basic_string.html">string</a></span>
+    <span class="n">format</span><span class="p">(</span><span class="n"><a href="basic_format_string.html">format_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">fmt</span><span class="p">,</span>
+           <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>             <span class="c1">// (1) C++26</span>
+
+  <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+  <span class="n"><a href="../string/basic_string.html">wstring</a></span>
+    <span class="n">format</span><span class="p">(</span><span class="n"><a href="basic_format_string.html">wformat_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">fmt</span><span class="p">,</span>
+           <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>             <span class="c1">// (2) C++20</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="n"><a href="../string/basic_string.html">wstring</a></span>
+    <span class="n">format</span><span class="p">(</span><span class="n"><a href="basic_format_string.html">wformat_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">fmt</span><span class="p">,</span>
+           <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>             <span class="c1">// (2) C++26</span>
+
+  <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+  <span class="n"><a href="../string/basic_string.html">string</a></span>
+    <span class="n">format</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../locale/locale.html">locale</a></span><span class="o">&amp;</span> <span class="n">loc</span><span class="p">,</span>
+           <span class="n"><a href="basic_format_string.html">format_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">fmt</span><span class="p">,</span>
+           <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>             <span class="c1">// (3) C++20</span>
+
+  <span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+  <span class="n"><a href="../string/basic_string.html">wstring</a></span>
+    <span class="n">format</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../locale/locale.html">locale</a></span><span class="o">&amp;</span> <span class="n">loc</span><span class="p">,</span>
+           <span class="n"><a href="basic_format_string.html">wformat_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">fmt</span><span class="p">,</span>
+           <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>             <span class="c1">// (4) C++20</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>書式文字列<code>fmt</code>に従ったフォーマットで<code>args...</code>の文字列表現を文字列オブジェクトで返す。ロケール<code>loc</code>が指定された場合は、ロケール依存のフォーマットにおいて使用される。</p>
+<ul>
+<li>(1): マルチバイト文字列版</li>
+<li>(2): ワイド文字列版</li>
+<li>(3): マルチバイト文字列版 (ロケール指定あり)</li>
+<li>(4): ワイド文字列版 (ロケール指定あり)</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../string/basic_string.html">string</a></span> <span class="n">message</span> <span class="o">=</span> <span class="n">format</span><span class="p">(</span><span class="s">"The answer is {}."</span><span class="p">,</span> <span class="mi">42</span><span class="p">);</span> <span class="c1">// =&gt; "The answer is 42."</span>
+</code></pre></div>
+</p>
+<p>書式文字列は定数式でなければならず、その妥当性がコンパイル時にチェックされる。実行時に決まるフォーマット文字列を使用したい場合、<code><a href="vformat.html">vformat</a></code>を使用できる。</p>
+<p>C++23以降、書式指定で出力する<code><a href="../print/print.html">std::print()</a></code>、<code><a href="../print/println.html">std::println()</a></code>関数が定義される。</p>
+<h3>書式文字列</h3>
+<p>書式文字列中では、<code>{</code>と<code>}</code>で囲まれた範囲が置換フィールドとなる(エスケープシーケンスは<code>{{</code>と<code>}}</code>)。</p>
+<p>置換フィールドの書式は次の通り(<code>[]</code>は省略可の意味)。</p>
+<p><pre><code>{ [引数ID] [: オプション] }
+</code></pre></p>
+<ul>
+<li>引数IDは0から始まる番号で、何番目の引数で置換するかを指定する。</li>
+<li>引数IDを一部のフィールドだけに書くことはできない(すべての置換フィールドに指定するか、すべての置換フィールドで指定しないかのどちらかのみ)。違反した場合はコンパイルエラーとなる。</li>
+<li>オプションの書式は引数の型によって異なる。</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="n">string</span> <span class="n">s0</span> <span class="o">=</span> <span class="n">format</span><span class="p">(</span><span class="s">"{} {}"</span><span class="p">,</span>   <span class="s">"a"</span><span class="p">,</span> <span class="s">"b"</span><span class="p">);</span> <span class="c1">// OK</span>
+<span class="n">string</span> <span class="n">s1</span> <span class="o">=</span> <span class="n">format</span><span class="p">(</span><span class="s">"{1} {0}"</span><span class="p">,</span> <span class="s">"a"</span><span class="p">,</span> <span class="s">"b"</span><span class="p">);</span> <span class="c1">// OK</span>
+<span class="n">string</span> <span class="n">s2</span> <span class="o">=</span> <span class="n">format</span><span class="p">(</span><span class="s">"{0} {}"</span><span class="p">,</span>  <span class="s">"a"</span><span class="p">,</span> <span class="s">"b"</span><span class="p">);</span> <span class="c1">// コンパイルエラー</span>
+<span class="n">string</span> <span class="n">s3</span> <span class="o">=</span> <span class="n">format</span><span class="p">(</span><span class="s">"{} {1}"</span><span class="p">,</span>  <span class="s">"a"</span><span class="p">,</span> <span class="s">"b"</span><span class="p">);</span> <span class="c1">// コンパイルエラー</span>
+</code></pre></div>
+</p>
+<h3><a href="#std-format-options" id="std-format-options">標準のオプション書式</a></h3>
+<p>組み込みの型に対して使える標準のオプション書式は次の通り(<code>[]</code>は省略可の意味)。
+基本的に<code>printf</code>の書式を踏襲しているが、オプションをすべて省略しても(<code>{}</code>だけでも)デフォルトの書式が使われる。</p>
+<p><pre><code>[[fill] align] [sign] ['#'] ['0'] [width] ['.' precision] ['L'] [type]
+</code></pre></p>
+<ul>
+<li><code>fill</code> : アライメントに使う文字 (デフォルト: スペース)</li>
+<li><code>align</code> : アライメント(デフォルトは型による)<ul>
+<li><code>&gt;</code> : 右寄せ</li>
+<li><code>&lt;</code> : 左寄せ</li>
+<li><code>^</code> : 中央寄せ</li>
+</ul>
+</li>
+<li><code>sign</code> : 符号<ul>
+<li><code>+</code> : 正の数でも符号を表示する</li>
+<li><code>-</code> : 負の数の場合のみ符号を表示する(デフォルト)</li>
+<li>スペース : 正の数にはスペースを表示する</li>
+</ul>
+</li>
+<li><code>#</code> : 代替表現(<code>0x</code>など形式がわかる表記)を使う</li>
+<li><code>0</code> : 符号を考慮して0で埋める</li>
+<li><code>width</code> : 幅 (アライメントもしくは0埋めの幅)<ul>
+<li>置換フィールドを使って変数で指定できる</li>
+</ul>
+</li>
+<li><code>precision</code> : 精度(浮動小数点数の場合)、使う文字数(文字列の場合)<ul>
+<li>置換フィールドを使って変数で指定できる</li>
+</ul>
+</li>
+<li><code>L</code> : ロケールを考慮する</li>
+<li><code>type</code> : 値の表現方法(表を参照)</li>
+</ul>
+<p><code>printf</code>との違いとして、デフォルトではロケール非依存(Cロケール固定)である。ロケール依存のフォーマットをするには<code>L</code>オプションを使う。
+ロケール非依存の場合、算術型の出力は<code><a href="../charconv/to_chars.html">to_chars</a></code>と同じになる。</p>
+<h4>文字列型の場合</h4>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th align="left">type</th>
+<th align="left">意味</th>
+<th>効果</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">s</td>
+<td align="left">文字列</td>
+<td>文字列をそのまま出力</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td align="left">?</td>
+<td align="left">デバッグ出力</td>
+<td>文字・文字列を引用符で囲み、エスケープシーケンスをエスケープして出力 (例:<code>"\n"</code>は<code>"\"\n\""</code>となる)</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<p>デフォルトは <code>s</code>。</p>
+<h4>文字型の場合</h4>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th align="left">type</th>
+<th align="left">意味</th>
+<th align="left">効果</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">c</td>
+<td align="left">文字として出力</td>
+<td align="left"><code>static_cast&lt;charT&gt;(value)</code> (収まらないときは<code>format_error</code>)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td align="left">?</td>
+<td align="left">デバッグ出力</td>
+<td align="left">文字・文字列を引用符で囲み、エスケープシーケンスをエスケープして出力 (例:<code>"\n"</code>は<code>"\"\\n\""</code>となる)</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<p>デフォルトは <code>c</code>。</p>
+<p>整数型のオプションも指定できる。その場合は、十分な大きさの符号なし整数型として扱われる。</p>
+<h4><code>bool</code>型の場合</h4>
+<p>デフォルトまたは <code>s</code> を指定すると、 <code>true</code> / <code>false</code> という文字列を出力する。</p>
+<p>整数型のオプションも指定できる。その場合は、<code>unsigned char</code> に <code>static_cast</code> される。</p>
+<h4>整数型の場合</h4>
+<p><a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a><code>[first, last)</code>を<code><a href="../charconv/to_chars.html">to_chars</a></code>の結果を格納するのに十分な範囲、<code>value</code>をフォーマットする値、<code>charT</code>を<code>char</code>または<code>wchar_t</code>とする。</p>
+<ul>
+<li>ロケールを考慮しない場合、数値を文字列化する部分は以下の表の通りに<code><a href="../charconv/to_chars.html">to_chars</a></code>を呼び出した結果と等しくなる。</li>
+</ul>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th align="left">type</th>
+<th align="left">意味</th>
+<th align="left">効果</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">b, B</td>
+<td align="left">2進数</td>
+<td align="left"><code>to_chars(first, last, value, 2)</code> (代替表現の接頭辞 <code>0b</code>)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td align="left">d</td>
+<td align="left">10進数</td>
+<td align="left"><code>to_chars(first, last, value)</code></td>
+<td>C++20</td>
+</tr>
+<tr>
+<td align="left">o</td>
+<td align="left">8進数</td>
+<td align="left"><code>to_chars(first, last, value, 8)</code> (代替表現の接頭辞 <code>0</code>、ただし値が0のときは接頭辞なし)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td align="left">x, X</td>
+<td align="left">16進数</td>
+<td align="left"><code>to_chars(first, last, value, 16)</code> (代替表現の接頭辞 <code>0x</code>)</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td align="left">c</td>
+<td align="left">文字として出力</td>
+<td align="left"><code>static_cast&lt;charT&gt;(value)</code> した値を文字として出力 (収まらないときは<code>format_error</code>)</td>
+<td>C++20</td>
+</tr>
+</tbody>
+</table>
+<p>デフォルトは <code>d</code>。</p>
+<p>2進数・16進数については、大文字のオプションを指定すると代替表現および数値中のアルファベットが大文字になる。</p>
+<h4>浮動小数点数型の場合</h4>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th align="left">type</th>
+<th align="left">意味</th>
+<th align="left">効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">f, F</td>
+<td align="left">指数表記しない</td>
+<td align="left"><code>to_chars(first, last, value, chars_format::fixed, precision)</code> (精度が指定されたとき)<br /><code>to_chars(first, last, value, chars_format::fixed, 6)</code> (それ以外)</td>
+</tr>
+<tr>
+<td align="left">e, E</td>
+<td align="left">指数表記する</td>
+<td align="left"><code>to_chars(first, last, value, chars_format::scientific, precision)</code> (精度が指定されたとき)<br /><code>to_chars(first, last, value, chars_format::scientific, 6)</code> (それ以外)</td>
+</tr>
+<tr>
+<td align="left">a, A</td>
+<td align="left">16進数で指数表記する</td>
+<td align="left"><code>to_chars(first, last, value, chars_format::hex, precision)</code> (精度が指定されたとき)<br /><code>to_chars(first, last, value, chars_format::hex)</code> (それ以外)</td>
+</tr>
+<tr>
+<td align="left">g, G</td>
+<td align="left">値に応じて指数表記を使う</td>
+<td align="left"><code>to_chars(first, last, value, chars_format::general, precision)</code> (精度が指定されたとき)<br /><code>to_chars(first, last, value, chars_format::general, 6)</code> (それ以外)</td>
+</tr>
+</tbody>
+</table>
+<p>デフォルトは <code>g</code>。</p>
+<p>大文字のオプションを指定すると数値中のアルファベットが大文字になる。</p>
+<p>「値に応じて」の詳細や、精度の意味については<code><a href="../charconv/to_chars.html">to_chars</a></code>を参照。</p>
+<p>代替表現を指定すると、小数点以下が何もなくても小数点記号を出力する。<code>g</code>/<code>G</code>の場合は、代替表現を指定しないかぎり末尾の0およびそれによって不要になる小数点を出力しない。</p>
+<h4>ポインタの場合</h4>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th align="left">type</th>
+<th align="left">意味</th>
+<th align="left">効果</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">p</td>
+<td align="left">アドレスを出力する</td>
+<td align="left"><code>0x</code> につづいて、<code>to_chars(first, last, reinterpret_cast&lt;uintptr_t&gt;(value), 16)</code> の結果を出力する</td>
+<td>C++20</td>
+</tr>
+<tr>
+<td align="left">P</td>
+<td align="left">アドレスを出力する</td>
+<td align="left">pと基本的に同じだが、9を超える桁を大文字(A～F)にし、先頭に<code>0X</code>をつける</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<p>デフォルトは <code>p</code>。</p>
+<p>ポインタは<code>void*</code>のみサポートする。それ以外のポインタは、<code>void*</code>にキャストしなければ出力できない。</p>
+<h4>アライメントの詳細</h4>
+<p>指定した幅が必要な幅より小さい場合や、幅を省略している場合はアライメントは無効となる。</p>
+<p>アライメントにおいて、一部の文字は大きな幅を持っているとみなされる。</p>
+<p>UTF-8・UTF-16・UTF-32の文字のシーケンスの場合、その幅はUnicode標準 UAX #29 で定める拡張書記素クラスタの幅の合計となる。</p>
+<p>以下の文字は2文字分の幅を持つ。</p>
+<ul>
+<li>UAX #44 の規定に従って、<code>East_Asian_Width</code> が <code>W</code> (Wide)または <code>F</code> (Fullwidth)であるコードポイント</li>
+<li><code>U+4DC0</code> - <code>U+4DFF</code> (Yijing Hexagram Symbols)</li>
+<li><code>U+1F300</code> - <code>U+1F5FF</code> (Miscellaneous Symbols and Pictographs)</li>
+<li><code>U+1F900</code> - <code>U+1F9FF</code> (Supplemental Symbols and Pictographs)</li>
+</ul>
+<p>それ以外のコードポイントの幅は1である。</p>
+<p>UTF-8・UTF-16・UTF-32以外の文字のシーケンスの幅は<a class="cpprefjp-defined-word" data-desc="未規定の動作。事前の断りなく処理系によって異なる動作をする" href="../../implementation-compliance.html#dfn-unspecified-behavior">未規定</a>。</p>
+<p>アライメントに使用する文字は、常に幅1として扱われる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"{:*&gt;6}"</span><span class="p">,</span> <span class="s">"あ"</span><span class="p">);</span> <span class="c1">// "****あ"</span>
+<span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"{:あ&gt;6}"</span><span class="p">,</span> <span class="sc">'x'</span><span class="p">);</span> <span class="c1">// "あああああx"</span>
+</code></pre></div>
+</p>
+<p>アライメント方向が指定されていると、0埋めは無効となる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// 0埋めは符号を考慮する</span>
+<span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"{:05}"</span><span class="p">,</span> <span class="mi">42</span><span class="p">);</span>    <span class="c1">// "00042"</span>
+<span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"{:+05}"</span><span class="p">,</span> <span class="mi">42</span><span class="p">);</span>   <span class="c1">// "+0042"</span>
+<span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"{: 05}"</span><span class="p">,</span> <span class="mi">42</span><span class="p">);</span>   <span class="c1">// " 0042"</span>
+
+<span class="c1">// アライメントは符号を考慮しない</span>
+<span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"{:0&gt;5}"</span><span class="p">,</span> <span class="mi">42</span><span class="p">);</span>   <span class="c1">// "00042"</span>
+<span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"{:0&gt;+5}"</span><span class="p">,</span> <span class="mi">42</span><span class="p">);</span>  <span class="c1">// "00+42"</span>
+<span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"{:0&gt; 5}"</span><span class="p">,</span> <span class="mi">42</span><span class="p">);</span>  <span class="c1">// "00 42"</span>
+
+<span class="c1">// 0埋めも指定しているが、アライメント方向が指定されているのでアライメントが優先される</span>
+<span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"{:0&gt;05}"</span><span class="p">,</span> <span class="o">-</span><span class="mi">42</span><span class="p">);</span>  <span class="c1">// "00-42"</span>
+</code></pre></div>
+</p>
+<h4><a href="#range-format-options" id="range-format-options">Range・シーケンスコンテナの書式 (C++23)</a></h4>
+<p>Range・シーケンスコンテナのフォーマットでは、要素の間に区切り文字を挿入して、全体を囲み文字で囲んで出力する。各要素は再帰的にフォーマットされる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span> <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">});</span> <span class="c1">// "[1, 2, 3]"</span>
+</code></pre></div>
+</p>
+<p>Range・シーケンスコンテナに対して使用できる標準のオプション書式は次の通り(<code>[]</code>は省略可の意味)。</p>
+<p><pre><code>[[fill] align] [width] [n] [<a href="../ranges/range.html">range</a>-type] [: <a href="../ranges/range.html">range</a>-underlying-spec]
+</code></pre></p>
+<ul>
+<li><code>fill</code> : アライメントに使う文字 (デフォルト: スペース)</li>
+<li><code>align</code> : アライメント(デフォルトは型による)<ul>
+<li><code>&gt;</code> : 右寄せ</li>
+<li><code>&lt;</code> : 左寄せ</li>
+<li><code>^</code> : 中央寄せ</li>
+</ul>
+</li>
+<li><code>width</code> : 幅 (省略時は値に応じて幅が決まり、アライメントは機能しない)<ul>
+<li>置換フィールドを使って変数で指定できる</li>
+</ul>
+</li>
+<li><code>n</code> : 囲み文字をなくす</li>
+<li><code>range-type</code> : Range・コンテナの表現方法(表を参照)</li>
+<li><code>range-underlying-spec</code> : 要素の書式 (この上にある表を参照)</li>
+</ul>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>range-type</th>
+<th>意味</th>
+<th>効果</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>m</td>
+<td><code>std::map</code>出力向けの書式</td>
+<td>全体の囲み文字を<code>[ ]</code>の代わりに<code>{ }</code>とする。要素型にも<code>m</code>書式を適用する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td>s</td>
+<td>文字列として出力</td>
+<td>要素型が文字型であること。エスケープ処理しない文字列として書式化する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td>?s</td>
+<td>デバッグ文字列として出力</td>
+<td>要素型が文字型であること。エスケープした文字列として書式化する</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td>(なし)</td>
+<td>デフォルト</td>
+<td>囲み文字を<code>[ ]</code>、区切り文字を<code>, </code>として書式化する</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>m</code>書式は、要素が<code><a href="../utility/pair.html">std::pair</a></code>とサイズ2の<code><a href="../tuple/tuple.html">std::tuple</a></code>の場合のみ指定できる</li>
+<li><code>?s</code>書式を指定した場合、<code>n</code>オプションと、<code>range-underlying-spec</code>は指定できない</li>
+<li>コンテナが<code><a href="../vector/vector.html">std::vector</a>&lt;bool&gt;</code>である場合、その要素型は<code>bool</code>として処理される</li>
+<li>Range・シーケンスコンテナでは、要素型がデバッグ出力可能である場合、それがデフォルトで有効となる<ul>
+<li>要素型の書式を指定して、デバッグ出力指定をしなければ、デフォルトで有効になっているデバッグ出力を解除できる</li>
+</ul>
+</li>
+<li><a class="cpprefjp-defined-word" data-desc="コンテナをラップしたクラス。一部のコンテナインタフェースをもたない場合がある">コンテナアダプタ</a>である<code><a href="../queue/queue.html">std::queue</a></code>、<code><a href="../queue/priority_queue.html">std::priority_queue</a></code>、<code><a href="../stack/stack.html">std::stack</a></code>も使用できる</li>
+<li><code><a href="../string/basic_string.html">std::basic_string</a></code>と<code><a href="../string_view/basic_string_view.html">std::basic_string_view</a></code>はRangeでもあるが、特殊化の優先順位によって標準のフォーマッターが選択されるため、Rangeとしてフォーマットすることはできない</li>
+<li>デフォルト書式に対応する<code>type</code>がないため、明示的に指定することはできない</li>
+</ul>
+<h4><a href="#assoc-format-options" id="assoc-format-options">連想コンテナの書式 (C++23)</a></h4>
+<p>Range・シーケンスコンテナと同じだが、デフォルトで囲み文字を<code>{ }</code>とする。</p>
+<ul>
+<li>メンバ型<code>key_type</code>を持つ場合、連想コンテナとみなされる</li>
+<li>さらに、メンバ型<code>mapped_type</code>を持ち、要素が<code><a href="../utility/pair.html">std::pair</a></code>またはサイズ2の<code><a href="../tuple/tuple.html">std::tuple</a></code>の場合、<code>map</code>互換のコンテナとみなされる。このとき、要素にも<code>m</code>書式を用いる</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../map/map.html">std::map</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">m</span> <span class="p">{{</span><span class="mi">1</span><span class="p">,</span> <span class="s">"aaa"</span><span class="p">},</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="s">"bbb"</span><span class="p">}};</span>
+<span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span> <span class="n">m</span><span class="p">);</span> <span class="c1">// {1: "aaa", 2: "bbb"}</span>
+</code></pre></div>
+</p>
+<h4><a id="tuple-format-options" name="#tuple-format-options">pair、tupleの書式 (C++23)</a></h4>
+<p><code><a href="../utility/pair.html">std::pair</a></code>と<code><a href="../tuple/tuple.html">std::tuple</a></code>に対して使用できる標準のオプション書式は次の通り(<code>[]</code>は省略可の意味)。</p>
+<p><pre><code>[[fill] align] [width] [<a href="../tuple/tuple.html">tuple</a>-type]
+</code></pre></p>
+<ul>
+<li><code>fill</code> : アライメントに使う文字 (デフォルト: スペース)</li>
+<li><code>align</code> : アライメント(デフォルトは型による)<ul>
+<li><code>&gt;</code> : 右寄せ</li>
+<li><code>&lt;</code> : 左寄せ</li>
+<li><code>^</code> : 中央寄せ</li>
+</ul>
+</li>
+<li><code>width</code> : 幅 (省略時は値に応じて幅が決まり、アライメントは機能しない)<ul>
+<li>置換フィールドを使って変数で指定できる</li>
+</ul>
+</li>
+<li><code>n</code> : 囲み文字をなくす</li>
+<li><code>tuple-type</code> : <code>pair</code>と<code>tuple</code>の表現方法(表を参照)</li>
+</ul>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>type</th>
+<th>意味</th>
+<th>効果</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>m</td>
+<td><code>std::map</code>出力向けの<code>pair</code>書式</td>
+<td><code>pair{1, 2}</code>を<code>1: 2</code>のように囲み文字なし、区切り文字列を<code>": "</code>となる。要素数が2であること</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td>n</td>
+<td>囲み文字をなくす</td>
+<td><code>tuple{3, 1.23, "hello"}</code>は<code>3, 1.23, "hello"</code>となる</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td>(なし)</td>
+<td>デフォルト</td>
+<td><code>tuple{3, 1.23, "hello"}</code>は<code>(3, 1.23, "hello")</code>となる</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>要素型ごとに個別に書式を指定することはできない</li>
+<li>デバッグ出力可能な要素型の場合、デバッグ出力は常に有効</li>
+<li>デフォルト書式に対応する<code>type</code>がないため、明示的に指定することはできない</li>
+</ul>
+<h3>書式例</h3>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">120</span><span class="p">;</span>
+<span class="n">format</span><span class="p">(</span><span class="s">"{:6}"</span><span class="p">,</span> <span class="mi">42</span><span class="p">);</span>      <span class="c1">// "    42"</span>
+<span class="n">format</span><span class="p">(</span><span class="s">"{:6}"</span><span class="p">,</span> <span class="sc">'x'</span><span class="p">);</span>     <span class="c1">// "x     "</span>
+<span class="n">format</span><span class="p">(</span><span class="s">"{:*&lt;6}"</span><span class="p">,</span> <span class="sc">'x'</span><span class="p">);</span>   <span class="c1">// "x*****"</span>
+<span class="n">format</span><span class="p">(</span><span class="s">"{:*&gt;6}"</span><span class="p">,</span> <span class="sc">'x'</span><span class="p">);</span>   <span class="c1">// "*****x"</span>
+<span class="n">format</span><span class="p">(</span><span class="s">"{:*^6}"</span><span class="p">,</span> <span class="sc">'x'</span><span class="p">);</span>   <span class="c1">// "**x***"</span>
+<span class="n">format</span><span class="p">(</span><span class="s">"{:6d}"</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>      <span class="c1">// "   120"</span>
+<span class="n">format</span><span class="p">(</span><span class="s">"{:6}"</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>    <span class="c1">// "true  "</span>
+</code></pre></div>
+</p>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">double</span> <span class="n">inf</span> <span class="o">=</span> <span class="n"><a href="../limits/numeric_limits.html">numeric_limits</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;::</span><span class="n"><a href="../limits/numeric_limits/infinity.html">infinity()</a></span><span class="p">;</span>
+<span class="kt">double</span> <span class="n">nan</span> <span class="o">=</span> <span class="n"><a href="../limits/numeric_limits.html">numeric_limits</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;::</span><span class="n"><a href="../limits/numeric_limits/quiet_nan.html">quiet_NaN()</a></span><span class="p">;</span>
+<span class="n">format</span><span class="p">(</span><span class="s">"{0:},{0:+},{0:-},{0: }"</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>   <span class="c1">// "1,+1,1, 1"</span>
+<span class="n">format</span><span class="p">(</span><span class="s">"{0:},{0:+},{0:-},{0: }"</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>  <span class="c1">// "-1,-1,-1,-1"</span>
+<span class="n">format</span><span class="p">(</span><span class="s">"{0:},{0:+},{0:-},{0: }"</span><span class="p">,</span> <span class="n">inf</span><span class="p">);</span> <span class="c1">// "inf,+inf,inf, inf"</span>
+<span class="n">format</span><span class="p">(</span><span class="s">"{0:},{0:+},{0:-},{0: }"</span><span class="p">,</span> <span class="n">nan</span><span class="p">);</span> <span class="c1">// "nan,+nan,nan, nan"</span>
+</code></pre></div>
+</p>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">120</span><span class="p">;</span>
+<span class="n">format</span><span class="p">(</span><span class="s">"{:+06d}"</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>   <span class="c1">// "+00120"</span>
+<span class="n">format</span><span class="p">(</span><span class="s">"{:#06x}"</span><span class="p">,</span> <span class="mh">0xa</span><span class="p">);</span> <span class="c1">// "0x000a"</span>
+<span class="n">format</span><span class="p">(</span><span class="s">"{:&lt;06}"</span><span class="p">,</span> <span class="o">-</span><span class="mi">42</span><span class="p">);</span>  <span class="c1">// "-42   "</span>
+</code></pre></div>
+</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n">format</span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span> <span class="mi">42</span><span class="p">);</span>                      <span class="c1">// "42"</span>
+<span class="n">format</span><span class="p">(</span><span class="s">"{0:b} {0:d} {0:o} {0:x}"</span><span class="p">,</span> <span class="mi">42</span><span class="p">);</span> <span class="c1">// "101010 42 52 2a"</span>
+<span class="n">format</span><span class="p">(</span><span class="s">"{0:#x} {0:#X}"</span><span class="p">,</span> <span class="mi">42</span><span class="p">);</span>           <span class="c1">// "0x2a 0X2A"</span>
+<span class="n">format</span><span class="p">(</span><span class="s">"{:L}"</span><span class="p">,</span> <span class="mf">1234.5678</span><span class="p">);</span>             <span class="c1">// "1,234.5678" (ロケールによる)</span>
+</code></pre></div>
+</p>
+<h3>コンパイル時の書式文字列チェック</h3>
+<p>書式文字列は、<code><a href="basic_format_string.html">basic_format_string</a></code>クラスによってコンパイル時にチェックされる。</p>
+<p><code><a href="basic_format_string.html">basic_format_string</a></code> のコンストラクタは<a href="../../lang/cpp20/immediate_functions.html">即時関数</a>であり、書式文字列が正しい場合にのみ定数式として評価できるように実装される。即時関数であるため、定数式として評価できない場合はエラーとなる。</p>
+<p>書式文字列チェックをエラーがあった場合に<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げるような実装をすれば、<code>throw</code>は定数式として評価できないため、コンパイルエラーとすることが可能である。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Mandates。満たさなければプログラムが不適格となる要件。この要件は、オーバーロード解決によって選択された関数内での`static_assert`の定数条件式や、関数に対するdelete宣言などで表現できる">適格要件</a></h2>
+<ul>
+<li>書式文字列は定数式であり、<code><a href="../string_view/basic_string_view.html">string_view</a></code>(ワイド文字列版は<code><a href="../string_view/basic_string_view.html">wstring_view</a></code>)に暗黙変換できること。</li>
+<li>書式文字列にエラーがないこと。例えば、<ul>
+<li>閉じていないカッコなどの構文エラーがないこと。</li>
+<li>実際に渡している引数の型が、書式文字列中の置換フィールドに要求される型と合うこと。</li>
+</ul>
+</li>
+</ul>
+<h2>効果</h2>
+<p>以下のコードと等しい。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">return</span> <span class="nf"><a href="vformat.html">vformat</a></span><span class="p">(</span><span class="n">fmt</span><span class="p">.</span><span class="n"><i>str</i></span><span class="p">,</span> <span class="n"><a href="make_format_args.html">make_format_args</a></span><span class="p">(</span><span class="n">args</span><span class="p">...));</span>  <span class="c1">// (1)</span>
+<span class="k">return</span> <span class="nf"><a href="vformat.html">vformat</a></span><span class="p">(</span><span class="n">fmt</span><span class="p">.</span><span class="n"><i>str</i></span><span class="p">,</span> <span class="n"><a href="make_format_args.html">make_wformat_args</a></span><span class="p">(</span><span class="n">args</span><span class="p">...));</span> <span class="c1">// (2)</span>
+<span class="k">return</span> <span class="nf"><a href="vformat.html">vformat</a></span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">fmt</span><span class="p">.</span><span class="n"><i>str</i></span><span class="p">,</span> <span class="n"><a href="make_format_args.html">make_format_args</a></span><span class="p">(</span><span class="n">args</span><span class="p">...));</span> <span class="c1">// (3)</span>
+<span class="k">return</span> <span class="nf"><a href="vformat.html">vformat</a></span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">fmt</span><span class="p">.</span><span class="n"><i>str</i></span><span class="p">,</span> <span class="n"><a href="make_format_args.html">make_wformat_args</a></span><span class="p">(</span><span class="n">args</span><span class="p">...));</span> <span class="c1">// (4)</span>
+</code></pre></div>
+</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p><code>args...</code>の文字列表現を保持する文字列</p>
+<h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
+<p>フォーマット実行時に失敗した場合、<code><a href="format_error.html">format_error</a></code>を投げる。ただし、書式文字列に問題がある場合はコンパイルエラーとなる。</p>
+<h2>備考</h2>
+<ul>
+<li>マルチバイト文字列、ワイド文字列の区別は、可変長引数部分で受け取れる文字列の型にも適用される。<ul>
+<li>例えば、フォーマット文字列がマルチバイトの場合、引数にワイド文字列を渡すことは標準ではできない。</li>
+<li><a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>フォーマッターで拡張することは可能。ただし、<a class="cpprefjp-defined-word" data-desc="プログラム定義。ユーザー（プログラマ）によって定義されること（標準ライブラリで定義されるものを除く）">ユーザー定義</a>の名前に依存しない特殊化は<code>std</code>名前空間に追加できない。</li>
+</ul>
+</li>
+<li><code>format</code>の結果は一部<code><a href="../charconv/to_chars.html">to_chars</a></code>によって定義されているが、<code><a href="../charconv/to_chars.html">to_chars</a></code>自体はワイド文字列に対応していない。<ul>
+<li>もし何らかの手段でマルチバイト文字列に変換すれば、<code><a href="../charconv/to_chars.html">to_chars</a></code>に一致する、と解釈できる。</li>
+</ul>
+</li>
+</ul>
+<h2>例</h2>
+<h3>基本的な使い方 (C++20)</h3>
+<p><div class="yata" id="8ad7317b00d931b251deb73b8651972ebfbc5b12"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../format.html">&lt;format&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"The answer is {}."</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>The answer is 42.
+</code></pre></p>
+<h3>文字・文字列を出力する (C++23)</h3>
+<p><div class="yata" id="70614a02a73dc4f7a2a0955521309e1d6fae36bc"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../format.html">&lt;format&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// デフォルトの文字列出力。</span>
+  <span class="c1">// 引用符で囲まれず「hello」が出力される</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"0. {}"</span><span class="p">,</span> <span class="s">"hello"</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// デバッグ出力 (C++23)。</span>
+  <span class="c1">// 引用符で囲まれ「"hello"」が出力される</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"1. {:?}"</span><span class="p">,</span> <span class="s">"hello"</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// エスケープシーケンスを含む文字列をデフォルト出力。</span>
+  <span class="c1">// エスケープシーケンスが処理され、以下のように出力される：</span>
+  <span class="c1">// hello</span>
+  <span class="c1">// world</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"2. {}"</span><span class="p">,</span> <span class="s">"hello</span><span class="se">\n</span><span class="s">world"</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// エスケープシーケンスを含む文字列をデバッグ出力 (C++23)。</span>
+  <span class="c1">// エスケープシーケンスがエスケープされて以下のように出力される：</span>
+  <span class="c1">// "hello\nworld"</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"3. {:?}"</span><span class="p">,</span> <span class="s">"hello</span><span class="se">\n</span><span class="s">world"</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>0. hello
+1. "hello"
+2. hello
+world
+3. "hello\nworld"
+</code></pre></p>
+<h3>コンテナ・Rangeを出力する (C++23)</h3>
+<p><div class="yata" id="1b67245553c23e2c7b2c8076bbbcdf2342d33c3f"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../format.html">&lt;format&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../map.html">&lt;map&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../set.html">&lt;set&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">vi</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">vs</span> <span class="o">=</span> <span class="p">{</span><span class="s">"aaa"</span><span class="p">,</span> <span class="s">"bbb"</span><span class="p">,</span> <span class="s">"ccc"</span><span class="p">};</span>
+  <span class="n"><a href="../map/map.html">std::map</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">m</span> <span class="p">{{</span><span class="mi">1</span><span class="p">,</span> <span class="s">"aaa"</span><span class="p">},</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="s">"bbb"</span><span class="p">}};</span>
+  <span class="n"><a href="../set/set.html">std::set</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+  <span class="k">auto</span> <span class="n">r</span> <span class="o">=</span> <span class="n"><a href="../ranges/iota_view.html">std::ranges::views::iota</a></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"0. {}"</span><span class="p">,</span> <span class="n">vi</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"1. {}"</span><span class="p">,</span> <span class="n">vs</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"2. {}"</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"3. {}"</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"4. {}"</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// Rangeの書式指定のあと、:で区切って要素に対する書式指定ができる (ここでは16進数出力)</span>
+  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">vx</span> <span class="o">=</span> <span class="p">{</span><span class="mh">0xf</span><span class="p">,</span> <span class="mh">0x1e</span><span class="p">,</span> <span class="mh">0x3c</span><span class="p">};</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"5. {::#x}"</span><span class="p">,</span> <span class="n">vx</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// vector&lt;vector&lt;T&gt;&gt;の場合は、:で区切られた要素の書式がRangeの書式となり、</span>
+  <span class="c1">// さらに :で区切って要素の書式指定をする</span>
+  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">vvx</span> <span class="o">=</span> <span class="p">{{</span><span class="mh">0xf</span><span class="p">,</span> <span class="mh">0x1e</span><span class="p">},</span> <span class="p">{</span><span class="mh">0x3c</span><span class="p">}};</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"6. {:::#x}"</span><span class="p">,</span> <span class="n">vvx</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// コンテナの要素型が文字・文字列型の場合はデフォルトでデバッグ出力 (?) が適用されるが、</span>
+  <span class="c1">// 要素への書式指定として ? を指定しなければ、デバッグ出力が解除される</span>
+  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">vt</span> <span class="o">=</span> <span class="p">{</span><span class="s">"h</span><span class="se">\t</span><span class="s">ello"</span><span class="p">,</span> <span class="s">"w</span><span class="se">\n</span><span class="s">orld"</span><span class="p">,</span> <span class="s">"C++"</span><span class="p">};</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"7. {:}"</span><span class="p">,</span> <span class="n">vt</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"8. {::}"</span><span class="p">,</span> <span class="n">vt</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// 文字を要素とするコンテナは文字列として出力させることもできる</span>
+  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="n">vc</span> <span class="o">=</span> <span class="p">{</span><span class="sc">'h'</span><span class="p">,</span> <span class="sc">'\n'</span><span class="p">,</span> <span class="sc">'e'</span><span class="p">,</span> <span class="sc">'l'</span><span class="p">,</span> <span class="sc">'l'</span><span class="p">,</span> <span class="sc">'o'</span><span class="p">};</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"9. {:s}"</span><span class="p">,</span> <span class="n">vc</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"10. {:?s}"</span><span class="p">,</span> <span class="n">vc</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>0. [1, 2, 3]
+1. ["aaa", "bbb", "ccc"]
+2. {1: "aaa", 2: "bbb"}
+3. {1, 2, 3}
+4. [1, 2, 3, 4]
+5. [0xf, 0x1e, 0x3c]
+6. [[0xf, 0x1e], [0x3c]]
+7. ["h\tello", "w\norld", "C++"]
+8. [h    ello, w
+orld, C++]
+9. h
+ello
+10. "h\nello"
+</code></pre></p>
+<h3>pair、tupleを出力する (C++23)</h3>
+<p><div class="yata" id="46b9727a4e0d481948665e7b2250058560443b04"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../format.html">&lt;format&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../tuple.html">&lt;tuple&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span> <span class="n"><a href="../tuple/tuple.html">std::tuple</a></span><span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mf">1.23</span><span class="p">,</span> <span class="s">"hello"</span><span class="p">})</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span> <span class="n"><a href="../utility/pair.html">std::pair</a></span><span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="s">"hello"</span><span class="p">})</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>(3, 1.23, "hello")
+(3, "hello")
+</code></pre></p>
+<h3><a class="cpprefjp-defined-word" data-desc="コンテナをラップしたクラス。一部のコンテナインタフェースをもたない場合がある">コンテナアダプタ</a>を出力する (C++23)</h3>
+<p><div class="yata" id="082f11663253169ef7101b6b9221c8405949b20d"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../format.html">&lt;format&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../queue.html">&lt;queue&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../stack.html">&lt;stack&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../flat_map.html">&lt;flat_map&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../flat_set.html">&lt;flat_set&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../queue/queue.html">std::queue</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">que</span><span class="p">;</span>
+  <span class="n"><a href="../queue/queue/push.html">que.push</a></span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="n"><a href="../queue/queue/push.html">que.push</a></span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+  <span class="n"><a href="../queue/queue/push.html">que.push</a></span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+
+  <span class="n"><a href="../queue/priority_queue.html">std::priority_queue</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">pque</span><span class="p">;</span>
+  <span class="n"><a href="../queue/priority_queue/push.html">pque.push</a></span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="n"><a href="../queue/priority_queue/push.html">pque.push</a></span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+  <span class="n"><a href="../queue/priority_queue/push.html">pque.push</a></span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+
+  <span class="n"><a href="../stack/stack.html">std::stack</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">st</span><span class="p">;</span>
+  <span class="n"><a href="../stack/stack/push.html">st.push</a></span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="n"><a href="../stack/stack/push.html">st.push</a></span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+  <span class="n"><a href="../stack/stack/push.html">st.push</a></span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+
+  <span class="n"><a href="../flat_map/flat_map.html">std::flat_map</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">m</span> <span class="p">{{</span><span class="mi">1</span><span class="p">,</span> <span class="s">"aaa"</span><span class="p">},</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="s">"bbb"</span><span class="p">}};</span>
+  <span class="n"><a href="../flat_set/flat_set.html">std::flat_set</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+
+  <span class="c1">// queue/priority_queue/stackは、内部で使用しているコンテナと同じ扱い</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"queue: {}"</span><span class="p">,</span> <span class="n">que</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"priority_queue: {}"</span><span class="p">,</span> <span class="n">pque</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"stack: {}"</span><span class="p">,</span> <span class="n">st</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// flat_map/flat_setはmap/setと同じ扱い</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"flat_map: {}"</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"flat_set: {}"</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>[1, 2, 3]
+[3, 2, 1]
+[1, 2, 3]
+{1: "aaa", 2: "bbb"}
+{1, 2, 3}
+</code></pre></p>
+<h3><code>vector&lt;bool&gt;</code>を出力する (C++23)</h3>
+<p><div class="yata" id="2dab6e3cda339efd7f666d0f46c2a7480c105ec5"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../format.html">&lt;format&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// vector&lt;bool&gt;は1要素あたり1bitのみ領域を使用するよう特殊化されている。</span>
+  <span class="c1">// しかし、出力としては通常のbool配列と同様になるようformatterが特殊化されている</span>
+  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="nb">true</span><span class="p">,</span> <span class="nb">false</span><span class="p">,</span> <span class="nb">true</span><span class="p">};</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>[true, false, true]
+</code></pre></p>
+<h3>ログ出力の例 (C++23)</h3>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../format.html">&lt;format&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// コンパイルフラグによって無効化できるログ出力関数</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">debug_log</span><span class="p">(</span><span class="n"><a href="basic_format_string.html">std::format_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">,</span> <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+<span class="cp">#if defined(DISABLE_DEBUG_LOG)</span>
+    <span class="k">return</span><span class="p">;</span>
+<span class="cp">#else</span>
+  <span class="k">namespace</span> <span class="n">chrono</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="p">;</span>
+  <span class="k">auto</span> <span class="n"><a href="../chrono/system_clock/now.html">now</a></span> <span class="o">=</span> <span class="n"><a href="../chrono/time_point/floor.html">chrono::floor</a></span><span class="o">&lt;</span><span class="n"><a href="../chrono/duration_aliases.html">chrono::seconds</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../chrono/system_clock.html">chrono::system_clock</a></span><span class="o">::</span><span class="n"><a href="../chrono/system_clock/now.html">now</a></span><span class="p">());</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">"{}: {}"</span><span class="p">,</span>
+    <span class="n"><a href="../chrono/zoned_time.html">chrono::zoned_time</a></span><span class="p">{</span><span class="s">"Asia/Tokyo"</span><span class="p">,</span> <span class="n"><a href="../chrono/system_clock/now.html">now</a></span><span class="p">},</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n"><a href="../utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...)</span>
+  <span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="cp">#endif</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">debug_log</span><span class="p">(</span><span class="s">"Hello {} World"</span><span class="p">,</span> <span class="mi">42</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h4>出力</h4>
+<p><pre><code>2023-02-06 10:46:53: Hello 42 World
+</code></pre></p>
+<h3>実行時文字列を書式文字列として使用する (C++26)</h3>
+<p><div class="yata" id="28c6598c8487cbe6d8e0777337c432074bb7c118"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../format.html">&lt;format&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">fmt</span> <span class="o">=</span> <span class="s">"{}"</span><span class="p">;</span>
+  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">s</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="n"><a href="runtime_format.html">std::runtime_format</a></span><span class="p">(</span><span class="n">fmt</span><span class="p">),</span> <span class="s">"Hello"</span><span class="p">);</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>Hello
+</code></pre></p>
+<h2>実装例</h2>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="n"><a href="../string/basic_string.html">string</a></span> <span class="n">format</span><span class="p">(</span><span class="n"><a href="basic_format_string.html">format_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">fmt</span><span class="p">,</span> <span class="k">const</span> <span class="n">Args</span><span class="o">&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="n"><a href="vformat.html">vformat</a></span><span class="p">(</span><span class="n">fmt</span><span class="p">.</span><span class="n">get</span><span class="p">(),</span> <span class="n"><a href="make_format_args.html">make_format_args</a></span><span class="p">(</span><span class="n">args</span><span class="p">...));</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="n"><a href="../string/basic_string.html">wstring</a></span> <span class="n">format</span><span class="p">(</span><span class="n"><a href="basic_format_string.html">wformat_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">fmt</span><span class="p">,</span> <span class="k">const</span> <span class="n">Args</span><span class="o">&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="n"><a href="vformat.html">vformat</a></span><span class="p">(</span><span class="n">fmt</span><span class="p">.</span><span class="n">get</span><span class="p">(),</span> <span class="n"><a href="make_format_args.html">make_wformat_args</a></span><span class="p">(</span><span class="n">args</span><span class="p">...));</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="n"><a href="../string/basic_string.html">string</a></span> <span class="n">format</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../locale/locale.html">locale</a></span><span class="o">&amp;</span> <span class="n">loc</span><span class="p">,</span> <span class="n"><a href="basic_format_string.html">format_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">fmt</span><span class="p">,</span> <span class="k">const</span> <span class="n">Args</span><span class="o">&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="n"><a href="vformat.html">vformat</a></span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">fmt</span><span class="p">.</span><span class="n">get</span><span class="p">(),</span> <span class="n"><a href="make_format_args.html">make_format_args</a></span><span class="p">(</span><span class="n">args</span><span class="p">...));</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="n"><a href="../string/basic_string.html">wstring</a></span> <span class="n">format</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../locale/locale.html">locale</a></span><span class="o">&amp;</span> <span class="n">loc</span><span class="p">,</span> <span class="n"><a href="basic_format_string.html">wformat_string</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">fmt</span><span class="p">,</span> <span class="k">const</span> <span class="n">Args</span><span class="o">&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="n"><a href="vformat.html">vformat</a></span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">fmt</span><span class="p">.</span><span class="n">get</span><span class="p">(),</span> <span class="n"><a href="make_format_args.html">make_wformat_args</a></span><span class="p">(</span><span class="n">args</span><span class="p">...));</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++20</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 13 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="../print.html">&lt;print&gt;</a></code><ul>
+<li><code><a href="../print/print.html">std::print()</a></code></li>
+<li><code><a href="../print/println.html">std::println()</a></code></li>
+</ul>
+</li>
+<li><code><a href="../ostream.html">&lt;ostream&gt;</a></code><ul>
+<li><code><a href="../ostream/print.html">std::print()</a></code></li>
+<li><code><a href="../ostream/println.html">std::println()</a></code></li>
+</ul>
+</li>
+<li><code><a href="runtime_format.html">std::runtime_format()</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://timsong-cpp.github.io/cppwp/format" target="_blank">Working Draft, Standard for Programming Language C++ [format]</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0645r10.html" target="_blank">P0645R10 Text Formatting</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1652r1.html" target="_blank">P1652R1 Printf corner cases in std::format</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2216r3.html" target="_blank">P2216R3 std::format improvements</a></li>
+<li><a href="https://onihusube.hatenablog.com/entry/2021/07/01/195912" target="_blank">［C++］ std::formatあるいは{fmt}のコンパイル時フォーマット文字列チェックの魔術 - 地面を見下ろす少年の足蹴にされる私</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2286r8.html" target="_blank">P2286R8 Formatting Ranges</a><ul>
+<li>C++23から、Range・コンテナ、<code>pair</code>、<code>tuple</code>のフォーマット出力、および文字・文字列のデバッグ指定 (<code>"?"</code>) が追加された</li>
+</ul>
+</li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2418r2.html" target="_blank">P2418R2 Add support for <code>std::generator</code>-like types to <code>std::format</code></a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2510r3.pdf" target="_blank">P2510R3 Formatting pointers</a><ul>
+<li>C++26から、ポインタ値を大文字で出力する<code>P</code>オプションが追加された</li>
+</ul>
+</li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3391r2.html" target="_blank">P3391R2 <code>constexpr std::format</code></a><ul>
+<li>C++26から非ロケール版が<code>constexpr</code>に対応した</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

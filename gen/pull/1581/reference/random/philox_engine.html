@@ -1,0 +1,739 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>philox_engine - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,random,std,class template,cpp26
+">
+        <meta name="title" content="philox_engine - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="philox_engine - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="philox_engine - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/random/philox_engine.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`philox_engine`クラスは、カウンターベースの乱数アルゴリズム (Counter-based random number generator, CBRNG) のPhilox法による擬似乱数生成エンジンである。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="philox_engine - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/random/philox_engine.html" />
+        <meta name="twitter:description" content="`philox_engine`クラスは、カウンターベースの乱数アルゴリズム (Counter-based random number generator, CBRNG) のPhilox法による擬似乱数生成エンジンである。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=1badf8656537fb83110091804da2a289044600de">
+<link rel="manifest" href="../../manifest.json?cachebust=1badf8656537fb83110091804da2a289044600de">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=1badf8656537fb83110091804da2a289044600de">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [ ['$','$'] ],
+        displayMath: [ ['$$','$$'] ],
+        processEscapes: true
+      },
+      chtml: {
+        displayAlign: 'left',
+        displayIndent: '2.0em',
+      },
+    };
+    </script>
+    <!-- IEはサポートしないので https://polyfill.io/v3/polyfill.min.js?features=es6 は読み込まない -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=1badf8656537fb83110091804da2a289044600de" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=1badf8656537fb83110091804da2a289044600de"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;random&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp26&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;1975b4ef98254f9899211e69a588fc6ed4175465&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;random&gt;\n#include &lt;cstdint&gt;\n\nint main()\n{\n  std::random_device seed_gen;\n  std::uint32_t seed = seed_gen();\n\n  // philox_engine\u306e\u30d1\u30e9\u30e1\u30fc\u30bf\u8a2d\u5b9a\u6e08\u307f\u5225\u540d\u3067\u3042\u308bphilox4x32\u3092\u4f7f\u7528\u3059\u308b\u3002\n  // \u30e9\u30f3\u30c0\u30e0\u306a\u30b7\u30fc\u30c9\u3092\u4f7f\u7528\u3057\u3066\u521d\u671f\u5316\n  std::philox4x32 engine{seed};\n\n  for (int i = 0; i &lt; 10; ++i) {\n    // \u4e71\u6570\u3092\u751f\u6210\n    std::uint32_t result = engine();\n    std::cout &lt;&lt; result &lt;&lt; std::endl;\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;9bafbdcd700daa2280824a9c67f90ebe26ea99d9&#34;, &#34;source&#34;: &#34;#include &lt;print&gt;\n#include &lt;random&gt;\n\nstruct Vector {\n  float x, y, z;\n};\n\nint main()\n{\n  std::uint32_t seed = 12345;\n\n  // 2x2x2\u500b\u306e\u30e9\u30f3\u30c0\u30e0\u306a\u30d9\u30af\u30c8\u30eb\u3092\u751f\u6210\u3059\u308b\n  for (std::uint32_t x = 0; x &lt; 2; ++x) {\n    for (std::uint32_t y = 0; y &lt; 2; ++y) {\n      for (std::uint32_t z = 0; z &lt; 2; ++z) {\n        std::philox4x32 engine{seed};\n        engine.set_counter({x, y, z, 0});\n\n        std::uniform_real_distribution&lt;float&gt; dist{0, 1.0};\n\n        Vector vec {\n          dist(engine),\n          dist(engine),\n          dist(engine)\n        };\n        std::println(\&#34;{},{},{}\&#34;, vec.x, vec.y, vec.z);\n      }\n    }\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;random&#34;, &#34;philox_engine&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/random.html" itemprop="url">
+              
+                <span itemprop="name">random</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">philox_engine</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-10-22T16:15:43">
+        2025年10月22日 16時15分43秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/random/philox_engine.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/random/philox_engine.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;random&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">philox_engine</span><span class="cpp cpp26" title="C++26で追加">(C++26)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">UIntType</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">w</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">n</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">r</span><span class="p">,</span> <span class="n">UIntType</span><span class="p">...</span> <span class="n">consts</span><span class="o">&gt;</span>
+  <span class="k">class</span> <span class="nc">philox_engine</span><span class="p">;</span>
+
+  <span class="k">using</span> <span class="n"><a href="philox4x32.html">philox4x32</a></span> <span class="o">=</span> <span class="err">…</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n"><a href="philox4x64.html">philox4x64</a></span> <span class="o">=</span> <span class="err">…</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>philox_engine</code>クラスは、カウンターベースの乱数アルゴリズム (Counter-based random number generator, CBRNG) のPhilox法による擬似乱数生成エンジンである。</p>
+<p>Philox法は、以下のような特徴を持つ：</p>
+<ol>
+<li>小さい容量の状態をもつ (Philox4x32の状態は32ビットの値 * 10個の要素)</li>
+<li>長い周期をもつ (Philox4x32の周期は2<sup>130</sup>)</li>
+<li>ベクトル化・並列化がしやすい</li>
+</ol>
+<p><code>philox_engine</code>は、 $ m = 2^{w}−1 $ であるとして、区間<code>[0, m]</code>の符号なし整数の乱数を生成する。</p>
+<ul>
+<li>
+<p>オブジェクトの状態としては、以下をもつ：</p>
+<ul>
+<li>n個のwビットの符号なし整数からなるシーケンス $X$</li>
+<li>n/2個の<code>result_type</code>値からなるシーケンス $K$</li>
+<li>n個の<code>result_type</code>値からなるシーケンス $Y$</li>
+<li>スカラー値i</li>
+</ul>
+<p>ここでそれぞれの値は以下の意味をもつ：</p>
+<ul>
+<li>$X$ は $ n \cdot w $ ビットの符号なし整数のカウンター値 $ Z=\sum_{j=0}^{n-1}X_{j} \cdot 2^{wj} $ の解釈である</li>
+<li>$K$ はキー</li>
+<li>$Y$ は生成された値のバッファ</li>
+<li>$i$ は $Y$ バッファのインデックス値</li>
+</ul>
+</li>
+<li>
+<p>乱数生成アルゴリズムは、遷移アルゴリズムを適用したあと、Yのi番目に格納された値を返す</p>
+</li>
+<li>
+<p>状態遷移は、以下のアルゴリズムで実行される：
+  <br />
+<pre><code>i=i+1
+if (i == n){
+    Y = Philox(K, X) // 下記参照
+    Z = (Z+1)
+    i = 0
+}
+</code></pre></p>
+</li>
+<li>
+<p>Philox関数は、長さn/2のシーケンスKと、長さnのシーケンスXを、長さnのシーケンスYにマッピングする。Philox関数はX内の値にrラウンドのSPN構造 (substitution-permutation network) を適用する。生成アルゴリズムのひとつのラウンドは以下のステップを実行する：</p>
+<ul>
+<li>
+<ol>
+<li>前のラウンドの出力シーケンスX'（第1ラウンドの場合はX）を並べ替えて中間状態Vを得る：
+    $$ V_{j} = X'_{f(j)} $$
+    ここでj = 0, …, n-1であり、<code>f(j)</code>は以下のテーブルで定義される (n=2のシーケンスは順列ではない)：</li>
+</ol>
+</li>
+</ul>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th></th>
+<th>j=0</th>
+<th>j=1</th>
+<th>j=2</th>
+<th>j=3</th>
+<th>j=4</th>
+<th>j=5</th>
+<th>j=6</th>
+<th>j=7</th>
+<th>j=8</th>
+<th>j=9</th>
+<th>j=10</th>
+<th>j=11</th>
+<th>j=12</th>
+<th>j=13</th>
+<th>j=14</th>
+<th>j=15</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>n=2</td>
+<td>0</td>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>n=4</td>
+<td>0</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>n=8</td>
+<td>2</td>
+<td>1</td>
+<td>4</td>
+<td>7</td>
+<td>6</td>
+<td>5</td>
+<td>0</td>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>n=16</td>
+<td>0</td>
+<td>9</td>
+<td>2</td>
+<td>13</td>
+<td>16</td>
+<td>11</td>
+<td>4</td>
+<td>15</td>
+<td>10</td>
+<td>7</td>
+<td>12</td>
+<td>13</td>
+<td>14</td>
+<td>5</td>
+<td>8</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<ol>
+<li>
+<p>シーケンス $V$ の要素には以下の計算が適用される：
+    $$ X'_{2 \cdot k} = mullo(V_{2 \cdot k + 1},\ M_{k},\ w) $$
+    $$ X'_{2 \cdot k + 1} = mulhi(V_{2 \cdot k + 1},\ M_{k}, w)\ xor\ key_k^q\ xor\ V_{2 \cdot k} $$</p>
+</li>
+<li>
+<p>ここで以下のように定義する：</p>
+<ul>
+<li><code>mullo(a, b, w)</code>関数は、<code>a</code>と<code>b</code>を掛けた剰余の下半分を返す： $ a \cdot b\ mod \ 2^{w} $</li>
+<li><code>mulhi(a, b, w)</code>関数は、<code>a</code>と<code>b</code>を掛けた上半分を返す： $ \left( \lfloor (a \cdot b) / 2^{w} \rfloor \right) $ 。<code>k</code>は0, …, n/2-1のインデックスシーケンスである</li>
+<li><code>q</code>は0, …, r - 1のラウンドのインデックスである</li>
+<li>$ key_k^q $ はラウンド<code>q</code>の<code>k</code>番目のラウンドキーであり、 $ key_k^q = \left( K_{k}\ +\ q \cdot C_{k} \right)\ mod\ 2^{w} $</li>
+<li>$ K_{k} $ はシードで一度生成されたキーであり、<code><a href="philox_engine/seed.html">seed()</a></code>関数が呼ばれない限り固定である</li>
+<li>$ M_{k} $ は<code>multipliers</code>である</li>
+<li>$ C_{k} $ は<code>round_consts</code>である</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>一回のラウンド関数が<code>r</code>回適用されたあと、Philoxはシーケンス<code>Y=X'</code>を返す</p>
+</li>
+<li>このクラスオブジェクトのテキスト表現は、 $ K_{0}, …, K_{n/2-1}, X_{0}, …, X_{n-1}, i $ の順で対応する<ul>
+<li>備考: ストリーム演算子は、必要に応じて $K$ と $X$ から $Y$ を再構築できる</li>
+</ul>
+</li>
+</ul>
+<h3>テンプレートパラメータ</h3>
+<ul>
+<li><code>UIntType</code> : 生成する符号なし整数の型。</li>
+<li><code>w</code> : ワードサイズ。状態シーケンス内での各ワードのビット数</li>
+<li><code>n</code> : ワード数</li>
+<li><code>r</code> : ラウンド数</li>
+<li><code>consts</code> : 内部で使用する<code>n</code>個の定数値<ul>
+<li>$ M_{k} $ と $ C_{k} $ の値を表し、以下のようにグループ化される： $ \left[ M_{0}, C_{0}, M_{1}, C_{1}, M_{2}, C_{2}, …, M_{n/2-1}, C_{n/2-1} \right] $</li>
+</ul>
+</li>
+</ul>
+<h3><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Mandates。満たさなければプログラムが不適格となる要件。この要件は、オーバーロード解決によって選択された関数内での`static_assert`の定数条件式や、関数に対するdelete宣言などで表現できる">適格要件</a></h3>
+<ul>
+<li><code>sizeof...(consts) == n</code>が<code>true</code>であること</li>
+<li><code>0 &lt; r</code>が<code>true</code>であること</li>
+<li><code>0 &lt; w &amp;&amp; w &lt;= <a href="../limits/numeric_limits.html">numeric_limits</a>&lt;UIntType&gt;::<a href="../limits/numeric_limits/digits.html">digits</a></code>が<code>true</code>であること</li>
+</ul>
+<h3>周期</h3>
+<p>$ n \cdot 2^{w \cdot n} $</p>
+<h3>サイズ</h3>
+<p>$ r \cdot w $ ビット</p>
+<h2>メンバ関数</h2>
+<h3>構築・シード</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="philox_engine/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>~philox_engine() = default;</code></td>
+<td>デストラクタ</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="philox_engine/seed.html">seed</a></code></td>
+<td>シードを設定する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="philox_engine/set_counter.html">set_counter</a></code></td>
+<td>カウンターを設定する</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h3>生成</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="philox_engine/op_call.html">operator()</a></code></td>
+<td>擬似乱数を生成する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="philox_engine/discard.html">discard</a></code></td>
+<td>指定した回数だけ擬似乱数を生成し、内部状態を進める</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>静的メンバ関数</h2>
+<h3>エンジンの特性</h3>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="philox_engine/min.html">min</a></code></td>
+<td>生成し得る値の最小値を取得する</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="philox_engine/max.html">max</a></code></td>
+<td>生成し得る値の最大値を取得する</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>型</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result_type</code></td>
+<td>擬似乱数生成結果の符号なし整数型 <code>UIntType</code>。</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ定数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>定数</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>static constexpr size_t word_size</code></td>
+<td>ワードサイズ。状態シーケンス内での各ワードのビット数。テンプレートパラメータ<code>w</code>。</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>static constexpr size_t word_count</code></td>
+<td>状態のサイズ。状態シーケンスの要素数。生成される値が再発する程度を調整するための値。テンプレートパラメータ<code>n</code>。</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>static constexpr size_t round_count</code></td>
+<td>ラウンド数。大きいほど乱数の質が高くなり、分布が改善する。テンプレートパラメータ<code>r</code>。</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>static constexpr array&lt;result_type, n / 2&gt; multipliers</code></td>
+<td>カウンター値に対する乗数。</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>static constexpr array&lt;result_type, n / 2&gt;</code></td>
+<td>ラウンドごとのキー値</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>static constexpr result_type default_seed</code></td>
+<td>デフォルトのシード値。<code>20111115u</code></td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>非メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="philox_engine/op_equal.html">operator==</a></code></td>
+<td>等値比較</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code>operator!=</code></td>
+<td>非等値比較 (<code>==</code>により使用可能)</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="philox_engine/op_ostream.html">operator&lt;&lt;</a></code></td>
+<td>ストリームへの出力</td>
+<td>C++26</td>
+</tr>
+<tr>
+<td><code><a href="philox_engine/op_istream.html">operator&gt;&gt;</a></code></td>
+<td>ストリームからの入力</td>
+<td>C++26</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<h3>基本的な使い方</h3>
+<p><div class="yata" id="1975b4ef98254f9899211e69a588fc6ed4175465"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../random.html">&lt;random&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../cstdint.html">&lt;cstdint&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="random_device.html">std::random_device</a></span> <span class="n">seed_gen</span><span class="p">;</span>
+  <span class="n"><a href="../cstdint/uint32_t.html">std::uint32_t</a></span> <span class="n">seed</span> <span class="o">=</span> <span class="n">seed_gen</span><span class="p">();</span>
+
+  <span class="c1">// philox_engineのパラメータ設定済み別名であるphilox4x32を使用する。</span>
+  <span class="c1">// ランダムなシードを使用して初期化</span>
+  <span class="n"><a href="philox4x32.html">std::philox4x32</a></span> <span class="n">engine</span><span class="p">{</span><span class="n">seed</span><span class="p">};</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 乱数を生成</span>
+    <span class="n"><a href="../cstdint/uint32_t.html">std::uint32_t</a></span> <span class="n">result</span> <span class="o">=</span> <span class="n"><a href="philox_engine/op_call.html">engine()</a></span><span class="p">;</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力例</h4>
+<p><pre><code>717409690
+3816001420
+2063273750
+279442752
+2836561695
+431684143
+3973522490
+2090827657
+748889484
+859307553
+</code></pre></p>
+<h3>多次元の乱数を生成する例</h3>
+<p><div class="yata" id="9bafbdcd700daa2280824a9c67f90ebe26ea99d9"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../print.html">&lt;print&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../random.html">&lt;random&gt;</a></span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">Vector</span> <span class="p">{</span>
+  <span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../cstdint/uint32_t.html">std::uint32_t</a></span> <span class="n">seed</span> <span class="o">=</span> <span class="mi">12345</span><span class="p">;</span>
+
+  <span class="c1">// 2x2x2個のランダムなベクトルを生成する</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n"><a href="../cstdint/uint32_t.html">std::uint32_t</a></span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">;</span> <span class="o">++</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n"><a href="../cstdint/uint32_t.html">std::uint32_t</a></span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">;</span> <span class="o">++</span><span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">for</span> <span class="p">(</span><span class="n"><a href="../cstdint/uint32_t.html">std::uint32_t</a></span> <span class="n">z</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">z</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">;</span> <span class="o">++</span><span class="n">z</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n"><a href="philox4x32.html">std::philox4x32</a></span> <span class="n">engine</span><span class="p">{</span><span class="n">seed</span><span class="p">};</span>
+        <span class="n"><a href="philox_engine/set_counter.html">engine.set_counter</a></span><span class="p">({</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="mi">0</span><span class="p">});</span>
+
+        <span class="n">std</span><span class="o">::</span><span class="n"><a href="uniform_real_distribution.html">uniform_real_distribution</a></span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span> <span class="n">dist</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">};</span>
+
+        <span class="n">Vector</span> <span class="n">vec</span> <span class="p">{</span>
+          <span class="n"><a href="uniform_real_distribution/op_call.html">dist(engine)</a></span><span class="p">,</span>
+          <span class="n"><a href="uniform_real_distribution/op_call.html">dist(engine)</a></span><span class="p">,</span>
+          <span class="n"><a href="uniform_real_distribution/op_call.html">dist(engine)</a></span>
+        <span class="p">};</span>
+        <span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{},{},{}"</span><span class="p">,</span> <span class="n">vec</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">vec</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">vec</span><span class="p">.</span><span class="n">z</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力例</h4>
+<p><pre><code>0.8202247,0.18554558,0.8234037
+0.4850654,0.9281539,0.43299365
+0.26559144,0.98589313,0.31661463
+0.88831127,0.4234704,0.9224362
+0.0027833676,0.14429614,0.8929877
+0.6186795,0.6290597,0.46478647
+0.17204352,0.54567194,0.1469554
+0.7067667,0.48607737,0.6880201
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++26</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 19 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 14 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+<li><a href="../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://open-std.org/JTC1/SC22/WG21/docs/papers/2019/p1932r0.pdf" target="_blank">P1932R0 Extension of the C++ random number generators</a><ul>
+<li>C++にPhilox乱数生成器が最初に提案された文書</li>
+</ul>
+</li>
+<li><a href="https://www.thesalmons.org/john/random123/papers/random123sc11.pdf" target="_blank">Parallel Random Numbers: As Easy as 1, 2, 3</a><ul>
+<li>2011年に発表されたこの論文でPhilox乱数生成器が考案された</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
