@@ -16,12 +16,25 @@ namespace std::ranges {
   constexpr I
     uninitialized_default_construct_n(I first,
                                       iter_difference_t<I> n); // (1) C++26
+
+  template <execution-policy Ep,
+            random_access_iterator I>
+    requires default_initializable<iter_value_t<I>>
+  I
+    uninitialized_default_construct_n(Ep&& exec,
+                                      I first,
+                                      iter_difference_t<I> n); // (2) C++26
 }
 ```
 * no-throw-forward-iterator[link no-throw-forward-iterator.md]
+* execution-policy[link /reference/execution/execution-policy.md]
+* random_access_iterator[link /reference/iterator/random_access_iterator.md]
 
 ## 概要
 未初期化領域の範囲 (`[first, first + n)`) の各要素をデフォルト構築する。
+
+- (1): イテレータ範囲を指定する
+- (2): (1)の並列アルゴリズム版。実行ポリシーを指定する
 
 
 ## テンプレートパラメータ制約
@@ -46,6 +59,7 @@ return uninitialized_default_construct(counted_iterator(first, n),
 呼び出すコンストラクタなどから例外が送出された場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外が送出された場合は初期化対象領域は未初期化のままとなる。
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <memory>
@@ -92,6 +106,32 @@ int main()
 ```
 
 
+### 並列アルゴリズムの例 (C++26)
+```cpp example
+#include <iostream>
+#include <memory>
+#include <execution>
+
+int main() {
+  std::allocator<int> alloc;
+  int* p = alloc.allocate(3);
+
+  // 並列にn個デフォルト構築
+  std::ranges::uninitialized_default_construct_n(
+    std::execution::par, p, 3);
+
+  alloc.deallocate(p, 3);
+  std::cout << "done" << std::endl;
+}
+```
+* std::ranges::uninitialized_default_construct_n[color ff0000]
+
+#### 出力
+```
+done
+```
+
+
 ## バージョン
 ### 言語
 - C++20
@@ -110,3 +150,4 @@ int main()
 - [P3508R0 Wording for "constexpr for specialized memory algorithms"](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3508r0.html)
 - [P3369R0 `constexpr` for `uninitialized_default_construct`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3369r0.html)
     - 上記2文書で、C++26から`constexpr`がついた
+- [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)

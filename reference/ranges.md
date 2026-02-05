@@ -91,6 +91,7 @@ C++20では関数によるカスタマイゼーションポイントの問題点
 | [`common_range`](ranges/common_range.md)               | イテレータと番兵の型が等しいRange (concept)                 | C++20          |
 | [`viewable_range`](ranges/viewable_range.md)           | ビューに変換できるRange (concept)                           | C++20          |
 | [`constant_range`](ranges/constant_range.md)           | 要素が定数なRange (concept)                           | C++23          |
+| [`sized-random-access-range`](ranges/sized-random-access-range.md) | サイズ付きランダムアクセスRange (説明専用concept) | C++26          |
 
 ## カスタマイゼーションポイント
 

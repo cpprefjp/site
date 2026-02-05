@@ -40,16 +40,58 @@ namespace std::ranges {
                             Comp comp = {},
                             Proj1 proj1 = {},
                             Proj2 proj2 = {}); // (2) C++20
+
+  template <execution-policy Ep,
+            random_access_iterator I1,
+            sized_sentinel_for<I1> S1,
+            random_access_iterator I2,
+            sized_sentinel_for<I2> S2,
+            class Proj1 = identity,
+            class Proj2 = identity,
+            indirect_strict_weak_order<
+              projected<I1, Proj1>,
+              projected<I2, Proj2>
+            > Comp = ranges::less>
+  bool lexicographical_compare(Ep&& exec,
+                               I1 first1,
+                               S1 last1,
+                               I2 first2,
+                               S2 last2,
+                               Comp comp = {},
+                               Proj1 proj1 = {},
+                               Proj2 proj2 = {}); // (3) C++26
+
+  template <execution-policy Ep,
+            sized-random-access-range R1,
+            sized-random-access-range R2,
+            class Proj1 = identity,
+            class Proj2 = identity,
+            indirect_strict_weak_order<
+              projected<iterator_t<R1>, Proj1>,
+              projected<iterator_t<R2>, Proj2>
+            > Comp = ranges::less>
+  bool lexicographical_compare(Ep&& exec,
+                               R1&& r1,
+                               R2&& r2,
+                               Comp comp = {},
+                               Proj1 proj1 = {},
+                               Proj2 proj2 = {}); // (4) C++26
 }
 ```
 * indirect_strict_weak_order[link /reference/iterator/indirect_strict_weak_order.md]
 * ranges::less[link /reference/functional/ranges_less.md]
+* execution-policy[link /reference/execution/execution-policy.md]
+* random_access_iterator[link /reference/iterator/random_access_iterator.md]
+* sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
+* sized-random-access-range[link /reference/ranges/sized-random-access-range.md]
 
 ## 概要
 `[first1, last1)`および`[first2, last2)`の2つの範囲を辞書式順序で比較する。
 
 - (1): イテレータ範囲を指定する
 - (2): Rangeを直接指定する
+- (3): (1)の並列アルゴリズム版。実行ポリシーを指定する
+- (4): (2)の並列アルゴリズム版。実行ポリシーを指定する
 
 ## 効果
 ```cpp
@@ -76,6 +118,7 @@ return first1 == last1 && first2 != last2;
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <string>
@@ -136,6 +179,36 @@ x less than y
 x less than y
 ```
 
+### 並列アルゴリズムの例 (C++26)
+```cpp example
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <execution>
+
+int main()
+{
+  std::vector<int> a = {1, 2, 3, 4, 5};
+  std::vector<int> b = {1, 2, 3, 4, 6};
+
+  // 並列に辞書式比較を行う
+  bool result = std::ranges::lexicographical_compare(
+    std::execution::par,
+    a,
+    b
+  );
+
+  std::cout << std::boolalpha;
+  std::cout << "a < b: " << result << std::endl;
+}
+```
+* std::ranges::lexicographical_compare[color ff0000]
+
+#### 出力
+```
+a < b: true
+```
+
 ## バージョン
 ### 言語
 - C++20
@@ -148,3 +221,4 @@ x less than y
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)

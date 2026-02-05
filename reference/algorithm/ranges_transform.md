@@ -80,6 +80,93 @@ namespace std::ranges {
               F binary_op,
               Proj1 proj1 = {},
               Proj2 proj2 = {}); // (4) C++20
+
+  template <execution-policy Ep,
+            random_access_iterator I,
+            sized_sentinel_for<I> S,
+            random_access_iterator O,
+            sized_sentinel_for<O> OutS,
+            copy_constructible F,
+            class Proj = identity>
+    requires indirectly_writable<
+               O,
+               indirect_result_t<F&, projected<I, Proj>>
+             >
+  unary_transform_result<I, O>
+    transform(Ep&& exec,
+              I first1,
+              S last1,
+              O result,
+              OutS result_last,
+              F op,
+              Proj proj = {}); // (5) C++26
+
+  template <execution-policy Ep,
+            sized-random-access-range R,
+            sized-random-access-range OutR,
+            copy_constructible F,
+            class Proj = identity>
+    requires indirectly_writable<
+               iterator_t<OutR>,
+               indirect_result_t<F&, projected<iterator_t<R>, Proj>>
+             >
+  unary_transform_result<borrowed_iterator_t<R>, borrowed_iterator_t<OutR>>
+    transform(Ep&& exec,
+              R&& r,
+              OutR&& result_r,
+              F op,
+              Proj proj = {}); // (6) C++26
+
+  template <execution-policy Ep,
+            random_access_iterator I1,
+            sized_sentinel_for<I1> S1,
+            random_access_iterator I2,
+            sized_sentinel_for<I2> S2,
+            random_access_iterator O,
+            sized_sentinel_for<O> OutS,
+            copy_constructible F,
+            class Proj1 = identity,
+            class Proj2 = identity>
+    requires indirectly_writable<
+               O,
+               indirect_result_t<F&, projected<I1, Proj1>, projected<I2, Proj2>>
+             >
+  binary_transform_result<I1, I2, O>
+    transform(Ep&& exec,
+              I1 first1,
+              S1 last1,
+              I2 first2,
+              S2 last2,
+              O result,
+              OutS result_last,
+              F binary_op,
+              Proj1 proj1 = {},
+              Proj2 proj2 = {}); // (7) C++26
+
+  template <execution-policy Ep,
+            sized-random-access-range R1,
+            sized-random-access-range R2,
+            sized-random-access-range OutR,
+            copy_constructible F,
+            class Proj1 = identity,
+            class Proj2 = identity>
+    requires indirectly_writable<
+               iterator_t<OutR>,
+               indirect_result_t<F&, projected<iterator_t<R1>, Proj1>,
+               projected<iterator_t<R2>, Proj2>>
+             >
+  binary_transform_result<
+            borrowed_iterator_t<R1>,
+            borrowed_iterator_t<R2>,
+            borrowed_iterator_t<OutR>
+          >
+    transform(Ep&& exec,
+              R1&& r1,
+              R2&& r2,
+              OutR&& result_r,
+              F binary_op,
+              Proj1 proj1 = {},
+              Proj2 proj2 = {}); // (8) C++26
 }
 ```
 * weakly_incrementable[link /reference/iterator/weakly_incrementable.md]
@@ -88,6 +175,10 @@ namespace std::ranges {
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
 * unary_transform_result[link ranges_in_out_result.md]
 * binary_transform_result[link ranges_in_in_out_result.md]
+* execution-policy[link /reference/execution/execution-policy.md]
+* random_access_iterator[link /reference/iterator/random_access_iterator.md]
+* sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
+* sized-random-access-range[link /reference/ranges/sized-random-access-range.md]
 
 
 ## 概要
@@ -95,6 +186,8 @@ namespace std::ranges {
 
 - (1), (2): 1つの範囲の要素に関数を適用し、結果を出力イテレータに出力する
 - (3), (4): 2つの範囲の要素を1つずつ取り出して関数を適用し、結果を出力イテレータに出力する
+- (5), (6): (1), (2)の並列アルゴリズム版。実行ポリシーを指定する
+- (7), (8): (3), (4)の並列アルゴリズム版。実行ポリシーを指定する
 
 - (1), (3): イテレータ範囲を指定する
 - (2), (4): Rangeを直接指定する
@@ -127,7 +220,8 @@ namespace std::ranges {
 - (3), (4) : `result` は `first1` や `first2` と同じであっても構わない。
 
 
-## (1)の例
+## 例
+### (1)の例
 ```cpp example
 #include <algorithm>
 #include <iostream>
@@ -158,7 +252,7 @@ int main() {
 ```
 
 
-## (2)の例
+### (2)の例
 ```cpp example
 #include <algorithm>
 #include <iostream>
@@ -188,6 +282,33 @@ b
 cccc
 ```
 
+### 並列アルゴリズムの例 (C++26)
+```cpp example
+#include <algorithm>
+#include <iostream>
+#include <vector>
+#include <execution>
+
+int main() {
+  std::vector<int> v = {1, 2, 3, 4, 5};
+  std::vector<int> result(v.size());
+
+  // 並列に全ての要素を2乗する
+  std::ranges::transform(std::execution::par, v, result, [](int x) { return x * x; });
+
+  for (int x : result) {
+    std::cout << x << ' ';
+  }
+  std::cout << std::endl;
+}
+```
+* std::ranges::transform[color ff0000]
+
+#### 出力
+```
+1 4 9 16 25
+```
+
 ## バージョン
 ### 言語
 - C++20
@@ -200,6 +321,7 @@ cccc
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)
 
 ## 関連項目
 

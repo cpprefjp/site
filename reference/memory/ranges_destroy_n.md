@@ -9,15 +9,25 @@ namespace std::ranges {
   template <no-throw-input-iterator I>
     requires destructible<iter_value_t<I>>
   constexpr I destroy_n(I first, iter_difference_t<I> n) noexcept; // (1) C++20
+
+  template <execution-policy Ep,
+            random_access_iterator I>
+    requires destructible<iter_value_t<I>>
+  I destroy_n(Ep&& exec, I first, iter_difference_t<I> n) noexcept; // (2) C++26
 }
 ```
 * no-throw-input-iterator[link no-throw-input-iterator.md]
 * destructible[link /reference/concepts/destructible.md]
+* execution-policy[link /reference/execution/execution-policy.md]
+* random_access_iterator[link /reference/iterator/random_access_iterator.md]
 
 ## 概要
 イテレータ範囲`[first, first + n)`の各要素に対してデストラクタを呼び出す。
 
 この関数は、配置`new`で構築したオブジェクトを破棄するために使用する。
+
+- (1): イテレータ範囲を指定する
+- (2): (1)の並列アルゴリズム版。実行ポリシーを指定する
 
 
 ## テンプレートパラメータ制約
@@ -38,6 +48,7 @@ return destroy(counted_iterator(first, n), default_sentinel).base();
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <memory>
@@ -80,6 +91,35 @@ int main()
 0
 ```
 
+### 並列アルゴリズムの例 (C++26)
+```cpp example
+#include <iostream>
+#include <memory>
+#include <string>
+#include <execution>
+
+int main() {
+  std::allocator<std::string> alloc;
+  std::string* p = alloc.allocate(3);
+
+  for (int i = 0; i < 3; ++i) {
+    std::construct_at(p + i, "hello");
+  }
+
+  // 並列にn個破棄
+  std::ranges::destroy_n(std::execution::par, p, 3);
+
+  alloc.deallocate(p, 3);
+  std::cout << "done" << std::endl;
+}
+```
+* std::ranges::destroy_n[color ff0000]
+
+#### 出力
+```
+done
+```
+
 ## バージョン
 ### 言語
 - C++20
@@ -95,3 +135,4 @@ int main()
 
 ## 参照
 - [P0896R4 The One Ranges Proposal](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
+- [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)

@@ -11,6 +11,7 @@
 |------|------|----------------|
 | [`execution`](execution/execution.md)                     | 実行ポリシー用の名前空間 (namespace) | C++17 |
 | [`is_execution_policy`](execution/is_execution_policy.md) | 型が実行ポリシーかを判定する (class template) | C++17 |
+| [`execution-policy`](execution/execution-policy.md)       | 型が実行ポリシーであることを表す (説明専用concept) | C++26 |
 
 
 ## 実行制御ライブラリ(C++26)
@@ -29,3 +30,4 @@
 ## 参照
 - [P0024R2 The Parallelism TS Should be Standardized](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0024r2.html)
 - [P2300R10 `std::execution`](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2300r10.html)
+- [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)

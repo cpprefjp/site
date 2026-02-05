@@ -23,11 +23,36 @@ namespace std::ranges {
     for_each(R&& r,
              Fun f,
              Proj proj = {}); // (2) C++20
+
+  template <execution-policy Ep,
+            random_access_iterator I,
+            sized_sentinel_for<I> S,
+            class Proj = identity,
+            indirectly_unary_invocable<projected<I, Proj>> Fun>
+  I for_each(Ep&& exec,
+             I first,
+             S last,
+             Fun f,
+             Proj proj = {}); // (3) C++26
+
+  template <execution-policy Ep,
+            sized-random-access-range R,
+            class Proj = identity,
+            indirectly_unary_invocable<projected<iterator_t<R>, Proj>> Fun>
+  borrowed_iterator_t<R>
+    for_each(Ep&& exec,
+             R&& r,
+             Fun f,
+             Proj proj = {}); // (4) C++26
 }
 ```
 * indirectly_unary_invocable[link /reference/iterator/indirectly_unary_invocable.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
 * for_each_result[link /reference/algorithm/ranges_in_fun_result.md]
+* execution-policy[link /reference/execution/execution-policy.md]
+* random_access_iterator[link /reference/iterator/random_access_iterator.md]
+* sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
+* sized-random-access-range[link /reference/ranges/sized-random-access-range.md]
 
 
 ## 概要
@@ -35,6 +60,8 @@ namespace std::ranges {
 
 * (1): イテレータ範囲を指定する
 * (2): Rangeを直接指定する
+* (3): (1)の並列アルゴリズム版。実行ポリシーを指定する
+* (4): (2)の並列アルゴリズム版。実行ポリシーを指定する
 
 ## テンプレートパラメータ制約
 - (1):
@@ -54,14 +81,16 @@ namespace std::ranges {
 
 
 ## 戻り値
+- (1), (2):
+    ```cpp
+    for_each_result {
+      .in = last,
+      .fun = std::move(f),
+    }
+    ```
+    * for_each_result[link /reference/algorithm/ranges_in_fun_result.md]
 
-```cpp
-for_each_result {
-  .in = last,
-  .fun = std::move(f),
-}
-```
-* for_each_result[link /reference/algorithm/ranges_in_fun_result.md]
+- (3), (4): `last`
 
 ## 計算量
 正確に `f` を `last - first` 回適用する
@@ -72,7 +101,7 @@ for_each_result {
 
 
 ## 例
-
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <array>
@@ -105,13 +134,41 @@ int main() {
 6
 ```
 
+### 並列アルゴリズムの例 (C++26)
+```cpp example
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <execution>
+
+int main() {
+  std::vector<int> v = {1, 2, 3, 4, 5};
+
+  // 並列に全ての要素を2倍にする
+  std::ranges::for_each(std::execution::par, v, [](int& x) { x *= 2; });
+
+  for (int x : v) {
+    std::cout << x << ' ';
+  }
+  std::cout << std::endl;
+}
+```
+* std::ranges::for_each[color ff0000]
+
+#### 出力
+```
+2 4 6 8 10
+```
+
+## バージョン
+### 言語
+- C++20
 
 ### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 10.1.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 2019 Update 10 [mark verified]
-
 
 ## 実装例
 ```cpp
@@ -142,3 +199,4 @@ inline constexpr for_each_impl for_each;
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)

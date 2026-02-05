@@ -23,14 +23,42 @@ namespace std::ranges {
     find_last_if(R&& r,
                  Pred pred,
                  Proj proj = {}); // (2) C++23
+
+  template <execution-policy Ep,
+            random_access_iterator I,
+            sized_sentinel_for<I> S,
+            class Proj = identity,
+            indirect_unary_predicate<projected<I, Proj>> Pred>
+  ranges::subrange<I>
+    find_last_if(Ep&& exec,
+                 I first,
+                 S last,
+                 Pred pred,
+                 Proj proj = {}); // (3) C++26
+
+  template <execution-policy Ep,
+            sized-random-access-range R,
+            class Proj = identity,
+            indirect_unary_predicate<projected<iterator_t<R>, Proj>> Pred>
+  ranges::borrowed_subrange_t<R>
+    find_last_if(Ep&& exec,
+                 R&& r,
+                 Pred pred,
+                 Proj proj = {}); // (4) C++26
 }
 ```
+* execution-policy[link /reference/execution/execution-policy.md]
+* random_access_iterator[link /reference/iterator/random_access_iterator.md]
+* sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
+* sized-random-access-range[link /reference/ranges/sized-random-access-range.md]
 
 ## 概要
 範囲の中から、指定された条件を満たす最後の要素を検索する。
 
-* (1): イテレータ範囲を指定する
-* (2): Rangeを直接指定する
+- (1): イテレータ範囲を指定する
+- (2): Rangeを直接指定する
+- (3): (1)の並列アルゴリズム版。実行ポリシーを指定する
+- (4): (2)の並列アルゴリズム版。実行ポリシーを指定する
 
 
 ## 戻り値
@@ -42,6 +70,7 @@ namespace std::ranges {
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <algorithm>
 #include <array>
@@ -60,10 +89,38 @@ int main() {
 ```
 * std::ranges::find_last_if[color ff0000]
 
-### 出力
+#### 出力
 ```
 found: 1
   pos: 3
+```
+
+### 並列アルゴリズムの例 (C++26)
+```cpp example
+#include <algorithm>
+#include <execution>
+#include <iostream>
+#include <vector>
+
+int main() {
+  std::vector<int> v = {1, 4, 3, 6, 5};
+
+  // 並列に最後の偶数を検索
+  auto result = std::ranges::find_last_if(std::execution::par, v,
+                                          [](int x) { return x % 2 == 0; });
+
+  if (!result.empty()) {
+    std::cout << "found: " << *result.begin() << std::endl;
+    std::cout << "position: " << (result.begin() - v.begin()) << std::endl;
+  }
+}
+```
+* std::ranges::find_last_if[color ff0000]
+
+#### 出力
+```
+found: 6
+position: 3
 ```
 
 ## バージョン
@@ -78,3 +135,4 @@ found: 1
 
 ## 参照
 - [P1223R5 find_last](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1223r5.pdf)
+- [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)

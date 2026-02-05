@@ -23,14 +23,40 @@ namespace std::ranges {
     is_partitioned(R&& r,
                    Pred pred,
                    Proj proj = {}); // (2) C++20
+
+  template <execution-policy Ep,
+            random_access_iterator I,
+            sized_sentinel_for<I> S,
+            class Proj = identity,
+            indirect_unary_predicate<projected<I, Proj>> Pred>
+  bool is_partitioned(Ep&& exec,
+                      I first,
+                      S last,
+                      Pred pred,
+                      Proj proj = {}); // (3) C++26
+
+  template <execution-policy Ep,
+            sized-random-access-range R,
+            class Proj = identity,
+            indirect_unary_predicate<projected<iterator_t<R>, Proj>> Pred>
+  bool is_partitioned(Ep&& exec,
+                      R&& r,
+                      Pred pred,
+                      Proj proj = {}); // (4) C++26
 }
 ```
+* execution-policy[link /reference/execution/execution-policy.md]
+* random_access_iterator[link /reference/iterator/random_access_iterator.md]
+* sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
+* sized-random-access-range[link /reference/ranges/sized-random-access-range.md]
 
 ## 概要
 与えられた範囲が条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)されているか判定する。
 
 - (1): イテレータ範囲を指定する
 - (2): Rangeを直接指定する
+- (3): (1)の並列アルゴリズム版。実行ポリシーを指定する
+- (4): (2)の並列アルゴリズム版。実行ポリシーを指定する
 
 
 ## 戻り値
@@ -44,6 +70,7 @@ namespace std::ranges {
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <vector>
@@ -84,6 +111,33 @@ int main()
 partitioned
 ```
 
+### 並列アルゴリズムの例 (C++26)
+```cpp example
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <execution>
+
+int main()
+{
+  std::vector<int> v = {2, 4, 6, 1, 3, 5};
+
+  auto pred = [](int x) { return x % 2 == 0; };
+
+  // 並列に偶数グループと奇数グループに分かれているか判定する
+  std::cout << std::boolalpha;
+  std::cout << "is partitioned? "
+            << std::ranges::is_partitioned(std::execution::par, v, pred)
+            << std::endl;
+}
+```
+* std::ranges::is_partitioned[color ff0000]
+
+#### 出力
+```
+is partitioned? true
+```
+
 ## バージョン
 ### 言語
 - C++20
@@ -96,3 +150,4 @@ partitioned
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)

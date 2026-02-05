@@ -18,15 +18,39 @@ namespace std::ranges {
   constexpr borrowed_subrange_t<R>
     shift_left(R&& r,
                range_difference_t<R> n); // (2) C++23
+
+  template <execution-policy Ep,
+            random_access_iterator I,
+            sized_sentinel_for<I> S>
+    requires permutable<I>
+  subrange<I>
+    shift_left(Ep&& exec,
+               I first,
+               S last,
+               iter_difference_t<I> n);  // (3) C++26
+
+  template <execution-policy Ep,
+            sized-random-access-range R>
+    requires permutable<iterator_t<R>>
+  borrowed_subrange_t<R>
+    shift_left(Ep&& exec,
+               R&& r,
+               range_difference_t<R> n); // (4) C++26
 }
 ```
 * permutable[link /reference/iterator/permutable.md]
+* execution-policy[link /reference/execution/execution-policy.md]
+* random_access_iterator[link /reference/iterator/random_access_iterator.md]
+* sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
+* sized-random-access-range[link /reference/ranges/sized-random-access-range.md]
 
 ## 概要
 範囲の要素をn個だけ左にシフトさせる。
 
 - (1): イテレータ範囲を指定する
 - (2): Rangeを直接指定する
+- (3): (1)の並列アルゴリズム版。実行ポリシーを指定する
+- (4): (2)の並列アルゴリズム版。実行ポリシーを指定する
 
 この関数に符号付き整数型のシフト数として、0および負数を指定した場合はなにもしない。
 
@@ -62,6 +86,7 @@ namespace std::ranges {
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <vector>
@@ -86,6 +111,32 @@ int main()
 3,4,5,4,5,
 ```
 
+### 並列アルゴリズムの例 (C++26)
+```cpp example
+#include <algorithm>
+#include <execution>
+#include <iostream>
+#include <vector>
+
+int main() {
+  std::vector<int> v = {1, 2, 3, 4, 5};
+
+  // 並列に2つ左シフト
+  auto result = std::ranges::shift_left(std::execution::par, v, 2);
+
+  for (int x : result) {
+    std::cout << x << ' ';
+  }
+  std::cout << std::endl;
+}
+```
+* std::ranges::shift_left[color ff0000]
+
+#### 出力
+```
+3 4 5
+```
+
 ## バージョン
 ### 言語
 - C++23
@@ -98,3 +149,4 @@ int main()
 
 ## 参照
 - [N4901 25 Algorithms library](https://timsong-cpp.github.io/cppwp/algorithms)
+- [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)

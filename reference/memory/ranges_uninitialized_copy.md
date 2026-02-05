@@ -42,6 +42,29 @@ namespace std::ranges {
   >
     uninitialized_copy(IR&& in_range,
                        OR&& out_range); // (2) C++26
+
+  template <execution-policy Ep,
+            random_access_iterator I, sized_sentinel_for<I> S1,
+            random_access_iterator O, sized_sentinel_for<O> S2>
+  requires constructible_from<iter_value_t<O>, iter_reference_t<I>>
+  uninitialized_copy_result<I, O>
+    uninitialized_copy(Ep&& exec,
+                       I ifirst,
+                       S1 ilast,
+                       O ofirst,
+                       S2 olast);       // (3) C++26
+
+  template <execution-policy Ep,
+            sized-random-access-range IR,
+            sized-random-access-range OR>
+  requires constructible_from<range_value_t<OR>, range_reference_t<IR>>
+  uninitialized_copy_result<
+    borrowed_iterator_t<IR>,
+    borrowed_iterator_t<OR>
+  >
+    uninitialized_copy(Ep&& exec,
+                       IR&& in_range,
+                       OR&& out_range); // (4) C++26
 }
 ```
 * in_out_result[link /reference/algorithm/ranges_in_out_result.md]
@@ -51,12 +74,18 @@ namespace std::ranges {
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
 * no-throw-forward-range[link no-throw-forward-range.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
+* execution-policy[link /reference/execution/execution-policy.md]
+* random_access_iterator[link /reference/iterator/random_access_iterator.md]
+* sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
+* sized-random-access-range[link /reference/ranges/sized-random-access-range.md]
 
 ## 概要
-未初期化領域のイテレータ範囲（`out_range`、`[ofirst, olast)`）を配置`new`で入力イテレータ範囲（`in_range`、`[ifirst, ilast)`）の対応する要素から初期化してムーブ出力する。
+未初期化領域のイテレータ範囲（`out_range`、`[ofirst, olast)`）を配置`new`で入力イテレータ範囲（`in_range`、`[ifirst, ilast)`）の対応する要素から初期化してコピー出力する。
 
 - (1): イテレータ範囲を指定する
 - (2): Rangeを直接指定する
+- (3): (1)の並列アルゴリズム版。実行ポリシーを指定する
+- (4): (2)の並列アルゴリズム版。実行ポリシーを指定する
 
 
 ## テンプレートパラメータ制約
@@ -105,6 +134,7 @@ return {std::move(ifirst), ofirst};
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <memory>
@@ -152,6 +182,39 @@ int main()
 ```
 
 
+### 並列アルゴリズムの例 (C++26)
+```cpp example
+#include <iostream>
+#include <memory>
+#include <vector>
+#include <execution>
+
+int main() {
+  std::vector<int> src = {1, 2, 3};
+  std::allocator<int> alloc;
+  int* dst = alloc.allocate(3);
+
+  // 並列に未初期化領域へコピー
+  std::ranges::uninitialized_copy(
+    std::execution::par, src, dst, dst + 3);
+
+  for (int i = 0; i < 3; ++i) {
+    std::cout << dst[i] << ' ';
+  }
+  std::cout << std::endl;
+
+  std::ranges::destroy(dst, dst + 3);
+  alloc.deallocate(dst, 3);
+}
+```
+* std::ranges::uninitialized_copy[color ff0000]
+
+#### 出力
+```
+1 2 3
+```
+
+
 ## バージョン
 ### 言語
 - C++20
@@ -169,3 +232,4 @@ int main()
 - [P0896R4 The One Ranges Proposal](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
 - [P3508R0 Wording for "constexpr for specialized memory algorithms"](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3508r0.html)
     - C++26から`constexpr`がついた
+- [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)

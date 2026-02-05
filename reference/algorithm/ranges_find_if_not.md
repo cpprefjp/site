@@ -23,15 +23,42 @@ namespace std::ranges {
     find_if_not(R&& r,
                 Pred pred,
                 Proj proj = {}); // (2) C++20
+
+  template <execution-policy Ep,
+            random_access_iterator I,
+            sized_sentinel_for<I> S,
+            class Proj = identity,
+            indirect_unary_predicate<projected<I, Proj>> Pred>
+  I find_if_not(Ep&& exec,
+                I first,
+                S last,
+                Pred pred,
+                Proj proj = {}); // (3) C++26
+
+  template <execution-policy Ep,
+            sized-random-access-range R,
+            class Proj = identity,
+            indirect_unary_predicate<projected<iterator_t<R>, Proj>> Pred>
+  borrowed_iterator_t<R>
+    find_if_not(Ep&& exec,
+                R&& r,
+                Pred pred,
+                Proj proj = {}); // (4) C++26
 }
 ```
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
+* execution-policy[link /reference/execution/execution-policy.md]
+* random_access_iterator[link /reference/iterator/random_access_iterator.md]
+* sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
+* sized-random-access-range[link /reference/ranges/sized-random-access-range.md]
 
 ## 概要
 範囲の中から、指定された条件を満たさない最初の要素を検索する。
 
 - (1): イテレータ範囲を指定する
 - (2): Rangeを直接指定する
+- (3): (1)の並列アルゴリズム版。実行ポリシーを指定する
+- (4): (2)の並列アルゴリズム版。実行ポリシーを指定する
 
 
 ## 戻り値
@@ -43,6 +70,7 @@ namespace std::ranges {
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <algorithm>
 #include <iostream>
@@ -61,11 +89,38 @@ int main() {
 ```
 * std::ranges::find_if_not[color ff0000]
 
-### 出力
+#### 出力
 ```
 found: 1
 ```
 
+
+### 並列アルゴリズムの例 (C++26)
+```cpp example
+#include <algorithm>
+#include <execution>
+#include <iostream>
+#include <vector>
+
+int main() {
+  std::vector<int> v = {2, 4, 5, 6, 8};
+
+  // 並列に偶数でない最初の要素を検索する
+  auto result = std::ranges::find_if_not(std::execution::par, v,
+                                         [](int x) { return x % 2 == 0; });
+  if (result == v.end()) {
+    std::cout << "not found" << std::endl;
+  } else {
+    std::cout << "found: " << *result << std::endl;
+  }
+}
+```
+* std::ranges::find_if_not[color ff0000]
+
+#### 出力
+```
+found: 5
+```
 
 ## 実装例
 ```cpp
@@ -103,3 +158,4 @@ inline constexpr find_if_not_impl find_if_not;
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)

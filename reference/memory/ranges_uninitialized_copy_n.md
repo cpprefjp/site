@@ -31,6 +31,20 @@ namespace std::ranges {
       O ofirst,
       S olast
     );                               // (1) C++26
+
+  template <execution-policy Ep,
+            random_access_iterator I,
+            random_access_iterator O,
+            sized_sentinel_for<O> S>
+  requires constructible_from<iter_value_t<O>, iter_reference_t<I>>
+  uninitialized_copy_n_result<I, O>
+    uninitialized_copy_n(
+      Ep&& exec,
+      I ifirst,
+      iter_difference_t<I> n,
+      O ofirst,
+      S olast
+    );                               // (2) C++26
 }
 ```
 * in_out_result[link /reference/algorithm/ranges_in_out_result.md]
@@ -38,11 +52,15 @@ namespace std::ranges {
 * no-throw-sentinel[link no-throw-sentinel.md]
 * constructible_from[link /reference/concepts/constructible_from.md]
 * iter_reference_t[link /reference/iterator/iter_reference_t.md]
+* execution-policy[link /reference/execution/execution-policy.md]
+* random_access_iterator[link /reference/iterator/random_access_iterator.md]
+* sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
 
 ## 概要
 未初期化領域のイテレータ範囲`[ofirst, ofirst + n)`を配置`new`でイテレータ範囲`[ifirst, ifirst + n)`の対応する要素から初期化してコピー出力する。
 
 - (1): イテレータ範囲を指定する
+- (2): (1)の並列アルゴリズム版。実行ポリシーを指定する
 
 
 ## テンプレートパラメータ制約
@@ -77,6 +95,7 @@ return {std::move(t.in).base(), t.out};
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <memory>
@@ -123,6 +142,39 @@ int main()
 ```
 
 
+### 並列アルゴリズムの例 (C++26)
+```cpp example
+#include <iostream>
+#include <memory>
+#include <vector>
+#include <execution>
+
+int main() {
+  std::vector<int> src = {1, 2, 3, 4, 5};
+  std::allocator<int> alloc;
+  int* dst = alloc.allocate(3);
+
+  // 並列に3要素を未初期化領域へコピー
+  std::ranges::uninitialized_copy_n(
+    std::execution::par, src.begin(), 3, dst, dst + 3);
+
+  for (int i = 0; i < 3; ++i) {
+    std::cout << dst[i] << ' ';
+  }
+  std::cout << std::endl;
+
+  std::ranges::destroy(dst, dst + 3);
+  alloc.deallocate(dst, 3);
+}
+```
+* std::ranges::uninitialized_copy_n[color ff0000]
+
+#### 出力
+```
+1 2 3
+```
+
+
 ## バージョン
 ### 言語
 - C++20
@@ -140,3 +192,4 @@ int main()
 - [P0896R4 The One Ranges Proposal](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
 - [P3508R0 Wording for "constexpr for specialized memory algorithms"](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3508r0.html)
     - C++26から`constexpr`がついた
+- [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)
