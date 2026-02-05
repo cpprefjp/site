@@ -71,16 +71,59 @@ namespace std::ranges {
             const T1& old_value,
             const T2& new_value,
             Proj proj = {}); // (2) C++26
+
+  template <execution-policy Ep,
+            random_access_iterator I,
+            sized_sentinel_for<I> S,
+            class T1,
+            class T2,
+            class Proj = identity>
+    requires indirectly_writable<I, const T2&> &&
+             indirect_binary_predicate<
+               ranges::equal_to,
+               projected<I, Proj>,
+               const T1*
+             >
+  I replace(Ep&& exec,
+            I first,
+            S last,
+            const T1& old_value,
+            const T2& new_value,
+            Proj proj = {}); // (3) C++26
+
+  template <execution-policy Ep,
+            sized-random-access-range R,
+            class T1,
+            class T2,
+            class Proj = identity>
+    requires indirectly_writable<iterator_t<R>, const T2&> &&
+             indirect_binary_predicate<
+               ranges::equal_to,
+               projected<iterator_t<R>, Proj>,
+               const T1*
+             >
+  borrowed_iterator_t<R>
+    replace(Ep&& exec,
+            R&& r,
+            const T1& old_value,
+            const T2& new_value,
+            Proj proj = {}); // (4) C++26
 }
 ```
 * indirectly_writable[link /reference/iterator/indirectly_writable.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
+* execution-policy[link /reference/execution/execution-policy.md]
+* random_access_iterator[link /reference/iterator/random_access_iterator.md]
+* sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
+* sized-random-access-range[link /reference/ranges/sized-random-access-range.md]
 
 ## 概要
 指定された値と一致する要素を指定された値に置き換える。
 
 - (1): イテレータ範囲を指定する
 - (2): Rangeを直接指定する
+- (3): (1)の並列アルゴリズム版。実行ポリシーを指定する
+- (4): (2)の並列アルゴリズム版。実行ポリシーを指定する
 
 
 ## 効果
@@ -168,6 +211,32 @@ int main() {
 9,9
 ```
 
+### 並列アルゴリズムの例 (C++26)
+```cpp example
+#include <algorithm>
+#include <iostream>
+#include <vector>
+#include <execution>
+
+int main() {
+  std::vector<int> v = {1, 2, 3, 2, 5, 2, 7};
+
+  // 並列に値2を全て10に置き換える
+  std::ranges::replace(std::execution::par, v, 2, 10);
+
+  for (int x : v) {
+    std::cout << x << ' ';
+  }
+  std::cout << std::endl;
+}
+```
+* std::ranges::replace[color ff0000]
+
+#### 出力
+```
+1 10 3 10 5 10 7
+```
+
 ## バージョン
 ### 言語
 - C++20
@@ -182,3 +251,4 @@ int main() {
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
 - [P2248R8 Enabling list-initialization for algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2248r8.html)
     - C++26で波カッコ初期化 (リスト初期化) に対応した
+- [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)

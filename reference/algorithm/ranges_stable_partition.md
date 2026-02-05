@@ -43,9 +43,37 @@ namespace std::ranges {
     stable_partition(R&& r,
                      Pred pred,
                      Proj proj = {}); // (2) C++26
+
+  template <execution-policy Ep,
+            random_access_iterator I,
+            sized_sentinel_for<I> S,
+            class Proj = identity,
+            indirect_unary_predicate<projected<I, Proj>> Pred>
+    requires permutable<I>
+  subrange<I>
+    stable_partition(Ep&& exec,
+                     I first,
+                     S last,
+                     Pred pred,
+                     Proj proj = {}); // (3) C++26
+
+  template <execution-policy Ep,
+            sized-random-access-range R,
+            class Proj = identity,
+            indirect_unary_predicate<projected<iterator_t<R>, Proj>> Pred>
+    requires permutable<iterator_t<R>>
+  borrowed_subrange_t<R>
+    stable_partition(Ep&& exec,
+                     R&& r,
+                     Pred pred,
+                     Proj proj = {}); // (4) C++26
 }
 ```
 * permutable[link /reference/iterator/permutable.md]
+* execution-policy[link /reference/execution/execution-policy.md]
+* random_access_iterator[link /reference/iterator/random_access_iterator.md]
+* sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
+* sized-random-access-range[link /reference/ranges/sized-random-access-range.md]
 
 
 ## 概要
@@ -53,6 +81,8 @@ namespace std::ranges {
 
 - (1): イテレータ範囲を指定する
 - (2): Rangeを直接指定する
+- (3): (1)の並列アルゴリズム版。実行ポリシーを指定する
+- (4): (2)の並列アルゴリズム版。実行ポリシーを指定する
 
 
 ## 効果
@@ -74,6 +104,7 @@ namespace std::ranges {
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <vector>
@@ -102,6 +133,33 @@ int main()
 5
 ```
 
+### 並列アルゴリズムの例 (C++26)
+```cpp example
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <execution>
+
+int main()
+{
+  std::vector<int> v = {1, 2, 3, 4, 5, 6, 7, 8};
+
+  // 並列に相対順序を保ちながら偶数グループと奇数グループに分ける
+  std::ranges::stable_partition(std::execution::par, v, [](int x) { return x % 2 == 0; });
+
+  for (int x : v) {
+    std::cout << x << ' ';
+  }
+  std::cout << std::endl;
+}
+```
+* std::ranges::stable_partition[color ff0000]
+
+#### 出力
+```
+2 4 6 8 1 3 5 7
+```
+
 ## バージョン
 ### 言語
 - C++20
@@ -116,3 +174,4 @@ int main()
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
 - [P2562R1 `constexpr` Stable Sorting](https://open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2562r1.pdf)
     - C++26から`constexpr`に対応した
+- [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)

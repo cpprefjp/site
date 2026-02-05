@@ -31,6 +31,17 @@ namespace std::ranges {
     minmax(R&& r,
            Comp comp = {},
            Proj proj = {}); // (3) C++20
+
+  template <execution-policy Ep,
+            sized-random-access-range R,
+            class Proj = identity,
+            indirect_strict_weak_order<projected<iterator_t<R>, Proj>> Comp = ranges::less>
+    requires indirectly_copyable_storable<iterator_t<R>, range_value_t<R>*>
+  minmax_result<range_value_t<R>>
+    minmax(Ep&& exec,
+           R&& r,
+           Comp comp = {},
+           Proj proj = {}); // (4) C++26
 }
 ```
 * minmax_result[link ranges_min_max_result.md]
@@ -38,6 +49,8 @@ namespace std::ranges {
 * ranges::less[link /reference/functional/ranges_less.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 * indirectly_copyable_storable[link /reference/iterator/indirectly_copyable_storable.md]
+* execution-policy[link /reference/execution/execution-policy.md]
+* sized-random-access-range[link /reference/ranges/sized-random-access-range.md]
 
 ## 概要
 同じ型の2つの値、もしくは範囲によるN個の値のうち、最小値と最大値の組を取得する。
@@ -45,6 +58,7 @@ namespace std::ranges {
 - (1): 2つの値を指定する
 - (2): 初期化子リストを指定する
 - (3): Rangeを指定する
+- (4): (3)の並列アルゴリズム版。実行ポリシーを指定する
 
 
 ## 戻り値
@@ -63,6 +77,7 @@ minmax_result {
 - 範囲バージョンは高々`(3/2) * t.size()`回の述語適用。
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <array>
 #include <cassert>
@@ -93,6 +108,28 @@ int main()
 ```
 ```
 
+### 並列アルゴリズムの例 (C++26)
+```cpp example
+#include <algorithm>
+#include <execution>
+#include <iostream>
+#include <vector>
+
+int main() {
+  std::vector<int> v = {3, 1, 4, 1, 5, 9, 2, 6};
+
+  // 並列に最小値と最大値を取得
+  auto [min_val, max_val] = std::ranges::minmax(std::execution::par, v);
+  std::cout << min_val << ", " << max_val << std::endl;
+}
+```
+* std::ranges::minmax[color ff0000]
+
+#### 出力
+```
+1, 9
+```
+
 ## バージョン
 ### 言語
 - C++20
@@ -105,3 +142,4 @@ int main()
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)

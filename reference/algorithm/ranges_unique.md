@@ -24,10 +24,38 @@ namespace std::ranges {
     unique(R&& r,
            C comp = {},
            Proj proj = {}); // (2) C++20
+
+  template <execution-policy Ep,
+            random_access_iterator I,
+            sized_sentinel_for<I> S,
+            class Proj = identity,
+            indirect_equivalence_relation<projected<I, Proj>> C = ranges::equal_to>
+    requires permutable<I>
+  subrange<I>
+    unique(Ep&& exec,
+           I first,
+           S last,
+           C comp = {},
+           Proj proj = {}); // (3) C++26
+
+  template <execution-policy Ep,
+            sized-random-access-range R,
+            class Proj = identity,
+            indirect_equivalence_relation<projected<iterator_t<R>, Proj>> C = ranges::equal_to>
+    requires permutable<iterator_t<R>>
+  borrowed_subrange_t<R>
+    unique(Ep&& exec,
+           R&& r,
+           C comp = {},
+           Proj proj = {}); // (4) C++26
 }
 ```
 * permutable[link /reference/iterator/permutable.md]
 * indirect_equivalence_relation[link /reference/iterator/indirect_equivalence_relation.md]
+* execution-policy[link /reference/execution/execution-policy.md]
+* random_access_iterator[link /reference/iterator/random_access_iterator.md]
+* sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
+* sized-random-access-range[link /reference/ranges/sized-random-access-range.md]
 
 
 ## 概要
@@ -35,6 +63,8 @@ namespace std::ranges {
 
 - (1): イテレータ範囲を指定する
 - (2): Rangeを直接指定する
+- (3): (1)の並列アルゴリズム版。実行ポリシーを指定する
+- (4): (2)の並列アルゴリズム版。実行ポリシーを指定する
 
 この関数は、隣り合った重複要素を除いた要素を、範囲の先頭に集める。この関数によってコンテナから直接要素が削除され、コンテナの要素数が減るようなことはない。コンテナから実際に要素を削除する場合は、この関数の戻り値として、先頭に集められた重複なし範囲の末尾の次を指すイテレータが返るため、そのイテレータを介してコンテナの`erase()`メンバ関数などを呼び出し、削除を行うこと。
 
@@ -59,6 +89,7 @@ namespace std::ranges {
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <algorithm>
 #include <iostream>
@@ -118,6 +149,34 @@ unsorted unique : 2,5,3,1,2,4,2,1,4,3
 sorted unique : 1,2,3,4,5
 ```
 
+### 並列アルゴリズムの例 (C++26)
+```cpp example
+#include <algorithm>
+#include <iostream>
+#include <vector>
+#include <execution>
+
+int main() {
+  std::vector<int> v = {1, 1, 2, 3, 3, 3, 4, 4, 5};
+
+  // 並列に隣り合った重複要素を除去する
+  auto result = std::ranges::unique(std::execution::par, v);
+  v.erase(result.begin(), result.end());
+
+  for (int x : v) {
+    std::cout << x << ' ';
+  }
+  std::cout << std::endl;
+}
+```
+* std::ranges::unique[color ff0000]
+* v.erase[link /reference/vector/vector/erase.md]
+
+#### 出力
+```
+1 2 3 4 5
+```
+
 ## バージョン
 ### 言語
 - C++20
@@ -130,3 +189,4 @@ sorted unique : 1,2,3,4,5
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)

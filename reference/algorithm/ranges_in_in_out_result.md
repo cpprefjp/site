@@ -3,7 +3,7 @@
 * std::ranges[meta namespace]
 * class template[meta id-type]
 * cpp20[meta cpp]
-* binary_transform_result,merge_result,set_union_result,set_intersection_result,set_symmetric_difference_result[meta alias]
+* binary_transform_result,merge_result,set_union_result,set_intersection_result,set_symmetric_difference_result,reverse_copy_truncated_result,rotate_copy_truncated_result[meta alias]
 
 ```cpp
 namespace std::ranges {
@@ -50,6 +50,14 @@ namespace std::ranges {
   // (6)
   template<class I1, class I2, class O>
   using set_symmetric_difference_result = in_in_out_result<I1, I2, O>;
+
+  // (7) C++26
+  template<class I, class O>
+  using reverse_copy_truncated_result = in_in_out_result<I, I, O>;
+
+  // (8) C++26
+  template<class I, class O>
+  using rotate_copy_truncated_result = in_in_out_result<I, I, O>;
 }
 ```
 * no_unique_address[link /lang/cpp20/language_support_for_empty_objects.md]
@@ -62,6 +70,8 @@ namespace std::ranges {
 * (4): [`ranges::set_union`](ranges_set_union.md)で使用するエイリアス
 * (5): [`ranges::set_intersection`](ranges_set_intersection.md)で使用するエイリアス
 * (6): [`ranges::set_symmetric_difference`](ranges_set_symmetric_difference.md)で使用するエイリアス
+* (7): [`ranges::reverse_copy`](ranges_reverse_copy.md)の並列アルゴリズム版で使用するエイリアス (C++26)
+* (8): [`ranges::rotate_copy`](ranges_rotate_copy.md)の並列アルゴリズム版で使用するエイリアス (C++26)
 
 この型は、関数が2つの入力用の範囲と出力用の範囲を受け取る場合に、それぞれ処理した範囲の末尾を返すために使用される。
 
@@ -125,3 +135,5 @@ int main() {
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)
+- [P3709R2 Reconsider parallel `ranges::rotate_copy` and `ranges::reverse_copy`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3709r2.html)

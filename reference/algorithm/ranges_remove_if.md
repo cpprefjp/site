@@ -24,9 +24,37 @@ namespace std::ranges {
     remove_if(R&& r,
               Pred pred,
               Proj proj = {}); // (2) C++20
+
+  template <execution-policy Ep,
+            random_access_iterator I,
+            sized_sentinel_for<I> S,
+            class Proj = identity,
+            indirect_unary_predicate<projected<I, Proj>> Pred>
+    requires permutable<I>
+  subrange<I>
+    remove_if(Ep&& exec,
+              I first,
+              S last,
+              Pred pred,
+              Proj proj = {}); // (3) C++26
+
+  template <execution-policy Ep,
+            sized-random-access-range R,
+            class Proj = identity,
+            indirect_unary_predicate<projected<iterator_t<R>, Proj>> Pred>
+    requires permutable<iterator_t<R>>
+  borrowed_subrange_t<R>
+    remove_if(Ep&& exec,
+              R&& r,
+              Pred pred,
+              Proj proj = {}); // (4) C++26
 }
 ```
 * permutable[link /reference/iterator/permutable.md]
+* execution-policy[link /reference/execution/execution-policy.md]
+* random_access_iterator[link /reference/iterator/random_access_iterator.md]
+* sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
+* sized-random-access-range[link /reference/ranges/sized-random-access-range.md]
 
 
 ## 概要
@@ -34,6 +62,8 @@ namespace std::ranges {
 
 - (1): イテレータ範囲を指定する
 - (2): Rangeを直接指定する
+- (3): (1)の並列アルゴリズム版。実行ポリシーを指定する
+- (4): (2)の並列アルゴリズム版。実行ポリシーを指定する
 
 
 ## 効果
@@ -59,6 +89,7 @@ namespace std::ranges {
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <algorithm>
 #include <iostream>
@@ -98,6 +129,35 @@ size before: 5
 size after: 2
 ```
 
+### 並列アルゴリズムの例 (C++26)
+```cpp example
+#include <algorithm>
+#include <iostream>
+#include <vector>
+#include <execution>
+
+int main() {
+  std::vector<int> v = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+  // 並列に奇数を除去する
+  auto result = std::ranges::remove_if(std::execution::par, v,
+                                       [](int x) { return x % 2 != 0; });
+  v.erase(result.begin(), result.end());
+
+  for (int x : v) {
+    std::cout << x << ' ';
+  }
+  std::cout << std::endl;
+}
+```
+* std::ranges::remove_if[color ff0000]
+* v.erase[link /reference/vector/vector/erase.md]
+
+#### 出力
+```
+2 4 6 8 10
+```
+
 ## バージョン
 ### 言語
 - C++20
@@ -110,3 +170,4 @@ size after: 2
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)

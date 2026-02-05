@@ -11,19 +11,34 @@ namespace std::ranges {
   constexpr O
     fill_n(O first,
            iter_difference_t<O> n,
-           const T& value);   // (1) C++20
+           const T& value);             // (1) C++20
   template <class O,
             class T = iter_value_t<O>>
     requires output_iterator<O, const T&>
   constexpr O
     fill_n(O first,
            iter_difference_t<O> n,
-           const T& value);   // (1) C++26
+           const T& value);             // (1) C++26
+
+  template <execution-policy Ep,
+            random_access_iterator O,
+            class T>
+    requires indirectly_writable<O, const T&>
+  O fill_n(Ep&& exec,
+           O first,
+           iter_difference_t<O> n,
+           const T& value);             // (2) C++26
 }
 ```
+* indirectly_writable[link /reference/iterator/indirectly_writable.md]
+* execution-policy[link /reference/execution/execution-policy.md]
+* random_access_iterator[link /reference/iterator/random_access_iterator.md]
 
 ## 概要
 指定された値で出力の範囲に `n` 個を書き込む。
+
+- (1): イテレータ範囲を指定する
+- (2): (1)の並列アルゴリズム版。実行ポリシーを指定する
 
 
 ## 効果
@@ -102,6 +117,32 @@ int main() {
 ```
 
 
+### 並列アルゴリズムの例 (C++26)
+```cpp example
+#include <algorithm>
+#include <execution>
+#include <iostream>
+#include <vector>
+
+int main() {
+  std::vector<int> v(5);
+
+  // 並列に先頭3要素を42で埋める
+  std::ranges::fill_n(std::execution::par, v.begin(), 3, 42);
+
+  for (int x : v) {
+    std::cout << x << ' ';
+  }
+  std::cout << std::endl;
+}
+```
+* std::ranges::fill_n[color ff0000]
+
+#### 出力
+```
+42 42 42 0 0
+```
+
 ## バージョン
 ### 言語
 - C++20
@@ -116,3 +157,4 @@ int main() {
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
 - [P2248R8 Enabling list-initialization for algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2248r8.html)
     - C++26で波カッコ初期化 (リスト初期化) に対応した
+- [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)

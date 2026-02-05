@@ -18,18 +18,46 @@ namespace std::ranges {
     requires indirectly_copyable<iterator_t<R>, O>
   constexpr copy_result<borrowed_iterator_t<R>, O>
     copy(R&& r, O result);           // (2) C++20
+
+  template <execution-policy Ep,
+            random_access_iterator I,
+            sized_sentinel_for<I> S,
+            random_access_iterator O,
+            sized_sentinel_for<O> OutS>
+    requires indirectly_copyable<I, O>
+  copy_result<I, O>
+    copy(Ep&& exec,
+         I first,
+         S last,
+         O result,
+         OutS result_last); // (3) C++26
+
+  template <execution-policy Ep,
+            sized-random-access-range R,
+            sized-random-access-range OutR>
+    requires indirectly_copyable<iterator_t<R>, iterator_t<OutR>>
+  copy_result<borrowed_iterator_t<R>, borrowed_iterator_t<OutR>>
+    copy(Ep&& exec,
+         R&& r,
+         OutR&& result_r); // (4) C++26
 }
 ```
 * copy_result[link ranges_in_out_result.md]
 * weakly_incrementable[link /reference/iterator/weakly_incrementable.md]
 * indirectly_copyable[link /reference/iterator/indirectly_copyable.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
+* execution-policy[link /reference/execution/execution-policy.md]
+* random_access_iterator[link /reference/iterator/random_access_iterator.md]
+* sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
+* sized-random-access-range[link /reference/ranges/sized-random-access-range.md]
 
 ## 概要
 指定された範囲の要素をコピーする。
 
 - (1): イテレータ範囲を指定する
 - (2): Rangeを直接指定する
+- (3): (1)の並列アルゴリズム版。実行ポリシーを指定し、出力範囲の終端も指定する
+- (4): (2)の並列アルゴリズム版。実行ポリシーを指定する
 
 
 ## 事前条件
@@ -57,6 +85,7 @@ copy_result {
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <algorithm>
 #include <iostream>
@@ -83,9 +112,36 @@ int main() {
 ```
 * std::ranges::copy[color ff0000]
 
-### 出力
+#### 出力
 ```
 3,1,2,
+```
+
+### 並列アルゴリズムの例 (C++26)
+```cpp example
+#include <algorithm>
+#include <iostream>
+#include <vector>
+#include <execution>
+
+int main() {
+  std::vector<int> src = {1, 2, 3, 4, 5};
+  std::vector<int> dst(src.size());
+
+  // 並列にコピーする
+  std::ranges::copy(std::execution::par, src, dst);
+
+  for (int x : dst) {
+    std::cout << x << ' ';
+  }
+  std::cout << std::endl;
+}
+```
+* std::ranges::copy[color ff0000]
+
+#### 出力
+```
+1 2 3 4 5
 ```
 
 ## バージョン
@@ -100,3 +156,4 @@ int main() {
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)

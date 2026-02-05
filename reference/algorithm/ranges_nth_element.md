@@ -27,11 +27,39 @@ namespace std::ranges {
                 iterator_t<R> nth,
                 Comp comp = {},
                 Proj proj = {}); // (2) C++20
+
+  template <execution-policy Ep,
+            random_access_iterator I,
+            sized_sentinel_for<I> S,
+            class Comp = ranges::less,
+            class Proj = identity>
+    requires sortable<I, Comp, Proj>
+  I nth_element(Ep&& exec,
+                I first,
+                I nth,
+                S last,
+                Comp comp = {},
+                Proj proj = {}); // (3) C++26
+
+  template <execution-policy Ep,
+            sized-random-access-range R,
+            class Comp = ranges::less,
+            class Proj = identity>
+    requires sortable<iterator_t<R>, Comp, Proj>
+  borrowed_iterator_t<R>
+    nth_element(Ep&& exec,
+                R&& r,
+                iterator_t<R> nth,
+                Comp comp = {},
+                Proj proj = {}); // (4) C++26
 }
 ```
 * ranges::less[link /reference/functional/ranges_less.md]
 * sortable[link /reference/iterator/sortable.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
+* execution-policy[link /reference/execution/execution-policy.md]
+* sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
+* sized-random-access-range[link /reference/ranges/sized-random-access-range.md]
 
 
 ## 概要
@@ -39,6 +67,8 @@ namespace std::ranges {
 
 - (1): イテレータ範囲を指定する
 - (2): Rangeを直接指定する
+- (3): (1)の並列アルゴリズム版。実行ポリシーを指定する
+- (4): (2)の並列アルゴリズム版。実行ポリシーを指定する
 
 この関数は範囲 `[first,last)` の並び替えを行うが、基準位置 `nth` のみが正しい要素、つまり仮に範囲 `[first,last)` 全体を並び替えた際に`nth`に位置すべき要素となる。前半の範囲 `[first,nth)` は関数呼び出し後の位置 `nth` にある要素よりも小さいことは保証されるが、その範囲 `[first,nth)` 内での要素並び順はなんら保証されない。
 
@@ -56,6 +86,7 @@ namespace std::ranges {
 平均で線形時間
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <vector>
@@ -88,6 +119,37 @@ int main()
 10
 ```
 
+### 並列アルゴリズムの例 (C++26)
+```cpp example
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <execution>
+
+int main()
+{
+  std::vector<int> v = {5, 10, 4, 7, 1, 9, 8, 6, 2};
+
+  // 並列に4番目に小さい値より小さい値を前に集める
+  std::ranges::nth_element(std::execution::par, v, v.begin() + 3);
+
+  std::cout << "4th element: " << v[3] << std::endl;
+
+  for (int i : v) {
+    std::cout << i << ' ';
+  }
+  std::cout << std::endl;
+}
+```
+* std::ranges::nth_element[color ff0000]
+* v.begin()[link /reference/vector/vector/begin.md]
+
+#### 出力例
+```
+4th element: 5
+2 1 4 5 7 6 8 9 10
+```
+
 ## バージョン
 ### 言語
 - C++20
@@ -100,3 +162,4 @@ int main()
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)

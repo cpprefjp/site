@@ -18,14 +18,40 @@ namespace std::ranges {
             indirect_unary_predicate<projected<iterator_t<R>, Proj>> Pred>
   constexpr bool
     any_of(R&& r, Pred pred, Proj proj = {});           // (2) C++20
+
+  template <execution-policy Ep,
+            random_access_iterator I,
+            sized_sentinel_for<I> S,
+            class Proj = identity,
+            indirect_unary_predicate<projected<I, Proj>> Pred>
+  bool any_of(Ep&& exec,
+              I first,
+              S last,
+              Pred pred,
+              Proj proj = {}); // (3) C++26
+
+  template <execution-policy Ep,
+            sized-random-access-range R,
+            class Proj = identity,
+            indirect_unary_predicate<projected<iterator_t<R>, Proj>> Pred>
+  bool any_of(Ep&& exec,
+              R&& r,
+              Pred pred,
+              Proj proj = {}); // (4) C++26
 }
 ```
+* execution-policy[link /reference/execution/execution-policy.md]
+* random_access_iterator[link /reference/iterator/random_access_iterator.md]
+* sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
+* sized-random-access-range[link /reference/ranges/sized-random-access-range.md]
 
 ## 概要
 範囲のいずれかの要素が条件を満たすかを判定する。
 
 - (1): イテレータ範囲を指定する
 - (2): Rangeを直接指定する
+- (3): (1)の並列アルゴリズム版。実行ポリシーを指定する
+- (4): (2)の並列アルゴリズム版。実行ポリシーを指定する
 
 ## テンプレートパラメータ制約
 - (1):
@@ -45,6 +71,7 @@ namespace std::ranges {
 最大で `last - first` 回 `pred` を実行する。
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <algorithm>
 #include <iostream>
@@ -66,9 +93,34 @@ int main() {
 ```
 * std::ranges::any_of[color ff0000]
 
-### 出力
+#### 出力
 ```
 false
+true
+```
+
+### 並列アルゴリズムの例 (C++26)
+```cpp example
+#include <algorithm>
+#include <execution>
+#include <iostream>
+#include <vector>
+
+int main() {
+  std::vector<int> v = {1, 3, 5, 7, 8};
+
+  std::cout << std::boolalpha;
+
+  // 並列にいずれかの要素が偶数であるかを判定
+  bool result = std::ranges::any_of(std::execution::par, v,
+                                    [](int x) { return x % 2 == 0; });
+  std::cout << result << std::endl;
+}
+```
+* std::ranges::any_of[color ff0000]
+
+#### 出力
+```
 true
 ```
 
@@ -114,3 +166,4 @@ inline constexpr any_of_impl any_of;
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)

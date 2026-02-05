@@ -24,15 +24,45 @@ namespace std::ranges {
     partition(R&& r,
               Pred pred,
               Proj proj = {}); // (2) C++20
+
+  template <execution-policy Ep,
+            random_access_iterator I,
+            sized_sentinel_for<I> S,
+            class Proj = identity,
+            indirect_unary_predicate<projected<I, Proj>> Pred>
+    requires permutable<I>
+  subrange<I>
+    partition(Ep&& exec,
+              I first,
+              S last,
+              Pred pred,
+              Proj proj = {}); // (3) C++26
+
+  template <execution-policy Ep,
+            sized-random-access-range R,
+            class Proj = identity,
+            indirect_unary_predicate<projected<iterator_t<R>, Proj>> Pred>
+    requires permutable<iterator_t<R>>
+  borrowed_subrange_t<R>
+    partition(Ep&& exec,
+              R&& r,
+              Pred pred,
+              Proj proj = {}); // (4) C++26
 }
 ```
 * permutable[link /reference/iterator/permutable.md]
+* execution-policy[link /reference/execution/execution-policy.md]
+* random_access_iterator[link /reference/iterator/random_access_iterator.md]
+* sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
+* sized-random-access-range[link /reference/ranges/sized-random-access-range.md]
 
 ## 概要
 与えられた範囲を条件によって[区分化](/reference/algorithm.md#sequence-is-partitioned)する。
 
 - (1): イテレータ範囲を指定する
 - (2): Rangeを直接指定する
+- (3): (1)の並列アルゴリズム版。実行ポリシーを指定する
+- (4): (2)の並列アルゴリズム版。実行ポリシーを指定する
 
 
 ## 効果
@@ -54,6 +84,7 @@ namespace std::ranges {
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <vector>
@@ -93,6 +124,41 @@ int main()
 ```
 
 
+### 並列アルゴリズムの例 (C++26)
+```cpp example
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <execution>
+
+int main()
+{
+  std::vector<int> v = {1, 2, 3, 4, 5, 6, 7, 8};
+
+  // 並列に偶数グループと奇数グループに分ける
+  auto boundary = std::ranges::partition(std::execution::par, v, [](int x) { return x % 2 == 0; });
+
+  std::cout << "even: ";
+  for (auto it = v.begin(); it != boundary.begin(); ++it) {
+    std::cout << *it << ' ';
+  }
+  std::cout << std::endl;
+
+  std::cout << "odd: ";
+  for (int x : boundary) {
+    std::cout << x << ' ';
+  }
+  std::cout << std::endl;
+}
+```
+* std::ranges::partition[color ff0000]
+
+#### 出力例
+```
+even: 8 2 6 4
+odd: 5 3 7 1
+```
+
 ## バージョン
 ### 言語
 - C++20
@@ -105,3 +171,4 @@ int main()
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)

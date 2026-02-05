@@ -15,7 +15,8 @@ namespace std::ranges {
             no-throw-sentinel<I> S,
             class T>
     requires constructible_from<iter_value_t<I>, const T&>
-  I uninitialized_fill(I first, S last, const T& x); // (1) C++26
+  constexpr I
+    uninitialized_fill(I first, S last, const T& x); // (1) C++26
 
   template <no-throw-forward-range R,
             class T>
@@ -27,6 +28,22 @@ namespace std::ranges {
     requires constructible_from<range_value_t<R>, const T&>
   constexpr borrowed_iterator_t<R>
     uninitialized_fill(R&& r, const T& x);           // (2) C++26
+
+  template <execution-policy Ep,
+            random_access_iterator I,
+            sized_sentinel_for<I> S,
+            class T>
+    requires constructible_from<iter_value_t<I>, const T&>
+  I uninitialized_fill(Ep&& exec,
+                       I first, S last, const T& x); // (3) C++26
+
+  template <execution-policy Ep,
+            sized-random-access-range R,
+            class T>
+    requires constructible_from<range_value_t<R>, const T&>
+  borrowed_iterator_t<R>
+    uninitialized_fill(Ep&& exec,
+                       R&& r, const T& x);           // (4) C++26
 }
 ```
 * no-throw-forward-iterator[link no-throw-forward-iterator.md]
@@ -34,12 +51,18 @@ namespace std::ranges {
 * constructible_from[link /reference/concepts/constructible_from.md]
 * no-throw-forward-range[link no-throw-forward-range.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
+* execution-policy[link /reference/execution/execution-policy.md]
+* random_access_iterator[link /reference/iterator/random_access_iterator.md]
+* sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
+* sized-random-access-range[link /reference/ranges/sized-random-access-range.md]
 
 ## 概要
 未初期化領域の範囲 (`r`、`[first, last)`) を、指定された値で配置`new`で初期化する。
 
 - (1): イテレータ範囲を指定する
 - (2): Rangeを直接指定する
+- (3): (1)の並列アルゴリズム版。実行ポリシーを指定する
+- (4): (2)の並列アルゴリズム版。実行ポリシーを指定する
 
 
 ## テンプレートパラメータ制約
@@ -78,6 +101,7 @@ return first;
 呼び出すコンストラクタなどから例外が送出された場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外が送出された場合は初期化対象領域は未初期化のままとなる。
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <memory>
@@ -121,6 +145,36 @@ int main()
 ```
 
 
+### 並列アルゴリズムの例 (C++26)
+```cpp example
+#include <iostream>
+#include <memory>
+#include <execution>
+
+int main() {
+  std::allocator<int> alloc;
+  int* p = alloc.allocate(3);
+
+  // 並列に未初期化領域を42で埋める
+  std::ranges::uninitialized_fill(
+    std::execution::par, p, p + 3, 42);
+
+  for (int i = 0; i < 3; ++i) {
+    std::cout << p[i] << ' ';
+  }
+  std::cout << std::endl;
+
+  alloc.deallocate(p, 3);
+}
+```
+* std::ranges::uninitialized_fill[color ff0000]
+
+#### 出力
+```
+42 42 42
+```
+
+
 ## バージョン
 ### 言語
 - C++20
@@ -138,3 +192,4 @@ int main()
 - [P0896R4 The One Ranges Proposal](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
 - [P3508R0 Wording for "constexpr for specialized memory algorithms"](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3508r0.html)
     - C++26から`constexpr`がついた
+- [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)

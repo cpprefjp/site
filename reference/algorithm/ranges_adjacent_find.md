@@ -20,9 +20,36 @@ namespace std::ranges {
             projected<iterator_t<R>, Proj>> Pred = ranges::equal_to>
   constexpr borrowed_iterator_t<R>
     adjacent_find(R&& r, Pred pred = {}, Proj proj = {});           // (2) C++20
+
+  template <execution-policy Ep,
+            random_access_iterator I,
+            sized_sentinel_for<I> S,
+            class Proj = identity,
+            indirect_binary_predicate<projected<I, Proj>,
+            projected<I, Proj>> Pred = ranges::equal_to>
+  I adjacent_find(Ep&& exec,
+                  I first,
+                  S last,
+                  Pred pred = {},
+                  Proj proj = {});                                  // (3) C++26
+
+  template <execution-policy Ep,
+            sized-random-access-range R,
+            class Proj = identity,
+            indirect_binary_predicate<projected<iterator_t<R>, Proj>,
+            projected<iterator_t<R>, Proj>> Pred = ranges::equal_to>
+  borrowed_iterator_t<R>
+    adjacent_find(Ep&& exec,
+                  R&& r,
+                  Pred pred = {},
+                  Proj proj = {});                                  // (4) C++26
 }
 ```
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
+* execution-policy[link /reference/execution/execution-policy.md]
+* random_access_iterator[link /reference/iterator/random_access_iterator.md]
+* sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
+* sized-random-access-range[link /reference/ranges/sized-random-access-range.md]
 
 
 ## 概要
@@ -30,6 +57,8 @@ namespace std::ranges {
 
 - (1): イテレータ範囲を指定する
 - (2): Rangeを直接指定する
+- (3): (1)の並列アルゴリズム版。実行ポリシーを指定する
+- (4): (2)の並列アルゴリズム版。実行ポリシーを指定する
 
 このアルゴリズムは、範囲の先頭から1つづつ進みながら隣接するペアに対して条件を満たすかをチェックし、その条件を満たす最初の要素へのイテレータを返す。指定された条件を満たしているかをチェックされるのは、現在位置にある要素とその次の位置にある要素の2つについてであり、1つの要素は最大2回参照される。
 
@@ -61,6 +90,7 @@ namespace std::ranges {
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <algorithm>
 #include <iterator>
@@ -83,13 +113,13 @@ int main() {
 * std::ranges::distance[link /reference/iterator/ranges_distance.md]
 * std::ranges::adjacent_find[color ff0000]
 
-### 出力
+#### 出力
 ```
 found: index==2
 *it == *(it+1): true
 ```
 
-### 動作イメージ
+#### 動作イメージ
 
 ```
 |0  1  2  3  4  5  6| : index
@@ -100,6 +130,32 @@ found: index==2
          [3, 1]
             [1, 2]
                [2, 2]
+```
+
+### 並列アルゴリズムの例 (C++26)
+```cpp example
+#include <algorithm>
+#include <execution>
+#include <iostream>
+#include <vector>
+
+int main() {
+  std::vector<int> v = {1, 4, 3, 3, 1, 2, 2};
+
+  // 並列に同じ値が連続している最初の要素を検索する
+  auto it = std::ranges::adjacent_find(std::execution::par, v);
+  if (it == v.end()) {
+    std::cout << "not found" << std::endl;
+  } else {
+    std::cout << "found: index==" << std::distance(v.begin(), it) << std::endl;
+  }
+}
+```
+* std::ranges::adjacent_find[color ff0000]
+
+#### 出力
+```
+found: index==2
 ```
 
 ## 実装例
@@ -144,3 +200,4 @@ inline constexpr adjacent_find_impl adjacent_find;
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)

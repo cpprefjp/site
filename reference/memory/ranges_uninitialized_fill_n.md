@@ -18,13 +18,27 @@ namespace std::ranges {
     uninitialized_fill_n(I first,
                          iter_difference_t<I> n,
                          const T& x);            // (1) C++26
+
+  template <execution-policy Ep,
+            random_access_iterator I, class T>
+    requires constructible_from<iter_value_t<I>, const T&>
+  I
+    uninitialized_fill_n(Ep&& exec,
+                         I first,
+                         iter_difference_t<I> n,
+                         const T& x);            // (2) C++26
 }
 ```
 * no-throw-forward-iterator[link no-throw-forward-iterator.md]
 * constructible_from[link /reference/concepts/constructible_from.md]
+* execution-policy[link /reference/execution/execution-policy.md]
+* random_access_iterator[link /reference/iterator/random_access_iterator.md]
 
 ## 概要
 未初期化領域の範囲 (`[first, first + n)`) を、指定された値で配置`new`で初期化する。
+
+- (1): イテレータ範囲を指定する
+- (2): (1)の並列アルゴリズム版。実行ポリシーを指定する
 
 
 ## テンプレートパラメータ制約
@@ -48,6 +62,7 @@ return uninitialized_fill(counted_iterator(first, n), default_sentinel, x).base(
 呼び出すコンストラクタなどから例外が送出された場合、その例外がこの関数の外側に伝播される前に、その時点で構築済のオブジェクトは全て未規定の順序で破棄される。すなわち、例外が送出された場合は初期化対象領域は未初期化のままとなる。
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <memory>
@@ -90,6 +105,36 @@ int main()
 ```
 
 
+### 並列アルゴリズムの例 (C++26)
+```cpp example
+#include <iostream>
+#include <memory>
+#include <execution>
+
+int main() {
+  std::allocator<int> alloc;
+  int* p = alloc.allocate(3);
+
+  // 並列にn個の未初期化領域を99で埋める
+  std::ranges::uninitialized_fill_n(
+    std::execution::par, p, 3, 99);
+
+  for (int i = 0; i < 3; ++i) {
+    std::cout << p[i] << ' ';
+  }
+  std::cout << std::endl;
+
+  alloc.deallocate(p, 3);
+}
+```
+* std::ranges::uninitialized_fill_n[color ff0000]
+
+#### 出力
+```
+99 99 99
+```
+
+
 ## バージョン
 ### 言語
 - C++20
@@ -107,3 +152,4 @@ int main()
 - [P0896R4 The One Ranges Proposal](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
 - [P3508R0 Wording for "constexpr for specialized memory algorithms"](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3508r0.html)
     - C++26から`constexpr`がついた
+- [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)

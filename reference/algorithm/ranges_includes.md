@@ -39,16 +39,60 @@ namespace std::ranges {
              Comp comp = {},
              Proj1 proj1 = {},
              Proj2 proj2 = {}); // (2) C++20
+
+  template <execution-policy Ep,
+            random_access_iterator I1,
+            sized_sentinel_for<I1> S1,
+            random_access_iterator I2,
+            sized_sentinel_for<I2> S2,
+            class Proj1 = identity,
+            class Proj2 = identity,
+            indirect_strict_weak_order<
+              projected<I1, Proj1>,
+              projected<I2, Proj2>
+            > Comp = ranges::less>
+  bool
+    includes(Ep&& exec,
+             I1 first1,
+             S1 last1,
+             I2 first2,
+             S2 last2,
+             Comp comp = {},
+             Proj1 proj1 = {},
+             Proj2 proj2 = {}); // (3) C++26
+
+  template <execution-policy Ep,
+            sized-random-access-range R1,
+            sized-random-access-range R2,
+            class Proj1 = identity,
+            class Proj2 = identity,
+            indirect_strict_weak_order<
+              projected<iterator_t<R1>, Proj1>,
+              projected<iterator_t<R2>, Proj2>
+            > Comp = ranges::less>
+  bool
+    includes(Ep&& exec,
+             R1&& r1,
+             R2&& r2,
+             Comp comp = {},
+             Proj1 proj1 = {},
+             Proj2 proj2 = {}); // (4) C++26
 }
 ```
 * indirect_strict_weak_order[link /reference/iterator/indirect_strict_weak_order.md]
 * ranges::less[link /reference/functional/ranges_less.md]
+* execution-policy[link /reference/execution/execution-policy.md]
+* random_access_iterator[link /reference/iterator/random_access_iterator.md]
+* sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
+* sized-random-access-range[link /reference/ranges/sized-random-access-range.md]
 
 ## 概要
 2つのソート済み範囲において、一方の範囲の要素がもう一方の範囲に全て含まれているかを判定する。
 
 - (1): イテレータ範囲を指定する
 - (2): Rangeを直接指定する
+- (3): (1)の並列アルゴリズム版。実行ポリシーを指定する
+- (4): (2)の並列アルゴリズム版。実行ポリシーを指定する
 
 ## 戻り値
 `[first2,last2)` が `empty` であるか、`[first2,last2)` の全ての要素が `[first1,last1)` に含まれている場合は `true`、そうでない場合は `false` を返す。
@@ -59,6 +103,7 @@ namespace std::ranges {
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <set>
@@ -84,6 +129,34 @@ true
 false
 ```
 
+### 並列アルゴリズムの例 (C++26)
+```cpp example
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <execution>
+
+int main()
+{
+  std::vector<int> a = {1, 2, 3, 4, 5, 6};
+  std::vector<int> b = {2, 4, 6};
+  std::vector<int> c = {2, 4, 7};
+
+  std::cout << std::boolalpha;
+
+  // 並列にaがbの全要素を含むか判定する
+  std::cout << std::ranges::includes(std::execution::par, a, b) << std::endl;
+  std::cout << std::ranges::includes(std::execution::par, a, c) << std::endl;
+}
+```
+* std::ranges::includes[color ff0000]
+
+#### 出力
+```
+true
+false
+```
+
 ## バージョン
 ### 言語
 - C++20
@@ -96,3 +169,4 @@ false
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)

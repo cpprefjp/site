@@ -23,17 +23,44 @@ namespace std::ranges {
     max_element(R&& r,
                 Comp comp = {},
                 Proj proj = {}); // (2) C++20
+
+  template <execution-policy Ep,
+            random_access_iterator I,
+            sized_sentinel_for<I> S,
+            class Proj = identity,
+            indirect_strict_weak_order<projected<I, Proj>> Comp = ranges::less>
+  I max_element(Ep&& exec,
+                I first,
+                S last,
+                Comp comp = {},
+                Proj proj = {}); // (3) C++26
+
+  template <execution-policy Ep,
+            sized-random-access-range R,
+            class Proj = identity,
+            indirect_strict_weak_order<projected<iterator_t<R>, Proj>> Comp = ranges::less>
+  borrowed_iterator_t<R>
+    max_element(Ep&& exec,
+                R&& r,
+                Comp comp = {},
+                Proj proj = {}); // (4) C++26
 }
 ```
 * indirect_strict_weak_order[link /reference/iterator/indirect_strict_weak_order.md]
 * ranges::less[link /reference/functional/ranges_less.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
+* execution-policy[link /reference/execution/execution-policy.md]
+* random_access_iterator[link /reference/iterator/random_access_iterator.md]
+* sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
+* sized-random-access-range[link /reference/ranges/sized-random-access-range.md]
 
 ## 概要
 `[first, last)`の範囲において、最大要素を指す最初のイテレータを取得する。
 
 - (1): イテレータ範囲を指定する
 - (2): Rangeを直接指定する
+- (3): (1)の並列アルゴリズム版。実行ポリシーを指定する
+- (4): (2)の並列アルゴリズム版。実行ポリシーを指定する
 
 
 ## 戻り値
@@ -43,6 +70,7 @@ namespace std::ranges {
 [`max`](max.md)`((last - first) - 1, 0)`回の比較を行う
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <algorithm>
 #include <cassert>
@@ -70,6 +98,30 @@ int main()
 ```
 ```
 
+### 並列アルゴリズムの例 (C++26)
+```cpp example
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <execution>
+
+int main()
+{
+  std::vector<int> v = {3, 1, 4, 1, 5, 9, 2, 6};
+
+  // 並列に最大要素を検索する
+  auto it = std::ranges::max_element(std::execution::par, v);
+
+  std::cout << "max: " << *it << std::endl;
+}
+```
+* std::ranges::max_element[color ff0000]
+
+#### 出力
+```
+max: 9
+```
+
 ## バージョン
 ### 言語
 - C++20
@@ -82,3 +134,4 @@ int main()
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)

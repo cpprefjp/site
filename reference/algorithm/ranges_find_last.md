@@ -59,14 +59,52 @@ namespace std::ranges {
     find_last(R&& r,
               const T& value,
               Proj proj = {}); // (2) C++26
+
+  template <execution-policy Ep,
+            random_access_iterator I,
+            sized_sentinel_for<I> S,
+            class Proj = identity,
+            class T = projected_value_t<I, Proj>>
+    requires indirect_binary_predicate<
+               ranges::equal_to,
+               projected<I, Proj>,
+               const T*
+             >
+  ranges::subrange<I>
+    find_last(Ep&& exec,
+              I first,
+              S last,
+              const T& value,
+              Proj proj = {}); // (3) C++26
+
+  template <execution-policy Ep,
+            sized-random-access-range R,
+            class Proj = identity,
+            class T = projected_value_t<iterator_t<R>, Proj>>
+    requires indirect_binary_predicate<
+               ranges::equal_to,
+               projected<iterator_t<R>, Proj>,
+               const T*
+             >
+  ranges::borrowed_subrange_t<R>
+    find_last(Ep&& exec,
+              R&& r,
+              const T& value,
+              Proj proj = {}); // (4) C++26
 }
 ```
+* execution-policy[link /reference/execution/execution-policy.md]
+* random_access_iterator[link /reference/iterator/random_access_iterator.md]
+* sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
+* sized-random-access-range[link /reference/ranges/sized-random-access-range.md]
 
 ## 概要
 指定された値を末尾から検索する。
 
 - (1): イテレータ範囲を指定する
 - (2): Rangeを直接指定する
+- (3): (1)の並列アルゴリズム版。実行ポリシーを指定する
+- (4): (2)の並列アルゴリズム版。実行ポリシーを指定する
 
 
 ## 戻り値
@@ -153,6 +191,33 @@ found: 3,4
 ```
 
 
+### 並列アルゴリズムの例 (C++26)
+```cpp example
+#include <algorithm>
+#include <execution>
+#include <iostream>
+#include <vector>
+
+int main() {
+  std::vector<int> v = {1, 3, 5, 3, 7};
+
+  // 並列に最後の3を検索
+  auto result = std::ranges::find_last(std::execution::par, v, 3);
+
+  if (!result.empty()) {
+    std::cout << "found: " << *result.begin() << std::endl;
+    std::cout << "position: " << (result.begin() - v.begin()) << std::endl;
+  }
+}
+```
+* std::ranges::find_last[color ff0000]
+
+#### 出力
+```
+found: 3
+position: 3
+```
+
 ## バージョン
 ### 言語
 - C++23
@@ -169,3 +234,4 @@ found: 3,4
     - C++26で波カッコ初期化 (リスト初期化) に対応した
     - 関連文書：
         - [P2248R8 Enabling list-initialization for algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2248r8.html)
+- [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)

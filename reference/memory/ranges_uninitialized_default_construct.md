@@ -23,18 +23,38 @@ namespace std::ranges {
     requires default_initializable<range_value_t<R>>
   constexpr borrowed_iterator_t<R>
     uninitialized_default_construct(R&& r);           // (2) C++26
+
+  template <execution-policy Ep,
+            random_access_iterator I,
+            sized_sentinel_for<I> S>
+    requires default_initializable<iter_value_t<I>>
+  I
+    uninitialized_default_construct(Ep&& exec,
+                                    I first, S last); // (3) C++26
+
+  template <execution-policy Ep,
+            sized-random-access-range R>
+    requires default_initializable<range_value_t<R>>
+  borrowed_iterator_t<R>
+    uninitialized_default_construct(Ep&& exec, R&& r); // (4) C++26
 }
 ```
 * no-throw-forward-iterator[link no-throw-forward-iterator.md]
 * no-throw-sentinel[link no-throw-sentinel.md]
 * no-throw-forward-range[link no-throw-forward-range.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
+* execution-policy[link /reference/execution/execution-policy.md]
+* random_access_iterator[link /reference/iterator/random_access_iterator.md]
+* sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
+* sized-random-access-range[link /reference/ranges/sized-random-access-range.md]
 
 ## 概要
 未初期化領域の範囲 (`r`、`[first, last)`) の各要素をデフォルト構築する。
 
 - (1): イテレータ範囲を指定する
 - (2): Rangeを直接指定する
+- (3): (1)の並列アルゴリズム版。実行ポリシーを指定する
+- (4): (2)の並列アルゴリズム版。実行ポリシーを指定する
 
 
 ## テンプレートパラメータ制約
@@ -77,6 +97,7 @@ return first;
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <memory>
@@ -124,6 +145,32 @@ int main()
 ```
 
 
+### 並列アルゴリズムの例 (C++26)
+```cpp example
+#include <iostream>
+#include <memory>
+#include <execution>
+
+int main() {
+  std::allocator<int> alloc;
+  int* p = alloc.allocate(3);
+
+  // 並列にデフォルト構築
+  std::ranges::uninitialized_default_construct(
+    std::execution::par, p, p + 3);
+
+  alloc.deallocate(p, 3);
+  std::cout << "done" << std::endl;
+}
+```
+* std::ranges::uninitialized_default_construct[color ff0000]
+
+#### 出力
+```
+done
+```
+
+
 ## バージョン
 ### 言語
 - C++20
@@ -142,3 +189,4 @@ int main()
 - [P3508R0 Wording for "constexpr for specialized memory algorithms"](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3508r0.html)
 - [P3369R0 `constexpr` for `uninitialized_default_construct`](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3369r0.html)
     - 上記2文書で、C++26から`constexpr`がついた
+- [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)

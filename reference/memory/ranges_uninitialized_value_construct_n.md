@@ -16,12 +16,25 @@ namespace std::ranges {
   constexpr I
     uninitialized_value_construct_n(I first,
                                     iter_difference_t<I> n); // (1) C++26
+
+  template <execution-policy Ep,
+            random_access_iterator I>
+    requires default_initializable<iter_value_t<I>>
+  I
+    uninitialized_value_construct_n(Ep&& exec,
+                                    I first,
+                                    iter_difference_t<I> n); // (2) C++26
 }
 ```
 * no-throw-forward-iterator[link no-throw-forward-iterator.md]
+* execution-policy[link /reference/execution/execution-policy.md]
+* random_access_iterator[link /reference/iterator/random_access_iterator.md]
 
 ## 概要
 未初期化領域の範囲 (`[first, first + n)`) の各要素を値構築する。
+
+- (1): イテレータ範囲を指定する
+- (2): (1)の並列アルゴリズム版。実行ポリシーを指定する
 
 
 ## テンプレートパラメータ制約
@@ -47,6 +60,7 @@ return uninitialized_value_construct(counted_iterator(first, n),
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <memory>
@@ -93,6 +107,36 @@ int main()
 ```
 
 
+### 並列アルゴリズムの例 (C++26)
+```cpp example
+#include <iostream>
+#include <memory>
+#include <execution>
+
+int main() {
+  std::allocator<int> alloc;
+  int* p = alloc.allocate(3);
+
+  // 並列にn個値初期化
+  std::ranges::uninitialized_value_construct_n(
+    std::execution::par, p, 3);
+
+  for (int i = 0; i < 3; ++i) {
+    std::cout << p[i] << ' ';
+  }
+  std::cout << std::endl;
+
+  alloc.deallocate(p, 3);
+}
+```
+* std::ranges::uninitialized_value_construct_n[color ff0000]
+
+#### 出力
+```
+0 0 0
+```
+
+
 ## バージョン
 ### 言語
 - C++20
@@ -110,3 +154,4 @@ int main()
 - [P0896R4 The One Ranges Proposal](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0896r4.pdf)
 - [P3508R0 Wording for "constexpr for specialized memory algorithms"](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3508r0.html)
     - C++26から`constexpr`がついた
+- [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)

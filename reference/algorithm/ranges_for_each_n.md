@@ -14,13 +14,28 @@ namespace std::ranges {
                iter_difference_t<I> n,
                Fun f,
                Proj proj = {}); // (1) C++20
+
+  template <execution-policy Ep,
+            random_access_iterator I,
+            class Proj = identity,
+            indirectly_unary_invocable<projected<I, Proj>> Fun>
+  I for_each_n(Ep&& exec,
+               I first,
+               iter_difference_t<I> n,
+               Fun f,
+               Proj proj = {}); // (2) C++26
 }
 ```
 * indirectly_unary_invocable[link /reference/iterator/indirectly_unary_invocable.md]
 * for_each_n_result[link /reference/algorithm/ranges_in_fun_result.md]
+* execution-policy[link /reference/execution/execution-policy.md]
+* random_access_iterator[link /reference/iterator/random_access_iterator.md]
 
 ## 概要
 範囲の先頭N個の要素に、指定された関数を適用する。
+
+- (1): 通常版
+- (2): 並列アルゴリズム版。実行ポリシーを指定する
 
 ## テンプレートパラメータ制約
 - `I`が[`input_iterator`](/reference/iterator/input_iterator.md)である
@@ -38,18 +53,22 @@ namespace std::ranges {
 このアルゴリズムはその他のアルゴリズムと違い、[`invoke`](/reference/functional/invoke.md)`(proj, *i)` が書き換え可能な参照であれば、関数 `f` の内部でその値を書き換えても構わない。
 
 ## 戻り値
-```cpp
-for_each_n_result {
-  .in = first + n,
-  .fun = std::move(f)
-}
-```
-* for_each_n_result[link /reference/algorithm/ranges_in_fun_result.md]
+- (1):
+    ```cpp
+    for_each_n_result {
+      .in = first + n,
+      .fun = std::move(f)
+    }
+    ```
+    * for_each_n_result[link /reference/algorithm/ranges_in_fun_result.md]
+
+- (2): `first + n`
 
 ## 備考
 - 関数 `f` に戻り値がある場合、それは単に無視される
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <algorithm>
@@ -84,6 +103,33 @@ int main()
 ```
 
 
+### 並列アルゴリズムの例 (C++26)
+```cpp example
+#include <algorithm>
+#include <execution>
+#include <iostream>
+#include <vector>
+
+int main() {
+  std::vector<int> v = {1, 2, 3, 4, 5};
+
+  // 並列に先頭3要素を出力
+  std::ranges::for_each_n(std::execution::par, v.begin(), 3,
+                          [](int x) { std::cout << x << ' '; });
+  std::cout << std::endl;
+}
+```
+* std::ranges::for_each_n[color ff0000]
+
+#### 出力例
+```
+1 2 3
+```
+
+## バージョン
+### 言語
+- C++20
+
 ### 処理系
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): 10.1.0 [mark verified]
@@ -113,3 +159,4 @@ inline constexpr for_each_n_impl for_each_n;
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)

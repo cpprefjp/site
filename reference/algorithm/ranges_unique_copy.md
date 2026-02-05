@@ -37,6 +37,36 @@ namespace std::ranges {
                 O result,
                 C comp = {},
                 Proj proj = {}); // (2) C++20
+
+  template <execution-policy Ep,
+            random_access_iterator I,
+            sized_sentinel_for<I> S,
+            random_access_iterator O,
+            sized_sentinel_for<O> OutS,
+            class Proj = identity,
+            indirect_equivalence_relation<projected<I, Proj>> C = ranges::equal_to>
+    requires indirectly_copyable<I, O>
+  unique_copy_result<I, O>
+    unique_copy(Ep&& exec,
+                I first,
+                S last,
+                O result,
+                OutS result_last,
+                C comp = {},
+                Proj proj = {}); // (3) C++26
+
+  template <execution-policy Ep,
+            sized-random-access-range R,
+            sized-random-access-range OutR,
+            class Proj = identity,
+            indirect_equivalence_relation<projected<iterator_t<R>, Proj>> C = ranges::equal_to>
+    requires indirectly_copyable<iterator_t<R>, iterator_t<OutR>>
+  unique_copy_result<borrowed_iterator_t<R>, borrowed_iterator_t<OutR>>
+    unique_copy(Ep&& exec,
+                R&& r,
+                OutR&& result_r,
+                C comp = {},
+                Proj proj = {}); // (4) C++26
 }
 ```
 * weakly_incrementable[link /reference/iterator/weakly_incrementable.md]
@@ -45,12 +75,18 @@ namespace std::ranges {
 * indirectly_copyable_storable[link /reference/iterator/indirectly_copyable_storable.md]
 * unique_copy_result[link ranges_in_out_result.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
+* execution-policy[link /reference/execution/execution-policy.md]
+* random_access_iterator[link /reference/iterator/random_access_iterator.md]
+* sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
+* sized-random-access-range[link /reference/ranges/sized-random-access-range.md]
 
 ## 概要
 隣り合った重複要素を取り除き、その結果を出力の範囲へコピーする。
 
 - (1): イテレータ範囲を指定する
 - (2): Rangeを直接指定する
+- (3): (1)の並列アルゴリズム版。実行ポリシーを指定する
+- (4): (2)の並列アルゴリズム版。実行ポリシーを指定する
 
 ## 事前条件
 - `[first,last)` と `[result,result + (last - first))` は重なっていてはならない
@@ -73,6 +109,7 @@ namespace std::ranges {
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <algorithm>
 #include <iostream>
@@ -129,6 +166,33 @@ unsorted unique : 2,5,3,1,2,4,2,1,4,3
 sorted unique : 1,2,3,4,5
 ```
 
+### 並列アルゴリズムの例 (C++26)
+```cpp example
+#include <algorithm>
+#include <iostream>
+#include <vector>
+#include <execution>
+
+int main() {
+  std::vector<int> src = {1, 1, 2, 3, 3, 3, 4, 4, 5};
+  std::vector<int> dst(src.size());
+
+  // 並列に隣り合った重複要素を除去してコピーする
+  auto result = std::ranges::unique_copy(std::execution::par, src, dst);
+
+  for (auto it = dst.begin(); it != result.out; ++it) {
+    std::cout << *it << ' ';
+  }
+  std::cout << std::endl;
+}
+```
+* std::ranges::unique_copy[color ff0000]
+
+#### 出力
+```
+1 2 3 4 5
+```
+
 ## バージョン
 ### 言語
 - C++20
@@ -141,3 +205,4 @@ sorted unique : 1,2,3,4,5
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)

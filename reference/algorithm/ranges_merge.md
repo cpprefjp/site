@@ -43,6 +43,50 @@ namespace std::ranges {
           Comp comp = {},
           Proj1 proj1 = {},
           Proj2 proj2 = {});  // (2) C++20
+
+  template <execution-policy Ep,
+            random_access_iterator I1,
+            sized_sentinel_for<I1> S1,
+            random_access_iterator I2,
+            sized_sentinel_for<I2> S2,
+            random_access_iterator O,
+            sized_sentinel_for<O> OutS,
+            class Comp = ranges::less,
+            class Proj1 = identity,
+            class Proj2 = identity>
+    requires mergeable<I1, I2, O, Comp, Proj1, Proj2>
+  merge_result<I1, I2, O>
+    merge(Ep&& exec,
+          I1 first1,
+          S1 last1,
+          I2 first2,
+          S2 last2,
+          O result,
+          OutS result_last,
+          Comp comp = {},
+          Proj1 proj1 = {},
+          Proj2 proj2 = {}); // (3) C++26
+
+  template <execution-policy Ep,
+            sized-random-access-range R1,
+            sized-random-access-range R2,
+            sized-random-access-range OutR,
+            class Comp = ranges::less,
+            class Proj1 = identity,
+            class Proj2 = identity>
+    requires mergeable<iterator_t<R1>, iterator_t<R2>, iterator_t<OutR>, Comp, Proj1, Proj2>
+  merge_result<
+    borrowed_iterator_t<R1>,
+    borrowed_iterator_t<R2>,
+    borrowed_iterator_t<OutR>
+  >
+    merge(Ep&& exec,
+          R1&& r1,
+          R2&& r2,
+          OutR&& result_r,
+          Comp comp = {},
+          Proj1 proj1 = {},
+          Proj2 proj2 = {}); // (4) C++26
 }
 ```
 * merge_result[link ranges_in_in_out_result.md]
@@ -50,12 +94,18 @@ namespace std::ranges {
 * ranges::less[link /reference/functional/ranges_less.md]
 * mergeable[link /reference/iterator/mergeable.md]
 * borrowed_iterator_t[link /reference/ranges/borrowed_iterator_t.md]
+* execution-policy[link /reference/execution/execution-policy.md]
+* random_access_iterator[link /reference/iterator/random_access_iterator.md]
+* sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
+* sized-random-access-range[link /reference/ranges/sized-random-access-range.md]
 
 ## 概要
 2つのソート済み範囲をマージして、出力イテレータへ出力する。
 
 - (1): イテレータ範囲を指定する
 - (2): Rangeを直接指定する
+- (3): (1)の並列アルゴリズム版。実行ポリシーを指定する
+- (4): (2)の並列アルゴリズム版。実行ポリシーを指定する
 
 
 ## 事前条件
@@ -85,6 +135,7 @@ merge_result {
 
 
 ## 例
+### 基本的な使い方
 ```cpp example
 #include <iostream>
 #include <vector>
@@ -122,6 +173,35 @@ int main()
 6
 ```
 
+### 並列アルゴリズムの例 (C++26)
+```cpp example
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <execution>
+
+int main()
+{
+  std::vector<int> a = {1, 3, 5, 7};
+  std::vector<int> b = {2, 4, 6, 8};
+  std::vector<int> result(a.size() + b.size());
+
+  // 並列に2つのソート済み範囲をマージする
+  std::ranges::merge(std::execution::par, a, b, result);
+
+  for (int x : result) {
+    std::cout << x << ' ';
+  }
+  std::cout << std::endl;
+}
+```
+* std::ranges::merge[color ff0000]
+
+#### 出力
+```
+1 2 3 4 5 6 7 8
+```
+
 ## バージョン
 ### 言語
 - C++20
@@ -134,3 +214,4 @@ int main()
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)

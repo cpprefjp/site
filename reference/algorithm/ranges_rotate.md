@@ -18,15 +18,39 @@ namespace std::ranges {
   constexpr borrowed_subrange_t<R>
     rotate(R&& r,
            iterator_t<R> middle); // (2) C++20
+
+  template <execution-policy Ep,
+            random_access_iterator I,
+            sized_sentinel_for<I> S>
+    requires permutable<I>
+  subrange<I>
+    rotate(Ep&& exec,
+           I first,
+           I middle,
+           S last);               // (3) C++26
+
+  template <execution-policy Ep,
+            sized-random-access-range R>
+    requires permutable<iterator_t<R>>
+  borrowed_subrange_t<R>
+    rotate(Ep&& exec,
+           R&& r,
+           iterator_t<R> middle); // (4) C++26
 }
 ```
 * permutable[link /reference/iterator/permutable.md]
+* execution-policy[link /reference/execution/execution-policy.md]
+* random_access_iterator[link /reference/iterator/random_access_iterator.md]
+* sized_sentinel_for[link /reference/iterator/sized_sentinel_for.md]
+* sized-random-access-range[link /reference/ranges/sized-random-access-range.md]
 
 ## 概要
 `middle`の要素が先頭、`middle-1`の要素が末尾となるように、`[first,last)`の要素の並びを回転させる。
 
 - (1): イテレータ範囲を指定する
 - (2): Rangeを直接指定する
+- (3): (1)の並列アルゴリズム版。実行ポリシーを指定する
+- (4): (2)の並列アルゴリズム版。実行ポリシーを指定する
 
 ## 事前条件
 - `[first,middle)` と `[middle,last)` は有効な範囲である必要がある。
@@ -131,6 +155,34 @@ swapping 0x1806043(1) <-> 0x1806045(5)
 234501
 ```
 
+### 並列アルゴリズムの例 (C++26)
+```cpp example
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <execution>
+
+int main()
+{
+  std::vector<int> v = {1, 2, 3, 4, 5};
+
+  // 並列に要素を回転させる (先頭から2つ目の要素が先頭に来る)
+  std::ranges::rotate(std::execution::par, v, v.begin() + 2);
+
+  for (int i : v) {
+    std::cout << i << ' ';
+  }
+  std::cout << std::endl;
+}
+```
+* std::ranges::rotate[color ff0000]
+* v.begin()[link /reference/vector/vector/begin.md]
+
+#### 出力
+```
+3 4 5 1 2
+```
+
 ## 実装例
 - [std::rotate を読んでみた](http://www.kmonos.net/wlog/115.html#_0007101223)
 
@@ -146,3 +198,4 @@ swapping 0x1806043(1) <-> 0x1806045(5)
 
 ## 参照
 - [N4861 25 Algorithms library](https://timsong-cpp.github.io/cppwp/n4861/algorithms)
+- [P3179R9 C++ parallel range algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3179r9.html)
