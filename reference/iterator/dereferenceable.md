@@ -1,4 +1,5 @@
 # dereferenceable
+* [meta exposition-only]
 * iterator[meta header]
 * std[meta namespace]
 * concept[meta id-type]
