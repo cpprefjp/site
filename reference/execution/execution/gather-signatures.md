@@ -1,4 +1,5 @@
 # gather-signatures
+* [meta exposition-only]
 * execution[meta header]
 * std::execution[meta namespace]
 * type-alias[meta id-type]

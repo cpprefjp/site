@@ -1,4 +1,5 @@
 # different-from
+* [meta exposition-only]
 * ranges[meta header]
 * concept[meta id-type]
 * cpp20[meta cpp]

@@ -1,4 +1,5 @@
 # is-mapping-of
+* [meta exposition-only]
 * mdspan[meta header]
 * variable[meta id-type]
 * cpp23[meta cpp]

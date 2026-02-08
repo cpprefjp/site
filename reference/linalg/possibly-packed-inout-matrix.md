@@ -1,4 +1,5 @@
 # possibly-packed-inout-matrix
+* [meta exposition-only]
 * linalg[meta header]
 * concept[meta id-type]
 * cpp26[meta cpp]

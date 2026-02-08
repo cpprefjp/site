@@ -1,4 +1,5 @@
 # is-mdspan
+* [meta exposition-only]
 * linalg[meta header]
 * variable[meta id-type]
 * cpp26[meta cpp]

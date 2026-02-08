@@ -1,4 +1,5 @@
 # fmt-maybe-const
+* [meta exposition-only]
 * format[meta header]
 * concept[meta id-type]
 * std[meta namespace]

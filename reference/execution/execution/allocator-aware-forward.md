@@ -1,4 +1,5 @@
 # allocator-aware-forward
+* [meta exposition-only]
 * execution[meta header]
 * function template[meta id-type]
 * std::execution[meta namespace]

@@ -1,4 +1,5 @@
 # decayed-typeof
+* [meta exposition-only]
 * functional[meta header]
 * type-alias[meta id-type]
 * std[meta namespace]

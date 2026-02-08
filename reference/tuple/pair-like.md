@@ -1,4 +1,5 @@
 # pair-like
+* [meta exposition-only]
 * tuple[meta header]
 * concept[meta id-type]
 * std[meta namespace]

@@ -1,4 +1,5 @@
 # decay-copy
+* [meta exposition-only]
 * exposition-only[meta header]
 * function[meta id-type]
 * cpp20[meta cpp]

@@ -1,9 +1,9 @@
 # association-t
+* [meta exposition-only]
 * execution[meta header]
 * class template[meta id-type]
 * std::execution[meta namespace]
 * cpp26[meta cpp]
-* [meta exposition-only]
 
 ```cpp
 template <class Scope>

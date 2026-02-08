@@ -1,4 +1,5 @@
 # index-pair-like
+* [meta exposition-only]
 * mdspan[meta header]
 * concept[meta id-type]
 * cpp26[meta cpp]

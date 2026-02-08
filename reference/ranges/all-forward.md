@@ -1,4 +1,5 @@
 # all-forward
+* [meta exposition-only]
 * ranges[meta header]
 * concept[meta id-type]
 * cpp26[meta cpp]
@@ -12,7 +13,7 @@ namespace std::ranges {
 
 ## 概要
 
-`all-forward` は、複数のビューに対し、それらすべてが [`forward_range`](forward_range.md) であることを表すコンセプトである。
+`all-forward` は、複数のビューに対し、それらすべてが [`forward_range`](forward_range.md) であることを表す説明専用のコンセプトである。
 
 ## バージョン
 ### 言語

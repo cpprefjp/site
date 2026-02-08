@@ -1,9 +1,9 @@
 # basic-sender
+* [meta exposition-only]
 * execution[meta header]
 * class template[meta id-type]
 * std::execution[meta namespace]
 * cpp26[meta cpp]
-* [meta exposition-only]
 
 ```cpp
 namespace std::execution {

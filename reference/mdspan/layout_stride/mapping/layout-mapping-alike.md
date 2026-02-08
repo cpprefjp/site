@@ -1,4 +1,5 @@
 # layout-mapping-alike
+* [meta exposition-only]
 * mdspan[meta header]
 * concept[meta id-type]
 * std[meta namespace]

@@ -1,9 +1,9 @@
 # single-sender-value-type
+* [meta exposition-only]
 * execution[meta header]
 * type-alias[meta id-type]
 * std::execution[meta namespace]
 * cpp26[meta cpp]
-* [meta exposition-only]
 
 ```cpp
 template<class Sndr, class... Env>

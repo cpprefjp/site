@@ -1,4 +1,5 @@
 # convertible-to-non-slicing
+* [meta exposition-only]
 * ranges[meta header]
 * concept[meta id-type]
 * std::ranges[meta namespace]

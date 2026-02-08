@@ -1,4 +1,5 @@
 # single-sender
+* [meta exposition-only]
 * execution[meta header]
 * type-alias[meta id-type]
 * std::execution[meta namespace]

@@ -1,4 +1,5 @@
 # in-object, out-object, inout-object
+* [meta exposition-only]
 * linalg[meta header]
 * concept[meta id-type]
 * cpp26[meta cpp]

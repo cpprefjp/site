@@ -1,4 +1,5 @@
 # all-random-access
+* [meta exposition-only]
 * ranges[meta header]
 * concept[meta id-type]
 * cpp26[meta cpp]
@@ -12,7 +13,7 @@ namespace std::ranges {
 
 ## 概要
 
-`all-random-access` は、複数のビューに対し、それらすべてが [`random_access_range`](random_access_range.md) であることを表すコンセプトである。
+`all-random-access` は、複数のビューに対し、それらすべてが [`random_access_range`](random_access_range.md) であることを表す説明専用のコンセプトである。
 
 ## バージョン
 ### 言語

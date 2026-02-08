@@ -1,10 +1,10 @@
 # try-associate
+* [meta exposition-only]
 * execution[meta header]
 * std::execution[meta namespace]
 * counting_scope[meta class]
 * function[meta id-type]
 * cpp26[meta cpp]
-* [meta exposition-only]
 
 ```cpp
 assoc-t try-associate() noexcept; // exposition only

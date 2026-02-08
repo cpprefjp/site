@@ -1,9 +1,9 @@
 # decay-copyable-result-datums
+* [meta exposition-only]
 * execution[meta header]
 * function template[meta id-type]
 * std::execution[meta namespace]
 * cpp26[meta cpp]
-* [meta exposition-only]
 
 ```cpp
 constexpr void decay-copyable-result-datums(auto cs) {

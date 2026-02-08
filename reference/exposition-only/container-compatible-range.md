@@ -1,4 +1,5 @@
 # container-compatible-range
+* [meta exposition-only]
 * exposition-only[meta header]
 * concept[meta id-type]
 * cpp23[meta cpp]

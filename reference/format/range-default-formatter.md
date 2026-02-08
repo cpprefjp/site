@@ -1,4 +1,5 @@
 # range-default-formatter
+* [meta exposition-only]
 * format[meta header]
 * class template[meta id-type]
 * std[meta namespace]

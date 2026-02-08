@@ -1,4 +1,5 @@
 # possibly-multipliable
+* [meta exposition-only]
 * [mathjax enable]
 * linalg[meta header]
 * function template[meta id-type]

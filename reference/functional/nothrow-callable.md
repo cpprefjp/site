@@ -1,4 +1,5 @@
 # nothrow-callable
+* [meta exposition-only]
 * functional[meta header]
 * concept[meta id-type]
 * std[meta namespace]

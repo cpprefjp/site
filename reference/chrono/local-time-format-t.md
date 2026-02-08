@@ -1,4 +1,5 @@
 # local-time-format-t
+* [meta exposition-only]
 * chrono[meta header]
 * std::chrono[meta namespace]
 * class[meta id-type]

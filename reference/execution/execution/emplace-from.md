@@ -1,4 +1,5 @@
 # emplace-from
+* [meta exposition-only]
 * execution[meta header]
 * std::execution[meta namespace]
 * class template[meta id-type]

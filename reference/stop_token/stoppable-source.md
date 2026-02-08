@@ -1,4 +1,5 @@
 # stoppable-source
+* [meta exposition-only]
 * stop_token[meta header]
 * concept[meta id-type]
 * std[meta namespace]

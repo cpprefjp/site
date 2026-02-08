@@ -1,4 +1,5 @@
 # range-with-movable-references
+* [meta exposition-only]
 * ranges[meta header]
 * concept[meta id-type]
 * cpp23[meta cpp]

@@ -1,5 +1,5 @@
 # imag-if-needed
-
+* [meta exposition-only]
 * linalg[meta header]
 * function[meta id-type]
 * std::linalg[meta namespace]

@@ -1,4 +1,5 @@
 # tuple-for-each
+* [meta exposition-only]
 * ranges[meta header]
 * function template[meta id-type]
 * cpp23[meta cpp]

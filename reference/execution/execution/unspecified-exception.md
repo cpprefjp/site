@@ -1,9 +1,9 @@
 # unspecified-exception
+* [meta exposition-only]
 * execution[meta header]
 * class[meta id-type]
 * std::execution[meta namespace]
 * cpp26[meta cpp]
-* [meta exposition-only]
 
 ```cpp
 class unspecified-exception;

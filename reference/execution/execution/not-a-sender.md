@@ -1,9 +1,9 @@
 # not-a-sender
+* [meta exposition-only]
 * execution[meta header]
 * class[meta id-type]
 * std::execution[meta namespace]
 * cpp26[meta cpp]
-* [meta exposition-only]
 
 ```cpp
 struct not-a-sender {

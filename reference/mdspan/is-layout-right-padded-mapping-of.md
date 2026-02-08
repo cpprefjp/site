@@ -1,4 +1,5 @@
 # is-layout-right-padded-mapping-of
+* [meta exposition-only]
 * mdspan[meta header]
 * variable[meta id-type]
 * cpp26[meta cpp]

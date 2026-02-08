@@ -1,4 +1,5 @@
 # no-throw-forward-iterator
+* [meta exposition-only]
 * memory[meta header]
 * std[meta namespace]
 * concept[meta id-type]

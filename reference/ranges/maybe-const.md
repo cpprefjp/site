@@ -1,4 +1,5 @@
 # maybe-const
+* [meta exposition-only]
 * ranges[meta header]
 * type-alias[meta id-type]
 * cpp23[meta cpp]

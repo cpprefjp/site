@@ -1,4 +1,5 @@
 # as-lvalue
+* [meta exposition-only]
 * ranges[meta header]
 * function template[meta id-type]
 * cpp23[meta cpp]

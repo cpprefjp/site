@@ -1,4 +1,5 @@
 # execution-policy
+* [meta exposition-only]
 * execution[meta header]
 * concept[meta id-type]
 * std[meta namespace]

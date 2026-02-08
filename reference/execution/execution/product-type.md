@@ -1,4 +1,5 @@
 # product-type
+* [meta exposition-only]
 * execution[meta header]
 * class template[meta id-type]
 * std::execution[meta namespace]

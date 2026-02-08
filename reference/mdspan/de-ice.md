@@ -1,4 +1,5 @@
 # de-ice
+* [meta exposition-only]
 * mdspan[meta header]
 * function template[meta id-type]
 * cpp26[meta cpp]

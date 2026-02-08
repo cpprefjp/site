@@ -1,4 +1,5 @@
 # transpose-extents
+* [meta exposition-only]
 * linalg[meta header]
 * function template[meta id-type]
 * std::linalg[meta namespace]

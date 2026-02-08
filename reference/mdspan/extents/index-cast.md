@@ -1,4 +1,5 @@
 # index-cast
+* [meta exposition-only]
 * mdspan[meta header]
 * function template[meta id-type]
 * std[meta namespace]

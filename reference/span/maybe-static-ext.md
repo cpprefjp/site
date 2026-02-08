@@ -1,4 +1,5 @@
 # maybe-static-ext
+* [meta exposition-only]
 * span[meta header]
 * variable[meta id-type]
 * cpp26[meta cpp]

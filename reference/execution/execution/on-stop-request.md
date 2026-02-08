@@ -1,4 +1,5 @@
 # on-stop-request
+* [meta exposition-only]
 * execution[meta header]
 * class[meta id-type]
 * std::execution[meta namespace]

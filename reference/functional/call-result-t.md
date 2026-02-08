@@ -1,4 +1,5 @@
 # call-result-t
+* [meta exposition-only]
 * functional[meta header]
 * type-alias[meta id-type]
 * std[meta namespace]

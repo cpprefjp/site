@@ -1,4 +1,5 @@
 # sender-in-of
+* [meta exposition-only]
 * execution[meta header]
 * concept[meta id-type]
 * std::execution[meta namespace]

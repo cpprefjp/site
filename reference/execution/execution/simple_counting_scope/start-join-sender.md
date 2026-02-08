@@ -1,4 +1,5 @@
 # start-join-sender
+* [meta exposition-only]
 * execution[meta header]
 * std::execution[meta namespace]
 * simple_counting_scope[meta class]

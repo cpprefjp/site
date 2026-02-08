@@ -1,4 +1,5 @@
 # integral-constant-like
+* [meta exposition-only]
 * span[meta header]
 * concept[meta id-type]
 * cpp26[meta cpp]

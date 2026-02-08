@@ -1,9 +1,9 @@
 # make-sender
+* [meta exposition-only]
 * execution[meta header]
 * function template[meta id-type]
 * std::execution[meta namespace]
 * cpp26[meta cpp]
-* [meta exposition-only]
 
 ```cpp
 template<class Tag, class Data = see below, class... Child>

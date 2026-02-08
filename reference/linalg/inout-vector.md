@@ -1,4 +1,5 @@
 # in-vector, out-vector, inout-vector
+* [meta exposition-only]
 * linalg[meta header]
 * concept[meta id-type]
 * cpp26[meta cpp]
