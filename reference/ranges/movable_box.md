@@ -1,4 +1,5 @@
 # movable-box
+* [meta exposition-only]
 * ranges[meta header]
 * class template[meta id-type]
 * cpp23[meta cpp]

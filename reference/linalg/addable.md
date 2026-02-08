@@ -1,4 +1,5 @@
 # addable
+* [meta exposition-only]
 * linalg[meta header]
 * function template[meta id-type]
 * cpp26[meta cpp]

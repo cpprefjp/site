@@ -1,4 +1,5 @@
 # is-integer-like
+* [meta exposition-only]
 * iterator[meta header]
 * std[meta namespace]
 * variable[meta id-type]
