@@ -10,13 +10,13 @@ namespace std {
   function_ref(F*) -> function_ref<F>; // (1)
 
   template<auto f>
-  function_ref(nontype_t<f>) -> function_ref<see below>; // (2)
+  function_ref(constant_arg_t<f>) -> function_ref<see below>; // (2)
 
   template<auto f, class T>
-  function_ref(nontype_t<f>, T&&) -> function_ref<see below>; // (3)
+  function_ref(constant_arg_t<f>, T&&) -> function_ref<see below>; // (3)
 }
 ```
-* nontype_t[link /reference/utility/nontype_t.md]
+* constant_arg_t[link /reference/utility/constant_arg_t.md]
 
 
 ## 概要
@@ -58,19 +58,19 @@ int main()
   std::function_ref f1{&ident};
 
   // (2) 関数ポインタ/NTTP
-  std::function_ref f2{std::nontype<&ident>};
+  std::function_ref f2{std::constant_arg<&ident>};
 
   // (3a) メンバ関数＋オブジェクト束縛
   X obj{42};
-  std::function_ref f3a{std::nontype<&X::mf>, obj};
+  std::function_ref f3a{std::constant_arg<&X::mf>, obj};
   // (3b) メンバ変数＋オブジェクト束縛
-  std::function_ref f3b{std::nontype<&X::data>, obj};
+  std::function_ref f3b{std::constant_arg<&X::data>, obj};
   // (3c) 関数ポインタ＋第1引数束縛
-  std::function_ref f3c{std::nontype<&fun>, obj};
+  std::function_ref f3c{std::constant_arg<&fun>, obj};
 }
 ```
 * std::function_ref[color ff0000]
-* std::nontype[link /reference/utility/nontype_t.md]
+* std::constant_arg[link /reference/utility/constant_arg_t.md]
 
 ### 出力
 ```
@@ -90,3 +90,4 @@ int main()
 
 ## 参照
 - [P0792R14 `function_ref`: a type-erased callable reference](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p0792r14.html)
+- [P3774R1 Rename `std::nontype`, and make it broadly useful](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3774r1.html)

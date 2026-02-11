@@ -33,7 +33,7 @@ namespace std {
     - ポインタ2個のオブジェクトサイズで実装可能。
 - 構築時に必ず呼び出し対象を指定する必要がある。デフォルト構築不可。
     - `operator bool`を提供しない。
-- メンバ関数・メンバ変数を参照する場合は、[`std::nontype`](/reference/utility/nontype_t.md)タグを利用する。
+- メンバ関数・メンバ変数を参照する場合は、[`std::constant_arg`](/reference/utility/constant_arg_t.md)タグを利用する。
     - 対象オブジェクトの束縛タイミングは、構築時または呼び出し時のいずれもサポートする。
 - ダングリング(dangling)参照を避けるため、左辺値(lvalue)のみを取り扱う。
 
@@ -86,11 +86,11 @@ int main()
 
   // オブジェクト束縛済みメンバ関数を指定
   Calc obj{ 3 };
-  std::cout << hof({std::nontype<&Calc::eval>, obj}) << std::endl;
+  std::cout << hof({std::constant_arg<&Calc::eval>, obj}) << std::endl;
 }
 ```
 * std::function_ref[color ff0000]
-* std::nontype[link /reference/utility/nontype_t.md]
+* std::constant_arg[link /reference/utility/constant_arg_t.md]
 
 #### 出力
 ```
@@ -118,3 +118,4 @@ int main()
 
 ## 参照
 - [P0792R14 `function_ref`: a type-erased callable reference](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p0792r14.html)
+- [P3774R1 Rename `std::nontype`, and make it broadly useful](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3774r1.html)

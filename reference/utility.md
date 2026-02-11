@@ -98,12 +98,12 @@
 | [`in_place_index`](utility/in_place_index_t.md)   | 指定位置にある要素型のコンストラクタ引数を直接受け取って構築するためのタグ値 (constant variable) | C++17 |
 
 
-## 非型引数
+## 定数引数
 
 | 名前 | 説明 | 対応バージョン |
 |------|------|----------------|
-| [`nontype_t`](utility/nontype_t.md) | 非型引数を表現するためのタグ型 (class template) | C++26 |
-| [`nontype`](utility/nontype_t.md)   | 非型引数を表現するためのタグ値 (variable template) | C++26 |
+| [`constant_arg_t`](utility/constant_arg_t.md) | 定数引数を表現するためのタグ型 (class template) | C++26 |
+| [`constant_arg`](utility/constant_arg_t.md)   | 定数引数を表現するためのタグ値 (variable template) | C++26 |
 
 
 ## コンパイル時の整数シーケンス

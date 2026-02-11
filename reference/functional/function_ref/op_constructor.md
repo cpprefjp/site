@@ -12,15 +12,15 @@ template<class F>
 constexpr function_ref(F&& f) noexcept;  // (2)
 
 template<auto f>
-constexpr function_ref(nontype_t<f>) noexcept;  // (3)
+constexpr function_ref(constant_arg_t<f>) noexcept;  // (3)
 template<auto f, class U>
-constexpr function_ref(nontype_t<f>, U&& obj) noexcept;  // (4)
+constexpr function_ref(constant_arg_t<f>, U&& obj) noexcept;  // (4)
 template<auto f, class T>
-constexpr function_ref(nontype_t<f>, /*cv*/ T* obj) noexcept;  // (5)
+constexpr function_ref(constant_arg_t<f>, /*cv*/ T* obj) noexcept;  // (5)
 
 constexpr function_ref(const function_ref&) noexcept = default;  // (6)
 ```
-* nontype_t[link /reference/utility/nontype_t.md]
+* constant_arg_t[link /reference/utility/constant_arg_t.md]
 
 ## 概要
 `function_ref`オブジェクトを構築する。
@@ -113,16 +113,16 @@ int main()
   }
   // (3) メンバ関数
   {
-    std::function_ref<int(X&, int)> f3 = std::nontype<&X::ident>;
+    std::function_ref<int(X&, int)> f3 = std::constant_arg<&X::ident>;
     X obj;
     std::cout << "(3) : " << f3(obj, 3) << std::endl;
   }
   // (4), (5) メンバ関数＋オブジェクト束縛
   {
     X obj;
-    std::function_ref<int(int)> f4{std::nontype<&X::ident>, obj};
+    std::function_ref<int(int)> f4{std::constant_arg<&X::ident>, obj};
     std::cout << "(4) : " << f4(4) << std::endl;
-    std::function_ref<int(int)> f5{std::nontype<&X::ident>, &obj};
+    std::function_ref<int(int)> f5{std::constant_arg<&X::ident>, &obj};
     std::cout << "(5) : " << f5(5) << std::endl;
   }
   // (6) コピーコンストラクタ
@@ -133,7 +133,7 @@ int main()
   }
 }
 ```
-* std::nontype[link /reference/utility/nontype_t.md]
+* std::constant_arg[link /reference/utility/constant_arg_t.md]
 
 ### 出力
 ```
@@ -159,3 +159,4 @@ int main()
 
 ## 参照
 - [P0792R14 `function_ref`: a type-erased callable reference](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/p0792r14.html)
+- [P3774R1 Rename `std::nontype`, and make it broadly useful](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3774r1.html)
