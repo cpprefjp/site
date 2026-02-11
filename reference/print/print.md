@@ -48,7 +48,7 @@ namespace std {
         vprint_unicode(stream, fmt.get(), make_format_args(std::forward<Args>(args)...));
         ```
         * vprint_unicode[link vprint_unicode.md]
-        * fmt.get()[link /reference/format/format_string/get.md.nolink]
+        * fmt.get()[link /reference/format/basic_format_string/get.md]
         * make_format_args[link /reference/format/make_format_args.md]
 
         - そうでなければ、以下と等価：
@@ -56,7 +56,7 @@ namespace std {
         vprint_nonunicode(stream, fmt.get(), make_format_args(std::forward<Args>(args)...));
         ```
         * vprint_nonunicode[link vprint_nonunicode.md]
-        * fmt.get()[link /reference/format/format_string/get.md.nolink]
+        * fmt.get()[link /reference/format/basic_format_string/get.md]
         * make_format_args[link /reference/format/make_format_args.md]
 
     - C++26 :
@@ -69,7 +69,7 @@ namespace std {
         ```
         * vprint_unicode[link vprint_unicode.md]
         * vprint_unicode_buffered[link vprint_unicode_buffered.md]
-        * fmt.get()[link /reference/format/format_string/get.md.nolink]
+        * fmt.get()[link /reference/format/basic_format_string/get.md]
         * make_format_args[link /reference/format/make_format_args.md]
 
         - そうでなければ、以下と等価：
@@ -80,7 +80,7 @@ namespace std {
         ```
         * vprint_nonunicode[link vprint_nonunicode.md]
         * vprint_nonunicode_buffered[link vprint_nonunicode_buffered.md]
-        * fmt.get()[link /reference/format/format_string/get.md.nolink]
+        * fmt.get()[link /reference/format/basic_format_string/get.md]
         * make_format_args[link /reference/format/make_format_args.md]
 
 
