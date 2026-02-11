@@ -5,7 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-basic_istream<CharT, Traits>& ignore(streamsize n = 1, int_type delim = Traits::eof());
+basic_istream& ignore(streamsize n = 1, int_type delim = Traits::eof());  // (1)
+
+basic_istream& ignore(streamsize n, char_type delim);  // (2) C++26
 ```
 
 ## 概要
@@ -19,15 +21,22 @@ basic_istream<CharT, Traits>& ignore(streamsize n = 1, int_type delim = Traits::
 - 2番目の仮引数`delim`を与えると、その文字が現れるまで入力して捨てる処理を実行する。この指定が不要なら、`Traits::eof()`を実引数に与える。
 
 ## 効果
+(1) : 下記の動作を行う。
 
 1. `sentry`オブジェクトを構築する。`sentry`オブジェクトが失敗を示した場合、何もしない。
-1. 以下のいずれかを満たすまで、`this`内のストリームバッファから文字を入力する（どこへも出力することなく捨てる）。
+2. 以下のいずれかを満たすまで、`this`内のストリームバッファから文字を入力する（どこへも出力することなく捨てる）。
     - 実引数で指定された`n`文字まで入力した。
         - `n == numeric_limits<streamsize>::max()`の場合、この条件は適用されない。
     - EOFに達した。この場合、`setstate(eofbit)`を呼び出す。
     - 次に入力する文字が`delim`である。
         - 次の文字を`c`として、`Traits::eq_int_type(Traits::to_int_type(c), delim)`が真の場合。
         - `delim`が`Traits::eof()`である場合、この条件は適用されない。
+
+(2) : 下記と等価
+```cpp
+return ignore(n, traits::to_int_type(delim));
+```
+
 
 ## 戻り値
 `*this`
@@ -71,3 +80,5 @@ TBD
 - C++98
 
 ## 参照
+- [P3223R2 Making std::istream::ignore less surprising](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3223r2.html)
+    - C++26からオーバーロード(2)が追加された
