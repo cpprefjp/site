@@ -108,7 +108,6 @@ int main()
 ```
 * pword[color ff0000]
 * xalloc()[link xalloc.md]
-* std::ostream[link ../../ostream/basic_ostream.md]
 * std::stringstream[link ../../sstream/basic_stringstream.md]
 * std::ios_base[link ../ios_base.md]
 * bad()[link ../basic_ios/bad.md]

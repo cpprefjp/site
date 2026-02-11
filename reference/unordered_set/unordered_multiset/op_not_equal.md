@@ -75,7 +75,6 @@ int main()
   std::cout << "ums1 != ums3:" << (ums1 != ums3) << std::endl;
 }
 ```
-* std::ostream[link /reference/ostream/basic_ostream.md]
 
 ### 出力例
 ```

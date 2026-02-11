@@ -57,7 +57,6 @@ int main()
 }
 ```
 * load_factor()[color ff0000]
-* std::ostream[link /reference/ostream/basic_ostream.md]
 * c.begin()[link begin.md]
 * c.end()[link end.md]
 * c.size()[link size.md]

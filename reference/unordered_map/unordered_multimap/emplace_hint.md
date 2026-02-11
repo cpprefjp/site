@@ -120,7 +120,6 @@ int main()
 }
 ```
 * emplace_hint[color ff0000]
-* std::ostream[link /reference/ostream/basic_ostream.md]
 * um.cbegin[link cbegin.md]
 * um.cend[link cend.md]
 * um.equal_range[link equal_range.md]

@@ -134,7 +134,7 @@ int main()
 ```
 * emplace_hint[color ff0000]
 * hash[link /reference/functional/hash.md]
-* std::ostream[link /reference/ostream/basic_ostream.md]
+
 * ums.cbegin()[link cbegin.md]
 * ums.cend()[link cend.md]
 * ums.equal_range[link equal_range.md]

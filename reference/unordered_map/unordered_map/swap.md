@@ -79,7 +79,6 @@ int main()
 }
 ```
 * swap[color ff0000]
-* std::ostream[link /reference/ostream.md]
 * c.cbegin()[link cbegin.md]
 * c.cend()[link cend.md]
 

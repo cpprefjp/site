@@ -73,7 +73,6 @@ int main()
   std::cout << "us1 != us3:" << (us1 != us3) << std::endl;
 }
 ```
-* std::ostream[link /reference/ostream/basic_ostream.md]
 
 ### 出力例
 ```

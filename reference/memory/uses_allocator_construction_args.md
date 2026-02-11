@@ -285,7 +285,6 @@ int main()
 ```
 * uses_allocator_construction_args[color ff0000]
 * std::allocator_arg_t[link allocator_arg_t.md]
-* std::ostream[link ../ostream/basic_ostream.md]
 * std::piecewise_construct_t[link ../utility/piecewise_construct_t.md]
 * std::apply[link ../tuple/apply.md]
 

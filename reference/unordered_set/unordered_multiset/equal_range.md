@@ -78,7 +78,6 @@ int main()
 }
 ```
 * equal_range[color ff0000]
-* std::ostream[link /reference/ostream.md]
 * ums.begin()[link begin.md]
 * ums.end()[link end.md]
 * first[link /reference/utility/pair/first.md]

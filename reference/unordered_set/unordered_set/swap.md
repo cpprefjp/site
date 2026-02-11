@@ -78,7 +78,6 @@ int main()
 }
 ```
 * swap[color ff0000]
-* std::ostream[link /reference/ostream/basic_ostream.md]
 
 ### 出力例
 ```

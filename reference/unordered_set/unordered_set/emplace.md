@@ -129,7 +129,6 @@ int main()
 ```
 * emplace[color ff0000]
 * hash[link /reference/functional/hash.md]
-* std::ostream[link /reference/ostream/basic_ostream.md]
 * us.insert[link insert.md]
 * us.cbegin()[link cbegin.md]
 * us.cend()[link cend.md]

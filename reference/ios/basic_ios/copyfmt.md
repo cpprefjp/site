@@ -58,7 +58,6 @@ int main()
 ```
 * copyfmt[color ff0000]
 * NULL[link ../../cstddef/null.md]
-* std::ostream[link ../../ostream/basic_ostream.md]
 * std::hex[link ../hex.md]
 * std::showbase[link ../showbase.md]
 * std::internal[link ../internal.md]

@@ -256,7 +256,6 @@ int main()
 }
 ```
 * std::unordered_map[color ff0000]
-* std::ostream[link /reference/ostream/basic_ostream.md]
 * um.at[link unordered_map/at.md]
 * um.emplace[link unordered_map/emplace.md]
 * um.erase[link unordered_map/erase.md]

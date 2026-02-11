@@ -242,6 +242,7 @@
     * std::optional[link /reference/optional/optional.md]
 * <ostream>[link /reference/ostream.md]
     * std::basic_ostream[link /reference/ostream/basic_ostream.md]
+    * std::ostream[link /reference/ostream/basic_ostream.md]
     * std::endl[link /reference/ostream/endl.md]
 * <print>[link /reference/print.md]
     * std::println[link /reference/print/println.md]

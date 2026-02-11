@@ -240,7 +240,6 @@ int main()
 }
 ```
 * std::unordered_set[color ff0000]
-* std::ostream[link /reference/ostream.md]
 * us.emplace[link unordered_set/emplace.md]
 * us.erase[link unordered_set/erase.md]
 

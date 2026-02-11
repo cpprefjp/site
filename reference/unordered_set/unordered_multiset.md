@@ -232,7 +232,6 @@ int main()
 }
 ```
 * std::unordered_multiset[color ff0000]
-* std::ostream[link /reference/ostream.md]
 * ums.insert[link unordered_multiset/insert.md]
 * ums.erase[link unordered_multiset/erase.md]
 

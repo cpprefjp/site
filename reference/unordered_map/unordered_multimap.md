@@ -239,7 +239,6 @@ int main()
 }
 ```
 * std::unordered_multimap[color ff0000]
-* std::ostream[link /reference/ostream/basic_ostream.md]
 * um.emplace[link unordered_multimap/emplace.md]
 * um.insert[link unordered_multimap/insert.md]
 * um.erase[link unordered_multimap/erase.md]

@@ -116,7 +116,6 @@ int main()
 }
 ```
 * erase[color ff0000]
-* std::ostream[link /reference/ostream/basic_ostream.md]
 * us.cbegin()[link cbegin.md]
 
 ### 出力例
