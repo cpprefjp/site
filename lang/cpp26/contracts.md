@@ -413,7 +413,6 @@ void handle_contract_violation(const std::contracts::contract_violation& violati
 - **検出モード** (`detection_mode`): 契約違反がどのように検出されたか（述語が`false`に評価されたか、例外が発生したか）
 - **ソースロケーション** (`location`): 違反した契約アサーションのソースファイル名、行番号、関数名
 - **終了判定** (`is_terminating`): この違反後にプログラムが終了するかどうか
-- **評価例外** (`evaluation_exception`): 述語の評価中に例外が発生した場合、その例外オブジェクトへのアクセス
 
 #### ハンドラの動作
 契約違反が識別されると、`observe`または`enforce`セマンティクスの場合、契約違反ハンドラが呼び出される：

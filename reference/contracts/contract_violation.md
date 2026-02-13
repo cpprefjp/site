@@ -6,16 +6,7 @@
 
 ```cpp
 namespace std::contracts {
-  class contract_violation {
-  public:
-    const char* comment() const noexcept;
-    contracts::detection_mode detection_mode() const noexcept;
-    exception_ptr evaluation_exception() const noexcept;
-    bool is_terminating() const noexcept;
-    assertion_kind kind() const noexcept;
-    source_location location() const noexcept;
-    evaluation_semantic semantic() const noexcept;
-  };
+  class contract_violation;
 }
 ```
 
@@ -28,11 +19,21 @@ namespace std::contracts {
 | ---- | ---- | ---- |
 | [`comment`](contract_violation/comment.md) | 契約違反の詳細を記録したchar列を返す | C++26 |
 | [`detection_mode`](contract_violation/detection_mode.md) | 契約違反が特定された方法を返す | C++26 |
-| [`evaluation_exception`](contract_violation/evaluation_exception.md) | 契約が例外を飛ばしたことによって終了した場合の例外へのポインタ | C++26 |
 | [`is_terminating`](contract_violation/is_terminating.md) | 契約違反によってプログラムがターミネートされるかを返す | C++26|
 | [`kind`](contract_violation/kind.md) | 違反した契約の種類 | C++26|
 | [`location`](contract_violation/location.md) | 契約違反が発生したソースコードの位置 | C++26|
 | [`semantic`](contract_violation/semantic.md) | 契約の評価方法 | C++26|
 
+## バージョン
+### 言語
+- C++26
+
+### 処理系
+- [Clang](/implementation.md#clang): ??
+- [GCC](/implementation.md#gcc): ??
+- [Visual C++](/implementation.md#visual_cpp): ??
+
 ## 参照
 - [Contracts for C++](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2900r14.pdf)
+- [P3819R0 Remove `evaluation_exception()` from contract-violation handling](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3819r0.pdf)
+    - 導入予定だった`evaluation_exception()`メンバ関数を削除する提案
