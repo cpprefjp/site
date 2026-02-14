@@ -28,7 +28,7 @@ namespace std {
 #include <cstdio>
 
 int main() {
-    std::FILE *file=std::fopen("example.txt", "w");
+    std::FILE *file = std::fopen("example.txt", "w");
     if (file == nullptr) {
         std::perror("Failed to open file");
         return 1;
