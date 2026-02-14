@@ -1,0 +1,467 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>zoned_time::コンストラクタ - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,chrono,std::chrono,zoned_time,function,cpp20
+">
+        <meta name="title" content="zoned_time::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="zoned_time::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="zoned_time::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/chrono/zoned_time/op_constructor.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="- (1) : デフォルトコンストラクタ。デフォルト構築したシステム時間とデフォルトのタイムゾーン (UTC) を保持する" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="zoned_time::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/chrono/zoned_time/op_constructor.html" />
+        <meta name="twitter:description" content="- (1) : デフォルトコンストラクタ。デフォルト構築したシステム時間とデフォルトのタイムゾーン (UTC) を保持する" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="manifest" href="../../../manifest.json?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;chrono&#34;], &#34;namespace&#34;: [&#34;std::chrono&#34;], &#34;class&#34;: [&#34;zoned_time&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp20&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;57746def17e8a7467f027af530cf5b400d84dd91&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;iostream&gt;\n#include &lt;chrono&gt;\n\nnamespace chrono = std::chrono;\n\nint main()\n{\n  auto now = chrono::system_clock::now();\n  auto now_sec = chrono::floor&lt;chrono::seconds&gt;(now);\n  chrono::local_time local_now{now.time_since_epoch()};\n  chrono::local_time local_jst_now = local_now + chrono::hours{9};\n\n  // \u30c7\u30d5\u30a9\u30eb\u30c8\u69cb\u7bc9\n  chrono::zoned_time&lt;chrono::seconds&gt; zt1{};\n  assert(zt1.get_time_zone() == chrono::locate_zone(\&#34;UTC\&#34;));\n\n  // \u30b3\u30d4\u30fc\u69cb\u7bc9\n  chrono::zoned_time zt2 = zt1;\n  assert(zt1.get_time_zone() == zt2.get_time_zone());\n  assert(zt1.get_sys_time() == zt2.get_sys_time());\n\n  // \u30c7\u30d5\u30a9\u30eb\u30c8\u306e\u30bf\u30a4\u30e0\u30be\u30fc\u30f3 (UTC) \u3068\u30b7\u30b9\u30c6\u30e0\u6642\u9593\u304b\u3089\u69cb\u7bc9\n  chrono::zoned_time zt3{now};\n  assert(zt3.get_time_zone() == chrono::locate_zone(\&#34;UTC\&#34;));\n  assert(zt3.get_sys_time() == now);\n  assert(zt3.get_local_time() == local_now);\n  std::cout &lt;&lt; \&#34;(3) : \&#34; &lt;&lt; zt3 &lt;&lt; std::endl;\n\n  // \u30bf\u30a4\u30e0\u30be\u30fc\u30f3\u306e\u307f\u6307\u5b9a\u3057\u3066\u69cb\u7bc9\u3002\u6642\u9593\u306f\u3042\u3068\u3067\u4ee3\u5165\u3067\u304d\u308b\n  chrono::zoned_time&lt;chrono::seconds&gt; zt4{chrono::locate_zone(\&#34;Asia/Tokyo\&#34;)};\n  chrono::zoned_time&lt;chrono::seconds&gt; zt5{\&#34;Asia/Tokyo\&#34;};\n  assert(zt4.get_time_zone() == zt5.get_time_zone());\n  zt4 = now_sec;\n  assert(zt4.get_sys_time() == now_sec);\n\n  // \u6642\u9593\u9593\u9694\u306e\u5358\u4f4d\u3092\u5909\u63db (\u7cbe\u5ea6\u3092\u640d\u306a\u308f\u306a\u3044\u5909\u63db\u306e\u307f)\n  chrono::zoned_time&lt;chrono::seconds&gt; zt6_sec{\&#34;Asia/Tokyo\&#34;, now_sec};\n  chrono::zoned_time&lt;chrono::milliseconds&gt; zt6_ms = zt6_sec;\n  assert(zt6_ms.get_time_zone() == zt6_sec.get_time_zone());\n  assert(chrono::floor&lt;chrono::seconds&gt;(zt6_ms.get_sys_time()) == zt6_sec.get_sys_time());\n\n  // \u30bf\u30a4\u30e0\u30be\u30fc\u30f3\u3068\u30b7\u30b9\u30c6\u30e0\u6642\u9593\u3092\u6307\u5b9a\u3057\u3066\u69cb\u7bc9\n  chrono::zoned_time zt7{chrono::locate_zone(\&#34;Asia/Tokyo\&#34;), now};\n  chrono::zoned_time zt8{\&#34;Asia/Tokyo\&#34;, now};\n  assert(zt7.get_time_zone() == chrono::locate_zone(\&#34;Asia/Tokyo\&#34;));\n  assert(zt8.get_time_zone() == chrono::locate_zone(\&#34;Asia/Tokyo\&#34;));\n  assert(zt7.get_sys_time() == now);\n  assert(zt8.get_sys_time() == now);\n  assert(zt7.get_local_time() == local_jst_now);\n  assert(zt8.get_local_time() == local_jst_now);\n  std::cout &lt;&lt; \&#34;(7) : \&#34; &lt;&lt; zt7 &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;(8) : \&#34; &lt;&lt; zt8 &lt;&lt; std::endl;\n\n  // \u30bf\u30a4\u30e0\u30be\u30fc\u30f3\u3068\u30ed\u30fc\u30ab\u30eb\u6642\u9593\u3092\u6307\u5b9a\u3057\u3066\u69cb\u7bc9\n  chrono::zoned_time zt9{chrono::locate_zone(\&#34;Asia/Tokyo\&#34;), local_jst_now};\n  chrono::zoned_time zt10{\&#34;Asia/Tokyo\&#34;, local_jst_now};\n  assert(zt9.get_time_zone() == chrono::locate_zone(\&#34;Asia/Tokyo\&#34;));\n  assert(zt10.get_time_zone() == chrono::locate_zone(\&#34;Asia/Tokyo\&#34;));\n  assert(zt9.get_sys_time() == now);\n  assert(zt10.get_sys_time() == now);\n  assert(zt9.get_local_time() == local_jst_now);\n  assert(zt10.get_local_time() == local_jst_now);\n  std::cout &lt;&lt; \&#34;(9) : \&#34; &lt;&lt; zt9 &lt;&lt; std::endl;\n  std::cout &lt;&lt; \&#34;(10) : \&#34; &lt;&lt; zt10 &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;chrono&#34;, &#34;zoned_time&#34;, &#34;op_constructor&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/chrono.html" itemprop="url">
+              
+                <span itemprop="name">chrono</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/chrono/zoned_time.html" itemprop="url">
+              
+                <span itemprop="name">zoned_time</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">コンストラクタ</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-09-26T14:17:05">
+        2025年09月26日 14時17分05秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Raclamusi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/chrono/zoned_time/op_constructor.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/chrono/zoned_time/op_constructor.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;chrono&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::chrono">std::chrono::</span><span class="class" title="class zoned_time">zoned_time::</span><span class="token">コンストラクタ</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">zoned_time</span><span class="p">();</span>                                                           <span class="c1">// (1) C++20</span>
+<span class="n">zoned_time</span><span class="p">(</span><span class="k">const</span> <span class="n">zoned_time</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>                                <span class="c1">// (2) C++20</span>
+
+<span class="n">zoned_time</span><span class="p">(</span><span class="k">const</span> <span class="n"><a href="../sys_time.html">sys_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;&amp;</span> <span class="n">st</span><span class="p">);</span>                               <span class="c1">// (3) C++20</span>
+
+<span class="k">explicit</span> <span class="nf">zoned_time</span><span class="p">(</span><span class="n">TimeZonePtr</span> <span class="n">z</span><span class="p">);</span>                                     <span class="c1">// (4) C++20</span>
+<span class="k">explicit</span> <span class="nf">zoned_time</span><span class="p">(</span><span class="n"><a href="../../string_view/basic_string_view.html">string_view</a></span> <span class="n">name</span><span class="p">);</span>                                  <span class="c1">// (5) C++20</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Duration2</span><span class="o">&gt;</span>
+<span class="n">zoned_time</span><span class="p">(</span><span class="k">const</span> <span class="n">zoned_time</span><span class="o">&lt;</span><span class="n">Duration2</span><span class="p">,</span> <span class="n">TimeZonePtr</span><span class="o">&gt;&amp;</span> <span class="n">zt</span><span class="p">);</span>               <span class="c1">// (6) C++20</span>
+
+<span class="n">zoned_time</span><span class="p">(</span><span class="n">TimeZonePtr</span> <span class="n">z</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../sys_time.html">sys_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;&amp;</span> <span class="n">st</span><span class="p">);</span>                <span class="c1">// (7) C++20</span>
+<span class="n">zoned_time</span><span class="p">(</span><span class="n"><a href="../../string_view/basic_string_view.html">string_view</a></span> <span class="n">name</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../sys_time.html">sys_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;&amp;</span> <span class="n">st</span><span class="p">);</span>             <span class="c1">// (8) C++20</span>
+
+<span class="n">zoned_time</span><span class="p">(</span><span class="n">TimeZonePtr</span> <span class="n">z</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../local_time.html">local_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;&amp;</span> <span class="n">tp</span><span class="p">);</span>              <span class="c1">// (9) C++20</span>
+<span class="n">zoned_time</span><span class="p">(</span><span class="n"><a href="../../string_view/basic_string_view.html">string_view</a></span> <span class="n">name</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../local_time.html">local_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;&amp;</span> <span class="n">tp</span><span class="p">);</span>           <span class="c1">// (10) C++20</span>
+<span class="n">zoned_time</span><span class="p">(</span><span class="n">TimeZonePtr</span> <span class="n">z</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../local_time.html">local_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;&amp;</span> <span class="n">tp</span><span class="p">,</span> <span class="n"><a href="../choose.html">choose</a></span> <span class="n">c</span><span class="p">);</span>    <span class="c1">// (11) C++20</span>
+<span class="n">zoned_time</span><span class="p">(</span><span class="n"><a href="../../string_view/basic_string_view.html">string_view</a></span> <span class="n">name</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../local_time.html">local_time</a></span><span class="o">&lt;</span><span class="n">Duration</span><span class="o">&gt;&amp;</span> <span class="n">tp</span><span class="p">,</span> <span class="n"><a href="../choose.html">choose</a></span> <span class="n">c</span><span class="p">);</span> <span class="c1">// (12) C++20</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Duration2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">TimeZonePtr2</span><span class="o">&gt;</span>
+<span class="n">zoned_time</span><span class="p">(</span><span class="n">TimeZonePtr</span> <span class="n">z</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">zoned_time</span><span class="o">&lt;</span><span class="n">Duration2</span><span class="p">,</span> <span class="n">TimeZonePtr2</span><span class="o">&gt;&amp;</span> <span class="n">zt</span><span class="p">);</span>              <span class="c1">// (13) C++20</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Duration2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">TimeZonePtr2</span><span class="o">&gt;</span>
+<span class="n">zoned_time</span><span class="p">(</span><span class="n">TimeZonePtr</span> <span class="n">z</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">zoned_time</span><span class="o">&lt;</span><span class="n">Duration2</span><span class="p">,</span> <span class="n">TimeZonePtr2</span><span class="o">&gt;&amp;</span> <span class="n">zt</span><span class="p">,</span>
+           <span class="n"><a href="../choose.html">choose</a></span> <span class="n">c</span><span class="p">);</span>                                                   <span class="c1">// (14) C++20</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Duration2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">TimeZonePtr2</span><span class="o">&gt;</span>
+<span class="n">zoned_time</span><span class="p">(</span><span class="n"><a href="../../string_view/basic_string_view.html">string_view</a></span> <span class="n">name</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">zoned_time</span><span class="o">&lt;</span><span class="n">Duration2</span><span class="p">,</span> <span class="n">TimeZonePtr2</span><span class="o">&gt;&amp;</span> <span class="n">zt</span><span class="p">);</span>              <span class="c1">// (15) C++20</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Duration2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">TimeZonePtr2</span><span class="o">&gt;</span>
+<span class="n">zoned_time</span><span class="p">(</span><span class="n"><a href="../../string_view/basic_string_view.html">string_view</a></span> <span class="n">name</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">zoned_time</span><span class="o">&lt;</span><span class="n">Duration2</span><span class="p">,</span> <span class="n">TimeZonePtr2</span><span class="o">&gt;&amp;</span> <span class="n">zt</span><span class="p">,</span>
+           <span class="n"><a href="../choose.html">choose</a></span> <span class="n">c</span><span class="p">);</span>                                                   <span class="c1">// (16) C++20</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<ul>
+<li>(1) : デフォルトコンストラクタ。<a class="cpprefjp-defined-word" data-desc="デフォルト初期化。`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト構築</a>したシステム時間とデフォルトのタイムゾーン (UTC) を保持する</li>
+<li>(2) : コピーコンストラクタ</li>
+<li>(3) : システム時間とデフォルトのタイムゾーン (UTC) を保持する</li>
+<li>(4) : 指定したタイムゾーンを参照する</li>
+<li>(5) : 指定した名前のタイムゾーンを参照する</li>
+<li>(6) : 異なる時間間隔をもつ<code>zoned_time</code>から変換する</li>
+<li>(7) : タイムゾーンとシステム時間を保持する</li>
+<li>(8) : 指定した名前のタイムゾーンとシステム時間を保持する</li>
+<li>(9) : タイムゾーンと、ローカル時間をシステム時間に変換して保持する</li>
+<li>(10) : 指定した名前のタイムゾーンと、ローカル時間をシステム時間に変換して保持する</li>
+<li>(11) : タイムゾーンと、ローカル時間をシステム時間に変換して保持する。変換時の丸め方向は指定したものを使用する</li>
+<li>(12) : 指定した名前のタイムゾーンと、ローカル時間をシステム時間に変換して保持する。変換時の丸め方向は指定したものを使用する</li>
+<li>(13) : タイムゾーン<code>z</code>と<code>zt</code>がもつ<code><a href="../sys_time.html">sys_time</a></code>型の時間点を保持する</li>
+<li>(14) : (13)と等価。丸めオプションは使われない</li>
+<li>(15) : 指定した名前のタイムゾーンと、<code>zt</code>がもつ<code><a href="../sys_time.html">sys_time</a></code>型の時間点を保持する</li>
+<li>(16) : (15)と等価。丸めオプションは使われない</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
+<ul>
+<li>(1), (3) :<ul>
+<li>式<code>traits::default_zone()</code>が妥当であること</li>
+</ul>
+</li>
+<li>(5) :<ul>
+<li>式<code>traits::locate_zone(<a href="../../string_view/basic_string_view.html">string_view</a>{})</code>が有効であること</li>
+<li>その<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を引数にして<code>zoned_time</code>オブジェクトが構築可能であること</li>
+</ul>
+</li>
+<li>(6), (13), (14) :<ul>
+<li><code><a href="../sys_time.html">sys_time</a>&lt;Duration2&gt;</code>が<code><a href="../sys_time.html">sys_time</a>&lt;Duration&gt;</code>に暗黙変換可能であること</li>
+</ul>
+</li>
+<li>(8), (10) :<ul>
+<li><code>traits::locate_zone(name)</code>と<code>tp</code>を引数にして<code>zoned_time</code>オブジェクトが構築可能であること</li>
+</ul>
+</li>
+<li>(9) :<ul>
+<li>型<code>decltype(declval&lt;TimeZonePtr&amp;&gt;()-&gt;<a href="../time_zone/to_sys.html">to_sys</a>(<a href="../local_time.html">local_time</a>&lt;Duration&gt;{}))</code>が<code><a href="../sys_time.html">sys_time</a>&lt;duration&gt;</code>に変換可能であること</li>
+</ul>
+</li>
+<li>(11) :<ul>
+<li>型<code>decltype(declval&lt;TimeZonePtr&amp;&gt;()-&gt;<a href="../time_zone/to_sys.html">to_sys</a>(<a href="../local_time.html">local_time</a>&lt;Duration&gt;{}, <a href="../choose.html">choose::earliest</a>))</code>が<code><a href="../sys_time.html">sys_time</a>&lt;duration&gt;</code>に変換可能であること</li>
+</ul>
+</li>
+<li>(12) :<ul>
+<li><code>traits::locate_zone(name)</code>、<code>tp</code>、<code>c</code>を引数にして<code>zoned_time</code>オブジェクトが構築可能であること</li>
+</ul>
+</li>
+<li>(15) :<ul>
+<li><code>traits::locate_zone(name)</code>と<code>zt</code>を引数にして<code>zoned_time</code>オブジェクトが構築可能であること</li>
+</ul>
+</li>
+<li>(16) :<ul>
+<li><code>traits::locate_zone(name)</code>、<code>zt</code>、<code>c</code>を引数にして<code>zoned_time</code>オブジェクトが構築可能であること</li>
+</ul>
+</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a></h2>
+<ul>
+<li>(4), (7), (9), (11), (13), (14) : <code>z</code>が有効なタイムゾーンを参照していること</li>
+</ul>
+<h2>効果</h2>
+<ul>
+<li>(1) : <code><a href="../zoned_traits/default_zone.html">traits::default_zone()</a></code>によって得られたタイムゾーンオブジェクトへのポインタと、<a class="cpprefjp-defined-word" data-desc="デフォルト初期化。`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト構築</a>した<code><a href="../sys_time.html">sys_time</a>&lt;Duration&gt;</code>オブジェクトをメンバ変数として保持する</li>
+<li>(3) : <code><a href="../zoned_traits/default_zone.html">traits::default_zone()</a></code>によって得られた<code><a href="../time_zone.html">time_zone</a></code>オブジェクトへのポインタと<code>st</code>を、メンバ変数として保持する</li>
+<li>(4) : <code><a href="../../utility/move.html">std::move</a>(z)</code>をタイムゾーンオブジェクトへのポインタとしてメンバ変数に保持し、時間点を<a class="cpprefjp-defined-word" data-desc="デフォルト初期化。`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト構築</a>する</li>
+<li>(5) : <code><a href="../zoned_traits/locate_zone.html">traits::locate_zone</a>(name)</code>と、<a class="cpprefjp-defined-word" data-desc="デフォルト初期化。`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト構築</a>した<code><a href="../sys_time.html">sys_time</a>&lt;Duration&gt;</code>オブジェクトをメンバ変数として保持する</li>
+<li>(6) : <code>zt</code>がもつタイムゾーンオブジェクトへのポインタと時間点をメンバ変数として保持する</li>
+<li>(7) : タイムゾーンオブジェクトへのポインタ<code><a href="../../utility/move.html">std::move</a>(z)</code>、および時間点<code>st</code>をメンバ変数に保持する</li>
+<li>(8) : タイムゾーンオブジェクトへのポインタ<code><a href="../zoned_traits/locate_zone.html">traits::locate_zone</a>(name)</code>、および時間点<code>st</code>をメンバ変数として保持する</li>
+<li>(9) : タイムゾーンオブジェクトへのポインタ<code><a href="../../utility/move.html">std::move</a>(z)</code>、および時間点<code>zone-&gt;<a href="../time_zone/to_sys.html">to_sys</a>(tp)</code>をメンバ変数に保持する</li>
+<li>(10) : 式<code>{<a href="../zoned_traits/locate_zone.html">traits::locate_zone</a>(name), tp}</code>で(9)を呼び出すことと等価</li>
+<li>(11) : タイムゾーンオブジェクトへのポインタ<code><a href="../../utility/move.html">std::move</a>(z)</code>、および時間点<code>zone-&gt;<a href="../time_zone/to_sys.html">to_sys</a>(tp, c)</code>をメンバ変数に保持する</li>
+<li>(12) : 式<code>{<a href="../zoned_traits/locate_zone.html">traits::locate_zone</a>(name), tp, c}</code>で(11)を呼び出すことと等価</li>
+<li>(13) : タイムゾーンオブジェクトへのポインタ<code><a href="../../utility/move.html">std::move</a>(z)</code>、および<code>zt</code>がもつ時間点をメンバ変数に保持する</li>
+<li>(14) : 式<code>{z, zt}</code>で(13)を呼び出すことと等価。<code>c</code>は使われない</li>
+<li>(15) : 式<code>{<a href="../zoned_traits/locate_zone.html">traits::locate_zone</a>(name), zt}</code>で(13)を呼び出すことと等価</li>
+<li>(16) : 式<code>{<a href="../zoned_traits/locate_zone.html">traits::locate_zone</a>(name), zt, c}</code>で(14)を呼び出すことと等価</li>
+</ul>
+<h2>備考</h2>
+<ul>
+<li><code><a href="../local_time.html">local_time</a></code>型のローカル時間を受け取るコンストラクタでは、<code><a href="../sys_time.html">sys_time</a></code>型のシステム時間への変換が行われ、システム時間としてメンバ変数に保持される</li>
+<li>(9), (10) : ローカル時間からシステム時間への変換があいまいになる場合、早い時間側の候補に変換される</li>
+</ul>
+<h3>例</h3>
+<p><div class="yata" id="57746def17e8a7467f027af530cf5b400d84dd91"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../chrono.html">&lt;chrono&gt;</a></span><span class="cp"></span>
+
+<span class="k">namespace</span> <span class="n">chrono</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">auto</span> <span class="n">now</span> <span class="o">=</span> <span class="n"><a href="../system_clock.html">chrono::system_clock</a></span><span class="o">::</span><span class="n"><a href="../system_clock/now.html">now()</a></span><span class="p">;</span>
+  <span class="k">auto</span> <span class="n">now_sec</span> <span class="o">=</span> <span class="n"><a href="../time_point/floor.html">chrono::floor</a></span><span class="o">&lt;</span><span class="n"><a href="../duration_aliases.html">chrono::seconds</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">now</span><span class="p">);</span>
+  <span class="n"><a href="../local_time.html">chrono::local_time</a></span> <span class="n">local_now</span><span class="p">{</span><span class="n">now</span><span class="p">.</span><span class="n"><a href="../time_point/time_since_epoch.html">time_since_epoch()</a></span><span class="p">};</span>
+  <span class="n"><a href="../local_time.html">chrono::local_time</a></span> <span class="n">local_jst_now</span> <span class="o">=</span> <span class="n">local_now</span> <span class="o">+</span> <span class="n"><a href="../duration_aliases.html">chrono::hours</a></span><span class="p">{</span><span class="mi">9</span><span class="p">};</span>
+
+  <span class="c1">// デフォルト構築</span>
+  <span class="n">chrono</span><span class="o">::</span><span class="n">zoned_time</span><span class="o">&lt;</span><span class="n"><a href="../duration_aliases.html">chrono::seconds</a></span><span class="o">&gt;</span> <span class="n">zt1</span><span class="p">{};</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">zt1</span><span class="p">.</span><span class="n"><a href="get_time_zone.html">get_time_zone()</a></span> <span class="o">==</span> <span class="n"><a href="../locate_zone.html">chrono::locate_zone</a></span><span class="p">(</span><span class="s">"UTC"</span><span class="p">));</span>
+
+  <span class="c1">// コピー構築</span>
+  <span class="n">chrono</span><span class="o">::</span><span class="n">zoned_time</span> <span class="n">zt2</span> <span class="o">=</span> <span class="n">zt1</span><span class="p">;</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">zt1</span><span class="p">.</span><span class="n"><a href="get_time_zone.html">get_time_zone()</a></span> <span class="o">==</span> <span class="n">zt2</span><span class="p">.</span><span class="n"><a href="get_time_zone.html">get_time_zone()</a></span><span class="p">);</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">zt1</span><span class="p">.</span><span class="n"><a href="get_sys_time.html">get_sys_time()</a></span> <span class="o">==</span> <span class="n">zt2</span><span class="p">.</span><span class="n"><a href="get_sys_time.html">get_sys_time()</a></span><span class="p">);</span>
+
+  <span class="c1">// デフォルトのタイムゾーン (UTC) とシステム時間から構築</span>
+  <span class="n">chrono</span><span class="o">::</span><span class="n">zoned_time</span> <span class="n">zt3</span><span class="p">{</span><span class="n">now</span><span class="p">};</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">zt3</span><span class="p">.</span><span class="n"><a href="get_time_zone.html">get_time_zone()</a></span> <span class="o">==</span> <span class="n"><a href="../locate_zone.html">chrono::locate_zone</a></span><span class="p">(</span><span class="s">"UTC"</span><span class="p">));</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">zt3</span><span class="p">.</span><span class="n"><a href="get_sys_time.html">get_sys_time()</a></span> <span class="o">==</span> <span class="n">now</span><span class="p">);</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">zt3</span><span class="p">.</span><span class="n"><a href="get_local_time.html">get_local_time()</a></span> <span class="o">==</span> <span class="n">local_now</span><span class="p">);</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"(3) : "</span> <span class="o">&lt;&lt;</span> <span class="n">zt3</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// タイムゾーンのみ指定して構築。時間はあとで代入できる</span>
+  <span class="n">chrono</span><span class="o">::</span><span class="n">zoned_time</span><span class="o">&lt;</span><span class="n"><a href="../duration_aliases.html">chrono::seconds</a></span><span class="o">&gt;</span> <span class="n">zt4</span><span class="p">{</span><span class="n"><a href="../locate_zone.html">chrono::locate_zone</a></span><span class="p">(</span><span class="s">"Asia/Tokyo"</span><span class="p">)};</span>
+  <span class="n">chrono</span><span class="o">::</span><span class="n">zoned_time</span><span class="o">&lt;</span><span class="n"><a href="../duration_aliases.html">chrono::seconds</a></span><span class="o">&gt;</span> <span class="n">zt5</span><span class="p">{</span><span class="s">"Asia/Tokyo"</span><span class="p">};</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">zt4</span><span class="p">.</span><span class="n"><a href="get_time_zone.html">get_time_zone()</a></span> <span class="o">==</span> <span class="n">zt5</span><span class="p">.</span><span class="n"><a href="get_time_zone.html">get_time_zone()</a></span><span class="p">);</span>
+  <span class="n">zt4</span> <span class="o">=</span> <span class="n">now_sec</span><span class="p">;</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">zt4</span><span class="p">.</span><span class="n"><a href="get_sys_time.html">get_sys_time()</a></span> <span class="o">==</span> <span class="n">now_sec</span><span class="p">);</span>
+
+  <span class="c1">// 時間間隔の単位を変換 (精度を損なわない変換のみ)</span>
+  <span class="n">chrono</span><span class="o">::</span><span class="n">zoned_time</span><span class="o">&lt;</span><span class="n"><a href="../duration_aliases.html">chrono::seconds</a></span><span class="o">&gt;</span> <span class="n">zt6_sec</span><span class="p">{</span><span class="s">"Asia/Tokyo"</span><span class="p">,</span> <span class="n">now_sec</span><span class="p">};</span>
+  <span class="n">chrono</span><span class="o">::</span><span class="n">zoned_time</span><span class="o">&lt;</span><span class="n"><a href="../duration_aliases.html">chrono::milliseconds</a></span><span class="o">&gt;</span> <span class="n">zt6_ms</span> <span class="o">=</span> <span class="n">zt6_sec</span><span class="p">;</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">zt6_ms</span><span class="p">.</span><span class="n"><a href="get_time_zone.html">get_time_zone()</a></span> <span class="o">==</span> <span class="n">zt6_sec</span><span class="p">.</span><span class="n"><a href="get_time_zone.html">get_time_zone()</a></span><span class="p">);</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../time_point/floor.html">chrono::floor</a></span><span class="o">&lt;</span><span class="n"><a href="../duration_aliases.html">chrono::seconds</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">zt6_ms</span><span class="p">.</span><span class="n"><a href="get_sys_time.html">get_sys_time()</a></span><span class="p">)</span> <span class="o">==</span> <span class="n">zt6_sec</span><span class="p">.</span><span class="n"><a href="get_sys_time.html">get_sys_time()</a></span><span class="p">);</span>
+
+  <span class="c1">// タイムゾーンとシステム時間を指定して構築</span>
+  <span class="n">chrono</span><span class="o">::</span><span class="n">zoned_time</span> <span class="n">zt7</span><span class="p">{</span><span class="n"><a href="../locate_zone.html">chrono::locate_zone</a></span><span class="p">(</span><span class="s">"Asia/Tokyo"</span><span class="p">),</span> <span class="n">now</span><span class="p">};</span>
+  <span class="n">chrono</span><span class="o">::</span><span class="n">zoned_time</span> <span class="n">zt8</span><span class="p">{</span><span class="s">"Asia/Tokyo"</span><span class="p">,</span> <span class="n">now</span><span class="p">};</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">zt7</span><span class="p">.</span><span class="n"><a href="get_time_zone.html">get_time_zone()</a></span> <span class="o">==</span> <span class="n"><a href="../locate_zone.html">chrono::locate_zone</a></span><span class="p">(</span><span class="s">"Asia/Tokyo"</span><span class="p">));</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">zt8</span><span class="p">.</span><span class="n"><a href="get_time_zone.html">get_time_zone()</a></span> <span class="o">==</span> <span class="n"><a href="../locate_zone.html">chrono::locate_zone</a></span><span class="p">(</span><span class="s">"Asia/Tokyo"</span><span class="p">));</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">zt7</span><span class="p">.</span><span class="n"><a href="get_sys_time.html">get_sys_time()</a></span> <span class="o">==</span> <span class="n">now</span><span class="p">);</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">zt8</span><span class="p">.</span><span class="n"><a href="get_sys_time.html">get_sys_time()</a></span> <span class="o">==</span> <span class="n">now</span><span class="p">);</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">zt7</span><span class="p">.</span><span class="n"><a href="get_local_time.html">get_local_time()</a></span> <span class="o">==</span> <span class="n">local_jst_now</span><span class="p">);</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">zt8</span><span class="p">.</span><span class="n"><a href="get_local_time.html">get_local_time()</a></span> <span class="o">==</span> <span class="n">local_jst_now</span><span class="p">);</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"(7) : "</span> <span class="o">&lt;&lt;</span> <span class="n">zt7</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"(8) : "</span> <span class="o">&lt;&lt;</span> <span class="n">zt8</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// タイムゾーンとローカル時間を指定して構築</span>
+  <span class="n">chrono</span><span class="o">::</span><span class="n">zoned_time</span> <span class="n">zt9</span><span class="p">{</span><span class="n"><a href="../locate_zone.html">chrono::locate_zone</a></span><span class="p">(</span><span class="s">"Asia/Tokyo"</span><span class="p">),</span> <span class="n">local_jst_now</span><span class="p">};</span>
+  <span class="n">chrono</span><span class="o">::</span><span class="n">zoned_time</span> <span class="n">zt10</span><span class="p">{</span><span class="s">"Asia/Tokyo"</span><span class="p">,</span> <span class="n">local_jst_now</span><span class="p">};</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">zt9</span><span class="p">.</span><span class="n"><a href="get_time_zone.html">get_time_zone()</a></span> <span class="o">==</span> <span class="n"><a href="../locate_zone.html">chrono::locate_zone</a></span><span class="p">(</span><span class="s">"Asia/Tokyo"</span><span class="p">));</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">zt10</span><span class="p">.</span><span class="n"><a href="get_time_zone.html">get_time_zone()</a></span> <span class="o">==</span> <span class="n"><a href="../locate_zone.html">chrono::locate_zone</a></span><span class="p">(</span><span class="s">"Asia/Tokyo"</span><span class="p">));</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">zt9</span><span class="p">.</span><span class="n"><a href="get_sys_time.html">get_sys_time()</a></span> <span class="o">==</span> <span class="n">now</span><span class="p">);</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">zt10</span><span class="p">.</span><span class="n"><a href="get_sys_time.html">get_sys_time()</a></span> <span class="o">==</span> <span class="n">now</span><span class="p">);</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">zt9</span><span class="p">.</span><span class="n"><a href="get_local_time.html">get_local_time()</a></span> <span class="o">==</span> <span class="n">local_jst_now</span><span class="p">);</span>
+  <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">zt10</span><span class="p">.</span><span class="n"><a href="get_local_time.html">get_local_time()</a></span> <span class="o">==</span> <span class="n">local_jst_now</span><span class="p">);</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"(9) : "</span> <span class="o">&lt;&lt;</span> <span class="n">zt9</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"(10) : "</span> <span class="o">&lt;&lt;</span> <span class="n">zt10</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力例</h3>
+<p><pre><code>(3) : 2020-01-21 05:10:15.330140 UTC
+(7) : 2020-01-21 14:10:15.330140 JST
+(8) : 2020-01-21 14:10:15.330140 JST
+(9) : 2020-01-21 14:10:15.330140 JST
+(10) : 2020-01-21 14:10:15.330140 JST
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++20</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: 9.0 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: 9.2 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: 2019 Update 3 <span aria-label="未実装" role="img" title="未実装">❌</span></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://wg21.cmeerw.net/lwg/issue3224" target="_blank">LWG Issue 3224. <code>zoned_time</code> constructor from <code>TimeZonePtr</code> does not specify initialization of <code>tp_</code></a></li>
+<li><a href="https://wg21.cmeerw.net/lwg/issue3225" target="_blank">LWG Issue 3225. <code>zoned_time</code> converting constructor shall not be <code>noexcept</code></a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p2117r0.html#3226" target="_blank">LWG Issue 3226. <code>zoned_time</code> constructor from <code>string_view</code> should accept <code>zoned_time&lt;Duration2, TimeZonePtr2&gt;</code></a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

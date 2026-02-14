@@ -1,0 +1,381 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>result_of - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,type_traits,std,class template,cpp11
+">
+        <meta name="title" content="result_of - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="result_of - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="result_of - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/type_traits/result_of.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="関数の戻り値の型を取得する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="result_of - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/type_traits/result_of.html" />
+        <meta name="twitter:description" content="関数の戻り値の型を取得する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="manifest" href="../../manifest.json?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;type_traits&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp11&#34;, &#34;cpp17deprecated&#34;, &#34;cpp20removed&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;b94ba612ad9243dc3e3b4b4978913e5052db9e5f&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;string&gt;\n#include &lt;type_traits&gt;\n#include &lt;functional&gt;\n\n// \u95a2\u6570\nint func(int a, int b)\n{ return a + b; }\n\n// \u95a2\u6570\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\nstruct functor {\n  int operator()(int a, int b) const\n  {\n    return a + b;\n  }\n\n  // \u30aa\u30fc\u30d0\u30fc\u30ed\u30fc\u30c9\u3057\u3066\u3044\u308b\n  std::string operator()(std::string a, std::string b) const\n  {\n    return a + b;\n  }\n};\n\nstruct X {\n  // \u30e1\u30f3\u30d0\u95a2\u6570\n  int foo(int a, int b) const\n  {\n    return a + b;\n  }\n};\n\n// \u53d7\u3051\u53d6\u3063\u305f\u95a2\u6570\u3092\u547c\u3073\u51fa\u3057\u3001\u305d\u306e\u95a2\u6570\u306e\u623b\u308a\u5024\u3092\u8fd4\u3059\ntemplate &lt;class F, class... Args&gt;\ntypename std::result_of&lt;F(Args...)&gt;::type\n  invoke(F&amp;&amp; f, Args... args)\n{\n  return f(args...);\n}\n\n// F\u304c\u30e1\u30f3\u30d0\u95a2\u6570\u30dd\u30a4\u30f3\u30bf\u306e\u5834\u5408\ntemplate &lt;class F, class... Args&gt;\ntypename std::result_of&lt;F(Args...)&gt;::type\n  invoke_memfun(F&amp;&amp; f, Args... args)\n{\n  return std::bind(std::move(f), args...)();\n}\n\nint main()\n{\n  // \u95a2\u6570\n  int result1 = invoke(func, 1, 2);\n\n  // \u95a2\u6570\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\n  int result2 = invoke(functor(), 1, 2);\n\n  // \u30aa\u30fc\u30d0\u30fc\u30ed\u30fc\u30c9\n  std::string result3 = invoke(functor(), \&#34;Hello \&#34;, \&#34;World\&#34;);\n\n  // \u30e1\u30f3\u30d0\u95a2\u6570\n  X x;\n  int result4 = invoke_memfun(&amp;X::foo, x, 1, 2);\n\n  std::cout &lt;&lt; result1 &lt;&lt; std::endl;\n  std::cout &lt;&lt; result2 &lt;&lt; std::endl;\n  std::cout &lt;&lt; result3 &lt;&lt; std::endl;\n  std::cout &lt;&lt; result4 &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;type_traits&#34;, &#34;result_of&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/type_traits.html" itemprop="url">
+              
+                <span itemprop="name">type_traits</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">result_of</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-07-08T15:33:39">
+        2025年07月08日 15時33分39秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/type_traits/result_of.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/type_traits/result_of.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;type_traits&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">result_of</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span><span class="cpp cpp17deprecated text-warning" title="C++17で非推奨">(C++17で非推奨)</span><span class="cpp cpp20removed text-danger" title="C++20で削除">(C++20で削除)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">result_of</span><span class="p">;</span> <span class="c1">// 宣言のみ</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">F</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">ArgTypes</span><span class="o">&gt;</span>
+  <span class="k">class</span> <span class="nc">result_of</span><span class="o">&lt;</span><span class="n">F</span><span class="p">(</span><span class="n">ArgTypes</span><span class="p">...)</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">using</span> <span class="n">type</span> <span class="o">=</span> <span class="err">…</span><span class="p">;</span>
+  <span class="p">};</span>
+
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <span class="k">using</span> <span class="n">result_of_t</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">result_of</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>この機能はC++17から非推奨となり、C++20で削除された。代わりに<code><a href="invoke_result.html">std::invoke_result</a></code>を使用すること。</p>
+<h2>概要</h2>
+<p>関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型を取得する。</p>
+<h2>要件</h2>
+<ul>
+<li>C++11まで : 型<code>F</code>は、関数または関数オブジェクトであること。もしくは、型<code>F</code>は、関数または関数オブジェクトへの参照であること。<code><a href="../concepts/Invoke.html">INVOKE</a>(declval&lt;Fn&gt;(), declval&lt;ArgTypes&gt;()...)</code>が有効な式であること。</li>
+<li>C++14から : 型<code>F</code>および<code>ArgsTypes...</code>パラメータパックの全ての型が、<a class="cpprefjp-defined-word" data-desc="型のサイズを決定できる型。不完全型ではない型">完全型</a>であること。もしくは<code>const</code>/<code>volatile</code>修飾された(あるいはされていない)<code>void</code>か、要素数不明の配列型であること。<ul>
+<li>このバージョンでは要件が緩和され、関数呼び出しが可能であることが要件から外れた。これにより、有効でない関数オブジェクト、引数を指定した場合に、<code>static_assert</code>でコンパイルエラーにならず、テンプレートの置き換え失敗によりSFINAEが働くようになった。</li>
+</ul>
+</li>
+</ul>
+<h2>効果</h2>
+<p><code>result_of</code>は、関数または関数オブジェクトの型<code>F</code>に対して、<code>ArgTypes...</code>を引数として渡した場合の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型を、メンバ型<code>type</code>として定義する。</p>
+<p>メンバ型<code>type</code>は、以下と同じ型になる：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">decltype</span><span class="p">(</span><span class="n"><a href="../concepts/Invoke.html">INVOKE</a></span><span class="p">(</span><span class="n"><a href="../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">Fn</span><span class="o">&gt;</span><span class="p">(),</span> <span class="n"><a href="../utility/declval.html">declval</a></span><span class="o">&lt;</span><span class="n">ArgTypes</span><span class="o">&gt;</span><span class="p">()...))</span>
+</code></pre></div>
+</p>
+<p>C++14以降では、上記メンバ型<code>type</code>の型定義が有効な式でない場合、メンバ型<code>type</code>は定義されない。</p>
+<h2>非推奨・削除の詳細</h2>
+<p>C++17で特定のシグニチャで関数呼び出しが可能かを判定する<code>is_callable</code>を導入する予定だったが、<code><a href="../functional/invoke.html">std::invoke()</a></code>関数を導入する際に、<code>result_of</code>も含めて命名規則を統一することとなった。</p>
+<p><code>is_callable</code>は<code><a href="is_invocable.html">std::is_invocable</a></code>という名前で導入された。</p>
+<p><code>result_of</code>は、シグニチャであることをわかりやすくするために、関数型でユーザーにテンプレート引数を指定させていたが、これは混乱の元であった。</p>
+<p>そのため、<code><a href="invoke_result.html">std::invoke_result</a></code>に名称変更することとなった。</p>
+<h2>例</h2>
+<p><div class="yata" id="b94ba612ad9243dc3e3b4b4978913e5052db9e5f"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../type_traits.html">&lt;type_traits&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// 関数</span>
+<span class="kt">int</span> <span class="nf">func</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
+<span class="p">{</span> <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="c1">// 関数オブジェクト</span>
+<span class="k">struct</span> <span class="n">functor</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="k">operator</span><span class="p">()(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// オーバーロードしている</span>
+  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="k">operator</span><span class="p">()(</span><span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">a</span><span class="p">,</span> <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">b</span><span class="p">)</span> <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">X</span> <span class="p">{</span>
+  <span class="c1">// メンバ関数</span>
+  <span class="kt">int</span> <span class="n">foo</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="k">const</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// 受け取った関数を呼び出し、その関数の戻り値を返す</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">F</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="k">typename</span> <span class="n"><span style="color:#ff0000">std::result_of</span></span><span class="o">&lt;</span><span class="n">F</span><span class="p">(</span><span class="n">Args</span><span class="p">...)</span><span class="o">&gt;::</span><span class="n">type</span>
+  <span class="n">invoke</span><span class="p">(</span><span class="n">F</span><span class="o">&amp;&amp;</span> <span class="n">f</span><span class="p">,</span> <span class="n">Args</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">args</span><span class="p">...);</span>
+<span class="p">}</span>
+
+<span class="c1">// Fがメンバ関数ポインタの場合</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">F</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="k">typename</span> <span class="n"><span style="color:#ff0000">std::result_of</span></span><span class="o">&lt;</span><span class="n">F</span><span class="p">(</span><span class="n">Args</span><span class="p">...)</span><span class="o">&gt;::</span><span class="n">type</span>
+  <span class="n">invoke_memfun</span><span class="p">(</span><span class="n">F</span><span class="o">&amp;&amp;</span> <span class="n">f</span><span class="p">,</span> <span class="n">Args</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="n"><a href="../functional/bind.html">std::bind</a></span><span class="p">(</span><span class="n"><a href="../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="n">args</span><span class="p">...)();</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// 関数</span>
+  <span class="kt">int</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">invoke</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+
+  <span class="c1">// 関数オブジェクト</span>
+  <span class="kt">int</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">invoke</span><span class="p">(</span><span class="n">functor</span><span class="p">(),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+
+  <span class="c1">// オーバーロード</span>
+  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">result3</span> <span class="o">=</span> <span class="n">invoke</span><span class="p">(</span><span class="n">functor</span><span class="p">(),</span> <span class="s">"Hello "</span><span class="p">,</span> <span class="s">"World"</span><span class="p">);</span>
+
+  <span class="c1">// メンバ関数</span>
+  <span class="n">X</span> <span class="n">x</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">result4</span> <span class="o">=</span> <span class="n">invoke_memfun</span><span class="p">(</span><span class="o">&amp;</span><span class="n">X</span><span class="o">::</span><span class="n">foo</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">result1</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">result2</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">result3</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">result4</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>3
+3
+Hello World
+3
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++11</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 3.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 4.6.4 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2008 (std::tr1) <span aria-label="検証済" role="img" title="検証済">✅</span>, 2010 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2012 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2013 <span aria-label="検証済" role="img" title="検証済">✅</span>, 2015 <span aria-label="検証済" role="img" title="検証済">✅</span><ul>
+<li>2008～2010は、TR1に基づく実装である。<code>decltype</code>を使用せず、関数オブジェクトに定義された<code>result_type</code>が使用される。</li>
+<li>2012までは、可変引数テンプレートに対応していないため、不完全な実装である。</li>
+<li><code>result_of_t</code>は、2013から。</li>
+</ul>
+</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1437.html" target="_blank">N1437 A uniform method for computing function object return types</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1454.html" target="_blank">N1454 A uniform method for computing function object return types (revision 1)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3123.html" target="_blank">Bringing result_of near to INVOKE</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3462.html" target="_blank">N3462 <code>std::result_of</code> and SFINAE</a><ul>
+<li>C++11では、テンプレートパラメータが有効な関数の式にならない場合に<code>static_assert</code>でコンパイルエラーにしていたが、C++14ではその時点でコンパイルエラーにせず、SFINAEを働かせるようにした。</li>
+</ul>
+</li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3546.pdf" target="_blank">N3546 TransformationTraits Redux</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3655.pdf" target="_blank">N3655 TransformationTraits Redux, v2</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0604r0.html" target="_blank">P0604R0 Resolving GB 55, US 84, US 85, US 86</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0619r4.html" target="_blank">P0619R4 Reviewing deprecated facilities of C++17 for C++20</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

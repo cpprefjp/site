@@ -1,0 +1,506 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>valarray::operator[] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,valarray,std,valarray,function
+">
+        <meta name="title" content="valarray::operator[] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="valarray::operator[] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="valarray::operator[] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/valarray/valarray/op_at.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="一部の要素を抽出する。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="valarray::operator[] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/valarray/valarray/op_at.html" />
+        <meta name="twitter:description" content="一部の要素を抽出する。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="manifest" href="../../../manifest.json?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;valarray&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;valarray&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;9493186dc1d244671eed379ce2fe3b1d9f8e3895&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;numeric&gt;\n#include &lt;valarray&gt;\n\nint main()\n{\n  // (1)\n  // n\u756a\u76ee\u306e\u8981\u7d20\u3078\u306econst\u5de6\u8fba\u5024\u53c2\u7167\u3092\u53d6\u5f97\n  {\n    const std::valarray&lt;int&gt; va = {1, 2, 3};\n    const int&amp; x = va[1];\n    assert(x == 2);\n  }\n\n  // (2)\n  // n\u756a\u76ee\u306e\u8981\u7d20\u3078\u306e\u975econst\u5de6\u8fba\u5024\u53c2\u7167\u3092\u53d6\u5f97\n  {\n    std::valarray&lt;int&gt; va = {1, 2, 3};\n    int&amp; x = va[1];\n    assert(x == 2);\n  }\n\n  // (3)\n  // \u958b\u59cb\u4f4d\u7f6e\u3001\u8981\u7d20\u6570\u3001\u4f55\u500b\u7f6e\u304d\u306b\u51e6\u7406\u3059\u308b\u304b\u3092\u6307\u5b9a\u3057\u3066\u3001\n  // \u6761\u4ef6\u4e00\u81f4\u3057\u305f\u8981\u7d20\u3092\u30b3\u30d4\u30fc\u62bd\u51fa\n  {\n    const std::valarray&lt;int&gt; va = {1, 2, 3, 4, 5, 6};\n\n    const std::size_t start = 1u;  // \u958b\u59cb\u4f4d\u7f6e\n    const std::size_t length = 3u; // \u8981\u7d20\u6570\n    const std::size_t stride = 2u; // \u4f55\u500b\u7f6e\u304d\u306b\u51e6\u7406\u3059\u308b\u304b\n\n    std::valarray&lt;int&gt; result = va[std::slice(start, length, stride)];\n\n    assert(result.size() == 3);\n    assert(result[0] == 2);\n    assert(result[1] == 4);\n    assert(result[2] == 6);\n  }\n\n  // (4)\n  // \u958b\u59cb\u4f4d\u7f6e\u3001\u8981\u7d20\u6570\u3001\u4f55\u500b\u7f6e\u304d\u306b\u51e6\u7406\u3059\u308b\u304b\u3092\u6307\u5b9a\u3057\u3066\u3001\n  // \u6761\u4ef6\u4e00\u81f4\u3057\u305f\u8981\u7d20\u3078\u306e\u53c2\u7167\u3092\u62bd\u51fa\n  {\n    std::valarray&lt;int&gt; va = {1, 2, 3, 4, 5, 6};\n\n    const std::size_t start = 1u;  // \u958b\u59cb\u4f4d\u7f6e\n    const std::size_t length = 3u; // \u8981\u7d20\u6570\n    const std::size_t stride = 2u; // \u4f55\u500b\u7f6e\u304d\u306b\u51e6\u7406\u3059\u308b\u304b\n\n    std::slice_array&lt;int&gt; result = va[std::slice(start, length, stride)];\n\n    result *= std::valarray&lt;int&gt;(2, length); // \u62bd\u51fa\u3057\u305f\u8981\u7d20\u3092\u66f8\u304d\u63db\u3048\u308b\n\n    // \u53c2\u7167\u5143\u304c\u66f8\u304d\u63db\u308f\u3063\u3066\u3044\u308b\u3053\u3068\u3092\u78ba\u8a8d\n    assert(va[0] == 1);\n    assert(va[1] == 4); // result[0]\n    assert(va[2] == 3);\n    assert(va[3] == 8); // result[1]\n    assert(va[4] == 5);\n    assert(va[5] == 12); // result[2]\n  }\n\n  // (5)\n  // \u958b\u59cb\u4f4d\u7f6e\u3001\u8981\u7d20\u6570\u306e\u30b7\u30fc\u30b1\u30f3\u30b9\u3001\u4f55\u500b\u7f6e\u304d\u306b\u51e6\u7406\u3059\u308b\u304b\u306e\u30b7\u30fc\u30b1\u30f3\u30b9\u3092\u6307\u5b9a\u3057\u3066\u3001\n  // \u6761\u4ef6\u4e00\u81f4\u3057\u305f\u8981\u7d20\u3092\u30b3\u30d4\u30fc\u62bd\u51fa\n  {\n    std::valarray&lt;int&gt; va_org(15);\n    std::iota(std::begin(va_org), std::end(va_org), 0);\n    std::valarray&lt;int&gt; va = va_org;\n\n    const std::size_t start = 1u;\n    const std::valarray&lt;std::size_t&gt; lengths = {3u, 2u};\n    const std::valarray&lt;std::size_t&gt; strides = {5u, 3u};\n\n    std::valarray&lt;int&gt; result = va[std::gslice(start, lengths, strides)];\n\n    assert(result[0] == 1);\n    assert(result[1] == 4);\n    assert(result[2] == 6);\n    assert(result[3] == 9);\n    assert(result[4] == 11);\n    assert(result[5] == 14);\n  }\n\n  // (6)\n  // \u958b\u59cb\u4f4d\u7f6e\u3001\u8981\u7d20\u6570\u306e\u30b7\u30fc\u30b1\u30f3\u30b9\u3001\u4f55\u500b\u7f6e\u304d\u306b\u51e6\u7406\u3059\u308b\u304b\u306e\u30b7\u30fc\u30b1\u30f3\u30b9\u3092\u6307\u5b9a\u3057\u3066\u3001\n  // \u6761\u4ef6\u4e00\u81f4\u3057\u305f\u8981\u7d20\u3078\u306e\u53c2\u7167\u3092\u62bd\u51fa\n  {\n    std::valarray&lt;int&gt; va(15);\n    std::iota(std::begin(va), std::end(va), 0); // 0\u304b\u3089\u306e\u9023\u756a\u306b\u3059\u308b\n\n    const std::size_t start = 1u;\n    const std::valarray&lt;std::size_t&gt; lengths = {3u, 2u};\n    const std::valarray&lt;std::size_t&gt; strides = {5u, 1u};\n\n    std::gslice_array&lt;int&gt; result = va[std::gslice(start, lengths, strides)];\n\n    // \u62bd\u51fa\u3057\u305f\u8981\u7d20\u309299\u3067\u57cb\u3081\u308b\n    result = 99;\n\n    // \u53c2\u7167\u5143\u304c\u66f8\u304d\u63db\u308f\u3063\u3066\u3044\u308b\u3053\u3068\u3092\u78ba\u8a8d\u3059\u308b\n    assert(va[0] == 0);\n    assert(va[1] == 99);\n    assert(va[2] == 99);\n    assert(va[3] == 3);\n    assert(va[4] == 4);\n    assert(va[5] == 5);\n    assert(va[6] == 99);\n    assert(va[7] == 99);\n    assert(va[8] == 8);\n    assert(va[9] == 9);\n    assert(va[10] == 10);\n    assert(va[11] == 99);\n    assert(va[12] == 99);\n    assert(va[13] == 13);\n    assert(va[14] == 14);\n  }\n\n  // (7)\n  // \u540c\u3058\u8981\u7d20\u6570\u306ebool\u914d\u5217\u3092\u6307\u5b9a\u3057\u3066\u3001\n  // bool\u914d\u5217\u306e\u3046\u3061\u3001true\u306e\u8981\u7d20\u306b\u5bfe\u5fdc\u3059\u308b\u4f4d\u7f6e\u306e\u8981\u7d20\u3092\u30b3\u30d4\u30fc\u62bd\u51fa\n  {\n    const std::valarray&lt;int&gt; va = {1, 2, 3, 4, 5};\n    const std::valarray&lt;bool&gt; mask = {true, false, true, false, true};\n\n    std::valarray&lt;int&gt; result = va[mask];\n\n    assert(result.size() == 3);\n    assert(result[0] == 1);\n    assert(result[1] == 3);\n    assert(result[2] == 5);\n  }\n\n  // (8)\n  // \u540c\u3058\u8981\u7d20\u6570\u306ebool\u914d\u5217\u3092\u6307\u5b9a\u3057\u3066\u3001\n  // bool\u914d\u5217\u306e\u3046\u3061\u3001true\u306e\u8981\u7d20\u306b\u5bfe\u5fdc\u3059\u308b\u4f4d\u7f6e\u306e\u8981\u7d20\u3078\u306e\u53c2\u7167\u3092\u62bd\u51fa\n  {\n    std::valarray&lt;int&gt; va = {1, 2, 3, 4, 5};\n    const std::valarray&lt;bool&gt; mask = {true, false, true, false, true};\n\n    std::mask_array&lt;int&gt; result = va[mask];\n\n    // \u62bd\u51fa\u3057\u305f\u8981\u7d20\u309299\u3067\u57cb\u3081\u308b\n    result = 99;\n\n    // \u53c2\u7167\u5143\u304c\u66f8\u304d\u63db\u308f\u3063\u3066\u3044\u308b\u3053\u3068\u3092\u78ba\u8a8d\u3059\u308b\n    assert(va[0] == 99);\n    assert(va[1] == 2);\n    assert(va[2] == 99);\n    assert(va[3] == 4);\n    assert(va[0] == 99);\n  }\n\n  // (9)\n  // \u62bd\u51fa\u3059\u308b\u8981\u7d20\u306e\u30a4\u30f3\u30c7\u30c3\u30af\u30b9\u5024\u304b\u3089\u306a\u308b\u914d\u5217\u3092\u6307\u5b9a\u3057\u3066\u3001\n  // \u5bfe\u5fdc\u3059\u308b\u4f4d\u7f6e\u306e\u8981\u7d20\u3092\u30b3\u30d4\u30fc\u62bd\u51fa\n  {\n    const std::valarray&lt;int&gt; va = {1, 2, 3, 4, 5};\n    const std::valarray&lt;std::size_t&gt; mask = {0, 2, 4};\n\n    std::valarray&lt;int&gt; result = va[mask];\n\n    assert(result.size() == 3);\n    assert(result[0] == 1);\n    assert(result[1] == 3);\n    assert(result[2] == 5);\n  }\n\n  // (10)\n  // \u62bd\u51fa\u3059\u308b\u8981\u7d20\u306e\u30a4\u30f3\u30c7\u30c3\u30af\u30b9\u5024\u304b\u3089\u306a\u308b\u914d\u5217\u3092\u6307\u5b9a\u3057\u3066\u3001\n  // \u5bfe\u5fdc\u3059\u308b\u4f4d\u7f6e\u306e\u8981\u7d20\u3092\u30b3\u30d4\u30fc\u62bd\u51fa\n  {\n    std::valarray&lt;int&gt; va = {1, 2, 3, 4, 5};\n    const std::valarray&lt;std::size_t&gt; mask = {0, 2, 4};\n\n    std::indirect_array&lt;int&gt; result = va[mask];\n\n    // \u62bd\u51fa\u3057\u305f\u8981\u7d20\u309299\u3067\u57cb\u3081\u308b\n    result = 99;\n\n    // \u53c2\u7167\u5143\u304c\u66f8\u304d\u63db\u308f\u3063\u3066\u3044\u308b\u3053\u3068\u3092\u78ba\u8a8d\u3059\u308b\n    assert(va[0] == 99);\n    assert(va[1] == 2);\n    assert(va[2] == 99);\n    assert(va[3] == 4);\n    assert(va[0] == 99);\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;valarray&#34;, &#34;valarray&#34;, &#34;op_at&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/valarray.html" itemprop="url">
+              
+                <span itemprop="name">valarray</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/valarray/valarray.html" itemprop="url">
+              
+                <span itemprop="name">valarray</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">operator[]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-07-11T17:16:44">
+        2025年07月11日 17時16分44秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Koichi Murase</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/valarray/valarray/op_at.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/valarray/valarray/op_at.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;valarray&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class valarray">valarray::</span><span class="token">operator[]</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">T</span> <span class="k">operator</span><span class="p">[](</span><span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span> <span class="n">n</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>                                      <span class="c1">// (1) C++03 まで</span>
+<span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="k">operator</span><span class="p">[](</span><span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span> <span class="n">n</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>                               <span class="c1">// (1) C++11 から</span>
+
+<span class="n">T</span><span class="o">&amp;</span> <span class="k">operator</span><span class="p">[](</span><span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span> <span class="n">n</span><span class="p">);</span>                                           <span class="c1">// (2)</span>
+
+<span class="n"><i>ValOrProxy</i></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="k">operator</span><span class="p">[](</span><span class="n"><a href="../slice.html">slice</a></span> <span class="n">ar</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>                               <span class="c1">// (3)</span>
+<span class="n"><a href="../slice_array.html">slice_array</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="k">operator</span><span class="p">[](</span><span class="n"><a href="../slice.html">slice</a></span> <span class="n">ar</span><span class="p">);</span>                                    <span class="c1">// (4)</span>
+
+<span class="n"><i>ValOrProxy</i></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="k">operator</span><span class="p">[](</span><span class="k">const</span> <span class="n"><a href="../gslice.html">gslice</a></span><span class="o">&amp;</span> <span class="n">ar</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>                       <span class="c1">// (5)</span>
+<span class="n"><a href="../gslice_array.html">gslice_array</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="k">operator</span><span class="p">[](</span><span class="k">const</span> <span class="n"><a href="../gslice.html">gslice</a></span><span class="o">&amp;</span> <span class="n">ar</span><span class="p">);</span>                           <span class="c1">// (6)</span>
+
+<span class="n"><i>ValOrProxy</i></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="k">operator</span><span class="p">[](</span><span class="k">const</span> <span class="n"><i>ValOrProxy</i></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">mask</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>           <span class="c1">// (7)</span>
+<span class="n"><a href="../mask_array.html">mask_array</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="k">operator</span><span class="p">[](</span><span class="k">const</span> <span class="n"><i>ValOrProxy</i></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">mask</span><span class="p">);</span>                 <span class="c1">// (8)</span>
+
+<span class="n"><i>ValOrProxy</i></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="k">operator</span><span class="p">[](</span><span class="k">const</span> <span class="n"><i>ValOrProxy</i></span><span class="o">&lt;</span><span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span><span class="o">&gt;&amp;</span> <span class="n">mask</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>    <span class="c1">// (9)</span>
+<span class="n"><a href="../indirect_array.html">indirect_array</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="k">operator</span><span class="p">[](</span><span class="k">const</span> <span class="n"><i>ValOrProxy</i></span><span class="o">&lt;</span><span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span><span class="o">&gt;&amp;</span> <span class="n">mask</span><span class="p">);</span>      <span class="c1">// (10)</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>一部の要素を抽出する。</p>
+<ul>
+<li>(1), (2) : <code>*this</code>に含まれる<code>n</code>番目の要素への参照を取得する。</li>
+<li>(3), (4) : <code>*this</code>に含まれる要素を、<code><a href="../slice.html">slice</a></code>の条件に基いてスライスする。</li>
+<li>(5), (6) : <code>*this</code>に含まれる要素を、<code><a href="../gslice.html">gslice</a></code>の条件に基いてスライスする。</li>
+<li>(7), (8) : <code>*this</code>に含まれる、<code>mask</code>の<code>true</code>となっている要素のみを抽出する。</li>
+<li>(9), (10) : <code>*this</code>に含まれる、<code>mask</code>に含まれるインデックス値の要素のみを抽出する。</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<ul>
+<li>(1), (2) :</li>
+</ul>
+<p><code>*this</code>に含まれる<code>n</code>番目の要素への参照を返す。</p>
+<p><code>n &gt;= <a href="size.html">size()</a></code>の場合、<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こす。</p>
+<ul>
+<li>(3) : <code>*this</code>に含まれる要素を、<code><a href="../slice.html">slice</a></code>の条件に基いてスライスする。この<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>では、条件一致した要素をコピー抽出した<code>valarray</code>オブジェクトを返す。</li>
+<li>(4) : <code>*this</code>に含まれる要素を、<code><a href="../slice.html">slice</a></code>の条件に基いてスライスする。この<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>では、条件一致した要素への参照を管理する<code><a href="../slice_array.html">slice_array</a></code>オブジェクトを返す。</li>
+<li>(5) : <code>*this</code>に含まれる要素を、<code><a href="../gslice.html">gslice</a></code>の条件に基いてスライスする。この<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>では、条件一致した要素をコピー抽出した<code>valarray</code>オブジェクトを返す。</li>
+<li>(6) : <code>*this</code>に含まれる要素を、<code><a href="../gslice.html">gslice</a></code>の条件に基いてスライスする。この<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>では、条件一致した要素への参照を管理する<code><a href="../gslice_array.html">gslice_array</a></code>オブジェクトを返す。</li>
+<li>(7) : <code>*this</code>に含まれる、<code>mask</code>の<code>true</code>となっている要素のみを抽出する。この<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>では、条件一致した要素をコピー抽出した<code>valarray</code>オブジェクトを返す。</li>
+<li>(8) : <code>*this</code>に含まれる、<code>mask</code>の<code>true</code>となっている要素のみを抽出する。この<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>では、条件一致した要素への参照を管理する<code><a href="../mask_array.html">mask_array</a></code>オブジェクトを返す。</li>
+<li>(9) : <code>*this</code>に含まれる、<code>mask</code>に含まれるインデックス値の要素のみを抽出する。この<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>では、条件一致した要素をコピー抽出した<code>valarray</code>オブジェクトを返す。</li>
+<li>(10) : <code>*this</code>に含まれる、<code>mask</code>に含まれるインデックス値の要素のみを抽出する。この<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>では、条件一致した要素への参照を管理する<code><a href="../indirect_array.html">indirect_array</a></code>オブジェクトを返す。</li>
+</ul>
+<h2>備考</h2>
+<ul>
+<li>引数、および、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型 <em><code>ValOrProxy</code></em> は、<code><a href="../valarray.html">valarray</a></code>、あるいは、その代理となる型である。<br />
+<code><a href="../../valarray.html">&lt;valarray&gt;</a></code> の概要も参照のこと。</li>
+<li>(3), (5), (7), (9) : <code>valarray&lt;T&gt;</code>型のオブジェクトを返すこの関数を含むあらゆる関数は、<code>valarray</code>クラスと同じ<code>const</code>メンバ関数をもつほかの型を返すことが実装に許可される。例として複数の<code>valarray</code>操作をつなげて記述したときに最適化できるよう、式テンプレートを返す実装もある</li>
+<li>(7), (8) : <code><a href="size.html">size()</a> != mask.<a href="size.html">size()</a></code>の場合、<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こす。</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="9493186dc1d244671eed379ce2fe3b1d9f8e3895"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../numeric.html">&lt;numeric&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../valarray.html">&lt;valarray&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// (1)</span>
+  <span class="c1">// n番目の要素へのconst左辺値参照を取得</span>
+  <span class="p">{</span>
+    <span class="k">const</span> <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">va</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+    <span class="k">const</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">va</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (2)</span>
+  <span class="c1">// n番目の要素への非const左辺値参照を取得</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">va</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+    <span class="kt">int</span><span class="o">&amp;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">va</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (3)</span>
+  <span class="c1">// 開始位置、要素数、何個置きに処理するかを指定して、</span>
+  <span class="c1">// 条件一致した要素をコピー抽出</span>
+  <span class="p">{</span>
+    <span class="k">const</span> <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">va</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">};</span>
+
+    <span class="k">const</span> <span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span> <span class="n">start</span> <span class="o">=</span> <span class="mi">1u</span><span class="p">;</span>  <span class="c1">// 開始位置</span>
+    <span class="k">const</span> <span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span> <span class="n">length</span> <span class="o">=</span> <span class="mi">3u</span><span class="p">;</span> <span class="c1">// 要素数</span>
+    <span class="k">const</span> <span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span> <span class="n">stride</span> <span class="o">=</span> <span class="mi">2u</span><span class="p">;</span> <span class="c1">// 何個置きに処理するか</span>
+
+    <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">va</span><span class="p">[</span><span class="n"><a href="../slice.html">std::slice</a></span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">stride</span><span class="p">)];</span>
+
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">6</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (4)</span>
+  <span class="c1">// 開始位置、要素数、何個置きに処理するかを指定して、</span>
+  <span class="c1">// 条件一致した要素への参照を抽出</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">va</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">};</span>
+
+    <span class="k">const</span> <span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span> <span class="n">start</span> <span class="o">=</span> <span class="mi">1u</span><span class="p">;</span>  <span class="c1">// 開始位置</span>
+    <span class="k">const</span> <span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span> <span class="n">length</span> <span class="o">=</span> <span class="mi">3u</span><span class="p">;</span> <span class="c1">// 要素数</span>
+    <span class="k">const</span> <span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span> <span class="n">stride</span> <span class="o">=</span> <span class="mi">2u</span><span class="p">;</span> <span class="c1">// 何個置きに処理するか</span>
+
+    <span class="n"><a href="../slice_array.html">std::slice_array</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">va</span><span class="p">[</span><span class="n"><a href="../slice.html">std::slice</a></span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">stride</span><span class="p">)];</span>
+
+    <span class="n">result</span> <span class="o">*=</span> <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">length</span><span class="p">);</span> <span class="c1">// 抽出した要素を書き換える</span>
+
+    <span class="c1">// 参照元が書き換わっていることを確認</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">va</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">va</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span> <span class="c1">// result[0]</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">va</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">va</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="mi">8</span><span class="p">);</span> <span class="c1">// result[1]</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">va</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="mi">5</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">va</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">==</span> <span class="mi">12</span><span class="p">);</span> <span class="c1">// result[2]</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (5)</span>
+  <span class="c1">// 開始位置、要素数のシーケンス、何個置きに処理するかのシーケンスを指定して、</span>
+  <span class="c1">// 条件一致した要素をコピー抽出</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">va_org</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span>
+    <span class="n"><a href="../../numeric/iota.html">std::iota</a></span><span class="p">(</span><span class="n"><a href="begin_free.html">std::begin</a></span><span class="p">(</span><span class="n">va_org</span><span class="p">),</span> <span class="n"><a href="end_free.html">std::end</a></span><span class="p">(</span><span class="n">va_org</span><span class="p">),</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">va</span> <span class="o">=</span> <span class="n">va_org</span><span class="p">;</span>
+
+    <span class="k">const</span> <span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span> <span class="n">start</span> <span class="o">=</span> <span class="mi">1u</span><span class="p">;</span>
+    <span class="k">const</span> <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span><span class="o">&gt;</span> <span class="n">lengths</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3u</span><span class="p">,</span> <span class="mi">2u</span><span class="p">};</span>
+    <span class="k">const</span> <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span><span class="o">&gt;</span> <span class="n">strides</span> <span class="o">=</span> <span class="p">{</span><span class="mi">5u</span><span class="p">,</span> <span class="mi">3u</span><span class="p">};</span>
+
+    <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">va</span><span class="p">[</span><span class="n"><a href="../gslice.html">std::gslice</a></span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">lengths</span><span class="p">,</span> <span class="n">strides</span><span class="p">)];</span>
+
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">6</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="mi">9</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="mi">11</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">==</span> <span class="mi">14</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (6)</span>
+  <span class="c1">// 開始位置、要素数のシーケンス、何個置きに処理するかのシーケンスを指定して、</span>
+  <span class="c1">// 条件一致した要素への参照を抽出</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">va</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span>
+    <span class="n"><a href="../../numeric/iota.html">std::iota</a></span><span class="p">(</span><span class="n"><a href="begin_free.html">std::begin</a></span><span class="p">(</span><span class="n">va</span><span class="p">),</span> <span class="n"><a href="end_free.html">std::end</a></span><span class="p">(</span><span class="n">va</span><span class="p">),</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// 0からの連番にする</span>
+
+    <span class="k">const</span> <span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span> <span class="n">start</span> <span class="o">=</span> <span class="mi">1u</span><span class="p">;</span>
+    <span class="k">const</span> <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span><span class="o">&gt;</span> <span class="n">lengths</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3u</span><span class="p">,</span> <span class="mi">2u</span><span class="p">};</span>
+    <span class="k">const</span> <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span><span class="o">&gt;</span> <span class="n">strides</span> <span class="o">=</span> <span class="p">{</span><span class="mi">5u</span><span class="p">,</span> <span class="mi">1u</span><span class="p">};</span>
+
+    <span class="n"><a href="../gslice_array.html">std::gslice_array</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">va</span><span class="p">[</span><span class="n"><a href="../gslice.html">std::gslice</a></span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">lengths</span><span class="p">,</span> <span class="n">strides</span><span class="p">)];</span>
+
+    <span class="c1">// 抽出した要素を99で埋める</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">99</span><span class="p">;</span>
+
+    <span class="c1">// 参照元が書き換わっていることを確認する</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">va</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">va</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">99</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">va</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">99</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">va</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">va</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">va</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">==</span> <span class="mi">5</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">va</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">==</span> <span class="mi">99</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">va</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">==</span> <span class="mi">99</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">va</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">==</span> <span class="mi">8</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">va</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">==</span> <span class="mi">9</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">va</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">==</span> <span class="mi">10</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">va</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span> <span class="o">==</span> <span class="mi">99</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">va</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span> <span class="o">==</span> <span class="mi">99</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">va</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">==</span> <span class="mi">13</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">va</span><span class="p">[</span><span class="mi">14</span><span class="p">]</span> <span class="o">==</span> <span class="mi">14</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (7)</span>
+  <span class="c1">// 同じ要素数のbool配列を指定して、</span>
+  <span class="c1">// bool配列のうち、trueの要素に対応する位置の要素をコピー抽出</span>
+  <span class="p">{</span>
+    <span class="k">const</span> <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">va</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+    <span class="k">const</span> <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">mask</span> <span class="o">=</span> <span class="p">{</span><span class="nb">true</span><span class="p">,</span> <span class="nb">false</span><span class="p">,</span> <span class="nb">true</span><span class="p">,</span> <span class="nb">false</span><span class="p">,</span> <span class="nb">true</span><span class="p">};</span>
+
+    <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">va</span><span class="p">[</span><span class="n">mask</span><span class="p">];</span>
+
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">5</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (8)</span>
+  <span class="c1">// 同じ要素数のbool配列を指定して、</span>
+  <span class="c1">// bool配列のうち、trueの要素に対応する位置の要素への参照を抽出</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">va</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+    <span class="k">const</span> <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">mask</span> <span class="o">=</span> <span class="p">{</span><span class="nb">true</span><span class="p">,</span> <span class="nb">false</span><span class="p">,</span> <span class="nb">true</span><span class="p">,</span> <span class="nb">false</span><span class="p">,</span> <span class="nb">true</span><span class="p">};</span>
+
+    <span class="n"><a href="../mask_array.html">std::mask_array</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">va</span><span class="p">[</span><span class="n">mask</span><span class="p">];</span>
+
+    <span class="c1">// 抽出した要素を99で埋める</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">99</span><span class="p">;</span>
+
+    <span class="c1">// 参照元が書き換わっていることを確認する</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">va</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">99</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">va</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">va</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">99</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">va</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">va</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">99</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (9)</span>
+  <span class="c1">// 抽出する要素のインデックス値からなる配列を指定して、</span>
+  <span class="c1">// 対応する位置の要素をコピー抽出</span>
+  <span class="p">{</span>
+    <span class="k">const</span> <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">va</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+    <span class="k">const</span> <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span><span class="o">&gt;</span> <span class="n">mask</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
+
+    <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">va</span><span class="p">[</span><span class="n">mask</span><span class="p">];</span>
+
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">5</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (10)</span>
+  <span class="c1">// 抽出する要素のインデックス値からなる配列を指定して、</span>
+  <span class="c1">// 対応する位置の要素をコピー抽出</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">va</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+    <span class="k">const</span> <span class="n"><a href="../valarray.html">std::valarray</a></span><span class="o">&lt;</span><span class="n"><a href="../../cstddef/size_t.html">std::size_t</a></span><span class="o">&gt;</span> <span class="n">mask</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
+
+    <span class="n"><a href="../indirect_array.html">std::indirect_array</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">va</span><span class="p">[</span><span class="n">mask</span><span class="p">];</span>
+
+    <span class="c1">// 抽出した要素を99で埋める</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">99</span><span class="p">;</span>
+
+    <span class="c1">// 参照元が書き換わっていることを確認する</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">va</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">99</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">va</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">va</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">99</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">va</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">va</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">99</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code></code></pre></p>
+<h3>備考</h3>
+<ul>
+<li>GCC 4.8.2時点のlibstdc++において、(8)と(10)の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>において、一時オブジェクトのマスク配列を渡すと、ぶら下がり参照が発生する問題がある(<a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63314" target="_blank">#Bug 63314</a>, <a href="http://stackoverflow.com/questions/25918764/mask-array-behavior-in-libstdc" target="_blank">mask_array behavior in libstdc++</a>)</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#389" target="_blank">LWG Issue 389. Const overload of <code>valarray::operator[]</code> returns by value</a><ul>
+<li>(1)の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>の型が、C++03の<code>T</code>から、C++11の<code>const T&amp;</code>に変更された経緯のレポート</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

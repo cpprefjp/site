@@ -1,0 +1,364 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>mblen - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cstdlib,std,function
+">
+        <meta name="title" content="mblen - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="mblen - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="mblen - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/cstdlib/mblen.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="マルチバイト文字列の先頭の文字が占めるバイト数を返す。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="mblen - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/cstdlib/mblen.html" />
+        <meta name="twitter:description" content="マルチバイト文字列の先頭の文字が占めるバイト数を返す。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="manifest" href="../../manifest.json?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cstdlib&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;f33c7faf4c60ed0dad5dfc6cb45a19ab328f5a5d&#34;, &#34;source&#34;: &#34;#include &lt;clocale&gt;\n#include &lt;cstdlib&gt;\n#include &lt;cstring&gt;\n#include &lt;iostream&gt;\n\nint main() {\n  std::setlocale(LC_ALL, \&#34;ja_JP.UTF-8\&#34;);\n  const char *str = \&#34;\u3053\u3093\u306b\u3061\u306f\&#34;;\n  int result = std::mblen(str, std::strlen(str));\n  std::cout &lt;&lt; result &lt;&lt; std::endl;\n  return 0;\n}\n&#34;}, {&#34;id&#34;: &#34;b108e63a49324ebfeac058382a56ea4a5bdcde7a&#34;, &#34;source&#34;: &#34;#include &lt;clocale&gt;\n#include &lt;cstdlib&gt;\n#include &lt;cstring&gt;\n#include &lt;iostream&gt;\n\nint count_chars_mblen(const char* s) {\n#if __cplusplus &gt;= 201703L\n  if (std::mblen(nullptr, 0) != 0) {\n    std::cerr &lt;&lt; \&#34;count_chars_mblen: State-dependent encoding is unsupported.\&#34; &lt;&lt; std::endl;\n    std::exit(1);\n  }\n#else\n  // C++14 \u4ee5\u524d: std::mblen \u5185\u90e8\u306e std::mbstate_t \u3092\u521d\u671f\u5316\u3059\u308b\u5fc5\u8981\u3042\u308a\n  std::mblen(nullptr, 0);\n#endif\n\n  int count = 0;\n  std::size_t i = 0;\n  std::size_t bytes = std::strlen(s);\n  while (i &lt; bytes) {\n    int len = std::mblen(&amp;s[i], bytes - i);\n    if (len &lt; 0) {\n      len = 1;\n    }\n    i += len;\n    count++;\n  }\n  return count;\n}\n\nint main() {\n  std::setlocale(LC_ALL, \&#34;ja_JP.UTF-8\&#34;);\n\n  const char* str = \&#34;\u3053\u3093\u306b\u3061\u306f\u4e16\u754c\&#34;;\n  std::cout &lt;&lt; \&#34;\u6587\u5b57\u5217: \&#34; &lt;&lt; str &lt;&lt; \&#34;\\n\&#34;;\n  std::cout &lt;&lt; \&#34;\u6587\u5b57\u6570: \&#34; &lt;&lt; count_chars_mblen(str) &lt;&lt; \&#34;\\n\&#34;;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cstdlib&#34;, &#34;mblen&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/cstdlib.html" itemprop="url">
+              
+                <span itemprop="name">cstdlib</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">mblen</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2026-01-06T06:37:48">
+        2026年01月06日 06時37分48秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Koichi Murase</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/cstdlib/mblen.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/cstdlib/mblen.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;cstdlib&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">mblen</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">mblen</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">str</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">n</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>マルチバイト文字列の先頭の文字が占めるバイト数を返す。</p>
+<p>先頭以外の文字に関するバイト数は計算されない。</p>
+<p>この関数は現在のロケールカテゴリー <code>LC_CTYPE</code> に依存してマルチバイト文字を解釈する。</p>
+<p><code>n</code>は解析に使用する最大バイト数を指定する。</p>
+<p>内部状態に依存するエンコーディングを考慮するならば、
+特に理由がない限り <code>std::mblen</code> ではなく <code>std::mbstate_t</code> を受け取る <code>std::mbrlen</code> を
+新しいコードでは用いるべきである。
+エンコーディングの内部状態に関する振る舞いが C11 で変更 (WG14 N1373) されたが、
+以前の振る舞いではスレッドセーフではなく、
+現在の振る舞いではそもそも内部状態に依存する使い方ができない。</p>
+<h3>C11, C++17, POSIX.1-2024 以降</h3>
+<p>この関数は以下の関数呼び出しに等価である。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><span href="https://cpprefjp.github.io/reference/cstdlib/mbtowc.md.nolink">mbtowc</span></span><span class="p">((</span><span class="kt">wchar_t</span> <span class="o">*</span><span class="p">)</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n"><span href="https://cpprefjp.github.io/reference/cstdlib/mbtowc.md.nolink">mbtowc</span></span><span class="p">((</span><span class="kt">wchar_t</span> <span class="o">*</span><span class="p">)</span><span class="mi">0</span><span class="p">,</span> <span class="n">str</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+</code></pre></div>
+</p>
+<p>つまり、関数 <code>mblen</code> はあたかも内部状態がないかのように振る舞い、
+現在のエンコーディングの初期状態を用いて <code>str</code> の先頭にある文字のバイト数を計算する。</p>
+<h3>C99, C++14, POSIX.1-2017 以前</h3>
+<p>この関数は以下の関数呼び出しに等価である。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><span href="https://cpprefjp.github.io/reference/cstdlib/mbtowc.md.nolink">mbtowc</span></span><span class="p">((</span><span class="kt">wchar_t</span> <span class="o">*</span><span class="p">)</span><span class="mi">0</span><span class="p">,</span> <span class="n">str</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+</code></pre></div>
+</p>
+<p>関数 <code>mblen</code> は <code>std::mbstate_t</code> に等価な静的記憶域の内部状態を保持し、前回の <code>mblen</code> 関数呼び出しの続きとして処理を行う。
+従って、この関数はスレッドセーフではない。
+また、この関数を用いる処理の途中で、この関数を用いる別の処理を行うこともできない。
+安全に処理するためには、この関数の代わりに <code>std::mbstate_t</code> を受け取る <code><span href="https://cpprefjp.github.io/reference/cwchar/mbrlen.md.nolink">std::mbrlen</span></code> (<code>&lt;cwchar&gt;</code>) を使い、呼び出し元でデコード状態の記録場所 <code>std::mbstate_t</code> を用意する必要がある。</p>
+<p>他の標準ライブラリ関数はあたかも<code>mblen</code>を呼び出さないように振る舞う。
+つまり、明示的に <code>mblen</code> を呼び出さない限り、その内部状態を変更しない。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<ul>
+<li>正常に動作する場合、文字の占めるバイト数を返す。</li>
+<li><code>str</code>が<code>nullptr</code>の時、内部状態を初期化する。現在のエンコーディングが状態を持つ場合は非ゼロの値を返し、それ以外の場合は<code>0</code>を返す。</li>
+<li>無効な文字列、または<code>n</code>が不足している場合、<code>-1</code>を返す。</li>
+</ul>
+<h2>例</h2>
+<h3>基本的な使い方</h3>
+<p><div class="yata" id="f33c7faf4c60ed0dad5dfc6cb45a19ab328f5a5d"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;clocale&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../cstdlib.html">&lt;cstdlib&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../cstring.html">&lt;cstring&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">setlocale</span><span class="p">(</span><span class="n">LC_ALL</span><span class="p">,</span> <span class="s">"ja_JP.UTF-8"</span><span class="p">);</span>
+  <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">str</span> <span class="o">=</span> <span class="s">"こんにちは"</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">mblen</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">strlen</span><span class="p">(</span><span class="n">str</span><span class="p">));</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力例</h4>
+<p><pre><code>3
+</code></pre></p>
+<h3>文字列の文字数を計算する</h3>
+<p><div class="yata" id="b108e63a49324ebfeac058382a56ea4a5bdcde7a"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;clocale&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../cstdlib.html">&lt;cstdlib&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../cstring.html">&lt;cstring&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">count_chars_mblen</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
+<span class="cp">#if __cplusplus &gt;= 201703L</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">mblen</span><span class="p">(</span><span class="k">nullptr</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">"count_chars_mblen: State-dependent encoding is unsupported."</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="cp">#else</span>
+  <span class="c1">// C++14 以前: std::mblen 内部の std::mbstate_t を初期化する必要あり</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">mblen</span><span class="p">(</span><span class="k">nullptr</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="cp">#endif</span>
+
+  <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="n"><a href="../cstddef/size_t.html">std::size_t</a></span> <span class="n">bytes</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">strlen</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">bytes</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">mblen</span><span class="p">(</span><span class="o">&amp;</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">bytes</span> <span class="o">-</span> <span class="n">i</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">len</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">len</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="n">len</span><span class="p">;</span>
+    <span class="n">count</span><span class="o">++</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">setlocale</span><span class="p">(</span><span class="n">LC_ALL</span><span class="p">,</span> <span class="s">"ja_JP.UTF-8"</span><span class="p">);</span>
+
+  <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">str</span> <span class="o">=</span> <span class="s">"こんにちは世界"</span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"文字列: "</span> <span class="o">&lt;&lt;</span> <span class="n">str</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"文字数: "</span> <span class="o">&lt;&lt;</span> <span class="n">count_chars_mblen</span><span class="p">(</span><span class="n">str</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>注意: この例は飽くまで <code>std::mblen</code> を用いて文字数を数える関数の例であるが、実用上は <code>std::mbrlen</code> を用いた実装にするのが安全である。
+上の関数 <code>count_chars_mblen</code> はスレッドーセーフでない他、呼び出し元でも <code>std::mblen</code> を使っている場合にその振る舞いを破壊する可能性がある。</p>
+<h4>出力例</h4>
+<p><pre><code>文字列: こんにちは世界
+文字数: 7
+</code></pre></p>
+<h2>関連項目</h2>
+<ul>
+<li><code><span href="https://cpprefjp.github.io/reference/cwchar/mbrlen.md.nolink">mbrlen</span></code>: <code>std::mbstate_t</code> を受け取るスレッドセーフなバージョン</li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1373.htm" target="_blank">WG14 N1373: Wording improvements for mblen, mbtowc, and c16rtomb</a><ul>
+<li>C11 以降内部状態が最初に初期化されることになった。「表現の改善」としてこの破壊的な変更が実施されたように見える。</li>
+<li><a href="https://www.openwall.com/lists/musl/2019/12/26/7" target="_blank">musl のメーリングリスト - 2019-12-26</a> にて Florian Weimer が以下のように指摘している:
+    "actual users of the interfaces with legacy charsets do not seem to be represented on the standards committee anymore (see the mblen behavioral change in C11 as evidence supporting this theory)."
+    意訳: 「(C11 で入った mblen の振る舞い変更でも分かるように) C標準化委員会には古い文字コードを使っている人はもういないようだ。」</li>
+</ul>
+</li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg14/www/docs/n2037.htm" target="_blank">WG14 N2037: mblen, mbtowc, and wctomb thread-safety</a><ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg14/issues/c11c17/issue0498.html" target="_blank">WG14 DR498: mblen, mbtowc, and wctomb thread-safety</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg14/www/docs/n2246.htm" target="_blank">WG14 N2246: Make mblen, mbtowc, and wctomb thread-safe for encodings that are not state-dependent</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg14/www/docs/n2281.htm" target="_blank">WG14 N2281: Make mblen, mbtowc, and wctomb thread-safe for encodings that are not state-dependent</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg14/www/docs/n2358.htm" target="_blank">WG14 N2358: No internal state for mblen</a></li>
+<li>C11 以降もあたかも <code>mblen</code> が内部状態を持つかのような記述になっていたのが C23 で修正された。</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

@@ -1,0 +1,467 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>decltype [N2343] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp11
+">
+        <meta name="title" content="decltype [N2343] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="decltype [N2343] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="decltype [N2343] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp11/decltype.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`decltype` は、オペランドで指定した式の型を取得する機能である。  " />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="decltype [N2343] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp11/decltype.html" />
+        <meta name="twitter:description" content="`decltype` は、オペランドで指定した式の型を取得する機能である。  " />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="manifest" href="../../manifest.json?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp11&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;2cc2a21cc14e16a5926d30998ffb7bc5955a0c02&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\ntemplate&lt;typename T, typename U&gt;\nauto add(const T&amp; lhs, const U&amp; rhs)\n  -&gt; decltype(lhs + rhs)                // add \u306e\u623b\u308a\u5024\u578b\u306f lhs + rhs \u306e\u5f0f\u306e\u578b\n{\n  return lhs + rhs;\n}\n\nint main()\n{\n  auto r = add(1, 2.0F);                // r \u306e\u578b\u306f float \u578b\n  std::cout &lt;&lt; std::fixed &lt;&lt; r &lt;&lt; &#39;\\n&#39;;\n}\n&#34;}, {&#34;id&#34;: &#34;10abf31123e76640d0003465b70235ee2a6a22e5&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\nint main()\n{\n  int i = 10;\n  decltype(i) j = i;                    // j \u306f int \u578b\n  decltype((i)) k = i;                  // k \u306f int&amp; \u578b\uff08i \u306f lvalue \u3067\u4e38\u30ab\u30c3\u30b3\u304c\u4ed8\u3044\u3066\u3044\u308b\u306e\u3067\uff09\n\n  i = 42;\n  std::cout &lt;&lt; j &lt;&lt; \&#34;, \&#34; &lt;&lt; k &lt;&lt; &#39;\\n&#39;;\n}\n&#34;}, {&#34;id&#34;: &#34;6d9d26de98bd709edc985a6c40bf455c07e9c4fb&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\nstruct S {\n  int i = 42;\n};\n\nint main()\n{\n  S s;\n  auto mp = &amp;decltype(s)::i;             // mp \u306e\u578b\u306f int S::* \u578b\uff08S \u306e int \u578b\u306e\u30e1\u30f3\u30d0\u3078\u306e\u30dd\u30a4\u30f3\u30bf\uff09\n  std::cout &lt;&lt; s.*mp &lt;&lt; &#39;\\n&#39;;\n}\n&#34;}, {&#34;id&#34;: &#34;b71c456e74c82059f18942232a989de1d9286a47&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\nstruct S {\n  S() { std::cout &lt;&lt; \&#34;S()\\n\&#34;; }\n  ~S() { std::cout &lt;&lt; \&#34;~S()\\n\&#34;; }\n};\n\nS f();\n\nint main()\n{\n  std::cout &lt;&lt; \&#34;allocate\\n\&#34;;\n  void* p = ::operator new(sizeof(f()));\n\n  std::cout &lt;&lt; \&#34;construct\\n\&#34;;\n  ::new(p) decltype(f());                       // \u914d\u7f6e new \u3067 p \u306e\u6307\u3059\u30e1\u30e2\u30ea\u306b S \u578b\u306e\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3092\u69cb\u7bc9\n\n  std::cout &lt;&lt; \&#34;destruct\\n\&#34;;\n  auto sp = static_cast&lt;decltype(f())*&gt;(p);     // \u30c7\u30b9\u30c8\u30e9\u30af\u30bf\u547c\u3073\u51fa\u3057\u306e\u305f\u3081\u3001S \u578b\u3078\u306e\u30dd\u30a4\u30f3\u30bf\u306b\u30ad\u30e3\u30b9\u30c8\n  sp-&gt;~decltype(f())();                         // \u660e\u793a\u7684\u30c7\u30b9\u30c8\u30e9\u30af\u30bf\u547c\u3073\u51fa\u3057\u3067 sp \u306e\u6307\u3059\u30e1\u30e2\u30ea\u306e S \u578b\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3092\u7834\u68c4\n\n  std::cout &lt;&lt; \&#34;deallocate\\n\&#34;;\n  ::operator delete(p);\n}\n&#34;}, {&#34;id&#34;: &#34;81c563fd16e7646be5cbcf026bd4841e8b2e13e5&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\nstruct S {\n  int i;\n  S(int i) : i(i) {}\n  operator decltype(i)() { return i; }        // int \u578b\u3078\u306e\u5909\u63db\u6f14\u7b97\u5b50\n};\n\nint main()\n{\n  S s(42);\n  std::cout &lt;&lt; s &lt;&lt; &#39;\\n&#39;;\n}\n&#34;}, {&#34;id&#34;: &#34;58f87463b824488b544049b01469532b5c1751f2&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;utility&gt;\n\ntemplate&lt;typename T&gt;\nauto d(T&amp;&amp; x)\n{\n  return x + x;\n}\n\nstruct S {\n  static constexpr int g = 20;\n};\n\nconstexpr int S::g;\n\nint main()\n{\n  auto l = [](auto&amp;&amp; x) {\n    std::cout &lt;&lt; \&#34;start\\n\&#34;;\n    auto ret = d(std::forward&lt;decltype(x)&gt;(x));     // x \u306e\u578b\u306e\u307e\u307e\u3067\u8ee2\u9001\n    std::cout &lt;&lt; \&#34;end\\n\&#34;;\n    return ret;\n  };\n  std::cout &lt;&lt; l(S::g) &lt;&lt; &#39;\\n&#39;;\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp11&#34;, &#34;decltype&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp11.html" itemprop="url">
+              
+                <span itemprop="name">C++11</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">decltype [N2343]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-07-08T15:33:39">
+        2025年07月08日 15時33分39秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp11/decltype.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp11/decltype.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">decltype [N2343]</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p>このページはC++11に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p><code>decltype</code> は、オペランドで指定した式の型を取得する機能である。<br />
+型を指定する必要のある個所で <code>decltype</code> を使用することによって、具体的な型名を指定する代わりに式から取得した型を指定できるようになった。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n"><span style="color:#ff0000">decltype</span></span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>                      <span class="c1">// j は int 型</span>
+<span class="n"><span style="color:#ff0000">decltype</span></span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">;</span>                    <span class="c1">// p は int* 型</span>
+<span class="n"><span style="color:#ff0000">decltype</span></span><span class="p">((</span><span class="n">i</span><span class="p">))</span> <span class="n">k</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>                    <span class="c1">// k は int&amp; 型（変数名 i の周りの余分な丸カッコに注意）</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">U</span><span class="o">&gt;</span>
+<span class="k">auto</span> <span class="n">add</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">lhs</span><span class="p">,</span> <span class="k">const</span> <span class="n">U</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span>
+  <span class="o">-&gt;</span> <span class="n"><span style="color:#ff0000">decltype</span></span><span class="p">(</span><span class="n">lhs</span> <span class="o">+</span> <span class="n">rhs</span><span class="p">);</span>               <span class="c1">// add の戻り値型は lhs + rhs の式の型</span>
+
+<span class="k">struct</span> <span class="n">S</span> <span class="p">{</span>
+  <span class="k">using</span> <span class="n">U</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">decltype</span></span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="sc">'a'</span><span class="p">,</span> <span class="sc">'b'</span><span class="p">));</span>    <span class="c1">// S::U は int 型の別名</span>
+<span class="p">}</span> <span class="n">s</span><span class="p">;</span>
+
+<span class="n"><span style="color:#ff0000">decltype</span></span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">::</span><span class="n">U</span> <span class="n">l</span><span class="p">{};</span>                     <span class="c1">// l は S::U 型（つまり int 型）</span>
+</code></pre></div>
+</p>
+<p>なお、C++14 では特定の文脈において式のかわりに <code>auto</code> キーワードを使用する <code><a href="../cpp14/decltype_auto.html">decltype(auto)</a></code> が追加されている。</p>
+<h2>仕様</h2>
+<p><code>e</code> を式とすると、<code>decltype(e)</code> が意味する型は以下のとおりである。</p>
+<ul>
+<li><code>e</code> が丸カッコで囲まれていない識別子の場合、あるいは、丸カッコで囲まれていないクラスメンバアクセスの場合、<code>decltype(e)</code> は <code>e</code> で指定された実体の型である。<br />
+    もしそのような実体が無いか、あるいは、<code>e</code> が<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>された複数の関数を指す場合、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>である。</li>
+<li>そうではなくて、もし <code>e</code> が xvalue の場合、<code>e</code> の型を <code>T</code> とすると、<code>decltype(e)</code> は <code>T&amp;&amp;</code> である。</li>
+<li>そうではなくて、もし <code>e</code> が lvalue の場合、<code>e</code> の型を <code>T</code> とすると、<code>decltype(e)</code> は <code>T&amp;</code> である。</li>
+<li>上記以外の場合、<code>decltype(e)</code> は <code>e</code> の型である。</li>
+</ul>
+<p><code>decltype</code> のオペランドは「評価されないオペランド」である。</p>
+<p>ラムダ式の関数本体で、外部の自動変数に対して <code>decltype</code> を余分な丸カッコ付きで使用した場合、クロージャ型のメンバ変数に対する <code>decltype</code> とみなされる。</p>
+<p><code>sizeof</code> とは異なり、<code>decltype</code> のオペランドには丸カッコが必須である。（<code>sizeof i</code> はＯＫだが、<code>decltype i</code> はＮＧ）</p>
+<h2>例</h2>
+<h3>関数の戻り型での使用例</h3>
+<p><div class="yata" id="2cc2a21cc14e16a5926d30998ffb7bc5955a0c02"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">U</span><span class="o">&gt;</span>
+<span class="k">auto</span> <span class="n">add</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">lhs</span><span class="p">,</span> <span class="k">const</span> <span class="n">U</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span>
+  <span class="o">-&gt;</span> <span class="n"><span style="color:#ff0000">decltype</span></span><span class="p">(</span><span class="n">lhs</span> <span class="o">+</span> <span class="n">rhs</span><span class="p">)</span>                <span class="c1">// add の戻り値型は lhs + rhs の式の型</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="n">lhs</span> <span class="o">+</span> <span class="n">rhs</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">auto</span> <span class="n">r</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.0F</span><span class="p">);</span>                <span class="c1">// r の型は float 型</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n"><a href="../../reference/ios/fixed.html">fixed</a></span> <span class="o">&lt;&lt;</span> <span class="n">r</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>3.000000
+</code></pre></p>
+<h3>変数の型としての使用例</h3>
+<p><div class="yata" id="10abf31123e76640d0003465b70235ee2a6a22e5"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+  <span class="n"><span style="color:#ff0000">decltype</span></span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>                    <span class="c1">// j は int 型</span>
+  <span class="n"><span style="color:#ff0000">decltype</span></span><span class="p">((</span><span class="n">i</span><span class="p">))</span> <span class="n">k</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>                  <span class="c1">// k は int&amp; 型（i は lvalue で丸カッコが付いているので）</span>
+
+  <span class="n">i</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">j</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">k</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>10, 42
+</code></pre></p>
+<h3>ネストした名前の指定子としての使用例</h3>
+<p><div class="yata" id="6d9d26de98bd709edc985a6c40bf455c07e9c4fb"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">S</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">S</span> <span class="n">s</span><span class="p">;</span>
+  <span class="k">auto</span> <span class="n">mp</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n"><span style="color:#ff0000">decltype</span></span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">::</span><span class="n">i</span><span class="p">;</span>             <span class="c1">// mp の型は int S::* 型（S の int 型のメンバへのポインタ）</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">s</span><span class="p">.</span><span class="o">*</span><span class="n">mp</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>42
+</code></pre></p>
+<h3>new 式の型、キャスト、および、明示的デストラクタ呼び出しの一部としての使用例</h3>
+<p><div class="yata" id="b71c456e74c82059f18942232a989de1d9286a47"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">S</span> <span class="p">{</span>
+  <span class="n">S</span><span class="p">()</span> <span class="p">{</span> <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"S()</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span> <span class="p">}</span>
+  <span class="o">~</span><span class="n">S</span><span class="p">()</span> <span class="p">{</span> <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"~S()</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="n">S</span> <span class="nf">f</span><span class="p">();</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"allocate</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+  <span class="kt">void</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="o">::</span><span class="k">operator</span> <span class="k">new</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">f</span><span class="p">()));</span>
+
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"construct</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+  <span class="o">::</span><span class="k">new</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="n"><span style="color:#ff0000">decltype</span></span><span class="p">(</span><span class="n">f</span><span class="p">());</span>                       <span class="c1">// 配置 new で p の指すメモリに S 型のオブジェクトを構築</span>
+
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"destruct</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+  <span class="k">auto</span> <span class="n">sp</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">decltype</span></span><span class="p">(</span><span class="n">f</span><span class="p">())</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>     <span class="c1">// デストラクタ呼び出しのため、S 型へのポインタにキャスト</span>
+  <span class="n">sp</span><span class="o">-&gt;~</span><span class="n"><span style="color:#ff0000">decltype</span></span><span class="p">(</span><span class="n">f</span><span class="p">())();</span>                         <span class="c1">// 明示的デストラクタ呼び出しで sp の指すメモリの S 型オブジェクトを破棄</span>
+
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"deallocate</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+  <span class="o">::</span><span class="k">operator</span> <span class="k">delete</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>allocate
+construct
+S()
+destruct
+~S()
+deallocate
+</code></pre></p>
+<h3>変換演算子の型としての使用例</h3>
+<p><div class="yata" id="81c563fd16e7646be5cbcf026bd4841e8b2e13e5"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">S</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+  <span class="n">S</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="o">:</span> <span class="n">i</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">{}</span>
+  <span class="k">operator</span> <span class="n"><span style="color:#ff0000">decltype</span></span><span class="p">(</span><span class="n">i</span><span class="p">)()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">i</span><span class="p">;</span> <span class="p">}</span>        <span class="c1">// int 型への変換演算子</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">S</span> <span class="n">s</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>42
+</code></pre></p>
+<h3>template 型引数としての使用例（下記の例は C++14 以降でのみコンパイル可能）</h3>
+<p><div class="yata" id="58f87463b824488b544049b01469532b5c1751f2"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">auto</span> <span class="n">d</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span> <span class="n">x</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">x</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">struct</span> <span class="n">S</span> <span class="p">{</span>
+  <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">g</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">constexpr</span> <span class="kt">int</span> <span class="n">S</span><span class="o">::</span><span class="n">g</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">auto</span> <span class="n">l</span> <span class="o">=</span> <span class="p">[](</span><span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"start</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+    <span class="k">auto</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">d</span><span class="p">(</span><span class="n"><a href="../../reference/utility/forward.html">std::forward</a></span><span class="o">&lt;</span><span class="n"><span style="color:#ff0000">decltype</span></span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>     <span class="c1">// x の型のままで転送</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"end</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">ret</span><span class="p">;</span>
+  <span class="p">};</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">l</span><span class="p">(</span><span class="n">S</span><span class="o">::</span><span class="n">g</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code>start
+end
+40
+</code></pre></p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>以下のような関数テンプレートの<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型を考える：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Func</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="o">???</span> <span class="n">trace</span><span class="p">(</span><span class="n">Func</span> <span class="n">f</span><span class="p">,</span> <span class="n">T</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span> <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"Calling f"</span><span class="p">;</span> <span class="k">return</span> <span class="nf">f</span><span class="p">(</span><span class="n">t</span><span class="p">);</span> <span class="p">}</span>
+</code></pre></div>
+</p>
+<p>C++03 まででは、このような関数テンプレートの<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型をあらゆるケースで正確に表現することは不可能だった。</p>
+<p>C++11 では、本機能と<a href="trailing_return_types.html">戻り値の型を後置する関数宣言構文</a>を使用することによって、以下のように書くことができるようになった。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Func</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">auto</span> <span class="n">trace</span><span class="p">(</span><span class="n">Func</span> <span class="n">f</span><span class="p">,</span> <span class="n">T</span> <span class="n">t</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span style="color:#ff0000">decltype</span></span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">))</span> <span class="p">{</span> <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"Calling f"</span><span class="p">;</span> <span class="k">return</span> <span class="nf">f</span><span class="p">(</span><span class="n">t</span><span class="p">);</span> <span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>検討されたほかの選択肢</h2>
+<p>GCC や Clang には <code>decltype</code> が導入される前から、同様の機能を持つ <code>typeof</code> が非標準の拡張機能として存在している。<br />
+<code>decltype</code> もこれらの拡張機能を参考にしているが、大きく以下の 3 点において <code>typeof</code> とは異なる。  </p>
+<ul>
+<li>参照の扱い。<br />
+<code>decltype</code> はオペランドの型にある参照を保存するが、<code>typeof</code> はオペランドの型から参照を外す。<br />
+    ただし、上記の仕様に書かれているように <code>decltype</code> もオペランドが単なる識別子やクラスメンバアクセスだった場合には、当該識別子やメンバがたとえ lvalue であっても左辺値参照とはならない。<br />
+    本機能の <code>decltype</code> という名称はここから来ている。（declared type：宣言された型）</li>
+<li>使用可能な箇所。<br />
+<code>decltype</code> は型名が使用可能な箇所であれはほぼどこでも使用可能であるが、<code>typeof</code> は変数宣言でしか使用できない。</li>
+<li>オペランドの種類。<br />
+<code>decltype</code> のオペランドは式のみしか許されていないが、<code>typeof</code> は式だけでなく型そのものも許されている。</li>
+</ul>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li><a href="trailing_return_types.html">C++11 戻り値の型を後置する関数宣言構文</a></li>
+<li><a href="auto.html">C++11 変数の型推論のための<code>auto</code></a></li>
+<li><a href="lambda_expressions.html">C++11 ラムダ式</a></li>
+<li><a href="../cpp14/decltype_auto.html">C++14 <code>decltype(auto)</code></a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1478.pdf" target="_blank">N1478 Decltype and auto</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2003/n1527.pdf" target="_blank">N1527 Mechanisms for querying types of expressions: Decltype and auto revisited</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1607.pdf" target="_blank">N1607 Decltype and auto (revision 3)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1705.pdf" target="_blank">N1705 Decltype and auto (revision 4)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1978.pdf" target="_blank">N1978 Decltype (revision 5)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n2115.pdf" target="_blank">N2115 Decltype (revision 6): proposed wording</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2343.pdf" target="_blank">N2343 Decltype (revision 7): proposed wording</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2991.pdf" target="_blank">N2991 Core issue 743: decltype(...) name qualifiers</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3031.pdf" target="_blank">N3031 Core issues 743 and 950: Additional decltype(...) uses</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3049.pdf" target="_blank">N3049 Core issues 743 and 950: Additional decltype(...) uses (revision 1)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2011/n3233.html" target="_blank">N3233 US22/DE9 Revisited: Decltype and Call Expressions</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2011/n3276.pdf" target="_blank">N3276 US22/DE9 Revisited: Decltype and Call Expressions</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#743" target="_blank">CWG Issue 743. Use of decltype in a nested-name-specifier</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#950" target="_blank">CWG Issue 950. Use of decltype as a class-name</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

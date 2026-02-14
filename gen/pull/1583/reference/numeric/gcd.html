@@ -1,0 +1,420 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>gcd - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,numeric,function template,std,cpp17
+">
+        <meta name="title" content="gcd - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="gcd - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="gcd - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/numeric/gcd.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="最大公約数 (greatest common divisor, gcd) を求める。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="gcd - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/numeric/gcd.html" />
+        <meta name="twitter:description" content="最大公約数 (greatest common divisor, gcd) を求める。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="manifest" href="../../manifest.json?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [ ['$','$'] ],
+        displayMath: [ ['$$','$$'] ],
+        processEscapes: true
+      },
+      chtml: {
+        displayAlign: 'left',
+        displayIndent: '2.0em',
+      },
+    };
+    </script>
+    <!-- IEはサポートしないので https://polyfill.io/v3/polyfill.min.js?features=es6 は読み込まない -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;numeric&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;06ed668f4941feda2e4456ff8a3df53ca60665ca&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;numeric&gt;\n\nint main() {\n  assert(std::gcd(12, 42) == 6);\n  assert(std::gcd(42, 12) == 6);\n\n  // \u30b3\u30f3\u30d1\u30a4\u30eb\u6642\u306b\u6700\u5927\u516c\u7d04\u6570\u3092\u6c42\u3081\u308b\u3053\u3068\u3082\u3067\u304d\u308b\n  static_assert(std::gcd(0, 0) == 0);\n  static_assert(std::gcd(3u, -7l) == 1);\n}\n&#34;}, {&#34;id&#34;: &#34;35c51713e835f2b44600b5fadf3098f5515a9975&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;numeric&gt;\n#include &lt;cstdint&gt;\n#include &lt;limits&gt;\n\nint main() {\n  // \u7b26\u53f7\u4ed8\u304d\u6574\u6570\u306e\u5834\u5408\u3001\u623b\u308a\u5024\u304c\u8ca0\u306b\u306a\u308b\u3053\u3068\u304c\u3042\u308b\u3002\n  // m\u3068n\u306e\u7d76\u5bfe\u5024\u3092\u3068\u3063\u3066\u7b26\u53f7\u306a\u3057\u6574\u6570\u3068\u3057\u3066\u6700\u5927\u516c\u7d04\u6570\u3092\u6c42\u3081\u308b\u304c\u3001\n  // \u623b\u308a\u5024\u578b\u306f\u7b26\u53f7\u4ed8\u304d\u6574\u6570\u578b\u3067\u3042\u308b\u305f\u3081\u3001\u5909\u63db\u6642\u306b\u7b26\u53f7\u4ed8\u304d\u6574\u6570\u306e\u6b63\u306e\u5024\u3068\u3057\u3066\n  // \u8868\u73fe\u3067\u304d\u306a\u3044\u3068\u8ca0\u306e\u5024\u306b\u306a\u308b\n  using T = std::int32_t;\n  constexpr auto m = std::numeric_limits&lt;T&gt;::min();\n  const auto gs = std::gcd&lt;T, T&gt;(m, m);  // |m| \u304c int32_t \u3067\u8868\u305b\u306a\u3044\u3068 m &lt; 0 \u306b\u306a\u308b\n  std::cout &lt;&lt; \&#34;gcd&lt;int32_t, int32_t&gt;(\&#34; &lt;&lt; m &lt;&lt; \&#34;, \&#34; &lt;&lt; m &lt;&lt; \&#34;)   \&#34; &lt;&lt; gs &lt;&lt; std::endl;\n\n  // \u7b26\u53f7\u306a\u3057\u6574\u6570\u306b\u3059\u308c\u3070\u623b\u308a\u5024\u306f\u5e38\u306b\u6b63\u306b\u306a\u308b\n  using U = std::uint32_t;\n  const auto gu = std::gcd&lt;U, U&gt;(m, m);\n  std::cout &lt;&lt; \&#34;gcd&lt;uint32_t, uint32_t&gt;(\&#34; &lt;&lt; m &lt;&lt; \&#34;, \&#34; &lt;&lt; m &lt;&lt; \&#34;) \&#34; &lt;&lt; gu &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;fbcfb8c7c6ae3ff92d3f4695c7451c716faa1885&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;numeric&gt;\n#include &lt;vector&gt;\n\n// \u53ef\u5909\u5f15\u6570\u3067\u6700\u5927\u516c\u7d04\u6570\u3092\u6c42\u3081\u308b\u95a2\u6570\ntemplate &lt;class T&gt;\nT vgcd(T m, T n) {\n  return std::gcd(m, n);\n}\n\ntemplate &lt;class T, class... Args&gt;\nT vgcd(T a, Args... args) {\n  return vgcd(a, vgcd(args...));\n}\n\nint main() {\n  // 2\u3064\u305a\u3064\u6700\u5927\u516c\u7d04\u6570\u3092\u6c42\u3081\u308b\n  assert(std::gcd(std::gcd(12, 42), 72) == 6);\n\n  // \u30ea\u30b9\u30c8\u5168\u4f53\u306e\u6700\u5927\u516c\u7d04\u6570\u3092\u6c42\u3081\u308b\n  std::vector&lt;int&gt; v = {12, 42, 72};\n  int r = std::accumulate(v.begin(), v.end(), 0, [](int m, int n) {\n    return std::gcd(m, n);\n  });\n  assert(r == 6);\n\n  // \u53ef\u5909\u5f15\u6570\u3067\u6700\u5927\u516c\u7d04\u6570\u3092\u6c42\u3081\u308b\n  assert(vgcd(12, 42, 72) == 6);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;numeric&#34;, &#34;gcd&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/numeric.html" itemprop="url">
+              
+                <span itemprop="name">numeric</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">gcd</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-07-11T17:16:44">
+        2025年07月11日 17時16分44秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Koichi Murase</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/numeric/gcd.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/numeric/gcd.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function template</div><div class="header">&lt;numeric&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">gcd</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">M</span><span class="p">,</span> <span class="k">class</span> <span class="nc">N</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="n"><a href="../type_traits/common_type.html">common_type_t</a></span><span class="o">&lt;</span><span class="n">M</span><span class="p">,</span> <span class="n">N</span><span class="o">&gt;</span> <span class="n">gcd</span><span class="p">(</span><span class="n">M</span> <span class="n">m</span><span class="p">,</span> <span class="n">N</span> <span class="n">n</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>最大公約数 (greatest common divisor, gcd) を求める。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Mandates。満たさなければプログラムが不適格となる要件。この要件は、オーバーロード解決によって選択された関数内での`static_assert`の定数条件式や、関数に対するdelete宣言などで表現できる">適格要件</a></h2>
+<ul>
+<li>型<code>M</code> および <code>N</code> が <code>bool</code> 以外の整数型であること</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a></h2>
+<ul>
+<li><code>|m|</code> および <code>|n|</code> が <code><a href="../type_traits/common_type.html">common_type_t</a>&lt;M, N&gt;</code> の値として表現できること<ul>
+<li>この条件により、<code>gcd(m, m) == |m|</code>が型<code>M</code>の表現可能な値であることが保証される</li>
+</ul>
+</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<ul>
+<li><code>m</code> と <code>n</code> が共に 0 の場合 0 を返す</li>
+<li>それ以外の場合、引数 <code>|m|</code> と <code>|n|</code> の最大公約数を返す</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
+<p>投げない。</p>
+<h2>例</h2>
+<h3>基本的な使い方</h3>
+<p><div class="yata" id="06ed668f4941feda2e4456ff8a3df53ca60665ca"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../numeric.html">&lt;numeric&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::gcd</span></span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span><span class="p">);</span>
+  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::gcd</span></span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span><span class="p">);</span>
+
+  <span class="c1">// コンパイル時に最大公約数を求めることもできる</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::gcd</span></span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::gcd</span></span><span class="p">(</span><span class="mi">3u</span><span class="p">,</span> <span class="o">-</span><span class="mi">7l</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code></code></pre></p>
+<h3>負の最大公約数が生成される状況の例</h3>
+<p><div class="yata" id="35c51713e835f2b44600b5fadf3098f5515a9975"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../numeric.html">&lt;numeric&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../cstdint.html">&lt;cstdint&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../limits.html">&lt;limits&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// 符号付き整数の場合、戻り値が負になることがある。</span>
+  <span class="c1">// mとnの絶対値をとって符号なし整数として最大公約数を求めるが、</span>
+  <span class="c1">// 戻り値型は符号付き整数型であるため、変換時に符号付き整数の正の値として</span>
+  <span class="c1">// 表現できないと負の値になる</span>
+  <span class="k">using</span> <span class="n">T</span> <span class="o">=</span> <span class="n"><a href="../cstdint/int32_t.html">std::int32_t</a></span><span class="p">;</span>
+  <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">m</span> <span class="o">=</span> <span class="n"><a href="../limits/numeric_limits.html">std::numeric_limits</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n"><a href="../limits/numeric_limits/min.html">min</a></span><span class="p">();</span>
+  <span class="k">const</span> <span class="k">auto</span> <span class="n">gs</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::gcd</span></span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">m</span><span class="p">);</span>  <span class="c1">// |m| が int32_t で表せないと m &lt; 0 になる</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"gcd&lt;int32_t, int32_t&gt;("</span> <span class="o">&lt;&lt;</span> <span class="n">m</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">m</span> <span class="o">&lt;&lt;</span> <span class="s">")   "</span> <span class="o">&lt;&lt;</span> <span class="n">gs</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">// 符号なし整数にすれば戻り値は常に正になる</span>
+  <span class="k">using</span> <span class="n">U</span> <span class="o">=</span> <span class="n"><a href="../cstdint/uint32_t.html">std::uint32_t</a></span><span class="p">;</span>
+  <span class="k">const</span> <span class="k">auto</span> <span class="n">gu</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::gcd</span></span><span class="o">&lt;</span><span class="n">U</span><span class="p">,</span> <span class="n">U</span><span class="o">&gt;</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">m</span><span class="p">);</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"gcd&lt;uint32_t, uint32_t&gt;("</span> <span class="o">&lt;&lt;</span> <span class="n">m</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">m</span> <span class="o">&lt;&lt;</span> <span class="s">") "</span> <span class="o">&lt;&lt;</span> <span class="n">gu</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力例</h4>
+<p><pre><code>gcd&lt;int32_t, int32_t&gt;(-2147483648, -2147483648)   -2147483648
+gcd&lt;uint32_t, uint32_t&gt;(-2147483648, -2147483648) 2147483648
+</code></pre></p>
+<h3>3つ以上の値に対する最大公約数を求める</h3>
+<p><div class="yata" id="fbcfb8c7c6ae3ff92d3f4695c7451c716faa1885"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../numeric.html">&lt;numeric&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// 可変引数で最大公約数を求める関数</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">T</span> <span class="n">vgcd</span><span class="p">(</span><span class="n">T</span> <span class="n">m</span><span class="p">,</span> <span class="n">T</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n"><span style="color:#ff0000">std::gcd</span></span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="n">T</span> <span class="n">vgcd</span><span class="p">(</span><span class="n">T</span> <span class="n">a</span><span class="p">,</span> <span class="n">Args</span><span class="p">...</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">vgcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">vgcd</span><span class="p">(</span><span class="n">args</span><span class="p">...));</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// 2つずつ最大公約数を求める</span>
+  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::gcd</span></span><span class="p">(</span><span class="n"><span style="color:#ff0000">std::gcd</span></span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">42</span><span class="p">),</span> <span class="mi">72</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span><span class="p">);</span>
+
+  <span class="c1">// リスト全体の最大公約数を求める</span>
+  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">12</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">72</span><span class="p">};</span>
+  <span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="n"><a href="accumulate.html">std::accumulate</a></span><span class="p">(</span><span class="n"><a href="../vector/vector/begin.html">v.begin()</a></span><span class="p">,</span> <span class="n"><a href="../vector/vector/end.html">v.end()</a></span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">m</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n"><span style="color:#ff0000">std::gcd</span></span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+  <span class="p">});</span>
+  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">r</span> <span class="o">==</span> <span class="mi">6</span><span class="p">);</span>
+
+  <span class="c1">// 可変引数で最大公約数を求める</span>
+  <span class="n"><a href="../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">vgcd</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">72</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力</h4>
+<p><pre><code></code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++17</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 4.0.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 7.1.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h3>備考</h3>
+<h4>Clang (libc++)</h4>
+<ul>
+<li><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a>を満たすかどうかチェックしないが、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を <code>constexpr</code> 指定するとオーバーフロー時にコンパイルエラーとなることがある。</li>
+<li><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a>を満たさない場合、オーバーフローにより<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>が負になることがある。</li>
+</ul>
+<h4>GCC (libstdc++)</h4>
+<ul>
+<li><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a>を満たすかどうかチェックしないが、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>を <code>constexpr</code> 指定するとオーバーフロー時にコンパイルエラーとなることがある。</li>
+<li><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Preconditions。関数呼び出し時に満たされていると関数が想定する条件。満たさなければ未定義の動作。契約属性の`[[expects]]`に相当">事前条件</a>を満たさない場合、オーバーフローにより<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>が負になることがある。</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3845.pdf" target="_blank">WG21 N3845 Greatest Common Divisor and Least Common Multiple</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n3913.pdf" target="_blank">WG21 N3913 Greatest Common Divisor and Least Common Multiple, v2</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4061.pdf" target="_blank">WG21 N4061 Greatest Common Divisor and Least Common Multiple, v3</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0295r0.pdf" target="_blank">WG21 P0295R0 Adopt Selected Library Fundamentals V2 Components for C++17</a></li>
+<li><a href="https://wg21.cmeerw.net/lwg/issue2837" target="_blank">LWG Issue 2837. <code>gcd</code> and <code>lcm</code> should support a wider range of input values</a></li>
+<li><a href="https://wg21.cmeerw.net/lwg/issue2759" target="_blank">LWG Issue 2759. <code>gcd</code> / <code>lcm</code> and <code>bool</code> for the WP</a></li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="lcm.html">lcm</a></code></li>
+</ul>
+<h2>実装例</h2>
+<p>$$ \mathrm{gcd}(m, n) = \begin{cases}
+  |m| &amp; \text{if } n = 0 \\
+  \mathrm{gcd}(n, m \bmod n) &amp; \text{otherwise}
+\end{cases} $$</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">M</span><span class="p">,</span> <span class="k">class</span> <span class="nc">N</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="n"><a href="../type_traits/common_type.html">std::common_type_t</a></span><span class="o">&lt;</span><span class="n">M</span><span class="p">,</span> <span class="n">N</span><span class="o">&gt;</span> <span class="n">gcd</span><span class="p">(</span><span class="n">M</span> <span class="n">m</span><span class="p">,</span> <span class="n">N</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">m</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">auto</span> <span class="n">mm</span> <span class="o">=</span> <span class="n"><a href="../cstdlib/abs.html">abs</a></span><span class="p">(</span><span class="n">m</span><span class="p">);</span>
+  <span class="k">auto</span> <span class="n">nn</span> <span class="o">=</span> <span class="n"><a href="../cstdlib/abs.html">abs</a></span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">mm</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">nn</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">mm</span> <span class="o">&gt;</span> <span class="n">nn</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">mm</span> <span class="o">%=</span> <span class="n">nn</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="n">nn</span> <span class="o">%=</span> <span class="n">mm</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">mm</span> <span class="o">&lt;</span> <span class="n">nn</span> <span class="o">?</span> <span class="nl">nn</span> <span class="p">:</span> <span class="n">mm</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

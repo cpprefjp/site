@@ -1,0 +1,478 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>optional::コンストラクタ - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,optional,std,optional,function,cpp17
+">
+        <meta name="title" content="optional::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="optional::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="optional::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/optional/optional/op_constructor.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="- (1), (2) : 有効値を保持していない状態にする" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="optional::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/optional/optional/op_constructor.html" />
+        <meta name="twitter:description" content="- (1), (2) : 有効値を保持していない状態にする" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="manifest" href="../../../manifest.json?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;optional&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;optional&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;ec406fbc50d8bc42b36b22a6d0f0595a9bb90ff0&#34;, &#34;source&#34;: &#34;#include &lt;cassert&gt;\n#include &lt;optional&gt;\n#include &lt;string&gt;\n#include &lt;vector&gt;\n#include &lt;memory&gt;\n\nstruct Base {};\nstruct Derived : Base {};\n\nint main()\n{\n  // (1)\n  {\n    std::optional&lt;int&gt; p;\n    assert(!p.has_value());\n  }\n\n  // (2)\n  {\n    std::optional&lt;int&gt; p = std::nullopt;\n    assert(!p.has_value());\n  }\n\n  // (3)\n  {\n    std::optional&lt;int&gt; a = 3;\n    std::optional&lt;int&gt; b = a;\n\n    assert(a.value() == 3);\n    assert(b.value() == 3);\n  }\n\n  // (4)\n  {\n    std::optional&lt;std::string&gt; a = \&#34;Hello\&#34;;\n    std::optional&lt;std::string&gt; b = std::move(a);\n\n    assert(b.value() == \&#34;Hello\&#34;);\n  }\n\n  // (5)\n  {\n    std::optional&lt;std::string&gt; p {std::in_place, 3, &#39;A&#39;};\n    assert(p.value() == \&#34;AAA\&#34;);\n  }\n\n  // (6)\n  {\n    std::allocator&lt;int&gt; alloc;\n    std::optional&lt;std::vector&lt;int&gt;&gt; p {std::in_place, {3, 1, 4}, alloc};\n\n    assert(p.value()[0] == 3);\n    assert(p.value()[1] == 1);\n    assert(p.value()[2] == 4);\n  }\n\n  // (7)\n  {\n    // const char*\u304b\u3089std::string\u306b\u6697\u9ed9\u7684\u306b\u578b\u5909\u63db\n    std::optional&lt;std::string&gt; p1 = \&#34;Hello\&#34;;\n    assert(p1.value() == \&#34;Hello\&#34;);\n\n    // \u6574\u6570\u5024\u304b\u3089std::vector\u306b\u660e\u793a\u7684\u306b\u578b\u5909\u63db\n    std::optional&lt;std::vector&lt;int&gt;&gt; p2 {3};\n    assert(p2.value().size() == 3);\n  }\n\n  // (8)\n  {\n    std::optional&lt;const char*&gt; a = \&#34;Hello\&#34;;\n    std::optional&lt;std::string&gt; b = a;\n\n    assert(b.value() == \&#34;Hello\&#34;);\n  }\n\n  // (9)\n  {\n    std::optional&lt;std::shared_ptr&lt;Derived&gt;&gt; a = std::make_shared&lt;Derived&gt;();\n    std::optional&lt;std::shared_ptr&lt;Base&gt;&gt; b = std::move(a);\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;optional&#34;, &#34;optional&#34;, &#34;op_constructor&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/optional.html" itemprop="url">
+              
+                <span itemprop="name">optional</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/optional/optional.html" itemprop="url">
+              
+                <span itemprop="name">optional</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">コンストラクタ</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-07-14T14:04:00">
+        2025年07月14日 14時04分00秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Koichi Murase</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/optional/optional/op_constructor.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/optional/optional/op_constructor.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;optional&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class optional">optional::</span><span class="token">コンストラクタ</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="nf">optional</span><span class="p">()</span> <span class="k">noexcept</span><span class="p">;</span>                                  <span class="c1">// (1) C++17</span>
+<span class="k">constexpr</span> <span class="nf">optional</span><span class="p">(</span><span class="n"><a href="../nullopt_t.html">nullopt_t</a></span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>                         <span class="c1">// (2) C++17</span>
+<span class="k">constexpr</span> <span class="nf">optional</span><span class="p">(</span><span class="k">const</span> <span class="n">optional</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">);</span>                        <span class="c1">// (3) C++17</span>
+<span class="k">constexpr</span> <span class="nf">optional</span><span class="p">(</span><span class="n">optional</span><span class="o">&amp;&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">);</span>         <span class="c1">// (4) C++17</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="k">explicit</span> <span class="n">optional</span><span class="p">(</span><span class="n"><a href="../../utility/in_place_t.html">in_place_t</a></span><span class="p">,</span> <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>        <span class="c1">// (5) C++17</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">U</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="k">explicit</span> <span class="n">optional</span><span class="p">(</span>
+                     <span class="n"><a href="../../utility/in_place_t.html">in_place_t</a></span><span class="p">,</span>
+                     <span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span>
+                     <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>                           <span class="c1">// (6) C++17</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">U</span> <span class="o">=</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n"><i>EXPLICIT</i></span> <span class="k">constexpr</span> <span class="n">optional</span><span class="p">(</span><span class="n">U</span><span class="o">&amp;&amp;</span> <span class="n">rhs</span><span class="p">);</span>                           <span class="c1">// (7) C++17</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">U</span> <span class="o">=</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">explicit</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">)</span> <span class="k">constexpr</span> <span class="n">optional</span><span class="p">(</span><span class="n">U</span><span class="o">&amp;&amp;</span> <span class="n">rhs</span><span class="p">);</span>                <span class="c1">// (7) C++20</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
+<span class="n"><i>EXPLICIT</i></span> <span class="n">optional</span><span class="p">(</span><span class="k">const</span> <span class="n">optional</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;</span> <span class="n">rhs</span><span class="p">);</span>                      <span class="c1">// (8) C++17</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
+<span class="k">explicit</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">)</span> <span class="n">optional</span><span class="p">(</span><span class="k">const</span> <span class="n">optional</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;</span> <span class="n">rhs</span><span class="p">);</span>           <span class="c1">// (8) C++20</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
+<span class="k">explicit</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">)</span> <span class="k">constexpr</span> <span class="n">optional</span><span class="p">(</span><span class="k">const</span> <span class="n">optional</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;</span> <span class="n">rhs</span><span class="p">);</span> <span class="c1">// (8) C++23</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
+<span class="n"><i>EXPLICIT</i></span> <span class="n">optional</span><span class="p">(</span><span class="n">optional</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;&amp;</span> <span class="n">rhs</span><span class="p">);</span>                           <span class="c1">// (9) C++17</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
+<span class="k">explicit</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">)</span> <span class="n">optional</span><span class="p">(</span><span class="n">optional</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;&amp;</span> <span class="n">rhs</span><span class="p">);</span>                <span class="c1">// (9) C++20</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">U</span><span class="o">&gt;</span>
+<span class="k">explicit</span><span class="p">(</span><span class="n"><i>see below</i></span><span class="p">)</span> <span class="k">constexpr</span> <span class="n">optional</span><span class="p">(</span><span class="n">optional</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&amp;&amp;</span> <span class="n">rhs</span><span class="p">);</span>      <span class="c1">// (9) C++23</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<ul>
+<li>(1), (2) : 有効値を保持していない状態にする</li>
+<li>(3) : コピーコンストラクタ</li>
+<li>(4) : ムーブコンストラクタ</li>
+<li>(5) : 型<code>T</code>のコンストラクタ引数を受け取って、コンストラクタ内で型<code>T</code>のオブジェクトを有効値として生成し、保持する</li>
+<li>(6) : 型<code>T</code>のコンストラクタ引数として初期化子リストと任意個の引数を受け取って、コンストラクタ内で型<code>T</code>のオブジェクトを有効値として生成し、保持する</li>
+<li>(7) : 型<code>T</code>に変換可能な型<code>U</code>の値を有効値として受け取り、ムーブして保持する</li>
+<li>(8) : 変換可能な<code>optional</code>オブジェクトからコピー構築する</li>
+<li>(9) : 変換可能な<code>optional</code>オブジェクトからムーブ構築する</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
+<ul>
+<li>(5) : 型<code>T</code>が引数の型<code>Args...</code>から構築可能であること</li>
+<li>(6) : 型<code>T</code>が引数の型<code><a href="../../initializer_list/initializer_list.html">initializer_list</a>&lt;U&gt;&amp;</code>と<code>Args&amp;&amp;...</code>から構築可能であること</li>
+<li>(7) : 型<code>U</code>から型<code>T</code>がムーブ構築可能であること</li>
+<li>(8) : 型<code>U</code>から型<code>T</code>がコピー構築可能であること</li>
+<li>(9) : 型<code>U</code>から型<code>T</code>がムーブ構築可能であること</li>
+</ul>
+<h2>効果</h2>
+<ul>
+<li>(1), (2) : 有効値を保持していない状態にする。このとき、有効値の型<code>T</code>のオブジェクトは構築されない</li>
+<li>(3) : <code>rhs</code>が有効値を保持していれば、それを<code>*this</code>にコピーする</li>
+<li>(4) : <code>rhs</code>が有効値を保持していれば、それを<code>*this</code>にムーブする。<code>rhs.<a href="has_value.html">has_value()</a></code>は変更されない</li>
+<li>(5) : 可変個の引数<code>args...</code>を型<code>T</code>のコンストラクタ引数として転送して、コンストラクタ内で型<code>T</code>の有効値を構築して保持する</li>
+<li>(6) : 初期化子リスト<code>il</code>と可変個の引数<code>args...</code>を型<code>T</code>のコンストラクタ引数として転送して、コンストラクタ内で型<code>T</code>の有効値を構築して保持する</li>
+<li>(7) : <code>rhs</code>を有効値として、<code>*this</code>にムーブする</li>
+<li>(8) : <code>rhs</code>が有効値を保持していれば、それを<code>*this</code>にコピーする</li>
+<li>(9) : <code>rhs</code>が有効値を保持していれば、それを<code>*this</code>にムーブする</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
+<ul>
+<li>(3) :<ul>
+<li>型<code>T</code>のコピーコンストラクタが任意の<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する可能性がある</li>
+</ul>
+</li>
+<li>(4) :<ul>
+<li>型<code>T</code>のムーブコンストラクタが任意の<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する可能性がある</li>
+<li>この<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>の<code>noexcept</code>の値は、<code><a href="../../type_traits/is_nothrow_move_constructible.html">is_nothrow_move_constructible_v</a>&lt;T&gt;</code>の値と等価になる</li>
+</ul>
+</li>
+<li>(5), (6), (7), (8), (9) :<ul>
+<li>型<code>T</code>の選択されたコンストラクタが任意の<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を送出する可能性がある</li>
+</ul>
+</li>
+</ul>
+<h2>delete定義される条件</h2>
+<ul>
+<li>(3) : 型<code>T</code>がコピー構築可能でないこと</li>
+<li>(4) : 型<code>T</code>がムーブ構築可能でないこと</li>
+</ul>
+<h2>定数式に評価される条件</h2>
+<ul>
+<li>(3) : 型<code>T</code>が<a href="../../type_traits/is_trivially_copy_constructible.html">トリビアルにコピー構築可能</a>であること</li>
+<li>(4) : 型<code>T</code>が<a href="../../type_traits/is_trivially_move_constructible.html">トリビアルにムーブ構築可能</a>であること</li>
+<li>(5) : 型<code>T</code>の選択されたコンストラクタが<code>constexpr</code>であること</li>
+<li>(6) : 型<code>T</code>の選択されたコンストラクタが<code>constexpr</code>であること</li>
+<li>(7) : 型<code>T</code>の選択されたコンストラクタが<code>constexpr</code>であること</li>
+</ul>
+<h2>トリビアルに定義される条件</h2>
+<ul>
+<li>(3) : 型<code>T</code>が<a href="../../type_traits/is_trivially_copy_constructible.html">トリビアルにコピー構築可能</a>であること</li>
+<li>(4) : 型<code>T</code>が<a href="../../type_traits/is_trivially_move_constructible.html">トリビアルにムーブ構築可能</a>であること</li>
+</ul>
+<h2>explicitになる条件</h2>
+<ul>
+<li>(7) : 型<code>U</code>から型<code>T</code>に暗黙的に型変換ができる場合、この<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>は非<code>explicit</code>となる。型<code>U</code>から型<code>T</code>に明示的な型変換ならできる場合、この<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>は<code>explicit</code>となる</li>
+<li>(8) : 型<code>U</code>から型<code>T</code>に暗黙的に型変換ができる場合、この<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>は非<code>explicit</code>となる。型<code>U</code>から型<code>T</code>に明示的な型変換ならできる場合、この<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>は<code>explicit</code>となる</li>
+<li>(9) : 型<code>U</code>から型<code>T</code>に暗黙的に型変換ができる場合、この<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>は非<code>explicit</code>となる。型<code>U</code>から型<code>T</code>に明示的な型変換ならできる場合、この<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>は<code>explicit</code>となる</li>
+</ul>
+<h2>備考</h2>
+<ul>
+<li>(5) : <code><a href="../../utility/in_place_t.html">std::in_place_t</a></code>は<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>に機能名を付けるためにあり、その型による動的な処理内容への影響はない。この<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を選択したい場合は、事前定義されている定数<code><a href="../../utility/in_place_t.html">std::in_place</a></code>を第1引数として指定すること</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="ec406fbc50d8bc42b36b22a6d0f0595a9bb90ff0"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../cassert.html">&lt;cassert&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../optional.html">&lt;optional&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">Base</span> <span class="p">{};</span>
+<span class="k">struct</span> <span class="nl">Derived</span> <span class="p">:</span> <span class="n">Base</span> <span class="p">{};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// (1)</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p</span><span class="p">;</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">.</span><span class="n"><a href="has_value.html">has_value()</a></span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (2)</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">p</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">nullopt</span><span class="p">;</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="p">.</span><span class="n"><a href="has_value.html">has_value()</a></span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (3)</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (4)</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s">"Hello"</span><span class="p">;</span>
+    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span> <span class="o">==</span> <span class="s">"Hello"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (5)</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">p</span> <span class="p">{</span><span class="n"><a href="../../utility/in_place_t.html">std::in_place</a></span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="sc">'A'</span><span class="p">};</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span> <span class="o">==</span> <span class="s">"AAA"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (6)</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../../memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">alloc</span><span class="p">;</span>
+    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">p</span> <span class="p">{</span><span class="n"><a href="../../utility/in_place_t.html">std::in_place</a></span><span class="p">,</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">},</span> <span class="n">alloc</span><span class="p">};</span>
+
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (7)</span>
+  <span class="p">{</span>
+    <span class="c1">// const char*から<a href="../../string/basic_string.html">std::string</a>に暗黙的に型変換</span>
+    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">p1</span> <span class="o">=</span> <span class="s">"Hello"</span><span class="p">;</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p1</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span> <span class="o">==</span> <span class="s">"Hello"</span><span class="p">);</span>
+
+    <span class="c1">// 整数値から<a href="../../vector/vector.html">std::vector</a>に明示的に型変換</span>
+    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n"><a href="../../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">p2</span> <span class="p">{</span><span class="mi">3</span><span class="p">};</span>
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">p2</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">3</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (8)</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">char</span><span class="o">*&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s">"Hello"</span><span class="p">;</span>
+    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n"><a href="../../string/basic_string.html">std::string</a></span><span class="o">&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+
+    <span class="n"><a href="../../cassert/assert.html">assert</a></span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n"><a href="value.html">value()</a></span> <span class="o">==</span> <span class="s">"Hello"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// (9)</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n"><a href="../../memory/shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="n">Derived</span><span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n"><a href="../../memory/make_shared.html">std::make_shared</a></span><span class="o">&lt;</span><span class="n">Derived</span><span class="o">&gt;</span><span class="p">();</span>
+    <span class="n"><a href="../optional.html">std::optional</a></span><span class="o">&lt;</span><span class="n"><a href="../../memory/shared_ptr.html">std::shared_ptr</a></span><span class="o">&lt;</span><span class="n">Base</span><span class="o">&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code></code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++17</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: 4.0.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: 7.2 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><a href="../../../lang/cpp20/explicit_bool.html">C++20 関数を条件付きでexplicitにする構文を追加</a></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3406.html" target="_blank">N3406 A proposal to add a utility class to represent optional objects (Revision 2)</a></li>
+<li><a href="https://wg21.cmeerw.net/lwg/issue2756" target="_blank">LWG Issue 2756. <code>optional&lt;T&gt;</code> should <code>forward T</code>'s implicit conversions</a></li>
+<li><a href="https://wg21.cmeerw.net/lwg/issue2842" target="_blank">LWG Issue 2842. <code>in_place_t</code> check for <code>optional::optional(U&amp;&amp;)</code> should decay <code>U</code></a><ul>
+<li>説明の簡略化のため、この<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>で<code>in_place_t</code>への言及は現在していない</li>
+</ul>
+</li>
+<li><a href="https://wg21.cmeerw.net/lwg/issue2900" target="_blank">LWG Issue 2900. The copy and move constructors of <code>optional</code> are not <code>constexpr</code></a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0777r1.pdf" target="_blank">P0777R1 Treating Unnecessary <code>decay</code></a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0892r2.html" target="_blank">P0892R2 <code>explicit(bool)</code></a><ul>
+<li>C++20での<code>explicit(bool)</code>構文への対応</li>
+</ul>
+</li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0602r4.html" target="_blank">P0602R4 <code>variant</code> and <code>optional</code> should propagate copy/move triviality</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2231r1.html" target="_blank">P2231R1 Missing <code>constexpr</code> in <code>std::optional</code> and <code>std::variant</code></a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
