@@ -68,7 +68,7 @@
 
     </head>
     <body>
-<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cstdio&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;acca104bc2eb5dda865cc38c561d9e2b1081bc86&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;cstdio&gt;\n\nint main() {\n    std::FILE *file=std::fopen(\&#34;example.txt\&#34;, \&#34;w\&#34;);\n    if (file == nullptr) {\n        std::perror(\&#34;Failed to open file\&#34;);\n        return 1;\n    }\n    std::fpos_t current_pos;\n    std::fgetpos(file, &amp;current_pos);\n    std::fputs(\&#34;Hello, World!\\n\&#34;, file);\n    std::fsetpos(file, &amp;current_pos);\n    std::fputs(\&#34;h\&#34;, file);\n    std::fclose(file);\n    file = std::fopen(\&#34;example.txt\&#34;, \&#34;r\&#34;);\n    if (file == nullptr) {\n        std::perror(\&#34;Failed to open file\&#34;);\n        return 1;\n    }\n    int ch;\n    while ((ch = std::fgetc(file)) != EOF) {\n        std::putchar(ch);\n    }\n    std::fclose(file);\n    return 0;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cstdio&#34;, &#34;fsetpos&#34;]}">
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;cstdio&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;b10ab5591255ca6244bdefc8ac9d6f42ce9f0337&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;cstdio&gt;\n\nint main() {\n    std::FILE *file = std::fopen(\&#34;example.txt\&#34;, \&#34;w\&#34;);\n    if (file == nullptr) {\n        std::perror(\&#34;Failed to open file\&#34;);\n        return 1;\n    }\n    std::fpos_t current_pos;\n    std::fgetpos(file, &amp;current_pos);\n    std::fputs(\&#34;Hello, World!\\n\&#34;, file);\n    std::fsetpos(file, &amp;current_pos);\n    std::fputs(\&#34;h\&#34;, file);\n    std::fclose(file);\n    file = std::fopen(\&#34;example.txt\&#34;, \&#34;r\&#34;);\n    if (file == nullptr) {\n        std::perror(\&#34;Failed to open file\&#34;);\n        return 1;\n    }\n    int ch;\n    while ((ch = std::fgetc(file)) != EOF) {\n        std::putchar(ch);\n    }\n    std::fclose(file);\n    return 0;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;cstdio&#34;, &#34;fsetpos&#34;]}">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -188,8 +188,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-02-04T02:21:13">
-        2026年02月04日 02時21分13秒
+      <span itemprop="datePublished" content="2026-02-14T13:41:44">
+        2026年02月14日 13時41分44秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -224,14 +224,14 @@
 <p>正常に実行されれば0を返す。</p>
 <p>失敗した場合は、0以外を返し、エラーの内容は<code><a href="../cerrno/errno.html">errno</a></code>から参照することができる。</p>
 <h2>この機能が必要になった背景・経緯</h2>
-<p>かつては<code><span href="https://cpprefjp.github.io/reference/cstdio/fseek.md.nolink">fseek</span></code>で位置を指定していたが、<code>fseek</code>は位置をlong intで指定するため、非常に大きなファイルやマルチバイト文字を含む特殊なファイルでは正確にファイル位置を指定できないことがあった。</p>
+<p>かつては<code><span href="https://cpprefjp.github.io/reference/cstdio/fseek.md.nolink">fseek</span></code>で位置を指定していたが、<code>fseek</code>は位置を<code>long int</code>で指定するため、非常に大きなファイルやマルチバイト文字を含む特殊なファイルでは正確にファイル位置を指定できないことがあった。</p>
 <p>そこで、どのようなファイルでも位置を正確に表現できる<code>fpos_t</code>型が導入されたことに伴い、この関数が登場した。</p>
 <h2>例</h2>
-<p><div class="yata" id="acca104bc2eb5dda865cc38c561d9e2b1081bc86"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<p><div class="yata" id="b10ab5591255ca6244bdefc8ac9d6f42ce9f0337"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf"><a href="../cstdio.html">&lt;cstdio&gt;</a></span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="kt">FILE</span> <span class="o">*</span><span class="n">file</span><span class="o">=</span><span class="n"><a href="fopen.html">std::fopen</a></span><span class="p">(</span><span class="s">"example.txt"</span><span class="p">,</span> <span class="s">"w"</span><span class="p">);</span>
+    <span class="n">std</span><span class="o">::</span><span class="kt">FILE</span> <span class="o">*</span><span class="n">file</span> <span class="o">=</span> <span class="n"><a href="fopen.html">std::fopen</a></span><span class="p">(</span><span class="s">"example.txt"</span><span class="p">,</span> <span class="s">"w"</span><span class="p">);</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">file</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
         <span class="n"><span href="https://cpprefjp.github.io/reference/cstdio/perror.md.nolink">std::perror</span></span><span class="p">(</span><span class="s">"Failed to open file"</span><span class="p">);</span>
         <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
