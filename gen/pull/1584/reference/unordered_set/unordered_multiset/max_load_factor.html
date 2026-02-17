@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-10-18T10:08:36">
-        2025年10月18日 10時08分36秒
+      <span itemprop="datePublished" content="2026-02-17T13:37:12">
+        2026年02月17日 13時37分12秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Raclamusi</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -225,8 +225,11 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;unordered_set&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class unordered_multiset">unordered_multiset::</span><span class="token">max_load_factor</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">float</span> <span class="nf">max_load_factor</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (1)</span>
-<span class="kt">void</span> <span class="nf">max_load_factor</span><span class="p">(</span><span class="kt">float</span> <span class="n">z</span><span class="p">);</span>          <span class="c1">// (2)</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">float</span> <span class="nf">max_load_factor</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span>           <span class="c1">// (1) C++11</span>
+<span class="k">constexpr</span> <span class="kt">float</span> <span class="nf">max_load_factor</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (1) C++26</span>
+
+<span class="kt">void</span> <span class="nf">max_load_factor</span><span class="p">(</span><span class="kt">float</span> <span class="n">z</span><span class="p">);</span>           <span class="c1">// (2) C++11</span>
+<span class="k">constexpr</span> <span class="kt">void</span> <span class="nf">max_load_factor</span><span class="p">(</span><span class="kt">float</span> <span class="n">z</span><span class="p">);</span> <span class="c1">// (2) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -432,7 +435,11 @@ size is 27, bucket_count is 29, load_factor is 0.931035, bucket_count * max_load
 <td>最小要素数指定によるバケット数の調整</td>
 </tr>
 </tbody>
-</table></div>
+</table>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html" target="_blank">P3372R3 constexpr containers and adaptors</a></li>
+</ul></div>
 
       </div>
     </div>

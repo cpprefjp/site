@@ -2,9 +2,1847 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-02-17T13:38:50.322163</updated>
-  <id>7dff805c-cf52-4d47-99f6-f15e135362a2</id>
+  <updated>2026-02-17T13:43:24.305907</updated>
+  <id>b27e75a0-20ef-4ba2-b937-c47961e79bdf</id>
 
+  
+    <entry>
+      <title>begin(size_type) -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/begin-size_type.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/begin-size_type.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/begin-size_type.md b/reference/unordered_set/unordered_multiset/begin-size_type.md
+index 4c87c781e..bd18a81bb 100644
+--- a/reference/unordered_set/unordered_multiset/begin-size_type.md
++++ b/reference/unordered_set/unordered_multiset/begin-size_type.md
+@@ -6,8 +6,11 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-local_iterator begin(size_type n);
+-const_local_iterator begin(size_type n) const;
++local_iterator begin(size_type n);           // (1) C++11
++constexpr local_iterator begin(size_type n); // (1) C++26
++
++const_local_iterator begin(size_type n) const;           // (2) C++11
++constexpr const_local_iterator begin(size_type n) const; // (2) C++26
+ ```
+ 
+ ## 概要
+@@ -99,3 +102,7 @@ bucket = 10, bucket_size = 0, keys = { }
+ | [`end(size_type)`](end-size_type.md)       | インデックス（添え字）で指定したバケット内の最終要素の次を指すイテレータを取得 |
+ | [`cbegin(size_type)`](cbegin-size_type.md) | インデックス（添え字）で指定したバケット内の先頭要素を指す読み取り専用イテレータを取得 |
+ | [`cend(size_type)`](cend-size_type.md)     | インデックス（添え字）で指定したバケット内の最終要素の次を指す読み取り専用イテレータを取得 |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>begin -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/begin.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/begin.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/begin.md b/reference/unordered_set/unordered_multiset/begin.md
+index b0bd3d832..633ec6881 100644
+--- a/reference/unordered_set/unordered_multiset/begin.md
++++ b/reference/unordered_set/unordered_multiset/begin.md
+@@ -6,8 +6,11 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-iterator begin() noexcept;
+-const_iterator begin() const noexcept;
++iterator begin() noexcept;           // (1) C++11
++constexpr iterator begin() noexcept; // (1) C++26
++
++const_iterator begin() const noexcept;           // (2) C++11
++constexpr const_iterator begin() const noexcept; // (2) C++26
+ ```
+ 
+ ## 概要
+@@ -86,3 +89,7 @@ int main()
+ | [`end(size_type)`](end-size_type.md)       | インデックス（添え字）で指定したバケット内の最終要素の次を指すイテレータを取得 |
+ | [`cbegin(size_type)`](cbegin-size_type.md) | インデックス（添え字）で指定したバケット内の先頭要素を指す読み取り専用イテレータを取得 |
+ | [`cend(size_type)`](cend-size_type.md)     | インデックス（添え字）で指定したバケット内の最終要素の次を指す読み取り専用イテレータを取得 |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>bucket -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/bucket.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/bucket.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/bucket.md b/reference/unordered_set/unordered_multiset/bucket.md
+index acb395f92..a3ff8fd66 100644
+--- a/reference/unordered_set/unordered_multiset/bucket.md
++++ b/reference/unordered_set/unordered_multiset/bucket.md
+@@ -6,10 +6,11 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-size_type bucket(const key_type&amp;amp; k) const; // (1) C++11
++size_type bucket(const key_type&amp;amp; k) const;           // (1) C++11
++constexpr size_type bucket(const key_type&amp;amp; k) const; // (1) C++26
+ 
+ template &amp;lt;class K&amp;gt;
+-size_type bucket(const K&amp;amp; k) const;        // (2) C++26
++constexpr size_type bucket(const K&amp;amp; k) const; // (2) C++26
+ ```
+ 
+ ## 概要
+@@ -112,3 +113,4 @@ key = H, bucket = 3, bucket_size = 0
+ ## 参照
+ - [P2363R5 Extending associative containers with the remaining heterogeneous overloads](http://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2363r5.html)
+     - C++26で`template &amp;lt;class K&amp;gt;`のバージョンが追加された
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>bucket_count -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/bucket_count.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/bucket_count.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/bucket_count.md b/reference/unordered_set/unordered_multiset/bucket_count.md
+index 761cbe0fa..0c80e55ad 100644
+--- a/reference/unordered_set/unordered_multiset/bucket_count.md
++++ b/reference/unordered_set/unordered_multiset/bucket_count.md
+@@ -6,7 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-size_type bucket_count() const noexcept;
++size_type bucket_count() const noexcept;           // (1) C++11
++constexpr size_type bucket_count() const noexcept; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -65,3 +66,7 @@ bucket count is 11
+ | [`end(size_type)`](end-size_type.md)       | インデックス（添え字）で指定したバケット内の最終要素の次を指すイテレータを取得 |
+ | [`cbegin(size_type)`](cbegin-size_type.md) | インデックス（添え字）で指定したバケット内の先頭要素を指す読み取り専用イテレータを取得 |
+ | [`cend(size_type)`](cend-size_type.md)     | インデックス（添え字）で指定したバケット内の最終要素の次を指す読み取り専用イテレータを取得 |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>bucket_size -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/bucket_size.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/bucket_size.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/bucket_size.md b/reference/unordered_set/unordered_multiset/bucket_size.md
+index aa5c29e40..69b5b3152 100644
+--- a/reference/unordered_set/unordered_multiset/bucket_size.md
++++ b/reference/unordered_set/unordered_multiset/bucket_size.md
+@@ -6,7 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-size_type bucket_size(size_type n) const;
++size_type bucket_size(size_type n) const;           // (1) C++11
++constexpr size_type bucket_size(size_type n) const; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -90,3 +91,7 @@ bucket = 10, bucket_size = 0, keys = { }
+ | [`end(size_type)`](end-size_type.md)       | インデックス（添え字）で指定したバケット内の最終要素の次を指すイテレータを取得 |
+ | [`cbegin(size_type)`](cbegin-size_type.md) | インデックス（添え字）で指定したバケット内の先頭要素を指す読み取り専用イテレータを取得 |
+ | [`cend(size_type)`](cend-size_type.md)     | インデックス（添え字）で指定したバケット内の最終要素の次を指す読み取り専用イテレータを取得 |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>cbegin(size_type) -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/cbegin-size_type.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/cbegin-size_type.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/cbegin-size_type.md b/reference/unordered_set/unordered_multiset/cbegin-size_type.md
+index a2fbc994b..0f3cd70f5 100644
+--- a/reference/unordered_set/unordered_multiset/cbegin-size_type.md
++++ b/reference/unordered_set/unordered_multiset/cbegin-size_type.md
+@@ -6,7 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-const_local_iterator cbegin(size_type n) const;
++const_local_iterator cbegin(size_type n) const;           // (1) C++11
++constexpr const_local_iterator cbegin(size_type n) const; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -92,3 +93,7 @@ bucket = 10, bucket_size = 0, keys = { }
+ | [`begin(size_type)`](begin-size_type.md) | インデックス（添え字）で指定したバケット内の先頭要素を指すイテレータを取得 |
+ | [`end(size_type)`](end-size_type.md)     | インデックス（添え字）で指定したバケット内の最終要素の次を指すイテレータを取得 |
+ | [`cend(size_type)`](cend-size_type.md)   | インデックス（添え字）で指定したバケット内の最終要素の次を指す読み取り専用イテレータを取得 |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>cbegin -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/cbegin.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/cbegin.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/cbegin.md b/reference/unordered_set/unordered_multiset/cbegin.md
+index b8965faeb..213b3284f 100644
+--- a/reference/unordered_set/unordered_multiset/cbegin.md
++++ b/reference/unordered_set/unordered_multiset/cbegin.md
+@@ -6,7 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-const_iterator cbegin() const noexcept;
++const_iterator cbegin() const noexcept;           // (1) C++11
++constexpr const_iterator cbegin() const noexcept; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -74,3 +75,7 @@ int main()
+ | [`end(size_type)`](end-size_type.md)       | インデックス（添え字）で指定したバケット内の最終要素の次を指すイテレータを取得 |
+ | [`cbegin(size_type)`](cbegin-size_type.md) | インデックス（添え字）で指定したバケット内の先頭要素を指す読み取り専用イテレータを取得 |
+ | [`cend(size_type)`](cend-size_type.md)     | インデックス（添え字）で指定したバケット内の最終要素の次を指す読み取り専用イテレータを取得 |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>cend-size_type -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/cend-size_type.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/cend-size_type.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/cend-size_type.md b/reference/unordered_set/unordered_multiset/cend-size_type.md
+index 1ad1045ae..8f923ad12 100644
+--- a/reference/unordered_set/unordered_multiset/cend-size_type.md
++++ b/reference/unordered_set/unordered_multiset/cend-size_type.md
+@@ -6,7 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-const_local_iterator cend(size_type n) const;
++const_local_iterator cend(size_type n) const;           // (1) C++11
++constexpr const_local_iterator cend(size_type n) const; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -92,3 +93,7 @@ bucket = 10, bucket_size = 0, keys = { }
+ | [`begin(size_type)`](begin-size_type.md)   | インデックス（添え字）で指定したバケット内の先頭要素を指すイテレータを取得 |
+ | [`end(size_type)`](end-size_type.md)       | インデックス（添え字）で指定したバケット内の最終要素の次を指すイテレータを取得 |
+ | [`cbegin(size_type)`](cbegin-size_type.md) | インデックス（添え字）で指定したバケット内の先頭要素を指す読み取り専用イテレータを取得 |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>cend -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/cend.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/cend.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/cend.md b/reference/unordered_set/unordered_multiset/cend.md
+index f35d69295..b45f4d7f4 100644
+--- a/reference/unordered_set/unordered_multiset/cend.md
++++ b/reference/unordered_set/unordered_multiset/cend.md
+@@ -6,7 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-const_iterator cend() const noexcept;
++const_iterator cend() const noexcept;           // (1) C++11
++constexpr const_iterator cend() const noexcept; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -74,3 +75,7 @@ int main()
+ | [`end(size_type)`](end-size_type.md)       | インデックス（添え字）で指定したバケット内の最終要素の次を指すイテレータを取得 |
+ | [`cbegin(size_type)`](cbegin-size_type.md) | インデックス（添え字）で指定したバケット内の先頭要素を指す読み取り専用イテレータを取得 |
+ | [`cend(size_type)`](cend-size_type.md)     | インデックス（添え字）で指定したバケット内の最終要素の次を指す読み取り専用イテレータを取得 |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clear -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/clear.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/clear.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/clear.md b/reference/unordered_set/unordered_multiset/clear.md
+index 0f012bdd6..2300b451a 100644
+--- a/reference/unordered_set/unordered_multiset/clear.md
++++ b/reference/unordered_set/unordered_multiset/clear.md
+@@ -6,7 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-void clear() noexcept;
++void clear() noexcept;           // (1) C++11
++constexpr void clear() noexcept; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -99,3 +100,7 @@ true
+ | [`insert`](insert.md)             | 要素の追加                                             |
+ | [`erase`](erase.md)               | 要素の削除                                             |
+ | [`swap`](swap.md)                 | 内容の交換                                             |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>contains -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/contains.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/contains.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/contains.md b/reference/unordered_set/unordered_multiset/contains.md
+index 49d00282e..2e204ad07 100644
+--- a/reference/unordered_set/unordered_multiset/contains.md
++++ b/reference/unordered_set/unordered_multiset/contains.md
+@@ -6,10 +6,13 @@
+ * cpp20[meta cpp]
+ 
+ ```cpp
+-bool contains(const key_type&amp;amp; x) const; // (1)
++bool contains(const key_type&amp;amp; x) const;           // (1) C++20
++constexpr bool contains(const key_type&amp;amp; x) const; // (1) C++26
+ 
+ template &amp;lt;class K&amp;gt;
+-bool contains(const K&amp;amp; k) const;        // (2)
++bool contains(const K&amp;amp; k) const;           // (2) C++20
++template &amp;lt;class K&amp;gt;
++constexpr bool contains(const K&amp;amp; k) const; // (2) C++26
+ ```
+ 
+ ## 概要
+@@ -79,3 +82,4 @@ contain
+ ## 参照
+ - [P0458R2 Checking for Existence of an Element in Associative Containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0458r2.html)
+ - [P0919R3 Heterogeneous lookup for unordered containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0919r3.html)
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>count -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/count.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/count.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/count.md b/reference/unordered_set/unordered_multiset/count.md
+index 3acc61551..ac22ed586 100644
+--- a/reference/unordered_set/unordered_multiset/count.md
++++ b/reference/unordered_set/unordered_multiset/count.md
+@@ -6,10 +6,13 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-size_type count(const key_type&amp;amp; x) const; // (1) C++11
++size_type count(const key_type&amp;amp; x) const;           // (1) C++11
++constexpr size_type count(const key_type&amp;amp; x) const; // (1) C++26
+ 
+ template &amp;lt;class K&amp;gt;
+-size_type count(const K&amp;amp; k) const;        // (2) C++20
++size_type count(const K&amp;amp; k) const;           // (2) C++20
++template &amp;lt;class K&amp;gt;
++constexpr size_type count(const K&amp;amp; k) const; // (2) C++26
+ ```
+ 
+ ## 概要
+@@ -96,3 +99,4 @@ count of 8:0
+ ## 参照
+ - [LWG Issue 2304. Complexity of `count` in unordered associative containers](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2304)
+ - [P0919R3 Heterogeneous lookup for unordered containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0919r3.html)
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>emplace -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/emplace.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/emplace.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/emplace.md b/reference/unordered_set/unordered_multiset/emplace.md
+index 3e57dd12b..db3ed4ff2 100644
+--- a/reference/unordered_set/unordered_multiset/emplace.md
++++ b/reference/unordered_set/unordered_multiset/emplace.md
+@@ -7,7 +7,9 @@
+ 
+ ```cpp
+ template &amp;lt;class... Args&amp;gt;
+-iterator emplace(Args&amp;amp;&amp;amp;... args);
++iterator emplace(Args&amp;amp;&amp;amp;... args);           // (1) C++11
++template &amp;lt;class... Args&amp;gt;
++constexpr iterator emplace(Args&amp;amp;&amp;amp;... args); // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -159,3 +161,4 @@ int main()
+ 
+ ## 参照
+ - [N2680 Proposed Wording for Placement Insert (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2680.pdf)
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>emplace_hint -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/emplace_hint.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/emplace_hint.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/emplace_hint.md b/reference/unordered_set/unordered_multiset/emplace_hint.md
+index a9d273311..378fc8502 100644
+--- a/reference/unordered_set/unordered_multiset/emplace_hint.md
++++ b/reference/unordered_set/unordered_multiset/emplace_hint.md
+@@ -7,7 +7,9 @@
+ 
+ ```cpp
+ template &amp;lt;class... Args&amp;gt;
+-iterator emplace_hint(const_iterator position, Args&amp;amp;&amp;amp;... args);
++iterator emplace_hint(const_iterator position, Args&amp;amp;&amp;amp;... args);           // (1) C++11
++template &amp;lt;class... Args&amp;gt;
++constexpr iterator emplace_hint(const_iterator position, Args&amp;amp;&amp;amp;... args); // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -193,3 +195,4 @@ int main()
+ 
+ ## 参照
+ - [N2680 Proposed Wording for Placement Insert (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2680.pdf)
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>empty -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/empty.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/empty.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/empty.md b/reference/unordered_set/unordered_multiset/empty.md
+index dbb0d9028..4de16f310 100644
+--- a/reference/unordered_set/unordered_multiset/empty.md
++++ b/reference/unordered_set/unordered_multiset/empty.md
+@@ -6,9 +6,9 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-bool empty() const noexcept;               // C++11
+-[[nodiscard]] bool empty() const noexcept; // C++20
+-bool empty() const noexcept;               // C++26
++bool empty() const noexcept;               // (1) C++11
++[[nodiscard]] bool empty() const noexcept; // (1) C++20
++constexpr bool empty() const noexcept;     // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -97,3 +97,4 @@ inline bool unordered_multiset&amp;lt;Key, Hash, Pred, Allocator&amp;gt;::empty() const noexce
+     - C++20で`[[nodiscard]]`が付加された
+ - [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
+     - C++26で`[[nodiscard]]`指定が削除された
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>end(size_type) -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/end-size_type.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/end-size_type.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/end-size_type.md b/reference/unordered_set/unordered_multiset/end-size_type.md
+index e29c963c1..41f5a3b7e 100644
+--- a/reference/unordered_set/unordered_multiset/end-size_type.md
++++ b/reference/unordered_set/unordered_multiset/end-size_type.md
+@@ -6,8 +6,11 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-local_iterator end(size_type n);
+-const_local_iterator end(size_type n) const;
++local_iterator end(size_type n);           // (1) C++11
++constexpr local_iterator end(size_type n); // (1) C++26
++
++const_local_iterator end(size_type n) const;           // (2) C++11
++constexpr const_local_iterator end(size_type n) const; // (2) C++26
+ ```
+ 
+ ## 概要
+@@ -99,3 +102,7 @@ bucket = 10, bucket_size = 0, keys = { }
+ | [`begin(size_type)`](begin-size_type.md)   | インデックス（添え字）で指定したバケット内の先頭要素を指すイテレータを取得 |
+ | [`cbegin(size_type)`](cbegin-size_type.md) | インデックス（添え字）で指定したバケット内の先頭要素を指す読み取り専用イテレータを取得 |
+ | [`cend(size_type)`](cend-size_type.md)     | インデックス（添え字）で指定したバケット内の最終要素の次を指す読み取り専用イテレータを取得 |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>end -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/end.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/end.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/end.md b/reference/unordered_set/unordered_multiset/end.md
+index 7871a16ed..1af141f19 100644
+--- a/reference/unordered_set/unordered_multiset/end.md
++++ b/reference/unordered_set/unordered_multiset/end.md
+@@ -6,8 +6,11 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-iterator end() noexcept;
+-const_iterator end() const noexcept;
++iterator end() noexcept;           // (1) C++11
++constexpr iterator end() noexcept; // (1) C++26
++
++const_iterator end() const noexcept;           // (2) C++11
++constexpr const_iterator end() const noexcept; // (2) C++26
+ ```
+ 
+ ## 概要
+@@ -86,3 +89,7 @@ int main()
+ | [`end(size_type)`](end-size_type.md)       | インデックス（添え字）で指定したバケット内の最終要素の次を指すイテレータを取得 |
+ | [`cbegin(size_type)`](cbegin-size_type.md) | インデックス（添え字）で指定したバケット内の先頭要素を指す読み取り専用イテレータを取得 |
+ | [`cend(size_type)`](cend-size_type.md)     | インデックス（添え字）で指定したバケット内の最終要素の次を指す読み取り専用イテレータを取得 |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>equal_range -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/equal_range.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/equal_range.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/equal_range.md b/reference/unordered_set/unordered_multiset/equal_range.md
+index e3e72b330..edaa11ed5 100644
+--- a/reference/unordered_set/unordered_multiset/equal_range.md
++++ b/reference/unordered_set/unordered_multiset/equal_range.md
+@@ -7,16 +7,28 @@
+ 
+ ```cpp
+ pair&amp;lt;iterator, iterator&amp;gt;
+-  equal_range(const key_type&amp;amp; x);       // (1) C++11
++  equal_range(const key_type&amp;amp; x); // (1) C++11
++constexpr pair&amp;lt;iterator, iterator&amp;gt;
++  equal_range(const key_type&amp;amp; x); // (1) C++26
++
+ pair&amp;lt;const_iterator, const_iterator&amp;gt;
+   equal_range(const key_type&amp;amp; x) const; // (2) C++11
++constexpr pair&amp;lt;const_iterator, const_iterator&amp;gt;
++  equal_range(const key_type&amp;amp; x) const; // (2) C++26
+ 
+ template &amp;lt;class K&amp;gt;
+ pair&amp;lt;iterator, iterator&amp;gt;
+-  equal_range(const K&amp;amp; k);              // (3) C++20
++  equal_range(const K&amp;amp; k); // (3) C++20
++template &amp;lt;class K&amp;gt;
++constexpr pair&amp;lt;iterator, iterator&amp;gt;
++  equal_range(const K&amp;amp; k); // (3) C++26
++
+ template &amp;lt;class K&amp;gt;
+ pair&amp;lt;const_iterator, const_iterator&amp;gt;
+-  equal_range(const K&amp;amp; k) const;        // (4) C++20
++  equal_range(const K&amp;amp; k) const; // (4) C++20
++template &amp;lt;class K&amp;gt;
++constexpr pair&amp;lt;const_iterator, const_iterator&amp;gt;
++  equal_range(const K&amp;amp; k) const; // (4) C++26
+ ```
+ 
+ ## 概要
+@@ -111,3 +123,4 @@ equal_range(8): [10, 10)
+ 
+ ## 参照
+ - [P0919R3 Heterogeneous lookup for unordered containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0919r3.html)
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>erase -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/erase.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/erase.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/erase.md b/reference/unordered_set/unordered_multiset/erase.md
+index 77ac08906..f36ccf535 100644
+--- a/reference/unordered_set/unordered_multiset/erase.md
++++ b/reference/unordered_set/unordered_multiset/erase.md
+@@ -6,13 +6,17 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-iterator erase(iterator position);                         // (1) C++17
++iterator erase(iterator position);           // (1) C++17
++constexpr iterator erase(iterator position); // (1) C++26
+ 
+-iterator erase(const_iterator position);                   // (2) C++11
++iterator erase(const_iterator position);           // (2) C++11
++constexpr iterator erase(const_iterator position); // (2) C++26
+ 
+-size_type erase(const key_type&amp;amp; k);                        // (3) C++11
++size_type erase(const key_type&amp;amp; k);           // (3) C++11
++constexpr size_type erase(const key_type&amp;amp; k); // (3) C++26
+ 
+-iterator erase(const_iterator first, const_iterator last); // (4) C++11
++iterator erase(const_iterator first, const_iterator last);           // (4) C++11
++constexpr iterator erase(const_iterator first, const_iterator last); // (4) C++26
+ ```
+ 
+ ## 概要
+@@ -203,3 +207,4 @@ int main()
+     - 安定性の保証が規定された経緯のレポート
+ - [LWG Issue 2059. C++0x ambiguity problem with `map::erase`](https://cplusplus.github.io/LWG/issue2059)
+     - C++17で、`erase(iterator)`を追加
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>erase_if -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/erase_if_free.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/erase_if_free.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/erase_if_free.md b/reference/unordered_set/unordered_multiset/erase_if_free.md
+index 73d47bfa5..8d6eaa306 100644
+--- a/reference/unordered_set/unordered_multiset/erase_if_free.md
++++ b/reference/unordered_set/unordered_multiset/erase_if_free.md
+@@ -8,7 +8,10 @@
+ namespace std {
+   template &amp;lt;class K, class H, class P, class A, class Predicate&amp;gt;
+   typename unordered_multiset&amp;lt;K, H, P, A&amp;gt;::size_type
+-    erase_if(unordered_multiset&amp;lt;K, H, P, A&amp;gt;&amp;amp; c, Predicate pred);
++    erase_if(unordered_multiset&amp;lt;K, H, P, A&amp;gt;&amp;amp; c, Predicate pred); // (1) C++20
++  template &amp;lt;class K, class H, class P, class A, class Predicate&amp;gt;
++  constexpr typename unordered_multiset&amp;lt;K, H, P, A&amp;gt;::size_type
++    erase_if(unordered_multiset&amp;lt;K, H, P, A&amp;gt;&amp;amp; c, Predicate pred); // (1) C++26
+ }
+ ```
+ 
+@@ -78,3 +81,4 @@ int main()
+ ## 参照
+ - [P1209R0 Adopt consistent container erasure from Library Fundamentals 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1209r0.html)
+ - [R1115R3 Improving the Return Value of Erase-Like Algorithms II: Free `erase`/`erase_if`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1115r3.pdf)
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>extract -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/extract.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/extract.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/extract.md b/reference/unordered_set/unordered_multiset/extract.md
+index d6de3b38a..8d0148435 100644
+--- a/reference/unordered_set/unordered_multiset/extract.md
++++ b/reference/unordered_set/unordered_multiset/extract.md
+@@ -6,8 +6,11 @@
+ * cpp17[meta cpp]
+ 
+ ```cpp
+-node_type extract(const_iterator position); (1)
+-node_type extract(const key_type&amp;amp; x);       (2)
++node_type extract(const_iterator position);           // (1) C++17
++constexpr node_type extract(const_iterator position); // (1) C++26
++
++node_type extract(const key_type&amp;amp; x);           // (2) C++17
++constexpr node_type extract(const key_type&amp;amp; x); // (2) C++26
+ ```
+ 
+ ## 概要
+@@ -136,3 +139,4 @@ s2 = { 3, 1 }
+ 
+ ## 参照
+ - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>find -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/find.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/find.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/find.md b/reference/unordered_set/unordered_multiset/find.md
+index 92fbd7d2f..6b3c63b22 100644
+--- a/reference/unordered_set/unordered_multiset/find.md
++++ b/reference/unordered_set/unordered_multiset/find.md
+@@ -6,11 +6,17 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-iterator       find(const key_type&amp;amp; x);                    // (1) C++11
+-const_iterator find(const key_type&amp;amp; x) const;              // (2) C++11
++iterator       find(const key_type&amp;amp; x);           // (1) C++11
++constexpr iterator       find(const key_type&amp;amp; x); // (1) C++26
+ 
+-template &amp;lt;class K&amp;gt; iterator       find(const K&amp;amp; k);        // (3) C++20
+-template &amp;lt;class K&amp;gt; const_iterator find(const K&amp;amp; k) const;  // (4) C++20
++const_iterator find(const key_type&amp;amp; x) const;           // (2) C++11
++constexpr const_iterator find(const key_type&amp;amp; x) const; // (2) C++26
++
++template &amp;lt;class K&amp;gt; iterator       find(const K&amp;amp; k);           // (3) C++20
++constexpr template &amp;lt;class K&amp;gt; iterator       find(const K&amp;amp; k); // (3) C++26
++
++template &amp;lt;class K&amp;gt; const_iterator find(const K&amp;amp; k) const;           // (4) C++20
++constexpr template &amp;lt;class K&amp;gt; const_iterator find(const K&amp;amp; k) const; // (4) C++26
+ ```
+ 
+ ## 概要
+@@ -104,3 +110,4 @@ not found
+ 
+ ## 参照
+ - [P0919R3 Heterogeneous lookup for unordered containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0919r3.html)
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>get_allocator -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/get_allocator.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/get_allocator.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/get_allocator.md b/reference/unordered_set/unordered_multiset/get_allocator.md
+index 188715c1e..db85cb96a 100644
+--- a/reference/unordered_set/unordered_multiset/get_allocator.md
++++ b/reference/unordered_set/unordered_multiset/get_allocator.md
+@@ -6,7 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-allocator_type get_allocator() const noexcept;
++allocator_type get_allocator() const noexcept;           // (1) C++11
++constexpr allocator_type get_allocator() const noexcept; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -117,3 +118,7 @@ libstdc++ の `unordered_multiset` では、アロケータの `select_on_contai
+ | [`swap`](swap_free.md)                                 | 内容の交換（非メンバ関数） |
+ | [`allocator`](/reference/memory/allocator.md)            | デフォルトのアロケータ |
+ | [`allocator_traits`](/reference/memory/allocator_traits.md) | アロケータのトレイツ |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>hash_function -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/hash_function.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/hash_function.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/hash_function.md b/reference/unordered_set/unordered_multiset/hash_function.md
+index 9728be4be..dc774a3fd 100644
+--- a/reference/unordered_set/unordered_multiset/hash_function.md
++++ b/reference/unordered_set/unordered_multiset/hash_function.md
+@@ -6,7 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-hasher hash_function() const;
++hasher hash_function() const;           // (1) C++11
++constexpr hasher hash_function() const; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -74,3 +75,7 @@ hash(2) = 2
+ |-----------------------------------------|------------------------------------------------------|
+ | [`hash`](/reference/functional/hash.md) | デフォルトのハッシュ関数オブジェクト(class template) |
+ | [`key_eq`](key_eq.md)                 | キー比較用関数オブジェクトの取得                     |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>insert -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/insert.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/insert.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/insert.md b/reference/unordered_set/unordered_multiset/insert.md
+index 5abaf2573..cf1d1d0a4 100644
+--- a/reference/unordered_set/unordered_multiset/insert.md
++++ b/reference/unordered_set/unordered_multiset/insert.md
+@@ -6,19 +6,31 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-iterator insert(const value_type&amp;amp; v);
+-iterator insert(value_type&amp;amp;&amp;amp; rv);                              // (1)
++iterator insert(const value_type&amp;amp; v);           // (1) C++11
++constexpr iterator insert(const value_type&amp;amp; v); // (1) C++26
+ 
+-iterator insert(const_iterator position, const value_type&amp;amp; v);
+-iterator insert(const_iterator position, value_type&amp;amp;&amp;amp; rv);     // (2)
++iterator insert(value_type&amp;amp;&amp;amp; rv);           // (2) C++11
++constexpr iterator insert(value_type&amp;amp;&amp;amp; rv); // (2) C++26
++
++iterator insert(const_iterator position, const value_type&amp;amp; v);           // (3) C++11
++constexpr iterator insert(const_iterator position, const value_type&amp;amp; v); // (3) C++26
++
++iterator insert(const_iterator position, value_type&amp;amp;&amp;amp; rv);           // (4) C++11
++constexpr iterator insert(const_iterator position, value_type&amp;amp;&amp;amp; rv); // (4) C++26
+ 
+ template &amp;lt;class InputIterator&amp;gt;
+-void insert(InputIterator first, InputIterator last);          // (3)
++void insert(InputIterator first, InputIterator last);           // (5) C++11
++template &amp;lt;class InputIterator&amp;gt;
++constexpr void insert(InputIterator first, InputIterator last); // (5) C++26
++
++void insert(initializer_list&amp;lt;value_type&amp;gt; il);           // (6) C++11
++constexpr void insert(initializer_list&amp;lt;value_type&amp;gt; il); // (6) C++26
+ 
+-void insert(initializer_list&amp;lt;value_type&amp;gt; il);                  // (4)
++iterator insert(node_type&amp;amp;&amp;amp; nh);           // (7) C++17
++constexpr iterator insert(node_type&amp;amp;&amp;amp; nh); // (7) C++26
+ 
+-iterator insert(node_type&amp;amp;&amp;amp; nh);                               // (5) C++17
+-iterator insert(const_iterator hint, node_type&amp;amp;&amp;amp; nh);          // (6) C++17
++iterator insert(const_iterator hint, node_type&amp;amp;&amp;amp; nh);           // (8) C++17
++constexpr iterator insert(const_iterator hint, node_type&amp;amp;&amp;amp; nh); // (8) C++26
+ ```
+ * initializer_list[link /reference/initializer_list/initializer_list.md]
+ 
+@@ -244,3 +256,4 @@ inline void unordered_multiset&amp;lt;Key, Hash, Pred, Allocator&amp;gt;::insert(std::initiali
+ - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
+     - (5), (6)経緯となる提案文書
+ - [How useful is the hint passed to the std::unordered_... collections? - The Old New Thing](https://devblogs.microsoft.com/oldnewthing/20241028-00/?p=110428)
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>insert_range -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/insert_range.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/insert_range.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/insert_range.md b/reference/unordered_set/unordered_multiset/insert_range.md
+index 85efcb953..c275fb9f2 100644
+--- a/reference/unordered_set/unordered_multiset/insert_range.md
++++ b/reference/unordered_set/unordered_multiset/insert_range.md
+@@ -7,7 +7,9 @@
+ 
+ ```cpp
+ template &amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
+-void insert_range(R&amp;amp;&amp;amp; rg); // C++23
++void insert_range(R&amp;amp;&amp;amp; rg);           // (1) C++23
++template &amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
++constexpr void insert_range(R&amp;amp;&amp;amp; rg); // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -70,3 +72,7 @@ int main ()
+ | 名前                                      | 説明                  |
+ |-------------------------------------------|----------------------|
+ | [`insert`](insert.md)                     | 要素の追加             |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>key_eq -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/key_eq.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/key_eq.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/key_eq.md b/reference/unordered_set/unordered_multiset/key_eq.md
+index c02bc41b9..441f41714 100644
+--- a/reference/unordered_set/unordered_multiset/key_eq.md
++++ b/reference/unordered_set/unordered_multiset/key_eq.md
+@@ -6,7 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-key_equal key_eq() const;
++key_equal key_eq() const;           // (1) C++11
++constexpr key_equal key_eq() const; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -72,3 +73,7 @@ eq(1, 1) = true
+ |----------------------------------------------------|----------------------------------------------|
+ | [`equal_to`](/reference/functional/equal_to.md)    | 等値比較演算関数オブジェクト(class template) |
+ | [`hash_function`](hash_function.md)              | ハッシュ関数オブジェクトの取得 |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>load_factor -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/load_factor.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/load_factor.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/load_factor.md b/reference/unordered_set/unordered_multiset/load_factor.md
+index 1cb5eb270..4ae9b429f 100644
+--- a/reference/unordered_set/unordered_multiset/load_factor.md
++++ b/reference/unordered_set/unordered_multiset/load_factor.md
+@@ -6,7 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-float load_factor() const noexcept;
++float load_factor() const noexcept;           // (1) C++11
++constexpr float load_factor() const noexcept; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -92,3 +93,7 @@ size is 20, bucket_count is 23, load_factor is 0.869565
+ | [`max_load_factor`](max_load_factor.md) | 負荷率の最大値を取得、設定               |
+ | [`rehash`](rehash.md)                   | 最小バケット数指定によるバケット数の調整 |
+ | [`reserve`](reserve.md)                 | 最小要素数指定によるバケット数の調整     |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>max_bucket_count -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/max_bucket_count.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/max_bucket_count.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/max_bucket_count.md b/reference/unordered_set/unordered_multiset/max_bucket_count.md
+index c4d4ccf19..351e549d0 100644
+--- a/reference/unordered_set/unordered_multiset/max_bucket_count.md
++++ b/reference/unordered_set/unordered_multiset/max_bucket_count.md
+@@ -6,7 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-size_type max_bucket_count() const noexcept;
++size_type max_bucket_count() const noexcept;           // (1) C++11
++constexpr size_type max_bucket_count() const noexcept; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -65,3 +66,7 @@ max bucket count is 2305843009213693951
+ | [`end(size_type)`](end-size_type.md)       | インデックス（添え字）で指定したバケット内の最終要素の次を指すイテレータを取得 |
+ | [`cbegin(size_type)`](cbegin-size_type.md) | インデックス（添え字）で指定したバケット内の先頭要素を指す読み取り専用イテレータを取得 |
+ | [`cend(size_type)`](cend-size_type.md)     | インデックス（添え字）で指定したバケット内の最終要素の次を指す読み取り専用イテレータを取得 |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>max_load_factor -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/max_load_factor.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/max_load_factor.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/max_load_factor.md b/reference/unordered_set/unordered_multiset/max_load_factor.md
+index 6ed4177f4..4808876fc 100644
+--- a/reference/unordered_set/unordered_multiset/max_load_factor.md
++++ b/reference/unordered_set/unordered_multiset/max_load_factor.md
+@@ -6,8 +6,11 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-float max_load_factor() const noexcept; // (1)
+-void max_load_factor(float z);          // (2)
++float max_load_factor() const noexcept;           // (1) C++11
++constexpr float max_load_factor() const noexcept; // (1) C++26
++
++void max_load_factor(float z);           // (2) C++11
++constexpr void max_load_factor(float z); // (2) C++26
+ ```
+ 
+ ## 概要
+@@ -183,3 +186,7 @@ size is 27, bucket_count is 29, load_factor is 0.931035, bucket_count * max_load
+ | [`load_factor`](load_factor.md)     | 現在の負荷率（バケットあたりの要素数の平均）を取得 |
+ | [`rehash`](rehash.md)               | 最小バケット数指定によるバケット数の調整 |
+ | [`reserve`](reserve.md)             | 最小要素数指定によるバケット数の調整 |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>max_size -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/max_size.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/max_size.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/max_size.md b/reference/unordered_set/unordered_multiset/max_size.md
+index 2f816d1d3..c20ea7b1f 100644
+--- a/reference/unordered_set/unordered_multiset/max_size.md
++++ b/reference/unordered_set/unordered_multiset/max_size.md
+@@ -6,7 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-size_type max_size() const noexcept;
++size_type max_size() const noexcept;           // (1) C++11
++constexpr size_type max_size() const noexcept; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -66,3 +67,7 @@ libstdc++ では、コンテナのアロケータ `allocator_type` にメンバ
+ |-----------------------|----------------------------|
+ | [`empty`](empty.md) | コンテナが空かどうかを判定 |
+ | [`size`](size.md)   | 要素数の取得               |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>merge -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/merge.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/merge.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/merge.md b/reference/unordered_set/unordered_multiset/merge.md
+index ba160b79e..4951fca19 100644
+--- a/reference/unordered_set/unordered_multiset/merge.md
++++ b/reference/unordered_set/unordered_multiset/merge.md
+@@ -7,13 +7,24 @@
+ 
+ ```cpp
+ template&amp;lt;class H2, class P2&amp;gt;
+-  void merge(unordered_set&amp;lt;Key, H2, P2, Allocator&amp;gt;&amp;amp; source);       // (1)
++void merge(unordered_set&amp;lt;Key, H2, P2, Allocator&amp;gt;&amp;amp; source);           // (1) C++17
+ template&amp;lt;class H2, class P2&amp;gt;
+-  void merge(unordered_set&amp;lt;Key, H2, P2, Allocator&amp;gt;&amp;amp;&amp;amp; source);      // (2)
++constexpr void merge(unordered_set&amp;lt;Key, H2, P2, Allocator&amp;gt;&amp;amp; source); // (1) C++26
++
++template&amp;lt;class H2, class P2&amp;gt;
++void merge(unordered_set&amp;lt;Key, H2, P2, Allocator&amp;gt;&amp;amp;&amp;amp; source);           // (2) C++17
++template&amp;lt;class H2, class P2&amp;gt;
++constexpr void merge(unordered_set&amp;lt;Key, H2, P2, Allocator&amp;gt;&amp;amp;&amp;amp; source); // (2) C++26
++
++template&amp;lt;class H2, class P2&amp;gt;
++void merge(unordered_multiset&amp;lt;Key, H2, P2, Allocator&amp;gt;&amp;amp; source);           // (3) C++17
++template&amp;lt;class H2, class P2&amp;gt;
++constexpr void merge(unordered_multiset&amp;lt;Key, H2, P2, Allocator&amp;gt;&amp;amp; source); // (3) C++26
++
+ template&amp;lt;class H2, class P2&amp;gt;
+-  void merge(unordered_multiset&amp;lt;Key, H2, P2, Allocator&amp;gt;&amp;amp; source);  // (3)
++void merge(unordered_multiset&amp;lt;Key, H2, P2, Allocator&amp;gt;&amp;amp;&amp;amp; source);           // (4) C++17
+ template&amp;lt;class H2, class P2&amp;gt;
+-  void merge(unordered_multiset&amp;lt;Key, H2, P2, Allocator&amp;gt;&amp;amp;&amp;amp; source); // (4)
++constexpr void merge(unordered_multiset&amp;lt;Key, H2, P2, Allocator&amp;gt;&amp;amp;&amp;amp; source); // (4) C++26
+ ```
+ 
+ ## 概要
+@@ -85,3 +96,4 @@ s2 = { 10, 10, 20, 30 }
+ 
+ ## 参照
+ - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator= -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/op_assign.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/op_assign.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/op_assign.md b/reference/unordered_set/unordered_multiset/op_assign.md
+index 62ee6e0b7..a375b9798 100644
+--- a/reference/unordered_set/unordered_multiset/op_assign.md
++++ b/reference/unordered_set/unordered_multiset/op_assign.md
+@@ -6,13 +6,21 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-unordered_multiset&amp;amp; operator=(const unordered_multiset&amp;amp; v);     // (1)
+-unordered_multiset&amp;amp; operator=(unordered_multiset&amp;amp;&amp;amp; rv);         // (2)
++unordered_multiset&amp;amp; operator=(const unordered_multiset&amp;amp; v);           // (1) C++11
++constexpr unordered_multiset&amp;amp; operator=(const unordered_multiset&amp;amp; v); // (1) C++26
++
++unordered_multiset&amp;amp; operator=(unordered_multiset&amp;amp;&amp;amp; rv);                   // (2) C++11
+ unordered_multiset &amp;amp; operator=(unordered_multiset&amp;amp;&amp;amp; x)
+   noexcept(allocator_traits&amp;lt;Allocator&amp;gt;::is_always_equal::value
+             &amp;amp;&amp;amp; is_nothrow_move_assignable&amp;lt;Hash&amp;gt;::value
+             &amp;amp;&amp;amp; is_nothrow_move_assignable&amp;lt;Container_move_assign&amp;gt;::value); // (2) C++17
+-unordered_multiset&amp;amp; operator=(initializer_list&amp;lt;value_type&amp;gt; il); // (3)
++constexpr unordered_multiset &amp;amp; operator=(unordered_multiset&amp;amp;&amp;amp; x)
++  noexcept(allocator_traits&amp;lt;Allocator&amp;gt;::is_always_equal::value
++            &amp;amp;&amp;amp; is_nothrow_move_assignable&amp;lt;Hash&amp;gt;::value
++            &amp;amp;&amp;amp; is_nothrow_move_assignable&amp;lt;Container_move_assign&amp;gt;::value); // (2) C++26
++
++unordered_multiset&amp;amp; operator=(initializer_list&amp;lt;value_type&amp;gt; il);           // (3) C++11
++constexpr unordered_multiset&amp;amp; operator=(initializer_list&amp;lt;value_type&amp;gt; il); // (3) C++26
+ ```
+ * initializer_list[link /reference/initializer_list/initializer_list.md]
+ 
+@@ -90,3 +98,4 @@ unordered_multiset&amp;amp; operator=(initializer_list&amp;lt;value_type&amp;gt; il); // (3)
+     - (3)の経緯となる提案文書
+ - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
+     - `noexcept` 追加の経緯となる提案文書
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/op_constructor.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/op_constructor.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/op_constructor.md b/reference/unordered_set/unordered_multiset/op_constructor.md
+index 8b7ca6561..3bd98d667 100644
+--- a/reference/unordered_set/unordered_multiset/op_constructor.md
++++ b/reference/unordered_set/unordered_multiset/op_constructor.md
+@@ -6,93 +6,176 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-unordered_multiset();                                                     // (1) C++14
+-
+-explicit unordered_multiset(size_type n,
+-                            const hasher&amp;amp; hf = hasher(),
+-                            const key_equal&amp;amp; eql = key_equal(),
+-                            const allocator_type&amp;amp; a = allocator_type());  // (2) C++14
+-
+-
+-explicit unordered_multiset(size_type n = 実装依存の既定値,
+-                            const hasher&amp;amp; hf = hasher(),
+-                            const key_equal&amp;amp; eql = key_equal(),
+-                            const allocator_type&amp;amp; a = allocator_type());  // (1) + (2) C++11
++unordered_multiset();           // (1) C++14
++constexpr unordered_multiset(); // (1) C++26
++
++explicit
++  unordered_multiset(size_type n,
++                     const hasher&amp;amp; hf = hasher(),
++                     const key_equal&amp;amp; eql = key_equal(),
++                     const allocator_type&amp;amp; a = allocator_type()); // (2) C++14
++constexpr explicit
++  unordered_multiset(size_type n,
++                     const hasher&amp;amp; hf = hasher(),
++                     const key_equal&amp;amp; eql = key_equal(),
++                     const allocator_type&amp;amp; a = allocator_type()); // (2) C++26
++
++
++explicit
++  unordered_multiset(size_type n = 実装依存の既定値,
++                     const hasher&amp;amp; hf = hasher(),
++                     const key_equal&amp;amp; eql = key_equal(),
++                     const allocator_type&amp;amp; a = allocator_type()); // (1) + (2) C++11
+ 
+ template &amp;lt;class InputIterator&amp;gt;
+-unordered_multiset(InputIterator first, InputIterator last,
++unordered_multiset(InputIterator first,
++                   InputIterator last,
+                    size_type n = 実装依存の既定値,
+                    const hasher&amp;amp; hf = hasher(),
+                    const key_equal&amp;amp; eql = key_equal(),
+-                   const allocator_type&amp;amp; a = allocator_type());           // (3)
++                   const allocator_type&amp;amp; a = allocator_type()); // (3) C++11
++template &amp;lt;class InputIterator&amp;gt;
++constexpr
++  unordered_multiset(InputIterator first,
++                     InputIterator last,
++                     size_type n = 実装依存の既定値,
++                     const hasher&amp;amp; hf = hasher(),
++                     const key_equal&amp;amp; eql = key_equal(),
++                     const allocator_type&amp;amp; a = allocator_type()); // (3) C++26
+ 
+-unordered_multiset(const unordered_multiset&amp;amp; v);                          // (4)
++unordered_multiset(const unordered_multiset&amp;amp; v);           // (4) C++11
++constexpr unordered_multiset(const unordered_multiset&amp;amp; v); // (4) C++26
+ 
+-unordered_multiset(unordered_multiset&amp;amp;&amp;amp; rv);                              // (5)
++unordered_multiset(unordered_multiset&amp;amp;&amp;amp; rv);           // (5) C++11
++constexpr unordered_multiset(unordered_multiset&amp;amp;&amp;amp; rv); // (5) C++26
+ 
+-explicit unordered_multiset(const allocator_type&amp;amp; a);                     // (6)
++explicit unordered_multiset(const allocator_type&amp;amp; a);           // (6) C++11
++constexpr explicit unordered_multiset(const allocator_type&amp;amp; a); // (6) C++26
+ 
+ unordered_multiset(const unordered_multiset&amp;amp; v,
+-                   const allocator_type&amp;amp; a);                              // (7)
++                   const allocator_type&amp;amp; a);                  // (7) C++11
+ unordered_multiset(const unordered_multiset&amp;amp; v,
+-                   const type_identity_t&amp;lt;allocator_type&amp;gt;&amp;amp; a);             // (7) C++23
++                   const type_identity_t&amp;lt;allocator_type&amp;gt;&amp;amp; a); // (7) C++23
++constexpr
++  unordered_multiset(const unordered_multiset&amp;amp; v,
++                     const type_identity_t&amp;lt;allocator_type&amp;gt;&amp;amp; a); // (7) C++26
+ 
+ unordered_multiset(unordered_multiset&amp;amp;&amp;amp; rv,
+-                   const allocator_type&amp;amp; a);                              // (8)
++                   const allocator_type&amp;amp; a);                  // (8) C++11
+ unordered_multiset(unordered_multiset&amp;amp;&amp;amp; rv,
+-                   const type_identity_t&amp;lt;allocator_type&amp;gt;&amp;amp; a);             // (8) C++23
++                   const type_identity_t&amp;lt;allocator_type&amp;gt;&amp;amp; a); // (8) C++23
++constexpr
++  unordered_multiset(unordered_multiset&amp;amp;&amp;amp; rv,
++                     const type_identity_t&amp;lt;allocator_type&amp;gt;&amp;amp; a); // (8) C++26
+ 
+ unordered_multiset(initializer_list&amp;lt;value_type&amp;gt; il,
+                    size_type n = 実装依存の既定値,
+                    const hasher&amp;amp; hf = hasher(),
+                    const key_equal&amp;amp; eql = key_equal(),
+-                   const allocator_type&amp;amp; a = allocator_type());           // (9)
++                   const allocator_type&amp;amp; a = allocator_type()); // (9) C++11
++constexpr
++  unordered_multiset(initializer_list&amp;lt;value_type&amp;gt; il,
++                     size_type n = 実装依存の既定値,
++                     const hasher&amp;amp; hf = hasher(),
++                     const key_equal&amp;amp; eql = key_equal(),
++                     const allocator_type&amp;amp; a = allocator_type()); // (9) C++26
+ 
+-unordered_multiset(size_type n, const allocator_type&amp;amp; a);                 // (10) C++14
++unordered_multiset(size_type n, const allocator_type&amp;amp; a);           // (10) C++14
++constexpr unordered_multiset(size_type n, const allocator_type&amp;amp; a); // (10) C++26
+ 
+ unordered_multiset(size_type n,
+                    const hasher&amp;amp; hf,
+-                   const allocator_type&amp;amp; a);                              // (11) C++14
++                   const allocator_type&amp;amp; a); // (11) C++14
++constexpr
++  unordered_multiset(size_type n,
++                     const hasher&amp;amp; hf,
++                     const allocator_type&amp;amp; a); // (11) C++26
+ 
+ template &amp;lt;class InputIterator&amp;gt;
+ unordered_multiset(InputIterator f,
+                    InputIterator l,
+                    size_type n,
+-                   const allocator_type&amp;amp; a);                              // (12) C++14
++                   const allocator_type&amp;amp; a); // (12) C++14
++template &amp;lt;class InputIterator&amp;gt;
++constexpr
++  unordered_multiset(InputIterator f,
++                     InputIterator l,
++                     size_type n,
++                     const allocator_type&amp;amp; a); // (12) C++26
+ 
+ template &amp;lt;class InputIterator&amp;gt;
+ unordered_multiset(InputIterator f,
+                    InputIterator l,
+                    size_type n,
+                    const hasher&amp;amp; hf, 
+-                   const allocator_type&amp;amp; a);                              // (13) C++14
++                   const allocator_type&amp;amp; a); // (13) C++14
++template &amp;lt;class InputIterator&amp;gt;
++constexpr
++  unordered_multiset(InputIterator f,
++                     InputIterator l,
++                     size_type n,
++                     const hasher&amp;amp; hf,
++                     const allocator_type&amp;amp; a); // (13) C++26
+ 
+ unordered_multiset(initializer_list&amp;lt;value_type&amp;gt; il,
+                    size_type n,
+-                   const allocator_type&amp;amp; a);                              // (14) C++14
++                   const allocator_type&amp;amp; a); // (14) C++14
++constexpr
++  unordered_multiset(initializer_list&amp;lt;value_type&amp;gt; il,
++                     size_type n,
++                     const allocator_type&amp;amp; a); // (14) C++26
+ 
+ unordered_multiset(initializer_list&amp;lt;value_type&amp;gt; il,
+                    size_type n,
+                    const hasher&amp;amp; hf, 
+-                   const allocator_type&amp;amp; a);                              // (15) C++14
++                   const allocator_type&amp;amp; a); // (15) C++14
++constexpr
++  unordered_multiset(initializer_list&amp;lt;value_type&amp;gt; il,
++                     size_type n,
++                     const hasher&amp;amp; hf,
++                     const allocator_type&amp;amp; a); // (15) C++26
+ 
+ template &amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
+-unordered_multiset(std::from_range_t, R&amp;amp;&amp;amp; rg,
++unordered_multiset(std::from_range_t,
++                   R&amp;amp;&amp;amp; rg,
+                    size_type n = 実装依存の既定値,
+                    const hasher&amp;amp; hf = hasher(),
+                    const key_equal&amp;amp; eql = key_equal(),
+-                   const allocator_type&amp;amp; a = allocator_type());           // (16) C++23
++                   const allocator_type&amp;amp; a = allocator_type()); // (16) C++23
++template &amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
++constexpr
++  unordered_multiset(std::from_range_t,
++                     R&amp;amp;&amp;amp; rg,
++                     size_type n = 実装依存の既定値,
++                     const hasher&amp;amp; hf = hasher(),
++                     const key_equal&amp;amp; eql = key_equal(),
++                     const allocator_type&amp;amp; a = allocator_type()); // (16) C++26
+ 
+ template &amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
+-unordered_multiset(std::from_range_t, R&amp;amp;&amp;amp; rg,
++unordered_multiset(std::from_range_t,
++                   R&amp;amp;&amp;amp; rg,
+                    size_type n,
+-                   const allocator_type&amp;amp; a);                              // (17) C++23
++                   const allocator_type&amp;amp; a); // (17) C++23
++template &amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
++constexpr
++  unordered_multiset(std::from_range_t,
++                     R&amp;amp;&amp;amp; rg,
++                     size_type n,
++                     const allocator_type&amp;amp; a); // (17) C++26
+ 
+ template &amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
+-unordered_multiset(std::from_range_t, R&amp;amp;&amp;amp; rg,
++unordered_multiset(std::from_range_t,
++                   R&amp;amp;&amp;amp; rg,
+                    size_type n,
+                    const hasher&amp;amp; hf,
+-                   const allocator_type&amp;amp; a);                              // (18) C++23
++                   const allocator_type&amp;amp; a); // (18) C++23
++template &amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
++constexpr
++  unordered_multiset(std::from_range_t,
++                     R&amp;amp;&amp;amp; rg,
++                     size_type n,
++                     const hasher&amp;amp; hf,
++                     const allocator_type&amp;amp; a); // (18) C++26
+ ```
+ * type_identity_t[link /reference/type_traits/type_identity.md]
+ * initializer_list[link /reference/initializer_list/initializer_list.md]
+@@ -278,3 +361,4 @@ libstdc++ には 4.8.2 現在、(6), (7), (8)の形式はない。
+     なお、Discussion の例はアロケータの型が誤っているので注意
+ - [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
+     - C++23でのアロケータ引数を`type_identity_t`で包む変更
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>デストラクタ -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/op_destructor.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/op_destructor.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/op_destructor.md b/reference/unordered_set/unordered_multiset/op_destructor.md
+index 862734efb..6cb8fc1f6 100644
+--- a/reference/unordered_set/unordered_multiset/op_destructor.md
++++ b/reference/unordered_set/unordered_multiset/op_destructor.md
+@@ -6,7 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-~unordered_multiset();
++~unordered_multiset();           // (1) C++11
++constexpr ~unordered_multiset(); // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -37,3 +38,7 @@
+ |--------------------------------------------|----------------|
+ | [`(constructor)`](op_constructor.md)     | コンストラクタ |
+ | [`operator=`](op_assign.md)              | 代入演算子     |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator== -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/op_equal.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/op_equal.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/op_equal.md b/reference/unordered_set/unordered_multiset/op_equal.md
+index 090f483c5..4254e3fe3 100644
+--- a/reference/unordered_set/unordered_multiset/op_equal.md
++++ b/reference/unordered_set/unordered_multiset/op_equal.md
+@@ -9,6 +9,9 @@ namespace std {
+   template &amp;lt;class Key, class Hash, class Pred, class Allocator&amp;gt;
+   bool operator==(const unordered_multiset&amp;lt;Key, Hash, Pred, Allocator&amp;gt;&amp;amp; a,
+                   const unordered_multiset&amp;lt;Key, Hash, Pred, Allocator&amp;gt;&amp;amp; b); // (1) C++11
++  template &amp;lt;class Key, class Hash, class Pred, class Allocator&amp;gt;
++  constexpr bool operator==(const unordered_multiset&amp;lt;Key, Hash, Pred, Allocator&amp;gt;&amp;amp; a,
++                  const unordered_multiset&amp;lt;Key, Hash, Pred, Allocator&amp;gt;&amp;amp; b); // (1) C++26
+ }
+ ```
+ 
+@@ -138,3 +141,4 @@ namespace std {
+ - [P0809R0 Comparing Unordered Containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0809r0.pdf)
+ - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator!= -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/op_not_equal.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/op_not_equal.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/op_not_equal.md b/reference/unordered_set/unordered_multiset/op_not_equal.md
+index 6a9927edf..730e134da 100644
+--- a/reference/unordered_set/unordered_multiset/op_not_equal.md
++++ b/reference/unordered_set/unordered_multiset/op_not_equal.md
+@@ -10,6 +10,9 @@ namespace std {
+   template &amp;lt;class Key, class Hash, class Pred, class Allocator&amp;gt;
+   bool operator!=(const unordered_multiset&amp;lt;Key, Hash, Pred, Allocator&amp;gt;&amp;amp; a,
+                   const unordered_multiset&amp;lt;Key, Hash, Pred, Allocator&amp;gt;&amp;amp; b); // (1) C++11
++  template &amp;lt;class Key, class Hash, class Pred, class Allocator&amp;gt;
++  constexpr bool operator!=(const unordered_multiset&amp;lt;Key, Hash, Pred, Allocator&amp;gt;&amp;amp; a,
++                  const unordered_multiset&amp;lt;Key, Hash, Pred, Allocator&amp;gt;&amp;amp; b); // (1) C++26
+ }
+ ```
+ 
+@@ -124,3 +127,4 @@ namespace std {
+ - [P0809R0 Comparing Unordered Containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0809r0.pdf)
+ - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>rehash -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/rehash.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/rehash.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/rehash.md b/reference/unordered_set/unordered_multiset/rehash.md
+index c66bad51d..c6a73a542 100644
+--- a/reference/unordered_set/unordered_multiset/rehash.md
++++ b/reference/unordered_set/unordered_multiset/rehash.md
+@@ -6,7 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-void rehash(size_type n);
++void rehash(size_type n);           // (1) C++11
++constexpr void rehash(size_type n); // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -98,3 +99,7 @@ bucket_count is 13
+ | [`load_factor`](load_factor.md)         | 現在の負荷率（バケットあたりの要素数の平均）を取得 |
+ | [`max_load_factor`](max_load_factor.md) | 負荷率の最大値を取得、設定 |
+ | [`reserve`](reserve.md)                 | 最小要素数指定によるバケット数の調整 |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>reserve -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/reserve.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/reserve.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/reserve.md b/reference/unordered_set/unordered_multiset/reserve.md
+index 31d7f4500..4b2db37b5 100644
+--- a/reference/unordered_set/unordered_multiset/reserve.md
++++ b/reference/unordered_set/unordered_multiset/reserve.md
+@@ -6,7 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-void reserve(size_type n);
++void reserve(size_type n);           // (1) C++11
++constexpr void reserve(size_type n); // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -104,3 +105,7 @@ bucket_count is 13
+ | [`insert`](insert.md)                   | 要素の追加 |
+ | [`emplace`](emplace.md)                 | コンテナ内への要素の直接構築 |
+ | [`emplace_hint`](emplace_hint.md)       | 挿入位置のヒントを使用したコンテナ内への要素の直接構築 |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>size -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/size.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/size.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/size.md b/reference/unordered_set/unordered_multiset/size.md
+index dba16be1b..42f6e8209 100644
+--- a/reference/unordered_set/unordered_multiset/size.md
++++ b/reference/unordered_set/unordered_multiset/size.md
+@@ -6,7 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-size_type size() const noexcept;
++size_type size() const noexcept;           // (1) C++11
++constexpr size_type size() const noexcept; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -70,3 +71,7 @@ int main()
+ | [`begin`](begin.md)                         | 先頭要素を指すイテレータの取得 |
+ | [`end`](end.md)                             | 最終要素の次を指すイテレータの取得 |
+ | [`distance`](/reference/iterator/distance.md) | イテレータ間の距離を求める |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>swap -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/swap.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/swap.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/swap.md b/reference/unordered_set/unordered_multiset/swap.md
+index 570d1b90d..b2aa0840d 100644
+--- a/reference/unordered_set/unordered_multiset/swap.md
++++ b/reference/unordered_set/unordered_multiset/swap.md
+@@ -6,11 +6,15 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-void swap(unordered_multiset&amp;amp; v);
++void swap(unordered_multiset&amp;amp; v);                                  // (1) C++11
+ void swap(unordered_multiset&amp;amp; x)
+   noexcept(allocator_traits&amp;lt;Allocator&amp;gt;::is_always_equal::value
+             &amp;amp;&amp;amp; noexcept(swap(declval&amp;lt;Hash&amp;amp;&amp;gt;(),declval&amp;lt;Hash&amp;amp;&amp;gt;()))
+-            &amp;amp;&amp;amp; noexcept(swap(declval&amp;lt;Pred&amp;amp;&amp;gt;(),declval&amp;lt;Pred&amp;amp;&amp;gt;()))); // C++17
++            &amp;amp;&amp;amp; noexcept(swap(declval&amp;lt;Pred&amp;amp;&amp;gt;(),declval&amp;lt;Pred&amp;amp;&amp;gt;()))); // (1) C++17
++constexpr void swap(unordered_multiset&amp;amp; x)
++  noexcept(allocator_traits&amp;lt;Allocator&amp;gt;::is_always_equal::value
++            &amp;amp;&amp;amp; noexcept(swap(declval&amp;lt;Hash&amp;amp;&amp;gt;(),declval&amp;lt;Hash&amp;amp;&amp;gt;()))
++            &amp;amp;&amp;amp; noexcept(swap(declval&amp;lt;Pred&amp;amp;&amp;gt;(),declval&amp;lt;Pred&amp;amp;&amp;gt;()))); // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -116,3 +120,4 @@ ums2 after : 9 9 7 7 5 5 1 1 3 3
+ ## 参照
+ - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
+     - `noexcept` 追加の経緯となる提案文書
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>swap (非メンバ関数) -- unordered_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_set/unordered_multiset/swap_free.html"/>
+      <id>ddf3e0831b9dd4840528e5111aaf11ca21773b2b:reference/unordered_set/unordered_multiset/swap_free.md</id>
+      <updated>2026-02-17T22:37:12+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_set/unordered_multiset/swap_free.md b/reference/unordered_set/unordered_multiset/swap_free.md
+index a0ae45e1d..acea0178f 100644
+--- a/reference/unordered_set/unordered_multiset/swap_free.md
++++ b/reference/unordered_set/unordered_multiset/swap_free.md
+@@ -7,13 +7,19 @@
+ ```cpp
+ namespace std {
+   template &amp;lt;class Key, class Hash, class Pred, class Alloc&amp;gt;
+-  void swap(unordered_multiset&amp;lt;Key, Hash, Pred, Alloc&amp;gt;&amp;amp; x,
+-            unordered_multiset&amp;lt;Key, Hash, Pred, Alloc&amp;gt;&amp;amp; y);
+-
++  void
++    swap(unordered_multiset&amp;lt;Key, Hash, Pred, Alloc&amp;gt;&amp;amp; x,
++         unordered_multiset&amp;lt;Key, Hash, Pred, Alloc&amp;gt;&amp;amp; y); // (1) C++11
+   template &amp;lt;class Key, class Hash, class Pred, class Alloc&amp;gt;
+-  void swap(unordered_multiset&amp;lt;Key, Hash, Pred, Alloc&amp;gt;&amp;amp; x,
+-            unordered_multiset&amp;lt;Key, Hash, Pred, Alloc&amp;gt;&amp;amp; y)
+-    noexcept(noexcept(x.swap(y))); // C++17
++  void
++    swap(unordered_multiset&amp;lt;Key, Hash, Pred, Alloc&amp;gt;&amp;amp; x,
++         unordered_multiset&amp;lt;Key, Hash, Pred, Alloc&amp;gt;&amp;amp; y)
++      noexcept(noexcept(x.swap(y)));                     // (1) C++17
++  template &amp;lt;class Key, class Hash, class Pred, class Alloc&amp;gt;
++  constexpr void
++    swap(unordered_multiset&amp;lt;Key, Hash, Pred, Alloc&amp;gt;&amp;amp; x,
++         unordered_multiset&amp;lt;Key, Hash, Pred, Alloc&amp;gt;&amp;amp; y)
++      noexcept(noexcept(x.swap(y)));                     // (1) C++26
+ }
+ ```
+ 
+@@ -107,3 +113,4 @@ namespace std {
+ ## 参照
+ - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
+     - `noexcept` 追加の経緯となる提案文書
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>begin(size_type) -- unordered_multimap</title>
@@ -6455,1783 +8293,6 @@ index 2d8fd61d1..8db12e7d5 100644
 index ad583b225..4ddf7ede2 100644
 --- a/reference/set/set/value_comp.md
 +++ b/reference/set/set/value_comp.md
-@@ -5,7 +5,8 @@
- * function[meta id-type]
- 
- ```cpp
--value_compare value_comp() const;
-+value_compare value_comp() const;           // (1) C++03
-+constexpr value_compare value_comp() const; // (1) C++26
- ```
- 
- ## 概要
-@@ -54,3 +55,7 @@ int main()
- | [`count`](count.md)             | 指定したキーにマッチする要素の数を返す                   |
- | [`lower_bound`](lower_bound.md) | 与えられた値より小さくない最初の要素へのイテレータを返す |
- | [`upper_bound`](upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを返す       |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>begin -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/begin.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/begin.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/begin.md b/reference/set/multiset/begin.md
-index 721a5a906..724d49129 100644
---- a/reference/set/multiset/begin.md
-+++ b/reference/set/multiset/begin.md
-@@ -5,11 +5,13 @@
- * function[meta id-type]
- 
- ```cpp
--iterator begin();           // (1) C++03
--iterator begin() noexcept;  // (1) C++11
-+iterator begin();                    // (1) C++03
-+iterator begin() noexcept;           // (1) C++11
-+constexpr iterator begin() noexcept; // (1) C++26
- 
--const_iterator begin() const;           // (2) C++03
--const_iterator begin() const noexcept;  // (2) C++11
-+const_iterator begin() const;                    // (2) C++03
-+const_iterator begin() const noexcept;           // (2) C++11
-+constexpr const_iterator begin() const noexcept; // (2) C++26
- ```
- 
- 
-@@ -73,3 +75,7 @@ int main()
- | [`multiset::end`](end.md)       | 末尾の次を指すイテレータを取得する |
- | [`multiset::rbegin`](rbegin.md) | 末尾を指す逆イテレータを取得する |
- | [`multiset::rend`](rend.md)     | 先頭の前を指す逆イテレータを取得する |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>cbegin -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/cbegin.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/cbegin.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/cbegin.md b/reference/set/multiset/cbegin.md
-index c6a3d9ed4..87bc000a8 100644
---- a/reference/set/multiset/cbegin.md
-+++ b/reference/set/multiset/cbegin.md
-@@ -6,7 +6,8 @@
- * cpp11[meta cpp]
- 
- ```cpp
--const_iterator cbegin() const noexcept;
-+const_iterator cbegin() const noexcept;           // (1) C++11
-+constexpr const_iterator cbegin() const noexcept; // (1) C++26
- ```
- 
- 
-@@ -55,3 +56,7 @@ int main()
- | [`multiset::cend`](cend.md)     | 末尾の次を指す読み取り専用イテレータを取得する |
- | [`multuset::rbegin`](rbegin.md) | 末尾を指す逆イテレータを取得する |
- | [`multiset::rend`](rend.md)     | 先頭の前を指す逆イテレータを取得する |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>cend -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/cend.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/cend.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/cend.md b/reference/set/multiset/cend.md
-index 9a68f756c..d21e81530 100644
---- a/reference/set/multiset/cend.md
-+++ b/reference/set/multiset/cend.md
-@@ -6,7 +6,8 @@
- * cpp11[meta cpp]
- 
- ```cpp
--const_iterator cend() const noexcept;
-+const_iterator cend() const noexcept;           // (1) C++11
-+constexpr const_iterator cend() const noexcept; // (1) C++26
- ```
- 
- ## 概要
-@@ -60,3 +61,7 @@ int main()
- | [`cbegin`](cbegin.md) | 先頭を指す読み取り専用イテレータを取得する |
- | [`rbegin`](rbegin.md) | 末尾を指す逆イテレータを取得する |
- | [`rend`](rend.md)     | 先頭の前を指す逆イテレータを取得する |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>clear -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/clear.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/clear.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/clear.md b/reference/set/multiset/clear.md
-index b807fe374..f4d30308b 100644
---- a/reference/set/multiset/clear.md
-+++ b/reference/set/multiset/clear.md
-@@ -5,8 +5,9 @@
- * function[meta id-type]
- 
- ```cpp
--void clear();           // C++03
--void clear() noexcept;  // C++11
-+void clear();                    // (1) C++03
-+void clear() noexcept;           // (1) C++11
-+constexpr void clear() noexcept; // (1) C++26
- ```
- 
- ## 概要
-@@ -57,3 +58,7 @@ int main ()
- | [`erase`](erase.md) | 要素を削除する                     |
- | [`size`](size.md)   | 要素数を取得する                   |
- | [`empty`](empty.md) | コンテナが空であるかどうかを調べる |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>contains -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/contains.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/contains.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/contains.md b/reference/set/multiset/contains.md
-index 182a5dbed..143532240 100644
---- a/reference/set/multiset/contains.md
-+++ b/reference/set/multiset/contains.md
-@@ -6,10 +6,13 @@
- * cpp20[meta cpp]
- 
- ```cpp
--bool contains(const key_type&amp;amp; x) const; // (1)
-+bool contains(const key_type&amp;amp; x) const;           // (1) C++20
-+constexpr bool contains(const key_type&amp;amp; x) const; // (1) C++26
- 
- template &amp;lt;class K&amp;gt;
--bool contains(const K&amp;amp; x) const;        // (2)
-+bool contains(const K&amp;amp; x) const;           // (2) C++20
-+template &amp;lt;class K&amp;gt;
-+constexpr bool contains(const K&amp;amp; x) const; // (2) C++26
- ```
- 
- 
-@@ -71,3 +74,4 @@ contain
- 
- ## 参照
- - [P0458R2 Checking for Existence of an Element in Associative Containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0458r2.html)
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>count -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/count.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/count.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/count.md b/reference/set/multiset/count.md
-index 7490ba274..45237a9e4 100644
---- a/reference/set/multiset/count.md
-+++ b/reference/set/multiset/count.md
-@@ -5,10 +5,13 @@
- * function[meta id-type]
- 
- ```cpp
--size_type count(const key_type&amp;amp; x) const; // (1)
-+size_type count(const key_type&amp;amp; x) const;           // (1) C++03
-+constexpr size_type count(const key_type&amp;amp; x) const; // (1) C++26
- 
- template &amp;lt;class K&amp;gt;
--size_type count(const K&amp;amp; x) const;        // (2) C++14
-+size_type count(const K&amp;amp; x) const;           // (2) C++14
-+template &amp;lt;class K&amp;gt;
-+constexpr size_type count(const K&amp;amp; x) const; // (2) C++26
- ```
- 
- ## 概要
-@@ -84,3 +87,4 @@ int main()
- 
- ## 参照
- - [N3657 Adding heterogeneous comparison lookup to associative containers (rev 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3657.htm)
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>crbegin -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/crbegin.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/crbegin.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/crbegin.md b/reference/set/multiset/crbegin.md
-index 2d84f2146..a95778900 100644
---- a/reference/set/multiset/crbegin.md
-+++ b/reference/set/multiset/crbegin.md
-@@ -6,7 +6,8 @@
- * cpp11[meta cpp]
- 
- ```cpp
--const_reverse_iterator crbegin() const noexcept;
-+const_reverse_iterator crbegin() const noexcept;           // (1) C++11
-+constexpr const_reverse_iterator crbegin() const noexcept; // (1) C++26
- ```
- 
- 
-@@ -57,3 +58,7 @@ int main()
- | [`crend`](crend.md)   | 先頭の前を指す読み取り専用逆イテレータを取得する |
- | [`cbegin`](cbegin.md) | 先頭を指す読み取り専用イテレータを取得する   |
- | [`cend`](cend.md)     | 末尾の次を指す読み取り専用イテレータを取得する   |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>crend -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/crend.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/crend.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/crend.md b/reference/set/multiset/crend.md
-index 1753fc025..e8060b82a 100644
---- a/reference/set/multiset/crend.md
-+++ b/reference/set/multiset/crend.md
-@@ -6,7 +6,8 @@
- * cpp11[meta cpp]
- 
- ```cpp
--const_reverse_iterator crend() const noexcept;
-+const_reverse_iterator crend() const noexcept;           // (1) C++11
-+constexpr const_reverse_iterator crend() const noexcept; // (1) C++26
- ```
- 
- 
-@@ -53,3 +54,7 @@ int main()
- | [`crbegin`](crbegin.md) | 末尾を指す読み取り専用逆イテレータを返す |
- | [`cbegin`](cbegin.md)   | 先頭を指す読み取り専用イテレータを返す   |
- | [`cend`](cend.md)       | 末尾の次を指す読み取り専用イテレータを返す   |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>emplace -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/emplace.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/emplace.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/emplace.md b/reference/set/multiset/emplace.md
-index 843f574a5..f88abca76 100644
---- a/reference/set/multiset/emplace.md
-+++ b/reference/set/multiset/emplace.md
-@@ -7,7 +7,11 @@
- 
- ```cpp
- template &amp;lt;class... Args&amp;gt;
--pair&amp;lt;iterator, bool&amp;gt; emplace(Args&amp;amp;&amp;amp;... args);
-+pair&amp;lt;iterator, bool&amp;gt;
-+  emplace(Args&amp;amp;&amp;amp;... args); // (1) C++11
-+template &amp;lt;class... Args&amp;gt;
-+constexpr pair&amp;lt;iterator, bool&amp;gt;
-+  emplace(Args&amp;amp;&amp;amp;... args); // (1) C++26
- ```
- 
- ## 概要
-@@ -81,3 +85,4 @@ int main()
- 
- ## 参照
- - [N2680 Proposed Wording for Placement Insert (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2680.pdf)
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>emplace_hint -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/emplace_hint.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/emplace_hint.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/emplace_hint.md b/reference/set/multiset/emplace_hint.md
-index 10ba5f7b9..cda575694 100644
---- a/reference/set/multiset/emplace_hint.md
-+++ b/reference/set/multiset/emplace_hint.md
-@@ -7,7 +7,9 @@
- 
- ```cpp
- template &amp;lt;class... Args&amp;gt;
--iterator emplace_hint(const_iterator hint, Args&amp;amp;&amp;amp;... args);
-+iterator emplace_hint(const_iterator hint, Args&amp;amp;&amp;amp;... args);           // (1) C++11
-+template &amp;lt;class... Args&amp;gt;
-+constexpr iterator emplace_hint(const_iterator hint, Args&amp;amp;&amp;amp;... args); // (1) C++26
- ```
- 
- ## 概要
-@@ -87,3 +89,4 @@ int main()
- 
- ## 参照
- - [N2680 Proposed Wording for Placement Insert (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2680.pdf)
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>empty -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/empty.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/empty.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/empty.md b/reference/set/multiset/empty.md
-index 6460abf3a..8a2ea1225 100644
---- a/reference/set/multiset/empty.md
-+++ b/reference/set/multiset/empty.md
-@@ -5,10 +5,10 @@
- * function[meta id-type]
- 
- ```cpp
--bool empty() const;                        // C++03
--bool empty() const noexcept;               // C++11
--[[nodiscard]] bool empty() const noexcept; // C++20
--bool empty() const noexcept;               // C++26
-+bool empty() const;                        // (1) C++03
-+bool empty() const noexcept;               // (1) C++11
-+[[nodiscard]] bool empty() const noexcept; // (1) C++20
-+constexpr bool empty() const noexcept;     // (1) C++26
- ```
- 
- ## 概要
-@@ -64,3 +64,4 @@ int main ()
-     - C++20で`[[nodiscard]]`が付加された
- - [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
-     - C++26で`[[nodiscard]]`指定が削除された
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>end -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/end.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/end.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/end.md b/reference/set/multiset/end.md
-index 8b1f2daa2..90e156ef2 100644
---- a/reference/set/multiset/end.md
-+++ b/reference/set/multiset/end.md
-@@ -5,11 +5,13 @@
- * function[meta id-type]
- 
- ```cpp
--iterator end();           // (1) C++03
--iterator end() noexcept;  // (1) C++11
-+iterator end();                    // (1) C++03
-+iterator end() noexcept;           // (1) C++11
-+constexpr iterator end() noexcept; // (1) C++26
- 
--const_iterator end() const;           // (2) C++03
--const_iterator end() const noexcept;  // (2) C++11
-+const_iterator end() const;                    // (2) C++03
-+const_iterator end() const noexcept;           // (2) C++11
-+constexpr const_iterator end() const noexcept; // (2) C++26
- ```
- 
- ## 概要
-@@ -74,3 +76,7 @@ int main()
- | [`begin`](begin.md)   | 先頭を指すイテレータを取得する   |
- | [`rbegin`](rbegin.md) | 末尾を指す逆イテレータを取得する |
- | [`rend`](rend.md)     | 先頭の前を指す逆イテレータを取得する |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>equal_range -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/equal_range.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/equal_range.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/equal_range.md b/reference/set/multiset/equal_range.md
-index a3a911989..c70cd08c7 100644
---- a/reference/set/multiset/equal_range.md
-+++ b/reference/set/multiset/equal_range.md
-@@ -5,17 +5,29 @@
- * function[meta id-type]
- 
- ```cpp
--pair&amp;lt;iterator, iterator&amp;gt; equal_range(const key_type&amp;amp; x); // (1)
-+pair&amp;lt;iterator, iterator&amp;gt;
-+  equal_range(const key_type&amp;amp; x); // (1) C++03
-+constexpr pair&amp;lt;iterator, iterator&amp;gt;
-+  equal_range(const key_type&amp;amp; x); // (1) C++26
- 
- template &amp;lt;class K&amp;gt;
--pair&amp;lt;iterator, iterator&amp;gt; equal_range(const K&amp;amp; x);        // (2) C++14
-+pair&amp;lt;iterator, iterator&amp;gt;
-+  equal_range(const K&amp;amp; x); // (2) C++14
-+template &amp;lt;class K&amp;gt;
-+constexpr pair&amp;lt;iterator, iterator&amp;gt;
-+  equal_range(const K&amp;amp; x); // (2) C++26
- 
- pair&amp;lt;const_iterator, const_iterator&amp;gt;
--  equal_range(const key_type&amp;amp; x) const;                  // (3)
-+  equal_range(const key_type&amp;amp; x) const; // (3) C++03
-+constexpr pair&amp;lt;const_iterator, const_iterator&amp;gt;
-+  equal_range(const key_type&amp;amp; x) const; // (3) C++26
- 
- template &amp;lt;class K&amp;gt;
- pair&amp;lt;const_iterator, const_iterator&amp;gt;
--  equal_range(const K&amp;amp; x) const;                         // (4) C++14
-+  equal_range(const K&amp;amp; x) const; // (4) C++14
-+template &amp;lt;class K&amp;gt;
-+constexpr pair&amp;lt;const_iterator, const_iterator&amp;gt;
-+  equal_range(const K&amp;amp; x) const; // (4) C++26
- ```
- 
- ## 概要
-@@ -77,3 +89,4 @@ B
- 
- ## 参照
- - [N3657 Adding heterogeneous comparison lookup to associative containers (rev 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3657.htm)
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>erase -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/erase.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/erase.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/erase.md b/reference/set/multiset/erase.md
-index f31a7564f..6c2d3dd00 100644
---- a/reference/set/multiset/erase.md
-+++ b/reference/set/multiset/erase.md
-@@ -5,18 +5,24 @@
- * function[meta id-type]
- 
- ```cpp
--void erase(iterator position);                             // (1) C++03 (C++11で一旦削除)
--iterator erase(iterator position);                         // (1) C++17
-+void erase(iterator position);               // (1) C++03 (C++11で一旦削除)
-+iterator erase(iterator position);           // (1) C++17
-+constexpr iterator erase(iterator position); // (1) C++26
- 
--iterator erase(const_iterator position);                   // (2) C++11
-+iterator erase(const_iterator position);           // (2) C++11
-+constexpr iterator erase(const_iterator position); // (2) C++26
- 
--size_type erase(const key_type&amp;amp; x);                        // (3) C++03
-+size_type erase(const key_type&amp;amp; x);           // (3) C++03
-+constexpr size_type erase(const key_type&amp;amp; x); // (3) C++26
- 
- template &amp;lt;class K&amp;gt;
--size_type erase(K&amp;amp;&amp;amp; x);                                    // (4) C++23
-+size_type erase(K&amp;amp;&amp;amp; x);           // (4) C++23
-+template &amp;lt;class K&amp;gt;
-+constexpr size_type erase(K&amp;amp;&amp;amp; x); // (4) C++26
- 
--void erase(iterator first, iterator last);                 // (5) C++03
--iterator erase(const_iterator first, const_iterator last); // (5) C++11
-+void erase(iterator first, iterator last);                           // (5) C++03
-+iterator erase(const_iterator first, const_iterator last);           // (5) C++11
-+constexpr iterator erase(const_iterator first, const_iterator last); // (5) C++26
- ```
- 
- 
-@@ -172,3 +178,4 @@ int main()
-     - C++17で、`erase(iterator)`を再追加
- - [P2077R3 Heterogeneous erasure overloads for associative containers](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2077r3.html)
-     - C++23で、`template &amp;lt;class K&amp;gt; erase(K&amp;amp;&amp;amp; x)`のオーバーロードが追加された
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>erase_if -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/erase_if_free.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/erase_if_free.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/erase_if_free.md b/reference/set/multiset/erase_if_free.md
-index 6d846ca1e..35aa3ef1d 100644
---- a/reference/set/multiset/erase_if_free.md
-+++ b/reference/set/multiset/erase_if_free.md
-@@ -8,7 +8,10 @@
- namespace std {
-   template &amp;lt;class Key, class Compare, class Allocator, class Predicate&amp;gt;
-   typename multiset&amp;lt;Key, Compare, Allocator&amp;gt;::size_type
--    erase_if(multiset&amp;lt;Key, Compare, Allocator&amp;gt;&amp;amp; c, Predicate pred);
-+    erase_if(multiset&amp;lt;Key, Compare, Allocator&amp;gt;&amp;amp; c, Predicate pred); // (1) C++20
-+  template &amp;lt;class Key, class Compare, class Allocator, class Predicate&amp;gt;
-+  constexpr typename multiset&amp;lt;Key, Compare, Allocator&amp;gt;::size_type
-+    erase_if(multiset&amp;lt;Key, Compare, Allocator&amp;gt;&amp;amp; c, Predicate pred); // (1) C++26
- }
- ```
- 
-@@ -78,3 +81,4 @@ int main()
- ## 参照
- - [P1209R0 Adopt consistent container erasure from Library Fundamentals 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1209r0.html)
- - [R1115R3 Improving the Return Value of Erase-Like Algorithms II: Free `erase`/`erase_if`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1115r3.pdf)
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>extract -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/extract.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/extract.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/extract.md b/reference/set/multiset/extract.md
-index 35a130f57..423597c34 100644
---- a/reference/set/multiset/extract.md
-+++ b/reference/set/multiset/extract.md
-@@ -6,12 +6,16 @@
- * cpp17[meta cpp]
- 
- ```cpp
--node_type extract(const_iterator position); // (1) C++17
-+node_type extract(const_iterator position);           // (1) C++17
-+constexpr node_type extract(const_iterator position); // (1) C++26
- 
--node_type extract(const key_type&amp;amp; x);       // (2) C++17
-+node_type extract(const key_type&amp;amp; x);           // (2) C++17
-+constexpr node_type extract(const key_type&amp;amp; x); // (2) C++26
- 
- template &amp;lt;class K&amp;gt;
--node_type extract(K&amp;amp;&amp;amp; x);                   // (3) C++23
-+node_type extract(K&amp;amp;&amp;amp; x);           // (3) C++23
-+template &amp;lt;class K&amp;gt;
-+constexpr node_type extract(K&amp;amp;&amp;amp; x); // (3) C++26
- ```
- 
- ## 概要
-@@ -142,3 +146,4 @@ s2 = { 1, 2 }
- - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
- - [P2077R3 Heterogeneous erasure overloads for associative containers](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2077r3.html)
-     - C++23で、`template &amp;lt;class K&amp;gt; extract(K&amp;amp;&amp;amp; x)`のオーバーロードが追加された
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>find -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/find.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/find.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/find.md b/reference/set/multiset/find.md
-index ae74d6658..78d8b28a2 100644
---- a/reference/set/multiset/find.md
-+++ b/reference/set/multiset/find.md
-@@ -5,15 +5,21 @@
- * function[meta id-type]
- 
- ```cpp
--iterator find(const key_type&amp;amp; x);             // (1)
-+iterator find(const key_type&amp;amp; x);           // (1) C++03
-+constexpr iterator find(const key_type&amp;amp; x); // (1) C++26
- 
- template &amp;lt;class K&amp;gt;
--iterator find(const K&amp;amp; x);                    // (2) C++14
-+iterator find(const K&amp;amp; x);           // (2) C++14
-+template &amp;lt;class K&amp;gt;
-+constexpr iterator find(const K&amp;amp; x); // (2) C++26
- 
--const_iterator find(const key_type&amp;amp; x) const; // (3)
-+const_iterator find(const key_type&amp;amp; x) const;           // (3) C++03
-+constexpr const_iterator find(const key_type&amp;amp; x) const; // (3) C++26
- 
- template &amp;lt;class K&amp;gt;
--const_iterator find(const K&amp;amp; x) const;        // (4) C++14
-+const_iterator find(const K&amp;amp; x) const;           // (4) C++14
-+template &amp;lt;class K&amp;gt;
-+constexpr const_iterator find(const K&amp;amp; x) const; // (4) C++26
- ```
- 
- ## 概要
-@@ -95,3 +101,4 @@ Bob
- ## 参照
- - [N3657 Adding heterogeneous comparison lookup to associative containers (rev 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3657.htm)
- - [LWG Issue 2299. [CD] Effects of inaccessible `key_compare::is_transparent` type are not clear](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2299)
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>get_allocator -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/get_allocator.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/get_allocator.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/get_allocator.md b/reference/set/multiset/get_allocator.md
-index b8bb6a1c0..9d8b4f4a6 100644
---- a/reference/set/multiset/get_allocator.md
-+++ b/reference/set/multiset/get_allocator.md
-@@ -5,8 +5,9 @@
- * function[meta id-type]
- 
- ```cpp
--allocator_type get_allocator() const;          // C++03
--allocator_type get_allocator() const noexcept; // C++11
-+allocator_type get_allocator() const;                    // (1) C++03
-+allocator_type get_allocator() const noexcept;           // (1) C++11
-+constexpr allocator_type get_allocator() const noexcept; // (1) C++26
- ```
- 
- ## 概要
-@@ -66,3 +67,7 @@ int main()
- - [Visual C++](/implementation.md#visual_cpp): 2002 [mark verified], 2003 [mark verified], 2005 [mark verified], 2008 [mark verified], 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified], 2017 [mark verified]
- 	- 2012, 2013は、`noexcept`が実装されていないため、`throw()`が修飾されている。
- 	- 2015からは、`noexcept`が修飾されている。
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>insert -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/insert.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/insert.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/insert.md b/reference/set/multiset/insert.md
-index 0a45de240..0b3a64a8f 100644
---- a/reference/set/multiset/insert.md
-+++ b/reference/set/multiset/insert.md
-@@ -5,21 +5,32 @@
- * function[meta id-type]
- 
- ```cpp
--iterator insert(const value_type&amp;amp; x);                          // (1)
--iterator insert(value_type&amp;amp;&amp;amp; y);                               // (2) C++11
-+iterator insert(const value_type&amp;amp; x);           // (1) C++03
-+constexpr iterator insert(const value_type&amp;amp; x); // (1) C++26
- 
--iterator insert(iterator position, const value_type&amp;amp; x);       // (3) C++03
--iterator insert(const_iterator position, const value_type&amp;amp; x); // (3) C++11
-+iterator insert(value_type&amp;amp;&amp;amp; y);           // (2) C++11
-+constexpr iterator insert(value_type&amp;amp;&amp;amp; y); // (2) C++26
- 
--iterator insert(const_iterator position, value_type&amp;amp;&amp;amp; y);      // (4) C++11
-+iterator insert(iterator position, const value_type&amp;amp; x);                 // (3) C++03
-+iterator insert(const_iterator position, const value_type&amp;amp; x);           // (3) C++11
-+constexpr iterator insert(const_iterator position, const value_type&amp;amp; x); // (3) C++26
- 
-+iterator insert(const_iterator position, value_type&amp;amp;&amp;amp; y);           // (4) C++11
-+constexpr iterator insert(const_iterator position, value_type&amp;amp;&amp;amp; y); // (4) C++26
-+
-+template &amp;lt;class InputIterator&amp;gt;
-+void insert(InputIterator first, InputIterator last);           // (5) C++03
- template &amp;lt;class InputIterator&amp;gt;
--void insert(InputIterator first, InputIterator last);          // (5)
-+constexpr void insert(InputIterator first, InputIterator last); // (5) C++26
-+
-+void insert(initializer_list&amp;lt;value_type&amp;gt; init);           // (6) C++03
-+constexpr void insert(initializer_list&amp;lt;value_type&amp;gt; init); // (6) C++26
- 
--void insert(initializer_list&amp;lt;value_type&amp;gt; init);                // (6)
-+iterator insert(node_type&amp;amp;&amp;amp; nh);           // (7) C++17
-+constexpr iterator insert(node_type&amp;amp;&amp;amp; nh); // (7) C++26
- 
--iterator insert(node_type&amp;amp;&amp;amp; nh);                               // (7) C++17
--iterator insert(const_iterator hint, node_type&amp;amp;&amp;amp; nh);          // (8) C++17
-+iterator insert(const_iterator hint, node_type&amp;amp;&amp;amp; nh);           // (8) C++17
-+constexpr iterator insert(const_iterator hint, node_type&amp;amp;&amp;amp; nh); // (8) C++26
- ```
- * initializer_list[link /reference/initializer_list/initializer_list.md]
- 
-@@ -107,3 +118,4 @@ int main ()
- - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
- - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
-     - (7), (8)経緯となる提案文書
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>insert_range -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/insert_range.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/insert_range.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/insert_range.md b/reference/set/multiset/insert_range.md
-index cb78279fc..bddc6a2ad 100644
---- a/reference/set/multiset/insert_range.md
-+++ b/reference/set/multiset/insert_range.md
-@@ -7,7 +7,9 @@
- 
- ```cpp
- template &amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
--void insert_range(R&amp;amp;&amp;amp; rg); // C++23
-+void insert_range(R&amp;amp;&amp;amp; rg);           // (1) C++23
-+template &amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
-+constexpr void insert_range(R&amp;amp;&amp;amp; rg); // (1) C++26
- ```
- 
- ## 概要
-@@ -63,3 +65,7 @@ int main ()
- | 名前                       | 説明                   |
- |----------------------------|------------------------|
- | [`insert`](insert.md)      | 要素を挿入する          |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>key_comp -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/key_comp.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/key_comp.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/key_comp.md b/reference/set/multiset/key_comp.md
-index 6daa1ac78..77b244f61 100644
---- a/reference/set/multiset/key_comp.md
-+++ b/reference/set/multiset/key_comp.md
-@@ -5,7 +5,8 @@
- * function[meta id-type]
- 
- ```cpp
--key_compare key_comp() const;
-+key_compare key_comp() const;           // (1) C++03
-+constexpr key_compare key_comp() const; // (1) C++26
- ```
- 
- ## 概要
-@@ -53,3 +54,7 @@ int main()
- | [`count`](count.md)             | 指定したキーにマッチする要素の数を返す                   |
- | [`lower_bound`](lower_bound.md) | 与えられた値より小さく無い最初の要素へのイテレータを返す |
- | [`upper_bound`](upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを返す       |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>lower_bound -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/lower_bound.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/lower_bound.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/lower_bound.md b/reference/set/multiset/lower_bound.md
-index 04cd49995..b20442781 100644
---- a/reference/set/multiset/lower_bound.md
-+++ b/reference/set/multiset/lower_bound.md
-@@ -5,15 +5,21 @@
- * function[meta id-type]
- 
- ```cpp
--iterator lower_bound(const key_type&amp;amp; x);             // (1)
-+iterator lower_bound(const key_type&amp;amp; x);           // (1) C++03
-+constexpr iterator lower_bound(const key_type&amp;amp; x); // (1) C++26
- 
- template &amp;lt;class K&amp;gt;
--iterator lower_bound(const K&amp;amp; x);                    // (2) C++14
-+iterator lower_bound(const K&amp;amp; x);           // (2) C++14
-+template &amp;lt;class K&amp;gt;
-+constexpr iterator lower_bound(const K&amp;amp; x); // (2) C++26
- 
--const_iterator lower_bound(const key_type&amp;amp; x) const; // (3)
-+const_iterator lower_bound(const key_type&amp;amp; x) const;           // (3) C++03
-+constexpr const_iterator lower_bound(const key_type&amp;amp; x) const; // (3) C++26
- 
- template &amp;lt;class K&amp;gt;
--const_iterator lower_bound(const K&amp;amp; x) const;        // (4) C++14
-+const_iterator lower_bound(const K&amp;amp; x) const;           // (4) C++14
-+template &amp;lt;class K&amp;gt;
-+constexpr const_iterator lower_bound(const K&amp;amp; x) const; // (4) C++26
- ```
- 
- ## 概要
-@@ -109,3 +115,4 @@ D
- 
- ## 参照
- - [N3657 Adding heterogeneous comparison lookup to associative containers (rev 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3657.htm)
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>max_size -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/max_size.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/max_size.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/max_size.md b/reference/set/multiset/max_size.md
-index 3ebef31db..402180e38 100644
---- a/reference/set/multiset/max_size.md
-+++ b/reference/set/multiset/max_size.md
-@@ -5,8 +5,9 @@
- * function[meta id-type]
- 
- ```cpp
--size_type max_size() const;           // C++03
--size_type max_size() const noexcept;  // C++11
-+size_type max_size() const;                    // (1) C++03
-+size_type max_size() const noexcept;           // (1) C++11
-+constexpr size_type max_size() const noexcept; // (1) C++26
- ```
- 
- ## 概要
-@@ -47,3 +48,7 @@ int main ()
- | 名前                | 説明             |
- |---------------------|------------------|
- | [`size`](size.md) | 要素数を取得する |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>merge -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/merge.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/merge.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/merge.md b/reference/set/multiset/merge.md
-index 6ed8b10ed..22ecc29ad 100644
---- a/reference/set/multiset/merge.md
-+++ b/reference/set/multiset/merge.md
-@@ -7,13 +7,24 @@
- 
- ```cpp
- template&amp;lt;class C2&amp;gt;
--  void merge(set&amp;lt;Key, C2, Allocator&amp;gt;&amp;amp; source);       // (1)
-+void merge(set&amp;lt;Key, C2, Allocator&amp;gt;&amp;amp; source);           // (1) C++17
- template&amp;lt;class C2&amp;gt;
--  void merge(set&amp;lt;Key, C2, Allocator&amp;gt;&amp;amp;&amp;amp; source);      // (2)
-+constexpr void merge(set&amp;lt;Key, C2, Allocator&amp;gt;&amp;amp; source); // (1) C++26
-+
-+template&amp;lt;class C2&amp;gt;
-+void merge(set&amp;lt;Key, C2, Allocator&amp;gt;&amp;amp;&amp;amp; source);           // (2) C++17
-+template&amp;lt;class C2&amp;gt;
-+constexpr void merge(set&amp;lt;Key, C2, Allocator&amp;gt;&amp;amp;&amp;amp; source); // (2) C++26
-+
-+template&amp;lt;class C2&amp;gt;
-+void merge(multiset&amp;lt;Key, C2, Allocator&amp;gt;&amp;amp; source);           // (3) C++17
-+template&amp;lt;class C2&amp;gt;
-+constexpr void merge(multiset&amp;lt;Key, C2, Allocator&amp;gt;&amp;amp; source); // (3) C++26
-+
- template&amp;lt;class C2&amp;gt;
--  void merge(multiset&amp;lt;Key, C2, Allocator&amp;gt;&amp;amp; source);  // (3)
-+void merge(multiset&amp;lt;Key, C2, Allocator&amp;gt;&amp;amp;&amp;amp; source);           // (4) C++17
- template&amp;lt;class C2&amp;gt;
--  void merge(multiset&amp;lt;Key, C2, Allocator&amp;gt;&amp;amp;&amp;amp; source); // (4)
-+constexpr void merge(multiset&amp;lt;Key, C2, Allocator&amp;gt;&amp;amp;&amp;amp; source); // (4) C++26
- ```
- 
- ## 概要
-@@ -91,3 +102,4 @@ s2 = { 10, 10, 20, 30 }
- 
- ## 参照
- - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>operator= -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/op_assign.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/op_assign.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/op_assign.md b/reference/set/multiset/op_assign.md
-index f96d89024..14c7335d7 100644
---- a/reference/set/multiset/op_assign.md
-+++ b/reference/set/multiset/op_assign.md
-@@ -5,12 +5,19 @@
- * function[meta id-type]
- 
- ```cpp
--multiset&amp;amp; operator=(const multiset&amp;amp; x);                      // (1) C++03
--multiset&amp;amp; operator=(multiset&amp;amp;&amp;amp; x);                           // (2) C++11
-+multiset&amp;amp; operator=(const multiset&amp;amp; x);           // (1) C++03
-+constexpr multiset&amp;amp; operator=(const multiset&amp;amp; x); // (1) C++26
-+
-+multiset&amp;amp; operator=(multiset&amp;amp;&amp;amp; x);                          // (2) C++11
- multiset&amp;amp; operator=(multiset&amp;amp;&amp;amp; x)
-   noexcept(allocator_traits&amp;lt;Allocator&amp;gt;::is_always_equal::value
--            &amp;amp;&amp;amp; is_nothrow_move_assignable&amp;lt;Compare&amp;gt;::value);  // (2) C++17
--multiset&amp;amp; operator=(initializer_list&amp;lt;value_type&amp;gt; init);      // (3) C++11
-+            &amp;amp;&amp;amp; is_nothrow_move_assignable&amp;lt;Compare&amp;gt;::value); // (2) C++17
-+constexpr multiset&amp;amp; operator=(multiset&amp;amp;&amp;amp; x)
-+  noexcept(allocator_traits&amp;lt;Allocator&amp;gt;::is_always_equal::value
-+            &amp;amp;&amp;amp; is_nothrow_move_assignable&amp;lt;Compare&amp;gt;::value); // (2) C++26
-+
-+multiset&amp;amp; operator=(initializer_list&amp;lt;value_type&amp;gt; init);           // (3) C++11
-+constexpr multiset&amp;amp; operator=(initializer_list&amp;lt;value_type&amp;gt; init); // (3) C++26
- ```
- * initializer_list[link ../../initializer_list.md]
- 
-@@ -82,3 +89,4 @@ Size of c2: 7
- - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
- - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
-     - `noexcept` 追加の経緯となる提案文書
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>operator&lt;=&gt; -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/op_compare_3way.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/op_compare_3way.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/op_compare_3way.md b/reference/set/multiset/op_compare_3way.md
-index 253902486..749ba4b35 100644
---- a/reference/set/multiset/op_compare_3way.md
-+++ b/reference/set/multiset/op_compare_3way.md
-@@ -10,6 +10,10 @@ namespace std {
-   synth-three-way-result&amp;lt;Key&amp;gt;
-     operator&amp;lt;=&amp;gt;(const multiset&amp;lt;Key,Compare,Allocator&amp;gt;&amp;amp; x,
-                 const multiset&amp;lt;Key,Compare,Allocator&amp;gt;&amp;amp; y); // (1) C++20
-+  template &amp;lt;class Key, class Compare, class Allocator&amp;gt;
-+  constexpr synth-three-way-result&amp;lt;Key&amp;gt;
-+    operator&amp;lt;=&amp;gt;(const multiset&amp;lt;Key,Compare,Allocator&amp;gt;&amp;amp; x,
-+                const multiset&amp;lt;Key,Compare,Allocator&amp;gt;&amp;amp; y); // (1) C++26
- }
- ```
- 
-@@ -75,3 +79,4 @@ int main()
- ## 参照
- - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
-     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>コンストラクタ -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/op_constructor.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/op_constructor.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/op_constructor.md b/reference/set/multiset/op_constructor.md
-index 5f80bb239..4bd0757ab 100644
---- a/reference/set/multiset/op_constructor.md
-+++ b/reference/set/multiset/op_constructor.md
-@@ -5,51 +5,101 @@
- * function[meta id-type]
- 
- ```cpp
--multiset();                                              // (1) C++14
-+multiset();           // (1) C++14
-+constexpr multiset(); // (1) C++26
- 
--explicit multiset(const Compare&amp;amp; comp,
--             const Allocator&amp;amp; = Allocator());       // (2) C++14
-+explicit
-+  multiset(const Compare&amp;amp; comp,
-+           const Allocator&amp;amp; = Allocator()); // (2) C++14
-+constexpr explicit
-+  multiset(const Compare&amp;amp; comp,
-+           const Allocator&amp;amp; = Allocator()); // (2) C++26
- 
- explicit multiset(const Compare&amp;amp; comp = Compare(),
--             const Allocator&amp;amp; alloc = Allocator()); // (1) + (2) C++03
-+                  const Allocator&amp;amp; alloc = Allocator()); // (1) + (2) C++03
- 
--explicit multiset(const Allocator&amp;amp; alloc);               // (3) C++11
-+explicit multiset(const Allocator&amp;amp; alloc);           // (3) C++11
-+constexpr explicit multiset(const Allocator&amp;amp; alloc); // (3) C++26
- 
- template &amp;lt;class InputIterator&amp;gt;
--multiset(InputIterator first, InputIterator last,
--    const Compare&amp;amp; comp = Compare(),
--    const Allocator&amp;amp; alloc = Allocator());          // (4) C++03
-+multiset(InputIterator first,
-+         InputIterator last,
-+         const Compare&amp;amp; comp = Compare(),
-+         const Allocator&amp;amp; alloc = Allocator());   // (4) C++03
-+template &amp;lt;class InputIterator&amp;gt;
-+constexpr
-+  multiset(InputIterator first,
-+           InputIterator last,
-+           const Compare&amp;amp; comp = Compare(),
-+           const Allocator&amp;amp; alloc = Allocator()); // (4) C++26
- 
- template &amp;lt;class InputIterato&amp;gt;
--multiset(InputIterator first, InputIterator last,
--    const Allocator&amp;amp; a);                            // (5) C++14
-+multiset(InputIterator first,
-+         InputIterator last,
-+         const Allocator&amp;amp; a);   // (5) C++14
-+template &amp;lt;class InputIterato&amp;gt;
-+constexpr
-+  multiset(InputIterator first,
-+           InputIterator last,
-+           const Allocator&amp;amp; a); // (5) C++26
-+
-+multiset(const set&amp;amp; x);           // (6) C++03
-+constexpr multiset(const set&amp;amp; x); // (6) C++26
- 
--multiset(const set&amp;amp; x);                                  // (6) C++03
--multiset(set&amp;amp;&amp;amp; y);                                       // (7) C++11
-+multiset(set&amp;amp;&amp;amp; y);           // (7) C++11
-+constexpr multiset(set&amp;amp;&amp;amp; y); // (7) C++26
- 
--multiset(const multiset&amp;amp; x, const Allocator&amp;amp; alloc);            // (8) C++11
- multiset(const multiset&amp;amp; x,
--         const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp; alloc);              // (8) C++23
-+         const Allocator&amp;amp; alloc);                    // (8) C++11
-+multiset(const multiset&amp;amp; x,
-+         const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp; alloc);   // (8) C++23
-+constexpr
-+  multiset(const multiset&amp;amp; x,
-+           const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp; alloc); // (8) C++26
- 
--multiset(multiset&amp;amp;&amp;amp; y, const Allocator&amp;amp; alloc);                 // (9) C++11
- multiset(multiset&amp;amp;&amp;amp; y,
--         const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp; alloc);              // (9) C++23
-+         const Allocator&amp;amp; alloc);                    // (9) C++11
-+multiset(multiset&amp;amp;&amp;amp; y,
-+         const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp; alloc);   // (9) C++23
-+constexpr
-+  multiset(multiset&amp;amp;&amp;amp; y,
-+           const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp; alloc); // (9) C++26
- 
- multiset(initializer_list&amp;lt;value_type&amp;gt; init,
-          const Compare&amp;amp; comp = Compare(),
--         const Allocator&amp;amp; alloc = Allocator());          // (10) C++11
-+         const Allocator&amp;amp; alloc = Allocator());   // (10) C++11
-+constexpr
-+  multiset(initializer_list&amp;lt;value_type&amp;gt; init,
-+           const Compare&amp;amp; comp = Compare(),
-+           const Allocator&amp;amp; alloc = Allocator()); // (10) C++26
- 
- multiset(initializer_list&amp;lt;value_type&amp;gt; init,
--         const Allocator&amp;amp; a);                            // (11) C++14
-+         const Allocator&amp;amp; a);   // (11) C++14
-+constexpr
-+  multiset(initializer_list&amp;lt;value_type&amp;gt; init,
-+           const Allocator&amp;amp; a); // (11) C++26
- 
- template &amp;lt;container-compatible-range &amp;lt;value_type&amp;gt; R&amp;gt;
--multiset(from_range_t, R&amp;amp;&amp;amp; rg,
-+multiset(from_range_t,
-+         R&amp;amp;&amp;amp; rg,
-          const Compare&amp;amp; comp = Compare(),
--         const Allocator&amp;amp; alloc = Allocator());          // (12) C++23
-+         const Allocator&amp;amp; alloc = Allocator());   // (12) C++23
-+template &amp;lt;container-compatible-range &amp;lt;value_type&amp;gt; R&amp;gt;
-+constexpr
-+  multiset(from_range_t,
-+           R&amp;amp;&amp;amp; rg,
-+           const Compare&amp;amp; comp = Compare(),
-+           const Allocator&amp;amp; alloc = Allocator()); // (12) C++26
- 
- template &amp;lt;container-compatible-range &amp;lt;value_type&amp;gt; R&amp;gt;
--multiset(from_range_t, R&amp;amp;&amp;amp; rg,
--         const Allocator&amp;amp; alloc);                        // (13) C++23
-+multiset(from_range_t,
-+         R&amp;amp;&amp;amp; rg,
-+         const Allocator&amp;amp; alloc);   // (13) C++23
-+template &amp;lt;container-compatible-range &amp;lt;value_type&amp;gt; R&amp;gt;
-+constexpr
-+  multiset(from_range_t,
-+           R&amp;amp;&amp;amp; rg,
-+           const Allocator&amp;amp; alloc); // (13) C++26
- ```
- * type_identity_t[link /reference/type_traits/type_identity.md]
- * initializer_list[link ../../initializer_list.md]
-@@ -164,3 +214,4 @@ Size of c2: 7
-     なお、Discussion の例はアロケータの型が誤っているので注意
- - [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
-     - C++23でのアロケータ引数を`type_identity_t`で包む変更
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>デストラクタ -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/op_destructor.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/op_destructor.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/op_destructor.md b/reference/set/multiset/op_destructor.md
-index 937fe5b02..ad253220e 100644
---- a/reference/set/multiset/op_destructor.md
-+++ b/reference/set/multiset/op_destructor.md
-@@ -5,7 +5,8 @@
- * function[meta id-type]
- 
- ```cpp
--~multiset();
-+~multiset();           // (1) C++03
-+constexpr ~multiset(); // (1) C++26
- ```
- 
- ## 概要
-@@ -14,3 +15,7 @@
- 
- ## 計算量
- [`size()`](size.md) に対して線形時間（デストラクタ呼び出し）
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>operator== -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/op_equal.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/op_equal.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/op_equal.md b/reference/set/multiset/op_equal.md
-index 1c3cc1ac2..08e61d52b 100644
---- a/reference/set/multiset/op_equal.md
-+++ b/reference/set/multiset/op_equal.md
-@@ -9,6 +9,10 @@ namespace std {
-   bool
-     operator==(const multiset&amp;lt;Key,Compare,Allocator&amp;gt;&amp;amp; x,
-                const multiset&amp;lt;Key,Compare,Allocator&amp;gt;&amp;amp; y); // (1) C++03
-+  template &amp;lt;class Key, class Compare, class Allocator&amp;gt;
-+  constexpr bool
-+    operator==(const multiset&amp;lt;Key,Compare,Allocator&amp;gt;&amp;amp; x,
-+               const multiset&amp;lt;Key,Compare,Allocator&amp;gt;&amp;amp; y); // (1) C++26
- }
- ```
- 
-@@ -65,3 +69,4 @@ int main()
-     - C++14から、2つ目のイテレータ範囲のendイテレータをとる`equal()`アルゴリズムを使用するようになった。
- - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
-     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>operator&gt; -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/op_greater.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/op_greater.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/op_greater.md b/reference/set/multiset/op_greater.md
-index de9241d4f..72892c910 100644
---- a/reference/set/multiset/op_greater.md
-+++ b/reference/set/multiset/op_greater.md
-@@ -10,6 +10,10 @@ namespace std {
-   bool
-     operator&amp;gt;(const multiset&amp;lt;Key,Compare,Allocator&amp;gt;&amp;amp; x,
-               const multiset&amp;lt;Key,Compare,Allocator&amp;gt;&amp;amp; y); // (1) C++03
-+  template &amp;lt;class Key, class Compare, class Allocator&amp;gt;
-+  constexpr bool
-+    operator&amp;gt;(const multiset&amp;lt;Key,Compare,Allocator&amp;gt;&amp;amp; x,
-+              const multiset&amp;lt;Key,Compare,Allocator&amp;gt;&amp;amp; y); // (1) C++26
- }
- ```
- 
-@@ -63,3 +67,4 @@ int main()
- ## 参照
- - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
-     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>operator&gt;= -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/op_greater_equal.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/op_greater_equal.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/op_greater_equal.md b/reference/set/multiset/op_greater_equal.md
-index 006133c7c..0c3a01313 100644
---- a/reference/set/multiset/op_greater_equal.md
-+++ b/reference/set/multiset/op_greater_equal.md
-@@ -10,6 +10,10 @@ namespace std {
-   bool
-     operator&amp;gt;=(const multiset&amp;lt;Key,Compare,Allocator&amp;gt;&amp;amp; x,
-                const multiset&amp;lt;Key,Compare,Allocator&amp;gt;&amp;amp; y); // (1) C++03
-+  template &amp;lt;class Key, class Compare, class Allocator&amp;gt;
-+  constexpr bool
-+    operator&amp;gt;=(const multiset&amp;lt;Key,Compare,Allocator&amp;gt;&amp;amp; x,
-+               const multiset&amp;lt;Key,Compare,Allocator&amp;gt;&amp;amp; y); // (1) C++26
- }
- ```
- 
-@@ -63,3 +67,4 @@ int main()
- ## 参照
- - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
-     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>operator&lt; -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/op_less.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/op_less.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/op_less.md b/reference/set/multiset/op_less.md
-index 8daa1cb93..a801e0096 100644
---- a/reference/set/multiset/op_less.md
-+++ b/reference/set/multiset/op_less.md
-@@ -10,6 +10,10 @@ namespace std {
-   bool
-     operator&amp;lt;(const multiset&amp;lt;Key,Compare,Allocator&amp;gt;&amp;amp; x,
-               const multiset&amp;lt;Key,Compare,Allocator&amp;gt;&amp;amp; y); // (1) C++03
-+  template &amp;lt;class Key, class Compare, class Allocator&amp;gt;
-+  constexpr bool
-+    operator&amp;lt;(const multiset&amp;lt;Key,Compare,Allocator&amp;gt;&amp;amp; x,
-+              const multiset&amp;lt;Key,Compare,Allocator&amp;gt;&amp;amp; y); // (1) C++26
- }
- ```
- 
-@@ -61,3 +65,4 @@ true
- ## 参照
- - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
-     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>operator&lt;= -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/op_less_equal.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/op_less_equal.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/op_less_equal.md b/reference/set/multiset/op_less_equal.md
-index 971590d3f..66e2e4409 100644
---- a/reference/set/multiset/op_less_equal.md
-+++ b/reference/set/multiset/op_less_equal.md
-@@ -10,6 +10,10 @@ namespace std {
-   bool
-     operator&amp;lt;=(const multiset&amp;lt;Key,Compare,Allocator&amp;gt;&amp;amp; x,
-                const multiset&amp;lt;Key,Compare,Allocator&amp;gt;&amp;amp; y); // (1) C++03
-+  template &amp;lt;class Key, class Compare, class Allocator&amp;gt;
-+  constexpr bool
-+    operator&amp;lt;=(const multiset&amp;lt;Key,Compare,Allocator&amp;gt;&amp;amp; x,
-+               const multiset&amp;lt;Key,Compare,Allocator&amp;gt;&amp;amp; y); // (1) C++26
- }
- ```
- 
-@@ -63,3 +67,4 @@ int main()
- ## 参照
- - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
-     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>operator!= -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/op_not_equal.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/op_not_equal.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/op_not_equal.md b/reference/set/multiset/op_not_equal.md
-index a6fced787..061d79251 100644
---- a/reference/set/multiset/op_not_equal.md
-+++ b/reference/set/multiset/op_not_equal.md
-@@ -10,6 +10,10 @@ namespace std {
-   bool
-     operator!=(const multiset&amp;lt;Key,Compare,Allocator&amp;gt;&amp;amp; x,
-                const multiset&amp;lt;Key,Compare,Allocator&amp;gt;&amp;amp; y); // (1) C++03
-+  template &amp;lt;class Key, class Compare, class Allocator&amp;gt;
-+  constexpr bool
-+    operator!=(const multiset&amp;lt;Key,Compare,Allocator&amp;gt;&amp;amp; x,
-+               const multiset&amp;lt;Key,Compare,Allocator&amp;gt;&amp;amp; y); // (1) C++26
- }
- ```
- 
-@@ -63,3 +67,4 @@ int main()
- ## 参照
- - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
-     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>rbegin -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/rbegin.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/rbegin.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/rbegin.md b/reference/set/multiset/rbegin.md
-index 4b4c0d932..1d4eece4c 100644
---- a/reference/set/multiset/rbegin.md
-+++ b/reference/set/multiset/rbegin.md
-@@ -5,11 +5,13 @@
- * function[meta id-type]
- 
- ```cpp
--reverse_iterator rbegin();           // (1) C++03
--reverse_iterator rbegin() noexcept;  // (1) C++11
-+reverse_iterator rbegin();                    // (1) C++03
-+reverse_iterator rbegin() noexcept;           // (1) C++11
-+constexpr reverse_iterator rbegin() noexcept; // (1) C++26
- 
--const_reverse_iterator rbegin() const;           // (2) C++03
--const_reverse_iterator rbegin() const noexcept;  // (2) C++11
-+const_reverse_iterator rbegin() const;                    // (2) C++03
-+const_reverse_iterator rbegin() const noexcept;           // (2) C++11
-+constexpr const_reverse_iterator rbegin() const noexcept; // (2) C++26
- ```
- 
- 
-@@ -69,3 +71,7 @@ int main()
- | [`rend`](rend.md)   | 先頭の前を指す逆イテレータを取得する |
- | [`begin`](begin.md) | 先頭を指すイテレータを取得する   |
- | [`end`](end.md)     | 末尾の次を指すイテレータを取得する   |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>rend -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/rend.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/rend.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/rend.md b/reference/set/multiset/rend.md
-index ad243ceb7..95f9e4465 100644
---- a/reference/set/multiset/rend.md
-+++ b/reference/set/multiset/rend.md
-@@ -5,11 +5,13 @@
- * function[meta id-type]
- 
- ```cpp
--reverse_iterator rend();           // (1) C++03
--reverse_iterator rend() noexcept;  // (1) C++11
-+reverse_iterator rend();                    // (1) C++03
-+reverse_iterator rend() noexcept;           // (1) C++11
-+constexpr reverse_iterator rend() noexcept; // (1) C++26
- 
--const_reverse_iterator rend() const;           // (2) C++03
--const_reverse_iterator rend() const noexcept;  // (2) C++11
-+const_reverse_iterator rend() const;                    // (2) C++03
-+const_reverse_iterator rend() const noexcept;           // (2) C++11
-+constexpr const_reverse_iterator rend() const noexcept; // (2) C++26
- ```
- 
- 
-@@ -63,3 +65,7 @@ int main()
- | [`rbegin`](rbegin.md) | 末尾を指す逆イテレータを返す |
- | [`begin`](begin.md)   | 先頭を指すイテレータを返す   |
- | [`end`](end.md)       | 末尾の次を指すイテレータを返す   |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>size -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/size.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/size.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/size.md b/reference/set/multiset/size.md
-index 4c3061b13..bfdc00eeb 100644
---- a/reference/set/multiset/size.md
-+++ b/reference/set/multiset/size.md
-@@ -5,8 +5,9 @@
- * function[meta id-type]
- 
- ```cpp
--size_type size() const;           // C++03
--size_type size() const noexcept;  // C++11
-+size_type size() const;                    // (1) C++03
-+size_type size() const noexcept;           // (1) C++11
-+constexpr size_type size() const noexcept; // (1) C++26
- ```
- 
- ## 概要
-@@ -56,3 +57,7 @@ int main ()
- |-----------------------------|------------------------------------|
- | [`max_size`](max_size.md) | 格納可能な最大の要素数を取得する   |
- | [`empty`](empty.md)       | コンテナが空であるかどうかを調べる |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>swap -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/swap.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/swap.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/swap.md b/reference/set/multiset/swap.md
-index 3269c8b41..50f640178 100644
---- a/reference/set/multiset/swap.md
-+++ b/reference/set/multiset/swap.md
-@@ -5,10 +5,13 @@
- * function[meta id-type]
- 
- ```cpp
--void swap(multiset&amp;amp; st);
-+void swap(multiset&amp;amp; st);                                                 // (1) C++03
- void swap(multiset&amp;amp; x)
-   noexcept(allocator_traits&amp;lt;Allocator&amp;gt;::is_always_equal::value
--            &amp;amp;&amp;amp; noexcept(swap(declval&amp;lt;Compare&amp;amp;&amp;gt;(),declval&amp;lt;Compare&amp;amp;&amp;gt;()))); // C++17
-+            &amp;amp;&amp;amp; noexcept(swap(declval&amp;lt;Compare&amp;amp;&amp;gt;(),declval&amp;lt;Compare&amp;amp;&amp;gt;()))); // (1) C++17
-+constexpr void swap(multiset&amp;amp; x)
-+  noexcept(allocator_traits&amp;lt;Allocator&amp;gt;::is_always_equal::value
-+            &amp;amp;&amp;amp; noexcept(swap(declval&amp;lt;Compare&amp;amp;&amp;gt;(),declval&amp;lt;Compare&amp;amp;&amp;gt;()))); // (1) C++26
- ```
- 
- ## 概要
-@@ -63,3 +66,4 @@ int main()
- ## 参照
- - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
-     - `noexcept` 追加の経緯となる提案文書
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>swap (非メンバ関数) -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/swap_free.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/swap_free.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/swap_free.md b/reference/set/multiset/swap_free.md
-index 488f2c805..67960d35b 100644
---- a/reference/set/multiset/swap_free.md
-+++ b/reference/set/multiset/swap_free.md
-@@ -6,13 +6,19 @@
- ```cpp
- namespace std {
-   template &amp;lt;class Key, class Compare, class Allocator&amp;gt;
--  void swap(multiset&amp;lt;Key, Compare, Allocator&amp;gt;&amp;amp; x,
--            multiset&amp;lt;Key, Compare, Allocator&amp;gt;&amp;amp; y);
--
-+  void
-+    swap(multiset&amp;lt;Key, Compare, Allocator&amp;gt;&amp;amp; x,
-+         multiset&amp;lt;Key, Compare, Allocator&amp;gt;&amp;amp; y); // (1) C++03
-+  template &amp;lt;class Key, class Compare, class Allocator&amp;gt;
-+  void
-+    swap(multiset&amp;lt;Key, Compare, Allocator&amp;gt;&amp;amp; x,
-+         multiset&amp;lt;Key, Compare, Allocator&amp;gt;&amp;amp; y)
-+      noexcept(noexcept(x.swap(y)));            // (1) C++17
-   template &amp;lt;class Key, class Compare, class Allocator&amp;gt;
--  void swap(multiset&amp;lt;Key, Compare, Allocator&amp;gt;&amp;amp; x,
--            multiset&amp;lt;Key, Compare, Allocator&amp;gt;&amp;amp; y)
--    noexcept(noexcept(x.swap(y))); // C++17
-+  constexpr void
-+    swap(multiset&amp;lt;Key, Compare, Allocator&amp;gt;&amp;amp; x,
-+         multiset&amp;lt;Key, Compare, Allocator&amp;gt;&amp;amp; y)
-+      noexcept(noexcept(x.swap(y)));            // (1) C++26
- }
- ```
- 
-@@ -68,3 +74,4 @@ int main()
- ## 参照
- - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
-     - `noexcept` 追加の経緯となる提案文書
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>upper_bound -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/upper_bound.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/upper_bound.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/upper_bound.md b/reference/set/multiset/upper_bound.md
-index f60cb6e90..126295b2f 100644
---- a/reference/set/multiset/upper_bound.md
-+++ b/reference/set/multiset/upper_bound.md
-@@ -5,15 +5,21 @@
- * function[meta id-type]
- 
- ```cpp
--iterator upper_bound(const key_type&amp;amp; x);             // (1)
-+iterator upper_bound(const key_type&amp;amp; x);           // (1) C++03
-+constexpr iterator upper_bound(const key_type&amp;amp; x); // (1) C++26
- 
- template &amp;lt;class K&amp;gt;
--iterator upper_bound(const K&amp;amp; x);                    // (2) C++14
-+iterator upper_bound(const K&amp;amp; x);           // (2) C++14
-+template &amp;lt;class K&amp;gt;
-+constexpr iterator upper_bound(const K&amp;amp; x); // (2) C++26
- 
--const_iterator upper_bound(const key_type&amp;amp; x) const; // (3)
-+const_iterator upper_bound(const key_type&amp;amp; x) const;           // (3) C++03
-+constexpr const_iterator upper_bound(const key_type&amp;amp; x) const; // (3) C++26
- 
- template &amp;lt;class K&amp;gt;
--const_iterator upper_bound(const K&amp;amp; x) const;        // (4) C++14
-+const_iterator upper_bound(const K&amp;amp; x) const;           // (4) C++14
-+template &amp;lt;class K&amp;gt;
-+constexpr const_iterator upper_bound(const K&amp;amp; x) const; // (4) C++26
- ```
- 
- ## 概要
-@@ -109,3 +115,4 @@ D
- 
- ## 参照
- - [N3657 Adding heterogeneous comparison lookup to associative containers (rev 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3657.htm)
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>value_comp -- multiset</title>
-      <link href="https://cpprefjp.github.io/reference/set/multiset/value_comp.html"/>
-      <id>102e4dcb6a2c34d671e11b7a08bc896bd1de13a1:reference/set/multiset/value_comp.md</id>
-      <updated>2026-02-17T22:15:05+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/set/multiset/value_comp.md b/reference/set/multiset/value_comp.md
-index 520e56412..0ed427bbf 100644
---- a/reference/set/multiset/value_comp.md
-+++ b/reference/set/multiset/value_comp.md
 @@ -5,7 +5,8 @@
  * function[meta id-type]
  
