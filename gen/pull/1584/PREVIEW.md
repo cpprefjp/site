@@ -1,10 +1,10 @@
 # PR [\#1584](https://github.com/cpprefjp/site/pull/1584) プレビュー
-- &#x231a; 更新時刻: 2026-02-17 22:11:09 JST
+- &#x231a; 更新時刻: 2026-02-17 22:15:48 JST
 - &#x1f50d; [プレビュー (HTML)](https://cpprefjp.github.io/site/gen/pull/1584)
 - &#x1f4c8; [プレビュー生成記録](https://github.com/cpprefjp/site/actions?query=event%3Apull_request_target+branch%3Acpp26_container_constexpr)
-- **&#x2AEF;** ソースの変更: [`c3a3a49..e375fa7`](https://github.com/cpprefjp/site/compare/c3a3a49e88a9766d0f632c9d2e4561822a34e398..e375fa77c98dee2836117c4a1d3c2324982047b0)
+- **&#x2AEF;** ソースの変更: [`c3a3a49..8049740`](https://github.com/cpprefjp/site/compare/c3a3a49e88a9766d0f632c9d2e4561822a34e398..8049740c690bc3f4d248d65fbb8fb605b11b35a0)
 
-## 変更記事一覧 (393件)
+## 変更記事一覧 (411件)
 
 - &#x1f4dd; [`reference/deque/deque/append_range`](https://cpprefjp.github.io/site/gen/pull/1584/reference/deque/deque/append_range.html)
 - &#x1f4dd; [`reference/deque/deque/assign`](https://cpprefjp.github.io/site/gen/pull/1584/reference/deque/deque/assign.html)
@@ -399,3 +399,21 @@
 - &#x1f4dd; [`reference/queue/priority_queue/swap`](https://cpprefjp.github.io/site/gen/pull/1584/reference/queue/priority_queue/swap.html)
 - &#x1f4dd; [`reference/queue/priority_queue/swap_free`](https://cpprefjp.github.io/site/gen/pull/1584/reference/queue/priority_queue/swap_free.html)
 - &#x1f4dd; [`reference/queue/priority_queue/top`](https://cpprefjp.github.io/site/gen/pull/1584/reference/queue/priority_queue/top.html)
+- &#x1f4dd; [`reference/queue/queue/back`](https://cpprefjp.github.io/site/gen/pull/1584/reference/queue/queue/back.html)
+- &#x1f4dd; [`reference/queue/queue/emplace`](https://cpprefjp.github.io/site/gen/pull/1584/reference/queue/queue/emplace.html)
+- &#x1f4dd; [`reference/queue/queue/empty`](https://cpprefjp.github.io/site/gen/pull/1584/reference/queue/queue/empty.html)
+- &#x1f4dd; [`reference/queue/queue/front`](https://cpprefjp.github.io/site/gen/pull/1584/reference/queue/queue/front.html)
+- &#x1f4dd; [`reference/queue/queue/op_compare_3way`](https://cpprefjp.github.io/site/gen/pull/1584/reference/queue/queue/op_compare_3way.html)
+- &#x1f4dd; [`reference/queue/queue/op_constructor`](https://cpprefjp.github.io/site/gen/pull/1584/reference/queue/queue/op_constructor.html)
+- &#x1f4dd; [`reference/queue/queue/op_equal`](https://cpprefjp.github.io/site/gen/pull/1584/reference/queue/queue/op_equal.html)
+- &#x1f4dd; [`reference/queue/queue/op_greater`](https://cpprefjp.github.io/site/gen/pull/1584/reference/queue/queue/op_greater.html)
+- &#x1f4dd; [`reference/queue/queue/op_greater_equal`](https://cpprefjp.github.io/site/gen/pull/1584/reference/queue/queue/op_greater_equal.html)
+- &#x1f4dd; [`reference/queue/queue/op_less`](https://cpprefjp.github.io/site/gen/pull/1584/reference/queue/queue/op_less.html)
+- &#x1f4dd; [`reference/queue/queue/op_less_equal`](https://cpprefjp.github.io/site/gen/pull/1584/reference/queue/queue/op_less_equal.html)
+- &#x1f4dd; [`reference/queue/queue/op_not_equal`](https://cpprefjp.github.io/site/gen/pull/1584/reference/queue/queue/op_not_equal.html)
+- &#x1f4dd; [`reference/queue/queue/pop`](https://cpprefjp.github.io/site/gen/pull/1584/reference/queue/queue/pop.html)
+- &#x1f4dd; [`reference/queue/queue/push`](https://cpprefjp.github.io/site/gen/pull/1584/reference/queue/queue/push.html)
+- &#x1f4dd; [`reference/queue/queue/push_range`](https://cpprefjp.github.io/site/gen/pull/1584/reference/queue/queue/push_range.html)
+- &#x1f4dd; [`reference/queue/queue/size`](https://cpprefjp.github.io/site/gen/pull/1584/reference/queue/queue/size.html)
+- &#x1f4dd; [`reference/queue/queue/swap`](https://cpprefjp.github.io/site/gen/pull/1584/reference/queue/queue/swap.html)
+- &#x1f4dd; [`reference/queue/queue/swap_free`](https://cpprefjp.github.io/site/gen/pull/1584/reference/queue/queue/swap_free.html)

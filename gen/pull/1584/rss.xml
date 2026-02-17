@@ -2,9 +2,720 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-02-17T13:11:08.083335</updated>
-  <id>54291059-f205-41c0-917d-a1c7e7519aa9</id>
+  <updated>2026-02-17T13:15:47.229854</updated>
+  <id>24ff3bbc-855b-4df2-8d03-a670e1525635</id>
 
+  
+    <entry>
+      <title>back -- queue</title>
+      <link href="https://cpprefjp.github.io/reference/queue/queue/back.html"/>
+      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/back.md</id>
+      <updated>2026-02-17T22:09:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/back.md b/reference/queue/queue/back.md
+index 9315fb310..b0aba97bb 100644
+--- a/reference/queue/queue/back.md
++++ b/reference/queue/queue/back.md
+@@ -5,8 +5,11 @@
+ * function[meta id-type]
+ 
+ ```cpp
+-value_type&amp;amp; back();
+-const value_type&amp;amp; back() const;
++value_type&amp;amp; back();           // (1) C++03
++constexpr value_type&amp;amp; back(); // (1) C++26
++
++const value_type&amp;amp; back() const;           // (2) C++03
++constexpr const value_type&amp;amp; back() const; // (2) C++26
+ ```
+ 
+ ## 概要
+@@ -58,3 +61,7 @@ int main() {
+ value_type&amp;amp; back() { return c.back(); }
+ const value_type&amp;amp; back() const { return c.back(); }
+ ```
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>emplace -- queue</title>
+      <link href="https://cpprefjp.github.io/reference/queue/queue/emplace.html"/>
+      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/emplace.md</id>
+      <updated>2026-02-17T22:09:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/emplace.md b/reference/queue/queue/emplace.md
+index dca91c0ad..278ee81da 100644
+--- a/reference/queue/queue/emplace.md
++++ b/reference/queue/queue/emplace.md
+@@ -7,10 +7,11 @@
+ 
+ ```cpp
+ template &amp;lt;class... Args&amp;gt;
+-void emplace(Args&amp;amp;&amp;amp;... args);               // C++14 まで
+-
++void emplace(Args&amp;amp;&amp;amp;... args);                     // (1) C++11
++template &amp;lt;class... Args&amp;gt;
++decltype(auto) emplace(Args&amp;amp;&amp;amp;... args);           // (1) C++17
+ template &amp;lt;class... Args&amp;gt;
+-decltype(auto) emplace(Args&amp;amp;&amp;amp;... args);     // C++17 から
++constexpr decltype(auto) emplace(Args&amp;amp;&amp;amp;... args); // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -95,3 +96,4 @@ C++17 規格が発行された段階では戻り値型が `reference` に変更
+ - [P0084R1 Emplace Return Type (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0084r1.pdf)
+ - [P0084R2 Emplace Return Type (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0084r2.pdf)
+ - [LWG Issue 2783. stack::emplace() and queue::emplace() should return decltype(auto)](https://wg21.cmeerw.net/lwg/issue2783)
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>empty -- queue</title>
+      <link href="https://cpprefjp.github.io/reference/queue/queue/empty.html"/>
+      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/empty.md</id>
+      <updated>2026-02-17T22:09:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/empty.md b/reference/queue/queue/empty.md
+index 90681fd84..99f40da9e 100644
+--- a/reference/queue/queue/empty.md
++++ b/reference/queue/queue/empty.md
+@@ -5,9 +5,9 @@
+ * function[meta id-type]
+ 
+ ```cpp
+-bool empty() const;               // C++03
+-[[nodiscard]] bool empty() const; // C++20
+-bool empty() const;               // C++26
++bool empty() const;               // (1) C++03
++[[nodiscard]] bool empty() const; // (1) C++20
++constexpr bool empty() const;     // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -57,3 +57,4 @@ empty
+     - C++20で`[[nodiscard]]`が付加された
+ - [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
+     - C++26で`[[nodiscard]]`指定が削除された
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>front -- queue</title>
+      <link href="https://cpprefjp.github.io/reference/queue/queue/front.html"/>
+      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/front.md</id>
+      <updated>2026-02-17T22:09:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/front.md b/reference/queue/queue/front.md
+index fa6f83769..4d1a8be3e 100644
+--- a/reference/queue/queue/front.md
++++ b/reference/queue/queue/front.md
+@@ -5,8 +5,11 @@
+ * function[meta id-type]
+ 
+ ```cpp
+-value_type&amp;amp; front();
+-const value_type&amp;amp; front() const;
++value_type&amp;amp; front();           // (1) C++03
++constexpr value_type&amp;amp; front(); // (1) C++26
++
++const value_type&amp;amp; front() const;           // (2) C++03
++constexpr const value_type&amp;amp; front() const; // (2) C++26
+ ```
+ 
+ ## 概要
+@@ -65,3 +68,4 @@ const value_type&amp;amp; front() const { return c.front(); }
+ ```
+ 
+ ## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&lt;=&gt; -- queue</title>
+      <link href="https://cpprefjp.github.io/reference/queue/queue/op_compare_3way.html"/>
+      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/op_compare_3way.md</id>
+      <updated>2026-02-17T22:09:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/op_compare_3way.md b/reference/queue/queue/op_compare_3way.md
+index 451160c78..16fb49f83 100644
+--- a/reference/queue/queue/op_compare_3way.md
++++ b/reference/queue/queue/op_compare_3way.md
+@@ -10,6 +10,10 @@ namespace std {
+   compare_three_way_result_t&amp;lt;Container&amp;gt;
+     operator&amp;lt;=&amp;gt;(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x,
+                 const queue&amp;lt;T, Container&amp;gt;&amp;amp; y); // (1) C++20
++  template &amp;lt;class T, class Container&amp;gt;
++  constexpr compare_three_way_result_t&amp;lt;Container&amp;gt;
++    operator&amp;lt;=&amp;gt;(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x,
++                const queue&amp;lt;T, Container&amp;gt;&amp;amp; y); // (1) C++26
+ }
+ ```
+ 
+@@ -62,3 +66,4 @@ int main ()
+ ## 参照
+ - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- queue</title>
+      <link href="https://cpprefjp.github.io/reference/queue/queue/op_constructor.html"/>
+      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/op_constructor.md</id>
+      <updated>2026-02-17T22:09:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/op_constructor.md b/reference/queue/queue/op_constructor.md
+index 4596320db..0bd75e668 100644
+--- a/reference/queue/queue/op_constructor.md
++++ b/reference/queue/queue/op_constructor.md
+@@ -6,38 +6,66 @@
+ 
+ ```cpp
+ // C++03まで
+-explicit queue(const Container&amp;amp; other = Container());  // (1), (2)
++explicit queue(const Container&amp;amp; other = Container()); // (1), (2) C++03
+ 
+ // C++11以降 C++17まで
+-explicit queue(const Container&amp;amp; other);           // (2)
+-explicit queue(Container&amp;amp;&amp;amp; other = Container());  // (1), (3)
++explicit queue(const Container&amp;amp; other);          // (2) C++11
++explicit queue(Container&amp;amp;&amp;amp; other = Container()); // (1), (3) C++11
+ 
+ // C++20以降
+-queue() : queue(Container()) {}          // (1)
+-explicit queue(const Container&amp;amp; other);  // (2)
+-explicit queue(Container&amp;amp;&amp;amp; other);       // (3)
++queue() : queue(Container()) {}           // (1) C++20
++constexpr queue() : queue(Container()) {} // (1) C++26
++
++explicit queue(const Container&amp;amp; other);           // (2) C++11
++constexpr explicit queue(const Container&amp;amp; other); // (2) C++26
++
++explicit queue(Container&amp;amp;&amp;amp; other);           // (3) C++20
++constexpr explicit queue(Container&amp;amp;&amp;amp; other); // (3) C++26
+ 
+ template&amp;lt;class InputIterator&amp;gt;
+-queue(InputIterator first, InputIterator last);  // (4) C++23
++queue(InputIterator first, InputIterator last);           // (4) C++23
++template&amp;lt;class InputIterator&amp;gt;
++constexpr queue(InputIterator first, InputIterator last); // (4) C++26
++
++template &amp;lt;class Alloc&amp;gt;
++explicit queue(const Alloc&amp;amp; alloc);           // (5) C++11
++template &amp;lt;class Alloc&amp;gt;
++constexpr explicit queue(const Alloc&amp;amp; alloc); // (5) C++26
++
++template &amp;lt;class Alloc&amp;gt;
++queue(const Container&amp;amp; other, const Alloc&amp;amp; alloc);           // (6) C++11
++template &amp;lt;class Alloc&amp;gt;
++constexpr queue(const Container&amp;amp; other, const Alloc&amp;amp; alloc); // (6) C++26
+ 
+ template &amp;lt;class Alloc&amp;gt;
+-explicit queue(const Alloc&amp;amp; alloc);                // (5) C++11
++queue(Container&amp;amp;&amp;amp; other, const Alloc&amp;amp; alloc);           // (7) C++11
++template &amp;lt;class Alloc&amp;gt;
++constexpr queue(Container&amp;amp;&amp;amp; other, const Alloc&amp;amp; alloc); // (7) C++26
++
+ template &amp;lt;class Alloc&amp;gt;
+-queue(const Container&amp;amp; other, const Alloc&amp;amp; alloc); // (6) C++11
++queue(const queue&amp;amp; que, const Alloc&amp;amp; alloc);           // (8) C++11
+ template &amp;lt;class Alloc&amp;gt;
+-queue(Container&amp;amp;&amp;amp; other, const Alloc&amp;amp; alloc);      // (7) C++11
++constexpr queue(const queue&amp;amp; que, const Alloc&amp;amp; alloc); // (8) C++26
++
+ template &amp;lt;class Alloc&amp;gt;
+-queue(const queue&amp;amp; que, const Alloc&amp;amp; alloc);       // (8) C++11
++queue(queue&amp;amp;&amp;amp; que, const Alloc&amp;amp; alloc);           // (9) C++11
+ template &amp;lt;class Alloc&amp;gt;
+-queue(queue&amp;amp;&amp;amp; que, const Alloc&amp;amp; alloc);            // (9) C++11
++constexpr queue(queue&amp;amp;&amp;amp; que, const Alloc&amp;amp; alloc); // (9) C++26
+ 
+ template&amp;lt;class InputIterator, class Alloc&amp;gt;
+-queue(InputIterator first, InputIterator last, const Alloc&amp;amp;);  // (10) C++23
++queue(InputIterator first, InputIterator last, const Alloc&amp;amp;);           // (10) C++23
++template&amp;lt;class InputIterator, class Alloc&amp;gt;
++constexpr queue(InputIterator first, InputIterator last, const Alloc&amp;amp;); // (10) C++26
+ 
+ template &amp;lt;container-compatible-range&amp;lt;T&amp;gt; R&amp;gt;
+-queue(from_range_t, R&amp;amp;&amp;amp; rg);                       // (11) C++23
++queue(from_range_t, R&amp;amp;&amp;amp; rg);           // (11) C++23
++template &amp;lt;container-compatible-range&amp;lt;T&amp;gt; R&amp;gt;
++constexpr queue(from_range_t, R&amp;amp;&amp;amp; rg); // (11) C++26
++
++template &amp;lt;container-compatible-range&amp;lt;T&amp;gt; R, class Alloc&amp;gt;
++queue(from_range_t, R&amp;amp;&amp;amp; rg, const Alloc&amp;amp; alloc);           // (12) C++23
+ template &amp;lt;container-compatible-range&amp;lt;T&amp;gt; R, class Alloc&amp;gt;
+-queue(from_range_t, R&amp;amp;&amp;amp; rg, const Alloc&amp;amp; alloc);   // (12) C++23
++constexpr queue(from_range_t, R&amp;amp;&amp;amp; rg, const Alloc&amp;amp; alloc); // (12) C++26
+ ```
+ * from_range_t[link ../../ranges/from_range_t.md]
+ 
+@@ -101,3 +129,4 @@ int main() {
+     - C++20でのデフォルトコンストラクタの分離
+ - [P1425R4 Iterators pair constructors for stack and queue](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1425r4.pdf)
+     - C++23でのイテレータペアへの対応
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator== -- queue</title>
+      <link href="https://cpprefjp.github.io/reference/queue/queue/op_equal.html"/>
+      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/op_equal.md</id>
+      <updated>2026-02-17T22:09:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/op_equal.md b/reference/queue/queue/op_equal.md
+index 205657919..072c93c4e 100644
+--- a/reference/queue/queue/op_equal.md
++++ b/reference/queue/queue/op_equal.md
+@@ -6,7 +6,9 @@
+ ```cpp
+ namespace std {
+   template &amp;lt;class T, class Container&amp;gt;
+-  bool operator==(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y);
++  bool operator==(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y);           // (1) C++03
++  template &amp;lt;class T, class Container&amp;gt;
++  constexpr bool operator==(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y); // (1) C++26
+ }
+ ```
+ 
+@@ -49,3 +51,4 @@ true
+ ```
+ 
+ ## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&gt; -- queue</title>
+      <link href="https://cpprefjp.github.io/reference/queue/queue/op_greater.html"/>
+      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/op_greater.md</id>
+      <updated>2026-02-17T22:09:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/op_greater.md b/reference/queue/queue/op_greater.md
+index cf0cd1466..4b704ec33 100644
+--- a/reference/queue/queue/op_greater.md
++++ b/reference/queue/queue/op_greater.md
+@@ -6,7 +6,9 @@
+ ```cpp
+ namespace std {
+   template &amp;lt;class T, class Container&amp;gt;
+-  bool operator&amp;gt;(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y);
++  bool operator&amp;gt;(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y);           // (1) C++03
++  template &amp;lt;class T, class Container&amp;gt;
++  constexpr bool operator&amp;gt;(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y); // (1) C++26
+ }
+ ```
+ 
+@@ -49,3 +51,4 @@ true
+ ```
+ 
+ ## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&gt;= -- queue</title>
+      <link href="https://cpprefjp.github.io/reference/queue/queue/op_greater_equal.html"/>
+      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/op_greater_equal.md</id>
+      <updated>2026-02-17T22:09:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/op_greater_equal.md b/reference/queue/queue/op_greater_equal.md
+index a5a2a50fd..c35cf8f6a 100644
+--- a/reference/queue/queue/op_greater_equal.md
++++ b/reference/queue/queue/op_greater_equal.md
+@@ -6,7 +6,9 @@
+ ```cpp
+ namespace std {
+   template &amp;lt;class T, class Container&amp;gt;
+-  bool operator&amp;gt;=(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y);
++  bool operator&amp;gt;=(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y);           // (1) C++03
++  template &amp;lt;class T, class Container&amp;gt;
++  constexpr bool operator&amp;gt;=(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y); // (1) C++26
+ }
+ ```
+ 
+@@ -49,3 +51,4 @@ true
+ ```
+ 
+ ## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&lt; -- queue</title>
+      <link href="https://cpprefjp.github.io/reference/queue/queue/op_less.html"/>
+      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/op_less.md</id>
+      <updated>2026-02-17T22:09:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/op_less.md b/reference/queue/queue/op_less.md
+index 522d32614..d39bdc132 100644
+--- a/reference/queue/queue/op_less.md
++++ b/reference/queue/queue/op_less.md
+@@ -6,7 +6,9 @@
+ ```cpp
+ namespace std {
+   template &amp;lt;class T, class Container&amp;gt;
+-  bool operator&amp;lt;(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y);
++  bool operator&amp;lt;(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y);           // (1) C++03
++  template &amp;lt;class T, class Container&amp;gt;
++  constexpr bool operator&amp;lt;(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y); // (1) C++26
+ }
+ ```
+ 
+@@ -49,3 +51,4 @@ true
+ ```
+ 
+ ## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&lt;= -- queue</title>
+      <link href="https://cpprefjp.github.io/reference/queue/queue/op_less_equal.html"/>
+      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/op_less_equal.md</id>
+      <updated>2026-02-17T22:09:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/op_less_equal.md b/reference/queue/queue/op_less_equal.md
+index 54511ec11..631260520 100644
+--- a/reference/queue/queue/op_less_equal.md
++++ b/reference/queue/queue/op_less_equal.md
+@@ -6,7 +6,9 @@
+ ```cpp
+ namespace std {
+   template &amp;lt;class T, class Container&amp;gt;
+-  bool operator&amp;lt;=(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y);
++  bool operator&amp;lt;=(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y);           // (1) C++03
++  template &amp;lt;class T, class Container&amp;gt;
++  constexpr bool operator&amp;lt;=(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y); // (1) C++26
+ }
+ ```
+ 
+@@ -49,3 +51,4 @@ true
+ ```
+ 
+ ## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator!= -- queue</title>
+      <link href="https://cpprefjp.github.io/reference/queue/queue/op_not_equal.html"/>
+      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/op_not_equal.md</id>
+      <updated>2026-02-17T22:09:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/op_not_equal.md b/reference/queue/queue/op_not_equal.md
+index 09a27c863..8427a9825 100644
+--- a/reference/queue/queue/op_not_equal.md
++++ b/reference/queue/queue/op_not_equal.md
+@@ -6,7 +6,9 @@
+ ```cpp
+ namespace std {
+   template &amp;lt;class T, class Container&amp;gt;
+-  bool operator!=(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y);
++  bool operator!=(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y);           // (1) C++03
++  template &amp;lt;class T, class Container&amp;gt;
++  constexpr bool operator!=(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y); // (1) C++26
+ }
+ ```
+ 
+@@ -55,3 +57,4 @@ true
+ ```
+ 
+ ## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>pop -- queue</title>
+      <link href="https://cpprefjp.github.io/reference/queue/queue/pop.html"/>
+      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/pop.md</id>
+      <updated>2026-02-17T22:09:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/pop.md b/reference/queue/queue/pop.md
+index e05e95d99..7ca1e8efa 100644
+--- a/reference/queue/queue/pop.md
++++ b/reference/queue/queue/pop.md
+@@ -5,7 +5,8 @@
+ * function[meta id-type]
+ 
+ ```cpp
+-void pop();
++void pop();           // (1) C++03
++constexpr void pop(); // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -54,3 +55,4 @@ void pop() { c.pop_front(); }
+ ```
+ 
+ ## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>push -- queue</title>
+      <link href="https://cpprefjp.github.io/reference/queue/queue/push.html"/>
+      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/push.md</id>
+      <updated>2026-02-17T22:09:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/push.md b/reference/queue/queue/push.md
+index 87028e3be..04e77a157 100644
+--- a/reference/queue/queue/push.md
++++ b/reference/queue/queue/push.md
+@@ -5,8 +5,11 @@
+ * function[meta id-type]
+ 
+ ```cpp
+-void push(const value_type&amp;amp; x); // (1)
+-void push(value_type&amp;amp;&amp;amp; x);      // (2) C++11から
++void push(const value_type&amp;amp; x);           // (1) C++03
++constexpr void push(const value_type&amp;amp; x); // (1) C++26
++void push(value_type&amp;amp;&amp;amp; x);                // (1) C++03 : (2) C++11から
++
++constexpr void push(value_type&amp;amp;&amp;amp; x); // (2) C++26
+ ```
+ 
+ ## 概要
+@@ -60,3 +63,4 @@ int main()
+ ```
+ 
+ ## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>push_range -- queue</title>
+      <link href="https://cpprefjp.github.io/reference/queue/queue/push_range.html"/>
+      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/push_range.md</id>
+      <updated>2026-02-17T22:09:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/push_range.md b/reference/queue/queue/push_range.md
+index af2f2c29b..1bdb07a57 100644
+--- a/reference/queue/queue/push_range.md
++++ b/reference/queue/queue/push_range.md
+@@ -7,7 +7,9 @@
+ 
+ ```cpp
+ template &amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
+-void push_range(R&amp;amp;&amp;amp; rg); // C++23
++void push_range(R&amp;amp;&amp;amp; rg);           // (1) C++23
++template &amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
++constexpr void push_range(R&amp;amp;&amp;amp; rg); // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -63,3 +65,7 @@ int main()
+ | 名前              | 説明           |
+ |-------------------|----------------|
+ | [`push`](push.md) | 要素を追加する |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>size -- queue</title>
+      <link href="https://cpprefjp.github.io/reference/queue/queue/size.html"/>
+      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/size.md</id>
+      <updated>2026-02-17T22:09:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/size.md b/reference/queue/queue/size.md
+index 186894c5d..e458b08a3 100644
+--- a/reference/queue/queue/size.md
++++ b/reference/queue/queue/size.md
+@@ -5,7 +5,8 @@
+ * function[meta id-type]
+ 
+ ```cpp
+-size_type size() const;
++size_type size() const;           // (1) C++03
++constexpr size_type size() const; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -59,3 +60,4 @@ int main() {
+ ```
+ 
+ ## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>swap -- queue</title>
+      <link href="https://cpprefjp.github.io/reference/queue/queue/swap.html"/>
+      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/swap.md</id>
+      <updated>2026-02-17T22:09:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/swap.md b/reference/queue/queue/swap.md
+index 0043f2af2..5c8db742a 100644
+--- a/reference/queue/queue/swap.md
++++ b/reference/queue/queue/swap.md
+@@ -6,7 +6,12 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-void swap(queue&amp;amp; q) noexcept(noexcept(swap(c, q.c)))
++void
++  swap(queue&amp;amp; q)
++    noexcept(noexcept(swap(c, q.c))); // (1) C++11
++constexpr void
++  swap(queue&amp;amp; q)
++    noexcept(noexcept(swap(c, q.c))); // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -82,3 +87,4 @@ int main ()
+ 
+ 
+ ## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>swap (非メンバ関数) -- queue</title>
+      <link href="https://cpprefjp.github.io/reference/queue/queue/swap_free.html"/>
+      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/swap_free.md</id>
+      <updated>2026-02-17T22:09:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/swap_free.md b/reference/queue/queue/swap_free.md
+index 01d5fcdd3..93beabd14 100644
+--- a/reference/queue/queue/swap_free.md
++++ b/reference/queue/queue/swap_free.md
+@@ -7,7 +7,15 @@
+ ```cpp
+ namespace std {
+   template &amp;lt;class T, class Container&amp;gt;
+-  void swap(queue&amp;lt;T, Container&amp;gt;&amp;amp; x, queue&amp;lt;T, Container&amp;gt;&amp;amp; y) noexcept(noexcept(x.swap(y)));
++  void
++    swap(queue&amp;lt;T, Container&amp;gt;&amp;amp; x,
++         queue&amp;lt;T, Container&amp;gt;&amp;amp; y)
++      noexcept(noexcept(x.swap(y))); // (1) C++11
++  template &amp;lt;class T, class Container&amp;gt;
++  constexpr void
++    swap(queue&amp;lt;T, Container&amp;gt;&amp;amp; x,
++         queue&amp;lt;T, Container&amp;gt;&amp;amp; y)
++      noexcept(noexcept(x.swap(y))); // (1) C++26
+ }
+ ```
+ 
+@@ -84,3 +92,4 @@ int main ()
+ 
+ 
+ ## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>emplace -- priority_queue</title>
@@ -4732,2161 +5443,6 @@ index 41311abb3..14a732841 100644
 +
 +
 +## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>append_range -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/append_range.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/append_range.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/append_range.md b/reference/list/list/append_range.md
-index 9fd251269..b577a253a 100644
---- a/reference/list/list/append_range.md
-+++ b/reference/list/list/append_range.md
-@@ -7,7 +7,9 @@
- 
- ```cpp
- template &amp;lt;container-compatible-range&amp;lt;T&amp;gt; R&amp;gt;
--void append_range(R&amp;amp;&amp;amp; rg); // C++23
-+void append_range(R&amp;amp;&amp;amp; rg);           // (1) C++23
-+template &amp;lt;container-compatible-range&amp;lt;T&amp;gt; R&amp;gt;
-+constexpr void append_range(R&amp;amp;&amp;amp; rg); // (1) C++26
- ```
- 
- ## 概要
-@@ -63,3 +65,7 @@ int main()
- |-------------------------------------------|----------------------|
- | [`push_back`](push_back.md)               | 末尾に要素を追加する         |
- | [`emplace_back`](emplace_back.md)         | 末尾に要素を直接構築で追加する |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>assign -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/assign.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/assign.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/assign.md b/reference/list/list/assign.md
-index 0d29a514b..bb8463528 100644
---- a/reference/list/list/assign.md
-+++ b/reference/list/list/assign.md
-@@ -6,10 +6,15 @@
- 
- ```cpp
- template &amp;lt;class InputIterator&amp;gt;
--void assign(InputIterator first, InputIterator last); // (1)
-+void assign(InputIterator first, InputIterator last);           // (1) C++03
-+template &amp;lt;class InputIterator&amp;gt;
-+constexpr void assign(InputIterator first, InputIterator last); // (1) C++26
-+
-+void assign(size_type n, const T&amp;amp; t);           // (2) C++03
-+constexpr void assign(size_type n, const T&amp;amp; t); // (2) C++26
- 
--void assign(size_type n, const T&amp;amp; t);  // (2)
--void assign(initializer_list&amp;lt;T&amp;gt; init); // (3) C++11
-+void assign(initializer_list&amp;lt;T&amp;gt; init);           // (3) C++11
-+constexpr void assign(initializer_list&amp;lt;T&amp;gt; init); // (3) C++26
- ```
- * initializer_list[link /reference/initializer_list/initializer_list.md]
- 
-@@ -119,3 +124,4 @@ ls3 : 1 2 3
- ## 参照
- - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
-     - (3)の経緯となる提案文書
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>assign_range -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/assign_range.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/assign_range.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/assign_range.md b/reference/list/list/assign_range.md
-index 6a73d61c4..c5a3bb8aa 100644
---- a/reference/list/list/assign_range.md
-+++ b/reference/list/list/assign_range.md
-@@ -7,7 +7,9 @@
- 
- ```cpp
- template &amp;lt;container-compatible-range&amp;lt;T&amp;gt; R&amp;gt;
--void assign_range(R&amp;amp;&amp;amp; rg); // C++23
-+void assign_range(R&amp;amp;&amp;amp; rg);           // (1) C++23
-+template &amp;lt;container-compatible-range&amp;lt;T&amp;gt; R&amp;gt;
-+constexpr void assign_range(R&amp;amp;&amp;amp; rg); // (1) C++26
- ```
- 
- ## 概要
-@@ -62,3 +64,7 @@ int main()
- | 名前                                      | 説明                  |
- |-------------------------------------------|----------------------|
- | [`assign`](assign.md)                     | コンテナに値を代入する   |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>back -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/back.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/back.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/back.md b/reference/list/list/back.md
-index 45c392b0b..2068b9402 100644
---- a/reference/list/list/back.md
-+++ b/reference/list/list/back.md
-@@ -5,8 +5,11 @@
- * function[meta id-type]
- 
- ```cpp
--reference back();             // (1)
--const_reference back() const; // (2)
-+reference back();           // (1) C++03
-+constexpr reference back(); // (1) C++26
-+
-+const_reference back() const;           // (2) C++03
-+constexpr const_reference back() const; // (2) C++26
- ```
- 
- ## 概要
-@@ -42,3 +45,7 @@ int main()
- ```
- 4
- ```
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>begin -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/begin.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/begin.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/begin.md b/reference/list/list/begin.md
-index 1ed00be3f..022771b4f 100644
---- a/reference/list/list/begin.md
-+++ b/reference/list/list/begin.md
-@@ -5,10 +5,13 @@
- * function[meta id-type]
- 
- ```cpp
--iterator begin();                      // (1) C++03
--iterator begin() noexcept;             // (1) C++11
--const_iterator begin() const;          // (2) C++03
--const_iterator begin() const noexcept; // (2) C++11
-+iterator begin();                    // (1) C++03
-+iterator begin() noexcept;           // (1) C++11
-+constexpr iterator begin() noexcept; // (1) C++26
-+
-+const_iterator begin() const;                    // (2) C++03
-+const_iterator begin() const noexcept;           // (2) C++11
-+constexpr const_iterator begin() const noexcept; // (2) C++26
- ```
- 
- ## 概要
-@@ -49,3 +52,4 @@ int main()
- ```
- 
- ## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>cbegin -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/cbegin.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/cbegin.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/cbegin.md b/reference/list/list/cbegin.md
-index 823a35e6f..65d864cd0 100644
---- a/reference/list/list/cbegin.md
-+++ b/reference/list/list/cbegin.md
-@@ -6,7 +6,8 @@
- * cpp11[meta cpp]
- 
- ```cpp
--const_iterator cbegin() const noexcept;
-+const_iterator cbegin() const noexcept;           // (1) C++11
-+constexpr const_iterator cbegin() const noexcept; // (1) C++26
- ```
- 
- ## 概要
-@@ -59,3 +60,4 @@ int main()
- 
- 
- ## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>cend -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/cend.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/cend.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/cend.md b/reference/list/list/cend.md
-index 1899bd3a7..a6e5abbb9 100644
---- a/reference/list/list/cend.md
-+++ b/reference/list/list/cend.md
-@@ -6,7 +6,8 @@
- * cpp11[meta cpp]
- 
- ```cpp
--const_iterator cend() const noexcept;
-+const_iterator cend() const noexcept;           // (1) C++11
-+constexpr const_iterator cend() const noexcept; // (1) C++26
- ```
- 
- ## 概要
-@@ -63,3 +64,4 @@ int main()
- 
- 
- ## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>clear -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/clear.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/clear.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/clear.md b/reference/list/list/clear.md
-index fadce8190..e22b3d562 100644
---- a/reference/list/list/clear.md
-+++ b/reference/list/list/clear.md
-@@ -5,8 +5,9 @@
- * function[meta id-type]
- 
- ```cpp
--void clear();          // C++03
--void clear() noexcept; // C++11
-+void clear();                    // (1) C++03
-+void clear() noexcept;           // (1) C++11
-+constexpr void clear() noexcept; // (1) C++26
- ```
- 
- ## 概要
-@@ -70,3 +71,4 @@ int main()
- ## 参照
- - [LWG Issue 2231. DR 704 removes complexity guarantee for `clear()`](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2231)
-     - C++03までこの関数の効果は`erase(begin(), end())`だったため、それによって線形時間の計算量が保証されていたが、C++11で効果の表記が変わったために、保証がなくなってしまっていた。C++14であらためて保証を追加。
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>crbegin -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/crbegin.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/crbegin.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/crbegin.md b/reference/list/list/crbegin.md
-index 3f3e0a956..984d4528e 100644
---- a/reference/list/list/crbegin.md
-+++ b/reference/list/list/crbegin.md
-@@ -6,7 +6,8 @@
- * cpp11[meta cpp]
- 
- ```cpp
--const_reverse_iterator crbegin() const noexcept;
-+const_reverse_iterator crbegin() const noexcept;           // (1) C++11
-+constexpr const_reverse_iterator crbegin() const noexcept; // (1) C++26
- ```
- 
- ## 概要
-@@ -59,3 +60,4 @@ int main()
- 
- 
- ## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>crend -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/crend.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/crend.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/crend.md b/reference/list/list/crend.md
-index 9457da5aa..43f8b887c 100644
---- a/reference/list/list/crend.md
-+++ b/reference/list/list/crend.md
-@@ -6,7 +6,8 @@
- * cpp11[meta cpp]
- 
- ```cpp
--const_reverse_iterator crend() const noexcept;
-+const_reverse_iterator crend() const noexcept;           // (1) C++11
-+constexpr const_reverse_iterator crend() const noexcept; // (1) C++26
- ```
- 
- ## 概要
-@@ -59,3 +60,4 @@ int main()
- 
- 
- ## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>emplace -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/emplace.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/emplace.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/emplace.md b/reference/list/list/emplace.md
-index 9d7badbfc..4d8475d6d 100644
---- a/reference/list/list/emplace.md
-+++ b/reference/list/list/emplace.md
-@@ -7,7 +7,13 @@
- 
- ```cpp
- template &amp;lt;class... Args&amp;gt;
--iterator emplace(const_iterator position, Args&amp;amp;&amp;amp;... args);
-+iterator
-+  emplace(const_iterator position,
-+          Args&amp;amp;&amp;amp;... args); // (1) C++11
-+template &amp;lt;class... Args&amp;gt;
-+constexpr iterator
-+  emplace(const_iterator position,
-+          Args&amp;amp;&amp;amp;... args); // (1) C++26
- ```
- 
- ## 概要
-@@ -76,3 +82,4 @@ int main()
- 
- ## 参照
- - [N2345 Placement Insert for Containers (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2345.pdf)
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>emplace_back -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/emplace_back.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/emplace_back.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/emplace_back.md b/reference/list/list/emplace_back.md
-index 1ffa5206b..1b185026c 100644
---- a/reference/list/list/emplace_back.md
-+++ b/reference/list/list/emplace_back.md
-@@ -7,10 +7,14 @@
- 
- ```cpp
- template &amp;lt;class... Args&amp;gt;
--void emplace_back(Args&amp;amp;&amp;amp;... args);          // C++14 まで
-+void emplace_back(Args&amp;amp;&amp;amp;... args);           // (1) C++11 : C++14 まで
-+template &amp;lt;class... Args&amp;gt;
-+constexpr void emplace_back(Args&amp;amp;&amp;amp;... args); // (1) C++26
- 
- template &amp;lt;class... Args&amp;gt;
--reference emplace_back(Args&amp;amp;&amp;amp;... args);     // C++17 から
-+reference emplace_back(Args&amp;amp;&amp;amp;... args);           // (2) C++11 : C++17 から
-+template &amp;lt;class... Args&amp;gt;
-+constexpr reference emplace_back(Args&amp;amp;&amp;amp;... args); // (2) C++26
- ```
- 
- ## 概要
-@@ -92,3 +96,4 @@ int main()
- - [P0084R0 Emplace Return Type](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0084r0.pdf)
- - [P0084R1 Emplace Return Type (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0084r1.pdf)
- - [P0084R2 Emplace Return Type (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0084r2.pdf)
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>emplace_front -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/emplace_front.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/emplace_front.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/emplace_front.md b/reference/list/list/emplace_front.md
-index 599ee0e5e..17035a404 100644
---- a/reference/list/list/emplace_front.md
-+++ b/reference/list/list/emplace_front.md
-@@ -7,10 +7,14 @@
- 
- ```cpp
- template &amp;lt;class... Args&amp;gt;
--void emplace_front(Args&amp;amp;&amp;amp;... args);         // C++14 まで
-+void emplace_front(Args&amp;amp;&amp;amp;... args);           // (1) C++11 : C++14 まで
-+template &amp;lt;class... Args&amp;gt;
-+constexpr void emplace_front(Args&amp;amp;&amp;amp;... args); // (1) C++26
- 
- template &amp;lt;class... Args&amp;gt;
--reference emplace_front(Args&amp;amp;&amp;amp;... args);    // C++17 から
-+reference emplace_front(Args&amp;amp;&amp;amp;... args);           // (2) C++11 : C++17 から
-+template &amp;lt;class... Args&amp;gt;
-+constexpr reference emplace_front(Args&amp;amp;&amp;amp;... args); // (2) C++26
- ```
- 
- ## 概要
-@@ -92,3 +96,4 @@ int main()
- - [P0084R0 Emplace Return Type](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0084r0.pdf)
- - [P0084R1 Emplace Return Type (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0084r1.pdf)
- - [P0084R2 Emplace Return Type (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0084r2.pdf)
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>empty -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/empty.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/empty.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/empty.md b/reference/list/list/empty.md
-index bb873c82d..ee888bf30 100644
---- a/reference/list/list/empty.md
-+++ b/reference/list/list/empty.md
-@@ -5,10 +5,10 @@
- * function[meta id-type]
- 
- ```cpp
--bool empty() const;                        // C++03
--bool empty() const noexcept;               // C++11
--[[nodiscard]] bool empty() const noexcept; // C++20
--bool empty() const noexcept;               // C++26
-+bool empty() const;                        // (1) C++03
-+bool empty() const noexcept;               // (1) C++11
-+[[nodiscard]] bool empty() const noexcept; // (1) C++20
-+constexpr bool empty() const noexcept;     // (1) C++26
- ```
- 
- ## 概要
-@@ -61,3 +61,4 @@ false
-     - C++20で`[[nodiscard]]`が付加された
- - [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
-     - C++26で`[[nodiscard]]`指定が削除された
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>end -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/end.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/end.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/end.md b/reference/list/list/end.md
-index 6584b208d..ffb098f0a 100644
---- a/reference/list/list/end.md
-+++ b/reference/list/list/end.md
-@@ -5,10 +5,13 @@
- * function[meta id-type]
- 
- ```cpp
--iterator end();                      // (1) C++03
--iterator end() noexcept;             // (1) C++11
--const_iterator end() const;          // (2) C++03
--const_iterator end() const noexcept; // (2) C++11
-+iterator end();                    // (1) C++03
-+iterator end() noexcept;           // (1) C++11
-+constexpr iterator end() noexcept; // (1) C++26
-+
-+const_iterator end() const;                    // (2) C++03
-+const_iterator end() const noexcept;           // (2) C++11
-+constexpr const_iterator end() const noexcept; // (2) C++26
- ```
- 
- ## 概要
-@@ -66,3 +69,4 @@ int main()
- ```
- 
- ## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>erase -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/erase.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/erase.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/erase.md b/reference/list/list/erase.md
-index 3520bf169..445db738c 100644
---- a/reference/list/list/erase.md
-+++ b/reference/list/list/erase.md
-@@ -5,12 +5,19 @@
- * function[meta id-type]
- 
- ```cpp
--iterator erase(iterator position);       // (1) C++03
--iterator erase(const_iterator position); // (1) C++11
--iterator erase(iterator position,
--               iterator last);           // (2) C++03
--iterator erase(const_iterator position,
--               const_iterator last);     // (2) C++11
-+iterator erase(iterator position);                 // (1) C++03
-+iterator erase(const_iterator position);           // (1) C++11
-+constexpr iterator erase(const_iterator position); // (1) C++26
-+
-+iterator
-+  erase(iterator position,
-+        iterator last);       // (2) C++03
-+iterator
-+  erase(const_iterator position,
-+        const_iterator last); // (2) C++11
-+constexpr iterator
-+  erase(const_iterator position,
-+        const_iterator last); // (2) C++26
- ```
- 
- ## 概要
-@@ -117,3 +124,4 @@ int main()
- 
- ## 参照
- - [N2350 Container insert/erase and iterator constness (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2350.pdf)
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>erase (非メンバ関数) -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/erase_free.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/erase_free.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/erase_free.md b/reference/list/list/erase_free.md
-index 0eb2535cf..93a62cf61 100644
---- a/reference/list/list/erase_free.md
-+++ b/reference/list/list/erase_free.md
-@@ -10,7 +10,7 @@ namespace std {
-   typename list&amp;lt;T, Allocator&amp;gt;::size_type
-     erase(list&amp;lt;T, Allocator&amp;gt;&amp;amp; c, const U&amp;amp; value); // (1) C++20
-   template &amp;lt;class T, class Allocator, class U = T&amp;gt;
--  typename list&amp;lt;T, Allocator&amp;gt;::size_type
-+  constexpr typename list&amp;lt;T, Allocator&amp;gt;::size_type
-     erase(list&amp;lt;T, Allocator&amp;gt;&amp;amp; c, const U&amp;amp; value); // (1) C++26
- }
- ```
-@@ -110,3 +110,4 @@ int main() {
- - [R1115R3 Improving the Return Value of Erase-Like Algorithms II: Free `erase`/`erase_if`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1115r3.pdf)
- - [P2248R8 Enabling list-initialization for algorithms](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2248r8.html)
-     - C++26で波カッコ初期化 (リスト初期化) に対応した
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>erase_if -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/erase_if_free.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/erase_if_free.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/erase_if_free.md b/reference/list/list/erase_if_free.md
-index 1ffc7304b..ada23ba00 100644
---- a/reference/list/list/erase_if_free.md
-+++ b/reference/list/list/erase_if_free.md
-@@ -7,7 +7,13 @@
- ```cpp
- namespace std {
-   template &amp;lt;class T, class Allocator, class Predicate&amp;gt;
--  typename list&amp;lt;T, Allocator&amp;gt;::size_type erase_if(list&amp;lt;T, Allocator&amp;gt;&amp;amp; c, Predicate pred);
-+  typename list&amp;lt;T, Allocator&amp;gt;::size_type
-+    erase_if(list&amp;lt;T, Allocator&amp;gt;&amp;amp; c,
-+             Predicate pred); // (1) C++20
-+  template &amp;lt;class T, class Allocator, class Predicate&amp;gt;
-+  constexpr typename list&amp;lt;T, Allocator&amp;gt;::size_type
-+    erase_if(list&amp;lt;T, Allocator&amp;gt;&amp;amp; c,
-+             Predicate pred); // (1) C++26
- }
- ```
- 
-@@ -67,3 +73,4 @@ int main()
- ## 参照
- - [P1209R0 Adopt consistent container erasure from Library Fundamentals 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1209r0.html)
- - [R1115R3 Improving the Return Value of Erase-Like Algorithms II: Free `erase`/`erase_if`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1115r3.pdf)
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>front -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/front.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/front.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/front.md b/reference/list/list/front.md
-index 0fd9826de..3963c0903 100644
---- a/reference/list/list/front.md
-+++ b/reference/list/list/front.md
-@@ -5,8 +5,11 @@
- * function[meta id-type]
- 
- ```cpp
--reference front();             // (1)
--const_reference front() const; // (2)
-+reference front();           // (1) C++03
-+constexpr reference front(); // (1) C++26
-+
-+const_reference front() const;           // (2) C++03
-+constexpr const_reference front() const; // (2) C++26
- ```
- 
- ## 概要
-@@ -41,3 +44,7 @@ int main()
- ```
- 3
- ```
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>get_allocator -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/get_allocator.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/get_allocator.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/get_allocator.md b/reference/list/list/get_allocator.md
-index 3806188bf..e935f2761 100644
---- a/reference/list/list/get_allocator.md
-+++ b/reference/list/list/get_allocator.md
-@@ -5,8 +5,9 @@
- * function[meta id-type]
- 
- ```cpp
--allocator_type get_allocator() const;          // C++03
--allocator_type get_allocator() const noexcept; // C++11
-+allocator_type get_allocator() const;                    // (1) C++03
-+allocator_type get_allocator() const noexcept;           // (1) C++11
-+constexpr allocator_type get_allocator() const noexcept; // (1) C++26
- ```
- 
- ## 概要
-@@ -55,3 +56,7 @@ int main()
- - [Visual C++](/implementation.md#visual_cpp): 2002 [mark verified], 2003 [mark verified], 2005 [mark verified], 2008 [mark verified], 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified], 2017 [mark verified]
- 	- 2012, 2013は、`noexcept`が実装されていないため、`throw()`が修飾されている。
- 	- 2015からは、`noexcept`が修飾されている。
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>insert -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/insert.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/insert.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/insert.md b/reference/list/list/insert.md
-index 8c368f7d1..43ecb05d9 100644
---- a/reference/list/list/insert.md
-+++ b/reference/list/list/insert.md
-@@ -5,27 +5,58 @@
- * function[meta id-type]
- 
- ```cpp
--// C++03
--iterator insert(iterator position, const T&amp;amp; x);       // (1) C++03
--iterator insert(const_iterator position, const T&amp;amp; x); // (1) C++11
--iterator insert(const_iterator position, T&amp;amp;&amp;amp; x);      // (2) C++11
--
--void     insert(iterator position,
--                size_type n, const T&amp;amp; x);             // (3) C++03
--iterator insert(const_iterator position,
--                size_type n, const T&amp;amp; x);             // (3) C++11
-+iterator
-+  insert(iterator position,
-+         const T&amp;amp; x);             // (1) C++03
-+iterator
-+  insert(const_iterator position,
-+         const T&amp;amp; x);             // (1) C++11
-+constexpr iterator
-+  insert(const_iterator position,
-+         const T&amp;amp; x);             // (1) C++26
-+
-+iterator
-+  insert(const_iterator position,
-+         T&amp;amp;&amp;amp; x);                  // (2) C++11
-+constexpr iterator
-+  insert(const_iterator position,
-+         T&amp;amp;&amp;amp; x);                  // (2) C++26
-+
-+void 
-+  insert(iterator position,
-+         size_type n,
-+         const T&amp;amp; x); // (3) C++03
-+iterator
-+  insert(const_iterator position,
-+         size_type n,
-+         const T&amp;amp; x); // (3) C++11
-+constexpr iterator
-+  insert(const_iterator position,
-+         size_type n,
-+         const T&amp;amp; x); // (3) C++26
- 
- template &amp;lt;class InputIterator&amp;gt;
--void     insert(iterator position,
--                InputIterator first,
--                InputIterator last);                  // (4) C++03
-+void
-+  insert(iterator position,
-+         InputIterator first,
-+         InputIterator last); // (4) C++03
- template &amp;lt;class InputIterator&amp;gt;
--iterator insert(const_iterator position,
--                InputIterator first,
--                InputIterator last);                  // (4) C++11
--
--iterator insert(const_iterator position,
--                initializer_list&amp;lt;T&amp;gt; il);              // (5) C++11
-+iterator
-+  insert(const_iterator position,
-+         InputIterator first,
-+         InputIterator last); // (4) C++11
-+template &amp;lt;class InputIterator&amp;gt;
-+constexpr iterator
-+  insert(const_iterator position,
-+         InputIterator first,
-+         InputIterator last); // (4) C++26
-+
-+iterator
-+  insert(const_iterator position,
-+         initializer_list&amp;lt;T&amp;gt; il); // (5) C++11
-+constexpr iterator
-+  insert(const_iterator position,
-+         initializer_list&amp;lt;T&amp;gt; il); // (5) C++26
- ```
- * initializer_list[link /reference/initializer_list/initializer_list.md]
- 
-@@ -135,3 +166,4 @@ insert initializer_list : 1 2 3 4 5 6
- - [N2350 Container insert/erase and iterator constness (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2350.pdf)
- - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
-     - (5)の経緯となる提案文書
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>insert_range -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/insert_range.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/insert_range.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/insert_range.md b/reference/list/list/insert_range.md
-index 9e8f272a6..12b3db00b 100644
---- a/reference/list/list/insert_range.md
-+++ b/reference/list/list/insert_range.md
-@@ -7,7 +7,9 @@
- 
- ```cpp
- template &amp;lt;container-compatible-range&amp;lt;T&amp;gt; R&amp;gt;
--iterator insert_range(const_iterator pos, R&amp;amp;&amp;amp; rg); // C++23
-+iterator insert_range(const_iterator pos, R&amp;amp;&amp;amp; rg);           // (1) C++23
-+template &amp;lt;container-compatible-range&amp;lt;T&amp;gt; R&amp;gt;
-+constexpr iterator insert_range(const_iterator pos, R&amp;amp;&amp;amp; rg); // (1) C++26
- ```
- 
- ## 概要
-@@ -60,3 +62,7 @@ int main()
- |-------------------------------------------|----------------------|
- | [`insert`](insert.md)                     | 任意の位置に要素を挿入する         |
- | [`emplace`](emplace.md)                   | 任意の位置に要素を直接構築で挿入する |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>max_size -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/max_size.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/max_size.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/max_size.md b/reference/list/list/max_size.md
-index 5672a5333..a9d4de239 100644
---- a/reference/list/list/max_size.md
-+++ b/reference/list/list/max_size.md
-@@ -5,8 +5,9 @@
- * function[meta id-type]
- 
- ```cpp
--size_type max_size() const;          // C++03
--size_type max_size() const noexcept; // C++11
-+size_type max_size() const;                    // (1) C++03
-+size_type max_size() const noexcept;           // (1) C++11
-+constexpr size_type max_size() const noexcept; // (1) C++26
- ```
- 
- ## 概要
-@@ -45,3 +46,7 @@ int main()
- ```
- 768614336404564650
- ```
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>merge -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/merge.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/merge.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/merge.md b/reference/list/list/merge.md
-index 3073b835b..be4061510 100644
---- a/reference/list/list/merge.md
-+++ b/reference/list/list/merge.md
-@@ -5,10 +5,25 @@
- * function[meta id-type]
- 
- ```cpp
--void merge(list&amp;amp; x);  // (1)
--void merge(list&amp;amp;&amp;amp; x); // (2) C++11
--template &amp;lt;class Compare&amp;gt; void merge(list&amp;amp; x, Compare comp);  // (3)
--template &amp;lt;class Compare&amp;gt; void merge(list&amp;amp;&amp;amp; x, Compare comp); // (4) C++11
-+void merge(list&amp;amp; x);           // (1) C++03
-+constexpr void merge(list&amp;amp; x); // (1) C++26
-+
-+void merge(list&amp;amp;&amp;amp; x);           // (2) C++11
-+constexpr void merge(list&amp;amp;&amp;amp; x); // (2) C++26
-+
-+template &amp;lt;class Compare&amp;gt;
-+void
-+  merge(list&amp;amp; x, Compare comp); // (3) C++03
-+template &amp;lt;class Compare&amp;gt;
-+constexpr void
-+  merge(list&amp;amp; x, Compare comp); // (3) C++26
-+
-+template &amp;lt;class Compare&amp;gt;
-+void
-+  merge(list&amp;amp;&amp;amp; x, Compare comp); // (4) C++11
-+template &amp;lt;class Compare&amp;gt;
-+constexpr void
-+  merge(list&amp;amp;&amp;amp; x, Compare comp); // (4) C++26
- ```
- 
- ## 概要
-@@ -70,3 +85,7 @@ int main()
- 5
- 6
- ```
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>operator= -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/op_assign.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/op_assign.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/op_assign.md b/reference/list/list/op_assign.md
-index 99e2009c1..734501fd5 100644
---- a/reference/list/list/op_assign.md
-+++ b/reference/list/list/op_assign.md
-@@ -5,11 +5,17 @@
- * function[meta id-type]
- 
- ```cpp
--list&amp;amp; operator=(const list&amp;amp; x);         // (1)
--list&amp;amp; operator=(list&amp;amp;&amp;amp; x);              // (2) C++11
-+list&amp;amp; operator=(const list&amp;amp; x);           // (1) C++03
-+constexpr list&amp;amp; operator=(const list&amp;amp; x); // (1) C++26
-+
-+list&amp;amp; operator=(list&amp;amp;&amp;amp; x);                                       // (2) C++11
- list&amp;amp; operator=(list&amp;amp;&amp;amp; x)
-   noexcept(allocator_traits&amp;lt;Allocator&amp;gt;::is_always_equal::value); // (2) C++17
--list&amp;amp; operator=(initializer_list&amp;lt;T&amp;gt; x); // (3) C++11
-+constexpr list&amp;amp; operator=(list&amp;amp;&amp;amp; x)
-+  noexcept(allocator_traits&amp;lt;Allocator&amp;gt;::is_always_equal::value); // (2) C++26
-+
-+list&amp;amp; operator=(initializer_list&amp;lt;T&amp;gt; x);           // (3) C++11
-+constexpr list&amp;amp; operator=(initializer_list&amp;lt;T&amp;gt; x); // (3) C++26
- ```
- * initializer_list[link /reference/initializer_list/initializer_list.md]
- 
-@@ -91,3 +97,4 @@ int main ()
-     - (3)の経緯となる提案文書
- - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
-     - `noexcept` 追加の経緯となる提案文書
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>operator&lt;=&gt; -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/op_compare_3way.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/op_compare_3way.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/op_compare_3way.md b/reference/list/list/op_compare_3way.md
-index eb0d6c7cb..6bbacd30c 100644
---- a/reference/list/list/op_compare_3way.md
-+++ b/reference/list/list/op_compare_3way.md
-@@ -10,6 +10,10 @@ namespace std {
-   synth-three-way-result&amp;lt;T&amp;gt;
-     operator&amp;lt;=&amp;gt;(const list&amp;lt;T, Allocator&amp;gt;&amp;amp; x,
-                 const list&amp;lt;T, Allocator&amp;gt;&amp;amp; y); // (1) C++20
-+  template &amp;lt;class T, class Allocator&amp;gt;
-+  constexpr synth-three-way-result&amp;lt;T&amp;gt;
-+    operator&amp;lt;=&amp;gt;(const list&amp;lt;T, Allocator&amp;gt;&amp;amp; x,
-+                const list&amp;lt;T, Allocator&amp;gt;&amp;amp; y); // (1) C++26
- }
- ```
- 
-@@ -72,3 +76,4 @@ int main ()
- ## 参照
- - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
-     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>コンストラクタ -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/op_constructor.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/op_constructor.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/op_constructor.md b/reference/list/list/op_constructor.md
-index 1190ba23e..3ccf45d33 100644
---- a/reference/list/list/op_constructor.md
-+++ b/reference/list/list/op_constructor.md
-@@ -5,38 +5,76 @@
- * function[meta id-type]
- 
- ```cpp
--list();                                          // (1) C++14 から
--list(const Allocator&amp;amp; a);                        // (2) C++14 から
-+list();                                          // (1) C++14
-+constexpr list();                                // (1) C++26
-+
-+list(const Allocator&amp;amp; a);                        // (2) C++14
-+constexpr list(const Allocator&amp;amp; a);              // (2) C++26
-+
- explicit list(const Allocator&amp;amp; a = Allocator()); // (1), (2) C++11 まで。C++14 で削除
- 
- explicit list(size_type n, const T&amp;amp; value = T(),
--     const Allocator&amp;amp; a = Allocator());          // (3) C++03 まで。C++11 で削除
-+              const Allocator&amp;amp; a = Allocator()); // (3) C++03 まで。C++11 で削除
- list(size_type n, const T&amp;amp; value,
-      const Allocator&amp;amp; a = Allocator());          // (3) C++11 から
--
--explicit list(size_type n);                      // (4) C++11。C++14 で削除
--explicit list(size_type n,
--              const Allocator&amp;amp; a = Allocator()); // (4) C++14 から
-+constexpr
-+  list(size_type n, const T&amp;amp; value,
-+       const Allocator&amp;amp; a = Allocator());        // (3) C++26
-+
-+explicit
-+  list(size_type n);                      // (4) C++11。C++14 で削除
-+explicit
-+  list(size_type n,
-+       const Allocator&amp;amp; a = Allocator()); // (4) C++14 から
-+constexpr explicit
-+  list(size_type n,
-+       const Allocator&amp;amp; a = Allocator()); // (4) C++26
- 
- template &amp;lt;class InputIterator&amp;gt;
--list(InputIterator first, InputIterator last,
--     const Allocator&amp;amp; a = Allocator());          // (5)
-+list(InputIterator first,
-+     InputIterator last,
-+     const Allocator&amp;amp; a = Allocator());   // (5) C++03
-+template &amp;lt;class InputIterator&amp;gt;
-+constexpr
-+  list(InputIterator first,
-+       InputIterator last,
-+       const Allocator&amp;amp; a = Allocator()); // (5) C++26
- 
--list(const list&amp;amp; x);                             // (6)
--list(list&amp;amp;&amp;amp; x);                                  // (7) C++11 から
--list(const list&amp;amp; x, const Allocator&amp;amp; a);                    // (8) C++11
--list(const list&amp;amp; x,
--     const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp; a);                  // (8) C++23
-+list(const list&amp;amp; x);           // (6) C++03
-+constexpr list(const list&amp;amp; x); // (6) C++26
- 
--list(list&amp;amp;&amp;amp; x, const Allocator&amp;amp; a);                         // (9) C++11
--list(list&amp;amp;&amp;amp; x, const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp; a);        // (9) C++23
-+list(list&amp;amp;&amp;amp; x);           // (7) C++11
-+constexpr list(list&amp;amp;&amp;amp; x); // (7) C++26
-+
-+list(const list&amp;amp; x,
-+     const Allocator&amp;amp; a);                    // (8) C++11
-+list(const list&amp;amp; x,
-+     const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp; a);   // (8) C++23
-+constexpr
-+  list(const list&amp;amp; x,
-+       const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp; a); // (8) C++26
-+
-+list(list&amp;amp;&amp;amp; x,
-+     const Allocator&amp;amp; a);                    // (9) C++11
-+list(list&amp;amp;&amp;amp; x,
-+     const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp; a);   // (9) C++23
-+constexpr
-+  list(list&amp;amp;&amp;amp; x,
-+       const type_identity_t&amp;lt;Allocator&amp;gt;&amp;amp; a); // (9) C++26
- 
- list(initializer_list&amp;lt;T&amp;gt; il,
--     const Allocator&amp;amp; a = Allocator());          // (10) C++11 から
-+     const Allocator&amp;amp; a = Allocator());        // (10) C++11
-+constexpr
-+  list(initializer_list&amp;lt;T&amp;gt; il,
-+       const Allocator&amp;amp; a = Allocator());      // (10) C++26
- 
- template &amp;lt;container-compatible-range&amp;lt;T&amp;gt; R&amp;gt;
- list(from_range_t, R&amp;amp;&amp;amp; rg,
--     const Allocator&amp;amp; a = Allocator());          // (11) C++23 から
-+     const Allocator&amp;amp; a = Allocator());        // (11) C++23
-+template &amp;lt;container-compatible-range&amp;lt;T&amp;gt; R&amp;gt;
-+constexpr
-+  list(from_range_t, R&amp;amp;&amp;amp; rg,
-+       const Allocator&amp;amp; a = Allocator());      // (11) C++26
- ```
- * type_identity_t[link /reference/type_traits/type_identity.md]
- * initializer_list[link /reference/initializer_list/initializer_list.md]
-@@ -183,3 +221,4 @@ ls7 : 1 2 3
- 	なお、Discussion の例はアロケータの型が誤っているので注意
- - [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
-     - C++23でのアロケータ引数を`type_identity_t`で包む変更
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>デストラクタ -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/op_destructor.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/op_destructor.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/op_destructor.md b/reference/list/list/op_destructor.md
-index 432863960..5ffc43b48 100644
---- a/reference/list/list/op_destructor.md
-+++ b/reference/list/list/op_destructor.md
-@@ -5,7 +5,8 @@
- * function[meta id-type]
- 
- ```cpp
--~list();
-+~list();           // (1) C++03
-+constexpr ~list(); // (1) C++26
- ```
- 
- ## 概要
-@@ -21,3 +22,4 @@
- 
- 
- ## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>operator== -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/op_equal.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/op_equal.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/op_equal.md b/reference/list/list/op_equal.md
-index 5da792d08..bef3a9ec4 100644
---- a/reference/list/list/op_equal.md
-+++ b/reference/list/list/op_equal.md
-@@ -6,7 +6,9 @@
- ```cpp
- namespace std {
-   template &amp;lt;class T, class Allocator&amp;gt;
--  bool operator==(const list&amp;lt;T, Allocator&amp;gt;&amp;amp; x, const list&amp;lt;T, Allocator&amp;gt;&amp;amp; y);
-+  bool operator==(const list&amp;lt;T, Allocator&amp;gt;&amp;amp; x, const list&amp;lt;T, Allocator&amp;gt;&amp;amp; y);           // (1) C++03
-+  template &amp;lt;class T, class Allocator&amp;gt;
-+  constexpr bool operator==(const list&amp;lt;T, Allocator&amp;gt;&amp;amp; x, const list&amp;lt;T, Allocator&amp;gt;&amp;amp; y); // (1) C++26
- }
- ```
- 
-@@ -70,3 +72,4 @@ false
-     - C++14から、2つ目のイテレータ範囲のendイテレータをとる`equal()`アルゴリズムを使用するようになった。
- - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
-     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>operator&gt; -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/op_greater.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/op_greater.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/op_greater.md b/reference/list/list/op_greater.md
-index bdb18a43a..1a9b76931 100644
---- a/reference/list/list/op_greater.md
-+++ b/reference/list/list/op_greater.md
-@@ -9,6 +9,9 @@ namespace std {
-   template &amp;lt;class T, class Allocator&amp;gt;
-   bool operator&amp;gt;(const list&amp;lt;T, Allocator&amp;gt;&amp;amp; x,
-                  const list&amp;lt;T, Allocator&amp;gt;&amp;amp; y); // (1) C++03
-+  template &amp;lt;class T, class Allocator&amp;gt;
-+  constexpr bool operator&amp;gt;(const list&amp;lt;T, Allocator&amp;gt;&amp;amp; x,
-+                 const list&amp;lt;T, Allocator&amp;gt;&amp;amp; y); // (1) C++26
- }
- ```
- 
-@@ -50,3 +53,4 @@ true
- ## 参照
- - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
-     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>operator&gt;= -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/op_greater_equal.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/op_greater_equal.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/op_greater_equal.md b/reference/list/list/op_greater_equal.md
-index 9484428b9..f099e303f 100644
---- a/reference/list/list/op_greater_equal.md
-+++ b/reference/list/list/op_greater_equal.md
-@@ -9,6 +9,9 @@ namespace std {
-   template &amp;lt;class T, class Allocator&amp;gt;
-   bool operator&amp;gt;=(const list&amp;lt;T, Allocator&amp;gt;&amp;amp; x,
-                   const list&amp;lt;T, Allocator&amp;gt;&amp;amp; y); // (1) C++03
-+  template &amp;lt;class T, class Allocator&amp;gt;
-+  constexpr bool operator&amp;gt;=(const list&amp;lt;T, Allocator&amp;gt;&amp;amp; x,
-+                  const list&amp;lt;T, Allocator&amp;gt;&amp;amp; y); // (1) C++26
- }
- ```
- 
-@@ -50,3 +53,4 @@ true
- ## 参照
- - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
-     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>operator&lt; -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/op_less.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/op_less.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/op_less.md b/reference/list/list/op_less.md
-index 370cb2a38..12b085afe 100644
---- a/reference/list/list/op_less.md
-+++ b/reference/list/list/op_less.md
-@@ -9,6 +9,9 @@ namespace std {
-   template &amp;lt;class T, class Allocator&amp;gt;
-   bool operator&amp;lt;(const list&amp;lt;T, Allocator&amp;gt;&amp;amp; x,
-                  const list&amp;lt;T, Allocator&amp;gt;&amp;amp; y); // (1) C++03
-+  template &amp;lt;class T, class Allocator&amp;gt;
-+  constexpr bool operator&amp;lt;(const list&amp;lt;T, Allocator&amp;gt;&amp;amp; x,
-+                 const list&amp;lt;T, Allocator&amp;gt;&amp;amp; y); // (1) C++26
- }
- ```
- 
-@@ -60,3 +63,4 @@ true
- ## 参照
- - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
-     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>operator&lt;= -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/op_less_equal.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/op_less_equal.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/op_less_equal.md b/reference/list/list/op_less_equal.md
-index 0a723e13f..739271ddd 100644
---- a/reference/list/list/op_less_equal.md
-+++ b/reference/list/list/op_less_equal.md
-@@ -9,6 +9,9 @@ namespace std {
-   template &amp;lt;class T, class Allocator&amp;gt;
-   bool operator&amp;lt;=(const list&amp;lt;T, Allocator&amp;gt;&amp;amp; x,
-                   const list&amp;lt;T, Allocator&amp;gt;&amp;amp; y); // (1) C++03
-+  template &amp;lt;class T, class Allocator&amp;gt;
-+  constexpr bool operator&amp;lt;=(const list&amp;lt;T, Allocator&amp;gt;&amp;amp; x,
-+                  const list&amp;lt;T, Allocator&amp;gt;&amp;amp; y); // (1) C++26
- }
- ```
- 
-@@ -49,3 +52,4 @@ true
- ## 参照
- - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
-     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>operator!= -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/op_not_equal.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/op_not_equal.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/op_not_equal.md b/reference/list/list/op_not_equal.md
-index 42390ed4d..9333a0d85 100644
---- a/reference/list/list/op_not_equal.md
-+++ b/reference/list/list/op_not_equal.md
-@@ -9,6 +9,9 @@ namespace std {
-   template &amp;lt;class T, class Allocator&amp;gt;
-   bool operator!=(const list&amp;lt;T, Allocator&amp;gt;&amp;amp; x,
-                   const list&amp;lt;T, Allocator&amp;gt;&amp;amp; y); // (1) C++03
-+  template &amp;lt;class T, class Allocator&amp;gt;
-+  constexpr bool operator!=(const list&amp;lt;T, Allocator&amp;gt;&amp;amp; x,
-+                  const list&amp;lt;T, Allocator&amp;gt;&amp;amp; y); // (1) C++26
- }
- ```
- 
-@@ -59,3 +62,4 @@ true
- ## 参照
- - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
-     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>pop_back -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/pop_back.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/pop_back.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/pop_back.md b/reference/list/list/pop_back.md
-index e94b8172b..85fe2215c 100644
---- a/reference/list/list/pop_back.md
-+++ b/reference/list/list/pop_back.md
-@@ -5,7 +5,8 @@
- * function[meta id-type]
- 
- ```cpp
--void pop_back();
-+void pop_back();           // (1) C++03
-+constexpr void pop_back(); // (1) C++26
- ```
- 
- ## 概要
-@@ -47,3 +48,7 @@ int main()
- 1
- 2
- ```
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>pop_front -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/pop_front.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/pop_front.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/pop_front.md b/reference/list/list/pop_front.md
-index 3c3e1649b..482ac1497 100644
---- a/reference/list/list/pop_front.md
-+++ b/reference/list/list/pop_front.md
-@@ -5,7 +5,8 @@
- * function[meta id-type]
- 
- ```cpp
--void pop_front();
-+void pop_front();           // (1) C++03
-+constexpr void pop_front(); // (1) C++26
- ```
- 
- ## 概要
-@@ -47,3 +48,7 @@ int main()
- 2
- 3
- ```
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>prepend_range -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/prepend_range.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/prepend_range.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/prepend_range.md b/reference/list/list/prepend_range.md
-index 6dca97b94..76b7a1523 100644
---- a/reference/list/list/prepend_range.md
-+++ b/reference/list/list/prepend_range.md
-@@ -7,7 +7,9 @@
- 
- ```cpp
- template &amp;lt;container-compatible-range&amp;lt;T&amp;gt; R&amp;gt;
--void prepend_range(R&amp;amp;&amp;amp; rg); // C++23
-+void prepend_range(R&amp;amp;&amp;amp; rg);           // (1) C++23
-+template &amp;lt;container-compatible-range&amp;lt;T&amp;gt; R&amp;gt;
-+constexpr void prepend_range(R&amp;amp;&amp;amp; rg); // (1) C++26
- ```
- 
- ## 概要
-@@ -63,3 +65,7 @@ int main()
- |-------------------------------------------|----------------------|
- | [`push_front`](push_front.md)             | 先頭に要素を追加する         |
- | [`emplace_front`](emplace_front.md)       | 先頭に要素を直接構築で追加する |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>push_back -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/push_back.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/push_back.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/push_back.md b/reference/list/list/push_back.md
-index 5578aa071..cee39f98e 100644
---- a/reference/list/list/push_back.md
-+++ b/reference/list/list/push_back.md
-@@ -5,8 +5,11 @@
- * function[meta id-type]
- 
- ```cpp
--void push_back(const T&amp;amp; x); // (1)
--void push_back(T&amp;amp;&amp;amp; x);      // (2) C++11
-+void push_back(const T&amp;amp; x);           // (1) C++03
-+constexpr void push_back(const T&amp;amp; x); // (1) C++26
-+
-+void push_back(T&amp;amp;&amp;amp; x);           // (2) C++11
-+constexpr void push_back(T&amp;amp;&amp;amp; x); // (2) C++26
- ```
- 
- ## 概要
-@@ -100,3 +103,7 @@ int main()
- 1
- 0
- ```
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>push_front -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/push_front.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/push_front.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/push_front.md b/reference/list/list/push_front.md
-index 19fdf683a..4db1b436b 100644
---- a/reference/list/list/push_front.md
-+++ b/reference/list/list/push_front.md
-@@ -5,8 +5,11 @@
- * function[meta id-type]
- 
- ```cpp
--void push_front(const T&amp;amp; x); // (1)
--void push_front(T&amp;amp;&amp;amp; x);      // (2) C++11
-+void push_front(const T&amp;amp; x);           // (1) C++03
-+constexpr void push_front(const T&amp;amp; x); // (1) C++26
-+
-+void push_front(T&amp;amp;&amp;amp; x);           // (2) C++11
-+constexpr void push_front(T&amp;amp;&amp;amp; x); // (2) C++26
- ```
- 
- ## 概要
-@@ -51,3 +54,7 @@ int main()
- hello
- world
- ```
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>rbegin -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/rbegin.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/rbegin.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/rbegin.md b/reference/list/list/rbegin.md
-index ff23d05ce..1b1ec5d0e 100644
---- a/reference/list/list/rbegin.md
-+++ b/reference/list/list/rbegin.md
-@@ -5,10 +5,13 @@
- * function[meta id-type]
- 
- ```cpp
--reverse_iterator rbegin();                      // (1) C++03
--reverse_iterator rbegin() noexcept;             // (1) C++11
--const_reverse_iterator rbegin() const;          // (2) C++03
--const_reverse_iterator rbegin() const noexcept; // (2) C++11
-+reverse_iterator rbegin();                    // (1) C++03
-+reverse_iterator rbegin() noexcept;           // (1) C++11
-+constexpr reverse_iterator rbegin() noexcept; // (1) C++26
-+
-+const_reverse_iterator rbegin() const;                    // (2) C++03
-+const_reverse_iterator rbegin() const noexcept;           // (2) C++11
-+constexpr const_reverse_iterator rbegin() const noexcept; // (2) C++26
- ```
- 
- ## 概要
-@@ -49,3 +52,4 @@ int main()
- ```
- 
- ## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>remove -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/remove.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/remove.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/remove.md b/reference/list/list/remove.md
-index 2d2a70a5c..93714d695 100644
---- a/reference/list/list/remove.md
-+++ b/reference/list/list/remove.md
-@@ -5,8 +5,9 @@
- * function[meta id-type]
- 
- ```cpp
--void remove(const T&amp;amp; value);      // (1) C++03
--size_type remove(const T&amp;amp; value); // (1) C++20
-+void remove(const T&amp;amp; value);                // (1) C++03
-+size_type remove(const T&amp;amp; value);           // (1) C++20
-+constexpr size_type remove(const T&amp;amp; value); // (1) C++26
- ```
- 
- ## 概要
-@@ -58,3 +59,4 @@ int main()
- 
- ## 参照
- - [P0646R1 Improving the Return Value of Erase-Like Algorithms I: list/forward list](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0646r1.pdf)
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>remove_if -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/remove_if.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/remove_if.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/remove_if.md b/reference/list/list/remove_if.md
-index 12ce40889..3ac6558db 100644
---- a/reference/list/list/remove_if.md
-+++ b/reference/list/list/remove_if.md
-@@ -6,10 +6,11 @@
- 
- ```cpp
- template &amp;lt;class Predicate&amp;gt;
--void remove_if(Predicate pred);      // (1) C++03
--
-+void remove_if(Predicate pred);                // (1) C++03
-+template &amp;lt;class Predicate&amp;gt;
-+size_type remove_if(Predicate pred);           // (1) C++20
- template &amp;lt;class Predicate&amp;gt;
--size_type remove_if(Predicate pred); // (1) C++20
-+constexpr size_type remove_if(Predicate pred); // (1) C++26
- ```
- 
- ## 概要
-@@ -61,3 +62,4 @@ int main()
- 
- ## 参照
- - [P0646R1 Improving the Return Value of Erase-Like Algorithms I: list/forward list](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0646r1.pdf)
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>rend -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/rend.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/rend.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/rend.md b/reference/list/list/rend.md
-index ffe6034f6..977ddf7be 100644
---- a/reference/list/list/rend.md
-+++ b/reference/list/list/rend.md
-@@ -5,10 +5,13 @@
- * function[meta id-type]
- 
- ```cpp
--reverse_iterator rend();                      // (1) C++03
--reverse_iterator rend() noexcept;             // (1) C++11
--const_reverse_iterator rend() const;          // (2) C++03
--const_reverse_iterator rend() const noexcept; // (2) C++11
-+reverse_iterator rend();                    // (1) C++03
-+reverse_iterator rend() noexcept;           // (1) C++11
-+constexpr reverse_iterator rend() noexcept; // (1) C++26
-+
-+const_reverse_iterator rend() const;                    // (2) C++03
-+const_reverse_iterator rend() const noexcept;           // (2) C++11
-+constexpr const_reverse_iterator rend() const noexcept; // (2) C++26
- ```
- 
- ## 概要
-@@ -62,3 +65,4 @@ int main()
- ```
- 
- ## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>resize -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/resize.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/resize.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/resize.md b/reference/list/list/resize.md
-index 8538e152d..6c390f4da 100644
---- a/reference/list/list/resize.md
-+++ b/reference/list/list/resize.md
-@@ -5,9 +5,12 @@
- * function[meta id-type]
- 
- ```cpp
--void resize(size_type sz);                      // (1) C++11
--void resize(size_type sz, const value_type&amp;amp; c); // (2) C++11
--void resize(size_type sz, T c = T());           // (1), (2) C++03。C++11で削除
-+void resize(size_type sz);           // (1) C++11
-+constexpr void resize(size_type sz); // (1) C++26
-+
-+void resize(size_type sz, const value_type&amp;amp; c);           // (2) C++11
-+constexpr void resize(size_type sz, const value_type&amp;amp; c); // (2) C++26
-+void resize(size_type sz, T c = T());                     // (2) C++03 : (1), (2) C++03。C++11で削除
- ```
- 
- ## 概要
-@@ -67,3 +70,7 @@ int main()
- 
- 3
- ```
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>reverse -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/reverse.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/reverse.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/reverse.md b/reference/list/list/reverse.md
-index 8c0056548..e11def9f7 100644
---- a/reference/list/list/reverse.md
-+++ b/reference/list/list/reverse.md
-@@ -5,8 +5,9 @@
- * function[meta id-type]
- 
- ```cpp
--void reverse();          // C++03
--void reverse() noexcept; // C++11
-+void reverse();                    // (1) C++03
-+void reverse() noexcept;           // (1) C++11
-+constexpr void reverse() noexcept; // (1) C++26
- ```
- 
- ## 概要
-@@ -53,3 +54,7 @@ int main()
- 2
- 1
- ```
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>size -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/size.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/size.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/size.md b/reference/list/list/size.md
-index e06b7f5df..b09739d55 100644
---- a/reference/list/list/size.md
-+++ b/reference/list/list/size.md
-@@ -5,8 +5,9 @@
- * function[meta id-type]
- 
- ```cpp
--size_type size() const;          // C++03
--size_type size() const noexcept; // C++11
-+size_type size() const;                    // (1) C++03
-+size_type size() const noexcept;           // (1) C++11
-+constexpr size_type size() const noexcept; // (1) C++26
- ```
- 
- ## 概要
-@@ -52,3 +53,4 @@ int main()
- ## 参照
- - [N2909 Specifying the complexity of `size()`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2909.pdf)
- - [C++0x 標準コンテナのsize()の計算量を規定 - Faith and Brave - C++で遊ぼう](http://d.hatena.ne.jp/faith_and_brave/20090902/1251879571)
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>sort -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/sort.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/sort.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/sort.md b/reference/list/list/sort.md
-index 5ed9f562f..e1f97b98a 100644
---- a/reference/list/list/sort.md
-+++ b/reference/list/list/sort.md
-@@ -5,10 +5,13 @@
- * function[meta id-type]
- 
- ```cpp
--void sort();             // (1)
-+void sort();           // (1) C++03
-+constexpr void sort(); // (1) C++26
- 
- template &amp;lt;class Compare&amp;gt;
--void sort(Compare comp); // (2)
-+void sort(Compare comp);           // (2) C++03
-+template &amp;lt;class Compare&amp;gt;
-+constexpr void sort(Compare comp); // (2) C++26
- ```
- 
- ## 概要
-@@ -58,3 +61,7 @@ int main()
- 2
- 3
- ```
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>splice -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/splice.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/splice.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/splice.md b/reference/list/list/splice.md
-index 1ef73e11b..f6ba6dd54 100644
---- a/reference/list/list/splice.md
-+++ b/reference/list/list/splice.md
-@@ -5,26 +5,61 @@
- * function[meta id-type]
- 
- ```cpp
--void splice(iterator position, list&amp;amp; x);                // (1) C++03
--void splice(const_iterator position, list&amp;amp; x);          // (1) C++11
--
--void splice(const_iterator position, list&amp;amp;&amp;amp; x);         // (2) C++11
--
--void splice(iterator position, list&amp;amp; x,
--            iterator i);                                // (3) C++03
--void splice(const_iterator position, list&amp;amp; x,
--            const_iterator i);                          // (3) C++11
--
--void splice(const_iterator position, list&amp;amp;&amp;amp; x,
--            const_iterator i);                          // (4) C++11
--
--void splice(iterator position, list&amp;amp; x,
--            iterator first, iterator last);             // (5) C++03
--void splice(const_iterator position, list&amp;amp; x,
--            const_iterator first, const_iterator last); // (5) C++11
--
--void splice(const_iterator position, list&amp;amp;&amp;amp; x,
--            const_iterator first, const_iterator last); // (6) C++11
-+void splice(iterator position, list&amp;amp; x);                 // (1) C++03
-+void splice(const_iterator position, list&amp;amp; x);           // (1) C++11
-+constexpr void splice(const_iterator position, list&amp;amp; x); // (1) C++26
-+
-+void splice(const_iterator position, list&amp;amp;&amp;amp; x);           // (2) C++11
-+constexpr void splice(const_iterator position, list&amp;amp;&amp;amp; x); // (2) C++26
-+
-+void
-+  splice(iterator position,
-+         list&amp;amp; x,
-+         iterator i);       // (3) C++03
-+void
-+  splice(const_iterator
-+         position, list&amp;amp; x,
-+         const_iterator i); // (3) C++11
-+constexpr void
-+  splice(const_iterator position,
-+         list&amp;amp; x,
-+         const_iterator i); // (3) C++26
-+
-+void
-+  splice(const_iterator position,
-+         list&amp;amp;&amp;amp; x,
-+         const_iterator i); // (4) C++11
-+constexpr void
-+  splice(const_iterator position,
-+         list&amp;amp;&amp;amp; x,
-+         const_iterator i); // (4) C++26
-+
-+void
-+  splice(iterator position,
-+         list&amp;amp; x,
-+         iterator first,
-+         iterator last);       // (5) C++03
-+void
-+  splice(const_iterator position,
-+         list&amp;amp; x,
-+         const_iterator first,
-+         const_iterator last); // (5) C++11
-+constexpr void
-+  splice(const_iterator position,
-+         list&amp;amp; x,
-+         const_iterator first,
-+         const_iterator last); // (5) C++26
-+
-+void
-+  splice(const_iterator position,
-+         list&amp;amp;&amp;amp; x,
-+         const_iterator first,
-+         const_iterator last); // (6) C++11
-+constexpr void
-+  splice(const_iterator position,
-+         list&amp;amp;&amp;amp; x,
-+         const_iterator first,
-+         const_iterator last); // (6) C++26
- ```
- 
- ## 概要
-@@ -139,3 +174,4 @@ int main()
- - [N2350 Container insert/erase and iterator constness (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2350.pdf)
- - [LWG Issue 3017. `list` `splice` functions should use `addressof`](https://wg21.cmeerw.net/lwg/issue3017)
- - [LWG Issue 3087. One final `&amp;amp;x` in §[list.ops]](https://wg21.cmeerw.net/lwg/issue3087)
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>swap -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/swap.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/swap.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/swap.md b/reference/list/list/swap.md
-index ef388d3b7..a034467fa 100644
---- a/reference/list/list/swap.md
-+++ b/reference/list/list/swap.md
-@@ -5,8 +5,14 @@
- * function[meta id-type]
- 
- ```cpp
--void swap(list&amp;amp; x);
--void swap(list&amp;amp; x) noexcept(allocator_traits&amp;lt;Allocator&amp;gt;::is_always_equal::value); // C++17
-+void
-+  swap(list&amp;amp; x);                                                   // (1) C++03
-+void
-+  swap(list&amp;amp; x)
-+    noexcept(allocator_traits&amp;lt;Allocator&amp;gt;::is_always_equal::value); // (1) C++17
-+constexpr void
-+  swap(list&amp;amp; x)
-+    noexcept(allocator_traits&amp;lt;Allocator&amp;gt;::is_always_equal::value); // (1) C++26
- ```
- 
- ## 概要
-@@ -64,3 +70,4 @@ int main()
- ## 参照
- - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
-     - `noexcept` 追加の経緯となる提案文書
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>swap (非メンバ関数) -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/swap_free.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/swap_free.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/swap_free.md b/reference/list/list/swap_free.md
-index 820ec6d5b..dde7b68d0 100644
---- a/reference/list/list/swap_free.md
-+++ b/reference/list/list/swap_free.md
-@@ -6,11 +6,19 @@
- ```cpp
- namespace std {
-   template &amp;lt;class T, class Allocator&amp;gt;
--  void swap(list&amp;lt;T, Allocator&amp;gt;&amp;amp; x, list&amp;lt;T, Allocator&amp;gt;&amp;amp; y);
--
-+  void
-+    swap(list&amp;lt;T, Allocator&amp;gt;&amp;amp; x,
-+         list&amp;lt;T, Allocator&amp;gt;&amp;amp; y);       // (1) C++03
-+  template &amp;lt;class T, class Allocator&amp;gt;
-+  void
-+    swap(list&amp;lt;T,Allocator&amp;gt;&amp;amp; x,
-+         list&amp;lt;T,Allocator&amp;gt;&amp;amp; y)
-+      noexcept(noexcept(x.swap(y)));   // (1) C++17
-   template &amp;lt;class T, class Allocator&amp;gt;
--  void swap(list&amp;lt;T,Allocator&amp;gt;&amp;amp; x, list&amp;lt;T,Allocator&amp;gt;&amp;amp; y)
--    noexcept(noexcept(x.swap(y)));                      // C++17
-+  constexpr void
-+    swap(list&amp;lt;T,Allocator&amp;gt;&amp;amp; x,
-+         list&amp;lt;T,Allocator&amp;gt;&amp;amp; y)
-+      noexcept(noexcept(x.swap(y)));   // (1) C++26
- }
- ```
- 
-@@ -66,3 +74,4 @@ ls2 : {4 5 6 }
- ## 参照
- - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
-     - `noexcept` 追加の経緯となる提案文書
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>unique -- list</title>
-      <link href="https://cpprefjp.github.io/reference/list/list/unique.html"/>
-      <id>4c6916dfa8d2b6054d99e0abe0d08442d6f27950:reference/list/list/unique.md</id>
-      <updated>2026-02-17T18:58:23+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/list/list/unique.md b/reference/list/list/unique.md
-index 3384c7698..83ad15a26 100644
---- a/reference/list/list/unique.md
-+++ b/reference/list/list/unique.md
-@@ -5,14 +5,16 @@
- * function[meta id-type]
- 
- ```cpp
--void unique();                          // (1) C++03
--size_type unique();                     // (1) C++20
-+void unique();                // (1) C++03
-+size_type unique();           // (1) C++20
-+constexpr size_type unique(); // (1) C++26
- 
- template &amp;lt;class BinaryPredicate&amp;gt;
--void unique(BinaryPredicate pred);      // (2) C++03
--
-+void unique(BinaryPredicate pred);                // (2) C++03
-+template &amp;lt;class BinaryPredicate&amp;gt;
-+size_type unique(BinaryPredicate pred);           // (2) C++20
- template &amp;lt;class BinaryPredicate&amp;gt;
--size_type unique(BinaryPredicate pred); // (2) C++20
-+constexpr size_type unique(BinaryPredicate pred); // (2) C++26
- ```
- 
- ## 概要
-@@ -77,3 +79,4 @@ int main()
- 
- ## 参照
- - [P0646R1 Improving the Return Value of Erase-Like Algorithms I: list/forward list](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0646r1.pdf)
 +- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
 &lt;/code&gt;&lt;/pre&gt;</summary>
       

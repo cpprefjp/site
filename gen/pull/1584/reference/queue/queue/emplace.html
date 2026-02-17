@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:33:39">
-        2025年07月08日 15時33分39秒
+      <span itemprop="datePublished" content="2026-02-17T13:09:02">
+        2026年02月17日 13時09分02秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -226,10 +226,11 @@
         
   <div class="identifier-type">function template</div><div class="header">&lt;queue&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class queue">queue::</span><span class="token">emplace</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">emplace</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>               <span class="c1">// C++14 まで</span>
-
+<span class="kt">void</span> <span class="n">emplace</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>                     <span class="c1">// (1) C++11</span>
 <span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
-<span class="n"><a href="../../../lang/cpp14/decltype_auto.html">decltype(auto)</a></span> <span class="n">emplace</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>     <span class="c1">// C++17 から</span>
+<span class="n"><a href="../../../lang/cpp14/decltype_auto.html">decltype(auto)</a></span> <span class="n">emplace</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>           <span class="c1">// (1) C++17</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="n"><a href="../../../lang/cpp14/decltype_auto.html">decltype(auto)</a></span> <span class="n">emplace</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span> <span class="c1">// (1) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -318,6 +319,7 @@
 <li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0084r1.pdf" target="_blank">P0084R1 Emplace Return Type (Revision 1)</a></li>
 <li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0084r2.pdf" target="_blank">P0084R2 Emplace Return Type (Revision 2)</a></li>
 <li><a href="https://wg21.cmeerw.net/lwg/issue2783" target="_blank">LWG Issue 2783. stack::emplace() and queue::emplace() should return decltype(auto)</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html" target="_blank">P3372R3 constexpr containers and adaptors</a></li>
 </ul></div>
 
       </div>
