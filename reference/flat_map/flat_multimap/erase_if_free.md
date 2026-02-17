@@ -16,12 +16,12 @@ namespace std {
     erase_if(flat_multimap<Key, T, Compare, KeyContainer, MappedContainer>& c,
              Predicate pred); // (1) C++23
   template<class Key,
-           constexpr class T,
+           class T,
            class Compare,
            class KeyContainer,
            class MappedContainer,
            class Predicate>
-  typename flat_multimap<Key, T, Compare, KeyContainer, MappedContainer>::size_type
+  constexpr typename flat_multimap<Key, T, Compare, KeyContainer, MappedContainer>::size_type
     erase_if(flat_multimap<Key, T, Compare, KeyContainer, MappedContainer>& c,
              Predicate pred); // (1) C++26
 }

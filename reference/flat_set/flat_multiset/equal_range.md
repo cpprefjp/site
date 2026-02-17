@@ -6,17 +6,29 @@
 * cpp23[meta cpp]
 
 ```cpp
-pair<iterator, iterator> equal_range(const key_type& x); // (1) C++23
+pair<iterator, iterator>
+  equal_range(const key_type& x); // (1) C++23
+constexpr pair<iterator, iterator>
+  equal_range(const key_type& x); // (1) C++26
 
 template <class K>
-pair<iterator, iterator> equal_range(const K& x);        // (2) C++23
+pair<iterator, iterator>
+  equal_range(const K& x); // (2) C++23
+template <class K>
+constexpr pair<iterator, iterator>
+  equal_range(const K& x); // (2) C++26
 
 pair<const_iterator, const_iterator>
-  equal_range(const key_type& x) const;                  // (3) C++23
+  equal_range(const key_type& x) const; // (3) C++23
+constexpr pair<const_iterator, const_iterator>
+  equal_range(const key_type& x) const; // (3) C++26
 
 template <class K>
 pair<const_iterator, const_iterator>
-  equal_range(const K& x) const;                         // (4) C++23
+  equal_range(const K& x) const; // (4) C++23
+template <class K>
+constexpr pair<const_iterator, const_iterator>
+  equal_range(const K& x) const; // (4) C++26
 ```
 
 ## 概要
@@ -83,3 +95,7 @@ int main()
 | [`flat_multiset::lower_bound`](lower_bound.md) | 与えられた値より小さくない最初の要素へのイテレータを返す |
 | [`flat_multiset::upper_bound`](upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを返す       |
 | [`flat_multiset::find`](find.md)               | 指定したキーで要素を探す                                 |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

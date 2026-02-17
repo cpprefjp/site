@@ -6,10 +6,13 @@
 * cpp23[meta cpp]
 
 ```cpp
-bool contains(const key_type& x) const; // (1) C++23
+bool contains(const key_type& x) const;           // (1) C++23
+constexpr bool contains(const key_type& x) const; // (1) C++26
 
 template <class K>
-bool contains(const K& x) const;        // (2) C++23
+bool contains(const K& x) const;           // (2) C++23
+template <class K>
+constexpr bool contains(const K& x) const; // (2) C++26
 ```
 
 
@@ -78,3 +81,7 @@ contain
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
