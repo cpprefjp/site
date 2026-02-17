@@ -6,17 +6,17 @@
 * cpp11[meta cpp]
 
 ```cpp
-iterator       find(const key_type& x);           // (1) C++11
-constexpr iterator       find(const key_type& x); // (1) C++26
+iterator find(const key_type& x);           // (1) C++11
+constexpr iterator find(const key_type& x); // (1) C++26
 
 const_iterator find(const key_type& x) const;           // (2) C++11
 constexpr const_iterator find(const key_type& x) const; // (2) C++26
 
-template <class K> iterator       find(const K& k);           // (3) C++20
-constexpr template <class K> iterator       find(const K& k); // (3) C++26
+template <class K> iterator find(const K& k);           // (3) C++20
+template <class K> constexpr iterator find(const K& k); // (3) C++26
 
 template <class K> const_iterator find(const K& k) const;           // (4) C++20
-constexpr template <class K> const_iterator find(const K& k) const; // (4) C++26
+template <class K> constexpr const_iterator find(const K& k) const; // (4) C++26
 ```
 
 ## 概要

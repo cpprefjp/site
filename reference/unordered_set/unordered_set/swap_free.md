@@ -8,12 +8,15 @@
 namespace std {
   template <class Key, class Hash, class Pred, class Alloc>
   void swap(unordered_set<Key, Hash, Pred, Alloc>& x,
-            unordered_set<Key, Hash, Pred, Alloc>& y);
-
+            unordered_set<Key, Hash, Pred, Alloc>& y); // (1) C++11
   template <class Key, class Hash, class Pred, class Alloc>
   void swap(unordered_set<Key, Hash, Pred, Alloc>& x,
             unordered_set<Key, Hash, Pred, Alloc>& y)
-    noexcept(noexcept(x.swap(y))); // C++17
+    noexcept(noexcept(x.swap(y)));                     // (1) C++17
+  template <class Key, class Hash, class Pred, class Alloc>
+  constexpr void swap(unordered_set<Key, Hash, Pred, Alloc>& x,
+            unordered_set<Key, Hash, Pred, Alloc>& y)
+    noexcept(noexcept(x.swap(y)));                     // (1) C++26
 }
 ```
 
@@ -106,3 +109,4 @@ namespace std {
 ## 参照
 - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
     - `noexcept` 追加の経緯となる提案文書
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

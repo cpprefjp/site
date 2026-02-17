@@ -7,13 +7,24 @@
 
 ```cpp
 template<class H2, class P2>
-  void merge(unordered_set<Key, H2, P2, Allocator>& source);       // (1)
+void merge(unordered_set<Key, H2, P2, Allocator>& source);           // (1) C++17
 template<class H2, class P2>
-  void merge(unordered_set<Key, H2, P2, Allocator>&& source);      // (2)
+constexpr void merge(unordered_set<Key, H2, P2, Allocator>& source); // (1) C++26
+
 template<class H2, class P2>
-  void merge(unordered_multiset<Key, H2, P2, Allocator>& source);  // (3)
+void merge(unordered_set<Key, H2, P2, Allocator>&& source);           // (2) C++17
 template<class H2, class P2>
-  void merge(unordered_multiset<Key, H2, P2, Allocator>&& source); // (4)
+constexpr void merge(unordered_set<Key, H2, P2, Allocator>&& source); // (2) C++26
+
+template<class H2, class P2>
+void merge(unordered_multiset<Key, H2, P2, Allocator>& source);           // (3) C++17
+template<class H2, class P2>
+constexpr void merge(unordered_multiset<Key, H2, P2, Allocator>& source); // (3) C++26
+
+template<class H2, class P2>
+void merge(unordered_multiset<Key, H2, P2, Allocator>&& source);           // (4) C++17
+template<class H2, class P2>
+constexpr void merge(unordered_multiset<Key, H2, P2, Allocator>&& source); // (4) C++26
 ```
 
 ## 概要
@@ -86,3 +97,4 @@ s2 = { 20, 30, 10 }
 
 ## 参照
 - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

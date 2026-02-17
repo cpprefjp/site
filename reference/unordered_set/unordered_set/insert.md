@@ -7,39 +7,67 @@
 
 ```cpp
 pair<iterator, bool>
-  insert(const value_type& v);             // (1) C++11
+  insert(const value_type& v); // (1) C++11
+constexpr pair<iterator, bool>
+  insert(const value_type& v); // (1) C++26
+
 pair<iterator, bool>
-  insert(value_type&& rv);                 // (2) C++11
+  insert(value_type&& rv); // (2) C++11
+constexpr pair<iterator, bool>
+  insert(value_type&& rv); // (2) C++26
 
 template <class K>
-pair<iterator, bool>
-  insert(K&& x);                           // (3) C++26
+constexpr pair<iterator, bool>
+  insert(K&& x); // (3) C++26
 
 iterator
   insert(const_iterator position,
-         const value_type& v);             // (4) C++11
+         const value_type& v); // (4) C++11
+constexpr iterator
+  insert(const_iterator position,
+         const value_type& v); // (4) C++26
+
 iterator
   insert(const_iterator position,
-         value_type&& rv);                 // (5) C++11
+         value_type&& rv); // (5) C++11
+constexpr iterator
+  insert(const_iterator position,
+         value_type&& rv); // (5) C++26
 
 template <class K>
 iterator
   insert(const_iterator hint,
-         K&& x);                           // (6) C++11
+         K&& x); // (6) C++11
+template <class K>
+constexpr iterator
+  insert(const_iterator hint,
+         K&& x); // (6) C++26
 
 template <class InputIterator>
 void
   insert(InputIterator first,
-         InputIterator last);              // (7) C++11
+         InputIterator last); // (7) C++11
+template <class InputIterator>
+constexpr void
+  insert(InputIterator first,
+         InputIterator last); // (7) C++26
 
 void
   insert(initializer_list<value_type> il); // (8) C++11
+constexpr void
+  insert(initializer_list<value_type> il); // (8) C++26
 
 insert_return_type
-  insert(node_type&& nh);                  // (9) C++17
+  insert(node_type&& nh); // (9) C++17
+constexpr insert_return_type
+  insert(node_type&& nh); // (9) C++26
+
 iterator
   insert(const_iterator hint,
-         node_type&& nh);                  // (10) C++17
+         node_type&& nh); // (10) C++17
+constexpr iterator
+  insert(const_iterator hint,
+         node_type&& nh); // (10) C++26
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
@@ -290,3 +318,4 @@ inline void unordered_set<Key, Hash, Pred, Allocator>::insert(initializer_list<K
 - [How useful is the hint passed to the std::unordered_... collections? - The Old New Thing](https://devblogs.microsoft.com/oldnewthing/20241028-00/?p=110428)
 - [P2363R5: Extending associative containers with the remaining heterogeneous overloads](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2363r5.html)
     - C++26で`template <class K>`のバージョンが追加された
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
