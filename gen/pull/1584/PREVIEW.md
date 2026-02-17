@@ -1,10 +1,10 @@
 # PR [\#1584](https://github.com/cpprefjp/site/pull/1584) プレビュー
-- &#x231a; 更新時刻: 2026-02-17 22:25:03 JST
+- &#x231a; 更新時刻: 2026-02-17 22:29:37 JST
 - &#x1f50d; [プレビュー (HTML)](https://cpprefjp.github.io/site/gen/pull/1584)
 - &#x1f4c8; [プレビュー生成記録](https://github.com/cpprefjp/site/actions?query=event%3Apull_request_target+branch%3Acpp26_container_constexpr)
-- **&#x2AEF;** ソースの変更: [`c3a3a49..b53a174`](https://github.com/cpprefjp/site/compare/c3a3a49e88a9766d0f632c9d2e4561822a34e398..b53a1747271895f06ad62baf458c5c288a391f08)
+- **&#x2AEF;** ソースの変更: [`c3a3a49..7112a40`](https://github.com/cpprefjp/site/compare/c3a3a49e88a9766d0f632c9d2e4561822a34e398..7112a40b4755057e62e0fa3f500a55546d1275e6)
 
-## 変更記事一覧 (493件)
+## 変更記事一覧 (512件)
 
 - &#x1f4dd; [`reference/deque/deque/append_range`](https://cpprefjp.github.io/site/gen/pull/1584/reference/deque/deque/append_range.html)
 - &#x1f4dd; [`reference/deque/deque/assign`](https://cpprefjp.github.io/site/gen/pull/1584/reference/deque/deque/assign.html)
@@ -499,3 +499,22 @@
 - &#x1f4dd; [`reference/set/set/swap_free`](https://cpprefjp.github.io/site/gen/pull/1584/reference/set/set/swap_free.html)
 - &#x1f4dd; [`reference/set/set/upper_bound`](https://cpprefjp.github.io/site/gen/pull/1584/reference/set/set/upper_bound.html)
 - &#x1f4dd; [`reference/set/set/value_comp`](https://cpprefjp.github.io/site/gen/pull/1584/reference/set/set/value_comp.html)
+- &#x1f4dd; [`reference/stack/stack/emplace`](https://cpprefjp.github.io/site/gen/pull/1584/reference/stack/stack/emplace.html)
+- &#x1f4dd; [`reference/stack/stack/empty`](https://cpprefjp.github.io/site/gen/pull/1584/reference/stack/stack/empty.html)
+- &#x1f4dd; [`reference/stack/stack/op_assign`](https://cpprefjp.github.io/site/gen/pull/1584/reference/stack/stack/op_assign.html)
+- &#x1f4dd; [`reference/stack/stack/op_compare_3way`](https://cpprefjp.github.io/site/gen/pull/1584/reference/stack/stack/op_compare_3way.html)
+- &#x1f4dd; [`reference/stack/stack/op_constructor`](https://cpprefjp.github.io/site/gen/pull/1584/reference/stack/stack/op_constructor.html)
+- &#x1f4dd; [`reference/stack/stack/op_destructor`](https://cpprefjp.github.io/site/gen/pull/1584/reference/stack/stack/op_destructor.html)
+- &#x1f4dd; [`reference/stack/stack/op_equal`](https://cpprefjp.github.io/site/gen/pull/1584/reference/stack/stack/op_equal.html)
+- &#x1f4dd; [`reference/stack/stack/op_greater`](https://cpprefjp.github.io/site/gen/pull/1584/reference/stack/stack/op_greater.html)
+- &#x1f4dd; [`reference/stack/stack/op_greater_equal`](https://cpprefjp.github.io/site/gen/pull/1584/reference/stack/stack/op_greater_equal.html)
+- &#x1f4dd; [`reference/stack/stack/op_less`](https://cpprefjp.github.io/site/gen/pull/1584/reference/stack/stack/op_less.html)
+- &#x1f4dd; [`reference/stack/stack/op_less_equal`](https://cpprefjp.github.io/site/gen/pull/1584/reference/stack/stack/op_less_equal.html)
+- &#x1f4dd; [`reference/stack/stack/op_not_equal`](https://cpprefjp.github.io/site/gen/pull/1584/reference/stack/stack/op_not_equal.html)
+- &#x1f4dd; [`reference/stack/stack/pop`](https://cpprefjp.github.io/site/gen/pull/1584/reference/stack/stack/pop.html)
+- &#x1f4dd; [`reference/stack/stack/push`](https://cpprefjp.github.io/site/gen/pull/1584/reference/stack/stack/push.html)
+- &#x1f4dd; [`reference/stack/stack/push_range`](https://cpprefjp.github.io/site/gen/pull/1584/reference/stack/stack/push_range.html)
+- &#x1f4dd; [`reference/stack/stack/size`](https://cpprefjp.github.io/site/gen/pull/1584/reference/stack/stack/size.html)
+- &#x1f4dd; [`reference/stack/stack/swap`](https://cpprefjp.github.io/site/gen/pull/1584/reference/stack/stack/swap.html)
+- &#x1f4dd; [`reference/stack/stack/swap_free`](https://cpprefjp.github.io/site/gen/pull/1584/reference/stack/stack/swap_free.html)
+- &#x1f4dd; [`reference/stack/stack/top`](https://cpprefjp.github.io/site/gen/pull/1584/reference/stack/stack/top.html)
