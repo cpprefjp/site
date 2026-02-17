@@ -2,9 +2,356 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-02-17T13:01:49.680653</updated>
-  <id>6d2eb3bb-9d00-4eaa-a5bd-e8c798816d9f</id>
+  <updated>2026-02-17T13:06:31.517646</updated>
+  <id>89b8b575-a03a-4e9b-91f6-57cc1576b568</id>
 
+  
+    <entry>
+      <title>empty -- node_handle</title>
+      <link href="https://cpprefjp.github.io/reference/node_handle/node_handle/empty.html"/>
+      <id>d0afe9b0b69f351e564846d8cd88839e7cc8ee21:reference/node_handle/node_handle/empty.md</id>
+      <updated>2026-02-17T22:00:25+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/node_handle/node_handle/empty.md b/reference/node_handle/node_handle/empty.md
+index e544cb4dc..deca155fc 100644
+--- a/reference/node_handle/node_handle/empty.md
++++ b/reference/node_handle/node_handle/empty.md
+@@ -6,9 +6,9 @@
+ * [meta namespace]
+ 
+ ```cpp
+-bool empty() const noexcept;
+-[[nodiscard]] bool empty() const noexcept; // C++20
+-bool empty() const noexcept;               // C++26
++bool empty() const noexcept;               // (1) C++17
++[[nodiscard]] bool empty() const noexcept; // (1) C++20
++constexpr bool empty() const noexcept;     // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -50,3 +50,4 @@ true
+     - C++20で`[[nodiscard]]`が付加された
+ - [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
+     - C++26で`[[nodiscard]]`指定が削除された
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>get_allocator -- node_handle</title>
+      <link href="https://cpprefjp.github.io/reference/node_handle/node_handle/get_allocator.html"/>
+      <id>d0afe9b0b69f351e564846d8cd88839e7cc8ee21:reference/node_handle/node_handle/get_allocator.md</id>
+      <updated>2026-02-17T22:00:25+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/node_handle/node_handle/get_allocator.md b/reference/node_handle/node_handle/get_allocator.md
+index d860f39f2..b775c44b4 100644
+--- a/reference/node_handle/node_handle/get_allocator.md
++++ b/reference/node_handle/node_handle/get_allocator.md
+@@ -6,7 +6,8 @@
+ * [meta namespace]
+ 
+ ```cpp
+-allocator_type get_allocator() const;
++allocator_type get_allocator() const;           // (1) C++17
++constexpr allocator_type get_allocator() const; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -56,3 +57,4 @@ int main()
+ 
+ ## 参照
+ - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>mapped -- node_handle</title>
+      <link href="https://cpprefjp.github.io/reference/node_handle/node_handle/mapped.html"/>
+      <id>d0afe9b0b69f351e564846d8cd88839e7cc8ee21:reference/node_handle/node_handle/mapped.md</id>
+      <updated>2026-02-17T22:00:25+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/node_handle/node_handle/mapped.md b/reference/node_handle/node_handle/mapped.md
+index c5909723e..920412796 100644
+--- a/reference/node_handle/node_handle/mapped.md
++++ b/reference/node_handle/node_handle/mapped.md
+@@ -6,7 +6,8 @@
+ * [meta namespace]
+ 
+ ```cpp
+-mapped_type&amp;amp; mapped() const; // set コンテナには存在ない
++mapped_type&amp;amp; mapped() const;           // (1) C++17 : set コンテナには存在ない
++constexpr mapped_type&amp;amp; mapped() const; // (1) C++26 : set コンテナには存在ない
+ ```
+ 
+ ## 概要
+@@ -64,3 +65,4 @@ nya
+ 
+ ## 参照
+ - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator= -- node_handle</title>
+      <link href="https://cpprefjp.github.io/reference/node_handle/node_handle/op_assign.html"/>
+      <id>d0afe9b0b69f351e564846d8cd88839e7cc8ee21:reference/node_handle/node_handle/op_assign.md</id>
+      <updated>2026-02-17T22:00:25+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/node_handle/node_handle/op_assign.md b/reference/node_handle/node_handle/op_assign.md
+index efa67a46f..8d768d440 100644
+--- a/reference/node_handle/node_handle/op_assign.md
++++ b/reference/node_handle/node_handle/op_assign.md
+@@ -6,7 +6,8 @@
+ * [meta namespace]
+ 
+ ```cpp
+-node_handle&amp;amp; operator=(node_handle&amp;amp;&amp;amp; nh);
++node_handle&amp;amp; operator=(node_handle&amp;amp;&amp;amp; nh);           // (1) C++17
++constexpr node_handle&amp;amp; operator=(node_handle&amp;amp;&amp;amp; nh); // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -68,3 +69,4 @@ int main()
+ 
+ ## 参照
+ - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator bool -- node_handle</title>
+      <link href="https://cpprefjp.github.io/reference/node_handle/node_handle/op_bool.html"/>
+      <id>d0afe9b0b69f351e564846d8cd88839e7cc8ee21:reference/node_handle/node_handle/op_bool.md</id>
+      <updated>2026-02-17T22:00:25+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/node_handle/node_handle/op_bool.md b/reference/node_handle/node_handle/op_bool.md
+index d5b3ef3e3..d0777aff0 100644
+--- a/reference/node_handle/node_handle/op_bool.md
++++ b/reference/node_handle/node_handle/op_bool.md
+@@ -6,7 +6,8 @@
+ * [meta namespace]
+ 
+ ```cpp
+-explicit operator bool() const noexcept;
++explicit operator bool() const noexcept;           // (1) C++17
++constexpr explicit operator bool() const noexcept; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -47,3 +48,4 @@ false
+ 
+ ## 参照
+ - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- node_handle</title>
+      <link href="https://cpprefjp.github.io/reference/node_handle/node_handle/op_constructor.html"/>
+      <id>d0afe9b0b69f351e564846d8cd88839e7cc8ee21:reference/node_handle/node_handle/op_constructor.md</id>
+      <updated>2026-02-17T22:00:25+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/node_handle/node_handle/op_constructor.md b/reference/node_handle/node_handle/op_constructor.md
+index 46562e805..4294fe1c0 100644
+--- a/reference/node_handle/node_handle/op_constructor.md
++++ b/reference/node_handle/node_handle/op_constructor.md
+@@ -6,8 +6,10 @@
+ * [meta namespace]
+ 
+ ```cpp
+-constexpr node_handle() noexcept : ptr_(), alloc_() {} // (1)
+-node_handle(node_handle&amp;amp;&amp;amp; nh) noexcept;                // (2)
++constexpr node_handle() noexcept : ptr_(), alloc_() {} // (1) C++26
++
++node_handle(node_handle&amp;amp;&amp;amp; nh) noexcept;           // (2) C++17
++constexpr node_handle(node_handle&amp;amp;&amp;amp; nh) noexcept; // (2) C++26
+ ```
+ 
+ ## 概要
+@@ -57,3 +59,4 @@ int main()
+ 
+ ## 参照
+ - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>デストラクタ -- node_handle</title>
+      <link href="https://cpprefjp.github.io/reference/node_handle/node_handle/op_destructor.html"/>
+      <id>d0afe9b0b69f351e564846d8cd88839e7cc8ee21:reference/node_handle/node_handle/op_destructor.md</id>
+      <updated>2026-02-17T22:00:25+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/node_handle/node_handle/op_destructor.md b/reference/node_handle/node_handle/op_destructor.md
+index 3db26cae4..6da11e057 100644
+--- a/reference/node_handle/node_handle/op_destructor.md
++++ b/reference/node_handle/node_handle/op_destructor.md
+@@ -6,7 +6,8 @@
+ * [meta namespace]
+ 
+ ```cpp
+-~node_handle();
++~node_handle();           // (1) C++17
++constexpr ~node_handle(); // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -48,3 +49,4 @@ int main()
+ 
+ ## 参照
+ - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>swap -- node_handle</title>
+      <link href="https://cpprefjp.github.io/reference/node_handle/node_handle/swap.html"/>
+      <id>d0afe9b0b69f351e564846d8cd88839e7cc8ee21:reference/node_handle/node_handle/swap.md</id>
+      <updated>2026-02-17T22:00:25+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/node_handle/node_handle/swap.md b/reference/node_handle/node_handle/swap.md
+index a2ba4f1dc..8d1d2a3a5 100644
+--- a/reference/node_handle/node_handle/swap.md
++++ b/reference/node_handle/node_handle/swap.md
+@@ -6,9 +6,14 @@
+ * [meta namespace]
+ 
+ ```cpp
+-void swap(node_handle&amp;amp;)
++void
++  swap(node_handle&amp;amp;)
+     noexcept(ator_traits::propagate_on_container_swap::value ||
+-             ator_traits::is_always_equal::value);
++             ator_traits::is_always_equal::value); // (1) C++17
++constexpr void
++  swap(node_handle&amp;amp;)
++    noexcept(ator_traits::propagate_on_container_swap::value ||
++             ator_traits::is_always_equal::value); // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -92,3 +97,4 @@ node2 : [10, a]
+ 
+ ## 参照
+ - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>swap (非メンバ関数) -- node_handle</title>
+      <link href="https://cpprefjp.github.io/reference/node_handle/node_handle/swap_free.html"/>
+      <id>d0afe9b0b69f351e564846d8cd88839e7cc8ee21:reference/node_handle/node_handle/swap_free.md</id>
+      <updated>2026-02-17T22:00:25+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/node_handle/node_handle/swap_free.md b/reference/node_handle/node_handle/swap_free.md
+index 919a7f31a..40638e52f 100644
+--- a/reference/node_handle/node_handle/swap_free.md
++++ b/reference/node_handle/node_handle/swap_free.md
+@@ -5,7 +5,12 @@
+ * [meta namespace]
+ 
+ ```cpp
+-friend void swap(node_handle&amp;amp; x, node_handle&amp;amp; y) noexcept(noexcept(x.swap(y)));
++friend void
++  swap(node_handle&amp;amp; x, node_handle&amp;amp; y)
++    noexcept(noexcept(x.swap(y))); // (1) C++17
++constexpr friend void
++  swap(node_handle&amp;amp; x, node_handle&amp;amp; y)
++    noexcept(noexcept(x.swap(y))); // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -80,3 +85,4 @@ node2 : [10, a]
+ 
+ ## 参照
+ - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>value -- node_handle</title>
+      <link href="https://cpprefjp.github.io/reference/node_handle/node_handle/value.html"/>
+      <id>d0afe9b0b69f351e564846d8cd88839e7cc8ee21:reference/node_handle/node_handle/value.md</id>
+      <updated>2026-02-17T22:00:25+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/node_handle/node_handle/value.md b/reference/node_handle/node_handle/value.md
+index 455d15d14..3b9f389b8 100644
+--- a/reference/node_handle/node_handle/value.md
++++ b/reference/node_handle/node_handle/value.md
+@@ -6,7 +6,8 @@
+ * [meta namespace]
+ 
+ ```cpp
+-value_type&amp;amp; value() const; // map コンテナには存在ない
++value_type&amp;amp; value() const;           // (1) C++17 : map コンテナには存在ない
++constexpr value_type&amp;amp; value() const; // (1) C++26 : map コンテナには存在ない
+ ```
+ 
+ ## 概要
+@@ -58,3 +59,4 @@ int main()
+ 
+ ## 参照
+ - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>begin -- multimap</title>
@@ -7753,1769 +8100,6 @@ index e1e6b520a..06bb3ec9c 100644
  
  ## 参照
  - [P0646R1 Improving the Return Value of Erase-Like Algorithms I: list/forward list](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0646r1.pdf)
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>begin -- flat_set</title>
-      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/begin.html"/>
-      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/begin.md</id>
-      <updated>2026-02-17T18:05:38+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/begin.md b/reference/flat_set/flat_set/begin.md
-index 76cd50864..2ee2b571a 100644
---- a/reference/flat_set/flat_set/begin.md
-+++ b/reference/flat_set/flat_set/begin.md
-@@ -6,8 +6,11 @@
- * cpp23[meta cpp]
- 
- ```cpp
--iterator begin() noexcept;
--const_iterator begin() const noexcept;
-+iterator begin() noexcept;           // (1) C++23
-+constexpr iterator begin() noexcept; // (1) C++26
-+
-+const_iterator begin() const noexcept;           // (2) C++23
-+constexpr const_iterator begin() const noexcept; // (2) C++26
- ```
- 
- 
-@@ -71,3 +74,7 @@ int main()
- | [`flat_set::rend`](rend.md)       | 先頭の前を指す逆イテレータを取得する |
- | [`flat_set::crbegin`](crbegin.md) | 末尾を指す逆constイテレータを取得する |
- | [`flat_set::crend`](crend.md)     | 先頭の前を指す逆constイテレータを取得する |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>cbegin -- flat_set</title>
-      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/cbegin.html"/>
-      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/cbegin.md</id>
-      <updated>2026-02-17T18:05:38+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/cbegin.md b/reference/flat_set/flat_set/cbegin.md
-index 6be52785b..e331022d9 100644
---- a/reference/flat_set/flat_set/cbegin.md
-+++ b/reference/flat_set/flat_set/cbegin.md
-@@ -6,7 +6,8 @@
- * cpp23[meta cpp]
- 
- ```cpp
--const_iterator cbegin() const noexcept;
-+const_iterator cbegin() const noexcept;           // (1) C++23
-+constexpr const_iterator cbegin() const noexcept; // (1) C++26
- ```
- 
- 
-@@ -67,3 +68,7 @@ int main()
- | [`flat_set::rend`](rend.md)       | 先頭の前を指す逆イテレータを取得する |
- | [`flat_set::crbegin`](crbegin.md) | 末尾を指す逆constイテレータを取得する |
- | [`flat_set::crend`](crend.md)     | 先頭の前を指す逆constイテレータを取得する |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>cend -- flat_set</title>
-      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/cend.html"/>
-      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/cend.md</id>
-      <updated>2026-02-17T18:05:38+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/cend.md b/reference/flat_set/flat_set/cend.md
-index a2ad3527b..881e6e8a5 100644
---- a/reference/flat_set/flat_set/cend.md
-+++ b/reference/flat_set/flat_set/cend.md
-@@ -6,7 +6,8 @@
- * cpp23[meta cpp]
- 
- ```cpp
--const_iterator cend() const noexcept;
-+const_iterator cend() const noexcept;           // (1) C++23
-+constexpr const_iterator cend() const noexcept; // (1) C++26
- ```
- 
- ## 概要
-@@ -70,3 +71,7 @@ int main()
- | [`flat_set::rend`](rend.md)       | 先頭の前を指す逆イテレータを取得する |
- | [`flat_set::crbegin`](crbegin.md) | 末尾を指す逆constイテレータを取得する |
- | [`flat_set::crend`](crend.md)     | 先頭の前を指す逆constイテレータを取得する |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>clear -- flat_set</title>
-      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/clear.html"/>
-      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/clear.md</id>
-      <updated>2026-02-17T18:05:38+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/clear.md b/reference/flat_set/flat_set/clear.md
-index 29bc4b37f..d88a72e2a 100644
---- a/reference/flat_set/flat_set/clear.md
-+++ b/reference/flat_set/flat_set/clear.md
-@@ -6,7 +6,8 @@
- * cpp23[meta cpp]
- 
- ```cpp
--void clear() noexcept; // (1) C++23
-+void clear() noexcept;           // (1) C++23
-+constexpr void clear() noexcept; // (1) C++26
- ```
- 
- ## 概要
-@@ -54,3 +55,7 @@ int main ()
- - [Clang](/implementation.md#clang): ??
- - [GCC](/implementation.md#gcc): ??
- - [Visual C++](/implementation.md#visual_cpp): ??
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>contains -- flat_set</title>
-      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/contains.html"/>
-      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/contains.md</id>
-      <updated>2026-02-17T18:05:38+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/contains.md b/reference/flat_set/flat_set/contains.md
-index 9d9e01d6c..9a682abe0 100644
---- a/reference/flat_set/flat_set/contains.md
-+++ b/reference/flat_set/flat_set/contains.md
-@@ -6,10 +6,13 @@
- * cpp23[meta cpp]
- 
- ```cpp
--bool contains(const key_type&amp;amp; x) const; // (1) C++23
-+bool contains(const key_type&amp;amp; x) const;           // (1) C++23
-+constexpr bool contains(const key_type&amp;amp; x) const; // (1) C++26
- 
- template &amp;lt;class K&amp;gt;
--bool contains(const K&amp;amp; x) const;        // (2) C++23
-+bool contains(const K&amp;amp; x) const;           // (2) C++23
-+template &amp;lt;class K&amp;gt;
-+constexpr bool contains(const K&amp;amp; x) const; // (2) C++26
- ```
- 
- 
-@@ -78,3 +81,7 @@ contain
- - [Clang](/implementation.md#clang): ??
- - [GCC](/implementation.md#gcc): ??
- - [Visual C++](/implementation.md#visual_cpp): ??
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>count -- flat_set</title>
-      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/count.html"/>
-      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/count.md</id>
-      <updated>2026-02-17T18:05:38+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/count.md b/reference/flat_set/flat_set/count.md
-index 4d6f18f86..ad9512cee 100644
---- a/reference/flat_set/flat_set/count.md
-+++ b/reference/flat_set/flat_set/count.md
-@@ -6,10 +6,13 @@
- * cpp23[meta cpp]
- 
- ```cpp
--size_type count(const key_type&amp;amp; x) const; // (1) C++23
-+size_type count(const key_type&amp;amp; x) const;           // (1) C++23
-+constexpr size_type count(const key_type&amp;amp; x) const; // (1) C++26
- 
- template &amp;lt;class K&amp;gt;
--size_type count(const K&amp;amp; x) const;        // (2) C++23
-+size_type count(const K&amp;amp; x) const;           // (2) C++23
-+template &amp;lt;class K&amp;gt;
-+constexpr size_type count(const K&amp;amp; x) const; // (2) C++26
- ```
- 
- ## 概要
-@@ -95,3 +98,7 @@ found
- 
- ## 関連項目
- - [`contains()`](contains.md)
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>crbegin -- flat_set</title>
-      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/crbegin.html"/>
-      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/crbegin.md</id>
-      <updated>2026-02-17T18:05:38+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/crbegin.md b/reference/flat_set/flat_set/crbegin.md
-index 966106f5b..81f984293 100644
---- a/reference/flat_set/flat_set/crbegin.md
-+++ b/reference/flat_set/flat_set/crbegin.md
-@@ -6,7 +6,8 @@
- * cpp23[meta cpp]
- 
- ```cpp
--const_reverse_iterator crbegin() const noexcept;
-+const_reverse_iterator crbegin() const noexcept;           // (1) C++23
-+constexpr const_reverse_iterator crbegin() const noexcept; // (1) C++26
- ```
- 
- ## 概要
-@@ -68,3 +69,7 @@ int main()
- | [`flat_set::rbegin`](rbegin.md) | 末尾を指す逆イテレータを取得する |
- | [`flat_set::rend`](rend.md)     | 先頭の前を指す逆イテレータを取得する |
- | [`flat_set::crend`](crend.md)   | 先頭の前を指す逆constイテレータを取得する |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>crend -- flat_set</title>
-      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/crend.html"/>
-      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/crend.md</id>
-      <updated>2026-02-17T18:05:38+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/crend.md b/reference/flat_set/flat_set/crend.md
-index 01a8136ab..7176bd721 100644
---- a/reference/flat_set/flat_set/crend.md
-+++ b/reference/flat_set/flat_set/crend.md
-@@ -6,7 +6,8 @@
- * cpp23[meta cpp]
- 
- ```cpp
--const_reverse_iterator crend() const noexcept;
-+const_reverse_iterator crend() const noexcept;           // (1) C++23
-+constexpr const_reverse_iterator crend() const noexcept; // (1) C++26
- ```
- 
- 
-@@ -66,3 +67,7 @@ int main()
- | [`flat_set::rbegin`](rbegin.md)   | 末尾を指す逆イテレータを取得する |
- | [`flat_set::rend`](rend.md)       | 先頭の前を指す逆イテレータを取得する |
- | [`flat_set::crbegin`](crbegin.md) | 末尾を指す逆constイテレータを取得する |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>emplace -- flat_set</title>
-      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/emplace.html"/>
-      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/emplace.md</id>
-      <updated>2026-02-17T18:05:38+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/emplace.md b/reference/flat_set/flat_set/emplace.md
-index 1c04c403c..2c9ac1f99 100644
---- a/reference/flat_set/flat_set/emplace.md
-+++ b/reference/flat_set/flat_set/emplace.md
-@@ -7,7 +7,9 @@
- 
- ```cpp
- template &amp;lt;class... Args&amp;gt;
--pair&amp;lt;iterator, bool&amp;gt; emplace(Args&amp;amp;&amp;amp;... args);
-+pair&amp;lt;iterator, bool&amp;gt; emplace(Args&amp;amp;&amp;amp;... args);           // (1) C++23
-+template &amp;lt;class... Args&amp;gt;
-+constexpr pair&amp;lt;iterator, bool&amp;gt; emplace(Args&amp;amp;&amp;amp;... args); // (1) C++26
- ```
- 
- ## 概要
-@@ -120,3 +122,7 @@ CCCCC
- | [`flat_set::insert`](insert.md)             | 要素を挿入する                             |
- | [`flat_set::insert_range`](insert_range.md) | Rangeを挿入する                            |
- | [`flat_set::emplace_hint`](emplace_hint.md) | ヒントを使って要素を直接構築する           |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>emplace_hint -- flat_set</title>
-      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/emplace_hint.html"/>
-      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/emplace_hint.md</id>
-      <updated>2026-02-17T18:05:38+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/emplace_hint.md b/reference/flat_set/flat_set/emplace_hint.md
-index 46f6abed6..2d97e3021 100644
---- a/reference/flat_set/flat_set/emplace_hint.md
-+++ b/reference/flat_set/flat_set/emplace_hint.md
-@@ -7,7 +7,13 @@
- 
- ```cpp
- template &amp;lt;class... Args&amp;gt;
--iterator emplace_hint(const_iterator hint, Args&amp;amp;&amp;amp;... args);
-+iterator
-+  emplace_hint(const_iterator hint,
-+               Args&amp;amp;&amp;amp;... args);     // (1) C++23
-+template &amp;lt;class... Args&amp;gt;
-+constexpr iterator
-+  emplace_hint(const_iterator hint,
-+               Args&amp;amp;&amp;amp;... args);     // (1) C++26
- ```
- 
- ## 概要
-@@ -73,3 +79,7 @@ int main()
- | [`flat_set::insert`](insert.md)             | 要素を挿入する                             |
- | [`flat_set::insert_range`](insert_range.md) | Rangeを挿入する                            |
- | [`flat_set::emplace`](emplace.md)           | 要素を直接構築する                         |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>empty -- flat_set</title>
-      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/empty.html"/>
-      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/empty.md</id>
-      <updated>2026-02-17T18:05:38+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/empty.md b/reference/flat_set/flat_set/empty.md
-index 4b5a16816..1c424c709 100644
---- a/reference/flat_set/flat_set/empty.md
-+++ b/reference/flat_set/flat_set/empty.md
-@@ -6,7 +6,8 @@
- * cpp23[meta cpp]
- 
- ```cpp
--[[nodiscard]] bool empty() const noexcept; // (1) C++23
-+[[nodiscard]] bool empty() const noexcept;           // (1) C++23
-+[[nodiscard]] constexpr bool empty() const noexcept; // (1) C++26
- ```
- 
- ## 概要
-@@ -58,3 +59,7 @@ int main ()
- - [Clang](/implementation.md#clang): ??
- - [GCC](/implementation.md#gcc): ??
- - [Visual C++](/implementation.md#visual_cpp): ??
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>end -- flat_set</title>
-      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/end.html"/>
-      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/end.md</id>
-      <updated>2026-02-17T18:05:38+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/end.md b/reference/flat_set/flat_set/end.md
-index 0da617732..6476d9cec 100644
---- a/reference/flat_set/flat_set/end.md
-+++ b/reference/flat_set/flat_set/end.md
-@@ -6,8 +6,11 @@
- * cpp23[meta cpp]
- 
- ```cpp
--iterator end() noexcept;
--const_iterator end() const noexcept;
-+iterator end() noexcept;           // (1) C++23
-+constexpr iterator end() noexcept; // (1) C++26
-+
-+const_iterator end() const noexcept;           // (2) C++23
-+constexpr const_iterator end() const noexcept; // (2) C++26
- ```
- 
- ## 概要
-@@ -72,3 +75,7 @@ int main()
- | [`flat_set::rend`](rend.md)       | 先頭の前を指す逆イテレータを取得する |
- | [`flat_set::crbegin`](crbegin.md) | 末尾を指す逆constイテレータを取得する |
- | [`flat_set::crend`](crend.md)     | 先頭の前を指す逆constイテレータを取得する |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>equal_range -- flat_set</title>
-      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/equal_range.html"/>
-      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/equal_range.md</id>
-      <updated>2026-02-17T18:05:38+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/equal_range.md b/reference/flat_set/flat_set/equal_range.md
-index f7d055167..bc29ef366 100644
---- a/reference/flat_set/flat_set/equal_range.md
-+++ b/reference/flat_set/flat_set/equal_range.md
-@@ -6,17 +6,29 @@
- * cpp23[meta cpp]
- 
- ```cpp
--pair&amp;lt;iterator, iterator&amp;gt; equal_range(const key_type&amp;amp; x); // (1) C++23
-+pair&amp;lt;iterator, iterator&amp;gt;
-+  equal_range(const key_type&amp;amp; x); // (1) C++23
-+constexpr pair&amp;lt;iterator, iterator&amp;gt;
-+  equal_range(const key_type&amp;amp; x); // (1) C++26
- 
- template &amp;lt;class K&amp;gt;
--pair&amp;lt;iterator, iterator&amp;gt; equal_range(const K&amp;amp; x);        // (2) C++23
-+pair&amp;lt;iterator, iterator&amp;gt;
-+  equal_range(const K&amp;amp; x); // (2) C++23
-+template &amp;lt;class K&amp;gt;
-+constexpr pair&amp;lt;iterator, iterator&amp;gt;
-+  equal_range(const K&amp;amp; x); // (2) C++26
- 
- pair&amp;lt;const_iterator, const_iterator&amp;gt;
--  equal_range(const key_type&amp;amp; x) const;                  // (3) C++23
-+  equal_range(const key_type&amp;amp; x) const; // (3) C++23
-+constexpr pair&amp;lt;const_iterator, const_iterator&amp;gt;
-+  equal_range(const key_type&amp;amp; x) const; // (3) C++26
- 
- template &amp;lt;class K&amp;gt;
- pair&amp;lt;const_iterator, const_iterator&amp;gt;
--  equal_range(const K&amp;amp; x) const;                         // (4) C++23
-+  equal_range(const K&amp;amp; x) const; // (4) C++23
-+template &amp;lt;class K&amp;gt;
-+constexpr pair&amp;lt;const_iterator, const_iterator&amp;gt;
-+  equal_range(const K&amp;amp; x) const; // (4) C++26
- ```
- 
- ## 概要
-@@ -82,3 +94,7 @@ int main()
- | [`flat_set::lower_bound`](lower_bound.md) | 与えられた値より小さくない最初の要素へのイテレータを返す |
- | [`flat_set::upper_bound`](upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを返す       |
- | [`flat_set::find`](find.md)               | 指定したキーで要素を探す                                 |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>erase -- flat_set</title>
-      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/erase.html"/>
-      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/erase.md</id>
-      <updated>2026-02-17T18:05:38+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/erase.md b/reference/flat_set/flat_set/erase.md
-index f700f70f8..76375802e 100644
---- a/reference/flat_set/flat_set/erase.md
-+++ b/reference/flat_set/flat_set/erase.md
-@@ -6,16 +6,22 @@
- * cpp23[meta cpp]
- 
- ```cpp
--iterator erase(iterator position);                         // (1) C++23
-+iterator erase(iterator position);           // (1) C++23
-+constexpr iterator erase(iterator position); // (1) C++26
- 
--iterator erase(const_iterator position);                   // (2) C++23
-+iterator erase(const_iterator position);           // (2) C++23
-+constexpr iterator erase(const_iterator position); // (2) C++26
- 
--size_type erase(const key_type&amp;amp; x);                        // (3) C++23
-+size_type erase(const key_type&amp;amp; x);           // (3) C++23
-+constexpr size_type erase(const key_type&amp;amp; x); // (3) C++26
- 
- template &amp;lt;class K&amp;gt;
--size_type erase(K&amp;amp;&amp;amp; x);                                    // (4) C++23
-+size_type erase(K&amp;amp;&amp;amp; x);           // (4) C++23
-+template &amp;lt;class K&amp;gt;
-+constexpr size_type erase(K&amp;amp;&amp;amp; x); // (4) C++26
- 
--iterator erase(const_iterator first, const_iterator last); // (5) C++23
-+iterator erase(const_iterator first, const_iterator last);           // (5) C++23
-+constexpr iterator erase(const_iterator first, const_iterator last); // (5) C++26
- ```
- 
- ## 概要
-@@ -137,3 +143,7 @@ int main()
- | [`flat_set::clear`](clear.md)   | 全ての要素を削除する     |
- | [`flat_set::insert`](insert.md) | 要素を挿入する           |
- | [`flat_set::find`](find.md)     | 指定したキーで要素を探す |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>erase_if -- flat_set</title>
-      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/erase_if_free.html"/>
-      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/erase_if_free.md</id>
-      <updated>2026-02-17T18:05:38+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/erase_if_free.md b/reference/flat_set/flat_set/erase_if_free.md
-index 58646f1c2..8e6d7d2e4 100644
---- a/reference/flat_set/flat_set/erase_if_free.md
-+++ b/reference/flat_set/flat_set/erase_if_free.md
-@@ -12,7 +12,14 @@ namespace std {
-            class Predicate&amp;gt;
-   typename flat_set&amp;lt;Key, Compare, KeyContainer&amp;gt;::size_type
-     erase_if(flat_set&amp;lt;Key, Compare, KeyContainer&amp;gt;&amp;amp; c,
--             Predicate pred);
-+             Predicate pred); // (1) C++23
-+  template&amp;lt;class Key,
-+           class Compare,
-+           class KeyContainer,
-+           class Predicate&amp;gt;
-+  constexpr typename flat_set&amp;lt;Key, Compare, KeyContainer&amp;gt;::size_type
-+    erase_if(flat_set&amp;lt;Key, Compare, KeyContainer&amp;gt;&amp;amp; c,
-+             Predicate pred); // (1) C++26
- }
- ```
- 
-@@ -69,3 +76,7 @@ int main()
- - [Clang](/implementation.md#clang): ??
- - [GCC](/implementation.md#gcc): ??
- - [Visual C++](/implementation.md#visual_cpp): ??
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>extract -- flat_set</title>
-      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/extract.html"/>
-      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/extract.md</id>
-      <updated>2026-02-17T18:05:38+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/extract.md b/reference/flat_set/flat_set/extract.md
-index dc2bbe200..7be8b7cac 100644
---- a/reference/flat_set/flat_set/extract.md
-+++ b/reference/flat_set/flat_set/extract.md
-@@ -6,7 +6,8 @@
- * cpp23[meta cpp]
- 
- ```cpp
--container_type extract() &amp;amp;&amp;amp;;  // C++23
-+container_type extract() &amp;amp;&amp;amp;;           // (1) C++23
-+constexpr container_type extract() &amp;amp;&amp;amp;; // (1) C++26
- ```
- 
- ## 概要
-@@ -75,3 +76,7 @@ int main()
- - [GCC](/implementation.md#gcc): ??
- - [ICC](/implementation.md#icc): ??
- - [Visual C++](/implementation.md#visual_cpp): ??
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>find -- flat_set</title>
-      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/find.html"/>
-      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/find.md</id>
-      <updated>2026-02-17T18:05:38+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/find.md b/reference/flat_set/flat_set/find.md
-index b4fba9c70..3a94af992 100644
---- a/reference/flat_set/flat_set/find.md
-+++ b/reference/flat_set/flat_set/find.md
-@@ -6,15 +6,21 @@
- * cpp23[meta cpp]
- 
- ```cpp
--iterator find(const key_type&amp;amp; x);             // (1) C++23
-+iterator find(const key_type&amp;amp; x);           // (1) C++23
-+constexpr iterator find(const key_type&amp;amp; x); // (1) C++26
- 
- template &amp;lt;class K&amp;gt;
--iterator find(const K&amp;amp; x);                    // (2) C++23
-+iterator find(const K&amp;amp; x);           // (2) C++23
-+template &amp;lt;class K&amp;gt;
-+constexpr iterator find(const K&amp;amp; x); // (2) C++26
- 
--const_iterator find(const key_type&amp;amp; x) const; // (3) C++23
-+const_iterator find(const key_type&amp;amp; x) const;           // (3) C++23
-+constexpr const_iterator find(const key_type&amp;amp; x) const; // (3) C++26
- 
- template &amp;lt;class K&amp;gt;
--const_iterator find(const K&amp;amp; x) const;        // (4) C++23
-+const_iterator find(const K&amp;amp; x) const;           // (4) C++23
-+template &amp;lt;class K&amp;gt;
-+constexpr const_iterator find(const K&amp;amp; x) const; // (4) C++26
- ```
- 
- ## 概要
-@@ -99,3 +105,7 @@ Bob
- 
- ## 関連項目
- - [`contains()`](contains.md)
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>insert -- flat_set</title>
-      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/insert.html"/>
-      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/insert.md</id>
-      <updated>2026-02-17T18:05:38+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/insert.md b/reference/flat_set/flat_set/insert.md
-index 669f34497..84c7ffbe7 100644
---- a/reference/flat_set/flat_set/insert.md
-+++ b/reference/flat_set/flat_set/insert.md
-@@ -6,34 +6,77 @@
- * cpp23[meta cpp]
- 
- ```cpp
--pair&amp;lt;iterator, bool&amp;gt; insert(const value_type&amp;amp; x); // (1) C++23
--pair&amp;lt;iterator, bool&amp;gt; insert(value_type&amp;amp;&amp;amp; x);      // (2) C++23
--
--iterator insert(const_iterator position,
--                const value_type&amp;amp; x);             // (3) C++23
--iterator insert(const_iterator position,
--                value_type&amp;amp;&amp;amp; x);                  // (4) C++23
-+pair&amp;lt;iterator, bool&amp;gt;
-+  insert(const value_type&amp;amp; x);  // (1) C++23
-+constexpr pair&amp;lt;iterator, bool&amp;gt;
-+  insert(const value_type&amp;amp; x); // (1) C++26
-+
-+pair&amp;lt;iterator, bool&amp;gt;
-+  insert(value_type&amp;amp;&amp;amp; x); // (2) C++23
-+constexpr pair&amp;lt;iterator, bool&amp;gt;
-+  insert(value_type&amp;amp;&amp;amp; x); // (2) C++26
-+
-+iterator
-+  insert(const_iterator position,
-+         const value_type&amp;amp; x); // (3) C++23
-+constexpr iterator
-+  insert(const_iterator position,
-+         const value_type&amp;amp; x); // (3) C++26
-+
-+iterator
-+  insert(const_iterator position,
-+         value_type&amp;amp;&amp;amp; x); // (4) C++23
-+constexpr iterator
-+  insert(const_iterator position,
-+         value_type&amp;amp;&amp;amp; x); // (4) C++26
- 
- template&amp;lt;class P&amp;gt;
--pair&amp;lt;iterator, bool&amp;gt; insert(P&amp;amp;&amp;amp; x);               // (5) C++23
-+pair&amp;lt;iterator, bool&amp;gt;
-+  insert(P&amp;amp;&amp;amp; x); // (5) C++23
-+template&amp;lt;class P&amp;gt;
-+constexpr pair&amp;lt;iterator, bool&amp;gt;
-+  insert(P&amp;amp;&amp;amp; x); // (5) C++26
- 
- template&amp;lt;class P&amp;gt;
--iterator insert(const_iterator position,
--                P&amp;amp;&amp;amp;);                             // (6) C++23
-+iterator
-+  insert(const_iterator position,
-+         P&amp;amp;&amp;amp;); // (6) C++23
-+template&amp;lt;class P&amp;gt;
-+constexpr iterator
-+  insert(const_iterator position,
-+         P&amp;amp;&amp;amp;); // (6) C++26
- 
- template&amp;lt;class InputIterator&amp;gt;
--void insert(InputIterator first,
--            InputIterator last);                  // (7) C++23
--
-+void
-+  insert(InputIterator first,
-+         InputIterator last); // (7) C++23
- template&amp;lt;class InputIterator&amp;gt;
--void insert(sorted_unique_t,
--            InputIterator first,
--            InputIterator last);                  // (8) C++23
--
--void insert(initializer_list&amp;lt;value_type&amp;gt; il);     // (9) C++23
-+constexpr void
-+  insert(InputIterator first,
-+         InputIterator last); // (7) C++26
- 
--void insert(sorted_unique_t s,
--            initializer_list&amp;lt;value_type&amp;gt; il);     // (10) C++23
-+template&amp;lt;class InputIterator&amp;gt;
-+void
-+  insert(sorted_unique_t,
-+         InputIterator first,
-+         InputIterator last); // (8) C++23
-+template&amp;lt;class InputIterator&amp;gt;
-+constexpr void
-+  insert(sorted_unique_t,
-+         InputIterator first,
-+         InputIterator last); // (8) C++26
-+
-+void
-+  insert(initializer_list&amp;lt;value_type&amp;gt; il); // (9) C++23
-+constexpr void
-+  insert(initializer_list&amp;lt;value_type&amp;gt; il); // (9) C++26
-+
-+void
-+  insert(sorted_unique_t s,
-+         initializer_list&amp;lt;value_type&amp;gt; il); // (10) C++23
-+constexpr void
-+  insert(sorted_unique_t s,
-+         initializer_list&amp;lt;value_type&amp;gt; il); // (10) C++26
- ```
- * initializer_list[link /reference/initializer_list/initializer_list.md]
- * sorted_unique_t[link /reference/flat_set/sorted_unique_t.md]
-@@ -223,3 +266,7 @@ int main()
- | [`flat_set::insert_range`](insert_range.md) | Rangeを挿入する                  |
- | [`flat_set::emplace`](emplace.md)           | 要素を直接構築する               |
- | [`flat_set::emplace_hint`](emplace_hint.md) | ヒントを使って要素を直接構築する |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>insert_range -- flat_set</title>
-      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/insert_range.html"/>
-      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/insert_range.md</id>
-      <updated>2026-02-17T18:05:38+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/insert_range.md b/reference/flat_set/flat_set/insert_range.md
-index 1e67de38f..7a83eae38 100644
---- a/reference/flat_set/flat_set/insert_range.md
-+++ b/reference/flat_set/flat_set/insert_range.md
-@@ -7,7 +7,9 @@
- 
- ```cpp
- template&amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
--void insert_range(R&amp;amp;&amp;amp; rg);                        // (1) C++23
-+void insert_range(R&amp;amp;&amp;amp; rg);           // (1) C++23
-+template&amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
-+constexpr void insert_range(R&amp;amp;&amp;amp; rg); // (1) C++26
- ```
- * container-compatible-range[link /reference/exposition-only/container-compatible-range.md]
- 
-@@ -77,3 +79,7 @@ int main()
- | [`flat_set::insert`](insert.md)             | 要素を挿入する                   |
- | [`flat_set::emplace`](emplace.md)           | 要素を直接構築する               |
- | [`flat_set::emplace_hint`](emplace_hint.md) | ヒントを使って要素を直接構築する |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>key_comp -- flat_set</title>
-      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/key_comp.html"/>
-      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/key_comp.md</id>
-      <updated>2026-02-17T18:05:38+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/key_comp.md b/reference/flat_set/flat_set/key_comp.md
-index af9fc6862..c919f4f7f 100644
---- a/reference/flat_set/flat_set/key_comp.md
-+++ b/reference/flat_set/flat_set/key_comp.md
-@@ -6,7 +6,8 @@
- * cpp23[meta cpp]
- 
- ```cpp
--key_compare key_comp() const; // C++23
-+key_compare key_comp() const;           // (1) C++23
-+constexpr key_compare key_comp() const; // (1) C++26
- ```
- 
- 
-@@ -62,3 +63,7 @@ int main()
- | 名前                                | 説明                                                     |
- |-------------------------------------|----------------------------------------------------------|
- | [`value_comp`](value_comp.md)       | 要素比較用の関数オブジェクトを返す                       |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>lower_bound -- flat_set</title>
-      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/lower_bound.html"/>
-      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/lower_bound.md</id>
-      <updated>2026-02-17T18:05:38+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/lower_bound.md b/reference/flat_set/flat_set/lower_bound.md
-index fe9904855..1d1af01a9 100644
---- a/reference/flat_set/flat_set/lower_bound.md
-+++ b/reference/flat_set/flat_set/lower_bound.md
-@@ -6,15 +6,21 @@
- * cpp23[meta cpp]
- 
- ```cpp
--iterator lower_bound(const key_type&amp;amp; x);             // (1) C++23
-+iterator lower_bound(const key_type&amp;amp; x);           // (1) C++23
-+constexpr iterator lower_bound(const key_type&amp;amp; x); // (1) C++26
- 
- template &amp;lt;class K&amp;gt;
--iterator lower_bound(const K&amp;amp; x);                    // (2) C++23
-+iterator lower_bound(const K&amp;amp; x);           // (2) C++23
-+template &amp;lt;class K&amp;gt;
-+constexpr iterator lower_bound(const K&amp;amp; x); // (2) C++26
- 
--const_iterator lower_bound(const key_type&amp;amp; x) const; // (3) C++23
-+const_iterator lower_bound(const key_type&amp;amp; x) const;           // (3) C++23
-+constexpr const_iterator lower_bound(const key_type&amp;amp; x) const; // (3) C++26
- 
- template &amp;lt;class K&amp;gt;
--const_iterator lower_bound(const K&amp;amp; x) const;        // (4) C++23
-+const_iterator lower_bound(const K&amp;amp; x) const;           // (4) C++23
-+template &amp;lt;class K&amp;gt;
-+constexpr const_iterator lower_bound(const K&amp;amp; x) const; // (4) C++26
- ```
- 
- ## 概要
-@@ -119,3 +125,7 @@ David
- | [`flat_set::equal_range`](equal_range.md) | 指定したキーにマッチする要素範囲を返す               |
- | [`flat_set::find`](find.md)               | 指定したキーで要素を探す                             |
- | [`flat_set::count`](count.md)             | 指定したキーにマッチする要素の数を返す               |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>max_size -- flat_set</title>
-      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/max_size.html"/>
-      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/max_size.md</id>
-      <updated>2026-02-17T18:05:38+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/max_size.md b/reference/flat_set/flat_set/max_size.md
-index 470209043..202945b73 100644
---- a/reference/flat_set/flat_set/max_size.md
-+++ b/reference/flat_set/flat_set/max_size.md
-@@ -6,7 +6,8 @@
- * cpp23[meta cpp]
- 
- ```cpp
--size_type max_size() const noexcept; // (1) C++23
-+size_type max_size() const noexcept;           // (1) C++23
-+constexpr size_type max_size() const noexcept; // (1) C++26
- ```
- 
- ## 概要
-@@ -49,3 +50,7 @@ int main()
- - [Clang](/implementation.md#clang): ??
- - [GCC](/implementation.md#gcc): ??
- - [Visual C++](/implementation.md#visual_cpp): ??
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>operator= -- flat_set</title>
-      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/op_assign.html"/>
-      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/op_assign.md</id>
-      <updated>2026-02-17T18:05:38+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/op_assign.md b/reference/flat_set/flat_set/op_assign.md
-index 4999cee1e..15a3c4589 100644
---- a/reference/flat_set/flat_set/op_assign.md
-+++ b/reference/flat_set/flat_set/op_assign.md
-@@ -6,7 +6,8 @@
- * cpp23[meta cpp]
- 
- ```cpp
--flat_set&amp;amp; operator=(initializer_list&amp;lt;value_type&amp;gt; il); // C++23
-+flat_set&amp;amp; operator=(initializer_list&amp;lt;value_type&amp;gt; il);           // (1) C++23
-+constexpr flat_set&amp;amp; operator=(initializer_list&amp;lt;value_type&amp;gt; il); // (1) C++26
- ```
- * initializer_list[link /reference/initializer_list/initializer_list.md]
- 
-@@ -63,3 +64,7 @@ Carol
- - [GCC](/implementation.md#gcc): ??
- - [ICC](/implementation.md#icc): ??
- - [Visual C++](/implementation.md#visual_cpp): ??
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>operator&lt;=&gt; -- flat_set</title>
-      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/op_compare_3way.html"/>
-      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/op_compare_3way.md</id>
-      <updated>2026-02-17T18:05:38+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/op_compare_3way.md b/reference/flat_set/flat_set/op_compare_3way.md
-index a9c38f5a9..f7eae7213 100644
---- a/reference/flat_set/flat_set/op_compare_3way.md
-+++ b/reference/flat_set/flat_set/op_compare_3way.md
-@@ -9,6 +9,9 @@
- synth-three-way-result&amp;lt;value_type&amp;gt;
-   operator&amp;lt;=&amp;gt;(const flat_set&amp;amp; x,
-               const flat_set&amp;amp; y); // (1) C++23
-+constexpr synth-three-way-result&amp;lt;value_type&amp;gt;
-+  operator&amp;lt;=&amp;gt;(const flat_set&amp;amp; x,
-+              const flat_set&amp;amp; y); // (1) C++26
- ```
- 
- ## 概要
-@@ -80,3 +83,7 @@ false
- - [Clang](/implementation.md#clang): ??
- - [GCC](/implementation.md#gcc): ??
- - [Visual C++](/implementation.md#visual_cpp): ??
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>コンストラクタ -- flat_set</title>
-      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/op_constructor.html"/>
-      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/op_constructor.md</id>
-      <updated>2026-02-17T18:05:38+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/op_constructor.md b/reference/flat_set/flat_set/op_constructor.md
-index 7a6fa5aaf..a46c4228f 100644
---- a/reference/flat_set/flat_set/op_constructor.md
-+++ b/reference/flat_set/flat_set/op_constructor.md
-@@ -8,117 +8,281 @@
- ```cpp
- // ____要素数ゼロのflat_setを構築____
- 
--flat_set() : flat_set(key_compare()) { } // (1) C++23
-+flat_set()
-+  : flat_set(key_compare()) { } // (1) C++23
- 
--explicit flat_set(const key_compare&amp;amp; comp) // (2) C++23
--  : c(), compare(comp) { }
-+explicit
-+  flat_set(const key_compare&amp;amp; comp) // (2) C++23
-+    : c(), compare(comp) { }
-+constexpr explicit
-+  flat_set(const key_compare&amp;amp; comp) // (2) C++26
-+    : c(), compare(comp) { }
- 
- template&amp;lt;class Allocator&amp;gt;
--explicit flat_set(const Allocator&amp;amp; a); // (3) C++23
-+explicit
-+  flat_set(const Allocator&amp;amp; a); // (3) C++23
-+template&amp;lt;class Allocator&amp;gt;
-+constexpr explicit
-+  flat_set(const Allocator&amp;amp; a); // (3) C++26
- 
- template&amp;lt;class Allocator&amp;gt;
--flat_set(const key_compare&amp;amp; comp, const Allocator&amp;amp; a); // (4) C++23
-+flat_set(const key_compare&amp;amp; comp,
-+         const Allocator&amp;amp; a);   // (4) C++23
-+template&amp;lt;class Allocator&amp;gt;
-+constexpr
-+  flat_set(const key_compare&amp;amp; comp,
-+           const Allocator&amp;amp; a); // (4) C++26
- 
- // ____アロケータを伴うコピー＆ムーブコンストラクタ____
- 
-  template&amp;lt;class Allocator&amp;gt;
-- flat_set(const flat_set&amp;amp; x, const Allocator&amp;amp; a); // (5) C++26
-+ constexpr
-+   flat_set(const flat_set&amp;amp; x,
-+            const Allocator&amp;amp; a); // (5) C++26
- 
-  template&amp;lt;class Allocator&amp;gt;
-- flat_set(flat_set&amp;amp;&amp;amp; x, const Allocator&amp;amp; a); // (6) C++26
-+ constexpr
-+   flat_set(flat_set&amp;amp;&amp;amp; x,
-+            const Allocator&amp;amp; a); // (6) C++26
- 
- // ____container_typeから構築____
- 
- flat_set(container_type cont,
--         const key_compare&amp;amp; comp = key_compare()); // (7) C++23
-+         const key_compare&amp;amp; comp = key_compare());   // (7) C++23
-+constexpr
-+  flat_set(container_type cont,
-+           const key_compare&amp;amp; comp = key_compare()); // (7) C++26
- 
- template&amp;lt;class Allocator&amp;gt;
- flat_set(const container_type cont&amp;amp;,
--         const Allocator&amp;amp; a); // (8) C++23
-+         const Allocator&amp;amp; a);   // (8) C++23
-+template&amp;lt;class Allocator&amp;gt;
-+constexpr
-+  flat_set(const container_type cont&amp;amp;,
-+           const Allocator&amp;amp; a); // (8) C++26
- 
- template&amp;lt;class Allocator&amp;gt;
- flat_set(const container_type&amp;amp; cont,
--         const key_compare&amp;amp; comp, const Allocator&amp;amp; a); // (9) C++23
-+         const key_compare&amp;amp; comp,
-+         const Allocator&amp;amp; a);   // (9) C++23
-+template&amp;lt;class Allocator&amp;gt;
-+constexpr
-+  flat_set(const container_type&amp;amp; cont,
-+           const key_compare&amp;amp; comp,
-+           const Allocator&amp;amp; a); // (9) C++26
- 
- // ____container_type（ソート済み且つ重複なし）から構築____
- 
--flat_set(sorted_unique_t, container_type cont,
--         const key_compare&amp;amp; comp = key_compare()); // (10) C++23
-+flat_set(sorted_unique_t,
-+         container_type cont,
-+         const key_compare&amp;amp; comp = key_compare());   // (10) C++23
-+constexpr
-+  flat_set(sorted_unique_t,
-+           container_type cont,
-+           const key_compare&amp;amp; comp = key_compare()); // (10) C++26
- 
- template&amp;lt;class Allocator&amp;gt;
--flat_set(sorted_unique_t, const container_type&amp;amp; cont,
--         const Allocator&amp;amp; a); // (11) C++23
-+flat_set(sorted_unique_t,
-+         const container_type&amp;amp; cont,
-+         const Allocator&amp;amp; a);   // (11) C++23
-+template&amp;lt;class Allocator&amp;gt;
-+constexpr
-+  flat_set(sorted_unique_t,
-+           const container_type&amp;amp; cont,
-+           const Allocator&amp;amp; a); // (11) C++26
- 
- template&amp;lt;class Allocator&amp;gt;
--flat_set(sorted_unique_t, const container_type&amp;amp; cont,
--         const key_compare&amp;amp; comp, const Allocator&amp;amp; a); // (12) C++23
-+flat_set(sorted_unique_t,
-+         const container_type&amp;amp; cont,
-+         const key_compare&amp;amp; comp,
-+         const Allocator&amp;amp; a);   // (12) C++23
-+template&amp;lt;class Allocator&amp;gt;
-+constexpr
-+  flat_set(sorted_unique_t,
-+           const container_type&amp;amp; cont,
-+           const key_compare&amp;amp; comp,
-+           const Allocator&amp;amp; a); // (12) C++26
- 
- // ____イテレータから構築____
--
- template&amp;lt;class InputIterator&amp;gt;
--flat_set(InputIterator first, InputIterator last, const key_compare&amp;amp; comp = key_compare()) // (13) C++23
-+flat_set(InputIterator first,
-+         InputIterator last,
-+         const key_compare&amp;amp; comp = key_compare())   // (13) C++23
-   : c(), compare(comp) { insert(first, last); }
-+template&amp;lt;class InputIterator&amp;gt;
-+constexpr
-+  flat_set(InputIterator first,
-+           InputIterator last,
-+           const key_compare&amp;amp; comp = key_compare()) // (13) C++26
-+    : c(), compare(comp) { insert(first, last); }
- 
- template&amp;lt;class InputIterator, class Allocator&amp;gt;
--flat_set(InputIterator first, InputIterator last, const Allocator&amp;amp; a); // (14) C++23
-+flat_set(InputIterator first,
-+         InputIterator last,
-+         const Allocator&amp;amp; a);   // (14) C++23
-+template&amp;lt;class InputIterator, class Allocator&amp;gt;
-+constexpr
-+  flat_set(InputIterator first,
-+           InputIterator last,
-+           const Allocator&amp;amp; a); // (14) C++26
- 
- template&amp;lt;class InputIterator, class Allocator&amp;gt;
--flat_set(InputIterator first, InputIterator last,
--         const key_compare&amp;amp; comp, const Allocator&amp;amp; a); // (15) C++23
-+flat_set(InputIterator first,
-+         InputIterator last,
-+         const key_compare&amp;amp; comp,
-+         const Allocator&amp;amp; a);   // (15) C++23
-+template&amp;lt;class InputIterator, class Allocator&amp;gt;
-+constexpr
-+  flat_set(InputIterator first,
-+           InputIterator last,
-+           const key_compare&amp;amp; comp,
-+           const Allocator&amp;amp; a); // (15) C++26
- 
- // ____イテレータ（ソート済み且つ重複なし）から構築____
--
- template&amp;lt;class InputIterator&amp;gt;
--flat_set(sorted_unique_t s, InputIterator first, InputIterator last,
--         const key_compare&amp;amp; comp = key_compare()) // (16) C++23
-+flat_set(sorted_unique_t s,
-+         InputIterator first,
-+         InputIterator last,
-+         const key_compare&amp;amp; comp = key_compare())   // (16) C++23
-   : c(), compare(comp) { insert(s, first, last); }
-+template&amp;lt;class InputIterator&amp;gt;
-+constexpr
-+  flat_set(sorted_unique_t s,
-+           InputIterator first,
-+           InputIterator last,
-+           const key_compare&amp;amp; comp = key_compare()) // (16) C++26
-+    : c(), compare(comp) { insert(s, first, last); }
- 
- template&amp;lt;class InputIterator, class Allocator&amp;gt;
--flat_set(sorted_unique_t, InputIterator first, InputIterator last, const Allocator&amp;amp; a); // (17) C++23
-+flat_set(sorted_unique_t,
-+         InputIterator first,
-+         InputIterator last,
-+         const Allocator&amp;amp; a);   // (17) C++23
-+template&amp;lt;class InputIterator, class Allocator&amp;gt;
-+constexpr
-+  flat_set(sorted_unique_t,
-+           InputIterator first,
-+           InputIterator last,
-+           const Allocator&amp;amp; a); // (17) C++26
- 
- template&amp;lt;class InputIterator, class Allocator&amp;gt;
--flat_set(sorted_unique_t, InputIterator first, InputIterator last,
--         const key_compare&amp;amp; comp, const Allocator&amp;amp; a); // (18) C++23
-+flat_set(sorted_unique_t,
-+         InputIterator first,
-+         InputIterator last,
-+         const key_compare&amp;amp; comp,
-+         const Allocator&amp;amp; a);   // (18) C++23
-+template&amp;lt;class InputIterator, class Allocator&amp;gt;
-+constexpr
-+  flat_set(sorted_unique_t,
-+           InputIterator first,
-+           InputIterator last,
-+           const key_compare&amp;amp; comp,
-+           const Allocator&amp;amp; a); // (18) C++26
- 
- // ____Rangeから構築____
--
- template&amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
--flat_set(from_range_t fr, R&amp;amp;&amp;amp; rg) // (19) C++23
-+flat_set(from_range_t fr,
-+         R&amp;amp;&amp;amp; rg)   // (19) C++23
-   : flat_set(fr, forward&amp;lt;R&amp;gt;(rg), key_compare()) { }
-+template&amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
-+constexpr
-+  flat_set(from_range_t fr,
-+           R&amp;amp;&amp;amp; rg) // (19) C++26
-+    : flat_set(fr, forward&amp;lt;R&amp;gt;(rg), key_compare()) { }
- 
- template&amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
--flat_set(from_range_t, R&amp;amp;&amp;amp; rg, const key_compare&amp;amp; comp) // (20) C++23
-+flat_set(from_range_t,
-+         R&amp;amp;&amp;amp; rg,
-+         const key_compare&amp;amp; comp)   // (20) C++23
-+  : flat_set(comp) { insert_range(forward&amp;lt;R&amp;gt;(rg)); }
-+template&amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
-+constexpr
-+  flat_set(from_range_t,
-+           R&amp;amp;&amp;amp; rg,
-+           const key_compare&amp;amp; comp) // (20) C++26
-   : flat_set(comp) { insert_range(forward&amp;lt;R&amp;gt;(rg)); }
- 
- template&amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R, class Allocator&amp;gt;
--flat_set(from_range_t, R&amp;amp;&amp;amp; rg, const Allocator&amp;amp; a); // (21) C++23
-+flat_set(from_range_t,
-+         R&amp;amp;&amp;amp; rg,
-+         const Allocator&amp;amp; a);   // (21) C++23
-+template&amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R, class Allocator&amp;gt;
-+constexpr
-+  flat_set(from_range_t,
-+           R&amp;amp;&amp;amp; rg,
-+           const Allocator&amp;amp; a); // (21) C++26
- 
- template&amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R, class Allocator&amp;gt;
--flat_set(from_range_t, R&amp;amp;&amp;amp; rg, const key_compare&amp;amp; comp, const Allocator&amp;amp; a); // (22) C++23
-+flat_set(from_range_t,
-+         R&amp;amp;&amp;amp; rg,
-+         const key_compare&amp;amp; comp,
-+         const Allocator&amp;amp; a);   // (22) C++23
-+template&amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R, class Allocator&amp;gt;
-+constexpr
-+  flat_set(from_range_t,
-+           R&amp;amp;&amp;amp; rg,
-+           const key_compare&amp;amp; comp,
-+           const Allocator&amp;amp; a); // (22) C++26
- 
- // ____initializer_listから構築____
--
--flat_set(initializer_list&amp;lt;value_type&amp;gt; il, const key_compare&amp;amp; comp = key_compare()) // (23) C++23
-+flat_set(initializer_list&amp;lt;value_type&amp;gt; il,
-+         const key_compare&amp;amp; comp = key_compare())   // (23) C++23
-   : flat_set(il.begin(), il.end(), comp) { }
-+constexpr
-+  flat_set(initializer_list&amp;lt;value_type&amp;gt; il,
-+           const key_compare&amp;amp; comp = key_compare()) // (23) C++26
-+    : flat_set(il.begin(), il.end(), comp) { }
- 
- template&amp;lt;class Allocator&amp;gt;
--flat_set(initializer_list&amp;lt;value_type&amp;gt; il, const Allocator&amp;amp; a); // (24) C++23
-+flat_set(initializer_list&amp;lt;value_type&amp;gt; il,
-+         const Allocator&amp;amp; a);   // (24) C++23
-+template&amp;lt;class Allocator&amp;gt;
-+constexpr
-+  flat_set(initializer_list&amp;lt;value_type&amp;gt; il,
-+           const Allocator&amp;amp; a); // (24) C++26
- 
- template&amp;lt;class Allocator&amp;gt;
--flat_set(initializer_list&amp;lt;value_type&amp;gt; il, const key_compare&amp;amp; comp, const Allocator&amp;amp; a); // (25) C++23
-+flat_set(initializer_list&amp;lt;value_type&amp;gt; il,
-+         const key_compare&amp;amp; comp,
-+         const Allocator&amp;amp; a);   // (25) C++23
-+template&amp;lt;class Allocator&amp;gt;
-+constexpr
-+  flat_set(initializer_list&amp;lt;value_type&amp;gt; il,
-+           const key_compare&amp;amp; comp,
-+           const Allocator&amp;amp; a); // (25) C++26
- 
- // ____initializer_list（ソート済み且つ重複なし）から構築____
--
--flat_set(sorted_unique_t s, initializer_list&amp;lt;value_type&amp;gt; il,
--         const key_compare&amp;amp; comp = key_compare()) // (26) C++23
-+flat_set(sorted_unique_t s,
-+         initializer_list&amp;lt;value_type&amp;gt; il,
-+         const key_compare&amp;amp; comp = key_compare())   // (26) C++23
-+  : flat_set(s, il.begin(), il.end(), comp) { }
-+constexpr
-+  flat_set(sorted_unique_t s,
-+           initializer_list&amp;lt;value_type&amp;gt; il,
-+           const key_compare&amp;amp; comp = key_compare()) // (26) C++26
-   : flat_set(s, il.begin(), il.end(), comp) { }
- 
- template&amp;lt;class Allocator&amp;gt;
--flat_set(sorted_unique_t, initializer_list&amp;lt;value_type&amp;gt; il, const Allocator&amp;amp; a); // (27) C++23
-+flat_set(sorted_unique_t,
-+         initializer_list&amp;lt;value_type&amp;gt; il,
-+         const Allocator&amp;amp; a);   // (27) C++23
-+template&amp;lt;class Allocator&amp;gt;
-+constexpr
-+  flat_set(sorted_unique_t,
-+           initializer_list&amp;lt;value_type&amp;gt; il,
-+           const Allocator&amp;amp; a); // (27) C++26
- 
- template&amp;lt;class Allocator&amp;gt;
--flat_set(sorted_unique_t, initializer_list&amp;lt;value_type&amp;gt; il,
--         const key_compare&amp;amp; comp, const Allocator&amp;amp; a); // (28) C++23
-+flat_set(sorted_unique_t,
-+         initializer_list&amp;lt;value_type&amp;gt; il,
-+         const key_compare&amp;amp; comp,
-+         const Allocator&amp;amp; a);   // (28) C++23
-+template&amp;lt;class Allocator&amp;gt;
-+constexpr
-+  flat_set(sorted_unique_t,
-+           initializer_list&amp;lt;value_type&amp;gt; il,
-+           const key_compare&amp;amp; comp,
-+           const Allocator&amp;amp; a); // (28) C++26
- ```
- * initializer_list[link /reference/initializer_list/initializer_list.md]
- * from_range_t[link ../../ranges/from_range_t.md]
-@@ -265,3 +429,7 @@ int main()
- | 名前 | 説明 |
- |---------------------------------------|--------------------------------------------|
- | [`uses_allocator`](uses_allocator.md) | 指定されたアロケータと合致するかをチェックする |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>operator== -- flat_set</title>
-      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/op_equal.html"/>
-      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/op_equal.md</id>
-      <updated>2026-02-17T18:05:38+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/op_equal.md b/reference/flat_set/flat_set/op_equal.md
-index 83e8b60ed..5f282dac9 100644
---- a/reference/flat_set/flat_set/op_equal.md
-+++ b/reference/flat_set/flat_set/op_equal.md
-@@ -6,7 +6,8 @@
- * cpp23[meta cpp]
- 
- ```cpp
--friend bool operator==(const flat_set&amp;amp; x, const flat_set&amp;amp; y);
-+friend bool operator==(const flat_set&amp;amp; x, const flat_set&amp;amp; y);           // (1) C++23
-+constexpr friend bool operator==(const flat_set&amp;amp; x, const flat_set&amp;amp; y); // (1) C++26
- ```
- 
- ## 概要
-@@ -69,3 +70,7 @@ true
- - [Clang](/implementation.md#clang): ??
- - [GCC](/implementation.md#gcc): ??
- - [Visual C++](/implementation.md#visual_cpp): ??
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>rbegin -- flat_set</title>
-      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/rbegin.html"/>
-      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/rbegin.md</id>
-      <updated>2026-02-17T18:05:38+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/rbegin.md b/reference/flat_set/flat_set/rbegin.md
-index f35e2e8f7..965b66261 100644
---- a/reference/flat_set/flat_set/rbegin.md
-+++ b/reference/flat_set/flat_set/rbegin.md
-@@ -6,8 +6,11 @@
- * cpp23[meta cpp]
- 
- ```cpp
--reverse_iterator rbegin() noexcept;
--const_reverse_iterator rbegin() const noexcept;
-+reverse_iterator rbegin() noexcept;           // (1) C++23
-+constexpr reverse_iterator rbegin() noexcept; // (1) C++26
-+
-+const_reverse_iterator rbegin() const noexcept;           // (2) C++23
-+constexpr const_reverse_iterator rbegin() const noexcept; // (2) C++26
- ```
- 
- ## 概要
-@@ -71,3 +74,7 @@ int main()
- | [`flat_set::rend`](rend.md)       | 先頭の前を指す逆イテレータを取得する |
- | [`flat_set::crbegin`](crbegin.md) | 末尾を指す逆constイテレータを取得する |
- | [`flat_set::crend`](crend.md)     | 先頭の前を指す逆constイテレータを取得する |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>rend -- flat_set</title>
-      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/rend.html"/>
-      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/rend.md</id>
-      <updated>2026-02-17T18:05:38+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/rend.md b/reference/flat_set/flat_set/rend.md
-index 6ba74bfb3..b1cfaf4e9 100644
---- a/reference/flat_set/flat_set/rend.md
-+++ b/reference/flat_set/flat_set/rend.md
-@@ -6,8 +6,11 @@
- * cpp23[meta cpp]
- 
- ```cpp
--reverse_iterator rend() noexcept;
--const_reverse_iterator rend() const noexcept;
-+reverse_iterator rend() noexcept;           // (1) C++23
-+constexpr reverse_iterator rend() noexcept; // (1) C++26
-+
-+const_reverse_iterator rend() const noexcept;           // (2) C++23
-+constexpr const_reverse_iterator rend() const noexcept; // (2) C++26
- ```
- 
- ## 概要
-@@ -64,3 +67,7 @@ int main()
- | [`flat_set::rbegin`](rbegin.md)   | 末尾を指す逆イテレータを取得する |
- | [`flat_set::crbegin`](crbegin.md) | 末尾を指す逆constイテレータを取得する |
- | [`flat_set::crend`](crend.md)     | 先頭の前を指す逆constイテレータを取得する |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>replace -- flat_set</title>
-      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/replace.html"/>
-      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/replace.md</id>
-      <updated>2026-02-17T18:05:38+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/replace.md b/reference/flat_set/flat_set/replace.md
-index 6f992f913..544c8aa19 100644
---- a/reference/flat_set/flat_set/replace.md
-+++ b/reference/flat_set/flat_set/replace.md
-@@ -6,7 +6,8 @@
- * cpp23[meta cpp]
- 
- ```cpp
--void replace(container_type&amp;amp;&amp;amp; cont);  // C++23
-+void replace(container_type&amp;amp;&amp;amp; cont);           // (1) C++23
-+constexpr void replace(container_type&amp;amp;&amp;amp; cont); // (1) C++26
- ```
- 
- ## 概要
-@@ -91,3 +92,7 @@ int main()
- - [GCC](/implementation.md#gcc): ??
- - [ICC](/implementation.md#icc): ??
- - [Visual C++](/implementation.md#visual_cpp): ??
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>size -- flat_set</title>
-      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/size.html"/>
-      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/size.md</id>
-      <updated>2026-02-17T18:05:38+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/size.md b/reference/flat_set/flat_set/size.md
-index 43cd684b5..5fdfccbc5 100644
---- a/reference/flat_set/flat_set/size.md
-+++ b/reference/flat_set/flat_set/size.md
-@@ -6,7 +6,8 @@
- * cpp23[meta cpp]
- 
- ```cpp
--size_type size() const noexcept;
-+size_type size() const noexcept;           // (1) C++23
-+constexpr size_type size() const noexcept; // (1) C++26
- ```
- 
- ## 概要
-@@ -67,3 +68,7 @@ int main ()
- 
- ## 関連項目
- - [`empty()`](empty.md)
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>swap -- flat_set</title>
-      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/swap.html"/>
-      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/swap.md</id>
-      <updated>2026-02-17T18:05:38+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/swap.md b/reference/flat_set/flat_set/swap.md
-index c0971d90f..a7c466de9 100644
---- a/reference/flat_set/flat_set/swap.md
-+++ b/reference/flat_set/flat_set/swap.md
-@@ -6,7 +6,8 @@
- * cpp23[meta cpp]
- 
- ```cpp
--void swap(flat_set&amp;amp; y) noexcept; // (1) C++23
-+void swap(flat_set&amp;amp; y) noexcept;           // (1) C++23
-+constexpr void swap(flat_set&amp;amp; y) noexcept; // (1) C++26
- ```
- 
- ## 概要
-@@ -73,3 +74,7 @@ fs2 : {10, 20, 30}
- - [Clang](/implementation.md#clang): ??
- - [GCC](/implementation.md#gcc): ??
- - [Visual C++](/implementation.md#visual_cpp): ??
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>swap (非メンバ関数) -- flat_set</title>
-      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/swap_free.html"/>
-      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/swap_free.md</id>
-      <updated>2026-02-17T18:05:38+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/swap_free.md b/reference/flat_set/flat_set/swap_free.md
-index a9efa2d0e..2c3b707d9 100644
---- a/reference/flat_set/flat_set/swap_free.md
-+++ b/reference/flat_set/flat_set/swap_free.md
-@@ -7,8 +7,13 @@
- ```cpp
- namespace std {
-   template &amp;lt;class Key, class Compare, class KeyContainer&amp;gt;
--  void swap(flat_set&amp;lt;Key, Compare, KeyContainer&amp;gt;&amp;amp; x,
--            flat_set&amp;lt;Key, Compare, KeyContainer&amp;gt;&amp;amp; y); // (1) C++23
-+  void
-+    swap(flat_set&amp;lt;Key, Compare, KeyContainer&amp;gt;&amp;amp; x,
-+         flat_set&amp;lt;Key, Compare, KeyContainer&amp;gt;&amp;amp; y); // (1) C++23
-+  template &amp;lt;class Key, class Compare, class KeyContainer&amp;gt;
-+  constexpr void
-+    swap(flat_set&amp;lt;Key, Compare, KeyContainer&amp;gt;&amp;amp; x,
-+         flat_set&amp;lt;Key, Compare, KeyContainer&amp;gt;&amp;amp; y); // (1) C++26
- }
- ```
- 
-@@ -74,3 +79,7 @@ fs2 : {10, 20, 30}
- - [Clang](/implementation.md#clang): ??
- - [GCC](/implementation.md#gcc): ??
- - [Visual C++](/implementation.md#visual_cpp): ??
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>upper_bound -- flat_set</title>
-      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/upper_bound.html"/>
-      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/upper_bound.md</id>
-      <updated>2026-02-17T18:05:38+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/upper_bound.md b/reference/flat_set/flat_set/upper_bound.md
-index aaac5c6f4..e39898335 100644
---- a/reference/flat_set/flat_set/upper_bound.md
-+++ b/reference/flat_set/flat_set/upper_bound.md
-@@ -6,15 +6,21 @@
- * cpp23[meta cpp]
- 
- ```cpp
--iterator upper_bound(const key_type&amp;amp; x);             // (1) C++23
-+iterator upper_bound(const key_type&amp;amp; x);           // (1) C++23
-+constexpr iterator upper_bound(const key_type&amp;amp; x); // (1) C++26
- 
- template &amp;lt;class K&amp;gt;
--iterator upper_bound(const K&amp;amp; x);                    // (2) C++23
-+iterator upper_bound(const K&amp;amp; x);           // (2) C++23
-+template &amp;lt;class K&amp;gt;
-+constexpr iterator upper_bound(const K&amp;amp; x); // (2) C++26
- 
--const_iterator upper_bound(const key_type&amp;amp; x) const; // (3) C++23
-+const_iterator upper_bound(const key_type&amp;amp; x) const;           // (3) C++23
-+constexpr const_iterator upper_bound(const key_type&amp;amp; x) const; // (3) C++26
- 
- template &amp;lt;class K&amp;gt;
--const_iterator upper_bound(const K&amp;amp; x) const;        // (4) C++23
-+const_iterator upper_bound(const K&amp;amp; x) const;           // (4) C++23
-+template &amp;lt;class K&amp;gt;
-+constexpr const_iterator upper_bound(const K&amp;amp; x) const; // (4) C++26
- ```
- 
- ## 概要
-@@ -119,3 +125,7 @@ David
- | [`flat_set::equal_range`](equal_range.md) | 指定したキーにマッチする要素範囲を返す                   |
- | [`flat_set::find`](find.md)               | 指定したキーで要素を探す                                 |
- | [`flat_set::count`](count.md)             | 指定したキーにマッチする要素の数を返す                   |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>value_comp -- flat_set</title>
-      <link href="https://cpprefjp.github.io/reference/flat_set/flat_set/value_comp.html"/>
-      <id>d0dd6c8f1ff206720dbb3b2b9060827247b3ad48:reference/flat_set/flat_set/value_comp.md</id>
-      <updated>2026-02-17T18:05:38+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_set/value_comp.md b/reference/flat_set/flat_set/value_comp.md
-index 510561792..623e826fe 100644
---- a/reference/flat_set/flat_set/value_comp.md
-+++ b/reference/flat_set/flat_set/value_comp.md
-@@ -6,7 +6,8 @@
- * cpp23[meta cpp]
- 
- ```cpp
--value_compare value_comp() const; // C++23
-+value_compare value_comp() const;           // (1) C++23
-+constexpr value_compare value_comp() const; // (1) C++26
- ```
- 
- 
-@@ -63,3 +64,7 @@ int main()
- | 名前                                | 説明                                                     |
- |-------------------------------------|----------------------------------------------------------|
- | [`key_comp`](key_comp.md)           | キー比較用の関数オブジェクトを取得する                      |
-+
-+
-+## 参照
 +- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
 &lt;/code&gt;&lt;/pre&gt;</summary>
       

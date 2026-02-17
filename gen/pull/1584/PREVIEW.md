@@ -1,10 +1,10 @@
 # PR [\#1584](https://github.com/cpprefjp/site/pull/1584) プレビュー
-- &#x231a; 更新時刻: 2026-02-17 22:01:50 JST
+- &#x231a; 更新時刻: 2026-02-17 22:06:32 JST
 - &#x1f50d; [プレビュー (HTML)](https://cpprefjp.github.io/site/gen/pull/1584)
 - &#x1f4c8; [プレビュー生成記録](https://github.com/cpprefjp/site/actions?query=event%3Apull_request_target+branch%3Acpp26_container_constexpr)
-- **&#x2AEF;** ソースの変更: [`c3a3a49..65a93d9`](https://github.com/cpprefjp/site/compare/c3a3a49e88a9766d0f632c9d2e4561822a34e398..65a93d96083c750760cbe32314ad592358f2d417)
+- **&#x2AEF;** ソースの変更: [`c3a3a49..d0afe9b`](https://github.com/cpprefjp/site/compare/c3a3a49e88a9766d0f632c9d2e4561822a34e398..d0afe9b0b69f351e564846d8cd88839e7cc8ee21)
 
-## 変更記事一覧 (373件)
+## 変更記事一覧 (383件)
 
 - &#x1f4dd; [`reference/deque/deque/append_range`](https://cpprefjp.github.io/site/gen/pull/1584/reference/deque/deque/append_range.html)
 - &#x1f4dd; [`reference/deque/deque/assign`](https://cpprefjp.github.io/site/gen/pull/1584/reference/deque/deque/assign.html)
@@ -379,3 +379,13 @@
 - &#x1f4dd; [`reference/map/multimap/swap_free`](https://cpprefjp.github.io/site/gen/pull/1584/reference/map/multimap/swap_free.html)
 - &#x1f4dd; [`reference/map/multimap/upper_bound`](https://cpprefjp.github.io/site/gen/pull/1584/reference/map/multimap/upper_bound.html)
 - &#x1f4dd; [`reference/map/multimap/value_comp`](https://cpprefjp.github.io/site/gen/pull/1584/reference/map/multimap/value_comp.html)
+- &#x1f4dd; [`reference/node_handle/node_handle/empty`](https://cpprefjp.github.io/site/gen/pull/1584/reference/node_handle/node_handle/empty.html)
+- &#x1f4dd; [`reference/node_handle/node_handle/get_allocator`](https://cpprefjp.github.io/site/gen/pull/1584/reference/node_handle/node_handle/get_allocator.html)
+- &#x1f4dd; [`reference/node_handle/node_handle/mapped`](https://cpprefjp.github.io/site/gen/pull/1584/reference/node_handle/node_handle/mapped.html)
+- &#x1f4dd; [`reference/node_handle/node_handle/op_assign`](https://cpprefjp.github.io/site/gen/pull/1584/reference/node_handle/node_handle/op_assign.html)
+- &#x1f4dd; [`reference/node_handle/node_handle/op_bool`](https://cpprefjp.github.io/site/gen/pull/1584/reference/node_handle/node_handle/op_bool.html)
+- &#x1f4dd; [`reference/node_handle/node_handle/op_constructor`](https://cpprefjp.github.io/site/gen/pull/1584/reference/node_handle/node_handle/op_constructor.html)
+- &#x1f4dd; [`reference/node_handle/node_handle/op_destructor`](https://cpprefjp.github.io/site/gen/pull/1584/reference/node_handle/node_handle/op_destructor.html)
+- &#x1f4dd; [`reference/node_handle/node_handle/swap`](https://cpprefjp.github.io/site/gen/pull/1584/reference/node_handle/node_handle/swap.html)
+- &#x1f4dd; [`reference/node_handle/node_handle/swap_free`](https://cpprefjp.github.io/site/gen/pull/1584/reference/node_handle/node_handle/swap_free.html)
+- &#x1f4dd; [`reference/node_handle/node_handle/value`](https://cpprefjp.github.io/site/gen/pull/1584/reference/node_handle/node_handle/value.html)

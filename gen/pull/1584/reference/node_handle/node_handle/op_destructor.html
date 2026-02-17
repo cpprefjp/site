@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2024-07-16T09:44:23">
-        2024年07月16日 09時44分23秒
+      <span itemprop="datePublished" content="2026-02-17T13:00:25">
+        2026年02月17日 13時00分25秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">raclamusi</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -225,7 +225,8 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><h1 itemprop="name"><span class="namespace" title="namespace ">::</span><span class="class" title="class node_handle">node_handle::</span><span class="token">デストラクタ</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="o">~</span><span class="n">node_handle</span><span class="p">();</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="o">~</span><span class="n">node_handle</span><span class="p">();</span>           <span class="c1">// (1) C++17</span>
+<span class="k">constexpr</span> <span class="o">~</span><span class="n">node_handle</span><span class="p">();</span> <span class="c1">// (1) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -260,6 +261,7 @@
 <h2>参照</h2>
 <ul>
 <li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf" target="_blank">Splicing Maps and Sets(Revision 5)</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html" target="_blank">P3372R3 constexpr containers and adaptors</a></li>
 </ul></div>
 
       </div>
