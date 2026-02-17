@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-const_reverse_iterator crend() const noexcept;
+const_reverse_iterator crend() const noexcept;           // (1) C++11
+constexpr const_reverse_iterator crend() const noexcept; // (1) C++26
 ```
 
 
@@ -53,3 +54,7 @@ int main()
 | [`crbegin`](crbegin.md) | 末尾を指す読み取り専用逆イテレータを返す |
 | [`cbegin`](cbegin.md)   | 先頭を指す読み取り専用イテレータを返す   |
 | [`cend`](cend.md)       | 末尾の次を指す読み取り専用イテレータを返す   |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

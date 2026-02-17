@@ -6,13 +6,19 @@
 ```cpp
 namespace std {
   template <class Key, class Compare, class Allocator>
-  void swap(set<Key, Compare, Allocator>& x,
-            set<Key, Compare, Allocator>& y);
-
+  void
+    swap(set<Key, Compare, Allocator>& x,
+         set<Key, Compare, Allocator>& y); // (1) C++03
   template <class Key, class Compare, class Allocator>
-  void swap(set<Key, Compare, Allocator>& x,
-            set<Key, Compare, Allocator>& y)
-    noexcept(noexcept(x.swap(y))); // C++17
+  void
+    swap(set<Key, Compare, Allocator>& x,
+         set<Key, Compare, Allocator>& y)
+      noexcept(noexcept(x.swap(y)));       // (1) C++17
+  template <class Key, class Compare, class Allocator>
+  constexpr void
+    swap(set<Key, Compare, Allocator>& x,
+         set<Key, Compare, Allocator>& y)
+      noexcept(noexcept(x.swap(y)));       // (1) C++26
 }
 ```
 
@@ -68,3 +74,4 @@ int main()
 ## 参照
 - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
     - `noexcept` 追加の経緯となる提案文書
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
