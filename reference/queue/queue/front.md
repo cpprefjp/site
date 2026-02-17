@@ -5,8 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-value_type& front();
-const value_type& front() const;
+value_type& front();           // (1) C++03
+constexpr value_type& front(); // (1) C++26
+
+const value_type& front() const;           // (2) C++03
+constexpr const value_type& front() const; // (2) C++26
 ```
 
 ## 概要
@@ -65,3 +68,4 @@ const value_type& front() const { return c.front(); }
 ```
 
 ## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
