@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-11T17:16:44">
-        2025年07月11日 17時16分44秒
+      <span itemprop="datePublished" content="2026-02-17T13:42:19">
+        2026年02月17日 13時42分19秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Koichi Murase</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -225,7 +225,8 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;unordered_set&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class unordered_set">unordered_set::</span><span class="token">cbegin</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">const_iterator</span> <span class="nf">cbegin</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">const_iterator</span> <span class="nf">cbegin</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span>           <span class="c1">// (1) C++11</span>
+<span class="k">constexpr</span> <span class="n">const_iterator</span> <span class="nf">cbegin</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (1) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -306,7 +307,11 @@
 <td>インデックス（添え字）で指定したバケット内の最終要素の次を指す読み取り専用イテレータを取得</td>
 </tr>
 </tbody>
-</table></div>
+</table>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html" target="_blank">P3372R3 constexpr containers and adaptors</a></li>
+</ul></div>
 
       </div>
     </div>

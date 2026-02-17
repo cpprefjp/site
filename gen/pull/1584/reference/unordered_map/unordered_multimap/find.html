@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-02-17T13:33:02">
-        2026年02月17日 13時33分02秒
+      <span itemprop="datePublished" content="2026-02-17T13:42:19">
+        2026年02月17日 13時42分19秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,17 +225,17 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;unordered_map&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class unordered_multimap">unordered_multimap::</span><span class="token">find</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">iterator</span>       <span class="nf">find</span><span class="p">(</span><span class="k">const</span> <span class="n">key_type</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span>           <span class="c1">// (1) C++11</span>
-<span class="k">constexpr</span> <span class="n">iterator</span>       <span class="nf">find</span><span class="p">(</span><span class="k">const</span> <span class="n">key_type</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span> <span class="c1">// (1) C++26</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">iterator</span> <span class="nf">find</span><span class="p">(</span><span class="k">const</span> <span class="n">key_type</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span>           <span class="c1">// (1) C++11</span>
+<span class="k">constexpr</span> <span class="n">iterator</span> <span class="nf">find</span><span class="p">(</span><span class="k">const</span> <span class="n">key_type</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span> <span class="c1">// (1) C++26</span>
 
 <span class="n">const_iterator</span> <span class="nf">find</span><span class="p">(</span><span class="k">const</span> <span class="n">key_type</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>           <span class="c1">// (2) C++11</span>
 <span class="k">constexpr</span> <span class="n">const_iterator</span> <span class="nf">find</span><span class="p">(</span><span class="k">const</span> <span class="n">key_type</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span> <span class="c1">// (2) C++26</span>
 
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">K</span><span class="o">&gt;</span> <span class="n">iterator</span>       <span class="n">find</span><span class="p">(</span><span class="k">const</span> <span class="n">K</span><span class="o">&amp;</span> <span class="n">k</span><span class="p">);</span>           <span class="c1">// (3) C++20</span>
-<span class="k">constexpr</span> <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">K</span><span class="o">&gt;</span> <span class="n">iterator</span>       <span class="n">find</span><span class="p">(</span><span class="k">const</span> <span class="n">K</span><span class="o">&amp;</span> <span class="n">k</span><span class="p">);</span> <span class="c1">// (3) C++26</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">K</span><span class="o">&gt;</span> <span class="n">iterator</span> <span class="n">find</span><span class="p">(</span><span class="k">const</span> <span class="n">K</span><span class="o">&amp;</span> <span class="n">k</span><span class="p">);</span>           <span class="c1">// (3) C++20</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">K</span><span class="o">&gt;</span> <span class="k">constexpr</span> <span class="n">iterator</span> <span class="n">find</span><span class="p">(</span><span class="k">const</span> <span class="n">K</span><span class="o">&amp;</span> <span class="n">k</span><span class="p">);</span> <span class="c1">// (3) C++26</span>
 
 <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">K</span><span class="o">&gt;</span> <span class="n">const_iterator</span> <span class="n">find</span><span class="p">(</span><span class="k">const</span> <span class="n">K</span><span class="o">&amp;</span> <span class="n">k</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>           <span class="c1">// (4) C++20</span>
-<span class="k">constexpr</span> <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">K</span><span class="o">&gt;</span> <span class="n">const_iterator</span> <span class="n">find</span><span class="p">(</span><span class="k">const</span> <span class="n">K</span><span class="o">&amp;</span> <span class="n">k</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span> <span class="c1">// (4) C++26</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">K</span><span class="o">&gt;</span> <span class="k">constexpr</span> <span class="n">const_iterator</span> <span class="n">find</span><span class="p">(</span><span class="k">const</span> <span class="n">K</span><span class="o">&amp;</span> <span class="n">k</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span> <span class="c1">// (4) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>

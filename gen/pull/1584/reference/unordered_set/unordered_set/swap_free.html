@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-02-11T05:29:19">
-        2026年02月11日 05時29分19秒
+      <span itemprop="datePublished" content="2026-02-17T13:42:19">
+        2026年02月17日 13時42分19秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">yoh</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -228,12 +228,15 @@
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Key</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Hash</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Pred</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Alloc</span><span class="o">&gt;</span>
   <span class="kt">void</span> <span class="n">swap</span><span class="p">(</span><span class="n">unordered_set</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span> <span class="n">Hash</span><span class="p">,</span> <span class="n">Pred</span><span class="p">,</span> <span class="n">Alloc</span><span class="o">&gt;&amp;</span> <span class="n">x</span><span class="p">,</span>
-            <span class="n">unordered_set</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span> <span class="n">Hash</span><span class="p">,</span> <span class="n">Pred</span><span class="p">,</span> <span class="n">Alloc</span><span class="o">&gt;&amp;</span> <span class="n">y</span><span class="p">);</span>
-
+            <span class="n">unordered_set</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span> <span class="n">Hash</span><span class="p">,</span> <span class="n">Pred</span><span class="p">,</span> <span class="n">Alloc</span><span class="o">&gt;&amp;</span> <span class="n">y</span><span class="p">);</span> <span class="c1">// (1) C++11</span>
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Key</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Hash</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Pred</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Alloc</span><span class="o">&gt;</span>
   <span class="kt">void</span> <span class="n">swap</span><span class="p">(</span><span class="n">unordered_set</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span> <span class="n">Hash</span><span class="p">,</span> <span class="n">Pred</span><span class="p">,</span> <span class="n">Alloc</span><span class="o">&gt;&amp;</span> <span class="n">x</span><span class="p">,</span>
             <span class="n">unordered_set</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span> <span class="n">Hash</span><span class="p">,</span> <span class="n">Pred</span><span class="p">,</span> <span class="n">Alloc</span><span class="o">&gt;&amp;</span> <span class="n">y</span><span class="p">)</span>
-    <span class="k">noexcept</span><span class="p">(</span><span class="k">noexcept</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">swap</span><span class="p">(</span><span class="n">y</span><span class="p">)));</span> <span class="c1">// C++17</span>
+    <span class="k">noexcept</span><span class="p">(</span><span class="k">noexcept</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">swap</span><span class="p">(</span><span class="n">y</span><span class="p">)));</span>                     <span class="c1">// (1) C++17</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Key</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Hash</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Pred</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Alloc</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="kt">void</span> <span class="n">swap</span><span class="p">(</span><span class="n">unordered_set</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span> <span class="n">Hash</span><span class="p">,</span> <span class="n">Pred</span><span class="p">,</span> <span class="n">Alloc</span><span class="o">&gt;&amp;</span> <span class="n">x</span><span class="p">,</span>
+            <span class="n">unordered_set</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span> <span class="n">Hash</span><span class="p">,</span> <span class="n">Pred</span><span class="p">,</span> <span class="n">Alloc</span><span class="o">&gt;&amp;</span> <span class="n">y</span><span class="p">)</span>
+    <span class="k">noexcept</span><span class="p">(</span><span class="k">noexcept</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">swap</span><span class="p">(</span><span class="n">y</span><span class="p">)));</span>                     <span class="c1">// (1) C++26</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -334,6 +337,7 @@ us2 after:3, 2, 1,
 <li><code>noexcept</code> 追加の経緯となる提案文書</li>
 </ul>
 </li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html" target="_blank">P3372R3 constexpr containers and adaptors</a></li>
 </ul></div>
 
       </div>

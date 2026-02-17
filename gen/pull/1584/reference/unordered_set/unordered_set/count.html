@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-10-18T10:08:36">
-        2025年10月18日 10時08分36秒
+      <span itemprop="datePublished" content="2026-02-17T13:42:19">
+        2026年02月17日 13時42分19秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Raclamusi</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -225,10 +225,13 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;unordered_set&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class unordered_set">unordered_set::</span><span class="token">count</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">size_type</span> <span class="nf">count</span><span class="p">(</span><span class="k">const</span> <span class="n">key_type</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span> <span class="c1">// (1) C++11</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">size_type</span> <span class="nf">count</span><span class="p">(</span><span class="k">const</span> <span class="n">key_type</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>           <span class="c1">// (1) C++11</span>
+<span class="k">constexpr</span> <span class="n">size_type</span> <span class="nf">count</span><span class="p">(</span><span class="k">const</span> <span class="n">key_type</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span> <span class="c1">// (1) C++26</span>
 
 <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">K</span><span class="o">&gt;</span>
-<span class="n">size_type</span> <span class="n">count</span><span class="p">(</span><span class="k">const</span> <span class="n">K</span><span class="o">&amp;</span> <span class="n">k</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>        <span class="c1">// (2) C++20</span>
+<span class="n">size_type</span> <span class="n">count</span><span class="p">(</span><span class="k">const</span> <span class="n">K</span><span class="o">&amp;</span> <span class="n">k</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>           <span class="c1">// (2) C++20</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">K</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="n">size_type</span> <span class="n">count</span><span class="p">(</span><span class="k">const</span> <span class="n">K</span><span class="o">&amp;</span> <span class="n">k</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span> <span class="c1">// (2) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -314,6 +317,7 @@ count of 8:0
 <ul>
 <li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2304" target="_blank">LWG Issue 2304. Complexity of <code>count</code> in unordered associative containers</a></li>
 <li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0919r3.html" target="_blank">P0919R3 Heterogeneous lookup for unordered containers</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html" target="_blank">P3372R3 constexpr containers and adaptors</a></li>
 </ul></div>
 
       </div>
