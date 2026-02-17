@@ -6,8 +6,11 @@
 * cpp11[meta cpp]
 
 ```cpp
-void resize(size_type sz);                        // (1)
-void resize(size_type sz, const value_type& c);   // (2)
+void resize(size_type sz);           // (1) C++11
+constexpr void resize(size_type sz); // (1) C++26
+
+void resize(size_type sz, const value_type& c);           // (2) C++11
+constexpr void resize(size_type sz, const value_type& c); // (2) C++26
 ```
 
 ## 概要
@@ -84,3 +87,4 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): ??
 
 ## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

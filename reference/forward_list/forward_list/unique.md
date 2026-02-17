@@ -6,14 +6,16 @@
 * cpp11[meta cpp]
 
 ```cpp
-void unique();                          // (1) C++11
-size_type unique();                     // (1) C++20
+void unique();                // (1) C++11
+size_type unique();           // (1) C++20
+constexpr size_type unique(); // (1) C++26
 
 template <class BinaryPredicate>
-void unique(BinaryPredicate pred);      // (2) C++11
-
+void unique(BinaryPredicate pred);                // (2) C++11
 template <class BinaryPredicate>
-size_type unique(BinaryPredicate pred); // (2) C++20
+size_type unique(BinaryPredicate pred);           // (2) C++20
+template <class BinaryPredicate>
+constexpr size_type unique(BinaryPredicate pred); // (2) C++26
 ```
 
 ## 概要
@@ -89,3 +91,4 @@ int main()
 
 ## 参照
 - [P0646R1 Improving the Return Value of Erase-Like Algorithms I: list/forward list](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0646r1.pdf)
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

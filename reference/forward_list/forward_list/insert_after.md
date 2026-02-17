@@ -6,18 +6,46 @@
 * cpp11[meta cpp]
 
 ```cpp
-iterator insert_after(const_iterator position, const T& x); // (1)
-iterator insert_after(const_iterator position, T&& x);      // (2)
-iterator insert_after(const_iterator position, size_type n,
-                      const T& x);                          // (3)
+iterator
+  insert_after(const_iterator position,
+               const T& x); // (1) C++11
+constexpr iterator
+  insert_after(const_iterator position,
+               const T& x); // (1) C++26
+
+iterator
+  insert_after(const_iterator position,
+               T&& x); // (2) C++11
+constexpr iterator
+  insert_after(const_iterator position,
+               T&& x); // (2) C++26
+
+iterator
+  insert_after(const_iterator position,
+               size_type n,
+               const T& x); // (3) C++11
+constexpr iterator
+  insert_after(const_iterator position,
+               size_type n,
+               const T& x); // (3) C++26
 
 template <class InputIterator>
-iterator insert_after(const_iterator position,
-                      InputIterator first,
-                      InputIterator last);                  // (4)
+iterator
+  insert_after(const_iterator position,
+               InputIterator first,
+               InputIterator last); // (4) C++11
+template <class InputIterator>
+constexpr iterator
+  insert_after(const_iterator position,
+               InputIterator first,
+               InputIterator last); // (4) C++26
 
-iterator insert_after(const_iterator position,
-                      initializer_list<T> il);              // (5)
+iterator
+  insert_after(const_iterator position,
+               initializer_list<T> il); // (5) C++11
+constexpr iterator
+  insert_after(const_iterator position,
+               initializer_list<T> il); // (5) C++26
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
@@ -140,3 +168,4 @@ insert initializer_list : 1 2 3 4 5 6
 ## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (5)の経緯となる提案文書
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

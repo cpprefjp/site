@@ -6,21 +6,59 @@
 * cpp11[meta cpp]
 
 ```cpp
-void splice_after(const_iterator position, forward_list& x);  // (1)
-void splice_after(const_iterator position, forward_list&& x); // (2)
+void
+  splice_after(const_iterator position,
+               forward_list& x); // (1) C++11
+constexpr void
+  splice_after(const_iterator position,
+               forward_list& x); // (1) C++26
 
-void splice_after(const_iterator position, forward_list& x,
-                  const_iterator i);                          // (3)
+void
+  splice_after(const_iterator position,
+               forward_list&& x); // (2) C++11
+constexpr void
+  splice_after(const_iterator position,
+               forward_list&& x); // (2) C++26
 
-void splice_after(const_iterator position, forward_list&& x,
-                  const_iterator i);                          // (4)
+void
+  splice_after(const_iterator position,
+               forward_list& x,
+               const_iterator i); // (3) C++11
+constexpr void
+  splice_after(const_iterator position,
+               forward_list& x,
+               const_iterator i); // (3) C++26
 
-void splice_after(const_iterator position, forward_list& x,
-                  const_iterator first, const_iterator last); // (5)
+void
+  splice_after(const_iterator position,
+               forward_list&& x,
+               const_iterator i); // (4) C++11
+constexpr void
+  splice_after(const_iterator position,
+               forward_list&& x,
+               const_iterator i); // (4) C++26
 
-void splice_after(const_iterator position, forward_list&& x,
-                  const_iterator first, const_iterator last); // (6)
+void
+  splice_after(const_iterator position,
+               forward_list& x,
+               const_iterator first,
+               const_iterator last); // (5) C++11
+constexpr void
+  splice_after(const_iterator position,
+               forward_list& x,
+               const_iterator first,
+               const_iterator last); // (5) C++26
 
+void
+  splice_after(const_iterator position,
+               forward_list&& x,
+               const_iterator first,
+               const_iterator last); // (6) C++11
+constexpr void
+  splice_after(const_iterator position,
+               forward_list&& x,
+               const_iterator first,
+               const_iterator last); // (6) C++26
 ```
 
 ## 概要
@@ -133,3 +171,4 @@ int main()
 - [LWG Issue 2222. Inconsistency in description of `forward_list::splice_after` single-element overload](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2222)
 	- (3)と(4)のオーバーロードについて、有効性が継続される対象が、`*i`となっていたが、`*++i`の間違いであったため、C++14で修正された。
 - [LWG Issue 3017. `list` `splice` functions should use `addressof`](https://wg21.cmeerw.net/lwg/issue3017)
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

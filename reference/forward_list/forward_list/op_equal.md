@@ -9,6 +9,9 @@ namespace std {
   template <class T, class Allocator>
   bool operator==(const forward_list<T, Allocator>& x,
                   const forward_list<T, Allocator>& y); // (1) C++11
+  template <class T, class Allocator>
+  constexpr bool operator==(const forward_list<T, Allocator>& x,
+                  const forward_list<T, Allocator>& y); // (1) C++26
 }
 ```
 
@@ -80,3 +83,4 @@ false
 ## 参照
 - [LWG Issue 2257. Simplify container requirements with the new algorithms](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2257)
     - C++14から、2つ目のイテレータ範囲のendイテレータをとる`equal()`アルゴリズムを使用するようになった。
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

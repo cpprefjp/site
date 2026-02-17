@@ -6,8 +6,11 @@
 * cpp11[meta cpp]
 
 ```cpp
-void push_front(const T& x);
-void push_front(T&& x);
+void push_front(const T& x);           // (1) C++11
+constexpr void push_front(const T& x); // (1) C++26
+
+void push_front(T&& x);           // (2) C++11
+constexpr void push_front(T&& x); // (2) C++26
 ```
 
 ## 概要
@@ -67,3 +70,4 @@ world
 
 
 ## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

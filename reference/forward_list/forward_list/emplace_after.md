@@ -7,7 +7,13 @@
 
 ```cpp
 template <class... Args>
-iterator emplace_after(const_iterator position, Args&&... args);
+iterator
+  emplace_after(const_iterator position,
+                Args&&... args); // (1) C++11
+template <class... Args>
+constexpr iterator
+  emplace_after(const_iterator position,
+                Args&&... args); // (1) C++26
 ```
 
 ## 概要
@@ -80,3 +86,4 @@ int main()
 
 
 ## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

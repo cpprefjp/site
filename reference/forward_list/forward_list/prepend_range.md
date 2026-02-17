@@ -7,7 +7,9 @@
 
 ```cpp
 template <container-compatible-range<T> R>
-void prepend_range(R&& rg); // C++23
+void prepend_range(R&& rg);           // (1) C++23
+template <container-compatible-range<T> R>
+constexpr void prepend_range(R&& rg); // (1) C++26
 ```
 
 ## 概要
@@ -55,3 +57,7 @@ int main()
 |-------------------------------------------|----------------------|
 | [`push_front`](push_front.md)             | 先頭に要素を追加する         |
 | [`emplace_front`](emplace_front.md)       | 先頭に要素を直接構築で追加する |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

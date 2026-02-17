@@ -6,8 +6,13 @@
 * cpp11[meta cpp]
 
 ```cpp
-void sort();
-template <class Compare> void sort(Compare comp);
+void sort();           // (1) C++11
+constexpr void sort(); // (1) C++26
+
+template <class Compare>
+void sort(Compare comp);           // (2) C++11
+template <class Compare>
+constexpr void sort(Compare comp); // (2) C++26
 ```
 
 ## 概要
@@ -74,3 +79,4 @@ int main()
 
 ## 参照
 - [LWG Issue 2122. `merge()` stability for lists versus forward lists](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2122)
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
