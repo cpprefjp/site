@@ -5,12 +5,20 @@
 * function[meta id-type]
 
 ```cpp
-multimap& operator=(const multimap& x);                 // (1) C++03
-multimap& operator=(multimap&& x);                      // (2) C++11
+multimap& operator=(const multimap& x);           // (1) C++03
+constexpr multimap& operator=(const multimap& x); // (1) C++26
+
+multimap& operator=(multimap&& x);                           // (2) C++11
 multimap& operator=(multimap&& x)
   noexcept(allocator_traits<Allocator>::is_always_equal::value
-            && is_nothrow_move_assignable<Compare>::value) // (2) C++17
-multimap& operator=(initializer_list<value_type> init); // (3) C++11
+            && is_nothrow_move_assignable<Compare>::value)   // (2) C++17
+constexpr multimap&
+  operator=(multimap&& x)
+    noexcept(allocator_traits<Allocator>::is_always_equal::value
+              && is_nothrow_move_assignable<Compare>::value) // (2) C++26
+
+multimap& operator=(initializer_list<value_type> init);           // (3) C++11
+constexpr multimap& operator=(initializer_list<value_type> init); // (3) C++26
 ```
 
 ## 概要
@@ -96,3 +104,4 @@ Size of m2: 6
     - (3)の経緯となる提案文書
 - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
     - `noexcept` 追加の経緯となる提案文書
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

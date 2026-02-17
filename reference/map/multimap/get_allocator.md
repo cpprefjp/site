@@ -5,8 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-allocator_type get_allocator() const;          // C++03
-allocator_type get_allocator() const noexcept; // C++11
+allocator_type get_allocator() const;                    // (1) C++03
+allocator_type get_allocator() const noexcept;           // (1) C++11
+constexpr allocator_type get_allocator() const noexcept; // (1) C++26
 ```
 
 ## 概要
@@ -69,3 +70,7 @@ b
 - [Visual C++](/implementation.md#visual_cpp): 2002 [mark verified], 2003 [mark verified], 2005 [mark verified], 2008 [mark verified], 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified], 2017 [mark verified]
 	- 2012, 2013は、`noexcept`が実装されていないため、`throw()`が修飾されている。
 	- 2015からは、`noexcept`が修飾されている。
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

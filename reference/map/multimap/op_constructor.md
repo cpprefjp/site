@@ -5,56 +5,101 @@
 * function[meta id-type]
 
 ```cpp
-multimap();                                              // (1) C++14 から
+multimap();           // (1) C++14
+constexpr multimap(); // (1) C++26
 
-explicit multimap(const Compare& comp,
-                  const Allocator& alloc = Allocator()); // (2) C++14 まで
+explicit
+  multimap(const Compare& comp,
+           const Allocator& alloc = Allocator()); // (2) C++14
+constexpr explicit
+  multimap(const Compare& comp,
+           const Allocator& alloc = Allocator()); // (2) C++26
 
 explicit multimap(const Compare& comp = Compare(),
                   const Allocator& alloc = Allocator()); // (1) + (2) C++11 まで
 
-explicit multimap(const Allocator& alloc);               // (3) C++11 から
+explicit multimap(const Allocator& alloc);               // (3) C++11
+constexpr explicit multimap(const Allocator& alloc);     // (3) C++26
 
 template <class InputIterator>
 multimap(InputIterator first,
          InputIterator last,
          const Compare& comp = Compare(),
-         const Allocator& alloc = Allocator());          // (4)
+         const Allocator& alloc = Allocator());    // (4) C++03
+template <class InputIterator>
+constexpr
+  multimap(InputIterator first,
+           InputIterator last,
+           const Compare& comp = Compare(),
+           const Allocator& alloc = Allocator());  // (4) C++26
 
 template <class InputIterator>
 multimap(InputIterator first,
          InputIterator last,
-         const Allocator& alloc);                        // (5) C++14 から
+         const Allocator& alloc);    // (5) C++14
+template <class InputIterator>
+constexpr
+  multimap(InputIterator first,
+           InputIterator last,
+           const Allocator& alloc);  // (5) C++26
 
-multimap(const multimap& x);                             // (6)
+multimap(const multimap& x);           // (6) C++03
+constexpr multimap(const multimap& x); // (6) C++26
 
 multimap(const multimap& x,
-         const Allocator& alloc);                             // (7) C++11
+         const Allocator& alloc);                    // (7) C++11
 multimap(const multimap& x,
-         const type_identity_t<Allocator>& alloc);            // (7) C++23
+         const type_identity_t<Allocator>& alloc);   // (7) C++23
+constexpr
+  multimap(const multimap& x,
+           const type_identity_t<Allocator>& alloc); // (7) C++26
 
-multimap(multimap&& y);                                       // (8) C++11 から
+multimap(multimap&& y);           // (8) C++11
+constexpr multimap(multimap&& y); // (8) C++26
 
 multimap(multimap&& y,
-         const Allocator& alloc);                             // (9) C++11
+         const Allocator& alloc);                    // (9) C++11
 multimap(multimap&& y,
-         const type_identity_t<Allocator>& alloc);            // (9) C++23
+         const type_identity_t<Allocator>& alloc);   // (9) C++23
+constexpr
+  multimap(multimap&& y,
+           const type_identity_t<Allocator>& alloc); // (9) C++26
 
 multimap(initializer_list<value_type> init,
          const Compare& comp = Compare(),
-         const Allocator& alloc = Allocator());          // (10) C++11 から
+         const Allocator& alloc = Allocator());    // (10) C++11
+constexpr
+  multimap(initializer_list<value_type> init,
+           const Compare& comp = Compare(),
+           const Allocator& alloc = Allocator());  // (10) C++26
 
 multimap(initializer_list<value_type> init,
-         const Allocator& alloc);                        // (11) C++14 から
+         const Allocator& alloc);                  // (11) C++14
+constexpr
+  multimap(initializer_list<value_type> init,
+           const Allocator& alloc);                // (11) C++26
 
 template <container-compatible-range <value_type> R>
-multimap(from_range_t, R&& rg,
+multimap(from_range_t,
+         R&& rg,
          const Compare& comp = Compare(),
-         const Allocator& alloc = Allocator());          // (12) C++23 から
+         const Allocator& alloc = Allocator());    // (12) C++23
+template <container-compatible-range <value_type> R>
+constexpr
+  multimap(from_range_t,
+           R&& rg,
+           const Compare& comp = Compare(),
+           const Allocator& alloc = Allocator());  // (12) C++26
 
 template <container-compatible-range <value_type> R>
-multimap(from_range_t, R&& rg,
-         const Allocator& alloc);                        // (13) C++23 から
+multimap(from_range_t,
+         R&& rg,
+         const Allocator& alloc);                  // (13) C++23
+template <container-compatible-range <value_type> R>
+constexpr
+  multimap(from_range_t,
+           R&& rg,
+           const Allocator& alloc);                // (13) C++26
 ```
 * type_identity_t[link /reference/type_traits/type_identity.md]
 * initializer_list[link ../../initializer_list.md]
@@ -180,3 +225,4 @@ Size of m2: 3
     なお、Discussion の例はアロケータの型が誤っているので注意
 - [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
     - C++23でのアロケータ引数を`type_identity_t`で包む変更
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
