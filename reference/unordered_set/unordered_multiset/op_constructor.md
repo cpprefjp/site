@@ -32,9 +32,15 @@ unordered_multiset(unordered_multiset&& rv);                              // (5)
 
 explicit unordered_multiset(const allocator_type& a);                     // (6)
 
-unordered_multiset(const unordered_multiset& v, const allocator_type& a); // (7)
+unordered_multiset(const unordered_multiset& v,
+                   const allocator_type& a);                              // (7)
+unordered_multiset(const unordered_multiset& v,
+                   const type_identity_t<allocator_type>& a);             // (7) C++23
 
-unordered_multiset(unordered_multiset&& rv, const allocator_type& a);     // (8)
+unordered_multiset(unordered_multiset&& rv,
+                   const allocator_type& a);                              // (8)
+unordered_multiset(unordered_multiset&& rv,
+                   const type_identity_t<allocator_type>& a);             // (8) C++23
 
 unordered_multiset(initializer_list<value_type> il,
                    size_type n = 実装依存の既定値,
@@ -88,6 +94,7 @@ unordered_multiset(std::from_range_t, R&& rg,
                    const hasher& hf,
                    const allocator_type& a);                              // (18) C++23
 ```
+* type_identity_t[link /reference/type_traits/type_identity.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 * from_range_t[link ../../ranges/from_range_t.md]
 
@@ -235,6 +242,9 @@ unordered_multiset(std::from_range_t, R&& rg,
 
     のようなコード（C++11 から導入された、コピーリスト初期化によるデフォルトコンストラクタ呼び出し）がエラーになってしまうためである。
 
+- C++23 では、(7) と (8) のアロケータパラメータの型が `const allocator_type&` から `const type_identity_t<allocator_type>&` に変更された。
+    これは、クラステンプレートのテンプレート引数推論 (CTAD) の際に、コピー/ムーブ元の `unordered_multiset` から推論される `Allocator` と、アロケータ引数から推論される型が異なる場合に推論が失敗する問題を修正するためである。[`type_identity_t`](/reference/type_traits/type_identity.md) で包むことで、アロケータ引数が非推論コンテキストとなり、アロケータの型はコピー/ムーブ元のみから推論されるようになる。
+
 
 ## バージョン
 ### 言語
@@ -266,3 +276,5 @@ libstdc++ には 4.8.2 現在、(6), (7), (8)の形式はない。
 - [LWG 2210. Missing allocator-extended constructor for allocator-aware containers](http://cplusplus.github.io/LWG/lwg-defects.html#2210)  
     (10), (11), (12), (13), (14), (15) を追加するきっかけとなったレポート  
     なお、Discussion の例はアロケータの型が誤っているので注意
+- [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
+    - C++23でのアロケータ引数を`type_identity_t`で包む変更

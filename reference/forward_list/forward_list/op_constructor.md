@@ -27,8 +27,13 @@ forward_list(InputIterator first,
 forward_list(const forward_list& x);                     // (6) C++11
 forward_list(forward_list&& x);                          // (7) C++11
 
-forward_list(const forward_list& x, const Allocator& a); // (8) C++11
-forward_list(forward_list&& x, const Allocator& a);      // (9) C++11
+forward_list(const forward_list& x, const Allocator& a);            // (8) C++11
+forward_list(const forward_list& x,
+             const type_identity_t<Allocator>& a);                  // (8) C++23
+
+forward_list(forward_list&& x, const Allocator& a);                // (9) C++11
+forward_list(forward_list&& x,
+             const type_identity_t<Allocator>& a);                  // (9) C++23
 
 forward_list(initializer_list<T> il,
              const Allocator& a = Allocator());          // (10) C++11
@@ -37,6 +42,7 @@ template <container-compatible-range<T> R>
 forward_list(from_range_t, R&& rg,
              const Allocator& a = Allocator());          // (11) C++23
 ```
+* type_identity_t[link /reference/type_traits/type_identity.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 * from_range_t[link ../../ranges/from_range_t.md]
 
@@ -103,6 +109,9 @@ forward_list(from_range_t, R&& rg,
     ```
     * std::scoped_allocator_adaptor[link ../../scoped_allocator/scoped_allocator_adaptor.md]
     * emplace_back[link ../../list/list/emplace_back.md]
+
+- C++23 では、(8) と (9) のアロケータパラメータの型が `const Allocator&` から `const type_identity_t<Allocator>&` に変更された。
+    これは、クラステンプレートのテンプレート引数推論 (CTAD) の際に、コピー/ムーブ元の `forward_list` から推論される `Allocator` と、アロケータ引数から推論される型が異なる場合に推論が失敗する問題を修正するためである。[`type_identity_t`](/reference/type_traits/type_identity.md) で包むことで、アロケータ引数が非推論コンテキストとなり、アロケータの型はコピー/ムーブ元のみから推論されるようになる。
 
 
 ## 例
@@ -191,3 +200,5 @@ ls7 : 1 2 3
 - [LWG 2210. Missing allocator-extended constructor for allocator-aware containers](http://cplusplus.github.io/LWG/lwg-defects.html#2210)  
     `explicit forward_list(size_type n)` にアロケータ引数を追加するきっかけとなったレポート  
     なお、Discussion の例はアロケータの型が誤っているので注意
+- [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
+    - C++23でのアロケータ引数を`type_identity_t`で包む変更

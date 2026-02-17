@@ -28,11 +28,14 @@ map(InputIterator first,
 
 map(const map& x);                                     // (6)
 
-map(const map& x, const Allocator& alloc);             // (7) C++11 から
+map(const map& x, const Allocator& alloc);                  // (7) C++11
+map(const map& x,
+    const type_identity_t<Allocator>& alloc);               // (7) C++23
 
-map(map&& y);                                          // (8) C++11 から
+map(map&& y);                                               // (8) C++11 から
 
-map(map&& y, const Allocator& alloc);                  // (9) C++11 から
+map(map&& y, const Allocator& alloc);                       // (9) C++11
+map(map&& y, const type_identity_t<Allocator>& alloc);      // (9) C++23
 
 map(initializer_list<value_type> init,
     const Compare& comp = Compare(),
@@ -50,6 +53,7 @@ template <container-compatible-range <value_type> R>
 map(from_range_t, R&& rg,
     const Allocator& alloc);                           // (13) C++23 から
 ```
+* type_identity_t[link /reference/type_traits/type_identity.md]
 * initializer_list[link ../../initializer_list.md]
 * from_range_t[link ../../ranges/from_range_t.md]
 
@@ -120,6 +124,9 @@ map(from_range_t, R&& rg,
     なお、C++14 では同様の理由で (11) の形式も新たに追加されているが、こちらは存在しなくてもエラーとはならない。  
     （`map(init, alloc)` の形式の構築では、(11) の形式が無い場合でも (10) の形式を用いて `init` から一時 `map` が構築され、`alloc` と共に (9) の形式に引き渡される）
 
+- C++23 では、(7) と (9) のアロケータパラメータの型が `const Allocator&` から `const type_identity_t<Allocator>&` に変更された。
+    これは、クラステンプレートのテンプレート引数推論 (CTAD) の際に、コピー/ムーブ元の `map` から推論される `Allocator` と、アロケータ引数から推論される型が異なる場合に推論が失敗する問題を修正するためである。[`type_identity_t`](/reference/type_traits/type_identity.md) で包むことで、アロケータ引数が非推論コンテキストとなり、アロケータの型はコピー/ムーブ元のみから推論されるようになる。
+
 ## 例
 ```cpp example
 #include <iostream>
@@ -167,3 +174,5 @@ Size of m2: 2
 - [LWG 2210. Missing allocator-extended constructor for allocator-aware containers](http://cplusplus.github.io/LWG/lwg-defects.html#2210)  
     (5), (11) を追加するきっかけとなったレポート  
     なお、Discussion の例はアロケータの型が誤っているので注意
+- [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
+    - C++23でのアロケータ引数を`type_identity_t`で包む変更

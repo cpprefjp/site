@@ -77,6 +77,16 @@ template <class Compare, class Container>
 - (9) : Rangeとアロケータから推論する
 
 
+## 適格要件
+以下のいずれかの条件を満たす場合、コンテナアダプタの推論補助はオーバーロード解決に参加しない：
+
+- `InputIterator`テンプレートパラメータをもち、入力イテレータの要件を満たさない型が推論された場合
+- `Compare`テンプレートパラメータをもち、アロケータとして適格な型が推論された場合 (C++23)
+- `Container`テンプレートパラメータをもち、アロケータとして適格な型が推論された場合 (C++23)
+- `Container`テンプレートパラメータをもたず、`Allocator`テンプレートパラメータをもち、アロケータとして適格でない型が推論された場合 (C++23)
+- `Container`と`Allocator`の両方のテンプレートパラメータをもち、[`uses_allocator_v`](/reference/memory/uses_allocator.md)`<Container, Allocator>`が`false`の場合
+
+
 ## 例
 ```cpp example
 #include <queue>
@@ -120,3 +130,5 @@ int main()
 
 ## 参照
 - [P0433R2 Toward a resolution of US7 and US14: Integrating template deduction for class templates into the standard library](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0433r2.html)
+- [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
+    - C++23での推論補助の制約についての変更
