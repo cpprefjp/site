@@ -5,18 +5,24 @@
 * function[meta id-type]
 
 ```cpp
-void erase(iterator position);                             // (1) C++03 (C++11で一旦削除)
-iterator erase(iterator position);                         // (1) C++17
+void erase(iterator position);               // (1) C++03 (C++11で一旦削除)
+iterator erase(iterator position);           // (1) C++17
+constexpr iterator erase(iterator position); // (1) C++26
 
-iterator erase(const_iterator position);                   // (2) C++11
+iterator erase(const_iterator position);           // (2) C++11
+constexpr iterator erase(const_iterator position); // (2) C++26
 
-size_type erase(const key_type& x);                        // (3) C++03
+size_type erase(const key_type& x);           // (3) C++03
+constexpr size_type erase(const key_type& x); // (3) C++26
 
 template <class K>
-size_type erase(K&& x);                                    // (4) C++23
+size_type erase(K&& x);           // (4) C++23
+template <class K>
+constexpr size_type erase(K&& x); // (4) C++26
 
-void erase(iterator first, iterator last);                 // (5) C++03
-iterator erase(const_iterator first, const_iterator last); // (5) C++11
+void erase(iterator first, iterator last);                           // (5) C++03
+iterator erase(const_iterator first, const_iterator last);           // (5) C++11
+constexpr iterator erase(const_iterator first, const_iterator last); // (5) C++26
 ```
 
 ## 概要
@@ -189,3 +195,4 @@ int main()
     - C++17で、`erase(iterator)`を再追加
 - [P2077R3 Heterogeneous erasure overloads for associative containers](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2077r3.html)
     - C++23で、`template <class K> erase(K&& x)`のオーバーロードが追加された
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

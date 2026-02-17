@@ -6,10 +6,13 @@
 * cpp20[meta cpp]
 
 ```cpp
-bool contains(const key_type& x) const; // (1)
+bool contains(const key_type& x) const;           // (1) C++20
+constexpr bool contains(const key_type& x) const; // (1) C++26
 
 template <class K>
-bool contains(const K& x) const;        // (2)
+bool contains(const K& x) const;           // (2) C++20
+template <class K>
+constexpr bool contains(const K& x) const; // (2) C++26
 ```
 
 
@@ -75,3 +78,4 @@ contain
 
 ## 参照
 - [P0458R2 Checking for Existence of an Element in Associative Containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0458r2.html)
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

@@ -5,8 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-void clear();           // C++03
-void clear() noexcept;  // C++11
+void clear();                    // (1) C++03
+void clear() noexcept;           // (1) C++11
+constexpr void clear() noexcept; // (1) C++26
 ```
 
 ## 概要
@@ -68,3 +69,7 @@ int main()
 | [`map::erase`](erase.md) | 要素を削除する |
 | [`map::size`](size.md) | 要素数を取得する |
 | [`map::empty`](empty.md) | コンテナが空であるかどうかを調べる |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

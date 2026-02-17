@@ -5,17 +5,29 @@
 * function[meta id-type]
 
 ```cpp
-pair<iterator, iterator> equal_range(const key_type& x); // (1)
+pair<iterator, iterator>
+  equal_range(const key_type& x); // (1) C++03
+constexpr pair<iterator, iterator>
+  equal_range(const key_type& x); // (1) C++26
 
 template <class K>
-pair<iterator, iterator> equal_range(const K& x);        // (2) C++14
+pair<iterator, iterator>
+  equal_range(const K& x);        // (2) C++14
+template <class K>
+constexpr pair<iterator, iterator>
+  equal_range(const K& x);        // (2) C++26
 
 pair<const_iterator, const_iterator>
-  equal_range(const key_type& x) const;                  // (3)
+  equal_range(const key_type& x) const; // (3) C++03
+constexpr pair<const_iterator, const_iterator>
+  equal_range(const key_type& x) const; // (3) C++26
 
 template <class K>
 pair<const_iterator, const_iterator>
-  equal_range(const K& x) const;                         // (4) C++14
+  equal_range(const K& x) const; // (4) C++14
+template <class K>
+constexpr pair<const_iterator, const_iterator>
+  equal_range(const K& x) const; // (4) C++26
 ```
 
 ## 概要
@@ -84,3 +96,4 @@ B,1
 
 ## 参照
 - [N3657 Adding heterogeneous comparison lookup to associative containers (rev 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3657.htm)
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

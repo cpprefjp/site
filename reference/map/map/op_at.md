@@ -5,12 +5,14 @@
 * function[meta id-type]
 
 ```cpp
-T& operator[](const key_type& x); // (1) C++03
+T& operator[](const key_type& x);           // (1) C++03
+constexpr T& operator[](const key_type& x); // (1) C++26
 
-T& operator[](key_type&& x);      // (2) C++11
+T& operator[](key_type&& x);           // (2) C++11
+constexpr T& operator[](key_type&& x); // (2) C++26
 
 template <class K>
-T& operator[](K&& x);             // (3) C++26
+constexpr T& operator[](K&& x); // (3) C++26
 ```
 
 ## 概要
@@ -76,3 +78,4 @@ a
 ## 参照
 - [P2363R5 Extending associative containers with the remaining heterogeneous overloads](http://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2363r5.html)
     - C++26で`template <class K>`のバージョンが追加された
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
