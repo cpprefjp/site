@@ -7,8 +7,8 @@
 ```cpp
 void push(const value_type& x);           // (1) C++03
 constexpr void push(const value_type& x); // (1) C++26
-void push(value_type&& x);                // (1) C++03 : (2) C++11から
 
+void push(value_type&& x);           // (2) C++11
 constexpr void push(value_type&& x); // (2) C++26
 ```
 

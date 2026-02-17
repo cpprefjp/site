@@ -22,7 +22,7 @@ constexpr iterator
   insert(const_iterator position,
          T&& x);                  // (2) C++26
 
-void 
+void
   insert(iterator position,
          size_type n,
          const T& x); // (3) C++03

@@ -6,6 +6,7 @@
 * [meta namespace]
 
 ```cpp
+node_handle() noexcept : ptr_(), alloc_() {}           // (1) C++17
 constexpr node_handle() noexcept : ptr_(), alloc_() {} // (1) C++26
 
 node_handle(node_handle&& nh) noexcept;           // (2) C++17

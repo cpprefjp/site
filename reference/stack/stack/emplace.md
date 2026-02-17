@@ -9,9 +9,9 @@
 template <class... Args>
 void emplace(Args&&... args);                     // (1) C++11
 template <class... Args>
-decltype(auto) emplace(Args&&... args);           // (2) C++17
+decltype(auto) emplace(Args&&... args);           // (1) C++17
 template <class... Args>
-constexpr decltype(auto) emplace(Args&&... args); // (2) C++26
+constexpr decltype(auto) emplace(Args&&... args); // (1) C++26
 ```
 
 ## 概要

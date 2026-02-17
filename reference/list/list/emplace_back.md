@@ -7,14 +7,11 @@
 
 ```cpp
 template <class... Args>
-void emplace_back(Args&&... args);           // (1) C++11 : C++14 まで
+void emplace_back(Args&&... args);                // (1) C++11
 template <class... Args>
-constexpr void emplace_back(Args&&... args); // (1) C++26
-
+reference emplace_back(Args&&... args);           // (1) C++17
 template <class... Args>
-reference emplace_back(Args&&... args);           // (2) C++11 : C++17 から
-template <class... Args>
-constexpr reference emplace_back(Args&&... args); // (2) C++26
+constexpr reference emplace_back(Args&&... args); // (1) C++26
 ```
 
 ## 概要
