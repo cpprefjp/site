@@ -2,9 +2,1853 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-02-17T13:34:08.028702</updated>
-  <id>9370a0f2-6e91-4b0c-9a15-eaf450313af5</id>
+  <updated>2026-02-17T13:38:50.322163</updated>
+  <id>7dff805c-cf52-4d47-99f6-f15e135362a2</id>
 
+  
+    <entry>
+      <title>begin(size_type) -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/begin-size_type.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/begin-size_type.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/begin-size_type.md b/reference/unordered_map/unordered_multimap/begin-size_type.md
+index f9382ae5d..cae678b00 100644
+--- a/reference/unordered_map/unordered_multimap/begin-size_type.md
++++ b/reference/unordered_map/unordered_multimap/begin-size_type.md
+@@ -6,8 +6,11 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-local_iterator begin(size_type n);
+-const_local_iterator begin(size_type n) const;
++local_iterator begin(size_type n);           // (1) C++11
++constexpr local_iterator begin(size_type n); // (1) C++26
++
++const_local_iterator begin(size_type n) const;           // (2) C++11
++constexpr const_local_iterator begin(size_type n) const; // (2) C++26
+ ```
+ 
+ ## 概要
+@@ -99,3 +102,7 @@ bucket = 10, bucket_size = 1, keys = { A, }
+ | [`end(size_type)`](end-size_type.md)       | インデックス（添え字）で指定したバケット内の最終要素の次を指すイテレータを取得 |
+ | [`cbegin(size_type)`](cbegin-size_type.md) | インデックス（添え字）で指定したバケット内の先頭要素を指す読み取り専用イテレータを取得 |
+ | [`cend(size_type)`](cend-size_type.md)     | インデックス（添え字）で指定したバケット内の最終要素の次を指す読み取り専用イテレータを取得 |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>begin -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/begin.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/begin.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/begin.md b/reference/unordered_map/unordered_multimap/begin.md
+index 3adc360f8..d8152674f 100644
+--- a/reference/unordered_map/unordered_multimap/begin.md
++++ b/reference/unordered_map/unordered_multimap/begin.md
+@@ -6,8 +6,11 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-iterator begin() noexcept;
+-const_iterator begin() const noexcept;
++iterator begin() noexcept;           // (1) C++11
++constexpr iterator begin() noexcept; // (1) C++26
++
++const_iterator begin() const noexcept;           // (2) C++11
++constexpr const_iterator begin() const noexcept; // (2) C++26
+ ```
+ 
+ ## 概要
+@@ -87,3 +90,7 @@ int main()
+ | [`end(size_type)`](end-size_type.md)       | インデックス（添え字）で指定したバケット内の最終要素の次を指すイテレータを取得 |
+ | [`cbegin(size_type)`](cbegin-size_type.md) | インデックス（添え字）で指定したバケット内の先頭要素を指す読み取り専用イテレータを取得 |
+ | [`cend(size_type)`](cend-size_type.md)     | インデックス（添え字）で指定したバケット内の最終要素の次を指す読み取り専用イテレータを取得 |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>bucket -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/bucket.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/bucket.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/bucket.md b/reference/unordered_map/unordered_multimap/bucket.md
+index 245a20b5e..da6b875c1 100644
+--- a/reference/unordered_map/unordered_multimap/bucket.md
++++ b/reference/unordered_map/unordered_multimap/bucket.md
+@@ -6,10 +6,10 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-size_type bucket(const key_type&amp;amp; k) const; // (1) C++26
++constexpr size_type bucket(const key_type&amp;amp; k) const; // (1) C++26
+ 
+ template &amp;lt;class K&amp;gt;
+-size_type bucket(const K&amp;amp; k) const;        // (2) C++26
++constexpr size_type bucket(const K&amp;amp; k) const; // (2) C++26
+ ```
+ 
+ ## 概要
+@@ -113,3 +113,4 @@ key = H, bucket = 6, bucket_size = 0
+ ## 参照
+ - [P2363R5 Extending associative containers with the remaining heterogeneous overloads](http://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2363r5.html)
+     - C++26で`template &amp;lt;class K&amp;gt;`のバージョンが追加された
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>bucket_count -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/bucket_count.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/bucket_count.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/bucket_count.md b/reference/unordered_map/unordered_multimap/bucket_count.md
+index 07f816186..5f3f58163 100644
+--- a/reference/unordered_map/unordered_multimap/bucket_count.md
++++ b/reference/unordered_map/unordered_multimap/bucket_count.md
+@@ -6,7 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-size_type bucket_count() const noexcept;
++size_type bucket_count() const noexcept;           // (1) C++11
++constexpr size_type bucket_count() const noexcept; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -72,3 +73,7 @@ bucket count is 11
+ | [`end(size_type)`](end-size_type.md)       | インデックス（添え字）で指定したバケット内の最終要素の次を指すイテレータを取得 |
+ | [`cbegin(size_type)`](cbegin-size_type.md) | インデックス（添え字）で指定したバケット内の先頭要素を指す読み取り専用イテレータを取得 |
+ | [`cend(size_type)`](cend-size_type.md)     | インデックス（添え字）で指定したバケット内の最終要素の次を指す読み取り専用イテレータを取得 |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>bucket_size -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/bucket_size.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/bucket_size.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/bucket_size.md b/reference/unordered_map/unordered_multimap/bucket_size.md
+index 5488d668a..5806dcc3f 100644
+--- a/reference/unordered_map/unordered_multimap/bucket_size.md
++++ b/reference/unordered_map/unordered_multimap/bucket_size.md
+@@ -6,7 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-size_type bucket_size(size_type n) const;
++size_type bucket_size(size_type n) const;           // (1) C++11
++constexpr size_type bucket_size(size_type n) const; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -99,3 +100,7 @@ bucket = 10, bucket_size = 1, keys = { A, }
+ | [`end(size_type)`](end-size_type.md)       | インデックス（添え字）で指定したバケット内の最終要素の次を指すイテレータを取得 |
+ | [`cbegin(size_type)`](cbegin-size_type.md) | インデックス（添え字）で指定したバケット内の先頭要素を指す読み取り専用イテレータを取得 |
+ | [`cend(size_type)`](cend-size_type.md)     | インデックス（添え字）で指定したバケット内の最終要素の次を指す読み取り専用イテレータを取得 |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>cbegin(size_type) -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/cbegin-size_type.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/cbegin-size_type.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/cbegin-size_type.md b/reference/unordered_map/unordered_multimap/cbegin-size_type.md
+index dee4c2803..586585f0b 100644
+--- a/reference/unordered_map/unordered_multimap/cbegin-size_type.md
++++ b/reference/unordered_map/unordered_multimap/cbegin-size_type.md
+@@ -6,7 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-const_local_iterator cbegin(size_type n) const;
++const_local_iterator cbegin(size_type n) const;           // (1) C++11
++constexpr const_local_iterator cbegin(size_type n) const; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -98,3 +99,7 @@ bucket = 10, bucket_size = 1, keys = { A, }
+ | [`begin(size_type)`](begin-size_type.md) | インデックス（添え字）で指定したバケット内の先頭要素を指すイテレータを取得 |
+ | [`end(size_type)`](end-size_type.md)     | インデックス（添え字）で指定したバケット内の最終要素の次を指すイテレータを取得 |
+ | [`cend(size_type)`](cend-size_type.md)   | インデックス（添え字）で指定したバケット内の最終要素の次を指す読み取り専用イテレータを取得 |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>cbegin -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/cbegin.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/cbegin.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/cbegin.md b/reference/unordered_map/unordered_multimap/cbegin.md
+index 1e74cab43..8ef508d69 100644
+--- a/reference/unordered_map/unordered_multimap/cbegin.md
++++ b/reference/unordered_map/unordered_multimap/cbegin.md
+@@ -6,7 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-const_iterator cbegin() const noexcept;
++const_iterator cbegin() const noexcept;           // (1) C++11
++constexpr const_iterator cbegin() const noexcept; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -78,3 +79,7 @@ int main()
+ | [`end(size_type)`](end-size_type.md)       | インデックス（添え字）で指定したバケット内の最終要素の次を指すイテレータを取得 |
+ | [`cbegin(size_type)`](cbegin-size_type.md) | インデックス（添え字）で指定したバケット内の先頭要素を指す読み取り専用イテレータを取得 |
+ | [`cend(size_type)`](cend-size_type.md)     | インデックス（添え字）で指定したバケット内の最終要素の次を指す読み取り専用イテレータを取得 |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>cend(size_type) -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/cend-size_type.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/cend-size_type.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/cend-size_type.md b/reference/unordered_map/unordered_multimap/cend-size_type.md
+index 5af72e4b1..df73a601a 100644
+--- a/reference/unordered_map/unordered_multimap/cend-size_type.md
++++ b/reference/unordered_map/unordered_multimap/cend-size_type.md
+@@ -6,7 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-const_local_iterator cend(size_type n) const;
++const_local_iterator cend(size_type n) const;           // (1) C++11
++constexpr const_local_iterator cend(size_type n) const; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -98,3 +99,7 @@ bucket = 10, bucket_size = 1, keys = { A, }
+ | [`begin(size_type)`](begin-size_type.md)   | インデックス（添え字）で指定したバケット内の先頭要素を指すイテレータを取得 |
+ | [`end(size_type)`](end-size_type.md)       | インデックス（添え字）で指定したバケット内の最終要素の次を指すイテレータを取得 |
+ | [`cbegin(size_type)`](cbegin-size_type.md) | インデックス（添え字）で指定したバケット内の先頭要素を指す読み取り専用イテレータを取得 |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>cend -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/cend.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/cend.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/cend.md b/reference/unordered_map/unordered_multimap/cend.md
+index 6439d2e1a..844da39cc 100644
+--- a/reference/unordered_map/unordered_multimap/cend.md
++++ b/reference/unordered_map/unordered_multimap/cend.md
+@@ -6,7 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-const_iterator cend() const noexcept;
++const_iterator cend() const noexcept;           // (1) C++11
++constexpr const_iterator cend() const noexcept; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -82,3 +83,7 @@ int main()
+ | [`end(size_type)`](end-size_type.md)       | インデックス（添え字）で指定したバケット内の最終要素の次を指すイテレータを取得 |
+ | [`cbegin(size_type)`](cbegin-size_type.md) | インデックス（添え字）で指定したバケット内の先頭要素を指す読み取り専用イテレータを取得 |
+ | [`cend(size_type)`](cend-size_type.md)     | インデックス（添え字）で指定したバケット内の最終要素の次を指す読み取り専用イテレータを取得 |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clear -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/clear.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/clear.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/clear.md b/reference/unordered_map/unordered_multimap/clear.md
+index 2870682a9..a47db1449 100644
+--- a/reference/unordered_map/unordered_multimap/clear.md
++++ b/reference/unordered_map/unordered_multimap/clear.md
+@@ -6,7 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-void clear() noexcept;
++void clear() noexcept;           // (1) C++11
++constexpr void clear() noexcept; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -99,3 +100,7 @@ true
+ | [`insert`](insert.md)             | 要素の追加                                             |
+ | [`erase`](erase.md)               | 要素の削除                                             |
+ | [`swap`](swap.md)                 | 内容の交換                                             |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>contains -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/contains.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/contains.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/contains.md b/reference/unordered_map/unordered_multimap/contains.md
+index 7aea1e1ff..20c3d015f 100644
+--- a/reference/unordered_map/unordered_multimap/contains.md
++++ b/reference/unordered_map/unordered_multimap/contains.md
+@@ -6,10 +6,13 @@
+ * cpp20[meta cpp]
+ 
+ ```cpp
+-bool contains(const key_type&amp;amp; x) const; // (1)
++bool contains(const key_type&amp;amp; x) const;           // (1) C++20
++constexpr bool contains(const key_type&amp;amp; x) const; // (1) C++26
+ 
+ template &amp;lt;class K&amp;gt;
+-bool contains(const K&amp;amp; k) const;        // (2)
++bool contains(const K&amp;amp; k) const;           // (2) C++20
++template &amp;lt;class K&amp;gt;
++constexpr bool contains(const K&amp;amp; k) const; // (2) C++26
+ ```
+ 
+ ## 概要
+@@ -81,3 +84,4 @@ contain
+ ## 参照
+ - [P0458R2 Checking for Existence of an Element in Associative Containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0458r2.html)
+ - [P0919R3 Heterogeneous lookup for unordered containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0919r3.html)
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>count -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/count.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/count.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/count.md b/reference/unordered_map/unordered_multimap/count.md
+index 0b3d80ddd..2d4743f38 100644
+--- a/reference/unordered_map/unordered_multimap/count.md
++++ b/reference/unordered_map/unordered_multimap/count.md
+@@ -6,10 +6,13 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-size_type count(const key_type&amp;amp; x) const; // (1) C++11
++size_type count(const key_type&amp;amp; x) const;           // (1) C++11
++constexpr size_type count(const key_type&amp;amp; x) const; // (1) C++26
+ 
+ template &amp;lt;class K&amp;gt;
+-size_type count(const K&amp;amp; k) const;        // (2) C++20
++size_type count(const K&amp;amp; k) const;           // (2) C++20
++template &amp;lt;class K&amp;gt;
++constexpr size_type count(const K&amp;amp; k) const; // (2) C++26
+ ```
+ 
+ ## 概要
+@@ -96,3 +99,4 @@ int main()
+ ## 参照
+ - [LWG Issue 2304. Complexity of `count` in unordered associative containers](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2304)
+ - [P0919R3 Heterogeneous lookup for unordered containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0919r3.html)
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>emplace -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/emplace.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/emplace.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/emplace.md b/reference/unordered_map/unordered_multimap/emplace.md
+index a82e8787c..01973672f 100644
+--- a/reference/unordered_map/unordered_multimap/emplace.md
++++ b/reference/unordered_map/unordered_multimap/emplace.md
+@@ -7,7 +7,9 @@
+ 
+ ```cpp
+ template &amp;lt;class... Args&amp;gt;
+-iterator emplace(Args&amp;amp;&amp;amp;... args);
++iterator emplace(Args&amp;amp;&amp;amp;... args);           // (1) C++11
++template &amp;lt;class... Args&amp;gt;
++constexpr iterator emplace(Args&amp;amp;&amp;amp;... args); // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -149,3 +151,4 @@ int main()
+ - [LWG Issue 518. Are `insert` and `erase` stable for `unordered_multiset` and `unordered_multimap`?](https://wg21.cmeerw.net/lwg/issue518)
+     - 安定性の保証が規定された経緯のレポート
+ - [LWG Issue 2156. Unordered containers&amp;#39; reserve(n) reserves for n-1 elements](https://wg21.cmeerw.net/lwg/issue2156)
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>emplace_hint -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/emplace_hint.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/emplace_hint.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/emplace_hint.md b/reference/unordered_map/unordered_multimap/emplace_hint.md
+index cfdd45f73..769550ad5 100644
+--- a/reference/unordered_map/unordered_multimap/emplace_hint.md
++++ b/reference/unordered_map/unordered_multimap/emplace_hint.md
+@@ -7,7 +7,9 @@
+ 
+ ```cpp
+ template &amp;lt;class... Args&amp;gt;
+-iterator emplace_hint(const_iterator position, Args&amp;amp;&amp;amp;... args);
++iterator emplace_hint(const_iterator position, Args&amp;amp;&amp;amp;... args);           // (1) C++11
++template &amp;lt;class... Args&amp;gt;
++constexpr iterator emplace_hint(const_iterator position, Args&amp;amp;&amp;amp;... args); // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -181,3 +183,4 @@ int main()
+ - [LWG Issue 518. Are `insert` and `erase` stable for `unordered_multiset` and `unordered_multimap`?](https://wg21.cmeerw.net/lwg/issue518)
+     - 安定性の保証が規定された経緯のレポート
+ - [LWG Issue 2156. Unordered containers&amp;#39; reserve(n) reserves for n-1 elements](https://wg21.cmeerw.net/lwg/issue2156)
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>empty -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/empty.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/empty.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/empty.md b/reference/unordered_map/unordered_multimap/empty.md
+index 248fea363..815391c5f 100644
+--- a/reference/unordered_map/unordered_multimap/empty.md
++++ b/reference/unordered_map/unordered_multimap/empty.md
+@@ -6,9 +6,9 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-bool empty() const noexcept;               // C++11
+-[[nodiscard]] bool empty() const noexcept; // C++20
+-bool empty() const noexcept;               // C++26
++bool empty() const noexcept;               // (1) C++11
++[[nodiscard]] bool empty() const noexcept; // (1) C++20
++constexpr bool empty() const noexcept;     // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -97,3 +97,4 @@ inline bool unordered_multimap&amp;lt;Key, Hash, Pred, Allocator&amp;gt;::empty() const noexce
+     - C++20で`[[nodiscard]]`が付加された
+ - [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
+     - C++26で`[[nodiscard]]`指定が削除された
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>end(size_type) -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/end-size_type.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/end-size_type.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/end-size_type.md b/reference/unordered_map/unordered_multimap/end-size_type.md
+index d64967b78..1bbb0ad15 100644
+--- a/reference/unordered_map/unordered_multimap/end-size_type.md
++++ b/reference/unordered_map/unordered_multimap/end-size_type.md
+@@ -6,8 +6,11 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-local_iterator end(size_type n);
+-const_local_iterator end(size_type n) const;
++local_iterator end(size_type n);           // (1) C++11
++constexpr local_iterator end(size_type n); // (1) C++26
++
++const_local_iterator end(size_type n) const;           // (2) C++11
++constexpr const_local_iterator end(size_type n) const; // (2) C++26
+ ```
+ 
+ ## 概要
+@@ -99,3 +102,7 @@ bucket = 10, bucket_size = 1, keys = { A, }
+ | [`begin(size_type)`](begin-size_type.md)   | インデックス（添え字）で指定したバケット内の先頭要素を指すイテレータを取得 |
+ | [`cbegin(size_type)`](cbegin-size_type.md) | インデックス（添え字）で指定したバケット内の先頭要素を指す読み取り専用イテレータを取得 |
+ | [`cend(size_type)`](cend-size_type.md)     | インデックス（添え字）で指定したバケット内の最終要素の次を指す読み取り専用イテレータを取得 |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>end -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/end.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/end.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/end.md b/reference/unordered_map/unordered_multimap/end.md
+index 7fb3083fb..b28e2fb58 100644
+--- a/reference/unordered_map/unordered_multimap/end.md
++++ b/reference/unordered_map/unordered_multimap/end.md
+@@ -6,8 +6,11 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-iterator end() noexcept;
+-const_iterator end() const noexcept;
++iterator end() noexcept;           // (1) C++11
++constexpr iterator end() noexcept; // (1) C++26
++
++const_iterator end() const noexcept;           // (2) C++11
++constexpr const_iterator end() const noexcept; // (2) C++26
+ ```
+ 
+ ## 概要
+@@ -89,3 +92,7 @@ int main()
+ | [`end(size_type)`](end-size_type.md)       | インデックス（添え字）で指定したバケット内の最終要素の次を指すイテレータを取得 |
+ | [`cbegin(size_type)`](cbegin-size_type.md) | インデックス（添え字）で指定したバケット内の先頭要素を指す読み取り専用イテレータを取得 |
+ | [`cend(size_type)`](cend-size_type.md)     | インデックス（添え字）で指定したバケット内の最終要素の次を指す読み取り専用イテレータを取得
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>equal_range -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/equal_range.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/equal_range.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/equal_range.md b/reference/unordered_map/unordered_multimap/equal_range.md
+index 605189fbb..b29096a74 100644
+--- a/reference/unordered_map/unordered_multimap/equal_range.md
++++ b/reference/unordered_map/unordered_multimap/equal_range.md
+@@ -7,16 +7,28 @@
+ 
+ ```cpp
+ pair&amp;lt;iterator, iterator&amp;gt;
+-  equal_range(const key_type&amp;amp; x);       // (1) C++11
++  equal_range(const key_type&amp;amp; x); // (1) C++11
++constexpr pair&amp;lt;iterator, iterator&amp;gt;
++  equal_range(const key_type&amp;amp; x); // (1) C++26
++
+ pair&amp;lt;const_iterator, const_iterator&amp;gt;
+   equal_range(const key_type&amp;amp; x) const; // (2) C++11
++constexpr pair&amp;lt;const_iterator, const_iterator&amp;gt;
++  equal_range(const key_type&amp;amp; x) const; // (2) C++26
+ 
+ template &amp;lt;class K&amp;gt;
+ pair&amp;lt;iterator, iterator&amp;gt;
+-  equal_range(const K&amp;amp; k);              // (3) C++20
++  equal_range(const K&amp;amp; k); // (3) C++20
++template &amp;lt;class K&amp;gt;
++constexpr pair&amp;lt;iterator, iterator&amp;gt;
++  equal_range(const K&amp;amp; k); // (3) C++26
++
+ template &amp;lt;class K&amp;gt;
+ pair&amp;lt;const_iterator, const_iterator&amp;gt;
+-  equal_range(const K&amp;amp; k) const;        // (4) C++20
++  equal_range(const K&amp;amp; k) const; // (4) C++20
++template &amp;lt;class K&amp;gt;
++constexpr pair&amp;lt;const_iterator, const_iterator&amp;gt;
++  equal_range(const K&amp;amp; k) const; // (4) C++26
+ ```
+ 
+ ## 概要
+@@ -124,3 +136,4 @@ second:1
+ 
+ ## 参照
+ - [P0919R3 Heterogeneous lookup for unordered containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0919r3.html)
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>erase -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/erase.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/erase.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/erase.md b/reference/unordered_map/unordered_multimap/erase.md
+index 770804ef1..dac6320c1 100644
+--- a/reference/unordered_map/unordered_multimap/erase.md
++++ b/reference/unordered_map/unordered_multimap/erase.md
+@@ -6,13 +6,17 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-iterator erase(iterator position);                         // (1) C++17
++iterator erase(iterator position);           // (1) C++17
++constexpr iterator erase(iterator position); // (1) C++26
+ 
+-iterator erase(const_iterator position);                   // (2) C++11
++iterator erase(const_iterator position);           // (2) C++11
++constexpr iterator erase(const_iterator position); // (2) C++26
+ 
+-size_type erase(const key_type&amp;amp; k);                        // (3) C++11
++size_type erase(const key_type&amp;amp; k);           // (3) C++11
++constexpr size_type erase(const key_type&amp;amp; k); // (3) C++26
+ 
+-iterator erase(const_iterator first, const_iterator last); // (4) C++11
++iterator erase(const_iterator first, const_iterator last);           // (4) C++11
++constexpr iterator erase(const_iterator first, const_iterator last); // (4) C++26
+ ```
+ 
+ ## 概要
+@@ -217,3 +221,4 @@ int main()
+     - 安定性の保証が規定された経緯のレポート
+ - [LWG Issue 2059. C++0x ambiguity problem with `map::erase`](https://cplusplus.github.io/LWG/issue2059)
+     - C++17で、`erase(iterator)`を追加
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>erase_if -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/erase_if_free.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/erase_if_free.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/erase_if_free.md b/reference/unordered_map/unordered_multimap/erase_if_free.md
+index c12017d40..2eecc5400 100644
+--- a/reference/unordered_map/unordered_multimap/erase_if_free.md
++++ b/reference/unordered_map/unordered_multimap/erase_if_free.md
+@@ -8,7 +8,10 @@
+ namespace std {
+   template &amp;lt;class K, class T, class H, class P, class A, class Predicate&amp;gt;
+   typename unordered_multimap&amp;lt;K, T, H, P, A&amp;gt;::size_type
+-    erase_if(unordered_multimap&amp;lt;K, T, H, P, A&amp;gt;&amp;amp; c, Predicate pred);
++    erase_if(unordered_multimap&amp;lt;K, T, H, P, A&amp;gt;&amp;amp; c, Predicate pred); // (1) C++20
++  template &amp;lt;class K, class T, class H, class P, class A, class Predicate&amp;gt;
++  constexpr typename unordered_multimap&amp;lt;K, T, H, P, A&amp;gt;::size_type
++    erase_if(unordered_multimap&amp;lt;K, T, H, P, A&amp;gt;&amp;amp; c, Predicate pred); // (1) C++26
+ }
+ ```
+ 
+@@ -85,3 +88,4 @@ int main()
+ ## 参照
+ - [P1209R0 Adopt consistent container erasure from Library Fundamentals 2](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1209r0.html)
+ - [R1115R3 Improving the Return Value of Erase-Like Algorithms II: Free `erase`/`erase_if`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1115r3.pdf)
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>extract -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/extract.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/extract.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/extract.md b/reference/unordered_map/unordered_multimap/extract.md
+index 75a371680..5fa8213dc 100644
+--- a/reference/unordered_map/unordered_multimap/extract.md
++++ b/reference/unordered_map/unordered_multimap/extract.md
+@@ -6,8 +6,11 @@
+ * cpp17[meta cpp]
+ 
+ ```cpp
+-node_type extract(const_iterator position); (1)
+-node_type extract(const key_type&amp;amp; x);       (2)
++node_type extract(const_iterator position);           // (1) C++17
++constexpr node_type extract(const_iterator position); // (1) C++26
++
++node_type extract(const key_type&amp;amp; x);           // (2) C++17
++constexpr node_type extract(const key_type&amp;amp; x); // (2) C++26
+ ```
+ 
+ ## 概要
+@@ -96,3 +99,4 @@ m2 :
+ 
+ ## 参照
+ - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>find -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/find.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/find.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/find.md b/reference/unordered_map/unordered_multimap/find.md
+index 219cf8226..217796ab0 100644
+--- a/reference/unordered_map/unordered_multimap/find.md
++++ b/reference/unordered_map/unordered_multimap/find.md
+@@ -6,11 +6,17 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-iterator       find(const key_type&amp;amp; x);                    // (1) C++11
+-const_iterator find(const key_type&amp;amp; x) const;              // (2) C++11
++iterator       find(const key_type&amp;amp; x);           // (1) C++11
++constexpr iterator       find(const key_type&amp;amp; x); // (1) C++26
+ 
+-template &amp;lt;class K&amp;gt; iterator       find(const K&amp;amp; k);        // (3) C++20
+-template &amp;lt;class K&amp;gt; const_iterator find(const K&amp;amp; k) const;  // (4) C++20
++const_iterator find(const key_type&amp;amp; x) const;           // (2) C++11
++constexpr const_iterator find(const key_type&amp;amp; x) const; // (2) C++26
++
++template &amp;lt;class K&amp;gt; iterator       find(const K&amp;amp; k);           // (3) C++20
++constexpr template &amp;lt;class K&amp;gt; iterator       find(const K&amp;amp; k); // (3) C++26
++
++template &amp;lt;class K&amp;gt; const_iterator find(const K&amp;amp; k) const;           // (4) C++20
++constexpr template &amp;lt;class K&amp;gt; const_iterator find(const K&amp;amp; k) const; // (4) C++26
+ ```
+ 
+ ## 概要
+@@ -95,3 +101,4 @@ int main()
+ 
+ ## 参照
+ - [P0919R3 Heterogeneous lookup for unordered containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0919r3.html)
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>get_allocator -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/get_allocator.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/get_allocator.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/get_allocator.md b/reference/unordered_map/unordered_multimap/get_allocator.md
+index 2d51cacb0..d20562660 100644
+--- a/reference/unordered_map/unordered_multimap/get_allocator.md
++++ b/reference/unordered_map/unordered_multimap/get_allocator.md
+@@ -6,7 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-allocator_type get_allocator() const noexcept;
++allocator_type get_allocator() const noexcept;           // (1) C++11
++constexpr allocator_type get_allocator() const noexcept; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -49,3 +50,7 @@ int main()
+ - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified], 2015 [mark verified], 2017 [mark verified]
+ 	- 2010は、`noexcept`が修飾されていない。
+ 	- 2012, 2013は、`noexcept`が実装されていないため、`throw()`が修飾されている。
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>hash_function -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/hash_function.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/hash_function.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/hash_function.md b/reference/unordered_map/unordered_multimap/hash_function.md
+index 547bfbcb9..194fbacea 100644
+--- a/reference/unordered_map/unordered_multimap/hash_function.md
++++ b/reference/unordered_map/unordered_multimap/hash_function.md
+@@ -6,7 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-hasher hash_function() const;
++hasher hash_function() const;           // (1) C++11
++constexpr hasher hash_function() const; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -79,3 +80,7 @@ hash(&amp;#34;2nd&amp;#34;) = 12978775524054262047
+ |-----------------------------------------|------------------------------------------------------|
+ | [`hash`](/reference/functional/hash.md) | デフォルトのハッシュ関数オブジェクト(class template) |
+ | [`key_eq`](key_eq.md)                 | キー比較用関数オブジェクトの取得                     |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>insert -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/insert.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/insert.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/insert.md b/reference/unordered_map/unordered_multimap/insert.md
+index f537e665e..2dfcf1e49 100644
+--- a/reference/unordered_map/unordered_multimap/insert.md
++++ b/reference/unordered_map/unordered_multimap/insert.md
+@@ -6,25 +6,41 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-iterator insert(const value_type&amp;amp; v);                          // (1)
+-iterator insert(value_type&amp;amp;&amp;amp; v);                               // (2) C++17
++iterator insert(const value_type&amp;amp; v);           // (1) C++11
++constexpr iterator insert(const value_type&amp;amp; v); // (1) C++26
+ 
++iterator insert(value_type&amp;amp;&amp;amp; v);           // (2) C++17
++constexpr iterator insert(value_type&amp;amp;&amp;amp; v); // (2) C++26
++
++template &amp;lt;class P&amp;gt;
++iterator insert(P&amp;amp;&amp;amp; obj);           // (3) C++11
+ template &amp;lt;class P&amp;gt;
+-iterator insert(P&amp;amp;&amp;amp; obj);                                      // (3)
++constexpr iterator insert(P&amp;amp;&amp;amp; obj); // (3) C++26
++
++iterator insert(const_iterator position, const value_type&amp;amp; v);           // (4) C++11
++constexpr iterator insert(const_iterator position, const value_type&amp;amp; v); // (4) C++26
+ 
+-iterator insert(const_iterator position, const value_type&amp;amp; v); // (4)
+-iterator insert(const_iterator hint, value_type&amp;amp;&amp;amp; v);          // (5) C++17
++iterator insert(const_iterator hint, value_type&amp;amp;&amp;amp; v);           // (5) C++17
++constexpr iterator insert(const_iterator hint, value_type&amp;amp;&amp;amp; v); // (5) C++26
+ 
+ template &amp;lt;class P&amp;gt;
+-iterator insert(const_iterator position, P&amp;amp;&amp;amp; obj);             // (6)
++iterator insert(const_iterator position, P&amp;amp;&amp;amp; obj);           // (6) C++11
++template &amp;lt;class P&amp;gt;
++constexpr iterator insert(const_iterator position, P&amp;amp;&amp;amp; obj); // (6) C++26
+ 
+ template &amp;lt;class InputIterator&amp;gt;
+-void insert(InputIterator first, InputIterator last);          // (7)
++void insert(InputIterator first, InputIterator last);           // (7) C++11
++template &amp;lt;class InputIterator&amp;gt;
++constexpr void insert(InputIterator first, InputIterator last); // (7) C++26
++
++void insert(initializer_list&amp;lt;value_type&amp;gt; il);           // (8) C++11
++constexpr void insert(initializer_list&amp;lt;value_type&amp;gt; il); // (8) C++26
+ 
+-void insert(initializer_list&amp;lt;value_type&amp;gt; il);                  // (8)
++iterator insert(node_type&amp;amp;&amp;amp; nh);           // (9) C++17
++constexpr iterator insert(node_type&amp;amp;&amp;amp; nh); // (9) C++26
+ 
+-iterator insert(node_type&amp;amp;&amp;amp; nh);                               // (9) C++17
+-iterator insert(const_iterator hint, node_type&amp;amp;&amp;amp; nh);          // (10) C++17
++iterator insert(const_iterator hint, node_type&amp;amp;&amp;amp; nh);           // (10) C++17
++constexpr iterator insert(const_iterator hint, node_type&amp;amp;&amp;amp; nh); // (10) C++26
+ ```
+ * initializer_list[link /reference/initializer_list/initializer_list.md]
+ 
+@@ -306,3 +322,4 @@ inline void unordered_multimap&amp;lt;Key, Hash, Pred, Allocator&amp;gt;::insert(initializer_l
+ - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
+     - (9), (10)経緯となる提案文書
+ - [How useful is the hint passed to the std::unordered_... collections? - The Old New Thing](https://devblogs.microsoft.com/oldnewthing/20241028-00/?p=110428)
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>insert_range -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/insert_range.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/insert_range.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/insert_range.md b/reference/unordered_map/unordered_multimap/insert_range.md
+index 3aacccda9..9d242a408 100644
+--- a/reference/unordered_map/unordered_multimap/insert_range.md
++++ b/reference/unordered_map/unordered_multimap/insert_range.md
+@@ -7,7 +7,9 @@
+ 
+ ```cpp
+ template &amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
+-void insert_range(R&amp;amp;&amp;amp; rg); // C++23
++void insert_range(R&amp;amp;&amp;amp; rg);           // (1) C++23
++template &amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
++constexpr void insert_range(R&amp;amp;&amp;amp; rg); // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -73,3 +75,7 @@ A 10
+ | 名前                                      | 説明                  |
+ |-------------------------------------------|----------------------|
+ | [`insert`](insert.md)                     | 要素の追加             |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>key_eq -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/key_eq.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/key_eq.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/key_eq.md b/reference/unordered_map/unordered_multimap/key_eq.md
+index c7d20c3d3..2db5d9d57 100644
+--- a/reference/unordered_map/unordered_multimap/key_eq.md
++++ b/reference/unordered_map/unordered_multimap/key_eq.md
+@@ -6,7 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-key_equal key_eq() const;
++key_equal key_eq() const;           // (1) C++11
++constexpr key_equal key_eq() const; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -77,3 +78,7 @@ eq(&amp;#34;1st&amp;#34;, &amp;#34;1st&amp;#34;) = true
+ |----------------------------------------------------|----------------------------------------------|
+ | [`equal_to`](/reference/functional/equal_to.md)    | 等値比較演算関数オブジェクト(class template) |
+ | [`hash_function`](hash_function.md)              | ハッシュ関数オブジェクトの取得 |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>load_factor -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/load_factor.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/load_factor.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/load_factor.md b/reference/unordered_map/unordered_multimap/load_factor.md
+index 6f933d721..dfab35f11 100644
+--- a/reference/unordered_map/unordered_multimap/load_factor.md
++++ b/reference/unordered_map/unordered_multimap/load_factor.md
+@@ -6,7 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-float load_factor() const noexcept;
++float load_factor() const noexcept;           // (1) C++11
++constexpr float load_factor() const noexcept; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -89,3 +90,7 @@ current load_factor: 0.5
+ | [`size`](size.md) | 要素数の取得 |
+ | [`bucket_count`](bucket_count.md) | バケット数の取得 |
+ | [`max_load_factor`](max_load_factor.md) | 負荷率の最大値を取得、設定 |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>max_bucket_count -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/max_bucket_count.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/max_bucket_count.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/max_bucket_count.md b/reference/unordered_map/unordered_multimap/max_bucket_count.md
+index 98182b12a..cde8db0b2 100644
+--- a/reference/unordered_map/unordered_multimap/max_bucket_count.md
++++ b/reference/unordered_map/unordered_multimap/max_bucket_count.md
+@@ -6,7 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-size_type max_bucket_count() const noexcept;
++size_type max_bucket_count() const noexcept;           // (1) C++11
++constexpr size_type max_bucket_count() const noexcept; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -66,3 +67,7 @@ max bucket count is 576460752303423487
+ | [`end(size_type)`](end-size_type.md)       | インデックス（添え字）で指定したバケット内の最終要素の次を指すイテレータを取得 |
+ | [`cbegin(size_type)`](cbegin-size_type.md) | インデックス（添え字）で指定したバケット内の先頭要素を指す読み取り専用イテレータを取得 |
+ | [`cend(size_type)`](cend-size_type.md)     | インデックス（添え字）で指定したバケット内の最終要素の次を指す読み取り専用イテレータを取得 |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>max_load_factor -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/max_load_factor.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/max_load_factor.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/max_load_factor.md b/reference/unordered_map/unordered_multimap/max_load_factor.md
+index f9ec4b3bb..2597b9f9d 100644
+--- a/reference/unordered_map/unordered_multimap/max_load_factor.md
++++ b/reference/unordered_map/unordered_multimap/max_load_factor.md
+@@ -6,8 +6,11 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-float max_load_factor() const noexcept; // (1)
+-void max_load_factor(float z);          // (2)
++float max_load_factor() const noexcept;           // (1) C++11
++constexpr float max_load_factor() const noexcept; // (1) C++26
++
++void max_load_factor(float z);           // (2) C++11
++constexpr void max_load_factor(float z); // (2) C++26
+ ```
+ 
+ ## 概要
+@@ -141,3 +144,7 @@ new load_factor: 1.125
+ | [`size`](size.md) | 要素数の取得 |
+ | [`bucket_count`](bucket_count.md) | バケット数の取得 |
+ | [`clear`](clear.md) | 全要素の削除 |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>max_size -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/max_size.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/max_size.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/max_size.md b/reference/unordered_map/unordered_multimap/max_size.md
+index add2a7b7f..ef8b15e27 100644
+--- a/reference/unordered_map/unordered_multimap/max_size.md
++++ b/reference/unordered_map/unordered_multimap/max_size.md
+@@ -6,7 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-size_type max_size() const noexcept;
++size_type max_size() const noexcept;           // (1) C++11
++constexpr size_type max_size() const noexcept; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -66,3 +67,7 @@ libstdc++ では、コンテナのアロケータ `allocator_type` にメンバ
+ |-----------------------|----------------------------|
+ | [`empty`](empty.md) | コンテナが空かどうかを判定 |
+ | [`size`](size.md)   | 要素数の取得               |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>merge -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/merge.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/merge.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/merge.md b/reference/unordered_map/unordered_multimap/merge.md
+index 35ff96846..2c39db2f9 100644
+--- a/reference/unordered_map/unordered_multimap/merge.md
++++ b/reference/unordered_map/unordered_multimap/merge.md
+@@ -7,13 +7,24 @@
+ 
+ ```cpp
+ template&amp;lt;class H2, class P2&amp;gt;
+-  void merge(unordered_map&amp;lt;Key, T, H2, P2, Allocator&amp;gt;&amp;amp; source);       // (1)
++void merge(unordered_map&amp;lt;Key, T, H2, P2, Allocator&amp;gt;&amp;amp; source);           // (1) C++17
+ template&amp;lt;class H2, class P2&amp;gt;
+-  void merge(unordered_map&amp;lt;Key, T, H2, P2, Allocator&amp;gt;&amp;amp;&amp;amp; source);      // (2)
++constexpr void merge(unordered_map&amp;lt;Key, T, H2, P2, Allocator&amp;gt;&amp;amp; source); // (1) C++26
++
++template&amp;lt;class H2, class P2&amp;gt;
++void merge(unordered_map&amp;lt;Key, T, H2, P2, Allocator&amp;gt;&amp;amp;&amp;amp; source);           // (2) C++17
++template&amp;lt;class H2, class P2&amp;gt;
++constexpr void merge(unordered_map&amp;lt;Key, T, H2, P2, Allocator&amp;gt;&amp;amp;&amp;amp; source); // (2) C++26
++
++template&amp;lt;class H2, class P2&amp;gt;
++void merge(unordered_multimap&amp;lt;Key, T, H2, P2, Allocator&amp;gt;&amp;amp; source);           // (3) C++17
++template&amp;lt;class H2, class P2&amp;gt;
++constexpr void merge(unordered_multimap&amp;lt;Key, T, H2, P2, Allocator&amp;gt;&amp;amp; source); // (3) C++26
++
+ template&amp;lt;class H2, class P2&amp;gt;
+-  void merge(unordered_multimap&amp;lt;Key, T, H2, P2, Allocator&amp;gt;&amp;amp; source);  // (3)
++void merge(unordered_multimap&amp;lt;Key, T, H2, P2, Allocator&amp;gt;&amp;amp;&amp;amp; source);           // (4) C++17
+ template&amp;lt;class H2, class P2&amp;gt;
+-  void merge(unordered_multimap&amp;lt;Key, T, H2, P2, Allocator&amp;gt;&amp;amp;&amp;amp; source); // (4)
++constexpr void merge(unordered_multimap&amp;lt;Key, T, H2, P2, Allocator&amp;gt;&amp;amp;&amp;amp; source); // (4) C++26
+ ```
+ 
+ ## 概要
+@@ -92,3 +103,4 @@ m2 :
+ 
+ ## 参照
+ - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator= -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/op_assign.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/op_assign.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/op_assign.md b/reference/unordered_map/unordered_multimap/op_assign.md
+index 0c9c0ee7e..f49ff0741 100644
+--- a/reference/unordered_map/unordered_multimap/op_assign.md
++++ b/reference/unordered_map/unordered_multimap/op_assign.md
+@@ -6,13 +6,21 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-unordered_multimap&amp;amp; operator=(const unordered_multimap&amp;amp; v);     // (1)
+-unordered_multimap&amp;amp; operator=(unordered_multimap&amp;amp;&amp;amp; rv);         // (2)
++unordered_multimap&amp;amp; operator=(const unordered_multimap&amp;amp; v);           // (1) C++11
++constexpr unordered_multimap&amp;amp; operator=(const unordered_multimap&amp;amp; v); // (1) C++26
++
++unordered_multimap&amp;amp; operator=(unordered_multimap&amp;amp;&amp;amp; rv);  // (2) C++11
+ unordered_multimap&amp;amp; operator=(unordered_multimap&amp;amp;&amp;amp; x)
+   noexcept(allocator_traits&amp;lt;Allocator&amp;gt;::is_always_equal::value
+             &amp;amp;&amp;amp; is_nothrow_move_assignable&amp;lt;Hash&amp;gt;::value
+-            &amp;amp;&amp;amp; is_nothrow_move_assignable&amp;lt;Pred&amp;gt;::value);        // (2) C++17
+-unordered_multimap&amp;amp; operator=(initializer_list&amp;lt;value_type&amp;gt; il); // (3)
++            &amp;amp;&amp;amp; is_nothrow_move_assignable&amp;lt;Pred&amp;gt;::value); // (2) C++17
++constexpr unordered_multimap&amp;amp; operator=(unordered_multimap&amp;amp;&amp;amp; x)
++  noexcept(allocator_traits&amp;lt;Allocator&amp;gt;::is_always_equal::value
++            &amp;amp;&amp;amp; is_nothrow_move_assignable&amp;lt;Hash&amp;gt;::value
++            &amp;amp;&amp;amp; is_nothrow_move_assignable&amp;lt;Pred&amp;gt;::value); // (2) C++26
++
++unordered_multimap&amp;amp; operator=(initializer_list&amp;lt;value_type&amp;gt; il);           // (3) C++11
++constexpr unordered_multimap&amp;amp; operator=(initializer_list&amp;lt;value_type&amp;gt; il); // (3) C++26
+ ```
+ * initializer_list[link /reference/initializer_list/initializer_list.md]
+ 
+@@ -95,3 +103,4 @@ unordered_multimap&amp;amp; operator=(initializer_list&amp;lt;value_type&amp;gt; il); // (3)
+     - (3)の経緯となる提案文書
+ - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
+     - `noexcept` 追加の経緯となる提案文書
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/op_constructor.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/op_constructor.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/op_constructor.md b/reference/unordered_map/unordered_multimap/op_constructor.md
+index 02ab86d18..92d8fcce7 100644
+--- a/reference/unordered_map/unordered_multimap/op_constructor.md
++++ b/reference/unordered_map/unordered_multimap/op_constructor.md
+@@ -6,92 +6,169 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-unordered_multimap();                                                    // (1) C++14
+-
+-explicit unordered_multimap(size_type n,
+-                            const hasher&amp;amp; hf = hasher(),
+-                            const key_equal&amp;amp; eql = key_equal(),
+-                            const allocator_type&amp;amp; a = allocator_type()); // (2) C++14
+-
+-explicit unordered_multimap(size_type n = 実装依存の既定値,
+-                            const hasher&amp;amp; hf = hasher(),
+-                            const key_equal&amp;amp; eql = key_equal(),
+-                            const allocator_type&amp;amp; a = allocator_type());  // (1) + (2) C++11
++unordered_multimap();           // (1) C++14
++constexpr unordered_multimap(); // (1) C++26
++
++explicit
++  unordered_multimap(size_type n,
++                     const hasher&amp;amp; hf = hasher(),
++                     const key_equal&amp;amp; eql = key_equal(),
++                     const allocator_type&amp;amp; a = allocator_type()); // (2) C++14
++constexpr explicit
++  unordered_multimap(size_type n,
++                     const hasher&amp;amp; hf = hasher(),
++                     const key_equal&amp;amp; eql = key_equal(),
++                     const allocator_type&amp;amp; a = allocator_type()); // (2) C++26
++
++explicit
++  unordered_multimap(size_type n = 実装依存の既定値,
++                     const hasher&amp;amp; hf = hasher(),
++                     const key_equal&amp;amp; eql = key_equal(),
++                     const allocator_type&amp;amp; a = allocator_type()); // (1) + (2) C++11
+ 
+ template &amp;lt;class InputIterator&amp;gt;
+-unordered_multimap(InputIterator first, InputIterator last,
++unordered_multimap(InputIterator first,
++                   InputIterator last,
+                    size_type n = 実装依存の既定値,
+                    const hasher&amp;amp; hf = hasher(),
+                    const key_equal&amp;amp; eql = key_equal(),
+-                   const allocator_type&amp;amp; a = allocator_type());           // (3)
++                   const allocator_type&amp;amp; a = allocator_type());   // (3) C++11
++template &amp;lt;class InputIterator&amp;gt;
++constexpr
++  unordered_multimap(InputIterator first,
++                     InputIterator last,
++                     size_type n = 実装依存の既定値,
++                     const hasher&amp;amp; hf = hasher(),
++                     const key_equal&amp;amp; eql = key_equal(),
++                     const allocator_type&amp;amp; a = allocator_type()); // (3) C++26
+ 
+-unordered_multimap(const unordered_multimap&amp;amp; v);                          // (4)
++unordered_multimap(const unordered_multimap&amp;amp; v);           // (4) C++11
++constexpr unordered_multimap(const unordered_multimap&amp;amp; v); // (4) C++26
+ 
+-unordered_multimap(unordered_multimap&amp;amp;&amp;amp; rv);                              // (5)
++unordered_multimap(unordered_multimap&amp;amp;&amp;amp; rv);           // (5) C++11
++constexpr unordered_multimap(unordered_multimap&amp;amp;&amp;amp; rv); // (5) C++26
+ 
+-explicit unordered_multimap(const allocator_type&amp;amp; a);                     // (6)
++explicit unordered_multimap(const allocator_type&amp;amp; a);           // (6) C++11
++constexpr explicit unordered_multimap(const allocator_type&amp;amp; a); // (6) C++26
+ 
+ unordered_multimap(const unordered_multimap&amp;amp; v,
+-                   const allocator_type&amp;amp; a);                              // (7)
++                   const allocator_type&amp;amp; a);                  // (7) C++11
+ unordered_multimap(const unordered_multimap&amp;amp; v,
+-                   const type_identity_t&amp;lt;allocator_type&amp;gt;&amp;amp; a);             // (7) C++23
++                   const type_identity_t&amp;lt;allocator_type&amp;gt;&amp;amp; a); // (7) C++23
++constexpr
++  unordered_multimap(const unordered_multimap&amp;amp; v,
++                     const type_identity_t&amp;lt;allocator_type&amp;gt;&amp;amp; a); // (7) C++26
+ 
+ unordered_multimap(unordered_multimap&amp;amp;&amp;amp; rv,
+-                   const allocator_type&amp;amp; a);                              // (8)
++                   const allocator_type&amp;amp; a);                  // (8) C++11
+ unordered_multimap(unordered_multimap&amp;amp;&amp;amp; rv,
+-                   const type_identity_t&amp;lt;allocator_type&amp;gt;&amp;amp; a);             // (8) C++23
++                   const type_identity_t&amp;lt;allocator_type&amp;gt;&amp;amp; a); // (8) C++23
++constexpr
++  unordered_multimap(unordered_multimap&amp;amp;&amp;amp; rv,
++                     const type_identity_t&amp;lt;allocator_type&amp;gt;&amp;amp; a); // (8) C++26
+ 
+ unordered_multimap(initializer_list&amp;lt;value_type&amp;gt; il,
+                    size_type n = 実装依存の既定値,
+                    const hasher&amp;amp; hf = hasher(),
+                    const key_equal&amp;amp; eql = key_equal(),
+-                   const allocator_type&amp;amp; a = allocator_type());           // (9)
++                   const allocator_type&amp;amp; a = allocator_type()); // (9) C++11
++constexpr
++  unordered_multimap(initializer_list&amp;lt;value_type&amp;gt; il,
++                     size_type n = 実装依存の既定値,
++                     const hasher&amp;amp; hf = hasher(),
++                     const key_equal&amp;amp; eql = key_equal(),
++                     const allocator_type&amp;amp; a = allocator_type()); // (9) C++26
+ 
+-unordered_multimap(size_type n, const allocator_type&amp;amp; a);                 // (10) C++14
++unordered_multimap(size_type n, const allocator_type&amp;amp; a);           // (10) C++14
++constexpr unordered_multimap(size_type n, const allocator_type&amp;amp; a); // (10) C++26
+ 
+ unordered_multimap(size_type n,
+                    const hasher&amp;amp; hf,
+-                   const allocator_type&amp;amp; a);                              // (11) C++14
++                   const allocator_type&amp;amp; a); // (11) C++14
++constexpr
++  unordered_multimap(size_type n,
++                     const hasher&amp;amp; hf,
++                     const allocator_type&amp;amp; a); // (11) C++26
+ 
+ template &amp;lt;class InputIterator&amp;gt;
+ unordered_multimap(InputIterator f,
+                    InputIterator l,
+                    size_type n,
+-                   const allocator_type&amp;amp; a);                              // (12) C++14
++                   const allocator_type&amp;amp; a); // (12) C++14
++template &amp;lt;class InputIterator&amp;gt;
++constexpr
++  unordered_multimap(InputIterator f,
++                     InputIterator l,
++                     size_type n,
++                     const allocator_type&amp;amp; a); // (12) C++26
+ 
+ template &amp;lt;class InputIterator&amp;gt;
+ unordered_multimap(InputIterator f,
+                    InputIterator l,
+                    size_type n,
+-                   const hasher&amp;amp; hf, 
+-                   const allocator_type&amp;amp; a);                              // (13) C++14
++                   const hasher&amp;amp; hf,
++                   const allocator_type&amp;amp; a); // (13) C++14
++template &amp;lt;class InputIterator&amp;gt;
++constexpr
++  unordered_multimap(InputIterator f,
++                     InputIterator l,
++                     size_type n,
++                     const hasher&amp;amp; hf,
++                     const allocator_type&amp;amp; a); // (13) C++26
+ 
+ unordered_multimap(initializer_list&amp;lt;value_type&amp;gt; il,
+                    size_type n,
+-                   const allocator_type&amp;amp; a);                              // (14) C++14
++                   const allocator_type&amp;amp; a); // (14) C++14
++constexpr
++  unordered_multimap(initializer_list&amp;lt;value_type&amp;gt; il,
++                     size_type n,
++                     const allocator_type&amp;amp; a); // (14) C++26
+ 
+ unordered_multimap(initializer_list&amp;lt;value_type&amp;gt; il,
+                    size_type n,
+-                   const hasher&amp;amp; hf, 
+-                   const allocator_type&amp;amp; a);                              // (15) C++14
++                   const hasher&amp;amp; hf,
++                   const allocator_type&amp;amp; a); // (15) C++14
++constexpr
++  unordered_multimap(initializer_list&amp;lt;value_type&amp;gt; il,
++                     size_type n,
++                     const hasher&amp;amp; hf,
++                     const allocator_type&amp;amp; a); // (15) C++26
+ 
+ template &amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
+ unordered_multimap(std::from_range_t, R&amp;amp;&amp;amp; rg,
+                    size_type n = 実装依存の既定値,
+                    const hasher&amp;amp; hf = hasher(),
+                    const key_equal&amp;amp; eql = key_equal(),
+-                   const allocator_type&amp;amp; a = allocator_type());           // (16) C++23
++                   const allocator_type&amp;amp; a = allocator_type()); // (16) C++23
++template &amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
++constexpr
++  unordered_multimap(std::from_range_t, R&amp;amp;&amp;amp; rg,
++                     size_type n = 実装依存の既定値,
++                     const hasher&amp;amp; hf = hasher(),
++                     const key_equal&amp;amp; eql = key_equal(),
++                     const allocator_type&amp;amp; a = allocator_type()); // (16) C++26
+ 
+ template &amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
+ unordered_multimap(std::from_range_t, R&amp;amp;&amp;amp; rg,
+                    size_type n,
+-                   const allocator_type&amp;amp; a);                              // (17) C++23
++                   const allocator_type&amp;amp; a); // (17) C++23
++template &amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
++constexpr
++  unordered_multimap(std::from_range_t, R&amp;amp;&amp;amp; rg,
++                     size_type n,
++                     const allocator_type&amp;amp; a); // (17) C++26
+ 
+ template &amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
+ unordered_multimap(std::from_range_t, R&amp;amp;&amp;amp; rg,
+                    size_type n,
+                    const hasher&amp;amp; hf,
+-                   const allocator_type&amp;amp; a);                              // (18) C++23
++                   const allocator_type&amp;amp; a); // (18) C++23
++template &amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
++constexpr
++  unordered_multimap(std::from_range_t, R&amp;amp;&amp;amp; rg,
++                     size_type n,
++                     const hasher&amp;amp; hf,
++                     const allocator_type&amp;amp; a); // (18) C++26
+ ```
+ * type_identity_t[link /reference/type_traits/type_identity.md]
+ * initializer_list[link /reference/initializer_list/initializer_list.md]
+@@ -277,3 +354,4 @@ libstdc++ には 4.8.2 現在、(6), (7), (8)の形式はない。
+     なお、Discussion の例はアロケータの型が誤っているので注意
+ - [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
+     - C++23でのアロケータ引数を`type_identity_t`で包む変更
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>デストラクタ -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/op_destructor.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/op_destructor.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/op_destructor.md b/reference/unordered_map/unordered_multimap/op_destructor.md
+index fb60b50d2..2e286f047 100644
+--- a/reference/unordered_map/unordered_multimap/op_destructor.md
++++ b/reference/unordered_map/unordered_multimap/op_destructor.md
+@@ -6,7 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-~unordered_multimap();
++~unordered_multimap();           // (1) C++11
++constexpr ~unordered_multimap(); // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -37,3 +38,7 @@
+ |--------------------------------------------|----------------|
+ | [`(constructor)`](op_constructor.md) | コンストラクタ |
+ | [`operator=`](op_assign.md)              | 代入演算子     |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator== -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/op_equal.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/op_equal.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/op_equal.md b/reference/unordered_map/unordered_multimap/op_equal.md
+index 379ca8e68..be6756bad 100644
+--- a/reference/unordered_map/unordered_multimap/op_equal.md
++++ b/reference/unordered_map/unordered_multimap/op_equal.md
+@@ -9,6 +9,9 @@ namespace std {
+   template &amp;lt;class Key, class T, class Hash, class Pred, class Alloc&amp;gt;
+   bool operator==(const unordered_multimap&amp;lt;Key,T,Hash,Pred,Alloc&amp;gt;&amp;amp; a,
+                   const unordered_multimap&amp;lt;Key,T,Hash,Pred,Alloc&amp;gt;&amp;amp; b); // (1) C++11
++  template &amp;lt;class Key, class T, class Hash, class Pred, class Alloc&amp;gt;
++  constexpr bool operator==(const unordered_multimap&amp;lt;Key,T,Hash,Pred,Alloc&amp;gt;&amp;amp; a,
++                  const unordered_multimap&amp;lt;Key,T,Hash,Pred,Alloc&amp;gt;&amp;amp; b); // (1) C++26
+ }
+ ```
+ 
+@@ -94,3 +97,4 @@ int main()
+ - [P0809R0 Comparing Unordered Containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0809r0.pdf)
+ - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator!= -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/op_not_equal.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/op_not_equal.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/op_not_equal.md b/reference/unordered_map/unordered_multimap/op_not_equal.md
+index 825509c6b..65d5b9470 100644
+--- a/reference/unordered_map/unordered_multimap/op_not_equal.md
++++ b/reference/unordered_map/unordered_multimap/op_not_equal.md
+@@ -10,6 +10,9 @@ namespace std {
+   template &amp;lt;class Key, class T, class Hash, class Pred, class Alloc&amp;gt;
+   bool operator!=(const unordered_multimap&amp;lt;Key,T,Hash,Pred,Alloc&amp;gt;&amp;amp; a,
+                   const unordered_multimap&amp;lt;Key,T,Hash,Pred,Alloc&amp;gt;&amp;amp; b); // (1) C++11
++  template &amp;lt;class Key, class T, class Hash, class Pred, class Alloc&amp;gt;
++  constexpr bool operator!=(const unordered_multimap&amp;lt;Key,T,Hash,Pred,Alloc&amp;gt;&amp;amp; a,
++                  const unordered_multimap&amp;lt;Key,T,Hash,Pred,Alloc&amp;gt;&amp;amp; b); // (1) C++26
+ }
+ ```
+ 
+@@ -95,3 +98,4 @@ int main()
+ - [P0809R0 Comparing Unordered Containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0809r0.pdf)
+ - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
+     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>rehash -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/rehash.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/rehash.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/rehash.md b/reference/unordered_map/unordered_multimap/rehash.md
+index 8db140793..9b2b32da9 100644
+--- a/reference/unordered_map/unordered_multimap/rehash.md
++++ b/reference/unordered_map/unordered_multimap/rehash.md
+@@ -6,7 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-void rehash(size_type n);
++void rehash(size_type n);           // (1) C++11
++constexpr void rehash(size_type n); // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -126,3 +127,4 @@ new load_factor: 0.363636
+ 
+ ## 参照
+ - [LWG Issue 2156. Unordered containers&amp;#39; reserve(n) reserves for n-1 elements](https://wg21.cmeerw.net/lwg/issue2156)
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>reserve -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/reserve.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/reserve.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/reserve.md b/reference/unordered_map/unordered_multimap/reserve.md
+index e4c13bac6..8a904456a 100644
+--- a/reference/unordered_map/unordered_multimap/reserve.md
++++ b/reference/unordered_map/unordered_multimap/reserve.md
+@@ -6,7 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-void reserve(size_type n);
++void reserve(size_type n);           // (1) C++11
++constexpr void reserve(size_type n); // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -130,3 +131,4 @@ new load_factor: 0.363636
+ 
+ ## 参照
+ - [LWG Issue 2156. Unordered containers&amp;#39; reserve(n) reserves for n-1 elements](https://wg21.cmeerw.net/lwg/issue2156)
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>size -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/size.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/size.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/size.md b/reference/unordered_map/unordered_multimap/size.md
+index 5b99081eb..e3ebd3bdd 100644
+--- a/reference/unordered_map/unordered_multimap/size.md
++++ b/reference/unordered_map/unordered_multimap/size.md
+@@ -6,7 +6,8 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-size_type size() const noexcept;
++size_type size() const noexcept;           // (1) C++11
++constexpr size_type size() const noexcept; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -71,3 +72,7 @@ int main()
+ | [`begin`](begin.md)                         | 先頭要素を指すイテレータの取得     |
+ | [`end`](end.md)                             | 最終要素の次を指すイテレータの取得 |
+ | [`distance`](/reference/iterator/distance.md) | イテレータ間の距離を求める         |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>swap -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/swap.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/swap.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/swap.md b/reference/unordered_map/unordered_multimap/swap.md
+index 7c6351675..ee4be9697 100644
+--- a/reference/unordered_map/unordered_multimap/swap.md
++++ b/reference/unordered_map/unordered_multimap/swap.md
+@@ -6,11 +6,15 @@
+ * cpp11[meta cpp]
+ 
+ ```cpp
+-void swap(unordered_multimap&amp;amp; v);
++void swap(unordered_multimap&amp;amp; v);                                  // (1) C++11
+ void swap(unordered_multimap&amp;amp; x)
+   noexcept(allocator_traits&amp;lt;Allocator&amp;gt;::is_always_equal::value
+             &amp;amp;&amp;amp; noexcept(swap(declval&amp;lt;Hash&amp;amp;&amp;gt;(),declval&amp;lt;Hash&amp;amp;&amp;gt;()))
+-            &amp;amp;&amp;amp; noexcept(swap(declval&amp;lt;Pred&amp;amp;&amp;gt;(),declval&amp;lt;Pred&amp;amp;&amp;gt;()))); // C++17
++            &amp;amp;&amp;amp; noexcept(swap(declval&amp;lt;Pred&amp;amp;&amp;gt;(),declval&amp;lt;Pred&amp;amp;&amp;gt;()))); // (1) C++17
++constexpr void swap(unordered_multimap&amp;amp; x)
++  noexcept(allocator_traits&amp;lt;Allocator&amp;gt;::is_always_equal::value
++            &amp;amp;&amp;amp; noexcept(swap(declval&amp;lt;Hash&amp;amp;&amp;gt;(),declval&amp;lt;Hash&amp;amp;&amp;gt;()))
++            &amp;amp;&amp;amp; noexcept(swap(declval&amp;lt;Pred&amp;amp;&amp;gt;(),declval&amp;lt;Pred&amp;amp;&amp;gt;()))); // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -119,3 +123,4 @@ um2 after : (7th, 7), (7th, 7), (5th, 5), (5th, 5), (9th, 9), (9th, 9), (3rd, 3)
+ ## 参照
+ - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
+     - `noexcept` 追加の経緯となる提案文書
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>swap (非メンバ関数) -- unordered_multimap</title>
+      <link href="https://cpprefjp.github.io/reference/unordered_map/unordered_multimap/swap_free.html"/>
+      <id>bf2291950c0b1c22c98f2cbc5a6109e624f9f234:reference/unordered_map/unordered_multimap/swap_free.md</id>
+      <updated>2026-02-17T22:33:02+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/unordered_map/unordered_multimap/swap_free.md b/reference/unordered_map/unordered_multimap/swap_free.md
+index 9ad6bc6fe..74c6622ff 100644
+--- a/reference/unordered_map/unordered_multimap/swap_free.md
++++ b/reference/unordered_map/unordered_multimap/swap_free.md
+@@ -7,20 +7,26 @@
+ ```cpp
+ namespace std {
+   template &amp;lt;class Key, class T, class Hash, class Pred, class Alloc&amp;gt;
+-  void swap (unordered_multimap&amp;lt;Key,T,Hash,Pred,Alloc&amp;gt;&amp;amp; x,
+-             unordered_multimap&amp;lt;Key,T,Hash,Pred,Alloc&amp;gt;&amp;amp; y);
+-
++  void
++    swap(unordered_multimap&amp;lt;Key,T,Hash,Pred,Alloc&amp;gt;&amp;amp; x,
++         unordered_multimap&amp;lt;Key,T,Hash,Pred,Alloc&amp;gt;&amp;amp; y); // (1) C++11
++  template &amp;lt;class Key, class T, class Hash, class Pred, class Alloc&amp;gt;
++  void
++    swap(unordered_multimap&amp;lt;Key,T,Hash,Pred,Alloc&amp;gt;&amp;amp; x,
++         unordered_multimap&amp;lt;Key,T,Hash,Pred,Alloc&amp;gt;&amp;amp; y)
++      noexcept(noexcept(x.swap(y)));                    // (1) C++17
+   template &amp;lt;class Key, class T, class Hash, class Pred, class Alloc&amp;gt;
+-  void swap (unordered_multimap&amp;lt;Key,T,Hash,Pred,Alloc&amp;gt;&amp;amp; x,
+-             unordered_multimap&amp;lt;Key,T,Hash,Pred,Alloc&amp;gt;&amp;amp; y)
+-    noexcept(noexcept(x.swap(y))); // C++17
++  constexpr void
++    swap(unordered_multimap&amp;lt;Key,T,Hash,Pred,Alloc&amp;gt;&amp;amp; x,
++         unordered_multimap&amp;lt;Key,T,Hash,Pred,Alloc&amp;gt;&amp;amp; y)
++      noexcept(noexcept(x.swap(y)));                    // (1) C++26
+ }
+ ```
+ 
+ ## 概要
+-2つの `unordered_multimap` オブジェクトである `x` と &amp;#39;y&amp;#39;が保持するコンテンツを交換する。サイズは異なる場合もある。
++2つの `unordered_multimap` オブジェクトである `x` と `y` が保持するコンテンツを交換する。サイズは異なる場合もある。
+ 
+-このメンバ関数の呼び出しの後、呼び出し前に &amp;#39;x&amp;#39; にあった要素は `y` へ、`y` 内にあった要素は `x` へ移る。全てのイテレータ、参照、ポインタは有効なまま残る。
++このメンバ関数の呼び出しの後、呼び出し前に `x` にあった要素は `y` へ、`y` 内にあった要素は `x` へ移る。全てのイテレータ、参照、ポインタは有効なまま残る。
+ 
+ 
+ ## 効果
+@@ -96,3 +102,4 @@ um2 : {[10,a], [20,b], [30,c], [30,d], [30,e], }
+ ## 参照
+ - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
+     - `noexcept` 追加の経緯となる提案文書
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>at -- unordered_map</title>
@@ -6405,717 +8249,6 @@ index 520e56412..0ed427bbf 100644
 +
 +
 +## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>back -- queue</title>
-      <link href="https://cpprefjp.github.io/reference/queue/queue/back.html"/>
-      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/back.md</id>
-      <updated>2026-02-17T22:09:02+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/back.md b/reference/queue/queue/back.md
-index 9315fb310..b0aba97bb 100644
---- a/reference/queue/queue/back.md
-+++ b/reference/queue/queue/back.md
-@@ -5,8 +5,11 @@
- * function[meta id-type]
- 
- ```cpp
--value_type&amp;amp; back();
--const value_type&amp;amp; back() const;
-+value_type&amp;amp; back();           // (1) C++03
-+constexpr value_type&amp;amp; back(); // (1) C++26
-+
-+const value_type&amp;amp; back() const;           // (2) C++03
-+constexpr const value_type&amp;amp; back() const; // (2) C++26
- ```
- 
- ## 概要
-@@ -58,3 +61,7 @@ int main() {
- value_type&amp;amp; back() { return c.back(); }
- const value_type&amp;amp; back() const { return c.back(); }
- ```
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>emplace -- queue</title>
-      <link href="https://cpprefjp.github.io/reference/queue/queue/emplace.html"/>
-      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/emplace.md</id>
-      <updated>2026-02-17T22:09:02+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/emplace.md b/reference/queue/queue/emplace.md
-index dca91c0ad..278ee81da 100644
---- a/reference/queue/queue/emplace.md
-+++ b/reference/queue/queue/emplace.md
-@@ -7,10 +7,11 @@
- 
- ```cpp
- template &amp;lt;class... Args&amp;gt;
--void emplace(Args&amp;amp;&amp;amp;... args);               // C++14 まで
--
-+void emplace(Args&amp;amp;&amp;amp;... args);                     // (1) C++11
-+template &amp;lt;class... Args&amp;gt;
-+decltype(auto) emplace(Args&amp;amp;&amp;amp;... args);           // (1) C++17
- template &amp;lt;class... Args&amp;gt;
--decltype(auto) emplace(Args&amp;amp;&amp;amp;... args);     // C++17 から
-+constexpr decltype(auto) emplace(Args&amp;amp;&amp;amp;... args); // (1) C++26
- ```
- 
- ## 概要
-@@ -95,3 +96,4 @@ C++17 規格が発行された段階では戻り値型が `reference` に変更
- - [P0084R1 Emplace Return Type (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0084r1.pdf)
- - [P0084R2 Emplace Return Type (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0084r2.pdf)
- - [LWG Issue 2783. stack::emplace() and queue::emplace() should return decltype(auto)](https://wg21.cmeerw.net/lwg/issue2783)
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>empty -- queue</title>
-      <link href="https://cpprefjp.github.io/reference/queue/queue/empty.html"/>
-      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/empty.md</id>
-      <updated>2026-02-17T22:09:02+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/empty.md b/reference/queue/queue/empty.md
-index 90681fd84..99f40da9e 100644
---- a/reference/queue/queue/empty.md
-+++ b/reference/queue/queue/empty.md
-@@ -5,9 +5,9 @@
- * function[meta id-type]
- 
- ```cpp
--bool empty() const;               // C++03
--[[nodiscard]] bool empty() const; // C++20
--bool empty() const;               // C++26
-+bool empty() const;               // (1) C++03
-+[[nodiscard]] bool empty() const; // (1) C++20
-+constexpr bool empty() const;     // (1) C++26
- ```
- 
- ## 概要
-@@ -57,3 +57,4 @@ empty
-     - C++20で`[[nodiscard]]`が付加された
- - [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
-     - C++26で`[[nodiscard]]`指定が削除された
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>front -- queue</title>
-      <link href="https://cpprefjp.github.io/reference/queue/queue/front.html"/>
-      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/front.md</id>
-      <updated>2026-02-17T22:09:02+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/front.md b/reference/queue/queue/front.md
-index fa6f83769..4d1a8be3e 100644
---- a/reference/queue/queue/front.md
-+++ b/reference/queue/queue/front.md
-@@ -5,8 +5,11 @@
- * function[meta id-type]
- 
- ```cpp
--value_type&amp;amp; front();
--const value_type&amp;amp; front() const;
-+value_type&amp;amp; front();           // (1) C++03
-+constexpr value_type&amp;amp; front(); // (1) C++26
-+
-+const value_type&amp;amp; front() const;           // (2) C++03
-+constexpr const value_type&amp;amp; front() const; // (2) C++26
- ```
- 
- ## 概要
-@@ -65,3 +68,4 @@ const value_type&amp;amp; front() const { return c.front(); }
- ```
- 
- ## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>operator&lt;=&gt; -- queue</title>
-      <link href="https://cpprefjp.github.io/reference/queue/queue/op_compare_3way.html"/>
-      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/op_compare_3way.md</id>
-      <updated>2026-02-17T22:09:02+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/op_compare_3way.md b/reference/queue/queue/op_compare_3way.md
-index 451160c78..16fb49f83 100644
---- a/reference/queue/queue/op_compare_3way.md
-+++ b/reference/queue/queue/op_compare_3way.md
-@@ -10,6 +10,10 @@ namespace std {
-   compare_three_way_result_t&amp;lt;Container&amp;gt;
-     operator&amp;lt;=&amp;gt;(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x,
-                 const queue&amp;lt;T, Container&amp;gt;&amp;amp; y); // (1) C++20
-+  template &amp;lt;class T, class Container&amp;gt;
-+  constexpr compare_three_way_result_t&amp;lt;Container&amp;gt;
-+    operator&amp;lt;=&amp;gt;(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x,
-+                const queue&amp;lt;T, Container&amp;gt;&amp;amp; y); // (1) C++26
- }
- ```
- 
-@@ -62,3 +66,4 @@ int main ()
- ## 参照
- - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
-     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>コンストラクタ -- queue</title>
-      <link href="https://cpprefjp.github.io/reference/queue/queue/op_constructor.html"/>
-      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/op_constructor.md</id>
-      <updated>2026-02-17T22:09:02+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/op_constructor.md b/reference/queue/queue/op_constructor.md
-index 4596320db..0bd75e668 100644
---- a/reference/queue/queue/op_constructor.md
-+++ b/reference/queue/queue/op_constructor.md
-@@ -6,38 +6,66 @@
- 
- ```cpp
- // C++03まで
--explicit queue(const Container&amp;amp; other = Container());  // (1), (2)
-+explicit queue(const Container&amp;amp; other = Container()); // (1), (2) C++03
- 
- // C++11以降 C++17まで
--explicit queue(const Container&amp;amp; other);           // (2)
--explicit queue(Container&amp;amp;&amp;amp; other = Container());  // (1), (3)
-+explicit queue(const Container&amp;amp; other);          // (2) C++11
-+explicit queue(Container&amp;amp;&amp;amp; other = Container()); // (1), (3) C++11
- 
- // C++20以降
--queue() : queue(Container()) {}          // (1)
--explicit queue(const Container&amp;amp; other);  // (2)
--explicit queue(Container&amp;amp;&amp;amp; other);       // (3)
-+queue() : queue(Container()) {}           // (1) C++20
-+constexpr queue() : queue(Container()) {} // (1) C++26
-+
-+explicit queue(const Container&amp;amp; other);           // (2) C++11
-+constexpr explicit queue(const Container&amp;amp; other); // (2) C++26
-+
-+explicit queue(Container&amp;amp;&amp;amp; other);           // (3) C++20
-+constexpr explicit queue(Container&amp;amp;&amp;amp; other); // (3) C++26
- 
- template&amp;lt;class InputIterator&amp;gt;
--queue(InputIterator first, InputIterator last);  // (4) C++23
-+queue(InputIterator first, InputIterator last);           // (4) C++23
-+template&amp;lt;class InputIterator&amp;gt;
-+constexpr queue(InputIterator first, InputIterator last); // (4) C++26
-+
-+template &amp;lt;class Alloc&amp;gt;
-+explicit queue(const Alloc&amp;amp; alloc);           // (5) C++11
-+template &amp;lt;class Alloc&amp;gt;
-+constexpr explicit queue(const Alloc&amp;amp; alloc); // (5) C++26
-+
-+template &amp;lt;class Alloc&amp;gt;
-+queue(const Container&amp;amp; other, const Alloc&amp;amp; alloc);           // (6) C++11
-+template &amp;lt;class Alloc&amp;gt;
-+constexpr queue(const Container&amp;amp; other, const Alloc&amp;amp; alloc); // (6) C++26
- 
- template &amp;lt;class Alloc&amp;gt;
--explicit queue(const Alloc&amp;amp; alloc);                // (5) C++11
-+queue(Container&amp;amp;&amp;amp; other, const Alloc&amp;amp; alloc);           // (7) C++11
-+template &amp;lt;class Alloc&amp;gt;
-+constexpr queue(Container&amp;amp;&amp;amp; other, const Alloc&amp;amp; alloc); // (7) C++26
-+
- template &amp;lt;class Alloc&amp;gt;
--queue(const Container&amp;amp; other, const Alloc&amp;amp; alloc); // (6) C++11
-+queue(const queue&amp;amp; que, const Alloc&amp;amp; alloc);           // (8) C++11
- template &amp;lt;class Alloc&amp;gt;
--queue(Container&amp;amp;&amp;amp; other, const Alloc&amp;amp; alloc);      // (7) C++11
-+constexpr queue(const queue&amp;amp; que, const Alloc&amp;amp; alloc); // (8) C++26
-+
- template &amp;lt;class Alloc&amp;gt;
--queue(const queue&amp;amp; que, const Alloc&amp;amp; alloc);       // (8) C++11
-+queue(queue&amp;amp;&amp;amp; que, const Alloc&amp;amp; alloc);           // (9) C++11
- template &amp;lt;class Alloc&amp;gt;
--queue(queue&amp;amp;&amp;amp; que, const Alloc&amp;amp; alloc);            // (9) C++11
-+constexpr queue(queue&amp;amp;&amp;amp; que, const Alloc&amp;amp; alloc); // (9) C++26
- 
- template&amp;lt;class InputIterator, class Alloc&amp;gt;
--queue(InputIterator first, InputIterator last, const Alloc&amp;amp;);  // (10) C++23
-+queue(InputIterator first, InputIterator last, const Alloc&amp;amp;);           // (10) C++23
-+template&amp;lt;class InputIterator, class Alloc&amp;gt;
-+constexpr queue(InputIterator first, InputIterator last, const Alloc&amp;amp;); // (10) C++26
- 
- template &amp;lt;container-compatible-range&amp;lt;T&amp;gt; R&amp;gt;
--queue(from_range_t, R&amp;amp;&amp;amp; rg);                       // (11) C++23
-+queue(from_range_t, R&amp;amp;&amp;amp; rg);           // (11) C++23
-+template &amp;lt;container-compatible-range&amp;lt;T&amp;gt; R&amp;gt;
-+constexpr queue(from_range_t, R&amp;amp;&amp;amp; rg); // (11) C++26
-+
-+template &amp;lt;container-compatible-range&amp;lt;T&amp;gt; R, class Alloc&amp;gt;
-+queue(from_range_t, R&amp;amp;&amp;amp; rg, const Alloc&amp;amp; alloc);           // (12) C++23
- template &amp;lt;container-compatible-range&amp;lt;T&amp;gt; R, class Alloc&amp;gt;
--queue(from_range_t, R&amp;amp;&amp;amp; rg, const Alloc&amp;amp; alloc);   // (12) C++23
-+constexpr queue(from_range_t, R&amp;amp;&amp;amp; rg, const Alloc&amp;amp; alloc); // (12) C++26
- ```
- * from_range_t[link ../../ranges/from_range_t.md]
- 
-@@ -101,3 +129,4 @@ int main() {
-     - C++20でのデフォルトコンストラクタの分離
- - [P1425R4 Iterators pair constructors for stack and queue](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1425r4.pdf)
-     - C++23でのイテレータペアへの対応
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>operator== -- queue</title>
-      <link href="https://cpprefjp.github.io/reference/queue/queue/op_equal.html"/>
-      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/op_equal.md</id>
-      <updated>2026-02-17T22:09:02+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/op_equal.md b/reference/queue/queue/op_equal.md
-index 205657919..072c93c4e 100644
---- a/reference/queue/queue/op_equal.md
-+++ b/reference/queue/queue/op_equal.md
-@@ -6,7 +6,9 @@
- ```cpp
- namespace std {
-   template &amp;lt;class T, class Container&amp;gt;
--  bool operator==(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y);
-+  bool operator==(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y);           // (1) C++03
-+  template &amp;lt;class T, class Container&amp;gt;
-+  constexpr bool operator==(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y); // (1) C++26
- }
- ```
- 
-@@ -49,3 +51,4 @@ true
- ```
- 
- ## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>operator&gt; -- queue</title>
-      <link href="https://cpprefjp.github.io/reference/queue/queue/op_greater.html"/>
-      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/op_greater.md</id>
-      <updated>2026-02-17T22:09:02+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/op_greater.md b/reference/queue/queue/op_greater.md
-index cf0cd1466..4b704ec33 100644
---- a/reference/queue/queue/op_greater.md
-+++ b/reference/queue/queue/op_greater.md
-@@ -6,7 +6,9 @@
- ```cpp
- namespace std {
-   template &amp;lt;class T, class Container&amp;gt;
--  bool operator&amp;gt;(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y);
-+  bool operator&amp;gt;(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y);           // (1) C++03
-+  template &amp;lt;class T, class Container&amp;gt;
-+  constexpr bool operator&amp;gt;(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y); // (1) C++26
- }
- ```
- 
-@@ -49,3 +51,4 @@ true
- ```
- 
- ## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>operator&gt;= -- queue</title>
-      <link href="https://cpprefjp.github.io/reference/queue/queue/op_greater_equal.html"/>
-      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/op_greater_equal.md</id>
-      <updated>2026-02-17T22:09:02+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/op_greater_equal.md b/reference/queue/queue/op_greater_equal.md
-index a5a2a50fd..c35cf8f6a 100644
---- a/reference/queue/queue/op_greater_equal.md
-+++ b/reference/queue/queue/op_greater_equal.md
-@@ -6,7 +6,9 @@
- ```cpp
- namespace std {
-   template &amp;lt;class T, class Container&amp;gt;
--  bool operator&amp;gt;=(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y);
-+  bool operator&amp;gt;=(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y);           // (1) C++03
-+  template &amp;lt;class T, class Container&amp;gt;
-+  constexpr bool operator&amp;gt;=(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y); // (1) C++26
- }
- ```
- 
-@@ -49,3 +51,4 @@ true
- ```
- 
- ## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>operator&lt; -- queue</title>
-      <link href="https://cpprefjp.github.io/reference/queue/queue/op_less.html"/>
-      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/op_less.md</id>
-      <updated>2026-02-17T22:09:02+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/op_less.md b/reference/queue/queue/op_less.md
-index 522d32614..d39bdc132 100644
---- a/reference/queue/queue/op_less.md
-+++ b/reference/queue/queue/op_less.md
-@@ -6,7 +6,9 @@
- ```cpp
- namespace std {
-   template &amp;lt;class T, class Container&amp;gt;
--  bool operator&amp;lt;(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y);
-+  bool operator&amp;lt;(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y);           // (1) C++03
-+  template &amp;lt;class T, class Container&amp;gt;
-+  constexpr bool operator&amp;lt;(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y); // (1) C++26
- }
- ```
- 
-@@ -49,3 +51,4 @@ true
- ```
- 
- ## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>operator&lt;= -- queue</title>
-      <link href="https://cpprefjp.github.io/reference/queue/queue/op_less_equal.html"/>
-      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/op_less_equal.md</id>
-      <updated>2026-02-17T22:09:02+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/op_less_equal.md b/reference/queue/queue/op_less_equal.md
-index 54511ec11..631260520 100644
---- a/reference/queue/queue/op_less_equal.md
-+++ b/reference/queue/queue/op_less_equal.md
-@@ -6,7 +6,9 @@
- ```cpp
- namespace std {
-   template &amp;lt;class T, class Container&amp;gt;
--  bool operator&amp;lt;=(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y);
-+  bool operator&amp;lt;=(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y);           // (1) C++03
-+  template &amp;lt;class T, class Container&amp;gt;
-+  constexpr bool operator&amp;lt;=(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y); // (1) C++26
- }
- ```
- 
-@@ -49,3 +51,4 @@ true
- ```
- 
- ## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>operator!= -- queue</title>
-      <link href="https://cpprefjp.github.io/reference/queue/queue/op_not_equal.html"/>
-      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/op_not_equal.md</id>
-      <updated>2026-02-17T22:09:02+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/op_not_equal.md b/reference/queue/queue/op_not_equal.md
-index 09a27c863..8427a9825 100644
---- a/reference/queue/queue/op_not_equal.md
-+++ b/reference/queue/queue/op_not_equal.md
-@@ -6,7 +6,9 @@
- ```cpp
- namespace std {
-   template &amp;lt;class T, class Container&amp;gt;
--  bool operator!=(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y);
-+  bool operator!=(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y);           // (1) C++03
-+  template &amp;lt;class T, class Container&amp;gt;
-+  constexpr bool operator!=(const queue&amp;lt;T, Container&amp;gt;&amp;amp; x, const queue&amp;lt;T, Container&amp;gt;&amp;amp; y); // (1) C++26
- }
- ```
- 
-@@ -55,3 +57,4 @@ true
- ```
- 
- ## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>pop -- queue</title>
-      <link href="https://cpprefjp.github.io/reference/queue/queue/pop.html"/>
-      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/pop.md</id>
-      <updated>2026-02-17T22:09:02+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/pop.md b/reference/queue/queue/pop.md
-index e05e95d99..7ca1e8efa 100644
---- a/reference/queue/queue/pop.md
-+++ b/reference/queue/queue/pop.md
-@@ -5,7 +5,8 @@
- * function[meta id-type]
- 
- ```cpp
--void pop();
-+void pop();           // (1) C++03
-+constexpr void pop(); // (1) C++26
- ```
- 
- ## 概要
-@@ -54,3 +55,4 @@ void pop() { c.pop_front(); }
- ```
- 
- ## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>push -- queue</title>
-      <link href="https://cpprefjp.github.io/reference/queue/queue/push.html"/>
-      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/push.md</id>
-      <updated>2026-02-17T22:09:02+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/push.md b/reference/queue/queue/push.md
-index 87028e3be..04e77a157 100644
---- a/reference/queue/queue/push.md
-+++ b/reference/queue/queue/push.md
-@@ -5,8 +5,11 @@
- * function[meta id-type]
- 
- ```cpp
--void push(const value_type&amp;amp; x); // (1)
--void push(value_type&amp;amp;&amp;amp; x);      // (2) C++11から
-+void push(const value_type&amp;amp; x);           // (1) C++03
-+constexpr void push(const value_type&amp;amp; x); // (1) C++26
-+void push(value_type&amp;amp;&amp;amp; x);                // (1) C++03 : (2) C++11から
-+
-+constexpr void push(value_type&amp;amp;&amp;amp; x); // (2) C++26
- ```
- 
- ## 概要
-@@ -60,3 +63,4 @@ int main()
- ```
- 
- ## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>push_range -- queue</title>
-      <link href="https://cpprefjp.github.io/reference/queue/queue/push_range.html"/>
-      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/push_range.md</id>
-      <updated>2026-02-17T22:09:02+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/push_range.md b/reference/queue/queue/push_range.md
-index af2f2c29b..1bdb07a57 100644
---- a/reference/queue/queue/push_range.md
-+++ b/reference/queue/queue/push_range.md
-@@ -7,7 +7,9 @@
- 
- ```cpp
- template &amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
--void push_range(R&amp;amp;&amp;amp; rg); // C++23
-+void push_range(R&amp;amp;&amp;amp; rg);           // (1) C++23
-+template &amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
-+constexpr void push_range(R&amp;amp;&amp;amp; rg); // (1) C++26
- ```
- 
- ## 概要
-@@ -63,3 +65,7 @@ int main()
- | 名前              | 説明           |
- |-------------------|----------------|
- | [`push`](push.md) | 要素を追加する |
-+
-+
-+## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>size -- queue</title>
-      <link href="https://cpprefjp.github.io/reference/queue/queue/size.html"/>
-      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/size.md</id>
-      <updated>2026-02-17T22:09:02+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/size.md b/reference/queue/queue/size.md
-index 186894c5d..e458b08a3 100644
---- a/reference/queue/queue/size.md
-+++ b/reference/queue/queue/size.md
-@@ -5,7 +5,8 @@
- * function[meta id-type]
- 
- ```cpp
--size_type size() const;
-+size_type size() const;           // (1) C++03
-+constexpr size_type size() const; // (1) C++26
- ```
- 
- ## 概要
-@@ -59,3 +60,4 @@ int main() {
- ```
- 
- ## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>swap -- queue</title>
-      <link href="https://cpprefjp.github.io/reference/queue/queue/swap.html"/>
-      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/swap.md</id>
-      <updated>2026-02-17T22:09:02+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/swap.md b/reference/queue/queue/swap.md
-index 0043f2af2..5c8db742a 100644
---- a/reference/queue/queue/swap.md
-+++ b/reference/queue/queue/swap.md
-@@ -6,7 +6,12 @@
- * cpp11[meta cpp]
- 
- ```cpp
--void swap(queue&amp;amp; q) noexcept(noexcept(swap(c, q.c)))
-+void
-+  swap(queue&amp;amp; q)
-+    noexcept(noexcept(swap(c, q.c))); // (1) C++11
-+constexpr void
-+  swap(queue&amp;amp; q)
-+    noexcept(noexcept(swap(c, q.c))); // (1) C++26
- ```
- 
- ## 概要
-@@ -82,3 +87,4 @@ int main ()
- 
- 
- ## 参照
-+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>swap (非メンバ関数) -- queue</title>
-      <link href="https://cpprefjp.github.io/reference/queue/queue/swap_free.html"/>
-      <id>8049740c690bc3f4d248d65fbb8fb605b11b35a0:reference/queue/queue/swap_free.md</id>
-      <updated>2026-02-17T22:09:02+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/queue/queue/swap_free.md b/reference/queue/queue/swap_free.md
-index 01d5fcdd3..93beabd14 100644
---- a/reference/queue/queue/swap_free.md
-+++ b/reference/queue/queue/swap_free.md
-@@ -7,7 +7,15 @@
- ```cpp
- namespace std {
-   template &amp;lt;class T, class Container&amp;gt;
--  void swap(queue&amp;lt;T, Container&amp;gt;&amp;amp; x, queue&amp;lt;T, Container&amp;gt;&amp;amp; y) noexcept(noexcept(x.swap(y)));
-+  void
-+    swap(queue&amp;lt;T, Container&amp;gt;&amp;amp; x,
-+         queue&amp;lt;T, Container&amp;gt;&amp;amp; y)
-+      noexcept(noexcept(x.swap(y))); // (1) C++11
-+  template &amp;lt;class T, class Container&amp;gt;
-+  constexpr void
-+    swap(queue&amp;lt;T, Container&amp;gt;&amp;amp; x,
-+         queue&amp;lt;T, Container&amp;gt;&amp;amp; y)
-+      noexcept(noexcept(x.swap(y))); // (1) C++26
- }
- ```
- 
-@@ -84,3 +92,4 @@ int main ()
- 
- 
- ## 参照
 +- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
 &lt;/code&gt;&lt;/pre&gt;</summary>
       

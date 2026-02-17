@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-02-27T06:55:09">
-        2025年02月27日 06時55分09秒
+      <span itemprop="datePublished" content="2026-02-17T13:33:02">
+        2026年02月17日 13時33分02秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,9 +225,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;unordered_map&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class unordered_multimap">unordered_multimap::</span><span class="token">empty</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">bool</span> <span class="nf">empty</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span>               <span class="c1">// C++11</span>
-<span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span> <span class="kt">bool</span> <span class="n">empty</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// C++20</span>
-<span class="kt">bool</span> <span class="nf">empty</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span>               <span class="c1">// C++26</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">bool</span> <span class="nf">empty</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span>               <span class="c1">// (1) C++11</span>
+<span class="p">[[</span><span class="n">nodiscard</span><span class="p">]]</span> <span class="kt">bool</span> <span class="n">empty</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (1) C++20</span>
+<span class="k">constexpr</span> <span class="kt">bool</span> <span class="nf">empty</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span>     <span class="c1">// (1) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -317,6 +317,7 @@ true
 <li>C++26で<code>[[nodiscard]]</code>指定が削除された</li>
 </ul>
 </li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html" target="_blank">P3372R3 constexpr containers and adaptors</a></li>
 </ul></div>
 
       </div>
