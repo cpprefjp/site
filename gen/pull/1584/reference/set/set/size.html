@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2023-09-30T05:44:45">
-        2023年09月30日 05時44分45秒
+      <span itemprop="datePublished" content="2026-02-17T13:19:22">
+        2026年02月17日 13時19分22秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">suomesta</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -225,8 +225,9 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;set&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class set">set::</span><span class="token">size</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">size_type</span> <span class="nf">size</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>           <span class="c1">// C++03</span>
-<span class="n">size_type</span> <span class="nf">size</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span>  <span class="c1">// C++11</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">size_type</span> <span class="nf">size</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>                    <span class="c1">// (1) C++03</span>
+<span class="n">size_type</span> <span class="nf">size</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span>           <span class="c1">// (1) C++11</span>
+<span class="k">constexpr</span> <span class="n">size_type</span> <span class="nf">size</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (1) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -277,7 +278,11 @@
 <td>コンテナが空であるかどうかを調べる</td>
 </tr>
 </tbody>
-</table></div>
+</table>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html" target="_blank">P3372R3 constexpr containers and adaptors</a></li>
+</ul></div>
 
       </div>
     </div>

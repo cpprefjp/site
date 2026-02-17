@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-01-30T11:22:25">
-        2025年01月30日 11時22分25秒
+      <span itemprop="datePublished" content="2026-02-17T13:19:22">
+        2026年02月17日 13時19分22秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">suomesta</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -225,10 +225,13 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;set&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class set">set::</span><span class="token">count</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">size_type</span> <span class="nf">count</span><span class="p">(</span><span class="k">const</span> <span class="n">key_type</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span> <span class="c1">// (1)</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">size_type</span> <span class="nf">count</span><span class="p">(</span><span class="k">const</span> <span class="n">key_type</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>           <span class="c1">// (1) C++03</span>
+<span class="k">constexpr</span> <span class="n">size_type</span> <span class="nf">count</span><span class="p">(</span><span class="k">const</span> <span class="n">key_type</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span> <span class="c1">// (1) C++26</span>
 
 <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">K</span><span class="o">&gt;</span>
-<span class="n">size_type</span> <span class="n">count</span><span class="p">(</span><span class="k">const</span> <span class="n">K</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>        <span class="c1">// (2) C++14</span>
+<span class="n">size_type</span> <span class="n">count</span><span class="p">(</span><span class="k">const</span> <span class="n">K</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>           <span class="c1">// (2) C++14</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">K</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="n">size_type</span> <span class="n">count</span><span class="p">(</span><span class="k">const</span> <span class="n">K</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span> <span class="c1">// (2) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -311,6 +314,7 @@
 <h2>参照</h2>
 <ul>
 <li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3657.htm" target="_blank">N3657 Adding heterogeneous comparison lookup to associative containers (rev 4)</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html" target="_blank">P3372R3 constexpr containers and adaptors</a></li>
 </ul></div>
 
       </div>
