@@ -2,9 +2,1797 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>cpprefjp - C++日本語リファレンス</title>
   <link href="https://cpprefjp.github.io" />
-  <updated>2026-02-17T08:39:57.037965</updated>
-  <id>97c2d112-65f2-4b5b-ac06-82dbaf356da2</id>
+  <updated>2026-02-17T08:55:27.644817</updated>
+  <id>57132dd1-69bc-4faa-b0cf-eef010927508</id>
 
+  
+    <entry>
+      <title>erase_if -- flat_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/flat_map/flat_multimap/erase_if_free.html"/>
+      <id>dd50d41af6435bc7f87740dc3778ca6545636e50:reference/flat_map/flat_multimap/erase_if_free.md</id>
+      <updated>2026-02-17T17:50:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_map/flat_multimap/erase_if_free.md b/reference/flat_map/flat_multimap/erase_if_free.md
+index 4373c7bfd..8aabf84ce 100644
+--- a/reference/flat_map/flat_multimap/erase_if_free.md
++++ b/reference/flat_map/flat_multimap/erase_if_free.md
+@@ -16,12 +16,12 @@ namespace std {
+     erase_if(flat_multimap&amp;lt;Key, T, Compare, KeyContainer, MappedContainer&amp;gt;&amp;amp; c,
+              Predicate pred); // (1) C++23
+   template&amp;lt;class Key,
+-           constexpr class T,
++           class T,
+            class Compare,
+            class KeyContainer,
+            class MappedContainer,
+            class Predicate&amp;gt;
+-  typename flat_multimap&amp;lt;Key, T, Compare, KeyContainer, MappedContainer&amp;gt;::size_type
++  constexpr typename flat_multimap&amp;lt;Key, T, Compare, KeyContainer, MappedContainer&amp;gt;::size_type
+     erase_if(flat_multimap&amp;lt;Key, T, Compare, KeyContainer, MappedContainer&amp;gt;&amp;amp; c,
+              Predicate pred); // (1) C++26
+ }
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>begin -- flat_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_multiset/begin.html"/>
+      <id>dd50d41af6435bc7f87740dc3778ca6545636e50:reference/flat_set/flat_multiset/begin.md</id>
+      <updated>2026-02-17T17:50:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_multiset/begin.md b/reference/flat_set/flat_multiset/begin.md
+index 1db00e406..c34dff368 100644
+--- a/reference/flat_set/flat_multiset/begin.md
++++ b/reference/flat_set/flat_multiset/begin.md
+@@ -6,8 +6,11 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-iterator begin() noexcept;
+-const_iterator begin() const noexcept;
++iterator begin() noexcept;           // (1) C++23
++constexpr iterator begin() noexcept; // (1) C++26
++
++const_iterator begin() const noexcept;           // (2) C++23
++constexpr const_iterator begin() const noexcept; // (2) C++26
+ ```
+ 
+ 
+@@ -72,3 +75,7 @@ int main()
+ | [`flat_multiset::rend`](rend.md)       | 先頭の前を指す逆イテレータを取得する |
+ | [`flat_multiset::crbegin`](crbegin.md) | 末尾を指す逆constイテレータを取得する |
+ | [`flat_multiset::crend`](crend.md)     | 先頭の前を指す逆constイテレータを取得する |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>cbegin -- flat_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_multiset/cbegin.html"/>
+      <id>dd50d41af6435bc7f87740dc3778ca6545636e50:reference/flat_set/flat_multiset/cbegin.md</id>
+      <updated>2026-02-17T17:50:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_multiset/cbegin.md b/reference/flat_set/flat_multiset/cbegin.md
+index 31da02d40..387135acf 100644
+--- a/reference/flat_set/flat_multiset/cbegin.md
++++ b/reference/flat_set/flat_multiset/cbegin.md
+@@ -6,7 +6,8 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-const_iterator cbegin() const noexcept;
++const_iterator cbegin() const noexcept;           // (1) C++23
++constexpr const_iterator cbegin() const noexcept; // (1) C++26
+ ```
+ 
+ 
+@@ -68,3 +69,7 @@ int main()
+ | [`flat_multiset::rend`](rend.md)       | 先頭の前を指す逆イテレータを取得する |
+ | [`flat_multiset::crbegin`](crbegin.md) | 末尾を指す逆constイテレータを取得する |
+ | [`flat_multiset::crend`](crend.md)     | 先頭の前を指す逆constイテレータを取得する |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>cend -- flat_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_multiset/cend.html"/>
+      <id>dd50d41af6435bc7f87740dc3778ca6545636e50:reference/flat_set/flat_multiset/cend.md</id>
+      <updated>2026-02-17T17:50:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_multiset/cend.md b/reference/flat_set/flat_multiset/cend.md
+index da4449573..0735dea04 100644
+--- a/reference/flat_set/flat_multiset/cend.md
++++ b/reference/flat_set/flat_multiset/cend.md
+@@ -6,7 +6,8 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-const_iterator cend() const noexcept;
++const_iterator cend() const noexcept;           // (1) C++23
++constexpr const_iterator cend() const noexcept; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -71,3 +72,7 @@ int main()
+ | [`flat_multiset::rend`](rend.md)       | 先頭の前を指す逆イテレータを取得する |
+ | [`flat_multiset::crbegin`](crbegin.md) | 末尾を指す逆constイテレータを取得する |
+ | [`flat_multiset::crend`](crend.md)     | 先頭の前を指す逆constイテレータを取得する |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>clear -- flat_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_multiset/clear.html"/>
+      <id>dd50d41af6435bc7f87740dc3778ca6545636e50:reference/flat_set/flat_multiset/clear.md</id>
+      <updated>2026-02-17T17:50:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_multiset/clear.md b/reference/flat_set/flat_multiset/clear.md
+index d935fd497..d636fb9ce 100644
+--- a/reference/flat_set/flat_multiset/clear.md
++++ b/reference/flat_set/flat_multiset/clear.md
+@@ -6,7 +6,8 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-void clear() noexcept; // (1) C++23
++void clear() noexcept;           // (1) C++23
++constexpr void clear() noexcept; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -54,3 +55,7 @@ int main ()
+ - [Clang](/implementation.md#clang): ??
+ - [GCC](/implementation.md#gcc): ??
+ - [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>contains -- flat_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_multiset/contains.html"/>
+      <id>dd50d41af6435bc7f87740dc3778ca6545636e50:reference/flat_set/flat_multiset/contains.md</id>
+      <updated>2026-02-17T17:50:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_multiset/contains.md b/reference/flat_set/flat_multiset/contains.md
+index 3bc429600..e8c821053 100644
+--- a/reference/flat_set/flat_multiset/contains.md
++++ b/reference/flat_set/flat_multiset/contains.md
+@@ -6,10 +6,13 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-bool contains(const key_type&amp;amp; x) const; // (1) C++23
++bool contains(const key_type&amp;amp; x) const;           // (1) C++23
++constexpr bool contains(const key_type&amp;amp; x) const; // (1) C++26
+ 
+ template &amp;lt;class K&amp;gt;
+-bool contains(const K&amp;amp; x) const;        // (2) C++23
++bool contains(const K&amp;amp; x) const;           // (2) C++23
++template &amp;lt;class K&amp;gt;
++constexpr bool contains(const K&amp;amp; x) const; // (2) C++26
+ ```
+ 
+ 
+@@ -78,3 +81,7 @@ contain
+ - [Clang](/implementation.md#clang): ??
+ - [GCC](/implementation.md#gcc): ??
+ - [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>count -- flat_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_multiset/count.html"/>
+      <id>dd50d41af6435bc7f87740dc3778ca6545636e50:reference/flat_set/flat_multiset/count.md</id>
+      <updated>2026-02-17T17:50:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_multiset/count.md b/reference/flat_set/flat_multiset/count.md
+index c605ea333..ad3a3dd88 100644
+--- a/reference/flat_set/flat_multiset/count.md
++++ b/reference/flat_set/flat_multiset/count.md
+@@ -6,10 +6,13 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-size_type count(const key_type&amp;amp; x) const; // (1) C++23
++size_type count(const key_type&amp;amp; x) const;           // (1) C++23
++constexpr size_type count(const key_type&amp;amp; x) const; // (1) C++26
+ 
+ template &amp;lt;class K&amp;gt;
+-size_type count(const K&amp;amp; x) const;        // (2) C++23
++size_type count(const K&amp;amp; x) const;           // (2) C++23
++template &amp;lt;class K&amp;gt;
++constexpr size_type count(const K&amp;amp; x) const; // (2) C++26
+ ```
+ 
+ ## 概要
+@@ -88,3 +91,7 @@ int main()
+ 
+ ## 関連項目
+ - [`contains()`](contains.md)
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>crbegin -- flat_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_multiset/crbegin.html"/>
+      <id>dd50d41af6435bc7f87740dc3778ca6545636e50:reference/flat_set/flat_multiset/crbegin.md</id>
+      <updated>2026-02-17T17:50:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_multiset/crbegin.md b/reference/flat_set/flat_multiset/crbegin.md
+index 769fb3b2d..928edf122 100644
+--- a/reference/flat_set/flat_multiset/crbegin.md
++++ b/reference/flat_set/flat_multiset/crbegin.md
+@@ -6,7 +6,8 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-const_reverse_iterator crbegin() const noexcept;
++const_reverse_iterator crbegin() const noexcept;           // (1) C++23
++constexpr const_reverse_iterator crbegin() const noexcept; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -69,3 +70,7 @@ int main()
+ | [`flat_multiset::rbegin`](rbegin.md) | 末尾を指す逆イテレータを取得する |
+ | [`flat_multiset::rend`](rend.md)     | 先頭の前を指す逆イテレータを取得する |
+ | [`flat_multiset::crend`](crend.md)   | 先頭の前を指す逆constイテレータを取得する |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>crend -- flat_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_multiset/crend.html"/>
+      <id>dd50d41af6435bc7f87740dc3778ca6545636e50:reference/flat_set/flat_multiset/crend.md</id>
+      <updated>2026-02-17T17:50:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_multiset/crend.md b/reference/flat_set/flat_multiset/crend.md
+index 01cd3265b..e0d9df820 100644
+--- a/reference/flat_set/flat_multiset/crend.md
++++ b/reference/flat_set/flat_multiset/crend.md
+@@ -6,7 +6,8 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-const_reverse_iterator crend() const noexcept;
++const_reverse_iterator crend() const noexcept;           // (1) C++23
++constexpr const_reverse_iterator crend() const noexcept; // (1) C++26
+ ```
+ 
+ 
+@@ -67,3 +68,7 @@ int main()
+ | [`flat_multiset::rbegin`](rbegin.md)   | 末尾を指す逆イテレータを取得する |
+ | [`flat_multiset::rend`](rend.md)       | 先頭の前を指す逆イテレータを取得する |
+ | [`flat_multiset::crbegin`](crbegin.md) | 末尾を指す逆constイテレータを取得する |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>emplace -- flat_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_multiset/emplace.html"/>
+      <id>dd50d41af6435bc7f87740dc3778ca6545636e50:reference/flat_set/flat_multiset/emplace.md</id>
+      <updated>2026-02-17T17:50:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_multiset/emplace.md b/reference/flat_set/flat_multiset/emplace.md
+index 49c04e5e4..65360bae5 100644
+--- a/reference/flat_set/flat_multiset/emplace.md
++++ b/reference/flat_set/flat_multiset/emplace.md
+@@ -7,7 +7,9 @@
+ 
+ ```cpp
+ template &amp;lt;class... Args&amp;gt;
+-iterator emplace(Args&amp;amp;&amp;amp;... args);
++iterator emplace(Args&amp;amp;&amp;amp;... args);           // (1) C++23
++template &amp;lt;class... Args&amp;gt;
++constexpr iterator emplace(Args&amp;amp;&amp;amp;... args); // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -108,3 +110,7 @@ CCCCC
+ | [`flat_multiset::insert`](insert.md)             | 要素を挿入する                   |
+ | [`flat_multiset::insert_range`](insert_range.md) | Rangeを挿入する                  |
+ | [`flat_multiset::emplace_hint`](emplace_hint.md) | ヒントを使って要素を直接構築する |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>emplace_hint -- flat_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_multiset/emplace_hint.html"/>
+      <id>dd50d41af6435bc7f87740dc3778ca6545636e50:reference/flat_set/flat_multiset/emplace_hint.md</id>
+      <updated>2026-02-17T17:50:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_multiset/emplace_hint.md b/reference/flat_set/flat_multiset/emplace_hint.md
+index 46e96497c..ee98d6c21 100644
+--- a/reference/flat_set/flat_multiset/emplace_hint.md
++++ b/reference/flat_set/flat_multiset/emplace_hint.md
+@@ -7,7 +7,13 @@
+ 
+ ```cpp
+ template &amp;lt;class... Args&amp;gt;
+-iterator emplace_hint(const_iterator hint, Args&amp;amp;&amp;amp;... args);
++iterator
++  emplace_hint(const_iterator hint,
++               Args&amp;amp;&amp;amp;... args); // (1) C++23
++template &amp;lt;class... Args&amp;gt;
++constexpr iterator
++  emplace_hint(const_iterator hint,
++               Args&amp;amp;&amp;amp;... args); // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -72,3 +78,7 @@ int main()
+ | [`flat_multiset::insert`](insert.md)             | 要素を挿入する     |
+ | [`flat_multiset::insert_range`](insert_range.md) | Rangeを挿入する    |
+ | [`flat_multiset::emplace`](emplace.md)           | 要素を直接構築する |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>empty -- flat_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_multiset/empty.html"/>
+      <id>dd50d41af6435bc7f87740dc3778ca6545636e50:reference/flat_set/flat_multiset/empty.md</id>
+      <updated>2026-02-17T17:50:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_multiset/empty.md b/reference/flat_set/flat_multiset/empty.md
+index df552ef67..baee8668a 100644
+--- a/reference/flat_set/flat_multiset/empty.md
++++ b/reference/flat_set/flat_multiset/empty.md
+@@ -6,7 +6,8 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-[[nodiscard]] bool empty() const noexcept; // (1) C++23
++[[nodiscard]] bool empty() const noexcept;           // (1) C++23
++[[nodiscard]] constexpr bool empty() const noexcept; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -57,3 +58,7 @@ int main ()
+ - [Clang](/implementation.md#clang): ??
+ - [GCC](/implementation.md#gcc): ??
+ - [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>end -- flat_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_multiset/end.html"/>
+      <id>dd50d41af6435bc7f87740dc3778ca6545636e50:reference/flat_set/flat_multiset/end.md</id>
+      <updated>2026-02-17T17:50:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_multiset/end.md b/reference/flat_set/flat_multiset/end.md
+index 48ab910d6..df4c74e36 100644
+--- a/reference/flat_set/flat_multiset/end.md
++++ b/reference/flat_set/flat_multiset/end.md
+@@ -6,8 +6,11 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-iterator end() noexcept;
+-const_iterator end() const noexcept;
++iterator end() noexcept;           // (1) C++23
++constexpr iterator end() noexcept; // (1) C++26
++
++const_iterator end() const noexcept;           // (2) C++23
++constexpr const_iterator end() const noexcept; // (2) C++26
+ ```
+ 
+ ## 概要
+@@ -73,3 +76,7 @@ int main()
+ | [`flat_multiset::rend`](rend.md)       | 先頭の前を指す逆イテレータを取得する |
+ | [`flat_multiset::crbegin`](crbegin.md) | 末尾を指す逆constイテレータを取得する |
+ | [`flat_multiset::crend`](crend.md)     | 先頭の前を指す逆constイテレータを取得する |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>equal_range -- flat_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_multiset/equal_range.html"/>
+      <id>dd50d41af6435bc7f87740dc3778ca6545636e50:reference/flat_set/flat_multiset/equal_range.md</id>
+      <updated>2026-02-17T17:50:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_multiset/equal_range.md b/reference/flat_set/flat_multiset/equal_range.md
+index 9c7d4e6da..5f03b6506 100644
+--- a/reference/flat_set/flat_multiset/equal_range.md
++++ b/reference/flat_set/flat_multiset/equal_range.md
+@@ -6,17 +6,29 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-pair&amp;lt;iterator, iterator&amp;gt; equal_range(const key_type&amp;amp; x); // (1) C++23
++pair&amp;lt;iterator, iterator&amp;gt;
++  equal_range(const key_type&amp;amp; x); // (1) C++23
++constexpr pair&amp;lt;iterator, iterator&amp;gt;
++  equal_range(const key_type&amp;amp; x); // (1) C++26
+ 
+ template &amp;lt;class K&amp;gt;
+-pair&amp;lt;iterator, iterator&amp;gt; equal_range(const K&amp;amp; x);        // (2) C++23
++pair&amp;lt;iterator, iterator&amp;gt;
++  equal_range(const K&amp;amp; x); // (2) C++23
++template &amp;lt;class K&amp;gt;
++constexpr pair&amp;lt;iterator, iterator&amp;gt;
++  equal_range(const K&amp;amp; x); // (2) C++26
+ 
+ pair&amp;lt;const_iterator, const_iterator&amp;gt;
+-  equal_range(const key_type&amp;amp; x) const;                  // (3) C++23
++  equal_range(const key_type&amp;amp; x) const; // (3) C++23
++constexpr pair&amp;lt;const_iterator, const_iterator&amp;gt;
++  equal_range(const key_type&amp;amp; x) const; // (3) C++26
+ 
+ template &amp;lt;class K&amp;gt;
+ pair&amp;lt;const_iterator, const_iterator&amp;gt;
+-  equal_range(const K&amp;amp; x) const;                         // (4) C++23
++  equal_range(const K&amp;amp; x) const; // (4) C++23
++template &amp;lt;class K&amp;gt;
++constexpr pair&amp;lt;const_iterator, const_iterator&amp;gt;
++  equal_range(const K&amp;amp; x) const; // (4) C++26
+ ```
+ 
+ ## 概要
+@@ -83,3 +95,7 @@ int main()
+ | [`flat_multiset::lower_bound`](lower_bound.md) | 与えられた値より小さくない最初の要素へのイテレータを返す |
+ | [`flat_multiset::upper_bound`](upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを返す       |
+ | [`flat_multiset::find`](find.md)               | 指定したキーで要素を探す                                 |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>erase -- flat_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_multiset/erase.html"/>
+      <id>dd50d41af6435bc7f87740dc3778ca6545636e50:reference/flat_set/flat_multiset/erase.md</id>
+      <updated>2026-02-17T17:50:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_multiset/erase.md b/reference/flat_set/flat_multiset/erase.md
+index 44d0db376..176f428e0 100644
+--- a/reference/flat_set/flat_multiset/erase.md
++++ b/reference/flat_set/flat_multiset/erase.md
+@@ -6,16 +6,22 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-iterator erase(iterator position);                         // (1) C++23
++iterator erase(iterator position);           // (1) C++23
++constexpr iterator erase(iterator position); // (1) C++26
+ 
+-iterator erase(const_iterator position);                   // (2) C++23
++iterator erase(const_iterator position);           // (2) C++23
++constexpr iterator erase(const_iterator position); // (2) C++26
+ 
+-size_type erase(const key_type&amp;amp; x);                        // (3) C++23
++size_type erase(const key_type&amp;amp; x);           // (3) C++23
++constexpr size_type erase(const key_type&amp;amp; x); // (3) C++26
+ 
+ template &amp;lt;class K&amp;gt;
+-size_type erase(K&amp;amp;&amp;amp; x);                                    // (4) C++23
++size_type erase(K&amp;amp;&amp;amp; x);           // (4) C++23
++template &amp;lt;class K&amp;gt;
++constexpr size_type erase(K&amp;amp;&amp;amp; x); // (4) C++26
+ 
+-iterator erase(const_iterator first, const_iterator last); // (5) C++23
++iterator erase(const_iterator first, const_iterator last);           // (5) C++23
++constexpr iterator erase(const_iterator first, const_iterator last); // (5) C++26
+ ```
+ 
+ ## 概要
+@@ -137,3 +143,7 @@ int main()
+ | [`flat_multiset::clear`](clear.md)   | 全ての要素を削除する     |
+ | [`flat_multiset::insert`](insert.md) | 要素を挿入する           |
+ | [`flat_multiset::find`](find.md)     | 指定したキーで要素を探す |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>erase_if -- flat_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_multiset/erase_if_free.html"/>
+      <id>dd50d41af6435bc7f87740dc3778ca6545636e50:reference/flat_set/flat_multiset/erase_if_free.md</id>
+      <updated>2026-02-17T17:50:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_multiset/erase_if_free.md b/reference/flat_set/flat_multiset/erase_if_free.md
+index a35c1ddf0..9d2d0c18f 100644
+--- a/reference/flat_set/flat_multiset/erase_if_free.md
++++ b/reference/flat_set/flat_multiset/erase_if_free.md
+@@ -12,7 +12,14 @@ namespace std {
+            class Predicate&amp;gt;
+   typename flat_multiset&amp;lt;Key, Compare, KeyContainer&amp;gt;::size_type
+     erase_if(flat_multiset&amp;lt;Key, Compare, KeyContainer&amp;gt;&amp;amp; c,
+-             Predicate pred);
++             Predicate pred); // (1) C++23
++  template&amp;lt;class Key,
++           class Compare,
++           class KeyContainer,
++           class Predicate&amp;gt;
++  constexpr typename flat_multiset&amp;lt;Key, Compare, KeyContainer&amp;gt;::size_type
++    erase_if(flat_multiset&amp;lt;Key, Compare, KeyContainer&amp;gt;&amp;amp; c,
++             Predicate pred); // (1) C++26
+ }
+ ```
+ 
+@@ -75,3 +82,7 @@ int main()
+ - [Clang](/implementation.md#clang): ??
+ - [GCC](/implementation.md#gcc): ??
+ - [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>extract -- flat_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_multiset/extract.html"/>
+      <id>dd50d41af6435bc7f87740dc3778ca6545636e50:reference/flat_set/flat_multiset/extract.md</id>
+      <updated>2026-02-17T17:50:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_multiset/extract.md b/reference/flat_set/flat_multiset/extract.md
+index 43508c5fa..08735e646 100644
+--- a/reference/flat_set/flat_multiset/extract.md
++++ b/reference/flat_set/flat_multiset/extract.md
+@@ -6,7 +6,8 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-container_type extract() &amp;amp;&amp;amp;;  // C++23
++container_type extract() &amp;amp;&amp;amp;;           // (1) C++23
++constexpr container_type extract() &amp;amp;&amp;amp;; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -76,3 +77,7 @@ int main()
+ - [GCC](/implementation.md#gcc): ??
+ - [ICC](/implementation.md#icc): ??
+ - [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>find -- flat_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_multiset/find.html"/>
+      <id>dd50d41af6435bc7f87740dc3778ca6545636e50:reference/flat_set/flat_multiset/find.md</id>
+      <updated>2026-02-17T17:50:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_multiset/find.md b/reference/flat_set/flat_multiset/find.md
+index 3d8b1ea92..96d94afec 100644
+--- a/reference/flat_set/flat_multiset/find.md
++++ b/reference/flat_set/flat_multiset/find.md
+@@ -6,15 +6,21 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-iterator find(const key_type&amp;amp; x);             // (1) C++23
++iterator find(const key_type&amp;amp; x);           // (1) C++23
++constexpr iterator find(const key_type&amp;amp; x); // (1) C++26
+ 
+ template &amp;lt;class K&amp;gt;
+-iterator find(const K&amp;amp; x);                    // (2) C++23
++iterator find(const K&amp;amp; x);           // (2) C++23
++template &amp;lt;class K&amp;gt;
++constexpr iterator find(const K&amp;amp; x); // (2) C++26
+ 
+-const_iterator find(const key_type&amp;amp; x) const; // (3) C++23
++const_iterator find(const key_type&amp;amp; x) const;           // (3) C++23
++constexpr const_iterator find(const key_type&amp;amp; x) const; // (3) C++26
+ 
+ template &amp;lt;class K&amp;gt;
+-const_iterator find(const K&amp;amp; x) const;        // (4) C++23
++const_iterator find(const K&amp;amp; x) const;           // (4) C++23
++template &amp;lt;class K&amp;gt;
++constexpr const_iterator find(const K&amp;amp; x) const; // (4) C++26
+ ```
+ 
+ ## 概要
+@@ -100,3 +106,7 @@ Bob
+ 
+ ## 関連項目
+ - [`contains()`](contains.md)
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>insert -- flat_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_multiset/insert.html"/>
+      <id>dd50d41af6435bc7f87740dc3778ca6545636e50:reference/flat_set/flat_multiset/insert.md</id>
+      <updated>2026-02-17T17:50:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_multiset/insert.md b/reference/flat_set/flat_multiset/insert.md
+index 14294b61e..4a10e439b 100644
+--- a/reference/flat_set/flat_multiset/insert.md
++++ b/reference/flat_set/flat_multiset/insert.md
+@@ -6,34 +6,69 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-iterator insert(const value_type&amp;amp; x);         // (1) C++23
+-iterator insert(value_type&amp;amp;&amp;amp; x);              // (2) C++23
+-
+-iterator insert(const_iterator position,
+-                const value_type&amp;amp; x);         // (3) C++23
+-iterator insert(const_iterator position,
+-                value_type&amp;amp;&amp;amp; x);              // (4) C++23
++iterator insert(const value_type&amp;amp; x);           // (1) C++23
++constexpr iterator insert(const value_type&amp;amp; x); // (1) C++26
++
++iterator insert(value_type&amp;amp;&amp;amp; x);           // (2) C++23
++constexpr iterator insert(value_type&amp;amp;&amp;amp; x); // (2) C++26
++
++iterator
++  insert(const_iterator position,
++         const value_type&amp;amp; x); // (3) C++23
++constexpr iterator
++  insert(const_iterator position,
++         const value_type&amp;amp; x); // (3) C++26
++
++iterator
++  insert(const_iterator position,
++         value_type&amp;amp;&amp;amp; x); // (4) C++23
++constexpr iterator
++  insert(const_iterator position,
++         value_type&amp;amp;&amp;amp; x); // (4) C++26
+ 
+ template&amp;lt;class P&amp;gt;
+-iterator insert(P&amp;amp;&amp;amp; x);                       // (5) C++23
++iterator insert(P&amp;amp;&amp;amp; x);           // (5) C++23
++template&amp;lt;class P&amp;gt;
++constexpr iterator insert(P&amp;amp;&amp;amp; x); // (5) C++26
+ 
+ template&amp;lt;class P&amp;gt;
+-iterator insert(const_iterator position,
+-                P&amp;amp;&amp;amp;);                         // (6) C++23
++iterator
++  insert(const_iterator position,
++         P&amp;amp;&amp;amp; x); // (6) C++23
++template&amp;lt;class P&amp;gt;
++constexpr iterator
++  insert(const_iterator position,
++         P&amp;amp;&amp;amp; x); // (6) C++26
+ 
+ template&amp;lt;class InputIterator&amp;gt;
+-void insert(InputIterator first,
+-            InputIterator last);              // (7) C++23
+-
++void
++  insert(InputIterator first,
++         InputIterator last); // (7) C++23
+ template&amp;lt;class InputIterator&amp;gt;
+-void insert(sorted_equivalent_t,
+-            InputIterator first,
+-            InputIterator last);              // (8) C++23
+-
+-void insert(initializer_list&amp;lt;value_type&amp;gt; il); // (9) C++23
++constexpr void
++  insert(InputIterator first,
++         InputIterator last); // (7) C++26
+ 
+-void insert(sorted_equivalent_t,
+-            initializer_list&amp;lt;value_type&amp;gt; il); // (10) C++23
++template&amp;lt;class InputIterator&amp;gt;
++void
++  insert(sorted_equivalent_t,
++         InputIterator first,
++         InputIterator last); // (8) C++23
++template&amp;lt;class InputIterator&amp;gt;
++constexpr void
++  insert(sorted_equivalent_t,
++         InputIterator first,
++         InputIterator last); // (8) C++26
++
++void insert(initializer_list&amp;lt;value_type&amp;gt; il);           // (9) C++23
++constexpr void insert(initializer_list&amp;lt;value_type&amp;gt; il); // (9) C++26
++
++void
++  insert(sorted_equivalent_t,
++         initializer_list&amp;lt;value_type&amp;gt; il); // (10) C++23
++constexpr void
++  insert(sorted_equivalent_t,
++         initializer_list&amp;lt;value_type&amp;gt; il); // (10) C++26
+ ```
+ * initializer_list[link /reference/initializer_list/initializer_list.md]
+ * sorted_equivalent_t[link /reference/flat_set/sorted_equivalent_t.md]
+@@ -213,3 +248,7 @@ int main()
+ | [`flat_multiset::insert_range`](insert_range.md) | Rangeを挿入する                  |
+ | [`flat_multiset::emplace`](emplace.md)           | 要素を直接構築する               |
+ | [`flat_multiset::emplace_hint`](emplace_hint.md) | ヒントを使って要素を直接構築する |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>insert_range -- flat_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_multiset/insert_range.html"/>
+      <id>dd50d41af6435bc7f87740dc3778ca6545636e50:reference/flat_set/flat_multiset/insert_range.md</id>
+      <updated>2026-02-17T17:50:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_multiset/insert_range.md b/reference/flat_set/flat_multiset/insert_range.md
+index 596ed6105..93d22062d 100644
+--- a/reference/flat_set/flat_multiset/insert_range.md
++++ b/reference/flat_set/flat_multiset/insert_range.md
+@@ -7,7 +7,9 @@
+ 
+ ```cpp
+ template&amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
+-void insert_range(R&amp;amp;&amp;amp; rg);                        // (1) C++23
++void insert_range(R&amp;amp;&amp;amp; rg);           // (1) C++23
++template&amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
++constexpr void insert_range(R&amp;amp;&amp;amp; rg); // (1) C++26
+ ```
+ * container-compatible-range[link /reference/exposition-only/container-compatible-range.md]
+ 
+@@ -71,3 +73,7 @@ int main()
+ | [`flat_multiset::insert`](insert.md)             | 要素を挿入する                   |
+ | [`flat_multiset::emplace`](emplace.md)           | 要素を直接構築する               |
+ | [`flat_multiset::emplace_hint`](emplace_hint.md) | ヒントを使って要素を直接構築する |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>key_comp -- flat_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_multiset/key_comp.html"/>
+      <id>dd50d41af6435bc7f87740dc3778ca6545636e50:reference/flat_set/flat_multiset/key_comp.md</id>
+      <updated>2026-02-17T17:50:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_multiset/key_comp.md b/reference/flat_set/flat_multiset/key_comp.md
+index 01d8f6ebc..6e7aa711a 100644
+--- a/reference/flat_set/flat_multiset/key_comp.md
++++ b/reference/flat_set/flat_multiset/key_comp.md
+@@ -6,7 +6,8 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-key_compare key_comp() const; // C++23
++key_compare key_comp() const;           // (1) C++23
++constexpr key_compare key_comp() const; // (1) C++26
+ ```
+ 
+ 
+@@ -62,3 +63,7 @@ int main()
+ | 名前                                | 説明                                                     |
+ |-------------------------------------|----------------------------------------------------------|
+ | [`value_comp`](value_comp.md)       | 要素比較用の関数オブジェクトを返す                       |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>lower_bound -- flat_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_multiset/lower_bound.html"/>
+      <id>dd50d41af6435bc7f87740dc3778ca6545636e50:reference/flat_set/flat_multiset/lower_bound.md</id>
+      <updated>2026-02-17T17:50:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_multiset/lower_bound.md b/reference/flat_set/flat_multiset/lower_bound.md
+index 6931de6d7..6ff8ba704 100644
+--- a/reference/flat_set/flat_multiset/lower_bound.md
++++ b/reference/flat_set/flat_multiset/lower_bound.md
+@@ -6,15 +6,21 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-iterator lower_bound(const key_type&amp;amp; x);             // (1) C++23
++iterator lower_bound(const key_type&amp;amp; x);           // (1) C++23
++constexpr iterator lower_bound(const key_type&amp;amp; x); // (1) C++26
+ 
+ template &amp;lt;class K&amp;gt;
+-iterator lower_bound(const K&amp;amp; x);                    // (2) C++23
++iterator lower_bound(const K&amp;amp; x);           // (2) C++23
++template &amp;lt;class K&amp;gt;
++constexpr iterator lower_bound(const K&amp;amp; x); // (2) C++26
+ 
+-const_iterator lower_bound(const key_type&amp;amp; x) const; // (3) C++23
++const_iterator lower_bound(const key_type&amp;amp; x) const;           // (3) C++23
++constexpr const_iterator lower_bound(const key_type&amp;amp; x) const; // (3) C++26
+ 
+ template &amp;lt;class K&amp;gt;
+-const_iterator lower_bound(const K&amp;amp; x) const;        // (4) C++23
++const_iterator lower_bound(const K&amp;amp; x) const;           // (4) C++23
++template &amp;lt;class K&amp;gt;
++constexpr const_iterator lower_bound(const K&amp;amp; x) const; // (4) C++26
+ ```
+ 
+ ## 概要
+@@ -119,3 +125,7 @@ David
+ | [`flat_multiset::equal_range`](equal_range.md) | 指定したキーにマッチする要素範囲を返す               |
+ | [`flat_multiset::find`](find.md)               | 指定したキーで要素を探す                             |
+ | [`flat_multiset::count`](count.md)             | 指定したキーにマッチする要素の数を返す               |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>max_size -- flat_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_multiset/max_size.html"/>
+      <id>dd50d41af6435bc7f87740dc3778ca6545636e50:reference/flat_set/flat_multiset/max_size.md</id>
+      <updated>2026-02-17T17:50:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_multiset/max_size.md b/reference/flat_set/flat_multiset/max_size.md
+index 2e73e7507..cd0a634ae 100644
+--- a/reference/flat_set/flat_multiset/max_size.md
++++ b/reference/flat_set/flat_multiset/max_size.md
+@@ -6,7 +6,8 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-size_type max_size() const noexcept; // (1) C++23
++size_type max_size() const noexcept;           // (1) C++23
++constexpr size_type max_size() const noexcept; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -49,3 +50,7 @@ int main()
+ - [Clang](/implementation.md#clang): ??
+ - [GCC](/implementation.md#gcc): ??
+ - [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator= -- flat_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_multiset/op_assign.html"/>
+      <id>dd50d41af6435bc7f87740dc3778ca6545636e50:reference/flat_set/flat_multiset/op_assign.md</id>
+      <updated>2026-02-17T17:50:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_multiset/op_assign.md b/reference/flat_set/flat_multiset/op_assign.md
+index d83fee63a..37eeda258 100644
+--- a/reference/flat_set/flat_multiset/op_assign.md
++++ b/reference/flat_set/flat_multiset/op_assign.md
+@@ -6,7 +6,8 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-flat_multiset&amp;amp; operator=(initializer_list&amp;lt;value_type&amp;gt; il); // C++23
++flat_multiset&amp;amp; operator=(initializer_list&amp;lt;value_type&amp;gt; il);           // (1) C++23
++constexpr flat_multiset&amp;amp; operator=(initializer_list&amp;lt;value_type&amp;gt; il); // (1) C++26
+ ```
+ * initializer_list[link /reference/initializer_list/initializer_list.md]
+ 
+@@ -64,3 +65,7 @@ Carol
+ - [GCC](/implementation.md#gcc): ??
+ - [ICC](/implementation.md#icc): ??
+ - [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator&lt;=&gt; -- flat_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_multiset/op_compare_3way.html"/>
+      <id>dd50d41af6435bc7f87740dc3778ca6545636e50:reference/flat_set/flat_multiset/op_compare_3way.md</id>
+      <updated>2026-02-17T17:50:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_multiset/op_compare_3way.md b/reference/flat_set/flat_multiset/op_compare_3way.md
+index 2a7ca417d..e921ebb48 100644
+--- a/reference/flat_set/flat_multiset/op_compare_3way.md
++++ b/reference/flat_set/flat_multiset/op_compare_3way.md
+@@ -9,6 +9,9 @@
+ synth-three-way-result&amp;lt;value_type&amp;gt;
+   operator&amp;lt;=&amp;gt;(const flat_multiset&amp;amp; x,
+               const flat_multiset&amp;amp; y); // (1) C++23
++constexpr synth-three-way-result&amp;lt;value_type&amp;gt;
++  operator&amp;lt;=&amp;gt;(const flat_multiset&amp;amp; x,
++              const flat_multiset&amp;amp; y); // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -81,3 +84,7 @@ false
+ - [Clang](/implementation.md#clang): ??
+ - [GCC](/implementation.md#gcc): ??
+ - [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>コンストラクタ -- flat_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_multiset/op_constructor.html"/>
+      <id>dd50d41af6435bc7f87740dc3778ca6545636e50:reference/flat_set/flat_multiset/op_constructor.md</id>
+      <updated>2026-02-17T17:50:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_multiset/op_constructor.md b/reference/flat_set/flat_multiset/op_constructor.md
+index ad03d3306..9d3be401a 100644
+--- a/reference/flat_set/flat_multiset/op_constructor.md
++++ b/reference/flat_set/flat_multiset/op_constructor.md
+@@ -8,117 +8,281 @@
+ ```cpp
+ // ____要素数ゼロのflat_multisetを構築____
+ 
+-flat_multiset() : flat_multiset(key_compare()) { } // (1) C++23
++flat_multiset()
++  : flat_multiset(key_compare()) { } // (1) C++23
+ 
+-explicit flat_multiset(const key_compare&amp;amp; comp) // (2) C++23
+-  : c(), compare(comp) { }
++explicit
++  flat_multiset(const key_compare&amp;amp; comp) // (2) C++23
++    : c(), compare(comp) { }
++constexpr explicit
++  flat_multiset(const key_compare&amp;amp; comp) // (2) C++26
++    : c(), compare(comp) { }
+ 
+ template&amp;lt;class Allocator&amp;gt;
+-explicit flat_multiset(const Allocator&amp;amp; a); // (3) C++23
++explicit
++  flat_multiset(const Allocator&amp;amp; a); // (3) C++23
++template&amp;lt;class Allocator&amp;gt;
++constexpr explicit
++  flat_multiset(const Allocator&amp;amp; a); // (3) C++26
+ 
+ template&amp;lt;class Allocator&amp;gt;
+-flat_multiset(const key_compare&amp;amp; comp, const Allocator&amp;amp; a); // (4) C++23
++flat_multiset(const key_compare&amp;amp; comp,
++              const Allocator&amp;amp; a);      // (4) C++23
++template&amp;lt;class Allocator&amp;gt;
++constexpr
++  flat_multiset(const key_compare&amp;amp; comp,
++                const Allocator&amp;amp; a);    // (4) C++26
+ 
+ // ____アロケータを伴うコピー＆ムーブコンストラクタ____
+ 
+  template&amp;lt;class Allocator&amp;gt;
+- flat_multiset(const flat_multiset&amp;amp; x, const Allocator&amp;amp; a); // (5) C++26
++ constexpr
++   flat_multiset(const flat_multiset&amp;amp; x,
++                 const Allocator&amp;amp; a); // (5) C++26
+ 
+  template&amp;lt;class Allocator&amp;gt;
+- flat_multiset(flat_multiset&amp;amp;&amp;amp; x, const Allocator&amp;amp; a); // (6) C++26
++ constexpr
++   flat_multiset(flat_multiset&amp;amp;&amp;amp; x,
++                 const Allocator&amp;amp; a); // (6) C++26
+ 
+ // ____container_typeから構築____
+ 
+ flat_multiset(container_type cont,
+-              const key_compare&amp;amp; comp = key_compare()); // (7) C++23
++              const key_compare&amp;amp; comp = key_compare());   // (7) C++23
++constexpr
++  flat_multiset(container_type cont,
++                const key_compare&amp;amp; comp = key_compare()); // (7) C++26
+ 
+ template&amp;lt;class Allocator&amp;gt;
+ flat_multiset(const container_type&amp;amp; cont,
+-              const Allocator&amp;amp; a); // (8) C++23
++              const Allocator&amp;amp; a);   // (8) C++23
++template&amp;lt;class Allocator&amp;gt;
++constexpr
++  flat_multiset(const container_type&amp;amp; cont,
++                const Allocator&amp;amp; a); // (8) C++26
+ 
+ template&amp;lt;class Allocator&amp;gt;
+ flat_multiset(const container_type&amp;amp; cont,
+-              const key_compare&amp;amp; comp, const Allocator&amp;amp; a); // (9) C++23
++              const key_compare&amp;amp; comp,
++              const Allocator&amp;amp; a);   // (9) C++23
++template&amp;lt;class Allocator&amp;gt;
++constexpr
++  flat_multiset(const container_type&amp;amp; cont,
++                const key_compare&amp;amp; comp,
++                const Allocator&amp;amp; a); // (9) C++26
+ 
+ // ____container_type（ソート済み）から構築____
+ 
+-flat_multiset(sorted_equivalent_t, container_type cont,
+-              const key_compare&amp;amp; comp = key_compare()); // (10) C++23
++flat_multiset(sorted_equivalent_t,
++              container_type cont,
++              const key_compare&amp;amp; comp = key_compare());   // (10) C++23
++constexpr
++  flat_multiset(sorted_equivalent_t,
++                container_type cont,
++                const key_compare&amp;amp; comp = key_compare()); // (10) C++26
+ 
+ template&amp;lt;class Allocator&amp;gt;
+-flat_multiset(sorted_equivalent_t, const container_type&amp;amp; cont,
+-              const Allocator&amp;amp; a); // (11) C++23
++flat_multiset(sorted_equivalent_t,
++              const container_type&amp;amp; cont,
++              const Allocator&amp;amp; a);   // (11) C++23
++template&amp;lt;class Allocator&amp;gt;
++constexpr
++  flat_multiset(sorted_equivalent_t,
++                const container_type&amp;amp; cont,
++                const Allocator&amp;amp; a); // (11) C++26
+ 
+ template&amp;lt;class Allocator&amp;gt;
+-flat_multiset(sorted_equivalent_t, const container_type&amp;amp; cont,
+-              const key_compare&amp;amp; comp, const Allocator&amp;amp; a); // (12) C++23
++flat_multiset(sorted_equivalent_t,
++              const container_type&amp;amp; cont,
++              const key_compare&amp;amp; comp,
++              const Allocator&amp;amp; a);   // (12) C++23
++template&amp;lt;class Allocator&amp;gt;
++constexpr
++  flat_multiset(sorted_equivalent_t,
++                const container_type&amp;amp; cont,
++                const key_compare&amp;amp; comp,
++                const Allocator&amp;amp; a); // (12) C++26
+ 
+ // ____イテレータから構築____
+-
+ template&amp;lt;class InputIterator&amp;gt;
+-flat_multiset(InputIterator first, InputIterator last, const key_compare&amp;amp; comp = key_compare()) // (13) C++23
++flat_multiset(InputIterator first,
++              InputIterator last,
++              const key_compare&amp;amp; comp = key_compare())   // (13) C++23
+   : c(), compare(comp) { insert(first, last); }
++template&amp;lt;class InputIterator&amp;gt;
++constexpr
++  flat_multiset(InputIterator first,
++                InputIterator last,
++                const key_compare&amp;amp; comp = key_compare()) // (13) C++26
++    : c(), compare(comp) { insert(first, last); }
+ 
+ template&amp;lt;class InputIterator, class Allocator&amp;gt;
+-flat_multiset(InputIterator first, InputIterator last, const Allocator&amp;amp; a); // (14) C++23
++flat_multiset(InputIterator first,
++              InputIterator last,
++              const Allocator&amp;amp; a);   // (14) C++23
++template&amp;lt;class InputIterator, class Allocator&amp;gt;
++constexpr
++  flat_multiset(InputIterator first,
++                InputIterator last,
++                const Allocator&amp;amp; a); // (14) C++26
+ 
+ template&amp;lt;class InputIterator, class Allocator&amp;gt;
+-flat_multiset(InputIterator first, InputIterator last,
+-              const key_compare&amp;amp; comp, const Allocator&amp;amp; a); // (15) C++23
++flat_multiset(InputIterator first,
++              InputIterator last,
++              const key_compare&amp;amp; comp,
++              const Allocator&amp;amp; a);   // (15) C++23
++template&amp;lt;class InputIterator, class Allocator&amp;gt;
++constexpr
++  flat_multiset(InputIterator first,
++                InputIterator last,
++                const key_compare&amp;amp; comp,
++                const Allocator&amp;amp; a); // (15) C++26
+ 
+ // ____イテレータ（ソート済み）から構築____
+-
+ template&amp;lt;class InputIterator&amp;gt;
+-flat_multiset(sorted_equivalent_t s, InputIterator first, InputIterator last,
+-              const key_compare&amp;amp; comp = key_compare()) // (16) C++23
++flat_multiset(sorted_equivalent_t s,
++              InputIterator first,
++              InputIterator last,
++              const key_compare&amp;amp; comp = key_compare())   // (16) C++23
+   : c(), compare(comp) { insert(s, first, last); }
++template&amp;lt;class InputIterator&amp;gt;
++constexpr
++  flat_multiset(sorted_equivalent_t s,
++                InputIterator first,
++                InputIterator last,
++                const key_compare&amp;amp; comp = key_compare()) // (16) C++26
++    : c(), compare(comp) { insert(s, first, last); }
+ 
+ template&amp;lt;class InputIterator, class Allocator&amp;gt;
+-flat_multiset(sorted_equivalent_t, InputIterator first, InputIterator last, const Allocator&amp;amp; a); // (17) C++23
++flat_multiset(sorted_equivalent_t,
++              InputIterator first,
++              InputIterator last,
++              const Allocator&amp;amp; a);   // (17) C++23
++template&amp;lt;class InputIterator, class Allocator&amp;gt;
++constexpr
++  flat_multiset(sorted_equivalent_t,
++                InputIterator first,
++                InputIterator last,
++                const Allocator&amp;amp; a); // (17) C++26
+ 
+ template&amp;lt;class InputIterator, class Allocator&amp;gt;
+-flat_multiset(sorted_equivalent_t, InputIterator first, InputIterator last,
+-              const key_compare&amp;amp; comp, const Allocator&amp;amp; a); // (18) C++23
++flat_multiset(sorted_equivalent_t,
++              InputIterator first,
++              InputIterator last,
++              const key_compare&amp;amp; comp,
++              const Allocator&amp;amp; a); // (18) C++23
++template&amp;lt;class InputIterator, class Allocator&amp;gt;
++constexpr
++  flat_multiset(sorted_equivalent_t,
++                InputIterator first,
++                InputIterator last,
++                const key_compare&amp;amp; comp,
++                const Allocator&amp;amp; a); // (18) C++26
+ 
+ // ____Rangeから構築____
+-
+ template&amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
+-flat_multiset(from_range_t fr, R&amp;amp;&amp;amp; rg) // (19) C++23
++flat_multiset(from_range_t fr,
++              R&amp;amp;&amp;amp; rg)   // (19) C++23
+   : flat_multiset(fr, forward&amp;lt;R&amp;gt;(rg), key_compare()) { }
++template&amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
++constexpr
++  flat_multiset(from_range_t fr,
++                R&amp;amp;&amp;amp; rg) // (19) C++26
++    : flat_multiset(fr, forward&amp;lt;R&amp;gt;(rg), key_compare()) { }
+ 
+ template&amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
+-flat_multiset(from_range_t, R&amp;amp;&amp;amp; rg, const key_compare&amp;amp; comp) // (20) C++23
++flat_multiset(from_range_t,
++              R&amp;amp;&amp;amp; rg,
++              const key_compare&amp;amp; comp)   // (20) C++23
+   : flat_multiset(comp) { insert_range(forward&amp;lt;R&amp;gt;(rg)); }
++template&amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R&amp;gt;
++constexpr
++  flat_multiset(from_range_t,
++                R&amp;amp;&amp;amp; rg,
++                const key_compare&amp;amp; comp) // (20) C++26
++    : flat_multiset(comp) { insert_range(forward&amp;lt;R&amp;gt;(rg)); }
+ 
+ template&amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R, class Allocator&amp;gt;
+-flat_multiset(from_range_t, R&amp;amp;&amp;amp; rg, const Allocator&amp;amp; a); // (21) C++23
++flat_multiset(from_range_t,
++              R&amp;amp;&amp;amp; rg,
++              const Allocator&amp;amp; a);   // (21) C++23
++template&amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R, class Allocator&amp;gt;
++constexpr
++  flat_multiset(from_range_t,
++                R&amp;amp;&amp;amp; rg,
++                const Allocator&amp;amp; a); // (21) C++26
+ 
+ template&amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R, class Allocator&amp;gt;
+-flat_multiset(from_range_t, R&amp;amp;&amp;amp; rg, const key_compare&amp;amp; comp, const Allocator&amp;amp; a); // (22) C++23
++flat_multiset(from_range_t,
++              R&amp;amp;&amp;amp; rg,
++              const key_compare&amp;amp; comp,
++              const Allocator&amp;amp; a); // (22) C++23
++template&amp;lt;container-compatible-range&amp;lt;value_type&amp;gt; R, class Allocator&amp;gt;
++constexpr
++  flat_multiset(from_range_t,
++                R&amp;amp;&amp;amp; rg,
++                const key_compare&amp;amp; comp,
++                const Allocator&amp;amp; a); // (22) C++26
+ 
+ // ____initializer_listから構築____
+-
+-flat_multiset(initializer_list&amp;lt;value_type&amp;gt; il, const key_compare&amp;amp; comp = key_compare()) // (23) C++23
++flat_multiset(initializer_list&amp;lt;value_type&amp;gt; il,
++              const key_compare&amp;amp; comp = key_compare())   // (23) C++23
+   : flat_multiset(il.begin(), il.end(), comp) { }
++constexpr
++  flat_multiset(initializer_list&amp;lt;value_type&amp;gt; il,
++                const key_compare&amp;amp; comp = key_compare()) // (23) C++26
++    : flat_multiset(il.begin(), il.end(), comp) { }
+ 
+ template&amp;lt;class Allocator&amp;gt;
+-flat_multiset(initializer_list&amp;lt;value_type&amp;gt; il, const Allocator&amp;amp; a); // (24) C++23
++flat_multiset(initializer_list&amp;lt;value_type&amp;gt; il,
++              const Allocator&amp;amp; a);   // (24) C++23
++template&amp;lt;class Allocator&amp;gt;
++constexpr
++  flat_multiset(initializer_list&amp;lt;value_type&amp;gt; il,
++                const Allocator&amp;amp; a); // (24) C++26
+ 
+ template&amp;lt;class Allocator&amp;gt;
+-flat_multiset(initializer_list&amp;lt;value_type&amp;gt; il, const key_compare&amp;amp; comp, const Allocator&amp;amp; a); // (25) C++23
++flat_multiset(initializer_list&amp;lt;value_type&amp;gt; il,
++              const key_compare&amp;amp; comp,
++              const Allocator&amp;amp; a);   // (25) C++23
++template&amp;lt;class Allocator&amp;gt;
++constexpr
++  flat_multiset(initializer_list&amp;lt;value_type&amp;gt; il,
++                const key_compare&amp;amp; comp,
++                const Allocator&amp;amp; a); // (25) C++26
+ 
+ // ____initializer_list（ソート済み）から構築____
+-
+-flat_multiset(sorted_equivalent_t s, initializer_list&amp;lt;value_type&amp;gt; il,
+-              const key_compare&amp;amp; comp = key_compare()) // (26) C++23
++flat_multiset(sorted_equivalent_t s,
++              initializer_list&amp;lt;value_type&amp;gt; il,
++              const key_compare&amp;amp; comp = key_compare())   // (26) C++23
++  : flat_multiset(s, il.begin(), il.end(), comp) { }
++constexpr
++  flat_multiset(sorted_equivalent_t s,
++                initializer_list&amp;lt;value_type&amp;gt; il,
++                const key_compare&amp;amp; comp = key_compare()) // (26) C++26
+   : flat_multiset(s, il.begin(), il.end(), comp) { }
+ 
+ template&amp;lt;class Allocator&amp;gt;
+-flat_multiset(sorted_equivalent_t, initializer_list&amp;lt;value_type&amp;gt; il, const Allocator&amp;amp; a); // (27) C++23
++flat_multiset(sorted_equivalent_t,
++              initializer_list&amp;lt;value_type&amp;gt; il,
++              const Allocator&amp;amp; a);   // (27) C++23
++template&amp;lt;class Allocator&amp;gt;
++constexpr
++  flat_multiset(sorted_equivalent_t,
++                initializer_list&amp;lt;value_type&amp;gt; il,
++                const Allocator&amp;amp; a); // (27) C++26
+ 
+ template&amp;lt;class Allocator&amp;gt;
+-flat_multiset(sorted_equivalent_t, initializer_list&amp;lt;value_type&amp;gt; il,
+-              const key_compare&amp;amp; comp, const Allocator&amp;amp; a); // (28) C++23
++flat_multiset(sorted_equivalent_t,
++              initializer_list&amp;lt;value_type&amp;gt; il,
++              const key_compare&amp;amp; comp,
++              const Allocator&amp;amp; a);   // (28) C++23
++template&amp;lt;class Allocator&amp;gt;
++constexpr
++  flat_multiset(sorted_equivalent_t,
++                initializer_list&amp;lt;value_type&amp;gt; il,
++                const key_compare&amp;amp; comp,
++                const Allocator&amp;amp; a); // (28) C++26
+ ```
+ * initializer_list[link /reference/initializer_list/initializer_list.md]
+ * from_range_t[link ../../ranges/from_range_t.md]
+@@ -264,3 +428,7 @@ int main()
+ | 名前 | 説明 |
+ |---------------------------------------|--------------------------------------------|
+ | [`uses_allocator`](uses_allocator.md) | 指定されたアロケータと合致するかをチェックする |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>operator== -- flat_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_multiset/op_equal.html"/>
+      <id>dd50d41af6435bc7f87740dc3778ca6545636e50:reference/flat_set/flat_multiset/op_equal.md</id>
+      <updated>2026-02-17T17:50:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_multiset/op_equal.md b/reference/flat_set/flat_multiset/op_equal.md
+index a34524a17..b77dadb9d 100644
+--- a/reference/flat_set/flat_multiset/op_equal.md
++++ b/reference/flat_set/flat_multiset/op_equal.md
+@@ -6,7 +6,8 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-friend bool operator==(const flat_multiset&amp;amp; x, const flat_multiset&amp;amp; y);
++friend bool operator==(const flat_multiset&amp;amp; x, const flat_multiset&amp;amp; y);           // (1) C++23
++constexpr friend bool operator==(const flat_multiset&amp;amp; x, const flat_multiset&amp;amp; y); // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -69,3 +70,7 @@ true
+ - [Clang](/implementation.md#clang): ??
+ - [GCC](/implementation.md#gcc): ??
+ - [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>rbegin -- flat_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_multiset/rbegin.html"/>
+      <id>dd50d41af6435bc7f87740dc3778ca6545636e50:reference/flat_set/flat_multiset/rbegin.md</id>
+      <updated>2026-02-17T17:50:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_multiset/rbegin.md b/reference/flat_set/flat_multiset/rbegin.md
+index f1258edbe..0e7bea2fd 100644
+--- a/reference/flat_set/flat_multiset/rbegin.md
++++ b/reference/flat_set/flat_multiset/rbegin.md
+@@ -6,8 +6,11 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-reverse_iterator rbegin() noexcept;
+-const_reverse_iterator rbegin() const noexcept;
++reverse_iterator rbegin() noexcept;           // (1) C++23
++constexpr reverse_iterator rbegin() noexcept; // (1) C++26
++
++const_reverse_iterator rbegin() const noexcept;           // (2) C++23
++constexpr const_reverse_iterator rbegin() const noexcept; // (2) C++26
+ ```
+ 
+ ## 概要
+@@ -72,3 +75,7 @@ int main()
+ | [`flat_multiset::rend`](rend.md)       | 先頭の前を指す逆イテレータを取得する |
+ | [`flat_multiset::crbegin`](crbegin.md) | 末尾を指す逆constイテレータを取得する |
+ | [`flat_multiset::crend`](crend.md)     | 先頭の前を指す逆constイテレータを取得する |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>rend -- flat_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_multiset/rend.html"/>
+      <id>dd50d41af6435bc7f87740dc3778ca6545636e50:reference/flat_set/flat_multiset/rend.md</id>
+      <updated>2026-02-17T17:50:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_multiset/rend.md b/reference/flat_set/flat_multiset/rend.md
+index 9e5d1f744..1adef5085 100644
+--- a/reference/flat_set/flat_multiset/rend.md
++++ b/reference/flat_set/flat_multiset/rend.md
+@@ -6,8 +6,11 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-reverse_iterator rend() noexcept;
+-const_reverse_iterator rend() const noexcept;
++reverse_iterator rend() noexcept;           // (1) C++23
++constexpr reverse_iterator rend() noexcept; // (1) C++26
++
++const_reverse_iterator rend() const noexcept;           // (2) C++23
++constexpr const_reverse_iterator rend() const noexcept; // (2) C++26
+ ```
+ 
+ ## 概要
+@@ -65,3 +68,7 @@ int main()
+ | [`flat_multiset::rbegin`](rbegin.md)   | 末尾を指す逆イテレータを取得する |
+ | [`flat_multiset::crbegin`](crbegin.md) | 末尾を指す逆constイテレータを取得する |
+ | [`flat_multiset::crend`](crend.md)     | 先頭の前を指す逆constイテレータを取得する |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>replace -- flat_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_multiset/replace.html"/>
+      <id>dd50d41af6435bc7f87740dc3778ca6545636e50:reference/flat_set/flat_multiset/replace.md</id>
+      <updated>2026-02-17T17:50:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_multiset/replace.md b/reference/flat_set/flat_multiset/replace.md
+index 99a8f02e2..cafcfa590 100644
+--- a/reference/flat_set/flat_multiset/replace.md
++++ b/reference/flat_set/flat_multiset/replace.md
+@@ -6,7 +6,8 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-void replace(container_type&amp;amp;&amp;amp; cont);  // C++23
++void replace(container_type&amp;amp;&amp;amp; cont);           // (1) C++23
++constexpr void replace(container_type&amp;amp;&amp;amp; cont); // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -88,3 +89,7 @@ int main()
+ - [GCC](/implementation.md#gcc): ??
+ - [ICC](/implementation.md#icc): ??
+ - [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>size -- flat_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_multiset/size.html"/>
+      <id>dd50d41af6435bc7f87740dc3778ca6545636e50:reference/flat_set/flat_multiset/size.md</id>
+      <updated>2026-02-17T17:50:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_multiset/size.md b/reference/flat_set/flat_multiset/size.md
+index 96cd7d902..ea1fc2008 100644
+--- a/reference/flat_set/flat_multiset/size.md
++++ b/reference/flat_set/flat_multiset/size.md
+@@ -6,7 +6,8 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-size_type size() const noexcept;
++size_type size() const noexcept;           // (1) C++23
++constexpr size_type size() const noexcept; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -67,3 +68,7 @@ int main ()
+ 
+ ## 関連項目
+ - [`empty()`](empty.md)
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>swap -- flat_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_multiset/swap.html"/>
+      <id>dd50d41af6435bc7f87740dc3778ca6545636e50:reference/flat_set/flat_multiset/swap.md</id>
+      <updated>2026-02-17T17:50:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_multiset/swap.md b/reference/flat_set/flat_multiset/swap.md
+index 9b8a369d6..711279903 100644
+--- a/reference/flat_set/flat_multiset/swap.md
++++ b/reference/flat_set/flat_multiset/swap.md
+@@ -6,7 +6,8 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-void swap(flat_multiset&amp;amp; y) noexcept; // (1) C++23
++void swap(flat_multiset&amp;amp; y) noexcept;           // (1) C++23
++constexpr void swap(flat_multiset&amp;amp; y) noexcept; // (1) C++26
+ ```
+ 
+ ## 概要
+@@ -73,3 +74,7 @@ fs2 : {10, 20, 30}
+ - [Clang](/implementation.md#clang): ??
+ - [GCC](/implementation.md#gcc): ??
+ - [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>swap (非メンバ関数) -- flat_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_multiset/swap_free.html"/>
+      <id>dd50d41af6435bc7f87740dc3778ca6545636e50:reference/flat_set/flat_multiset/swap_free.md</id>
+      <updated>2026-02-17T17:50:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_multiset/swap_free.md b/reference/flat_set/flat_multiset/swap_free.md
+index f1e0c04ea..0192721c2 100644
+--- a/reference/flat_set/flat_multiset/swap_free.md
++++ b/reference/flat_set/flat_multiset/swap_free.md
+@@ -7,8 +7,13 @@
+ ```cpp
+ namespace std {
+   template &amp;lt;class Key, class Compare, class KeyContainer&amp;gt;
+-  void swap(flat_multiset&amp;lt;Key, Compare, KeyContainer&amp;gt;&amp;amp; x,
+-            flat_multiset&amp;lt;Key, Compare, KeyContainer&amp;gt;&amp;amp; y); // (1) C++23
++  void
++    swap(flat_multiset&amp;lt;Key, Compare, KeyContainer&amp;gt;&amp;amp; x,
++         flat_multiset&amp;lt;Key, Compare, KeyContainer&amp;gt;&amp;amp; y); // (1) C++23
++  template &amp;lt;class Key, class Compare, class KeyContainer&amp;gt;
++  constexpr void
++    swap(flat_multiset&amp;lt;Key, Compare, KeyContainer&amp;gt;&amp;amp; x,
++         flat_multiset&amp;lt;Key, Compare, KeyContainer&amp;gt;&amp;amp; y); // (1) C++26
+ }
+ ```
+ 
+@@ -74,3 +79,7 @@ fs2 : {10, 20, 30}
+ - [Clang](/implementation.md#clang): ??
+ - [GCC](/implementation.md#gcc): ??
+ - [Visual C++](/implementation.md#visual_cpp): ??
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>upper_bound -- flat_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_multiset/upper_bound.html"/>
+      <id>dd50d41af6435bc7f87740dc3778ca6545636e50:reference/flat_set/flat_multiset/upper_bound.md</id>
+      <updated>2026-02-17T17:50:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_multiset/upper_bound.md b/reference/flat_set/flat_multiset/upper_bound.md
+index 880a11f82..49344942c 100644
+--- a/reference/flat_set/flat_multiset/upper_bound.md
++++ b/reference/flat_set/flat_multiset/upper_bound.md
+@@ -6,15 +6,21 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-iterator upper_bound(const key_type&amp;amp; x);             // (1) C++23
++iterator upper_bound(const key_type&amp;amp; x);           // (1) C++23
++constexpr iterator upper_bound(const key_type&amp;amp; x); // (1) C++26
+ 
+ template &amp;lt;class K&amp;gt;
+-iterator upper_bound(const K&amp;amp; x);                    // (2) C++23
++iterator upper_bound(const K&amp;amp; x);           // (2) C++23
++template &amp;lt;class K&amp;gt;
++constexpr iterator upper_bound(const K&amp;amp; x); // (2) C++26
+ 
+-const_iterator upper_bound(const key_type&amp;amp; x) const; // (3) C++23
++const_iterator upper_bound(const key_type&amp;amp; x) const;           // (3) C++23
++constexpr const_iterator upper_bound(const key_type&amp;amp; x) const; // (3) C++26
+ 
+ template &amp;lt;class K&amp;gt;
+-const_iterator upper_bound(const K&amp;amp; x) const;        // (4) C++23
++const_iterator upper_bound(const K&amp;amp; x) const;           // (4) C++23
++template &amp;lt;class K&amp;gt;
++constexpr const_iterator upper_bound(const K&amp;amp; x) const; // (4) C++26
+ ```
+ 
+ ## 概要
+@@ -119,3 +125,7 @@ David
+ | [`flat_multiset::equal_range`](equal_range.md) | 指定したキーにマッチする要素範囲を返す                   |
+ | [`flat_multiset::find`](find.md)               | 指定したキーで要素を探す                                 |
+ | [`flat_multiset::count`](count.md)             | 指定したキーにマッチする要素の数を返す                   |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
+  
+    <entry>
+      <title>value_comp -- flat_multiset</title>
+      <link href="https://cpprefjp.github.io/reference/flat_set/flat_multiset/value_comp.html"/>
+      <id>dd50d41af6435bc7f87740dc3778ca6545636e50:reference/flat_set/flat_multiset/value_comp.md</id>
+      <updated>2026-02-17T17:50:58+09:00</updated>
+      
+        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/flat_set/flat_multiset/value_comp.md b/reference/flat_set/flat_multiset/value_comp.md
+index f823b1c75..3af2dc5d3 100644
+--- a/reference/flat_set/flat_multiset/value_comp.md
++++ b/reference/flat_set/flat_multiset/value_comp.md
+@@ -6,7 +6,8 @@
+ * cpp23[meta cpp]
+ 
+ ```cpp
+-value_compare value_comp() const; // C++23
++value_compare value_comp() const;           // (1) C++23
++constexpr value_compare value_comp() const; // (1) C++26
+ ```
+ 
+ 
+@@ -63,3 +64,7 @@ int main()
+ | 名前                                | 説明                                                     |
+ |-------------------------------------|----------------------------------------------------------|
+ | [`key_comp`](key_comp.md)           | キー比較用の関数オブジェクトを取得する                      |
++
++
++## 参照
++- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
+&lt;/code&gt;&lt;/pre&gt;</summary>
+      
+      <author>
+        <name>Akira Takahashi</name>
+        <email>faithandbrave@gmail.com</email>
+      </author>
+    </entry>
   
     <entry>
       <title>swap (非メンバ関数) -- flat_multimap</title>
@@ -7416,146 +9204,6 @@ index 0e73477f4..9a353c82a 100644
  - [P1004R2 Making `std::vector` constexpr](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1004r2.pdf)
 +- [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
 +    - C++23でのアロケータ引数を`type_identity_t`で包む変更
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>契約プログラミング [P2900R14] -- C++26対応として、導入予定だったcontract_violationクラスのevaluation_exceptionメンバ関数を削除 #1570</title>
-      <link href="https://cpprefjp.github.io/lang/cpp26/contracts.html"/>
-      <id>760b77527ea4fbab8125cfdb3ee965dce0857405:lang/cpp26/contracts.md</id>
-      <updated>2026-02-13T17:56:17+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/lang/cpp26/contracts.md b/lang/cpp26/contracts.md
-index 6a77eabb5..a663549ae 100644
---- a/lang/cpp26/contracts.md
-+++ b/lang/cpp26/contracts.md
-@@ -413,7 +413,6 @@ void handle_contract_violation(const std::contracts::contract_violation&amp;amp; violati
- - **検出モード** (`detection_mode`): 契約違反がどのように検出されたか（述語が`false`に評価されたか、例外が発生したか）
- - **ソースロケーション** (`location`): 違反した契約アサーションのソースファイル名、行番号、関数名
- - **終了判定** (`is_terminating`): この違反後にプログラムが終了するかどうか
--- **評価例外** (`evaluation_exception`): 述語の評価中に例外が発生した場合、その例外オブジェクトへのアクセス
- 
- #### ハンドラの動作
- 契約違反が識別されると、`observe`または`enforce`セマンティクスの場合、契約違反ハンドラが呼び出される：
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>contract_violation -- C++26対応として、導入予定だったcontract_violationクラスのevaluation_exceptionメンバ関数を削除 #1570</title>
-      <link href="https://cpprefjp.github.io/reference/contracts/contract_violation.html"/>
-      <id>760b77527ea4fbab8125cfdb3ee965dce0857405:reference/contracts/contract_violation.md</id>
-      <updated>2026-02-13T17:56:17+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/contracts/contract_violation.md b/reference/contracts/contract_violation.md
-index ce96a3a2b..b4fec7583 100644
---- a/reference/contracts/contract_violation.md
-+++ b/reference/contracts/contract_violation.md
-@@ -6,16 +6,7 @@
- 
- ```cpp
- namespace std::contracts {
--  class contract_violation {
--  public:
--    const char* comment() const noexcept;
--    contracts::detection_mode detection_mode() const noexcept;
--    exception_ptr evaluation_exception() const noexcept;
--    bool is_terminating() const noexcept;
--    assertion_kind kind() const noexcept;
--    source_location location() const noexcept;
--    evaluation_semantic semantic() const noexcept;
--  };
-+  class contract_violation;
- }
- ```
- 
-@@ -28,11 +19,21 @@ namespace std::contracts {
- | ---- | ---- | ---- |
- | [`comment`](contract_violation/comment.md) | 契約違反の詳細を記録したchar列を返す | C++26 |
- | [`detection_mode`](contract_violation/detection_mode.md) | 契約違反が特定された方法を返す | C++26 |
--| [`evaluation_exception`](contract_violation/evaluation_exception.md) | 契約が例外を飛ばしたことによって終了した場合の例外へのポインタ | C++26 |
- | [`is_terminating`](contract_violation/is_terminating.md) | 契約違反によってプログラムがターミネートされるかを返す | C++26|
- | [`kind`](contract_violation/kind.md) | 違反した契約の種類 | C++26|
- | [`location`](contract_violation/location.md) | 契約違反が発生したソースコードの位置 | C++26|
- | [`semantic`](contract_violation/semantic.md) | 契約の評価方法 | C++26|
- 
-+## バージョン
-+### 言語
-+- C++26
-+
-+### 処理系
-+- [Clang](/implementation.md#clang): ??
-+- [GCC](/implementation.md#gcc): ??
-+- [Visual C++](/implementation.md#visual_cpp): ??
-+
- ## 参照
- - [Contracts for C++](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2900r14.pdf)
-+- [P3819R0 Remove `evaluation_exception()` from contract-violation handling](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3819r0.pdf)
-+    - 導入予定だった`evaluation_exception()`メンバ関数を削除する提案
-&lt;/code&gt;&lt;/pre&gt;</summary>
-      
-      <author>
-        <name>Akira Takahashi</name>
-        <email>faithandbrave@gmail.com</email>
-      </author>
-    </entry>
-  
-    <entry>
-      <title>evaluation_exception.md -- C++26対応として、導入予定だったcontract_violationクラスのevaluation_exceptionメンバ関数を削除 #1570</title>
-      <link href="https://cpprefjp.github.io/reference/contracts/contract_violation/evaluation_exception.html"/>
-      <id>760b77527ea4fbab8125cfdb3ee965dce0857405:reference/contracts/contract_violation/evaluation_exception.md</id>
-      <updated>2026-02-13T17:56:17+09:00</updated>
-      
-        <summary type="html">&lt;pre&gt;&lt;code&gt;diff --git a/reference/contracts/contract_violation/evaluation_exception.md b/reference/contracts/contract_violation/evaluation_exception.md
-deleted file mode 100644
-index 4d9cc3a7e..000000000
---- a/reference/contracts/contract_violation/evaluation_exception.md
-+++ /dev/null
-@@ -1,35 +0,0 @@
--# evaluation_exception
--* contracts[meta header]
--* std::contracts[meta namespace]
--* function[meta id-type]
--* cpp26[meta cpp]
--* contract_violation[meta class]
--
--```cpp
--exception_ptr evaluation_exception() const noexcept;
--```
--
--## 概要
--契約の判定時に例外が投げられた場合、その例外へのポインタを返す。
--
--例外が飛ばなければ、空の`std::exception_ptr`を返す。
--
--## 戻り値
--契約の判定時に例外が投げられた場合、その例外へのポインタを返す。
--
--例外が飛ばなければ、空の`std::exception_ptr`を返す。
--
--## 例外
--投げない
--
--## バージョン
--### 言語
--- C++26
--
--### 処理系
--- [Clang](/implementation.md#clang): ??
--- [GCC](/implementation.md#gcc): ??
--- [Visual C++](/implementation.md#visual_cpp): ??
--
--## 参照
--- [Contracts for C++](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p2900r14.pdf)
 &lt;/code&gt;&lt;/pre&gt;</summary>
       
       <author>
