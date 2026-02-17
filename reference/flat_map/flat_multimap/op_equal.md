@@ -6,7 +6,8 @@
 * cpp23[meta cpp]
 
 ```cpp
-friend bool operator==(const flat_multimap& x, const flat_multimap& y);
+friend bool operator==(const flat_multimap& x, const flat_multimap& y);           // (1) C++23
+constexpr friend bool operator==(const flat_multimap& x, const flat_multimap& y); // (1) C++26
 ```
 
 ## 概要
@@ -71,3 +72,7 @@ true
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

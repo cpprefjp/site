@@ -8,12 +8,12 @@
 namespace std {
   template <class Key, class T, class Compare, class KeyContainer, class MappedContainer>
   void
-    swap(flat_map<Key, T, Compare, KeyContainer MappedContainer>& x,
-         flat_map<Key, T, Compare, KeyContainer MappedContainer>& y); // (1) C++23
+    swap(flat_map<Key, T, Compare, KeyContainer, MappedContainer>& x,
+         flat_map<Key, T, Compare, KeyContainer, MappedContainer>& y); // (1) C++23
   template <class Key, class T, class Compare, class KeyContainer, class MappedContainer>
   constexpr void
-    swap(flat_map<Key, T, Compare, KeyContainer MappedContainer>& x,
-         flat_map<Key, T, Compare, KeyContainer MappedContainer>& y); // (1) C++26
+    swap(flat_map<Key, T, Compare, KeyContainer, MappedContainer>& x,
+         flat_map<Key, T, Compare, KeyContainer, MappedContainer>& y); // (1) C++26
 }
 ```
 

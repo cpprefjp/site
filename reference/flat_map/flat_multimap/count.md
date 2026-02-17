@@ -6,10 +6,17 @@
 * cpp23[meta cpp]
 
 ```cpp
-size_type count(const key_type& x) const; // (1) C++23
+size_type
+  count(const key_type& x) const; // (1) C++23
+constexpr size_type
+  count(const key_type& x) const; // (1) C++26
 
 template <class K>
-size_type count(const K& x) const;        // (2) C++23
+size_type
+  count(const K& x) const; // (2) C++23
+template <class K>
+constexpr size_type
+  count(const K& x) const; // (2) C++26
 ```
 
 ## 概要
@@ -96,3 +103,7 @@ int main()
 
 ## 関連項目
 - [`contains()`](contains.md)
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
