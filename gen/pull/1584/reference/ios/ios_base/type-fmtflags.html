@@ -1,0 +1,544 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>ios_base::fmtflags - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,ios,type-alias,std,ios_base
+">
+        <meta name="title" content="ios_base::fmtflags - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="ios_base::fmtflags - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="ios_base::fmtflags - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/ios/ios_base/type-fmtflags.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`fmtflags` はロケールに依存しないストリームの書式に関するフラグを保持するためのビットマスク型である。  " />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="ios_base::fmtflags - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/ios/ios_base/type-fmtflags.html" />
+        <meta name="twitter:description" content="`fmtflags` はロケールに依存しないストリームの書式に関するフラグを保持するためのビットマスク型である。  " />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="manifest" href="../../../manifest.json?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;ios&#34;], &#34;id-type&#34;: [&#34;type-alias&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;ios_base&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;c97ee0736208f267deaae0d1597c4d58c460cc8c&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\nint main()\n{\n  std::cout.setf(std::ios_base::boolalpha);   // std::boolalpha \u30de\u30cb\u30d4\u30e5\u30ec\u30fc\u30bf\u3068\u7b49\u4fa1\n  std::cout &lt;&lt; true &lt;&lt; \&#34;, \&#34; &lt;&lt; false &lt;&lt; \&#34;\\n\&#34;;\n\n  std::cout.unsetf(std::ios_base::boolalpha); // std::noboolalpha \u30de\u30cb\u30d4\u30e5\u30ec\u30fc\u30bf\u3068\u7b49\u4fa1\n  std::cout &lt;&lt; true &lt;&lt; \&#34;, \&#34; &lt;&lt; false &lt;&lt; \&#34;\\n\&#34;;\n}\n&#34;}, {&#34;id&#34;: &#34;e9e0bd863639191d3bb8cc0689e87ead0efb0932&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\nint main()\n{\n  std::cout.setf(std::ios_base::showpos);   // std::showpos \u30de\u30cb\u30d4\u30e5\u30ec\u30fc\u30bf\u3068\u7b49\u4fa1\n  std::cout &lt;&lt; 10 &lt;&lt; &#39;\\n&#39;;\n\n  std::cout.unsetf(std::ios_base::showpos); // std::noshowpos \u30de\u30cb\u30d4\u30e5\u30ec\u30fc\u30bf\u3068\u7b49\u4fa1\n  std::cout &lt;&lt; 10 &lt;&lt; \&#34;\\n\&#34;;\n}\n&#34;}, {&#34;id&#34;: &#34;9eaa51bbb9b569a3a05d52951a6e031d58a33c86&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\nint main()\n{\n  std::cout.setf(std::ios_base::showpoint);   // std::showpoint \u30de\u30cb\u30d4\u30e5\u30ec\u30fc\u30bf\u3068\u7b49\u4fa1\n  std::cout &lt;&lt; 10.0 &lt;&lt; &#39;\\n&#39;;\n\n  std::cout.unsetf(std::ios_base::showpoint); // std::noshowpoint \u30de\u30cb\u30d4\u30e5\u30ec\u30fc\u30bf\u3068\u7b49\u4fa1\n  std::cout &lt;&lt; 10.0 &lt;&lt; \&#34;\\n\&#34;;\n}\n&#34;}, {&#34;id&#34;: &#34;10af0e25b1f3fe81c830e631506677efa01295de&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\nint main()\n{\n  std::cout.setf(std::ios_base::showbase);                      // std::showbase \u30de\u30cb\u30d4\u30e5\u30ec\u30fc\u30bf\u3068\u7b49\u4fa1\n  std::cout.setf(std::ios_base::hex, std::ios_base::basefield); // std::hex \u30de\u30cb\u30d4\u30e5\u30ec\u30fc\u30bf\u3068\u7b49\u4fa1\n  std::cout &lt;&lt; 10 &lt;&lt; &#39;\\n&#39;;\n  std::cout.setf(std::ios_base::oct, std::ios_base::basefield); // std::oct \u30de\u30cb\u30d4\u30e5\u30ec\u30fc\u30bf\u3068\u7b49\u4fa1\n  std::cout &lt;&lt; 10 &lt;&lt; &#39;\\n&#39;;\n  std::cout.setf(std::ios_base::dec, std::ios_base::basefield); // std::dec \u30de\u30cb\u30d4\u30e5\u30ec\u30fc\u30bf\u3068\u7b49\u4fa1\n  std::cout &lt;&lt; 10 &lt;&lt; \&#34;\\n\\n\&#34;;\n\n  std::cout.unsetf(std::ios_base::showbase);                    // std::noshowbase \u30de\u30cb\u30d4\u30e5\u30ec\u30fc\u30bf\u3068\u7b49\u4fa1\n  std::cout.setf(std::ios_base::hex, std::ios_base::basefield); // std::hex \u30de\u30cb\u30d4\u30e5\u30ec\u30fc\u30bf\u3068\u7b49\u4fa1\n  std::cout &lt;&lt; 10 &lt;&lt; &#39;\\n&#39;;\n  std::cout.setf(std::ios_base::oct, std::ios_base::basefield); // std::oct \u30de\u30cb\u30d4\u30e5\u30ec\u30fc\u30bf\u3068\u7b49\u4fa1\n  std::cout &lt;&lt; 10 &lt;&lt; &#39;\\n&#39;;\n  std::cout.setf(std::ios_base::dec, std::ios_base::basefield); // std::dec \u30de\u30cb\u30d4\u30e5\u30ec\u30fc\u30bf\u3068\u7b49\u4fa1\n  std::cout &lt;&lt; 10 &lt;&lt; \&#34;\\n\&#34;;\n}\n&#34;}, {&#34;id&#34;: &#34;f02ec3e264ee0670309ae752fbb9a00b34878093&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\nint main()\n{\n  std::cout.setf(std::ios_base::uppercase);                                 // std::uppercase \u30de\u30cb\u30d4\u30e5\u30ec\u30fc\u30bf\u3068\u7b49\u4fa1\n  std::cout.setf(std::ios_base::fixed, std::ios_base::floatfield);          // std::fixed \u30de\u30cb\u30d4\u30e5\u30ec\u30fc\u30bf\u3068\u7b49\u4fa1\n  std::cout &lt;&lt; 12.34567 &lt;&lt; &#39;\\n&#39;;\n  std::cout.setf(std::ios_base::scientific, std::ios_base::floatfield);     // std::fixed \u30de\u30cb\u30d4\u30e5\u30ec\u30fc\u30bf\u3068\u7b49\u4fa1\n  std::cout &lt;&lt; 12.34567 &lt;&lt; &#39;\\n&#39;;\n  std::cout.setf(std::ios_base::fixed | std::ios_base::scientific, std::ios_base::floatfield);  // C++11 \u304b\u3089\n                                                                            // std::hexfloat \u30de\u30cb\u30d4\u30e5\u30ec\u30fc\u30bf\u3068\u7b49\u4fa1\n  std::cout &lt;&lt; 12.34567 &lt;&lt; &#39;\\n&#39;;\n  std::cout.unsetf(std::ios_base::floatfield);                              // std::defaultfloat \u30de\u30cb\u30d4\u30e5\u30ec\u30fc\u30bf\u3068\u7b49\u4fa1\n  std::cout &lt;&lt; 12.34567 &lt;&lt; \&#34;\\n\\n\&#34;;\n\n  std::cout.unsetf(std::ios_base::uppercase);                               // std::nouppercase \u30de\u30cb\u30d4\u30e5\u30ec\u30fc\u30bf\u3068\u7b49\u4fa1\n  std::cout.setf(std::ios_base::fixed, std::ios_base::floatfield);          // std::fixed \u30de\u30cb\u30d4\u30e5\u30ec\u30fc\u30bf\u3068\u7b49\u4fa1\n  std::cout &lt;&lt; 12.34567 &lt;&lt; &#39;\\n&#39;;\n  std::cout.setf(std::ios_base::scientific, std::ios_base::floatfield);     // std::scientific \u30de\u30cb\u30d4\u30e5\u30ec\u30fc\u30bf\u3068\u7b49\u4fa1\n  std::cout &lt;&lt; 12.34567 &lt;&lt; &#39;\\n&#39;;\n  std::cout.setf(std::ios_base::fixed | std::ios_base::scientific, std::ios_base::floatfield);  // C++11 \u304b\u3089\n                                                                            // std::hexfloat \u30de\u30cb\u30d4\u30e5\u30ec\u30fc\u30bf\u3068\u7b49\u4fa1\n  std::cout &lt;&lt; 12.34567 &lt;&lt; &#39;\\n&#39;;\n  std::cout.unsetf(std::ios_base::floatfield);                              // std::defaultfloat \u30de\u30cb\u30d4\u30e5\u30ec\u30fc\u30bf\u3068\u7b49\u4fa1\n  std::cout &lt;&lt; 12.34567 &lt;&lt; \&#34;\\n\\n\&#34;;\n}\n&#34;}, {&#34;id&#34;: &#34;33ef06ad2fefaeb5cb7ed8c27e920dda85389a18&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n\nint main()\n{\n  std::cout.width(10);\n  std::cout.setf(std::ios_base::right, std::ios_base::adjustfield);    // std::right \u30de\u30cb\u30d4\u30e5\u30ec\u30fc\u30bf\u3068\u7b49\u4fa1\n  std::cout &lt;&lt; -10 &lt;&lt; \&#34;|\\n\&#34;;\n\n  std::cout.width(10);\n  std::cout.setf(std::ios_base::internal, std::ios_base::adjustfield); // std::internal \u30de\u30cb\u30d4\u30e5\u30ec\u30fc\u30bf\u3068\u7b49\u4fa1\n  std::cout &lt;&lt; -10 &lt;&lt; \&#34;|\\n\&#34;;\n\n  std::cout.width(10);\n  std::cout.setf(std::ios_base::left, std::ios_base::adjustfield);     // std::left \u30de\u30cb\u30d4\u30e5\u30ec\u30fc\u30bf\u3068\u7b49\u4fa1\n  std::cout &lt;&lt; -10 &lt;&lt; \&#34;|\\n\&#34;;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;ios&#34;, &#34;ios_base&#34;, &#34;type-fmtflags&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/ios.html" itemprop="url">
+              
+                <span itemprop="name">ios</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/ios/ios_base.html" itemprop="url">
+              
+                <span itemprop="name">ios_base</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">fmtflags</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-08-31T12:46:41">
+        2025年08月31日 12時46分41秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Raclamusi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/ios/ios_base/type-fmtflags.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/ios/ios_base/type-fmtflags.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">type-alias</div><div class="header">&lt;ios&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class ios_base">ios_base::</span><span class="token">fmtflags</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">using</span> <span class="n">fmtflags</span> <span class="o">=</span> <span class="n"><i>T1</i></span><span class="p">;</span>
+</code></pre></div>
+</p>
+<p><em><code>T1</code></em> は<a class="cpprefjp-defined-word" data-desc="処理系定義の動作。処理系によって事前に定めた動作をする" href="../../../implementation-compliance.html#dfn-implementation-defined-behavior">処理系定義</a>の型。</p>
+<h2>概要</h2>
+<p><code>fmtflags</code> はロケールに依存しないストリームの書式に関するフラグを保持するためのビットマスク型である。<br />
+<code>fmtflags</code> には以下の表のようなビットマスク値が存在し、全て <code><a href="../ios_base.html">ios_base</a></code> の静的メンバ定数として定義されている。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>定数</th>
+<th>設定された場合の効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>boolalpha</code></td>
+<td><code>bool</code> 型の入出力をアルファベット形式（<code>true</code>、<code>false</code>）で行う。</td>
+</tr>
+<tr>
+<td><code>dec</code></td>
+<td>整数の入出力を 10 進数で行う。</td>
+</tr>
+<tr>
+<td><code>fixed</code></td>
+<td>浮動小数点数の出力を固定表記（<code>12.345670</code> のような形式）で行う。</td>
+</tr>
+<tr>
+<td><code>hex</code></td>
+<td>整数の入出力を 16 進数で行う。</td>
+</tr>
+<tr>
+<td><code>internal</code></td>
+<td>中央揃え。埋め文字を出力の内側に追加する。出力の内側に追加する適切な場所が無ければ <code>right</code> と等価。</td>
+</tr>
+<tr>
+<td><code>left</code></td>
+<td>左寄せ。埋め文字を出力の右側に追加する。</td>
+</tr>
+<tr>
+<td><code>oct</code></td>
+<td>整数の入出力を 8 進数で行う。</td>
+</tr>
+<tr>
+<td><code>right</code></td>
+<td>右寄せ。埋め文字を出力の左側に追加する。</td>
+</tr>
+<tr>
+<td><code>scientific</code></td>
+<td>浮動小数点数の出力を科学表記（<code>1.234567e+01</code> のような形式）で行う。</td>
+</tr>
+<tr>
+<td><code>showbase</code></td>
+<td>整数の出力時に先頭に基数を表す出力（8 進数だと <code>0</code>、16 進数だと <code>0x</code>）を追加する。</td>
+</tr>
+<tr>
+<td><code>showpoint</code></td>
+<td>浮動小数点数の出力時に必ず小数点を出力する。</td>
+</tr>
+<tr>
+<td><code>showpos</code></td>
+<td>負でない数値の出力時に <code>+</code> 符号を出力する。</td>
+</tr>
+<tr>
+<td><code>skipws</code></td>
+<td>特定の入力処理の際に、先行する空白文字をスキップする。</td>
+</tr>
+<tr>
+<td><code>unitbuf</code></td>
+<td>各出力処理の後、毎回バッファをフラッシュする。</td>
+</tr>
+<tr>
+<td><code>uppercase</code></td>
+<td>特定の小文字の出力を大文字の出力にする。（<code>scientific</code> の <code>E</code> や <code>hex | showbase</code> の <code>0X</code> など）</td>
+</tr>
+</tbody>
+</table>
+<p>また、上記に加えて、<code><a href="setf.html">setf</a>()</code> の第 2 引数や <code><a href="unsetf.html">unsetf</a>()</code> の引数に使用するため、 以下のように組み合わせた定数も <code><a href="../ios_base.html">ios_base</a></code> の静的メンバ定数として定義されている。</p>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>定数</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>adjustfield</code></td>
+<td><code>left | right | internal</code></td>
+</tr>
+<tr>
+<td><code>basefield</code></td>
+<td><code>dec | oct | hex</code></td>
+</tr>
+<tr>
+<td><code>floatfield</code></td>
+<td><code>scientific | fixed</code></td>
+</tr>
+</tbody>
+</table>
+<p>さらに、直接の定数は存在しないが、C++11 からは <code>fixed | scientific</code> の組み合わせで 16 進浮動小数点出力を行う。<br />
+（16 進浮動小数点出力が、より直観的な <code>hex</code> との組み合わせを使用しないのは、C++03 までとの互換性のため）</p>
+<h2>備考</h2>
+<p>通常はこれらのフラグを直接使用することはあまり無く、対応するマニピュレータを使用することが一般的である。</p>
+<h2>例 boolalpha</h2>
+<p><div class="yata" id="c97ee0736208f267deaae0d1597c4d58c460cc8c"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n">setf</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">boolalpha</span></span><span class="p">);</span>   <span class="c1">// <a href="../boolalpha.html">std::boolalpha</a> マニピュレータと等価</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="nb">true</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="nb">false</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n">unsetf</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">boolalpha</span></span><span class="p">);</span> <span class="c1">// <a href="../noboolalpha.html">std::noboolalpha</a> マニピュレータと等価</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="nb">true</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="nb">false</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>true, false
+1, 0
+</code></pre></p>
+<h2>例 showpos</h2>
+<p><div class="yata" id="e9e0bd863639191d3bb8cc0689e87ead0efb0932"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n">setf</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">showpos</span></span><span class="p">);</span>   <span class="c1">// <a href="../showpos.html">std::showpos</a> マニピュレータと等価</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="mi">10</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n">unsetf</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">showpos</span></span><span class="p">);</span> <span class="c1">// <a href="../noshowpos.html">std::noshowpos</a> マニピュレータと等価</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="mi">10</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>+10
+10
+</code></pre></p>
+<h2>例 showpoint</h2>
+<p><div class="yata" id="9eaa51bbb9b569a3a05d52951a6e031d58a33c86"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n">setf</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">showpoint</span></span><span class="p">);</span>   <span class="c1">// <a href="../showpoint.html">std::showpoint</a> マニピュレータと等価</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="mf">10.0</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n">unsetf</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">showpoint</span></span><span class="p">);</span> <span class="c1">// <a href="../noshowpoint.html">std::noshowpoint</a> マニピュレータと等価</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="mf">10.0</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>10.0000
+10
+</code></pre></p>
+<h2>例 整数の基数指定</h2>
+<p><div class="yata" id="10af0e25b1f3fe81c830e631506677efa01295de"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n">setf</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">showbase</span></span><span class="p">);</span>                      <span class="c1">// <a href="../showbase.html">std::showbase</a> マニピュレータと等価</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n">setf</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">hex</span></span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">basefield</span></span><span class="p">);</span> <span class="c1">// <a href="../hex.html">std::hex</a> マニピュレータと等価</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="mi">10</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n">setf</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">oct</span></span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">basefield</span></span><span class="p">);</span> <span class="c1">// <a href="../oct.html">std::oct</a> マニピュレータと等価</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="mi">10</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n">setf</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">dec</span></span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">basefield</span></span><span class="p">);</span> <span class="c1">// <a href="../dec.html">std::dec</a> マニピュレータと等価</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="mi">10</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n\n</span><span class="s">"</span><span class="p">;</span>
+
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n">unsetf</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">showbase</span></span><span class="p">);</span>                    <span class="c1">// <a href="../noshowbase.html">std::noshowbase</a> マニピュレータと等価</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n">setf</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">hex</span></span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">basefield</span></span><span class="p">);</span> <span class="c1">// <a href="../hex.html">std::hex</a> マニピュレータと等価</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="mi">10</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n">setf</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">oct</span></span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">basefield</span></span><span class="p">);</span> <span class="c1">// <a href="../oct.html">std::oct</a> マニピュレータと等価</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="mi">10</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n">setf</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">dec</span></span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">basefield</span></span><span class="p">);</span> <span class="c1">// <a href="../dec.html">std::dec</a> マニピュレータと等価</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="mi">10</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>0xa
+012
+10
+
+a
+12
+10
+</code></pre></p>
+<h2>例 浮動小数点数のフォーマット</h2>
+<p><div class="yata" id="f02ec3e264ee0670309ae752fbb9a00b34878093"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n">setf</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n">uppercase</span><span class="p">);</span>                                 <span class="c1">// <a href="../uppercase.html">std::uppercase</a> マニピュレータと等価</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n">setf</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">fixed</span></span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">floatfield</span></span><span class="p">);</span>          <span class="c1">// <a href="../fixed.html">std::fixed</a> マニピュレータと等価</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="mf">12.34567</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n">setf</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">scientific</span></span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">floatfield</span></span><span class="p">);</span>     <span class="c1">// <a href="../fixed.html">std::fixed</a> マニピュレータと等価</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="mf">12.34567</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n">setf</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">fixed</span></span> <span class="o">|</span> <span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">scientific</span></span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">floatfield</span></span><span class="p">);</span>  <span class="c1">// C++11 から</span>
+                                                                            <span class="c1">// <a href="../hexfloat.html">std::hexfloat</a> マニピュレータと等価</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="mf">12.34567</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n">unsetf</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">floatfield</span></span><span class="p">);</span>                              <span class="c1">// <a href="../defaultfloat.html">std::defaultfloat</a> マニピュレータと等価</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="mf">12.34567</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n\n</span><span class="s">"</span><span class="p">;</span>
+
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n">unsetf</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n">uppercase</span><span class="p">);</span>                               <span class="c1">// <a href="../nouppercase.html">std::nouppercase</a> マニピュレータと等価</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n">setf</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">fixed</span></span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">floatfield</span></span><span class="p">);</span>          <span class="c1">// <a href="../fixed.html">std::fixed</a> マニピュレータと等価</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="mf">12.34567</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n">setf</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">scientific</span></span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">floatfield</span></span><span class="p">);</span>     <span class="c1">// <a href="../scientific.html">std::scientific</a> マニピュレータと等価</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="mf">12.34567</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n">setf</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">fixed</span></span> <span class="o">|</span> <span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">scientific</span></span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">floatfield</span></span><span class="p">);</span>  <span class="c1">// C++11 から</span>
+                                                                            <span class="c1">// <a href="../hexfloat.html">std::hexfloat</a> マニピュレータと等価</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="mf">12.34567</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n">unsetf</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">floatfield</span></span><span class="p">);</span>                              <span class="c1">// <a href="../defaultfloat.html">std::defaultfloat</a> マニピュレータと等価</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="mf">12.34567</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n\n</span><span class="s">"</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>12.345670
+1.234567E+01
+0X1.8B0FBA8826AA9P+3
+12.3457
+
+12.345670
+1.234567e+01
+0x1.8b0fba8826aa9p+3
+12.3457
+</code></pre></p>
+<p><div class="yata" id="33ef06ad2fefaeb5cb7ed8c27e920dda85389a18"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n">width</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n">setf</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">right</span></span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">adjustfield</span></span><span class="p">);</span>    <span class="c1">// <a href="../right.html">std::right</a> マニピュレータと等価</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="o">-</span><span class="mi">10</span> <span class="o">&lt;&lt;</span> <span class="s">"|</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n">width</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n">setf</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">internal</span></span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">adjustfield</span></span><span class="p">);</span> <span class="c1">// <a href="../internal.html">std::internal</a> マニピュレータと等価</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="o">-</span><span class="mi">10</span> <span class="o">&lt;&lt;</span> <span class="s">"|</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n">width</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span><span class="p">.</span><span class="n">setf</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">left</span></span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ios_base</span><span class="o">::</span><span class="n"><span style="color:#ff0000">adjustfield</span></span><span class="p">);</span>     <span class="c1">// <a href="../left.html">std::left</a> マニピュレータと等価</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="o">-</span><span class="mi">10</span> <span class="o">&lt;&lt;</span> <span class="s">"|</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>       -10|
+-       10|
+-10       |
+</code></pre></p>
+<h2>バージョン</h2>
+<h2>言語</h2>
+<ul>
+<li>C++98</li>
+<li>C++11（<code>fixed | scientific</code> による 16 進浮動小数点出力のみ）</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: 3.0 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.1 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.2 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.3 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.4 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.5.0 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.6.0 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.7.0 <span aria-label="検証済" role="img" title="検証済">✅</span>, 3.8.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: 4.3.6 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.4.7 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.5.4 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.6.4 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.7.3 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.8.1 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.8.2 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.9.0 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.9.1 <span aria-label="検証済" role="img" title="検証済">✅</span>, 4.9.2 <span aria-label="検証済" role="img" title="検証済">✅</span>, 5.1.0 <span aria-label="検証済" role="img" title="検証済">✅</span>, 5.2.0 <span aria-label="検証済" role="img" title="検証済">✅</span>, 6.0.0 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#icc">ICC</a>: ??</li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h3>備考</h3>
+<ul>
+<li>Clang(libc++) では、C++03 モードでも <code>fixed | scientific</code> で 16 進浮動小数点出力を行う。</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><code><a href="../ios_base.html">ios_base</a>::<a href="flags.html">flags</a></code></li>
+<li><code><a href="../ios_base.html">ios_base</a>::<a href="setf.html">setf</a></code></li>
+<li><code><a href="../ios_base.html">ios_base</a>::<a href="unsetf.html">unsetf</a></code></li>
+<li><code><a href="../boolalpha.html">boolalpha</a></code></li>
+<li><code><a href="../noboolalpha.html">noboolalpha</a></code></li>
+<li><code><a href="../showpos.html">showpos</a></code></li>
+<li><code><a href="../noshowpos.html">noshowpos</a></code></li>
+<li><code><a href="../showpoint.html">showpoint</a></code></li>
+<li><code><a href="../noshowpoint.html">noshowpoint</a></code></li>
+<li><code><a href="../showbase.html">showbase</a></code></li>
+<li><code><a href="../noshowbase.html">noshowbase</a></code></li>
+<li><code><a href="../uppercase.html">uppercase</a></code></li>
+<li><code><a href="../nouppercase.html">nouppercase</a></code></li>
+<li><code><a href="../hex.html">hex</a></code></li>
+<li><code><a href="../oct.html">oct</a></code></li>
+<li><code><a href="../dec.html">dec</a></code></li>
+<li><code><a href="../fixed.html">fixed</a></code></li>
+<li><code><a href="../scientific.html">scientific</a></code></li>
+<li><code><a href="../hexfloat.html">hexfloat</a></code></li>
+<li><code><a href="../defaultfloat.html">defaultfloat</a></code></li>
+<li><code><a href="../right.html">right</a></code></li>
+<li><code><a href="../internal.html">internal</a></code></li>
+<li><code><a href="../left.html">left</a></code></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

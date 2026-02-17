@@ -1,0 +1,610 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>polymorphic_allocator::construct - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,memory_resource,function,std::pmr,polymorphic_allocator,cpp17
+">
+        <meta name="title" content="polymorphic_allocator::construct - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="polymorphic_allocator::construct - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="polymorphic_allocator::construct - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/memory_resource/polymorphic_allocator/construct.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`p` で指定された領域に、`*this` と指定された引数で [uses-allocator 構築](/reference/memory/uses_allocator.md)を行う。  " />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="polymorphic_allocator::construct - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/memory_resource/polymorphic_allocator/construct.html" />
+        <meta name="twitter:description" content="`p` で指定された領域に、`*this` と指定された引数で [uses-allocator 構築](/reference/memory/uses_allocator.md)を行う。  " />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="manifest" href="../../../manifest.json?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;memory_resource&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;namespace&#34;: [&#34;std::pmr&#34;], &#34;class&#34;: [&#34;polymorphic_allocator&#34;], &#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;15c857b0f08a6f1d15801e735e7cd78e891400c2&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;memory_resource&gt;\n\nint main()\n{\n  std::pmr::polymorphic_allocator&lt;int&gt; alloc{};\n\n  //\u30e1\u30e2\u30ea\u306e\u78ba\u4fdd\n  int* array = alloc.allocate(4);\n\n  //\u8981\u7d20\u3092\u69cb\u7bc9\n  for (int i = 0; i &lt; 4; ++i) {\n    alloc.construct(array + i, i);\n  }\n\n  for (int i = 0; i &lt; 4; ++i) {\n    std::cout &lt;&lt; array[i] &lt;&lt; std::endl;\n  }\n\n  //\u8981\u7d20\u3092\u7834\u68c4\n  for (int i = 0; i &lt; 4; ++i) {\n    alloc.destroy(array + i);\n  }\n\n  //\u30e1\u30e2\u30ea\u306e\u89e3\u653e\n  alloc.deallocate(array, 4);\n}\n&#34;}, {&#34;id&#34;: &#34;02ef2f8fdd4d30dc135f9af1d8ed0b92db11cea6&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;memory_resource&gt;\n#include &lt;string&gt;\n#include &lt;tuple&gt;\n#include &lt;utility&gt;\n\nint main()\n{\n  //int\u3068polymorphic_allocator\u3092\u7528\u3044\u308bstring\u306epair\n  using pair = std::pair&lt;int, std::pmr::string&gt;;\n\n  //memory_resource\u3068\u3057\u3066monotonic_buffer_resource\u3092\u4f7f\u7528\n  auto mr = std::pmr::monotonic_buffer_resource{};\n  std::pmr::polymorphic_allocator&lt;pair&gt; alloc{&amp;mr};\n\n  std::cout &lt;&lt; std::boolalpha;\n  std::cout &lt;&lt; \&#34;(2)\&#34; &lt;&lt; std::endl;\n\n  //(2)\n  {\n    pair* p = alloc.allocate(1);\n\n    alloc.construct(p, std::piecewise_construct\n        , std::make_tuple(128)         //int\u3092128\u3067\u521d\u671f\u5316\n        , std::make_tuple(\&#34;string\&#34;, 3) //string(\&#34;string\&#34;, 3)\u3067\u521d\u671f\u5316\uff08\u6700\u521d\u306e3\u6587\u5b57\u3092\u4fdd\u6301\u3059\u308b\uff09\n    );\n\n    std::cout &lt;&lt; p-&gt;first &lt;&lt; std::endl;\n    std::cout &lt;&lt; p-&gt;second &lt;&lt; std::endl;\n    //\u30a2\u30ed\u30b1\u30fc\u30bf\u304c\u4f1d\u64ad\u3057\u3066\u3044\u308b\n    std::cout &lt;&lt; (p-&gt;second.get_allocator() == alloc) &lt;&lt; std::endl;\n  }\n\n  std::cout &lt;&lt; \&#34;\\n(3)\&#34; &lt;&lt; std::endl;\n\n  //(3)\n  {\n    pair* p = alloc.allocate(1);\n\n    alloc.construct(p);  //\u4e21\u8981\u7d20\u3092\u30c7\u30d5\u30a9\u30eb\u30c8\u69cb\u7bc9\n\n    std::cout &lt;&lt; p-&gt;first &lt;&lt; std::endl;\n    std::cout &lt;&lt; p-&gt;second &lt;&lt; std::endl;\n    //\u30a2\u30ed\u30b1\u30fc\u30bf\u304c\u4f1d\u64ad\u3057\u3066\u3044\u308b\n    std::cout &lt;&lt; (p-&gt;second.get_allocator() == alloc) &lt;&lt; std::endl;\n  }\n\n  std::cout &lt;&lt; \&#34;\\n(4)\&#34; &lt;&lt; std::endl;\n\n  //(4)\n  {\n    pair* p = alloc.allocate(1);\n\n    alloc.construct(p, 128, \&#34;string\&#34;);  //\u4e21\u8981\u7d20\u3092\u3053\u308c\u3089\u306e\u5024\u304b\u3089\u30e0\u30fc\u30d6\u69cb\u7bc9\n\n    std::cout &lt;&lt; p-&gt;first &lt;&lt; std::endl;\n    std::cout &lt;&lt; p-&gt;second &lt;&lt; std::endl;\n    //\u30a2\u30ed\u30b1\u30fc\u30bf\u304c\u4f1d\u64ad\u3057\u3066\u3044\u308b\n    std::cout &lt;&lt; (p-&gt;second.get_allocator() == alloc) &lt;&lt; std::endl;\n  }\n\n  std::cout &lt;&lt; \&#34;\\n(5)\&#34; &lt;&lt; std::endl;\n\n  //(5)\n  {\n    pair* p = alloc.allocate(1);\n\n    const auto v = std::make_pair(128, \&#34;copy\&#34;);\n    alloc.construct(p, v);  //\u4e21\u8981\u7d20\u3092\u5909\u63db\u53ef\u80fd\u306apair\u304b\u3089\u30b3\u30d4\u30fc\u69cb\u7bc9\n\n    std::cout &lt;&lt; p-&gt;first &lt;&lt; std::endl;\n    std::cout &lt;&lt; p-&gt;second &lt;&lt; std::endl;\n    //\u30a2\u30ed\u30b1\u30fc\u30bf\u304c\u4f1d\u64ad\u3057\u3066\u3044\u308b\n    std::cout &lt;&lt; (p-&gt;second.get_allocator() == alloc) &lt;&lt; std::endl;\n  }\n\n  std::cout &lt;&lt; \&#34;\\n(6)\&#34; &lt;&lt; std::endl;\n\n  //(6)\n  {\n    pair* p = alloc.allocate(1);\n\n    alloc.construct(p, std::make_pair(128, \&#34;move\&#34;));  //\u4e21\u8981\u7d20\u3092\u5909\u63db\u53ef\u80fd\u306apair\u304b\u3089\u30e0\u30fc\u30d6\u69cb\u7bc9\n\n    std::cout &lt;&lt; p-&gt;first &lt;&lt; std::endl;\n    std::cout &lt;&lt; p-&gt;second &lt;&lt; std::endl;\n    //\u30a2\u30ed\u30b1\u30fc\u30bf\u304c\u4f1d\u64ad\u3057\u3066\u3044\u308b\n    std::cout &lt;&lt; (p-&gt;second.get_allocator() == alloc) &lt;&lt; std::endl;\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;1431e23f9ac18851df2b6164c48dc3d43fdee1b8&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;string&gt;\n#include &lt;utility&gt;\n#include &lt;memory_resource&gt;\n\nint main()\n{\n  using pair = std::pair&lt;std::pair&lt;int, std::pmr::string&gt;, std::pmr::string&gt;;\n\n  auto mr = std::pmr::monotonic_buffer_resource{};\n  std::pmr::polymorphic_allocator&lt;pair&gt; alloc{&amp;mr};\n\n  std::cout &lt;&lt; std::boolalpha;\n\n  pair* p = alloc.allocate(1);\n\n  alloc.construct(p);\n\n  std::cout &lt;&lt; (p-&gt;first.second.get_allocator() == alloc) &lt;&lt; &#39;\\n&#39;;\n  std::cout &lt;&lt; (p-&gt;second.get_allocator() == alloc) &lt;&lt; &#39;\\n&#39;;\n\n  alloc.destroy(p);\n\n  alloc.deallocate(p, 1);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;memory_resource&#34;, &#34;polymorphic_allocator&#34;, &#34;construct&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/memory_resource.html" itemprop="url">
+              
+                <span itemprop="name">memory_resource</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/memory_resource/polymorphic_allocator.html" itemprop="url">
+              
+                <span itemprop="name">polymorphic_allocator</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">construct</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-07-08T15:33:39">
+        2025年07月08日 15時33分39秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/memory_resource/polymorphic_allocator/construct.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/memory_resource/polymorphic_allocator/construct.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;memory_resource&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::pmr">std::pmr::</span><span class="class" title="class polymorphic_allocator">polymorphic_allocator::</span><span class="token">construct</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">construct</span><span class="p">(</span><span class="n">T</span><span class="o">*</span> <span class="n">p</span><span class="p">,</span> <span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>                   <span class="c1">//(1)</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T2</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args1</span><span class="p">,</span> <span class="n">class</span><span class="p">...</span> <span class="n">Args2</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">construct</span><span class="p">(</span><span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="o">&gt;*</span> <span class="n">p</span><span class="p">,</span> <span class="n"><a href="../../utility/piecewise_construct_t.html">piecewise_construct_t</a></span><span class="p">,</span>
+               <span class="n"><a href="../../tuple/tuple.html">tuple</a></span><span class="o">&lt;</span><span class="n">Args1</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">x</span><span class="p">,</span> <span class="n"><a href="../../tuple/tuple.html">tuple</a></span><span class="o">&lt;</span><span class="n">Args2</span><span class="p">...</span><span class="o">&gt;</span> <span class="n">y</span><span class="p">);</span>   <span class="c1">//(2) C++17 まで</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T2</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">construct</span><span class="p">(</span><span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="o">&gt;*</span> <span class="n">p</span><span class="p">);</span>                        <span class="c1">//(3) C++17 まで</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="p">,</span> <span class="k">class</span> <span class="nc">V</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">construct</span><span class="p">(</span><span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="o">&gt;*</span> <span class="n">p</span><span class="p">,</span> <span class="n">U</span><span class="o">&amp;&amp;</span> <span class="n">x</span><span class="p">,</span> <span class="n">V</span><span class="o">&amp;&amp;</span> <span class="n">y</span><span class="p">);</span>          <span class="c1">//(4) C++17 まで</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="p">,</span> <span class="k">class</span> <span class="nc">V</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">construct</span><span class="p">(</span><span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="o">&gt;*</span> <span class="n">p</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="o">&gt;&amp;</span> <span class="n">pr</span><span class="p">);</span>  <span class="c1">//(5) C++17 まで</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T1</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="p">,</span> <span class="k">class</span> <span class="nc">V</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">construct</span><span class="p">(</span><span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="o">&gt;*</span> <span class="n">p</span><span class="p">,</span> <span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="o">&gt;&amp;&amp;</span> <span class="n">pr</span><span class="p">);</span>       <span class="c1">//(6) C++17 まで</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>p</code> で指定された領域に、<code>*this</code> と指定された引数で <a href="../../memory/uses_allocator.html">uses-allocator 構築</a>を行う。<br />
+また、<code>*p</code> が <code><a href="../../utility/pair.html">pair</a></code> だった場合は、それぞれの要素に対して <code>*this</code> と指定された引数で <a href="../../memory/uses_allocator.html">uses-allocator 構築</a>を行う。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Mandates。満たさなければプログラムが不適格となる要件。この要件は、オーバーロード解決によって選択された関数内での`static_assert`の定数条件式や、関数に対するdelete宣言などで表現できる">適格要件</a></h2>
+<ul>
+<li>(1) : <code>*this</code> と <code>args...</code> をコンストラクタ引数とした <a href="../../memory/uses_allocator.html">uses-allocator 構築</a>が可能であること。<br />
+アロケータを受け取るコンストラクタを持たない型については、（<code>args..</code> が適切ならば）この要件を常に満たしている。<br />
+C++17までは、この関数は <code>T</code> が <code><a href="../../utility/pair.html">pair</a></code> の特殊化でない場合に限り<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>に参加する。</li>
+</ul>
+<h2>引数</h2>
+<ul>
+<li>
+<p>全て : <code>p</code> -- <code>T</code> もしくは <code><a href="../../utility/pair.html">pair</a>&lt;T1, T2&gt;</code> のオブジェクトを構築するメモリ領域へのポインタ</p>
+</li>
+<li>
+<p>(1) : <code>args</code> -- <code>T</code> のコンストラクタに渡す引数列</p>
+</li>
+<li>
+<p>(2) :</p>
+<ul>
+<li><code>x</code> -- <code>T1</code> のコンストラクタに渡す引数を持つ <code><a href="../../tuple/tuple.html">tuple</a></code> オブジェクト</li>
+<li><code>y</code> -- <code>T2</code> のコンストラクタに渡す引数を持つ <code><a href="../../tuple/tuple.html">tuple</a></code> オブジェクト</li>
+</ul>
+</li>
+<li>
+<p>(4) :</p>
+<ul>
+<li><code>x</code> -- <code>T1</code> のコンストラクタに渡す引数</li>
+<li><code>y</code> -- <code>T2</code> のコンストラクタに渡す引数</li>
+</ul>
+</li>
+<li>
+<p>(5) : <code>pr</code> -- <code>T1, T2</code> のコンストラクタにそれぞれコピーして渡す引数 <code>U, V</code> のオブジェクトを持つ <code><a href="../../utility/pair.html">pair</a>&lt;U, V&gt;</code>オブジェクト</p>
+</li>
+<li>
+<p>(6) : <code>pr</code> -- <code>T1, T2</code> のコンストラクタにそれぞれ <code><a href="../../utility/forward.html">forward</a></code> して渡す引数 <code>U, V</code> のオブジェクトを持つ <code><a href="../../utility/pair.html">pair</a>&lt;U, V&gt;</code> オブジェクト</p>
+</li>
+</ul>
+<h2>効果</h2>
+<ul>
+<li>
+<p>(1) :</p>
+<ul>
+<li>C++17 まで : 以下のいずれかの動作を行う。<ul>
+<li><code><a href="../../memory/uses_allocator.html">uses_allocator_v</a>&lt;T, polymorphic_allocator&gt; == false</code> かつ <code><a href="../../type_traits/is_constructible.html">is_constructible_v</a>&lt;T, Args...&gt; == true</code> の場合<br />
+<code>::new(static_cast&lt;void*&gt;(p)) T(<a href="../../utility/forward.html">forward</a>&lt;Args&gt;(args)...)</code> を呼び出す。</li>
+<li><code><a href="../../memory/uses_allocator.html">uses_allocator_v</a>&lt;T, polymorphic_allocator&gt; == true</code> かつ <code><a href="../../type_traits/is_constructible.html">is_constructible_v</a>&lt;T, <a href="../../memory/allocator_arg_t.html">allocator_arg_t</a>, polymorphic_allocator, Args...&gt; == true</code> の場合<br />
+<code>::new(static_cast&lt;void*&gt;(p)) T(<a href="../../memory/allocator_arg_t.html">allocator_arg</a>, *this, <a href="../../utility/forward.html">forward</a>&lt;Args&gt;(args)...)</code> を呼び出す。</li>
+<li><code><a href="../../memory/uses_allocator.html">uses_allocator_v</a>&lt;T, polymorphic_allocator&gt; == true</code> かつ <code><a href="../../type_traits/is_constructible.html">is_constructible_v</a>&lt;T, Args..., polymorphic_allocator&gt; == true</code> の場合<br />
+<code>::new(static_cast&lt;void*&gt;(p)) T(<a href="../../utility/forward.html">forward</a>&lt;Args&gt;(args)..., *this)</code></li>
+<li>それ以外の場合、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</li>
+</ul>
+</li>
+<li>
+<p>C++20 から : 以下と等価の動作を行う。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../memory/uninitialized_construct_using_allocator.html">uninitialized_construct_using_allocator</a></span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="o">*</span><span class="k">this</span><span class="p">,</span> <span class="n"><a href="../../utility/forward.html">forward</a></span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...)</span>
+</code></pre></div>
+</p>
+</li>
+</ul>
+</li>
+<li>
+<p>(2) : 以下と等価
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="o">::</span><span class="k">new</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">p</span><span class="p">))</span> <span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../../utility/piecewise_construct_t.html">piecewise_construct</a></span><span class="p">,</span> <span class="n">xprime</span><span class="p">,</span> <span class="n">yprime</span><span class="p">)</span>
+</code></pre></div>
+</p>
+<p>ここで、<code>xprime</code> は以下のルールに従って <code>x</code> から構築される <code><a href="../../tuple/tuple.html">tuple</a></code> とする。（<code>yprime</code> も <code>y</code> から同様に構築されるものとする）</p>
+<ul>
+<li><code><a href="../../memory/uses_allocator.html">uses_allocator_v</a>&lt;T1, polymorphic_allocator&gt; == false</code> かつ <code><a href="../../type_traits/is_constructible.html">is_constructible_v</a>&lt;T1, Args1...&gt; == true</code> の場合<br />
+<code>x</code> を <code>xprime</code> とする。</li>
+<li><code><a href="../../memory/uses_allocator.html">uses_allocator_v</a>&lt;T1, polymorphic_allocator&gt; == true</code> かつ <code><a href="../../type_traits/is_constructible.html">is_constructible_v</a>&lt;T1, <a href="../../memory/allocator_arg_t.html">allocator_arg_t</a>, polymorphic_allocator, Args1...&gt; == true</code> の場合<br />
+<code><a href="../../tuple/tuple_cat.html">tuple_cat</a>(<a href="../../tuple/make_tuple.html">make_tuple</a>(<a href="../../memory/allocator_arg_t.html">allocator_arg</a>, *this), <a href="../../utility/move.html">move</a>(x))</code> を <code>xprime</code> とする。</li>
+<li><code><a href="../../memory/uses_allocator.html">uses_allocator_v</a>&lt;T1, polymorphic_allocator&gt; == true</code> かつ <code><a href="../../type_traits/is_constructible.html">is_constructible_v</a>&lt;T1, Args1..., polymorphic_allocator&gt; == true</code> の場合<br />
+<code><a href="../../tuple/tuple_cat.html">tuple_cat</a>(<a href="../../utility/move.html">move</a>(x), <a href="../../tuple/make_tuple.html">make_tuple</a>(*this))</code> を <code>xprime</code> とする。</li>
+<li>それ以外の場合、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</li>
+</ul>
+</li>
+<li>
+<p>(3) : 以下と等価、すなわち(2)に委譲
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="n">construct</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n"><a href="../../utility/piecewise_construct_t.html">piecewise_construct</a></span><span class="p">,</span> <span class="n"><a href="../../tuple/tuple.html">tuple</a></span><span class="o">&lt;&gt;</span><span class="p">(),</span> <span class="n"><a href="../../tuple/tuple.html">tuple</a></span><span class="o">&lt;&gt;</span><span class="p">());</span>
+</code></pre></div>
+</p>
+</li>
+<li>
+<p>(4) : 以下と等価、すなわち(2)に委譲
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="n">construct</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n"><a href="../../utility/piecewise_construct_t.html">piecewise_construct</a></span><span class="p">,</span>
+          <span class="n"><a href="../../tuple/forward_as_tuple.html">forward_as_tuple</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">forward</a></span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span>
+          <span class="n"><a href="../../tuple/forward_as_tuple.html">forward_as_tuple</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">forward</a></span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span><span class="p">(</span><span class="n">y</span><span class="p">)));</span>
+</code></pre></div>
+</p>
+</li>
+<li>
+<p>(5) : 以下と等価、すなわち(2)に委譲
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="n">construct</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n"><a href="../../utility/piecewise_construct_t.html">piecewise_construct</a></span><span class="p">,</span>
+          <span class="n"><a href="../../tuple/forward_as_tuple.html">forward_as_tuple</a></span><span class="p">(</span><span class="n">pr</span><span class="p">.</span><span class="n">first</span><span class="p">),</span>
+          <span class="n"><a href="../../tuple/forward_as_tuple.html">forward_as_tuple</a></span><span class="p">(</span><span class="n">pr</span><span class="p">.</span><span class="n">second</span><span class="p">));</span>
+</code></pre></div>
+</p>
+</li>
+<li>
+<p>(6) : 以下と等価、すなわち(2)に委譲
+  <br />
+<div class="codehilite"><pre><span></span><code><span class="n">construct</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n"><a href="../../utility/piecewise_construct_t.html">piecewise_construct</a></span><span class="p">,</span>
+          <span class="n"><a href="../../tuple/forward_as_tuple.html">forward_as_tuple</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">forward</a></span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pr</span><span class="p">.</span><span class="n">first</span><span class="p">)),</span>
+          <span class="n"><a href="../../tuple/forward_as_tuple.html">forward_as_tuple</a></span><span class="p">(</span><span class="n"><a href="../../utility/forward.html">forward</a></span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span><span class="p">(</span><span class="n">pr</span><span class="p">.</span><span class="n">second</span><span class="p">)));</span>
+</code></pre></div>
+</p>
+</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
+<ul>
+<li>(1) : <code>T</code>のコンストラクタが<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げないならば、この関数も<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げない。</li>
+</ul>
+<h2>備考</h2>
+<ul>
+<li>C++20 における変更は、一見新規導入されたユーティリティ関数（<code><a href="../../memory/uninitialized_construct_using_allocator.html">uninitialized_construct_using_allocator</a></code>）を使用して定義を簡略化しただけのように思えるが、実はこの変更によりネストした <code><a href="../../utility/pair.html">pair</a></code>  に対しても <a href="../../memory/uses_allocator.html">uses-allocator 構築</a>がサポートされるように改善されている。</li>
+</ul>
+<h2>(1)の例</h2>
+<p><div class="yata" id="15c857b0f08a6f1d15801e735e7cd78e891400c2"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../memory_resource.html">&lt;memory_resource&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n">polymorphic_allocator</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">alloc</span><span class="p">{};</span>
+
+  <span class="c1">//メモリの確保</span>
+  <span class="kt">int</span><span class="o">*</span> <span class="n">array</span> <span class="o">=</span> <span class="n">alloc</span><span class="p">.</span><span class="n"><a href="allocate.html">allocate</a></span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+
+  <span class="c1">//要素を構築</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">alloc</span><span class="p">.</span><span class="n"><span style="color:#ff0000">construct</span></span><span class="p">(</span><span class="n">array</span> <span class="o">+</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">//要素を破棄</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">alloc</span><span class="p">.</span><span class="n"><a href="destroy.html">destroy</a></span><span class="p">(</span><span class="n">array</span> <span class="o">+</span> <span class="n">i</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">//メモリの解放</span>
+  <span class="n">alloc</span><span class="p">.</span><span class="n"><a href="deallocate.html">deallocate</a></span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>0
+1
+2
+3
+</code></pre></p>
+<h2><code>pair</code>関連の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>の例</h2>
+<p><div class="yata" id="02ef2f8fdd4d30dc135f9af1d8ed0b92db11cea6"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../memory_resource.html">&lt;memory_resource&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../tuple.html">&lt;tuple&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">//intとpolymorphic_allocatorを用いるstringの<a href="../../utility/pair.html">pair</a></span>
+  <span class="k">using</span> <span class="n"><a href="../../utility/pair.html">pair</a></span> <span class="o">=</span> <span class="n"><a href="../../utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n"><a href="../../string/basic_string.html">std::pmr::string</a></span><span class="o">&gt;</span><span class="p">;</span>
+
+  <span class="c1">//memory_resourceとしてmonotonic_buffer_resourceを使用</span>
+  <span class="k">auto</span> <span class="n">mr</span> <span class="o">=</span> <span class="n"><a href="../monotonic_buffer_resource.html">std::pmr::monotonic_buffer_resource</a></span><span class="p">{};</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n">polymorphic_allocator</span><span class="o">&lt;</span><span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&gt;</span> <span class="n">alloc</span><span class="p">{</span><span class="o">&amp;</span><span class="n">mr</span><span class="p">};</span>
+
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ios/boolalpha.html">std::boolalpha</a></span><span class="p">;</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"(2)"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">//(2)</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">alloc</span><span class="p">.</span><span class="n"><a href="allocate.html">allocate</a></span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+    <span class="n">alloc</span><span class="p">.</span><span class="n"><span style="color:#ff0000">construct</span></span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n"><a href="../../utility/piecewise_construct_t.html">std::piecewise_construct</a></span>
+        <span class="p">,</span> <span class="n"><a href="../../tuple/make_tuple.html">std::make_tuple</a></span><span class="p">(</span><span class="mi">128</span><span class="p">)</span>         <span class="c1">//intを128で初期化</span>
+        <span class="p">,</span> <span class="n"><a href="../../tuple/make_tuple.html">std::make_tuple</a></span><span class="p">(</span><span class="s">"string"</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1">//string("string", 3)で初期化（最初の3文字を保持する）</span>
+    <span class="p">);</span>
+
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">first</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">second</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="c1">//アロケータが伝播している</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">.</span><span class="n">get_allocator</span><span class="p">()</span> <span class="o">==</span> <span class="n">alloc</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">(3)"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">//(3)</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">alloc</span><span class="p">.</span><span class="n"><a href="allocate.html">allocate</a></span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+    <span class="n">alloc</span><span class="p">.</span><span class="n"><span style="color:#ff0000">construct</span></span><span class="p">(</span><span class="n">p</span><span class="p">);</span>  <span class="c1">//両要素をデフォルト構築</span>
+
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">first</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">second</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="c1">//アロケータが伝播している</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">.</span><span class="n">get_allocator</span><span class="p">()</span> <span class="o">==</span> <span class="n">alloc</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">(4)"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">//(4)</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">alloc</span><span class="p">.</span><span class="n"><a href="allocate.html">allocate</a></span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+    <span class="n">alloc</span><span class="p">.</span><span class="n"><span style="color:#ff0000">construct</span></span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="s">"string"</span><span class="p">);</span>  <span class="c1">//両要素をこれらの値からムーブ構築</span>
+
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">first</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">second</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="c1">//アロケータが伝播している</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">.</span><span class="n">get_allocator</span><span class="p">()</span> <span class="o">==</span> <span class="n">alloc</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">(5)"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">//(5)</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">alloc</span><span class="p">.</span><span class="n"><a href="allocate.html">allocate</a></span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+    <span class="k">const</span> <span class="k">auto</span> <span class="n">v</span> <span class="o">=</span> <span class="n"><a href="../../utility/make_pair.html">std::make_pair</a></span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="s">"copy"</span><span class="p">);</span>
+    <span class="n">alloc</span><span class="p">.</span><span class="n"><span style="color:#ff0000">construct</span></span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">v</span><span class="p">);</span>  <span class="c1">//両要素を変換可能な<a href="../../utility/pair.html">pair</a>からコピー構築</span>
+
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">first</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">second</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="c1">//アロケータが伝播している</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">.</span><span class="n">get_allocator</span><span class="p">()</span> <span class="o">==</span> <span class="n">alloc</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">(6)"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+
+  <span class="c1">//(6)</span>
+  <span class="p">{</span>
+    <span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">alloc</span><span class="p">.</span><span class="n"><a href="allocate.html">allocate</a></span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+    <span class="n">alloc</span><span class="p">.</span><span class="n"><span style="color:#ff0000">construct</span></span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n"><a href="../../utility/make_pair.html">std::make_pair</a></span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="s">"move"</span><span class="p">));</span>  <span class="c1">//両要素を変換可能な<a href="../../utility/pair.html">pair</a>からムーブ構築</span>
+
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">first</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">second</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="c1">//アロケータが伝播している</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">.</span><span class="n">get_allocator</span><span class="p">()</span> <span class="o">==</span> <span class="n">alloc</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>(2)
+128
+str
+true
+
+(3)
+0
+
+true
+
+(4)
+128
+string
+true
+
+(5)
+128
+copy
+true
+
+(6)
+128
+move
+true
+</code></pre></p>
+<h2>ネストした <code>pair</code> の例</h2>
+<p><div class="yata" id="1431e23f9ac18851df2b6164c48dc3d43fdee1b8"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../memory_resource.html">&lt;memory_resource&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">using</span> <span class="n"><a href="../../utility/pair.html">pair</a></span> <span class="o">=</span> <span class="n"><a href="../../utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="n"><a href="../../utility/pair.html">std::pair</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n"><a href="../../string/basic_string.html">std::pmr::string</a></span><span class="o">&gt;</span><span class="p">,</span> <span class="n"><a href="../../string/basic_string.html">std::pmr::string</a></span><span class="o">&gt;</span><span class="p">;</span>
+
+  <span class="k">auto</span> <span class="n">mr</span> <span class="o">=</span> <span class="n"><a href="../monotonic_buffer_resource.html">std::pmr::monotonic_buffer_resource</a></span><span class="p">{};</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">pmr</span><span class="o">::</span><span class="n">polymorphic_allocator</span><span class="o">&lt;</span><span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&gt;</span> <span class="n">alloc</span><span class="p">{</span><span class="o">&amp;</span><span class="n">mr</span><span class="p">};</span>
+
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ios/boolalpha.html">std::boolalpha</a></span><span class="p">;</span>
+
+  <span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">alloc</span><span class="p">.</span><span class="n"><a href="allocate.html">allocate</a></span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+  <span class="n">alloc</span><span class="p">.</span><span class="n"><span style="color:#ff0000">construct</span></span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">first</span><span class="p">.</span><span class="n">second</span><span class="p">.</span><span class="n">get_allocator</span><span class="p">()</span> <span class="o">==</span> <span class="n">alloc</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">.</span><span class="n">get_allocator</span><span class="p">()</span> <span class="o">==</span> <span class="n">alloc</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+
+  <span class="n">alloc</span><span class="p">.</span><span class="n"><a href="destroy.html">destroy</a></span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+
+  <span class="n">alloc</span><span class="p">.</span><span class="n"><a href="deallocate.html">deallocate</a></span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>C++17 における出力</h3>
+<p><pre><code>false
+true
+</code></pre></p>
+<h3>C++20 における出力</h3>
+<p><pre><code>true
+true
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++17</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../../implementation.html#gcc">GCC</a>: 9.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../../implementation.html#visual_cpp">Visual C++</a>: 2017 update 6 <span aria-label="検証済" role="img" title="検証済">✅</span><ul>
+<li>2017, 2019共に(1)以外の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>を提供していないが、<code><a href="../../utility/pair.html">pair</a></code> の各要素に対する <a href="../../memory/uses_allocator.html">uses-allocator 構築</a>をサポートしている。（ただし、C++20 モードでもネストした <code><a href="../../utility/pair.html">pair</a></code> はサポートされていない）</li>
+</ul>
+</li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="../../memory/allocator_traits/construct.html">construct</a></code></li>
+<li><code><a href="../../memory/uses_allocator.html">uses_allocator</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0220r1.html" target="_blank">P0220R1 Adopt Library Fundamentals V1 TS Components for C++17 (R1)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0337r0.html" target="_blank">P0337r0 | Delete operator= for polymorphic_allocator</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4562.html#memory.resource.synop" target="_blank">Working Draft, C++ Extensions for Library Fundamentals, Version 2</a></li>
+<li><a href="https://wg21.cmeerw.net/lwg/issue2969" target="_blank">LWG Issue 2969. <code>polymorphic_allocator::construct()</code> shouldn't pass resource()</a></li>
+<li><a href="https://wg21.cmeerw.net/lwg/issue2975" target="_blank">LWG Issue 2975. Missing case for pair construction in scoped and polymorphic allocators</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

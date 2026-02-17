@@ -1,0 +1,418 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>fold_right_last - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,algorithm,function template,std::ranges,cpp23
+">
+        <meta name="title" content="fold_right_last - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="fold_right_last - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="fold_right_last - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/algorithm/ranges_fold_right_last.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="fold_right_last - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/algorithm/ranges_fold_right_last.html" />
+        <meta name="twitter:description" content="" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="manifest" href="../../manifest.json?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;algorithm&#34;], &#34;id-type&#34;: [&#34;function template&#34;], &#34;namespace&#34;: [&#34;std::ranges&#34;], &#34;cpp&#34;: [&#34;cpp23&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;2075ef9ba8d5873e8633cc9292adab3d53814dfe&#34;, &#34;source&#34;: &#34;#include &lt;ranges&gt;\n#include &lt;algorithm&gt;\n#include &lt;functional&gt;\n#include &lt;print&gt;\n#include &lt;vector&gt;\n\nusing namespace std::ranges;\n\nint main() {\n  // \u5165\u529b\n  range auto rng = views::iota(1, 11);\n  // \u4e8c\u9805\u6f14\u7b97\n  auto op = std::plus&lt;&gt;{};\n\n  auto resl = fold_right_last(rng, op);\n\n  std::println(\&#34;{:d}\&#34;, resl.value());\n\n\n  // \u5165\u529b\u7bc4\u56f2\u306ffloat\u306evector\n  std::vector&lt;float&gt; rngf = { 0.125f, 0.25f, 0.75f };\n\n  // \u8a08\u7b97\u7d50\u679c\u306foptional&lt;float&gt;\n  auto reslf = fold_right_last(rngf, op);\n\n  std::println(\&#34;{:g}\&#34;, reslf.value());\n}\n&#34;}, {&#34;id&#34;: &#34;8a3b5dcefe5f9b9dc3dc2b98abd94c001d7b8724&#34;, &#34;source&#34;: &#34;#include &lt;ranges&gt;\n#include &lt;algorithm&gt;\n#include &lt;functional&gt;\n#include &lt;print&gt;\n#include &lt;vector&gt;\n\nusing namespace std::ranges;\n\nint main() {\n  range auto rng = views::empty&lt;int&gt;;\n  auto op = std::plus&lt;&gt;{};\n\n  auto res1 = fold_right(rng, -1, op);\n  auto res2 = fold_right_last(rng, op);\n\n  std::println(\&#34;{:d}\&#34;, res1);\n  std::println(\&#34;{:d}\&#34;, res2.value_or(-1));\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;algorithm&#34;, &#34;ranges_fold_right_last&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/algorithm.html" itemprop="url">
+              
+                <span itemprop="name">algorithm</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">fold_right_last</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2026-01-05T09:09:29">
+        2026年01月05日 09時09分29秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Koichi Murase</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/algorithm/ranges_fold_right_last.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/algorithm/ranges_fold_right_last.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function template</div><div class="header">&lt;algorithm&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std::ranges">std::ranges::</span><span class="token">fold_right_last</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span> <span class="p">{</span>
+  <span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../iterator/bidirectional_iterator.html">bidirectional_iterator</a></span> <span class="n">I</span><span class="p">,</span> <span class="n"><a href="../iterator/sentinel_for.html">sentinel_for</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span> <span class="n">S</span><span class="p">,</span>
+           <span class="n"><a href="ranges_fold_right.html">indirectly-binary-right-foldable</a></span><span class="o">&lt;</span><span class="n"><a href="../iterator/iter_value_t.html">iter_value_t</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">I</span><span class="o">&gt;</span> <span class="n">F</span><span class="o">&gt;</span>
+    <span class="n">requires</span> <span class="n"><a href="../concepts/constructible_from.html">constructible_from</a></span><span class="o">&lt;</span><span class="n"><a href="../iterator/iter_value_t.html">iter_value_t</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="p">,</span> <span class="n"><a href="../iterator/iter_reference_t.html">iter_reference_t</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;&gt;</span>
+  <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">fold_right_last</span><span class="p">(</span><span class="n">I</span> <span class="n">first</span><span class="p">,</span> <span class="n">S</span> <span class="n">last</span><span class="p">,</span> <span class="n">F</span> <span class="n">f</span><span class="p">);</span>                         <span class="c1">// (1)</span>
+
+  <span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../ranges/bidirectional_range.html">bidirectional_range</a></span> <span class="n">R</span><span class="p">,</span>
+           <span class="n"><a href="ranges_fold_right.html">indirectly-binary-right-foldable</a></span><span class="o">&lt;</span><span class="n"><a href="../ranges/range_value_t.html">range_value_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span> <span class="n"><a href="../ranges/iterator_t.html">iterator_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;&gt;</span> <span class="n">F</span><span class="o">&gt;</span>
+    <span class="n">requires</span> <span class="n"><a href="../concepts/constructible_from.html">constructible_from</a></span><span class="o">&lt;</span><span class="n"><a href="../ranges/range_value_t.html">range_value_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="p">,</span> <span class="n"><a href="../ranges/range_reference_t.html">range_reference_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;&gt;</span>
+  <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">fold_right_last</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">,</span> <span class="n">F</span> <span class="n">f</span><span class="p">);</span>                                   <span class="c1">// (2)</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>初期値の指定を省略する<code><a href="ranges_fold_right.html">fold_right</a></code>。入力範囲の末尾要素が初期値として使用される。</p>
+<ul>
+<li>(1) : 入力として<a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a>をとる<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a></li>
+<li>(2) : 入力として範囲を直接とる<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a></li>
+</ul>
+<h2>引数</h2>
+<ul>
+<li><code>first</code> -- 入力範囲の先頭イテレータ</li>
+<li><code>last</code> -- 入力範囲の番兵（終端イテレータ）</li>
+<li><code>r</code> -- 入力範囲のオブジェクト</li>
+<li><code>f</code> -- 適用する二項演算<ul>
+<li><code>f(*first, *first)</code>のような呼び出しが可能であり（実際にこの様に呼ばれるわけではない）、その<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型のオブジェクトを<code>acc</code>とすると</li>
+<li><code>acc = f(*first, std::move(acc))</code>のような呼び出しも可能である必要がある</li>
+</ul>
+</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Constraints。関数であればオーバーロード解決に参加するための条件、それ以外であれば受け付ける型の条件">テンプレートパラメータ制約</a></h2>
+<p><code>indirectly-binary-right-foldable</code>は<code>F</code>の引数順が逆になることを除いて<code><a href="ranges_fold_left.html">indirectly-binary-left-foldable</a></code>と同様の制約となる。</p>
+<p><code>indirectly-binary-left-foldable</code>では、初期値の型<code>T</code>が<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型（積算値の型）<code>U</code>に変換可能であることが要求（<code><a href="../concepts/convertible_to.html">convertible_to</a>&lt;T, U&gt;</code>）されており、この関数では初期値の型を指定できない（<code>range_value_t&lt;R&gt;</code>が使用される）ため<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型を大きく制御することが困難になる（例えば、<code><a href="ranges_fold_right.html">fold_right</a></code>の例にある入力範囲を反転させる例の様なことは素直にはできない）。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p>(1), (2)ともに、以下と等価</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">using</span> <span class="n">U</span> <span class="o">=</span> <span class="n"><a href="../type_traits/decay.html">decay_t</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/invoke_result.html">invoke_result_t</a></span><span class="o">&lt;</span><span class="n">F</span><span class="o">&amp;</span><span class="p">,</span> <span class="n"><a href="../iterator/iter_reference_t.html">iter_reference_t</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">first</span> <span class="o">==</span> <span class="n">last</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n"><a href="../optional/optional.html">optional</a></span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="n">I</span> <span class="n">tail</span> <span class="o">=</span> <span class="n">ranges</span><span class="o">::</span><span class="n"><a href="../iterator/ranges_prev.html">prev</a></span><span class="p">(</span><span class="n">ranges</span><span class="o">::</span><span class="n">next</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">last</span><span class="p">)));</span>
+<span class="k">return</span> <span class="n"><a href="../optional/optional.html">optional</a></span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../utility/in_place_t.html">in_place</a></span><span class="p">,</span> <span class="n">ranges</span><span class="o">::</span><span class="n"><a href="ranges_fold_right.html">fold_right</a></span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">first</span><span class="p">),</span> <span class="n">tail</span><span class="p">,</span> <span class="n"><a href="../iterator/iter_value_t.html">iter_value_t</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="p">(</span><span class="o">*</span><span class="n">tail</span><span class="p">),</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">f</span><span class="p">)));</span>
+</code></pre></div>
+</p>
+<p>空の入力範囲に対しては無効値を保持する<code><a href="../optional/optional.html">optional</a></code>を返す。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></h2>
+<p>入力範囲<code>r</code>（<code>[first, last)</code>）の要素数を<code>N</code>とすると、正確に<code>N - 1</code>回の<code>f</code>の適用が行われる。</p>
+<h2>備考</h2>
+<p>この関数の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型は<code><a href="../optional/optional.html">optional</a>&lt;U&gt;</code>であり、<code>U</code>は次のように求められる型と一致する</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">auto</span> <span class="n">tail</span> <span class="o">=</span> <span class="o">--</span><span class="n">last</span><span class="p">;</span>
+<span class="k">decltype</span><span class="p">(</span><span class="n">ranges</span><span class="o">::</span><span class="n"><a href="ranges_fold_right.html">fold_right</a></span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">first</span><span class="p">),</span> <span class="n">tail</span><span class="p">,</span> <span class="n"><a href="../iterator/iter_value_t.html">iter_value_t</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="p">(</span><span class="o">*</span><span class="n">tail</span><span class="p">),</span> <span class="n">f</span><span class="p">));</span>
+</code></pre></div>
+</p>
+<p>すなわち、他の引数はそのままに初期値として入力範囲<code>r</code>の要素を手動で指定して<code>fold_right</code>を呼び出した際の<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型を包む<code>optional</code>となる。</p>
+<p><code>fold_right</code>と同様に、この型<code>U</code>は<code>fold_right_last</code>の処理内部で積算値の型として使用されるものでもあり、<code>f</code>は<code>*first</code>の代わりに<code>U</code>の右辺値も受け取れる必要がある。詳細は下の実装例を参照。</p>
+<h2>例</h2>
+<h3>基本的な数値集計処理の例</h3>
+<p><div class="yata" id="2075ef9ba8d5873e8633cc9292adab3d53814dfe"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../print.html">&lt;print&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// 入力</span>
+  <span class="n"><a href="../ranges/range.html">range</a></span> <span class="k">auto</span> <span class="n">rng</span> <span class="o">=</span> <span class="n">views</span><span class="o">::</span><span class="n"><a href="../ranges/iota_view.html">iota</a></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">);</span>
+  <span class="c1">// 二項演算</span>
+  <span class="k">auto</span> <span class="n">op</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n"><a href="../functional/plus.html">plus</a></span><span class="o">&lt;&gt;</span><span class="p">{};</span>
+
+  <span class="k">auto</span> <span class="n">resl</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">fold_right_last</span></span><span class="p">(</span><span class="n">rng</span><span class="p">,</span> <span class="n">op</span><span class="p">);</span>
+
+  <span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{:d}"</span><span class="p">,</span> <span class="n">resl</span><span class="p">.</span><span class="n">value</span><span class="p">());</span>
+
+
+  <span class="c1">// 入力範囲はfloatのvector</span>
+  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span> <span class="n">rngf</span> <span class="o">=</span> <span class="p">{</span> <span class="mf">0.125f</span><span class="p">,</span> <span class="mf">0.25f</span><span class="p">,</span> <span class="mf">0.75f</span> <span class="p">};</span>
+
+  <span class="c1">// 計算結果はoptional&lt;float&gt;</span>
+  <span class="k">auto</span> <span class="n">reslf</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">fold_right_last</span></span><span class="p">(</span><span class="n">rngf</span><span class="p">,</span> <span class="n">op</span><span class="p">);</span>
+
+  <span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{:g}"</span><span class="p">,</span> <span class="n">reslf</span><span class="p">.</span><span class="n">value</span><span class="p">());</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>55
+1.125
+</code></pre></p>
+<h3>空の入力範囲に対する動作の例</h3>
+<p><div class="yata" id="8a3b5dcefe5f9b9dc3dc2b98abd94c001d7b8724"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../algorithm.html">&lt;algorithm&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../functional.html">&lt;functional&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../print.html">&lt;print&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n"><a href="../ranges/range.html">range</a></span> <span class="k">auto</span> <span class="n">rng</span> <span class="o">=</span> <span class="n">views</span><span class="o">::</span><span class="n">empty</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="k">auto</span> <span class="n">op</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">plus</span><span class="o">&lt;&gt;</span><span class="p">{};</span>
+
+  <span class="k">auto</span> <span class="n">res1</span> <span class="o">=</span> <span class="n"><a href="ranges_fold_right.html">fold_right</a></span><span class="p">(</span><span class="n">rng</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">op</span><span class="p">);</span>
+  <span class="k">auto</span> <span class="n">res2</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">fold_right_last</span></span><span class="p">(</span><span class="n">rng</span><span class="p">,</span> <span class="n">op</span><span class="p">);</span>
+
+  <span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{:d}"</span><span class="p">,</span> <span class="n">res1</span><span class="p">);</span>
+  <span class="n"><a href="../print/println.html">std::println</a></span><span class="p">(</span><span class="s">"{:d}"</span><span class="p">,</span> <span class="n">res2</span><span class="p">.</span><span class="n"><a href="../optional/optional/value_or.html">value_or</a></span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>-1
+-1
+</code></pre></p>
+<h2>実装例</h2>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="n"><a href="../iterator/bidirectional_iterator.html">bidirectional_iterator</a></span> <span class="n">I</span><span class="p">,</span> <span class="n"><a href="../iterator/sentinel_for.html">sentinel_for</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span> <span class="n">S</span><span class="p">,</span>
+         <span class="n">indirectly</span><span class="o">-</span><span class="n">binary</span><span class="o">-</span><span class="n">right</span><span class="o">-</span><span class="n">foldable</span><span class="o">&lt;</span><span class="n"><a href="../iterator/iter_value_t.html">iter_value_t</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">I</span><span class="o">&gt;</span> <span class="n">F</span><span class="o">&gt;</span>
+  <span class="n">requires</span> <span class="n">constructible_from</span><span class="o">&lt;</span><span class="n"><a href="../iterator/iter_value_t.html">iter_value_t</a></span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">iter_reference_t</span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;&gt;</span>
+<span class="k">constexpr</span> <span class="k">auto</span> <span class="n">fold_right_last</span><span class="p">(</span><span class="n">I</span> <span class="n">first</span><span class="p">,</span> <span class="n">S</span> <span class="n">last</span><span class="p">,</span> <span class="n">F</span> <span class="n">f</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">using</span> <span class="n">U</span> <span class="o">=</span> <span class="n"><a href="../type_traits/decay.html">decay_t</a></span><span class="o">&lt;</span><span class="n"><a href="../type_traits/invoke_result.html">invoke_result_t</a></span><span class="o">&lt;</span><span class="n">F</span><span class="o">&amp;</span><span class="p">,</span> <span class="n">iter_reference_t</span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">first</span> <span class="o">==</span> <span class="n">last</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">optional</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="n">I</span> <span class="n">tail</span> <span class="o">=</span> <span class="n">ranges</span><span class="o">::</span><span class="n">prev</span><span class="p">(</span><span class="n">ranges</span><span class="o">::</span><span class="n">next</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">last</span><span class="p">)));</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">first</span> <span class="o">==</span> <span class="n">tail</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">optional</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../utility/in_place_t.html">in_place</a></span><span class="p">,</span> <span class="o">*</span><span class="n">tail</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">const</span> <span class="k">auto</span> <span class="n">copy_tail</span> <span class="o">=</span> <span class="n">tail</span><span class="p">;</span>
+  <span class="n">U</span> <span class="n">accum</span> <span class="o">=</span> <span class="n">invoke</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">*--</span><span class="n">tail</span><span class="p">,</span> <span class="o">*</span><span class="n">copy_tail</span><span class="p">);</span>
+
+  <span class="k">while</span> <span class="p">(</span><span class="n">first</span> <span class="o">!=</span> <span class="n">tail</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">accum</span> <span class="o">=</span> <span class="n">invoke</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">*--</span><span class="n">tail</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">accum</span><span class="p">));</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="n">optional</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span><span class="p">(</span><span class="n"><a href="../utility/in_place_t.html">in_place</a></span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">accum</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++23</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 13.1 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2022 Update 5 <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="ranges_fold_left.html">ranges::fold_left</a></code><ul>
+<li>範囲の左からの<code>fold</code></li>
+</ul>
+</li>
+<li><code><a href="ranges_fold_right.html">ranges::fold_right</a></code><ul>
+<li>範囲の右からの<code>fold</code></li>
+</ul>
+</li>
+<li><code><a href="ranges_fold_left_first.html">ranges::fold_left_first</a></code><ul>
+<li>範囲の最初の要素を初期値として<code>fold_left</code></li>
+</ul>
+</li>
+<li><code><a href="ranges_fold_left_with_iter.html">ranges::fold_left_with_iter</a></code><ul>
+<li><code>fold_left</code>の結果と共に、計算した終端イテレータも返す</li>
+</ul>
+</li>
+<li><code><a href="ranges_fold_left_first_with_iter.html">ranges::fold_left_first_with_iter</a></code><ul>
+<li><code>fold_left_first</code>の結果と共に、計算した終端イテレータも返す</li>
+</ul>
+</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2322r6.html" target="_blank">P2322R6 <code>ranges::fold</code></a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

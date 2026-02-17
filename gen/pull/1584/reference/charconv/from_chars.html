@@ -1,0 +1,757 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>from_chars - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,charconv,function,std,cpp17
+">
+        <meta name="title" content="from_chars - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="from_chars - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="from_chars - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/charconv/from_chars.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="与えられたイテレータ範囲`[first, last)`内の文字列から、オーバーロードと基数・フォーマット指定によって決まるパターンにマッチングする最初の数字文字列を見つけて、数値へ変換する。  " />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="from_chars - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/charconv/from_chars.html" />
+        <meta name="twitter:description" content="与えられたイテレータ範囲`[first, last)`内の文字列から、オーバーロードと基数・フォーマット指定によって決まるパターンにマッチングする最初の数字文字列を見つけて、数値へ変換する。  " />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="manifest" href="../../manifest.json?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;charconv&#34;], &#34;id-type&#34;: [&#34;function&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;cpp&#34;: [&#34;cpp17&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;de00d788b4e7d37d4bf058c9ea358fdd66bb2e07&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;iomanip&gt;\n#include &lt;charconv&gt;\n\nint main()\n{\n  {\n    const char str[] = \&#34;00000123456789 is decimal\&#34;;\n    int value{};\n\n    //(1) 10\u9032\u6570\u6587\u5b57\u5217\u304b\u3089int\u3078\u5909\u63db\n    if (auto [ptr, ec] = std::from_chars(std::begin(str), std::end(str), value); ec == std::errc{}) {\n      std::cout &lt;&lt; value &lt;&lt; std::endl;\n    }\n    else {\n      std::cout &lt;&lt; \&#34;conversion failed.\&#34; &lt;&lt; std::endl;\n    }\n  }\n\n  {\n    const char str[] = \&#34;1111111111111111 is (65535)_10\&#34;;\n    int value{};\n\n    //(1) 2\u9032\u6570\u6587\u5b57\u5217\u304b\u3089int\u3078\u5909\u63db\n    if (auto [ptr, ec] = std::from_chars(std::begin(str), std::end(str), value, 2); ec == std::errc{}) {\n      std::cout &lt;&lt; value &lt;&lt; std::endl;\n    }\n    else {\n      std::cout &lt;&lt; \&#34;conversion failed.\&#34; &lt;&lt; std::endl;\n    }\n  }\n\n  {\n    const char str[] = \&#34;Z is (35)_10\&#34;;\n    int value{};\n\n    //(1) 36\u9032\u6570\u6587\u5b57\u5217\u304b\u3089int\u3078\u5909\u63db\n    if (auto [ptr, ec] = std::from_chars(std::begin(str), std::end(str), value, 36); ec == std::errc{}) {\n      std::cout &lt;&lt; value &lt;&lt; std::endl;\n    }\n    else {\n      std::cout &lt;&lt; \&#34;conversion failed.\&#34; &lt;&lt; std::endl;\n    }\n  }\n\n  {\n    const char str[] = \&#34;255\&#34;;\n    char value{};\n\n    //(1) \u5931\u6557\u3059\u308b\u4f8b MSVC\u306b\u304a\u3051\u308bchar\u306e\u7bc4\u56f2\u306f-128\uff5e127\n    if (auto [ptr, ec] = std::from_chars(std::begin(str), std::end(str), value); ec == std::errc{}) {\n      std::cout &lt;&lt; value &lt;&lt; std::endl;\n    }\n    else {\n      std::cout &lt;&lt; \&#34;conversion failed.\&#34; &lt;&lt; std::endl;\n    }\n  }\n\n  std::cout &lt;&lt; std::setprecision(16);\n\n  {\n    const char str[] = \&#34;3.1415926535897932384626433832795 is pi\&#34;;\n    double value{};\n\n    //(3) \u56fa\u5b9a\u5c0f\u6570\u8868\u8a18\u6587\u5b57\u5217\u304b\u3089double\u3078\u5909\u63db\n    if (auto [ptr, ec] = std::from_chars(std::begin(str), std::end(str), value); ec == std::errc{}) {\n      std::cout &lt;&lt; value &lt;&lt; std::endl;\n    }\n    else {\n      std::cout &lt;&lt; \&#34;conversion failed.\&#34; &lt;&lt; std::endl;\n    }\n  }\n\n  {\n    const char str[] = \&#34;1.10001e-01 is Liouville number\&#34;;\n    double value{};\n\n    //(3) \u6307\u6570\u8868\u8a18\u6587\u5b57\u5217\u304b\u3089double\u3078\u5909\u63db\n    if (auto [ptr, ec] = std::from_chars(std::begin(str), std::end(str), value); ec == std::errc{}) {\n      std::cout &lt;&lt; value &lt;&lt; std::endl;\n    }\n    else {\n      std::cout &lt;&lt; \&#34;conversion failed.\&#34; &lt;&lt; std::endl;\n    }\n  }\n\n  {\n    const char str[] = \&#34;1.c29068986fcdf000p-4 is Liouville number\&#34;;\n    double value{};\n\n    //(3) 16\u9032\u6307\u6570\u8868\u8a18\u6587\u5b57\u5217\u304b\u3089double\u3078\u5909\u63db\n    if (auto [ptr, ec] = std::from_chars(std::begin(str), std::end(str), value, std::chars_format::hex); ec == std::errc{}) {\n      std::cout &lt;&lt; value &lt;&lt; std::endl;\n    }\n    else {\n      std::cout &lt;&lt; \&#34;conversion failed.\&#34; &lt;&lt; std::endl;\n    }\n  }\n\n  {\n    const char str[] = \&#34; 3.1415926535897932384626433832795 is pi\&#34;;\n    double value{};\n\n    //(3) \u5931\u6557\u3059\u308b\u4f8b \u30db\u30ef\u30a4\u30c8\u30b9\u30da\u30fc\u30b9\u8aad\u307f\u98db\u3070\u3057\n    if (auto [ptr, ec] = std::from_chars(std::begin(str), std::end(str), value); ec == std::errc{}) {\n      std::cout &lt;&lt; value &lt;&lt; std::endl;\n    }\n    else {\n      std::cout &lt;&lt; \&#34;conversion failed.\&#34; &lt;&lt; std::endl;\n    }\n  }\n\n  {\n    const char str[] = \&#34;NaN\&#34;;\n    double value{};\n\n    //(3) NaN\u306e\u8aad\u307f\u53d6\u308a\n    if (auto [ptr, ec] = std::from_chars(std::begin(str), std::end(str), value); ec == std::errc{}) {\n      std::cout &lt;&lt; value &lt;&lt; std::endl;\n    }\n    else {\n      std::cout &lt;&lt; \&#34;conversion failed.\&#34; &lt;&lt; std::endl;\n    }\n  }\n\n  {\n    const char str[] = \&#34;-INF\&#34;;\n    double value{};\n\n    //(3) INF\u306e\u8aad\u307f\u53d6\u308a\n    if (auto [ptr, ec] = std::from_chars(std::begin(str), std::end(str), value); ec == std::errc{}) {\n      std::cout &lt;&lt; value &lt;&lt; std::endl;\n    }\n    else {\n      std::cout &lt;&lt; \&#34;conversion failed.\&#34; &lt;&lt; std::endl;\n    }\n  }\n}\n&#34;}, {&#34;id&#34;: &#34;4d9773555f6d68cf93c3fad523df41c2e0fe841e&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;iomanip&gt;\n#include &lt;charconv&gt;\n\nint main()\n{\n  {\n    const char str[] = \&#34;00000123456789 is decimal\&#34;;\n\n    //(1) 10\u9032\u6570\u6587\u5b57\u5217\u304b\u3089int\u3078\u5909\u63db\n    //\u5909\u63db\u306e\u6210\u5426\u5224\u5b9a\u306b`operator bool`\u3092\u4f7f\u7528\n    if (int value{}; std::from_chars(std::begin(str), std::end(str), value)) {\n      std::cout &lt;&lt; value &lt;&lt; std::endl;\n    }\n    else {\n      std::cout &lt;&lt; \&#34;conversion failed.\&#34; &lt;&lt; std::endl;\n    }\n  }\n\n  {\n    const char str[] = \&#34;1111111111111111 is (65535)_10\&#34;;\n\n    //(1) 2\u9032\u6570\u6587\u5b57\u5217\u304b\u3089int\u3078\u5909\u63db\n    if (int value{}; std::from_chars(std::begin(str), std::end(str), value, 2)) {\n      std::cout &lt;&lt; value &lt;&lt; std::endl;\n    }\n    else {\n      std::cout &lt;&lt; \&#34;conversion failed.\&#34; &lt;&lt; std::endl;\n    }\n  }\n\n  {\n    const char str[] = \&#34;Z is (35)_10\&#34;;\n\n    //(1) 36\u9032\u6570\u6587\u5b57\u5217\u304b\u3089int\u3078\u5909\u63db\n    if (int value{}; std::from_chars(std::begin(str), std::end(str), value, 36)) {\n      std::cout &lt;&lt; value &lt;&lt; std::endl;\n    }\n    else {\n      std::cout &lt;&lt; \&#34;conversion failed.\&#34; &lt;&lt; std::endl;\n    }\n  }\n\n  {\n    const char str[] = \&#34;255\&#34;;\n\n    //(1) \u5931\u6557\u3059\u308b\u4f8b MSVC\u306b\u304a\u3051\u308bchar\u306e\u7bc4\u56f2\u306f-128\uff5e127\n    if (char value{}; std::from_chars(std::begin(str), std::end(str), value)) {\n      std::cout &lt;&lt; value &lt;&lt; std::endl;\n    }\n    else {\n      std::cout &lt;&lt; \&#34;conversion failed.\&#34; &lt;&lt; std::endl;\n    }\n  }\n\n  std::cout &lt;&lt; std::setprecision(16);\n\n  {\n    const char str[] = \&#34;3.1415926535897932384626433832795 is pi\&#34;;\n\n    //(3) \u56fa\u5b9a\u5c0f\u6570\u8868\u8a18\u6587\u5b57\u5217\u304b\u3089double\u3078\u5909\u63db\n    if (double value{}; std::from_chars(std::begin(str), std::end(str), value)) {\n      std::cout &lt;&lt; value &lt;&lt; std::endl;\n    }\n    else {\n      std::cout &lt;&lt; \&#34;conversion failed.\&#34; &lt;&lt; std::endl;\n    }\n  }\n\n  {\n    const char str[] = \&#34;1.10001e-01 is Liouville number\&#34;;\n\n    //(3) \u6307\u6570\u8868\u8a18\u6587\u5b57\u5217\u304b\u3089double\u3078\u5909\u63db\n    if (double value{}; std::from_chars(std::begin(str), std::end(str), value)) {\n      std::cout &lt;&lt; value &lt;&lt; std::endl;\n    }\n    else {\n      std::cout &lt;&lt; \&#34;conversion failed.\&#34; &lt;&lt; std::endl;\n    }\n  }\n\n  {\n    const char str[] = \&#34;1.c29068986fcdf000p-4 is Liouville number\&#34;;\n\n    //(3) 16\u9032\u6307\u6570\u8868\u8a18\u6587\u5b57\u5217\u304b\u3089double\u3078\u5909\u63db\n    if (double value{}; std::from_chars(std::begin(str), std::end(str), value, std::chars_format::hex)) {\n      std::cout &lt;&lt; value &lt;&lt; std::endl;\n    }\n    else {\n      std::cout &lt;&lt; \&#34;conversion failed.\&#34; &lt;&lt; std::endl;\n    }\n  }\n\n  {\n    const char str[] = \&#34; 3.1415926535897932384626433832795 is pi\&#34;;\n\n    //(3) \u5931\u6557\u3059\u308b\u4f8b \u30db\u30ef\u30a4\u30c8\u30b9\u30da\u30fc\u30b9\u8aad\u307f\u98db\u3070\u3057\n    if (double value{}; std::from_chars(std::begin(str), std::end(str), value)) {\n      std::cout &lt;&lt; value &lt;&lt; std::endl;\n    }\n    else {\n      std::cout &lt;&lt; \&#34;conversion failed.\&#34; &lt;&lt; std::endl;\n    }\n  }\n\n  {\n    const char str[] = \&#34;NaN\&#34;;\n\n    //(3) NaN\u306e\u8aad\u307f\u53d6\u308a\n    if (double value{}; std::from_chars(std::begin(str), std::end(str), value)) {\n      std::cout &lt;&lt; value &lt;&lt; std::endl;\n    }\n    else {\n      std::cout &lt;&lt; \&#34;conversion failed.\&#34; &lt;&lt; std::endl;\n    }\n  }\n\n  {\n    const char str[] = \&#34;-INF\&#34;;\n\n    //(3) INF\u306e\u8aad\u307f\u53d6\u308a\n    if (double value{}; std::from_chars(std::begin(str), std::end(str), value)) {\n      std::cout &lt;&lt; value &lt;&lt; std::endl;\n    }\n    else {\n      std::cout &lt;&lt; \&#34;conversion failed.\&#34; &lt;&lt; std::endl;\n    }\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;charconv&#34;, &#34;from_chars&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/charconv.html" itemprop="url">
+              
+                <span itemprop="name">charconv</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">from_chars</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2025-08-23T16:55:29">
+        2025年08月23日 16時55分29秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Raclamusi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/charconv/from_chars.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/charconv/from_chars.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;charconv&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">from_chars</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="c1">//整数型用</span>
+  <span class="n"><a href="from_chars_result.html">from_chars_result</a></span>
+    <span class="n">from_chars</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">first</span><span class="p">,</span>
+               <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">last</span><span class="p">,</span>
+               <span class="n"><i>see below</i></span><span class="o">&amp;</span> <span class="n">value</span><span class="p">,</span>
+               <span class="kt">int</span> <span class="n">base</span> <span class="o">=</span> <span class="mi">10</span><span class="p">);</span>      <span class="c1">// (1) C++17</span>
+  <span class="k">constexpr</span> <span class="n"><a href="from_chars_result.html">from_chars_result</a></span>
+    <span class="nf">from_chars</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">first</span><span class="p">,</span>
+               <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">last</span><span class="p">,</span>
+               <span class="n"><i>integer-type</i></span><span class="o">&amp;</span> <span class="n">value</span><span class="p">,</span>
+               <span class="kt">int</span> <span class="n">base</span> <span class="o">=</span> <span class="mi">10</span><span class="p">);</span>      <span class="c1">// (1) C++23</span>
+
+  <span class="c1">//浮動小数点型用</span>
+  <span class="n"><a href="from_chars_result.html">from_chars_result</a></span>
+    <span class="nf">from_chars</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">first</span><span class="p">,</span>
+               <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">last</span><span class="p">,</span>
+               <span class="kt">float</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">,</span>
+               <span class="n">chars_format</span> <span class="n">fmt</span> <span class="o">=</span> <span class="n">chars_format</span><span class="o">::</span><span class="n">general</span><span class="p">);</span> <span class="c1">// (2) C++17からC++20まで</span>
+  <span class="n"><a href="from_chars_result.html">from_chars_result</a></span>
+    <span class="nf">from_chars</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">first</span><span class="p">,</span>
+               <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">last</span><span class="p">,</span>
+               <span class="kt">double</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">,</span>
+               <span class="n">chars_format</span> <span class="n">fmt</span> <span class="o">=</span> <span class="n">chars_format</span><span class="o">::</span><span class="n">general</span><span class="p">);</span> <span class="c1">// (3) C++17からC++20まで</span>
+  <span class="n"><a href="from_chars_result.html">from_chars_result</a></span>
+    <span class="nf">from_chars</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">first</span><span class="p">,</span>
+               <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">last</span><span class="p">,</span>
+               <span class="kt">long</span> <span class="kt">double</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">,</span>
+               <span class="n">chars_format</span> <span class="n">fmt</span> <span class="o">=</span> <span class="n">chars_format</span><span class="o">::</span><span class="n">general</span><span class="p">);</span> <span class="c1">// (4) C++17からC++20まで</span>
+  <span class="n"><a href="from_chars_result.html">from_chars_result</a></span>
+    <span class="nf">from_chars</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">first</span><span class="p">,</span>
+               <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">last</span><span class="p">,</span>
+               <span class="n"><i>floating-point-type</i></span><span class="o">&amp;</span> <span class="n">value</span><span class="p">,</span>
+               <span class="n">chars_format</span> <span class="n">fmt</span> <span class="o">=</span> <span class="n">chars_format</span><span class="o">::</span><span class="n">general</span><span class="p">);</span> <span class="c1">// (5) C++23</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p>与えられた<a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a><code>[first, last)</code>内の文字列から、<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>と基数・フォーマット指定によって決まるパターンにマッチングする最初の数字文字列を見つけて、数値へ変換する。<br />
+変換に際し、メモリ確保を行わず<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げることもない。</p>
+<p>C++標準はこれら関数の実装の詳細について何も規定しない。これは、各実装において可能な最も高速なアルゴリズムが選択されることを意図しての事である。</p>
+<ul>
+<li>(1) : 整数型に対する<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a></li>
+<li>(2) : <code>float</code>型に対する<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a></li>
+<li>(3) : <code>double</code>型に対する<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a></li>
+<li>(4) : <code>long double</code>型に対する<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a></li>
+<li>(5) : 浮動小数点数型に対する<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a></li>
+</ul>
+<h2>要件</h2>
+<ul>
+<li>全て : 入力<a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a><code>[first, last)</code>は有効な範囲であること（charのオブジェクトが構築済みであり、連続していること）。</li>
+<li>(1) : <code>base</code>は2～36までの値であること。</li>
+<li>(2)-(4)  : <code>fmt</code>は<code><a href="chars_format.html">chars_format</a></code>の列挙値のうちの一つであること。</li>
+</ul>
+<h2>引数</h2>
+<ul>
+<li><code>first</code> -- 入力文字列の先頭ポインタ。</li>
+<li><code>last</code> -- 入力文字列の終端ポインタ。</li>
+<li><code>value</code> -- 変換結果を出力する変数。</li>
+<li><code>base</code> -- 入力文字列の整数の基数（n進数のn）指定、2進数から36進数まで。</li>
+<li><code>fmt</code> -- 入力文字列の浮動小数点数のフォーマット指定、<code><a href="chars_format.html">chars_format</a></code>のいずれか。</li>
+</ul>
+<h2>効果</h2>
+<ul>
+<li>
+<p>全て : <code>[first, last)</code>からパターンにマッチする文字列を探し、それを変換した数値を<code>value</code>に書き込む。<br />
+    数字列の前にあって良いのは<code>-</code>符号のみである（<code>+</code>やスペース含めてその他の文字から始まる場合は必ず失敗する）。<br />
+    数字列の途中でスペースが現れた場合、そこでマッチングは終了する（数字列中のスペース読み飛ばしをしない）。</p>
+</li>
+<li>
+<p>(1) : <code>base</code>の値をnとすると、n進数の数字列を10進整数値へ変換する。<br />
+    nを基数としたCロケールによる<code>strtol</code>で変換する際と同様のパターンを用いる。<br />
+    ただし、<code>value</code>の型が符号付である場合にのみ<code>-</code>は考慮され、<code>+</code>や16進数の<code>0x</code>等の他の記号は考慮されない。</p>
+</li>
+<li>
+<p>(2)-(5) : 浮動小数点数字列を浮動小数点数へ変換する。<br />
+    Cロケールによる<code>strtod</code>で変換する際と同様のパターンを用いる。ただし、以下の違いがある。<br />
+    数字の先頭の符号は<code>-</code>のみが考慮され、<code>+</code>等は考慮されない。<br />
+    また、<code>fmt</code>に<code>chars_format::general</code>が設定されておらず（<code>scientific</code>と<code>fixed</code>が同時に設定されておらず）</p>
+<ul>
+<li><code>fmt</code>に<code>chars_format::scientific</code>が設定されているなら指数部は必須。そうでないならあっても無くてもいい。</li>
+<li><code>fmt</code>に<code>chars_format::fixed</code>が設定されているなら指数部は現れてはならない。</li>
+<li><code>fmt</code>に<code>chars_format::hex</code>が設定されている場合に数字列の先頭に<code>0x, 0X</code>があると正しく変換されない  <ul>
+<li><code>0x123</code>という文字列が値<code>0</code>と残りの文字列<code>x123</code>としてパースされる。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>結果の値は<code><a href="../limits/float_round_style.html">std::round_to_nearest</a></code>に従った丸めによって一つの値が選択される。</p>
+<p>なお、<code><a href="to_chars.html">to_chars</a></code>関数によって値を正確に復元できるのは両関数が同じ処理系で提供されているときにのみ保証される。</p>
+<p>全ての<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>において、変換に失敗した場合に<code>value</code>の値は変更されない。</p>
+<h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
+<p><code><a href="from_chars_result.html">from_chars_result</a></code>の値。</p>
+<ul>
+<li>成功した場合<ul>
+<li><code>ptr</code> : 指定されたパターンに一致しなかった最初の文字の位置。全てが一致した場合は<code>ptr == last</code></li>
+<li><code>ec</code> : <code>ec == errc{}</code></li>
+</ul>
+</li>
+<li>パターンにマッチする文字列が見つからない場合<ul>
+<li><code>ptr</code> : <code>ptr == first</code></li>
+<li><code>ec</code> : <code>ec == <a href="../system_error/errc.html">errc::invalid_argument</a></code></li>
+</ul>
+</li>
+<li>変換した結果の値が<code>value</code>の型では表現できない場合<ul>
+<li><code>ptr</code> : 指定されたパターンに一致しなかった最初の文字の位置</li>
+<li><code>ec</code> : <code>ec == <a href="../system_error/errc.html">errc::result_out_of_range</a></code></li>
+</ul>
+</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a></h2>
+<p>投げない。</p>
+<h2>備考</h2>
+<ul>
+<li>(1) : 実装によって全ての整数型（符号付、無し）および<code>char</code>の参照型の<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>が提供される</li>
+<li>(5) : 浮動小数点数型は、<a class="cpprefjp-defined-word" data-desc="&lt;stdfloat&gt;で定義される内部表現の規定された浮動小数点数型" href="../stdfloat.html">拡張浮動小数点数型</a>を含む</li>
+</ul>
+<h2>例</h2>
+<h3>基本の使用例 (C++17)</h3>
+<p><div class="yata" id="de00d788b4e7d37d4bf058c9ea358fdd66bb2e07"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iomanip.html">&lt;iomanip&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../charconv.html">&lt;charconv&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"00000123456789 is decimal"</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">value</span><span class="p">{};</span>
+
+    <span class="c1">//(1) 10進数文字列からintへ変換</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="p">[</span><span class="n">ptr</span><span class="p">,</span> <span class="n">ec</span><span class="p">]</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::from_chars</span></span><span class="p">(</span><span class="n"><a href="../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n">value</span><span class="p">);</span> <span class="n">ec</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">errc</span><span class="p">{})</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"conversion failed."</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"1111111111111111 is (65535)_10"</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">value</span><span class="p">{};</span>
+
+    <span class="c1">//(1) 2進数文字列からintへ変換</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="p">[</span><span class="n">ptr</span><span class="p">,</span> <span class="n">ec</span><span class="p">]</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::from_chars</span></span><span class="p">(</span><span class="n"><a href="../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n">value</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="n">ec</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">errc</span><span class="p">{})</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"conversion failed."</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"Z is (35)_10"</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">value</span><span class="p">{};</span>
+
+    <span class="c1">//(1) 36進数文字列からintへ変換</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="p">[</span><span class="n">ptr</span><span class="p">,</span> <span class="n">ec</span><span class="p">]</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::from_chars</span></span><span class="p">(</span><span class="n"><a href="../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n">value</span><span class="p">,</span> <span class="mi">36</span><span class="p">);</span> <span class="n">ec</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">errc</span><span class="p">{})</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"conversion failed."</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"255"</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">value</span><span class="p">{};</span>
+
+    <span class="c1">//(1) 失敗する例 MSVCにおけるcharの範囲は-128～127</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="p">[</span><span class="n">ptr</span><span class="p">,</span> <span class="n">ec</span><span class="p">]</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::from_chars</span></span><span class="p">(</span><span class="n"><a href="../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n">value</span><span class="p">);</span> <span class="n">ec</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">errc</span><span class="p">{})</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"conversion failed."</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">setprecision</span><span class="p">(</span><span class="mi">16</span><span class="p">);</span>
+
+  <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"3.1415926535897932384626433832795 is pi"</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">value</span><span class="p">{};</span>
+
+    <span class="c1">//(3) 固定小数表記文字列からdoubleへ変換</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="p">[</span><span class="n">ptr</span><span class="p">,</span> <span class="n">ec</span><span class="p">]</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::from_chars</span></span><span class="p">(</span><span class="n"><a href="../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n">value</span><span class="p">);</span> <span class="n">ec</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">errc</span><span class="p">{})</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"conversion failed."</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"1.10001e-01 is Liouville number"</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">value</span><span class="p">{};</span>
+
+    <span class="c1">//(3) 指数表記文字列からdoubleへ変換</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="p">[</span><span class="n">ptr</span><span class="p">,</span> <span class="n">ec</span><span class="p">]</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::from_chars</span></span><span class="p">(</span><span class="n"><a href="../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n">value</span><span class="p">);</span> <span class="n">ec</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">errc</span><span class="p">{})</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"conversion failed."</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"1.c29068986fcdf000p-4 is Liouville number"</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">value</span><span class="p">{};</span>
+
+    <span class="c1">//(3) 16進指数表記文字列からdoubleへ変換</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="p">[</span><span class="n">ptr</span><span class="p">,</span> <span class="n">ec</span><span class="p">]</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::from_chars</span></span><span class="p">(</span><span class="n"><a href="../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n">value</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">chars_format</span><span class="o">::</span><span class="n">hex</span><span class="p">);</span> <span class="n">ec</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">errc</span><span class="p">{})</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"conversion failed."</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">" 3.1415926535897932384626433832795 is pi"</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">value</span><span class="p">{};</span>
+
+    <span class="c1">//(3) 失敗する例 ホワイトスペース読み飛ばし</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="p">[</span><span class="n">ptr</span><span class="p">,</span> <span class="n">ec</span><span class="p">]</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::from_chars</span></span><span class="p">(</span><span class="n"><a href="../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n">value</span><span class="p">);</span> <span class="n">ec</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">errc</span><span class="p">{})</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"conversion failed."</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"NaN"</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">value</span><span class="p">{};</span>
+
+    <span class="c1">//(3) NaNの読み取り</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="p">[</span><span class="n">ptr</span><span class="p">,</span> <span class="n">ec</span><span class="p">]</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::from_chars</span></span><span class="p">(</span><span class="n"><a href="../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n">value</span><span class="p">);</span> <span class="n">ec</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">errc</span><span class="p">{})</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"conversion failed."</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"-INF"</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">value</span><span class="p">{};</span>
+
+    <span class="c1">//(3) INFの読み取り</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="p">[</span><span class="n">ptr</span><span class="p">,</span> <span class="n">ec</span><span class="p">]</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::from_chars</span></span><span class="p">(</span><span class="n"><a href="../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n">value</span><span class="p">);</span> <span class="n">ec</span> <span class="o">==</span> <span class="n">std</span><span class="o">::</span><span class="n">errc</span><span class="p">{})</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"conversion failed."</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力例（VS2019 preview4.1）</h4>
+<p><pre><code>123456789
+65535
+35
+conversion failed.
+3.141592653589793
+0.110001
+0.110001
+conversion failed.
+nan
+-inf
+</code></pre></p>
+<h3>基本の使用例 (C++26)</h3>
+<p><div class="yata" id="4d9773555f6d68cf93c3fad523df41c2e0fe841e"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../iomanip.html">&lt;iomanip&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../charconv.html">&lt;charconv&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"00000123456789 is decimal"</span><span class="p">;</span>
+
+    <span class="c1">//(1) 10進数文字列からintへ変換</span>
+    <span class="c1">//変換の成否判定に`operator bool`を使用</span>
+    <span class="k">if</span> <span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">{};</span> <span class="n">std</span><span class="o">::</span><span class="n">from_chars</span><span class="p">(</span><span class="n"><a href="../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n">value</span><span class="p">))</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"conversion failed."</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"1111111111111111 is (65535)_10"</span><span class="p">;</span>
+
+    <span class="c1">//(1) 2進数文字列からintへ変換</span>
+    <span class="k">if</span> <span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">{};</span> <span class="n">std</span><span class="o">::</span><span class="n">from_chars</span><span class="p">(</span><span class="n"><a href="../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n">value</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"conversion failed."</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"Z is (35)_10"</span><span class="p">;</span>
+
+    <span class="c1">//(1) 36進数文字列からintへ変換</span>
+    <span class="k">if</span> <span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">{};</span> <span class="n">std</span><span class="o">::</span><span class="n">from_chars</span><span class="p">(</span><span class="n"><a href="../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n">value</span><span class="p">,</span> <span class="mi">36</span><span class="p">))</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"conversion failed."</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"255"</span><span class="p">;</span>
+
+    <span class="c1">//(1) 失敗する例 MSVCにおけるcharの範囲は-128～127</span>
+    <span class="k">if</span> <span class="p">(</span><span class="kt">char</span> <span class="n">value</span><span class="p">{};</span> <span class="n">std</span><span class="o">::</span><span class="n">from_chars</span><span class="p">(</span><span class="n"><a href="../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n">value</span><span class="p">))</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"conversion failed."</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">setprecision</span><span class="p">(</span><span class="mi">16</span><span class="p">);</span>
+
+  <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"3.1415926535897932384626433832795 is pi"</span><span class="p">;</span>
+
+    <span class="c1">//(3) 固定小数表記文字列からdoubleへ変換</span>
+    <span class="k">if</span> <span class="p">(</span><span class="kt">double</span> <span class="n">value</span><span class="p">{};</span> <span class="n">std</span><span class="o">::</span><span class="n">from_chars</span><span class="p">(</span><span class="n"><a href="../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n">value</span><span class="p">))</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"conversion failed."</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"1.10001e-01 is Liouville number"</span><span class="p">;</span>
+
+    <span class="c1">//(3) 指数表記文字列からdoubleへ変換</span>
+    <span class="k">if</span> <span class="p">(</span><span class="kt">double</span> <span class="n">value</span><span class="p">{};</span> <span class="n">std</span><span class="o">::</span><span class="n">from_chars</span><span class="p">(</span><span class="n"><a href="../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n">value</span><span class="p">))</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"conversion failed."</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"1.c29068986fcdf000p-4 is Liouville number"</span><span class="p">;</span>
+
+    <span class="c1">//(3) 16進指数表記文字列からdoubleへ変換</span>
+    <span class="k">if</span> <span class="p">(</span><span class="kt">double</span> <span class="n">value</span><span class="p">{};</span> <span class="n">std</span><span class="o">::</span><span class="n">from_chars</span><span class="p">(</span><span class="n"><a href="../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n">value</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">chars_format</span><span class="o">::</span><span class="n">hex</span><span class="p">))</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"conversion failed."</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">" 3.1415926535897932384626433832795 is pi"</span><span class="p">;</span>
+
+    <span class="c1">//(3) 失敗する例 ホワイトスペース読み飛ばし</span>
+    <span class="k">if</span> <span class="p">(</span><span class="kt">double</span> <span class="n">value</span><span class="p">{};</span> <span class="n">std</span><span class="o">::</span><span class="n">from_chars</span><span class="p">(</span><span class="n"><a href="../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n">value</span><span class="p">))</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"conversion failed."</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"NaN"</span><span class="p">;</span>
+
+    <span class="c1">//(3) NaNの読み取り</span>
+    <span class="k">if</span> <span class="p">(</span><span class="kt">double</span> <span class="n">value</span><span class="p">{};</span> <span class="n">std</span><span class="o">::</span><span class="n">from_chars</span><span class="p">(</span><span class="n"><a href="../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n">value</span><span class="p">))</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"conversion failed."</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"-INF"</span><span class="p">;</span>
+
+    <span class="c1">//(3) INFの読み取り</span>
+    <span class="k">if</span> <span class="p">(</span><span class="kt">double</span> <span class="n">value</span><span class="p">{};</span> <span class="n">std</span><span class="o">::</span><span class="n">from_chars</span><span class="p">(</span><span class="n"><a href="../iterator/begin.html">std::begin</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n"><a href="../iterator/end.html">std::end</a></span><span class="p">(</span><span class="n">str</span><span class="p">),</span> <span class="n">value</span><span class="p">))</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"conversion failed."</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h4>出力例</h4>
+<p><pre><code>123456789
+65535
+35
+conversion failed.
+3.141592653589793
+0.110001
+0.110001
+conversion failed.
+nan
+-inf
+</code></pre></p>
+<h3><a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a>からの変換（C++20）</h3>
+<p>入力文字列はポインタによる範囲で指定する必要があるが、<code>std::string</code>等のイテレータは必ずしもポインタとは限らず、そのままでは使いづらいことがある。その様なとき、C++20の<code><a href="../memory/to_address.html">std::to_address</a></code>を使用すると安全かつ簡易にこの関数でイテレータを使用できる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../ranges.html">&lt;ranges&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../memory.html">&lt;memory&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../optional.html">&lt;optional&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../format.html">&lt;format&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../vector.html">&lt;vector&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../string.html">&lt;string&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../charconv.html">&lt;charconv&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// contiguousな文字列範囲内の数値をdoubleへ変換する</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n"><a href="../ranges/contiguous_range.html">contiguous_range</a></span> <span class="n">R</span><span class="o">&gt;</span>
+  <span class="n">requires</span> <span class="n">std</span><span class="o">::</span><span class="n"><a href="../concepts/same_as.html">same_as</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n"><a href="../ranges/range_value_t.html">range_value_t</a></span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;&gt;</span>
+<span class="k">auto</span> <span class="n">str_to_double</span><span class="p">(</span><span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">r</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a href="../optional/optional.html">std::optional</a></span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="kt">double</span> <span class="n">out</span><span class="p">;</span>
+
+  <span class="c1">// 範囲のイテレータ（ポインタではない場合がある）</span>
+  <span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n"><a href="../ranges/begin.html">ranges::begin</a></span><span class="p">(</span><span class="n">r</span><span class="p">);</span>
+  <span class="k">auto</span> <span class="n"><a href="../ranges/end.html">end</a></span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n"><a href="../ranges/end.html">ranges::end</a></span><span class="p">(</span><span class="n">r</span><span class="p">);</span>
+
+  <span class="c1">// <a href="../memory/to_address.html">to_address</a>でイテレータをポインタへ変換して渡す</span>
+  <span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="p">[</span><span class="n">ptr</span><span class="p">,</span> <span class="n">ec</span><span class="p">]</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">std::from_chars</span></span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../memory/to_address.html">to_address</a></span><span class="p">(</span><span class="n">it</span><span class="p">),</span> <span class="n">std</span><span class="o">::</span><span class="n"><a href="../memory/to_address.html">to_address</a></span><span class="p">(</span><span class="n"><a href="../ranges/end.html">end</a></span><span class="p">),</span> <span class="n">out</span><span class="p">,</span> <span class="n"><a href="chars_format.html">std::chars_format</a></span><span class="o">::</span><span class="n">general</span><span class="p">);</span> <span class="n">ec</span> <span class="o">!=</span> <span class="n">std</span><span class="o">::</span><span class="n">errc</span><span class="p">{})</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">nullopt</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="n">out</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n"><a href="../string/basic_string.html">std::string</a></span> <span class="n">str</span> <span class="o">=</span> <span class="s">"3.1415926535897932384626433832795 is pi"</span><span class="p">;</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="n">opt</span> <span class="o">=</span> <span class="n">str_to_double</span><span class="p">(</span><span class="n">str</span><span class="p">);</span> <span class="n">opt</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n"><a href="../format/format.html">format</a></span><span class="p">(</span><span class="s">"{:.15f}</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="o">*</span><span class="n">opt</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"conversion failed.</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n"><a href="../string_view/basic_string_view.html">std::string_view</a></span> <span class="n">strview</span> <span class="o">=</span> <span class="s">"2.7182818284590452353602874 is e"</span><span class="p">;</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="n">opt</span> <span class="o">=</span> <span class="n">str_to_double</span><span class="p">(</span><span class="n">strview</span><span class="p">);</span> <span class="n">opt</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n"><a href="../format/format.html">format</a></span><span class="p">(</span><span class="s">"{:.15f}</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="o">*</span><span class="n">opt</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"conversion failed.</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">const</span> <span class="kt">char</span> <span class="n">cstr</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"1.10001e-01 is Liouville number"</span><span class="p">;</span>
+  <span class="n"><a href="../vector/vector.html">std::vector</a></span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="n">strvec</span><span class="p">(</span><span class="n">cstr</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n"><a href="../ranges/end.html">ranges::end</a></span><span class="p">(</span><span class="n">cstr</span><span class="p">));</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="n">opt</span> <span class="o">=</span> <span class="n">str_to_double</span><span class="p">(</span><span class="n">strvec</span><span class="p">);</span> <span class="n">opt</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n"><a href="../format/format.html">format</a></span><span class="p">(</span><span class="s">"{:.15f}</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="o">*</span><span class="n">opt</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"conversion failed.</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n"><a href="../span/span.html">std::span</a></span> <span class="n">sp</span><span class="p">{</span><span class="n">cstr</span><span class="p">};</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="n">opt</span> <span class="o">=</span> <span class="n">str_to_double</span><span class="p">(</span><span class="n">sp</span><span class="p">);</span> <span class="n">opt</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n"><a href="../format/format.html">format</a></span><span class="p">(</span><span class="s">"{:.15f}</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="o">*</span><span class="n">opt</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"conversion failed.</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h4>出力</h4>
+<p><pre><code>3.141592653589793
+2.718281828459045
+0.110001000000000
+0.110001000000000
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++17</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: 7.0(整数のみ), 20.1(from_chars()もdouble, floatをsupport) <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#gcc">GCC</a>: 8.0(整数のみ) <span aria-label="検証済" role="img" title="検証済">✅</span>, 11.1(full support) <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: 2017 update 7(整数のみ) <span aria-label="検証済" role="img" title="検証済">✅</span>, update 9(full support) <span aria-label="検証済" role="img" title="検証済">✅</span></li>
+</ul>
+<h2>関連項目</h2>
+<ul>
+<li><code><a href="chars_format.html">chars_format</a></code></li>
+<li><code><a href="from_chars_result.html">from_chars_result</a></code></li>
+<li><code><a href="to_chars.html">to_chars</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0067r5.html" target="_blank">P0067R5: Elementary string conversions, revision 5</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0682r1.html" target="_blank">P0682R1: Repairing elementary string conversions</a></li>
+<li><a href="https://www.bfilipek.com/2018/12/fromchars.html" target="_blank">How to Use The Newest C++ String Conversion Routines - std::from_chars - Bartek's coding blog </a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2291r3.pdf" target="_blank">P2291R3: Add Constexpr Modifiers to Functions to_chars and from_chars for Integral Types in <code>&lt;charconv&gt;</code> Header</a><ul>
+<li>C++23での(1)constexpr指定</li>
+</ul>
+</li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1467r9.html" target="_blank">P1467R9 Extended floating-point types and standard names</a><ul>
+<li>C++23で<a class="cpprefjp-defined-word" data-desc="&lt;stdfloat&gt;で定義される内部表現の規定された浮動小数点数型" href="../stdfloat.html">拡張浮動小数点数型</a>に対応した</li>
+</ul>
+</li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

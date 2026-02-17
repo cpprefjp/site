@@ -1,0 +1,785 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>コルーチン [P0912R5] - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,cpp20,co_yield,co_await,co_return,promise_type,get_return_object,initial_suspend,final_suspend,yield_value,await_transform,return_value,return_void,unhandled_exception,get_return_object_on_allocation_failure,await_ready,await_suspend,await_resume
+">
+        <meta name="title" content="コルーチン [P0912R5] - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="コルーチン [P0912R5] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="コルーチン [P0912R5] - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/lang/cpp20/coroutines.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="処理途中でのサスペンド(中断)／レジューム(再開)をサポートする一般化された関数として、[コルーチン](https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%AB%E3%83%BC%E3%83%81%E3%83%B3)が導入される。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="コルーチン [P0912R5] - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/lang/cpp20/coroutines.html" />
+        <meta name="twitter:description" content="処理途中でのサスペンド(中断)／レジューム(再開)をサポートする一般化された関数として、[コルーチン](https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%AB%E3%83%BC%E3%83%81%E3%83%B3)が導入される。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="manifest" href="../../manifest.json?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;cpp&#34;: [&#34;cpp20&#34;], &#34;alias&#34;: [&#34;co_yield,co_await,co_return,promise_type,get_return_object,initial_suspend,final_suspend,yield_value,await_transform,return_value,return_void,unhandled_exception,get_return_object_on_allocation_failure,await_ready,await_suspend,await_resume&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;c9af0c7cca23e5293be6f153073c33c7e5078492&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;coroutine&gt;\n\n// \u30e1\u30e2\u30ea\u78ba\u4fdd\u304c\u5fc5\u8981\u3068\u306a\u3063\u305f\u3068\u304d\u306f::operator new(size_t, nothrow_t)\u304c\u4f7f\u308f\u308c\u308b\nstruct generator {\n  struct promise_type;\n  using handle = std::coroutine_handle&lt;promise_type&gt;;\n  struct promise_type {\n    int current_value;\n    static auto get_return_object_on_allocation_failure() { return generator{nullptr}; }\n    auto get_return_object() { return generator{handle::from_promise(*this)}; }\n    auto initial_suspend() { return std::suspend_always{}; }\n    auto final_suspend() noexcept { return std::suspend_always{}; }\n    void unhandled_exception() { std::terminate(); }\n    void return_void() {}\n    auto yield_value(int value) {\n      current_value = value;\n      return std::suspend_always{};\n    }\n  };\n  bool move_next() { return coro ? (coro.resume(), !coro.done()) : false; }\n  int current_value() { return coro.promise().current_value; }\n  generator(generator const&amp;) = delete;\n  generator(generator &amp;&amp; rhs) : coro(rhs.coro) { rhs.coro = nullptr; }\n  ~generator() { if (coro) coro.destroy(); }\nprivate:\n  generator(handle h) : coro(h) {}\n  handle coro;\n};\n\ngenerator f() { co_yield 1; co_yield 2; }\n\nint main() {\n  auto g = f();\n  while (g.move_next()) std::cout &lt;&lt; g.current_value() &lt;&lt; std::endl;\n}\n&#34;}, {&#34;id&#34;: &#34;80c27bc07134b1355581a556e71f241e432142a1&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;coroutine&gt;\n#include &lt;utility&gt;\n\n// \u30b3\u30eb\u30fc\u30c1\u30f3\u5229\u7528\u30e9\u30a4\u30d6\u30e9\u30ea: \u30b8\u30a7\u30cd\u30ec\u30fc\u30bf\u578b\nstruct my_generator {\n  // \u30b8\u30a7\u30cd\u30ec\u30fc\u30bf\u306b\u95a2\u9023\u4ed8\u3051\u3089\u308c\u308bPromise\u578b\n  struct promise_type {\n    // co_yield\u5f0f\u3067\u6307\u5b9a\u3055\u308c\u308bint\u5024\u3092\u4fdd\u6301\u3059\u308b\u5909\u6570\n    int value_;\n\n    auto get_return_object()\n    {\n      // \u30b3\u30eb\u30fc\u30c1\u30f3\u306b\u7d10\u3065\u304fPromise\u30aa\u30d6\u30b8\u30a7\u30af\u30c8(*this)\u304b\u3089\n      // \u30b8\u30a7\u30cd\u30ec\u30fc\u30bf\u578b\u306e\u30b3\u30eb\u30fc\u30c1\u30f3\u623b\u308a\u5024\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u3092\u751f\u6210\n      return my_generator{*this};\n    };\n    auto initial_suspend()\n    {\n      // \u30b3\u30eb\u30fc\u30c1\u30f3\u672c\u4f53\u51e6\u7406\u306e\u958b\u59cb\u524d\u306b\u7121\u6761\u4ef6\u30b5\u30b9\u30da\u30f3\u30c9\n      return std::suspend_always{};\n    }\n    auto final_suspend() noexcept\n    {\n      // \u30b3\u30eb\u30fc\u30c1\u30f3\u672c\u4f53\u51e6\u7406\u306e\u7d42\u4e86\u5f8c\u306b\u7121\u6761\u4ef6\u30b5\u30b9\u30da\u30f3\u30c9\n      return std::suspend_always{};\n    }\n    auto yield_value(int v)\n    {\n      // co_yield\u5f0f\u3067\u6e21\u3055\u308c\u308b\u5024\u3092\u4fdd\u6301\u3057\u3001\u30b3\u30eb\u30fc\u30c1\u30f3\u3092\u7121\u6761\u4ef6\u30b5\u30b9\u30da\u30f3\u30c9\n      value_ = v;\n      return std::suspend_always{};\n    }\n    void return_void() {}\n    void unhandled_exception() { std::terminate(); }\n  };\n  // \u30b8\u30a7\u30cd\u30ec\u30fc\u30bf\u306b\u95a2\u9023\u4ed8\u3051\u3089\u308c\u308b\u30b3\u30eb\u30fc\u30c1\u30f3\u30cf\u30f3\u30c9\u30eb\u578b\n  using coro_handle = std::coroutine_handle&lt;promise_type&gt;;\n\n  // \u7bc4\u56f2for\u69cb\u6587\u30b5\u30dd\u30fc\u30c8\u7528\u30a4\u30c6\u30ec\u30fc\u30bf\u578b\n  struct iterator {\n    // \u5bfe\u8c61\u306e\u30b3\u30eb\u30fc\u30c1\u30f3\u30cf\u30f3\u30c9\u30eb\n    coro_handle coro_;\n    // \u5bfe\u8c61\u30b3\u30eb\u30fc\u30c1\u30f3\u672c\u4f53\u51e6\u7406\u304c\u7d42\u4e86\u3057\u305f\u304b\u3092\u8868\u3059\u30d5\u30e9\u30b0\n    bool done_;\n\n    iterator&amp; operator++()\n    {\n      // yield_value()\u3067\u4e2d\u65ad\u3057\u305f\u30b3\u30eb\u30fc\u30c1\u30f3\u3092\u518d\u958b\u3059\u308b\n      coro_.resume();\n      // (co_yield\u5f0f\u8a55\u4fa1\u3082\u3057\u304f\u306f\u30b3\u30eb\u30fc\u30c1\u30f3\u672c\u4f53\u51e6\u7406\u306e\u7d42\u4e86\u306b\u3088\u308a\u5236\u5fa1\u304c\u623b\u3063\u3066\u304f\u308b)\n      done_ = coro_.done();\n      return *this;\n    }\n    bool operator!=(const iterator&amp; rhs) const\n    {\n      return done_ != rhs.done_;\n    }\n    int operator*() const\n    {\n      // Promise\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u304c\u4fdd\u6301\u3057\u3066\u3044\u308b\u5024\u3092\u8fd4\u3059\n      return coro_.promise().value_;\n    }\n  };\n\n  ~my_generator()\n  {\n    if (coro_)\n      coro_.destroy();\n  }\n\n  my_generator(my_generator const&amp;) = delete;\n  my_generator(my_generator&amp;&amp; rhs) \n    : coro_(std::exchange(rhs.coro_, nullptr)) {}\n\n  // \u7bc4\u56f2for\u69cb\u6587\u30b5\u30dd\u30fc\u30c8\u7528\u306e\u30e1\u30f3\u30d0\u95a2\u6570\n  iterator begin()\n  {\n    // initial_suspend()\u3067\u4e2d\u65ad\u3057\u305f\u30b3\u30eb\u30fc\u30c1\u30f3\u3092\u518d\u958b\u3059\u308b\n    coro_.resume();\n    // (\u521d\u56deco_yield\u5f0f\u8a55\u4fa1\u306b\u3088\u308a\u5236\u5fa1\u304c\u623b\u3063\u3066\u304f\u308b)\n    return {coro_, coro_.done()};\n  }\n  iterator end()\n  {\n    // \u7d42\u7aef\u4f4d\u7f6e\u3092\u8868\u73fe\u3059\u308b\u756a\u5175\u30a4\u30c6\u30ec\u30fc\u30bf\n    return {{}, true};\n  }\n\nprivate:\n  // Promise\u30aa\u30d6\u30b8\u30a7\u30af\u30c8\u7d4c\u7531\u3067\u30b3\u30eb\u30fc\u30c1\u30f3\u30cf\u30f3\u30c9\u30eb\u3092\u53d6\u5f97\u3059\u308b\n  explicit my_generator(promise_type&amp; p)\n    : coro_(coro_handle::from_promise(p)) {}\n\n  coro_handle coro_;\n};\n\n\n// \u30e6\u30fc\u30b6\u5b9a\u7fa9\u30b3\u30eb\u30fc\u30c1\u30f3\nmy_generator iota(int end)\n{\n  // \u30b3\u30eb\u30fc\u30c1\u30f3\u306b\u5bfe\u5fdc\u3057\u305fPromise\u578b generator::promise_type\u306e\n  // Promise\u30aa\u30d6\u30b8\u30a7\u30af\u30c8(p)\u304c\u751f\u6210\u3055\u308c\u308b\u3002\n\n  for (int n = 0; n &lt; end; ++n) {\n    // \u4e0b\u5f0f\u306f co_await p.yield_value(n) \u3068\u7b49\u4fa1\n    co_yield n;\n  }\n  // \u30b3\u30eb\u30fc\u30c1\u30f3\u672c\u4f53\u306e\u7d42\u7aef\u5230\u9054\u306b\u3088\u308a p.return_void() \u547c\u3073\u51fa\u3057\n}\n\nint main()\n{\n  // \u30b3\u30eb\u30fc\u30c1\u30f3\u3092\u547c\u3073\u51fa\u3057\u3001\u6574\u6570\u751f\u6210\u30b8\u30a7\u30cd\u30ec\u30fc\u30bf\u3092\u53d6\u5f97\u3059\u308b\u3002\n  auto g = iota(10);\n  // \u3053\u306e\u30bf\u30a4\u30df\u30f3\u30b0\u3067\u306f\u307e\u3060\u30b3\u30eb\u30fc\u30c1\u30f3\u672c\u4f53\u306f\u5b9f\u884c\u3055\u308c\u306a\u3044\u3002\n\n  // \u7bc4\u56f2for\u69cb\u6587\u3092\u7528\u3044\u3066\u30b3\u30eb\u30fc\u30c1\u30f3\u672c\u4f53\u3092\u5b9f\u884c\u3059\u308b\u3002\n  // \u3053\u3053\u3067\u306f\u30b3\u30eb\u30fc\u30c1\u30f3iota\u306e\u5024\u751f\u6210\u30eb\u30fc\u30d7\u51e6\u7406\u30b9\u30c6\u30c3\u30d7\u3068\u3001\n  // main\u95a2\u6570\u306e\u8868\u793a\u30eb\u30fc\u30d7\u51e6\u7406\u30b9\u30c6\u30c3\u30d7\u304c\u4ea4\u4e92\u306b\u5b9f\u884c\u3055\u308c\u308b\u3002\n  for (int v: g) {\n    std::cout &lt;&lt; v;\n  }\n}\n&#34;}], &#34;page_id&#34;: [&#34;lang&#34;, &#34;cpp20&#34;, &#34;coroutines&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang.html" itemprop="url">
+              
+                <span itemprop="name">言語機能</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../lang/cpp20.html" itemprop="url">
+              
+                <span itemprop="name">C++20</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">コルーチン [P0912R5]</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2026-01-16T06:50:25">
+        2026年01月16日 06時50分25秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yoh</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/lang/cpp20/coroutines.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/lang/cpp20/coroutines.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <h1 itemprop="name"><span class="token">コルーチン [P0912R5]</span><span class="cpp cpp20" title="C++20で追加">(C++20)</span></h1>
+<div itemprop="articleBody"><p></p>
+<p></p>
+<p>このページはC++20に採用された言語機能の変更を解説しています。</p>
+<p>のちのC++規格でさらに変更される場合があるため<a href="#relative-page">関連項目</a>を参照してください。</p>
+<p></p>
+<h2>概要</h2>
+<p>処理途中でのサスペンド(中断)／レジューム(再開)をサポートする一般化された関数として、<a href="https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%AB%E3%83%BC%E3%83%81%E3%83%B3" target="_blank">コルーチン</a>が導入される。</p>
+<p>C++20時点では、コルーチン動作に関する言語仕様と新キーワード<code>co_return</code>, <code>co_await</code>, <code>co_yield</code>による新しい構文、コルーチンライブラリ実装者向けの低レベルライブラリ<code><a href="../../reference/coroutine.html">&lt;coroutine&gt;</a></code>のみが規定される。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// コルーチンiotaを定義</span>
+<span class="n">my_generator</span> <span class="nf">iota</span><span class="p">(</span><span class="kt">int</span> <span class="n">end</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">;</span> <span class="o">++</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><span style="color:#ff0000">co_yield</span></span> <span class="n">n</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// コルーチンの呼び出し</span>
+<span class="k">auto</span> <span class="n">g</span> <span class="o">=</span> <span class="n">iota</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">v</span><span class="p">:</span> <span class="n">g</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">v</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// "my_generator"はライブラリが提供するべきクラス。</span>
+<span class="c1">// 動作可能なサンプルコード全体は後述例を参照のこと。</span>
+</code></pre></div>
+</p>
+<p>一般的なアプリケーション実装者からの利用を想定した、ジェネレータや非同期タスク・非同期I/Oといったハイレベルなコルーチンライブラリは、C++23以降での導入にむけて検討されている。</p>
+<p>C++23ではジェネレータコルーチンを実現する<code><a href="../../reference/generator.html">&lt;generator&gt;</a></code>が追加された。</p>
+<h3>特徴</h3>
+<p>C++コルーチンの特徴は次の通り：</p>
+<ul>
+<li>関数からコルーチンへの拡張: 従来からある関数(function)の呼出し(call)と復帰(return)に加えて、コルーチン(coroutine)では中断(suspend)と再開(resume)動作をサポートする。また中断状態のまま再開不要となったコルーチンに対しては、リソースリークを防ぐため明示的に破棄(destroy)を行える。</li>
+<li>多数の <strong>カスタマイズポイント</strong>: コルーチンライブラリ実装者向けに、コルーチン動作の制御を可能とするカスタマイズポイントを規定する。後述するPromise、Awaitable、Awaiterなど。</li>
+<li>軽量な <strong>スタックレス(Stackless)コルーチン</strong>: コルーチンの中断は実行中コルーチンのレキシカル・スコープ内でのみで許可され、コルーチンが呼び出した関数内では中断操作を行えない。（C++コルーチンの定義上、<code>co_await</code>や<code>co_yield</code>を用いて中断処理を記述すると、関数ではなくコルーチンとみなされる。）</li>
+<li>コルーチン毎の <strong>動的メモリ確保</strong>: コルーチン実引数の保持や進行状況を管理するため、動的メモリ確保が行われる可能性がある。ただし一定の条件を満たす場合には、<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0981r0.html" target="_blank">C++コンパイラ最適化により動的メモリ確保は省略される</a>と期待できる。</li>
+<li><strong>非対称(Asymmetric)・対称(Symmetric)コルーチン</strong>: 中断処理によりコルーチン再開元へ制御を戻す非対称コルーチンのほか、明示的に別コルーチンの再開に制御を移す対称コルーチンをサポートする。待機動作をカスタマイズするAwaiterオブジェクト<code>await_suspend</code>にて制御する。</li>
+<li><strong><a href="../../reference/thread/thread.html">スレッド(thread)</a>との直交</strong>: あるスレッド上で実行されるコルーチンを中断し、その後に別スレッドから同コルーチンを再開させることもできる。ただし<a href="../cpp11/thread_local_storage.html">スレッドローカルストレージ</a>と組合せには注意が必要。</li>
+</ul>
+<h3>動作概略</h3>
+<p>C++コルーチン動作理解の助けとなるよう、ここでは細部を省略した説明を行う。
+コルーチン実行の基本動作は、それぞれ下記ように説明される：</p>
+<ul>
+<li>呼出し: 通常の関数と同様に、カッコ(<code>()</code>)を用いた関数呼び出し構文を用いる。コルーチンに対応するユーザ定義Promiseオブジェクトが自動的に生成されるため、そこからコルーチンハンドルを取得する。</li>
+<li>中断: コルーチン本体にて<code>co_yield</code>式または<code>co_await</code>式を記述する。中断されたコルーチンから呼出元へは、コルーチンハンドルを内包するコルーチン<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型オブジェクトを返す。</li>
+<li>再開: コルーチン中断により返された<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型オブジェクトを介して、コルーチンハンドルの再開関数<code><a href="../../reference/coroutine/coroutine_handle/resume.html">resume</a></code>を呼び出す。</li>
+<li>復帰: コルーチン本体にて<code>co_return</code>文を記述、またはコルーチン本体終端まで到達する。全てのローカル変数とPromiseオブジェクトは破棄される。</li>
+</ul>
+<p>この4種類の基本動作に対して、次のカスタマイズポイントが提供される。カッコ内はコルーチンライブラリが実装すべきカスタマイズポイント名：</p>
+<ul>
+<li>コルーチン呼出し直後の動作: 初期サスペンドポイント(<code>initial_suspend</code>)にて、コルーチン本体の開始前に中断して<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型オブジェクトを返すか、そのままコルーチン本体を実行継続するかを制御する。</li>
+<li>コルーチン復帰直前の動作: 最終サスペンドポイント(<code>final_suspend</code>)にて、コルーチンを最後に中断して<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型オブジェクトを返すか、そのままコルーチンに関するリソースを破棄するかを制御する。前者を選択した場合、リソースリークを防ぐためコルーチンハンドルの破棄関数<code><a href="../../reference/coroutine/coroutine_handle/destroy.html">destroy</a></code>呼出しが必要となる。</li>
+<li>値を伴うコルーチン中断: <code>co_yield</code>式により、コルーチンを中断すると同時に呼出元へ値を返す(<code>yield_value</code>)。</li>
+<li>値を伴うコルーチン復帰: <code>co_return</code>文により、呼出元へ値を返す(<code>return_value</code>)。</li>
+<li>コルーチン中断／再開制御: <code>co_await</code>式により、コルーチン中断と再開に関する振る舞いを詳細に制御する(<code>await_transform</code>, <code>operator co_await</code>)。<ul>
+<li>コルーチン中断の条件: <code>co_await</code>式に対して、コルーチンを中断するか否かを判断する(<code>await_ready</code>)。</li>
+<li>コルーチン中断直前の動作: <code>co_await</code>式に対して、コルーチンを中断する直前の動作を制御する(<code>await_suspend</code>)。</li>
+<li>コルーチン再開直後の動作: <code>co_await</code>式に対して、コルーチンが再開された直後の動作を制御する(<code>await_resume</code>)。</li>
+</ul>
+</li>
+</ul>
+<p>プログラマが記述するコルーチンは、コンパイル時にソースコード変換が行われると解釈できる。
+（従来のC++仕様範囲ではコルーチン動作を正確に表現できないため、下記はあくまでも疑似的なコードとなる）：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// プログラマが記述するコルーチン</span>
+<span class="n">my_generator</span> <span class="nf">iota</span><span class="p">(</span><span class="kt">int</span> <span class="n">end</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">;</span> <span class="o">++</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><span style="color:#ff0000">co_yield</span></span> <span class="n">n</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// C++コンパイラにより展開されたコード</span>
+<span class="n">my_generator</span> <span class="nf">iota</span><span class="p">(</span><span class="kt">int</span> <span class="n">end</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// コルーチンに対応するPromiseオブジェクトを初期化</span>
+  <span class="n">my_generator</span><span class="o">::</span><span class="n">promise_type</span> <span class="n">promise</span><span class="p">;</span>
+
+  <span class="c1">// 戻り値型オブジェクトの初期化</span>
+  <span class="n">my_generator</span> <span class="n">result</span> <span class="o">=</span> <span class="n">promise</span><span class="p">.</span><span class="n">get_return_object</span><span class="p">();</span>
+  <span class="c1">// コルーチンハンドルをget_return_object内で取得し、resultメンバで保持する。</span>
+  <span class="c1">// 生成したresultオブジェクトは、初回のコルーチン中断時に呼出元へ返される。</span>
+
+  <span class="c1">// 本例では全て <span style="color:#ff0000">co_await</span> <a href="../../reference/coroutine/suspend_always.html">std::suspend_always{}</a> 相当のため、</span>
+  <span class="c1">// 以降の<span style="color:#ff0000">co_await</span>式(★箇所)においてコルーチンは中断／再開される。</span>
+
+  <span class="c1">// 初期サスペンドポイント</span>
+  <span class="n"><span style="color:#ff0000">co_await</span></span> <span class="n">promise</span><span class="p">.</span><span class="n">initial_suspend</span><span class="p">();</span> <span class="c1">//★</span>
+
+  <span class="c1">// コルーチン本体部</span>
+  <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">;</span> <span class="o">++</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// <span style="color:#ff0000">co_yield</span>式は下記<span style="color:#ff0000">co_await</span>式に展開される</span>
+      <span class="n"><span style="color:#ff0000">co_await</span></span> <span class="n">promise</span><span class="p">.</span><span class="n">yield_value</span><span class="p">(</span><span class="n">n</span><span class="p">);</span> <span class="c1">//★</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="n">promise</span><span class="p">.</span><span class="n">return_void</span><span class="p">();</span>
+
+  <span class="c1">// 最終サスペンドポイント</span>
+  <span class="n"><span style="color:#ff0000">co_await</span></span> <span class="n">promise</span><span class="p">.</span><span class="n">final_suspend</span><span class="p">();</span> <span class="c1">//★</span>
+
+  <span class="c1">// 本例では最終サスペンドポイントでコルーチンを中断するため、ここには制御が到達しない。</span>
+  <span class="c1">// 呼出側で戻り値オブジェクトを破棄すると、デストラクタ経由で本コルーチンは破棄される。</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>仕様</h2>
+<h3>コルーチン定義</h3>
+<p>C++におけるコルーチンは、関数の一種として定義される。</p>
+<p>関数本体に新キーワード<code>co_await</code>(Await式), <code>co_yield</code>(Yield式), <code>co_return</code>のいずれかが含まれるとき、その関数はコルーチンとなる。
+つまり、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型や引数リストなどのシグニチャからコルーチン／関数を区別することはできない。
+コルーチンの引数宣言リストはC言語由来の可変引数リスト(<code>...</code>)を含んではならないが、<a href="../cpp11/variadic_templates.html">可変引数テンプレートのパラメータパック(<code>...</code>)</a>は利用できる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n">task</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">f</span><span class="p">();</span>
+
+<span class="n">task</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span> <span class="n">g1</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">co_await</span></span> <span class="n">f</span><span class="p">();</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"f() =&gt; "</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="n">task</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span> <span class="n">g2</span><span class="p">(</span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...)</span> <span class="p">{</span> <span class="c1">// OK, "..."はパック展開</span>
+  <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">co_await</span></span> <span class="n">f</span><span class="p">();</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"f() =&gt; "</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">task</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span> <span class="n">g3</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="p">...)</span> <span class="p">{</span> <span class="c1">// エラー: 可変引数リストは許可されない</span>
+  <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">co_await</span></span> <span class="n">f</span><span class="p">();</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"f() =&gt; "</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<p>プログラムエントリポイントの<code>main</code>関数、<code>constexpr</code>関数、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型をプレースホルダ(<code>auto</code>)で宣言された関数、クラス型のコンストラクタとデストラクタは、コルーチンとして定義できない。</p>
+<h3>Promise型とコルーチン動作仕様</h3>
+<p>コルーチンのPromise型は、コルーチンの<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>型<code>R</code>と引数リスト<code>P1</code>, <code>P2</code>, ..., <code>Pn</code>から決定されるクラス型である。</p>
+<ul>
+<li>デフォルト動作では<code>R::promise_type</code>がPromise型となる。</li>
+<li>ユーザプログラム中で<code><a href="../../reference/coroutine/coroutine_traits.html">std::coroutine_traits</a></code>トレイトを特殊化した場合は、<code>coroutine_traits&lt;R, P1, P2, ..., Pn&gt;::promise_type</code>がPromise型となる。</li>
+<li>コルーチンがクラスの非静的メンバの場合、<code>P1</code>は暗黙のオブジェクトパラメータ(<code>*this</code>の型)となる。</li>
+</ul>
+<p>コルーチンは、その本体 <em>function-body</em> が下記の通り置き換えられたかのように動作する：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="n"><i>promise-type</i></span> <span class="n"><i>promise</i></span> <span class="n"><i>promise-constructor-arguments</i></span> <span class="p">;</span>
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="n">co_await</span> <span class="n"><i>promise</i></span><span class="p">.</span><span class="n">initial_suspend</span><span class="p">()</span> <span class="p">;</span>
+    <span class="n"><i>function-body</i></span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span> <span class="p">...</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="n"><i>initial-await-resume-called</i></span> <span class="p">)</span>
+      <span class="k">throw</span> <span class="p">;</span>
+    <span class="n"><i>promise</i></span><span class="p">.</span><span class="n">unhandled_exception</span><span class="p">()</span> <span class="p">;</span>
+  <span class="p">}</span>
+<span class="nl"><i>final-suspend</i></span> <span class="p">:</span>
+  <span class="n">co_await</span> <span class="n"><i>promise</i></span><span class="p">.</span><span class="n">final_suspend</span><span class="p">()</span> <span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<ul>
+<li><code>initial_suspend</code>呼び出しを含むAwait式は、初期サスペンドポイントとなる。</li>
+<li><code>final_suspend</code>呼び出しを含むAwait式は、最終サスペンドポイントとなる。</li>
+<li><em>initial-await-resume-called</em> は<code>false</code>で初期化され、初期サスペンドポイントの式 <em>await-resume</em> が評価される直前に<code>true</code>が設定される。</li>
+<li><em>promise-type</em> はPromise型を表す。</li>
+<li>説明用の変数名 <em>promise</em> は、コルーチンのPromiseオブジェクトを表す。</li>
+<li>ラベル <em>final-suspend</em> は説明のためにのみ定義される。</li>
+<li><em>promise-constructor-arguments</em> は次の通りに決定される:<ul>
+<li>引数リスト<code>Pi</code>の左辺値を<code>pi</code>とする。コルーチンが非静的メンバの場合、<code>p1</code>は<code>*this</code>を表し<code>p(i+1)</code>はi番目の関数パラメータを表す。</li>
+<li>左辺値<code>p1</code>...<code>pn</code>の実引数リストを用いて、Promiseコンストラクタ呼び出しの<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>を試みる。</li>
+<li>適合するコンストラクタが見つかった場合は、<em>promise-constructor-arguments</em> は <code>(p1, ..., pn)</code> となる。見つからなかった場合、<em>promise-constructor-arguments</em> は空のリストとなる。</li>
+</ul>
+</li>
+</ul>
+<p>Promise型のスコープにおいて、非修飾な<code>return_void</code>および<code>return_value</code>の探索が行われる。両方が見つかった場合、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</p>
+<p>コルーチン呼び出しのglvalue結果またはprvalue結果オブジェクトを初期化するために、式 <code><em>promise</em>.get_return_object()</code>が使われる。
+<code>get_return_object</code>呼び出しは高々1回であり、<code>initial_suspend</code>呼び出しよりも前に順序付けられる。</p>
+<p>中断状態にあるコルーチンは、そのコルーチンを指すコルーチンハンドルの再開メンバ関数呼び出しによって、継続実行を再開できる。
+再開メンバ関数を呼び出した関数は、再開元(resumer)と呼ばれる。
+中断状態にないコルーチンに対する再開メンバ関数呼び出しは、<a class="cpprefjp-defined-word" data-desc="処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義の動作</a>をもたらす。</p>
+<p>処理系はコルーチンのために追加のメモリ領域を確保する必要があるかもしれない。
+このメモリ領域はコルーチン・ステートとして知られ、非配列版のメモリ確保関数(<code>operator new</code>)によって確保される。
+メモリ確保関数はPromise型のスコープで名前探索が行われる。
+名前探索に失敗した場合は、グローバルスコープで探索が行われる。
+名前探索がPromise型のスコープで確保関数を見つけた場合は、実引数リストを用いて関数呼び出しの<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>が行われる。
+第1引数は<code>std::size_t</code>型であり、要求メモリサイズの合計値となる。続く実引数は左辺値<code>p1</code>...<code>pn</code>となる。
+適合する関数が見つからなかった場合、<code>std::size_t</code>型の要求メモリサイズ合計値のみで再度<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>が行われる。</p>
+<p>Promise型のスコープにおいて、非修飾な<code>get_return_object_on_allocation_failure</code>の探索が行われる。
+何らかの宣言が見つかった場合、グローバルな<code>::operator new(size_t nothrow_t)</code>形式の確保関数が選択され、メモリ領域確保に失敗すると、コルーチン・ステート用メモリ領域取得のための確保関数呼び出し結果は<code>nullptr</code>を返すと想定される。
+このケースにおける確保関数は、<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>を投げないnoexcept指定されるべきである。
+メモリ確保関数が<code>nullptr</code>を返した場合、コルーチンはその呼び出し元に制御を戻し、<a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a>は<code>T::get_return_object_on_allocation_failure()</code>呼び出しにより取得する。
+ここで<code>T</code>はPromise型を表す。</p>
+<p><div class="yata" id="c9af0c7cca23e5293be6f153073c33c7e5078492"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/coroutine.html">&lt;coroutine&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// メモリ確保が必要となったときは::operator new(size_t, nothrow_t)が使われる</span>
+<span class="k">struct</span> <span class="n">generator</span> <span class="p">{</span>
+  <span class="k">struct</span> <span class="n">promise_type</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">handle</span> <span class="o">=</span> <span class="n"><a href="../../reference/coroutine/coroutine_handle.html">std::coroutine_handle&lt;promise_type&gt;</a></span><span class="p">;</span>
+  <span class="k">struct</span> <span class="n">promise_type</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">current_value</span><span class="p">;</span>
+    <span class="k">static</span> <span class="k">auto</span> <span class="nf">get_return_object_on_allocation_failure</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">generator</span><span class="p">{</span><span class="k">nullptr</span><span class="p">};</span> <span class="p">}</span>
+    <span class="k">auto</span> <span class="nf">get_return_object</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">generator</span><span class="p">{</span><span class="n">handle</span><span class="o">::</span><span class="n"><a href="../../reference/coroutine/coroutine_handle/from_promise.html">from_promise</a></span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">)};</span> <span class="p">}</span>
+    <span class="k">auto</span> <span class="nf">initial_suspend</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n"><a href="../../reference/coroutine/suspend_always.html">suspend_always</a></span><span class="p">{};</span> <span class="p">}</span>
+    <span class="k">auto</span> <span class="nf">final_suspend</span><span class="p">()</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n"><a href="../../reference/coroutine/suspend_always.html">suspend_always</a></span><span class="p">{};</span> <span class="p">}</span>
+    <span class="kt">void</span> <span class="nf">unhandled_exception</span><span class="p">()</span> <span class="p">{</span> <span class="n"><a href="../../reference/exception/terminate.html">std::terminate</a></span><span class="p">();</span> <span class="p">}</span>
+    <span class="kt">void</span> <span class="nf">return_void</span><span class="p">()</span> <span class="p">{}</span>
+    <span class="k">auto</span> <span class="nf">yield_value</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">current_value</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
+      <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n"><a href="../../reference/coroutine/suspend_always.html">suspend_always</a></span><span class="p">{};</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+  <span class="kt">bool</span> <span class="nf">move_next</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">coro</span> <span class="o">?</span> <span class="p">(</span><span class="n">coro</span><span class="p">.</span><span class="n"><a href="../../reference/coroutine/coroutine_handle/resume.html">resume()</a></span><span class="p">,</span> <span class="o">!</span><span class="n">coro</span><span class="p">.</span><span class="n"><a href="../../reference/coroutine/coroutine_handle/done.html">done()</a></span><span class="p">)</span> <span class="o">:</span> <span class="nb">false</span><span class="p">;</span> <span class="p">}</span>
+  <span class="kt">int</span> <span class="nf">current_value</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">coro</span><span class="p">.</span><span class="n"><a href="../../reference/coroutine/coroutine_handle/promise.html">promise()</a></span><span class="p">.</span><span class="n">current_value</span><span class="p">;</span> <span class="p">}</span>
+  <span class="n">generator</span><span class="p">(</span><span class="n">generator</span> <span class="k">const</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+  <span class="n">generator</span><span class="p">(</span><span class="n">generator</span> <span class="o">&amp;&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="o">:</span> <span class="n">coro</span><span class="p">(</span><span class="n">rhs</span><span class="p">.</span><span class="n">coro</span><span class="p">)</span> <span class="p">{</span> <span class="n">rhs</span><span class="p">.</span><span class="n">coro</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span> <span class="p">}</span>
+  <span class="o">~</span><span class="n">generator</span><span class="p">()</span> <span class="p">{</span> <span class="k">if</span> <span class="p">(</span><span class="n">coro</span><span class="p">)</span> <span class="n">coro</span><span class="p">.</span><span class="n"><a href="../../reference/coroutine/coroutine_handle/destroy.html">destroy()</a></span><span class="p">;</span> <span class="p">}</span>
+<span class="k">private</span><span class="o">:</span>
+  <span class="n">generator</span><span class="p">(</span><span class="n">handle</span> <span class="n">h</span><span class="p">)</span> <span class="o">:</span> <span class="n">coro</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="p">{}</span>
+  <span class="n">handle</span> <span class="n">coro</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">generator</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span> <span class="n"><span style="color:#ff0000">co_yield</span></span> <span class="mi">1</span><span class="p">;</span> <span class="n"><span style="color:#ff0000">co_yield</span></span> <span class="mi">2</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">auto</span> <span class="n">g</span> <span class="o">=</span> <span class="n">f</span><span class="p">();</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="n">move_next</span><span class="p">())</span> <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">g</span><span class="p">.</span><span class="n">current_value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../reference/ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<p>コルーチンの終端まで制御が到達、またはコルーチンを指すコルーチンハンドルの<code><a href="../../reference/coroutine/coroutine_handle/destroy.html">destroy</a></code>メンバ関数が呼び出されると、コルーチン・ステートは破棄される。</p>
+<p>メモリ解放関数はPromise型のスコープで名前探索が行われる。
+名前探索に失敗した場合は、グローバルスコープで探索が行われる。
+解放関数の探索が、ポインタパラメータのみの通常の解放関数と、ポインタとサイズをパラメータにとる通常の解放関数の両方を見つける場合、2個のパラメータをとる解放関数が選択される。
+そうでなければ、1個のパラメータをとる解放関数が選択される。
+通常の解放関数が見つからなければ、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。
+選択された解放関数の呼び出しでは、その第1実引数に解放すべきメモリブロックのアドレスが渡される。
+解放関数のパラメータに<code>std::size_t</code>が使われる場合、その実引数としてメモリブロックのサイズが渡される。</p>
+<p>コルーチンが呼び出されるとき、パラメータ初期化が行われたのち、各コルーチンパラメータのコピーが作成される。
+型cv <code>T</code>をもつパラメータにおいて、そのコピーはパラメータを参照する<code>T</code>型のxvalueで直接初期化された自動記憶域期間をもつcv <code>T</code>型の変数となる。
+各パラメータのコピーの初期化と破棄は、呼び出されたコルーチンのコンテキストで行われる。
+パラメータのコピーの初期化は、コルーチンPromiseコンストラクタの呼び出しより前に順序付けられ、それぞれは互いに非決定順で順序付けられる。
+パラメータのコピーの生存期間は、パラメータPromiseオブジェクトの終了直後で終了する。
+（コルーチンが参照渡しのパラメータを持つ場合、そのパラメータにより参照されるエンティティ生存期間終了後のコルーチン再開は<a class="cpprefjp-defined-word" data-desc="未定義の動作。処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義動作</a>を引き起こしやすい。）</p>
+<p>式 <code><em>promise</em>.unhandled_exception()</code>の評価が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>で終了した場合、コルーチンは最終サスペンドポイントで中断したとみなされる。</p>
+<p>式 <code>co_await <em>promise</em>.final_suspend()</code> は<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>送出してはならない。</p>
+<h3>Await式</h3>
+<p><code>co_await</code>式は、そのオペランド式で表される計算の完了を待機しているあいだ、コルーチン評価をサスペンド(中断)するために用いる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n">co_await</span> <span class="n"><i>cast-expression</i></span>
+</code></pre></div>
+</p>
+<p>Await式は、コルーチン本体複合文の内側（かつ<code>try</code>～<code>catch</code>構文の<code>catch</code>節の外側）において潜在的に評価される式(potentially-evaluated expression)でのみ、出現してよい。
+宣言文やfor構文の宣言を伴う初期化部では、その初期化子の中でのみAwait式が出現してよい。
+デフォルト引数ではAwait式を用いることはできない。
+Await式は、静的記憶域もしくは<a href="../cpp11/thread_local_storage.html">スレッドローカル</a>なブロックスコープ変数の初期化に出現してはならない。
+関数内でAwait式を置けるコンテキストを、関数の中断コンテキストと呼ぶ。</p>
+<p>Await式の評価では、次のような補助的な型、式、オブジェクトを用いる：</p>
+<ul>
+<li><em>p</em> を同Await式を含むコルーチンのPromiseオブジェクトの左辺値名とし、<code>P</code>を同オブジェクトの型とする。</li>
+<li><em>a</em> (Awaitable) を下記のように定義する：<ul>
+<li>Await式がYield式または初期サスペンドポイントまたは最終サスペンドポイントにより暗黙に生成された場合、<em>a</em> をその <em>cast-expression</em> とする。</li>
+<li><code>P</code>のスコープで非修飾な<code>await_transform</code>の探索により一つ以上の名前がみつかった場合は、 <em>a</em> を <code><em>p</em>.await_transform( <em>cast-expression</em> )</code>とする。</li>
+<li>それ以外では <em>a</em> を <em>cast-expression</em> とする。</li>
+</ul>
+</li>
+<li><em>o</em> (Awaiter) を下記のように定義する。<em>o</em> がprvalueの場合は<a href="../cpp17/guaranteed_copy_elision.html">Temporary materialization conversion</a>が行われる：<ul>
+<li>実引数 <em>a</em> に対して適用可能な<code>operator co_await</code>関数を列挙し、<em>o</em> を<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>により選択された関数呼び出しとする。</li>
+<li>適合する関数が見つからない場合、<em>o</em> を <em>a</em> とする。</li>
+<li><a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>が曖昧な場合、プログラムは<a class="cpprefjp-defined-word" data-desc="プログラムが適格でないこと。コンパイルエラーなどになる" href="../../implementation-compliance.html#dfn-ill-formed">不適格</a>となる。</li>
+</ul>
+</li>
+<li><em>e</em> を、<em>o</em> の評価結果を参照する左辺値とする。</li>
+<li><em>h</em> を、同Await式を含むコルーチンを参照する<code><a href="../../reference/coroutine/coroutine_handle.html">std::coroutine_handle&lt;P&gt;</a></code>型のオブジェクトとする。</li>
+<li><em>await-ready</em> を、<code>bool</code>に変換されうる式 <code><em>e</em>.await_ready()</code>とする。</li>
+<li><em>await-suspend</em> を、式 <code><em>e</em>.await_suspend( <em>h</em> )</code>とする。この式（の結果）は<code>void</code>であるか、<code>bool</code>または任意の型<code>Z</code>に対する<code><a href="../../reference/coroutine/coroutine_handle.html">std::coroutine_handle&lt;Z&gt;</a></code>型のprvalueであるべき。</li>
+<li><em>await-resume</em> を、式 <code><em>e</em>.await_resume()</code>とする。</li>
+</ul>
+<p>Await式は式 <em>await-resume</em> と同じ型、同じ値カテゴリを持つ。</p>
+<p>Await式は式 <em>o</em> と式 <em>await-ready</em> を評価し、続いて：</p>
+<ul>
+<li><em>await-ready</em> の結果が<code>false</code>の場合、コルーチンは中断状態とみなされる。その後に：<ul>
+<li><em>await-suspend</em> の型が<code><a href="../../reference/coroutine/coroutine_handle.html">std::coroutine_handle&lt;Z&gt;</a></code>の場合、<em>await-suspend</em><code><a href="../../reference/coroutine/coroutine_handle/resume.html">.resume()</a></code>が評価される。</li>
+<li>そうではなく <em>await-suspend</em> の型が<code>bool</code>の場合、<em>await-suspend</em> が評価され、その結果が<code>false</code>であればコルーチンは再開する。</li>
+<li>それ以外の場合、<em>await-suspend</em> が評価される。</li>
+</ul>
+</li>
+<li><em>await-suspend</em> の評価が<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>で終了した場合、<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>が捕捉されてコルーチンが再開し、その<a class="cpprefjp-defined-word" data-desc="問題が発生したときに、現在実行位置を過去に通過・記録した位置に戻し、文脈情報を添えて紐づけられた処理(例外ハンドラー)を呼び出す仕組み。またはその事態">例外</a>は即座に再送出される。そうでなければ、スコープ終了をともなわずに現在のコルーチンの呼出元もしくは再開元へ制御フローを戻す。</li>
+<li><em>await-ready</em> の結果が<code>true</code>またはコルーチンが再開した場合、<em>await-resume</em> の評価結果がAwait式の結果となる。</li>
+</ul>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">my_future</span> <span class="p">{</span>
+  <span class="cm">/* ... */</span>
+  <span class="kt">bool</span> <span class="n">await_ready</span><span class="p">();</span>
+  <span class="kt">void</span> <span class="nf">await_suspend</span><span class="p">(</span><span class="n"><a href="../../reference/coroutine/coroutine_handle.html">std::coroutine_handle&lt;&gt;</a></span><span class="p">);</span>
+  <span class="n">T</span> <span class="nf">await_resume</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Rep</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Period</span><span class="o">&gt;</span>
+<span class="k">auto</span> <span class="k">operator</span> <span class="n"><span style="color:#ff0000">co_await</span></span><span class="p">(</span><span class="n"><a href="../../reference/chrono/duration.html">std::chrono::duration</a></span><span class="o">&lt;</span><span class="n">Rep</span><span class="p">,</span> <span class="n">Period</span><span class="o">&gt;</span> <span class="n">d</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">struct</span> <span class="n">awaiter</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">system_clock</span><span class="o">::</span><span class="n"><a href="../../reference/chrono/duration.html">duration</a></span> <span class="n"><a href="../../reference/chrono/duration.html">duration</a></span><span class="p">;</span>
+    <span class="cm">/* ... */</span>
+    <span class="n">awaiter</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">system_clock</span><span class="o">::</span><span class="n"><a href="../../reference/chrono/duration.html">duration</a></span> <span class="n">d</span><span class="p">)</span> <span class="o">:</span> <span class="n"><a href="../../reference/chrono/duration.html">duration</a></span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="p">{}</span>
+    <span class="kt">bool</span> <span class="n">await_ready</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n"><a href="../../reference/chrono/duration.html">duration</a></span><span class="p">.</span><span class="n">count</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="p">}</span>
+    <span class="kt">void</span> <span class="n">await_resume</span><span class="p">()</span> <span class="p">{}</span>
+    <span class="kt">void</span> <span class="n">await_suspend</span><span class="p">(</span><span class="n"><a href="../../reference/coroutine/coroutine_handle.html">std::coroutine_handle&lt;&gt;</a></span> <span class="n">h</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}</span>
+  <span class="p">};</span>
+  <span class="k">return</span> <span class="n">awaiter</span><span class="p">{</span><span class="n">d</span><span class="p">};</span>
+<span class="p">}</span>
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="p">;</span>
+
+<span class="n">my_future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">h</span><span class="p">();</span>
+
+<span class="n">my_future</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span> <span class="n">g</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"just about go to sleep...</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+  <span class="n"><span style="color:#ff0000">co_await</span></span> <span class="mi">10</span><span class="n">ms</span><span class="p">;</span>
+  <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"resumed</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+  <span class="n"><span style="color:#ff0000">co_await</span></span> <span class="nf">h</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">auto</span> <span class="n">f</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">co_await</span></span> <span class="n">h</span><span class="p">());</span> <span class="c1">// エラー: await式は関数中断コンテキストの外</span>
+<span class="kt">int</span> <span class="n">a</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="n"><span style="color:#ff0000">co_await</span></span> <span class="n">h</span><span class="p">()</span> <span class="p">};</span>   <span class="c1">// エラー: await式は関数中断コンテキストの外</span>
+</code></pre></div>
+</p>
+<h3>Yield式</h3>
+<p><code>co_yield</code>式は、コルーチンから値を生成(yield)するときに用いる。
+その動作はAwait式にて書き換え可能であり、コルーチン利用者向けのシンタックスシュガーとも解釈できる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n">co_yield</span> <span class="n"><i>assignment-expression</i></span>
+<span class="n">co_yield</span> <span class="n"><i>braced-init-list</i></span>
+</code></pre></div>
+</p>
+<p>Yield式は関数の中断コンテキストにのみ出現してよい。
+<em>e</em> をYield式のオペランド、<em>p</em> を同式を含むコルーチンのPromiseオブジェクトのlvalue名としたとき、Yield式は式<code>co_await <em>p</em>.yield_value( <em>e</em> )</code>と等価である。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">generator</span> <span class="p">{</span>
+  <span class="k">struct</span> <span class="n">promise_type</span> <span class="p">{</span>
+    <span class="n">T</span> <span class="n">current_value</span><span class="p">;</span>
+    <span class="cm">/* ... */</span>
+    <span class="k">auto</span> <span class="nf">yield_value</span><span class="p">(</span><span class="n">T</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">current_value</span> <span class="o">=</span> <span class="n"><a href="../../reference/utility/move.html">std::move</a></span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n"><a href="../../reference/coroutine/suspend_always.html">std::suspend_always</a></span><span class="p">{};</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+  <span class="k">struct</span> <span class="n">iterator</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">};</span>
+  <span class="n">iterator</span> <span class="nf">begin</span><span class="p">();</span>
+  <span class="n">iterator</span> <span class="nf">end</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="n">generator</span><span class="o">&lt;</span><span class="n"><a href="../../reference/utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">g1</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="n"><span style="color:#ff0000">co_yield</span></span> <span class="p">{</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">};</span>
+<span class="p">}</span>
+<span class="n">generator</span><span class="o">&lt;</span><span class="n"><a href="../../reference/utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">g2</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="n"><span style="color:#ff0000">co_yield</span></span> <span class="n"><a href="../../reference/utility/make_pair.html">make_pair</a></span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">auto</span> <span class="n">f</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n"><span style="color:#ff0000">co_yield</span></span> <span class="mi">5</span><span class="p">);</span> <span class="c1">// エラー: yield式は関数中断コンテキストの外</span>
+<span class="kt">int</span> <span class="n">a</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="n"><span style="color:#ff0000">co_yield</span></span> <span class="mi">1</span> <span class="p">};</span>   <span class="c1">// エラー: yield式は関数中断コンテキストの外</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">auto</span> <span class="n">r1</span> <span class="o">=</span> <span class="n">g1</span><span class="p">();</span>
+  <span class="k">auto</span> <span class="n">r2</span> <span class="o">=</span> <span class="n">g2</span><span class="p">();</span>
+  <span class="n"><a href="../../reference/cassert/assert.html">assert</a></span><span class="p">(</span><span class="n"><a href="../../reference/algorithm/equal.html">std::equal</a></span><span class="p">(</span><span class="n">r1</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">r1</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">r2</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">r2</span><span class="p">.</span><span class="n">end</span><span class="p">()));</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>co_return文</h2>
+<p><code>co_return</code>文は、コルーチンを終了し呼出元へ制御を戻すために用いる。
+<code>co_yield</code>／<code>co_await</code>いずれも含まないコルーチンを定義する場合にも利用できる。</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n">co_return</span> <span class="n"><i>expr-or-braced-init-list</i></span> <span class="n"><i>opt</i></span> <span class="p">;</span>
+</code></pre></div>
+</p>
+<p><code>co_return</code>文または中断により、コルーチンは呼出元もしくは再開元に制御を戻す。
+コルーチンは通常の<code>return</code>文を含んではならない。</p>
+<p><code>co_return</code>文の <em>expr-or-braced-init-list</em> はオペランドと呼ばれる。
+<em>p</em> をコルーチンPromiseオブジェクトのlvalue名とすると、<code>co_return</code>文は次と等価である：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="p">{</span> <span class="n"><i>S</i></span><span class="p">;</span> <span class="k">goto</span> <span class="n"><i>final-suspend</i></span> <span class="p">;</span> <span class="p">}</span>
+</code></pre></div>
+</p>
+<p>ここで <em>final-suspend</em> はコルーチン動作説明用の最終サスペンドポイントラベル名であり、<em>S</em> は次の通り定義される：</p>
+<ul>
+<li>オペランドが <em>braced-init-list</em> または非<code>void</code>型の式の場合、<em>S</em> を <code><em>p</em>.return_value( <em>expr-or-braced-init-list</em> )</code>とする。式 <em>S</em> は <code>void</code>型のprvalueであるべき。</li>
+<li>そうでなければ、<em>S</em> を複合文 <code>{ <em>expression<sub>opt</sub></em> ; <em>p</em>.return_void(); }</code>とする。式 <code><em>p</em>.return_void()</code>は<code>void</code>型のprvalueであるべき。</li>
+</ul>
+<p><code><em>p</em>.return_void()</code>が有効な式のとき、コルーチン本体の終端到達はオペランド無し<code>co_return</code>と等価である。
+そうでなければ、コルーチン本体の終端到達は<a class="cpprefjp-defined-word" data-desc="処理系は予期せぬ動作をする可能性がある。要するに動作保証対象外。undefined behavior (UB)。" href="../../implementation-compliance.html#dfn-undefined-behavior">未定義の動作</a>を引き起こす。</p>
+<h2>例</h2>
+<p><div class="yata" id="80c27bc07134b1355581a556e71f241e432142a1"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../reference/iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/coroutine.html">&lt;coroutine&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../reference/utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+
+<span class="c1">// コルーチン利用ライブラリ: ジェネレータ型</span>
+<span class="k">struct</span> <span class="n">my_generator</span> <span class="p">{</span>
+  <span class="c1">// ジェネレータに関連付けられるPromise型</span>
+  <span class="k">struct</span> <span class="n">promise_type</span> <span class="p">{</span>
+    <span class="c1">// <span style="color:#ff0000">co_yield</span>式で指定されるint値を保持する変数</span>
+    <span class="kt">int</span> <span class="n">value_</span><span class="p">;</span>
+
+    <span class="k">auto</span> <span class="nf">get_return_object</span><span class="p">()</span>
+    <span class="p">{</span>
+      <span class="c1">// コルーチンに紐づくPromiseオブジェクト(*this)から</span>
+      <span class="c1">// ジェネレータ型のコルーチン戻り値オブジェクトを生成</span>
+      <span class="k">return</span> <span class="n">my_generator</span><span class="p">{</span><span class="o">*</span><span class="k">this</span><span class="p">};</span>
+    <span class="p">};</span>
+    <span class="k">auto</span> <span class="nf">initial_suspend</span><span class="p">()</span>
+    <span class="p">{</span>
+      <span class="c1">// コルーチン本体処理の開始前に無条件サスペンド</span>
+      <span class="k">return</span> <span class="n"><a href="../../reference/coroutine/suspend_always.html">std::suspend_always</a></span><span class="p">{};</span>
+    <span class="p">}</span>
+    <span class="k">auto</span> <span class="nf">final_suspend</span><span class="p">()</span> <span class="k">noexcept</span>
+    <span class="p">{</span>
+      <span class="c1">// コルーチン本体処理の終了後に無条件サスペンド</span>
+      <span class="k">return</span> <span class="n"><a href="../../reference/coroutine/suspend_always.html">std::suspend_always</a></span><span class="p">{};</span>
+    <span class="p">}</span>
+    <span class="k">auto</span> <span class="nf">yield_value</span><span class="p">(</span><span class="kt">int</span> <span class="n">v</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="c1">// <span style="color:#ff0000">co_yield</span>式で渡される値を保持し、コルーチンを無条件サスペンド</span>
+      <span class="n">value_</span> <span class="o">=</span> <span class="n">v</span><span class="p">;</span>
+      <span class="k">return</span> <span class="n"><a href="../../reference/coroutine/suspend_always.html">std::suspend_always</a></span><span class="p">{};</span>
+    <span class="p">}</span>
+    <span class="kt">void</span> <span class="nf">return_void</span><span class="p">()</span> <span class="p">{}</span>
+    <span class="kt">void</span> <span class="nf">unhandled_exception</span><span class="p">()</span> <span class="p">{</span> <span class="n"><a href="../../reference/exception/terminate.html">std::terminate()</a></span><span class="p">;</span> <span class="p">}</span>
+  <span class="p">};</span>
+  <span class="c1">// ジェネレータに関連付けられるコルーチンハンドル型</span>
+  <span class="k">using</span> <span class="n">coro_handle</span> <span class="o">=</span> <span class="n"><a href="../../reference/coroutine/coroutine_handle.html">std::coroutine_handle</a></span><span class="o">&lt;</span><span class="n">promise_type</span><span class="o">&gt;</span><span class="p">;</span>
+
+  <span class="c1">// 範囲for構文サポート用イテレータ型</span>
+  <span class="k">struct</span> <span class="n">iterator</span> <span class="p">{</span>
+    <span class="c1">// 対象のコルーチンハンドル</span>
+    <span class="n">coro_handle</span> <span class="n">coro_</span><span class="p">;</span>
+    <span class="c1">// 対象コルーチン本体処理が終了したかを表すフラグ</span>
+    <span class="kt">bool</span> <span class="n">done_</span><span class="p">;</span>
+
+    <span class="n">iterator</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">++</span><span class="p">()</span>
+    <span class="p">{</span>
+      <span class="c1">// yield_value()で中断したコルーチンを再開する</span>
+      <span class="n">coro_</span><span class="p">.</span><span class="n"><a href="../../reference/coroutine/coroutine_handle/resume.html">resume()</a></span><span class="p">;</span>
+      <span class="c1">// (<span style="color:#ff0000">co_yield</span>式評価もしくはコルーチン本体処理の終了により制御が戻ってくる)</span>
+      <span class="n">done_</span> <span class="o">=</span> <span class="n">coro_</span><span class="p">.</span><span class="n"><a href="../../reference/coroutine/coroutine_handle/done.html">done()</a></span><span class="p">;</span>
+      <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kt">bool</span> <span class="k">operator</span><span class="o">!=</span><span class="p">(</span><span class="k">const</span> <span class="n">iterator</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">const</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="n">done_</span> <span class="o">!=</span> <span class="n">rhs</span><span class="p">.</span><span class="n">done_</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kt">int</span> <span class="k">operator</span><span class="o">*</span><span class="p">()</span> <span class="k">const</span>
+    <span class="p">{</span>
+      <span class="c1">// Promiseオブジェクトが保持している値を返す</span>
+      <span class="k">return</span> <span class="n">coro_</span><span class="p">.</span><span class="n"><a href="../../reference/coroutine/coroutine_handle/promise.html">promise()</a></span><span class="p">.</span><span class="n">value_</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="o">~</span><span class="n">my_generator</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">coro_</span><span class="p">)</span>
+      <span class="n">coro_</span><span class="p">.</span><span class="n"><a href="../../reference/coroutine/coroutine_handle/destroy.html">destroy()</a></span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n">my_generator</span><span class="p">(</span><span class="n">my_generator</span> <span class="k">const</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+  <span class="n">my_generator</span><span class="p">(</span><span class="n">my_generator</span><span class="o">&amp;&amp;</span> <span class="n">rhs</span><span class="p">)</span> 
+    <span class="o">:</span> <span class="n">coro_</span><span class="p">(</span><span class="n"><a href="../../reference/utility/exchange.html">std::exchange</a></span><span class="p">(</span><span class="n">rhs</span><span class="p">.</span><span class="n">coro_</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">))</span> <span class="p">{}</span>
+
+  <span class="c1">// 範囲for構文サポート用のメンバ関数</span>
+  <span class="n">iterator</span> <span class="n">begin</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="c1">// initial_suspend()で中断したコルーチンを再開する</span>
+    <span class="n">coro_</span><span class="p">.</span><span class="n"><a href="../../reference/coroutine/coroutine_handle/resume.html">resume()</a></span><span class="p">;</span>
+    <span class="c1">// (初回<span style="color:#ff0000">co_yield</span>式評価により制御が戻ってくる)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="n">coro_</span><span class="p">,</span> <span class="n">coro_</span><span class="p">.</span><span class="n"><a href="../../reference/coroutine/coroutine_handle/done.html">done()</a></span><span class="p">};</span>
+  <span class="p">}</span>
+  <span class="n">iterator</span> <span class="n">end</span><span class="p">()</span>
+  <span class="p">{</span>
+    <span class="c1">// 終端位置を表現する番兵イテレータ</span>
+    <span class="k">return</span> <span class="p">{{},</span> <span class="nb">true</span><span class="p">};</span>
+  <span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+  <span class="c1">// Promiseオブジェクト経由でコルーチンハンドルを取得する</span>
+  <span class="k">explicit</span> <span class="n">my_generator</span><span class="p">(</span><span class="n">promise_type</span><span class="o">&amp;</span> <span class="n">p</span><span class="p">)</span>
+    <span class="o">:</span> <span class="n">coro_</span><span class="p">(</span><span class="n">coro_handle</span><span class="o">::</span><span class="n"><a href="../../reference/coroutine/coroutine_handle/from_promise.html">from_promise</a></span><span class="p">(</span><span class="n">p</span><span class="p">))</span> <span class="p">{}</span>
+
+  <span class="n">coro_handle</span> <span class="n">coro_</span><span class="p">;</span>
+<span class="p">};</span>
+
+
+<span class="c1">// ユーザ定義コルーチン</span>
+<span class="n">my_generator</span> <span class="nf">iota</span><span class="p">(</span><span class="kt">int</span> <span class="n">end</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// コルーチンに対応したPromise型 generator::promise_typeの</span>
+  <span class="c1">// Promiseオブジェクト(p)が生成される。</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">;</span> <span class="o">++</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 下式は co_await p.yield_value(n) と等価</span>
+    <span class="n"><span style="color:#ff0000">co_yield</span></span> <span class="n">n</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="c1">// コルーチン本体の終端到達により p.return_void() 呼び出し</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// コルーチンを呼び出し、整数生成ジェネレータを取得する。</span>
+  <span class="k">auto</span> <span class="n">g</span> <span class="o">=</span> <span class="n">iota</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+  <span class="c1">// このタイミングではまだコルーチン本体は実行されない。</span>
+
+  <span class="c1">// 範囲for構文を用いてコルーチン本体を実行する。</span>
+  <span class="c1">// ここではコルーチンiotaの値生成ループ処理ステップと、</span>
+  <span class="c1">// main関数の表示ループ処理ステップが交互に実行される。</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">v</span><span class="p">:</span> <span class="n">g</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../../reference/iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">v</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>0123456789
+</code></pre></p>
+<h2>この機能が必要になった背景・経緯</h2>
+<p>多くのプログラミング言語で対応されており広い実績のあるコルーチン機能を、C++言語でも使えるよう<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3708.pdf" target="_blank">2013年頃</a>から検討が始まっている。</p>
+<p>2017年には <a href="https://www.iso.org/standard/73008.html" target="_blank">ISO/IEC TS 22277 C++ Extensions for Coroutines</a>（通称"Coroutines TS"） として正式発効され、いくつかの追加の仕様修正をへてC++20言語仕様本体への統合が決定された。</p>
+<p>C++言語仕様へのコルーチン導入によって、ジェネレータの協調的マルチタスクのサポート、ファイルやネットワークなど非同期I/Oライブラリとの統合が期待されている。</p>
+<h2>検討されたほかの選択肢</h2>
+<p>C++20コルーチンはスタックレスコルーチンとして導入されたが、スタックフル(Stackful)コルーチン＝ファイバー(Fiber)の導入検討も長らく行われてきた。
+スタックフルコルーチンは将来のC++仕様導入に向けて引き続き検討されている。
+（本ページ執筆時点では<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p0876r10.pdf" target="_blank">提案文書P0876R10</a>が最新）</p>
+<p>C++20コルーチンでは、コルーチン・ステートのために動的メモリ確保が行われる可能性がある。
+一定条件を満たせばコンパイラ最適化によって動的メモリ確保が省略されるとしているが、言語仕様として動的メモリ確保を避ける仕様も検討された（通称"Core Coroutines"）。
+最終的には既に実績のあるCoroutinesTS（発案者の名前にちなみ"Gor-routines"と呼ばれた）ベースのコルーチン仕様が採用されることになった。</p>
+<p>C++20コルーチンに関するキーワードは、いずれも接頭辞<code>co_</code>が付与されている。
+何度かの改名提案（<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0071r0.html" target="_blank">P0071R0</a>、<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1485r1.html" target="_blank">P1485R1</a>）も提出されたが、いずれも否決されてC++20仕様に落ち着いた。</p>
+<h2><a href="#relative-page" id="relative-page">関連項目</a></h2>
+<ul>
+<li>C++20 <code><a href="../../reference/coroutine.html">&lt;coroutine&gt;</a></code></li>
+<li>C++23 <code><a href="../../reference/generator.html">&lt;generator&gt;</a></code></li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4680.pdf" target="_blank">N4680 C++ Extensions for Coroutines(Coroutines TS)</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0911r1.html" target="_blank">P0911R1 Rebase the Coroutines TS onto the C++17 Standard</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0913r1.html" target="_blank">P0913R1 Add symmetric coroutine control transfer</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0914r1.html" target="_blank">P0914R1 Add parameter preview to coroutine promise constructor</a></li>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0664r4.html" target="_blank">P0664R4 C++ Coroutine TS Issues</a></li>
+<li>
+<p><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p0912r5.html" target="_blank">P0912R5 Merge Coroutines TS into C++20 working draft</a></p>
+</li>
+<li>
+<p><a href="https://lewissbaker.github.io/2017/09/25/coroutine-theory" target="_blank">Coroutine Theory</a></p>
+</li>
+<li><a href="https://lewissbaker.github.io/2017/11/17/understanding-operator-co-await" target="_blank">C++ Coroutines: Understanding operator co_await</a></li>
+<li><a href="https://lewissbaker.github.io/2018/09/05/understanding-the-promise-type" target="_blank">C++ Coroutines: Understanding the promise type</a></li>
+<li><a href="https://lewissbaker.github.io/2020/05/11/understanding_symmetric_transfer" target="_blank">C++ Coroutines: Understanding Symmetric Transfer</a></li>
+<li><a href="https://web.archive.org/web/20210421165652/https://blog.panicsoftware.com/co_awaiting-coroutines/" target="_blank">C++ co_awaiting coroutines</a></li>
+<li><a href="https://www.slideshare.net/yohhoy/20c20" target="_blank">20分くらいでわかった気分になれるC++20コルーチン</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

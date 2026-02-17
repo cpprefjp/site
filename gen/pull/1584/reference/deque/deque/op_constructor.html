@@ -1,0 +1,478 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>deque::コンストラクタ - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,deque,std,deque,function
+">
+        <meta name="title" content="deque::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="deque::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="deque::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/deque/deque/op_constructor.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`deque` オブジェクトの構築" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="deque::コンストラクタ - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/deque/deque/op_constructor.html" />
+        <meta name="twitter:description" content="`deque` オブジェクトの構築" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../../static/favicons/apple-touch-icon.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../static/favicons/favicon-32x32.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../static/favicons/favicon-16x16.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="manifest" href="../../../manifest.json?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../../static/pygments/default.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<!-- <link rel="stylesheet" href="../../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../../static/kunai/css/kunai-stage-0.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-1.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-2.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../../static/kunai/css/kunai-stage-3.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+
+<script type="text/javascript" src="../../../static/kunai/js/kunai-vendor.js?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0"></script>
+<script type="text/javascript" src="../../../static/kunai/js/kunai.js?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;deque&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;class&#34;: [&#34;deque&#34;], &#34;id-type&#34;: [&#34;function&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;7839e2d1a0f89a38603b7e084a15f9b954eb7bbb&#34;, &#34;source&#34;: &#34;#include &lt;list&gt;\n#include &lt;deque&gt;\n#include &lt;scoped_allocator&gt;\n\nint main()\n{\n  using di = std::deque&lt;int&gt;;\n  std::list&lt;di, std::scoped_allocator_adaptor&lt;std::allocator&lt;di&gt;&gt;&gt; l;\n  l.emplace_back(10u);\n}\n&#34;}, {&#34;id&#34;: &#34;536c8a887fd1bd4c1fd7a0e75a34de247863a053&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;deque&gt;\n#include &lt;utility&gt;\n\ntemplate &lt;class T&gt;\nvoid print(const char* name, const std::deque&lt;T&gt;&amp; c)\n{\n  std::cout &lt;&lt; name &lt;&lt; \&#34; : {\&#34;;\n  for (const T&amp; x : c) {\n    std::cout &lt;&lt; x &lt;&lt; \&#34; \&#34;;\n  }\n  std::cout &lt;&lt; \&#34;}\&#34; &lt;&lt; std::endl;\n}\n\nint main ()\n{\n  // (1) : \u30c7\u30d5\u30a9\u30eb\u30c8\u30b3\u30f3\u30b9\u30c8\u30e9\u30af\u30bf\n  std::deque&lt;int&gt; c1;\n\n  // (3) : \u50241\u306e\u8981\u7d20\u30923\u500b\u6301\u3064\u30b3\u30f3\u30c6\u30ca\u3092\u69cb\u7bc9\n  std::deque&lt;int&gt; c2(3, 1);\n\n  // (4) : 3\u500b\u306e\u8981\u7d20\u3092\u6301\u3064\u30b3\u30f3\u30c6\u30ca\u3092\u69cb\u7bc9\n  std::deque&lt;int&gt; c3(3);\n\n  // (5) : \u30a4\u30c6\u30ec\u30fc\u30bf\u306e\u7bc4\u56f2\u306b\u3088\u308b\u69cb\u7bc9\n  std::deque&lt;int&gt; c40 = {1, 2, 3}; // \u69cb\u7bc9\u7528\u306e\u4e00\u6642\u30aa\u30d6\u30b8\u30a7\u30af\u30c8(\u8aac\u660e\u7528)\n  std::deque&lt;int&gt; c4(c40.begin(), c40.end());\n\n  // (6) : \u30b3\u30d4\u30fc\u69cb\u7bc9\n  std::deque&lt;int&gt; c5(c4);\n\n  // (7) : \u30e0\u30fc\u30d6\u69cb\u7bc9\n  std::deque&lt;int&gt; c60 = {1, 2, 3}; // \u69cb\u7bc9\u7528\u306e\u4e00\u6642\u30aa\u30d6\u30b8\u30a7\u30af\u30c8(\u8aac\u660e\u7528)\n  std::deque&lt;int&gt; c6(std::move(c60));\n\n  // (10) : \u521d\u671f\u5316\u5b50\u30ea\u30b9\u30c8\u306b\u3088\u308b\u69cb\u7bc9\n  std::deque&lt;int&gt; c7 = {1, 2, 3};\n\n  print(\&#34;c1\&#34;, c1);\n  print(\&#34;c2\&#34;, c2);\n  print(\&#34;c3\&#34;, c3);\n  print(\&#34;c4\&#34;, c4);\n  print(\&#34;c5\&#34;, c5);\n  print(\&#34;c6\&#34;, c6);\n  print(\&#34;c7\&#34;, c7);\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;deque&#34;, &#34;deque&#34;, &#34;op_constructor&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/deque.html" itemprop="url">
+              
+                <span itemprop="name">deque</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../../reference/deque/deque.html" itemprop="url">
+              
+                <span itemprop="name">deque</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">コンストラクタ</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2026-02-17T06:45:15">
+        2026年02月17日 06時45分15秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Akira Takahashi</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/deque/deque/op_constructor.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/deque/deque/op_constructor.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">function</div><div class="header">&lt;deque&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class deque">deque::</span><span class="token">コンストラクタ</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">deque</span><span class="p">();</span>                                          <span class="c1">// (1) C++14 から</span>
+<span class="k">constexpr</span> <span class="nf">deque</span><span class="p">();</span>                                <span class="c1">// (1) C++26</span>
+
+<span class="k">explicit</span> <span class="nf">deque</span><span class="p">(</span><span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>               <span class="c1">// (2) C++14 から</span>
+<span class="k">constexpr</span> <span class="k">explicit</span> <span class="nf">deque</span><span class="p">(</span><span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>     <span class="c1">// (2) C++26</span>
+
+<span class="k">explicit</span> <span class="nf">deque</span><span class="p">(</span><span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span> <span class="c1">// (1)+(2) : C++11 まで。C++14 で削除</span>
+
+<span class="k">explicit</span> <span class="nf">deque</span><span class="p">(</span><span class="n">size_type</span> <span class="n">n</span><span class="p">,</span> <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span> <span class="o">=</span> <span class="n">T</span><span class="p">(),</span>
+               <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span> <span class="c1">// (3) C++03 まで。C++11 で削除</span>
+
+<span class="n">deque</span><span class="p">(</span><span class="n">size_type</span> <span class="n">n</span><span class="p">,</span>
+      <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">,</span>
+      <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span>          <span class="c1">// (3) C++11 から</span>
+<span class="k">constexpr</span>
+  <span class="nf">deque</span><span class="p">(</span><span class="n">size_type</span> <span class="n">n</span><span class="p">,</span>
+        <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">,</span>
+        <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span>        <span class="c1">// (3) C++26</span>
+
+<span class="k">explicit</span> <span class="nf">deque</span><span class="p">(</span><span class="n">size_type</span> <span class="n">n</span><span class="p">);</span>                      <span class="c1">// (4) C++11。C++14 で削除</span>
+
+<span class="k">explicit</span>
+  <span class="nf">deque</span><span class="p">(</span><span class="n">size_type</span> <span class="n">n</span><span class="p">,</span>
+        <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span> <span class="c1">// (4) C++14 から</span>
+<span class="k">constexpr</span> <span class="k">explicit</span>
+  <span class="nf">deque</span><span class="p">(</span><span class="n">size_type</span> <span class="n">n</span><span class="p">,</span>
+        <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span> <span class="c1">// (4) C++26</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
+<span class="n">deque</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span>
+      <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span>
+      <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span>   <span class="c1">// (5) C++03</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
+<span class="k">constexpr</span>
+  <span class="n">deque</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span>
+        <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span>
+        <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span> <span class="c1">// (5) C++26</span>
+
+<span class="n">deque</span><span class="p">(</span><span class="k">const</span> <span class="n">deque</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span>           <span class="c1">// (6) C++03</span>
+<span class="k">constexpr</span> <span class="nf">deque</span><span class="p">(</span><span class="k">const</span> <span class="n">deque</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span> <span class="c1">// (6) C++26</span>
+
+<span class="n">deque</span><span class="p">(</span><span class="n">deque</span><span class="o">&amp;&amp;</span> <span class="n">y</span><span class="p">);</span>           <span class="c1">// (7) C++11 から</span>
+<span class="k">constexpr</span> <span class="nf">deque</span><span class="p">(</span><span class="n">deque</span><span class="o">&amp;&amp;</span> <span class="n">y</span><span class="p">);</span> <span class="c1">// (7) C++26</span>
+
+<span class="n">deque</span><span class="p">(</span><span class="k">const</span> <span class="n">deque</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span>
+      <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>                    <span class="c1">// (8) C++11</span>
+<span class="n">deque</span><span class="p">(</span><span class="k">const</span> <span class="n">deque</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span>
+      <span class="k">const</span> <span class="n"><a href="../../type_traits/type_identity.html">type_identity_t</a></span><span class="o">&lt;</span><span class="n">Allocator</span><span class="o">&gt;&amp;</span> <span class="n">a</span><span class="p">);</span>   <span class="c1">// (8) C++23</span>
+<span class="k">constexpr</span>
+  <span class="nf">deque</span><span class="p">(</span><span class="k">const</span> <span class="n">deque</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span>
+        <span class="k">const</span> <span class="n"><a href="../../type_traits/type_identity.html">type_identity_t</a></span><span class="o">&lt;</span><span class="n">Allocator</span><span class="o">&gt;&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (8) C++26</span>
+
+<span class="n">deque</span><span class="p">(</span><span class="n">deque</span><span class="o">&amp;&amp;</span> <span class="n">y</span><span class="p">,</span>
+      <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>                    <span class="c1">// (9) C++11</span>
+<span class="n">deque</span><span class="p">(</span><span class="n">deque</span><span class="o">&amp;&amp;</span> <span class="n">y</span><span class="p">,</span>
+      <span class="k">const</span> <span class="n"><a href="../../type_traits/type_identity.html">type_identity_t</a></span><span class="o">&lt;</span><span class="n">Allocator</span><span class="o">&gt;&amp;</span> <span class="n">a</span><span class="p">);</span>   <span class="c1">// (9) C++23</span>
+<span class="k">constexpr</span>
+  <span class="nf">deque</span><span class="p">(</span><span class="n">deque</span><span class="o">&amp;&amp;</span> <span class="n">y</span><span class="p">,</span>
+        <span class="k">const</span> <span class="n"><a href="../../type_traits/type_identity.html">type_identity_t</a></span><span class="o">&lt;</span><span class="n">Allocator</span><span class="o">&gt;&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (9) C++26</span>
+
+<span class="n">deque</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span>
+      <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span>   <span class="c1">// (10) C++11</span>
+<span class="k">constexpr</span>
+  <span class="nf">deque</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span>
+        <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span> <span class="c1">// (10) C++26</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="n">container</span><span class="o">-</span><span class="n">compatible</span><span class="o">-</span><span class="n"><a href="../../ranges/range.html">range</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">R</span><span class="o">&gt;</span>
+<span class="n">deque</span><span class="p">(</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span><span class="p">,</span>
+      <span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">rg</span><span class="p">,</span>
+      <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span>   <span class="c1">// (11) C++23</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="n">container</span><span class="o">-</span><span class="n">compatible</span><span class="o">-</span><span class="n"><a href="../../ranges/range.html">range</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">R</span><span class="o">&gt;</span>
+<span class="k">constexpr</span>
+  <span class="n">deque</span><span class="p">(</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span><span class="p">,</span>
+        <span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">rg</span><span class="p">,</span>
+        <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span> <span class="c1">// (11) C++26</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>deque</code> オブジェクトの構築</p>
+<h2>効果</h2>
+<p><code>deque</code> コンテナオブジェクトを構築し、コンストラクタの種類に応じて要素を初期化する。</p>
+<ul>
+<li>(1) : デフォルトコンストラクタ。サイズがゼロで要素を持たない空の <code>deque</code> を構築する。</li>
+<li>(2) : アロケータに <code>a</code> を使用して、サイズがゼロで要素を持たない空の <code>deque</code> を構築する。</li>
+<li>(1) + (2) : デフォルトコンストラクタ。アロケータに <code>a</code> を使用して、サイズがゼロで要素を持たない空の <code>deque</code> を構築する。</li>
+<li>(3) : 繰り返しシーケンスコンストラクタ。アロケータに <code>a</code> を使用して、<code>value</code> のコピーを <code>n</code> 個要素として保持した <code>deque</code> を構築する。</li>
+<li>(4)<ul>
+<li>C++11 : 繰り返しシーケンスコンストラクタ。<a class="cpprefjp-defined-word" data-desc="`T x{};`構文での初期化。組み込み型の場合はゼロ相当の値で、クラス型の場合はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的に値初期化される">値初期化</a>されたオブジェクトを <code>n</code> 個要素として保持した <code>deque</code> を構築する。</li>
+<li>C++14 : 繰り返しシーケンスコンストラクタ。アロケータに <code>a</code> を使用して、<a class="cpprefjp-defined-word" data-desc="`T x{};`構文での初期化。組み込み型の場合はゼロ相当の値で、クラス型の場合はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的に値初期化される">値初期化</a>されたオブジェクトを <code>n</code> 個要素として保持した <code>deque</code> を構築する。</li>
+</ul>
+</li>
+<li>(5) : <a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a>コンストラクタ。アロケータに <code>a</code> を使用して、<code>[first, last)</code> の範囲を要素としてコピーした <code>deque</code> を構築する。</li>
+<li>(6) : コピーコンストラクタ。<code>x</code> と同じ要素を保持した <code>deque</code> を構築する。</li>
+<li>(7) : ムーブコンストラクタ。ムーブセマンティクスを使って <code>y</code> の要素でコンテナを構築する。</li>
+<li>(8) : コピーコンストラクタ。アロケータに <code>a</code> を使用して、<code>x</code> と同じ要素を保持した <code>deque</code> を構築する。</li>
+<li>(9) : ムーブコンストラクタ。アロケータに <code>a</code> を使用して、ムーブセマンティクスを使って <code>y</code> の要素でコンテナを構築する。</li>
+<li>(10) : 初期化子リストで要素を構築するコンストラクタ。<code>deque(il.<a href="../../initializer_list/initializer_list/begin.html">begin</a>(), il.<a href="../../initializer_list/initializer_list/end.html">end</a>(), a)</code> と等価。</li>
+<li>(11) : Rangeコンストラクタ。アロケータに <code>a</code> を使用して、<code>rg</code> の要素で <code>deque</code> を構築する。</li>
+</ul>
+<h2><a class="cpprefjp-defined-word" data-desc="関数等の意味論を構成する要素の1つ。Complexity。関数が使うアルゴリズムの空間計算量・時間計算量">計算量</a></h2>
+<ul>
+<li>(1) : 定数時間</li>
+<li>(2) : 定数時間</li>
+<li>(1) + (2) : 定数時間</li>
+<li>(3) : <code>n</code> に対して線形時間</li>
+<li>(4) : <code>n</code> に対して線形時間</li>
+<li>(5) : <code>first</code> から <code>last</code> への距離に対して線形時間</li>
+<li>(6) : <code>x</code> の要素数に対して線形時間</li>
+<li>(7) : 定数時間</li>
+<li>(8) : <code>x</code> の要素数に対して線形時間</li>
+<li>(9) : <code>a == y.<a href="get_allocator.html">get_allocator</a>()</code> の場合、定数時間、そうでなければ <code>y</code> の要素数に対して線形時間</li>
+<li>(10) : <code>il</code> の要素数に対して線形時間</li>
+<li>(11) : <code>rg</code> の要素数に対して線形時間</li>
+</ul>
+<h2>備考</h2>
+<ul>
+<li><a class="cpprefjp-defined-word" data-desc="2つのイテレータで表現される半開区間を表す。C++20からイテレータと番兵で異なる型であっても指定可能になる">イテレータ範囲</a>コンストラクタ <code>template &lt;class InputIterator&gt; deque(InputIterator first, InputIterator last, const Allocator&amp; a = Allocator())</code> は、C++03 までは <code>InputIterator</code> が整数型の場合には <code>deque(static_cast&lt;typename deque::size_type&gt;(first), static_cast&lt;typename deque::value_type&gt;(last), a)</code> と等価とされていたが、C++11 では <code>InputIterator</code> が入力イテレータの要件を満たさなければ<a class="cpprefjp-defined-word" data-desc="関数呼び出し時に、同名の関数の中から実際に呼び出す関数を決定する処理。このときの候補になることを、オーバーロード解決に参加するという">オーバーロード解決</a>に参加しないように変更された。</li>
+<li>
+<p>C++11 では、<code>explicit deque(size_type n, const T&amp; value = T(), const Allocator&amp; a = Allocator())</code> の引数 <code>value</code> に関するデフォルト引数が削除され、新たなコンストラクタ <code>explicit deque(size_type n)</code> が追加された。<br />
+    これは、デフォルト引数を使用すると、引数 <code>value</code> の<a class="cpprefjp-defined-word" data-desc="`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト初期化</a> 1 回＋<code>deque</code> の要素へのコピー初期化 <code>n</code> 回のコンストラクタ呼び出しが必要となるが、デフォルト引数でなければ <code>deque</code> の要素への<a class="cpprefjp-defined-word" data-desc="`T x;`構文での初期化。トリビアルにデフォルト構築可能な型の場合は初期化されず（オブジェクトのlifetimeは開始される）、そうではないクラス型はデフォルトコンストラクタで初期化する。配列型の場合は各要素が再帰的にデフォルト初期化される">デフォルト初期化</a> <code>n</code> 回のコンストラクタ呼び出しで済むためである。</p>
+</li>
+<li>
+<p>C++14 では、<code>explicit deque(const Allocator&amp; a = Allocator())</code> がデフォルト引数を使用しない 2 つの<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>に分割された。<br />
+    これは、デフォルトコンストラクタに <code>explicit</code> が付いていると、</p>
+<p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../deque.html">std::deque</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">d</span> <span class="o">=</span> <span class="p">{};</span>
+</code></pre></div>
+</p>
+<p>のようなコード（C++11 から導入された、コピーリスト初期化によるデフォルトコンストラクタ呼び出し）がエラーになってしまうためである。</p>
+</li>
+<li>
+<p>C++14 では、<code>explicit deque(size_type n)</code> に引数が追加され、<code>explicit deque(size_type n, const Allocator&amp; a = Allocator())</code> に変更された。<br />
+    これは、変更されないと <code>n</code> のみを引数にとるアロケータ使用構築（uses-allocator construction）に失敗してしまうためである。
+    具体的には、C++11 では以下のようなコードがエラーになってしまう。</p>
+<p><div class="yata" id="7839e2d1a0f89a38603b7e084a15f9b954eb7bbb"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../list.html">&lt;list&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../deque.html">&lt;deque&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../scoped_allocator.html">&lt;scoped_allocator&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">using</span> <span class="n">di</span> <span class="o">=</span> <span class="n"><a href="../deque.html">std::deque</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="n"><a href="../../list/list.html">std::list</a></span><span class="o">&lt;</span><span class="n">di</span><span class="p">,</span> <span class="n"><a href="../../scoped_allocator/scoped_allocator_adaptor.html">std::scoped_allocator_adaptor</a></span><span class="o">&lt;</span><span class="n"><a href="../../memory/allocator.html">std::allocator</a></span><span class="o">&lt;</span><span class="n">di</span><span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="p">;</span>
+  <span class="n">l</span><span class="p">.</span><span class="n"><a href="../../list/list/emplace_back.html">emplace_back</a></span><span class="p">(</span><span class="mi">10u</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+</li>
+<li>
+<p>C++23 では、(8) と (9) のアロケータパラメータの型が <code>const Allocator&amp;</code> から <code>const type_identity_t&lt;Allocator&gt;&amp;</code> に変更された。
+    これは、クラステンプレートのテンプレート引数推論 (CTAD) の際に、コピー/ムーブ元の <code>deque</code> から推論される <code>Allocator</code> と、アロケータ引数から推論される型が異なる場合に推論が失敗する問題を修正するためである。<code><a href="../../type_traits/type_identity.html">type_identity_t</a></code> で包むことで、アロケータ引数が非推論コンテキストとなり、アロケータの型はコピー/ムーブ元のみから推論されるようになる。</p>
+</li>
+</ul>
+<h2>例</h2>
+<p><div class="yata" id="536c8a887fd1bd4c1fd7a0e75a34de247863a053"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../deque.html">&lt;deque&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../../utility.html">&lt;utility&gt;</a></span><span class="cp"></span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">print</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">,</span> <span class="k">const</span> <span class="n"><a href="../deque.html">std::deque</a></span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span> <span class="n">c</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="s">" : {"</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="nl">x</span> <span class="p">:</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n"><a href="../../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="s">"}"</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span> <span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// (1) : デフォルトコンストラクタ</span>
+  <span class="n"><a href="../deque.html">std::deque</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">c1</span><span class="p">;</span>
+
+  <span class="c1">// (3) : 値1の要素を3個持つコンテナを構築</span>
+  <span class="n"><a href="../deque.html">std::deque</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">c2</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+  <span class="c1">// (4) : 3個の要素を持つコンテナを構築</span>
+  <span class="n"><a href="../deque.html">std::deque</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">c3</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+
+  <span class="c1">// (5) : イテレータの範囲による構築</span>
+  <span class="n"><a href="../deque.html">std::deque</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">c40</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span> <span class="c1">// 構築用の一時オブジェクト(説明用)</span>
+  <span class="n"><a href="../deque.html">std::deque</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">c4</span><span class="p">(</span><span class="n">c40</span><span class="p">.</span><span class="n"><a href="begin.html">begin()</a></span><span class="p">,</span> <span class="n">c40</span><span class="p">.</span><span class="n"><a href="end.html">end()</a></span><span class="p">);</span>
+
+  <span class="c1">// (6) : コピー構築</span>
+  <span class="n"><a href="../deque.html">std::deque</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">c5</span><span class="p">(</span><span class="n">c4</span><span class="p">);</span>
+
+  <span class="c1">// (7) : ムーブ構築</span>
+  <span class="n"><a href="../deque.html">std::deque</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">c60</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span> <span class="c1">// 構築用の一時オブジェクト(説明用)</span>
+  <span class="n"><a href="../deque.html">std::deque</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">c6</span><span class="p">(</span><span class="n"><a href="../../utility/move.html">std::move</a></span><span class="p">(</span><span class="n">c60</span><span class="p">));</span>
+
+  <span class="c1">// (10) : 初期化子リストによる構築</span>
+  <span class="n"><a href="../deque.html">std::deque</a></span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">c7</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+
+  <span class="n">print</span><span class="p">(</span><span class="s">"c1"</span><span class="p">,</span> <span class="n">c1</span><span class="p">);</span>
+  <span class="n">print</span><span class="p">(</span><span class="s">"c2"</span><span class="p">,</span> <span class="n">c2</span><span class="p">);</span>
+  <span class="n">print</span><span class="p">(</span><span class="s">"c3"</span><span class="p">,</span> <span class="n">c3</span><span class="p">);</span>
+  <span class="n">print</span><span class="p">(</span><span class="s">"c4"</span><span class="p">,</span> <span class="n">c4</span><span class="p">);</span>
+  <span class="n">print</span><span class="p">(</span><span class="s">"c5"</span><span class="p">,</span> <span class="n">c5</span><span class="p">);</span>
+  <span class="n">print</span><span class="p">(</span><span class="s">"c6"</span><span class="p">,</span> <span class="n">c6</span><span class="p">);</span>
+  <span class="n">print</span><span class="p">(</span><span class="s">"c7"</span><span class="p">,</span> <span class="n">c7</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>c1 : {}
+c2 : {1 1 1 }
+c3 : {0 0 0 }
+c4 : {1 2 3 }
+c5 : {1 2 3 }
+c6 : {1 2 3 }
+c7 : {1 2 3 }
+</code></pre></p>
+<h2>参照</h2>
+<ul>
+<li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf" target="_blank">N2679 Initializer Lists for Standard Containers(Revision 1)</a><ul>
+<li>(10)の経緯となる提案文書</li>
+</ul>
+</li>
+<li><a href="http://cplusplus.github.io/LWG/lwg-defects.html#2193" target="_blank">LWG 2193. Default constructors for standard library containers are explicit</a><br />
+<code>explicit deque(const Allocator&amp; a = Allocator())</code> を 2 つの<a class="cpprefjp-defined-word" data-desc="同名の関数を異なる引数・テンプレート・制約などで複数定義すること。または同名の関数の集合">オーバーロード</a>に分割するきっかけとなったレポート</li>
+<li><a href="http://cplusplus.github.io/LWG/lwg-defects.html#2210" target="_blank">LWG 2210. Missing allocator-extended constructor for allocator-aware containers</a><br />
+<code>explicit deque(size_type n)</code> にアロケータ引数を追加するきっかけとなったレポート<br />
+    なお、Discussion の例はアロケータの型が誤っているので注意</li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html" target="_blank">P1518R2 Stop Overconstraining Allocators in Container Deduction Guides</a><ul>
+<li>C++23でのアロケータ引数を<code>type_identity_t</code>で包む変更</li>
+</ul>
+</li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html" target="_blank">P3372R3 constexpr containers and adaptors</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>

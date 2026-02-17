@@ -1,0 +1,380 @@
+<!doctype html>
+<html class="cpprefjp" lang="ja" itemscope="" itemtype="http://schema.org/WebPage">
+    <head>
+        
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NXNBNVBTJS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NXNBNVBTJS');
+</script>
+
+
+        <meta charset="UTF-8">
+
+        <title>basic_ospanstream - cpprefjp C++日本語リファレンス</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="keywords" content="
+  C++,標準ライブラリ,リファレンス,ドキュメント,STL,std,spanstream,std,class template,cpp23,ospanstream,wospanstream
+">
+        <meta name="title" content="basic_ospanstream - cpprefjp C++日本語リファレンス" />
+        <meta itemprop="name" content="basic_ospanstream - cpprefjp C++日本語リファレンス" />
+        <meta property="og:title" content="basic_ospanstream - cpprefjp C++日本語リファレンス" />
+        <meta property="og:url" content="https://cpprefjp.github.io/reference/spanstream/basic_ospanstream.html" />
+        <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="`std::basic_ospanstream`クラスは、[`std::span`](/reference/span/span.md) を使用した固定長ストリームバッファを出力先とする出力ストリームである。" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="basic_ospanstream - cpprefjp C++日本語リファレンス" />
+        <meta name="twitter:url" content="https://cpprefjp.github.io/reference/spanstream/basic_ospanstream.html" />
+        <meta name="twitter:description" content="`std::basic_ospanstream`クラスは、[`std::span`](/reference/span/span.md) を使用した固定長ストリームバッファを出力先とする出力ストリームである。" />
+
+        
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="../../static/favicons/apple-touch-icon.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="icon" type="image/png" sizes="32x32" href="../../static/favicons/favicon-32x32.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="icon" type="image/png" sizes="16x16" href="../../static/favicons/favicon-16x16.png?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<link rel="manifest" href="../../manifest.json?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<meta name="theme-color" content="#f5f8fc">
+
+<link rel="stylesheet" href="../../static/pygments/default.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0">
+<!-- <link rel="stylesheet" href="../../static/css/root.css"> -->
+
+        
+  
+
+
+<link href="../../static/kunai/css/kunai-stage-0.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-1.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-2.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+<link href="../../static/kunai/css/kunai-stage-3.css?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0" rel="stylesheet">
+
+<script type="text/javascript" src="../../static/kunai/js/kunai-vendor.js?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0"></script>
+<script type="text/javascript" src="../../static/kunai/js/kunai.js?cachebust=073f6eb425121531e7f6c45cb88f91e9291ed9a0"></script>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var kn = new Kunai;
+    kn.cpprefjp();
+  });
+</script>
+
+    </head>
+    <body>
+<header data-kunai-mdinfo="{&#34;meta&#34;: {&#34;header&#34;: [&#34;spanstream&#34;], &#34;namespace&#34;: [&#34;std&#34;], &#34;id-type&#34;: [&#34;class template&#34;], &#34;cpp&#34;: [&#34;cpp23&#34;], &#34;alias&#34;: [&#34;ospanstream,wospanstream&#34;]}, &#34;sources&#34;: [{&#34;id&#34;: &#34;6c25a91f73b81d2df90e3ef8a5a70fe0dbe49ace&#34;, &#34;source&#34;: &#34;#include &lt;iostream&gt;\n#include &lt;span&gt;\n#include &lt;spanstream&gt;\n\nint main()\n{\n  char buf[256] = {};\n  std::span&lt;char&gt; span{buf};\n  std::ospanstream oss(span);\n\n  // \u6570\u5024\u3084\u6587\u5b57\u5217\u3092\u66f8\u304d\u8fbc\u3080\n  oss &lt;&lt; \&#34;The answer is \&#34; &lt;&lt; 42 &lt;&lt; \&#34; and pi is approximately \&#34; &lt;&lt; 3.14;\n\n  // \u5148\u982d\u304b\u3089\u6587\u5b57\u5217\u51fa\u529b\n  const char* p = oss.span().data();\n  std::cout &lt;&lt; p &lt;&lt; std::endl;\n}\n&#34;}], &#34;page_id&#34;: [&#34;reference&#34;, &#34;spanstream&#34;, &#34;basic_ospanstream&#34;]}">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          <div class="title-wrapper clearfix">
+            <div class="title">cpprefjp - C++日本語リファレンス</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="google-search">
+              
+  
+<script>
+  (function() {
+    var cx = '013316413321391058734:ji_u66hl7hq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="gcse-search"></div>
+
+
+            </div>
+          </li>
+          <li>
+  <a href="https://github.com/cpprefjp/site">GitHub Project</a>
+</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+        <main id="main" role="main">
+            <div class="container-fluid">
+<div class="row">
+  <div class="col-sm-9 col-sm-push-3" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-sm-12 google-search-result">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-header">
+        
+  <ol class="breadcrumb">
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../index.html" itemprop="url">
+              
+                <i class="fa fa-fw fa-home"></i>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference.html" itemprop="url">
+              
+                <span itemprop="name">リファレンス</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li  itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            <a href="../../reference/spanstream.html" itemprop="url">
+              
+                <span itemprop="name">spanstream</span>
+              
+            </a>
+          
+        </span>
+      </li>
+    
+      <li class="active" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <span>
+          
+            
+              <span itemprop="name">basic_ospanstream</span>
+            
+          
+        </span>
+      </li>
+    
+  </ol>
+  <div class="crsearch"></div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 edit-button">
+        
+  
+    <p class="text-right"><small>
+      最終更新日時(UTC):
+      <span itemprop="datePublished" content="2026-01-08T11:45:05">
+        2026年01月08日 11時45分05秒
+      </span>
+      <br/>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">yoh</span>
+      </span>
+      が更新
+    </small></p>
+  
+
+        <p class="text-right">
+          <a class="history" target="_blank" href="https://github.com/cpprefjp/site/commits/master/reference/spanstream/basic_ospanstream.md">
+            <span class="fa fa-fw fa-clock-o fa-flip-horizontal"></span>履歴
+          </a>
+          <a class="edit" target="_blank" href="https://github.com/cpprefjp/site/edit/master/reference/spanstream/basic_ospanstream.md">
+            <span class="fa fa-fw fa-pencil"></span>編集
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 content-body">
+        
+  <div class="identifier-type">class template</div><div class="header">&lt;spanstream&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">basic_ospanstream</span><span class="cpp cpp23" title="C++23で追加">(C++23)</span></h1>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">CharT</span><span class="p">,</span>
+            <span class="k">class</span> <span class="nc">Traits</span> <span class="o">=</span> <span class="n"><a href="../string/char_traits.html">char_traits</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="o">&gt;</span> <span class="o">&gt;</span>
+  <span class="k">class</span> <span class="nc">basic_ospanstream</span> <span class="o">:</span> <span class="k">public</span> <span class="n"><a href="../ostream/basic_ostream.html">basic_ostream</a></span><span class="o">&lt;</span><span class="n">CharT</span><span class="p">,</span> <span class="n">Traits</span><span class="o">&gt;</span><span class="p">;</span>
+
+  <span class="k">using</span> <span class="n">ospanstream</span>  <span class="o">=</span> <span class="n">basic_ospanstream</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">wospanstream</span> <span class="o">=</span> <span class="n">basic_ospanstream</span><span class="o">&lt;</span><span class="kt">wchar_t</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</p>
+<h2>概要</h2>
+<p><code>std::basic_ospanstream</code>クラスは、<code><a href="../span/span.html">std::span</a></code> を使用した固定長ストリームバッファを出力先とする出力ストリームである。</p>
+<h2>メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="basic_ospanstream/op_constructor.html">(constructor)</a></code></td>
+<td>コンストラクタ</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="basic_ospanstream/op_assign.html">operator=</a></code></td>
+<td>ムーブ代入</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="basic_ospanstream/swap.html">swap</a></code></td>
+<td>値の交換</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="basic_ospanstream/rdbuf.html">rdbuf</a></code></td>
+<td>ストリームバッファオブジェクトの設定・取得</td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code><a href="basic_ospanstream/span.html">span</a></code></td>
+<td><code><a href="../span/span.html">std::span</a></code>オブジェクトの設定・取得</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2>非メンバ関数</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code><a href="basic_ospanstream/swap_free.html">swap</a></code></td>
+<td>2つのオブジェクトを入れ替える</td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2>メンバ型</h2>
+<table border="1" bordercolor="#888" style="border-collapse:collapse">
+<thead>
+<tr>
+<th>名前</th>
+<th>説明</th>
+<th>対応バージョン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>char_type</code></td>
+<td>テンプレート仮引数<code>CharT</code></td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>int_type</code></td>
+<td><code>Traits::int_type</code></td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>pos_type</code></td>
+<td><code>Traits::pos_type</code></td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>off_type</code></td>
+<td><code>Traits::off_type</code></td>
+<td>C++23</td>
+</tr>
+<tr>
+<td><code>traits_type</code></td>
+<td>テンプレート仮引数<code>Traits</code></td>
+<td>C++23</td>
+</tr>
+</tbody>
+</table>
+<h2>例</h2>
+<p><div class="yata" id="6c25a91f73b81d2df90e3ef8a5a70fe0dbe49ace"><div class="codehilite"><pre><span></span><code><span class="cp">#include</span> <span class="cpf"><a href="../iostream.html">&lt;iostream&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../span.html">&lt;span&gt;</a></span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf"><a href="../spanstream.html">&lt;spanstream&gt;</a></span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">256</span><span class="p">]</span> <span class="o">=</span> <span class="p">{};</span>
+  <span class="n"><a href="../span/span.html">std::span&lt;char&gt;</a></span> <span class="n">span</span><span class="p">{</span><span class="n">buf</span><span class="p">};</span>
+  <span class="n"><span style="color:#ff0000">std::ospanstream</span></span> <span class="n">oss</span><span class="p">(</span><span class="n">span</span><span class="p">);</span>
+
+  <span class="c1">// 数値や文字列を書き込む</span>
+  <span class="n">oss</span> <span class="o">&lt;&lt;</span> <span class="s">"The answer is "</span> <span class="o">&lt;&lt;</span> <span class="mi">42</span> <span class="o">&lt;&lt;</span> <span class="s">" and pi is approximately "</span> <span class="o">&lt;&lt;</span> <span class="mf">3.14</span><span class="p">;</span>
+
+  <span class="c1">// 先頭から文字列出力</span>
+  <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="n">oss</span><span class="p">.</span><span class="n"><a href="basic_ospanstream/span.html">span()</a></span><span class="p">.</span><span class="n"><a href="../span/span/data.html">data()</a></span><span class="p">;</span>
+  <span class="n"><a href="../iostream/cout.html">std::cout</a></span> <span class="o">&lt;&lt;</span> <span class="n">p</span> <span class="o">&lt;&lt;</span> <span class="n"><a href="../ostream/endl.html">std::endl</a></span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p>
+<h3>出力</h3>
+<p><pre><code>The answer is 42 and pi is approximately 3.14
+</code></pre></p>
+<h2>バージョン</h2>
+<h3>言語</h3>
+<ul>
+<li>C++23</li>
+</ul>
+<h3>処理系</h3>
+<ul>
+<li><a href="../../implementation.html#clang">Clang</a>: ??</li>
+<li><a href="../../implementation.html#gcc">GCC</a>: ??</li>
+<li><a href="../../implementation.html#visual_cpp">Visual C++</a>: ??</li>
+</ul>
+<h2>参照</h2>
+<ul>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0448r4.pdf" target="_blank">P0448R4 A strstream replacement using span&lt;charT&gt; as buffer</a></li>
+</ul></div>
+
+      </div>
+    </div>
+  </div>
+  
+  
+    <div id="sidebar" class="col-sm-3 col-sm-pull-9">
+    </div>
+  
+
+</div>
+            </div>
+        </main>
+<footer class="footer navbar navbar-default">
+  <div class="container-fluid">
+    <p><small>
+      本サイトの情報は、
+        <a href="https://creativecommons.org/licenses/by/3.0/deed.ja" rel="nofollow">クリエイティブ・コモンズ 表示 3.0 非移植 ライセンス(CC BY)</a>
+      の下に提供されています。
+    </small></p>
+  </div>
+</footer>
+    </body>
+</html>
