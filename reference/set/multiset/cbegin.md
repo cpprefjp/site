@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-const_iterator cbegin() const noexcept;
+const_iterator cbegin() const noexcept;           // (1) C++11
+constexpr const_iterator cbegin() const noexcept; // (1) C++26
 ```
 
 
@@ -55,3 +56,7 @@ int main()
 | [`multiset::cend`](cend.md)     | 末尾の次を指す読み取り専用イテレータを取得する |
 | [`multuset::rbegin`](rbegin.md) | 末尾を指す逆イテレータを取得する |
 | [`multiset::rend`](rend.md)     | 先頭の前を指す逆イテレータを取得する |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

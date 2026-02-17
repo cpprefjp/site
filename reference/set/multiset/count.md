@@ -5,10 +5,13 @@
 * function[meta id-type]
 
 ```cpp
-size_type count(const key_type& x) const; // (1)
+size_type count(const key_type& x) const;           // (1) C++03
+constexpr size_type count(const key_type& x) const; // (1) C++26
 
 template <class K>
-size_type count(const K& x) const;        // (2) C++14
+size_type count(const K& x) const;           // (2) C++14
+template <class K>
+constexpr size_type count(const K& x) const; // (2) C++26
 ```
 
 ## 概要
@@ -84,3 +87,4 @@ int main()
 
 ## 参照
 - [N3657 Adding heterogeneous comparison lookup to associative containers (rev 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3657.htm)
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

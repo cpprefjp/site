@@ -6,12 +6,16 @@
 * cpp17[meta cpp]
 
 ```cpp
-node_type extract(const_iterator position); // (1) C++17
+node_type extract(const_iterator position);           // (1) C++17
+constexpr node_type extract(const_iterator position); // (1) C++26
 
-node_type extract(const key_type& x);       // (2) C++17
+node_type extract(const key_type& x);           // (2) C++17
+constexpr node_type extract(const key_type& x); // (2) C++26
 
 template <class K>
-node_type extract(K&& x);                   // (3) C++23
+node_type extract(K&& x);           // (3) C++23
+template <class K>
+constexpr node_type extract(K&& x); // (3) C++26
 ```
 
 ## 概要
@@ -142,3 +146,4 @@ s2 = { 1, 2 }
 - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
 - [P2077R3 Heterogeneous erasure overloads for associative containers](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2077r3.html)
     - C++23で、`template <class K> extract(K&& x)`のオーバーロードが追加された
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

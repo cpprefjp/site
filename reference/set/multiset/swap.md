@@ -5,10 +5,13 @@
 * function[meta id-type]
 
 ```cpp
-void swap(multiset& st);
+void swap(multiset& st);                                                 // (1) C++03
 void swap(multiset& x)
   noexcept(allocator_traits<Allocator>::is_always_equal::value
-            && noexcept(swap(declval<Compare&>(),declval<Compare&>()))); // C++17
+            && noexcept(swap(declval<Compare&>(),declval<Compare&>()))); // (1) C++17
+constexpr void swap(multiset& x)
+  noexcept(allocator_traits<Allocator>::is_always_equal::value
+            && noexcept(swap(declval<Compare&>(),declval<Compare&>()))); // (1) C++26
 ```
 
 ## 概要
@@ -63,3 +66,4 @@ int main()
 ## 参照
 - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
     - `noexcept` 追加の経緯となる提案文書
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
