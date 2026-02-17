@@ -5,9 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-bool empty() const;               // C++03
-[[nodiscard]] bool empty() const; // C++20
-bool empty() const;               // C++26
+bool empty() const;               // (1) C++03
+[[nodiscard]] bool empty() const; // (1) C++20
+constexpr bool empty() const;     // (1) C++26
 ```
 
 ## 概要
@@ -71,3 +71,4 @@ non_empty_que is not empty
     - C++20で`[[nodiscard]]`が付加された
 - [P2422R1 Remove `nodiscard` annotations from the standard library specification](https://open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2422r1.html)
     - C++26で`[[nodiscard]]`指定が削除された
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

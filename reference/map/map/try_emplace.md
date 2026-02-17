@@ -9,32 +9,48 @@
 template <class... Args>
 pair<iterator, bool>
   try_emplace(const key_type& k, Args&&... args); // (1) C++17
+template <class... Args>
+constexpr pair<iterator, bool>
+  try_emplace(const key_type& k, Args&&... args); // (1) C++26
 
 template <class... Args>
 pair<iterator, bool>
-  try_emplace(key_type&& k, Args&&... args);      // (2) C++17
+  try_emplace(key_type&& k, Args&&... args); // (2) C++17
+template <class... Args>
+constexpr pair<iterator, bool>
+  try_emplace(key_type&& k, Args&&... args); // (2) C++26
 
 template <class... Args>
 iterator
   try_emplace(const_iterator hint,
               const key_type& k,
-              Args&&... args);        // (3) C++17
+              Args&&... args); // (3) C++17
+template <class... Args>
+constexpr iterator
+  try_emplace(const_iterator hint,
+              const key_type& k,
+              Args&&... args); // (3) C++26
 
 template <class... Args>
 iterator
   try_emplace(const_iterator hint,
               key_type&& k,
-              Args&&... args);        // (4) C++17
+              Args&&... args); // (4) C++17
+template <class... Args>
+constexpr iterator
+  try_emplace(const_iterator hint,
+              key_type&& k,
+              Args&&... args); // (4) C++26
 
 template <class K, class... Args>
-pair<iterator, bool>
+constexpr pair<iterator, bool>
   try_emplace(K&& k, Args&&... args); // (5) C++26
 
 template <class K, class... Args>
-iterator
+constexpr iterator
   try_emplace(const_iterator hint,
               K&& k,
-              Args&&... args);        // (6) C++26
+              Args&&... args); // (6) C++26
 ```
 
 ## 概要
@@ -150,3 +166,4 @@ false, 114, false
 - [N4279 Improved insertion interface for unique-key maps (Revision 2.3)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4279.html)
 - [P2363R5: Extending associative containers with the remaining heterogeneous overloads](https://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2363r5.html)
     - C++26で`template <class K>`のバージョンが追加された
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

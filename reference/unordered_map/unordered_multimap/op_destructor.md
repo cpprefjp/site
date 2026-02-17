@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-~unordered_multimap();
+~unordered_multimap();           // (1) C++11
+constexpr ~unordered_multimap(); // (1) C++26
 ```
 
 ## 概要
@@ -37,3 +38,7 @@
 |--------------------------------------------|----------------|
 | [`(constructor)`](op_constructor.md) | コンストラクタ |
 | [`operator=`](op_assign.md)              | 代入演算子     |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

@@ -5,10 +5,16 @@
 * function[meta id-type]
 
 ```cpp
-void swap(map<Key,T, Compare,Allocator>& st);
-void swap(map& x)
-  noexcept(allocator_traits<Allocator>::is_always_equal::value
-            && noexcept(swap(declval<Compare&>(),declval<Compare&>()))); // C++17
+void
+  swap(map<Key,T, Compare,Allocator>& st);                                 // (1) C++03
+void
+  swap(map& x)
+    noexcept(allocator_traits<Allocator>::is_always_equal::value
+              && noexcept(swap(declval<Compare&>(),declval<Compare&>()))); // (1) C++17
+constexpr void
+  swap(map& x)
+    noexcept(allocator_traits<Allocator>::is_always_equal::value
+              && noexcept(swap(declval<Compare&>(),declval<Compare&>()))); // (1) C++26
 ```
 
 ## 概要
@@ -80,3 +86,4 @@ m2 : {[10,a], [20,b], [30,c], }
 ## 参照
 - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
     - `noexcept` 追加の経緯となる提案文書
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

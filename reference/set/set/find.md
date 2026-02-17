@@ -5,15 +5,21 @@
 * function[meta id-type]
 
 ```cpp
-iterator find(const key_type& x);             // (1)
+iterator find(const key_type& x);           // (1) C++03
+constexpr iterator find(const key_type& x); // (1) C++26
 
 template <class K>
-iterator find(const K& x);                    // (2) C++14
+iterator find(const K& x);           // (2) C++14
+template <class K>
+constexpr iterator find(const K& x); // (2) C++26
 
-const_iterator find(const key_type& x) const; // (3)
+const_iterator find(const key_type& x) const;           // (3) C++03
+constexpr const_iterator find(const key_type& x) const; // (3) C++26
 
 template <class K>
-const_iterator find(const K& x) const;        // (4) C++14
+const_iterator find(const K& x) const;           // (4) C++14
+template <class K>
+constexpr const_iterator find(const K& x) const; // (4) C++26
 ```
 
 ## 概要
@@ -95,3 +101,4 @@ Bob
 ## 参照
 - [N3657 Adding heterogeneous comparison lookup to associative containers (rev 4)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3657.htm)
 - [LWG Issue 2299. [CD] Effects of inaccessible `key_compare::is_transparent` type are not clear](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2299)
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

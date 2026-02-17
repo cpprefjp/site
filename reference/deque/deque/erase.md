@@ -7,9 +7,11 @@
 ```cpp
 iterator erase(iterator position);                         // (1) C++03
 iterator erase(const_iterator position);                   // (1) C++11
+constexpr iterator erase(const_iterator position);         // (1) C++26
 
-iterator erase(iterator first, iterator last);             // (2) C++03
-iterator erase(const_iterator first, const_iterator last); // (2) C++11
+iterator erase(iterator first, iterator last);                       // (2) C++03
+iterator erase(const_iterator first, const_iterator last);           // (2) C++11
+constexpr iterator erase(const_iterator first, const_iterator last); // (2) C++26
 ```
 
 ## 概要
@@ -110,3 +112,4 @@ int main()
 ## 参照
 - [N2350 Container insert/erase and iterator constness (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2350.pdf)
 - [LWG Issue 638. `deque` end invalidation during erase](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#638)
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

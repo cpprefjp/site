@@ -7,7 +7,9 @@
 
 ```cpp
 template <class... Args>
-iterator emplace(Args&&... args);
+iterator emplace(Args&&... args);           // (1) C++11
+template <class... Args>
+constexpr iterator emplace(Args&&... args); // (1) C++26
 ```
 
 ## 概要
@@ -149,3 +151,4 @@ int main()
 - [LWG Issue 518. Are `insert` and `erase` stable for `unordered_multiset` and `unordered_multimap`?](https://wg21.cmeerw.net/lwg/issue518)
     - 安定性の保証が規定された経緯のレポート
 - [LWG Issue 2156. Unordered containers' reserve(n) reserves for n-1 elements](https://wg21.cmeerw.net/lwg/issue2156)
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

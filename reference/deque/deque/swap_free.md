@@ -6,11 +6,19 @@
 ```cpp
 namespace std {
   template <class T, class Allocator>
-  void swap(deque<T,Allocator>& x, deque<T,Allocator>& y);
-
+  void
+    swap(deque<T,Allocator>& x,
+         deque<T,Allocator>& y);       // (1) C++03
   template <class T, class Allocator>
-  void swap(deque<T,Allocator>& x, deque<T,Allocator>& y)
-    noexcept(noexcept(x.swap(y)));                         // C++17
+  void
+    swap(deque<T,Allocator>& x,
+         deque<T,Allocator>& y)
+      noexcept(noexcept(x.swap(y)));   // (1) C++17
+  template <class T, class Allocator>
+  constexpr void
+    swap(deque<T,Allocator>& x,
+         deque<T,Allocator>& y)
+      noexcept(noexcept(x.swap(y)));   // (1) C++26
 }
 ```
 
@@ -65,3 +73,4 @@ c2 : {1 2 3 }
 ## 参照
 - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
     - `noexcept` 追加の経緯となる提案文書
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-void rehash(size_type n);
+void rehash(size_type n);           // (1) C++11
+constexpr void rehash(size_type n); // (1) C++26
 ```
 
 ## 概要
@@ -98,3 +99,7 @@ bucket_count is 13
 | [`load_factor`](load_factor.md)         | 現在の負荷率（バケットあたりの要素数の平均）を取得 |
 | [`max_load_factor`](max_load_factor.md) | 負荷率の最大値を取得、設定 |
 | [`reserve`](reserve.md)                 | 最小要素数指定によるバケット数の調整 |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

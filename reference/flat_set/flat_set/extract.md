@@ -6,7 +6,8 @@
 * cpp23[meta cpp]
 
 ```cpp
-container_type extract() &&;  // C++23
+container_type extract() &&;           // (1) C++23
+constexpr container_type extract() &&; // (1) C++26
 ```
 
 ## 概要
@@ -75,3 +76,7 @@ int main()
 - [GCC](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

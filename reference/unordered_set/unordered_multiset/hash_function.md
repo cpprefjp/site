@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-hasher hash_function() const;
+hasher hash_function() const;           // (1) C++11
+constexpr hasher hash_function() const; // (1) C++26
 ```
 
 ## 概要
@@ -74,3 +75,7 @@ hash(2) = 2
 |-----------------------------------------|------------------------------------------------------|
 | [`hash`](/reference/functional/hash.md) | デフォルトのハッシュ関数オブジェクト(class template) |
 | [`key_eq`](key_eq.md)                 | キー比較用関数オブジェクトの取得                     |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

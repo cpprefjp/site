@@ -7,7 +7,9 @@
 
 ```cpp
 template <container-compatible-range<value_type> R>
-void insert_range(R&& rg); // C++23
+void insert_range(R&& rg);           // (1) C++23
+template <container-compatible-range<value_type> R>
+constexpr void insert_range(R&& rg); // (1) C++26
 ```
 
 ## 概要
@@ -79,3 +81,7 @@ C 12
 |------------------------------------------------|--------------------------------------------|
 | [`map::insert`](insert.md)                     | 要素を挿入する                          |
 | [`map::insert_or_assign`](insert_or_assign.md) | 要素を挿入、あるいは代入する               |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

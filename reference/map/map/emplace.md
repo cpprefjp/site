@@ -7,7 +7,9 @@
 
 ```cpp
 template <class... Args>
-pair<iterator, bool> emplace(Args&&... args);
+pair<iterator, bool> emplace(Args&&... args);           // (1) C++11
+template <class... Args>
+constexpr pair<iterator, bool> emplace(Args&&... args); // (1) C++26
 ```
 
 ## 概要
@@ -161,3 +163,4 @@ CCC : (1, 2)
 
 ## 参照
 - [N2680 Proposed Wording for Placement Insert (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2680.pdf)
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

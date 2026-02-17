@@ -5,7 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-~map();
+~map();           // (1) C++03
+constexpr ~map(); // (1) C++26
 ```
 
 ## 概要
@@ -14,3 +15,7 @@
 
 ## 計算量
 [`size()`](size.md) に対して線形時間（デストラクタ呼び出し）
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

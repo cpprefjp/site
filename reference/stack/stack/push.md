@@ -5,8 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-void push(const value_type& x); // (1)
-void push(value_type&& x);      // (2) C++11
+void push(const value_type& x);           // (1) C++03
+constexpr void push(const value_type& x); // (1) C++26
+
+void push(value_type&& x);           // (2) C++11
+constexpr void push(value_type&& x); // (2) C++26
 ```
 
 ## 概要
@@ -71,3 +74,7 @@ int main()
 void push(const value_type& x) { c.push_back(x); }
 void push(value_type&& x) { c.push_back(std::move(x)); }
 ```
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

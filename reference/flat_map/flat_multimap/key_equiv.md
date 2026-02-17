@@ -7,11 +7,18 @@
 
 ```cpp
 struct key_equiv {
-  key_equiv(key_compare c) : comp(c) { }
+  key_equiv(key_compare c) : comp(c) { } // (1) C++23
+constexpr
+  key_equiv(key_compare c) : comp(c) { } // (1) C++26
 
-  bool operator()(const_reference x, const_reference y) const {
-    return !comp(x.first, y.first) && !comp(y.first, x.first);
-  }
+  bool
+    operator()(const_reference x, const_reference y) const { // (2) C++23
+      return !comp(x.first, y.first) && !comp(y.first, x.first);
+    }
+  constexpr bool
+    operator()(const_reference x, const_reference y) const { // (2) C++26
+      return !comp(x.first, y.first) && !comp(y.first, x.first);
+    }
 
   key_compare comp;
 };
@@ -29,3 +36,7 @@ struct key_equiv {
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

@@ -5,8 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-value_type& back();
-const value_type& back() const;
+value_type& back();           // (1) C++03
+constexpr value_type& back(); // (1) C++26
+
+const value_type& back() const;           // (2) C++03
+constexpr const value_type& back() const; // (2) C++26
 ```
 
 ## 概要
@@ -58,3 +61,7 @@ int main() {
 value_type& back() { return c.back(); }
 const value_type& back() const { return c.back(); }
 ```
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

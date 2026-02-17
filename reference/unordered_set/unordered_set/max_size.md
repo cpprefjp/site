@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-size_type max_size() const noexcept;
+size_type max_size() const noexcept;           // (1) C++11
+constexpr size_type max_size() const noexcept; // (1) C++26
 ```
 
 ## 概要
@@ -67,3 +68,7 @@ C++11 ではアロケータにメンバ関数 `max_size` は必須ではない�
 |-----------------------|----------------------------|
 | [`empty`](empty.md) | コンテナが空かどうかを判定 |
 | [`size`](size.md)   | 要素数の取得               |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

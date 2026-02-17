@@ -5,8 +5,14 @@
 * function[meta id-type]
 
 ```cpp
-void swap(list& x);
-void swap(list& x) noexcept(allocator_traits<Allocator>::is_always_equal::value); // C++17
+void
+  swap(list& x);                                                   // (1) C++03
+void
+  swap(list& x)
+    noexcept(allocator_traits<Allocator>::is_always_equal::value); // (1) C++17
+constexpr void
+  swap(list& x)
+    noexcept(allocator_traits<Allocator>::is_always_equal::value); // (1) C++26
 ```
 
 ## 概要
@@ -64,3 +70,4 @@ int main()
 ## 参照
 - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
     - `noexcept` 追加の経緯となる提案文書
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

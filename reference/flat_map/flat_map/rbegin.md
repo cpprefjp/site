@@ -6,8 +6,11 @@
 * cpp23[meta cpp]
 
 ```cpp
-reverse_iterator rbegin() noexcept;
-const_reverse_iterator rbegin() const noexcept;
+reverse_iterator rbegin() noexcept;           // (1) C++23
+constexpr reverse_iterator rbegin() noexcept; // (1) C++26
+
+const_reverse_iterator rbegin() const noexcept;           // (2) C++23
+constexpr const_reverse_iterator rbegin() const noexcept; // (2) C++26
 ```
 
 ## 概要
@@ -79,3 +82,7 @@ int main()
 | [`flat_map::rend`](rend.md)       | 先頭の前を指す逆イテレータを取得する |
 | [`flat_map::crbegin`](crbegin.md) | 末尾を指す逆constイテレータを取得する |
 | [`flat_map::crend`](crend.md)     | 先頭の前を指す逆constイテレータを取得する |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

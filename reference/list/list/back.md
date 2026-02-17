@@ -5,8 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-reference back();             // (1)
-const_reference back() const; // (2)
+reference back();           // (1) C++03
+constexpr reference back(); // (1) C++26
+
+const_reference back() const;           // (2) C++03
+constexpr const_reference back() const; // (2) C++26
 ```
 
 ## 概要
@@ -42,3 +45,7 @@ int main()
 ```
 4
 ```
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

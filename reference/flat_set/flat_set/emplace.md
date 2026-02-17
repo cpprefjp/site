@@ -7,7 +7,9 @@
 
 ```cpp
 template <class... Args>
-pair<iterator, bool> emplace(Args&&... args);
+pair<iterator, bool> emplace(Args&&... args);           // (1) C++23
+template <class... Args>
+constexpr pair<iterator, bool> emplace(Args&&... args); // (1) C++26
 ```
 
 ## 概要
@@ -120,3 +122,7 @@ CCCCC
 | [`flat_set::insert`](insert.md)             | 要素を挿入する                             |
 | [`flat_set::insert_range`](insert_range.md) | Rangeを挿入する                            |
 | [`flat_set::emplace_hint`](emplace_hint.md) | ヒントを使って要素を直接構築する           |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

@@ -6,7 +6,8 @@
 * [meta namespace]
 
 ```cpp
-mapped_type& mapped() const; // set コンテナには存在ない
+mapped_type& mapped() const;           // (1) C++17 : set コンテナには存在ない
+constexpr mapped_type& mapped() const; // (1) C++26 : set コンテナには存在ない
 ```
 
 ## 概要
@@ -64,3 +65,4 @@ nya
 
 ## 参照
 - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

@@ -6,38 +6,66 @@
 
 ```cpp
 // C++03まで
-explicit queue(const Container& other = Container());  // (1), (2)
+explicit queue(const Container& other = Container()); // (1), (2) C++03
 
 // C++11以降 C++17まで
-explicit queue(const Container& other);           // (2)
-explicit queue(Container&& other = Container());  // (1), (3)
+explicit queue(const Container& other);          // (2) C++11
+explicit queue(Container&& other = Container()); // (1), (3) C++11
 
 // C++20以降
-queue() : queue(Container()) {}          // (1)
-explicit queue(const Container& other);  // (2)
-explicit queue(Container&& other);       // (3)
+queue() : queue(Container()) {}           // (1) C++20
+constexpr queue() : queue(Container()) {} // (1) C++26
+
+explicit queue(const Container& other);           // (2) C++11
+constexpr explicit queue(const Container& other); // (2) C++26
+
+explicit queue(Container&& other);           // (3) C++20
+constexpr explicit queue(Container&& other); // (3) C++26
 
 template<class InputIterator>
-queue(InputIterator first, InputIterator last);  // (4) C++23
+queue(InputIterator first, InputIterator last);           // (4) C++23
+template<class InputIterator>
+constexpr queue(InputIterator first, InputIterator last); // (4) C++26
 
 template <class Alloc>
-explicit queue(const Alloc& alloc);                // (5) C++11
+explicit queue(const Alloc& alloc);           // (5) C++11
 template <class Alloc>
-queue(const Container& other, const Alloc& alloc); // (6) C++11
+constexpr explicit queue(const Alloc& alloc); // (5) C++26
+
 template <class Alloc>
-queue(Container&& other, const Alloc& alloc);      // (7) C++11
+queue(const Container& other, const Alloc& alloc);           // (6) C++11
 template <class Alloc>
-queue(const queue& que, const Alloc& alloc);       // (8) C++11
+constexpr queue(const Container& other, const Alloc& alloc); // (6) C++26
+
 template <class Alloc>
-queue(queue&& que, const Alloc& alloc);            // (9) C++11
+queue(Container&& other, const Alloc& alloc);           // (7) C++11
+template <class Alloc>
+constexpr queue(Container&& other, const Alloc& alloc); // (7) C++26
+
+template <class Alloc>
+queue(const queue& que, const Alloc& alloc);           // (8) C++11
+template <class Alloc>
+constexpr queue(const queue& que, const Alloc& alloc); // (8) C++26
+
+template <class Alloc>
+queue(queue&& que, const Alloc& alloc);           // (9) C++11
+template <class Alloc>
+constexpr queue(queue&& que, const Alloc& alloc); // (9) C++26
 
 template<class InputIterator, class Alloc>
-queue(InputIterator first, InputIterator last, const Alloc&);  // (10) C++23
+queue(InputIterator first, InputIterator last, const Alloc&);           // (10) C++23
+template<class InputIterator, class Alloc>
+constexpr queue(InputIterator first, InputIterator last, const Alloc&); // (10) C++26
 
 template <container-compatible-range<T> R>
-queue(from_range_t, R&& rg);                       // (11) C++23
+queue(from_range_t, R&& rg);           // (11) C++23
+template <container-compatible-range<T> R>
+constexpr queue(from_range_t, R&& rg); // (11) C++26
+
 template <container-compatible-range<T> R, class Alloc>
-queue(from_range_t, R&& rg, const Alloc& alloc);   // (12) C++23
+queue(from_range_t, R&& rg, const Alloc& alloc);           // (12) C++23
+template <container-compatible-range<T> R, class Alloc>
+constexpr queue(from_range_t, R&& rg, const Alloc& alloc); // (12) C++26
 ```
 * from_range_t[link ../../ranges/from_range_t.md]
 
@@ -101,3 +129,4 @@ int main() {
     - C++20でのデフォルトコンストラクタの分離
 - [P1425R4 Iterators pair constructors for stack and queue](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1425r4.pdf)
     - C++23でのイテレータペアへの対応
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

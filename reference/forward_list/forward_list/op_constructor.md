@@ -6,41 +6,78 @@
 * cpp11[meta cpp]
 
 ```cpp
-forward_list();                                          // (1) C++14
-explicit forward_list(const Allocator& a);               // (2) C++14
+forward_list();           // (1) C++14
+constexpr forward_list(); // (1) C++26
 
-explicit forward_list(const Allocator& a = Allocator()); // (1) + (2) C++11
+explicit forward_list(const Allocator& a);           // (2) C++14
+constexpr explicit forward_list(const Allocator& a); // (2) C++26
+
+explicit forward_list(const Allocator& a = Allocator()); // (1) + (2) C++11まで
 
 forward_list(size_type n,
              const T& value,
-             const Allocator& a = Allocator());          // (3) C++11
+             const Allocator& a = Allocator());   // (3) C++11
+constexpr
+  forward_list(size_type n,
+               const T& value,
+               const Allocator& a = Allocator()); // (3) C++26
 
-explicit forward_list(size_type n);                      // (4) C++11
-explicit forward_list(size_type n,
-                      const Allocator& a = Allocator()); // (4) C++14
+explicit
+  forward_list(size_type n);                      // (4) C++11
+explicit
+  forward_list(size_type n,
+               const Allocator& a = Allocator()); // (4) C++14
+constexpr explicit
+  forward_list(size_type n,
+               const Allocator& a = Allocator()); // (4) C++26
 
 template <class InputIterator>
 forward_list(InputIterator first,
              InputIterator last,
-             const Allocator& a = Allocator());          // (5) C++11
+             const Allocator& a = Allocator());   // (5) C++11
+template <class InputIterator>
+constexpr
+  forward_list(InputIterator first,
+               InputIterator last,
+               const Allocator& a = Allocator()); // (5) C++26
 
-forward_list(const forward_list& x);                     // (6) C++11
-forward_list(forward_list&& x);                          // (7) C++11
+forward_list(const forward_list& x);           // (6) C++11
+constexpr forward_list(const forward_list& x); // (6) C++26
 
-forward_list(const forward_list& x, const Allocator& a);            // (8) C++11
+forward_list(forward_list&& x);           // (7) C++11
+constexpr forward_list(forward_list&& x); // (7) C++26
+
 forward_list(const forward_list& x,
-             const type_identity_t<Allocator>& a);                  // (8) C++23
+             const Allocator& a);                    // (8) C++11
+forward_list(const forward_list& x,
+             const type_identity_t<Allocator>& a);   // (8) C++23
+constexpr
+  forward_list(const forward_list& x,
+               const type_identity_t<Allocator>& a); // (8) C++26
 
-forward_list(forward_list&& x, const Allocator& a);                // (9) C++11
 forward_list(forward_list&& x,
-             const type_identity_t<Allocator>& a);                  // (9) C++23
+             const Allocator& a);                     // (9) C++11
+forward_list(forward_list&& x,
+             const type_identity_t<Allocator>& a);    // (9) C++23
+constexpr
+  forward_list(forward_list&& x,
+               const type_identity_t<Allocator>& a);  // (9) C++26
 
 forward_list(initializer_list<T> il,
-             const Allocator& a = Allocator());          // (10) C++11
+             const Allocator& a = Allocator());   // (10) C++11
+constexpr
+  forward_list(initializer_list<T> il,
+               const Allocator& a = Allocator()); // (10) C++26
 
 template <container-compatible-range<T> R>
-forward_list(from_range_t, R&& rg,
-             const Allocator& a = Allocator());          // (11) C++23
+forward_list(from_range_t,
+             R&& rg,
+             const Allocator& a = Allocator());   // (11) C++23
+template <container-compatible-range<T> R>
+constexpr
+  forward_list(from_range_t,
+               R&& rg,
+               const Allocator& a = Allocator()); // (11) C++26
 ```
 * type_identity_t[link /reference/type_traits/type_identity.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]
@@ -202,3 +239,4 @@ ls7 : 1 2 3
     なお、Discussion の例はアロケータの型が誤っているので注意
 - [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
     - C++23でのアロケータ引数を`type_identity_t`で包む変更
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

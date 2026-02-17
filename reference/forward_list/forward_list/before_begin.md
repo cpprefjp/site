@@ -6,8 +6,11 @@
 * cpp11[meta cpp]
 
 ```cpp
-iterator before_begin() noexcept;
-const_iterator before_begin() const noexcept;
+iterator before_begin() noexcept;           // (1) C++11
+constexpr iterator before_begin() noexcept; // (1) C++26
+
+const_iterator before_begin() const noexcept;           // (2) C++11
+constexpr const_iterator before_begin() const noexcept; // (2) C++26
 ```
 
 ## 概要
@@ -74,3 +77,4 @@ int main()
 
 
 ## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

@@ -7,8 +7,13 @@
 ```cpp
 namespace std {
   template <class Key, class Compare, class KeyContainer>
-  void swap(flat_multiset<Key, Compare, KeyContainer>& x,
-            flat_multiset<Key, Compare, KeyContainer>& y); // (1) C++23
+  void
+    swap(flat_multiset<Key, Compare, KeyContainer>& x,
+         flat_multiset<Key, Compare, KeyContainer>& y); // (1) C++23
+  template <class Key, class Compare, class KeyContainer>
+  constexpr void
+    swap(flat_multiset<Key, Compare, KeyContainer>& x,
+         flat_multiset<Key, Compare, KeyContainer>& y); // (1) C++26
 }
 ```
 
@@ -74,3 +79,7 @@ fs2 : {10, 20, 30}
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

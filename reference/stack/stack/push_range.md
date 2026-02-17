@@ -7,7 +7,9 @@
 
 ```cpp
 template <container-compatible-range<value_type> R>
-void push_range(R&& rg); // C++23
+void push_range(R&& rg);           // (1) C++23
+template <container-compatible-range<value_type> R>
+constexpr void push_range(R&& rg); // (1) C++26
 ```
 
 ## 概要
@@ -64,3 +66,7 @@ int main()
 | 名前              | 説明           |
 |-------------------|----------------|
 | [`push`](push.md) | 要素を追加する |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

@@ -9,6 +9,9 @@ namespace std {
   template <class Key, class T, class Hash, class Pred, class Alloc>
   bool operator==(const unordered_map<Key,T,Hash,Pred,Alloc>& a,
                   const unordered_map<Key,T,Hash,Pred,Alloc>& b); // (1) C++11
+  template <class Key, class T, class Hash, class Pred, class Alloc>
+  constexpr bool operator==(const unordered_map<Key,T,Hash,Pred,Alloc>& a,
+                  const unordered_map<Key,T,Hash,Pred,Alloc>& b); // (1) C++26
 }
 ```
 
@@ -90,3 +93,4 @@ int main()
 - [P0809R0 Comparing Unordered Containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0809r0.pdf)
 - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

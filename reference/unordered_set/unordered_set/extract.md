@@ -6,8 +6,11 @@
 * cpp17[meta cpp]
 
 ```cpp
-node_type extract(const_iterator position); (1)
-node_type extract(const key_type& x);       (2)
+node_type extract(const_iterator position);           // (1) C++17
+constexpr node_type extract(const_iterator position); // (1) C++26
+
+node_type extract(const key_type& x);           // (2) C++17
+constexpr node_type extract(const key_type& x); // (2) C++26
 ```
 
 ## 概要
@@ -136,3 +139,4 @@ s2 = { 3, 2 }
 
 ## 参照
 - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

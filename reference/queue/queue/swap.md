@@ -6,7 +6,12 @@
 * cpp11[meta cpp]
 
 ```cpp
-void swap(queue& q) noexcept(noexcept(swap(c, q.c)))
+void
+  swap(queue& q)
+    noexcept(noexcept(swap(c, q.c))); // (1) C++11
+constexpr void
+  swap(queue& q)
+    noexcept(noexcept(swap(c, q.c))); // (1) C++26
 ```
 
 ## 概要
@@ -82,3 +87,4 @@ int main ()
 
 
 ## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

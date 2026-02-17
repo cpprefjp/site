@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-float load_factor() const noexcept;
+float load_factor() const noexcept;           // (1) C++11
+constexpr float load_factor() const noexcept; // (1) C++26
 ```
 
 ## 概要
@@ -92,3 +93,7 @@ size is 20, bucket_count is 23, load_factor is 0.869565
 | [`max_load_factor`](max_load_factor.md) | 負荷率の最大値を取得、設定               |
 | [`rehash`](rehash.md)                   | 最小バケット数指定によるバケット数の調整 |
 | [`reserve`](reserve.md)                 | 最小要素数指定によるバケット数の調整     |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

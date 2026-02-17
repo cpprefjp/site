@@ -6,14 +6,21 @@
 * cpp11[meta cpp]
 
 ```cpp
-void merge(forward_list& x);                // (1)
-void merge(forward_list&& x);               // (2)
+void merge(forward_list& x);           // (1) C++11
+constexpr void merge(forward_list& x); // (1) C++26
+
+void merge(forward_list&& x);           // (2) C++11
+constexpr void merge(forward_list&& x); // (2) C++26
 
 template <class Compare>
-void merge(forward_list& x, Compare comp);  // (3)
+void merge(forward_list& x, Compare comp);           // (3) C++11
+template <class Compare>
+constexpr void merge(forward_list& x, Compare comp); // (3) C++26
 
 template <class Compare>
-void merge(forward_list&& x, Compare comp); // (4)
+void merge(forward_list&& x, Compare comp);           // (4) C++11
+template <class Compare>
+constexpr void merge(forward_list&& x, Compare comp); // (4) C++26
 ```
 
 ## 概要
@@ -94,3 +101,4 @@ int main()
 - [LWG Issue 2045. `forward_list::merge` and `forward_list::splice_after` with unequal allocators](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2045)
 - [LWG Issue 2122. `merge()` stability for lists versus forward lists](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2122)
 - [LWG Issue 2123. `merge()` allocator requirements for lists versus forward lists](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2123)
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

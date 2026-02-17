@@ -6,7 +6,8 @@
 * cpp23[meta cpp]
 
 ```cpp
-flat_set& operator=(initializer_list<value_type> il); // C++23
+flat_set& operator=(initializer_list<value_type> il);           // (1) C++23
+constexpr flat_set& operator=(initializer_list<value_type> il); // (1) C++26
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
@@ -63,3 +64,7 @@ Carol
 - [GCC](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

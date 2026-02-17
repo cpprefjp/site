@@ -7,13 +7,24 @@
 
 ```cpp
 template<class C2>
-  void merge(set<Key, C2, Allocator>& source);       // (1)
+void merge(set<Key, C2, Allocator>& source);           // (1) C++17
 template<class C2>
-  void merge(set<Key, C2, Allocator>&& source);      // (2)
+constexpr void merge(set<Key, C2, Allocator>& source); // (1) C++26
+
 template<class C2>
-  void merge(multiset<Key, C2, Allocator>& source);  // (3)
+void merge(set<Key, C2, Allocator>&& source);           // (2) C++17
 template<class C2>
-  void merge(multiset<Key, C2, Allocator>&& source); // (4)
+constexpr void merge(set<Key, C2, Allocator>&& source); // (2) C++26
+
+template<class C2>
+void merge(multiset<Key, C2, Allocator>& source);           // (3) C++17
+template<class C2>
+constexpr void merge(multiset<Key, C2, Allocator>& source); // (3) C++26
+
+template<class C2>
+void merge(multiset<Key, C2, Allocator>&& source);           // (4) C++17
+template<class C2>
+constexpr void merge(multiset<Key, C2, Allocator>&& source); // (4) C++26
 ```
 
 ## 概要
@@ -88,3 +99,4 @@ s2 = { 10, 20, 30 }
 
 ## 参照
 - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

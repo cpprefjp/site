@@ -6,89 +6,167 @@
 * cpp11[meta cpp]
 
 ```cpp
-unordered_map();                                                    // (1) C++14
+unordered_map();           // (1) C++14
+constexpr unordered_map(); // (1) C++26
 
-explicit unordered_map(size_type n,
-                       const hasher& hf = hasher(),
-                       const key_equal& eql = key_equal(),
-                       const allocator_type& a = allocator_type()); // (2) C++14
+explicit
+  unordered_map(size_type n,
+                const hasher& hf = hasher(),
+                const key_equal& eql = key_equal(),
+                const allocator_type& a = allocator_type()); // (2) C++14
+constexpr explicit
+  unordered_map(size_type n,
+                const hasher& hf = hasher(),
+                const key_equal& eql = key_equal(),
+                const allocator_type& a = allocator_type()); // (2) C++26
 
-explicit unordered_map(size_type n = 実装依存の既定値,
-                       const hasher& hf = hasher(),
-                       const key_equal& eql = key_equal(),
-                       const allocator_type& a = allocator_type()); // (1) + (2) C++11
+explicit
+  unordered_map(size_type n = 実装依存の既定値,
+                const hasher& hf = hasher(),
+                const key_equal& eql = key_equal(),
+                const allocator_type& a = allocator_type()); // (1) + (2) C++11
 
 template <class InputIterator>
 unordered_map(InputIterator first, InputIterator last,
               size_type n = 実装依存の既定値,
               const hasher& hf = hasher(),
               const key_equal& eql = key_equal(),
-              const allocator_type& a = allocator_type());          // (3)
+              const allocator_type& a = allocator_type());   // (3) C++11
+template <class InputIterator>
+constexpr
+  unordered_map(InputIterator first, InputIterator last,
+                size_type n = 実装依存の既定値,
+                const hasher& hf = hasher(),
+                const key_equal& eql = key_equal(),
+                const allocator_type& a = allocator_type()); // (3) C++26
 
-unordered_map(const unordered_map& v);                              // (4)
+unordered_map(const unordered_map& v);           // (4) C++11
+constexpr unordered_map(const unordered_map& v); // (4) C++26
 
-unordered_map(unordered_map&& rv);                                  // (5)
+unordered_map(unordered_map&& rv);           // (5) C++11
+constexpr unordered_map(unordered_map&& rv); // (5) C++26
 
-explicit unordered_map(const allocator_type& a);                    // (6)
+explicit unordered_map(const allocator_type& a);           // (6) C++11
+constexpr explicit unordered_map(const allocator_type& a); // (6) C++26
 
-unordered_map(const unordered_map& v, const allocator_type& a);              // (7)
 unordered_map(const unordered_map& v,
-              const type_identity_t<allocator_type>& a);                     // (7) C++23
+              const allocator_type& a);                    // (7) C++11
+unordered_map(const unordered_map& v,
+              const type_identity_t<allocator_type>& a);   // (7) C++23
+constexpr
+  unordered_map(const unordered_map& v,
+                const type_identity_t<allocator_type>& a); // (7) C++26
 
-unordered_map(unordered_map&& rv, const allocator_type& a);                 // (8)
 unordered_map(unordered_map&& rv,
-              const type_identity_t<allocator_type>& a);                     // (8) C++23
+              const allocator_type& a);                    // (8) C++11
+unordered_map(unordered_map&& rv,
+              const type_identity_t<allocator_type>& a);   // (8) C++23
+constexpr
+  unordered_map(unordered_map&& rv,
+                const type_identity_t<allocator_type>& a); // (8) C++26
 
 unordered_map(initializer_list<value_type> il,
               size_type n = 実装依存の既定値,
               const hasher& hf = hasher(),
               const key_equal& eql = key_equal(),
-              const allocator_type& a = allocator_type());          // (9)
+              const allocator_type& a = allocator_type());   // (9) C++11
+constexpr
+  unordered_map(initializer_list<value_type> il,
+                size_type n = 実装依存の既定値,
+                const hasher& hf = hasher(),
+                const key_equal& eql = key_equal(),
+                const allocator_type& a = allocator_type()); // (9) C++26
 
-unordered_map(size_type n, const allocator_type& a);                // (10) C++14
+unordered_map(size_type n, const allocator_type& a);           // (10) C++14
+constexpr unordered_map(size_type n, const allocator_type& a); // (10) C++26
+
 unordered_map(size_type n,
               const hasher& hf,
-              const allocator_type& a);                             // (11) C++14
+              const allocator_type& a);   // (11) C++14
+constexpr
+  unordered_map(size_type n,
+                const hasher& hf,
+                const allocator_type& a); // (11) C++26
 
 template <class InputIterator>
 unordered_map(InputIterator f,
               InputIterator l,
               size_type n,
-              const allocator_type& a);                             // (12) C++14
+              const allocator_type& a);   // (12) C++14
+template <class InputIterator>
+constexpr
+  unordered_map(InputIterator f,
+                InputIterator l,
+                size_type n,
+                const allocator_type& a); // (12) C++26
 
 template <class InputIterator>
 unordered_map(InputIterator f,
               InputIterator l,
               size_type n,
-              const hasher& hf, 
-              const allocator_type& a);                             // (13) C++14
+              const hasher& hf,
+              const allocator_type& a);   // (13) C++14
+template <class InputIterator>
+constexpr
+  unordered_map(InputIterator f,
+                InputIterator l,
+                size_type n,
+                const hasher& hf,
+                const allocator_type& a); // (13) C++26
 
 unordered_map(initializer_list<value_type> il,
               size_type n,
-              const allocator_type& a);                             // (14) C++14
+              const allocator_type& a);   // (14) C++14
+constexpr
+  unordered_map(initializer_list<value_type> il,
+                size_type n,
+                const allocator_type& a); // (14) C++26
 
 unordered_map(initializer_list<value_type> il,
               size_type n,
-              const hasher& hf, 
-              const allocator_type& a);                             // (15) C++14
+              const hasher& hf,
+              const allocator_type& a);   // (15) C++14
+constexpr
+  unordered_map(initializer_list<value_type> il,
+                size_type n,
+                const hasher& hf,
+                const allocator_type& a); // (15) C++26
 
 template <container-compatible-range<value_type> R>
 unordered_map(std::from_range_t, R&& rg,
               size_type n = 実装依存の既定値,
               const hasher& hf = hasher(),
               const key_equal& eql = key_equal(),
-              const allocator_type& a = allocator_type());          // (16) C++23
+              const allocator_type& a = allocator_type());   // (16) C++23
+template <container-compatible-range<value_type> R>
+constexpr
+  unordered_map(std::from_range_t, R&& rg,
+                size_type n = 実装依存の既定値,
+                const hasher& hf = hasher(),
+                const key_equal& eql = key_equal(),
+                const allocator_type& a = allocator_type()); // (16) C++26
 
 template <container-compatible-range<value_type> R>
 unordered_map(std::from_range_t, R&& rg,
               size_type n,
-              const allocator_type& a);                             // (17) C++23
+              const allocator_type& a);   // (17) C++23
+template <container-compatible-range<value_type> R>
+constexpr
+  unordered_map(std::from_range_t, R&& rg,
+                size_type n,
+                const allocator_type& a); // (17) C++26
 
 template <container-compatible-range<value_type> R>
 unordered_map(std::from_range_t, R&& rg,
               size_type n,
               const hasher& hf,
-              const allocator_type& a);                             // (18) C++23
+              const allocator_type& a);   // (18) C++23
+template <container-compatible-range<value_type> R>
+constexpr
+  unordered_map(std::from_range_t, R&& rg,
+                size_type n,
+                const hasher& hf,
+                const allocator_type& a); // (18) C++26
 ```
 * type_identity_t[link /reference/type_traits/type_identity.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]
@@ -271,3 +349,4 @@ libstdc++ には 4.8.2 現在、(6), (7), (8)の形式はない。
     なお、Discussion の例はアロケータの型が誤っているので注意
 - [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
     - C++23でのアロケータ引数を`type_identity_t`で包む変更
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

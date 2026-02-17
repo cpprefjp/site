@@ -7,11 +7,15 @@
 
 ```cpp
 template <class InputIterator>
-void assign(InputIterator first, InputIterator last); // (1)
+void assign(InputIterator first, InputIterator last);           // (1) C++11
+template <class InputIterator>
+constexpr void assign(InputIterator first, InputIterator last); // (1) C++26
 
-void assign(size_type n, const T& t);                 // (2)
+void assign(size_type n, const T& t);           // (2) C++11
+constexpr void assign(size_type n, const T& t); // (2) C++26
 
-void assign(initializer_list<T> init);                // (3)
+void assign(initializer_list<T> init);           // (3) C++11
+constexpr void assign(initializer_list<T> init); // (3) C++26
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
@@ -131,3 +135,4 @@ ls3 : 1 2 3
 ## 参照
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
     - (3)の経緯となる提案文書
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

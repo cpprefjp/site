@@ -5,11 +5,13 @@
 * function[meta id-type]
 
 ```cpp
-iterator begin();           // (1) C++03
-iterator begin() noexcept;  // (1) C++11
+iterator begin();                    // (1) C++03
+iterator begin() noexcept;           // (1) C++11
+constexpr iterator begin() noexcept; // (1) C++26
 
-const_iterator begin() const;           // (2) C++03
-const_iterator begin() const noexcept;  // (2) C++11
+const_iterator begin() const;                    // (2) C++03
+const_iterator begin() const noexcept;           // (2) C++11
+constexpr const_iterator begin() const noexcept; // (2) C++26
 ```
 
 
@@ -88,3 +90,7 @@ int main()
 | [`map::rend`](rend.md)       | 先頭の前を指す逆イテレータを取得する |
 | [`map::crbegin`](crbegin.md) | 末尾を指す逆constイテレータを取得する |
 | [`map::crend`](crend.md)     | 先頭の前を指す逆constイテレータを取得する |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

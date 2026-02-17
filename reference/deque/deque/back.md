@@ -5,8 +5,15 @@
 * function[meta id-type]
 
 ```cpp
-reference back();
-const_reference back() const;
+reference
+  back();           // (1) C++03
+constexpr reference
+  back();           // (1) C++26
+
+const_reference
+  back() const;           // (2) C++03
+constexpr const_reference
+  back() const;           // (2) C++26
 ```
 
 ## 概要
@@ -53,3 +60,7 @@ int main()
 | [`front`](front.md)         | 先頭要素への参照を取得する |
 | [`push_back`](push_back.md) | 末尾に要素を追加する |
 | [`pop_back`](pop_back.md)   | 末尾要素を削除する |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

@@ -6,7 +6,9 @@
 ```cpp
 namespace std {
   template <class T, class Allocator>
-  bool operator==(const list<T, Allocator>& x, const list<T, Allocator>& y);
+  bool operator==(const list<T, Allocator>& x, const list<T, Allocator>& y);           // (1) C++03
+  template <class T, class Allocator>
+  constexpr bool operator==(const list<T, Allocator>& x, const list<T, Allocator>& y); // (1) C++26
 }
 ```
 
@@ -70,3 +72,4 @@ false
     - C++14から、2つ目のイテレータ範囲のendイテレータをとる`equal()`アルゴリズムを使用するようになった。
 - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

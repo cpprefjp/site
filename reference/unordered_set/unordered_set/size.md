@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-size_type size() const noexcept;
+size_type size() const noexcept;           // (1) C++11
+constexpr size_type size() const noexcept; // (1) C++26
 ```
 
 ## 概要
@@ -70,3 +71,7 @@ int main()
 | [`begin`](begin.md)                         | 先頭要素を指すイテレータの取得 |
 | [`end`](end.md)                             | 最終要素の次を指すイテレータの取得 |
 | [`distance`](/reference/iterator/distance.md) | イテレータ間の距離を求める |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

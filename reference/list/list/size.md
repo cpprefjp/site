@@ -5,8 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-size_type size() const;          // C++03
-size_type size() const noexcept; // C++11
+size_type size() const;                    // (1) C++03
+size_type size() const noexcept;           // (1) C++11
+constexpr size_type size() const noexcept; // (1) C++26
 ```
 
 ## 概要
@@ -52,3 +53,4 @@ int main()
 ## 参照
 - [N2909 Specifying the complexity of `size()`](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2909.pdf)
 - [C++0x 標準コンテナのsize()の計算量を規定 - Faith and Brave - C++で遊ぼう](http://d.hatena.ne.jp/faith_and_brave/20090902/1251879571)
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

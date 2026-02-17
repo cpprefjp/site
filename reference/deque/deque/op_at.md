@@ -5,8 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-reference operator[](size_type n);
-const_reference operator[](size_type n) const;
+reference operator[](size_type n);           // (1) C++03
+constexpr reference operator[](size_type n); // (1) C++26
+
+const_reference operator[](size_type n) const;           // (2) C++03
+constexpr const_reference operator[](size_type n) const; // (2) C++26
 ```
 
 ## 概要
@@ -57,3 +60,7 @@ int main()
 | 名前 | 説明 |
 |-----------------|----------------------------------|
 | [`at`](at.md) | 任意位置の要素への参照を取得する |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

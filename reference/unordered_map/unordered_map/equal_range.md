@@ -7,16 +7,28 @@
 
 ```cpp
 pair<iterator, iterator>
-  equal_range(const key_type& x);       // (1) C++11
+  equal_range(const key_type& x); // (1) C++11
+constexpr pair<iterator, iterator>
+  equal_range(const key_type& x); // (1) C++26
+
 pair<const_iterator, const_iterator>
   equal_range(const key_type& x) const; // (2) C++11
+constexpr pair<const_iterator, const_iterator>
+  equal_range(const key_type& x) const; // (2) C++26
 
 template <class K>
 pair<iterator, iterator>
-  equal_range(const K& k);              // (3) C++20
+  equal_range(const K& k); // (3) C++20
+template <class K>
+constexpr pair<iterator, iterator>
+  equal_range(const K& k); // (3) C++26
+
 template <class K>
 pair<const_iterator, const_iterator>
-  equal_range(const K& k) const;        // (4) C++20
+  equal_range(const K& k) const; // (4) C++20
+template <class K>
+constexpr pair<const_iterator, const_iterator>
+  equal_range(const K& k) const; // (4) C++26
 ```
 
 ## 概要
@@ -119,3 +131,4 @@ up:1
 
 ## 参照
 - [P0919R3 Heterogeneous lookup for unordered containers](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0919r3.html)
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

@@ -6,15 +6,21 @@
 * cpp23[meta cpp]
 
 ```cpp
-iterator lower_bound(const key_type& x);             // (1) C++23
+iterator lower_bound(const key_type& x);           // (1) C++23
+constexpr iterator lower_bound(const key_type& x); // (1) C++26
 
 template <class K>
-iterator lower_bound(const K& x);                    // (2) C++23
+iterator lower_bound(const K& x);           // (2) C++23
+template <class K>
+constexpr iterator lower_bound(const K& x); // (2) C++26
 
-const_iterator lower_bound(const key_type& x) const; // (3) C++23
+const_iterator lower_bound(const key_type& x) const;           // (3) C++23
+constexpr const_iterator lower_bound(const key_type& x) const; // (3) C++26
 
 template <class K>
-const_iterator lower_bound(const K& x) const;        // (4) C++23
+const_iterator lower_bound(const K& x) const;           // (4) C++23
+template <class K>
+constexpr const_iterator lower_bound(const K& x) const; // (4) C++26
 ```
 
 ## 概要
@@ -116,3 +122,7 @@ D,5
 | [`equal_range`](equal_range.md) | 指定したキーにマッチする要素範囲を返す |
 | [`find`](find.md) | 指定したキーで要素を探す |
 | [`count`](count.md) | 指定したキーにマッチする要素の数を返す |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

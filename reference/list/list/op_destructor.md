@@ -5,7 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-~list();
+~list();           // (1) C++03
+constexpr ~list(); // (1) C++26
 ```
 
 ## 概要
@@ -21,3 +22,4 @@
 
 
 ## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

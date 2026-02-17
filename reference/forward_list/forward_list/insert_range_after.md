@@ -7,7 +7,13 @@
 
 ```cpp
 template <container-compatible-range<T> R>
-iterator insert_range_after(const_iterator pos, R&& rg); // C++23
+iterator
+  insert_range_after(const_iterator pos,
+                     R&& rg);           // (1) C++23
+template <container-compatible-range<T> R>
+constexpr iterator
+  insert_range_after(const_iterator pos,
+                     R&& rg);           // (1) C++26
 ```
 
 ## 概要
@@ -59,3 +65,7 @@ int main()
 |-------------------------------------------|----------------------|
 | [`insert_after`](insert_after.md)         | 任意の位置への要素挿入   |
 | [`emplace_after`](emplace_after.md)       | 任意の位置への直接構築による要素挿入 |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

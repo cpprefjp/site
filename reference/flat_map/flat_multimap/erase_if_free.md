@@ -14,7 +14,16 @@ namespace std {
            class Predicate>
   typename flat_multimap<Key, T, Compare, KeyContainer, MappedContainer>::size_type
     erase_if(flat_multimap<Key, T, Compare, KeyContainer, MappedContainer>& c,
-             Predicate pred);
+             Predicate pred); // (1) C++23
+  template<class Key,
+           class T,
+           class Compare,
+           class KeyContainer,
+           class MappedContainer,
+           class Predicate>
+  constexpr typename flat_multimap<Key, T, Compare, KeyContainer, MappedContainer>::size_type
+    erase_if(flat_multimap<Key, T, Compare, KeyContainer, MappedContainer>& c,
+             Predicate pred); // (1) C++26
 }
 ```
 
@@ -84,3 +93,7 @@ C : 5
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

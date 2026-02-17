@@ -5,12 +5,19 @@
 * function[meta id-type]
 
 ```cpp
-multiset& operator=(const multiset& x);                      // (1) C++03
-multiset& operator=(multiset&& x);                           // (2) C++11
+multiset& operator=(const multiset& x);           // (1) C++03
+constexpr multiset& operator=(const multiset& x); // (1) C++26
+
+multiset& operator=(multiset&& x);                          // (2) C++11
 multiset& operator=(multiset&& x)
   noexcept(allocator_traits<Allocator>::is_always_equal::value
-            && is_nothrow_move_assignable<Compare>::value);  // (2) C++17
-multiset& operator=(initializer_list<value_type> init);      // (3) C++11
+            && is_nothrow_move_assignable<Compare>::value); // (2) C++17
+constexpr multiset& operator=(multiset&& x)
+  noexcept(allocator_traits<Allocator>::is_always_equal::value
+            && is_nothrow_move_assignable<Compare>::value); // (2) C++26
+
+multiset& operator=(initializer_list<value_type> init);           // (3) C++11
+constexpr multiset& operator=(initializer_list<value_type> init); // (3) C++26
 ```
 * initializer_list[link ../../initializer_list.md]
 
@@ -82,3 +89,4 @@ Size of c2: 7
 - [N2679 Initializer Lists for Standard Containers(Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2679.pdf)
 - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
     - `noexcept` 追加の経緯となる提案文書
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

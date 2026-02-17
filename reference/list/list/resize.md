@@ -5,9 +5,13 @@
 * function[meta id-type]
 
 ```cpp
-void resize(size_type sz);                      // (1) C++11
-void resize(size_type sz, const value_type& c); // (2) C++11
-void resize(size_type sz, T c = T());           // (1), (2) C++03。C++11で削除
+void resize(size_type sz);           // (1) C++11
+constexpr void resize(size_type sz); // (1) C++26
+
+void resize(size_type sz, const value_type& c);           // (2) C++11
+constexpr void resize(size_type sz, const value_type& c); // (2) C++26
+
+void resize(size_type sz, T c = T());                     // (1) + (2) C++03。C++11で削除
 ```
 
 ## 概要
@@ -67,3 +71,7 @@ int main()
 
 3
 ```
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

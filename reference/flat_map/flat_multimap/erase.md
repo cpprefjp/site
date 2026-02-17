@@ -6,16 +6,22 @@
 * cpp23[meta cpp]
 
 ```cpp
-iterator erase(iterator position);                         // (1) C++23
+iterator erase(iterator position);           // (1) C++23
+constexpr iterator erase(iterator position); // (1) C++26
 
-iterator erase(const_iterator position);                   // (2) C++23
+iterator erase(const_iterator position);           // (2) C++23
+constexpr iterator erase(const_iterator position); // (2) C++26
 
-size_type erase(const key_type& x);                        // (3) C++23
+size_type erase(const key_type& x);           // (3) C++23
+constexpr size_type erase(const key_type& x); // (3) C++26
 
 template <class K>
-size_type erase(K&& x);                                    // (4) C++23
+size_type erase(K&& x);           // (4) C++23
+template <class K>
+constexpr size_type erase(K&& x); // (4) C++26
 
-iterator erase(const_iterator first, const_iterator last); // (5) C++23
+iterator erase(const_iterator first, const_iterator last);           // (5) C++23
+constexpr iterator erase(const_iterator first, const_iterator last); // (5) C++26
 ```
 
 ## 概要
@@ -146,3 +152,7 @@ int main()
 | [`flat_multimap::clear`](clear.md)   | 全ての要素を削除する |
 | [`flat_multimap::insert`](insert.md) | 要素を挿入する |
 | [`flat_multimap::find`](find.md)     | 指定したキーで要素を探す |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

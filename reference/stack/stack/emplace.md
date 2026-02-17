@@ -7,10 +7,11 @@
 
 ```cpp
 template <class... Args>
-void emplace(Args&&... args);               // C++14 まで
-
+void emplace(Args&&... args);                     // (1) C++11
 template <class... Args>
-decltype(auto) emplace(Args&&... args);     // C++17 から
+decltype(auto) emplace(Args&&... args);           // (1) C++17
+template <class... Args>
+constexpr decltype(auto) emplace(Args&&... args); // (1) C++26
 ```
 
 ## 概要
@@ -96,3 +97,4 @@ C++17 規格が発行された段階では戻り値型が `reference` に変更�
 - [P0084R1 Emplace Return Type (Revision 1)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0084r1.pdf)
 - [P0084R2 Emplace Return Type (Revision 2)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0084r2.pdf)
 - [LWG Issue 2783. stack::emplace() and queue::emplace() should return decltype(auto)](https://wg21.cmeerw.net/lwg/issue2783)
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

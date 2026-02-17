@@ -5,10 +5,13 @@
 * function[meta id-type]
 
 ```cpp
-void sort();             // (1)
+void sort();           // (1) C++03
+constexpr void sort(); // (1) C++26
 
 template <class Compare>
-void sort(Compare comp); // (2)
+void sort(Compare comp);           // (2) C++03
+template <class Compare>
+constexpr void sort(Compare comp); // (2) C++26
 ```
 
 ## 概要
@@ -58,3 +61,7 @@ int main()
 2
 3
 ```
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

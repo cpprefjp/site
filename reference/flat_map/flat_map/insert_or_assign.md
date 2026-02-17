@@ -9,35 +9,62 @@
 template<class M>
 pair<iterator, bool>
   insert_or_assign(const key_type& k,
-                   M&& obj);            // (1) C++23
+                   M&& obj); // (1) C++23
+template<class M>
+constexpr pair<iterator, bool>
+  insert_or_assign(const key_type& k,
+                   M&& obj); // (1) C++26
 
 template<class M>
 pair<iterator, bool>
   insert_or_assign(key_type&& k,
-                   M&& obj);            // (2) C++23
+                   M&& obj); // (2) C++23
+template<class M>
+constexpr pair<iterator, bool>
+  insert_or_assign(key_type&& k,
+                   M&& obj); // (2) C++26
 
 template<class K, class M>
 pair<iterator, bool>
   insert_or_assign(K&& k,
-                   M&& obj);            // (3) C++23
+                   M&& obj); // (3) C++23
+template<class K, class M>
+constexpr pair<iterator, bool>
+  insert_or_assign(K&& k,
+                   M&& obj); // (3) C++26
 
 template<class M>
 iterator
   insert_or_assign(const_iterator hint,
                    const key_type& k,
-                   M&& obj);            // (4) C++23
+                   M&& obj); // (4) C++23
+template<class M>
+constexpr iterator
+  insert_or_assign(const_iterator hint,
+                   const key_type& k,
+                   M&& obj); // (4) C++26
 
 template<class M>
 iterator
   insert_or_assign(const_iterator hint,
                    key_type&& k,
-                   M&& obj);            // (5) C++23
+                   M&& obj); // (5) C++23
+template<class M>
+constexpr iterator
+  insert_or_assign(const_iterator hint,
+                   key_type&& k,
+                   M&& obj); // (5) C++26
 
 template<class K, class M>
 iterator
   insert_or_assign(const_iterator hint,
                    K&& k,
-                   M&& obj);            // (6) C++23
+                   M&& obj); // (6) C++23
+template<class K, class M>
+constexpr iterator
+  insert_or_assign(const_iterator hint,
+                   K&& k,
+                   M&& obj); // (6) C++26
 ```
 
 ## 概要
@@ -147,3 +174,7 @@ int main()
 | [`flat_map::emplace`](emplace.md)              | 要素を直接構築する                         |
 | [`flat_map::emplace_hint`](emplace_hint.md)    | ヒントを使って要素を直接構築する           |
 | [`flat_map::try_emplace`](try_emplace.md)      | キーが存在しない場合のみ要素を直接構築する |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

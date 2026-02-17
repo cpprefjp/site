@@ -5,11 +5,13 @@
 * function[meta id-type]
 
 ```cpp
-reverse_iterator rbegin();           // (1) C++03
-reverse_iterator rbegin() noexcept;  // (1) C++11
+reverse_iterator rbegin();                    // (1) C++03
+reverse_iterator rbegin() noexcept;           // (1) C++11
+constexpr reverse_iterator rbegin() noexcept; // (1) C++26
 
-const_reverse_iterator rbegin() const;           // (2) C++03
-const_reverse_iterator rbegin() const noexcept;  // (2) C++11
+const_reverse_iterator rbegin() const;                    // (2) C++03
+const_reverse_iterator rbegin() const noexcept;           // (2) C++11
+constexpr const_reverse_iterator rbegin() const noexcept; // (2) C++26
 ```
 
 ## 概要
@@ -63,3 +65,7 @@ int main()
 | [`crend`](crend.md)     | 先頭要素の前を指す読み取り専用逆イテレータを取得する |
 | [`begin`](begin.md)     | 先頭要素を指すイテレータの取得する |
 | [`end`](end.md)         | 末尾要素の次を指すイテレータを取得する |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

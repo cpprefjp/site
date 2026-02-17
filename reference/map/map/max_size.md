@@ -5,8 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-size_type max_size() const;           // C++03
-size_type max_size() const noexcept;  // C++11
+size_type max_size() const;                    // (1) C++03
+size_type max_size() const noexcept;           // (1) C++11
+constexpr size_type max_size() const noexcept; // (1) C++26
 ```
 
 ## 概要
@@ -55,3 +56,7 @@ int main ()
 | 名前 | 説明 |
 |-----------------------------------------------------------------------------------|--------------------------|
 | [`size`](size.md) | 要素数を取得する |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

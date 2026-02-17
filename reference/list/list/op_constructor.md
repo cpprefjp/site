@@ -5,38 +5,76 @@
 * function[meta id-type]
 
 ```cpp
-list();                                          // (1) C++14 から
-list(const Allocator& a);                        // (2) C++14 から
+list();                                          // (1) C++14
+constexpr list();                                // (1) C++26
+
+list(const Allocator& a);                        // (2) C++14
+constexpr list(const Allocator& a);              // (2) C++26
+
 explicit list(const Allocator& a = Allocator()); // (1), (2) C++11 まで。C++14 で削除
 
 explicit list(size_type n, const T& value = T(),
-     const Allocator& a = Allocator());          // (3) C++03 まで。C++11 で削除
+              const Allocator& a = Allocator()); // (3) C++03 まで。C++11 で削除
 list(size_type n, const T& value,
      const Allocator& a = Allocator());          // (3) C++11 から
+constexpr
+  list(size_type n, const T& value,
+       const Allocator& a = Allocator());        // (3) C++26
 
-explicit list(size_type n);                      // (4) C++11。C++14 で削除
-explicit list(size_type n,
-              const Allocator& a = Allocator()); // (4) C++14 から
+explicit
+  list(size_type n);                      // (4) C++11。C++14 で削除
+explicit
+  list(size_type n,
+       const Allocator& a = Allocator()); // (4) C++14 から
+constexpr explicit
+  list(size_type n,
+       const Allocator& a = Allocator()); // (4) C++26
 
 template <class InputIterator>
-list(InputIterator first, InputIterator last,
-     const Allocator& a = Allocator());          // (5)
+list(InputIterator first,
+     InputIterator last,
+     const Allocator& a = Allocator());   // (5) C++03
+template <class InputIterator>
+constexpr
+  list(InputIterator first,
+       InputIterator last,
+       const Allocator& a = Allocator()); // (5) C++26
 
-list(const list& x);                             // (6)
-list(list&& x);                                  // (7) C++11 から
-list(const list& x, const Allocator& a);                    // (8) C++11
+list(const list& x);           // (6) C++03
+constexpr list(const list& x); // (6) C++26
+
+list(list&& x);           // (7) C++11
+constexpr list(list&& x); // (7) C++26
+
 list(const list& x,
-     const type_identity_t<Allocator>& a);                  // (8) C++23
+     const Allocator& a);                    // (8) C++11
+list(const list& x,
+     const type_identity_t<Allocator>& a);   // (8) C++23
+constexpr
+  list(const list& x,
+       const type_identity_t<Allocator>& a); // (8) C++26
 
-list(list&& x, const Allocator& a);                         // (9) C++11
-list(list&& x, const type_identity_t<Allocator>& a);        // (9) C++23
+list(list&& x,
+     const Allocator& a);                    // (9) C++11
+list(list&& x,
+     const type_identity_t<Allocator>& a);   // (9) C++23
+constexpr
+  list(list&& x,
+       const type_identity_t<Allocator>& a); // (9) C++26
 
 list(initializer_list<T> il,
-     const Allocator& a = Allocator());          // (10) C++11 から
+     const Allocator& a = Allocator());        // (10) C++11
+constexpr
+  list(initializer_list<T> il,
+       const Allocator& a = Allocator());      // (10) C++26
 
 template <container-compatible-range<T> R>
 list(from_range_t, R&& rg,
-     const Allocator& a = Allocator());          // (11) C++23 から
+     const Allocator& a = Allocator());        // (11) C++23
+template <container-compatible-range<T> R>
+constexpr
+  list(from_range_t, R&& rg,
+       const Allocator& a = Allocator());      // (11) C++26
 ```
 * type_identity_t[link /reference/type_traits/type_identity.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]
@@ -183,3 +221,4 @@ ls7 : 1 2 3
 	なお、Discussion の例はアロケータの型が誤っているので注意
 - [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
     - C++23でのアロケータ引数を`type_identity_t`で包む変更
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

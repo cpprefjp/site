@@ -5,27 +5,42 @@
 * function[meta id-type]
 
 ```cpp
-iterator insert(const value_type& x);                          // (1)
-iterator insert(value_type&& y);                               // (2) C++17
+iterator insert(const value_type& x);           // (1) C++03
+constexpr iterator insert(const value_type& x); // (1) C++26
+
+iterator insert(value_type&& y);           // (2) C++17
+constexpr iterator insert(value_type&& y); // (2) C++26
 
 template <class P>
-iterator insert(P&& x);                                        // (3) C++11
+iterator insert(P&& x);           // (3) C++11
+template <class P>
+constexpr iterator insert(P&& x); // (3) C++26
 
-iterator insert(iterator position, const value_type& x);       // (4) C++03
-iterator insert(const_iterator position, const value_type& x); // (4) C++11
+iterator insert(iterator position, const value_type& x);                 // (4) C++03
+iterator insert(const_iterator position, const value_type& x);           // (4) C++11
+constexpr iterator insert(const_iterator position, const value_type& x); // (4) C++26
 
-iterator insert(const_iterator position, value_type&& y);      // (5) C++17
+iterator insert(const_iterator position, value_type&& y);           // (5) C++17
+constexpr iterator insert(const_iterator position, value_type&& y); // (5) C++26
 
 template <class P>
-iterator insert(const_iterator position, P&& x);               // (6) C++11
+iterator insert(const_iterator position, P&& x);           // (6) C++11
+template <class P>
+constexpr iterator insert(const_iterator position, P&& x); // (6) C++26
 
 template <class InputIterator>
-void insert(InputIterator first, InputIterator last);          // (7)
+void insert(InputIterator first, InputIterator last);           // (7) C++03
+template <class InputIterator>
+constexpr void insert(InputIterator first, InputIterator last); // (7) C++26
 
-void insert(initializer_list<value_type> init);                // (8) C++11
+void insert(initializer_list<value_type> init);           // (8) C++11
+constexpr void insert(initializer_list<value_type> init); // (8) C++26
 
-iterator insert(node_type&& nh);                               // (9) C++17
-iterator insert(const_iterator hint, node_type&& nh);          // (10) C++17
+iterator insert(node_type&& nh);           // (9) C++17
+constexpr iterator insert(node_type&& nh); // (9) C++26
+
+iterator insert(const_iterator hint, node_type&& nh);           // (10) C++17
+constexpr iterator insert(const_iterator hint, node_type&& nh); // (10) C++26
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
@@ -136,3 +151,4 @@ int main ()
     - C++14から、(3)と(6)の仕様の書き方が、`unordered_map::insert()`のものと統一された。
 - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
     - (9), (10)経緯となる提案文書
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

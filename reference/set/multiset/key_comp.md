@@ -5,7 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-key_compare key_comp() const;
+key_compare key_comp() const;           // (1) C++03
+constexpr key_compare key_comp() const; // (1) C++26
 ```
 
 ## 概要
@@ -53,3 +54,7 @@ int main()
 | [`count`](count.md)             | 指定したキーにマッチする要素の数を返す                   |
 | [`lower_bound`](lower_bound.md) | 与えられた値より小さく無い最初の要素へのイテレータを返す |
 | [`upper_bound`](upper_bound.md) | 特定の値よりも大きい最初の要素へのイテレータを返す       |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

@@ -6,7 +6,8 @@
 * cpp23[meta cpp]
 
 ```cpp
-void replace(container_type&& cont);  // C++23
+void replace(container_type&& cont);           // (1) C++23
+constexpr void replace(container_type&& cont); // (1) C++26
 ```
 
 ## 概要
@@ -88,3 +89,7 @@ int main()
 - [GCC](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

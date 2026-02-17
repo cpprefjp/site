@@ -6,13 +6,17 @@
 * cpp11[meta cpp]
 
 ```cpp
-T& at(const key_type& x);              // (1) C++11
-const T& at(const key_type& x) const;  // (2) C++11
+T& at(const key_type& x);           // (1) C++11
+constexpr T& at(const key_type& x); // (1) C++26
+
+const T& at(const key_type& x) const;           // (2) C++11
+constexpr const T& at(const key_type& x) const; // (2) C++26
 
 template<class K>
-T& at(const K& x);                     // (3) C++26
+constexpr T& at(const K& x); // (3) C++26
+
 template<class K>
-const T& at(const K& x) const;         // (4) C++26
+constexpr const T& at(const K& x) const; // (4) C++26
 ```
 
 ## 概要
@@ -108,3 +112,4 @@ exception std::out_of_range
 - [LWG Issue 761. `unordered_map` needs an `at()` member function](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#761)
 - [P2363R5 Extending associative containers with the remaining heterogeneous overloads](http://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2363r5.html)
     - C++26で`template <class K>`のバージョンが追加された
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

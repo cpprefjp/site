@@ -6,7 +6,8 @@
 * [meta namespace]
 
 ```cpp
-~node_handle();
+~node_handle();           // (1) C++17
+constexpr ~node_handle(); // (1) C++26
 ```
 
 ## 概要
@@ -48,3 +49,4 @@ int main()
 
 ## 参照
 - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

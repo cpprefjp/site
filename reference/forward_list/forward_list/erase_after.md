@@ -6,9 +6,17 @@
 * cpp11[meta cpp]
 
 ```cpp
-iterator erase_after(const_iterator position); // (1)
-iterator erase_after(const_iterator position,
-                     const_iterator last);     // (2)
+iterator
+  erase_after(const_iterator position); // (1) C++11
+constexpr iterator
+  erase_after(const_iterator position); // (1) C++26
+
+iterator
+  erase_after(const_iterator position,
+              const_iterator last); // (2) C++11
+constexpr iterator
+  erase_after(const_iterator position,
+              const_iterator last); // (2) C++26
 ```
 
 ## 概要
@@ -138,3 +146,4 @@ int main()
 
 
 ## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

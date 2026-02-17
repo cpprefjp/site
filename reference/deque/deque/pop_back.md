@@ -5,7 +5,8 @@
 * function[meta id-type]
 
 ```cpp
-void pop_back();
+void pop_back();           // (1) C++03
+constexpr void pop_back(); // (1) C++26
 ```
 
 ## 概要
@@ -58,3 +59,7 @@ int main()
 | [`pop_front`](pop_front.md) | 先頭要素を削除する |
 | [`push_back`](push_back.md) | 末尾に要素を追加する |
 | [`erase`](erase.md)         | 指定した要素を削除する |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

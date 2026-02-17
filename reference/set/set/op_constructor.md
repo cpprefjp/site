@@ -5,50 +5,97 @@
 * function[meta id-type]
 
 ```cpp
-set();                                              // (1) C++14
+set();           // (1) C++14
+constexpr set(); // (1) C++26
 
 explicit set(const Compare& comp,
-             const Allocator& = Allocator());       // (2) C++14
+             const Allocator& = Allocator()); // (2) C++14
+constexpr explicit
+  set(const Compare& comp,
+      const Allocator& = Allocator());        // (2) C++26
 
-explicit set(const Compare& comp = Compare(),
-             const Allocator& alloc = Allocator()); // (1) + (2) C++03
+explicit
+  set(const Compare& comp = Compare(),
+      const Allocator& alloc = Allocator()); // (1) + (2) C++03
 
-explicit set(const Allocator& alloc);               // (3) C++11
+explicit set(const Allocator& alloc);           // (3) C++11
+constexpr explicit set(const Allocator& alloc); // (3) C++26
 
 template <class InputIterator>
-set(InputIterator first, InputIterator last,
+set(InputIterator first,
+    InputIterator last,
     const Compare& comp = Compare(),
-    const Allocator& alloc = Allocator());          // (4) C++03
+    const Allocator& alloc = Allocator());   // (4) C++03
+template <class InputIterator>
+constexpr
+  set(InputIterator first,
+      InputIterator last,
+      const Compare& comp = Compare(),
+      const Allocator& alloc = Allocator()); // (4) C++26
 
 template <class InputIterato>
-set(InputIterator first, InputIterator last,
-    const Allocator& a);                            // (5) C++14
+set(InputIterator first,
+    InputIterator last,
+    const Allocator& a);   // (5) C++14
+template <class InputIterato>
+constexpr
+  set(InputIterator first,
+      InputIterator last,
+      const Allocator& a); // (5) C++26
 
-set(const set& x);                                  // (6) C++03
-set(set&& y);                                       // (7) C++11
+set(const set& x);           // (6) C++03
+constexpr set(const set& x); // (6) C++26
 
-set(const set& x, const Allocator& alloc);                  // (8) C++11
+set(set&& y);           // (7) C++11
+constexpr set(set&& y); // (7) C++26
+
 set(const set& x,
-    const type_identity_t<Allocator>& alloc);               // (8) C++23
+    const Allocator& alloc);                  // (8) C++11
+set(const set& x,
+    const type_identity_t<Allocator>& alloc); // (8) C++23
+constexpr
+  set(const set& x,
+      const type_identity_t<Allocator>& alloc); // (8) C++26
 
-set(set&& y, const Allocator& alloc);                       // (9) C++11
-set(set&& y, const type_identity_t<Allocator>& alloc);      // (9) C++23
+set(set&& y, const Allocator& alloc);                            // (9) C++11
+set(set&& y, const type_identity_t<Allocator>& alloc);           // (9) C++23
+constexpr set(set&& y, const type_identity_t<Allocator>& alloc); // (9) C++26
 
 set(initializer_list<value_type> init,
     const Compare& comp = Compare(),
-    const Allocator& alloc = Allocator());          // (10) C++11
+    const Allocator& alloc = Allocator()); // (10) C++11
+constexpr
+  set(initializer_list<value_type> init,
+      const Compare& comp = Compare(),
+      const Allocator& alloc = Allocator()); // (10) C++26
 
 set(initializer_list<value_type> init,
-    const Allocator& a);                            // (11) C++14
+    const Allocator& a); // (11) C++14
+constexpr
+  set(initializer_list<value_type> init,
+      const Allocator& a); // (11) C++26
 
 template <container-compatible-range <value_type> R>
-set(from_range_t, R&& rg,
+set(from_range_t,
+    R&& rg,
     const Compare& comp = Compare(),
-    const Allocator& alloc = Allocator());          // (12) C++23
+    const Allocator& alloc = Allocator()); // (12) C++23
+template <container-compatible-range <value_type> R>
+constexpr
+  set(from_range_t,
+      R&& rg,
+      const Compare& comp = Compare(),
+      const Allocator& alloc = Allocator()); // (12) C++26
 
 template <container-compatible-range <value_type> R>
-set(from_range_t, R&& rg,
-    const Allocator& alloc);                        // (13) C++23
+set(from_range_t,
+    R&& rg,
+    const Allocator& alloc); // (13) C++23
+template <container-compatible-range <value_type> R>
+constexpr
+  set(from_range_t,
+      R&& rg,
+      const Allocator& alloc); // (13) C++26
 ```
 * type_identity_t[link /reference/type_traits/type_identity.md]
 * initializer_list[link ../../initializer_list.md]
@@ -163,3 +210,4 @@ Size of c2: 6
     なお、Discussion の例はアロケータの型が誤っているので注意
 - [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
     - C++23でのアロケータ引数を`type_identity_t`で包む変更
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

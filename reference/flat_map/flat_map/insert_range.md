@@ -7,7 +7,9 @@
 
 ```cpp
 template<container-compatible-range<value_type> R>
-void insert_range(R&& rg);                        // (1) C++23
+void insert_range(R&& rg);           // (1) C++23
+template<container-compatible-range<value_type> R>
+constexpr void insert_range(R&& rg); // (1) C++26
 ```
 * container-compatible-range[link /reference/exposition-only/container-compatible-range.md]
 
@@ -117,3 +119,7 @@ int main()
 | [`flat_map::emplace`](emplace.md)                   | 要素を直接構築する                         |
 | [`flat_map::emplace_hint`](emplace_hint.md)         | ヒントを使って要素を直接構築する           |
 | [`flat_map::try_emplace`](try_emplace.md)           | キーが存在しない場合のみ要素を直接構築する |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

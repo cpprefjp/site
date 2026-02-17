@@ -6,8 +6,11 @@
 * cpp11[meta cpp]
 
 ```cpp
-iterator end() noexcept;
-const_iterator end() const noexcept;
+iterator end() noexcept;           // (1) C++11
+constexpr iterator end() noexcept; // (1) C++26
+
+const_iterator end() const noexcept;           // (2) C++11
+constexpr const_iterator end() const noexcept; // (2) C++26
 ```
 
 ## 概要
@@ -86,3 +89,7 @@ int main()
 | [`end(size_type)`](end-size_type.md)       | インデックス（添え字）で指定したバケット内の最終要素の次を指すイテレータを取得 |
 | [`cbegin(size_type)`](cbegin-size_type.md) | インデックス（添え字）で指定したバケット内の先頭要素を指す読み取り専用イテレータを取得 |
 | [`cend(size_type)`](cend-size_type.md)     | インデックス（添え字）で指定したバケット内の最終要素の次を指す読み取り専用イテレータを取得 |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

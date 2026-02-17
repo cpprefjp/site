@@ -6,15 +6,21 @@
 * cpp23[meta cpp]
 
 ```cpp
-iterator find(const key_type& x);             // (1) C++23
+iterator find(const key_type& x);           // (1) C++23
+constexpr iterator find(const key_type& x); // (1) C++26
 
 template <class K>
-iterator find(const K& x);                    // (2) C++23
+iterator find(const K& x);           // (2) C++23
+template <class K>
+constexpr iterator find(const K& x); // (2) C++26
 
-const_iterator find(const key_type& x) const; // (3) C++23
+const_iterator find(const key_type& x) const;           // (3) C++23
+constexpr const_iterator find(const key_type& x) const; // (3) C++26
 
 template <class K>
-const_iterator find(const K& x) const;        // (4) C++23
+const_iterator find(const K& x) const;           // (4) C++23
+template <class K>
+constexpr const_iterator find(const K& x) const; // (4) C++26
 ```
 
 ## 概要
@@ -99,3 +105,7 @@ Bob
 
 ## 関連項目
 - [`contains()`](contains.md)
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

@@ -5,8 +5,9 @@
 * function[meta id-type]
 
 ```cpp
-allocator_type get_allocator() const;          // C++03
-allocator_type get_allocator() const noexcept; // C++11
+allocator_type get_allocator() const;                    // (1) C++03
+allocator_type get_allocator() const noexcept;           // (1) C++11
+constexpr allocator_type get_allocator() const noexcept; // (1) C++26
 ```
 
 ## 概要
@@ -70,3 +71,4 @@ int main ()
 	- 2015からは、`noexcept`が修飾されている。
 
 ## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

@@ -6,19 +6,31 @@
 * cpp11[meta cpp]
 
 ```cpp
-iterator insert(const value_type& v);
-iterator insert(value_type&& rv);                              // (1)
+iterator insert(const value_type& v);           // (1) C++11
+constexpr iterator insert(const value_type& v); // (1) C++26
 
-iterator insert(const_iterator position, const value_type& v);
-iterator insert(const_iterator position, value_type&& rv);     // (2)
+iterator insert(value_type&& rv);           // (2) C++11
+constexpr iterator insert(value_type&& rv); // (2) C++26
+
+iterator insert(const_iterator position, const value_type& v);           // (3) C++11
+constexpr iterator insert(const_iterator position, const value_type& v); // (3) C++26
+
+iterator insert(const_iterator position, value_type&& rv);           // (4) C++11
+constexpr iterator insert(const_iterator position, value_type&& rv); // (4) C++26
 
 template <class InputIterator>
-void insert(InputIterator first, InputIterator last);          // (3)
+void insert(InputIterator first, InputIterator last);           // (5) C++11
+template <class InputIterator>
+constexpr void insert(InputIterator first, InputIterator last); // (5) C++26
 
-void insert(initializer_list<value_type> il);                  // (4)
+void insert(initializer_list<value_type> il);           // (6) C++11
+constexpr void insert(initializer_list<value_type> il); // (6) C++26
 
-iterator insert(node_type&& nh);                               // (5) C++17
-iterator insert(const_iterator hint, node_type&& nh);          // (6) C++17
+iterator insert(node_type&& nh);           // (7) C++17
+constexpr iterator insert(node_type&& nh); // (7) C++26
+
+iterator insert(const_iterator hint, node_type&& nh);           // (8) C++17
+constexpr iterator insert(const_iterator hint, node_type&& nh); // (8) C++26
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
@@ -244,3 +256,4 @@ inline void unordered_multiset<Key, Hash, Pred, Allocator>::insert(std::initiali
 - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
     - (5), (6)経緯となる提案文書
 - [How useful is the hint passed to the std::unordered_... collections? - The Old New Thing](https://devblogs.microsoft.com/oldnewthing/20241028-00/?p=110428)
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

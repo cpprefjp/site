@@ -7,8 +7,15 @@
 ```cpp
 namespace std {
   template <class T, class Container, class Compare>
-  void swap(priority_queue<T, Container, Compare>& x,
-            priority_queue<T, Container, Compare>& y) noexcept(noexcept(x.swap(y)));
+  void
+    swap(priority_queue<T, Container, Compare>& x,
+         priority_queue<T, Container, Compare>& y)
+      noexcept(noexcept(x.swap(y))); // (1) C++11
+  template <class T, class Container, class Compare>
+  constexpr void
+    swap(priority_queue<T, Container, Compare>& x,
+         priority_queue<T, Container, Compare>& y)
+      noexcept(noexcept(x.swap(y))); // (1) C++26
 }
 ```
 * swap[link /reference/queue/priority_queue/swap.md]
@@ -86,3 +93,4 @@ int main()
 
 
 ## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

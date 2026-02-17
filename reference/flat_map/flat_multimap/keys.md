@@ -6,7 +6,8 @@
 * cpp23[meta cpp]
 
 ```cpp
-const key_container_type& keys() const noexcept; // C++23
+const key_container_type& keys() const noexcept;           // (1) C++23
+constexpr const key_container_type& keys() const noexcept; // (1) C++26
 ```
 
 ## 概要
@@ -68,3 +69,7 @@ int main()
 | 名前 | 説明 |
 |----------------------------------------|-------------------------------------------|
 | [`flat_multimap::values`](values.md)   | 値のコンテナを取得する |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

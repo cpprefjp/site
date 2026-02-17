@@ -6,10 +6,10 @@
 * cpp11[meta cpp]
 
 ```cpp
-size_type bucket(const key_type& k) const; // (1) C++26
+constexpr size_type bucket(const key_type& k) const; // (1) C++26
 
 template <class K>
-size_type bucket(const K& k) const;        // (2) C++26
+constexpr size_type bucket(const K& k) const; // (2) C++26
 ```
 
 ## 概要
@@ -113,3 +113,4 @@ key = H, bucket = 6, bucket_size = 0
 ## 参照
 - [P2363R5 Extending associative containers with the remaining heterogeneous overloads](http://open-std.org/jtc1/sc22/wg21/docs/papers/2023/p2363r5.html)
     - C++26で`template <class K>`のバージョンが追加された
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

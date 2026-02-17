@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-void clear() noexcept;
+void clear() noexcept;           // (1) C++11
+constexpr void clear() noexcept; // (1) C++26
 ```
 
 ## 概要
@@ -99,3 +100,7 @@ true
 | [`insert`](insert.md)             | 要素の追加                                             |
 | [`erase`](erase.md)               | 要素の削除                                             |
 | [`swap`](swap.md)                 | 内容の交換                                             |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

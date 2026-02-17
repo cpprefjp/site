@@ -6,15 +6,29 @@
 * cpp23[meta cpp]
 
 ```cpp
-mapped_type& at(const key_type& x);             // (1) C++23
+mapped_type&
+  at(const key_type& x);   // (1) C++23
+constexpr mapped_type&
+  at(const key_type& x);   // (1) C++26
 
 template <class K>
-mapped_type& at(const K& x);                    // (2) C++23
+mapped_type&
+  at(const K& x);              // (2) C++23
+template <class K>
+constexpr mapped_type&
+  at(const K& x);              // (2) C++26
 
-const mapped_type& at(const key_type& x) const; // (3) C++23
+const mapped_type&
+  at(const key_type& x) const; // (3) C++23
+constexpr const mapped_type&
+  at(const key_type& x) const; // (3) C++26
 
 template <class K>
-const mapped_type& at(const K& x) const;        // (4) C++23
+const mapped_type&
+  at(const K& x) const;        // (4) C++23
+template <class K>
+constexpr const mapped_type&
+  at(const K& x) const;        // (4) C++26
 ```
 
 ## 概要
@@ -96,3 +110,7 @@ exception std::out_of_range
 ## 関連項目
 - [`operator[]`](op_at.md)
 - [`find()`](find.md)
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

@@ -5,11 +5,17 @@
 * function[meta id-type]
 
 ```cpp
-list& operator=(const list& x);         // (1)
-list& operator=(list&& x);              // (2) C++11
+list& operator=(const list& x);           // (1) C++03
+constexpr list& operator=(const list& x); // (1) C++26
+
+list& operator=(list&& x);                                       // (2) C++11
 list& operator=(list&& x)
   noexcept(allocator_traits<Allocator>::is_always_equal::value); // (2) C++17
-list& operator=(initializer_list<T> x); // (3) C++11
+constexpr list& operator=(list&& x)
+  noexcept(allocator_traits<Allocator>::is_always_equal::value); // (2) C++26
+
+list& operator=(initializer_list<T> x);           // (3) C++11
+constexpr list& operator=(initializer_list<T> x); // (3) C++26
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
@@ -91,3 +97,4 @@ int main ()
     - (3)の経緯となる提案文書
 - [N4258 Cleaning-up noexcept in the Library, Rev 3](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4258.pdf)
     - `noexcept` 追加の経緯となる提案文書
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

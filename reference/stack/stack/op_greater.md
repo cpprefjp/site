@@ -6,7 +6,9 @@
 ```cpp
 namespace std {
   template <class T, class Container>
-  bool operator> (const stack<T, Container>& x, const stack<T, Container>& y);
+  bool operator> (const stack<T, Container>& x, const stack<T, Container>& y);           // (1) C++03
+  template <class T, class Container>
+  constexpr bool operator> (const stack<T, Container>& x, const stack<T, Container>& y); // (1) C++26
 }
 ```
 
@@ -46,3 +48,4 @@ false
 ```
 
 ## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

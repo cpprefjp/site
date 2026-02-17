@@ -5,51 +5,101 @@
 * function[meta id-type]
 
 ```cpp
-multiset();                                              // (1) C++14
+multiset();           // (1) C++14
+constexpr multiset(); // (1) C++26
 
-explicit multiset(const Compare& comp,
-             const Allocator& = Allocator());       // (2) C++14
+explicit
+  multiset(const Compare& comp,
+           const Allocator& = Allocator()); // (2) C++14
+constexpr explicit
+  multiset(const Compare& comp,
+           const Allocator& = Allocator()); // (2) C++26
 
 explicit multiset(const Compare& comp = Compare(),
-             const Allocator& alloc = Allocator()); // (1) + (2) C++03
+                  const Allocator& alloc = Allocator()); // (1) + (2) C++03
 
-explicit multiset(const Allocator& alloc);               // (3) C++11
+explicit multiset(const Allocator& alloc);           // (3) C++11
+constexpr explicit multiset(const Allocator& alloc); // (3) C++26
 
 template <class InputIterator>
-multiset(InputIterator first, InputIterator last,
-    const Compare& comp = Compare(),
-    const Allocator& alloc = Allocator());          // (4) C++03
+multiset(InputIterator first,
+         InputIterator last,
+         const Compare& comp = Compare(),
+         const Allocator& alloc = Allocator());   // (4) C++03
+template <class InputIterator>
+constexpr
+  multiset(InputIterator first,
+           InputIterator last,
+           const Compare& comp = Compare(),
+           const Allocator& alloc = Allocator()); // (4) C++26
 
 template <class InputIterato>
-multiset(InputIterator first, InputIterator last,
-    const Allocator& a);                            // (5) C++14
+multiset(InputIterator first,
+         InputIterator last,
+         const Allocator& a);   // (5) C++14
+template <class InputIterato>
+constexpr
+  multiset(InputIterator first,
+           InputIterator last,
+           const Allocator& a); // (5) C++26
 
-multiset(const set& x);                                  // (6) C++03
-multiset(set&& y);                                       // (7) C++11
+multiset(const set& x);           // (6) C++03
+constexpr multiset(const set& x); // (6) C++26
 
-multiset(const multiset& x, const Allocator& alloc);            // (8) C++11
+multiset(set&& y);           // (7) C++11
+constexpr multiset(set&& y); // (7) C++26
+
 multiset(const multiset& x,
-         const type_identity_t<Allocator>& alloc);              // (8) C++23
+         const Allocator& alloc);                    // (8) C++11
+multiset(const multiset& x,
+         const type_identity_t<Allocator>& alloc);   // (8) C++23
+constexpr
+  multiset(const multiset& x,
+           const type_identity_t<Allocator>& alloc); // (8) C++26
 
-multiset(multiset&& y, const Allocator& alloc);                 // (9) C++11
 multiset(multiset&& y,
-         const type_identity_t<Allocator>& alloc);              // (9) C++23
+         const Allocator& alloc);                    // (9) C++11
+multiset(multiset&& y,
+         const type_identity_t<Allocator>& alloc);   // (9) C++23
+constexpr
+  multiset(multiset&& y,
+           const type_identity_t<Allocator>& alloc); // (9) C++26
 
 multiset(initializer_list<value_type> init,
          const Compare& comp = Compare(),
-         const Allocator& alloc = Allocator());          // (10) C++11
+         const Allocator& alloc = Allocator());   // (10) C++11
+constexpr
+  multiset(initializer_list<value_type> init,
+           const Compare& comp = Compare(),
+           const Allocator& alloc = Allocator()); // (10) C++26
 
 multiset(initializer_list<value_type> init,
-         const Allocator& a);                            // (11) C++14
+         const Allocator& a);   // (11) C++14
+constexpr
+  multiset(initializer_list<value_type> init,
+           const Allocator& a); // (11) C++26
 
 template <container-compatible-range <value_type> R>
-multiset(from_range_t, R&& rg,
+multiset(from_range_t,
+         R&& rg,
          const Compare& comp = Compare(),
-         const Allocator& alloc = Allocator());          // (12) C++23
+         const Allocator& alloc = Allocator());   // (12) C++23
+template <container-compatible-range <value_type> R>
+constexpr
+  multiset(from_range_t,
+           R&& rg,
+           const Compare& comp = Compare(),
+           const Allocator& alloc = Allocator()); // (12) C++26
 
 template <container-compatible-range <value_type> R>
-multiset(from_range_t, R&& rg,
-         const Allocator& alloc);                        // (13) C++23
+multiset(from_range_t,
+         R&& rg,
+         const Allocator& alloc);   // (13) C++23
+template <container-compatible-range <value_type> R>
+constexpr
+  multiset(from_range_t,
+           R&& rg,
+           const Allocator& alloc); // (13) C++26
 ```
 * type_identity_t[link /reference/type_traits/type_identity.md]
 * initializer_list[link ../../initializer_list.md]
@@ -164,3 +214,4 @@ Size of c2: 7
     なお、Discussion の例はアロケータの型が誤っているので注意
 - [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
     - C++23でのアロケータ引数を`type_identity_t`で包む変更
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
