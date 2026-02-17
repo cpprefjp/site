@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-02-17T09:58:23">
-        2026年02月17日 09時58分23秒
+      <span itemprop="datePublished" content="2026-02-17T14:16:43">
+        2026年02月17日 14時16分43秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -230,7 +230,8 @@
 
 <span class="kt">void</span> <span class="nf">resize</span><span class="p">(</span><span class="n">size_type</span> <span class="n">sz</span><span class="p">,</span> <span class="k">const</span> <span class="n">value_type</span><span class="o">&amp;</span> <span class="n">c</span><span class="p">);</span>           <span class="c1">// (2) C++11</span>
 <span class="k">constexpr</span> <span class="kt">void</span> <span class="nf">resize</span><span class="p">(</span><span class="n">size_type</span> <span class="n">sz</span><span class="p">,</span> <span class="k">const</span> <span class="n">value_type</span><span class="o">&amp;</span> <span class="n">c</span><span class="p">);</span> <span class="c1">// (2) C++26</span>
-<span class="kt">void</span> <span class="nf">resize</span><span class="p">(</span><span class="n">size_type</span> <span class="n">sz</span><span class="p">,</span> <span class="n">T</span> <span class="n">c</span> <span class="o">=</span> <span class="n">T</span><span class="p">());</span>                     <span class="c1">// (2) C++03 : (1), (2) C++03。C++11で削除</span>
+
+<span class="kt">void</span> <span class="nf">resize</span><span class="p">(</span><span class="n">size_type</span> <span class="n">sz</span><span class="p">,</span> <span class="n">T</span> <span class="n">c</span> <span class="o">=</span> <span class="n">T</span><span class="p">());</span>                     <span class="c1">// (1) + (2) C++03。C++11で削除</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>

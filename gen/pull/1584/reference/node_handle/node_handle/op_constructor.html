@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-02-17T13:00:25">
-        2026年02月17日 13時00分25秒
+      <span itemprop="datePublished" content="2026-02-17T14:16:43">
+        2026年02月17日 14時16分43秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,7 +225,8 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><h1 itemprop="name"><span class="namespace" title="namespace ">::</span><span class="class" title="class node_handle">node_handle::</span><span class="token">コンストラクタ</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">constexpr</span> <span class="nf">node_handle</span><span class="p">()</span> <span class="k">noexcept</span> <span class="o">:</span> <span class="n">ptr_</span><span class="p">(),</span> <span class="n">alloc_</span><span class="p">()</span> <span class="p">{}</span> <span class="c1">// (1) C++26</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">node_handle</span><span class="p">()</span> <span class="k">noexcept</span> <span class="o">:</span> <span class="n">ptr_</span><span class="p">(),</span> <span class="n">alloc_</span><span class="p">()</span> <span class="p">{}</span>           <span class="c1">// (1) C++17</span>
+<span class="k">constexpr</span> <span class="n">node_handle</span><span class="p">()</span> <span class="k">noexcept</span> <span class="o">:</span> <span class="n">ptr_</span><span class="p">(),</span> <span class="n">alloc_</span><span class="p">()</span> <span class="p">{}</span> <span class="c1">// (1) C++26</span>
 
 <span class="n">node_handle</span><span class="p">(</span><span class="n">node_handle</span><span class="o">&amp;&amp;</span> <span class="n">nh</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>           <span class="c1">// (2) C++17</span>
 <span class="k">constexpr</span> <span class="nf">node_handle</span><span class="p">(</span><span class="n">node_handle</span><span class="o">&amp;&amp;</span> <span class="n">nh</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (2) C++26</span>
