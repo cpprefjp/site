@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2024-06-11T13:45:38">
-        2024年06月11日 13時45分38秒
+      <span itemprop="datePublished" content="2026-02-17T09:16:18">
+        2026年02月17日 09時16分18秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,14 +225,16 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;forward_list&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class forward_list">forward_list::</span><span class="token">unique</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">unique</span><span class="p">();</span>                          <span class="c1">// (1) C++11</span>
-<span class="n">size_type</span> <span class="nf">unique</span><span class="p">();</span>                     <span class="c1">// (1) C++20</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">unique</span><span class="p">();</span>                <span class="c1">// (1) C++11</span>
+<span class="n">size_type</span> <span class="nf">unique</span><span class="p">();</span>           <span class="c1">// (1) C++20</span>
+<span class="k">constexpr</span> <span class="n">size_type</span> <span class="nf">unique</span><span class="p">();</span> <span class="c1">// (1) C++26</span>
 
 <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">BinaryPredicate</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">unique</span><span class="p">(</span><span class="n">BinaryPredicate</span> <span class="n">pred</span><span class="p">);</span>      <span class="c1">// (2) C++11</span>
-
+<span class="kt">void</span> <span class="n">unique</span><span class="p">(</span><span class="n">BinaryPredicate</span> <span class="n">pred</span><span class="p">);</span>                <span class="c1">// (2) C++11</span>
 <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">BinaryPredicate</span><span class="o">&gt;</span>
-<span class="n">size_type</span> <span class="n">unique</span><span class="p">(</span><span class="n">BinaryPredicate</span> <span class="n">pred</span><span class="p">);</span> <span class="c1">// (2) C++20</span>
+<span class="n">size_type</span> <span class="n">unique</span><span class="p">(</span><span class="n">BinaryPredicate</span> <span class="n">pred</span><span class="p">);</span>           <span class="c1">// (2) C++20</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">BinaryPredicate</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="n">size_type</span> <span class="n">unique</span><span class="p">(</span><span class="n">BinaryPredicate</span> <span class="n">pred</span><span class="p">);</span> <span class="c1">// (2) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -299,6 +301,7 @@
 <h2>参照</h2>
 <ul>
 <li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0646r1.pdf" target="_blank">P0646R1 Improving the Return Value of Erase-Like Algorithms I: list/forward list</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html" target="_blank">P3372R3 constexpr containers and adaptors</a></li>
 </ul></div>
 
       </div>

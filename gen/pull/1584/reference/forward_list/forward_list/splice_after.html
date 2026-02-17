@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-07-08T15:33:39">
-        2025年07月08日 15時33分39秒
+      <span itemprop="datePublished" content="2026-02-17T09:16:18">
+        2026年02月17日 09時16分18秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,20 +225,59 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;forward_list&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class forward_list">forward_list::</span><span class="token">splice_after</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">splice_after</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span> <span class="n">forward_list</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span>  <span class="c1">// (1)</span>
-<span class="kt">void</span> <span class="nf">splice_after</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span> <span class="n">forward_list</span><span class="o">&amp;&amp;</span> <span class="n">x</span><span class="p">);</span> <span class="c1">// (2)</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="kt">void</span>
+  <span class="nf">splice_after</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span>
+               <span class="n">forward_list</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span> <span class="c1">// (1) C++11</span>
+<span class="k">constexpr</span> <span class="kt">void</span>
+  <span class="nf">splice_after</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span>
+               <span class="n">forward_list</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span> <span class="c1">// (1) C++26</span>
 
-<span class="kt">void</span> <span class="nf">splice_after</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span> <span class="n">forward_list</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span>
-                  <span class="n">const_iterator</span> <span class="n">i</span><span class="p">);</span>                          <span class="c1">// (3)</span>
+<span class="kt">void</span>
+  <span class="nf">splice_after</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span>
+               <span class="n">forward_list</span><span class="o">&amp;&amp;</span> <span class="n">x</span><span class="p">);</span> <span class="c1">// (2) C++11</span>
+<span class="k">constexpr</span> <span class="kt">void</span>
+  <span class="nf">splice_after</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span>
+               <span class="n">forward_list</span><span class="o">&amp;&amp;</span> <span class="n">x</span><span class="p">);</span> <span class="c1">// (2) C++26</span>
 
-<span class="kt">void</span> <span class="nf">splice_after</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span> <span class="n">forward_list</span><span class="o">&amp;&amp;</span> <span class="n">x</span><span class="p">,</span>
-                  <span class="n">const_iterator</span> <span class="n">i</span><span class="p">);</span>                          <span class="c1">// (4)</span>
+<span class="kt">void</span>
+  <span class="nf">splice_after</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span>
+               <span class="n">forward_list</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span>
+               <span class="n">const_iterator</span> <span class="n">i</span><span class="p">);</span> <span class="c1">// (3) C++11</span>
+<span class="k">constexpr</span> <span class="kt">void</span>
+  <span class="nf">splice_after</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span>
+               <span class="n">forward_list</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span>
+               <span class="n">const_iterator</span> <span class="n">i</span><span class="p">);</span> <span class="c1">// (3) C++26</span>
 
-<span class="kt">void</span> <span class="nf">splice_after</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span> <span class="n">forward_list</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span>
-                  <span class="n">const_iterator</span> <span class="n">first</span><span class="p">,</span> <span class="n">const_iterator</span> <span class="n">last</span><span class="p">);</span> <span class="c1">// (5)</span>
+<span class="kt">void</span>
+  <span class="nf">splice_after</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span>
+               <span class="n">forward_list</span><span class="o">&amp;&amp;</span> <span class="n">x</span><span class="p">,</span>
+               <span class="n">const_iterator</span> <span class="n">i</span><span class="p">);</span> <span class="c1">// (4) C++11</span>
+<span class="k">constexpr</span> <span class="kt">void</span>
+  <span class="nf">splice_after</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span>
+               <span class="n">forward_list</span><span class="o">&amp;&amp;</span> <span class="n">x</span><span class="p">,</span>
+               <span class="n">const_iterator</span> <span class="n">i</span><span class="p">);</span> <span class="c1">// (4) C++26</span>
 
-<span class="kt">void</span> <span class="nf">splice_after</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span> <span class="n">forward_list</span><span class="o">&amp;&amp;</span> <span class="n">x</span><span class="p">,</span>
-                  <span class="n">const_iterator</span> <span class="n">first</span><span class="p">,</span> <span class="n">const_iterator</span> <span class="n">last</span><span class="p">);</span> <span class="c1">// (6)</span>
+<span class="kt">void</span>
+  <span class="nf">splice_after</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span>
+               <span class="n">forward_list</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span>
+               <span class="n">const_iterator</span> <span class="n">first</span><span class="p">,</span>
+               <span class="n">const_iterator</span> <span class="n">last</span><span class="p">);</span> <span class="c1">// (5) C++11</span>
+<span class="k">constexpr</span> <span class="kt">void</span>
+  <span class="nf">splice_after</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span>
+               <span class="n">forward_list</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span>
+               <span class="n">const_iterator</span> <span class="n">first</span><span class="p">,</span>
+               <span class="n">const_iterator</span> <span class="n">last</span><span class="p">);</span> <span class="c1">// (5) C++26</span>
+
+<span class="kt">void</span>
+  <span class="nf">splice_after</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span>
+               <span class="n">forward_list</span><span class="o">&amp;&amp;</span> <span class="n">x</span><span class="p">,</span>
+               <span class="n">const_iterator</span> <span class="n">first</span><span class="p">,</span>
+               <span class="n">const_iterator</span> <span class="n">last</span><span class="p">);</span> <span class="c1">// (6) C++11</span>
+<span class="k">constexpr</span> <span class="kt">void</span>
+  <span class="nf">splice_after</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span>
+               <span class="n">forward_list</span><span class="o">&amp;&amp;</span> <span class="n">x</span><span class="p">,</span>
+               <span class="n">const_iterator</span> <span class="n">first</span><span class="p">,</span>
+               <span class="n">const_iterator</span> <span class="n">last</span><span class="p">);</span> <span class="c1">// (6) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -346,6 +385,7 @@
 </ul>
 </li>
 <li><a href="https://wg21.cmeerw.net/lwg/issue3017" target="_blank">LWG Issue 3017. <code>list splice</code> functions should use <code>addressof</code></a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html" target="_blank">P3372R3 constexpr containers and adaptors</a></li>
 </ul></div>
 
       </div>

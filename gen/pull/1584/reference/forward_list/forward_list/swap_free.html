@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2024-06-11T13:45:38">
-        2024年06月11日 13時45分38秒
+      <span itemprop="datePublished" content="2026-02-17T09:16:18">
+        2026年02月17日 09時16分18秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -227,13 +227,19 @@
   <div class="identifier-type">function template</div><div class="header">&lt;forward_list&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">swap (非メンバ関数)</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
-  <span class="kt">void</span> <span class="n">swap</span><span class="p">(</span><span class="n">forward_list</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;&amp;</span> <span class="n">x</span><span class="p">,</span>
-            <span class="n">forward_list</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;&amp;</span> <span class="n">y</span><span class="p">);</span>  <span class="c1">// (1) C++11</span>
-
+  <span class="kt">void</span>
+    <span class="n">swap</span><span class="p">(</span><span class="n">forward_list</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;&amp;</span> <span class="n">x</span><span class="p">,</span>
+         <span class="n">forward_list</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;&amp;</span> <span class="n">y</span><span class="p">);</span> <span class="c1">// (1) C++11</span>
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
-  <span class="kt">void</span> <span class="n">swap</span><span class="p">(</span><span class="n">forward_list</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="n">Allocator</span><span class="o">&gt;&amp;</span> <span class="n">x</span><span class="p">,</span>
-            <span class="n">forward_list</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="n">Allocator</span><span class="o">&gt;&amp;</span> <span class="n">y</span><span class="p">)</span>
-              <span class="k">noexcept</span><span class="p">(</span><span class="k">noexcept</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">swap</span><span class="p">(</span><span class="n">y</span><span class="p">)));</span> <span class="c1">// (1) C++17</span>
+  <span class="kt">void</span>
+    <span class="n">swap</span><span class="p">(</span><span class="n">forward_list</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="n">Allocator</span><span class="o">&gt;&amp;</span> <span class="n">x</span><span class="p">,</span>
+         <span class="n">forward_list</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="n">Allocator</span><span class="o">&gt;&amp;</span> <span class="n">y</span><span class="p">)</span>
+      <span class="k">noexcept</span><span class="p">(</span><span class="k">noexcept</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">swap</span><span class="p">(</span><span class="n">y</span><span class="p">)));</span>     <span class="c1">// (1) C++17</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Allocator</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="kt">void</span>
+    <span class="n">swap</span><span class="p">(</span><span class="n">forward_list</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="n">Allocator</span><span class="o">&gt;&amp;</span> <span class="n">x</span><span class="p">,</span>
+         <span class="n">forward_list</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="n">Allocator</span><span class="o">&gt;&amp;</span> <span class="n">y</span><span class="p">)</span>
+      <span class="k">noexcept</span><span class="p">(</span><span class="k">noexcept</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">swap</span><span class="p">(</span><span class="n">y</span><span class="p">)));</span>     <span class="c1">// (1) C++26</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
@@ -291,6 +297,7 @@ ls2 : {4 5 6 }
 <li><code>noexcept</code> 追加の経緯となる提案文書</li>
 </ul>
 </li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html" target="_blank">P3372R3 constexpr containers and adaptors</a></li>
 </ul></div>
 
       </div>
