@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-08-31T12:46:41">
-        2025年08月31日 12時46分41秒
+      <span itemprop="datePublished" content="2026-02-17T12:57:09">
+        2026年02月17日 12時57分09秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Raclamusi</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -225,11 +225,13 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;map&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class multimap">multimap::</span><span class="token">rend</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">reverse_iterator</span> <span class="nf">rend</span><span class="p">();</span>           <span class="c1">// (1) C++03</span>
-<span class="n">reverse_iterator</span> <span class="nf">rend</span><span class="p">()</span> <span class="k">noexcept</span><span class="p">;</span>  <span class="c1">// (1) C++11</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">reverse_iterator</span> <span class="nf">rend</span><span class="p">();</span>                    <span class="c1">// (1) C++03</span>
+<span class="n">reverse_iterator</span> <span class="nf">rend</span><span class="p">()</span> <span class="k">noexcept</span><span class="p">;</span>           <span class="c1">// (1) C++11</span>
+<span class="k">constexpr</span> <span class="n">reverse_iterator</span> <span class="nf">rend</span><span class="p">()</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (1) C++26</span>
 
-<span class="n">const_reverse_iterator</span> <span class="nf">rend</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>           <span class="c1">// (2) C++03</span>
-<span class="n">const_reverse_iterator</span> <span class="nf">rend</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span>  <span class="c1">// (2) C++11</span>
+<span class="n">const_reverse_iterator</span> <span class="nf">rend</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>                    <span class="c1">// (2) C++03</span>
+<span class="n">const_reverse_iterator</span> <span class="nf">rend</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span>           <span class="c1">// (2) C++11</span>
+<span class="k">constexpr</span> <span class="n">const_reverse_iterator</span> <span class="nf">rend</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span> <span class="c1">// (2) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -311,7 +313,11 @@
 <td>先頭の前を指す逆constイテレータを取得する</td>
 </tr>
 </tbody>
-</table></div>
+</table>
+<h2>参照</h2>
+<ul>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html" target="_blank">P3372R3 constexpr containers and adaptors</a></li>
+</ul></div>
 
       </div>
     </div>

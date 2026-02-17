@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-02-17T03:19:01">
-        2026年02月17日 03時19分01秒
+      <span itemprop="datePublished" content="2026-02-17T12:57:09">
+        2026年02月17日 12時57分09秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,56 +225,101 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;map&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class multimap">multimap::</span><span class="token">コンストラクタ</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">multimap</span><span class="p">();</span>                                              <span class="c1">// (1) C++14 から</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">multimap</span><span class="p">();</span>           <span class="c1">// (1) C++14</span>
+<span class="k">constexpr</span> <span class="nf">multimap</span><span class="p">();</span> <span class="c1">// (1) C++26</span>
 
-<span class="k">explicit</span> <span class="nf">multimap</span><span class="p">(</span><span class="k">const</span> <span class="n">Compare</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">,</span>
-                  <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">alloc</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span> <span class="c1">// (2) C++14 まで</span>
+<span class="k">explicit</span>
+  <span class="nf">multimap</span><span class="p">(</span><span class="k">const</span> <span class="n">Compare</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">alloc</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span> <span class="c1">// (2) C++14</span>
+<span class="k">constexpr</span> <span class="k">explicit</span>
+  <span class="nf">multimap</span><span class="p">(</span><span class="k">const</span> <span class="n">Compare</span><span class="o">&amp;</span> <span class="n">comp</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">alloc</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span> <span class="c1">// (2) C++26</span>
 
 <span class="k">explicit</span> <span class="nf">multimap</span><span class="p">(</span><span class="k">const</span> <span class="n">Compare</span><span class="o">&amp;</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">Compare</span><span class="p">(),</span>
                   <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">alloc</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span> <span class="c1">// (1) + (2) C++11 まで</span>
 
-<span class="k">explicit</span> <span class="nf">multimap</span><span class="p">(</span><span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">alloc</span><span class="p">);</span>               <span class="c1">// (3) C++11 から</span>
+<span class="k">explicit</span> <span class="nf">multimap</span><span class="p">(</span><span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">alloc</span><span class="p">);</span>               <span class="c1">// (3) C++11</span>
+<span class="k">constexpr</span> <span class="k">explicit</span> <span class="nf">multimap</span><span class="p">(</span><span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">alloc</span><span class="p">);</span>     <span class="c1">// (3) C++26</span>
 
 <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
 <span class="n">multimap</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span>
          <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span>
          <span class="k">const</span> <span class="n">Compare</span><span class="o">&amp;</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">Compare</span><span class="p">(),</span>
-         <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">alloc</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span>          <span class="c1">// (4)</span>
+         <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">alloc</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span>    <span class="c1">// (4) C++03</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
+<span class="k">constexpr</span>
+  <span class="n">multimap</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span>
+           <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">Compare</span><span class="o">&amp;</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">Compare</span><span class="p">(),</span>
+           <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">alloc</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span>  <span class="c1">// (4) C++26</span>
 
 <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
 <span class="n">multimap</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span>
          <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span>
-         <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">alloc</span><span class="p">);</span>                        <span class="c1">// (5) C++14 から</span>
+         <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">alloc</span><span class="p">);</span>    <span class="c1">// (5) C++14</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
+<span class="k">constexpr</span>
+  <span class="n">multimap</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span>
+           <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">alloc</span><span class="p">);</span>  <span class="c1">// (5) C++26</span>
 
-<span class="n">multimap</span><span class="p">(</span><span class="k">const</span> <span class="n">multimap</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span>                             <span class="c1">// (6)</span>
+<span class="n">multimap</span><span class="p">(</span><span class="k">const</span> <span class="n">multimap</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span>           <span class="c1">// (6) C++03</span>
+<span class="k">constexpr</span> <span class="nf">multimap</span><span class="p">(</span><span class="k">const</span> <span class="n">multimap</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span> <span class="c1">// (6) C++26</span>
 
 <span class="n">multimap</span><span class="p">(</span><span class="k">const</span> <span class="n">multimap</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span>
-         <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">alloc</span><span class="p">);</span>                             <span class="c1">// (7) C++11</span>
+         <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">alloc</span><span class="p">);</span>                    <span class="c1">// (7) C++11</span>
 <span class="n">multimap</span><span class="p">(</span><span class="k">const</span> <span class="n">multimap</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span>
-         <span class="k">const</span> <span class="n"><a href="../../type_traits/type_identity.html">type_identity_t</a></span><span class="o">&lt;</span><span class="n">Allocator</span><span class="o">&gt;&amp;</span> <span class="n">alloc</span><span class="p">);</span>            <span class="c1">// (7) C++23</span>
+         <span class="k">const</span> <span class="n"><a href="../../type_traits/type_identity.html">type_identity_t</a></span><span class="o">&lt;</span><span class="n">Allocator</span><span class="o">&gt;&amp;</span> <span class="n">alloc</span><span class="p">);</span>   <span class="c1">// (7) C++23</span>
+<span class="k">constexpr</span>
+  <span class="nf">multimap</span><span class="p">(</span><span class="k">const</span> <span class="n">multimap</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n"><a href="../../type_traits/type_identity.html">type_identity_t</a></span><span class="o">&lt;</span><span class="n">Allocator</span><span class="o">&gt;&amp;</span> <span class="n">alloc</span><span class="p">);</span> <span class="c1">// (7) C++26</span>
 
-<span class="n">multimap</span><span class="p">(</span><span class="n">multimap</span><span class="o">&amp;&amp;</span> <span class="n">y</span><span class="p">);</span>                                       <span class="c1">// (8) C++11 から</span>
+<span class="n">multimap</span><span class="p">(</span><span class="n">multimap</span><span class="o">&amp;&amp;</span> <span class="n">y</span><span class="p">);</span>           <span class="c1">// (8) C++11</span>
+<span class="k">constexpr</span> <span class="nf">multimap</span><span class="p">(</span><span class="n">multimap</span><span class="o">&amp;&amp;</span> <span class="n">y</span><span class="p">);</span> <span class="c1">// (8) C++26</span>
 
 <span class="n">multimap</span><span class="p">(</span><span class="n">multimap</span><span class="o">&amp;&amp;</span> <span class="n">y</span><span class="p">,</span>
-         <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">alloc</span><span class="p">);</span>                             <span class="c1">// (9) C++11</span>
+         <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">alloc</span><span class="p">);</span>                    <span class="c1">// (9) C++11</span>
 <span class="n">multimap</span><span class="p">(</span><span class="n">multimap</span><span class="o">&amp;&amp;</span> <span class="n">y</span><span class="p">,</span>
-         <span class="k">const</span> <span class="n"><a href="../../type_traits/type_identity.html">type_identity_t</a></span><span class="o">&lt;</span><span class="n">Allocator</span><span class="o">&gt;&amp;</span> <span class="n">alloc</span><span class="p">);</span>            <span class="c1">// (9) C++23</span>
+         <span class="k">const</span> <span class="n"><a href="../../type_traits/type_identity.html">type_identity_t</a></span><span class="o">&lt;</span><span class="n">Allocator</span><span class="o">&gt;&amp;</span> <span class="n">alloc</span><span class="p">);</span>   <span class="c1">// (9) C++23</span>
+<span class="k">constexpr</span>
+  <span class="nf">multimap</span><span class="p">(</span><span class="n">multimap</span><span class="o">&amp;&amp;</span> <span class="n">y</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n"><a href="../../type_traits/type_identity.html">type_identity_t</a></span><span class="o">&lt;</span><span class="n">Allocator</span><span class="o">&gt;&amp;</span> <span class="n">alloc</span><span class="p">);</span> <span class="c1">// (9) C++26</span>
 
 <span class="n">multimap</span><span class="p">(</span><span class="n"><a href="../../initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">init</span><span class="p">,</span>
          <span class="k">const</span> <span class="n">Compare</span><span class="o">&amp;</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">Compare</span><span class="p">(),</span>
-         <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">alloc</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span>          <span class="c1">// (10) C++11 から</span>
+         <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">alloc</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span>    <span class="c1">// (10) C++11</span>
+<span class="k">constexpr</span>
+  <span class="nf">multimap</span><span class="p">(</span><span class="n"><a href="../../initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">init</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">Compare</span><span class="o">&amp;</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">Compare</span><span class="p">(),</span>
+           <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">alloc</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span>  <span class="c1">// (10) C++26</span>
 
 <span class="n">multimap</span><span class="p">(</span><span class="n"><a href="../../initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">init</span><span class="p">,</span>
-         <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">alloc</span><span class="p">);</span>                        <span class="c1">// (11) C++14 から</span>
+         <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">alloc</span><span class="p">);</span>                  <span class="c1">// (11) C++14</span>
+<span class="k">constexpr</span>
+  <span class="nf">multimap</span><span class="p">(</span><span class="n"><a href="../../initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">init</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">alloc</span><span class="p">);</span>                <span class="c1">// (11) C++26</span>
 
 <span class="k">template</span> <span class="o">&lt;</span><span class="n">container</span><span class="o">-</span><span class="n">compatible</span><span class="o">-</span><span class="n"><a href="../../ranges/range.html">range</a></span> <span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">R</span><span class="o">&gt;</span>
-<span class="n">multimap</span><span class="p">(</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span><span class="p">,</span> <span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">rg</span><span class="p">,</span>
+<span class="n">multimap</span><span class="p">(</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span><span class="p">,</span>
+         <span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">rg</span><span class="p">,</span>
          <span class="k">const</span> <span class="n">Compare</span><span class="o">&amp;</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">Compare</span><span class="p">(),</span>
-         <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">alloc</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span>          <span class="c1">// (12) C++23 から</span>
+         <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">alloc</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span>    <span class="c1">// (12) C++23</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="n">container</span><span class="o">-</span><span class="n">compatible</span><span class="o">-</span><span class="n"><a href="../../ranges/range.html">range</a></span> <span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">R</span><span class="o">&gt;</span>
+<span class="k">constexpr</span>
+  <span class="n">multimap</span><span class="p">(</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span><span class="p">,</span>
+           <span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">rg</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">Compare</span><span class="o">&amp;</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">Compare</span><span class="p">(),</span>
+           <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">alloc</span> <span class="o">=</span> <span class="n">Allocator</span><span class="p">());</span>  <span class="c1">// (12) C++26</span>
 
 <span class="k">template</span> <span class="o">&lt;</span><span class="n">container</span><span class="o">-</span><span class="n">compatible</span><span class="o">-</span><span class="n"><a href="../../ranges/range.html">range</a></span> <span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">R</span><span class="o">&gt;</span>
-<span class="n">multimap</span><span class="p">(</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span><span class="p">,</span> <span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">rg</span><span class="p">,</span>
-         <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">alloc</span><span class="p">);</span>                        <span class="c1">// (13) C++23 から</span>
+<span class="n">multimap</span><span class="p">(</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span><span class="p">,</span>
+         <span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">rg</span><span class="p">,</span>
+         <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">alloc</span><span class="p">);</span>                  <span class="c1">// (13) C++23</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="n">container</span><span class="o">-</span><span class="n">compatible</span><span class="o">-</span><span class="n"><a href="../../ranges/range.html">range</a></span> <span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">R</span><span class="o">&gt;</span>
+<span class="k">constexpr</span>
+  <span class="n">multimap</span><span class="p">(</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span><span class="p">,</span>
+           <span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">rg</span><span class="p">,</span>
+           <span class="k">const</span> <span class="n">Allocator</span><span class="o">&amp;</span> <span class="n">alloc</span><span class="p">);</span>                <span class="c1">// (13) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -404,6 +449,7 @@ Size of m2: 3
 <li>C++23でのアロケータ引数を<code>type_identity_t</code>で包む変更</li>
 </ul>
 </li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html" target="_blank">P3372R3 constexpr containers and adaptors</a></li>
 </ul></div>
 
       </div>
