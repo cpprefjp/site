@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-key_equal key_eq() const;
+key_equal key_eq() const;           // (1) C++11
+constexpr key_equal key_eq() const; // (1) C++26
 ```
 
 ## 概要
@@ -77,3 +78,7 @@ eq("1st", "1st") = true
 |----------------------------------------------------|----------------------------------------------|
 | [`equal_to`](/reference/functional/equal_to.md)    | 等値比較演算関数オブジェクト(class template) |
 | [`hash_function`](hash_function.md)              | ハッシュ関数オブジェクトの取得 |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
