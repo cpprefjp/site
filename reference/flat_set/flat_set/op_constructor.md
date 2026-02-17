@@ -8,117 +8,281 @@
 ```cpp
 // ____要素数ゼロのflat_setを構築____
 
-flat_set() : flat_set(key_compare()) { } // (1) C++23
+flat_set()
+  : flat_set(key_compare()) { } // (1) C++23
 
-explicit flat_set(const key_compare& comp) // (2) C++23
-  : c(), compare(comp) { }
+explicit
+  flat_set(const key_compare& comp) // (2) C++23
+    : c(), compare(comp) { }
+constexpr explicit
+  flat_set(const key_compare& comp) // (2) C++26
+    : c(), compare(comp) { }
 
 template<class Allocator>
-explicit flat_set(const Allocator& a); // (3) C++23
+explicit
+  flat_set(const Allocator& a); // (3) C++23
+template<class Allocator>
+constexpr explicit
+  flat_set(const Allocator& a); // (3) C++26
 
 template<class Allocator>
-flat_set(const key_compare& comp, const Allocator& a); // (4) C++23
+flat_set(const key_compare& comp,
+         const Allocator& a);   // (4) C++23
+template<class Allocator>
+constexpr
+  flat_set(const key_compare& comp,
+           const Allocator& a); // (4) C++26
 
 // ____アロケータを伴うコピー＆ムーブコンストラクタ____
 
  template<class Allocator>
- flat_set(const flat_set& x, const Allocator& a); // (5) C++26
+ constexpr
+   flat_set(const flat_set& x,
+            const Allocator& a); // (5) C++26
 
  template<class Allocator>
- flat_set(flat_set&& x, const Allocator& a); // (6) C++26
+ constexpr
+   flat_set(flat_set&& x,
+            const Allocator& a); // (6) C++26
 
 // ____container_typeから構築____
 
 flat_set(container_type cont,
-         const key_compare& comp = key_compare()); // (7) C++23
+         const key_compare& comp = key_compare());   // (7) C++23
+constexpr
+  flat_set(container_type cont,
+           const key_compare& comp = key_compare()); // (7) C++26
 
 template<class Allocator>
 flat_set(const container_type cont&,
-         const Allocator& a); // (8) C++23
+         const Allocator& a);   // (8) C++23
+template<class Allocator>
+constexpr
+  flat_set(const container_type cont&,
+           const Allocator& a); // (8) C++26
 
 template<class Allocator>
 flat_set(const container_type& cont,
-         const key_compare& comp, const Allocator& a); // (9) C++23
+         const key_compare& comp,
+         const Allocator& a);   // (9) C++23
+template<class Allocator>
+constexpr
+  flat_set(const container_type& cont,
+           const key_compare& comp,
+           const Allocator& a); // (9) C++26
 
 // ____container_type（ソート済み且つ重複なし）から構築____
 
-flat_set(sorted_unique_t, container_type cont,
-         const key_compare& comp = key_compare()); // (10) C++23
+flat_set(sorted_unique_t,
+         container_type cont,
+         const key_compare& comp = key_compare());   // (10) C++23
+constexpr
+  flat_set(sorted_unique_t,
+           container_type cont,
+           const key_compare& comp = key_compare()); // (10) C++26
 
 template<class Allocator>
-flat_set(sorted_unique_t, const container_type& cont,
-         const Allocator& a); // (11) C++23
+flat_set(sorted_unique_t,
+         const container_type& cont,
+         const Allocator& a);   // (11) C++23
+template<class Allocator>
+constexpr
+  flat_set(sorted_unique_t,
+           const container_type& cont,
+           const Allocator& a); // (11) C++26
 
 template<class Allocator>
-flat_set(sorted_unique_t, const container_type& cont,
-         const key_compare& comp, const Allocator& a); // (12) C++23
+flat_set(sorted_unique_t,
+         const container_type& cont,
+         const key_compare& comp,
+         const Allocator& a);   // (12) C++23
+template<class Allocator>
+constexpr
+  flat_set(sorted_unique_t,
+           const container_type& cont,
+           const key_compare& comp,
+           const Allocator& a); // (12) C++26
 
 // ____イテレータから構築____
-
 template<class InputIterator>
-flat_set(InputIterator first, InputIterator last, const key_compare& comp = key_compare()) // (13) C++23
+flat_set(InputIterator first,
+         InputIterator last,
+         const key_compare& comp = key_compare())   // (13) C++23
   : c(), compare(comp) { insert(first, last); }
+template<class InputIterator>
+constexpr
+  flat_set(InputIterator first,
+           InputIterator last,
+           const key_compare& comp = key_compare()) // (13) C++26
+    : c(), compare(comp) { insert(first, last); }
 
 template<class InputIterator, class Allocator>
-flat_set(InputIterator first, InputIterator last, const Allocator& a); // (14) C++23
+flat_set(InputIterator first,
+         InputIterator last,
+         const Allocator& a);   // (14) C++23
+template<class InputIterator, class Allocator>
+constexpr
+  flat_set(InputIterator first,
+           InputIterator last,
+           const Allocator& a); // (14) C++26
 
 template<class InputIterator, class Allocator>
-flat_set(InputIterator first, InputIterator last,
-         const key_compare& comp, const Allocator& a); // (15) C++23
+flat_set(InputIterator first,
+         InputIterator last,
+         const key_compare& comp,
+         const Allocator& a);   // (15) C++23
+template<class InputIterator, class Allocator>
+constexpr
+  flat_set(InputIterator first,
+           InputIterator last,
+           const key_compare& comp,
+           const Allocator& a); // (15) C++26
 
 // ____イテレータ（ソート済み且つ重複なし）から構築____
-
 template<class InputIterator>
-flat_set(sorted_unique_t s, InputIterator first, InputIterator last,
-         const key_compare& comp = key_compare()) // (16) C++23
+flat_set(sorted_unique_t s,
+         InputIterator first,
+         InputIterator last,
+         const key_compare& comp = key_compare())   // (16) C++23
   : c(), compare(comp) { insert(s, first, last); }
+template<class InputIterator>
+constexpr
+  flat_set(sorted_unique_t s,
+           InputIterator first,
+           InputIterator last,
+           const key_compare& comp = key_compare()) // (16) C++26
+    : c(), compare(comp) { insert(s, first, last); }
 
 template<class InputIterator, class Allocator>
-flat_set(sorted_unique_t, InputIterator first, InputIterator last, const Allocator& a); // (17) C++23
+flat_set(sorted_unique_t,
+         InputIterator first,
+         InputIterator last,
+         const Allocator& a);   // (17) C++23
+template<class InputIterator, class Allocator>
+constexpr
+  flat_set(sorted_unique_t,
+           InputIterator first,
+           InputIterator last,
+           const Allocator& a); // (17) C++26
 
 template<class InputIterator, class Allocator>
-flat_set(sorted_unique_t, InputIterator first, InputIterator last,
-         const key_compare& comp, const Allocator& a); // (18) C++23
+flat_set(sorted_unique_t,
+         InputIterator first,
+         InputIterator last,
+         const key_compare& comp,
+         const Allocator& a);   // (18) C++23
+template<class InputIterator, class Allocator>
+constexpr
+  flat_set(sorted_unique_t,
+           InputIterator first,
+           InputIterator last,
+           const key_compare& comp,
+           const Allocator& a); // (18) C++26
 
 // ____Rangeから構築____
-
 template<container-compatible-range<value_type> R>
-flat_set(from_range_t fr, R&& rg) // (19) C++23
+flat_set(from_range_t fr,
+         R&& rg)   // (19) C++23
   : flat_set(fr, forward<R>(rg), key_compare()) { }
+template<container-compatible-range<value_type> R>
+constexpr
+  flat_set(from_range_t fr,
+           R&& rg) // (19) C++26
+    : flat_set(fr, forward<R>(rg), key_compare()) { }
 
 template<container-compatible-range<value_type> R>
-flat_set(from_range_t, R&& rg, const key_compare& comp) // (20) C++23
+flat_set(from_range_t,
+         R&& rg,
+         const key_compare& comp)   // (20) C++23
+  : flat_set(comp) { insert_range(forward<R>(rg)); }
+template<container-compatible-range<value_type> R>
+constexpr
+  flat_set(from_range_t,
+           R&& rg,
+           const key_compare& comp) // (20) C++26
   : flat_set(comp) { insert_range(forward<R>(rg)); }
 
 template<container-compatible-range<value_type> R, class Allocator>
-flat_set(from_range_t, R&& rg, const Allocator& a); // (21) C++23
+flat_set(from_range_t,
+         R&& rg,
+         const Allocator& a);   // (21) C++23
+template<container-compatible-range<value_type> R, class Allocator>
+constexpr
+  flat_set(from_range_t,
+           R&& rg,
+           const Allocator& a); // (21) C++26
 
 template<container-compatible-range<value_type> R, class Allocator>
-flat_set(from_range_t, R&& rg, const key_compare& comp, const Allocator& a); // (22) C++23
+flat_set(from_range_t,
+         R&& rg,
+         const key_compare& comp,
+         const Allocator& a);   // (22) C++23
+template<container-compatible-range<value_type> R, class Allocator>
+constexpr
+  flat_set(from_range_t,
+           R&& rg,
+           const key_compare& comp,
+           const Allocator& a); // (22) C++26
 
 // ____initializer_listから構築____
-
-flat_set(initializer_list<value_type> il, const key_compare& comp = key_compare()) // (23) C++23
+flat_set(initializer_list<value_type> il,
+         const key_compare& comp = key_compare())   // (23) C++23
   : flat_set(il.begin(), il.end(), comp) { }
+constexpr
+  flat_set(initializer_list<value_type> il,
+           const key_compare& comp = key_compare()) // (23) C++26
+    : flat_set(il.begin(), il.end(), comp) { }
 
 template<class Allocator>
-flat_set(initializer_list<value_type> il, const Allocator& a); // (24) C++23
+flat_set(initializer_list<value_type> il,
+         const Allocator& a);   // (24) C++23
+template<class Allocator>
+constexpr
+  flat_set(initializer_list<value_type> il,
+           const Allocator& a); // (24) C++26
 
 template<class Allocator>
-flat_set(initializer_list<value_type> il, const key_compare& comp, const Allocator& a); // (25) C++23
+flat_set(initializer_list<value_type> il,
+         const key_compare& comp,
+         const Allocator& a);   // (25) C++23
+template<class Allocator>
+constexpr
+  flat_set(initializer_list<value_type> il,
+           const key_compare& comp,
+           const Allocator& a); // (25) C++26
 
 // ____initializer_list（ソート済み且つ重複なし）から構築____
-
-flat_set(sorted_unique_t s, initializer_list<value_type> il,
-         const key_compare& comp = key_compare()) // (26) C++23
+flat_set(sorted_unique_t s,
+         initializer_list<value_type> il,
+         const key_compare& comp = key_compare())   // (26) C++23
+  : flat_set(s, il.begin(), il.end(), comp) { }
+constexpr
+  flat_set(sorted_unique_t s,
+           initializer_list<value_type> il,
+           const key_compare& comp = key_compare()) // (26) C++26
   : flat_set(s, il.begin(), il.end(), comp) { }
 
 template<class Allocator>
-flat_set(sorted_unique_t, initializer_list<value_type> il, const Allocator& a); // (27) C++23
+flat_set(sorted_unique_t,
+         initializer_list<value_type> il,
+         const Allocator& a);   // (27) C++23
+template<class Allocator>
+constexpr
+  flat_set(sorted_unique_t,
+           initializer_list<value_type> il,
+           const Allocator& a); // (27) C++26
 
 template<class Allocator>
-flat_set(sorted_unique_t, initializer_list<value_type> il,
-         const key_compare& comp, const Allocator& a); // (28) C++23
+flat_set(sorted_unique_t,
+         initializer_list<value_type> il,
+         const key_compare& comp,
+         const Allocator& a);   // (28) C++23
+template<class Allocator>
+constexpr
+  flat_set(sorted_unique_t,
+           initializer_list<value_type> il,
+           const key_compare& comp,
+           const Allocator& a); // (28) C++26
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 * from_range_t[link ../../ranges/from_range_t.md]
@@ -265,3 +429,7 @@ int main()
 | 名前 | 説明 |
 |---------------------------------------|--------------------------------------------|
 | [`uses_allocator`](uses_allocator.md) | 指定されたアロケータと合致するかをチェックする |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

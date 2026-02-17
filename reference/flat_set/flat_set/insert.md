@@ -6,34 +6,77 @@
 * cpp23[meta cpp]
 
 ```cpp
-pair<iterator, bool> insert(const value_type& x); // (1) C++23
-pair<iterator, bool> insert(value_type&& x);      // (2) C++23
+pair<iterator, bool>
+  insert(const value_type& x);  // (1) C++23
+constexpr pair<iterator, bool>
+  insert(const value_type& x); // (1) C++26
 
-iterator insert(const_iterator position,
-                const value_type& x);             // (3) C++23
-iterator insert(const_iterator position,
-                value_type&& x);                  // (4) C++23
+pair<iterator, bool>
+  insert(value_type&& x); // (2) C++23
+constexpr pair<iterator, bool>
+  insert(value_type&& x); // (2) C++26
+
+iterator
+  insert(const_iterator position,
+         const value_type& x); // (3) C++23
+constexpr iterator
+  insert(const_iterator position,
+         const value_type& x); // (3) C++26
+
+iterator
+  insert(const_iterator position,
+         value_type&& x); // (4) C++23
+constexpr iterator
+  insert(const_iterator position,
+         value_type&& x); // (4) C++26
 
 template<class P>
-pair<iterator, bool> insert(P&& x);               // (5) C++23
+pair<iterator, bool>
+  insert(P&& x); // (5) C++23
+template<class P>
+constexpr pair<iterator, bool>
+  insert(P&& x); // (5) C++26
 
 template<class P>
-iterator insert(const_iterator position,
-                P&&);                             // (6) C++23
+iterator
+  insert(const_iterator position,
+         P&&); // (6) C++23
+template<class P>
+constexpr iterator
+  insert(const_iterator position,
+         P&&); // (6) C++26
 
 template<class InputIterator>
-void insert(InputIterator first,
-            InputIterator last);                  // (7) C++23
+void
+  insert(InputIterator first,
+         InputIterator last); // (7) C++23
+template<class InputIterator>
+constexpr void
+  insert(InputIterator first,
+         InputIterator last); // (7) C++26
 
 template<class InputIterator>
-void insert(sorted_unique_t,
-            InputIterator first,
-            InputIterator last);                  // (8) C++23
+void
+  insert(sorted_unique_t,
+         InputIterator first,
+         InputIterator last); // (8) C++23
+template<class InputIterator>
+constexpr void
+  insert(sorted_unique_t,
+         InputIterator first,
+         InputIterator last); // (8) C++26
 
-void insert(initializer_list<value_type> il);     // (9) C++23
+void
+  insert(initializer_list<value_type> il); // (9) C++23
+constexpr void
+  insert(initializer_list<value_type> il); // (9) C++26
 
-void insert(sorted_unique_t s,
-            initializer_list<value_type> il);     // (10) C++23
+void
+  insert(sorted_unique_t s,
+         initializer_list<value_type> il); // (10) C++23
+constexpr void
+  insert(sorted_unique_t s,
+         initializer_list<value_type> il); // (10) C++26
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 * sorted_unique_t[link /reference/flat_set/sorted_unique_t.md]
@@ -223,3 +266,7 @@ int main()
 | [`flat_set::insert_range`](insert_range.md) | Rangeを挿入する                  |
 | [`flat_set::emplace`](emplace.md)           | 要素を直接構築する               |
 | [`flat_set::emplace_hint`](emplace_hint.md) | ヒントを使って要素を直接構築する |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

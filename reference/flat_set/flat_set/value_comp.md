@@ -6,7 +6,8 @@
 * cpp23[meta cpp]
 
 ```cpp
-value_compare value_comp() const; // C++23
+value_compare value_comp() const;           // (1) C++23
+constexpr value_compare value_comp() const; // (1) C++26
 ```
 
 
@@ -63,3 +64,7 @@ int main()
 | 名前                                | 説明                                                     |
 |-------------------------------------|----------------------------------------------------------|
 | [`key_comp`](key_comp.md)           | キー比較用の関数オブジェクトを取得する                      |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
