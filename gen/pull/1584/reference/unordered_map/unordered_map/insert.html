@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-10-18T10:08:36">
-        2025年10月18日 10時08分36秒
+      <span itemprop="datePublished" content="2026-02-17T13:28:34">
+        2026年02月17日 13時28分34秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Raclamusi</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -225,25 +225,41 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;unordered_map&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class unordered_map">unordered_map::</span><span class="token">insert</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">iterator</span><span class="p">,</span> <span class="kt">bool</span><span class="o">&gt;</span> <span class="n">insert</span><span class="p">(</span><span class="k">const</span> <span class="n">value_type</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">);</span>              <span class="c1">// (1)</span>
-<span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">iterator</span><span class="p">,</span> <span class="kt">bool</span><span class="o">&gt;</span> <span class="n">insert</span><span class="p">(</span><span class="n">value_type</span><span class="o">&amp;&amp;</span> <span class="n">v</span><span class="p">);</span>                   <span class="c1">// (2) C++17</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">iterator</span><span class="p">,</span> <span class="kt">bool</span><span class="o">&gt;</span> <span class="n">insert</span><span class="p">(</span><span class="k">const</span> <span class="n">value_type</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">);</span>           <span class="c1">// (1) C++11</span>
+<span class="k">constexpr</span> <span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">iterator</span><span class="p">,</span> <span class="kt">bool</span><span class="o">&gt;</span> <span class="n">insert</span><span class="p">(</span><span class="k">const</span> <span class="n">value_type</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">);</span> <span class="c1">// (1) C++26</span>
+
+<span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">iterator</span><span class="p">,</span> <span class="kt">bool</span><span class="o">&gt;</span> <span class="n">insert</span><span class="p">(</span><span class="n">value_type</span><span class="o">&amp;&amp;</span> <span class="n">v</span><span class="p">);</span>           <span class="c1">// (2) C++17</span>
+<span class="k">constexpr</span> <span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">iterator</span><span class="p">,</span> <span class="kt">bool</span><span class="o">&gt;</span> <span class="n">insert</span><span class="p">(</span><span class="n">value_type</span><span class="o">&amp;&amp;</span> <span class="n">v</span><span class="p">);</span> <span class="c1">// (2) C++26</span>
 
 <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">P</span><span class="o">&gt;</span>
-<span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">iterator</span><span class="p">,</span> <span class="kt">bool</span><span class="o">&gt;</span> <span class="n">insert</span><span class="p">(</span><span class="n">P</span><span class="o">&amp;&amp;</span> <span class="n">obj</span><span class="p">);</span>                          <span class="c1">// (3)</span>
+<span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">iterator</span><span class="p">,</span> <span class="kt">bool</span><span class="o">&gt;</span> <span class="n">insert</span><span class="p">(</span><span class="n">P</span><span class="o">&amp;&amp;</span> <span class="n">obj</span><span class="p">);</span>           <span class="c1">// (3) C++11</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">P</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="n"><a href="../../utility/pair.html">pair</a></span><span class="o">&lt;</span><span class="n">iterator</span><span class="p">,</span> <span class="kt">bool</span><span class="o">&gt;</span> <span class="n">insert</span><span class="p">(</span><span class="n">P</span><span class="o">&amp;&amp;</span> <span class="n">obj</span><span class="p">);</span> <span class="c1">// (3) C++26</span>
 
-<span class="n">iterator</span> <span class="nf">insert</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span> <span class="k">const</span> <span class="n">value_type</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">);</span> <span class="c1">// (4)</span>
-<span class="n">iterator</span> <span class="nf">insert</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">hint</span><span class="p">,</span> <span class="n">value_type</span><span class="o">&amp;&amp;</span> <span class="n">v</span><span class="p">);</span>          <span class="c1">// (5) C++17</span>
+<span class="n">iterator</span> <span class="nf">insert</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span> <span class="k">const</span> <span class="n">value_type</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">);</span>           <span class="c1">// (4) C++11</span>
+<span class="k">constexpr</span> <span class="n">iterator</span> <span class="nf">insert</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span> <span class="k">const</span> <span class="n">value_type</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">);</span> <span class="c1">// (4) C++26</span>
+
+<span class="n">iterator</span> <span class="nf">insert</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">hint</span><span class="p">,</span> <span class="n">value_type</span><span class="o">&amp;&amp;</span> <span class="n">v</span><span class="p">);</span>           <span class="c1">// (5) C++17</span>
+<span class="k">constexpr</span> <span class="n">iterator</span> <span class="nf">insert</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">hint</span><span class="p">,</span> <span class="n">value_type</span><span class="o">&amp;&amp;</span> <span class="n">v</span><span class="p">);</span> <span class="c1">// (5) C++26</span>
 
 <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">P</span><span class="o">&gt;</span>
-<span class="n">iterator</span> <span class="n">insert</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span> <span class="n">P</span><span class="o">&amp;&amp;</span> <span class="n">obj</span><span class="p">);</span>             <span class="c1">// (6)</span>
+<span class="n">iterator</span> <span class="n">insert</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span> <span class="n">P</span><span class="o">&amp;&amp;</span> <span class="n">obj</span><span class="p">);</span>           <span class="c1">// (6) C++11</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">P</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="n">iterator</span> <span class="n">insert</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">position</span><span class="p">,</span> <span class="n">P</span><span class="o">&amp;&amp;</span> <span class="n">obj</span><span class="p">);</span> <span class="c1">// (6) C++26</span>
 
 <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
-<span class="kt">void</span> <span class="n">insert</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span> <span class="n">InputIterator</span> <span class="n">last</span><span class="p">);</span>          <span class="c1">// (7)</span>
+<span class="kt">void</span> <span class="n">insert</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span> <span class="n">InputIterator</span> <span class="n">last</span><span class="p">);</span>           <span class="c1">// (7) C++11</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="kt">void</span> <span class="n">insert</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span> <span class="n">InputIterator</span> <span class="n">last</span><span class="p">);</span> <span class="c1">// (7) C++26</span>
 
-<span class="kt">void</span> <span class="nf">insert</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">);</span>                  <span class="c1">// (8)</span>
+<span class="kt">void</span> <span class="nf">insert</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">);</span>           <span class="c1">// (8) C++11</span>
+<span class="k">constexpr</span> <span class="kt">void</span> <span class="nf">insert</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">);</span> <span class="c1">// (8) C++26</span>
 
-<span class="n">insert_return_type</span> <span class="nf">insert</span><span class="p">(</span><span class="n">node_type</span><span class="o">&amp;&amp;</span> <span class="n">nh</span><span class="p">);</span>                     <span class="c1">// (9) C++17</span>
-<span class="n">iterator</span> <span class="nf">insert</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">hint</span><span class="p">,</span> <span class="n">node_type</span><span class="o">&amp;&amp;</span> <span class="n">nh</span><span class="p">);</span>          <span class="c1">// (10) C++17</span>
+<span class="n">insert_return_type</span> <span class="nf">insert</span><span class="p">(</span><span class="n">node_type</span><span class="o">&amp;&amp;</span> <span class="n">nh</span><span class="p">);</span>           <span class="c1">// (9) C++17</span>
+<span class="k">constexpr</span> <span class="n">insert_return_type</span> <span class="nf">insert</span><span class="p">(</span><span class="n">node_type</span><span class="o">&amp;&amp;</span> <span class="n">nh</span><span class="p">);</span> <span class="c1">// (9) C++26</span>
+
+<span class="n">iterator</span> <span class="nf">insert</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">hint</span><span class="p">,</span> <span class="n">node_type</span><span class="o">&amp;&amp;</span> <span class="n">nh</span><span class="p">);</span>           <span class="c1">// (10) C++17</span>
+<span class="k">constexpr</span> <span class="n">iterator</span> <span class="nf">insert</span><span class="p">(</span><span class="n">const_iterator</span> <span class="n">hint</span><span class="p">,</span> <span class="n">node_type</span><span class="o">&amp;&amp;</span> <span class="n">nh</span><span class="p">);</span> <span class="c1">// (10) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -590,6 +606,7 @@ insert initializer_list : (7,7th), (8,8th), (6,6th), (5,five), (4,four), (3,thre
 </ul>
 </li>
 <li><a href="https://devblogs.microsoft.com/oldnewthing/20241028-00/?p=110428" target="_blank">How useful is the hint passed to the std::unordered_... collections? - The Old New Thing</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html" target="_blank">P3372R3 constexpr containers and adaptors</a></li>
 </ul></div>
 
       </div>

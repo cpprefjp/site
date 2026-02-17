@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-12-23T12:07:41">
-        2025年12月23日 12時07分41秒
+      <span itemprop="datePublished" content="2026-02-17T13:28:34">
+        2026年02月17日 13時28分34秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">rotarymars</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -225,13 +225,17 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;unordered_map&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class unordered_map">unordered_map::</span><span class="token">at</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">T</span><span class="o">&amp;</span> <span class="n">at</span><span class="p">(</span><span class="k">const</span> <span class="n">key_type</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span>              <span class="c1">// (1) C++11</span>
-<span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">at</span><span class="p">(</span><span class="k">const</span> <span class="n">key_type</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>  <span class="c1">// (2) C++11</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">T</span><span class="o">&amp;</span> <span class="n">at</span><span class="p">(</span><span class="k">const</span> <span class="n">key_type</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span>           <span class="c1">// (1) C++11</span>
+<span class="k">constexpr</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">at</span><span class="p">(</span><span class="k">const</span> <span class="n">key_type</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span> <span class="c1">// (1) C++26</span>
+
+<span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">at</span><span class="p">(</span><span class="k">const</span> <span class="n">key_type</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>           <span class="c1">// (2) C++11</span>
+<span class="k">constexpr</span> <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">at</span><span class="p">(</span><span class="k">const</span> <span class="n">key_type</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span> <span class="c1">// (2) C++26</span>
 
 <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">K</span><span class="o">&gt;</span>
-<span class="n">T</span><span class="o">&amp;</span> <span class="n">at</span><span class="p">(</span><span class="k">const</span> <span class="n">K</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span>                     <span class="c1">// (3) C++26</span>
+<span class="k">constexpr</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">at</span><span class="p">(</span><span class="k">const</span> <span class="n">K</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">);</span> <span class="c1">// (3) C++26</span>
+
 <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">K</span><span class="o">&gt;</span>
-<span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">at</span><span class="p">(</span><span class="k">const</span> <span class="n">K</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>         <span class="c1">// (4) C++26</span>
+<span class="k">constexpr</span> <span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">at</span><span class="p">(</span><span class="k">const</span> <span class="n">K</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span> <span class="c1">// (4) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -336,6 +340,7 @@ exception std::out_of_range
 <li>C++26で<code>template &lt;class K&gt;</code>のバージョンが追加された</li>
 </ul>
 </li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html" target="_blank">P3372R3 constexpr containers and adaptors</a></li>
 </ul></div>
 
       </div>

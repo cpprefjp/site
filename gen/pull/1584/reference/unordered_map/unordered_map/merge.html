@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-10-18T10:08:36">
-        2025年10月18日 10時08分36秒
+      <span itemprop="datePublished" content="2026-02-17T13:28:34">
+        2026年02月17日 13時28分34秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Raclamusi</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -226,13 +226,24 @@
         
   <div class="identifier-type">function template</div><div class="header">&lt;unordered_map&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class unordered_map">unordered_map::</span><span class="token">merge</span><span class="cpp cpp17" title="C++17で追加">(C++17)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">H2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">P2</span><span class="o">&gt;</span>
-  <span class="kt">void</span> <span class="n">merge</span><span class="p">(</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">H2</span><span class="p">,</span> <span class="n">P2</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;&amp;</span> <span class="n">source</span><span class="p">);</span>       <span class="c1">// (1)</span>
+<span class="kt">void</span> <span class="n">merge</span><span class="p">(</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">H2</span><span class="p">,</span> <span class="n">P2</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;&amp;</span> <span class="n">source</span><span class="p">);</span>           <span class="c1">// (1) C++17</span>
 <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">H2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">P2</span><span class="o">&gt;</span>
-  <span class="kt">void</span> <span class="n">merge</span><span class="p">(</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">H2</span><span class="p">,</span> <span class="n">P2</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;&amp;&amp;</span> <span class="n">source</span><span class="p">);</span>      <span class="c1">// (2)</span>
+<span class="k">constexpr</span> <span class="kt">void</span> <span class="n">merge</span><span class="p">(</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">H2</span><span class="p">,</span> <span class="n">P2</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;&amp;</span> <span class="n">source</span><span class="p">);</span> <span class="c1">// (1) C++26</span>
+
 <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">H2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">P2</span><span class="o">&gt;</span>
-  <span class="kt">void</span> <span class="n">merge</span><span class="p">(</span><span class="n">unordered_multimap</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">H2</span><span class="p">,</span> <span class="n">P2</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;&amp;</span> <span class="n">source</span><span class="p">);</span>  <span class="c1">// (3)</span>
+<span class="kt">void</span> <span class="n">merge</span><span class="p">(</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">H2</span><span class="p">,</span> <span class="n">P2</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;&amp;&amp;</span> <span class="n">source</span><span class="p">);</span>           <span class="c1">// (2) C++17</span>
 <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">H2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">P2</span><span class="o">&gt;</span>
-  <span class="kt">void</span> <span class="n">merge</span><span class="p">(</span><span class="n">unordered_multimap</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">H2</span><span class="p">,</span> <span class="n">P2</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;&amp;&amp;</span> <span class="n">source</span><span class="p">);</span> <span class="c1">// (4)</span>
+<span class="k">constexpr</span> <span class="kt">void</span> <span class="n">merge</span><span class="p">(</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">H2</span><span class="p">,</span> <span class="n">P2</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;&amp;&amp;</span> <span class="n">source</span><span class="p">);</span> <span class="c1">// (2) C++26</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">H2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">P2</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">merge</span><span class="p">(</span><span class="n">unordered_multimap</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">H2</span><span class="p">,</span> <span class="n">P2</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;&amp;</span> <span class="n">source</span><span class="p">);</span>           <span class="c1">// (3) C++17</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">H2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">P2</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="kt">void</span> <span class="n">merge</span><span class="p">(</span><span class="n">unordered_multimap</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">H2</span><span class="p">,</span> <span class="n">P2</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;&amp;</span> <span class="n">source</span><span class="p">);</span> <span class="c1">// (3) C++26</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">H2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">P2</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">merge</span><span class="p">(</span><span class="n">unordered_multimap</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">H2</span><span class="p">,</span> <span class="n">P2</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;&amp;&amp;</span> <span class="n">source</span><span class="p">);</span>           <span class="c1">// (4) C++17</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">H2</span><span class="p">,</span> <span class="k">class</span> <span class="nc">P2</span><span class="o">&gt;</span>
+<span class="k">constexpr</span> <span class="kt">void</span> <span class="n">merge</span><span class="p">(</span><span class="n">unordered_multimap</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">H2</span><span class="p">,</span> <span class="n">P2</span><span class="p">,</span> <span class="n">Allocator</span><span class="o">&gt;&amp;&amp;</span> <span class="n">source</span><span class="p">);</span> <span class="c1">// (4) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -299,6 +310,7 @@ m2 :
 <h2>参照</h2>
 <ul>
 <li><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf" target="_blank">Splicing Maps and Sets(Revision 5)</a></li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html" target="_blank">P3372R3 constexpr containers and adaptors</a></li>
 </ul></div>
 
       </div>

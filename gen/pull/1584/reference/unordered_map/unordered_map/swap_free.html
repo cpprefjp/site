@@ -28,11 +28,11 @@
         <meta property="og:url" content="https://cpprefjp.github.io/reference/unordered_map/unordered_map/swap_free.html" />
         <meta property="og:site_name" content="cpprefjp - C++日本語リファレンス" />
         <meta property="og:type" content="article" />
-        <meta property="og:description" content="2つの `unordered_map` オブジェクトである `x` と &#39;y&#39;が保持するコンテンツを交換する。サイズは異なる場合もある。" />
+        <meta property="og:description" content="2つの `unordered_map` オブジェクトである `x` と `y` が保持するコンテンツを交換する。サイズは異なる場合もある。" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="swap (非メンバ関数) - cpprefjp C++日本語リファレンス" />
         <meta name="twitter:url" content="https://cpprefjp.github.io/reference/unordered_map/unordered_map/swap_free.html" />
-        <meta name="twitter:description" content="2つの `unordered_map` オブジェクトである `x` と &#39;y&#39;が保持するコンテンツを交換する。サイズは異なる場合もある。" />
+        <meta name="twitter:description" content="2つの `unordered_map` オブジェクトである `x` と `y` が保持するコンテンツを交換する。サイズは異なる場合もある。" />
 
         
   <link rel="alternate" type="application/atom+xml" title="Atom" href="https://cpprefjp.github.io/rss.xml" />
@@ -200,12 +200,12 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2025-10-18T10:08:36">
-        2025年10月18日 10時08分36秒
+      <span itemprop="datePublished" content="2026-02-17T13:28:34">
+        2026年02月17日 13時28分34秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Raclamusi</span>
+        <span itemprop="name">Akira Takahashi</span>
       </span>
       が更新
     </small></p>
@@ -227,19 +227,25 @@
   <div class="identifier-type">function template</div><div class="header">&lt;unordered_map&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="token">swap (非メンバ関数)</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
 <div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="k">namespace</span> <span class="n">std</span> <span class="p">{</span>
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Key</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Hash</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Pred</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Alloc</span><span class="o">&gt;</span>
-  <span class="kt">void</span> <span class="n">swap</span> <span class="p">(</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">Hash</span><span class="p">,</span><span class="n">Pred</span><span class="p">,</span><span class="n">Alloc</span><span class="o">&gt;&amp;</span> <span class="n">x</span><span class="p">,</span>
-             <span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">Hash</span><span class="p">,</span><span class="n">Pred</span><span class="p">,</span><span class="n">Alloc</span><span class="o">&gt;&amp;</span> <span class="n">y</span><span class="p">);</span>
-
+  <span class="kt">void</span>
+    <span class="n">swap</span><span class="p">(</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">Hash</span><span class="p">,</span><span class="n">Pred</span><span class="p">,</span><span class="n">Alloc</span><span class="o">&gt;&amp;</span> <span class="n">x</span><span class="p">,</span>
+         <span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">Hash</span><span class="p">,</span><span class="n">Pred</span><span class="p">,</span><span class="n">Alloc</span><span class="o">&gt;&amp;</span> <span class="n">y</span><span class="p">);</span> <span class="c1">// (1) C++11</span>
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Key</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Hash</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Pred</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Alloc</span><span class="o">&gt;</span>
-  <span class="kt">void</span> <span class="n">swap</span> <span class="p">(</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">Hash</span><span class="p">,</span><span class="n">Pred</span><span class="p">,</span><span class="n">Alloc</span><span class="o">&gt;&amp;</span> <span class="n">x</span><span class="p">,</span>
-             <span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">Hash</span><span class="p">,</span><span class="n">Pred</span><span class="p">,</span><span class="n">Alloc</span><span class="o">&gt;&amp;</span> <span class="n">y</span><span class="p">)</span>
-    <span class="k">noexcept</span><span class="p">(</span><span class="k">noexcept</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">swap</span><span class="p">(</span><span class="n">y</span><span class="p">)));</span> <span class="c1">// C++17</span>
+  <span class="kt">void</span>
+    <span class="n">swap</span><span class="p">(</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">Hash</span><span class="p">,</span><span class="n">Pred</span><span class="p">,</span><span class="n">Alloc</span><span class="o">&gt;&amp;</span> <span class="n">x</span><span class="p">,</span>
+         <span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">Hash</span><span class="p">,</span><span class="n">Pred</span><span class="p">,</span><span class="n">Alloc</span><span class="o">&gt;&amp;</span> <span class="n">y</span><span class="p">)</span>
+      <span class="k">noexcept</span><span class="p">(</span><span class="k">noexcept</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">swap</span><span class="p">(</span><span class="n">y</span><span class="p">)));</span>               <span class="c1">// (1) C++17</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Key</span><span class="p">,</span> <span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Hash</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Pred</span><span class="p">,</span> <span class="k">class</span> <span class="nc">Alloc</span><span class="o">&gt;</span>
+  <span class="k">constexpr</span> <span class="kt">void</span>
+    <span class="n">swap</span><span class="p">(</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">Hash</span><span class="p">,</span><span class="n">Pred</span><span class="p">,</span><span class="n">Alloc</span><span class="o">&gt;&amp;</span> <span class="n">x</span><span class="p">,</span>
+         <span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">Key</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">Hash</span><span class="p">,</span><span class="n">Pred</span><span class="p">,</span><span class="n">Alloc</span><span class="o">&gt;&amp;</span> <span class="n">y</span><span class="p">)</span>
+      <span class="k">noexcept</span><span class="p">(</span><span class="k">noexcept</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">swap</span><span class="p">(</span><span class="n">y</span><span class="p">)));</span>               <span class="c1">// (1) C++26</span>
 <span class="p">}</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
-<p>2つの <code>unordered_map</code> オブジェクトである <code>x</code> と 'y'が保持するコンテンツを交換する。サイズは異なる場合もある。</p>
-<p>このメンバ関数の呼び出しの後、呼び出し前に 'x' にあった要素は <code>y</code> へ、<code>y</code> 内にあった要素は <code>x</code> へ移る。全てのイテレータ、参照、ポインタは有効なまま残る。</p>
+<p>2つの <code>unordered_map</code> オブジェクトである <code>x</code> と <code>y</code> が保持するコンテンツを交換する。サイズは異なる場合もある。</p>
+<p>このメンバ関数の呼び出しの後、呼び出し前に <code>x</code> にあった要素は <code>y</code> へ、<code>y</code> 内にあった要素は <code>x</code> へ移る。全てのイテレータ、参照、ポインタは有効なまま残る。</p>
 <h2>効果</h2>
 <p><code>x.<a href="swap.html">swap</a>(y);</code></p>
 <h2><a class="cpprefjp-defined-word" data-desc="関数呼び出し式の評価結果となるオブジェクト・値">戻り値</a></h2>
@@ -303,6 +309,7 @@ um2 : {[10,a], [20,b], [30,c], }
 <li><code>noexcept</code> 追加の経緯となる提案文書</li>
 </ul>
 </li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html" target="_blank">P3372R3 constexpr containers and adaptors</a></li>
 </ul></div>
 
       </div>

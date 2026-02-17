@@ -200,8 +200,8 @@
   
     <p class="text-right"><small>
       最終更新日時(UTC):
-      <span itemprop="datePublished" content="2026-02-17T03:19:01">
-        2026年02月17日 03時19分01秒
+      <span itemprop="datePublished" content="2026-02-17T13:28:34">
+        2026年02月17日 13時28分34秒
       </span>
       <br/>
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,89 +225,167 @@
       <div class="col-sm-12 content-body">
         
   <div class="identifier-type">function</div><div class="header">&lt;unordered_map&gt;</div><h1 itemprop="name"><span class="namespace" title="namespace std">std::</span><span class="class" title="class unordered_map">unordered_map::</span><span class="token">コンストラクタ</span><span class="cpp cpp11" title="C++11で追加">(C++11)</span></h1>
-<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">unordered_map</span><span class="p">();</span>                                                    <span class="c1">// (1) C++14</span>
+<div itemprop="articleBody"><p><div class="codehilite"><pre><span></span><code><span class="n">unordered_map</span><span class="p">();</span>           <span class="c1">// (1) C++14</span>
+<span class="k">constexpr</span> <span class="nf">unordered_map</span><span class="p">();</span> <span class="c1">// (1) C++26</span>
 
-<span class="k">explicit</span> <span class="nf">unordered_map</span><span class="p">(</span><span class="n">size_type</span> <span class="n">n</span><span class="p">,</span>
-                       <span class="k">const</span> <span class="n">hasher</span><span class="o">&amp;</span> <span class="n">hf</span> <span class="o">=</span> <span class="n">hasher</span><span class="p">(),</span>
-                       <span class="k">const</span> <span class="n">key_equal</span><span class="o">&amp;</span> <span class="n">eql</span> <span class="o">=</span> <span class="n">key_equal</span><span class="p">(),</span>
-                       <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">allocator_type</span><span class="p">());</span> <span class="c1">// (2) C++14</span>
+<span class="k">explicit</span>
+  <span class="nf">unordered_map</span><span class="p">(</span><span class="n">size_type</span> <span class="n">n</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">hasher</span><span class="o">&amp;</span> <span class="n">hf</span> <span class="o">=</span> <span class="n">hasher</span><span class="p">(),</span>
+                <span class="k">const</span> <span class="n">key_equal</span><span class="o">&amp;</span> <span class="n">eql</span> <span class="o">=</span> <span class="n">key_equal</span><span class="p">(),</span>
+                <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">allocator_type</span><span class="p">());</span> <span class="c1">// (2) C++14</span>
+<span class="k">constexpr</span> <span class="k">explicit</span>
+  <span class="nf">unordered_map</span><span class="p">(</span><span class="n">size_type</span> <span class="n">n</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">hasher</span><span class="o">&amp;</span> <span class="n">hf</span> <span class="o">=</span> <span class="n">hasher</span><span class="p">(),</span>
+                <span class="k">const</span> <span class="n">key_equal</span><span class="o">&amp;</span> <span class="n">eql</span> <span class="o">=</span> <span class="n">key_equal</span><span class="p">(),</span>
+                <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">allocator_type</span><span class="p">());</span> <span class="c1">// (2) C++26</span>
 
-<span class="k">explicit</span> <span class="nf">unordered_map</span><span class="p">(</span><span class="n">size_type</span> <span class="n">n</span> <span class="o">=</span> <span class="err">実装依存の既定値</span><span class="p">,</span>
-                       <span class="k">const</span> <span class="n">hasher</span><span class="o">&amp;</span> <span class="n">hf</span> <span class="o">=</span> <span class="n">hasher</span><span class="p">(),</span>
-                       <span class="k">const</span> <span class="n">key_equal</span><span class="o">&amp;</span> <span class="n">eql</span> <span class="o">=</span> <span class="n">key_equal</span><span class="p">(),</span>
-                       <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">allocator_type</span><span class="p">());</span> <span class="c1">// (1) + (2) C++11</span>
+<span class="k">explicit</span>
+  <span class="nf">unordered_map</span><span class="p">(</span><span class="n">size_type</span> <span class="n">n</span> <span class="o">=</span> <span class="err">実装依存の既定値</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">hasher</span><span class="o">&amp;</span> <span class="n">hf</span> <span class="o">=</span> <span class="n">hasher</span><span class="p">(),</span>
+                <span class="k">const</span> <span class="n">key_equal</span><span class="o">&amp;</span> <span class="n">eql</span> <span class="o">=</span> <span class="n">key_equal</span><span class="p">(),</span>
+                <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">allocator_type</span><span class="p">());</span> <span class="c1">// (1) + (2) C++11</span>
 
 <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
 <span class="n">unordered_map</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span> <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span>
               <span class="n">size_type</span> <span class="n">n</span> <span class="o">=</span> <span class="err">実装依存の既定値</span><span class="p">,</span>
               <span class="k">const</span> <span class="n">hasher</span><span class="o">&amp;</span> <span class="n">hf</span> <span class="o">=</span> <span class="n">hasher</span><span class="p">(),</span>
               <span class="k">const</span> <span class="n">key_equal</span><span class="o">&amp;</span> <span class="n">eql</span> <span class="o">=</span> <span class="n">key_equal</span><span class="p">(),</span>
-              <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">allocator_type</span><span class="p">());</span>          <span class="c1">// (3)</span>
+              <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">allocator_type</span><span class="p">());</span>   <span class="c1">// (3) C++11</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
+<span class="k">constexpr</span>
+  <span class="n">unordered_map</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">first</span><span class="p">,</span> <span class="n">InputIterator</span> <span class="n">last</span><span class="p">,</span>
+                <span class="n">size_type</span> <span class="n">n</span> <span class="o">=</span> <span class="err">実装依存の既定値</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">hasher</span><span class="o">&amp;</span> <span class="n">hf</span> <span class="o">=</span> <span class="n">hasher</span><span class="p">(),</span>
+                <span class="k">const</span> <span class="n">key_equal</span><span class="o">&amp;</span> <span class="n">eql</span> <span class="o">=</span> <span class="n">key_equal</span><span class="p">(),</span>
+                <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">allocator_type</span><span class="p">());</span> <span class="c1">// (3) C++26</span>
 
-<span class="n">unordered_map</span><span class="p">(</span><span class="k">const</span> <span class="n">unordered_map</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">);</span>                              <span class="c1">// (4)</span>
+<span class="n">unordered_map</span><span class="p">(</span><span class="k">const</span> <span class="n">unordered_map</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">);</span>           <span class="c1">// (4) C++11</span>
+<span class="k">constexpr</span> <span class="nf">unordered_map</span><span class="p">(</span><span class="k">const</span> <span class="n">unordered_map</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">);</span> <span class="c1">// (4) C++26</span>
 
-<span class="n">unordered_map</span><span class="p">(</span><span class="n">unordered_map</span><span class="o">&amp;&amp;</span> <span class="n">rv</span><span class="p">);</span>                                  <span class="c1">// (5)</span>
+<span class="n">unordered_map</span><span class="p">(</span><span class="n">unordered_map</span><span class="o">&amp;&amp;</span> <span class="n">rv</span><span class="p">);</span>           <span class="c1">// (5) C++11</span>
+<span class="k">constexpr</span> <span class="nf">unordered_map</span><span class="p">(</span><span class="n">unordered_map</span><span class="o">&amp;&amp;</span> <span class="n">rv</span><span class="p">);</span> <span class="c1">// (5) C++26</span>
 
-<span class="k">explicit</span> <span class="nf">unordered_map</span><span class="p">(</span><span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>                    <span class="c1">// (6)</span>
+<span class="k">explicit</span> <span class="nf">unordered_map</span><span class="p">(</span><span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>           <span class="c1">// (6) C++11</span>
+<span class="k">constexpr</span> <span class="k">explicit</span> <span class="nf">unordered_map</span><span class="p">(</span><span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (6) C++26</span>
 
-<span class="n">unordered_map</span><span class="p">(</span><span class="k">const</span> <span class="n">unordered_map</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">,</span> <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>              <span class="c1">// (7)</span>
 <span class="n">unordered_map</span><span class="p">(</span><span class="k">const</span> <span class="n">unordered_map</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">,</span>
-              <span class="k">const</span> <span class="n"><a href="../../type_traits/type_identity.html">type_identity_t</a></span><span class="o">&lt;</span><span class="n">allocator_type</span><span class="o">&gt;&amp;</span> <span class="n">a</span><span class="p">);</span>                     <span class="c1">// (7) C++23</span>
+              <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>                    <span class="c1">// (7) C++11</span>
+<span class="n">unordered_map</span><span class="p">(</span><span class="k">const</span> <span class="n">unordered_map</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">,</span>
+              <span class="k">const</span> <span class="n"><a href="../../type_traits/type_identity.html">type_identity_t</a></span><span class="o">&lt;</span><span class="n">allocator_type</span><span class="o">&gt;&amp;</span> <span class="n">a</span><span class="p">);</span>   <span class="c1">// (7) C++23</span>
+<span class="k">constexpr</span>
+  <span class="nf">unordered_map</span><span class="p">(</span><span class="k">const</span> <span class="n">unordered_map</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n"><a href="../../type_traits/type_identity.html">type_identity_t</a></span><span class="o">&lt;</span><span class="n">allocator_type</span><span class="o">&gt;&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (7) C++26</span>
 
-<span class="n">unordered_map</span><span class="p">(</span><span class="n">unordered_map</span><span class="o">&amp;&amp;</span> <span class="n">rv</span><span class="p">,</span> <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>                 <span class="c1">// (8)</span>
 <span class="n">unordered_map</span><span class="p">(</span><span class="n">unordered_map</span><span class="o">&amp;&amp;</span> <span class="n">rv</span><span class="p">,</span>
-              <span class="k">const</span> <span class="n"><a href="../../type_traits/type_identity.html">type_identity_t</a></span><span class="o">&lt;</span><span class="n">allocator_type</span><span class="o">&gt;&amp;</span> <span class="n">a</span><span class="p">);</span>                     <span class="c1">// (8) C++23</span>
+              <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>                    <span class="c1">// (8) C++11</span>
+<span class="n">unordered_map</span><span class="p">(</span><span class="n">unordered_map</span><span class="o">&amp;&amp;</span> <span class="n">rv</span><span class="p">,</span>
+              <span class="k">const</span> <span class="n"><a href="../../type_traits/type_identity.html">type_identity_t</a></span><span class="o">&lt;</span><span class="n">allocator_type</span><span class="o">&gt;&amp;</span> <span class="n">a</span><span class="p">);</span>   <span class="c1">// (8) C++23</span>
+<span class="k">constexpr</span>
+  <span class="nf">unordered_map</span><span class="p">(</span><span class="n">unordered_map</span><span class="o">&amp;&amp;</span> <span class="n">rv</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n"><a href="../../type_traits/type_identity.html">type_identity_t</a></span><span class="o">&lt;</span><span class="n">allocator_type</span><span class="o">&gt;&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (8) C++26</span>
 
 <span class="n">unordered_map</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span>
               <span class="n">size_type</span> <span class="n">n</span> <span class="o">=</span> <span class="err">実装依存の既定値</span><span class="p">,</span>
               <span class="k">const</span> <span class="n">hasher</span><span class="o">&amp;</span> <span class="n">hf</span> <span class="o">=</span> <span class="n">hasher</span><span class="p">(),</span>
               <span class="k">const</span> <span class="n">key_equal</span><span class="o">&amp;</span> <span class="n">eql</span> <span class="o">=</span> <span class="n">key_equal</span><span class="p">(),</span>
-              <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">allocator_type</span><span class="p">());</span>          <span class="c1">// (9)</span>
+              <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">allocator_type</span><span class="p">());</span>   <span class="c1">// (9) C++11</span>
+<span class="k">constexpr</span>
+  <span class="nf">unordered_map</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span>
+                <span class="n">size_type</span> <span class="n">n</span> <span class="o">=</span> <span class="err">実装依存の既定値</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">hasher</span><span class="o">&amp;</span> <span class="n">hf</span> <span class="o">=</span> <span class="n">hasher</span><span class="p">(),</span>
+                <span class="k">const</span> <span class="n">key_equal</span><span class="o">&amp;</span> <span class="n">eql</span> <span class="o">=</span> <span class="n">key_equal</span><span class="p">(),</span>
+                <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">allocator_type</span><span class="p">());</span> <span class="c1">// (9) C++26</span>
 
-<span class="n">unordered_map</span><span class="p">(</span><span class="n">size_type</span> <span class="n">n</span><span class="p">,</span> <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>                <span class="c1">// (10) C++14</span>
+<span class="n">unordered_map</span><span class="p">(</span><span class="n">size_type</span> <span class="n">n</span><span class="p">,</span> <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>           <span class="c1">// (10) C++14</span>
+<span class="k">constexpr</span> <span class="nf">unordered_map</span><span class="p">(</span><span class="n">size_type</span> <span class="n">n</span><span class="p">,</span> <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (10) C++26</span>
+
 <span class="n">unordered_map</span><span class="p">(</span><span class="n">size_type</span> <span class="n">n</span><span class="p">,</span>
               <span class="k">const</span> <span class="n">hasher</span><span class="o">&amp;</span> <span class="n">hf</span><span class="p">,</span>
-              <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>                             <span class="c1">// (11) C++14</span>
+              <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>   <span class="c1">// (11) C++14</span>
+<span class="k">constexpr</span>
+  <span class="nf">unordered_map</span><span class="p">(</span><span class="n">size_type</span> <span class="n">n</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">hasher</span><span class="o">&amp;</span> <span class="n">hf</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (11) C++26</span>
 
 <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
 <span class="n">unordered_map</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">f</span><span class="p">,</span>
               <span class="n">InputIterator</span> <span class="n">l</span><span class="p">,</span>
               <span class="n">size_type</span> <span class="n">n</span><span class="p">,</span>
-              <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>                             <span class="c1">// (12) C++14</span>
+              <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>   <span class="c1">// (12) C++14</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
+<span class="k">constexpr</span>
+  <span class="n">unordered_map</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">f</span><span class="p">,</span>
+                <span class="n">InputIterator</span> <span class="n">l</span><span class="p">,</span>
+                <span class="n">size_type</span> <span class="n">n</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (12) C++26</span>
 
 <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
 <span class="n">unordered_map</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">f</span><span class="p">,</span>
               <span class="n">InputIterator</span> <span class="n">l</span><span class="p">,</span>
               <span class="n">size_type</span> <span class="n">n</span><span class="p">,</span>
-              <span class="k">const</span> <span class="n">hasher</span><span class="o">&amp;</span> <span class="n">hf</span><span class="p">,</span> 
-              <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>                             <span class="c1">// (13) C++14</span>
+              <span class="k">const</span> <span class="n">hasher</span><span class="o">&amp;</span> <span class="n">hf</span><span class="p">,</span>
+              <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>   <span class="c1">// (13) C++14</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">InputIterator</span><span class="o">&gt;</span>
+<span class="k">constexpr</span>
+  <span class="n">unordered_map</span><span class="p">(</span><span class="n">InputIterator</span> <span class="n">f</span><span class="p">,</span>
+                <span class="n">InputIterator</span> <span class="n">l</span><span class="p">,</span>
+                <span class="n">size_type</span> <span class="n">n</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">hasher</span><span class="o">&amp;</span> <span class="n">hf</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (13) C++26</span>
 
 <span class="n">unordered_map</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span>
               <span class="n">size_type</span> <span class="n">n</span><span class="p">,</span>
-              <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>                             <span class="c1">// (14) C++14</span>
+              <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>   <span class="c1">// (14) C++14</span>
+<span class="k">constexpr</span>
+  <span class="nf">unordered_map</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span>
+                <span class="n">size_type</span> <span class="n">n</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (14) C++26</span>
 
 <span class="n">unordered_map</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span>
               <span class="n">size_type</span> <span class="n">n</span><span class="p">,</span>
-              <span class="k">const</span> <span class="n">hasher</span><span class="o">&amp;</span> <span class="n">hf</span><span class="p">,</span> 
-              <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>                             <span class="c1">// (15) C++14</span>
+              <span class="k">const</span> <span class="n">hasher</span><span class="o">&amp;</span> <span class="n">hf</span><span class="p">,</span>
+              <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>   <span class="c1">// (15) C++14</span>
+<span class="k">constexpr</span>
+  <span class="nf">unordered_map</span><span class="p">(</span><span class="n"><a href="../../initializer_list/initializer_list.html">initializer_list</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">il</span><span class="p">,</span>
+                <span class="n">size_type</span> <span class="n">n</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">hasher</span><span class="o">&amp;</span> <span class="n">hf</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (15) C++26</span>
 
 <span class="k">template</span> <span class="o">&lt;</span><span class="n">container</span><span class="o">-</span><span class="n">compatible</span><span class="o">-</span><span class="n"><a href="../../ranges/range.html">range</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">R</span><span class="o">&gt;</span>
 <span class="n">unordered_map</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span><span class="p">,</span> <span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">rg</span><span class="p">,</span>
               <span class="n">size_type</span> <span class="n">n</span> <span class="o">=</span> <span class="err">実装依存の既定値</span><span class="p">,</span>
               <span class="k">const</span> <span class="n">hasher</span><span class="o">&amp;</span> <span class="n">hf</span> <span class="o">=</span> <span class="n">hasher</span><span class="p">(),</span>
               <span class="k">const</span> <span class="n">key_equal</span><span class="o">&amp;</span> <span class="n">eql</span> <span class="o">=</span> <span class="n">key_equal</span><span class="p">(),</span>
-              <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">allocator_type</span><span class="p">());</span>          <span class="c1">// (16) C++23</span>
+              <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">allocator_type</span><span class="p">());</span>   <span class="c1">// (16) C++23</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="n">container</span><span class="o">-</span><span class="n">compatible</span><span class="o">-</span><span class="n"><a href="../../ranges/range.html">range</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">R</span><span class="o">&gt;</span>
+<span class="k">constexpr</span>
+  <span class="n">unordered_map</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span><span class="p">,</span> <span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">rg</span><span class="p">,</span>
+                <span class="n">size_type</span> <span class="n">n</span> <span class="o">=</span> <span class="err">実装依存の既定値</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">hasher</span><span class="o">&amp;</span> <span class="n">hf</span> <span class="o">=</span> <span class="n">hasher</span><span class="p">(),</span>
+                <span class="k">const</span> <span class="n">key_equal</span><span class="o">&amp;</span> <span class="n">eql</span> <span class="o">=</span> <span class="n">key_equal</span><span class="p">(),</span>
+                <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">allocator_type</span><span class="p">());</span> <span class="c1">// (16) C++26</span>
 
 <span class="k">template</span> <span class="o">&lt;</span><span class="n">container</span><span class="o">-</span><span class="n">compatible</span><span class="o">-</span><span class="n"><a href="../../ranges/range.html">range</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">R</span><span class="o">&gt;</span>
 <span class="n">unordered_map</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span><span class="p">,</span> <span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">rg</span><span class="p">,</span>
               <span class="n">size_type</span> <span class="n">n</span><span class="p">,</span>
-              <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>                             <span class="c1">// (17) C++23</span>
+              <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>   <span class="c1">// (17) C++23</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="n">container</span><span class="o">-</span><span class="n">compatible</span><span class="o">-</span><span class="n"><a href="../../ranges/range.html">range</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">R</span><span class="o">&gt;</span>
+<span class="k">constexpr</span>
+  <span class="n">unordered_map</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span><span class="p">,</span> <span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">rg</span><span class="p">,</span>
+                <span class="n">size_type</span> <span class="n">n</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (17) C++26</span>
 
 <span class="k">template</span> <span class="o">&lt;</span><span class="n">container</span><span class="o">-</span><span class="n">compatible</span><span class="o">-</span><span class="n"><a href="../../ranges/range.html">range</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">R</span><span class="o">&gt;</span>
 <span class="n">unordered_map</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span><span class="p">,</span> <span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">rg</span><span class="p">,</span>
               <span class="n">size_type</span> <span class="n">n</span><span class="p">,</span>
               <span class="k">const</span> <span class="n">hasher</span><span class="o">&amp;</span> <span class="n">hf</span><span class="p">,</span>
-              <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>                             <span class="c1">// (18) C++23</span>
+              <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span>   <span class="c1">// (18) C++23</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="n">container</span><span class="o">-</span><span class="n">compatible</span><span class="o">-</span><span class="n"><a href="../../ranges/range.html">range</a></span><span class="o">&lt;</span><span class="n">value_type</span><span class="o">&gt;</span> <span class="n">R</span><span class="o">&gt;</span>
+<span class="k">constexpr</span>
+  <span class="n">unordered_map</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n"><a href="../../ranges/from_range_t.html">from_range_t</a></span><span class="p">,</span> <span class="n">R</span><span class="o">&amp;&amp;</span> <span class="n">rg</span><span class="p">,</span>
+                <span class="n">size_type</span> <span class="n">n</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">hasher</span><span class="o">&amp;</span> <span class="n">hf</span><span class="p">,</span>
+                <span class="k">const</span> <span class="n">allocator_type</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">);</span> <span class="c1">// (18) C++26</span>
 </code></pre></div>
 </p>
 <h2>概要</h2>
@@ -536,6 +614,7 @@
 <li>C++23でのアロケータ引数を<code>type_identity_t</code>で包む変更</li>
 </ul>
 </li>
+<li><a href="https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html" target="_blank">P3372R3 constexpr containers and adaptors</a></li>
 </ul></div>
 
       </div>
