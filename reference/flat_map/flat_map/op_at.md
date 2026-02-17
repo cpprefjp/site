@@ -6,11 +6,22 @@
 * cpp23[meta cpp]
 
 ```cpp
-mapped_type& operator[](const key_type& x); // (1) C++23
-mapped_type& operator[](key_type&& x);      // (2) C++23
+mapped_type&
+  operator[](const key_type& x); // (1) C++23
+constexpr mapped_type&
+  operator[](const key_type& x); // (1) C++26
+
+mapped_type&
+  operator[](key_type&& x); // (2) C++23
+constexpr mapped_type&
+  operator[](key_type&& x); // (2) C++26
 
 template <class K>
-mapped_type& operator[](K&& x);             // (3) C++23
+mapped_type&
+  operator[](K&& x); // (3) C++23
+template <class K>
+constexpr mapped_type&
+  operator[](K&& x); // (3) C++26
 ```
 
 ## 概要
@@ -95,3 +106,7 @@ a
 
 ## 関連項目
 - [`at()`](at.md)
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

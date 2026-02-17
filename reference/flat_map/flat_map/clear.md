@@ -6,7 +6,8 @@
 * cpp23[meta cpp]
 
 ```cpp
-void clear() noexcept; // (1) C++23
+void clear() noexcept;           // (1) C++23
+constexpr void clear() noexcept; // (1) C++26
 ```
 
 ## 概要
@@ -59,3 +60,7 @@ int main ()
 - [Clang](/implementation.md#clang): ??
 - [GCC](/implementation.md#gcc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

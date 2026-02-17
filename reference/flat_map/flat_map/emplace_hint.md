@@ -7,7 +7,13 @@
 
 ```cpp
 template <class... Args>
-iterator emplace_hint(const_iterator hint, Args&&... args);
+iterator
+  emplace_hint(const_iterator hint,
+               Args&&... args);     // (1) C++23
+template <class... Args>
+constexpr iterator
+  emplace_hint(const_iterator hint,
+               Args&&... args);     // (1) C++26
 ```
 
 ## 概要
@@ -80,3 +86,7 @@ int main()
 | [`flat_map::insert_or_assign`](insert_or_assign.md) | 要素を挿入、あるいは代入する               |
 | [`flat_map::emplace`](emplace.md)                   | 要素を直接構築する                         |
 | [`flat_map::try_emplace`](try_emplace.md)           | キーが存在しない場合のみ要素を直接構築する |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

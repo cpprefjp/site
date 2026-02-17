@@ -6,7 +6,8 @@
 * cpp23[meta cpp]
 
 ```cpp
-const mapped_container_type& values() const noexcept; // C++23
+const mapped_container_type& values() const noexcept;           // (1) C++23
+constexpr const mapped_container_type& values() const noexcept; // (1) C++26
 ```
 
 ## 概要
@@ -66,3 +67,7 @@ C
 | 名前 | 説明 |
 |-------------------------------|-------------------------------------------|
 | [`flat_map::keys`](keys.md)   | キーのコンテナを取得する |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

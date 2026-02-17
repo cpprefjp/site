@@ -6,7 +6,8 @@
 * cpp23[meta cpp]
 
 ```cpp
-size_type size() const noexcept;
+size_type size() const noexcept;           // (1) C++23
+constexpr size_type size() const noexcept; // (1) C++26
 ```
 
 ## 概要
@@ -67,3 +68,7 @@ int main ()
 
 ## 関連項目
 - [`empty()`](empty.md)
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

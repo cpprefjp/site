@@ -6,7 +6,12 @@
 * cpp23[meta cpp]
 
 ```cpp
-void replace(key_container_type&& key_cont, mapped_container_type&& mapped_cont);  // C++23
+void
+  replace(key_container_type&& key_cont,
+          mapped_container_type&& mapped_cont); // (1) C++23
+constexpr void
+  replace(key_container_type&& key_cont,
+          mapped_container_type&& mapped_cont); // (2) C++26
 ```
 
 ## 概要
@@ -17,7 +22,7 @@ void replace(key_container_type&& key_cont, mapped_container_type&& mapped_cont)
 `flat_map` クラスが内部で保持している [`containers`](containers.md) を `c` とすると、以下と等価。
     ```cpp
     c.keys = std::move(key_cont);
-    c.values = std::move(mapped_cont)
+    c.values = std::move(mapped_cont);
     ```
 
 
@@ -92,3 +97,7 @@ int main()
 - [GCC](/implementation.md#gcc): ??
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): ??
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
