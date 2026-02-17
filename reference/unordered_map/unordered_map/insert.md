@@ -6,25 +6,41 @@
 * cpp11[meta cpp]
 
 ```cpp
-pair<iterator, bool> insert(const value_type& v);              // (1)
-pair<iterator, bool> insert(value_type&& v);                   // (2) C++17
+pair<iterator, bool> insert(const value_type& v);           // (1) C++11
+constexpr pair<iterator, bool> insert(const value_type& v); // (1) C++26
+
+pair<iterator, bool> insert(value_type&& v);           // (2) C++17
+constexpr pair<iterator, bool> insert(value_type&& v); // (2) C++26
 
 template <class P>
-pair<iterator, bool> insert(P&& obj);                          // (3)
+pair<iterator, bool> insert(P&& obj);           // (3) C++11
+template <class P>
+constexpr pair<iterator, bool> insert(P&& obj); // (3) C++26
 
-iterator insert(const_iterator position, const value_type& v); // (4)
-iterator insert(const_iterator hint, value_type&& v);          // (5) C++17
+iterator insert(const_iterator position, const value_type& v);           // (4) C++11
+constexpr iterator insert(const_iterator position, const value_type& v); // (4) C++26
+
+iterator insert(const_iterator hint, value_type&& v);           // (5) C++17
+constexpr iterator insert(const_iterator hint, value_type&& v); // (5) C++26
 
 template <class P>
-iterator insert(const_iterator position, P&& obj);             // (6)
+iterator insert(const_iterator position, P&& obj);           // (6) C++11
+template <class P>
+constexpr iterator insert(const_iterator position, P&& obj); // (6) C++26
 
 template <class InputIterator>
-void insert(InputIterator first, InputIterator last);          // (7)
+void insert(InputIterator first, InputIterator last);           // (7) C++11
+template <class InputIterator>
+constexpr void insert(InputIterator first, InputIterator last); // (7) C++26
 
-void insert(initializer_list<value_type> il);                  // (8)
+void insert(initializer_list<value_type> il);           // (8) C++11
+constexpr void insert(initializer_list<value_type> il); // (8) C++26
 
-insert_return_type insert(node_type&& nh);                     // (9) C++17
-iterator insert(const_iterator hint, node_type&& nh);          // (10) C++17
+insert_return_type insert(node_type&& nh);           // (9) C++17
+constexpr insert_return_type insert(node_type&& nh); // (9) C++26
+
+iterator insert(const_iterator hint, node_type&& nh);           // (10) C++17
+constexpr iterator insert(const_iterator hint, node_type&& nh); // (10) C++26
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
@@ -314,3 +330,4 @@ inline void unordered_map<Key, Hash, Pred, Allocator>::insert(initializer_list<K
 - [Splicing Maps and Sets(Revision 5)](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0083r3.pdf)
     - (9), (10)経緯となる提案文書
 - [How useful is the hint passed to the std::unordered_... collections? - The Old New Thing](https://devblogs.microsoft.com/oldnewthing/20241028-00/?p=110428)
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

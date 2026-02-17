@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-void reserve(size_type n);
+void reserve(size_type n);           // (1) C++11
+constexpr void reserve(size_type n); // (1) C++26
 ```
 
 ## 概要
@@ -130,3 +131,4 @@ new load_factor: 0.363636
 
 ## 参照
 - [LWG Issue 2156. Unordered containers' reserve(n) reserves for n-1 elements](https://wg21.cmeerw.net/lwg/issue2156)
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
