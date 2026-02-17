@@ -5,24 +5,58 @@
 * function[meta id-type]
 
 ```cpp
-iterator insert(iterator position, const T& x);                     // (1) C++03
-iterator insert(const_iterator position, const T& x);               // (1) C++11
+iterator
+  insert(iterator position,
+         const T& x);               // (1) C++03
+iterator
+  insert(const_iterator position,
+         const T& x);               // (1) C++11
+constexpr iterator
+  insert(const_iterator position,
+         const T& x);               // (1) C++26
 
-iterator insert(const_iterator position, T&& y);                    // (2) C++11
+iterator
+  insert(const_iterator position,
+         T&& y);                    // (2) C++11
+constexpr iterator
+  insert(const_iterator position,
+         T&& y);                    // (2) C++26
 
-void insert(iterator position,
-            size_type n, const T& x);                               // (3) C++03
-iterator insert(const_iterator position,
-                size_type n, const T& x);                           // (3) C++11
+void
+  insert(iterator position,
+         size_type n,
+         const T& x);               // (3) C++03
+iterator
+  insert(const_iterator position,
+         size_type n,
+         const T& x);               // (3) C++11
+constexpr iterator
+  insert(const_iterator position,
+         size_type n,
+         const T& x);               // (3) C++26
 
 template <class InputIterator>
-void insert(iterator position,
-            InputIterator first, InputIterator last);               // (4) C++03
+void
+  insert(iterator position,
+         InputIterator first,
+         InputIterator last);       // (4) C++03
 template <class InputIterator>
-iterator insert(const_iterator position,
-                InputIterator first, InputIterator last);           // (4) C++11
+iterator
+  insert(const_iterator position,
+         InputIterator first,
+         InputIterator last);       // (4) C++11
+template <class InputIterator>
+constexpr iterator
+  insert(const_iterator position,
+         InputIterator first,
+         InputIterator last);       // (4) C++26
 
-iterator insert(const_iterator position, initializer_list<T> init); // (5) C++11
+iterator
+  insert(const_iterator position,
+         initializer_list<T> init); // (5) C++11
+constexpr iterator
+  insert(const_iterator position,
+         initializer_list<T> init); // (5) C++26
 ```
 * initializer_list[link /reference/initializer_list/initializer_list.md]
 
@@ -103,3 +137,4 @@ int main()
     - (5)の経緯となる提案文書
 - [LWG Issue 2252. Strong guarantee on `vector::push_back()` still broken with C++11?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2252)
     - 経緯の説明は、[`vector::push_back()`](/reference/vector/vector/push_back.md)ページを参照。
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

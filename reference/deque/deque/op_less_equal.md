@@ -7,8 +7,13 @@
 namespace std {
   // operator<=>により、以下の演算子が使用可能になる (C++20)
   template <class T, class Allocator>
-  bool operator<=(const deque<T, Allocator>& x,
-                  const deque<T, Allocator>& y); // (1) C++03
+  bool
+    operator<=(const deque<T, Allocator>& x,
+               const deque<T, Allocator>& y); // (1) C++03
+  template <class T, class Allocator>
+  constexpr bool
+    operator<=(const deque<T, Allocator>& x,
+               const deque<T, Allocator>& y); // (1) C++26
 }
 ```
 
@@ -52,3 +57,4 @@ true
 ## 参照
 - [P1614R2 The Mothership has Landed](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1614r2.html)
     - C++20での三方比較演算子の追加と、関連する演算子の自動導出
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

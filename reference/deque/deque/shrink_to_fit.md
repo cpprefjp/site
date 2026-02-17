@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-void shrink_to_fit();
+void shrink_to_fit();           // (1) C++11
+constexpr void shrink_to_fit(); // (1) C++26
 ```
 
 ## 概要
@@ -56,3 +57,4 @@ void shrink_to_fit();
 - [LWG Issue 850. Should `shrink_to_fit` apply to `std::deque`?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#850)
 - [LWG Issue 2033. Preconditions of `reserve`, `shrink_to_fit`, and `resize` functions](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2033)
 - [LWG Issue 2223. `shrink_to_fit` effect on iterator validity](https://wg21.cmeerw.net/lwg/issue2223)
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

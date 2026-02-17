@@ -6,7 +6,8 @@
 * cpp11[meta cpp]
 
 ```cpp
-const_iterator cbegin() const noexcept;
+const_iterator cbegin() const noexcept;           // (1) C++11
+constexpr const_iterator cbegin() const noexcept; // (1) C++26
 ```
 
 ## 概要
@@ -67,3 +68,4 @@ int main()
 - [Visual C++](/implementation.md#visual_cpp): 2010 [mark verified], 2012 [mark verified], 2013 [mark verified]
 
 ## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

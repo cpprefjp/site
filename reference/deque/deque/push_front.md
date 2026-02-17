@@ -5,8 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-void push_front(const T& x); // (1)
-void push_front(T&& y);      // (2) C++11
+void push_front(const T& x);           // (1) C++03
+constexpr void push_front(const T& x); // (1) C++26
+
+void push_front(T&& y);           // (2) C++11
+constexpr void push_front(T&& y); // (2) C++26
 ```
 
 ## 概要
@@ -72,3 +75,4 @@ world
 ## 参照
 - [LWG Issue 2252. Strong guarantee on `vector::push_back()` still broken with C++11?](http://www.open-std.org/jtc1/sc22/wg21/docs/lwg-defects.html#2252)
     - 経緯の説明は、[`vector::push_back()`](/reference/vector/vector/push_back.md)ページを参照。
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

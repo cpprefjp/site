@@ -6,39 +6,80 @@
 
 ```cpp
 deque();                                          // (1) C++14 から
+constexpr deque();                                // (1) C++26
+
 explicit deque(const Allocator& a);               // (2) C++14 から
-explicit deque(const Allocator& a = Allocator()); // (1), (2) : C++11 まで。C++14 で削除
+constexpr explicit deque(const Allocator& a);     // (2) C++26
+
+explicit deque(const Allocator& a = Allocator()); // (1)+(2) : C++11 まで。C++14 で削除
 
 explicit deque(size_type n, const T& value = T(),
                const Allocator& a = Allocator()); // (3) C++03 まで。C++11 で削除
 
-deque(size_type n, const T& value,
+deque(size_type n,
+      const T& value,
       const Allocator& a = Allocator());          // (3) C++11 から
+constexpr
+  deque(size_type n,
+        const T& value,
+        const Allocator& a = Allocator());        // (3) C++26
 
 explicit deque(size_type n);                      // (4) C++11。C++14 で削除
 
-explicit deque(size_type n,
-               const Allocator& a = Allocator()); // (4) C++14 から
+explicit
+  deque(size_type n,
+        const Allocator& a = Allocator()); // (4) C++14 から
+constexpr explicit
+  deque(size_type n,
+        const Allocator& a = Allocator()); // (4) C++26
 
 template <class InputIterator>
-deque(InputIterator first, InputIterator last,
-      const Allocator& a = Allocator());          // (5)
+deque(InputIterator first,
+      InputIterator last,
+      const Allocator& a = Allocator());   // (5) C++03
+template <class InputIterator>
+constexpr
+  deque(InputIterator first,
+        InputIterator last,
+        const Allocator& a = Allocator()); // (5) C++26
 
-deque(const deque& x);                            // (6)
-deque(deque&& y);                                 // (7) C++11 から
-deque(const deque& x, const Allocator& a);                  // (8) C++11
+deque(const deque& x);           // (6) C++03
+constexpr deque(const deque& x); // (6) C++26
+
+deque(deque&& y);           // (7) C++11 から
+constexpr deque(deque&& y); // (7) C++26
+
 deque(const deque& x,
-      const type_identity_t<Allocator>& a);                 // (8) C++23
+      const Allocator& a);                    // (8) C++11
+deque(const deque& x,
+      const type_identity_t<Allocator>& a);   // (8) C++23
+constexpr
+  deque(const deque& x,
+        const type_identity_t<Allocator>& a); // (8) C++26
 
-deque(deque&& y, const Allocator& a);                       // (9) C++11
-deque(deque&& y, const type_identity_t<Allocator>& a);      // (9) C++23
+deque(deque&& y,
+      const Allocator& a);                    // (9) C++11
+deque(deque&& y,
+      const type_identity_t<Allocator>& a);   // (9) C++23
+constexpr
+  deque(deque&& y,
+        const type_identity_t<Allocator>& a); // (9) C++26
 
 deque(initializer_list<T> il,
-      const Allocator& a = Allocator());          // (10) C++11 から
+      const Allocator& a = Allocator());   // (10) C++11
+constexpr
+  deque(initializer_list<T> il,
+        const Allocator& a = Allocator()); // (10) C++26
 
 template <container-compatible-range<T> R>
-deque(from_range_t, R&& rg,
-      const Allocator& a = Allocator());          // (11) C++23 から
+deque(from_range_t,
+      R&& rg,
+      const Allocator& a = Allocator());   // (11) C++23
+template <container-compatible-range<T> R>
+constexpr
+  deque(from_range_t,
+        R&& rg,
+        const Allocator& a = Allocator()); // (11) C++26
 ```
 * type_identity_t[link /reference/type_traits/type_identity.md]
 * initializer_list[link /reference/initializer_list/initializer_list.md]
@@ -195,3 +236,4 @@ c7 : {1 2 3 }
 	なお、Discussion の例はアロケータの型が誤っているので注意
 - [P1518R2 Stop Overconstraining Allocators in Container Deduction Guides](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p1518r2.html)
     - C++23でのアロケータ引数を`type_identity_t`で包む変更
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

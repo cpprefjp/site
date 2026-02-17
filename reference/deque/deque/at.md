@@ -5,8 +5,15 @@
 * function[meta id-type]
 
 ```cpp
-reference at(size_type n);
-const_reference at(size_type n) const;
+reference
+  at(size_type n);           // (1) C++03
+constexpr
+  reference at(size_type n); // (1) C++26
+
+const_reference
+  at(size_type n) const;     // (2) C++03
+constexpr const_reference
+  at(size_type n) const;     // (2) C++26
 ```
 
 ## 概要
@@ -68,3 +75,7 @@ out of range!
 | 名前 | 説明 |
 |----------------------------|----------------------------------|
 | [`operator[]`](op_at.md) | 任意位置の要素への参照を取得する |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
