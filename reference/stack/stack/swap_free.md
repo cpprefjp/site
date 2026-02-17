@@ -7,7 +7,15 @@
 ```cpp
 namespace std {
   template <class T, class Container>
-  void swap(stack<T, Container>& x, stack<T, Container>& y) noexcept(noexcept(x.swap(y)));
+  void
+    swap(stack<T, Container>& x,
+         stack<T, Container>& y)
+      noexcept(noexcept(x.swap(y))); // (1) C++11
+  template <class T, class Container>
+  constexpr void
+    swap(stack<T, Container>& x,
+         stack<T, Container>& y)
+      noexcept(noexcept(x.swap(y))); // (1) C++26
 }
 ```
 
@@ -87,3 +95,7 @@ y : 4 1 3
 - [GCC](/implementation.md#gcc): 4.7.0 [mark verified]
 - [ICC](/implementation.md#icc): ??
 - [Visual C++](/implementation.md#visual_cpp): 
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

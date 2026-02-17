@@ -5,8 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-reference top();
-const_reference top() const;
+reference top();           // (1) C++03
+constexpr reference top(); // (1) C++26
+
+const_reference top() const;           // (2) C++03
+constexpr const_reference top() const; // (2) C++26
 ```
 
 ## 概要
@@ -64,3 +67,7 @@ const_reference top() const { return c.back(); }
 |---------------------|------------|
 | [`push`](push.md) | 要素の追加 |
 | [`pop`](pop.md)   | 要素の削除 |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)

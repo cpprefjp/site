@@ -5,8 +5,11 @@
 * function[meta id-type]
 
 ```cpp
-stack& operator=(const stack& st); // (1)
-stack& operator=(stack&& st);      // (2) C++11
+stack& operator=(const stack& st);           // (1) C++03
+constexpr stack& operator=(const stack& st); // (1) C++26
+
+stack& operator=(stack&& st);           // (2) C++11
+constexpr stack& operator=(stack&& st); // (2) C++26
 ```
 
 ## 概要
@@ -65,3 +68,7 @@ int main()
 | 名前 | 説明 |
 |--------------------------------------------------------------------------------------------|-----------------------------------------------------|
 | [`(constructor)`](op_constructor.md) | コンストラクタ |
+
+
+## 参照
+- [P3372R3 constexpr containers and adaptors](https://open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3372r3.html)
